@@ -105,10 +105,8 @@ public class VkDebugReportCallbackCreateInfoEXT extends Struct {
 	public long pNext() { return npNext(address()); }
 	/** Returns the value of the {@code flags} field. */
 	public int flags() { return nflags(address()); }
-	/** Returns the function address at the {@code pfnCallback} field. */
-	public long pfnCallback() { return npfnCallback(address()); }
 	/** Returns the {@code VkDebugReportCallbackEXT} instance at the {@code pfnCallback} field. */
-	public VkDebugReportCallbackEXT pfnCallbackCallback() { return npfnCallbackCallback(address()); }
+	public VkDebugReportCallbackEXT pfnCallback() { return VkDebugReportCallbackEXT.create(npfnCallback(address())); }
 	/** Returns the value of the {@code pUserData} field. */
 	public long pUserData() { return npUserData(address()); }
 
@@ -118,10 +116,8 @@ public class VkDebugReportCallbackCreateInfoEXT extends Struct {
 	public VkDebugReportCallbackCreateInfoEXT pNext(long value) { npNext(address(), value); return this; }
 	/** Sets the specified value to the {@code flags} field. */
 	public VkDebugReportCallbackCreateInfoEXT flags(int value) { nflags(address(), value); return this; }
-	/** Sets the specified function address to the {@code pfnCallback} field. */
-	public VkDebugReportCallbackCreateInfoEXT pfnCallback(long value) { npfnCallback(address(), value); return this; }
 	/** Sets the address of the specified {@link VkDebugReportCallbackEXT} to the {@code pfnCallback} field. */
-	public VkDebugReportCallbackCreateInfoEXT pfnCallback(VkDebugReportCallbackEXT value) { return pfnCallback(addressSafe(value)); }
+	public VkDebugReportCallbackCreateInfoEXT pfnCallback(VkDebugReportCallbackEXT value) { npfnCallback(address(), addressSafe(value)); return this; }
 	/** Sets the specified value to the {@code pUserData} field. */
 	public VkDebugReportCallbackCreateInfoEXT pUserData(long value) { npUserData(address(), value); return this; }
 
@@ -296,8 +292,6 @@ public class VkDebugReportCallbackCreateInfoEXT extends Struct {
 	public static int nflags(long struct) { return memGetInt(struct + VkDebugReportCallbackCreateInfoEXT.FLAGS); }
 	/** Unsafe version of {@link #pfnCallback}. */
 	public static long npfnCallback(long struct) { return memGetAddress(struct + VkDebugReportCallbackCreateInfoEXT.PFNCALLBACK); }
-	/** Unsafe version of {@link #pfnCallbackCallback}. */
-	public static VkDebugReportCallbackEXT npfnCallbackCallback(long struct) { return Callback.create(npfnCallback(struct)); }
 	/** Unsafe version of {@link #pUserData}. */
 	public static long npUserData(long struct) { return memGetAddress(struct + VkDebugReportCallbackCreateInfoEXT.PUSERDATA); }
 
@@ -307,7 +301,7 @@ public class VkDebugReportCallbackCreateInfoEXT extends Struct {
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkDebugReportCallbackCreateInfoEXT.PNEXT, value); }
 	/** Unsafe version of {@link #flags(int) flags}. */
 	public static void nflags(long struct, int value) { memPutInt(struct + VkDebugReportCallbackCreateInfoEXT.FLAGS, value); }
-	/** Unsafe version of {@link #pfnCallback(long) pfnCallback}. */
+	/** Unsafe version of {@link #pfnCallback(VkDebugReportCallbackEXT) pfnCallback}. */
 	public static void npfnCallback(long struct, long value) { memPutAddress(struct + VkDebugReportCallbackCreateInfoEXT.PFNCALLBACK, checkPointer(value)); }
 	/** Unsafe version of {@link #pUserData(long) pUserData}. */
 	public static void npUserData(long struct, long value) { memPutAddress(struct + VkDebugReportCallbackCreateInfoEXT.PUSERDATA, value); }
@@ -380,10 +374,8 @@ public class VkDebugReportCallbackCreateInfoEXT extends Struct {
 		public long pNext() { return VkDebugReportCallbackCreateInfoEXT.npNext(address()); }
 		/** Returns the value of the {@code flags} field. */
 		public int flags() { return VkDebugReportCallbackCreateInfoEXT.nflags(address()); }
-		/** Returns the function address at the {@code pfnCallback} field. */
-		public long pfnCallback() { return VkDebugReportCallbackCreateInfoEXT.npfnCallback(address()); }
 		/** Returns the {@code VkDebugReportCallbackEXT} instance at the {@code pfnCallback} field. */
-		public VkDebugReportCallbackEXT pfnCallbackCallback() { return VkDebugReportCallbackCreateInfoEXT.npfnCallbackCallback(address()); }
+		public VkDebugReportCallbackEXT pfnCallback() { return VkDebugReportCallbackEXT.create(VkDebugReportCallbackCreateInfoEXT.npfnCallback(address())); }
 		/** Returns the value of the {@code pUserData} field. */
 		public long pUserData() { return VkDebugReportCallbackCreateInfoEXT.npUserData(address()); }
 
@@ -393,10 +385,8 @@ public class VkDebugReportCallbackCreateInfoEXT extends Struct {
 		public VkDebugReportCallbackCreateInfoEXT.Buffer pNext(long value) { VkDebugReportCallbackCreateInfoEXT.npNext(address(), value); return this; }
 		/** Sets the specified value to the {@code flags} field. */
 		public VkDebugReportCallbackCreateInfoEXT.Buffer flags(int value) { VkDebugReportCallbackCreateInfoEXT.nflags(address(), value); return this; }
-		/** Sets the specified function address to the {@code pfnCallback} field. */
-		public VkDebugReportCallbackCreateInfoEXT.Buffer pfnCallback(long value) { VkDebugReportCallbackCreateInfoEXT.npfnCallback(address(), value); return this; }
 		/** Sets the address of the specified {@link VkDebugReportCallbackEXT} to the {@code pfnCallback} field. */
-		public VkDebugReportCallbackCreateInfoEXT.Buffer pfnCallback(VkDebugReportCallbackEXT value) { return pfnCallback(addressSafe(value)); }
+		public VkDebugReportCallbackCreateInfoEXT.Buffer pfnCallback(VkDebugReportCallbackEXT value) { VkDebugReportCallbackCreateInfoEXT.npfnCallback(address(), addressSafe(value)); return this; }
 		/** Sets the specified value to the {@code pUserData} field. */
 		public VkDebugReportCallbackCreateInfoEXT.Buffer pUserData(long value) { VkDebugReportCallbackCreateInfoEXT.npUserData(address(), value); return this; }
 

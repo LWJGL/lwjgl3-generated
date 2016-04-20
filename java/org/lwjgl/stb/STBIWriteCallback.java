@@ -7,29 +7,32 @@ package org.lwjgl.stb;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 import java.nio.*;
 
-import static org.lwjgl.system.MemoryUtil.*;
-
 /** Instances of this interface may be used with the {@link STBImageWrite} {@code write_type_to_func} functions. */
-public abstract class STBIWriteCallback extends Callback.V {
+@FunctionalInterface
+public interface STBIWriteCallback extends Callback.V {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.stb.STBIWriteCallback");
-
-	protected STBIWriteCallback() {
-		super(CALL_CONVENTION_DEFAULT + "(ppi)v", CLASSPATH);
+	/** Creates a {@code STBIWriteCallback} instance from the specified function pointer. */
+	static STBIWriteCallback create(long functionPointer) {
+		return functionPointer == NULL ? null : new STBIWriteCallbackHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code STBIWriteCallback} instance that delegates to the specified {@code STBIWriteCallback} instance. */
+	static STBIWriteCallback create(STBIWriteCallback sam) {
+		return new STBIWriteCallbackHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected void callback(long args) {
+	default long address() {
+		return Callback.create(this, "(ppi)v", false);
+	}
+
+	@Override
+	default void callback(long args) {
 		invoke(
 			dcbArgPointer(args),
 			dcbArgPointer(args),
@@ -44,28 +47,7 @@ public abstract class STBIWriteCallback extends Callback.V {
 	 * @param data    the data to write
 	 * @param size    the number of bytes in {@code data}
 	 */
-	public abstract void invoke(long context, long data, int size);
-
-	/** A functional interface for {@link STBIWriteCallback}. */
-	public interface SAM {
-		void invoke(long context, long data, int size);
-	}
-
-	/**
-	 * Creates a {@link STBIWriteCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link STBIWriteCallback} instance
-	 */
-	public static STBIWriteCallback create(SAM sam) {
-		return new STBIWriteCallback() {
-			@Override
-			public void invoke(long context, long data, int size) {
-				sam.invoke(context, data, size);
-			}
-		};
-	}
+	void invoke(long context, long data, int size);
 
 	/**
 	 * Converts the specified {@link STBIWriteCallback} arguments to a ByteBuffer.
@@ -77,29 +59,29 @@ public abstract class STBIWriteCallback extends Callback.V {
 	 *
 	 * @return the data as a ByteBuffer
 	 */
-	public static ByteBuffer getData(long data, int size) {
+	static ByteBuffer getData(long data, int size) {
 		return memByteBuffer(data, size);
 	}
 
-	/** A functional interface for {@link STBIWriteCallback}. */
-	public interface SAMBuffer {
-		int invoke(long context, ByteBuffer data);
+}
+
+final class STBIWriteCallbackHandle extends Pointer.Default implements STBIWriteCallback {
+
+	private final STBIWriteCallback delegate;
+
+	STBIWriteCallbackHandle(long functionPointer, STBIWriteCallback delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
 	}
 
-	/**
-	 * Creates a {@link STBIWriteCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link STBIWriteCallback} instance
-	 */
-	public static STBIWriteCallback createBuffer(SAMBuffer sam) {
-		return new STBIWriteCallback() {
-			@Override
-			public void invoke(long context, long data, int size) {
-				sam.invoke(context, getData(data, size));
-			}
-		};
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public void invoke(long context, long data, int size) {
+		delegate.invoke(context, data, size);
 	}
 
 }

@@ -7,25 +7,30 @@ package org.lwjgl.opencl;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link CL10#clBuildProgram BuildProgram}, {@link CL12#clCompileProgram CompileProgram} and {@link CL12#clLinkProgram LinkProgram} methods. */
-public abstract class CLProgramCallback extends Callback.V {
+@FunctionalInterface
+public interface CLProgramCallback extends Callback.V {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.opencl.CLProgramCallback");
-
-	protected CLProgramCallback() {
-		super(CALL_CONVENTION_SYSTEM + "(pp)v", CLASSPATH);
+	/** Creates a {@code CLProgramCallback} instance from the specified function pointer. */
+	static CLProgramCallback create(long functionPointer) {
+		return functionPointer == NULL ? null : new CLProgramCallbackHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code CLProgramCallback} instance that delegates to the specified {@code CLProgramCallback} instance. */
+	static CLProgramCallback create(CLProgramCallback sam) {
+		return new CLProgramCallbackHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected void callback(long args) {
+	default long address() {
+		return Callback.create(this, "(pp)v", true);
+	}
+
+	@Override
+	default void callback(long args) {
 		invoke(
 			dcbArgPointer(args),
 			dcbArgPointer(args)
@@ -38,27 +43,27 @@ public abstract class CLProgramCallback extends Callback.V {
 	 * @param program   the program that was built, compiled or linked
 	 * @param user_data the user-specified value that was passed when calling {@link CL10#clBuildProgram BuildProgram}, {@link CL12#clCompileProgram CompileProgram} or {@link CL12#clLinkProgram LinkProgram}
 	 */
-	public abstract void invoke(long program, long user_data);
+	void invoke(long program, long user_data);
 
-	/** A functional interface for {@link CLProgramCallback}. */
-	public interface SAM {
-		void invoke(long program, long user_data);
+}
+
+final class CLProgramCallbackHandle extends Pointer.Default implements CLProgramCallback {
+
+	private final CLProgramCallback delegate;
+
+	CLProgramCallbackHandle(long functionPointer, CLProgramCallback delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
 	}
 
-	/**
-	 * Creates a {@link CLProgramCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link CLProgramCallback} instance
-	 */
-	public static CLProgramCallback create(SAM sam) {
-		return new CLProgramCallback() {
-			@Override
-			public void invoke(long program, long user_data) {
-				sam.invoke(program, user_data);
-			}
-		};
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public void invoke(long program, long user_data) {
+		delegate.invoke(program, user_data);
 	}
 
 }

@@ -7,25 +7,30 @@ package org.lwjgl.opencl;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link CL10#clEnqueueNativeKernel EnqueueNativeKernel} method. */
-public abstract class CLNativeKernel extends Callback.V {
+@FunctionalInterface
+public interface CLNativeKernel extends Callback.V {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.opencl.CLNativeKernel");
-
-	protected CLNativeKernel() {
-		super(CALL_CONVENTION_SYSTEM + "(p)v", CLASSPATH);
+	/** Creates a {@code CLNativeKernel} instance from the specified function pointer. */
+	static CLNativeKernel create(long functionPointer) {
+		return functionPointer == NULL ? null : new CLNativeKernelHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code CLNativeKernel} instance that delegates to the specified {@code CLNativeKernel} instance. */
+	static CLNativeKernel create(CLNativeKernel sam) {
+		return new CLNativeKernelHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected void callback(long args) {
+	default long address() {
+		return Callback.create(this, "(p)v", true);
+	}
+
+	@Override
+	default void callback(long args) {
 		invoke(
 			dcbArgPointer(args)
 		);
@@ -36,27 +41,27 @@ public abstract class CLNativeKernel extends Callback.V {
 	 *
 	 * @param args a pointer to the arguments list
 	 */
-	public abstract void invoke(long args);
+	void invoke(long args);
 
-	/** A functional interface for {@link CLNativeKernel}. */
-	public interface SAM {
-		void invoke(long args);
+}
+
+final class CLNativeKernelHandle extends Pointer.Default implements CLNativeKernel {
+
+	private final CLNativeKernel delegate;
+
+	CLNativeKernelHandle(long functionPointer, CLNativeKernel delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
 	}
 
-	/**
-	 * Creates a {@link CLNativeKernel} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link CLNativeKernel} instance
-	 */
-	public static CLNativeKernel create(SAM sam) {
-		return new CLNativeKernel() {
-			@Override
-			public void invoke(long args) {
-				sam.invoke(args);
-			}
-		};
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public void invoke(long args) {
+		delegate.invoke(args);
 	}
 
 }

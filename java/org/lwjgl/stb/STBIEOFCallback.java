@@ -7,25 +7,30 @@ package org.lwjgl.stb;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@code eof} field of the {@link STBIIOCallbacks} struct. */
-public abstract class STBIEOFCallback extends Callback.I {
+@FunctionalInterface
+public interface STBIEOFCallback extends Callback.I {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.stb.STBIEOFCallback");
-
-	protected STBIEOFCallback() {
-		super(CALL_CONVENTION_DEFAULT + "(p)i", CLASSPATH);
+	/** Creates a {@code STBIEOFCallback} instance from the specified function pointer. */
+	static STBIEOFCallback create(long functionPointer) {
+		return functionPointer == NULL ? null : new STBIEOFCallbackHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code STBIEOFCallback} instance that delegates to the specified {@code STBIEOFCallback} instance. */
+	static STBIEOFCallback create(STBIEOFCallback sam) {
+		return new STBIEOFCallbackHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected int callback(long args) {
+	default long address() {
+		return Callback.create(this, "(p)i", false);
+	}
+
+	@Override
+	default int callback(long args) {
 		return invoke(
 			dcbArgPointer(args)
 		);
@@ -38,27 +43,27 @@ public abstract class STBIEOFCallback extends Callback.I {
 	 *
 	 * @return nonzero if we are at the end of file/data
 	 */
-	public abstract int invoke(long user);
+	int invoke(long user);
 
-	/** A functional interface for {@link STBIEOFCallback}. */
-	public interface SAM {
-		int invoke(long user);
+}
+
+final class STBIEOFCallbackHandle extends Pointer.Default implements STBIEOFCallback {
+
+	private final STBIEOFCallback delegate;
+
+	STBIEOFCallbackHandle(long functionPointer, STBIEOFCallback delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
 	}
 
-	/**
-	 * Creates a {@link STBIEOFCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link STBIEOFCallback} instance
-	 */
-	public static STBIEOFCallback create(SAM sam) {
-		return new STBIEOFCallback() {
-			@Override
-			public int invoke(long user) {
-				return sam.invoke(user);
-			}
-		};
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public int invoke(long user) {
+		return delegate.invoke(user);
 	}
 
 }

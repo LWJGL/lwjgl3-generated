@@ -7,25 +7,30 @@ package org.lwjgl.system.windows;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** An application-defined function that processes messages sent to a window. */
-public abstract class WindowProc extends Callback.P {
+@FunctionalInterface
+public interface WindowProc extends Callback.P {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.system.windows.WindowProc");
-
-	protected WindowProc() {
-		super(CALL_CONVENTION_SYSTEM + "(pipp)p", CLASSPATH);
+	/** Creates a {@code WindowProc} instance from the specified function pointer. */
+	static WindowProc create(long functionPointer) {
+		return functionPointer == NULL ? null : new WindowProcHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code WindowProc} instance that delegates to the specified {@code WindowProc} instance. */
+	static WindowProc create(WindowProc sam) {
+		return new WindowProcHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected long callback(long args) {
+	default long address() {
+		return Callback.create(this, "(pipp)p", true);
+	}
+
+	@Override
+	default long callback(long args) {
 		return invoke(
 			dcbArgPointer(args),
 			dcbArgInt(args),
@@ -42,27 +47,27 @@ public abstract class WindowProc extends Callback.P {
 	 * @param wParam additional message information. The content of this parameter depends on the value of the {@code uMsg} parameter.
 	 * @param lParam additional message information. The content of this parameter depends on the value of the {@code uMsg} parameter.
 	 */
-	public abstract long invoke(long hwnd, int uMsg, long wParam, long lParam);
+	long invoke(long hwnd, int uMsg, long wParam, long lParam);
 
-	/** A functional interface for {@link WindowProc}. */
-	public interface SAM {
-		long invoke(long hwnd, int uMsg, long wParam, long lParam);
+}
+
+final class WindowProcHandle extends Pointer.Default implements WindowProc {
+
+	private final WindowProc delegate;
+
+	WindowProcHandle(long functionPointer, WindowProc delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
 	}
 
-	/**
-	 * Creates a {@link WindowProc} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link WindowProc} instance
-	 */
-	public static WindowProc create(SAM sam) {
-		return new WindowProc() {
-			@Override
-			public long invoke(long hwnd, int uMsg, long wParam, long lParam) {
-				return sam.invoke(hwnd, uMsg, wParam, lParam);
-			}
-		};
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public long invoke(long hwnd, int uMsg, long wParam, long lParam) {
+		return delegate.invoke(hwnd, uMsg, wParam, lParam);
 	}
 
 }

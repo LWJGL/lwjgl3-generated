@@ -7,7 +7,7 @@ package org.lwjgl.glfw;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 import org.lwjgl.opengl.GL11;
@@ -15,21 +15,26 @@ import org.lwjgl.opengl.GL11;
 import static org.lwjgl.glfw.GLFW.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetCursorEnterCallback SetCursorEnterCallback} method. */
-public abstract class GLFWCursorEnterCallback extends Callback.V {
+@FunctionalInterface
+public interface GLFWCursorEnterCallback extends Callback.V {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.glfw.GLFWCursorEnterCallback");
-
-	protected GLFWCursorEnterCallback() {
-		super(CALL_CONVENTION_DEFAULT + "(pi)v", CLASSPATH);
+	/** Creates a {@code GLFWCursorEnterCallback} instance from the specified function pointer. */
+	static GLFWCursorEnterCallback create(long functionPointer) {
+		return functionPointer == NULL ? null : new GLFWCursorEnterCallbackHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code GLFWCursorEnterCallback} instance that delegates to the specified {@code GLFWCursorEnterCallback} instance. */
+	static GLFWCursorEnterCallback create(GLFWCursorEnterCallback sam) {
+		return new GLFWCursorEnterCallbackHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected void callback(long args) {
+	default long address() {
+		return Callback.create(this, "(pi)v", false);
+	}
+
+	@Override
+	default void callback(long args) {
 		invoke(
 			dcbArgPointer(args),
 			dcbArgInt(args) != 0
@@ -42,33 +47,33 @@ public abstract class GLFWCursorEnterCallback extends Callback.V {
 	 * @param window  the window that received the event
 	 * @param entered {@link GL11#GL_TRUE} if the cursor entered the window's client area, or {@link GL11#GL_FALSE} if it left it
 	 */
-	public abstract void invoke(long window, boolean entered);
-
-	/** A functional interface for {@link GLFWCursorEnterCallback}. */
-	public interface SAM {
-		void invoke(long window, boolean entered);
-	}
-
-	/**
-	 * Creates a {@link GLFWCursorEnterCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLFWCursorEnterCallback} instance
-	 */
-	public static GLFWCursorEnterCallback create(SAM sam) {
-		return new GLFWCursorEnterCallback() {
-			@Override
-			public void invoke(long window, boolean entered) {
-				sam.invoke(window, entered);
-			}
-		};
-	}
+	void invoke(long window, boolean entered);
 
 	/** See {@link GLFW#glfwSetCursorEnterCallback SetCursorEnterCallback}. */
-	public GLFWCursorEnterCallback set(long window) {
+	default GLFWCursorEnterCallback set(long window) {
 		glfwSetCursorEnterCallback(window, this);
 		return this;
+	}
+
+}
+
+final class GLFWCursorEnterCallbackHandle extends Pointer.Default implements GLFWCursorEnterCallback {
+
+	private final GLFWCursorEnterCallback delegate;
+
+	GLFWCursorEnterCallbackHandle(long functionPointer, GLFWCursorEnterCallback delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
+	}
+
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public void invoke(long window, boolean entered) {
+		delegate.invoke(window, entered);
 	}
 
 }

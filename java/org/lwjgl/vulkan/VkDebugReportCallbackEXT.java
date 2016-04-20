@@ -7,10 +7,8 @@ package org.lwjgl.vulkan;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
-
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /**
  * Instances of this interface may be set to the {@code pfnCallback} member of the {@link VkDebugReportCallbackCreateInfoEXT} struct.
@@ -21,21 +19,26 @@ import static org.lwjgl.system.MemoryUtil.*;
  * the originating Vulkan call. A callback may be called from multiple threads simultaneously (if the application is making Vulkan calls from multiple
  * threads).</p>
  */
-public abstract class VkDebugReportCallbackEXT extends Callback.I {
+@FunctionalInterface
+public interface VkDebugReportCallbackEXT extends Callback.I {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.vulkan.VkDebugReportCallbackEXT");
-
-	protected VkDebugReportCallbackEXT() {
-		super(CALL_CONVENTION_SYSTEM + "(iilpippp)i", CLASSPATH);
+	/** Creates a {@code VkDebugReportCallbackEXT} instance from the specified function pointer. */
+	static VkDebugReportCallbackEXT create(long functionPointer) {
+		return functionPointer == NULL ? null : new VkDebugReportCallbackEXTHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code VkDebugReportCallbackEXT} instance that delegates to the specified {@code VkDebugReportCallbackEXT} instance. */
+	static VkDebugReportCallbackEXT create(VkDebugReportCallbackEXT sam) {
+		return new VkDebugReportCallbackEXTHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected int callback(long args) {
+	default long address() {
+		return Callback.create(this, "(iilpippp)i", true);
+	}
+
+	@Override
+	default int callback(long args) {
 		return invoke(
 			dcbArgInt(args),
 			dcbArgInt(args),
@@ -63,28 +66,7 @@ public abstract class VkDebugReportCallbackEXT extends Callback.I {
 	 * @return a {@code VkBool32} that indicates to the calling layer if the Vulkan call should be aborted or not. Applications should always return {@link VK10#VK_FALSE FALSE} so that
 	 *         they see the same behavior with and without validation layers enabled.
 	 */
-	public abstract int invoke(int flags, int objectType, long object, long location, int messageCode, long pLayerPrefix, long pMessage, long pUserData);
-
-	/** A functional interface for {@link VkDebugReportCallbackEXT}. */
-	public interface SAM {
-		int invoke(int flags, int objectType, long object, long location, int messageCode, long pLayerPrefix, long pMessage, long pUserData);
-	}
-
-	/**
-	 * Creates a {@link VkDebugReportCallbackEXT} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link VkDebugReportCallbackEXT} instance
-	 */
-	public static VkDebugReportCallbackEXT create(SAM sam) {
-		return new VkDebugReportCallbackEXT() {
-			@Override
-			public int invoke(int flags, int objectType, long object, long location, int messageCode, long pLayerPrefix, long pMessage, long pUserData) {
-				return sam.invoke(flags, objectType, object, location, messageCode, pLayerPrefix, pMessage, pUserData);
-			}
-		};
-	}
+	int invoke(int flags, int objectType, long object, long location, int messageCode, long pLayerPrefix, long pMessage, long pUserData);
 
 	/**
 	 * Converts the specified {@link VkDebugReportCallbackEXT} argument to a String.
@@ -95,29 +77,29 @@ public abstract class VkDebugReportCallbackEXT extends Callback.I {
 	 *
 	 * @return the message as a String
 	 */
-	public static String getString(long string) {
+	static String getString(long string) {
 		return memUTF8(string);
 	}
 
-	/** A functional interface for {@link VkDebugReportCallbackEXT}. */
-	public interface SAMString {
-		int invoke(int flags, int objectType, long object, long location, int messageCode, String pLayerPrefix, String pMessage, long pUserData);
+}
+
+final class VkDebugReportCallbackEXTHandle extends Pointer.Default implements VkDebugReportCallbackEXT {
+
+	private final VkDebugReportCallbackEXT delegate;
+
+	VkDebugReportCallbackEXTHandle(long functionPointer, VkDebugReportCallbackEXT delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
 	}
 
-	/**
-	 * Creates a {@link VkDebugReportCallbackEXT} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link VkDebugReportCallbackEXT} instance
-	 */
-	public static VkDebugReportCallbackEXT createString(SAMString sam) {
-		return new VkDebugReportCallbackEXT() {
-			@Override
-			public int invoke(int flags, int objectType, long object, long location, int messageCode, long pLayerPrefix, long pMessage, long pUserData) {
-				return sam.invoke(flags, objectType, object, location, messageCode, getString(pLayerPrefix), getString(pMessage), pUserData);
-			}
-		};
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public int invoke(int flags, int objectType, long object, long location, int messageCode, long pLayerPrefix, long pMessage, long pUserData) {
+		return delegate.invoke(flags, objectType, object, location, messageCode, pLayerPrefix, pMessage, pUserData);
 	}
 
 }

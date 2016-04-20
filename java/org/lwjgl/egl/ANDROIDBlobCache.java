@@ -40,13 +40,17 @@ public class ANDROIDBlobCache {
 
 	// --- [ eglSetBlobCacheFuncsANDROID ] ---
 
-	public static void eglSetBlobCacheFuncsANDROID(long dpy, EGLSetBlobFuncANDROID set, EGLGetBlobFuncANDROID get) {
+	public static void neglSetBlobCacheFuncsANDROID(long dpy, long set, long get) {
 		long __functionAddress = EGL.getCapabilities().eglSetBlobCacheFuncsANDROID;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 		}
-		callPPPV(__functionAddress, dpy, set.address(), get.address());
+		callPPPV(__functionAddress, dpy, set, get);
+	}
+
+	public static void eglSetBlobCacheFuncsANDROID(long dpy, EGLSetBlobFuncANDROID set, EGLGetBlobFuncANDROID get) {
+		neglSetBlobCacheFuncsANDROID(dpy, set.address(), get.address());
 	}
 
 }

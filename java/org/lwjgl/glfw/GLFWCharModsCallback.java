@@ -7,27 +7,32 @@ package org.lwjgl.glfw;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetCharModsCallback SetCharModsCallback} method. */
-public abstract class GLFWCharModsCallback extends Callback.V {
+@FunctionalInterface
+public interface GLFWCharModsCallback extends Callback.V {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.glfw.GLFWCharModsCallback");
-
-	protected GLFWCharModsCallback() {
-		super(CALL_CONVENTION_DEFAULT + "(pii)v", CLASSPATH);
+	/** Creates a {@code GLFWCharModsCallback} instance from the specified function pointer. */
+	static GLFWCharModsCallback create(long functionPointer) {
+		return functionPointer == NULL ? null : new GLFWCharModsCallbackHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code GLFWCharModsCallback} instance that delegates to the specified {@code GLFWCharModsCallback} instance. */
+	static GLFWCharModsCallback create(GLFWCharModsCallback sam) {
+		return new GLFWCharModsCallbackHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected void callback(long args) {
+	default long address() {
+		return Callback.create(this, "(pii)v", false);
+	}
+
+	@Override
+	default void callback(long args) {
 		invoke(
 			dcbArgPointer(args),
 			dcbArgInt(args),
@@ -42,33 +47,33 @@ public abstract class GLFWCharModsCallback extends Callback.V {
 	 * @param codepoint the Unicode code point of the character
 	 * @param mods      bitfield describing which modifier keys were held down
 	 */
-	public abstract void invoke(long window, int codepoint, int mods);
-
-	/** A functional interface for {@link GLFWCharModsCallback}. */
-	public interface SAM {
-		void invoke(long window, int codepoint, int mods);
-	}
-
-	/**
-	 * Creates a {@link GLFWCharModsCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLFWCharModsCallback} instance
-	 */
-	public static GLFWCharModsCallback create(SAM sam) {
-		return new GLFWCharModsCallback() {
-			@Override
-			public void invoke(long window, int codepoint, int mods) {
-				sam.invoke(window, codepoint, mods);
-			}
-		};
-	}
+	void invoke(long window, int codepoint, int mods);
 
 	/** See {@link GLFW#glfwSetCharModsCallback SetCharModsCallback}. */
-	public GLFWCharModsCallback set(long window) {
+	default GLFWCharModsCallback set(long window) {
 		glfwSetCharModsCallback(window, this);
 		return this;
+	}
+
+}
+
+final class GLFWCharModsCallbackHandle extends Pointer.Default implements GLFWCharModsCallback {
+
+	private final GLFWCharModsCallback delegate;
+
+	GLFWCharModsCallbackHandle(long functionPointer, GLFWCharModsCallback delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
+	}
+
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public void invoke(long window, int codepoint, int mods) {
+		delegate.invoke(window, codepoint, mods);
 	}
 
 }

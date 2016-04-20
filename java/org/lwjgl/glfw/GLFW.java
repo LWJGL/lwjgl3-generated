@@ -749,9 +749,37 @@ public class GLFW {
 	 *
 	 * @since version 3.0
 	 */
-	public static GLFWErrorCallback glfwSetErrorCallback(GLFWErrorCallback cbfun) {
+	public static long nglfwSetErrorCallback(long cbfun) {
 		long __functionAddress = Functions.SetErrorCallback;
-		return GLFWErrorCallback.create(invokePP(__functionAddress, cbfun == null ? NULL : cbfun.address()));
+		return invokePP(__functionAddress, cbfun);
+	}
+
+	/**
+	 * Sets the error callback, which is called with an error code and a human-readable description each time a GLFW error occurs.
+	 * 
+	 * <p>The error callback is called on the thread where the error occurred. If you are using GLFW from multiple threads, your error callback needs to be
+	 * written accordingly.</p>
+	 * 
+	 * <p>Because the description string may have been generated specifically for that error, it is not guaranteed to be valid after the callback has returned. If
+	 * you wish to use it after the callback returns, you need to make a copy.</p>
+	 * 
+	 * <p>Once set, the error callback remains set even after the library has been terminated.</p>
+	 * 
+	 * <p>Notes:</p>
+	 * 
+	 * <ul>
+	 * <li>This function may be called before {@link #glfwInit Init}.</li>
+	 * <li>This function must only be called from the main thread.</li>
+	 * </ul>
+	 *
+	 * @param cbfun the new callback or {@code NULL} to remove the currently set callback
+	 *
+	 * @return the previously set callback, or {@code NULL} if no callback was set
+	 *
+	 * @since version 3.0
+	 */
+	public static GLFWErrorCallback glfwSetErrorCallback(GLFWErrorCallback cbfun) {
+		return GLFWErrorCallback.create(nglfwSetErrorCallback(cbfun == null ? NULL : cbfun.address()));
 	}
 
 	// --- [ glfwGetMonitors ] ---
@@ -980,9 +1008,25 @@ public class GLFW {
 	 *
 	 * @since version 3.0
 	 */
-	public static GLFWMonitorCallback glfwSetMonitorCallback(GLFWMonitorCallback cbfun) {
+	public static long nglfwSetMonitorCallback(long cbfun) {
 		long __functionAddress = Functions.SetMonitorCallback;
-		return GLFWMonitorCallback.create(invokePP(__functionAddress, cbfun == null ? NULL : cbfun.address()));
+		return invokePP(__functionAddress, cbfun);
+	}
+
+	/**
+	 * Sets the monitor configuration callback, or removes the currently set callback. This is called when a monitor is connected to or disconnected from the
+	 * system.
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param cbfun the new callback, or {@code NULL} to remove the currently set callback
+	 *
+	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been initialized
+	 *
+	 * @since version 3.0
+	 */
+	public static GLFWMonitorCallback glfwSetMonitorCallback(GLFWMonitorCallback cbfun) {
+		return GLFWMonitorCallback.create(nglfwSetMonitorCallback(cbfun == null ? NULL : cbfun.address()));
 	}
 
 	// --- [ glfwGetVideoModes ] ---
@@ -2237,11 +2281,29 @@ public class GLFW {
 	 *
 	 * @since version 1.0
 	 */
-	public static GLFWWindowPosCallback glfwSetWindowPosCallback(long window, GLFWWindowPosCallback cbfun) {
+	public static long nglfwSetWindowPosCallback(long window, long cbfun) {
 		long __functionAddress = Functions.SetWindowPosCallback;
 		if ( CHECKS )
 			checkPointer(window);
-		return GLFWWindowPosCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
+		return invokePPP(__functionAddress, window, cbfun);
+	}
+
+	/**
+	 * Sets the position callback of the specified window, which is called when the window is moved. The callback is provided with the screen position of the
+	 * upper-left corner of the client area of the window.
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window whose callback to set
+	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
+	 *
+	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
+	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
+	 *
+	 * @since version 1.0
+	 */
+	public static GLFWWindowPosCallback glfwSetWindowPosCallback(long window, GLFWWindowPosCallback cbfun) {
+		return GLFWWindowPosCallback.create(nglfwSetWindowPosCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
 	// --- [ glfwSetWindowSizeCallback ] ---
@@ -2260,11 +2322,29 @@ public class GLFW {
 	 *
 	 * @since version 1.0
 	 */
-	public static GLFWWindowSizeCallback glfwSetWindowSizeCallback(long window, GLFWWindowSizeCallback cbfun) {
+	public static long nglfwSetWindowSizeCallback(long window, long cbfun) {
 		long __functionAddress = Functions.SetWindowSizeCallback;
 		if ( CHECKS )
 			checkPointer(window);
-		return GLFWWindowSizeCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
+		return invokePPP(__functionAddress, window, cbfun);
+	}
+
+	/**
+	 * Sets the size callback of the specified window, which is called when the window is resized. The callback is provided with the size, in screen
+	 * coordinates, of the client area of the window.
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window whose callback to set
+	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
+	 *
+	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
+	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
+	 *
+	 * @since version 1.0
+	 */
+	public static GLFWWindowSizeCallback glfwSetWindowSizeCallback(long window, GLFWWindowSizeCallback cbfun) {
+		return GLFWWindowSizeCallback.create(nglfwSetWindowSizeCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
 	// --- [ glfwSetWindowCloseCallback ] ---
@@ -2292,11 +2372,38 @@ public class GLFW {
 	 *
 	 * @since version 2.5
 	 */
-	public static GLFWWindowCloseCallback glfwSetWindowCloseCallback(long window, GLFWWindowCloseCallback cbfun) {
+	public static long nglfwSetWindowCloseCallback(long window, long cbfun) {
 		long __functionAddress = Functions.SetWindowCloseCallback;
 		if ( CHECKS )
 			checkPointer(window);
-		return GLFWWindowCloseCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
+		return invokePPP(__functionAddress, window, cbfun);
+	}
+
+	/**
+	 * Sets the close callback of the specified window, which is called when the user attempts to close the window, for example by clicking the close widget in
+	 * the title bar.
+	 * 
+	 * <p>The close flag is set before this callback is called, but you can modify it at any time with {@link #glfwSetWindowShouldClose SetWindowShouldClose}.</p>
+	 * 
+	 * <p>The close callback is not triggered by {@link #glfwDestroyWindow DestroyWindow}.</p>
+	 * 
+	 * <p>Notes:</p>
+	 * 
+	 * <ul>
+	 * <li>This function must only be called from the main thread.</li>
+	 * <li><b>Mac OS X:</b> Selecting Quit from the application menu will trigger the close callback for all windows.</li>
+	 * </ul>
+	 *
+	 * @param window the window whose callback to set
+	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
+	 *
+	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
+	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
+	 *
+	 * @since version 2.5
+	 */
+	public static GLFWWindowCloseCallback glfwSetWindowCloseCallback(long window, GLFWWindowCloseCallback cbfun) {
+		return GLFWWindowCloseCallback.create(nglfwSetWindowCloseCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
 	// --- [ glfwSetWindowRefreshCallback ] ---
@@ -2318,11 +2425,32 @@ public class GLFW {
 	 *
 	 * @since version 2.5
 	 */
-	public static GLFWWindowRefreshCallback glfwSetWindowRefreshCallback(long window, GLFWWindowRefreshCallback cbfun) {
+	public static long nglfwSetWindowRefreshCallback(long window, long cbfun) {
 		long __functionAddress = Functions.SetWindowRefreshCallback;
 		if ( CHECKS )
 			checkPointer(window);
-		return GLFWWindowRefreshCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
+		return invokePPP(__functionAddress, window, cbfun);
+	}
+
+	/**
+	 * Sets the refresh callback of the specified window, which is called when the client area of the window needs to be redrawn, for example if the window has
+	 * been exposed after having been covered by another window.
+	 * 
+	 * <p>On compositing window systems such as Aero, Compiz or Aqua, where the window contents are saved off-screen, this callback may be called only very
+	 * infrequently or never at all.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window whose callback to set
+	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
+	 *
+	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
+	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
+	 *
+	 * @since version 2.5
+	 */
+	public static GLFWWindowRefreshCallback glfwSetWindowRefreshCallback(long window, GLFWWindowRefreshCallback cbfun) {
+		return GLFWWindowRefreshCallback.create(nglfwSetWindowRefreshCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
 	// --- [ glfwSetWindowFocusCallback ] ---
@@ -2343,11 +2471,31 @@ public class GLFW {
 	 *
 	 * @since version 3.0
 	 */
-	public static GLFWWindowFocusCallback glfwSetWindowFocusCallback(long window, GLFWWindowFocusCallback cbfun) {
+	public static long nglfwSetWindowFocusCallback(long window, long cbfun) {
 		long __functionAddress = Functions.SetWindowFocusCallback;
 		if ( CHECKS )
 			checkPointer(window);
-		return GLFWWindowFocusCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
+		return invokePPP(__functionAddress, window, cbfun);
+	}
+
+	/**
+	 * Sets the focus callback of the specified window, which is called when the window gains or loses input focus.
+	 * 
+	 * <p>After the focus callback is called for a window that lost input focus, synthetic key and mouse button release events will be generated for all such
+	 * that had been pressed. For more information, see {@link #glfwSetKeyCallback SetKeyCallback} and {@link #glfwSetMouseButtonCallback SetMouseButtonCallback}.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window whose callback to set
+	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
+	 *
+	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
+	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
+	 *
+	 * @since version 3.0
+	 */
+	public static GLFWWindowFocusCallback glfwSetWindowFocusCallback(long window, GLFWWindowFocusCallback cbfun) {
+		return GLFWWindowFocusCallback.create(nglfwSetWindowFocusCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
 	// --- [ glfwSetWindowIconifyCallback ] ---
@@ -2365,11 +2513,28 @@ public class GLFW {
 	 *
 	 * @since version 3.0
 	 */
-	public static GLFWWindowIconifyCallback glfwSetWindowIconifyCallback(long window, GLFWWindowIconifyCallback cbfun) {
+	public static long nglfwSetWindowIconifyCallback(long window, long cbfun) {
 		long __functionAddress = Functions.SetWindowIconifyCallback;
 		if ( CHECKS )
 			checkPointer(window);
-		return GLFWWindowIconifyCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
+		return invokePPP(__functionAddress, window, cbfun);
+	}
+
+	/**
+	 * Sets the iconification callback of the specified window, which is called when the window is iconified or restored.
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window whose callback to set
+	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
+	 *
+	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
+	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
+	 *
+	 * @since version 3.0
+	 */
+	public static GLFWWindowIconifyCallback glfwSetWindowIconifyCallback(long window, GLFWWindowIconifyCallback cbfun) {
+		return GLFWWindowIconifyCallback.create(nglfwSetWindowIconifyCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
 	// --- [ glfwSetFramebufferSizeCallback ] ---
@@ -2387,11 +2552,28 @@ public class GLFW {
 	 *
 	 * @since version 3.0
 	 */
-	public static GLFWFramebufferSizeCallback glfwSetFramebufferSizeCallback(long window, GLFWFramebufferSizeCallback cbfun) {
+	public static long nglfwSetFramebufferSizeCallback(long window, long cbfun) {
 		long __functionAddress = Functions.SetFramebufferSizeCallback;
 		if ( CHECKS )
 			checkPointer(window);
-		return GLFWFramebufferSizeCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
+		return invokePPP(__functionAddress, window, cbfun);
+	}
+
+	/**
+	 * Sets the framebuffer resize callback of the specified window, which is called when the framebuffer of the specified window is resized.
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window whose callback to set
+	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
+	 *
+	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
+	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
+	 *
+	 * @since version 3.0
+	 */
+	public static GLFWFramebufferSizeCallback glfwSetFramebufferSizeCallback(long window, GLFWFramebufferSizeCallback cbfun) {
+		return GLFWFramebufferSizeCallback.create(nglfwSetFramebufferSizeCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
 	// --- [ glfwPollEvents ] ---
@@ -2984,11 +3166,39 @@ public class GLFW {
 	 *
 	 * @since version 1.0
 	 */
-	public static GLFWKeyCallback glfwSetKeyCallback(long window, GLFWKeyCallback cbfun) {
+	public static long nglfwSetKeyCallback(long window, long cbfun) {
 		long __functionAddress = Functions.SetKeyCallback;
 		if ( CHECKS )
 			checkPointer(window);
-		return GLFWKeyCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
+		return invokePPP(__functionAddress, window, cbfun);
+	}
+
+	/**
+	 * Sets the key callback of the specified window, which is called when a key is pressed, repeated or released.
+	 * 
+	 * <p>The key functions deal with physical keys, with layout independent key tokens named after their values in the standard US keyboard layout. If you want
+	 * to input text, use {@link #glfwSetCharCallback SetCharCallback} instead.</p>
+	 * 
+	 * <p>When a window loses input focus, it will generate synthetic key release events for all pressed keys. You can tell these events from user-generated
+	 * events by the fact that the synthetic ones are generated after the focus loss event has been processed, i.e. after the window focus callback has been
+	 * called.</p>
+	 * 
+	 * <p>The scancode of a key is specific to that platform or sometimes even to that machine. Scancodes are intended to allow users to bind keys that don't have
+	 * a GLFW key token. Such keys have {@code key} set to {@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN}, their state is not saved and so it cannot be queried with {@link #glfwGetKey GetKey}.</p>
+	 * 
+	 * <p>Sometimes GLFW needs to generate synthetic key events, in which case the scancode may be zero.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window whose callback to set
+	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
+	 *
+	 * @return the previously set callback, or {@code NULL} if no callback was set
+	 *
+	 * @since version 1.0
+	 */
+	public static GLFWKeyCallback glfwSetKeyCallback(long window, GLFWKeyCallback cbfun) {
+		return GLFWKeyCallback.create(nglfwSetKeyCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
 	// --- [ glfwSetCharCallback ] ---
@@ -3012,11 +3222,34 @@ public class GLFW {
 	 *
 	 * @since version 2.4
 	 */
-	public static GLFWCharCallback glfwSetCharCallback(long window, GLFWCharCallback cbfun) {
+	public static long nglfwSetCharCallback(long window, long cbfun) {
 		long __functionAddress = Functions.SetCharCallback;
 		if ( CHECKS )
 			checkPointer(window);
-		return GLFWCharCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
+		return invokePPP(__functionAddress, window, cbfun);
+	}
+
+	/**
+	 * Sets the character callback of the specified window, which is called when a Unicode character is input.
+	 * 
+	 * <p>The character callback is intended for Unicode text input. As it deals with characters, it is keyboard layout dependent, whereas {@link #glfwSetKeyCallback SetKeyCallback} is
+	 * not. Characters do not map 1:1 to physical keys, as a key may produce zero, one or more characters. If you want to know whether a specific physical key
+	 * was pressed or released, see the key callback instead.</p>
+	 * 
+	 * <p>The character callback behaves as system text input normally does and will not be called if modifier keys are held down that would prevent normal text
+	 * input on that platform, for example a Super (Command) key on OS X or Alt key on Windows. There is {@link #glfwSetCharModsCallback SetCharModsCallback} that receives these events.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window whose callback to set
+	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
+	 *
+	 * @return the previously set callback, or {@code NULL} if no callback was set
+	 *
+	 * @since version 2.4
+	 */
+	public static GLFWCharCallback glfwSetCharCallback(long window, GLFWCharCallback cbfun) {
+		return GLFWCharCallback.create(nglfwSetCharCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
 	// --- [ glfwSetCharModsCallback ] ---
@@ -3039,11 +3272,33 @@ public class GLFW {
 	 *
 	 * @since version 3.1
 	 */
-	public static GLFWCharModsCallback glfwSetCharModsCallback(long window, GLFWCharModsCallback cbfun) {
+	public static long nglfwSetCharModsCallback(long window, long cbfun) {
 		long __functionAddress = Functions.SetCharModsCallback;
 		if ( CHECKS )
 			checkPointer(window);
-		return GLFWCharModsCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
+		return invokePPP(__functionAddress, window, cbfun);
+	}
+
+	/**
+	 * Sets the character with modifiers callback of the specified window, which is called when a Unicode character is input regardless of what modifier keys
+	 * are used.
+	 * 
+	 * <p>The character with modifiers callback is intended for implementing custom Unicode character input. For regular Unicode text input, see
+	 * {@link #glfwSetCharCallback SetCharCallback}. Like the character callback, the character with modifiers callback deals with characters and is keyboard layout dependent.
+	 * Characters do not map 1:1 to physical keys, as a key may produce zero, one or more characters. If you want to know whether a specific physical key was
+	 * pressed or released, see {@link #glfwSetKeyCallback SetKeyCallback} instead.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window whose callback to set
+	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
+	 *
+	 * @return the previously set callback, or {@code NULL} if no callback was set
+	 *
+	 * @since version 3.1
+	 */
+	public static GLFWCharModsCallback glfwSetCharModsCallback(long window, GLFWCharModsCallback cbfun) {
+		return GLFWCharModsCallback.create(nglfwSetCharModsCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
 	// --- [ glfwSetMouseButtonCallback ] ---
@@ -3064,11 +3319,31 @@ public class GLFW {
 	 *
 	 * @since version 1.0
 	 */
-	public static GLFWMouseButtonCallback glfwSetMouseButtonCallback(long window, GLFWMouseButtonCallback cbfun) {
+	public static long nglfwSetMouseButtonCallback(long window, long cbfun) {
 		long __functionAddress = Functions.SetMouseButtonCallback;
 		if ( CHECKS )
 			checkPointer(window);
-		return GLFWMouseButtonCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
+		return invokePPP(__functionAddress, window, cbfun);
+	}
+
+	/**
+	 * Sets the mouse button callback of the specified window, which is called when a mouse button is pressed or released.
+	 * 
+	 * <p>When a window loses input focus, it will generate synthetic mouse button release events for all pressed mouse buttons. You can tell these events from
+	 * user-generated events by the fact that the synthetic ones are generated after the focus loss event has been processed, i.e. after the window focus
+	 * callback has been called.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window whose callback to set
+	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
+	 *
+	 * @return the previously set callback, or {@code NULL} if no callback was set
+	 *
+	 * @since version 1.0
+	 */
+	public static GLFWMouseButtonCallback glfwSetMouseButtonCallback(long window, GLFWMouseButtonCallback cbfun) {
+		return GLFWMouseButtonCallback.create(nglfwSetMouseButtonCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
 	// --- [ glfwSetCursorPosCallback ] ---
@@ -3086,11 +3361,28 @@ public class GLFW {
 	 *
 	 * @since version 1.0
 	 */
-	public static GLFWCursorPosCallback glfwSetCursorPosCallback(long window, GLFWCursorPosCallback cbfun) {
+	public static long nglfwSetCursorPosCallback(long window, long cbfun) {
 		long __functionAddress = Functions.SetCursorPosCallback;
 		if ( CHECKS )
 			checkPointer(window);
-		return GLFWCursorPosCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
+		return invokePPP(__functionAddress, window, cbfun);
+	}
+
+	/**
+	 * Sets the cursor position callback of the specified window, which is called when the cursor is moved. The callback is provided with the position, in
+	 * screen coordinates, relative to the upper-left corner of the client area of the window.
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window whose callback to set
+	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
+	 *
+	 * @return the previously set callback, or {@code NULL} if no callback was set
+	 *
+	 * @since version 1.0
+	 */
+	public static GLFWCursorPosCallback glfwSetCursorPosCallback(long window, GLFWCursorPosCallback cbfun) {
+		return GLFWCursorPosCallback.create(nglfwSetCursorPosCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
 	// --- [ glfwSetCursorEnterCallback ] ---
@@ -3107,11 +3399,27 @@ public class GLFW {
 	 *
 	 * @since version 3.0
 	 */
-	public static GLFWCursorEnterCallback glfwSetCursorEnterCallback(long window, GLFWCursorEnterCallback cbfun) {
+	public static long nglfwSetCursorEnterCallback(long window, long cbfun) {
 		long __functionAddress = Functions.SetCursorEnterCallback;
 		if ( CHECKS )
 			checkPointer(window);
-		return GLFWCursorEnterCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
+		return invokePPP(__functionAddress, window, cbfun);
+	}
+
+	/**
+	 * Sets the cursor boundary crossing callback of the specified window, which is called when the cursor enters or leaves the client area of the window.
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window whose callback to set
+	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
+	 *
+	 * @return the previously set callback, or {@code NULL} if no callback was set
+	 *
+	 * @since version 3.0
+	 */
+	public static GLFWCursorEnterCallback glfwSetCursorEnterCallback(long window, GLFWCursorEnterCallback cbfun) {
+		return GLFWCursorEnterCallback.create(nglfwSetCursorEnterCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
 	// --- [ glfwSetScrollCallback ] ---
@@ -3130,11 +3438,29 @@ public class GLFW {
 	 *
 	 * @since version 2.1
 	 */
-	public static GLFWScrollCallback glfwSetScrollCallback(long window, GLFWScrollCallback cbfun) {
+	public static long nglfwSetScrollCallback(long window, long cbfun) {
 		long __functionAddress = Functions.SetScrollCallback;
 		if ( CHECKS )
 			checkPointer(window);
-		return GLFWScrollCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
+		return invokePPP(__functionAddress, window, cbfun);
+	}
+
+	/**
+	 * Sets the scroll callback of the specified window, which is called when a scrolling device is used.
+	 * 
+	 * <p>The scroll callback receives all scrolling input, like that from a mouse wheel or a touchpad scrolling area.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window whose callback to set
+	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
+	 *
+	 * @return the previously set callback, or {@code NULL} if no callback was set
+	 *
+	 * @since version 2.1
+	 */
+	public static GLFWScrollCallback glfwSetScrollCallback(long window, GLFWScrollCallback cbfun) {
+		return GLFWScrollCallback.create(nglfwSetScrollCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
 	// --- [ glfwSetDropCallback ] ---
@@ -3154,11 +3480,30 @@ public class GLFW {
 	 *
 	 * @since version 3.1
 	 */
-	public static GLFWDropCallback glfwSetDropCallback(long window, GLFWDropCallback cbfun) {
+	public static long nglfwSetDropCallback(long window, long cbfun) {
 		long __functionAddress = Functions.SetDropCallback;
 		if ( CHECKS )
 			checkPointer(window);
-		return GLFWDropCallback.create(invokePPP(__functionAddress, window, cbfun == null ? NULL : cbfun.address()));
+		return invokePPP(__functionAddress, window, cbfun);
+	}
+
+	/**
+	 * Sets the file drop callback of the specified window, which is called when one or more dragged files are dropped on the window.
+	 * 
+	 * <p>Because the path array and its strings may have been generated specifically for that event, they are not guaranteed to be valid after the callback has
+	 * returned. If you wish to use them after the callback returns, you need to make a deep copy.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window whose callback to set
+	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
+	 *
+	 * @return the previously set callback, or {@code NULL} if no callback was set
+	 *
+	 * @since version 3.1
+	 */
+	public static GLFWDropCallback glfwSetDropCallback(long window, GLFWDropCallback cbfun) {
+		return GLFWDropCallback.create(nglfwSetDropCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
 	// --- [ glfwJoystickPresent ] ---
@@ -3346,9 +3691,26 @@ public class GLFW {
 	 *
 	 * @since version 3.2
 	 */
-	public static GLFWJoystickCallback glfwSetJoystickCallback(GLFWJoystickCallback cbfun) {
+	public static long nglfwSetJoystickCallback(long cbfun) {
 		long __functionAddress = Functions.SetJoystickCallback;
-		return GLFWJoystickCallback.create(invokePP(__functionAddress, cbfun.address()));
+		return invokePP(__functionAddress, cbfun);
+	}
+
+	/**
+	 * Sets the joystick configuration callback, or removes the currently set callback.
+	 * 
+	 * <p>This is called when a joystick is connected to or disconnected from the system.</p>
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param cbfun the new callback, or {@code NULL} to remove the currently set callback
+	 *
+	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been initialized
+	 *
+	 * @since version 3.2
+	 */
+	public static GLFWJoystickCallback glfwSetJoystickCallback(GLFWJoystickCallback cbfun) {
+		return GLFWJoystickCallback.create(nglfwSetJoystickCallback(cbfun == null ? NULL : cbfun.address()));
 	}
 
 	// --- [ glfwSetClipboardString ] ---

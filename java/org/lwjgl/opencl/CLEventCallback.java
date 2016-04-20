@@ -7,25 +7,30 @@ package org.lwjgl.opencl;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link CL11#clSetEventCallback SetEventCallback} method. */
-public abstract class CLEventCallback extends Callback.V {
+@FunctionalInterface
+public interface CLEventCallback extends Callback.V {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.opencl.CLEventCallback");
-
-	protected CLEventCallback() {
-		super(CALL_CONVENTION_SYSTEM + "(pip)v", CLASSPATH);
+	/** Creates a {@code CLEventCallback} instance from the specified function pointer. */
+	static CLEventCallback create(long functionPointer) {
+		return functionPointer == NULL ? null : new CLEventCallbackHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code CLEventCallback} instance that delegates to the specified {@code CLEventCallback} instance. */
+	static CLEventCallback create(CLEventCallback sam) {
+		return new CLEventCallbackHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected void callback(long args) {
+	default long address() {
+		return Callback.create(this, "(pip)v", true);
+	}
+
+	@Override
+	default void callback(long args) {
 		invoke(
 			dcbArgPointer(args),
 			dcbArgInt(args),
@@ -43,27 +48,27 @@ public abstract class CLEventCallback extends Callback.V {
 	 *                                  {@code event_command_exec_status} instead.
 	 * @param user_data                 the user-specified value that was passed when calling {@link CL11#clSetEventCallback SetEventCallback}
 	 */
-	public abstract void invoke(long event, int event_command_exec_status, long user_data);
+	void invoke(long event, int event_command_exec_status, long user_data);
 
-	/** A functional interface for {@link CLEventCallback}. */
-	public interface SAM {
-		void invoke(long event, int event_command_exec_status, long user_data);
+}
+
+final class CLEventCallbackHandle extends Pointer.Default implements CLEventCallback {
+
+	private final CLEventCallback delegate;
+
+	CLEventCallbackHandle(long functionPointer, CLEventCallback delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
 	}
 
-	/**
-	 * Creates a {@link CLEventCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link CLEventCallback} instance
-	 */
-	public static CLEventCallback create(SAM sam) {
-		return new CLEventCallback() {
-			@Override
-			public void invoke(long event, int event_command_exec_status, long user_data) {
-				sam.invoke(event, event_command_exec_status, user_data);
-			}
-		};
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public void invoke(long event, int event_command_exec_status, long user_data) {
+		delegate.invoke(event, event_command_exec_status, user_data);
 	}
 
 }

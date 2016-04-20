@@ -7,7 +7,7 @@ package org.lwjgl.vulkan;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /**
@@ -15,21 +15,26 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * 
  * <p>This is a purely informational callback.</p>
  */
-public abstract class VkInternalFreeNotification extends Callback.V {
+@FunctionalInterface
+public interface VkInternalFreeNotification extends Callback.V {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.vulkan.VkInternalFreeNotification");
-
-	protected VkInternalFreeNotification() {
-		super(CALL_CONVENTION_SYSTEM + "(ppii)v", CLASSPATH);
+	/** Creates a {@code VkInternalFreeNotification} instance from the specified function pointer. */
+	static VkInternalFreeNotification create(long functionPointer) {
+		return functionPointer == NULL ? null : new VkInternalFreeNotificationHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code VkInternalFreeNotification} instance that delegates to the specified {@code VkInternalFreeNotification} instance. */
+	static VkInternalFreeNotification create(VkInternalFreeNotification sam) {
+		return new VkInternalFreeNotificationHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected void callback(long args) {
+	default long address() {
+		return Callback.create(this, "(ppii)v", true);
+	}
+
+	@Override
+	default void callback(long args) {
 		invoke(
 			dcbArgPointer(args),
 			dcbArgPointer(args),
@@ -46,27 +51,27 @@ public abstract class VkInternalFreeNotification extends Callback.V {
 	 * @param allocationType  the requested type of an allocation
 	 * @param allocationScope a {@code VkSystemAllocationScope} value specifying the scope of the lifetime of the allocation
 	 */
-	public abstract void invoke(long pUserData, long size, int allocationType, int allocationScope);
+	void invoke(long pUserData, long size, int allocationType, int allocationScope);
 
-	/** A functional interface for {@link VkInternalFreeNotification}. */
-	public interface SAM {
-		void invoke(long pUserData, long size, int allocationType, int allocationScope);
+}
+
+final class VkInternalFreeNotificationHandle extends Pointer.Default implements VkInternalFreeNotification {
+
+	private final VkInternalFreeNotification delegate;
+
+	VkInternalFreeNotificationHandle(long functionPointer, VkInternalFreeNotification delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
 	}
 
-	/**
-	 * Creates a {@link VkInternalFreeNotification} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link VkInternalFreeNotification} instance
-	 */
-	public static VkInternalFreeNotification create(SAM sam) {
-		return new VkInternalFreeNotification() {
-			@Override
-			public void invoke(long pUserData, long size, int allocationType, int allocationScope) {
-				sam.invoke(pUserData, size, allocationType, allocationScope);
-			}
-		};
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public void invoke(long pUserData, long size, int allocationType, int allocationScope) {
+		delegate.invoke(pUserData, size, allocationType, allocationScope);
 	}
 
 }

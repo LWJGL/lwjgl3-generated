@@ -7,7 +7,7 @@ package org.lwjgl.vulkan;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /**
@@ -22,21 +22,26 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * satisfying these requirements involves creating a new allocation, then the old allocation <b>must</b> be freed. If this function fails, it <b>must</b> return {@code NULL}
  * and not free the old allocation.</p>
  */
-public abstract class VkReallocationFunction extends Callback.P {
+@FunctionalInterface
+public interface VkReallocationFunction extends Callback.P {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.vulkan.VkReallocationFunction");
-
-	protected VkReallocationFunction() {
-		super(CALL_CONVENTION_SYSTEM + "(ppppi)p", CLASSPATH);
+	/** Creates a {@code VkReallocationFunction} instance from the specified function pointer. */
+	static VkReallocationFunction create(long functionPointer) {
+		return functionPointer == NULL ? null : new VkReallocationFunctionHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code VkReallocationFunction} instance that delegates to the specified {@code VkReallocationFunction} instance. */
+	static VkReallocationFunction create(VkReallocationFunction sam) {
+		return new VkReallocationFunctionHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected long callback(long args) {
+	default long address() {
+		return Callback.create(this, "(ppppi)p", true);
+	}
+
+	@Override
+	default long callback(long args) {
 		return invoke(
 			dcbArgPointer(args),
 			dcbArgPointer(args),
@@ -55,27 +60,27 @@ public abstract class VkReallocationFunction extends Callback.P {
 	 * @param alignment       the requested alignment of the allocation in bytes and <b>must</b> be a power of two
 	 * @param allocationScope a {@code VkSystemAllocationScope} value specifying the scope of the lifetime of the allocation
 	 */
-	public abstract long invoke(long pUserData, long pOriginal, long size, long alignment, int allocationScope);
+	long invoke(long pUserData, long pOriginal, long size, long alignment, int allocationScope);
 
-	/** A functional interface for {@link VkReallocationFunction}. */
-	public interface SAM {
-		long invoke(long pUserData, long pOriginal, long size, long alignment, int allocationScope);
+}
+
+final class VkReallocationFunctionHandle extends Pointer.Default implements VkReallocationFunction {
+
+	private final VkReallocationFunction delegate;
+
+	VkReallocationFunctionHandle(long functionPointer, VkReallocationFunction delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
 	}
 
-	/**
-	 * Creates a {@link VkReallocationFunction} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link VkReallocationFunction} instance
-	 */
-	public static VkReallocationFunction create(SAM sam) {
-		return new VkReallocationFunction() {
-			@Override
-			public long invoke(long pUserData, long pOriginal, long size, long alignment, int allocationScope) {
-				return sam.invoke(pUserData, pOriginal, size, alignment, allocationScope);
-			}
-		};
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public long invoke(long pUserData, long pOriginal, long size, long alignment, int allocationScope) {
+		return delegate.invoke(pUserData, pOriginal, size, alignment, allocationScope);
 	}
 
 }

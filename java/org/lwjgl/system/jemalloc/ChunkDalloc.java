@@ -7,25 +7,30 @@ package org.lwjgl.system.jemalloc;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@link ChunkHooks} struct. */
-public abstract class ChunkDalloc extends Callback.Z {
+@FunctionalInterface
+public interface ChunkDalloc extends Callback.Z {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.system.jemalloc.ChunkDalloc");
-
-	protected ChunkDalloc() {
-		super(CALL_CONVENTION_DEFAULT + "(ppBi)B", CLASSPATH);
+	/** Creates a {@code ChunkDalloc} instance from the specified function pointer. */
+	static ChunkDalloc create(long functionPointer) {
+		return functionPointer == NULL ? null : new ChunkDallocHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code ChunkDalloc} instance that delegates to the specified {@code ChunkDalloc} instance. */
+	static ChunkDalloc create(ChunkDalloc sam) {
+		return new ChunkDallocHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected boolean callback(long args) {
+	default long address() {
+		return Callback.create(this, "(ppBi)B", false);
+	}
+
+	@Override
+	default boolean callback(long args) {
 		return invoke(
 			dcbArgPointer(args),
 			dcbArgPointer(args),
@@ -42,27 +47,27 @@ public abstract class ChunkDalloc extends Callback.Z {
 	 * @param committed 
 	 * @param arena_ind 
 	 */
-	public abstract boolean invoke(long chunk, long size, boolean committed, int arena_ind);
+	boolean invoke(long chunk, long size, boolean committed, int arena_ind);
 
-	/** A functional interface for {@link ChunkDalloc}. */
-	public interface SAM {
-		boolean invoke(long chunk, long size, boolean committed, int arena_ind);
+}
+
+final class ChunkDallocHandle extends Pointer.Default implements ChunkDalloc {
+
+	private final ChunkDalloc delegate;
+
+	ChunkDallocHandle(long functionPointer, ChunkDalloc delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
 	}
 
-	/**
-	 * Creates a {@link ChunkDalloc} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link ChunkDalloc} instance
-	 */
-	public static ChunkDalloc create(SAM sam) {
-		return new ChunkDalloc() {
-			@Override
-			public boolean invoke(long chunk, long size, boolean committed, int arena_ind) {
-				return sam.invoke(chunk, size, committed, arena_ind);
-			}
-		};
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public boolean invoke(long chunk, long size, boolean committed, int arena_ind) {
+		return delegate.invoke(chunk, size, committed, arena_ind);
 	}
 
 }

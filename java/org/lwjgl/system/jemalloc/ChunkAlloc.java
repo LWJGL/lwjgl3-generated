@@ -7,25 +7,30 @@ package org.lwjgl.system.jemalloc;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@link ChunkHooks} struct. */
-public abstract class ChunkAlloc extends Callback.P {
+@FunctionalInterface
+public interface ChunkAlloc extends Callback.P {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.system.jemalloc.ChunkAlloc");
-
-	protected ChunkAlloc() {
-		super(CALL_CONVENTION_DEFAULT + "(pppppi)p", CLASSPATH);
+	/** Creates a {@code ChunkAlloc} instance from the specified function pointer. */
+	static ChunkAlloc create(long functionPointer) {
+		return functionPointer == NULL ? null : new ChunkAllocHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code ChunkAlloc} instance that delegates to the specified {@code ChunkAlloc} instance. */
+	static ChunkAlloc create(ChunkAlloc sam) {
+		return new ChunkAllocHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected long callback(long args) {
+	default long address() {
+		return Callback.create(this, "(pppppi)p", false);
+	}
+
+	@Override
+	default long callback(long args) {
 		return invoke(
 			dcbArgPointer(args),
 			dcbArgPointer(args),
@@ -46,27 +51,27 @@ public abstract class ChunkAlloc extends Callback.P {
 	 * @param commit    
 	 * @param arena_ind 
 	 */
-	public abstract long invoke(long new_addr, long size, long alignment, long zero, long commit, int arena_ind);
+	long invoke(long new_addr, long size, long alignment, long zero, long commit, int arena_ind);
 
-	/** A functional interface for {@link ChunkAlloc}. */
-	public interface SAM {
-		long invoke(long new_addr, long size, long alignment, long zero, long commit, int arena_ind);
+}
+
+final class ChunkAllocHandle extends Pointer.Default implements ChunkAlloc {
+
+	private final ChunkAlloc delegate;
+
+	ChunkAllocHandle(long functionPointer, ChunkAlloc delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
 	}
 
-	/**
-	 * Creates a {@link ChunkAlloc} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link ChunkAlloc} instance
-	 */
-	public static ChunkAlloc create(SAM sam) {
-		return new ChunkAlloc() {
-			@Override
-			public long invoke(long new_addr, long size, long alignment, long zero, long commit, int arena_ind) {
-				return sam.invoke(new_addr, size, alignment, zero, commit, arena_ind);
-			}
-		};
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public long invoke(long new_addr, long size, long alignment, long zero, long commit, int arena_ind) {
+		return delegate.invoke(new_addr, size, alignment, zero, commit, arena_ind);
 	}
 
 }

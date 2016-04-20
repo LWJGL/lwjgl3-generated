@@ -7,7 +7,7 @@ package org.lwjgl.vulkan;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /**
@@ -16,21 +16,26 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * <p>{@code pMemory may} be {@code NULL}, which the callback <b>must</b> handle safely. If {@code pMemory} is non-{@code NULL}, it must be a pointer previously allocated by
  * {@code pfnAllocation} or {@code pfnReallocation} and must be freed by the function.</p>
  */
-public abstract class VkFreeFunction extends Callback.V {
+@FunctionalInterface
+public interface VkFreeFunction extends Callback.V {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.vulkan.VkFreeFunction");
-
-	protected VkFreeFunction() {
-		super(CALL_CONVENTION_SYSTEM + "(pp)v", CLASSPATH);
+	/** Creates a {@code VkFreeFunction} instance from the specified function pointer. */
+	static VkFreeFunction create(long functionPointer) {
+		return functionPointer == NULL ? null : new VkFreeFunctionHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code VkFreeFunction} instance that delegates to the specified {@code VkFreeFunction} instance. */
+	static VkFreeFunction create(VkFreeFunction sam) {
+		return new VkFreeFunctionHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected void callback(long args) {
+	default long address() {
+		return Callback.create(this, "(pp)v", true);
+	}
+
+	@Override
+	default void callback(long args) {
 		invoke(
 			dcbArgPointer(args),
 			dcbArgPointer(args)
@@ -43,27 +48,27 @@ public abstract class VkFreeFunction extends Callback.V {
 	 * @param pUserData the value specified for {@link VkAllocationCallbacks}{@code .pUserData} in the allocator specified by the application
 	 * @param pMemory   the allocation to be freed
 	 */
-	public abstract void invoke(long pUserData, long pMemory);
+	void invoke(long pUserData, long pMemory);
 
-	/** A functional interface for {@link VkFreeFunction}. */
-	public interface SAM {
-		void invoke(long pUserData, long pMemory);
+}
+
+final class VkFreeFunctionHandle extends Pointer.Default implements VkFreeFunction {
+
+	private final VkFreeFunction delegate;
+
+	VkFreeFunctionHandle(long functionPointer, VkFreeFunction delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
 	}
 
-	/**
-	 * Creates a {@link VkFreeFunction} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link VkFreeFunction} instance
-	 */
-	public static VkFreeFunction create(SAM sam) {
-		return new VkFreeFunction() {
-			@Override
-			public void invoke(long pUserData, long pMemory) {
-				sam.invoke(pUserData, pMemory);
-			}
-		};
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public void invoke(long pUserData, long pMemory) {
+		delegate.invoke(pUserData, pMemory);
 	}
 
 }

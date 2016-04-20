@@ -215,13 +215,38 @@ public class CL11 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clSetMemObjectDestructorCallback(long memobj, CLMemObjectDestructorCallback pfn_notify, long user_data) {
+	public static int nclSetMemObjectDestructorCallback(long memobj, long pfn_notify, long user_data) {
 		long __functionAddress = CL.getICD().clSetMemObjectDestructorCallback;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(memobj);
 		}
-		return callPPPI(__functionAddress, memobj, pfn_notify.address(), user_data);
+		return callPPPI(__functionAddress, memobj, pfn_notify, user_data);
+	}
+
+	/**
+	 * Registers a user callback function with a memory object. Each call to {@code clSetMemObjectDestructorCallback} registers the specified user callback
+	 * function on a callback stack associated with {@code memobj}. The registered user callback functions are called in the reverse order in which they were
+	 * registered. The user callback functions are called and then the memory object's resources are freed and the memory object is deleted. This provides a
+	 * mechanism for the application (and libraries) using {@code memobj} to be notified when the memory referenced by {@code host_ptr}, specified when the
+	 * memory object is created and used as the storage bits for the memory object, can be reused or freed.
+	 *
+	 * @param memobj     a valid memory object
+	 * @param pfn_notify the callback function that can be registered by the application. This callback function may be called asynchronously by the OpenCL implementation.
+	 *                   It is the application's responsibility to ensure that the callback function is thread-safe.
+	 * @param user_data  will be passed as the {@code user_data} argument when {@code pfn_notify} is called. {@code user_data} can be {@code NULL}.
+	 *
+	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_MEM_OBJECT INVALID_MEM_OBJECT} if {@code memobj} is not a valid memory object.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code pfn_notify} is NULL.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
+	public static int clSetMemObjectDestructorCallback(long memobj, CLMemObjectDestructorCallback pfn_notify, long user_data) {
+		return nclSetMemObjectDestructorCallback(memobj, pfn_notify.address(), user_data);
 	}
 
 	// --- [ clEnqueueReadBufferRect ] ---
@@ -963,13 +988,64 @@ clReleaseMemObject(buf2);</code></pre>
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clSetEventCallback(long event, int command_exec_callback_type, CLEventCallback pfn_notify, long user_data) {
+	public static int nclSetEventCallback(long event, int command_exec_callback_type, long pfn_notify, long user_data) {
 		long __functionAddress = CL.getICD().clSetEventCallback;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(event);
 		}
-		return callPIPPI(__functionAddress, event, command_exec_callback_type, pfn_notify.address(), user_data);
+		return callPIPPI(__functionAddress, event, command_exec_callback_type, pfn_notify, user_data);
+	}
+
+	/**
+	 * Registers a user callback function for a specific command execution status. The registered callback function will be called when the execution status of
+	 * command associated with event changes to an execution status equal to or past the status specified by {@code command_exec_status}.
+	 * 
+	 * <p>Each call to {@code clSetEventCallback} registers the specified user callback function on a callback stack associated with event. The order in which the
+	 * registered user callback functions are called is undefined.</p>
+	 * 
+	 * <p>All callbacks registered for an event object must be called. All enqueued callbacks shall be called before the event object is destroyed. Callbacks must
+	 * return promptly. The behavior of calling expensive system routines, OpenCL API calls to create contexts or command-queues, or blocking OpenCL operations
+	 * from the following list below, in a callback is undefined.</p>
+	 * 
+	 * <ul>
+	 * <li>{@link CL10#clFinish Finish},</li>
+	 * <li>{@link CL10#clWaitForEvents WaitForEvents},</li>
+	 * <li>blocking calls to {@link CL10#clEnqueueReadBuffer EnqueueReadBuffer}, {@link #clEnqueueReadBufferRect EnqueueReadBufferRect}, {@link CL10#clEnqueueWriteBuffer EnqueueWriteBuffer}, {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect},</li>
+	 * <li>blocking calls to {@link CL10#clEnqueueReadImage EnqueueReadImage} and {@link CL10#clEnqueueWriteImage EnqueueWriteImage},</li>
+	 * <li>blocking calls to {@link CL10#clEnqueueMapBuffer EnqueueMapBuffer} and {@link CL10#clEnqueueMapImage EnqueueMapImage},</li>
+	 * <li>blocking calls to {@link CL10#clBuildProgram BuildProgram}, {@link CL12#clCompileProgram CompileProgram} or {@link CL12#clLinkProgram LinkProgram}</li>
+	 * </ul>
+	 * 
+	 * <p>If an application needs to wait for completion of a routine from the above list in a callback, please use the non-blocking form of the function, and
+	 * assign a completion callback to it to do the remainder of your work. Note that when a callback (or other code) enqueues commands to a command-queue, the
+	 * commands are not required to begin execution until the queue is flushed. In standard usage, blocking enqueue calls serve this role by implicitly
+	 * flushing the queue. Since blocking calls are not permitted in callbacks, those callbacks that enqueue commands on a command queue should either call
+	 * {@link CL10#clFlush Flush} on the queue before returning or arrange for {@link CL10#clFlush Flush} to be called later on another thread.</p>
+	 *
+	 * @param event                      a valid event object
+	 * @param command_exec_callback_type the command execution status for which the callback is registered. There is no guarantee that the callback functions registered for various
+	 *                                   execution status values for an event will be called in the exact order that the execution status of a command changes. Furthermore, it should be
+	 *                                   noted that receiving a call back for an event with a status other than {@link CL10#CL_COMPLETE COMPLETE}, in no way implies that the memory model or
+	 *                                   execution model as defined by the OpenCL specification has changed. For example, it is not valid to assume that a corresponding memory transfer has
+	 *                                   completed unless the event is in a state {@link CL10#CL_COMPLETE COMPLETE}. One of:<br><table><tr><td>{@link CL10#CL_SUBMITTED SUBMITTED}</td><td>{@link CL10#CL_RUNNING RUNNING}</td><td>{@link CL10#CL_COMPLETE COMPLETE}</td></tr></table>
+	 * @param pfn_notify                 the event callback function that can be registered by the application. This callback function may be called asynchronously by the OpenCL
+	 *                                   implementation. It is the application's responsibility to ensure that the callback function is thread-safe.
+	 * @param user_data                  will be passed as the {@code user_data} argument when {@code pfn_notify} is called. {@code user_data} can be {@code NULL}.
+	 *
+	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_EVENT INVALID_EVENT} if {@code event} is not a valid event object.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code pfn_event_notify} is {@code NULL} or if {@code command_exec_callback_type} is not {@link CL10#CL_SUBMITTED SUBMITTED},
+	 *         {@link CL10#CL_RUNNING RUNNING} or {@link CL10#CL_COMPLETE COMPLETE}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code event} is a user event object and {@code command_exec_callback_type} is not {@link CL10#CL_COMPLETE COMPLETE}.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
+	public static int clSetEventCallback(long event, int command_exec_callback_type, CLEventCallback pfn_notify, long user_data) {
+		return nclSetEventCallback(event, command_exec_callback_type, pfn_notify.address(), user_data);
 	}
 
 }

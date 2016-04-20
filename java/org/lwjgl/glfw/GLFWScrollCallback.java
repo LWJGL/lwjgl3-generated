@@ -7,27 +7,32 @@ package org.lwjgl.glfw;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetScrollCallback SetScrollCallback} method. */
-public abstract class GLFWScrollCallback extends Callback.V {
+@FunctionalInterface
+public interface GLFWScrollCallback extends Callback.V {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.glfw.GLFWScrollCallback");
-
-	protected GLFWScrollCallback() {
-		super(CALL_CONVENTION_DEFAULT + "(pdd)v", CLASSPATH);
+	/** Creates a {@code GLFWScrollCallback} instance from the specified function pointer. */
+	static GLFWScrollCallback create(long functionPointer) {
+		return functionPointer == NULL ? null : new GLFWScrollCallbackHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code GLFWScrollCallback} instance that delegates to the specified {@code GLFWScrollCallback} instance. */
+	static GLFWScrollCallback create(GLFWScrollCallback sam) {
+		return new GLFWScrollCallbackHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected void callback(long args) {
+	default long address() {
+		return Callback.create(this, "(pdd)v", false);
+	}
+
+	@Override
+	default void callback(long args) {
 		invoke(
 			dcbArgPointer(args),
 			dcbArgDouble(args),
@@ -42,33 +47,33 @@ public abstract class GLFWScrollCallback extends Callback.V {
 	 * @param xoffset the scroll offset along the x-axis
 	 * @param yoffset the scroll offset along the y-axis
 	 */
-	public abstract void invoke(long window, double xoffset, double yoffset);
-
-	/** A functional interface for {@link GLFWScrollCallback}. */
-	public interface SAM {
-		void invoke(long window, double xoffset, double yoffset);
-	}
-
-	/**
-	 * Creates a {@link GLFWScrollCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLFWScrollCallback} instance
-	 */
-	public static GLFWScrollCallback create(SAM sam) {
-		return new GLFWScrollCallback() {
-			@Override
-			public void invoke(long window, double xoffset, double yoffset) {
-				sam.invoke(window, xoffset, yoffset);
-			}
-		};
-	}
+	void invoke(long window, double xoffset, double yoffset);
 
 	/** See {@link GLFW#glfwSetScrollCallback SetScrollCallback}. */
-	public GLFWScrollCallback set(long window) {
+	default GLFWScrollCallback set(long window) {
 		glfwSetScrollCallback(window, this);
 		return this;
+	}
+
+}
+
+final class GLFWScrollCallbackHandle extends Pointer.Default implements GLFWScrollCallback {
+
+	private final GLFWScrollCallback delegate;
+
+	GLFWScrollCallbackHandle(long functionPointer, GLFWScrollCallback delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
+	}
+
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public void invoke(long window, double xoffset, double yoffset) {
+		delegate.invoke(window, xoffset, yoffset);
 	}
 
 }

@@ -7,25 +7,30 @@ package org.lwjgl.system.jemalloc;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@link ChunkHooks} struct. */
-public abstract class ChunkDecommit extends Callback.Z {
+@FunctionalInterface
+public interface ChunkDecommit extends Callback.Z {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.system.jemalloc.ChunkDecommit");
-
-	protected ChunkDecommit() {
-		super(CALL_CONVENTION_DEFAULT + "(ppppi)B", CLASSPATH);
+	/** Creates a {@code ChunkDecommit} instance from the specified function pointer. */
+	static ChunkDecommit create(long functionPointer) {
+		return functionPointer == NULL ? null : new ChunkDecommitHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code ChunkDecommit} instance that delegates to the specified {@code ChunkDecommit} instance. */
+	static ChunkDecommit create(ChunkDecommit sam) {
+		return new ChunkDecommitHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected boolean callback(long args) {
+	default long address() {
+		return Callback.create(this, "(ppppi)B", false);
+	}
+
+	@Override
+	default boolean callback(long args) {
 		return invoke(
 			dcbArgPointer(args),
 			dcbArgPointer(args),
@@ -44,27 +49,27 @@ public abstract class ChunkDecommit extends Callback.Z {
 	 * @param length    
 	 * @param arena_ind 
 	 */
-	public abstract boolean invoke(long chunk, long size, long offset, long length, int arena_ind);
+	boolean invoke(long chunk, long size, long offset, long length, int arena_ind);
 
-	/** A functional interface for {@link ChunkDecommit}. */
-	public interface SAM {
-		boolean invoke(long chunk, long size, long offset, long length, int arena_ind);
+}
+
+final class ChunkDecommitHandle extends Pointer.Default implements ChunkDecommit {
+
+	private final ChunkDecommit delegate;
+
+	ChunkDecommitHandle(long functionPointer, ChunkDecommit delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
 	}
 
-	/**
-	 * Creates a {@link ChunkDecommit} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link ChunkDecommit} instance
-	 */
-	public static ChunkDecommit create(SAM sam) {
-		return new ChunkDecommit() {
-			@Override
-			public boolean invoke(long chunk, long size, long offset, long length, int arena_ind) {
-				return sam.invoke(chunk, size, offset, length, arena_ind);
-			}
-		};
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public boolean invoke(long chunk, long size, long offset, long length, int arena_ind) {
+		return delegate.invoke(chunk, size, offset, length, arena_ind);
 	}
 
 }

@@ -7,27 +7,30 @@ package org.lwjgl.opengl;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-import static org.lwjgl.system.MemoryUtil.*;
-
 /** Instances of this interface may be passed to the {@link ARBDebugOutput#glDebugMessageCallbackARB DebugMessageCallbackARB} method. */
-public abstract class GLDebugMessageARBCallback extends Callback.V {
+@FunctionalInterface
+public interface GLDebugMessageARBCallback extends Callback.V {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.opengl.GLDebugMessageARBCallback");
-
-	protected GLDebugMessageARBCallback() {
-		super(CALL_CONVENTION_SYSTEM + "(iiiiipp)v", CLASSPATH);
+	/** Creates a {@code GLDebugMessageARBCallback} instance from the specified function pointer. */
+	static GLDebugMessageARBCallback create(long functionPointer) {
+		return functionPointer == NULL ? null : new GLDebugMessageARBCallbackHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code GLDebugMessageARBCallback} instance that delegates to the specified {@code GLDebugMessageARBCallback} instance. */
+	static GLDebugMessageARBCallback create(GLDebugMessageARBCallback sam) {
+		return new GLDebugMessageARBCallbackHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected void callback(long args) {
+	default long address() {
+		return Callback.create(this, "(iiiiipp)v", true);
+	}
+
+	@Override
+	default void callback(long args) {
 		invoke(
 			dcbArgInt(args),
 			dcbArgInt(args),
@@ -50,28 +53,7 @@ public abstract class GLDebugMessageARBCallback extends Callback.V {
 	 * @param message   a pointer to the message string representation
 	 * @param userParam the user-specified value that was passed when calling {@link ARBDebugOutput#glDebugMessageCallbackARB DebugMessageCallbackARB}
 	 */
-	public abstract void invoke(int source, int type, int id, int severity, int length, long message, long userParam);
-
-	/** A functional interface for {@link GLDebugMessageARBCallback}. */
-	public interface SAM {
-		void invoke(int source, int type, int id, int severity, int length, long message, long userParam);
-	}
-
-	/**
-	 * Creates a {@link GLDebugMessageARBCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLDebugMessageARBCallback} instance
-	 */
-	public static GLDebugMessageARBCallback create(SAM sam) {
-		return new GLDebugMessageARBCallback() {
-			@Override
-			public void invoke(int source, int type, int id, int severity, int length, long message, long userParam) {
-				sam.invoke(source, type, id, severity, length, message, userParam);
-			}
-		};
-	}
+	void invoke(int source, int type, int id, int severity, int length, long message, long userParam);
 
 	/**
 	 * Converts the specified {@link GLDebugMessageARBCallback} arguments to a String.
@@ -83,29 +65,29 @@ public abstract class GLDebugMessageARBCallback extends Callback.V {
 	 *
 	 * @return the message as a String
 	 */
-	public static String getMessage(int length, long message) {
+	static String getMessage(int length, long message) {
 		return memUTF8(memByteBuffer(message, length));
 	}
 
-	/** A functional interface for {@link GLDebugMessageARBCallback}. */
-	public interface SAMString {
-		void invoke(int source, int type, int id, int severity, String message, long userParam);
+}
+
+final class GLDebugMessageARBCallbackHandle extends Pointer.Default implements GLDebugMessageARBCallback {
+
+	private final GLDebugMessageARBCallback delegate;
+
+	GLDebugMessageARBCallbackHandle(long functionPointer, GLDebugMessageARBCallback delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
 	}
 
-	/**
-	 * Creates a {@link GLDebugMessageARBCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLDebugMessageARBCallback} instance
-	 */
-	public static GLDebugMessageARBCallback createString(SAMString sam) {
-		return new GLDebugMessageARBCallback() {
-			@Override
-			public void invoke(int source, int type, int id, int severity, int length, long message, long userParam) {
-				sam.invoke(source, type, id, severity, getMessage(length, message), userParam);
-			}
-		};
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public void invoke(int source, int type, int id, int severity, int length, long message, long userParam) {
+		delegate.invoke(source, type, id, severity, length, message, userParam);
 	}
 
 }

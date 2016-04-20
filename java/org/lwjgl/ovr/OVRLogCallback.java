@@ -7,27 +7,30 @@ package org.lwjgl.ovr;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-import static org.lwjgl.system.MemoryUtil.*;
-
 /** Instances of this interface may be passed to the {@code LogCallback} member of the {@link OVRInitParams} struct. */
-public abstract class OVRLogCallback extends Callback.V {
+@FunctionalInterface
+public interface OVRLogCallback extends Callback.V {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.ovr.OVRLogCallback");
-
-	protected OVRLogCallback() {
-		super(CALL_CONVENTION_DEFAULT + "(pip)v", CLASSPATH);
+	/** Creates a {@code OVRLogCallback} instance from the specified function pointer. */
+	static OVRLogCallback create(long functionPointer) {
+		return functionPointer == NULL ? null : new OVRLogCallbackHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code OVRLogCallback} instance that delegates to the specified {@code OVRLogCallback} instance. */
+	static OVRLogCallback create(OVRLogCallback sam) {
+		return new OVRLogCallbackHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected void callback(long args) {
+	default long address() {
+		return Callback.create(this, "(pip)v", false);
+	}
+
+	@Override
+	default void callback(long args) {
 		invoke(
 			dcbArgPointer(args),
 			dcbArgInt(args),
@@ -42,28 +45,7 @@ public abstract class OVRLogCallback extends Callback.V {
 	 * @param level    one of the {@code ovrLogLevel} constants
 	 * @param message  a UTF8-encoded null-terminated string
 	 */
-	public abstract void invoke(long userData, int level, long message);
-
-	/** A functional interface for {@link OVRLogCallback}. */
-	public interface SAM {
-		void invoke(long userData, int level, long message);
-	}
-
-	/**
-	 * Creates a {@link OVRLogCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link OVRLogCallback} instance
-	 */
-	public static OVRLogCallback create(SAM sam) {
-		return new OVRLogCallback() {
-			@Override
-			public void invoke(long userData, int level, long message) {
-				sam.invoke(userData, level, message);
-			}
-		};
-	}
+	void invoke(long userData, int level, long message);
 
 	/**
 	 * Converts the specified {@link OVRLogCallback} argument to a String.
@@ -74,29 +56,29 @@ public abstract class OVRLogCallback extends Callback.V {
 	 *
 	 * @return the message as a String
 	 */
-	public static String getMessage(long message) {
+	static String getMessage(long message) {
 		return memUTF8(message);
 	}
 
-	/** A functional interface for {@link OVRLogCallback}. */
-	public interface SAMString {
-		void invoke(long userData, int level, String message);
+}
+
+final class OVRLogCallbackHandle extends Pointer.Default implements OVRLogCallback {
+
+	private final OVRLogCallback delegate;
+
+	OVRLogCallbackHandle(long functionPointer, OVRLogCallback delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
 	}
 
-	/**
-	 * Creates a {@link OVRLogCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link OVRLogCallback} instance
-	 */
-	public static OVRLogCallback createString(SAMString sam) {
-		return new OVRLogCallback() {
-			@Override
-			public void invoke(long userData, int level, long message) {
-				sam.invoke(userData, level, getMessage(message));
-			}
-		};
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public void invoke(long userData, int level, long message) {
+		delegate.invoke(userData, level, message);
 	}
 
 }

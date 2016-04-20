@@ -7,27 +7,30 @@ package org.lwjgl.opengl;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-import static org.lwjgl.system.MemoryUtil.*;
-
 /** Instances of this interface may be passed to the {@link AMDDebugOutput#glDebugMessageCallbackAMD DebugMessageCallbackAMD} method. */
-public abstract class GLDebugMessageAMDCallback extends Callback.V {
+@FunctionalInterface
+public interface GLDebugMessageAMDCallback extends Callback.V {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.opengl.GLDebugMessageAMDCallback");
-
-	protected GLDebugMessageAMDCallback() {
-		super(CALL_CONVENTION_SYSTEM + "(iiiipp)v", CLASSPATH);
+	/** Creates a {@code GLDebugMessageAMDCallback} instance from the specified function pointer. */
+	static GLDebugMessageAMDCallback create(long functionPointer) {
+		return functionPointer == NULL ? null : new GLDebugMessageAMDCallbackHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code GLDebugMessageAMDCallback} instance that delegates to the specified {@code GLDebugMessageAMDCallback} instance. */
+	static GLDebugMessageAMDCallback create(GLDebugMessageAMDCallback sam) {
+		return new GLDebugMessageAMDCallbackHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected void callback(long args) {
+	default long address() {
+		return Callback.create(this, "(iiiipp)v", true);
+	}
+
+	@Override
+	default void callback(long args) {
 		invoke(
 			dcbArgInt(args),
 			dcbArgInt(args),
@@ -48,28 +51,7 @@ public abstract class GLDebugMessageAMDCallback extends Callback.V {
 	 * @param message   a pointer to the message string representation
 	 * @param userParam the user-specified value that was passed when calling {@link AMDDebugOutput#glDebugMessageCallbackAMD DebugMessageCallbackAMD}
 	 */
-	public abstract void invoke(int id, int category, int severity, int length, long message, long userParam);
-
-	/** A functional interface for {@link GLDebugMessageAMDCallback}. */
-	public interface SAM {
-		void invoke(int id, int category, int severity, int length, long message, long userParam);
-	}
-
-	/**
-	 * Creates a {@link GLDebugMessageAMDCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLDebugMessageAMDCallback} instance
-	 */
-	public static GLDebugMessageAMDCallback create(SAM sam) {
-		return new GLDebugMessageAMDCallback() {
-			@Override
-			public void invoke(int id, int category, int severity, int length, long message, long userParam) {
-				sam.invoke(id, category, severity, length, message, userParam);
-			}
-		};
-	}
+	void invoke(int id, int category, int severity, int length, long message, long userParam);
 
 	/**
 	 * Converts the specified {@link GLDebugMessageAMDCallback} arguments to a String.
@@ -81,29 +63,29 @@ public abstract class GLDebugMessageAMDCallback extends Callback.V {
 	 *
 	 * @return the message as a String
 	 */
-	public static String getMessage(int length, long message) {
+	static String getMessage(int length, long message) {
 		return memUTF8(memByteBuffer(message, length));
 	}
 
-	/** A functional interface for {@link GLDebugMessageAMDCallback}. */
-	public interface SAMString {
-		void invoke(int id, int category, int severity, String message, long userParam);
+}
+
+final class GLDebugMessageAMDCallbackHandle extends Pointer.Default implements GLDebugMessageAMDCallback {
+
+	private final GLDebugMessageAMDCallback delegate;
+
+	GLDebugMessageAMDCallbackHandle(long functionPointer, GLDebugMessageAMDCallback delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
 	}
 
-	/**
-	 * Creates a {@link GLDebugMessageAMDCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLDebugMessageAMDCallback} instance
-	 */
-	public static GLDebugMessageAMDCallback createString(SAMString sam) {
-		return new GLDebugMessageAMDCallback() {
-			@Override
-			public void invoke(int id, int category, int severity, int length, long message, long userParam) {
-				sam.invoke(id, category, severity, getMessage(length, message), userParam);
-			}
-		};
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public void invoke(int id, int category, int severity, int length, long message, long userParam) {
+		delegate.invoke(id, category, severity, length, message, userParam);
 	}
 
 }

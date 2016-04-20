@@ -7,25 +7,30 @@ package org.lwjgl.vulkan;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@code pfnAllocation} member of the {@link VkAllocationCallbacks} struct. */
-public abstract class VkAllocationFunction extends Callback.P {
+@FunctionalInterface
+public interface VkAllocationFunction extends Callback.P {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.vulkan.VkAllocationFunction");
-
-	protected VkAllocationFunction() {
-		super(CALL_CONVENTION_SYSTEM + "(pppi)p", CLASSPATH);
+	/** Creates a {@code VkAllocationFunction} instance from the specified function pointer. */
+	static VkAllocationFunction create(long functionPointer) {
+		return functionPointer == NULL ? null : new VkAllocationFunctionHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code VkAllocationFunction} instance that delegates to the specified {@code VkAllocationFunction} instance. */
+	static VkAllocationFunction create(VkAllocationFunction sam) {
+		return new VkAllocationFunctionHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected long callback(long args) {
+	default long address() {
+		return Callback.create(this, "(pppi)p", true);
+	}
+
+	@Override
+	default long callback(long args) {
 		return invoke(
 			dcbArgPointer(args),
 			dcbArgPointer(args),
@@ -45,27 +50,27 @@ public abstract class VkAllocationFunction extends Callback.P {
 	 * @return <b>must</b> either return {@code NULL} (in case of allocation failure or if size is zero) or a valid pointer to a memory allocation containing at least size bytes, and
 	 *         with the pointer value being a multiple of alignment.
 	 */
-	public abstract long invoke(long pUserData, long size, long alignment, int allocationScope);
+	long invoke(long pUserData, long size, long alignment, int allocationScope);
 
-	/** A functional interface for {@link VkAllocationFunction}. */
-	public interface SAM {
-		long invoke(long pUserData, long size, long alignment, int allocationScope);
+}
+
+final class VkAllocationFunctionHandle extends Pointer.Default implements VkAllocationFunction {
+
+	private final VkAllocationFunction delegate;
+
+	VkAllocationFunctionHandle(long functionPointer, VkAllocationFunction delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
 	}
 
-	/**
-	 * Creates a {@link VkAllocationFunction} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link VkAllocationFunction} instance
-	 */
-	public static VkAllocationFunction create(SAM sam) {
-		return new VkAllocationFunction() {
-			@Override
-			public long invoke(long pUserData, long size, long alignment, int allocationScope) {
-				return sam.invoke(pUserData, size, alignment, allocationScope);
-			}
-		};
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public long invoke(long pUserData, long size, long alignment, int allocationScope) {
+		return delegate.invoke(pUserData, size, alignment, allocationScope);
 	}
 
 }

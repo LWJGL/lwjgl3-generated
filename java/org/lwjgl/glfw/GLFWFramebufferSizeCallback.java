@@ -7,27 +7,32 @@ package org.lwjgl.glfw;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetFramebufferSizeCallback SetFramebufferSizeCallback} method. */
-public abstract class GLFWFramebufferSizeCallback extends Callback.V {
+@FunctionalInterface
+public interface GLFWFramebufferSizeCallback extends Callback.V {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.glfw.GLFWFramebufferSizeCallback");
-
-	protected GLFWFramebufferSizeCallback() {
-		super(CALL_CONVENTION_DEFAULT + "(pii)v", CLASSPATH);
+	/** Creates a {@code GLFWFramebufferSizeCallback} instance from the specified function pointer. */
+	static GLFWFramebufferSizeCallback create(long functionPointer) {
+		return functionPointer == NULL ? null : new GLFWFramebufferSizeCallbackHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code GLFWFramebufferSizeCallback} instance that delegates to the specified {@code GLFWFramebufferSizeCallback} instance. */
+	static GLFWFramebufferSizeCallback create(GLFWFramebufferSizeCallback sam) {
+		return new GLFWFramebufferSizeCallbackHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected void callback(long args) {
+	default long address() {
+		return Callback.create(this, "(pii)v", false);
+	}
+
+	@Override
+	default void callback(long args) {
 		invoke(
 			dcbArgPointer(args),
 			dcbArgInt(args),
@@ -42,33 +47,33 @@ public abstract class GLFWFramebufferSizeCallback extends Callback.V {
 	 * @param width  the new width, in pixels, of the framebuffer
 	 * @param height the new height, in pixels, of the framebuffer
 	 */
-	public abstract void invoke(long window, int width, int height);
-
-	/** A functional interface for {@link GLFWFramebufferSizeCallback}. */
-	public interface SAM {
-		void invoke(long window, int width, int height);
-	}
-
-	/**
-	 * Creates a {@link GLFWFramebufferSizeCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLFWFramebufferSizeCallback} instance
-	 */
-	public static GLFWFramebufferSizeCallback create(SAM sam) {
-		return new GLFWFramebufferSizeCallback() {
-			@Override
-			public void invoke(long window, int width, int height) {
-				sam.invoke(window, width, height);
-			}
-		};
-	}
+	void invoke(long window, int width, int height);
 
 	/** See {@link GLFW#glfwSetFramebufferSizeCallback SetFramebufferSizeCallback}. */
-	public GLFWFramebufferSizeCallback set(long window) {
+	default GLFWFramebufferSizeCallback set(long window) {
 		glfwSetFramebufferSizeCallback(window, this);
 		return this;
+	}
+
+}
+
+final class GLFWFramebufferSizeCallbackHandle extends Pointer.Default implements GLFWFramebufferSizeCallback {
+
+	private final GLFWFramebufferSizeCallback delegate;
+
+	GLFWFramebufferSizeCallbackHandle(long functionPointer, GLFWFramebufferSizeCallback delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
+	}
+
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public void invoke(long window, int width, int height) {
+		delegate.invoke(window, width, height);
 	}
 
 }

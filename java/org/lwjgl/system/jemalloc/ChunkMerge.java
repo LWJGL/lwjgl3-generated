@@ -7,25 +7,30 @@ package org.lwjgl.system.jemalloc;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@link ChunkHooks} struct. */
-public abstract class ChunkMerge extends Callback.Z {
+@FunctionalInterface
+public interface ChunkMerge extends Callback.Z {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.system.jemalloc.ChunkMerge");
-
-	protected ChunkMerge() {
-		super(CALL_CONVENTION_DEFAULT + "(ppppBi)B", CLASSPATH);
+	/** Creates a {@code ChunkMerge} instance from the specified function pointer. */
+	static ChunkMerge create(long functionPointer) {
+		return functionPointer == NULL ? null : new ChunkMergeHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code ChunkMerge} instance that delegates to the specified {@code ChunkMerge} instance. */
+	static ChunkMerge create(ChunkMerge sam) {
+		return new ChunkMergeHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected boolean callback(long args) {
+	default long address() {
+		return Callback.create(this, "(ppppBi)B", false);
+	}
+
+	@Override
+	default boolean callback(long args) {
 		return invoke(
 			dcbArgPointer(args),
 			dcbArgPointer(args),
@@ -46,27 +51,27 @@ public abstract class ChunkMerge extends Callback.Z {
 	 * @param committed 
 	 * @param arena_ind 
 	 */
-	public abstract boolean invoke(long chunk_a, long size_a, long chunk_b, long size_b, boolean committed, int arena_ind);
+	boolean invoke(long chunk_a, long size_a, long chunk_b, long size_b, boolean committed, int arena_ind);
 
-	/** A functional interface for {@link ChunkMerge}. */
-	public interface SAM {
-		boolean invoke(long chunk_a, long size_a, long chunk_b, long size_b, boolean committed, int arena_ind);
+}
+
+final class ChunkMergeHandle extends Pointer.Default implements ChunkMerge {
+
+	private final ChunkMerge delegate;
+
+	ChunkMergeHandle(long functionPointer, ChunkMerge delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
 	}
 
-	/**
-	 * Creates a {@link ChunkMerge} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link ChunkMerge} instance
-	 */
-	public static ChunkMerge create(SAM sam) {
-		return new ChunkMerge() {
-			@Override
-			public boolean invoke(long chunk_a, long size_a, long chunk_b, long size_b, boolean committed, int arena_ind) {
-				return sam.invoke(chunk_a, size_a, chunk_b, size_b, committed, arena_ind);
-			}
-		};
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public boolean invoke(long chunk_a, long size_a, long chunk_b, long size_b, boolean committed, int arena_ind) {
+		return delegate.invoke(chunk_a, size_a, chunk_b, size_b, committed, arena_ind);
 	}
 
 }

@@ -7,7 +7,7 @@ package org.lwjgl.glfw;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 import org.lwjgl.opengl.GL11;
@@ -15,21 +15,26 @@ import org.lwjgl.opengl.GL11;
 import static org.lwjgl.glfw.GLFW.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowIconifyCallback SetWindowIconifyCallback} method. */
-public abstract class GLFWWindowIconifyCallback extends Callback.V {
+@FunctionalInterface
+public interface GLFWWindowIconifyCallback extends Callback.V {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.glfw.GLFWWindowIconifyCallback");
-
-	protected GLFWWindowIconifyCallback() {
-		super(CALL_CONVENTION_DEFAULT + "(pi)v", CLASSPATH);
+	/** Creates a {@code GLFWWindowIconifyCallback} instance from the specified function pointer. */
+	static GLFWWindowIconifyCallback create(long functionPointer) {
+		return functionPointer == NULL ? null : new GLFWWindowIconifyCallbackHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code GLFWWindowIconifyCallback} instance that delegates to the specified {@code GLFWWindowIconifyCallback} instance. */
+	static GLFWWindowIconifyCallback create(GLFWWindowIconifyCallback sam) {
+		return new GLFWWindowIconifyCallbackHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected void callback(long args) {
+	default long address() {
+		return Callback.create(this, "(pi)v", false);
+	}
+
+	@Override
+	default void callback(long args) {
 		invoke(
 			dcbArgPointer(args),
 			dcbArgInt(args) != 0
@@ -42,33 +47,33 @@ public abstract class GLFWWindowIconifyCallback extends Callback.V {
 	 * @param window    the window that was iconified or restored.
 	 * @param iconified {@link GL11#GL_TRUE} if the window was iconified, or {@link GL11#GL_FALSE} if it was restored
 	 */
-	public abstract void invoke(long window, boolean iconified);
-
-	/** A functional interface for {@link GLFWWindowIconifyCallback}. */
-	public interface SAM {
-		void invoke(long window, boolean iconified);
-	}
-
-	/**
-	 * Creates a {@link GLFWWindowIconifyCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLFWWindowIconifyCallback} instance
-	 */
-	public static GLFWWindowIconifyCallback create(SAM sam) {
-		return new GLFWWindowIconifyCallback() {
-			@Override
-			public void invoke(long window, boolean iconified) {
-				sam.invoke(window, iconified);
-			}
-		};
-	}
+	void invoke(long window, boolean iconified);
 
 	/** See {@link GLFW#glfwSetWindowIconifyCallback SetWindowIconifyCallback}. */
-	public GLFWWindowIconifyCallback set(long window) {
+	default GLFWWindowIconifyCallback set(long window) {
 		glfwSetWindowIconifyCallback(window, this);
 		return this;
+	}
+
+}
+
+final class GLFWWindowIconifyCallbackHandle extends Pointer.Default implements GLFWWindowIconifyCallback {
+
+	private final GLFWWindowIconifyCallback delegate;
+
+	GLFWWindowIconifyCallbackHandle(long functionPointer, GLFWWindowIconifyCallback delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
+	}
+
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public void invoke(long window, boolean iconified) {
+		delegate.invoke(window, iconified);
 	}
 
 }

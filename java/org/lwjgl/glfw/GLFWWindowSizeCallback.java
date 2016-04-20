@@ -7,27 +7,32 @@ package org.lwjgl.glfw;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowSizeCallback SetWindowSizeCallback} method. */
-public abstract class GLFWWindowSizeCallback extends Callback.V {
+@FunctionalInterface
+public interface GLFWWindowSizeCallback extends Callback.V {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.glfw.GLFWWindowSizeCallback");
-
-	protected GLFWWindowSizeCallback() {
-		super(CALL_CONVENTION_DEFAULT + "(pii)v", CLASSPATH);
+	/** Creates a {@code GLFWWindowSizeCallback} instance from the specified function pointer. */
+	static GLFWWindowSizeCallback create(long functionPointer) {
+		return functionPointer == NULL ? null : new GLFWWindowSizeCallbackHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code GLFWWindowSizeCallback} instance that delegates to the specified {@code GLFWWindowSizeCallback} instance. */
+	static GLFWWindowSizeCallback create(GLFWWindowSizeCallback sam) {
+		return new GLFWWindowSizeCallbackHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected void callback(long args) {
+	default long address() {
+		return Callback.create(this, "(pii)v", false);
+	}
+
+	@Override
+	default void callback(long args) {
 		invoke(
 			dcbArgPointer(args),
 			dcbArgInt(args),
@@ -42,33 +47,33 @@ public abstract class GLFWWindowSizeCallback extends Callback.V {
 	 * @param width  the new width, in screen coordinates, of the window
 	 * @param height the new height, in screen coordinates, of the window
 	 */
-	public abstract void invoke(long window, int width, int height);
-
-	/** A functional interface for {@link GLFWWindowSizeCallback}. */
-	public interface SAM {
-		void invoke(long window, int width, int height);
-	}
-
-	/**
-	 * Creates a {@link GLFWWindowSizeCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link GLFWWindowSizeCallback} instance
-	 */
-	public static GLFWWindowSizeCallback create(SAM sam) {
-		return new GLFWWindowSizeCallback() {
-			@Override
-			public void invoke(long window, int width, int height) {
-				sam.invoke(window, width, height);
-			}
-		};
-	}
+	void invoke(long window, int width, int height);
 
 	/** See {@link GLFW#glfwSetWindowSizeCallback SetWindowSizeCallback}. */
-	public GLFWWindowSizeCallback set(long window) {
+	default GLFWWindowSizeCallback set(long window) {
 		glfwSetWindowSizeCallback(window, this);
 		return this;
+	}
+
+}
+
+final class GLFWWindowSizeCallbackHandle extends Pointer.Default implements GLFWWindowSizeCallback {
+
+	private final GLFWWindowSizeCallback delegate;
+
+	GLFWWindowSizeCallbackHandle(long functionPointer, GLFWWindowSizeCallback delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
+	}
+
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public void invoke(long window, int width, int height) {
+		delegate.invoke(window, width, height);
 	}
 
 }

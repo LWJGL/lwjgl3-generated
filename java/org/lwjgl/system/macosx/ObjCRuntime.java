@@ -3438,9 +3438,18 @@ public class ObjCRuntime {
 	 *
 	 * @param handler a function pointer to the new mutation handler
 	 */
-	public static void objc_setEnumerationMutationHandler(EnumerationMutationHandler handler) {
+	public static void nobjc_setEnumerationMutationHandler(long handler) {
 		long __functionAddress = Functions.objc_setEnumerationMutationHandler;
-		invokePV(__functionAddress, handler.address());
+		invokePV(__functionAddress, handler);
+	}
+
+	/**
+	 * Sets the current mutation handler.
+	 *
+	 * @param handler a function pointer to the new mutation handler
+	 */
+	public static void objc_setEnumerationMutationHandler(EnumerationMutationHandler handler) {
+		nobjc_setEnumerationMutationHandler(handler.address());
 	}
 
 	// --- [ imp_implementationWithBlock ] ---

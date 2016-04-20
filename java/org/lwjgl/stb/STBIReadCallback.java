@@ -7,29 +7,32 @@ package org.lwjgl.stb;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 import java.nio.*;
 
-import static org.lwjgl.system.MemoryUtil.*;
-
 /** Instances of this interface may be set to the {@code read} field of the {@link STBIIOCallbacks} struct. */
-public abstract class STBIReadCallback extends Callback.I {
+@FunctionalInterface
+public interface STBIReadCallback extends Callback.I {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.stb.STBIReadCallback");
-
-	protected STBIReadCallback() {
-		super(CALL_CONVENTION_DEFAULT + "(ppi)i", CLASSPATH);
+	/** Creates a {@code STBIReadCallback} instance from the specified function pointer. */
+	static STBIReadCallback create(long functionPointer) {
+		return functionPointer == NULL ? null : new STBIReadCallbackHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code STBIReadCallback} instance that delegates to the specified {@code STBIReadCallback} instance. */
+	static STBIReadCallback create(STBIReadCallback sam) {
+		return new STBIReadCallbackHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected int callback(long args) {
+	default long address() {
+		return Callback.create(this, "(ppi)i", false);
+	}
+
+	@Override
+	default int callback(long args) {
 		return invoke(
 			dcbArgPointer(args),
 			dcbArgPointer(args),
@@ -46,28 +49,7 @@ public abstract class STBIReadCallback extends Callback.I {
 	 *
 	 * @return the number of bytes actually read
 	 */
-	public abstract int invoke(long user, long data, int size);
-
-	/** A functional interface for {@link STBIReadCallback}. */
-	public interface SAM {
-		int invoke(long user, long data, int size);
-	}
-
-	/**
-	 * Creates a {@link STBIReadCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link STBIReadCallback} instance
-	 */
-	public static STBIReadCallback create(SAM sam) {
-		return new STBIReadCallback() {
-			@Override
-			public int invoke(long user, long data, int size) {
-				return sam.invoke(user, data, size);
-			}
-		};
-	}
+	int invoke(long user, long data, int size);
 
 	/**
 	 * Converts the specified {@link STBIReadCallback} arguments to a ByteBuffer.
@@ -79,29 +61,29 @@ public abstract class STBIReadCallback extends Callback.I {
 	 *
 	 * @return the data as a ByteBuffer
 	 */
-	public static ByteBuffer getData(long data, int size) {
+	static ByteBuffer getData(long data, int size) {
 		return memByteBuffer(data, size);
 	}
 
-	/** A functional interface for {@link STBIReadCallback}. */
-	public interface SAMBuffer {
-		int invoke(long user, ByteBuffer data);
+}
+
+final class STBIReadCallbackHandle extends Pointer.Default implements STBIReadCallback {
+
+	private final STBIReadCallback delegate;
+
+	STBIReadCallbackHandle(long functionPointer, STBIReadCallback delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
 	}
 
-	/**
-	 * Creates a {@link STBIReadCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link STBIReadCallback} instance
-	 */
-	public static STBIReadCallback createBuffer(SAMBuffer sam) {
-		return new STBIReadCallback() {
-			@Override
-			public int invoke(long user, long data, int size) {
-				return sam.invoke(user, getData(data, size));
-			}
-		};
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public int invoke(long user, long data, int size) {
+		return delegate.invoke(user, data, size);
 	}
 
 }

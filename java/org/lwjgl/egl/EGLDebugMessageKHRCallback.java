@@ -7,27 +7,30 @@ package org.lwjgl.egl;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-import static org.lwjgl.system.MemoryUtil.*;
-
 /** Instances of this interface may be passed to the {@link KHRDebug#eglDebugMessageControlKHR DebugMessageControlKHR} method. */
-public abstract class EGLDebugMessageKHRCallback extends Callback.V {
+@FunctionalInterface
+public interface EGLDebugMessageKHRCallback extends Callback.V {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.egl.EGLDebugMessageKHRCallback");
-
-	protected EGLDebugMessageKHRCallback() {
-		super(CALL_CONVENTION_SYSTEM + "(ipippp)v", CLASSPATH);
+	/** Creates a {@code EGLDebugMessageKHRCallback} instance from the specified function pointer. */
+	static EGLDebugMessageKHRCallback create(long functionPointer) {
+		return functionPointer == NULL ? null : new EGLDebugMessageKHRCallbackHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code EGLDebugMessageKHRCallback} instance that delegates to the specified {@code EGLDebugMessageKHRCallback} instance. */
+	static EGLDebugMessageKHRCallback create(EGLDebugMessageKHRCallback sam) {
+		return new EGLDebugMessageKHRCallbackHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected void callback(long args) {
+	default long address() {
+		return Callback.create(this, "(ipippp)v", true);
+	}
+
+	@Override
+	default void callback(long args) {
 		invoke(
 			dcbArgInt(args),
 			dcbArgPointer(args),
@@ -54,28 +57,7 @@ public abstract class EGLDebugMessageKHRCallback extends Callback.V {
 	 *                    condition that generated the message. The format of a message is implementation-defined, although it should represent a concise description of the
 	 *                    event that caused the message to be generated. Message strings can be {@code NULL} and should not be assumed otherwise.
 	 */
-	public abstract void invoke(int error, long command, int messageType, long threadLabel, long objectLabel, long message);
-
-	/** A functional interface for {@link EGLDebugMessageKHRCallback}. */
-	public interface SAM {
-		void invoke(int error, long command, int messageType, long threadLabel, long objectLabel, long message);
-	}
-
-	/**
-	 * Creates a {@link EGLDebugMessageKHRCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link EGLDebugMessageKHRCallback} instance
-	 */
-	public static EGLDebugMessageKHRCallback create(SAM sam) {
-		return new EGLDebugMessageKHRCallback() {
-			@Override
-			public void invoke(int error, long command, int messageType, long threadLabel, long objectLabel, long message) {
-				sam.invoke(error, command, messageType, threadLabel, objectLabel, message);
-			}
-		};
-	}
+	void invoke(int error, long command, int messageType, long threadLabel, long objectLabel, long message);
 
 	/**
 	 * Converts the specified {@link EGLDebugMessageKHRCallback} argument to a String.
@@ -86,7 +68,7 @@ public abstract class EGLDebugMessageKHRCallback extends Callback.V {
 	 *
 	 * @return the command as a String
 	 */
-	public static String getCommand(long command) {
+	static String getCommand(long command) {
 		return memASCII(command);
 	}
 
@@ -99,29 +81,29 @@ public abstract class EGLDebugMessageKHRCallback extends Callback.V {
 	 *
 	 * @return the message as a String
 	 */
-	public static String getMessage(long message) {
+	static String getMessage(long message) {
 		return memUTF8(message);
 	}
 
-	/** A functional interface for {@link EGLDebugMessageKHRCallback}. */
-	public interface SAMString {
-		void invoke(int error, String command, int messageType, long threadLabel, long objectLabel, String message);
+}
+
+final class EGLDebugMessageKHRCallbackHandle extends Pointer.Default implements EGLDebugMessageKHRCallback {
+
+	private final EGLDebugMessageKHRCallback delegate;
+
+	EGLDebugMessageKHRCallbackHandle(long functionPointer, EGLDebugMessageKHRCallback delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
 	}
 
-	/**
-	 * Creates a {@link EGLDebugMessageKHRCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link EGLDebugMessageKHRCallback} instance
-	 */
-	public static EGLDebugMessageKHRCallback createString(SAMString sam) {
-		return new EGLDebugMessageKHRCallback() {
-			@Override
-			public void invoke(int error, long command, int messageType, long threadLabel, long objectLabel, long message) {
-				sam.invoke(error, getCommand(command), messageType, threadLabel, objectLabel, getMessage(message));
-			}
-		};
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public void invoke(int error, long command, int messageType, long threadLabel, long objectLabel, long message) {
+		delegate.invoke(error, command, messageType, threadLabel, objectLabel, message);
 	}
 
 }

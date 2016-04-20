@@ -7,25 +7,30 @@ package org.lwjgl.stb;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
+import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@code skip} field of the {@link STBIIOCallbacks} struct. */
-public abstract class STBISkipCallback extends Callback.V {
+@FunctionalInterface
+public interface STBISkipCallback extends Callback.V {
 
-	private static final long CLASSPATH = apiCallbackText("org.lwjgl.stb.STBISkipCallback");
-
-	protected STBISkipCallback() {
-		super(CALL_CONVENTION_DEFAULT + "(pi)v", CLASSPATH);
+	/** Creates a {@code STBISkipCallback} instance from the specified function pointer. */
+	static STBISkipCallback create(long functionPointer) {
+		return functionPointer == NULL ? null : new STBISkipCallbackHandle(functionPointer, Callback.get(functionPointer));
 	}
 
-	/**
-	 * Will be called from native code. Decodes the arguments and passes them to {@link #invoke}.
-	 *
-	 * @param args pointer to an array of jvalues
-	 */
+	/** Creates a {@code STBISkipCallback} instance that delegates to the specified {@code STBISkipCallback} instance. */
+	static STBISkipCallback create(STBISkipCallback sam) {
+		return new STBISkipCallbackHandle(sam.address(), sam);
+	}
+
 	@Override
-	protected void callback(long args) {
+	default long address() {
+		return Callback.create(this, "(pi)v", false);
+	}
+
+	@Override
+	default void callback(long args) {
 		invoke(
 			dcbArgPointer(args),
 			dcbArgInt(args)
@@ -38,27 +43,27 @@ public abstract class STBISkipCallback extends Callback.V {
 	 * @param user a pointer to user data
 	 * @param n    the number of bytes to skip if positive, or <em>unget</em> the last {@code -n} bytes if negative
 	 */
-	public abstract void invoke(long user, int n);
+	void invoke(long user, int n);
 
-	/** A functional interface for {@link STBISkipCallback}. */
-	public interface SAM {
-		void invoke(long user, int n);
+}
+
+final class STBISkipCallbackHandle extends Pointer.Default implements STBISkipCallback {
+
+	private final STBISkipCallback delegate;
+
+	STBISkipCallbackHandle(long functionPointer, STBISkipCallback delegate) {
+		super(functionPointer);
+		this.delegate = delegate;
 	}
 
-	/**
-	 * Creates a {@link STBISkipCallback} that delegates the callback to the specified functional interface.
-	 *
-	 * @param sam the delegation target
-	 *
-	 * @return the {@link STBISkipCallback} instance
-	 */
-	public static STBISkipCallback create(SAM sam) {
-		return new STBISkipCallback() {
-			@Override
-			public void invoke(long user, int n) {
-				sam.invoke(user, n);
-			}
-		};
+	@Override
+	public void free() {
+		Callback.free(address());
+	}
+
+	@Override
+	public void invoke(long user, int n) {
+		delegate.invoke(user, n);
 	}
 
 }
