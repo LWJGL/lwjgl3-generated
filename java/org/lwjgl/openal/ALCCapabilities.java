@@ -50,7 +50,7 @@ public final class ALCCapabilities {
 	public final boolean ALC_ENUMERATE_ALL_EXT;
 	/**
 	 * An OpenAL 1.1 implementation will always support the {@code ALC_ENUMERATION_EXT} extension. This extension provides for enumeration of the available OpenAL devices
-	 * through ALC10#GetString(). An ALC10#GetString() query of ALC10#DEVICE_SPECIFIER with a {@code NULL} device passed in will return a list of devices. Each
+	 * through {@link ALC10#alcGetString GetString}. An {@link ALC10#alcGetString GetString} query of {@link ALC10#ALC_DEVICE_SPECIFIER DEVICE_SPECIFIER} with a {@code NULL} device passed in will return a list of devices. Each
 	 * device name will be separated by a single {@code NULL} character and the list will be terminated with two {@code NULL} characters.
 	 */
 	public final boolean ALC_ENUMERATION_EXT;

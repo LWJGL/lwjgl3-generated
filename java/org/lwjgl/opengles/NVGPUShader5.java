@@ -3,7 +3,7 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
-package org.lwjgl.opengl;
+package org.lwjgl.opengles;
 
 import java.nio.*;
 
@@ -15,28 +15,50 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a href="http://www.opengl.org/registry/specs/AMD/gpu_shader_int64.txt">AMD_gpu_shader_int64</a> extension.
+ * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/NV/NV_gpu_shader5.txt">NV_gpu_shader5</a> extension.
  * 
- * <p>This extension was developed based on the NV_gpu_shader5 extension to allow implementations supporting 64-bit integers to expose the feature without
- * the additional requirements that are present in NV_gpu_shader5.</p>
+ * <p>This extension provides a set of new features to the OpenGL ES Shading Language and related APIs to support capabilities of new GPUs. Shaders using the
+ * new functionality provided by this extension should enable this functionality via the construct</p>
  * 
- * <p>The extension introduces the following features for all shader types:</p>
+ * <pre><code>\#extension GL_NV_gpu_shader5 : require (or enable)</code></pre>
+ * 
+ * <p>This extension was developed concurrently with the OES_gpu_shader5 extension, and provides a superset of the features provided there. The features
+ * common to both extensions are documented in the OES_gpu_shader5 specification; this document describes only the addition language features not
+ * available via OES_gpu_shader5. A shader that enables this extension via an \#extension directive also implicitly enables the common capabilities
+ * provided by OES_gpu_shader5.</p>
+ * 
+ * <p>In addition to the capabilities of OES_gpu_shader5, this extension provides a variety of new features for all shader types, including:</p>
  * 
  * <ul>
- * <li>support for 64-bit scalar and vector integer data types, including uniform API, uniform buffer object, transform feedback, and shader input and
+ * <li>support for a full set of 8-, 16-, 32-, and 64-bit scalar and vector data types, including uniform API, uniform buffer object, and shader input and
  * output support;</li>
+ * <li>the ability to aggregate samplers into arrays, index these arrays with arbitrary expressions, and not require that non-constant indices be uniform
+ * across all shader invocations;</li>
  * <li>new built-in functions to pack and unpack 64-bit integer types into a two-component 32-bit integer vector;</li>
+ * <li>new built-in functions to pack and unpack 32-bit unsigned integer types into a two-component 16-bit floating-point vector;</li>
  * <li>new built-in functions to convert double-precision floating-point values to or from their 64-bit integer bit encodings;</li>
- * <li>vector relational functions supporting comparisons of vectors of 64-bit integer types; and</li>
- * <li>common functions abs, sign, min, max, clamp, and mix supporting arguments of 64-bit integer types.</li>
+ * <li>new built-in functions to compute the composite of a set of boolean conditions a group of shader threads;</li>
+ * <li>vector relational functions supporting comparisons of vectors of 8-, 16-, and 64-bit integer types or 16-bit floating-point types; and</li>
+ * <li>extending texel offset support to allow loading texel offsets from regular integer operands computed at run-time, except for lookups with gradients
+ * (textureGrad*).</li>
  * </ul>
  * 
- * <p>This extension is designed to be a functional superset of the 64-bit integer support introduced by NV_gpu_shader5 and to be source code compatible with
- * that, thus the new procedures, functions, and tokens are identical to those found in that extension.</p>
+ * <p>This extension also provides additional support for processing patch primitives (introduced by OES_tessellation_shader). OES_tessellation_shader
+ * requires the use of a tessellation evaluation shader when processing patches, which means that patches will never survive past the tessellation
+ * pipeline stage. This extension lifts that restriction, and allows patches to proceed further in the pipeline and be used</p>
  * 
- * <p>Requires {@link GL40 OpenGL 4.0} and GLSL 4.00.</p>
+ * <ul>
+ * <li>as input to a geometry shader, using a new "patches" layout qualifier;</li>
+ * <li>as input to transform feedback;</li>
+ * <li>by fixed-function rasterization stages, in which case the patches are drawn as independent points.</li>
+ * </ul>
+ * 
+ * <p>Additionally, it allows geometry shaders to read per-patch attributes written by a tessellation control shader using input variables declared with
+ * "patch in".</p>
+ * 
+ * <p>Requires {@link GLES31 GLES 3.1} and GLSL ES 3.10.</p>
  */
-public class AMDGPUShaderInt64 {
+public class NVGPUShader5 {
 
 	/** Returned by the {@code type} parameter of GetActiveAttrib, GetActiveUniform, and GetTransformFeedbackVarying. */
 	public static final int
@@ -69,38 +91,26 @@ public class AMDGPUShaderInt64 {
 		GL_FLOAT16_VEC3_NV        = 0x8FFA,
 		GL_FLOAT16_VEC4_NV        = 0x8FFB;
 
-	protected AMDGPUShaderInt64() {
+	protected NVGPUShader5() {
 		throw new UnsupportedOperationException();
 	}
 
-	static boolean isAvailable(GLCapabilities caps, java.util.Set<String> ext) {
+	static boolean isAvailable(GLESCapabilities caps) {
 		return checkFunctions(
 			caps.glUniform1i64NV, caps.glUniform2i64NV, caps.glUniform3i64NV, caps.glUniform4i64NV, caps.glUniform1i64vNV, caps.glUniform2i64vNV, 
 			caps.glUniform3i64vNV, caps.glUniform4i64vNV, caps.glUniform1ui64NV, caps.glUniform2ui64NV, caps.glUniform3ui64NV, caps.glUniform4ui64NV, 
 			caps.glUniform1ui64vNV, caps.glUniform2ui64vNV, caps.glUniform3ui64vNV, caps.glUniform4ui64vNV, caps.glGetUniformi64vNV, caps.glGetUniformui64vNV, 
-			ext.contains("GL_EXT_direct_state_access") ? caps.glProgramUniform1i64NV : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? caps.glProgramUniform2i64NV : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? caps.glProgramUniform3i64NV : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? caps.glProgramUniform4i64NV : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? caps.glProgramUniform1i64vNV : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? caps.glProgramUniform2i64vNV : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? caps.glProgramUniform3i64vNV : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? caps.glProgramUniform4i64vNV : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? caps.glProgramUniform1ui64NV : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? caps.glProgramUniform2ui64NV : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? caps.glProgramUniform3ui64NV : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? caps.glProgramUniform4ui64NV : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? caps.glProgramUniform1ui64vNV : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? caps.glProgramUniform2ui64vNV : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? caps.glProgramUniform3ui64vNV : -1L, 
-			ext.contains("GL_EXT_direct_state_access") ? caps.glProgramUniform4ui64vNV : -1L
+			caps.glProgramUniform1i64NV, caps.glProgramUniform2i64NV, caps.glProgramUniform3i64NV, caps.glProgramUniform4i64NV, caps.glProgramUniform1i64vNV, 
+			caps.glProgramUniform2i64vNV, caps.glProgramUniform3i64vNV, caps.glProgramUniform4i64vNV, caps.glProgramUniform1ui64NV, 
+			caps.glProgramUniform2ui64NV, caps.glProgramUniform3ui64NV, caps.glProgramUniform4ui64NV, caps.glProgramUniform1ui64vNV, 
+			caps.glProgramUniform2ui64vNV, caps.glProgramUniform3ui64vNV, caps.glProgramUniform4ui64vNV
 		);
 	}
 
 	// --- [ glUniform1i64NV ] ---
 
 	public static void glUniform1i64NV(int location, long x) {
-		long __functionAddress = GL.getCapabilities().glUniform1i64NV;
+		long __functionAddress = GLES.getCapabilities().glUniform1i64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIJV(__functionAddress, location, x);
@@ -109,7 +119,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glUniform2i64NV ] ---
 
 	public static void glUniform2i64NV(int location, long x, long y) {
-		long __functionAddress = GL.getCapabilities().glUniform2i64NV;
+		long __functionAddress = GLES.getCapabilities().glUniform2i64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIJJV(__functionAddress, location, x, y);
@@ -118,7 +128,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glUniform3i64NV ] ---
 
 	public static void glUniform3i64NV(int location, long x, long y, long z) {
-		long __functionAddress = GL.getCapabilities().glUniform3i64NV;
+		long __functionAddress = GLES.getCapabilities().glUniform3i64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIJJJV(__functionAddress, location, x, y, z);
@@ -127,7 +137,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glUniform4i64NV ] ---
 
 	public static void glUniform4i64NV(int location, long x, long y, long z, long w) {
-		long __functionAddress = GL.getCapabilities().glUniform4i64NV;
+		long __functionAddress = GLES.getCapabilities().glUniform4i64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIJJJJV(__functionAddress, location, x, y, z, w);
@@ -136,7 +146,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glUniform1i64vNV ] ---
 
 	public static void nglUniform1i64vNV(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform1i64vNV;
+		long __functionAddress = GLES.getCapabilities().glUniform1i64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
@@ -149,7 +159,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glUniform2i64vNV ] ---
 
 	public static void nglUniform2i64vNV(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform2i64vNV;
+		long __functionAddress = GLES.getCapabilities().glUniform2i64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
@@ -162,7 +172,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glUniform3i64vNV ] ---
 
 	public static void nglUniform3i64vNV(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform3i64vNV;
+		long __functionAddress = GLES.getCapabilities().glUniform3i64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
@@ -175,7 +185,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glUniform4i64vNV ] ---
 
 	public static void nglUniform4i64vNV(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform4i64vNV;
+		long __functionAddress = GLES.getCapabilities().glUniform4i64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
@@ -188,7 +198,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glUniform1ui64NV ] ---
 
 	public static void glUniform1ui64NV(int location, long x) {
-		long __functionAddress = GL.getCapabilities().glUniform1ui64NV;
+		long __functionAddress = GLES.getCapabilities().glUniform1ui64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIJV(__functionAddress, location, x);
@@ -197,7 +207,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glUniform2ui64NV ] ---
 
 	public static void glUniform2ui64NV(int location, long x, long y) {
-		long __functionAddress = GL.getCapabilities().glUniform2ui64NV;
+		long __functionAddress = GLES.getCapabilities().glUniform2ui64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIJJV(__functionAddress, location, x, y);
@@ -206,7 +216,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glUniform3ui64NV ] ---
 
 	public static void glUniform3ui64NV(int location, long x, long y, long z) {
-		long __functionAddress = GL.getCapabilities().glUniform3ui64NV;
+		long __functionAddress = GLES.getCapabilities().glUniform3ui64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIJJJV(__functionAddress, location, x, y, z);
@@ -215,7 +225,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glUniform4ui64NV ] ---
 
 	public static void glUniform4ui64NV(int location, long x, long y, long z, long w) {
-		long __functionAddress = GL.getCapabilities().glUniform4ui64NV;
+		long __functionAddress = GLES.getCapabilities().glUniform4ui64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIJJJJV(__functionAddress, location, x, y, z, w);
@@ -224,7 +234,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glUniform1ui64vNV ] ---
 
 	public static void nglUniform1ui64vNV(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform1ui64vNV;
+		long __functionAddress = GLES.getCapabilities().glUniform1ui64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
@@ -237,7 +247,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glUniform2ui64vNV ] ---
 
 	public static void nglUniform2ui64vNV(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform2ui64vNV;
+		long __functionAddress = GLES.getCapabilities().glUniform2ui64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
@@ -250,7 +260,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glUniform3ui64vNV ] ---
 
 	public static void nglUniform3ui64vNV(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform3ui64vNV;
+		long __functionAddress = GLES.getCapabilities().glUniform3ui64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
@@ -263,7 +273,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glUniform4ui64vNV ] ---
 
 	public static void nglUniform4ui64vNV(int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glUniform4ui64vNV;
+		long __functionAddress = GLES.getCapabilities().glUniform4ui64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, location, count, value);
@@ -276,7 +286,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glGetUniformi64vNV ] ---
 
 	public static void nglGetUniformi64vNV(int program, int location, long params) {
-		long __functionAddress = GL.getCapabilities().glGetUniformi64vNV;
+		long __functionAddress = GLES.getCapabilities().glGetUniformi64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, program, location, params);
@@ -302,7 +312,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glGetUniformui64vNV ] ---
 
 	public static void nglGetUniformui64vNV(int program, int location, long params) {
-		long __functionAddress = GL.getCapabilities().glGetUniformui64vNV;
+		long __functionAddress = GLES.getCapabilities().glGetUniformui64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIPV(__functionAddress, program, location, params);
@@ -328,7 +338,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glProgramUniform1i64NV ] ---
 
 	public static void glProgramUniform1i64NV(int program, int location, long x) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1i64NV;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform1i64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIJV(__functionAddress, program, location, x);
@@ -337,7 +347,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glProgramUniform2i64NV ] ---
 
 	public static void glProgramUniform2i64NV(int program, int location, long x, long y) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2i64NV;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform2i64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIJJV(__functionAddress, program, location, x, y);
@@ -346,7 +356,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glProgramUniform3i64NV ] ---
 
 	public static void glProgramUniform3i64NV(int program, int location, long x, long y, long z) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3i64NV;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform3i64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIJJJV(__functionAddress, program, location, x, y, z);
@@ -355,7 +365,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glProgramUniform4i64NV ] ---
 
 	public static void glProgramUniform4i64NV(int program, int location, long x, long y, long z, long w) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4i64NV;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform4i64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIJJJJV(__functionAddress, program, location, x, y, z, w);
@@ -364,7 +374,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glProgramUniform1i64vNV ] ---
 
 	public static void nglProgramUniform1i64vNV(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1i64vNV;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform1i64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -377,7 +387,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glProgramUniform2i64vNV ] ---
 
 	public static void nglProgramUniform2i64vNV(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2i64vNV;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform2i64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -390,7 +400,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glProgramUniform3i64vNV ] ---
 
 	public static void nglProgramUniform3i64vNV(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3i64vNV;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform3i64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -403,7 +413,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glProgramUniform4i64vNV ] ---
 
 	public static void nglProgramUniform4i64vNV(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4i64vNV;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform4i64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -416,7 +426,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glProgramUniform1ui64NV ] ---
 
 	public static void glProgramUniform1ui64NV(int program, int location, long x) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1ui64NV;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform1ui64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIJV(__functionAddress, program, location, x);
@@ -425,7 +435,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glProgramUniform2ui64NV ] ---
 
 	public static void glProgramUniform2ui64NV(int program, int location, long x, long y) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2ui64NV;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform2ui64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIJJV(__functionAddress, program, location, x, y);
@@ -434,7 +444,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glProgramUniform3ui64NV ] ---
 
 	public static void glProgramUniform3ui64NV(int program, int location, long x, long y, long z) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3ui64NV;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform3ui64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIJJJV(__functionAddress, program, location, x, y, z);
@@ -443,7 +453,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glProgramUniform4ui64NV ] ---
 
 	public static void glProgramUniform4ui64NV(int program, int location, long x, long y, long z, long w) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4ui64NV;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform4ui64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIJJJJV(__functionAddress, program, location, x, y, z, w);
@@ -452,7 +462,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glProgramUniform1ui64vNV ] ---
 
 	public static void nglProgramUniform1ui64vNV(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform1ui64vNV;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform1ui64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -465,7 +475,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glProgramUniform2ui64vNV ] ---
 
 	public static void nglProgramUniform2ui64vNV(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform2ui64vNV;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform2ui64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -478,7 +488,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glProgramUniform3ui64vNV ] ---
 
 	public static void nglProgramUniform3ui64vNV(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform3ui64vNV;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform3ui64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);
@@ -491,7 +501,7 @@ public class AMDGPUShaderInt64 {
 	// --- [ glProgramUniform4ui64vNV ] ---
 
 	public static void nglProgramUniform4ui64vNV(int program, int location, int count, long value) {
-		long __functionAddress = GL.getCapabilities().glProgramUniform4ui64vNV;
+		long __functionAddress = GLES.getCapabilities().glProgramUniform4ui64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callIIIPV(__functionAddress, program, location, count, value);

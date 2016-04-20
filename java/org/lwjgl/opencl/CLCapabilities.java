@@ -209,8 +209,8 @@ public class CLCapabilities {
 	 * <p>To avoid source changes, there are two environment variables that can be used to change CL options during the runtime:</p>
 	 * 
 	 * <ul>
-	 * <li>AMD_OCL_BUILD_OPTIONS &ndash; Overrides the CL options specified in CL10#BuildProgram().</li>
-	 * <li>AMD_OCL_BUILD_OPTIONS_APPEND &ndash; Appends options to the options specified in CL10#BuildProgram().</li>
+	 * <li>AMD_OCL_BUILD_OPTIONS &ndash; Overrides the CL options specified in {@link CL10#clBuildProgram BuildProgram}.</li>
+	 * <li>AMD_OCL_BUILD_OPTIONS_APPEND &ndash; Appends options to the options specified in {@link CL10#clBuildProgram BuildProgram}.</li>
 	 * </ul>
 	 */
 	public final boolean cl_amd_compile_options;
@@ -227,8 +227,8 @@ public class CLCapabilities {
 	/**
 	 * When true, the <a href="http://www.khronos.org/registry/cl/extensions/amd/cl_amd_event_callback.txt">amd_event_callback</a> extension is supported.
 	 * 
-	 * <p>This extension provides the ability to register event callbacks for states other than CL10#COMPLETE. The full set of event states are allowed:
-	 * CL10#QUEUED, CL10#SUBMITTED, and CL10#RUNNING.</p>
+	 * <p>This extension provides the ability to register event callbacks for states other than {@link CL10#CL_COMPLETE COMPLETE}. The full set of event states are allowed:
+	 * {@link CL10#CL_QUEUED QUEUED}, {@link CL10#CL_SUBMITTED SUBMITTED}, and {@link CL10#CL_RUNNING RUNNING}.</p>
 	 */
 	public final boolean cl_amd_event_callback;
 	/**
@@ -575,6 +575,7 @@ Description
 	public final boolean cl_APPLE_ContextLoggingFunctions;
 	/** When true, {@link APPLEFixedAlphaChannelOrders} is supported. */
 	public final boolean cl_APPLE_fixed_alpha_channel_orders;
+	/** When true, {@code APPLE_fp64_basic_ops} is supported. */
 	public final boolean cl_APPLE_fp64_basic_ops;
 	/** When true, {@link APPLEGLSharing} is supported. */
 	public final boolean cl_APPLE_gl_sharing;
@@ -611,6 +612,7 @@ Description
 	public final boolean cl_intel_egl_image_yuv;
 	/** When true, {@link INTELMotionEstimation} is supported. */
 	public final boolean cl_intel_motion_estimation;
+	/** When true, {@code intel_printf} is supported. */
 	public final boolean cl_intel_printf;
 	/** When true, {@link INTELSimultaneousSharing} is supported. */
 	public final boolean cl_intel_simultaneous_sharing;

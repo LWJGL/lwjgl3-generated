@@ -387,7 +387,9 @@ public final class GLESCapabilities {
 		glGetUniformIndices,
 		glGetUniformLocation,
 		glGetUniformfv,
+		glGetUniformi64vNV,
 		glGetUniformiv,
+		glGetUniformui64vNV,
 		glGetUniformuiv,
 		glGetVertexAttribIiv,
 		glGetVertexAttribIuiv,
@@ -508,10 +510,14 @@ public final class GLESCapabilities {
 		glProgramUniform1fv,
 		glProgramUniform1fvEXT,
 		glProgramUniform1i,
+		glProgramUniform1i64NV,
+		glProgramUniform1i64vNV,
 		glProgramUniform1iEXT,
 		glProgramUniform1iv,
 		glProgramUniform1ivEXT,
 		glProgramUniform1ui,
+		glProgramUniform1ui64NV,
+		glProgramUniform1ui64vNV,
 		glProgramUniform1uiEXT,
 		glProgramUniform1uiv,
 		glProgramUniform1uivEXT,
@@ -520,10 +526,14 @@ public final class GLESCapabilities {
 		glProgramUniform2fv,
 		glProgramUniform2fvEXT,
 		glProgramUniform2i,
+		glProgramUniform2i64NV,
+		glProgramUniform2i64vNV,
 		glProgramUniform2iEXT,
 		glProgramUniform2iv,
 		glProgramUniform2ivEXT,
 		glProgramUniform2ui,
+		glProgramUniform2ui64NV,
+		glProgramUniform2ui64vNV,
 		glProgramUniform2uiEXT,
 		glProgramUniform2uiv,
 		glProgramUniform2uivEXT,
@@ -532,10 +542,14 @@ public final class GLESCapabilities {
 		glProgramUniform3fv,
 		glProgramUniform3fvEXT,
 		glProgramUniform3i,
+		glProgramUniform3i64NV,
+		glProgramUniform3i64vNV,
 		glProgramUniform3iEXT,
 		glProgramUniform3iv,
 		glProgramUniform3ivEXT,
 		glProgramUniform3ui,
+		glProgramUniform3ui64NV,
+		glProgramUniform3ui64vNV,
 		glProgramUniform3uiEXT,
 		glProgramUniform3uiv,
 		glProgramUniform3uivEXT,
@@ -544,10 +558,14 @@ public final class GLESCapabilities {
 		glProgramUniform4fv,
 		glProgramUniform4fvEXT,
 		glProgramUniform4i,
+		glProgramUniform4i64NV,
+		glProgramUniform4i64vNV,
 		glProgramUniform4iEXT,
 		glProgramUniform4iv,
 		glProgramUniform4ivEXT,
 		glProgramUniform4ui,
+		glProgramUniform4ui64NV,
+		glProgramUniform4ui64vNV,
 		glProgramUniform4uiEXT,
 		glProgramUniform4uiv,
 		glProgramUniform4uivEXT,
@@ -674,26 +692,42 @@ public final class GLESCapabilities {
 		glUniform1f,
 		glUniform1fv,
 		glUniform1i,
+		glUniform1i64NV,
+		glUniform1i64vNV,
 		glUniform1iv,
 		glUniform1ui,
+		glUniform1ui64NV,
+		glUniform1ui64vNV,
 		glUniform1uiv,
 		glUniform2f,
 		glUniform2fv,
 		glUniform2i,
+		glUniform2i64NV,
+		glUniform2i64vNV,
 		glUniform2iv,
 		glUniform2ui,
+		glUniform2ui64NV,
+		glUniform2ui64vNV,
 		glUniform2uiv,
 		glUniform3f,
 		glUniform3fv,
 		glUniform3i,
+		glUniform3i64NV,
+		glUniform3i64vNV,
 		glUniform3iv,
 		glUniform3ui,
+		glUniform3ui64NV,
+		glUniform3ui64vNV,
 		glUniform3uiv,
 		glUniform4f,
 		glUniform4fv,
 		glUniform4i,
+		glUniform4i64NV,
+		glUniform4i64vNV,
 		glUniform4iv,
 		glUniform4ui,
+		glUniform4ui64NV,
+		glUniform4ui64vNV,
 		glUniform4uiv,
 		glUniformBlockBinding,
 		glUniformHandleui64NV,
@@ -747,6 +781,7 @@ public final class GLESCapabilities {
 		glViewportArrayvNV,
 		glViewportIndexedfNV,
 		glViewportIndexedfvNV,
+		glViewportSwizzleNV,
 		glWaitSync,
 		glWaitSyncAPPLE,
 		glWeightPathsNV;
@@ -1133,6 +1168,27 @@ public final class GLESCapabilities {
 	public final boolean GL_EXT_shadow_samplers;
 	/** When true, {@link EXTSparseTexture} is supported. */
 	public final boolean GL_EXT_sparse_texture;
+	/**
+	 * This extension builds on the EXT_sparse_texture extension, providing the following new functionality:
+	 * 
+	 * <ul>
+	 * <li>New built-in GLSL texture lookup and image load functions are provided that return information on whether the texels accessed for the texture
+	 * lookup accessed uncommitted texture memory.</li>
+	 * <li>New built-in GLSL texture lookup functions are provided that specify a minimum level of detail to use for lookups where the level of detail is
+	 * computed automatically. This allows shaders to avoid accessing unpopulated portions of high-resolution levels of detail when it knows that the
+	 * memory accessed is unpopulated, either from a priori knowledge or from feedback provided by the return value of previously executed "sparse"
+	 * texture lookup functions.</li>
+	 * <li>Reads of uncommitted texture memory will act as though such memory were filled with zeroes; previously, the values returned by reads were
+	 * undefined.</li>
+	 * <li>Standard implementation-independent virtual page sizes for internal formats required to be supported with sparse textures. These standard sizes can
+	 * be requested by leaving {@link EXTSparseTexture#GL_VIRTUAL_PAGE_SIZE_INDEX_EXT VIRTUAL_PAGE_SIZE_INDEX_EXT} at its initial value (0).</li>
+	 * <li>Support for creating sparse multisample and multisample array textures is added. However, the virtual page sizes for such textures remain fully
+	 * implementation-dependent.</li>
+	 * </ul>
+	 * 
+	 * <p>Requires {@link EXTSparseTexture EXT_sparse_texture}.</p>
+	 */
+	public final boolean GL_EXT_sparse_texture2;
 	/** When true, {@link EXTSRGB} is supported. */
 	public final boolean GL_EXT_sRGB;
 	/** When true, {@link EXTSRGBWriteControl} is supported. */
@@ -1403,6 +1459,8 @@ public final class GLESCapabilities {
 	 * <p>Requires {@link GLES31 GLES 3.1}.</p>
 	 */
 	public final boolean GL_NV_geometry_shader_passthrough;
+	/** When true, {@link NVGPUShader5} is supported. */
+	public final boolean GL_NV_gpu_shader5;
 	/**
 	 * When true, the <a href="https://www.khronos.org/registry/gles/extensions/NV/NV_image_formats.txt">NV_image_formats</a> extension is supported.
 	 * 
@@ -1476,6 +1534,13 @@ public final class GLESCapabilities {
 	 * <p>Requires {@link #GL_OES_sample_variables OES_sample_variables}.</p>
 	 */
 	public final boolean GL_NV_sample_mask_override_coverage;
+	/**
+	 * This extension provides GLSL built-in functions and assembly opcodes allowing shaders to perform a limited set of atomic read-modify-write operations
+	 * to buffer or texture memory with 16-bit floating point vector surface formats.
+	 * 
+	 * <p>Requires {@link NVGPUShader5 NV_gpu_shader5}.</p>
+	 */
+	public final boolean GL_NV_shader_atomic_fp16_vector;
 	/**
 	 * When true, the <a href="https://www.khronos.org/registry/gles/extensions/NV/NV_shader_noperspective_interpolation.txt">NV_shader_noperspective_interpolation</a> extension is supported.
 	 * 
@@ -1552,6 +1617,8 @@ public final class GLESCapabilities {
 	 * <p>Requires {@link NVViewportArray NV_viewport_array}, {@link EXTGeometryShader EXT_geometry_shader} and {@link #GL_EXT_shader_io_blocks EXT_shader_io_blocks}.</p>
 	 */
 	public final boolean GL_NV_viewport_array2;
+	/** When true, {@link NVViewportSwizzle} is supported. */
+	public final boolean GL_NV_viewport_swizzle;
 	/** When true, the <a href="https://www.khronos.org/registry/gles/extensions/OES/OES_compressed_ETC1_RGB8_sub_texture.txt">OES_compressed_ETC1_RGB8_sub_texture</a> extension is supported. */
 	public final boolean GL_OES_compressed_ETC1_RGB8_sub_texture;
 	/** When true, {@link OESCompressedETC1RGB8Texture} is supported. */
@@ -2209,7 +2276,9 @@ public final class GLESCapabilities {
 		glGetUniformIndices = provider.getFunctionAddress("glGetUniformIndices");
 		glGetUniformLocation = provider.getFunctionAddress("glGetUniformLocation");
 		glGetUniformfv = provider.getFunctionAddress("glGetUniformfv");
+		glGetUniformi64vNV = provider.getFunctionAddress("glGetUniformi64vNV");
 		glGetUniformiv = provider.getFunctionAddress("glGetUniformiv");
+		glGetUniformui64vNV = provider.getFunctionAddress("glGetUniformui64vNV");
 		glGetUniformuiv = provider.getFunctionAddress("glGetUniformuiv");
 		glGetVertexAttribIiv = provider.getFunctionAddress("glGetVertexAttribIiv");
 		glGetVertexAttribIuiv = provider.getFunctionAddress("glGetVertexAttribIuiv");
@@ -2330,10 +2399,14 @@ public final class GLESCapabilities {
 		glProgramUniform1fv = provider.getFunctionAddress("glProgramUniform1fv");
 		glProgramUniform1fvEXT = provider.getFunctionAddress("glProgramUniform1fvEXT");
 		glProgramUniform1i = provider.getFunctionAddress("glProgramUniform1i");
+		glProgramUniform1i64NV = provider.getFunctionAddress("glProgramUniform1i64NV");
+		glProgramUniform1i64vNV = provider.getFunctionAddress("glProgramUniform1i64vNV");
 		glProgramUniform1iEXT = provider.getFunctionAddress("glProgramUniform1iEXT");
 		glProgramUniform1iv = provider.getFunctionAddress("glProgramUniform1iv");
 		glProgramUniform1ivEXT = provider.getFunctionAddress("glProgramUniform1ivEXT");
 		glProgramUniform1ui = provider.getFunctionAddress("glProgramUniform1ui");
+		glProgramUniform1ui64NV = provider.getFunctionAddress("glProgramUniform1ui64NV");
+		glProgramUniform1ui64vNV = provider.getFunctionAddress("glProgramUniform1ui64vNV");
 		glProgramUniform1uiEXT = provider.getFunctionAddress("glProgramUniform1uiEXT");
 		glProgramUniform1uiv = provider.getFunctionAddress("glProgramUniform1uiv");
 		glProgramUniform1uivEXT = provider.getFunctionAddress("glProgramUniform1uivEXT");
@@ -2342,10 +2415,14 @@ public final class GLESCapabilities {
 		glProgramUniform2fv = provider.getFunctionAddress("glProgramUniform2fv");
 		glProgramUniform2fvEXT = provider.getFunctionAddress("glProgramUniform2fvEXT");
 		glProgramUniform2i = provider.getFunctionAddress("glProgramUniform2i");
+		glProgramUniform2i64NV = provider.getFunctionAddress("glProgramUniform2i64NV");
+		glProgramUniform2i64vNV = provider.getFunctionAddress("glProgramUniform2i64vNV");
 		glProgramUniform2iEXT = provider.getFunctionAddress("glProgramUniform2iEXT");
 		glProgramUniform2iv = provider.getFunctionAddress("glProgramUniform2iv");
 		glProgramUniform2ivEXT = provider.getFunctionAddress("glProgramUniform2ivEXT");
 		glProgramUniform2ui = provider.getFunctionAddress("glProgramUniform2ui");
+		glProgramUniform2ui64NV = provider.getFunctionAddress("glProgramUniform2ui64NV");
+		glProgramUniform2ui64vNV = provider.getFunctionAddress("glProgramUniform2ui64vNV");
 		glProgramUniform2uiEXT = provider.getFunctionAddress("glProgramUniform2uiEXT");
 		glProgramUniform2uiv = provider.getFunctionAddress("glProgramUniform2uiv");
 		glProgramUniform2uivEXT = provider.getFunctionAddress("glProgramUniform2uivEXT");
@@ -2354,10 +2431,14 @@ public final class GLESCapabilities {
 		glProgramUniform3fv = provider.getFunctionAddress("glProgramUniform3fv");
 		glProgramUniform3fvEXT = provider.getFunctionAddress("glProgramUniform3fvEXT");
 		glProgramUniform3i = provider.getFunctionAddress("glProgramUniform3i");
+		glProgramUniform3i64NV = provider.getFunctionAddress("glProgramUniform3i64NV");
+		glProgramUniform3i64vNV = provider.getFunctionAddress("glProgramUniform3i64vNV");
 		glProgramUniform3iEXT = provider.getFunctionAddress("glProgramUniform3iEXT");
 		glProgramUniform3iv = provider.getFunctionAddress("glProgramUniform3iv");
 		glProgramUniform3ivEXT = provider.getFunctionAddress("glProgramUniform3ivEXT");
 		glProgramUniform3ui = provider.getFunctionAddress("glProgramUniform3ui");
+		glProgramUniform3ui64NV = provider.getFunctionAddress("glProgramUniform3ui64NV");
+		glProgramUniform3ui64vNV = provider.getFunctionAddress("glProgramUniform3ui64vNV");
 		glProgramUniform3uiEXT = provider.getFunctionAddress("glProgramUniform3uiEXT");
 		glProgramUniform3uiv = provider.getFunctionAddress("glProgramUniform3uiv");
 		glProgramUniform3uivEXT = provider.getFunctionAddress("glProgramUniform3uivEXT");
@@ -2366,10 +2447,14 @@ public final class GLESCapabilities {
 		glProgramUniform4fv = provider.getFunctionAddress("glProgramUniform4fv");
 		glProgramUniform4fvEXT = provider.getFunctionAddress("glProgramUniform4fvEXT");
 		glProgramUniform4i = provider.getFunctionAddress("glProgramUniform4i");
+		glProgramUniform4i64NV = provider.getFunctionAddress("glProgramUniform4i64NV");
+		glProgramUniform4i64vNV = provider.getFunctionAddress("glProgramUniform4i64vNV");
 		glProgramUniform4iEXT = provider.getFunctionAddress("glProgramUniform4iEXT");
 		glProgramUniform4iv = provider.getFunctionAddress("glProgramUniform4iv");
 		glProgramUniform4ivEXT = provider.getFunctionAddress("glProgramUniform4ivEXT");
 		glProgramUniform4ui = provider.getFunctionAddress("glProgramUniform4ui");
+		glProgramUniform4ui64NV = provider.getFunctionAddress("glProgramUniform4ui64NV");
+		glProgramUniform4ui64vNV = provider.getFunctionAddress("glProgramUniform4ui64vNV");
 		glProgramUniform4uiEXT = provider.getFunctionAddress("glProgramUniform4uiEXT");
 		glProgramUniform4uiv = provider.getFunctionAddress("glProgramUniform4uiv");
 		glProgramUniform4uivEXT = provider.getFunctionAddress("glProgramUniform4uivEXT");
@@ -2496,26 +2581,42 @@ public final class GLESCapabilities {
 		glUniform1f = provider.getFunctionAddress("glUniform1f");
 		glUniform1fv = provider.getFunctionAddress("glUniform1fv");
 		glUniform1i = provider.getFunctionAddress("glUniform1i");
+		glUniform1i64NV = provider.getFunctionAddress("glUniform1i64NV");
+		glUniform1i64vNV = provider.getFunctionAddress("glUniform1i64vNV");
 		glUniform1iv = provider.getFunctionAddress("glUniform1iv");
 		glUniform1ui = provider.getFunctionAddress("glUniform1ui");
+		glUniform1ui64NV = provider.getFunctionAddress("glUniform1ui64NV");
+		glUniform1ui64vNV = provider.getFunctionAddress("glUniform1ui64vNV");
 		glUniform1uiv = provider.getFunctionAddress("glUniform1uiv");
 		glUniform2f = provider.getFunctionAddress("glUniform2f");
 		glUniform2fv = provider.getFunctionAddress("glUniform2fv");
 		glUniform2i = provider.getFunctionAddress("glUniform2i");
+		glUniform2i64NV = provider.getFunctionAddress("glUniform2i64NV");
+		glUniform2i64vNV = provider.getFunctionAddress("glUniform2i64vNV");
 		glUniform2iv = provider.getFunctionAddress("glUniform2iv");
 		glUniform2ui = provider.getFunctionAddress("glUniform2ui");
+		glUniform2ui64NV = provider.getFunctionAddress("glUniform2ui64NV");
+		glUniform2ui64vNV = provider.getFunctionAddress("glUniform2ui64vNV");
 		glUniform2uiv = provider.getFunctionAddress("glUniform2uiv");
 		glUniform3f = provider.getFunctionAddress("glUniform3f");
 		glUniform3fv = provider.getFunctionAddress("glUniform3fv");
 		glUniform3i = provider.getFunctionAddress("glUniform3i");
+		glUniform3i64NV = provider.getFunctionAddress("glUniform3i64NV");
+		glUniform3i64vNV = provider.getFunctionAddress("glUniform3i64vNV");
 		glUniform3iv = provider.getFunctionAddress("glUniform3iv");
 		glUniform3ui = provider.getFunctionAddress("glUniform3ui");
+		glUniform3ui64NV = provider.getFunctionAddress("glUniform3ui64NV");
+		glUniform3ui64vNV = provider.getFunctionAddress("glUniform3ui64vNV");
 		glUniform3uiv = provider.getFunctionAddress("glUniform3uiv");
 		glUniform4f = provider.getFunctionAddress("glUniform4f");
 		glUniform4fv = provider.getFunctionAddress("glUniform4fv");
 		glUniform4i = provider.getFunctionAddress("glUniform4i");
+		glUniform4i64NV = provider.getFunctionAddress("glUniform4i64NV");
+		glUniform4i64vNV = provider.getFunctionAddress("glUniform4i64vNV");
 		glUniform4iv = provider.getFunctionAddress("glUniform4iv");
 		glUniform4ui = provider.getFunctionAddress("glUniform4ui");
+		glUniform4ui64NV = provider.getFunctionAddress("glUniform4ui64NV");
+		glUniform4ui64vNV = provider.getFunctionAddress("glUniform4ui64vNV");
 		glUniform4uiv = provider.getFunctionAddress("glUniform4uiv");
 		glUniformBlockBinding = provider.getFunctionAddress("glUniformBlockBinding");
 		glUniformHandleui64NV = provider.getFunctionAddress("glUniformHandleui64NV");
@@ -2569,6 +2670,7 @@ public final class GLESCapabilities {
 		glViewportArrayvNV = provider.getFunctionAddress("glViewportArrayvNV");
 		glViewportIndexedfNV = provider.getFunctionAddress("glViewportIndexedfNV");
 		glViewportIndexedfvNV = provider.getFunctionAddress("glViewportIndexedfvNV");
+		glViewportSwizzleNV = provider.getFunctionAddress("glViewportSwizzleNV");
 		glWaitSync = provider.getFunctionAddress("glWaitSync");
 		glWaitSyncAPPLE = provider.getFunctionAddress("glWaitSyncAPPLE");
 		glWeightPathsNV = provider.getFunctionAddress("glWeightPathsNV");
@@ -2657,6 +2759,7 @@ public final class GLESCapabilities {
 		GL_EXT_shader_texture_lod = ext.contains("GL_EXT_shader_texture_lod");
 		GL_EXT_shadow_samplers = ext.contains("GL_EXT_shadow_samplers");
 		GL_EXT_sparse_texture = ext.contains("GL_EXT_sparse_texture") && GLES.checkExtension("GL_EXT_sparse_texture", EXTSparseTexture.isAvailable(this));
+		GL_EXT_sparse_texture2 = ext.contains("GL_EXT_sparse_texture2");
 		GL_EXT_sRGB = ext.contains("GL_EXT_sRGB");
 		GL_EXT_sRGB_write_control = ext.contains("GL_EXT_sRGB_write_control");
 		GL_EXT_tessellation_point_size = ext.contains("GL_EXT_tessellation_point_size");
@@ -2721,6 +2824,7 @@ public final class GLESCapabilities {
 		GL_NV_framebuffer_multisample = ext.contains("GL_NV_framebuffer_multisample") && GLES.checkExtension("GL_NV_framebuffer_multisample", NVFramebufferMultisample.isAvailable(this));
 		GL_NV_generate_mipmap_sRGB = ext.contains("GL_NV_generate_mipmap_sRGB");
 		GL_NV_geometry_shader_passthrough = ext.contains("GL_NV_geometry_shader_passthrough");
+		GL_NV_gpu_shader5 = ext.contains("GL_NV_gpu_shader5") && GLES.checkExtension("GL_NV_gpu_shader5", NVGPUShader5.isAvailable(this));
 		GL_NV_image_formats = ext.contains("GL_NV_image_formats");
 		GL_NV_instanced_arrays = ext.contains("GL_NV_instanced_arrays") && GLES.checkExtension("GL_NV_instanced_arrays", NVInstancedArrays.isAvailable(this));
 		GL_NV_internalformat_sample_query = ext.contains("GL_NV_internalformat_sample_query") && GLES.checkExtension("GL_NV_internalformat_sample_query", NVInternalformatSampleQuery.isAvailable(this));
@@ -2735,6 +2839,7 @@ public final class GLESCapabilities {
 		GL_NV_read_stencil = ext.contains("GL_NV_read_stencil");
 		GL_NV_sample_locations = ext.contains("GL_NV_sample_locations") && GLES.checkExtension("GL_NV_sample_locations", NVSampleLocations.isAvailable(this));
 		GL_NV_sample_mask_override_coverage = ext.contains("GL_NV_sample_mask_override_coverage");
+		GL_NV_shader_atomic_fp16_vector = ext.contains("GL_NV_shader_atomic_fp16_vector");
 		GL_NV_shader_noperspective_interpolation = ext.contains("GL_NV_shader_noperspective_interpolation");
 		GL_NV_shadow_samplers_array = ext.contains("GL_NV_shadow_samplers_array");
 		GL_NV_shadow_samplers_cube = ext.contains("GL_NV_shadow_samplers_cube");
@@ -2746,6 +2851,7 @@ public final class GLESCapabilities {
 		GL_NV_texture_npot_2D_mipmap = ext.contains("GL_NV_texture_npot_2D_mipmap");
 		GL_NV_viewport_array = ext.contains("GL_NV_viewport_array") && GLES.checkExtension("GL_NV_viewport_array", NVViewportArray.isAvailable(this));
 		GL_NV_viewport_array2 = ext.contains("GL_NV_viewport_array2");
+		GL_NV_viewport_swizzle = ext.contains("GL_NV_viewport_swizzle") && GLES.checkExtension("GL_NV_viewport_swizzle", NVViewportSwizzle.isAvailable(this));
 		GL_OES_compressed_ETC1_RGB8_sub_texture = ext.contains("GL_OES_compressed_ETC1_RGB8_sub_texture");
 		GL_OES_compressed_ETC1_RGB8_texture = ext.contains("GL_OES_compressed_ETC1_RGB8_texture");
 		GL_OES_compressed_paletted_texture = ext.contains("GL_OES_compressed_paletted_texture");

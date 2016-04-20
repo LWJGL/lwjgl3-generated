@@ -2082,6 +2082,7 @@ public final class GLCapabilities {
 		glViewportArrayv,
 		glViewportIndexedf,
 		glViewportIndexedfv,
+		glViewportSwizzleNV,
 		glWaitSync,
 		glWaitVkSemaphoreNV,
 		glWeightPathsNV,
@@ -2225,8 +2226,8 @@ public final class GLCapabilities {
 	 * update the content of the stencil buffer are limited to operations such as incrementing the existing value, or overwriting with a fixed reference value.</p>
 	 * 
 	 * <p>This extension provides a mechanism whereby a shader may generate the stencil reference value per invocation. When stencil testing is enabled, this
-	 * allows the test to be performed against the value generated in the shader. When the stencil operation is set to {@link GL11#GL_REPLACE REPLACE}, this
-	 * allows a value generated in the shader to be written to the stencil buffer directly.</p>
+	 * allows the test to be performed against the value generated in the shader. When the stencil operation is set to {@link GL11#GL_REPLACE REPLACE}, this allows a value generated
+	 * in the shader to be written to the stencil buffer directly.</p>
 	 * 
 	 * <p>Requires {@link #GL_ARB_fragment_shader ARB_fragment_shader}.</p>
 	 */
@@ -2254,16 +2255,16 @@ public final class GLCapabilities {
 	 * <p>These texture functions may be used to access one component textures.</p>
 	 * 
 	 * <p>The {@code texture4} built-in function returns a texture value derived from a 2x2 set of texels in the image array of level levelbase is selected. These
-	 * texels are selected in the same way as when the value of {@link GL11#GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER} is {@link GL11#GL_LINEAR LINEAR}, but instead
-	 * of these texels being filtered to generate the texture value, the R, G, B and A texture values are derived directly from these four texels.</p>
+	 * texels are selected in the same way as when the value of {@link GL11#GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER} is {@link GL11#GL_LINEAR LINEAR}, but instead of these texels being filtered to generate the
+	 * texture value, the R, G, B and A texture values are derived directly from these four texels.</p>
 	 */
 	public final boolean GL_AMD_texture_texture4;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/AMD/transform_feedback3_lines_triangles.txt">AMD_transform_feedback3_lines_triangles</a> extension is supported.
 	 * 
 	 * <p>OpenGL 4.0 introduced the ability to record primitives into multiple output streams using transform feedback. However, the restriction that all streams
-	 * must output {@link GL11#GL_POINT POINT} primitives when more than one output stream is active was also introduced. This extension simply removes that
-	 * restriction, allowing the same set of primitives to be used with multiple transform feedback streams as with a single stream.</p>
+	 * must output {@link GL11#GL_POINT POINT} primitives when more than one output stream is active was also introduced. This extension simply removes that restriction, allowing
+	 * the same set of primitives to be used with multiple transform feedback streams as with a single stream.</p>
 	 * 
 	 * <p>Requires {@link GL40 OpenGL 4.0} or {@link ARBTransformFeedback3 ARB_transform_feedback3}.</p>
 	 */
@@ -2719,7 +2720,7 @@ fwidth(p)</code></pre>
 	 * purpose.</p>
 	 * 
 	 * <p>Additionally, this extension adds a further built-in variable, {@code gl_DrawID} to the shading language. This variable contains the index of the draw
-	 * currently being processed by a Multi* variant of a drawing command (such as GL14#MultiDrawElements() or GL43#MultiDrawArraysIndirect()).</p>
+	 * currently being processed by a Multi* variant of a drawing command (such as {@link GL14#glMultiDrawElements MultiDrawElements} or {@link GL43#glMultiDrawArraysIndirect MultiDrawArraysIndirect}).</p>
 	 * 
 	 * <p>Requires {@link GL31 OpenGL 3.1}. Promoted to core in {@link GL33 OpenGL 3.3}.</p>
 	 */
@@ -2793,8 +2794,8 @@ fwidth(p)</code></pre>
 	 * update the content of the stencil buffer are limited to operations such as incrementing the existing value, or overwriting with a fixed reference value.</p>
 	 * 
 	 * <p>This extension provides a mechanism whereby a shader may generate the stencil reference value per invocation. When stencil testing is enabled, this
-	 * allows the test to be performed against the value generated in the shader. When the stencil operation is set to {@link GL11#GL_REPLACE REPLACE}, this
-	 * allows a value generated in the shader to be written to the stencil buffer directly.</p>
+	 * allows the test to be performed against the value generated in the shader. When the stencil operation is set to {@link GL11#GL_REPLACE REPLACE}, this allows a value generated
+	 * in the shader to be written to the stencil buffer directly.</p>
 	 * 
 	 * <p>Requires {@link #GL_ARB_fragment_shader ARB_fragment_shader}.</p>
 	 */
@@ -2990,7 +2991,7 @@ shadow2DRectProjGradARB(
 	 * <li>Reads of uncommitted texture memory will act as though such memory were filled with zeroes; previously, the values returned by reads were
 	 * undefined.</li>
 	 * <li>Standard implementation-independent virtual page sizes for internal formats required to be supported with sparse textures. These standard sizes can
-	 * be requested by leaving ARBSparseTexture#VIRTUAL_PAGE_SIZE_INDEX_ARB at its initial value (0).</li>
+	 * be requested by leaving {@link ARBSparseTexture#GL_VIRTUAL_PAGE_SIZE_INDEX_ARB VIRTUAL_PAGE_SIZE_INDEX_ARB} at its initial value (0).</li>
 	 * <li>Support for creating sparse multisample and multisample array textures is added. However, the virtual page sizes for such textures remain fully
 	 * implementation-dependent.</li>
 	 * </ul>
@@ -3057,7 +3058,7 @@ shadow2DRectProjGradARB(
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/texture_env_crossbar.txt">ARB_texture_env_crossbar</a> extension is supported.
 	 * 
-	 * <p>This extension adds the capability to use the texture color from other texture units as sources to the ARBTextureEnvCombine#COMBINE_ARB environment
+	 * <p>This extension adds the capability to use the texture color from other texture units as sources to the {@link ARBTextureEnvCombine#GL_COMBINE_ARB COMBINE_ARB} environment
 	 * function. The {@link ARBTextureEnvCombine ARB_texture_env_combine} extension defined texture environment functions which could use the color from the current texture unit
 	 * as a source. This extension adds the ability to use the color from any texture unit as a source.</p>
 	 * 
@@ -3092,15 +3093,15 @@ shadow2DRectProjGradARB(
 	 * 
 	 * <p>This extension provides a new set of texture functions ({@code textureQueryLevels}) in the OpenGL Shading Language that exposes the number of accessible
 	 * mipmap levels in the texture associated with a GLSL sampler variable. The set of accessible levels includes all the levels of the texture defined either
-	 * through TexImage*, TexStorage*, or TextureView* ({@link ARBTextureView ARB_texture_view}) APIs that are not below the GL12#TEXTURE_BASE_LEVEL or above the
-	 * GL12#TEXTURE_MAX_LEVEL parameters. For textures defined with TexImage*, the set of resident levels is somewhat implementation-dependent. For fully
+	 * through TexImage*, TexStorage*, or TextureView* ({@link ARBTextureView ARB_texture_view}) APIs that are not below the {@link GL12#GL_TEXTURE_BASE_LEVEL TEXTURE_BASE_LEVEL} or above the
+	 * {@link GL12#GL_TEXTURE_MAX_LEVEL TEXTURE_MAX_LEVEL} parameters. For textures defined with TexImage*, the set of resident levels is somewhat implementation-dependent. For fully
 	 * defined results, applications should use TexStorage*&#47;TextureView unless the texture has a full mipmap chain and is used with a mipmapped minification
 	 * filter.</p>
 	 * 
 	 * <p>These functions means that shaders are not required to manually recompute, approximate, or maintain a uniform holding a pre-computed level count, since
 	 * the true level count is already available to the implementation. This value can be used to avoid black or leaking pixel artifacts for rendering methods
 	 * which are using texture images as memory pages (eg: virtual textures); methods that can't only rely on the fixed pipeline texture functions which take
-	 * advantage of GL12#TEXTURE_MAX_LEVEL for their sampling.</p>
+	 * advantage of {@link GL12#GL_TEXTURE_MAX_LEVEL TEXTURE_MAX_LEVEL} for their sampling.</p>
 	 * 
 	 * <p>Requires {@link GL30 OpenGL 3.0} and GLSL 1.30. Promoted to core in {@link GL43 OpenGL 4.3}.</p>
 	 */
@@ -3123,7 +3124,7 @@ shadow2DRectProjGradARB(
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/ARB/texture_stencil8.txt">ARB_texture_stencil8</a> extension is supported.
 	 * 
-	 * <p>This extension accepts GL30#STENCIL_INDEX8 as a texture internal format, and adds STENCIL_INDEX8 to the required internal format list. This removes the
+	 * <p>This extension accepts {@link GL30#GL_STENCIL_INDEX8 STENCIL_INDEX8} as a texture internal format, and adds STENCIL_INDEX8 to the required internal format list. This removes the
 	 * need to use renderbuffers if a stencil-only format is desired.</p>
 	 * 
 	 * <p>Promoted to core in {@link GL44 OpenGL 4.4}.</p>
@@ -3173,7 +3174,7 @@ shadow2DRectProjGradARB(
 	 * <p>This extension a new vertex attribute data format: a packed 11.11.10 unsigned float vertex data format. This vertex data format can be used to describe
 	 * a compressed 3 component stream of values that can be represented by 10- or 11-bit unsigned floating point values.</p>
 	 * 
-	 * <p>The GL30#UNSIGNED_INT_10F_11F_11F_REV vertex attribute type is equivalent to the GL30#R11F_G11F_B10F texture internal format.</p>
+	 * <p>The {@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV} vertex attribute type is equivalent to the {@link GL30#GL_R11F_G11F_B10F R11F_G11F_B10F} texture internal format.</p>
 	 * 
 	 * <p>Requires {@link GL30 OpenGL 3.0} and {@link ARBVertexType2_10_10_10_REV ARB_vertex_type_2_10_10_10_rev}. Promoted to core in {@link GL44 OpenGL 4.4}.</p>
 	 */
@@ -3293,8 +3294,8 @@ shadow2DRectProjGradARB(
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/EXT/shadow_funcs.txt">EXT_shadow_funcs</a> extension is supported.
 	 * 
-	 * <p>This extension generalizes the {@link #GL_ARB_shadow ARB_shadow} extension to support all eight binary texture comparison functions rather than just
-	 * {@link GL11#GL_LEQUAL LEQUAL} and {@link GL11#GL_GEQUAL GEQUAL}.</p>
+	 * <p>This extension generalizes the {@link #GL_ARB_shadow ARB_shadow} extension to support all eight binary texture comparison functions rather than just {@link GL11#GL_LEQUAL LEQUAL} and
+	 * {@link GL11#GL_GEQUAL GEQUAL}.</p>
 	 * 
 	 * <p>Requires {@link #GL_ARB_depth_texture ARB_depth_texture} and {@link #GL_ARB_shadow ARB_shadow}.</p>
 	 */
@@ -3318,7 +3319,7 @@ shadow2DRectProjGradARB(
 	 * <p>Reads of uncommitted texture memory will act as though such memory were filled with zeroes; previously, the values returned by reads were undefined.</p>
 	 * 
 	 * <p>Standard implementation-independent virtual page sizes for internal formats required to be supported with sparse textures. These standard sizes can
-	 * be requested by leaving ARBSparseTexture#VIRTUAL_PAGE_SIZE_INDEX_ARB at its initial value (0).</p>
+	 * be requested by leaving {@link ARBSparseTexture#GL_VIRTUAL_PAGE_SIZE_INDEX_ARB VIRTUAL_PAGE_SIZE_INDEX_ARB} at its initial value (0).</p>
 	 * 
 	 * <p>Support for creating sparse multisample and multisample array textures is added. However, the virtual page sizes for such textures remain fully
 	 * implementation-dependent.</p></li>
@@ -3708,6 +3709,8 @@ shadow2DRectProjGradARB(
 	 * expected to be exported if GL_NV_viewport_array2 is supported.</p>
 	 */
 	public final boolean GL_NV_viewport_array2;
+	/** When true, {@link NVViewportSwizzle} is supported. */
+	public final boolean GL_NV_viewport_swizzle;
 	/** When true, {@link NVXConditionalRender} is supported. */
 	public final boolean GL_NVX_conditional_render;
 	/** When true, {@link NVXGPUMemoryInfo} is supported. */
@@ -5797,6 +5800,7 @@ shadow2DRectProjGradARB(
 		glViewportArrayv = provider.getFunctionAddress("glViewportArrayv");
 		glViewportIndexedf = provider.getFunctionAddress("glViewportIndexedf");
 		glViewportIndexedfv = provider.getFunctionAddress("glViewportIndexedfv");
+		glViewportSwizzleNV = provider.getFunctionAddress("glViewportSwizzleNV");
 		glWaitSync = provider.getFunctionAddress("glWaitSync");
 		glWaitVkSemaphoreNV = provider.getFunctionAddress("glWaitVkSemaphoreNV");
 		glWeightPathsNV = provider.getFunctionAddress("glWeightPathsNV");
@@ -5865,7 +5869,7 @@ shadow2DRectProjGradARB(
 		GL_AMD_depth_clamp_separate = ext.contains("GL_AMD_depth_clamp_separate");
 		GL_AMD_draw_buffers_blend = ext.contains("GL_AMD_draw_buffers_blend") && checkExtension("GL_AMD_draw_buffers_blend", AMDDrawBuffersBlend.isAvailable(this));
 		GL_AMD_gcn_shader = ext.contains("GL_AMD_gcn_shader");
-		GL_AMD_gpu_shader_int64 = ext.contains("GL_AMD_gpu_shader_int64") && checkExtension("GL_AMD_gpu_shader_int64", AMDGPUShaderInt64.isAvailable(this));
+		GL_AMD_gpu_shader_int64 = ext.contains("GL_AMD_gpu_shader_int64") && checkExtension("GL_AMD_gpu_shader_int64", AMDGPUShaderInt64.isAvailable(this, ext));
 		GL_AMD_interleaved_elements = ext.contains("GL_AMD_interleaved_elements") && checkExtension("GL_AMD_interleaved_elements", AMDInterleavedElements.isAvailable(this));
 		GL_AMD_occlusion_query_event = ext.contains("GL_AMD_occlusion_query_event") && checkExtension("GL_AMD_occlusion_query_event", AMDOcclusionQueryEvent.isAvailable(this));
 		GL_AMD_performance_monitor = ext.contains("GL_AMD_performance_monitor") && checkExtension("GL_AMD_performance_monitor", AMDPerformanceMonitor.isAvailable(this));
@@ -6162,7 +6166,7 @@ shadow2DRectProjGradARB(
 		GL_NV_framebuffer_multisample_coverage = ext.contains("GL_NV_framebuffer_multisample_coverage") && checkExtension("GL_NV_framebuffer_multisample_coverage", NVFramebufferMultisampleCoverage.isAvailable(this));
 		GL_NV_geometry_shader4 = ext.contains("GL_NV_geometry_shader4");
 		GL_NV_geometry_shader_passthrough = ext.contains("GL_NV_geometry_shader_passthrough");
-		GL_NV_gpu_shader5 = ext.contains("GL_NV_gpu_shader5") && checkExtension("GL_NV_gpu_shader5", NVGPUShader5.isAvailable(this));
+		GL_NV_gpu_shader5 = ext.contains("GL_NV_gpu_shader5") && checkExtension("GL_NV_gpu_shader5", NVGPUShader5.isAvailable(this, ext));
 		GL_NV_half_float = ext.contains("GL_NV_half_float") && checkExtension("GL_NV_half_float", NVHalfFloat.isAvailable(this, ext));
 		GL_NV_internalformat_sample_query = ext.contains("GL_NV_internalformat_sample_query") && checkExtension("GL_NV_internalformat_sample_query", NVInternalformatSampleQuery.isAvailable(this));
 		GL_NV_light_max_exponent = ext.contains("GL_NV_light_max_exponent");
@@ -6195,6 +6199,7 @@ shadow2DRectProjGradARB(
 		GL_NV_vertex_attrib_integer_64bit = ext.contains("GL_NV_vertex_attrib_integer_64bit") && checkExtension("GL_NV_vertex_attrib_integer_64bit", NVVertexAttribInteger64bit.isAvailable(this, ext));
 		GL_NV_vertex_buffer_unified_memory = ext.contains("GL_NV_vertex_buffer_unified_memory") && checkExtension("GL_NV_vertex_buffer_unified_memory", NVVertexBufferUnifiedMemory.isAvailable(this));
 		GL_NV_viewport_array2 = ext.contains("GL_NV_viewport_array2");
+		GL_NV_viewport_swizzle = ext.contains("GL_NV_viewport_swizzle") && checkExtension("GL_NV_viewport_swizzle", NVViewportSwizzle.isAvailable(this));
 		GL_NVX_conditional_render = ext.contains("GL_NVX_conditional_render") && checkExtension("GL_NVX_conditional_render", NVXConditionalRender.isAvailable(this));
 		GL_NVX_gpu_memory_info = ext.contains("GL_NVX_gpu_memory_info");
 		GL_OVR_multiview = ext.contains("GL_OVR_multiview") && checkExtension("GL_OVR_multiview", OVRMultiview.isAvailable(this));
