@@ -22,13 +22,10 @@ public class STBRPNode extends Struct {
 	public static final int ALIGNOF;
 
 	static {
-		MemoryStack stack = stackPush();
-		try {
+		try ( MemoryStack stack = stackPush() ) {
 			IntBuffer offsets = stack.mallocInt(1);
 			SIZEOF = offsets(memAddress(offsets));
 			ALIGNOF = offsets.get(0);
-		} finally {
-			stack.pop();
 		}
 	}
 
