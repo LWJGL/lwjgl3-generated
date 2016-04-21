@@ -8,10 +8,9 @@ package org.lwjgl.vulkan;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /**
- * Instances of this interface may be set to the {@code pfnReallocation} member of the {@link VkAllocationCallbacks} struct.
+ * Instances of this class may be set to the {@code pfnReallocation} member of the {@link VkAllocationCallbacks} struct.
  * 
  * <p>The function must alter the size of the allocation {@code pOriginal}, either by shrinking or growing it, to accommodate the new size.</p>
  * 
@@ -22,65 +21,49 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * satisfying these requirements involves creating a new allocation, then the old allocation <b>must</b> be freed. If this function fails, it <b>must</b> return {@code NULL}
  * and not free the old allocation.</p>
  */
-@FunctionalInterface
-public interface VkReallocationFunction extends Callback.P {
+public abstract class VkReallocationFunction extends Callback implements VkReallocationFunctionI {
 
 	/** Creates a {@code VkReallocationFunction} instance from the specified function pointer. */
-	static VkReallocationFunction create(long functionPointer) {
-		return functionPointer == NULL ? null : new VkReallocationFunctionHandle(functionPointer, Callback.get(functionPointer));
+	public static VkReallocationFunction create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		VkReallocationFunctionI instance = Callback.get(functionPointer);
+		return instance instanceof VkReallocationFunction
+			? (VkReallocationFunction)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code VkReallocationFunction} instance that delegates to the specified {@code VkReallocationFunction} instance. */
-	static VkReallocationFunction create(VkReallocationFunction sam) {
-		return new VkReallocationFunctionHandle(sam.address(), sam);
+	/** Creates a {@code VkReallocationFunction} instance that delegates to the specified {@code VkReallocationFunctionI} instance. */
+	public static VkReallocationFunction create(VkReallocationFunctionI instance) {
+		return instance instanceof VkReallocationFunction
+			? (VkReallocationFunction)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(ppppi)p", true);
+	protected VkReallocationFunction() {
+		super(NULL);
+		address = VkReallocationFunctionI.super.address();
 	}
 
-	@Override
-	default long callback(long args) {
-		return invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgInt(args)
-		);
-	}
-
-	/**
-	 * Will be called by the Vulkan implementation to reallocate memory.
-	 *
-	 * @param pUserData       the value specified for {@link VkAllocationCallbacks}{@code .pUserData} in the allocator specified by the application
-	 * @param pOriginal       <b>must</b> be either {@code NULL} or a pointer previously returned by {@code pfnReallocation} or {@code pfnAllocation} of the same allocator
-	 * @param size            the size in bytes of the requested allocation
-	 * @param alignment       the requested alignment of the allocation in bytes and <b>must</b> be a power of two
-	 * @param allocationScope a {@code VkSystemAllocationScope} value specifying the scope of the lifetime of the allocation
-	 */
-	long invoke(long pUserData, long pOriginal, long size, long alignment, int allocationScope);
-
-}
-
-final class VkReallocationFunctionHandle extends Pointer.Default implements VkReallocationFunction {
-
-	private final VkReallocationFunction delegate;
-
-	VkReallocationFunctionHandle(long functionPointer, VkReallocationFunction delegate) {
+	private VkReallocationFunction(long functionPointer) {
 		super(functionPointer);
-		this.delegate = delegate;
 	}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
+	private static final class Container extends VkReallocationFunction {
 
-	@Override
-	public long invoke(long pUserData, long pOriginal, long size, long alignment, int allocationScope) {
-		return delegate.invoke(pUserData, pOriginal, size, alignment, allocationScope);
+		private final VkReallocationFunctionI delegate;
+
+		Container(long functionPointer, VkReallocationFunctionI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
+
+		@Override
+		public long invoke(long pUserData, long pOriginal, long size, long alignment, int allocationScope) {
+			return delegate.invoke(pUserData, pOriginal, size, alignment, allocationScope);
+		}
+
 	}
 
 }

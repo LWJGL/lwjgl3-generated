@@ -444,7 +444,7 @@ public class KHRDebug {
 	 * @param callback  a callback function that will be called when a debug message is generated
 	 * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
 	 */
-	public static void glDebugMessageCallbackKHR(GLDebugMessageKHRCallback callback, long userParam) {
+	public static void glDebugMessageCallbackKHR(GLDebugMessageKHRCallbackI callback, long userParam) {
 		nglDebugMessageCallbackKHR(callback == null ? NULL : callback.address(), userParam);
 	}
 

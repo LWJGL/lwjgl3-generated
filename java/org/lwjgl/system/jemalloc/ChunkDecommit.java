@@ -8,68 +8,51 @@ package org.lwjgl.system.jemalloc;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be set to the {@link ChunkHooks} struct. */
-@FunctionalInterface
-public interface ChunkDecommit extends Callback.Z {
+/** Instances of this class may be set to the {@link ChunkHooks} struct. */
+public abstract class ChunkDecommit extends Callback implements ChunkDecommitI {
 
 	/** Creates a {@code ChunkDecommit} instance from the specified function pointer. */
-	static ChunkDecommit create(long functionPointer) {
-		return functionPointer == NULL ? null : new ChunkDecommitHandle(functionPointer, Callback.get(functionPointer));
+	public static ChunkDecommit create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		ChunkDecommitI instance = Callback.get(functionPointer);
+		return instance instanceof ChunkDecommit
+			? (ChunkDecommit)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code ChunkDecommit} instance that delegates to the specified {@code ChunkDecommit} instance. */
-	static ChunkDecommit create(ChunkDecommit sam) {
-		return new ChunkDecommitHandle(sam.address(), sam);
+	/** Creates a {@code ChunkDecommit} instance that delegates to the specified {@code ChunkDecommitI} instance. */
+	public static ChunkDecommit create(ChunkDecommitI instance) {
+		return instance instanceof ChunkDecommit
+			? (ChunkDecommit)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(ppppi)B", false);
+	protected ChunkDecommit() {
+		super(NULL);
+		address = ChunkDecommitI.super.address();
 	}
 
-	@Override
-	default boolean callback(long args) {
-		return invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgInt(args)
-		);
-	}
-
-	/**
-	 * Chunk decommit hook.
-	 *
-	 * @param chunk     
-	 * @param size      
-	 * @param offset    
-	 * @param length    
-	 * @param arena_ind 
-	 */
-	boolean invoke(long chunk, long size, long offset, long length, int arena_ind);
-
-}
-
-final class ChunkDecommitHandle extends Pointer.Default implements ChunkDecommit {
-
-	private final ChunkDecommit delegate;
-
-	ChunkDecommitHandle(long functionPointer, ChunkDecommit delegate) {
+	private ChunkDecommit(long functionPointer) {
 		super(functionPointer);
-		this.delegate = delegate;
 	}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
+	private static final class Container extends ChunkDecommit {
 
-	@Override
-	public boolean invoke(long chunk, long size, long offset, long length, int arena_ind) {
-		return delegate.invoke(chunk, size, offset, length, arena_ind);
+		private final ChunkDecommitI delegate;
+
+		Container(long functionPointer, ChunkDecommitI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
+
+		@Override
+		public boolean invoke(long chunk, long size, long offset, long length, int arena_ind) {
+			return delegate.invoke(chunk, size, offset, length, arena_ind);
+		}
+
 	}
 
 }

@@ -8,70 +8,59 @@ package org.lwjgl.glfw;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetMonitorCallback SetMonitorCallback} method. */
-@FunctionalInterface
-public interface GLFWMonitorCallback extends Callback.V {
+/** Instances of this class may be passed to the {@link GLFW#glfwSetMonitorCallback SetMonitorCallback} method. */
+public abstract class GLFWMonitorCallback extends Callback implements GLFWMonitorCallbackI {
 
 	/** Creates a {@code GLFWMonitorCallback} instance from the specified function pointer. */
-	static GLFWMonitorCallback create(long functionPointer) {
-		return functionPointer == NULL ? null : new GLFWMonitorCallbackHandle(functionPointer, Callback.get(functionPointer));
+	public static GLFWMonitorCallback create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		GLFWMonitorCallbackI instance = Callback.get(functionPointer);
+		return instance instanceof GLFWMonitorCallback
+			? (GLFWMonitorCallback)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code GLFWMonitorCallback} instance that delegates to the specified {@code GLFWMonitorCallback} instance. */
-	static GLFWMonitorCallback create(GLFWMonitorCallback sam) {
-		return new GLFWMonitorCallbackHandle(sam.address(), sam);
+	/** Creates a {@code GLFWMonitorCallback} instance that delegates to the specified {@code GLFWMonitorCallbackI} instance. */
+	public static GLFWMonitorCallback create(GLFWMonitorCallbackI instance) {
+		return instance instanceof GLFWMonitorCallback
+			? (GLFWMonitorCallback)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(pi)v", false);
+	protected GLFWMonitorCallback() {
+		super(NULL);
+		address = GLFWMonitorCallbackI.super.address();
 	}
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgInt(args)
-		);
+	private GLFWMonitorCallback(long functionPointer) {
+		super(functionPointer);
 	}
-
-	/**
-	 * Will be called when a monitor is connected to or disconnected from the system.
-	 *
-	 * @param monitor the monitor that was connected or disconnected
-	 * @param event   one of {@link GLFW#GLFW_CONNECTED CONNECTED} or {@link GLFW#GLFW_DISCONNECTED DISCONNECTED}
-	 */
-	void invoke(long monitor, int event);
 
 	/** See {@link GLFW#glfwSetMonitorCallback SetMonitorCallback}. */
-	default GLFWMonitorCallback set() {
+	public GLFWMonitorCallback set() {
 		glfwSetMonitorCallback(this);
 		return this;
 	}
 
-}
+	private static final class Container extends GLFWMonitorCallback {
 
-final class GLFWMonitorCallbackHandle extends Pointer.Default implements GLFWMonitorCallback {
+		private final GLFWMonitorCallbackI delegate;
 
-	private final GLFWMonitorCallback delegate;
+		Container(long functionPointer, GLFWMonitorCallbackI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
 
-	GLFWMonitorCallbackHandle(long functionPointer, GLFWMonitorCallback delegate) {
-		super(functionPointer);
-		this.delegate = delegate;
-	}
+		@Override
+		public void invoke(long monitor, int event) {
+			delegate.invoke(monitor, event);
+		}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
-
-	@Override
-	public void invoke(long monitor, int event) {
-		delegate.invoke(monitor, event);
 	}
 
 }

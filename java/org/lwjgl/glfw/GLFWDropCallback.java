@@ -8,46 +8,38 @@ package org.lwjgl.glfw;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetDropCallback SetDropCallback} method. */
-@FunctionalInterface
-public interface GLFWDropCallback extends Callback.V {
+/** Instances of this class may be passed to the {@link GLFW#glfwSetDropCallback SetDropCallback} method. */
+public abstract class GLFWDropCallback extends Callback implements GLFWDropCallbackI {
 
 	/** Creates a {@code GLFWDropCallback} instance from the specified function pointer. */
-	static GLFWDropCallback create(long functionPointer) {
-		return functionPointer == NULL ? null : new GLFWDropCallbackHandle(functionPointer, Callback.get(functionPointer));
+	public static GLFWDropCallback create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		GLFWDropCallbackI instance = Callback.get(functionPointer);
+		return instance instanceof GLFWDropCallback
+			? (GLFWDropCallback)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code GLFWDropCallback} instance that delegates to the specified {@code GLFWDropCallback} instance. */
-	static GLFWDropCallback create(GLFWDropCallback sam) {
-		return new GLFWDropCallbackHandle(sam.address(), sam);
+	/** Creates a {@code GLFWDropCallback} instance that delegates to the specified {@code GLFWDropCallbackI} instance. */
+	public static GLFWDropCallback create(GLFWDropCallbackI instance) {
+		return instance instanceof GLFWDropCallback
+			? (GLFWDropCallback)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(pip)v", false);
+	protected GLFWDropCallback() {
+		super(NULL);
+		address = GLFWDropCallbackI.super.address();
 	}
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgInt(args),
-			dcbArgPointer(args)
-		);
+	private GLFWDropCallback(long functionPointer) {
+		super(functionPointer);
 	}
-
-	/**
-	 * Will be called when one or more dragged files are dropped on the window.
-	 *
-	 * @param window the window that received the event
-	 * @param count  the number of dropped files
-	 * @param names  pointer to the array of UTF-8 encoded path names of the dropped files
-	 */
-	void invoke(long window, int count, long names);
 
 	/**
 	 * Decodes the specified {@link GLFWDropCallback} arguments to a String.
@@ -59,35 +51,30 @@ public interface GLFWDropCallback extends Callback.V {
 	 *
 	 * @return the name at the specified index as a String
 	 */
-	static String getName(long names, int index) {
+	public static String getName(long names, int index) {
 		return memUTF8(memGetAddress(names + Pointer.POINTER_SIZE * index));
 	}
 
 	/** See {@link GLFW#glfwSetDropCallback SetDropCallback}. */
-	default GLFWDropCallback set(long window) {
+	public GLFWDropCallback set(long window) {
 		glfwSetDropCallback(window, this);
 		return this;
 	}
 
-}
+	private static final class Container extends GLFWDropCallback {
 
-final class GLFWDropCallbackHandle extends Pointer.Default implements GLFWDropCallback {
+		private final GLFWDropCallbackI delegate;
 
-	private final GLFWDropCallback delegate;
+		Container(long functionPointer, GLFWDropCallbackI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
 
-	GLFWDropCallbackHandle(long functionPointer, GLFWDropCallback delegate) {
-		super(functionPointer);
-		this.delegate = delegate;
-	}
+		@Override
+		public void invoke(long window, int count, long names) {
+			delegate.invoke(window, count, names);
+		}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
-
-	@Override
-	public void invoke(long window, int count, long names) {
-		delegate.invoke(window, count, names);
 	}
 
 }

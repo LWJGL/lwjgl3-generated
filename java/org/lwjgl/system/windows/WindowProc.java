@@ -8,66 +8,51 @@ package org.lwjgl.system.windows;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** An application-defined function that processes messages sent to a window. */
-@FunctionalInterface
-public interface WindowProc extends Callback.P {
+public abstract class WindowProc extends Callback implements WindowProcI {
 
 	/** Creates a {@code WindowProc} instance from the specified function pointer. */
-	static WindowProc create(long functionPointer) {
-		return functionPointer == NULL ? null : new WindowProcHandle(functionPointer, Callback.get(functionPointer));
+	public static WindowProc create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		WindowProcI instance = Callback.get(functionPointer);
+		return instance instanceof WindowProc
+			? (WindowProc)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code WindowProc} instance that delegates to the specified {@code WindowProc} instance. */
-	static WindowProc create(WindowProc sam) {
-		return new WindowProcHandle(sam.address(), sam);
+	/** Creates a {@code WindowProc} instance that delegates to the specified {@code WindowProcI} instance. */
+	public static WindowProc create(WindowProcI instance) {
+		return instance instanceof WindowProc
+			? (WindowProc)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(pipp)p", true);
+	protected WindowProc() {
+		super(NULL);
+		address = WindowProcI.super.address();
 	}
 
-	@Override
-	default long callback(long args) {
-		return invoke(
-			dcbArgPointer(args),
-			dcbArgInt(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args)
-		);
-	}
-
-	/**
-	 * Will be called for each message sent to the window.
-	 *
-	 * @param hwnd   a handle to the window procedure that received the message
-	 * @param uMsg   the message
-	 * @param wParam additional message information. The content of this parameter depends on the value of the {@code uMsg} parameter.
-	 * @param lParam additional message information. The content of this parameter depends on the value of the {@code uMsg} parameter.
-	 */
-	long invoke(long hwnd, int uMsg, long wParam, long lParam);
-
-}
-
-final class WindowProcHandle extends Pointer.Default implements WindowProc {
-
-	private final WindowProc delegate;
-
-	WindowProcHandle(long functionPointer, WindowProc delegate) {
+	private WindowProc(long functionPointer) {
 		super(functionPointer);
-		this.delegate = delegate;
 	}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
+	private static final class Container extends WindowProc {
 
-	@Override
-	public long invoke(long hwnd, int uMsg, long wParam, long lParam) {
-		return delegate.invoke(hwnd, uMsg, wParam, lParam);
+		private final WindowProcI delegate;
+
+		Container(long functionPointer, WindowProcI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
+
+		@Override
+		public long invoke(long hwnd, int uMsg, long wParam, long lParam) {
+			return delegate.invoke(hwnd, uMsg, wParam, lParam);
+		}
+
 	}
 
 }

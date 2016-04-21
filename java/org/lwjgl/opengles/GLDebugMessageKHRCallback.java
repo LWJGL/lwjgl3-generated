@@ -8,52 +8,36 @@ package org.lwjgl.opengles;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link KHRDebug#glDebugMessageCallbackKHR DebugMessageCallbackKHR} method. */
-@FunctionalInterface
-public interface GLDebugMessageKHRCallback extends Callback.V {
+/** Instances of this class may be passed to the {@link KHRDebug#glDebugMessageCallbackKHR DebugMessageCallbackKHR} method. */
+public abstract class GLDebugMessageKHRCallback extends Callback implements GLDebugMessageKHRCallbackI {
 
 	/** Creates a {@code GLDebugMessageKHRCallback} instance from the specified function pointer. */
-	static GLDebugMessageKHRCallback create(long functionPointer) {
-		return functionPointer == NULL ? null : new GLDebugMessageKHRCallbackHandle(functionPointer, Callback.get(functionPointer));
+	public static GLDebugMessageKHRCallback create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		GLDebugMessageKHRCallbackI instance = Callback.get(functionPointer);
+		return instance instanceof GLDebugMessageKHRCallback
+			? (GLDebugMessageKHRCallback)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code GLDebugMessageKHRCallback} instance that delegates to the specified {@code GLDebugMessageKHRCallback} instance. */
-	static GLDebugMessageKHRCallback create(GLDebugMessageKHRCallback sam) {
-		return new GLDebugMessageKHRCallbackHandle(sam.address(), sam);
+	/** Creates a {@code GLDebugMessageKHRCallback} instance that delegates to the specified {@code GLDebugMessageKHRCallbackI} instance. */
+	public static GLDebugMessageKHRCallback create(GLDebugMessageKHRCallbackI instance) {
+		return instance instanceof GLDebugMessageKHRCallback
+			? (GLDebugMessageKHRCallback)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(iiiiipp)v", true);
+	protected GLDebugMessageKHRCallback() {
+		super(NULL);
+		address = GLDebugMessageKHRCallbackI.super.address();
 	}
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgInt(args),
-			dcbArgInt(args),
-			dcbArgInt(args),
-			dcbArgInt(args),
-			dcbArgInt(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args)
-		);
+	private GLDebugMessageKHRCallback(long functionPointer) {
+		super(functionPointer);
 	}
-
-	/**
-	 * Will be called when a debug message is generated.
-	 *
-	 * @param source    the message source
-	 * @param type      the message type
-	 * @param id        the message ID
-	 * @param severity  the message severity
-	 * @param length    the message length, excluding the null-terminator
-	 * @param message   a pointer to the message string representation
-	 * @param userParam the user-specified value that was passed when calling {@link KHRDebug#glDebugMessageCallbackKHR DebugMessageCallbackKHR}
-	 */
-	void invoke(int source, int type, int id, int severity, int length, long message, long userParam);
 
 	/**
 	 * Converts the specified {@link GLDebugMessageKHRCallback} arguments to a String.
@@ -65,29 +49,24 @@ public interface GLDebugMessageKHRCallback extends Callback.V {
 	 *
 	 * @return the message as a String
 	 */
-	static String getMessage(int length, long message) {
+	public static String getMessage(int length, long message) {
 		return memUTF8(memByteBuffer(message, length));
 	}
 
-}
+	private static final class Container extends GLDebugMessageKHRCallback {
 
-final class GLDebugMessageKHRCallbackHandle extends Pointer.Default implements GLDebugMessageKHRCallback {
+		private final GLDebugMessageKHRCallbackI delegate;
 
-	private final GLDebugMessageKHRCallback delegate;
+		Container(long functionPointer, GLDebugMessageKHRCallbackI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
 
-	GLDebugMessageKHRCallbackHandle(long functionPointer, GLDebugMessageKHRCallback delegate) {
-		super(functionPointer);
-		this.delegate = delegate;
-	}
+		@Override
+		public void invoke(int source, int type, int id, int severity, int length, long message, long userParam) {
+			delegate.invoke(source, type, id, severity, length, message, userParam);
+		}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
-
-	@Override
-	public void invoke(int source, int type, int id, int severity, int length, long message, long userParam) {
-		delegate.invoke(source, type, id, severity, length, message, userParam);
 	}
 
 }

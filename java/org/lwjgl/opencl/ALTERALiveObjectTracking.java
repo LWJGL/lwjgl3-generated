@@ -90,7 +90,7 @@ public class ALTERALiveObjectTracking {
 	 * @param report_fn the callback function
 	 * @param user_data a pointer to user data that will be passed to {@code report_fn}
 	 */
-	public static void clReportLiveObjectsAltera(long platform, CLReportLiveObjectsAlteraCallback report_fn, ByteBuffer user_data) {
+	public static void clReportLiveObjectsAltera(long platform, CLReportLiveObjectsAlteraCallbackI report_fn, ByteBuffer user_data) {
 		nclReportLiveObjectsAltera(platform, report_fn.address(), memAddress(user_data));
 	}
 

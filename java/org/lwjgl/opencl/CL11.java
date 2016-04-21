@@ -245,7 +245,7 @@ public class CL11 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clSetMemObjectDestructorCallback(long memobj, CLMemObjectDestructorCallback pfn_notify, long user_data) {
+	public static int clSetMemObjectDestructorCallback(long memobj, CLMemObjectDestructorCallbackI pfn_notify, long user_data) {
 		return nclSetMemObjectDestructorCallback(memobj, pfn_notify.address(), user_data);
 	}
 
@@ -1044,7 +1044,7 @@ clReleaseMemObject(buf2);</code></pre>
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clSetEventCallback(long event, int command_exec_callback_type, CLEventCallback pfn_notify, long user_data) {
+	public static int clSetEventCallback(long event, int command_exec_callback_type, CLEventCallbackI pfn_notify, long user_data) {
 		return nclSetEventCallback(event, command_exec_callback_type, pfn_notify.address(), user_data);
 	}
 

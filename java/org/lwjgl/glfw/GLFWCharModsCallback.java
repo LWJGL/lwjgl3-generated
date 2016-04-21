@@ -8,72 +8,59 @@ package org.lwjgl.glfw;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetCharModsCallback SetCharModsCallback} method. */
-@FunctionalInterface
-public interface GLFWCharModsCallback extends Callback.V {
+/** Instances of this class may be passed to the {@link GLFW#glfwSetCharModsCallback SetCharModsCallback} method. */
+public abstract class GLFWCharModsCallback extends Callback implements GLFWCharModsCallbackI {
 
 	/** Creates a {@code GLFWCharModsCallback} instance from the specified function pointer. */
-	static GLFWCharModsCallback create(long functionPointer) {
-		return functionPointer == NULL ? null : new GLFWCharModsCallbackHandle(functionPointer, Callback.get(functionPointer));
+	public static GLFWCharModsCallback create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		GLFWCharModsCallbackI instance = Callback.get(functionPointer);
+		return instance instanceof GLFWCharModsCallback
+			? (GLFWCharModsCallback)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code GLFWCharModsCallback} instance that delegates to the specified {@code GLFWCharModsCallback} instance. */
-	static GLFWCharModsCallback create(GLFWCharModsCallback sam) {
-		return new GLFWCharModsCallbackHandle(sam.address(), sam);
+	/** Creates a {@code GLFWCharModsCallback} instance that delegates to the specified {@code GLFWCharModsCallbackI} instance. */
+	public static GLFWCharModsCallback create(GLFWCharModsCallbackI instance) {
+		return instance instanceof GLFWCharModsCallback
+			? (GLFWCharModsCallback)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(pii)v", false);
+	protected GLFWCharModsCallback() {
+		super(NULL);
+		address = GLFWCharModsCallbackI.super.address();
 	}
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgInt(args),
-			dcbArgInt(args)
-		);
+	private GLFWCharModsCallback(long functionPointer) {
+		super(functionPointer);
 	}
-
-	/**
-	 * Will be called when a Unicode character is input regardless of what modifier keys are used.
-	 *
-	 * @param window    the window that received the event
-	 * @param codepoint the Unicode code point of the character
-	 * @param mods      bitfield describing which modifier keys were held down
-	 */
-	void invoke(long window, int codepoint, int mods);
 
 	/** See {@link GLFW#glfwSetCharModsCallback SetCharModsCallback}. */
-	default GLFWCharModsCallback set(long window) {
+	public GLFWCharModsCallback set(long window) {
 		glfwSetCharModsCallback(window, this);
 		return this;
 	}
 
-}
+	private static final class Container extends GLFWCharModsCallback {
 
-final class GLFWCharModsCallbackHandle extends Pointer.Default implements GLFWCharModsCallback {
+		private final GLFWCharModsCallbackI delegate;
 
-	private final GLFWCharModsCallback delegate;
+		Container(long functionPointer, GLFWCharModsCallbackI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
 
-	GLFWCharModsCallbackHandle(long functionPointer, GLFWCharModsCallback delegate) {
-		super(functionPointer);
-		this.delegate = delegate;
-	}
+		@Override
+		public void invoke(long window, int codepoint, int mods) {
+			delegate.invoke(window, codepoint, mods);
+		}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
-
-	@Override
-	public void invoke(long window, int codepoint, int mods) {
-		delegate.invoke(window, codepoint, mods);
 	}
 
 }

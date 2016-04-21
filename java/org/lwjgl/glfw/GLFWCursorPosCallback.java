@@ -8,75 +8,59 @@ package org.lwjgl.glfw;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetCursorPosCallback SetCursorPosCallback} method. */
-@FunctionalInterface
-public interface GLFWCursorPosCallback extends Callback.V {
+/** Instances of this class may be passed to the {@link GLFW#glfwSetCursorPosCallback SetCursorPosCallback} method. */
+public abstract class GLFWCursorPosCallback extends Callback implements GLFWCursorPosCallbackI {
 
 	/** Creates a {@code GLFWCursorPosCallback} instance from the specified function pointer. */
-	static GLFWCursorPosCallback create(long functionPointer) {
-		return functionPointer == NULL ? null : new GLFWCursorPosCallbackHandle(functionPointer, Callback.get(functionPointer));
+	public static GLFWCursorPosCallback create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		GLFWCursorPosCallbackI instance = Callback.get(functionPointer);
+		return instance instanceof GLFWCursorPosCallback
+			? (GLFWCursorPosCallback)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code GLFWCursorPosCallback} instance that delegates to the specified {@code GLFWCursorPosCallback} instance. */
-	static GLFWCursorPosCallback create(GLFWCursorPosCallback sam) {
-		return new GLFWCursorPosCallbackHandle(sam.address(), sam);
+	/** Creates a {@code GLFWCursorPosCallback} instance that delegates to the specified {@code GLFWCursorPosCallbackI} instance. */
+	public static GLFWCursorPosCallback create(GLFWCursorPosCallbackI instance) {
+		return instance instanceof GLFWCursorPosCallback
+			? (GLFWCursorPosCallback)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(pdd)v", false);
+	protected GLFWCursorPosCallback() {
+		super(NULL);
+		address = GLFWCursorPosCallbackI.super.address();
 	}
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgDouble(args),
-			dcbArgDouble(args)
-		);
+	private GLFWCursorPosCallback(long functionPointer) {
+		super(functionPointer);
 	}
-
-	/**
-	 * Will be called when the cursor is moved.
-	 * 
-	 * <p>The callback function receives the cursor position, measured in screen coordinates but relative to the top-left corner of the window client area. On
-	 * platforms that provide it, the full sub-pixel cursor position is passed on.</p>
-	 *
-	 * @param window the window that received the event
-	 * @param xpos   the new cursor x-coordinate, relative to the left edge of the client area
-	 * @param ypos   the new cursor y-coordinate, relative to the top edge of the client area
-	 */
-	void invoke(long window, double xpos, double ypos);
 
 	/** See {@link GLFW#glfwSetCursorPosCallback SetCursorPosCallback}. */
-	default GLFWCursorPosCallback set(long window) {
+	public GLFWCursorPosCallback set(long window) {
 		glfwSetCursorPosCallback(window, this);
 		return this;
 	}
 
-}
+	private static final class Container extends GLFWCursorPosCallback {
 
-final class GLFWCursorPosCallbackHandle extends Pointer.Default implements GLFWCursorPosCallback {
+		private final GLFWCursorPosCallbackI delegate;
 
-	private final GLFWCursorPosCallback delegate;
+		Container(long functionPointer, GLFWCursorPosCallbackI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
 
-	GLFWCursorPosCallbackHandle(long functionPointer, GLFWCursorPosCallback delegate) {
-		super(functionPointer);
-		this.delegate = delegate;
-	}
+		@Override
+		public void invoke(long window, double xpos, double ypos) {
+			delegate.invoke(window, xpos, ypos);
+		}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
-
-	@Override
-	public void invoke(long window, double xpos, double ypos) {
-		delegate.invoke(window, xpos, ypos);
 	}
 
 }

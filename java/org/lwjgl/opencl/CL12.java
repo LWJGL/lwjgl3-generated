@@ -873,7 +873,7 @@ public class CL12 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clCompileProgram(long program, PointerBuffer device_list, ByteBuffer options, PointerBuffer input_headers, PointerBuffer header_include_names, CLProgramCallback pfn_notify, long user_data) {
+	public static int clCompileProgram(long program, PointerBuffer device_list, ByteBuffer options, PointerBuffer input_headers, PointerBuffer header_include_names, CLProgramCallbackI pfn_notify, long user_data) {
 		if ( CHECKS ) {
 			checkNT1(options);
 			if ( header_include_names != null ) checkBuffer(header_include_names, input_headers.remaining());
@@ -930,7 +930,7 @@ public class CL12 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clCompileProgram(long program, PointerBuffer device_list, CharSequence options, PointerBuffer input_headers, PointerBuffer header_include_names, CLProgramCallback pfn_notify, long user_data) {
+	public static int clCompileProgram(long program, PointerBuffer device_list, CharSequence options, PointerBuffer input_headers, PointerBuffer header_include_names, CLProgramCallbackI pfn_notify, long user_data) {
 		if ( CHECKS )
 			if ( header_include_names != null ) checkBuffer(header_include_names, input_headers.remaining());
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -991,7 +991,7 @@ public class CL12 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clCompileProgram(long program, PointerBuffer device_list, CharSequence options, long[] input_headers, CharSequence[] header_include_names, CLProgramCallback pfn_notify, long user_data) {
+	public static int clCompileProgram(long program, PointerBuffer device_list, CharSequence options, long[] input_headers, CharSequence[] header_include_names, CLProgramCallbackI pfn_notify, long user_data) {
 		if ( CHECKS )
 			checkArray(header_include_names, input_headers.length);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -1051,7 +1051,7 @@ public class CL12 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clCompileProgram(long program, PointerBuffer device_list, CharSequence options, long input_header, CharSequence header_include_name, CLProgramCallback pfn_notify, long user_data) {
+	public static int clCompileProgram(long program, PointerBuffer device_list, CharSequence options, long input_header, CharSequence header_include_name, CLProgramCallbackI pfn_notify, long user_data) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer optionsEncoded = stack.ASCII(options);
@@ -1214,7 +1214,7 @@ public class CL12 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static long clLinkProgram(long context, PointerBuffer device_list, ByteBuffer options, PointerBuffer input_programs, CLProgramCallback pfn_notify, long user_data) {
+	public static long clLinkProgram(long context, PointerBuffer device_list, ByteBuffer options, PointerBuffer input_programs, CLProgramCallbackI pfn_notify, long user_data) {
 		if ( CHECKS )
 			checkNT1(options);
 		return nclLinkProgram(context, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(options), input_programs == null ? 0 : input_programs.remaining(), memAddressSafe(input_programs), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
@@ -1288,7 +1288,7 @@ public class CL12 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static long clLinkProgram(long context, PointerBuffer device_list, CharSequence options, PointerBuffer input_programs, CLProgramCallback pfn_notify, long user_data) {
+	public static long clLinkProgram(long context, PointerBuffer device_list, CharSequence options, PointerBuffer input_programs, CLProgramCallbackI pfn_notify, long user_data) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer optionsEncoded = stack.ASCII(options);
@@ -1356,7 +1356,7 @@ public class CL12 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static long clLinkProgram(long context, PointerBuffer device_list, CharSequence options, long input_program, CLProgramCallback pfn_notify, long user_data) {
+	public static long clLinkProgram(long context, PointerBuffer device_list, CharSequence options, long input_program, CLProgramCallbackI pfn_notify, long user_data) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer optionsEncoded = stack.ASCII(options);

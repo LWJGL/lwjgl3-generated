@@ -8,74 +8,59 @@ package org.lwjgl.glfw;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetMouseButtonCallback SetMouseButtonCallback} method. */
-@FunctionalInterface
-public interface GLFWMouseButtonCallback extends Callback.V {
+/** Instances of this class may be passed to the {@link GLFW#glfwSetMouseButtonCallback SetMouseButtonCallback} method. */
+public abstract class GLFWMouseButtonCallback extends Callback implements GLFWMouseButtonCallbackI {
 
 	/** Creates a {@code GLFWMouseButtonCallback} instance from the specified function pointer. */
-	static GLFWMouseButtonCallback create(long functionPointer) {
-		return functionPointer == NULL ? null : new GLFWMouseButtonCallbackHandle(functionPointer, Callback.get(functionPointer));
+	public static GLFWMouseButtonCallback create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		GLFWMouseButtonCallbackI instance = Callback.get(functionPointer);
+		return instance instanceof GLFWMouseButtonCallback
+			? (GLFWMouseButtonCallback)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code GLFWMouseButtonCallback} instance that delegates to the specified {@code GLFWMouseButtonCallback} instance. */
-	static GLFWMouseButtonCallback create(GLFWMouseButtonCallback sam) {
-		return new GLFWMouseButtonCallbackHandle(sam.address(), sam);
+	/** Creates a {@code GLFWMouseButtonCallback} instance that delegates to the specified {@code GLFWMouseButtonCallbackI} instance. */
+	public static GLFWMouseButtonCallback create(GLFWMouseButtonCallbackI instance) {
+		return instance instanceof GLFWMouseButtonCallback
+			? (GLFWMouseButtonCallback)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(piii)v", false);
+	protected GLFWMouseButtonCallback() {
+		super(NULL);
+		address = GLFWMouseButtonCallbackI.super.address();
 	}
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgInt(args),
-			dcbArgInt(args),
-			dcbArgInt(args)
-		);
+	private GLFWMouseButtonCallback(long functionPointer) {
+		super(functionPointer);
 	}
-
-	/**
-	 * Will be called when a mouse button is pressed or released.
-	 *
-	 * @param window the window that received the event
-	 * @param button the mouse button that was pressed or released
-	 * @param action the button action. One of:<br><table><tr><td>{@link GLFW#GLFW_PRESS PRESS}</td><td>{@link GLFW#GLFW_RELEASE RELEASE}</td><td>{@link GLFW#GLFW_REPEAT REPEAT}</td></tr></table>
-	 * @param mods   bitfield describing which modifiers keys were held down
-	 */
-	void invoke(long window, int button, int action, int mods);
 
 	/** See {@link GLFW#glfwSetMouseButtonCallback SetMouseButtonCallback}. */
-	default GLFWMouseButtonCallback set(long window) {
+	public GLFWMouseButtonCallback set(long window) {
 		glfwSetMouseButtonCallback(window, this);
 		return this;
 	}
 
-}
+	private static final class Container extends GLFWMouseButtonCallback {
 
-final class GLFWMouseButtonCallbackHandle extends Pointer.Default implements GLFWMouseButtonCallback {
+		private final GLFWMouseButtonCallbackI delegate;
 
-	private final GLFWMouseButtonCallback delegate;
+		Container(long functionPointer, GLFWMouseButtonCallbackI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
 
-	GLFWMouseButtonCallbackHandle(long functionPointer, GLFWMouseButtonCallback delegate) {
-		super(functionPointer);
-		this.delegate = delegate;
-	}
+		@Override
+		public void invoke(long window, int button, int action, int mods) {
+			delegate.invoke(window, button, action, mods);
+		}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
-
-	@Override
-	public void invoke(long window, int button, int action, int mods) {
-		delegate.invoke(window, button, action, mods);
 	}
 
 }

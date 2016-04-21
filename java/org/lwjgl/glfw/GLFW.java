@@ -778,7 +778,7 @@ public class GLFW {
 	 *
 	 * @since version 3.0
 	 */
-	public static GLFWErrorCallback glfwSetErrorCallback(GLFWErrorCallback cbfun) {
+	public static GLFWErrorCallback glfwSetErrorCallback(GLFWErrorCallbackI cbfun) {
 		return GLFWErrorCallback.create(nglfwSetErrorCallback(cbfun == null ? NULL : cbfun.address()));
 	}
 
@@ -1025,7 +1025,7 @@ public class GLFW {
 	 *
 	 * @since version 3.0
 	 */
-	public static GLFWMonitorCallback glfwSetMonitorCallback(GLFWMonitorCallback cbfun) {
+	public static GLFWMonitorCallback glfwSetMonitorCallback(GLFWMonitorCallbackI cbfun) {
 		return GLFWMonitorCallback.create(nglfwSetMonitorCallback(cbfun == null ? NULL : cbfun.address()));
 	}
 
@@ -2302,7 +2302,7 @@ public class GLFW {
 	 *
 	 * @since version 1.0
 	 */
-	public static GLFWWindowPosCallback glfwSetWindowPosCallback(long window, GLFWWindowPosCallback cbfun) {
+	public static GLFWWindowPosCallback glfwSetWindowPosCallback(long window, GLFWWindowPosCallbackI cbfun) {
 		return GLFWWindowPosCallback.create(nglfwSetWindowPosCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
@@ -2343,7 +2343,7 @@ public class GLFW {
 	 *
 	 * @since version 1.0
 	 */
-	public static GLFWWindowSizeCallback glfwSetWindowSizeCallback(long window, GLFWWindowSizeCallback cbfun) {
+	public static GLFWWindowSizeCallback glfwSetWindowSizeCallback(long window, GLFWWindowSizeCallbackI cbfun) {
 		return GLFWWindowSizeCallback.create(nglfwSetWindowSizeCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
@@ -2402,7 +2402,7 @@ public class GLFW {
 	 *
 	 * @since version 2.5
 	 */
-	public static GLFWWindowCloseCallback glfwSetWindowCloseCallback(long window, GLFWWindowCloseCallback cbfun) {
+	public static GLFWWindowCloseCallback glfwSetWindowCloseCallback(long window, GLFWWindowCloseCallbackI cbfun) {
 		return GLFWWindowCloseCallback.create(nglfwSetWindowCloseCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
@@ -2449,7 +2449,7 @@ public class GLFW {
 	 *
 	 * @since version 2.5
 	 */
-	public static GLFWWindowRefreshCallback glfwSetWindowRefreshCallback(long window, GLFWWindowRefreshCallback cbfun) {
+	public static GLFWWindowRefreshCallback glfwSetWindowRefreshCallback(long window, GLFWWindowRefreshCallbackI cbfun) {
 		return GLFWWindowRefreshCallback.create(nglfwSetWindowRefreshCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
@@ -2494,7 +2494,7 @@ public class GLFW {
 	 *
 	 * @since version 3.0
 	 */
-	public static GLFWWindowFocusCallback glfwSetWindowFocusCallback(long window, GLFWWindowFocusCallback cbfun) {
+	public static GLFWWindowFocusCallback glfwSetWindowFocusCallback(long window, GLFWWindowFocusCallbackI cbfun) {
 		return GLFWWindowFocusCallback.create(nglfwSetWindowFocusCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
@@ -2533,7 +2533,7 @@ public class GLFW {
 	 *
 	 * @since version 3.0
 	 */
-	public static GLFWWindowIconifyCallback glfwSetWindowIconifyCallback(long window, GLFWWindowIconifyCallback cbfun) {
+	public static GLFWWindowIconifyCallback glfwSetWindowIconifyCallback(long window, GLFWWindowIconifyCallbackI cbfun) {
 		return GLFWWindowIconifyCallback.create(nglfwSetWindowIconifyCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
@@ -2572,7 +2572,7 @@ public class GLFW {
 	 *
 	 * @since version 3.0
 	 */
-	public static GLFWFramebufferSizeCallback glfwSetFramebufferSizeCallback(long window, GLFWFramebufferSizeCallback cbfun) {
+	public static GLFWFramebufferSizeCallback glfwSetFramebufferSizeCallback(long window, GLFWFramebufferSizeCallbackI cbfun) {
 		return GLFWFramebufferSizeCallback.create(nglfwSetFramebufferSizeCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
@@ -3197,7 +3197,7 @@ public class GLFW {
 	 *
 	 * @since version 1.0
 	 */
-	public static GLFWKeyCallback glfwSetKeyCallback(long window, GLFWKeyCallback cbfun) {
+	public static GLFWKeyCallback glfwSetKeyCallback(long window, GLFWKeyCallbackI cbfun) {
 		return GLFWKeyCallback.create(nglfwSetKeyCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
@@ -3248,7 +3248,7 @@ public class GLFW {
 	 *
 	 * @since version 2.4
 	 */
-	public static GLFWCharCallback glfwSetCharCallback(long window, GLFWCharCallback cbfun) {
+	public static GLFWCharCallback glfwSetCharCallback(long window, GLFWCharCallbackI cbfun) {
 		return GLFWCharCallback.create(nglfwSetCharCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
@@ -3297,7 +3297,7 @@ public class GLFW {
 	 *
 	 * @since version 3.1
 	 */
-	public static GLFWCharModsCallback glfwSetCharModsCallback(long window, GLFWCharModsCallback cbfun) {
+	public static GLFWCharModsCallback glfwSetCharModsCallback(long window, GLFWCharModsCallbackI cbfun) {
 		return GLFWCharModsCallback.create(nglfwSetCharModsCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
@@ -3342,7 +3342,7 @@ public class GLFW {
 	 *
 	 * @since version 1.0
 	 */
-	public static GLFWMouseButtonCallback glfwSetMouseButtonCallback(long window, GLFWMouseButtonCallback cbfun) {
+	public static GLFWMouseButtonCallback glfwSetMouseButtonCallback(long window, GLFWMouseButtonCallbackI cbfun) {
 		return GLFWMouseButtonCallback.create(nglfwSetMouseButtonCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
@@ -3381,7 +3381,7 @@ public class GLFW {
 	 *
 	 * @since version 1.0
 	 */
-	public static GLFWCursorPosCallback glfwSetCursorPosCallback(long window, GLFWCursorPosCallback cbfun) {
+	public static GLFWCursorPosCallback glfwSetCursorPosCallback(long window, GLFWCursorPosCallbackI cbfun) {
 		return GLFWCursorPosCallback.create(nglfwSetCursorPosCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
@@ -3418,7 +3418,7 @@ public class GLFW {
 	 *
 	 * @since version 3.0
 	 */
-	public static GLFWCursorEnterCallback glfwSetCursorEnterCallback(long window, GLFWCursorEnterCallback cbfun) {
+	public static GLFWCursorEnterCallback glfwSetCursorEnterCallback(long window, GLFWCursorEnterCallbackI cbfun) {
 		return GLFWCursorEnterCallback.create(nglfwSetCursorEnterCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
@@ -3459,7 +3459,7 @@ public class GLFW {
 	 *
 	 * @since version 2.1
 	 */
-	public static GLFWScrollCallback glfwSetScrollCallback(long window, GLFWScrollCallback cbfun) {
+	public static GLFWScrollCallback glfwSetScrollCallback(long window, GLFWScrollCallbackI cbfun) {
 		return GLFWScrollCallback.create(nglfwSetScrollCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
@@ -3502,7 +3502,7 @@ public class GLFW {
 	 *
 	 * @since version 3.1
 	 */
-	public static GLFWDropCallback glfwSetDropCallback(long window, GLFWDropCallback cbfun) {
+	public static GLFWDropCallback glfwSetDropCallback(long window, GLFWDropCallbackI cbfun) {
 		return GLFWDropCallback.create(nglfwSetDropCallback(window, cbfun == null ? NULL : cbfun.address()));
 	}
 
@@ -3709,7 +3709,7 @@ public class GLFW {
 	 *
 	 * @since version 3.2
 	 */
-	public static GLFWJoystickCallback glfwSetJoystickCallback(GLFWJoystickCallback cbfun) {
+	public static GLFWJoystickCallback glfwSetJoystickCallback(GLFWJoystickCallbackI cbfun) {
 		return GLFWJoystickCallback.create(nglfwSetJoystickCallback(cbfun == null ? NULL : cbfun.address()));
 	}
 

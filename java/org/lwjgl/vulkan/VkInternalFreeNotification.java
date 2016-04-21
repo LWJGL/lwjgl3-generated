@@ -8,70 +8,55 @@ package org.lwjgl.vulkan;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /**
- * Instances of this interface may be set to the {@code pfnInternalFree} member of the {@link VkAllocationCallbacks} struct.
+ * Instances of this class may be set to the {@code pfnInternalFree} member of the {@link VkAllocationCallbacks} struct.
  * 
  * <p>This is a purely informational callback.</p>
  */
-@FunctionalInterface
-public interface VkInternalFreeNotification extends Callback.V {
+public abstract class VkInternalFreeNotification extends Callback implements VkInternalFreeNotificationI {
 
 	/** Creates a {@code VkInternalFreeNotification} instance from the specified function pointer. */
-	static VkInternalFreeNotification create(long functionPointer) {
-		return functionPointer == NULL ? null : new VkInternalFreeNotificationHandle(functionPointer, Callback.get(functionPointer));
+	public static VkInternalFreeNotification create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		VkInternalFreeNotificationI instance = Callback.get(functionPointer);
+		return instance instanceof VkInternalFreeNotification
+			? (VkInternalFreeNotification)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code VkInternalFreeNotification} instance that delegates to the specified {@code VkInternalFreeNotification} instance. */
-	static VkInternalFreeNotification create(VkInternalFreeNotification sam) {
-		return new VkInternalFreeNotificationHandle(sam.address(), sam);
+	/** Creates a {@code VkInternalFreeNotification} instance that delegates to the specified {@code VkInternalFreeNotificationI} instance. */
+	public static VkInternalFreeNotification create(VkInternalFreeNotificationI instance) {
+		return instance instanceof VkInternalFreeNotification
+			? (VkInternalFreeNotification)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(ppii)v", true);
+	protected VkInternalFreeNotification() {
+		super(NULL);
+		address = VkInternalFreeNotificationI.super.address();
 	}
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgInt(args),
-			dcbArgInt(args)
-		);
-	}
-
-	/**
-	 * Will be called by the Vulkan implementation when an internal deallocation occurs.
-	 *
-	 * @param pUserData       the value specified for {@link VkAllocationCallbacks}{@code .pUserData} in the allocator specified by the application
-	 * @param size            the requested size of an allocation
-	 * @param allocationType  the requested type of an allocation
-	 * @param allocationScope a {@code VkSystemAllocationScope} value specifying the scope of the lifetime of the allocation
-	 */
-	void invoke(long pUserData, long size, int allocationType, int allocationScope);
-
-}
-
-final class VkInternalFreeNotificationHandle extends Pointer.Default implements VkInternalFreeNotification {
-
-	private final VkInternalFreeNotification delegate;
-
-	VkInternalFreeNotificationHandle(long functionPointer, VkInternalFreeNotification delegate) {
+	private VkInternalFreeNotification(long functionPointer) {
 		super(functionPointer);
-		this.delegate = delegate;
 	}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
+	private static final class Container extends VkInternalFreeNotification {
 
-	@Override
-	public void invoke(long pUserData, long size, int allocationType, int allocationScope) {
-		delegate.invoke(pUserData, size, allocationType, allocationScope);
+		private final VkInternalFreeNotificationI delegate;
+
+		Container(long functionPointer, VkInternalFreeNotificationI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
+
+		@Override
+		public void invoke(long pUserData, long size, int allocationType, int allocationScope) {
+			delegate.invoke(pUserData, size, allocationType, allocationScope);
+		}
+
 	}
 
 }

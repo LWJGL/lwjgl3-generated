@@ -8,68 +8,59 @@ package org.lwjgl.glfw;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowCloseCallback SetWindowCloseCallback} method. */
-@FunctionalInterface
-public interface GLFWWindowCloseCallback extends Callback.V {
+/** Instances of this class may be passed to the {@link GLFW#glfwSetWindowCloseCallback SetWindowCloseCallback} method. */
+public abstract class GLFWWindowCloseCallback extends Callback implements GLFWWindowCloseCallbackI {
 
 	/** Creates a {@code GLFWWindowCloseCallback} instance from the specified function pointer. */
-	static GLFWWindowCloseCallback create(long functionPointer) {
-		return functionPointer == NULL ? null : new GLFWWindowCloseCallbackHandle(functionPointer, Callback.get(functionPointer));
+	public static GLFWWindowCloseCallback create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		GLFWWindowCloseCallbackI instance = Callback.get(functionPointer);
+		return instance instanceof GLFWWindowCloseCallback
+			? (GLFWWindowCloseCallback)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code GLFWWindowCloseCallback} instance that delegates to the specified {@code GLFWWindowCloseCallback} instance. */
-	static GLFWWindowCloseCallback create(GLFWWindowCloseCallback sam) {
-		return new GLFWWindowCloseCallbackHandle(sam.address(), sam);
+	/** Creates a {@code GLFWWindowCloseCallback} instance that delegates to the specified {@code GLFWWindowCloseCallbackI} instance. */
+	public static GLFWWindowCloseCallback create(GLFWWindowCloseCallbackI instance) {
+		return instance instanceof GLFWWindowCloseCallback
+			? (GLFWWindowCloseCallback)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(p)v", false);
+	protected GLFWWindowCloseCallback() {
+		super(NULL);
+		address = GLFWWindowCloseCallbackI.super.address();
 	}
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args)
-		);
+	private GLFWWindowCloseCallback(long functionPointer) {
+		super(functionPointer);
 	}
-
-	/**
-	 * Will be called when the user attempts to close the specified window, for example by clicking the close widget in the title bar.
-	 *
-	 * @param window the window that the user attempted to close
-	 */
-	void invoke(long window);
 
 	/** See {@link GLFW#glfwSetWindowCloseCallback SetWindowCloseCallback}. */
-	default GLFWWindowCloseCallback set(long window) {
+	public GLFWWindowCloseCallback set(long window) {
 		glfwSetWindowCloseCallback(window, this);
 		return this;
 	}
 
-}
+	private static final class Container extends GLFWWindowCloseCallback {
 
-final class GLFWWindowCloseCallbackHandle extends Pointer.Default implements GLFWWindowCloseCallback {
+		private final GLFWWindowCloseCallbackI delegate;
 
-	private final GLFWWindowCloseCallback delegate;
+		Container(long functionPointer, GLFWWindowCloseCallbackI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
 
-	GLFWWindowCloseCallbackHandle(long functionPointer, GLFWWindowCloseCallback delegate) {
-		super(functionPointer);
-		this.delegate = delegate;
-	}
+		@Override
+		public void invoke(long window) {
+			delegate.invoke(window);
+		}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
-
-	@Override
-	public void invoke(long window) {
-		delegate.invoke(window);
 	}
 
 }

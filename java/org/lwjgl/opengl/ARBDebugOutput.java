@@ -398,7 +398,7 @@ public class ARBDebugOutput {
 	 * @param callback  a callback function that will be called when a debug message is generated
 	 * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
 	 */
-	public static void glDebugMessageCallbackARB(GLDebugMessageARBCallback callback, long userParam) {
+	public static void glDebugMessageCallbackARB(GLDebugMessageARBCallbackI callback, long userParam) {
 		nglDebugMessageCallbackARB(callback == null ? NULL : callback.address(), userParam);
 	}
 

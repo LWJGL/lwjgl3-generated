@@ -762,7 +762,7 @@ for (i = 0; i < nbins; i++) {
 	 * @param je_cbopaque an opaque pointer that will be passed to {@code write_cb}
 	 * @param opts        an options string
 	 */
-	public static void je_malloc_stats_print(MallocMessageCallback write_cb, ByteBuffer je_cbopaque, ByteBuffer opts) {
+	public static void je_malloc_stats_print(MallocMessageCallbackI write_cb, ByteBuffer je_cbopaque, ByteBuffer opts) {
 		if ( CHECKS )
 			if ( opts != null ) checkNT1(opts);
 		nje_malloc_stats_print(write_cb == null ? NULL : write_cb.address(), memAddressSafe(je_cbopaque), memAddressSafe(opts));
@@ -781,7 +781,7 @@ for (i = 0; i < nbins; i++) {
 	 * @param je_cbopaque an opaque pointer that will be passed to {@code write_cb}
 	 * @param opts        an options string
 	 */
-	public static void je_malloc_stats_print(MallocMessageCallback write_cb, ByteBuffer je_cbopaque, CharSequence opts) {
+	public static void je_malloc_stats_print(MallocMessageCallbackI write_cb, ByteBuffer je_cbopaque, CharSequence opts) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer optsEncoded = opts == null ? null : stack.ASCII(opts);

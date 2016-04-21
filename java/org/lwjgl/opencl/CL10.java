@@ -693,7 +693,7 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static long clCreateContext(PointerBuffer properties, PointerBuffer devices, CLContextCallback pfn_notify, long user_data, IntBuffer errcode_ret) {
+	public static long clCreateContext(PointerBuffer properties, PointerBuffer devices, CLContextCallbackI pfn_notify, long user_data, IntBuffer errcode_ret) {
 		if ( CHECKS ) {
 			checkNT(properties);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -732,7 +732,7 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static long clCreateContext(PointerBuffer properties, long device, CLContextCallback pfn_notify, long user_data, IntBuffer errcode_ret) {
+	public static long clCreateContext(PointerBuffer properties, long device, CLContextCallbackI pfn_notify, long user_data, IntBuffer errcode_ret) {
 		if ( CHECKS ) {
 			checkNT(properties);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -773,7 +773,7 @@ public class CL10 {
 	 * @param user_data   will be passed as the {@code user_data} argument when {@code pfn_notify} is called. {@code user_data} can be {@code NULL}.
 	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
 	 */
-	public static long clCreateContextFromType(PointerBuffer properties, long device_type, CLContextCallback pfn_notify, long user_data, IntBuffer errcode_ret) {
+	public static long clCreateContextFromType(PointerBuffer properties, long device_type, CLContextCallbackI pfn_notify, long user_data, IntBuffer errcode_ret) {
 		if ( CHECKS ) {
 			checkNT(properties);
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
@@ -4204,7 +4204,7 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clBuildProgram(long program, PointerBuffer device_list, ByteBuffer options, CLProgramCallback pfn_notify, long user_data) {
+	public static int clBuildProgram(long program, PointerBuffer device_list, ByteBuffer options, CLProgramCallbackI pfn_notify, long user_data) {
 		if ( CHECKS )
 			checkNT1(options);
 		return nclBuildProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(options), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
@@ -4255,7 +4255,7 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clBuildProgram(long program, PointerBuffer device_list, CharSequence options, CLProgramCallback pfn_notify, long user_data) {
+	public static int clBuildProgram(long program, PointerBuffer device_list, CharSequence options, CLProgramCallbackI pfn_notify, long user_data) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer optionsEncoded = stack.ASCII(options);
@@ -4307,7 +4307,7 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clBuildProgram(long program, long device, CharSequence options, CLProgramCallback pfn_notify, long user_data) {
+	public static int clBuildProgram(long program, long device, CharSequence options, CLProgramCallbackI pfn_notify, long user_data) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer optionsEncoded = stack.ASCII(options);
@@ -6812,7 +6812,7 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueNativeKernel(long command_queue, CLNativeKernel user_func, ByteBuffer args, PointerBuffer mem_list, PointerBuffer args_mem_loc, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueNativeKernel(long command_queue, CLNativeKernelI user_func, ByteBuffer args, PointerBuffer mem_list, PointerBuffer args_mem_loc, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
 			if ( args_mem_loc != null ) checkBuffer(args_mem_loc, mem_list.remaining());
 			if ( event != null ) checkBuffer(event, 1);
@@ -6858,7 +6858,7 @@ public class CL10 {
 	 *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueNativeKernel(long command_queue, CLNativeKernel user_func, ByteBuffer args, long memobj, long memobj_loc, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueNativeKernel(long command_queue, CLNativeKernelI user_func, ByteBuffer args, long memobj, long memobj_loc, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();

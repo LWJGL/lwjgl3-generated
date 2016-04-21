@@ -8,50 +8,36 @@ package org.lwjgl.opengl;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link AMDDebugOutput#glDebugMessageCallbackAMD DebugMessageCallbackAMD} method. */
-@FunctionalInterface
-public interface GLDebugMessageAMDCallback extends Callback.V {
+/** Instances of this class may be passed to the {@link AMDDebugOutput#glDebugMessageCallbackAMD DebugMessageCallbackAMD} method. */
+public abstract class GLDebugMessageAMDCallback extends Callback implements GLDebugMessageAMDCallbackI {
 
 	/** Creates a {@code GLDebugMessageAMDCallback} instance from the specified function pointer. */
-	static GLDebugMessageAMDCallback create(long functionPointer) {
-		return functionPointer == NULL ? null : new GLDebugMessageAMDCallbackHandle(functionPointer, Callback.get(functionPointer));
+	public static GLDebugMessageAMDCallback create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		GLDebugMessageAMDCallbackI instance = Callback.get(functionPointer);
+		return instance instanceof GLDebugMessageAMDCallback
+			? (GLDebugMessageAMDCallback)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code GLDebugMessageAMDCallback} instance that delegates to the specified {@code GLDebugMessageAMDCallback} instance. */
-	static GLDebugMessageAMDCallback create(GLDebugMessageAMDCallback sam) {
-		return new GLDebugMessageAMDCallbackHandle(sam.address(), sam);
+	/** Creates a {@code GLDebugMessageAMDCallback} instance that delegates to the specified {@code GLDebugMessageAMDCallbackI} instance. */
+	public static GLDebugMessageAMDCallback create(GLDebugMessageAMDCallbackI instance) {
+		return instance instanceof GLDebugMessageAMDCallback
+			? (GLDebugMessageAMDCallback)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(iiiipp)v", true);
+	protected GLDebugMessageAMDCallback() {
+		super(NULL);
+		address = GLDebugMessageAMDCallbackI.super.address();
 	}
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgInt(args),
-			dcbArgInt(args),
-			dcbArgInt(args),
-			dcbArgInt(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args)
-		);
+	private GLDebugMessageAMDCallback(long functionPointer) {
+		super(functionPointer);
 	}
-
-	/**
-	 * Will be called when a debug message is generated.
-	 *
-	 * @param id        the message ID
-	 * @param category  the message category
-	 * @param severity  the message severity
-	 * @param length    the message length, excluding the null-terminator
-	 * @param message   a pointer to the message string representation
-	 * @param userParam the user-specified value that was passed when calling {@link AMDDebugOutput#glDebugMessageCallbackAMD DebugMessageCallbackAMD}
-	 */
-	void invoke(int id, int category, int severity, int length, long message, long userParam);
 
 	/**
 	 * Converts the specified {@link GLDebugMessageAMDCallback} arguments to a String.
@@ -63,29 +49,24 @@ public interface GLDebugMessageAMDCallback extends Callback.V {
 	 *
 	 * @return the message as a String
 	 */
-	static String getMessage(int length, long message) {
+	public static String getMessage(int length, long message) {
 		return memUTF8(memByteBuffer(message, length));
 	}
 
-}
+	private static final class Container extends GLDebugMessageAMDCallback {
 
-final class GLDebugMessageAMDCallbackHandle extends Pointer.Default implements GLDebugMessageAMDCallback {
+		private final GLDebugMessageAMDCallbackI delegate;
 
-	private final GLDebugMessageAMDCallback delegate;
+		Container(long functionPointer, GLDebugMessageAMDCallbackI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
 
-	GLDebugMessageAMDCallbackHandle(long functionPointer, GLDebugMessageAMDCallback delegate) {
-		super(functionPointer);
-		this.delegate = delegate;
-	}
+		@Override
+		public void invoke(int id, int category, int severity, int length, long message, long userParam) {
+			delegate.invoke(id, category, severity, length, message, userParam);
+		}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
-
-	@Override
-	public void invoke(int id, int category, int severity, int length, long message, long userParam) {
-		delegate.invoke(id, category, severity, length, message, userParam);
 	}
 
 }

@@ -8,70 +8,59 @@ package org.lwjgl.glfw;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetJoystickCallback SetJoystickCallback} method. */
-@FunctionalInterface
-public interface GLFWJoystickCallback extends Callback.V {
+/** Instances of this class may be passed to the {@link GLFW#glfwSetJoystickCallback SetJoystickCallback} method. */
+public abstract class GLFWJoystickCallback extends Callback implements GLFWJoystickCallbackI {
 
 	/** Creates a {@code GLFWJoystickCallback} instance from the specified function pointer. */
-	static GLFWJoystickCallback create(long functionPointer) {
-		return functionPointer == NULL ? null : new GLFWJoystickCallbackHandle(functionPointer, Callback.get(functionPointer));
+	public static GLFWJoystickCallback create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		GLFWJoystickCallbackI instance = Callback.get(functionPointer);
+		return instance instanceof GLFWJoystickCallback
+			? (GLFWJoystickCallback)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code GLFWJoystickCallback} instance that delegates to the specified {@code GLFWJoystickCallback} instance. */
-	static GLFWJoystickCallback create(GLFWJoystickCallback sam) {
-		return new GLFWJoystickCallbackHandle(sam.address(), sam);
+	/** Creates a {@code GLFWJoystickCallback} instance that delegates to the specified {@code GLFWJoystickCallbackI} instance. */
+	public static GLFWJoystickCallback create(GLFWJoystickCallbackI instance) {
+		return instance instanceof GLFWJoystickCallback
+			? (GLFWJoystickCallback)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(ii)v", false);
+	protected GLFWJoystickCallback() {
+		super(NULL);
+		address = GLFWJoystickCallbackI.super.address();
 	}
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgInt(args),
-			dcbArgInt(args)
-		);
+	private GLFWJoystickCallback(long functionPointer) {
+		super(functionPointer);
 	}
-
-	/**
-	 * Will be called when a joystick is connected to or disconnected from the system.
-	 *
-	 * @param joy   the joystick that was connected or disconnected
-	 * @param event one of {@link GLFW#GLFW_CONNECTED CONNECTED} or {@link GLFW#GLFW_DISCONNECTED DISCONNECTED}
-	 */
-	void invoke(int joy, int event);
 
 	/** See {@link GLFW#glfwSetJoystickCallback SetJoystickCallback}. */
-	default GLFWJoystickCallback set() {
+	public GLFWJoystickCallback set() {
 		glfwSetJoystickCallback(this);
 		return this;
 	}
 
-}
+	private static final class Container extends GLFWJoystickCallback {
 
-final class GLFWJoystickCallbackHandle extends Pointer.Default implements GLFWJoystickCallback {
+		private final GLFWJoystickCallbackI delegate;
 
-	private final GLFWJoystickCallback delegate;
+		Container(long functionPointer, GLFWJoystickCallbackI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
 
-	GLFWJoystickCallbackHandle(long functionPointer, GLFWJoystickCallback delegate) {
-		super(functionPointer);
-		this.delegate = delegate;
-	}
+		@Override
+		public void invoke(int joy, int event) {
+			delegate.invoke(joy, event);
+		}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
-
-	@Override
-	public void invoke(int joy, int event) {
-		delegate.invoke(joy, event);
 	}
 
 }

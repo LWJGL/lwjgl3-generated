@@ -8,59 +8,51 @@ package org.lwjgl.egl;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link ANDROIDBlobCache#eglSetBlobCacheFuncsANDROID SetBlobCacheFuncsANDROID} method. */
-@FunctionalInterface
-public interface EGLSetBlobFuncANDROID extends Callback.V {
+/** Instances of this class may be passed to the {@link ANDROIDBlobCache#eglSetBlobCacheFuncsANDROID SetBlobCacheFuncsANDROID} method. */
+public abstract class EGLSetBlobFuncANDROID extends Callback implements EGLSetBlobFuncANDROIDI {
 
 	/** Creates a {@code EGLSetBlobFuncANDROID} instance from the specified function pointer. */
-	static EGLSetBlobFuncANDROID create(long functionPointer) {
-		return functionPointer == NULL ? null : new EGLSetBlobFuncANDROIDHandle(functionPointer, Callback.get(functionPointer));
+	public static EGLSetBlobFuncANDROID create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		EGLSetBlobFuncANDROIDI instance = Callback.get(functionPointer);
+		return instance instanceof EGLSetBlobFuncANDROID
+			? (EGLSetBlobFuncANDROID)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code EGLSetBlobFuncANDROID} instance that delegates to the specified {@code EGLSetBlobFuncANDROID} instance. */
-	static EGLSetBlobFuncANDROID create(EGLSetBlobFuncANDROID sam) {
-		return new EGLSetBlobFuncANDROIDHandle(sam.address(), sam);
+	/** Creates a {@code EGLSetBlobFuncANDROID} instance that delegates to the specified {@code EGLSetBlobFuncANDROIDI} instance. */
+	public static EGLSetBlobFuncANDROID create(EGLSetBlobFuncANDROIDI instance) {
+		return instance instanceof EGLSetBlobFuncANDROID
+			? (EGLSetBlobFuncANDROID)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(pppp)v", false);
+	protected EGLSetBlobFuncANDROID() {
+		super(NULL);
+		address = EGLSetBlobFuncANDROIDI.super.address();
 	}
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args)
-		);
-	}
-
-
-	void invoke(long key, long keySize, long value, long valueSize);
-
-}
-
-final class EGLSetBlobFuncANDROIDHandle extends Pointer.Default implements EGLSetBlobFuncANDROID {
-
-	private final EGLSetBlobFuncANDROID delegate;
-
-	EGLSetBlobFuncANDROIDHandle(long functionPointer, EGLSetBlobFuncANDROID delegate) {
+	private EGLSetBlobFuncANDROID(long functionPointer) {
 		super(functionPointer);
-		this.delegate = delegate;
 	}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
+	private static final class Container extends EGLSetBlobFuncANDROID {
 
-	@Override
-	public void invoke(long key, long keySize, long value, long valueSize) {
-		delegate.invoke(key, keySize, value, valueSize);
+		private final EGLSetBlobFuncANDROIDI delegate;
+
+		Container(long functionPointer, EGLSetBlobFuncANDROIDI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
+
+		@Override
+		public void invoke(long key, long keySize, long value, long valueSize) {
+			delegate.invoke(key, keySize, value, valueSize);
+		}
+
 	}
 
 }

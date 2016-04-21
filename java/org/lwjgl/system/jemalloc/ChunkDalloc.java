@@ -8,66 +8,51 @@ package org.lwjgl.system.jemalloc;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be set to the {@link ChunkHooks} struct. */
-@FunctionalInterface
-public interface ChunkDalloc extends Callback.Z {
+/** Instances of this class may be set to the {@link ChunkHooks} struct. */
+public abstract class ChunkDalloc extends Callback implements ChunkDallocI {
 
 	/** Creates a {@code ChunkDalloc} instance from the specified function pointer. */
-	static ChunkDalloc create(long functionPointer) {
-		return functionPointer == NULL ? null : new ChunkDallocHandle(functionPointer, Callback.get(functionPointer));
+	public static ChunkDalloc create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		ChunkDallocI instance = Callback.get(functionPointer);
+		return instance instanceof ChunkDalloc
+			? (ChunkDalloc)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code ChunkDalloc} instance that delegates to the specified {@code ChunkDalloc} instance. */
-	static ChunkDalloc create(ChunkDalloc sam) {
-		return new ChunkDallocHandle(sam.address(), sam);
+	/** Creates a {@code ChunkDalloc} instance that delegates to the specified {@code ChunkDallocI} instance. */
+	public static ChunkDalloc create(ChunkDallocI instance) {
+		return instance instanceof ChunkDalloc
+			? (ChunkDalloc)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(ppBi)B", false);
+	protected ChunkDalloc() {
+		super(NULL);
+		address = ChunkDallocI.super.address();
 	}
 
-	@Override
-	default boolean callback(long args) {
-		return invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgBool(args) != 0,
-			dcbArgInt(args)
-		);
-	}
-
-	/**
-	 * Chunk deallocation hook.
-	 *
-	 * @param chunk     
-	 * @param size      
-	 * @param committed 
-	 * @param arena_ind 
-	 */
-	boolean invoke(long chunk, long size, boolean committed, int arena_ind);
-
-}
-
-final class ChunkDallocHandle extends Pointer.Default implements ChunkDalloc {
-
-	private final ChunkDalloc delegate;
-
-	ChunkDallocHandle(long functionPointer, ChunkDalloc delegate) {
+	private ChunkDalloc(long functionPointer) {
 		super(functionPointer);
-		this.delegate = delegate;
 	}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
+	private static final class Container extends ChunkDalloc {
 
-	@Override
-	public boolean invoke(long chunk, long size, boolean committed, int arena_ind) {
-		return delegate.invoke(chunk, size, committed, arena_ind);
+		private final ChunkDallocI delegate;
+
+		Container(long functionPointer, ChunkDallocI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
+
+		@Override
+		public boolean invoke(long chunk, long size, boolean committed, int arena_ind) {
+			return delegate.invoke(chunk, size, committed, arena_ind);
+		}
+
 	}
 
 }

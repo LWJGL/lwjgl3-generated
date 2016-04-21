@@ -8,66 +8,51 @@ package org.lwjgl.opencl;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link CL20#clEnqueueSVMFree EnqueueSVMFree} method. */
-@FunctionalInterface
-public interface CLSVMFreeCallback extends Callback.V {
+/** Instances of this class may be passed to the {@link CL20#clEnqueueSVMFree EnqueueSVMFree} method. */
+public abstract class CLSVMFreeCallback extends Callback implements CLSVMFreeCallbackI {
 
 	/** Creates a {@code CLSVMFreeCallback} instance from the specified function pointer. */
-	static CLSVMFreeCallback create(long functionPointer) {
-		return functionPointer == NULL ? null : new CLSVMFreeCallbackHandle(functionPointer, Callback.get(functionPointer));
+	public static CLSVMFreeCallback create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		CLSVMFreeCallbackI instance = Callback.get(functionPointer);
+		return instance instanceof CLSVMFreeCallback
+			? (CLSVMFreeCallback)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code CLSVMFreeCallback} instance that delegates to the specified {@code CLSVMFreeCallback} instance. */
-	static CLSVMFreeCallback create(CLSVMFreeCallback sam) {
-		return new CLSVMFreeCallbackHandle(sam.address(), sam);
+	/** Creates a {@code CLSVMFreeCallback} instance that delegates to the specified {@code CLSVMFreeCallbackI} instance. */
+	public static CLSVMFreeCallback create(CLSVMFreeCallbackI instance) {
+		return instance instanceof CLSVMFreeCallback
+			? (CLSVMFreeCallback)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(pipp)v", true);
+	protected CLSVMFreeCallback() {
+		super(NULL);
+		address = CLSVMFreeCallbackI.super.address();
 	}
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgInt(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args)
-		);
-	}
-
-	/**
-	 * Will be called to free shared virtual memory pointers.
-	 *
-	 * @param queue            a valid host command-queue
-	 * @param num_svm_pointers the number of pointers in the {@code svm_pointers} array
-	 * @param svm_pointers     an array of shared virtual memory pointers to be freed
-	 * @param user_data        the user-specified value that was passed when calling {@link CL20#clEnqueueSVMFree EnqueueSVMFree}
-	 */
-	void invoke(long queue, int num_svm_pointers, long svm_pointers, long user_data);
-
-}
-
-final class CLSVMFreeCallbackHandle extends Pointer.Default implements CLSVMFreeCallback {
-
-	private final CLSVMFreeCallback delegate;
-
-	CLSVMFreeCallbackHandle(long functionPointer, CLSVMFreeCallback delegate) {
+	private CLSVMFreeCallback(long functionPointer) {
 		super(functionPointer);
-		this.delegate = delegate;
 	}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
+	private static final class Container extends CLSVMFreeCallback {
 
-	@Override
-	public void invoke(long queue, int num_svm_pointers, long svm_pointers, long user_data) {
-		delegate.invoke(queue, num_svm_pointers, svm_pointers, user_data);
+		private final CLSVMFreeCallbackI delegate;
+
+		Container(long functionPointer, CLSVMFreeCallbackI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
+
+		@Override
+		public void invoke(long queue, int num_svm_pointers, long svm_pointers, long user_data) {
+			delegate.invoke(queue, num_svm_pointers, svm_pointers, user_data);
+		}
+
 	}
 
 }

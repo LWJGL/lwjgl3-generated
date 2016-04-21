@@ -8,62 +8,51 @@ package org.lwjgl.opencl;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link CL11#clSetMemObjectDestructorCallback SetMemObjectDestructorCallback} method. */
-@FunctionalInterface
-public interface CLMemObjectDestructorCallback extends Callback.V {
+/** Instances of this class may be passed to the {@link CL11#clSetMemObjectDestructorCallback SetMemObjectDestructorCallback} method. */
+public abstract class CLMemObjectDestructorCallback extends Callback implements CLMemObjectDestructorCallbackI {
 
 	/** Creates a {@code CLMemObjectDestructorCallback} instance from the specified function pointer. */
-	static CLMemObjectDestructorCallback create(long functionPointer) {
-		return functionPointer == NULL ? null : new CLMemObjectDestructorCallbackHandle(functionPointer, Callback.get(functionPointer));
+	public static CLMemObjectDestructorCallback create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		CLMemObjectDestructorCallbackI instance = Callback.get(functionPointer);
+		return instance instanceof CLMemObjectDestructorCallback
+			? (CLMemObjectDestructorCallback)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code CLMemObjectDestructorCallback} instance that delegates to the specified {@code CLMemObjectDestructorCallback} instance. */
-	static CLMemObjectDestructorCallback create(CLMemObjectDestructorCallback sam) {
-		return new CLMemObjectDestructorCallbackHandle(sam.address(), sam);
+	/** Creates a {@code CLMemObjectDestructorCallback} instance that delegates to the specified {@code CLMemObjectDestructorCallbackI} instance. */
+	public static CLMemObjectDestructorCallback create(CLMemObjectDestructorCallbackI instance) {
+		return instance instanceof CLMemObjectDestructorCallback
+			? (CLMemObjectDestructorCallback)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(pp)v", true);
+	protected CLMemObjectDestructorCallback() {
+		super(NULL);
+		address = CLMemObjectDestructorCallbackI.super.address();
 	}
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args)
-		);
-	}
-
-	/**
-	 * Will be called when a memory object is deleted.
-	 *
-	 * @param memobj    the memory object that was deleted
-	 * @param user_data the user-specified value that was passed when calling {@link CL11#clSetMemObjectDestructorCallback SetMemObjectDestructorCallback}
-	 */
-	void invoke(long memobj, long user_data);
-
-}
-
-final class CLMemObjectDestructorCallbackHandle extends Pointer.Default implements CLMemObjectDestructorCallback {
-
-	private final CLMemObjectDestructorCallback delegate;
-
-	CLMemObjectDestructorCallbackHandle(long functionPointer, CLMemObjectDestructorCallback delegate) {
+	private CLMemObjectDestructorCallback(long functionPointer) {
 		super(functionPointer);
-		this.delegate = delegate;
 	}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
+	private static final class Container extends CLMemObjectDestructorCallback {
 
-	@Override
-	public void invoke(long memobj, long user_data) {
-		delegate.invoke(memobj, user_data);
+		private final CLMemObjectDestructorCallbackI delegate;
+
+		Container(long functionPointer, CLMemObjectDestructorCallbackI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
+
+		@Override
+		public void invoke(long memobj, long user_data) {
+			delegate.invoke(memobj, user_data);
+		}
+
 	}
 
 }

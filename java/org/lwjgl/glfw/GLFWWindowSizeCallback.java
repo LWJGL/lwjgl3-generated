@@ -8,72 +8,59 @@ package org.lwjgl.glfw;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowSizeCallback SetWindowSizeCallback} method. */
-@FunctionalInterface
-public interface GLFWWindowSizeCallback extends Callback.V {
+/** Instances of this class may be passed to the {@link GLFW#glfwSetWindowSizeCallback SetWindowSizeCallback} method. */
+public abstract class GLFWWindowSizeCallback extends Callback implements GLFWWindowSizeCallbackI {
 
 	/** Creates a {@code GLFWWindowSizeCallback} instance from the specified function pointer. */
-	static GLFWWindowSizeCallback create(long functionPointer) {
-		return functionPointer == NULL ? null : new GLFWWindowSizeCallbackHandle(functionPointer, Callback.get(functionPointer));
+	public static GLFWWindowSizeCallback create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		GLFWWindowSizeCallbackI instance = Callback.get(functionPointer);
+		return instance instanceof GLFWWindowSizeCallback
+			? (GLFWWindowSizeCallback)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code GLFWWindowSizeCallback} instance that delegates to the specified {@code GLFWWindowSizeCallback} instance. */
-	static GLFWWindowSizeCallback create(GLFWWindowSizeCallback sam) {
-		return new GLFWWindowSizeCallbackHandle(sam.address(), sam);
+	/** Creates a {@code GLFWWindowSizeCallback} instance that delegates to the specified {@code GLFWWindowSizeCallbackI} instance. */
+	public static GLFWWindowSizeCallback create(GLFWWindowSizeCallbackI instance) {
+		return instance instanceof GLFWWindowSizeCallback
+			? (GLFWWindowSizeCallback)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(pii)v", false);
+	protected GLFWWindowSizeCallback() {
+		super(NULL);
+		address = GLFWWindowSizeCallbackI.super.address();
 	}
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgInt(args),
-			dcbArgInt(args)
-		);
+	private GLFWWindowSizeCallback(long functionPointer) {
+		super(functionPointer);
 	}
-
-	/**
-	 * Will be called when the specified window is resized.
-	 *
-	 * @param window the window that was resized
-	 * @param width  the new width, in screen coordinates, of the window
-	 * @param height the new height, in screen coordinates, of the window
-	 */
-	void invoke(long window, int width, int height);
 
 	/** See {@link GLFW#glfwSetWindowSizeCallback SetWindowSizeCallback}. */
-	default GLFWWindowSizeCallback set(long window) {
+	public GLFWWindowSizeCallback set(long window) {
 		glfwSetWindowSizeCallback(window, this);
 		return this;
 	}
 
-}
+	private static final class Container extends GLFWWindowSizeCallback {
 
-final class GLFWWindowSizeCallbackHandle extends Pointer.Default implements GLFWWindowSizeCallback {
+		private final GLFWWindowSizeCallbackI delegate;
 
-	private final GLFWWindowSizeCallback delegate;
+		Container(long functionPointer, GLFWWindowSizeCallbackI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
 
-	GLFWWindowSizeCallbackHandle(long functionPointer, GLFWWindowSizeCallback delegate) {
-		super(functionPointer);
-		this.delegate = delegate;
-	}
+		@Override
+		public void invoke(long window, int width, int height) {
+			delegate.invoke(window, width, height);
+		}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
-
-	@Override
-	public void invoke(long window, int width, int height) {
-		delegate.invoke(window, width, height);
 	}
 
 }

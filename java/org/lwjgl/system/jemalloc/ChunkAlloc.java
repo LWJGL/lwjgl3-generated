@@ -8,70 +8,51 @@ package org.lwjgl.system.jemalloc;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be set to the {@link ChunkHooks} struct. */
-@FunctionalInterface
-public interface ChunkAlloc extends Callback.P {
+/** Instances of this class may be set to the {@link ChunkHooks} struct. */
+public abstract class ChunkAlloc extends Callback implements ChunkAllocI {
 
 	/** Creates a {@code ChunkAlloc} instance from the specified function pointer. */
-	static ChunkAlloc create(long functionPointer) {
-		return functionPointer == NULL ? null : new ChunkAllocHandle(functionPointer, Callback.get(functionPointer));
+	public static ChunkAlloc create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		ChunkAllocI instance = Callback.get(functionPointer);
+		return instance instanceof ChunkAlloc
+			? (ChunkAlloc)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code ChunkAlloc} instance that delegates to the specified {@code ChunkAlloc} instance. */
-	static ChunkAlloc create(ChunkAlloc sam) {
-		return new ChunkAllocHandle(sam.address(), sam);
+	/** Creates a {@code ChunkAlloc} instance that delegates to the specified {@code ChunkAllocI} instance. */
+	public static ChunkAlloc create(ChunkAllocI instance) {
+		return instance instanceof ChunkAlloc
+			? (ChunkAlloc)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(pppppi)p", false);
+	protected ChunkAlloc() {
+		super(NULL);
+		address = ChunkAllocI.super.address();
 	}
 
-	@Override
-	default long callback(long args) {
-		return invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgInt(args)
-		);
-	}
-
-	/**
-	 * Chunk allocation hook.
-	 *
-	 * @param new_addr  
-	 * @param size      
-	 * @param alignment 
-	 * @param zero      
-	 * @param commit    
-	 * @param arena_ind 
-	 */
-	long invoke(long new_addr, long size, long alignment, long zero, long commit, int arena_ind);
-
-}
-
-final class ChunkAllocHandle extends Pointer.Default implements ChunkAlloc {
-
-	private final ChunkAlloc delegate;
-
-	ChunkAllocHandle(long functionPointer, ChunkAlloc delegate) {
+	private ChunkAlloc(long functionPointer) {
 		super(functionPointer);
-		this.delegate = delegate;
 	}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
+	private static final class Container extends ChunkAlloc {
 
-	@Override
-	public long invoke(long new_addr, long size, long alignment, long zero, long commit, int arena_ind) {
-		return delegate.invoke(new_addr, size, alignment, zero, commit, arena_ind);
+		private final ChunkAllocI delegate;
+
+		Container(long functionPointer, ChunkAllocI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
+
+		@Override
+		public long invoke(long new_addr, long size, long alignment, long zero, long commit, int arena_ind) {
+			return delegate.invoke(new_addr, size, alignment, zero, commit, arena_ind);
+		}
+
 	}
 
 }

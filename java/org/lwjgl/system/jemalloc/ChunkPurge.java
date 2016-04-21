@@ -8,68 +8,51 @@ package org.lwjgl.system.jemalloc;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be set to the {@link ChunkHooks} struct. */
-@FunctionalInterface
-public interface ChunkPurge extends Callback.Z {
+/** Instances of this class may be set to the {@link ChunkHooks} struct. */
+public abstract class ChunkPurge extends Callback implements ChunkPurgeI {
 
 	/** Creates a {@code ChunkPurge} instance from the specified function pointer. */
-	static ChunkPurge create(long functionPointer) {
-		return functionPointer == NULL ? null : new ChunkPurgeHandle(functionPointer, Callback.get(functionPointer));
+	public static ChunkPurge create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		ChunkPurgeI instance = Callback.get(functionPointer);
+		return instance instanceof ChunkPurge
+			? (ChunkPurge)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code ChunkPurge} instance that delegates to the specified {@code ChunkPurge} instance. */
-	static ChunkPurge create(ChunkPurge sam) {
-		return new ChunkPurgeHandle(sam.address(), sam);
+	/** Creates a {@code ChunkPurge} instance that delegates to the specified {@code ChunkPurgeI} instance. */
+	public static ChunkPurge create(ChunkPurgeI instance) {
+		return instance instanceof ChunkPurge
+			? (ChunkPurge)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(ppppi)B", false);
+	protected ChunkPurge() {
+		super(NULL);
+		address = ChunkPurgeI.super.address();
 	}
 
-	@Override
-	default boolean callback(long args) {
-		return invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgInt(args)
-		);
-	}
-
-	/**
-	 * Chunk purge hook.
-	 *
-	 * @param chunk     
-	 * @param size      
-	 * @param offset    
-	 * @param length    
-	 * @param arena_ind 
-	 */
-	boolean invoke(long chunk, long size, long offset, long length, int arena_ind);
-
-}
-
-final class ChunkPurgeHandle extends Pointer.Default implements ChunkPurge {
-
-	private final ChunkPurge delegate;
-
-	ChunkPurgeHandle(long functionPointer, ChunkPurge delegate) {
+	private ChunkPurge(long functionPointer) {
 		super(functionPointer);
-		this.delegate = delegate;
 	}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
+	private static final class Container extends ChunkPurge {
 
-	@Override
-	public boolean invoke(long chunk, long size, long offset, long length, int arena_ind) {
-		return delegate.invoke(chunk, size, offset, length, arena_ind);
+		private final ChunkPurgeI delegate;
+
+		Container(long functionPointer, ChunkPurgeI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
+
+		@Override
+		public boolean invoke(long chunk, long size, long offset, long length, int arena_ind) {
+			return delegate.invoke(chunk, size, offset, length, arena_ind);
+		}
+
 	}
 
 }

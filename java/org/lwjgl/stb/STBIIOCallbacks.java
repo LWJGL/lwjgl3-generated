@@ -85,18 +85,18 @@ public class STBIIOCallbacks extends Struct {
 	/** Returns the {@code STBIEOFCallback} instance at the {@code eof} field. */
 	public STBIEOFCallback eof() { return STBIEOFCallback.create(neof(address())); }
 
-	/** Sets the address of the specified {@link STBIReadCallback} to the {@code read} field. */
-	public STBIIOCallbacks read(STBIReadCallback value) { nread(address(), addressSafe(value)); return this; }
-	/** Sets the address of the specified {@link STBISkipCallback} to the {@code skip} field. */
-	public STBIIOCallbacks skip(STBISkipCallback value) { nskip(address(), addressSafe(value)); return this; }
-	/** Sets the address of the specified {@link STBIEOFCallback} to the {@code eof} field. */
-	public STBIIOCallbacks eof(STBIEOFCallback value) { neof(address(), addressSafe(value)); return this; }
+	/** Sets the address of the specified {@link STBIReadCallbackI} to the {@code read} field. */
+	public STBIIOCallbacks read(STBIReadCallbackI value) { nread(address(), addressSafe(value)); return this; }
+	/** Sets the address of the specified {@link STBISkipCallbackI} to the {@code skip} field. */
+	public STBIIOCallbacks skip(STBISkipCallbackI value) { nskip(address(), addressSafe(value)); return this; }
+	/** Sets the address of the specified {@link STBIEOFCallbackI} to the {@code eof} field. */
+	public STBIIOCallbacks eof(STBIEOFCallbackI value) { neof(address(), addressSafe(value)); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public STBIIOCallbacks set(
-		STBIReadCallback read,
-		STBISkipCallback skip,
-		STBIEOFCallback eof
+		STBIReadCallbackI read,
+		STBISkipCallbackI skip,
+		STBIEOFCallbackI eof
 	) {
 		read(read);
 		skip(skip);
@@ -258,11 +258,11 @@ public class STBIIOCallbacks extends Struct {
 	/** Unsafe version of {@link #eof}. */
 	public static long neof(long struct) { return memGetAddress(struct + STBIIOCallbacks.EOF); }
 
-	/** Unsafe version of {@link #read(STBIReadCallback) read}. */
+	/** Unsafe version of {@link #read(STBIReadCallbackI) read}. */
 	public static void nread(long struct, long value) { memPutAddress(struct + STBIIOCallbacks.READ, checkPointer(value)); }
-	/** Unsafe version of {@link #skip(STBISkipCallback) skip}. */
+	/** Unsafe version of {@link #skip(STBISkipCallbackI) skip}. */
 	public static void nskip(long struct, long value) { memPutAddress(struct + STBIIOCallbacks.SKIP, checkPointer(value)); }
-	/** Unsafe version of {@link #eof(STBIEOFCallback) eof}. */
+	/** Unsafe version of {@link #eof(STBIEOFCallbackI) eof}. */
 	public static void neof(long struct, long value) { memPutAddress(struct + STBIIOCallbacks.EOF, checkPointer(value)); }
 
 	/**
@@ -336,12 +336,12 @@ public class STBIIOCallbacks extends Struct {
 		/** Returns the {@code STBIEOFCallback} instance at the {@code eof} field. */
 		public STBIEOFCallback eof() { return STBIEOFCallback.create(STBIIOCallbacks.neof(address())); }
 
-		/** Sets the address of the specified {@link STBIReadCallback} to the {@code read} field. */
-		public STBIIOCallbacks.Buffer read(STBIReadCallback value) { STBIIOCallbacks.nread(address(), addressSafe(value)); return this; }
-		/** Sets the address of the specified {@link STBISkipCallback} to the {@code skip} field. */
-		public STBIIOCallbacks.Buffer skip(STBISkipCallback value) { STBIIOCallbacks.nskip(address(), addressSafe(value)); return this; }
-		/** Sets the address of the specified {@link STBIEOFCallback} to the {@code eof} field. */
-		public STBIIOCallbacks.Buffer eof(STBIEOFCallback value) { STBIIOCallbacks.neof(address(), addressSafe(value)); return this; }
+		/** Sets the address of the specified {@link STBIReadCallbackI} to the {@code read} field. */
+		public STBIIOCallbacks.Buffer read(STBIReadCallbackI value) { STBIIOCallbacks.nread(address(), addressSafe(value)); return this; }
+		/** Sets the address of the specified {@link STBISkipCallbackI} to the {@code skip} field. */
+		public STBIIOCallbacks.Buffer skip(STBISkipCallbackI value) { STBIIOCallbacks.nskip(address(), addressSafe(value)); return this; }
+		/** Sets the address of the specified {@link STBIEOFCallbackI} to the {@code eof} field. */
+		public STBIIOCallbacks.Buffer eof(STBIEOFCallbackI value) { STBIIOCallbacks.neof(address(), addressSafe(value)); return this; }
 
 	}
 

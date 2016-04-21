@@ -8,67 +8,51 @@ package org.lwjgl.opencl;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link CL11#clSetEventCallback SetEventCallback} method. */
-@FunctionalInterface
-public interface CLEventCallback extends Callback.V {
+/** Instances of this class may be passed to the {@link CL11#clSetEventCallback SetEventCallback} method. */
+public abstract class CLEventCallback extends Callback implements CLEventCallbackI {
 
 	/** Creates a {@code CLEventCallback} instance from the specified function pointer. */
-	static CLEventCallback create(long functionPointer) {
-		return functionPointer == NULL ? null : new CLEventCallbackHandle(functionPointer, Callback.get(functionPointer));
+	public static CLEventCallback create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		CLEventCallbackI instance = Callback.get(functionPointer);
+		return instance instanceof CLEventCallback
+			? (CLEventCallback)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code CLEventCallback} instance that delegates to the specified {@code CLEventCallback} instance. */
-	static CLEventCallback create(CLEventCallback sam) {
-		return new CLEventCallbackHandle(sam.address(), sam);
+	/** Creates a {@code CLEventCallback} instance that delegates to the specified {@code CLEventCallbackI} instance. */
+	public static CLEventCallback create(CLEventCallbackI instance) {
+		return instance instanceof CLEventCallback
+			? (CLEventCallback)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(pip)v", true);
+	protected CLEventCallback() {
+		super(NULL);
+		address = CLEventCallbackI.super.address();
 	}
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgInt(args),
-			dcbArgPointer(args)
-		);
-	}
-
-	/**
-	 * Will be called when the execution status of the command associated with {@code event} changes to an execution status equal or past the status specified by
-	 * {@code command_exec_status}."
-	 *
-	 * @param event                     the event
-	 * @param event_command_exec_status represents the execution status of command for which this callback function is invoked. If the callback is called as the result of the command
-	 *                                  associated with event being abnormally terminated, an appropriate error code for the error that caused the termination will be passed to
-	 *                                  {@code event_command_exec_status} instead.
-	 * @param user_data                 the user-specified value that was passed when calling {@link CL11#clSetEventCallback SetEventCallback}
-	 */
-	void invoke(long event, int event_command_exec_status, long user_data);
-
-}
-
-final class CLEventCallbackHandle extends Pointer.Default implements CLEventCallback {
-
-	private final CLEventCallback delegate;
-
-	CLEventCallbackHandle(long functionPointer, CLEventCallback delegate) {
+	private CLEventCallback(long functionPointer) {
 		super(functionPointer);
-		this.delegate = delegate;
 	}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
+	private static final class Container extends CLEventCallback {
 
-	@Override
-	public void invoke(long event, int event_command_exec_status, long user_data) {
-		delegate.invoke(event, event_command_exec_status, user_data);
+		private final CLEventCallbackI delegate;
+
+		Container(long functionPointer, CLEventCallbackI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
+
+		@Override
+		public void invoke(long event, int event_command_exec_status, long user_data) {
+			delegate.invoke(event, event_command_exec_status, user_data);
+		}
+
 	}
 
 }

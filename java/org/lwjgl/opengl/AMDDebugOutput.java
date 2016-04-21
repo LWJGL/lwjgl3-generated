@@ -344,7 +344,7 @@ public class AMDDebugOutput {
 	 * @param callback  a callback function that will be called when a debug message is generated
 	 * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
 	 */
-	public static void glDebugMessageCallbackAMD(GLDebugMessageAMDCallback callback, long userParam) {
+	public static void glDebugMessageCallbackAMD(GLDebugMessageAMDCallbackI callback, long userParam) {
 		nglDebugMessageCallbackAMD(callback == null ? NULL : callback.address(), userParam);
 	}
 

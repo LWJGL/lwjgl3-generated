@@ -3448,7 +3448,7 @@ public class ObjCRuntime {
 	 *
 	 * @param handler a function pointer to the new mutation handler
 	 */
-	public static void objc_setEnumerationMutationHandler(EnumerationMutationHandler handler) {
+	public static void objc_setEnumerationMutationHandler(EnumerationMutationHandlerI handler) {
 		nobjc_setEnumerationMutationHandler(handler.address());
 	}
 

@@ -8,44 +8,36 @@ package org.lwjgl.ovr;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@code LogCallback} member of the {@link OVRInitParams} struct. */
-@FunctionalInterface
-public interface OVRLogCallback extends Callback.V {
+/** Instances of this class may be passed to the {@code LogCallback} member of the {@link OVRInitParams} struct. */
+public abstract class OVRLogCallback extends Callback implements OVRLogCallbackI {
 
 	/** Creates a {@code OVRLogCallback} instance from the specified function pointer. */
-	static OVRLogCallback create(long functionPointer) {
-		return functionPointer == NULL ? null : new OVRLogCallbackHandle(functionPointer, Callback.get(functionPointer));
+	public static OVRLogCallback create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		OVRLogCallbackI instance = Callback.get(functionPointer);
+		return instance instanceof OVRLogCallback
+			? (OVRLogCallback)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code OVRLogCallback} instance that delegates to the specified {@code OVRLogCallback} instance. */
-	static OVRLogCallback create(OVRLogCallback sam) {
-		return new OVRLogCallbackHandle(sam.address(), sam);
+	/** Creates a {@code OVRLogCallback} instance that delegates to the specified {@code OVRLogCallbackI} instance. */
+	public static OVRLogCallback create(OVRLogCallbackI instance) {
+		return instance instanceof OVRLogCallback
+			? (OVRLogCallback)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(pip)v", false);
+	protected OVRLogCallback() {
+		super(NULL);
+		address = OVRLogCallbackI.super.address();
 	}
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgInt(args),
-			dcbArgPointer(args)
-		);
+	private OVRLogCallback(long functionPointer) {
+		super(functionPointer);
 	}
-
-	/**
-	 * The logging callback.
-	 *
-	 * @param userData an arbitrary value specified by the user of ovrInitParams
-	 * @param level    one of the {@code ovrLogLevel} constants
-	 * @param message  a UTF8-encoded null-terminated string
-	 */
-	void invoke(long userData, int level, long message);
 
 	/**
 	 * Converts the specified {@link OVRLogCallback} argument to a String.
@@ -56,29 +48,24 @@ public interface OVRLogCallback extends Callback.V {
 	 *
 	 * @return the message as a String
 	 */
-	static String getMessage(long message) {
+	public static String getMessage(long message) {
 		return memUTF8(message);
 	}
 
-}
+	private static final class Container extends OVRLogCallback {
 
-final class OVRLogCallbackHandle extends Pointer.Default implements OVRLogCallback {
+		private final OVRLogCallbackI delegate;
 
-	private final OVRLogCallback delegate;
+		Container(long functionPointer, OVRLogCallbackI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
 
-	OVRLogCallbackHandle(long functionPointer, OVRLogCallback delegate) {
-		super(functionPointer);
-		this.delegate = delegate;
-	}
+		@Override
+		public void invoke(long userData, int level, long message) {
+			delegate.invoke(userData, level, message);
+		}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
-
-	@Override
-	public void invoke(long userData, int level, long message) {
-		delegate.invoke(userData, level, message);
 	}
 
 }

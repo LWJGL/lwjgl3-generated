@@ -8,42 +8,36 @@ package org.lwjgl.system.jemalloc;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link JEmalloc#je_malloc_usable_size malloc_usable_size} method. */
-@FunctionalInterface
-public interface MallocMessageCallback extends Callback.V {
+/** Instances of this class may be passed to the {@link JEmalloc#je_malloc_usable_size malloc_usable_size} method. */
+public abstract class MallocMessageCallback extends Callback implements MallocMessageCallbackI {
 
 	/** Creates a {@code MallocMessageCallback} instance from the specified function pointer. */
-	static MallocMessageCallback create(long functionPointer) {
-		return functionPointer == NULL ? null : new MallocMessageCallbackHandle(functionPointer, Callback.get(functionPointer));
+	public static MallocMessageCallback create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		MallocMessageCallbackI instance = Callback.get(functionPointer);
+		return instance instanceof MallocMessageCallback
+			? (MallocMessageCallback)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code MallocMessageCallback} instance that delegates to the specified {@code MallocMessageCallback} instance. */
-	static MallocMessageCallback create(MallocMessageCallback sam) {
-		return new MallocMessageCallbackHandle(sam.address(), sam);
+	/** Creates a {@code MallocMessageCallback} instance that delegates to the specified {@code MallocMessageCallbackI} instance. */
+	public static MallocMessageCallback create(MallocMessageCallbackI instance) {
+		return instance instanceof MallocMessageCallback
+			? (MallocMessageCallback)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(pp)v", false);
+	protected MallocMessageCallback() {
+		super(NULL);
+		address = MallocMessageCallbackI.super.address();
 	}
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args)
-		);
+	private MallocMessageCallback(long functionPointer) {
+		super(functionPointer);
 	}
-
-	/**
-	 * Will be called by the {@link JEmalloc#je_malloc_usable_size malloc_usable_size} method.
-	 *
-	 * @param cbopaque the opaque pointer passed to {@link JEmalloc#je_malloc_usable_size malloc_usable_size}
-	 * @param s        the message
-	 */
-	void invoke(long cbopaque, long s);
 
 	/**
 	 * Converts the specified {@link MallocMessageCallback} arguments to a String.
@@ -54,29 +48,24 @@ public interface MallocMessageCallback extends Callback.V {
 	 *
 	 * @return the message as a String
 	 */
-	static String getMessage(long s) {
+	public static String getMessage(long s) {
 		return memASCII(s);
 	}
 
-}
+	private static final class Container extends MallocMessageCallback {
 
-final class MallocMessageCallbackHandle extends Pointer.Default implements MallocMessageCallback {
+		private final MallocMessageCallbackI delegate;
 
-	private final MallocMessageCallback delegate;
+		Container(long functionPointer, MallocMessageCallbackI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
 
-	MallocMessageCallbackHandle(long functionPointer, MallocMessageCallback delegate) {
-		super(functionPointer);
-		this.delegate = delegate;
-	}
+		@Override
+		public void invoke(long cbopaque, long s) {
+			delegate.invoke(cbopaque, s);
+		}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
-
-	@Override
-	public void invoke(long cbopaque, long s) {
-		delegate.invoke(cbopaque, s);
 	}
 
 }

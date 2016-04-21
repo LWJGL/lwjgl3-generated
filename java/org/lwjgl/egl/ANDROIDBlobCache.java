@@ -49,7 +49,7 @@ public class ANDROIDBlobCache {
 		callPPPV(__functionAddress, dpy, set, get);
 	}
 
-	public static void eglSetBlobCacheFuncsANDROID(long dpy, EGLSetBlobFuncANDROID set, EGLGetBlobFuncANDROID get) {
+	public static void eglSetBlobCacheFuncsANDROID(long dpy, EGLSetBlobFuncANDROIDI set, EGLGetBlobFuncANDROIDI get) {
 		neglSetBlobCacheFuncsANDROID(dpy, set.address(), get.address());
 	}
 

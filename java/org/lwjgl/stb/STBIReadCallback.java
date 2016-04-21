@@ -8,48 +8,38 @@ package org.lwjgl.stb;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
 import java.nio.*;
 
-/** Instances of this interface may be set to the {@code read} field of the {@link STBIIOCallbacks} struct. */
-@FunctionalInterface
-public interface STBIReadCallback extends Callback.I {
+/** Instances of this class may be set to the {@code read} field of the {@link STBIIOCallbacks} struct. */
+public abstract class STBIReadCallback extends Callback implements STBIReadCallbackI {
 
 	/** Creates a {@code STBIReadCallback} instance from the specified function pointer. */
-	static STBIReadCallback create(long functionPointer) {
-		return functionPointer == NULL ? null : new STBIReadCallbackHandle(functionPointer, Callback.get(functionPointer));
+	public static STBIReadCallback create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		STBIReadCallbackI instance = Callback.get(functionPointer);
+		return instance instanceof STBIReadCallback
+			? (STBIReadCallback)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code STBIReadCallback} instance that delegates to the specified {@code STBIReadCallback} instance. */
-	static STBIReadCallback create(STBIReadCallback sam) {
-		return new STBIReadCallbackHandle(sam.address(), sam);
+	/** Creates a {@code STBIReadCallback} instance that delegates to the specified {@code STBIReadCallbackI} instance. */
+	public static STBIReadCallback create(STBIReadCallbackI instance) {
+		return instance instanceof STBIReadCallback
+			? (STBIReadCallback)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(ppi)i", false);
+	protected STBIReadCallback() {
+		super(NULL);
+		address = STBIReadCallbackI.super.address();
 	}
 
-	@Override
-	default int callback(long args) {
-		return invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgInt(args)
-		);
+	private STBIReadCallback(long functionPointer) {
+		super(functionPointer);
 	}
-
-	/**
-	 * The {@code stbi_io_callbacks.read} callback.
-	 *
-	 * @param user a pointer to user data
-	 * @param data the data buffer to fill
-	 * @param size the number of bytes to read
-	 *
-	 * @return the number of bytes actually read
-	 */
-	int invoke(long user, long data, int size);
 
 	/**
 	 * Converts the specified {@link STBIReadCallback} arguments to a ByteBuffer.
@@ -61,29 +51,24 @@ public interface STBIReadCallback extends Callback.I {
 	 *
 	 * @return the data as a ByteBuffer
 	 */
-	static ByteBuffer getData(long data, int size) {
+	public static ByteBuffer getData(long data, int size) {
 		return memByteBuffer(data, size);
 	}
 
-}
+	private static final class Container extends STBIReadCallback {
 
-final class STBIReadCallbackHandle extends Pointer.Default implements STBIReadCallback {
+		private final STBIReadCallbackI delegate;
 
-	private final STBIReadCallback delegate;
+		Container(long functionPointer, STBIReadCallbackI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
 
-	STBIReadCallbackHandle(long functionPointer, STBIReadCallback delegate) {
-		super(functionPointer);
-		this.delegate = delegate;
-	}
+		@Override
+		public int invoke(long user, long data, int size) {
+			return delegate.invoke(user, data, size);
+		}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
-
-	@Override
-	public int invoke(long user, long data, int size) {
-		return delegate.invoke(user, data, size);
 	}
 
 }

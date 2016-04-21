@@ -8,67 +8,56 @@ package org.lwjgl.vulkan;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /**
- * Instances of this interface may be set to the {@code pfnFree} member of the {@link VkAllocationCallbacks} struct.
+ * Instances of this class may be set to the {@code pfnFree} member of the {@link VkAllocationCallbacks} struct.
  * 
  * <p>{@code pMemory may} be {@code NULL}, which the callback <b>must</b> handle safely. If {@code pMemory} is non-{@code NULL}, it must be a pointer previously allocated by
  * {@code pfnAllocation} or {@code pfnReallocation} and must be freed by the function.</p>
  */
-@FunctionalInterface
-public interface VkFreeFunction extends Callback.V {
+public abstract class VkFreeFunction extends Callback implements VkFreeFunctionI {
 
 	/** Creates a {@code VkFreeFunction} instance from the specified function pointer. */
-	static VkFreeFunction create(long functionPointer) {
-		return functionPointer == NULL ? null : new VkFreeFunctionHandle(functionPointer, Callback.get(functionPointer));
+	public static VkFreeFunction create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		VkFreeFunctionI instance = Callback.get(functionPointer);
+		return instance instanceof VkFreeFunction
+			? (VkFreeFunction)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code VkFreeFunction} instance that delegates to the specified {@code VkFreeFunction} instance. */
-	static VkFreeFunction create(VkFreeFunction sam) {
-		return new VkFreeFunctionHandle(sam.address(), sam);
+	/** Creates a {@code VkFreeFunction} instance that delegates to the specified {@code VkFreeFunctionI} instance. */
+	public static VkFreeFunction create(VkFreeFunctionI instance) {
+		return instance instanceof VkFreeFunction
+			? (VkFreeFunction)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(pp)v", true);
+	protected VkFreeFunction() {
+		super(NULL);
+		address = VkFreeFunctionI.super.address();
 	}
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args)
-		);
-	}
-
-	/**
-	 * Will be called by the Vulkan implementation to free memory.
-	 *
-	 * @param pUserData the value specified for {@link VkAllocationCallbacks}{@code .pUserData} in the allocator specified by the application
-	 * @param pMemory   the allocation to be freed
-	 */
-	void invoke(long pUserData, long pMemory);
-
-}
-
-final class VkFreeFunctionHandle extends Pointer.Default implements VkFreeFunction {
-
-	private final VkFreeFunction delegate;
-
-	VkFreeFunctionHandle(long functionPointer, VkFreeFunction delegate) {
+	private VkFreeFunction(long functionPointer) {
 		super(functionPointer);
-		this.delegate = delegate;
 	}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
+	private static final class Container extends VkFreeFunction {
 
-	@Override
-	public void invoke(long pUserData, long pMemory) {
-		delegate.invoke(pUserData, pMemory);
+		private final VkFreeFunctionI delegate;
+
+		Container(long functionPointer, VkFreeFunctionI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
+
+		@Override
+		public void invoke(long pUserData, long pMemory) {
+			delegate.invoke(pUserData, pMemory);
+		}
+
 	}
 
 }

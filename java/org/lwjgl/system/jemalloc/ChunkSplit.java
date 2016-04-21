@@ -8,70 +8,51 @@ package org.lwjgl.system.jemalloc;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be set to the {@link ChunkHooks} struct. */
-@FunctionalInterface
-public interface ChunkSplit extends Callback.Z {
+/** Instances of this class may be set to the {@link ChunkHooks} struct. */
+public abstract class ChunkSplit extends Callback implements ChunkSplitI {
 
 	/** Creates a {@code ChunkSplit} instance from the specified function pointer. */
-	static ChunkSplit create(long functionPointer) {
-		return functionPointer == NULL ? null : new ChunkSplitHandle(functionPointer, Callback.get(functionPointer));
+	public static ChunkSplit create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		ChunkSplitI instance = Callback.get(functionPointer);
+		return instance instanceof ChunkSplit
+			? (ChunkSplit)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code ChunkSplit} instance that delegates to the specified {@code ChunkSplit} instance. */
-	static ChunkSplit create(ChunkSplit sam) {
-		return new ChunkSplitHandle(sam.address(), sam);
+	/** Creates a {@code ChunkSplit} instance that delegates to the specified {@code ChunkSplitI} instance. */
+	public static ChunkSplit create(ChunkSplitI instance) {
+		return instance instanceof ChunkSplit
+			? (ChunkSplit)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(ppppBi)B", false);
+	protected ChunkSplit() {
+		super(NULL);
+		address = ChunkSplitI.super.address();
 	}
 
-	@Override
-	default boolean callback(long args) {
-		return invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgBool(args) != 0,
-			dcbArgInt(args)
-		);
-	}
-
-	/**
-	 * Chunk split hook.
-	 *
-	 * @param chunk     
-	 * @param size      
-	 * @param size_a    
-	 * @param size_b    
-	 * @param committed 
-	 * @param arena_ind 
-	 */
-	boolean invoke(long chunk, long size, long size_a, long size_b, boolean committed, int arena_ind);
-
-}
-
-final class ChunkSplitHandle extends Pointer.Default implements ChunkSplit {
-
-	private final ChunkSplit delegate;
-
-	ChunkSplitHandle(long functionPointer, ChunkSplit delegate) {
+	private ChunkSplit(long functionPointer) {
 		super(functionPointer);
-		this.delegate = delegate;
 	}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
+	private static final class Container extends ChunkSplit {
 
-	@Override
-	public boolean invoke(long chunk, long size, long size_a, long size_b, boolean committed, int arena_ind) {
-		return delegate.invoke(chunk, size, size_a, size_b, committed, arena_ind);
+		private final ChunkSplitI delegate;
+
+		Container(long functionPointer, ChunkSplitI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
+
+		@Override
+		public boolean invoke(long chunk, long size, long size_a, long size_b, boolean committed, int arena_ind) {
+			return delegate.invoke(chunk, size, size_a, size_b, committed, arena_ind);
+		}
+
 	}
 
 }

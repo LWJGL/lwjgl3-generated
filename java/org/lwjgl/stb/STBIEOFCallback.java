@@ -8,62 +8,51 @@ package org.lwjgl.stb;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be set to the {@code eof} field of the {@link STBIIOCallbacks} struct. */
-@FunctionalInterface
-public interface STBIEOFCallback extends Callback.I {
+/** Instances of this class may be set to the {@code eof} field of the {@link STBIIOCallbacks} struct. */
+public abstract class STBIEOFCallback extends Callback implements STBIEOFCallbackI {
 
 	/** Creates a {@code STBIEOFCallback} instance from the specified function pointer. */
-	static STBIEOFCallback create(long functionPointer) {
-		return functionPointer == NULL ? null : new STBIEOFCallbackHandle(functionPointer, Callback.get(functionPointer));
+	public static STBIEOFCallback create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		STBIEOFCallbackI instance = Callback.get(functionPointer);
+		return instance instanceof STBIEOFCallback
+			? (STBIEOFCallback)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code STBIEOFCallback} instance that delegates to the specified {@code STBIEOFCallback} instance. */
-	static STBIEOFCallback create(STBIEOFCallback sam) {
-		return new STBIEOFCallbackHandle(sam.address(), sam);
+	/** Creates a {@code STBIEOFCallback} instance that delegates to the specified {@code STBIEOFCallbackI} instance. */
+	public static STBIEOFCallback create(STBIEOFCallbackI instance) {
+		return instance instanceof STBIEOFCallback
+			? (STBIEOFCallback)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(p)i", false);
+	protected STBIEOFCallback() {
+		super(NULL);
+		address = STBIEOFCallbackI.super.address();
 	}
 
-	@Override
-	default int callback(long args) {
-		return invoke(
-			dcbArgPointer(args)
-		);
-	}
-
-	/**
-	 * The {@code stbi_io_callbacks.eof} callback.
-	 *
-	 * @param user a pointer to user data
-	 *
-	 * @return nonzero if we are at the end of file/data
-	 */
-	int invoke(long user);
-
-}
-
-final class STBIEOFCallbackHandle extends Pointer.Default implements STBIEOFCallback {
-
-	private final STBIEOFCallback delegate;
-
-	STBIEOFCallbackHandle(long functionPointer, STBIEOFCallback delegate) {
+	private STBIEOFCallback(long functionPointer) {
 		super(functionPointer);
-		this.delegate = delegate;
 	}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
+	private static final class Container extends STBIEOFCallback {
 
-	@Override
-	public int invoke(long user) {
-		return delegate.invoke(user);
+		private final STBIEOFCallbackI delegate;
+
+		Container(long functionPointer, STBIEOFCallbackI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
+
+		@Override
+		public int invoke(long user) {
+			return delegate.invoke(user);
+		}
+
 	}
 
 }

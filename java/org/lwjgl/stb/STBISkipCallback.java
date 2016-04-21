@@ -8,62 +8,51 @@ package org.lwjgl.stb;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be set to the {@code skip} field of the {@link STBIIOCallbacks} struct. */
-@FunctionalInterface
-public interface STBISkipCallback extends Callback.V {
+/** Instances of this class may be set to the {@code skip} field of the {@link STBIIOCallbacks} struct. */
+public abstract class STBISkipCallback extends Callback implements STBISkipCallbackI {
 
 	/** Creates a {@code STBISkipCallback} instance from the specified function pointer. */
-	static STBISkipCallback create(long functionPointer) {
-		return functionPointer == NULL ? null : new STBISkipCallbackHandle(functionPointer, Callback.get(functionPointer));
+	public static STBISkipCallback create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		STBISkipCallbackI instance = Callback.get(functionPointer);
+		return instance instanceof STBISkipCallback
+			? (STBISkipCallback)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code STBISkipCallback} instance that delegates to the specified {@code STBISkipCallback} instance. */
-	static STBISkipCallback create(STBISkipCallback sam) {
-		return new STBISkipCallbackHandle(sam.address(), sam);
+	/** Creates a {@code STBISkipCallback} instance that delegates to the specified {@code STBISkipCallbackI} instance. */
+	public static STBISkipCallback create(STBISkipCallbackI instance) {
+		return instance instanceof STBISkipCallback
+			? (STBISkipCallback)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(pi)v", false);
+	protected STBISkipCallback() {
+		super(NULL);
+		address = STBISkipCallbackI.super.address();
 	}
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgInt(args)
-		);
-	}
-
-	/**
-	 * The {@code stbi_io_callbacks.skip} callback.
-	 *
-	 * @param user a pointer to user data
-	 * @param n    the number of bytes to skip if positive, or <em>unget</em> the last {@code -n} bytes if negative
-	 */
-	void invoke(long user, int n);
-
-}
-
-final class STBISkipCallbackHandle extends Pointer.Default implements STBISkipCallback {
-
-	private final STBISkipCallback delegate;
-
-	STBISkipCallbackHandle(long functionPointer, STBISkipCallback delegate) {
+	private STBISkipCallback(long functionPointer) {
 		super(functionPointer);
-		this.delegate = delegate;
 	}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
+	private static final class Container extends STBISkipCallback {
 
-	@Override
-	public void invoke(long user, int n) {
-		delegate.invoke(user, n);
+		private final STBISkipCallbackI delegate;
+
+		Container(long functionPointer, STBISkipCallbackI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
+
+		@Override
+		public void invoke(long user, int n) {
+			delegate.invoke(user, n);
+		}
+
 	}
 
 }

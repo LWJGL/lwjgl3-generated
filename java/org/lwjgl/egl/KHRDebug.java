@@ -82,7 +82,7 @@ public class KHRDebug {
 		return callPPI(__functionAddress, callback, attrib_list);
 	}
 
-	public static int eglDebugMessageControlKHR(EGLDebugMessageKHRCallback callback, PointerBuffer attrib_list) {
+	public static int eglDebugMessageControlKHR(EGLDebugMessageKHRCallbackI callback, PointerBuffer attrib_list) {
 		return neglDebugMessageControlKHR(callback.address(), memAddressSafe(attrib_list));
 	}
 

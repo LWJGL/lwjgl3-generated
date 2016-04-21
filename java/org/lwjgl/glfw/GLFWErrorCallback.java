@@ -8,7 +8,6 @@ package org.lwjgl.glfw;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
 import java.io.PrintStream;
 import java.util.Map;
@@ -16,40 +15,35 @@ import org.lwjgl.system.APIUtil;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetErrorCallback SetErrorCallback} method. */
-@FunctionalInterface
-public interface GLFWErrorCallback extends Callback.V {
+/** Instances of this class may be passed to the {@link GLFW#glfwSetErrorCallback SetErrorCallback} method. */
+public abstract class GLFWErrorCallback extends Callback implements GLFWErrorCallbackI {
 
 	/** Creates a {@code GLFWErrorCallback} instance from the specified function pointer. */
-	static GLFWErrorCallback create(long functionPointer) {
-		return functionPointer == NULL ? null : new GLFWErrorCallbackHandle(functionPointer, Callback.get(functionPointer));
+	public static GLFWErrorCallback create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		GLFWErrorCallbackI instance = Callback.get(functionPointer);
+		return instance instanceof GLFWErrorCallback
+			? (GLFWErrorCallback)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code GLFWErrorCallback} instance that delegates to the specified {@code GLFWErrorCallback} instance. */
-	static GLFWErrorCallback create(GLFWErrorCallback sam) {
-		return new GLFWErrorCallbackHandle(sam.address(), sam);
+	/** Creates a {@code GLFWErrorCallback} instance that delegates to the specified {@code GLFWErrorCallbackI} instance. */
+	public static GLFWErrorCallback create(GLFWErrorCallbackI instance) {
+		return instance instanceof GLFWErrorCallback
+			? (GLFWErrorCallback)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(ip)v", false);
+	protected GLFWErrorCallback() {
+		super(NULL);
+		address = GLFWErrorCallbackI.super.address();
 	}
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgInt(args),
-			dcbArgPointer(args)
-		);
+	private GLFWErrorCallback(long functionPointer) {
+		super(functionPointer);
 	}
-
-	/**
-	 * Will be called with an error code and a human-readable description when a GLFW error occurs.
-	 *
-	 * @param error       the error code
-	 * @param description a pointer to a UTF-8 encoded string describing the error
-	 */
-	void invoke(int error, long description);
 
 	/**
 	 * Converts the specified {@link GLFWErrorCallback} argument to a String.
@@ -60,7 +54,7 @@ public interface GLFWErrorCallback extends Callback.V {
 	 *
 	 * @return the description as a String
 	 */
-	static String getDescription(long description) {
+	public static String getDescription(long description) {
 		return memUTF8(description);
 	}
 
@@ -69,7 +63,7 @@ public interface GLFWErrorCallback extends Callback.V {
 	 *
 	 * @return the GLFWerrorCallback
 	 */
-	static GLFWErrorCallback createPrint() {
+	public static GLFWErrorCallback createPrint() {
 		return createPrint(APIUtil.DEBUG_STREAM);
 	}
 
@@ -80,7 +74,7 @@ public interface GLFWErrorCallback extends Callback.V {
 	 *
 	 * @return the GLFWerrorCallback
 	 */
-	static GLFWErrorCallback createPrint(PrintStream stream) {
+	public static GLFWErrorCallback createPrint(PrintStream stream) {
 		return new GLFWErrorCallback() {
 			private Map<Integer, String> ERROR_CODES = APIUtil.apiClassTokens((field, value) -> 0x10000 < value && value < 0x20000, null, GLFW.class);
 
@@ -105,37 +99,35 @@ public interface GLFWErrorCallback extends Callback.V {
 	 *
 	 * @return the GLFWerrorCallback
 	 */
-	static GLFWErrorCallback createThrow() {
-		return (error, description) -> {
-			throw new IllegalStateException(String.format("GLFW error [0x%X]: %s", error, getDescription(description)));
+	public static GLFWErrorCallback createThrow() {
+		return new GLFWErrorCallback() {
+			@Override
+			public void invoke(int error, long description) {
+				throw new IllegalStateException(String.format("GLFW error [0x%X]: %s", error, getDescription(description)));
+			}
 		};
 	}
 
 	/** See {@link GLFW#glfwSetErrorCallback SetErrorCallback}. */
-	default GLFWErrorCallback set() {
+	public GLFWErrorCallback set() {
 		glfwSetErrorCallback(this);
 		return this;
 	}
 
-}
+	private static final class Container extends GLFWErrorCallback {
 
-final class GLFWErrorCallbackHandle extends Pointer.Default implements GLFWErrorCallback {
+		private final GLFWErrorCallbackI delegate;
 
-	private final GLFWErrorCallback delegate;
+		Container(long functionPointer, GLFWErrorCallbackI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
 
-	GLFWErrorCallbackHandle(long functionPointer, GLFWErrorCallback delegate) {
-		super(functionPointer);
-		this.delegate = delegate;
-	}
+		@Override
+		public void invoke(int error, long description) {
+			delegate.invoke(error, description);
+		}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
-
-	@Override
-	public void invoke(int error, long description) {
-		delegate.invoke(error, description);
 	}
 
 }

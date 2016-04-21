@@ -8,60 +8,51 @@ package org.lwjgl.opencl;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link CL10#clEnqueueNativeKernel EnqueueNativeKernel} method. */
-@FunctionalInterface
-public interface CLNativeKernel extends Callback.V {
+/** Instances of this class may be passed to the {@link CL10#clEnqueueNativeKernel EnqueueNativeKernel} method. */
+public abstract class CLNativeKernel extends Callback implements CLNativeKernelI {
 
 	/** Creates a {@code CLNativeKernel} instance from the specified function pointer. */
-	static CLNativeKernel create(long functionPointer) {
-		return functionPointer == NULL ? null : new CLNativeKernelHandle(functionPointer, Callback.get(functionPointer));
+	public static CLNativeKernel create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		CLNativeKernelI instance = Callback.get(functionPointer);
+		return instance instanceof CLNativeKernel
+			? (CLNativeKernel)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code CLNativeKernel} instance that delegates to the specified {@code CLNativeKernel} instance. */
-	static CLNativeKernel create(CLNativeKernel sam) {
-		return new CLNativeKernelHandle(sam.address(), sam);
+	/** Creates a {@code CLNativeKernel} instance that delegates to the specified {@code CLNativeKernelI} instance. */
+	public static CLNativeKernel create(CLNativeKernelI instance) {
+		return instance instanceof CLNativeKernel
+			? (CLNativeKernel)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(p)v", true);
+	protected CLNativeKernel() {
+		super(NULL);
+		address = CLNativeKernelI.super.address();
 	}
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args)
-		);
-	}
-
-	/**
-	 * Will be called by the OpenCL using {@link CL10#clEnqueueNativeKernel EnqueueNativeKernel}.
-	 *
-	 * @param args a pointer to the arguments list
-	 */
-	void invoke(long args);
-
-}
-
-final class CLNativeKernelHandle extends Pointer.Default implements CLNativeKernel {
-
-	private final CLNativeKernel delegate;
-
-	CLNativeKernelHandle(long functionPointer, CLNativeKernel delegate) {
+	private CLNativeKernel(long functionPointer) {
 		super(functionPointer);
-		this.delegate = delegate;
 	}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
+	private static final class Container extends CLNativeKernel {
 
-	@Override
-	public void invoke(long args) {
-		delegate.invoke(args);
+		private final CLNativeKernelI delegate;
+
+		Container(long functionPointer, CLNativeKernelI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
+
+		@Override
+		public void invoke(long args) {
+			delegate.invoke(args);
+		}
+
 	}
 
 }

@@ -373,7 +373,7 @@ public class STBImageWrite {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static int stbi_write_png_to_func(STBIWriteCallback func, ByteBuffer context, int w, int h, int comp, ByteBuffer data, int stride_in_bytes) {
+	public static int stbi_write_png_to_func(STBIWriteCallbackI func, ByteBuffer context, int w, int h, int comp, ByteBuffer data, int stride_in_bytes) {
 		if ( CHECKS )
 			checkBuffer(data, w * h * comp);
 		return nstbi_write_png_to_func(func.address(), memAddressSafe(context), w, h, comp, memAddress(data), stride_in_bytes);
@@ -407,7 +407,7 @@ public class STBImageWrite {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static int stbi_write_bmp_to_func(STBIWriteCallback func, ByteBuffer context, int w, int h, int comp, ByteBuffer data) {
+	public static int stbi_write_bmp_to_func(STBIWriteCallbackI func, ByteBuffer context, int w, int h, int comp, ByteBuffer data) {
 		if ( CHECKS )
 			checkBuffer(data, w * h * comp);
 		return nstbi_write_bmp_to_func(func.address(), memAddressSafe(context), w, h, comp, memAddress(data));
@@ -441,7 +441,7 @@ public class STBImageWrite {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static int stbi_write_tga_to_func(STBIWriteCallback func, ByteBuffer context, int w, int h, int comp, ByteBuffer data) {
+	public static int stbi_write_tga_to_func(STBIWriteCallbackI func, ByteBuffer context, int w, int h, int comp, ByteBuffer data) {
 		if ( CHECKS )
 			checkBuffer(data, w * h * comp);
 		return nstbi_write_tga_to_func(func.address(), memAddressSafe(context), w, h, comp, memAddress(data));
@@ -475,7 +475,7 @@ public class STBImageWrite {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static int stbi_write_hdr_to_func(STBIWriteCallback func, ByteBuffer context, int w, int h, int comp, FloatBuffer data) {
+	public static int stbi_write_hdr_to_func(STBIWriteCallbackI func, ByteBuffer context, int w, int h, int comp, FloatBuffer data) {
 		if ( CHECKS )
 			checkBuffer(data, w * h * comp);
 		return nstbi_write_hdr_to_func(func.address(), memAddressSafe(context), w, h, comp, memAddress(data));

@@ -8,66 +8,51 @@ package org.lwjgl.opencl;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link ALTERALiveObjectTracking#ReportLiveObjectsAltera} method. */
-@FunctionalInterface
-public interface CLReportLiveObjectsAlteraCallback extends Callback.V {
+/** Instances of this class may be passed to the {@link ALTERALiveObjectTracking#ReportLiveObjectsAltera} method. */
+public abstract class CLReportLiveObjectsAlteraCallback extends Callback implements CLReportLiveObjectsAlteraCallbackI {
 
 	/** Creates a {@code CLReportLiveObjectsAlteraCallback} instance from the specified function pointer. */
-	static CLReportLiveObjectsAlteraCallback create(long functionPointer) {
-		return functionPointer == NULL ? null : new CLReportLiveObjectsAlteraCallbackHandle(functionPointer, Callback.get(functionPointer));
+	public static CLReportLiveObjectsAlteraCallback create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		CLReportLiveObjectsAlteraCallbackI instance = Callback.get(functionPointer);
+		return instance instanceof CLReportLiveObjectsAlteraCallback
+			? (CLReportLiveObjectsAlteraCallback)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code CLReportLiveObjectsAlteraCallback} instance that delegates to the specified {@code CLReportLiveObjectsAlteraCallback} instance. */
-	static CLReportLiveObjectsAlteraCallback create(CLReportLiveObjectsAlteraCallback sam) {
-		return new CLReportLiveObjectsAlteraCallbackHandle(sam.address(), sam);
+	/** Creates a {@code CLReportLiveObjectsAlteraCallback} instance that delegates to the specified {@code CLReportLiveObjectsAlteraCallbackI} instance. */
+	public static CLReportLiveObjectsAlteraCallback create(CLReportLiveObjectsAlteraCallbackI instance) {
+		return instance instanceof CLReportLiveObjectsAlteraCallback
+			? (CLReportLiveObjectsAlteraCallback)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(pppi)v", true);
+	protected CLReportLiveObjectsAlteraCallback() {
+		super(NULL);
+		address = CLReportLiveObjectsAlteraCallbackI.super.address();
 	}
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgInt(args)
-		);
-	}
-
-	/**
-	 * Reports a live OpenCL API object.
-	 *
-	 * @param user_data the {@code user_data} argument specified to {@link ALTERALiveObjectTracking#clReportLiveObjectsAltera}
-	 * @param obj_ptr   a pointer to the live object
-	 * @param type_name a C string corresponding to the OpenCL API object type. For example, a leaked {@code cl_mem} object will have "cl_mem" as its type string.
-	 * @param refcount  an instantaneous reference count for the object. Consider it to be immediately stale.
-	 */
-	void invoke(long user_data, long obj_ptr, long type_name, int refcount);
-
-}
-
-final class CLReportLiveObjectsAlteraCallbackHandle extends Pointer.Default implements CLReportLiveObjectsAlteraCallback {
-
-	private final CLReportLiveObjectsAlteraCallback delegate;
-
-	CLReportLiveObjectsAlteraCallbackHandle(long functionPointer, CLReportLiveObjectsAlteraCallback delegate) {
+	private CLReportLiveObjectsAlteraCallback(long functionPointer) {
 		super(functionPointer);
-		this.delegate = delegate;
 	}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
+	private static final class Container extends CLReportLiveObjectsAlteraCallback {
 
-	@Override
-	public void invoke(long user_data, long obj_ptr, long type_name, int refcount) {
-		delegate.invoke(user_data, obj_ptr, type_name, refcount);
+		private final CLReportLiveObjectsAlteraCallbackI delegate;
+
+		Container(long functionPointer, CLReportLiveObjectsAlteraCallbackI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
+
+		@Override
+		public void invoke(long user_data, long obj_ptr, long type_name, int refcount) {
+			delegate.invoke(user_data, obj_ptr, type_name, refcount);
+		}
+
 	}
 
 }

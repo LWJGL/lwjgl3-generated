@@ -8,66 +8,51 @@ package org.lwjgl.opencl;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link CL10#clCreateContext CreateContext} and {@link CL10#clCreateContextFromType CreateContextFromType} methods. */
-@FunctionalInterface
-public interface CLContextCallback extends Callback.V {
+/** Instances of this class may be passed to the {@link CL10#clCreateContext CreateContext} and {@link CL10#clCreateContextFromType CreateContextFromType} methods. */
+public abstract class CLContextCallback extends Callback implements CLContextCallbackI {
 
 	/** Creates a {@code CLContextCallback} instance from the specified function pointer. */
-	static CLContextCallback create(long functionPointer) {
-		return functionPointer == NULL ? null : new CLContextCallbackHandle(functionPointer, Callback.get(functionPointer));
+	public static CLContextCallback create(long functionPointer) {
+		if ( functionPointer == NULL )
+			return null;
+
+		CLContextCallbackI instance = Callback.get(functionPointer);
+		return instance instanceof CLContextCallback
+			? (CLContextCallback)instance
+			: new Container(functionPointer, instance);
 	}
 
-	/** Creates a {@code CLContextCallback} instance that delegates to the specified {@code CLContextCallback} instance. */
-	static CLContextCallback create(CLContextCallback sam) {
-		return new CLContextCallbackHandle(sam.address(), sam);
+	/** Creates a {@code CLContextCallback} instance that delegates to the specified {@code CLContextCallbackI} instance. */
+	public static CLContextCallback create(CLContextCallbackI instance) {
+		return instance instanceof CLContextCallback
+			? (CLContextCallback)instance
+			: new Container(instance.address(), instance);
 	}
 
-	@Override
-	default long address() {
-		return Callback.create(this, "(pppp)v", true);
+	protected CLContextCallback() {
+		super(NULL);
+		address = CLContextCallbackI.super.address();
 	}
 
-	@Override
-	default void callback(long args) {
-		invoke(
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args),
-			dcbArgPointer(args)
-		);
-	}
-
-	/**
-	 * Will be called when a debug message is generated.
-	 *
-	 * @param errinfo      a pointer to the message string representation
-	 * @param private_info a pointer to binary data that is returned by the OpenCL implementation that can be used to log additional information helpful in debugging the error
-	 * @param cb           the number of bytes in the {@code private_info} pointer
-	 * @param user_data    the user-specified value that was passed when calling {@link CL10#clCreateContext CreateContext} or {@link CL10#clCreateContextFromType CreateContextFromType}
-	 */
-	void invoke(long errinfo, long private_info, long cb, long user_data);
-
-}
-
-final class CLContextCallbackHandle extends Pointer.Default implements CLContextCallback {
-
-	private final CLContextCallback delegate;
-
-	CLContextCallbackHandle(long functionPointer, CLContextCallback delegate) {
+	private CLContextCallback(long functionPointer) {
 		super(functionPointer);
-		this.delegate = delegate;
 	}
 
-	@Override
-	public void free() {
-		Callback.free(address());
-	}
+	private static final class Container extends CLContextCallback {
 
-	@Override
-	public void invoke(long errinfo, long private_info, long cb, long user_data) {
-		delegate.invoke(errinfo, private_info, cb, user_data);
+		private final CLContextCallbackI delegate;
+
+		Container(long functionPointer, CLContextCallbackI delegate) {
+			super(functionPointer);
+			this.delegate = delegate;
+		}
+
+		@Override
+		public void invoke(long errinfo, long private_info, long cb, long user_data) {
+			delegate.invoke(errinfo, private_info, cb, user_data);
+		}
+
 	}
 
 }
