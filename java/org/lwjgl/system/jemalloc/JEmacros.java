@@ -23,45 +23,55 @@ public class JEmacros {
 
 	// --- [ JEMALLOC_VERSION ] ---
 
-	/** Returns the version string. */
-	public static native long nJEMALLOC_VERSION();
+	private static native long nJEMALLOC_VERSION();
 
-	/** Returns the version string. */
-	public static String JEMALLOC_VERSION() {
+	private static String JEMALLOC_VERSION() {
 		long __result = nJEMALLOC_VERSION();
 		return memASCII(__result);
 	}
 
+	/** Returns the version string. */
+	public static final String JEMALLOC_VERSION = JEMALLOC_VERSION();
+
 	// --- [ JEMALLOC_VERSION_MAJOR ] ---
 
+	private static native int JEMALLOC_VERSION_MAJOR();
+
 	/** Returns the major version. */
-	public static native int JEMALLOC_VERSION_MAJOR();
+	public static final int JEMALLOC_VERSION_MAJOR = JEMALLOC_VERSION_MAJOR();
 
 	// --- [ JEMALLOC_VERSION_MINOR ] ---
 
+	private static native int JEMALLOC_VERSION_MINOR();
+
 	/** Returns the minor version. */
-	public static native int JEMALLOC_VERSION_MINOR();
+	public static final int JEMALLOC_VERSION_MINOR = JEMALLOC_VERSION_MINOR();
 
 	// --- [ JEMALLOC_VERSION_BUGFIX ] ---
 
+	private static native int JEMALLOC_VERSION_BUGFIX();
+
 	/** Returns the bugfix version. */
-	public static native int JEMALLOC_VERSION_BUGFIX();
+	public static final int JEMALLOC_VERSION_BUGFIX = JEMALLOC_VERSION_BUGFIX();
 
 	// --- [ JEMALLOC_VERSION_NREV ] ---
 
+	private static native int JEMALLOC_VERSION_NREV();
+
 	/** Returns the revision number. */
-	public static native int JEMALLOC_VERSION_NREV();
+	public static final int JEMALLOC_VERSION_NREV = JEMALLOC_VERSION_NREV();
 
 	// --- [ JEMALLOC_VERSION_GID ] ---
 
-	/** Returns the globally unique identifier (git commit hash). */
-	public static native long nJEMALLOC_VERSION_GID();
+	private static native long nJEMALLOC_VERSION_GID();
 
-	/** Returns the globally unique identifier (git commit hash). */
-	public static String JEMALLOC_VERSION_GID() {
+	private static String JEMALLOC_VERSION_GID() {
 		long __result = nJEMALLOC_VERSION_GID();
 		return memASCII(__result);
 	}
+
+	/** Returns the globally unique identifier (git commit hash). */
+	public static final String JEMALLOC_VERSION_GID = JEMALLOC_VERSION_GID();
 
 	// --- [ MALLOCX_LG_ALIGN ] ---
 
@@ -85,11 +95,13 @@ public class JEmacros {
 
 	// --- [ MALLOCX_ZERO ] ---
 
+	private static native int MALLOCX_ZERO();
+
 	/**
 	 * Initialize newly allocated memory to contain zero bytes. In the growing reallocation case, the real size prior to reallocation defines the boundary
 	 * between untouched bytes and those that are initialized to contain zero bytes. If this macro is absent, newly allocated memory is uninitialized.
 	 */
-	public static native int MALLOCX_ZERO();
+	public static final int MALLOCX_ZERO = MALLOCX_ZERO();
 
 	// --- [ MALLOCX_TCACHE ] ---
 
@@ -103,11 +115,13 @@ public class JEmacros {
 
 	// --- [ MALLOCX_TCACHE_NONE ] ---
 
+	private static native int MALLOCX_TCACHE_NONE();
+
 	/**
 	 * Do not use a thread-specific cache (tcache).  Unless {@link #MALLOCX_TCACHE} or {@code MALLOCX_TCACHE_NONE} is specified, an automatically managed tcache
 	 * will be used under many circumstances. This macro cannot be used in the same {@code flags} argument as {@code MALLOCX_TCACHE(tc)}.
 	 */
-	public static native int MALLOCX_TCACHE_NONE();
+	public static final int MALLOCX_TCACHE_NONE = MALLOCX_TCACHE_NONE();
 
 	// --- [ MALLOCX_ARENA ] ---
 

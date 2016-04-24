@@ -2118,13 +2118,13 @@ public class User32 {
 	 * @param hWnd a handle to the window whose DC is to be released
 	 * @param hDC  a handle to the DC to be released
 	 */
-	public static int ReleaseDC(long hWnd, long hDC) {
+	public static boolean ReleaseDC(long hWnd, long hDC) {
 		long __functionAddress = Functions.ReleaseDC;
 		if ( CHECKS ) {
 			checkPointer(hWnd);
 			checkPointer(hDC);
 		}
-		return callPPI(__functionAddress, hWnd, hDC);
+		return callPPI(__functionAddress, hWnd, hDC) != 0;
 	}
 
 	// --- [ GetSystemMetrics ] ---

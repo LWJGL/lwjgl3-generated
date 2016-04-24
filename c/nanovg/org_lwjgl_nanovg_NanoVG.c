@@ -5,14 +5,14 @@
  */
 #ifdef LWJGL_WINDOWS
 	#define _CRT_SECURE_NO_WARNINGS
-	__pragma(warning(disable : 4710))
+	__pragma(warning(disable : 4710 4738))
 #endif
 #include "common_tools.h"
 DISABLE_WARNINGS()
 #include <stdlib.h>
 #include <string.h>
 #ifdef LWJGL_WINDOWS
-	__pragma(warning(disable : 4711 4738))
+	__pragma(warning(disable : 4711))
 #endif
 #include "nanovg.c"
 ENABLE_WARNINGS()

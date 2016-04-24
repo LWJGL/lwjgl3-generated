@@ -51,43 +51,55 @@ public class CoreFoundation {
 
 	// --- [ kCFAllocatorDefault ] ---
 
+	private static native long kCFAllocatorDefault();
+
 	/** This is a synonym for {@code NULL}, if you'd rather use a named constant. */
-	public static native long kCFAllocatorDefault();
+	public static final long kCFAllocatorDefault = kCFAllocatorDefault();
 
 	// --- [ kCFAllocatorSystemDefault ] ---
 
+	private static native long kCFAllocatorSystemDefault();
+
 	/** Default system allocator; you rarely need to use this. */
-	public static native long kCFAllocatorSystemDefault();
+	public static final long kCFAllocatorSystemDefault = kCFAllocatorSystemDefault();
 
 	// --- [ kCFAllocatorMalloc ] ---
+
+	private static native long kCFAllocatorMalloc();
 
 	/**
 	 * This allocator uses {@code malloc()}, {@code realloc()}, and {@code free()}. This should not be generally used; stick to {@link #kCFAllocatorDefault}
 	 * whenever possible. This allocator is useful as the "bytesDeallocator" in {@code CFData} or "contentsDeallocator" in {@code CFString} where the memory
 	 * was obtained as a result of {@code malloc()} type functions.
 	 */
-	public static native long kCFAllocatorMalloc();
+	public static final long kCFAllocatorMalloc = kCFAllocatorMalloc();
 
 	// --- [ kCFAllocatorMallocZone ] ---
+
+	private static native long kCFAllocatorMallocZone();
 
 	/**
 	 * This allocator explicitly uses the default malloc zone, returned by {@code malloc_default_zone()}. It should only be used when an object is safe to be
 	 * allocated in non-scanned memory.
 	 */
-	public static native long kCFAllocatorMallocZone();
+	public static final long kCFAllocatorMallocZone = kCFAllocatorMallocZone();
 
 	// --- [ kCFAllocatorNull ] ---
+
+	private static native long kCFAllocatorNull();
 
 	/**
 	 * Null allocator which does nothing and allocates no memory. This allocator is useful as the "bytesDeallocator" in {@code CFData} or "contentsDeallocator"
 	 * in {@code CFString} where the memory should not be freed.
 	 */
-	public static native long kCFAllocatorNull();
+	public static final long kCFAllocatorNull = kCFAllocatorNull();
 
 	// --- [ kCFAllocatorUseContext ] ---
 
+	private static native long kCFAllocatorUseContext();
+
 	/** Special allocator argument to CFAllocatorCreate which means "use the functions given in the context to allocate the allocator itself as well". */
-	public static native long kCFAllocatorUseContext();
+	public static final long kCFAllocatorUseContext = kCFAllocatorUseContext();
 
 	// --- [ CFRetain ] ---
 
