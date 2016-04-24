@@ -51,7 +51,7 @@ public class OESMapbuffer {
 		long __functionAddress = GLES.getCapabilities().glMapBufferOES;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIIP(__functionAddress, target, access);
+		return callP(__functionAddress, target, access);
 	}
 
 	public static ByteBuffer glMapBufferOES(int target, int access) {
@@ -76,7 +76,7 @@ public class OESMapbuffer {
 		long __functionAddress = GLES.getCapabilities().glUnmapBufferOES;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIZ(__functionAddress, target);
+		return callZ(__functionAddress, target);
 	}
 
 	// --- [ glGetBufferPointervOES ] ---
@@ -85,7 +85,7 @@ public class OESMapbuffer {
 		long __functionAddress = GLES.getCapabilities().glGetBufferPointervOES;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetBufferPointervOES(int target, int pname, PointerBuffer params) {

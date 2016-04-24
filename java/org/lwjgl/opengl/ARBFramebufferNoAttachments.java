@@ -88,7 +88,7 @@ public class ARBFramebufferNoAttachments {
 		long __functionAddress = GL.getCapabilities().glFramebufferParameteri;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, target, pname, param);
+		callV(__functionAddress, target, pname, param);
 	}
 
 	// --- [ glGetFramebufferParameteriv ] ---
@@ -104,7 +104,7 @@ public class ARBFramebufferNoAttachments {
 		long __functionAddress = GL.getCapabilities().glGetFramebufferParameteriv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -150,7 +150,7 @@ public class ARBFramebufferNoAttachments {
 		long __functionAddress = GL.getCapabilities().glNamedFramebufferParameteriEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, framebuffer, pname, param);
+		callV(__functionAddress, framebuffer, pname, param);
 	}
 
 	// --- [ glGetNamedFramebufferParameterivEXT ] ---
@@ -166,7 +166,7 @@ public class ARBFramebufferNoAttachments {
 		long __functionAddress = GL.getCapabilities().glGetNamedFramebufferParameterivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, framebuffer, pname, params);
+		callPV(__functionAddress, framebuffer, pname, params);
 	}
 
 	/**
@@ -197,6 +197,26 @@ public class ARBFramebufferNoAttachments {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #glGetFramebufferParameteriv GetFramebufferParameteriv} */
+	public static void glGetFramebufferParameteriv(int target, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetFramebufferParameteriv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, target, pname, params);
+	}
+
+	/** Array version of: {@link #glGetNamedFramebufferParameterivEXT GetNamedFramebufferParameterivEXT} */
+	public static void glGetNamedFramebufferParameterivEXT(int framebuffer, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetNamedFramebufferParameterivEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, framebuffer, pname, params);
 	}
 
 }

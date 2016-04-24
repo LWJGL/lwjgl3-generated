@@ -90,7 +90,7 @@ public class GL21 {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix2x3fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIZPV(__functionAddress, location, count, transpose, value);
+		callPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -122,7 +122,7 @@ public class GL21 {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix3x2fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIZPV(__functionAddress, location, count, transpose, value);
+		callPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -154,7 +154,7 @@ public class GL21 {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix2x4fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIZPV(__functionAddress, location, count, transpose, value);
+		callPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -186,7 +186,7 @@ public class GL21 {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix4x2fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIZPV(__functionAddress, location, count, transpose, value);
+		callPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -218,7 +218,7 @@ public class GL21 {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix3x4fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIZPV(__functionAddress, location, count, transpose, value);
+		callPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -250,7 +250,7 @@ public class GL21 {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix4x3fv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIZPV(__functionAddress, location, count, transpose, value);
+		callPV(__functionAddress, location, count, transpose, value);
 	}
 
 	/**
@@ -264,6 +264,78 @@ public class GL21 {
 	 */
 	public static void glUniformMatrix4x3fv(int location, boolean transpose, FloatBuffer value) {
 		nglUniformMatrix4x3fv(location, value.remaining() / 12, transpose, memAddress(value));
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x3.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glUniformMatrix2x3fv UniformMatrix2x3fv}
+	 */
+	public static void glUniformMatrix2x3fv(int location, boolean transpose, float[] value) {
+		long __functionAddress = GL.getCapabilities().glUniformMatrix2x3fv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, location, value.length / 6, transpose, value);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x2.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glUniformMatrix3x2fv UniformMatrix3x2fv}
+	 */
+	public static void glUniformMatrix3x2fv(int location, boolean transpose, float[] value) {
+		long __functionAddress = GL.getCapabilities().glUniformMatrix3x2fv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, location, value.length / 6, transpose, value);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glUniformMatrix2x4fv UniformMatrix2x4fv}
+	 */
+	public static void glUniformMatrix2x4fv(int location, boolean transpose, float[] value) {
+		long __functionAddress = GL.getCapabilities().glUniformMatrix2x4fv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, location, value.length >> 3, transpose, value);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x2.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glUniformMatrix4x2fv UniformMatrix4x2fv}
+	 */
+	public static void glUniformMatrix4x2fv(int location, boolean transpose, float[] value) {
+		long __functionAddress = GL.getCapabilities().glUniformMatrix4x2fv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, location, value.length >> 3, transpose, value);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glUniformMatrix3x4fv UniformMatrix3x4fv}
+	 */
+	public static void glUniformMatrix3x4fv(int location, boolean transpose, float[] value) {
+		long __functionAddress = GL.getCapabilities().glUniformMatrix3x4fv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, location, value.length / 12, transpose, value);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x3.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glUniformMatrix4x3fv UniformMatrix4x3fv}
+	 */
+	public static void glUniformMatrix4x3fv(int location, boolean transpose, float[] value) {
+		long __functionAddress = GL.getCapabilities().glUniformMatrix4x3fv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, location, value.length / 12, transpose, value);
 	}
 
 }

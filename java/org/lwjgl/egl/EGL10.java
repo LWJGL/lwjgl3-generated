@@ -105,7 +105,7 @@ public class EGL10 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 		}
-		return callPPPIPI(__functionAddress, dpy, attrib_list, configs, config_size, num_config);
+		return callPPPPI(__functionAddress, dpy, attrib_list, configs, config_size, num_config);
 	}
 
 	public static int eglChooseConfig(long dpy, IntBuffer attrib_list, PointerBuffer configs, IntBuffer num_config) {
@@ -236,7 +236,7 @@ public class EGL10 {
 			checkPointer(dpy);
 			checkPointer(config);
 		}
-		return callPPIPI(__functionAddress, dpy, config, attribute, value);
+		return callPPPI(__functionAddress, dpy, config, attribute, value);
 	}
 
 	public static int eglGetConfigAttrib(long dpy, long config, int attribute, IntBuffer value) {
@@ -253,7 +253,7 @@ public class EGL10 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 		}
-		return callPPIPI(__functionAddress, dpy, configs, config_size, num_config);
+		return callPPPI(__functionAddress, dpy, configs, config_size, num_config);
 	}
 
 	public static int eglGetConfigs(long dpy, PointerBuffer configs, IntBuffer num_config) {
@@ -277,7 +277,7 @@ public class EGL10 {
 		long __functionAddress = EGL.getCapabilities().eglGetCurrentSurface;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIP(__functionAddress, readdraw);
+		return callP(__functionAddress, readdraw);
 	}
 
 	// --- [ eglGetDisplay ] ---
@@ -365,7 +365,7 @@ public class EGL10 {
 			checkPointer(dpy);
 			checkPointer(ctx);
 		}
-		return callPPIPI(__functionAddress, dpy, ctx, attribute, value);
+		return callPPPI(__functionAddress, dpy, ctx, attribute, value);
 	}
 
 	public static int eglQueryContext(long dpy, long ctx, int attribute, IntBuffer value) {
@@ -380,7 +380,7 @@ public class EGL10 {
 		long __functionAddress = EGL.getCapabilities().eglQueryString;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callPIP(__functionAddress, dpy, name);
+		return callPP(__functionAddress, dpy, name);
 	}
 
 	public static String eglQueryString(long dpy, int name) {
@@ -397,7 +397,7 @@ public class EGL10 {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPIPI(__functionAddress, dpy, surface, attribute, value);
+		return callPPPI(__functionAddress, dpy, surface, attribute, value);
 	}
 
 	public static int eglQuerySurface(long dpy, long surface, int attribute, IntBuffer value) {
@@ -444,7 +444,128 @@ public class EGL10 {
 		long __functionAddress = EGL.getCapabilities().eglWaitNative;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callII(__functionAddress, engine);
+		return callI(__functionAddress, engine);
+	}
+
+	/** Array version of: {@link #eglChooseConfig ChooseConfig} */
+	public static int eglChooseConfig(long dpy, int[] attrib_list, PointerBuffer configs, int[] num_config) {
+		long __functionAddress = EGL.getCapabilities().eglChooseConfig;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkBuffer(num_config, 1);
+		}
+		return callPPPPI(__functionAddress, dpy, attrib_list, memAddressSafe(configs), configs == null ? 0 : configs.remaining(), num_config);
+	}
+
+	/** Array version of: {@link #eglCreateContext CreateContext} */
+	public static long eglCreateContext(long dpy, long config, long share_context, int[] attrib_list) {
+		long __functionAddress = EGL.getCapabilities().eglCreateContext;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			checkPointer(config);
+			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+		}
+		return callPPPPP(__functionAddress, dpy, config, share_context, attrib_list);
+	}
+
+	/** Array version of: {@link #eglCreatePbufferSurface CreatePbufferSurface} */
+	public static long eglCreatePbufferSurface(long dpy, long config, int[] attrib_list) {
+		long __functionAddress = EGL.getCapabilities().eglCreatePbufferSurface;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			checkPointer(config);
+			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+		}
+		return callPPPP(__functionAddress, dpy, config, attrib_list);
+	}
+
+	/** Array version of: {@link #eglCreatePixmapSurface CreatePixmapSurface} */
+	public static long eglCreatePixmapSurface(long dpy, long config, long pixmap, int[] attrib_list) {
+		long __functionAddress = EGL.getCapabilities().eglCreatePixmapSurface;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			checkPointer(config);
+			checkPointer(pixmap);
+			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+		}
+		return callPPPPP(__functionAddress, dpy, config, pixmap, attrib_list);
+	}
+
+	/** Array version of: {@link #eglCreateWindowSurface CreateWindowSurface} */
+	public static long eglCreateWindowSurface(long dpy, long config, long win, int[] attrib_list) {
+		long __functionAddress = EGL.getCapabilities().eglCreateWindowSurface;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			checkPointer(config);
+			checkPointer(win);
+			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+		}
+		return callPPPPP(__functionAddress, dpy, config, win, attrib_list);
+	}
+
+	/** Array version of: {@link #eglGetConfigAttrib GetConfigAttrib} */
+	public static int eglGetConfigAttrib(long dpy, long config, int attribute, int[] value) {
+		long __functionAddress = EGL.getCapabilities().eglGetConfigAttrib;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			checkPointer(config);
+			checkBuffer(value, 1);
+		}
+		return callPPPI(__functionAddress, dpy, config, attribute, value);
+	}
+
+	/** Array version of: {@link #eglGetConfigs GetConfigs} */
+	public static int eglGetConfigs(long dpy, PointerBuffer configs, int[] num_config) {
+		long __functionAddress = EGL.getCapabilities().eglGetConfigs;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			checkBuffer(num_config, 1);
+		}
+		return callPPPI(__functionAddress, dpy, memAddressSafe(configs), configs == null ? 0 : configs.remaining(), num_config);
+	}
+
+	/** Array version of: {@link #eglInitialize Initialize} */
+	public static int eglInitialize(long dpy, int[] major, int[] minor) {
+		long __functionAddress = EGL.getCapabilities().eglInitialize;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			checkBuffer(major, 1);
+			checkBuffer(minor, 1);
+		}
+		return callPPPI(__functionAddress, dpy, major, minor);
+	}
+
+	/** Array version of: {@link #eglQueryContext QueryContext} */
+	public static int eglQueryContext(long dpy, long ctx, int attribute, int[] value) {
+		long __functionAddress = EGL.getCapabilities().eglQueryContext;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			checkPointer(ctx);
+			checkBuffer(value, 1);
+		}
+		return callPPPI(__functionAddress, dpy, ctx, attribute, value);
+	}
+
+	/** Array version of: {@link #eglQuerySurface QuerySurface} */
+	public static int eglQuerySurface(long dpy, long surface, int attribute, int[] value) {
+		long __functionAddress = EGL.getCapabilities().eglQuerySurface;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			checkPointer(surface);
+			checkBuffer(value, 1);
+		}
+		return callPPPI(__functionAddress, dpy, surface, attribute, value);
 	}
 
 }

@@ -37,7 +37,7 @@ public class QCOMExtendedGet2 {
 		long __functionAddress = GLES.getCapabilities().glExtGetShadersQCOM;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPIPV(__functionAddress, shaders, maxShaders, numShaders);
+		callPPV(__functionAddress, shaders, maxShaders, numShaders);
 	}
 
 	public static void glExtGetShadersQCOM(IntBuffer shaders, IntBuffer numShaders) {
@@ -52,7 +52,7 @@ public class QCOMExtendedGet2 {
 		long __functionAddress = GLES.getCapabilities().glExtGetProgramsQCOM;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPIPV(__functionAddress, programs, maxPrograms, numPrograms);
+		callPPV(__functionAddress, programs, maxPrograms, numPrograms);
 	}
 
 	public static void glExtGetProgramsQCOM(IntBuffer programs, IntBuffer numPrograms) {
@@ -67,7 +67,7 @@ public class QCOMExtendedGet2 {
 		long __functionAddress = GLES.getCapabilities().glExtIsProgramBinaryQCOM;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIZ(__functionAddress, program);
+		return callZ(__functionAddress, program);
 	}
 
 	// --- [ glExtGetProgramBinarySourceQCOM ] ---
@@ -76,13 +76,43 @@ public class QCOMExtendedGet2 {
 		long __functionAddress = GLES.getCapabilities().glExtGetProgramBinarySourceQCOM;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPPV(__functionAddress, program, shadertype, source, length);
+		callPPV(__functionAddress, program, shadertype, source, length);
 	}
 
 	public static void glExtGetProgramBinarySourceQCOM(int program, int shadertype, ByteBuffer source, IntBuffer length) {
 		if ( CHECKS )
 			if ( length != null ) checkBuffer(length, 1);
 		nglExtGetProgramBinarySourceQCOM(program, shadertype, memAddressSafe(source), memAddressSafe(length));
+	}
+
+	/** Array version of: {@link #glExtGetShadersQCOM ExtGetShadersQCOM} */
+	public static void glExtGetShadersQCOM(int[] shaders, int[] numShaders) {
+		long __functionAddress = GLES.getCapabilities().glExtGetShadersQCOM;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( numShaders != null ) checkBuffer(numShaders, 1);
+		}
+		callPPV(__functionAddress, shaders, shaders == null ? 0 : shaders.length, numShaders);
+	}
+
+	/** Array version of: {@link #glExtGetProgramsQCOM ExtGetProgramsQCOM} */
+	public static void glExtGetProgramsQCOM(int[] programs, int[] numPrograms) {
+		long __functionAddress = GLES.getCapabilities().glExtGetProgramsQCOM;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( numPrograms != null ) checkBuffer(numPrograms, 1);
+		}
+		callPPV(__functionAddress, programs, programs == null ? 0 : programs.length, numPrograms);
+	}
+
+	/** Array version of: {@link #glExtGetProgramBinarySourceQCOM ExtGetProgramBinarySourceQCOM} */
+	public static void glExtGetProgramBinarySourceQCOM(int program, int shadertype, ByteBuffer source, int[] length) {
+		long __functionAddress = GLES.getCapabilities().glExtGetProgramBinarySourceQCOM;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( length != null ) checkBuffer(length, 1);
+		}
+		callPPV(__functionAddress, program, shadertype, memAddressSafe(source), length);
 	}
 
 }

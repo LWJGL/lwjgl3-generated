@@ -75,7 +75,7 @@ public class NVCoverageSample {
 		long __functionAddress = GLES.getCapabilities().glCoverageMaskNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callZV(__functionAddress, mask);
+		callV(__functionAddress, mask);
 	}
 
 	// --- [ glCoverageOperationNV ] ---
@@ -84,7 +84,7 @@ public class NVCoverageSample {
 		long __functionAddress = GLES.getCapabilities().glCoverageOperationNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, operation);
+		callV(__functionAddress, operation);
 	}
 
 }

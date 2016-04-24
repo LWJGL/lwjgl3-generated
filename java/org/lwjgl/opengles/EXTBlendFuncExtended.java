@@ -67,7 +67,7 @@ public class EXTBlendFuncExtended {
 		long __functionAddress = GLES.getCapabilities().glBindFragDataLocationIndexedEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, colorNumber, index, name);
+		callPV(__functionAddress, program, colorNumber, index, name);
 	}
 
 	public static void glBindFragDataLocationIndexedEXT(int program, int colorNumber, int index, ByteBuffer name) {
@@ -92,7 +92,7 @@ public class EXTBlendFuncExtended {
 		long __functionAddress = GLES.getCapabilities().glGetFragDataIndexEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIPI(__functionAddress, program, name);
+		return callPI(__functionAddress, program, name);
 	}
 
 	public static int glGetFragDataIndexEXT(int program, ByteBuffer name) {
@@ -117,7 +117,7 @@ public class EXTBlendFuncExtended {
 		long __functionAddress = GLES.getCapabilities().glBindFragDataLocationEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, program, colorNumber, name);
+		callPV(__functionAddress, program, colorNumber, name);
 	}
 
 	public static void glBindFragDataLocationEXT(int program, int colorNumber, ByteBuffer name) {
@@ -142,7 +142,7 @@ public class EXTBlendFuncExtended {
 		long __functionAddress = GLES.getCapabilities().glGetProgramResourceLocationIndexEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIIPI(__functionAddress, program, programInterface, name);
+		return callPI(__functionAddress, program, programInterface, name);
 	}
 
 	public static int glGetProgramResourceLocationIndexEXT(int program, int programInterface, ByteBuffer name) {

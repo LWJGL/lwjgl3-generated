@@ -146,7 +146,19 @@ public class KHRXlibSurface {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 		}
-		return callPIPPI(__functionAddress, physicalDevice.address(), queueFamilyIndex, dpy, visualID);
+		return callPPPI(__functionAddress, physicalDevice.address(), queueFamilyIndex, dpy, visualID);
+	}
+
+	/** Array version of: {@link #vkCreateXlibSurfaceKHR CreateXlibSurfaceKHR} */
+	public static int vkCreateXlibSurfaceKHR(VkInstance instance, VkXlibSurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, long[] pSurface) {
+		long __functionAddress = instance.getCapabilities().vkCreateXlibSurfaceKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(pSurface, 1);
+			VkXlibSurfaceCreateInfoKHR.validate(pCreateInfo.address());
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPPPPI(__functionAddress, instance.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pSurface);
 	}
 
 }

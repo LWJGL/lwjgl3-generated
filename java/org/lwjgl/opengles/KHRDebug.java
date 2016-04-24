@@ -212,7 +212,7 @@ public class KHRDebug {
 		long __functionAddress = GLES.getCapabilities().glDebugMessageControlKHR;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIPZV(__functionAddress, source, type, severity, count, ids, enabled);
+		callPV(__functionAddress, source, type, severity, count, ids, enabled);
 	}
 
 	/**
@@ -319,7 +319,7 @@ public class KHRDebug {
 		long __functionAddress = GLES.getCapabilities().glDebugMessageInsertKHR;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIPV(__functionAddress, source, type, id, severity, length, message);
+		callPV(__functionAddress, source, type, id, severity, length, message);
 	}
 
 	/**
@@ -487,7 +487,7 @@ public class KHRDebug {
 		long __functionAddress = GLES.getCapabilities().glGetDebugMessageLogKHR;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIIPPPPPPI(__functionAddress, count, bufsize, sources, types, ids, severities, lengths, messageLog);
+		return callPPPPPPI(__functionAddress, count, bufsize, sources, types, ids, severities, lengths, messageLog);
 	}
 
 	/**
@@ -539,7 +539,7 @@ public class KHRDebug {
 		long __functionAddress = GLES.getCapabilities().glGetPointervKHR;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, pname, params);
+		callPV(__functionAddress, pname, params);
 	}
 
 	public static void glGetPointervKHR(int pname, PointerBuffer params) {
@@ -583,7 +583,7 @@ public class KHRDebug {
 		long __functionAddress = GLES.getCapabilities().glPushDebugGroupKHR;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, source, id, length, message);
+		callPV(__functionAddress, source, id, length, message);
 	}
 
 	/**
@@ -668,7 +668,7 @@ public class KHRDebug {
 		long __functionAddress = GLES.getCapabilities().glObjectLabelKHR;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, identifier, name, length, label);
+		callPV(__functionAddress, identifier, name, length, label);
 	}
 
 	/**
@@ -715,7 +715,7 @@ public class KHRDebug {
 		long __functionAddress = GLES.getCapabilities().glGetObjectLabelKHR;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPPV(__functionAddress, identifier, name, bufSize, length, label);
+		callPPV(__functionAddress, identifier, name, bufSize, length, label);
 	}
 
 	/**
@@ -785,7 +785,7 @@ public class KHRDebug {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(ptr);
 		}
-		callPIPV(__functionAddress, ptr, length, label);
+		callPPV(__functionAddress, ptr, length, label);
 	}
 
 	/**
@@ -831,7 +831,7 @@ public class KHRDebug {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(ptr);
 		}
-		callPIPPV(__functionAddress, ptr, bufSize, length, label);
+		callPPPV(__functionAddress, ptr, bufSize, length, label);
 	}
 
 	/**
@@ -881,6 +881,49 @@ public class KHRDebug {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #glDebugMessageControlKHR DebugMessageControlKHR} */
+	public static void glDebugMessageControlKHR(int source, int type, int severity, int[] ids, boolean enabled) {
+		long __functionAddress = GLES.getCapabilities().glDebugMessageControlKHR;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, source, type, severity, ids == null ? 0 : ids.length, ids, enabled);
+	}
+
+	/** Array version of: {@link #glGetDebugMessageLogKHR GetDebugMessageLogKHR} */
+	public static int glGetDebugMessageLogKHR(int count, int[] sources, int[] types, int[] ids, int[] severities, int[] lengths, ByteBuffer messageLog) {
+		long __functionAddress = GLES.getCapabilities().glGetDebugMessageLogKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( sources != null ) checkBuffer(sources, count);
+			if ( types != null ) checkBuffer(types, count);
+			if ( ids != null ) checkBuffer(ids, count);
+			if ( severities != null ) checkBuffer(severities, count);
+			if ( lengths != null ) checkBuffer(lengths, count);
+		}
+		return callPPPPPPI(__functionAddress, count, messageLog == null ? 0 : messageLog.remaining(), sources, types, ids, severities, lengths, memAddressSafe(messageLog));
+	}
+
+	/** Array version of: {@link #glGetObjectLabelKHR GetObjectLabelKHR} */
+	public static void glGetObjectLabelKHR(int identifier, int name, int[] length, ByteBuffer label) {
+		long __functionAddress = GLES.getCapabilities().glGetObjectLabelKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( length != null ) checkBuffer(length, 1);
+		}
+		callPPV(__functionAddress, identifier, name, label.remaining(), length, memAddress(label));
+	}
+
+	/** Array version of: {@link #glGetObjectPtrLabelKHR GetObjectPtrLabelKHR} */
+	public static void glGetObjectPtrLabelKHR(long ptr, int[] length, ByteBuffer label) {
+		long __functionAddress = GLES.getCapabilities().glGetObjectPtrLabelKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(ptr);
+			if ( length != null ) checkBuffer(length, 1);
+		}
+		callPPPV(__functionAddress, ptr, label.remaining(), length, memAddress(label));
 	}
 
 }

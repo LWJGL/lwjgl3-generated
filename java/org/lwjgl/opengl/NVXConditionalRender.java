@@ -38,7 +38,7 @@ public class NVXConditionalRender {
 		long __functionAddress = GL.getCapabilities().glBeginConditionalRenderNVX;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, id);
+		callV(__functionAddress, id);
 	}
 
 	// --- [ glEndConditionalRenderNVX ] ---

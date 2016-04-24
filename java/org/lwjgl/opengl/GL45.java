@@ -145,7 +145,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glClipControl;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, origin, depth);
+		callV(__functionAddress, origin, depth);
 	}
 
 	// --- [ glCreateTransformFeedbacks ] ---
@@ -162,7 +162,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glCreateTransformFeedbacks;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, ids);
+		callPV(__functionAddress, n, ids);
 	}
 
 	/**
@@ -207,7 +207,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glTransformFeedbackBufferBase;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, xfb, index, buffer);
+		callV(__functionAddress, xfb, index, buffer);
 	}
 
 	// --- [ glTransformFeedbackBufferRange ] ---
@@ -227,7 +227,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glTransformFeedbackBufferRange;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPPV(__functionAddress, xfb, index, buffer, offset, size);
+		callPPV(__functionAddress, xfb, index, buffer, offset, size);
 	}
 
 	// --- [ glGetTransformFeedbackiv ] ---
@@ -245,7 +245,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetTransformFeedbackiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, xfb, pname, param);
+		callPV(__functionAddress, xfb, pname, param);
 	}
 
 	/**
@@ -298,7 +298,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetTransformFeedbacki_v;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, xfb, pname, index, param);
+		callPV(__functionAddress, xfb, pname, index, param);
 	}
 
 	/**
@@ -353,7 +353,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetTransformFeedbacki64_v;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, xfb, pname, index, param);
+		callPV(__functionAddress, xfb, pname, index, param);
 	}
 
 	/**
@@ -407,7 +407,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glCreateBuffers;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, buffers);
+		callPV(__functionAddress, n, buffers);
 	}
 
 	/**
@@ -491,7 +491,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glNamedBufferStorage;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPPIV(__functionAddress, buffer, size, data, flags);
+		callPPV(__functionAddress, buffer, size, data, flags);
 	}
 
 	/**
@@ -542,27 +542,47 @@ public class GL45 {
 		nglNamedBufferStorage(buffer, size, NULL, flags);
 	}
 
-	/** ByteBuffer version of: {@link #glNamedBufferStorage NamedBufferStorage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferStorage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ByteBuffer version of: {@link #glNamedBufferStorage NamedBufferStorage}
+	 */
 	public static void glNamedBufferStorage(int buffer, ByteBuffer data, int flags) {
-		nglNamedBufferStorage(buffer, data.remaining(), memAddress(data), flags);
+		nglNamedBufferStorage(buffer, (long)data.remaining(), memAddress(data), flags);
 	}
 
-	/** ShortBuffer version of: {@link #glNamedBufferStorage NamedBufferStorage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferStorage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glNamedBufferStorage NamedBufferStorage}
+	 */
 	public static void glNamedBufferStorage(int buffer, ShortBuffer data, int flags) {
 		nglNamedBufferStorage(buffer, data.remaining() << 1, memAddress(data), flags);
 	}
 
-	/** IntBuffer version of: {@link #glNamedBufferStorage NamedBufferStorage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferStorage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glNamedBufferStorage NamedBufferStorage}
+	 */
 	public static void glNamedBufferStorage(int buffer, IntBuffer data, int flags) {
 		nglNamedBufferStorage(buffer, data.remaining() << 2, memAddress(data), flags);
 	}
 
-	/** FloatBuffer version of: {@link #glNamedBufferStorage NamedBufferStorage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferStorage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glNamedBufferStorage NamedBufferStorage}
+	 */
 	public static void glNamedBufferStorage(int buffer, FloatBuffer data, int flags) {
 		nglNamedBufferStorage(buffer, data.remaining() << 2, memAddress(data), flags);
 	}
 
-	/** DoubleBuffer version of: {@link #glNamedBufferStorage NamedBufferStorage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferStorage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * DoubleBuffer version of: {@link #glNamedBufferStorage NamedBufferStorage}
+	 */
 	public static void glNamedBufferStorage(int buffer, DoubleBuffer data, int flags) {
 		nglNamedBufferStorage(buffer, data.remaining() << 3, memAddress(data), flags);
 	}
@@ -583,7 +603,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glNamedBufferData;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPPIV(__functionAddress, buffer, size, data, usage);
+		callPPV(__functionAddress, buffer, size, data, usage);
 	}
 
 	/**
@@ -599,27 +619,47 @@ public class GL45 {
 		nglNamedBufferData(buffer, size, NULL, usage);
 	}
 
-	/** ByteBuffer version of: {@link #glNamedBufferData NamedBufferData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ByteBuffer version of: {@link #glNamedBufferData NamedBufferData}
+	 */
 	public static void glNamedBufferData(int buffer, ByteBuffer data, int usage) {
-		nglNamedBufferData(buffer, data.remaining(), memAddress(data), usage);
+		nglNamedBufferData(buffer, (long)data.remaining(), memAddress(data), usage);
 	}
 
-	/** ShortBuffer version of: {@link #glNamedBufferData NamedBufferData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glNamedBufferData NamedBufferData}
+	 */
 	public static void glNamedBufferData(int buffer, ShortBuffer data, int usage) {
 		nglNamedBufferData(buffer, data.remaining() << 1, memAddress(data), usage);
 	}
 
-	/** IntBuffer version of: {@link #glNamedBufferData NamedBufferData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glNamedBufferData NamedBufferData}
+	 */
 	public static void glNamedBufferData(int buffer, IntBuffer data, int usage) {
 		nglNamedBufferData(buffer, data.remaining() << 2, memAddress(data), usage);
 	}
 
-	/** FloatBuffer version of: {@link #glNamedBufferData NamedBufferData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glNamedBufferData NamedBufferData}
+	 */
 	public static void glNamedBufferData(int buffer, FloatBuffer data, int usage) {
 		nglNamedBufferData(buffer, data.remaining() << 2, memAddress(data), usage);
 	}
 
-	/** DoubleBuffer version of: {@link #glNamedBufferData NamedBufferData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * DoubleBuffer version of: {@link #glNamedBufferData NamedBufferData}
+	 */
 	public static void glNamedBufferData(int buffer, DoubleBuffer data, int usage) {
 		nglNamedBufferData(buffer, data.remaining() << 3, memAddress(data), usage);
 	}
@@ -640,7 +680,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glNamedBufferSubData;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPPPV(__functionAddress, buffer, offset, size, data);
+		callPPPV(__functionAddress, buffer, offset, size, data);
 	}
 
 	/**
@@ -653,25 +693,41 @@ public class GL45 {
 	 * @param data   a pointer to the new data that will be copied into the data store
 	 */
 	public static void glNamedBufferSubData(int buffer, long offset, ByteBuffer data) {
-		nglNamedBufferSubData(buffer, offset, data.remaining(), memAddress(data));
+		nglNamedBufferSubData(buffer, offset, (long)data.remaining(), memAddress(data));
 	}
 
-	/** ShortBuffer version of: {@link #glNamedBufferSubData NamedBufferSubData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glNamedBufferSubData NamedBufferSubData}
+	 */
 	public static void glNamedBufferSubData(int buffer, long offset, ShortBuffer data) {
 		nglNamedBufferSubData(buffer, offset, data.remaining() << 1, memAddress(data));
 	}
 
-	/** IntBuffer version of: {@link #glNamedBufferSubData NamedBufferSubData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glNamedBufferSubData NamedBufferSubData}
+	 */
 	public static void glNamedBufferSubData(int buffer, long offset, IntBuffer data) {
 		nglNamedBufferSubData(buffer, offset, data.remaining() << 2, memAddress(data));
 	}
 
-	/** FloatBuffer version of: {@link #glNamedBufferSubData NamedBufferSubData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glNamedBufferSubData NamedBufferSubData}
+	 */
 	public static void glNamedBufferSubData(int buffer, long offset, FloatBuffer data) {
 		nglNamedBufferSubData(buffer, offset, data.remaining() << 2, memAddress(data));
 	}
 
-	/** DoubleBuffer version of: {@link #glNamedBufferSubData NamedBufferSubData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * DoubleBuffer version of: {@link #glNamedBufferSubData NamedBufferSubData}
+	 */
 	public static void glNamedBufferSubData(int buffer, long offset, DoubleBuffer data) {
 		nglNamedBufferSubData(buffer, offset, data.remaining() << 3, memAddress(data));
 	}
@@ -693,7 +749,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glCopyNamedBufferSubData;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPPPV(__functionAddress, readBuffer, writeBuffer, readOffset, writeOffset, size);
+		callPPPV(__functionAddress, readBuffer, writeBuffer, readOffset, writeOffset, size);
 	}
 
 	// --- [ glClearNamedBufferData ] ---
@@ -715,7 +771,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glClearNamedBufferData;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIPV(__functionAddress, buffer, internalformat, format, type, data);
+		callPV(__functionAddress, buffer, internalformat, format, type, data);
 	}
 
 	/**
@@ -735,17 +791,29 @@ public class GL45 {
 		nglClearNamedBufferData(buffer, internalformat, format, type, memAddressSafe(data));
 	}
 
-	/** ShortBuffer version of: {@link #glClearNamedBufferData ClearNamedBufferData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glClearNamedBufferData ClearNamedBufferData}
+	 */
 	public static void glClearNamedBufferData(int buffer, int internalformat, int format, int type, ShortBuffer data) {
 		nglClearNamedBufferData(buffer, internalformat, format, type, memAddressSafe(data));
 	}
 
-	/** IntBuffer version of: {@link #glClearNamedBufferData ClearNamedBufferData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glClearNamedBufferData ClearNamedBufferData}
+	 */
 	public static void glClearNamedBufferData(int buffer, int internalformat, int format, int type, IntBuffer data) {
 		nglClearNamedBufferData(buffer, internalformat, format, type, memAddressSafe(data));
 	}
 
-	/** FloatBuffer version of: {@link #glClearNamedBufferData ClearNamedBufferData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glClearNamedBufferData ClearNamedBufferData}
+	 */
 	public static void glClearNamedBufferData(int buffer, int internalformat, int format, int type, FloatBuffer data) {
 		nglClearNamedBufferData(buffer, internalformat, format, type, memAddressSafe(data));
 	}
@@ -771,7 +839,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glClearNamedBufferSubData;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPPIIPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);
+		callPPPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);
 	}
 
 	/**
@@ -793,17 +861,29 @@ public class GL45 {
 		nglClearNamedBufferSubData(buffer, internalformat, offset, size, format, type, memAddressSafe(data));
 	}
 
-	/** ShortBuffer version of: {@link #glClearNamedBufferSubData ClearNamedBufferSubData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glClearNamedBufferSubData ClearNamedBufferSubData}
+	 */
 	public static void glClearNamedBufferSubData(int buffer, int internalformat, long offset, long size, int format, int type, ShortBuffer data) {
 		nglClearNamedBufferSubData(buffer, internalformat, offset, size, format, type, memAddressSafe(data));
 	}
 
-	/** IntBuffer version of: {@link #glClearNamedBufferSubData ClearNamedBufferSubData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glClearNamedBufferSubData ClearNamedBufferSubData}
+	 */
 	public static void glClearNamedBufferSubData(int buffer, int internalformat, long offset, long size, int format, int type, IntBuffer data) {
 		nglClearNamedBufferSubData(buffer, internalformat, offset, size, format, type, memAddressSafe(data));
 	}
 
-	/** FloatBuffer version of: {@link #glClearNamedBufferSubData ClearNamedBufferSubData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glClearNamedBufferSubData ClearNamedBufferSubData}
+	 */
 	public static void glClearNamedBufferSubData(int buffer, int internalformat, long offset, long size, int format, int type, FloatBuffer data) {
 		nglClearNamedBufferSubData(buffer, internalformat, offset, size, format, type, memAddressSafe(data));
 	}
@@ -822,7 +902,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glMapNamedBuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIIP(__functionAddress, buffer, access);
+		return callP(__functionAddress, buffer, access);
 	}
 
 	/**
@@ -881,7 +961,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glMapNamedBufferRange;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIPPIP(__functionAddress, buffer, offset, length, access);
+		return callPPP(__functionAddress, buffer, offset, length, access);
 	}
 
 	/**
@@ -927,7 +1007,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glUnmapNamedBuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIZ(__functionAddress, buffer);
+		return callZ(__functionAddress, buffer);
 	}
 
 	// --- [ glFlushMappedNamedBufferRange ] ---
@@ -945,7 +1025,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glFlushMappedNamedBufferRange;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPPV(__functionAddress, buffer, offset, length);
+		callPPV(__functionAddress, buffer, offset, length);
 	}
 
 	// --- [ glGetNamedBufferParameteriv ] ---
@@ -963,7 +1043,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetNamedBufferParameteriv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, buffer, pname, params);
+		callPV(__functionAddress, buffer, pname, params);
 	}
 
 	/**
@@ -1015,7 +1095,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetNamedBufferParameteri64v;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, buffer, pname, params);
+		callPV(__functionAddress, buffer, pname, params);
 	}
 
 	/**
@@ -1067,7 +1147,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetNamedBufferPointerv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, buffer, pname, params);
+		callPV(__functionAddress, buffer, pname, params);
 	}
 
 	/**
@@ -1120,7 +1200,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetNamedBufferSubData;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPPPV(__functionAddress, buffer, offset, size, data);
+		callPPPV(__functionAddress, buffer, offset, size, data);
 	}
 
 	/**
@@ -1133,25 +1213,41 @@ public class GL45 {
 	 * @param data   a pointer to the location where buffer object data is returned
 	 */
 	public static void glGetNamedBufferSubData(int buffer, long offset, ByteBuffer data) {
-		nglGetNamedBufferSubData(buffer, offset, data.remaining(), memAddress(data));
+		nglGetNamedBufferSubData(buffer, offset, (long)data.remaining(), memAddress(data));
 	}
 
-	/** ShortBuffer version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData}
+	 */
 	public static void glGetNamedBufferSubData(int buffer, long offset, ShortBuffer data) {
 		nglGetNamedBufferSubData(buffer, offset, data.remaining() << 1, memAddress(data));
 	}
 
-	/** IntBuffer version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData}
+	 */
 	public static void glGetNamedBufferSubData(int buffer, long offset, IntBuffer data) {
 		nglGetNamedBufferSubData(buffer, offset, data.remaining() << 2, memAddress(data));
 	}
 
-	/** FloatBuffer version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData}
+	 */
 	public static void glGetNamedBufferSubData(int buffer, long offset, FloatBuffer data) {
 		nglGetNamedBufferSubData(buffer, offset, data.remaining() << 2, memAddress(data));
 	}
 
-	/** DoubleBuffer version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * DoubleBuffer version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData}
+	 */
 	public static void glGetNamedBufferSubData(int buffer, long offset, DoubleBuffer data) {
 		nglGetNamedBufferSubData(buffer, offset, data.remaining() << 3, memAddress(data));
 	}
@@ -1170,7 +1266,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glCreateFramebuffers;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, framebuffers);
+		callPV(__functionAddress, n, framebuffers);
 	}
 
 	/**
@@ -1216,7 +1312,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glNamedFramebufferRenderbuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, framebuffer, attachment, renderbuffertarget, renderbuffer);
+		callV(__functionAddress, framebuffer, attachment, renderbuffertarget, renderbuffer);
 	}
 
 	// --- [ glNamedFramebufferParameteri ] ---
@@ -1234,7 +1330,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glNamedFramebufferParameteri;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, framebuffer, pname, param);
+		callV(__functionAddress, framebuffer, pname, param);
 	}
 
 	// --- [ glNamedFramebufferTexture ] ---
@@ -1253,7 +1349,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glNamedFramebufferTexture;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, framebuffer, attachment, texture, level);
+		callV(__functionAddress, framebuffer, attachment, texture, level);
 	}
 
 	// --- [ glNamedFramebufferTextureLayer ] ---
@@ -1273,7 +1369,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glNamedFramebufferTextureLayer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, framebuffer, attachment, texture, level, layer);
+		callV(__functionAddress, framebuffer, attachment, texture, level, layer);
 	}
 
 	// --- [ glNamedFramebufferDrawBuffer ] ---
@@ -1290,7 +1386,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glNamedFramebufferDrawBuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, framebuffer, buf);
+		callV(__functionAddress, framebuffer, buf);
 	}
 
 	// --- [ glNamedFramebufferDrawBuffers ] ---
@@ -1308,7 +1404,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glNamedFramebufferDrawBuffers;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, framebuffer, n, bufs);
+		callPV(__functionAddress, framebuffer, n, bufs);
 	}
 
 	/**
@@ -1354,7 +1450,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glNamedFramebufferReadBuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, framebuffer, src);
+		callV(__functionAddress, framebuffer, src);
 	}
 
 	// --- [ glInvalidateNamedFramebufferData ] ---
@@ -1372,7 +1468,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glInvalidateNamedFramebufferData;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, framebuffer, numAttachments, attachments);
+		callPV(__functionAddress, framebuffer, numAttachments, attachments);
 	}
 
 	/**
@@ -1423,7 +1519,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glInvalidateNamedFramebufferSubData;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPIIIIV(__functionAddress, framebuffer, numAttachments, attachments, x, y, width, height);
+		callPV(__functionAddress, framebuffer, numAttachments, attachments, x, y, width, height);
 	}
 
 	/**
@@ -1480,7 +1576,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glClearNamedFramebufferiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
+		callPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
 	}
 
 	/**
@@ -1516,7 +1612,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glClearNamedFramebufferuiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
+		callPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
 	}
 
 	/**
@@ -1552,7 +1648,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glClearNamedFramebufferfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
+		callPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
 	}
 
 	/**
@@ -1589,7 +1685,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glClearNamedFramebufferfi;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIFIV(__functionAddress, framebuffer, buffer, drawbuffer, depth, stencil);
+		callV(__functionAddress, framebuffer, buffer, drawbuffer, depth, stencil);
 	}
 
 	// --- [ glBlitNamedFramebuffer ] ---
@@ -1616,7 +1712,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glBlitNamedFramebuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIIIIIIV(__functionAddress, readFramebuffer, drawFramebuffer, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
+		callV(__functionAddress, readFramebuffer, drawFramebuffer, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
 
 	// --- [ glCheckNamedFramebufferStatus ] ---
@@ -1633,7 +1729,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glCheckNamedFramebufferStatus;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIII(__functionAddress, framebuffer, target);
+		return callI(__functionAddress, framebuffer, target);
 	}
 
 	// --- [ glGetNamedFramebufferParameteriv ] ---
@@ -1651,7 +1747,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetNamedFramebufferParameteriv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, framebuffer, pname, params);
+		callPV(__functionAddress, framebuffer, pname, params);
 	}
 
 	/**
@@ -1704,7 +1800,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetNamedFramebufferAttachmentParameteriv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, framebuffer, attachment, pname, params);
+		callPV(__functionAddress, framebuffer, attachment, pname, params);
 	}
 
 	/**
@@ -1757,7 +1853,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glCreateRenderbuffers;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, renderbuffers);
+		callPV(__functionAddress, n, renderbuffers);
 	}
 
 	/**
@@ -1803,7 +1899,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glNamedRenderbufferStorage;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, renderbuffer, internalformat, width, height);
+		callV(__functionAddress, renderbuffer, internalformat, width, height);
 	}
 
 	// --- [ glNamedRenderbufferStorageMultisample ] ---
@@ -1823,7 +1919,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glNamedRenderbufferStorageMultisample;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, renderbuffer, samples, internalformat, width, height);
+		callV(__functionAddress, renderbuffer, samples, internalformat, width, height);
 	}
 
 	// --- [ glGetNamedRenderbufferParameteriv ] ---
@@ -1841,7 +1937,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetNamedRenderbufferParameteriv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, renderbuffer, pname, params);
+		callPV(__functionAddress, renderbuffer, pname, params);
 	}
 
 	/**
@@ -1893,7 +1989,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glCreateTextures;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, n, textures);
+		callPV(__functionAddress, target, n, textures);
 	}
 
 	/**
@@ -1941,7 +2037,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glTextureBuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, texture, internalformat, buffer);
+		callV(__functionAddress, texture, internalformat, buffer);
 	}
 
 	// --- [ glTextureBufferRange ] ---
@@ -1961,7 +2057,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glTextureBufferRange;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPPV(__functionAddress, texture, internalformat, buffer, offset, size);
+		callPPV(__functionAddress, texture, internalformat, buffer, offset, size);
 	}
 
 	// --- [ glTextureStorage1D ] ---
@@ -1980,7 +2076,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glTextureStorage1D;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, texture, levels, internalformat, width);
+		callV(__functionAddress, texture, levels, internalformat, width);
 	}
 
 	// --- [ glTextureStorage2D ] ---
@@ -2000,7 +2096,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glTextureStorage2D;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, texture, levels, internalformat, width, height);
+		callV(__functionAddress, texture, levels, internalformat, width, height);
 	}
 
 	// --- [ glTextureStorage3D ] ---
@@ -2021,7 +2117,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glTextureStorage3D;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIV(__functionAddress, texture, levels, internalformat, width, height, depth);
+		callV(__functionAddress, texture, levels, internalformat, width, height, depth);
 	}
 
 	// --- [ glTextureStorage2DMultisample ] ---
@@ -2043,7 +2139,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glTextureStorage2DMultisample;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIZV(__functionAddress, texture, samples, internalformat, width, height, fixedsamplelocations);
+		callV(__functionAddress, texture, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
 	// --- [ glTextureStorage3DMultisample ] ---
@@ -2066,7 +2162,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glTextureStorage3DMultisample;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIZV(__functionAddress, texture, samples, internalformat, width, height, depth, fixedsamplelocations);
+		callV(__functionAddress, texture, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
 	// --- [ glTextureSubImage1D ] ---
@@ -2088,7 +2184,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage1D;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIPV(__functionAddress, texture, level, xoffset, width, format, type, pixels);
+		callPV(__functionAddress, texture, level, xoffset, width, format, type, pixels);
 	}
 
 	/**
@@ -2129,28 +2225,44 @@ public class GL45 {
 		nglTextureSubImage1D(texture, level, xoffset, width, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glTextureSubImage1D TextureSubImage1D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glTextureSubImage1D TextureSubImage1D}
+	 */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, ShortBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage1D(texture, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glTextureSubImage1D TextureSubImage1D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glTextureSubImage1D TextureSubImage1D}
+	 */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, IntBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage1D(texture, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glTextureSubImage1D TextureSubImage1D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glTextureSubImage1D TextureSubImage1D}
+	 */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, FloatBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage1D(texture, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glTextureSubImage1D TextureSubImage1D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * DoubleBuffer version of: {@link #glTextureSubImage1D TextureSubImage1D}
+	 */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, DoubleBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -2178,7 +2290,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage2D;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, type, pixels);
+		callPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
 	/**
@@ -2223,28 +2335,44 @@ public class GL45 {
 		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glTextureSubImage2D TextureSubImage2D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glTextureSubImage2D TextureSubImage2D}
+	 */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, ShortBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glTextureSubImage2D TextureSubImage2D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glTextureSubImage2D TextureSubImage2D}
+	 */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, IntBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glTextureSubImage2D TextureSubImage2D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glTextureSubImage2D TextureSubImage2D}
+	 */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, FloatBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glTextureSubImage2D TextureSubImage2D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * DoubleBuffer version of: {@link #glTextureSubImage2D TextureSubImage2D}
+	 */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, DoubleBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -2274,7 +2402,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage3D;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
+		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
 	/**
@@ -2323,28 +2451,44 @@ public class GL45 {
 		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glTextureSubImage3D TextureSubImage3D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glTextureSubImage3D TextureSubImage3D}
+	 */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ShortBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glTextureSubImage3D TextureSubImage3D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glTextureSubImage3D TextureSubImage3D}
+	 */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glTextureSubImage3D TextureSubImage3D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glTextureSubImage3D TextureSubImage3D}
+	 */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, FloatBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glTextureSubImage3D TextureSubImage3D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * DoubleBuffer version of: {@link #glTextureSubImage3D TextureSubImage3D}
+	 */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, DoubleBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -2370,7 +2514,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glCompressedTextureSubImage1D;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIPV(__functionAddress, texture, level, xoffset, width, format, imageSize, data);
+		callPV(__functionAddress, texture, level, xoffset, width, format, imageSize, data);
 	}
 
 	/**
@@ -2431,7 +2575,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glCompressedTextureSubImage2D;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, imageSize, data);
+		callPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, imageSize, data);
 	}
 
 	/**
@@ -2498,7 +2642,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glCompressedTextureSubImage3D;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
+		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
 	/**
@@ -2564,7 +2708,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glCopyTextureSubImage1D;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIV(__functionAddress, texture, level, xoffset, x, y, width);
+		callV(__functionAddress, texture, level, xoffset, x, y, width);
 	}
 
 	// --- [ glCopyTextureSubImage2D ] ---
@@ -2587,7 +2731,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glCopyTextureSubImage2D;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIIV(__functionAddress, texture, level, xoffset, yoffset, x, y, width, height);
+		callV(__functionAddress, texture, level, xoffset, yoffset, x, y, width, height);
 	}
 
 	// --- [ glCopyTextureSubImage3D ] ---
@@ -2611,7 +2755,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glCopyTextureSubImage3D;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIIIV(__functionAddress, texture, level, xoffset, yoffset, zoffset, x, y, width, height);
+		callV(__functionAddress, texture, level, xoffset, yoffset, zoffset, x, y, width, height);
 	}
 
 	// --- [ glTextureParameterf ] ---
@@ -2629,7 +2773,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glTextureParameterf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIFV(__functionAddress, texture, pname, param);
+		callV(__functionAddress, texture, pname, param);
 	}
 
 	// --- [ glTextureParameterfv ] ---
@@ -2647,7 +2791,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glTextureParameterfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, texture, pname, params);
+		callPV(__functionAddress, texture, pname, params);
 	}
 
 	/**
@@ -2680,7 +2824,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glTextureParameteri;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, texture, pname, param);
+		callV(__functionAddress, texture, pname, param);
 	}
 
 	// --- [ glTextureParameterIiv ] ---
@@ -2698,7 +2842,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glTextureParameterIiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, texture, pname, params);
+		callPV(__functionAddress, texture, pname, params);
 	}
 
 	/**
@@ -2749,7 +2893,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glTextureParameterIuiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, texture, pname, params);
+		callPV(__functionAddress, texture, pname, params);
 	}
 
 	/**
@@ -2800,7 +2944,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glTextureParameteriv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, texture, pname, params);
+		callPV(__functionAddress, texture, pname, params);
 	}
 
 	/**
@@ -2831,7 +2975,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGenerateTextureMipmap;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, texture);
+		callV(__functionAddress, texture);
 	}
 
 	// --- [ glBindTextureUnit ] ---
@@ -2852,7 +2996,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glBindTextureUnit;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, unit, texture);
+		callV(__functionAddress, unit, texture);
 	}
 
 	// --- [ glGetTextureImage ] ---
@@ -2873,7 +3017,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetTextureImage;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIPV(__functionAddress, texture, level, format, type, bufSize, pixels);
+		callPV(__functionAddress, texture, level, format, type, bufSize, pixels);
 	}
 
 	/**
@@ -2911,28 +3055,44 @@ public class GL45 {
 		nglGetTextureImage(texture, level, format, type, pixels.remaining(), memAddress(pixels));
 	}
 
-	/** ShortBuffer version of: {@link #glGetTextureImage GetTextureImage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glGetTextureImage GetTextureImage}
+	 */
 	public static void glGetTextureImage(int texture, int level, int format, int type, ShortBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureImage(texture, level, format, type, pixels.remaining() << 1, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glGetTextureImage GetTextureImage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glGetTextureImage GetTextureImage}
+	 */
 	public static void glGetTextureImage(int texture, int level, int format, int type, IntBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureImage(texture, level, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glGetTextureImage GetTextureImage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glGetTextureImage GetTextureImage}
+	 */
 	public static void glGetTextureImage(int texture, int level, int format, int type, FloatBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureImage(texture, level, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glGetTextureImage GetTextureImage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * DoubleBuffer version of: {@link #glGetTextureImage GetTextureImage}
+	 */
 	public static void glGetTextureImage(int texture, int level, int format, int type, DoubleBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -2955,7 +3115,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetCompressedTextureImage;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, texture, level, bufSize, pixels);
+		callPV(__functionAddress, texture, level, bufSize, pixels);
 	}
 
 	/**
@@ -3008,7 +3168,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetTextureLevelParameterfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, texture, level, pname, params);
+		callPV(__functionAddress, texture, level, pname, params);
 	}
 
 	/**
@@ -3063,7 +3223,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetTextureLevelParameteriv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, texture, level, pname, params);
+		callPV(__functionAddress, texture, level, pname, params);
 	}
 
 	/**
@@ -3117,7 +3277,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetTextureParameterfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, texture, pname, params);
+		callPV(__functionAddress, texture, pname, params);
 	}
 
 	/**
@@ -3169,7 +3329,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetTextureParameterIiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, texture, pname, params);
+		callPV(__functionAddress, texture, pname, params);
 	}
 
 	/**
@@ -3221,7 +3381,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetTextureParameterIuiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, texture, pname, params);
+		callPV(__functionAddress, texture, pname, params);
 	}
 
 	/**
@@ -3273,7 +3433,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetTextureParameteriv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, texture, pname, params);
+		callPV(__functionAddress, texture, pname, params);
 	}
 
 	/**
@@ -3324,7 +3484,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glCreateVertexArrays;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, arrays);
+		callPV(__functionAddress, n, arrays);
 	}
 
 	/**
@@ -3368,7 +3528,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glDisableVertexArrayAttrib;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, vaobj, index);
+		callV(__functionAddress, vaobj, index);
 	}
 
 	// --- [ glEnableVertexArrayAttrib ] ---
@@ -3385,7 +3545,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glEnableVertexArrayAttrib;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, vaobj, index);
+		callV(__functionAddress, vaobj, index);
 	}
 
 	// --- [ glVertexArrayElementBuffer ] ---
@@ -3402,7 +3562,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glVertexArrayElementBuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, vaobj, buffer);
+		callV(__functionAddress, vaobj, buffer);
 	}
 
 	// --- [ glVertexArrayVertexBuffer ] ---
@@ -3422,7 +3582,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glVertexArrayVertexBuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPIV(__functionAddress, vaobj, bindingindex, buffer, offset, stride);
+		callPV(__functionAddress, vaobj, bindingindex, buffer, offset, stride);
 	}
 
 	// --- [ glVertexArrayVertexBuffers ] ---
@@ -3443,7 +3603,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glVertexArrayVertexBuffers;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPPPV(__functionAddress, vaobj, first, count, buffers, offsets, strides);
+		callPPPV(__functionAddress, vaobj, first, count, buffers, offsets, strides);
 	}
 
 	/**
@@ -3484,7 +3644,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glVertexArrayAttribFormat;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIZIV(__functionAddress, vaobj, attribindex, size, type, normalized, relativeoffset);
+		callV(__functionAddress, vaobj, attribindex, size, type, normalized, relativeoffset);
 	}
 
 	// --- [ glVertexArrayAttribIFormat ] ---
@@ -3504,7 +3664,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glVertexArrayAttribIFormat;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, vaobj, attribindex, size, type, relativeoffset);
+		callV(__functionAddress, vaobj, attribindex, size, type, relativeoffset);
 	}
 
 	// --- [ glVertexArrayAttribLFormat ] ---
@@ -3524,7 +3684,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glVertexArrayAttribLFormat;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, vaobj, attribindex, size, type, relativeoffset);
+		callV(__functionAddress, vaobj, attribindex, size, type, relativeoffset);
 	}
 
 	// --- [ glVertexArrayAttribBinding ] ---
@@ -3542,7 +3702,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glVertexArrayAttribBinding;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, vaobj, attribindex, bindingindex);
+		callV(__functionAddress, vaobj, attribindex, bindingindex);
 	}
 
 	// --- [ glVertexArrayBindingDivisor ] ---
@@ -3560,7 +3720,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glVertexArrayBindingDivisor;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, vaobj, bindingindex, divisor);
+		callV(__functionAddress, vaobj, bindingindex, divisor);
 	}
 
 	// --- [ glGetVertexArrayiv ] ---
@@ -3578,7 +3738,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetVertexArrayiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, vaobj, pname, param);
+		callPV(__functionAddress, vaobj, pname, param);
 	}
 
 	/**
@@ -3631,7 +3791,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetVertexArrayIndexediv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, vaobj, index, pname, param);
+		callPV(__functionAddress, vaobj, index, pname, param);
 	}
 
 	/**
@@ -3686,7 +3846,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetVertexArrayIndexed64iv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, vaobj, index, pname, param);
+		callPV(__functionAddress, vaobj, index, pname, param);
 	}
 
 	/**
@@ -3739,7 +3899,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glCreateSamplers;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, samplers);
+		callPV(__functionAddress, n, samplers);
 	}
 
 	/**
@@ -3783,7 +3943,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glCreateProgramPipelines;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, pipelines);
+		callPV(__functionAddress, n, pipelines);
 	}
 
 	/**
@@ -3828,7 +3988,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glCreateQueries;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, n, ids);
+		callPV(__functionAddress, target, n, ids);
 	}
 
 	/**
@@ -3877,7 +4037,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetQueryBufferObjectiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, id, buffer, pname, offset);
+		callPV(__functionAddress, id, buffer, pname, offset);
 	}
 
 	// --- [ glGetQueryBufferObjectuiv ] ---
@@ -3896,7 +4056,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetQueryBufferObjectuiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, id, buffer, pname, offset);
+		callPV(__functionAddress, id, buffer, pname, offset);
 	}
 
 	// --- [ glGetQueryBufferObjecti64v ] ---
@@ -3915,7 +4075,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetQueryBufferObjecti64v;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, id, buffer, pname, offset);
+		callPV(__functionAddress, id, buffer, pname, offset);
 	}
 
 	// --- [ glGetQueryBufferObjectui64v ] ---
@@ -3934,7 +4094,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetQueryBufferObjectui64v;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, id, buffer, pname, offset);
+		callPV(__functionAddress, id, buffer, pname, offset);
 	}
 
 	// --- [ glMemoryBarrierByRegion ] ---
@@ -3962,7 +4122,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glMemoryBarrierByRegion;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, barriers);
+		callV(__functionAddress, barriers);
 	}
 
 	// --- [ glGetTextureSubImage ] ---
@@ -3989,7 +4149,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetTextureSubImage;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, bufSize, pixels);
+		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, bufSize, pixels);
 	}
 
 	/**
@@ -4039,28 +4199,44 @@ public class GL45 {
 		nglGetTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels.remaining(), memAddress(pixels));
 	}
 
-	/** ShortBuffer version of: {@link #glGetTextureSubImage GetTextureSubImage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glGetTextureSubImage GetTextureSubImage}
+	 */
 	public static void glGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ShortBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels.remaining() << 1, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glGetTextureSubImage GetTextureSubImage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glGetTextureSubImage GetTextureSubImage}
+	 */
 	public static void glGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glGetTextureSubImage GetTextureSubImage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glGetTextureSubImage GetTextureSubImage}
+	 */
 	public static void glGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, FloatBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glGetTextureSubImage GetTextureSubImage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * DoubleBuffer version of: {@link #glGetTextureSubImage GetTextureSubImage}
+	 */
 	public static void glGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, DoubleBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -4089,7 +4265,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetCompressedTextureSubImage;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIIIPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, bufSize, pixels);
+		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, bufSize, pixels);
 	}
 
 	/**
@@ -4135,28 +4311,44 @@ public class GL45 {
 		nglGetCompressedTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, pixels.remaining(), memAddress(pixels));
 	}
 
-	/** ShortBuffer version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetCompressedTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage}
+	 */
 	public static void glGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, ShortBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetCompressedTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, pixels.remaining() << 1, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetCompressedTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage}
+	 */
 	public static void glGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, IntBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetCompressedTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, pixels.remaining() << 2, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetCompressedTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage}
+	 */
 	public static void glGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, FloatBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetCompressedTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, pixels.remaining() << 2, memAddress(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetCompressedTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * DoubleBuffer version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage}
+	 */
 	public static void glGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, DoubleBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -4239,7 +4431,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetnMapdv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, target, query, bufSize, data);
+		callPV(__functionAddress, target, query, bufSize, data);
 	}
 
 	/**
@@ -4290,7 +4482,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetnMapfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, target, query, bufSize, data);
+		callPV(__functionAddress, target, query, bufSize, data);
 	}
 
 	/**
@@ -4341,7 +4533,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetnMapiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, target, query, bufSize, data);
+		callPV(__functionAddress, target, query, bufSize, data);
 	}
 
 	/**
@@ -4391,7 +4583,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetnPixelMapfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, map, bufSize, data);
+		callPV(__functionAddress, map, bufSize, data);
 	}
 
 	/**
@@ -4421,7 +4613,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetnPixelMapuiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, map, bufSize, data);
+		callPV(__functionAddress, map, bufSize, data);
 	}
 
 	/**
@@ -4451,7 +4643,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetnPixelMapusv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, map, bufSize, data);
+		callPV(__functionAddress, map, bufSize, data);
 	}
 
 	/**
@@ -4480,7 +4672,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetnPolygonStipple;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, bufSize, pattern);
+		callPV(__functionAddress, bufSize, pattern);
 	}
 
 	/**
@@ -4528,7 +4720,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetnTexImage;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIPV(__functionAddress, tex, level, format, type, bufSize, img);
+		callPV(__functionAddress, tex, level, format, type, bufSize, img);
 	}
 
 	/**
@@ -4566,28 +4758,44 @@ public class GL45 {
 		nglGetnTexImage(tex, level, format, type, img.remaining(), memAddress(img));
 	}
 
-	/** ShortBuffer version of: {@link #glGetnTexImage GetnTexImage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glGetnTexImage GetnTexImage}
+	 */
 	public static void glGetnTexImage(int tex, int level, int format, int type, ShortBuffer img) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnTexImage(tex, level, format, type, img.remaining() << 1, memAddress(img));
 	}
 
-	/** IntBuffer version of: {@link #glGetnTexImage GetnTexImage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glGetnTexImage GetnTexImage}
+	 */
 	public static void glGetnTexImage(int tex, int level, int format, int type, IntBuffer img) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnTexImage(tex, level, format, type, img.remaining() << 2, memAddress(img));
 	}
 
-	/** FloatBuffer version of: {@link #glGetnTexImage GetnTexImage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glGetnTexImage GetnTexImage}
+	 */
 	public static void glGetnTexImage(int tex, int level, int format, int type, FloatBuffer img) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnTexImage(tex, level, format, type, img.remaining() << 2, memAddress(img));
 	}
 
-	/** DoubleBuffer version of: {@link #glGetnTexImage GetnTexImage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * DoubleBuffer version of: {@link #glGetnTexImage GetnTexImage}
+	 */
 	public static void glGetnTexImage(int tex, int level, int format, int type, DoubleBuffer img) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -4614,7 +4822,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glReadnPixels;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIPV(__functionAddress, x, y, width, height, format, type, bufSize, pixels);
+		callPV(__functionAddress, x, y, width, height, format, type, bufSize, pixels);
 	}
 
 	/**
@@ -4656,21 +4864,33 @@ public class GL45 {
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining(), memAddress(pixels));
 	}
 
-	/** ShortBuffer version of: {@link #glReadnPixels ReadnPixels} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReadnPixels.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glReadnPixels ReadnPixels}
+	 */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, ShortBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 1, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glReadnPixels ReadnPixels} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReadnPixels.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glReadnPixels ReadnPixels}
+	 */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, IntBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glReadnPixels ReadnPixels} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReadnPixels.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glReadnPixels ReadnPixels}
+	 */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, FloatBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -4694,7 +4914,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetnColorTable;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIPV(__functionAddress, target, format, type, bufSize, table);
+		callPV(__functionAddress, target, format, type, bufSize, table);
 	}
 
 	/**
@@ -4730,21 +4950,33 @@ public class GL45 {
 		nglGetnColorTable(target, format, type, table.remaining(), memAddress(table));
 	}
 
-	/** ShortBuffer version of: {@link #glGetnColorTable GetnColorTable} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnColorTable.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glGetnColorTable GetnColorTable}
+	 */
 	public static void glGetnColorTable(int target, int format, int type, ShortBuffer table) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnColorTable(target, format, type, table.remaining() << 1, memAddress(table));
 	}
 
-	/** IntBuffer version of: {@link #glGetnColorTable GetnColorTable} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnColorTable.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glGetnColorTable GetnColorTable}
+	 */
 	public static void glGetnColorTable(int target, int format, int type, IntBuffer table) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetnColorTable(target, format, type, table.remaining() << 2, memAddress(table));
 	}
 
-	/** FloatBuffer version of: {@link #glGetnColorTable GetnColorTable} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnColorTable.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glGetnColorTable GetnColorTable}
+	 */
 	public static void glGetnColorTable(int target, int format, int type, FloatBuffer table) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -4768,7 +5000,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetnConvolutionFilter;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIPV(__functionAddress, target, format, type, bufSize, image);
+		callPV(__functionAddress, target, format, type, bufSize, image);
 	}
 
 	/**
@@ -4824,7 +5056,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetnSeparableFilter;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIPIPPV(__functionAddress, target, format, type, rowBufSize, row, columnBufSize, column, span);
+		callPPPV(__functionAddress, target, format, type, rowBufSize, row, columnBufSize, column, span);
 	}
 
 	/**
@@ -4883,7 +5115,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetnHistogram;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIZIIIPV(__functionAddress, target, reset, format, type, bufSize, values);
+		callPV(__functionAddress, target, reset, format, type, bufSize, values);
 	}
 
 	/**
@@ -4940,7 +5172,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetnMinmax;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIZIIIPV(__functionAddress, target, reset, format, type, bufSize, values);
+		callPV(__functionAddress, target, reset, format, type, bufSize, values);
 	}
 
 	/**
@@ -4996,7 +5228,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetnCompressedTexImage;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, target, level, bufSize, img);
+		callPV(__functionAddress, target, level, bufSize, img);
 	}
 
 	/**
@@ -5049,7 +5281,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetnUniformfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, location, bufSize, params);
+		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	/**
@@ -5100,7 +5332,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetnUniformdv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, location, bufSize, params);
+		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	/**
@@ -5151,7 +5383,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetnUniformiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, location, bufSize, params);
+		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	/**
@@ -5202,7 +5434,7 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glGetnUniformuiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, location, bufSize, params);
+		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	/**
@@ -5235,6 +5467,1361 @@ public class GL45 {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateTransformFeedbacks.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glCreateTransformFeedbacks CreateTransformFeedbacks}
+	 */
+	public static void glCreateTransformFeedbacks(int[] ids) {
+		long __functionAddress = GL.getCapabilities().glCreateTransformFeedbacks;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, ids.length, ids);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetTransformFeedbackiv GetTransformFeedbackiv}
+	 */
+	public static void glGetTransformFeedbackiv(int xfb, int pname, int[] param) {
+		long __functionAddress = GL.getCapabilities().glGetTransformFeedbackiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(param, 1);
+		}
+		callPV(__functionAddress, xfb, pname, param);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetTransformFeedbacki_v GetTransformFeedbacki_v}
+	 */
+	public static void glGetTransformFeedbacki_v(int xfb, int pname, int index, int[] param) {
+		long __functionAddress = GL.getCapabilities().glGetTransformFeedbacki_v;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(param, 1);
+		}
+		callPV(__functionAddress, xfb, pname, index, param);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTransformFeedback.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetTransformFeedbacki64_v GetTransformFeedbacki64_v}
+	 */
+	public static void glGetTransformFeedbacki64_v(int xfb, int pname, int index, long[] param) {
+		long __functionAddress = GL.getCapabilities().glGetTransformFeedbacki64_v;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(param, 1);
+		}
+		callPV(__functionAddress, xfb, pname, index, param);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateBuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glCreateBuffers CreateBuffers}
+	 */
+	public static void glCreateBuffers(int[] buffers) {
+		long __functionAddress = GL.getCapabilities().glCreateBuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, buffers.length, buffers);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferStorage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glNamedBufferStorage NamedBufferStorage}
+	 */
+	public static void glNamedBufferStorage(int buffer, short[] data, int flags) {
+		long __functionAddress = GL.getCapabilities().glNamedBufferStorage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, buffer, (long)(data.length << 1), data, flags);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferStorage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glNamedBufferStorage NamedBufferStorage}
+	 */
+	public static void glNamedBufferStorage(int buffer, int[] data, int flags) {
+		long __functionAddress = GL.getCapabilities().glNamedBufferStorage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, buffer, (long)(data.length << 2), data, flags);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferStorage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glNamedBufferStorage NamedBufferStorage}
+	 */
+	public static void glNamedBufferStorage(int buffer, float[] data, int flags) {
+		long __functionAddress = GL.getCapabilities().glNamedBufferStorage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, buffer, (long)(data.length << 2), data, flags);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferStorage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * double[] version of: {@link #glNamedBufferStorage NamedBufferStorage}
+	 */
+	public static void glNamedBufferStorage(int buffer, double[] data, int flags) {
+		long __functionAddress = GL.getCapabilities().glNamedBufferStorage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, buffer, (long)(data.length << 3), data, flags);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glNamedBufferData NamedBufferData}
+	 */
+	public static void glNamedBufferData(int buffer, short[] data, int usage) {
+		long __functionAddress = GL.getCapabilities().glNamedBufferData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, buffer, (long)(data.length << 1), data, usage);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glNamedBufferData NamedBufferData}
+	 */
+	public static void glNamedBufferData(int buffer, int[] data, int usage) {
+		long __functionAddress = GL.getCapabilities().glNamedBufferData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, buffer, (long)(data.length << 2), data, usage);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glNamedBufferData NamedBufferData}
+	 */
+	public static void glNamedBufferData(int buffer, float[] data, int usage) {
+		long __functionAddress = GL.getCapabilities().glNamedBufferData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, buffer, (long)(data.length << 2), data, usage);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * double[] version of: {@link #glNamedBufferData NamedBufferData}
+	 */
+	public static void glNamedBufferData(int buffer, double[] data, int usage) {
+		long __functionAddress = GL.getCapabilities().glNamedBufferData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, buffer, (long)(data.length << 3), data, usage);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glNamedBufferSubData NamedBufferSubData}
+	 */
+	public static void glNamedBufferSubData(int buffer, long offset, short[] data) {
+		long __functionAddress = GL.getCapabilities().glNamedBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 1), data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glNamedBufferSubData NamedBufferSubData}
+	 */
+	public static void glNamedBufferSubData(int buffer, long offset, int[] data) {
+		long __functionAddress = GL.getCapabilities().glNamedBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glNamedBufferSubData NamedBufferSubData}
+	 */
+	public static void glNamedBufferSubData(int buffer, long offset, float[] data) {
+		long __functionAddress = GL.getCapabilities().glNamedBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * double[] version of: {@link #glNamedBufferSubData NamedBufferSubData}
+	 */
+	public static void glNamedBufferSubData(int buffer, long offset, double[] data) {
+		long __functionAddress = GL.getCapabilities().glNamedBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 3), data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glClearNamedBufferData ClearNamedBufferData}
+	 */
+	public static void glClearNamedBufferData(int buffer, int internalformat, int format, int type, short[] data) {
+		long __functionAddress = GL.getCapabilities().glClearNamedBufferData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, buffer, internalformat, format, type, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glClearNamedBufferData ClearNamedBufferData}
+	 */
+	public static void glClearNamedBufferData(int buffer, int internalformat, int format, int type, int[] data) {
+		long __functionAddress = GL.getCapabilities().glClearNamedBufferData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, buffer, internalformat, format, type, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glClearNamedBufferData ClearNamedBufferData}
+	 */
+	public static void glClearNamedBufferData(int buffer, int internalformat, int format, int type, float[] data) {
+		long __functionAddress = GL.getCapabilities().glClearNamedBufferData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, buffer, internalformat, format, type, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glClearNamedBufferSubData ClearNamedBufferSubData}
+	 */
+	public static void glClearNamedBufferSubData(int buffer, int internalformat, long offset, long size, int format, int type, short[] data) {
+		long __functionAddress = GL.getCapabilities().glClearNamedBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glClearNamedBufferSubData ClearNamedBufferSubData}
+	 */
+	public static void glClearNamedBufferSubData(int buffer, int internalformat, long offset, long size, int format, int type, int[] data) {
+		long __functionAddress = GL.getCapabilities().glClearNamedBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glClearNamedBufferSubData ClearNamedBufferSubData}
+	 */
+	public static void glClearNamedBufferSubData(int buffer, int internalformat, long offset, long size, int format, int type, float[] data) {
+		long __functionAddress = GL.getCapabilities().glClearNamedBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, buffer, internalformat, offset, size, format, type, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetNamedBufferParameteriv GetNamedBufferParameteriv}
+	 */
+	public static void glGetNamedBufferParameteriv(int buffer, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetNamedBufferParameteriv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, buffer, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetNamedBufferParameteri64v GetNamedBufferParameteri64v}
+	 */
+	public static void glGetNamedBufferParameteri64v(int buffer, int pname, long[] params) {
+		long __functionAddress = GL.getCapabilities().glGetNamedBufferParameteri64v;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, buffer, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData}
+	 */
+	public static void glGetNamedBufferSubData(int buffer, long offset, short[] data) {
+		long __functionAddress = GL.getCapabilities().glGetNamedBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 1), data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData}
+	 */
+	public static void glGetNamedBufferSubData(int buffer, long offset, int[] data) {
+		long __functionAddress = GL.getCapabilities().glGetNamedBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData}
+	 */
+	public static void glGetNamedBufferSubData(int buffer, long offset, float[] data) {
+		long __functionAddress = GL.getCapabilities().glGetNamedBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * double[] version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData}
+	 */
+	public static void glGetNamedBufferSubData(int buffer, long offset, double[] data) {
+		long __functionAddress = GL.getCapabilities().glGetNamedBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 3), data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateFramebuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glCreateFramebuffers CreateFramebuffers}
+	 */
+	public static void glCreateFramebuffers(int[] framebuffers) {
+		long __functionAddress = GL.getCapabilities().glCreateFramebuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, framebuffers.length, framebuffers);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glNamedFramebufferDrawBuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glNamedFramebufferDrawBuffers NamedFramebufferDrawBuffers}
+	 */
+	public static void glNamedFramebufferDrawBuffers(int framebuffer, int[] bufs) {
+		long __functionAddress = GL.getCapabilities().glNamedFramebufferDrawBuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, framebuffer, bufs.length, bufs);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateNamedFramebufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glInvalidateNamedFramebufferData InvalidateNamedFramebufferData}
+	 */
+	public static void glInvalidateNamedFramebufferData(int framebuffer, int[] attachments) {
+		long __functionAddress = GL.getCapabilities().glInvalidateNamedFramebufferData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, framebuffer, attachments.length, attachments);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInvalidateNamedFramebufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glInvalidateNamedFramebufferSubData InvalidateNamedFramebufferSubData}
+	 */
+	public static void glInvalidateNamedFramebufferSubData(int framebuffer, int[] attachments, int x, int y, int width, int height) {
+		long __functionAddress = GL.getCapabilities().glInvalidateNamedFramebufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, framebuffer, attachments.length, attachments, x, y, width, height);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedFramebuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glClearNamedFramebufferiv ClearNamedFramebufferiv}
+	 */
+	public static void glClearNamedFramebufferiv(int framebuffer, int buffer, int drawbuffer, int[] value) {
+		long __functionAddress = GL.getCapabilities().glClearNamedFramebufferiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(value, 1);
+		}
+		callPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedFramebuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glClearNamedFramebufferuiv ClearNamedFramebufferuiv}
+	 */
+	public static void glClearNamedFramebufferuiv(int framebuffer, int buffer, int drawbuffer, int[] value) {
+		long __functionAddress = GL.getCapabilities().glClearNamedFramebufferuiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(value, 4);
+		}
+		callPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearNamedFramebuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glClearNamedFramebufferfv ClearNamedFramebufferfv}
+	 */
+	public static void glClearNamedFramebufferfv(int framebuffer, int buffer, int drawbuffer, float[] value) {
+		long __functionAddress = GL.getCapabilities().glClearNamedFramebufferfv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(value, 1);
+		}
+		callPV(__functionAddress, framebuffer, buffer, drawbuffer, value);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedFramebufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetNamedFramebufferParameteriv GetNamedFramebufferParameteriv}
+	 */
+	public static void glGetNamedFramebufferParameteriv(int framebuffer, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetNamedFramebufferParameteriv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, framebuffer, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedFramebufferAttachmentParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetNamedFramebufferAttachmentParameteriv GetNamedFramebufferAttachmentParameteriv}
+	 */
+	public static void glGetNamedFramebufferAttachmentParameteriv(int framebuffer, int attachment, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetNamedFramebufferAttachmentParameteriv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, framebuffer, attachment, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateRenderbuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glCreateRenderbuffers CreateRenderbuffers}
+	 */
+	public static void glCreateRenderbuffers(int[] renderbuffers) {
+		long __functionAddress = GL.getCapabilities().glCreateRenderbuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, renderbuffers.length, renderbuffers);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetNamedRenderbufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetNamedRenderbufferParameteriv GetNamedRenderbufferParameteriv}
+	 */
+	public static void glGetNamedRenderbufferParameteriv(int renderbuffer, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetNamedRenderbufferParameteriv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, renderbuffer, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateTextures.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glCreateTextures CreateTextures}
+	 */
+	public static void glCreateTextures(int target, int[] textures) {
+		long __functionAddress = GL.getCapabilities().glCreateTextures;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, target, textures.length, textures);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glTextureSubImage1D TextureSubImage1D}
+	 */
+	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, short[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTextureSubImage1D;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, texture, level, xoffset, width, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glTextureSubImage1D TextureSubImage1D}
+	 */
+	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, int[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTextureSubImage1D;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, texture, level, xoffset, width, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glTextureSubImage1D TextureSubImage1D}
+	 */
+	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, float[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTextureSubImage1D;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, texture, level, xoffset, width, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * double[] version of: {@link #glTextureSubImage1D TextureSubImage1D}
+	 */
+	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, double[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTextureSubImage1D;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, texture, level, xoffset, width, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glTextureSubImage2D TextureSubImage2D}
+	 */
+	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, short[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTextureSubImage2D;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glTextureSubImage2D TextureSubImage2D}
+	 */
+	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, int[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTextureSubImage2D;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glTextureSubImage2D TextureSubImage2D}
+	 */
+	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, float[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTextureSubImage2D;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * double[] version of: {@link #glTextureSubImage2D TextureSubImage2D}
+	 */
+	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, double[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTextureSubImage2D;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glTextureSubImage3D TextureSubImage3D}
+	 */
+	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTextureSubImage3D;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glTextureSubImage3D TextureSubImage3D}
+	 */
+	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTextureSubImage3D;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glTextureSubImage3D TextureSubImage3D}
+	 */
+	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTextureSubImage3D;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * double[] version of: {@link #glTextureSubImage3D TextureSubImage3D}
+	 */
+	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, double[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTextureSubImage3D;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glTextureParameterfv TextureParameterfv}
+	 */
+	public static void glTextureParameterfv(int texture, int pname, float[] params) {
+		long __functionAddress = GL.getCapabilities().glTextureParameterfv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 4);
+		}
+		callPV(__functionAddress, texture, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glTextureParameterIiv TextureParameterIiv}
+	 */
+	public static void glTextureParameterIiv(int texture, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glTextureParameterIiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, texture, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glTextureParameterIuiv TextureParameterIuiv}
+	 */
+	public static void glTextureParameterIuiv(int texture, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glTextureParameterIuiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, texture, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTextureParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glTextureParameteriv TextureParameteriv}
+	 */
+	public static void glTextureParameteriv(int texture, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glTextureParameteriv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 4);
+		}
+		callPV(__functionAddress, texture, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glGetTextureImage GetTextureImage}
+	 */
+	public static void glGetTextureImage(int texture, int level, int format, int type, short[] pixels) {
+		long __functionAddress = GL.getCapabilities().glGetTextureImage;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, texture, level, format, type, pixels.length << 1, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glGetTextureImage GetTextureImage}
+	 */
+	public static void glGetTextureImage(int texture, int level, int format, int type, int[] pixels) {
+		long __functionAddress = GL.getCapabilities().glGetTextureImage;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, texture, level, format, type, pixels.length << 2, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glGetTextureImage GetTextureImage}
+	 */
+	public static void glGetTextureImage(int texture, int level, int format, int type, float[] pixels) {
+		long __functionAddress = GL.getCapabilities().glGetTextureImage;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, texture, level, format, type, pixels.length << 2, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * double[] version of: {@link #glGetTextureImage GetTextureImage}
+	 */
+	public static void glGetTextureImage(int texture, int level, int format, int type, double[] pixels) {
+		long __functionAddress = GL.getCapabilities().glGetTextureImage;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, texture, level, format, type, pixels.length << 3, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureLevelParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetTextureLevelParameterfv GetTextureLevelParameterfv}
+	 */
+	public static void glGetTextureLevelParameterfv(int texture, int level, int pname, float[] params) {
+		long __functionAddress = GL.getCapabilities().glGetTextureLevelParameterfv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, texture, level, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureLevelParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetTextureLevelParameteriv GetTextureLevelParameteriv}
+	 */
+	public static void glGetTextureLevelParameteriv(int texture, int level, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetTextureLevelParameteriv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, texture, level, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetTextureParameterfv GetTextureParameterfv}
+	 */
+	public static void glGetTextureParameterfv(int texture, int pname, float[] params) {
+		long __functionAddress = GL.getCapabilities().glGetTextureParameterfv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, texture, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetTextureParameterIiv GetTextureParameterIiv}
+	 */
+	public static void glGetTextureParameterIiv(int texture, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetTextureParameterIiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, texture, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetTextureParameterIuiv GetTextureParameterIuiv}
+	 */
+	public static void glGetTextureParameterIuiv(int texture, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetTextureParameterIuiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, texture, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetTextureParameteriv GetTextureParameteriv}
+	 */
+	public static void glGetTextureParameteriv(int texture, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetTextureParameteriv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, texture, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateVertexArrays.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glCreateVertexArrays CreateVertexArrays}
+	 */
+	public static void glCreateVertexArrays(int[] arrays) {
+		long __functionAddress = GL.getCapabilities().glCreateVertexArrays;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, arrays.length, arrays);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexArrayVertexBuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glVertexArrayVertexBuffers VertexArrayVertexBuffers}
+	 */
+	public static void glVertexArrayVertexBuffers(int vaobj, int first, int[] buffers, PointerBuffer offsets, int[] strides) {
+		long __functionAddress = GL.getCapabilities().glVertexArrayVertexBuffers;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( offsets != null ) checkBuffer(offsets, buffers.length);
+			if ( strides != null ) checkBuffer(strides, buffers.length);
+		}
+		callPPPV(__functionAddress, vaobj, first, buffers == null ? 0 : buffers.length, buffers, memAddressSafe(offsets), strides);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexArray.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetVertexArrayiv GetVertexArrayiv}
+	 */
+	public static void glGetVertexArrayiv(int vaobj, int pname, int[] param) {
+		long __functionAddress = GL.getCapabilities().glGetVertexArrayiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(param, 1);
+		}
+		callPV(__functionAddress, vaobj, pname, param);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexArrayIndexed.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetVertexArrayIndexediv GetVertexArrayIndexediv}
+	 */
+	public static void glGetVertexArrayIndexediv(int vaobj, int index, int pname, int[] param) {
+		long __functionAddress = GL.getCapabilities().glGetVertexArrayIndexediv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(param, 1);
+		}
+		callPV(__functionAddress, vaobj, index, pname, param);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexArrayIndexed64i.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetVertexArrayIndexed64iv GetVertexArrayIndexed64iv}
+	 */
+	public static void glGetVertexArrayIndexed64iv(int vaobj, int index, int pname, long[] param) {
+		long __functionAddress = GL.getCapabilities().glGetVertexArrayIndexed64iv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(param, 1);
+		}
+		callPV(__functionAddress, vaobj, index, pname, param);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateSamplers.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glCreateSamplers CreateSamplers}
+	 */
+	public static void glCreateSamplers(int[] samplers) {
+		long __functionAddress = GL.getCapabilities().glCreateSamplers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, samplers.length, samplers);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateProgramPipelines.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glCreateProgramPipelines CreateProgramPipelines}
+	 */
+	public static void glCreateProgramPipelines(int[] pipelines) {
+		long __functionAddress = GL.getCapabilities().glCreateProgramPipelines;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, pipelines.length, pipelines);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glCreateQueries.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glCreateQueries CreateQueries}
+	 */
+	public static void glCreateQueries(int target, int[] ids) {
+		long __functionAddress = GL.getCapabilities().glCreateQueries;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, target, ids.length, ids);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glGetTextureSubImage GetTextureSubImage}
+	 */
+	public static void glGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short[] pixels) {
+		long __functionAddress = GL.getCapabilities().glGetTextureSubImage;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels.length << 1, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glGetTextureSubImage GetTextureSubImage}
+	 */
+	public static void glGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int[] pixels) {
+		long __functionAddress = GL.getCapabilities().glGetTextureSubImage;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels.length << 2, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glGetTextureSubImage GetTextureSubImage}
+	 */
+	public static void glGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float[] pixels) {
+		long __functionAddress = GL.getCapabilities().glGetTextureSubImage;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels.length << 2, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * double[] version of: {@link #glGetTextureSubImage GetTextureSubImage}
+	 */
+	public static void glGetTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, double[] pixels) {
+		long __functionAddress = GL.getCapabilities().glGetTextureSubImage;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels.length << 3, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetCompressedTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage}
+	 */
+	public static void glGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, short[] pixels) {
+		long __functionAddress = GL.getCapabilities().glGetCompressedTextureSubImage;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, pixels.length << 1, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetCompressedTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage}
+	 */
+	public static void glGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int[] pixels) {
+		long __functionAddress = GL.getCapabilities().glGetCompressedTextureSubImage;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, pixels.length << 2, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetCompressedTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage}
+	 */
+	public static void glGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, float[] pixels) {
+		long __functionAddress = GL.getCapabilities().glGetCompressedTextureSubImage;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, pixels.length << 2, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetCompressedTextureSubImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * double[] version of: {@link #glGetCompressedTextureSubImage GetCompressedTextureSubImage}
+	 */
+	public static void glGetCompressedTextureSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, double[] pixels) {
+		long __functionAddress = GL.getCapabilities().glGetCompressedTextureSubImage;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, pixels.length << 3, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnMap.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetnMapdv GetnMapdv}
+	 */
+	public static void glGetnMapdv(int target, int query, double[] data) {
+		long __functionAddress = GL.getCapabilities().glGetnMapdv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, target, query, data.length, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnMap.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetnMapfv GetnMapfv}
+	 */
+	public static void glGetnMapfv(int target, int query, float[] data) {
+		long __functionAddress = GL.getCapabilities().glGetnMapfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, target, query, data.length, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnMap.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetnMapiv GetnMapiv}
+	 */
+	public static void glGetnMapiv(int target, int query, int[] data) {
+		long __functionAddress = GL.getCapabilities().glGetnMapiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, target, query, data.length, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnPixelMap.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetnPixelMapfv GetnPixelMapfv}
+	 */
+	public static void glGetnPixelMapfv(int map, float[] data) {
+		long __functionAddress = GL.getCapabilities().glGetnPixelMapfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, map, data.length, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnPixelMap.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetnPixelMapuiv GetnPixelMapuiv}
+	 */
+	public static void glGetnPixelMapuiv(int map, int[] data) {
+		long __functionAddress = GL.getCapabilities().glGetnPixelMapuiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, map, data.length, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnPixelMap.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetnPixelMapusv GetnPixelMapusv}
+	 */
+	public static void glGetnPixelMapusv(int map, short[] data) {
+		long __functionAddress = GL.getCapabilities().glGetnPixelMapusv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, map, data.length, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glGetnTexImage GetnTexImage}
+	 */
+	public static void glGetnTexImage(int tex, int level, int format, int type, short[] img) {
+		long __functionAddress = GL.getCapabilities().glGetnTexImage;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, tex, level, format, type, img.length << 1, img);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glGetnTexImage GetnTexImage}
+	 */
+	public static void glGetnTexImage(int tex, int level, int format, int type, int[] img) {
+		long __functionAddress = GL.getCapabilities().glGetnTexImage;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, tex, level, format, type, img.length << 2, img);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glGetnTexImage GetnTexImage}
+	 */
+	public static void glGetnTexImage(int tex, int level, int format, int type, float[] img) {
+		long __functionAddress = GL.getCapabilities().glGetnTexImage;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, tex, level, format, type, img.length << 2, img);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * double[] version of: {@link #glGetnTexImage GetnTexImage}
+	 */
+	public static void glGetnTexImage(int tex, int level, int format, int type, double[] img) {
+		long __functionAddress = GL.getCapabilities().glGetnTexImage;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, tex, level, format, type, img.length << 3, img);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReadnPixel.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glReadnPixels ReadnPixels}
+	 */
+	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, short[] pixels) {
+		long __functionAddress = GL.getCapabilities().glReadnPixels;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 1, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReadnPixels.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glReadnPixels ReadnPixels}
+	 */
+	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, int[] pixels) {
+		long __functionAddress = GL.getCapabilities().glReadnPixels;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReadnPixels.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glReadnPixels ReadnPixels}
+	 */
+	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, float[] pixels) {
+		long __functionAddress = GL.getCapabilities().glReadnPixels;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnColorTable.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glGetnColorTable GetnColorTable}
+	 */
+	public static void glGetnColorTable(int target, int format, int type, short[] table) {
+		long __functionAddress = GL.getCapabilities().glGetnColorTable;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, target, format, type, table.length << 1, table);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnColorTable.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glGetnColorTable GetnColorTable}
+	 */
+	public static void glGetnColorTable(int target, int format, int type, int[] table) {
+		long __functionAddress = GL.getCapabilities().glGetnColorTable;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, target, format, type, table.length << 2, table);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnColorTable.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glGetnColorTable GetnColorTable}
+	 */
+	public static void glGetnColorTable(int target, int format, int type, float[] table) {
+		long __functionAddress = GL.getCapabilities().glGetnColorTable;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, target, format, type, table.length << 2, table);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetnUniformfv GetnUniformfv}
+	 */
+	public static void glGetnUniformfv(int program, int location, float[] params) {
+		long __functionAddress = GL.getCapabilities().glGetnUniformfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, program, location, params.length, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetnUniformdv GetnUniformdv}
+	 */
+	public static void glGetnUniformdv(int program, int location, double[] params) {
+		long __functionAddress = GL.getCapabilities().glGetnUniformdv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, program, location, params.length, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnUniformi.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetnUniformiv GetnUniformiv}
+	 */
+	public static void glGetnUniformiv(int program, int location, float[] params) {
+		long __functionAddress = GL.getCapabilities().glGetnUniformiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, program, location, params.length, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetnUniformui.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetnUniformuiv GetnUniformuiv}
+	 */
+	public static void glGetnUniformuiv(int program, int location, float[] params) {
+		long __functionAddress = GL.getCapabilities().glGetnUniformuiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, program, location, params.length, params);
 	}
 
 }

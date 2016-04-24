@@ -135,7 +135,7 @@ public class SOFTBufferSamples {
 		long __functionAddress = AL.getCapabilities().alBufferSamplesSOFT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIIPV(__functionAddress, buffer, samplerate, internalformat, samples, channels, type, data);
+		invokePV(__functionAddress, buffer, samplerate, internalformat, samples, channels, type, data);
 	}
 
 	/**
@@ -178,7 +178,7 @@ public class SOFTBufferSamples {
 		long __functionAddress = AL.getCapabilities().alIsBufferFormatSupportedSOFT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return invokeIZ(__functionAddress, format);
+		return invokeZ(__functionAddress, format);
 	}
 
 	// --- [ alBufferSubSamplesSOFT ] ---
@@ -205,7 +205,7 @@ public class SOFTBufferSamples {
 		long __functionAddress = AL.getCapabilities().alBufferSubSamplesSOFT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIPV(__functionAddress, buffer, offset, samples, channels, type, data);
+		invokePV(__functionAddress, buffer, offset, samples, channels, type, data);
 	}
 
 	/**
@@ -249,7 +249,7 @@ public class SOFTBufferSamples {
 		long __functionAddress = AL.getCapabilities().alGetBufferSamplesSOFT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIPV(__functionAddress, buffer, offset, samples, channels, type, data);
+		invokePV(__functionAddress, buffer, offset, samples, channels, type, data);
 	}
 
 	/**

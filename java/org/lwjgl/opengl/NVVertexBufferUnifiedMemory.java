@@ -80,7 +80,7 @@ public class NVVertexBufferUnifiedMemory {
 		long __functionAddress = GL.getCapabilities().glBufferAddressRangeNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIJPV(__functionAddress, pname, index, address, length);
+		callJPV(__functionAddress, pname, index, address, length);
 	}
 
 	// --- [ glVertexFormatNV ] ---
@@ -89,7 +89,7 @@ public class NVVertexBufferUnifiedMemory {
 		long __functionAddress = GL.getCapabilities().glVertexFormatNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, size, type, stride);
+		callV(__functionAddress, size, type, stride);
 	}
 
 	// --- [ glNormalFormatNV ] ---
@@ -98,7 +98,7 @@ public class NVVertexBufferUnifiedMemory {
 		long __functionAddress = GL.getCapabilities().glNormalFormatNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, type, stride);
+		callV(__functionAddress, type, stride);
 	}
 
 	// --- [ glColorFormatNV ] ---
@@ -107,7 +107,7 @@ public class NVVertexBufferUnifiedMemory {
 		long __functionAddress = GL.getCapabilities().glColorFormatNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, size, type, stride);
+		callV(__functionAddress, size, type, stride);
 	}
 
 	// --- [ glIndexFormatNV ] ---
@@ -116,7 +116,7 @@ public class NVVertexBufferUnifiedMemory {
 		long __functionAddress = GL.getCapabilities().glIndexFormatNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, type, stride);
+		callV(__functionAddress, type, stride);
 	}
 
 	// --- [ glTexCoordFormatNV ] ---
@@ -125,7 +125,7 @@ public class NVVertexBufferUnifiedMemory {
 		long __functionAddress = GL.getCapabilities().glTexCoordFormatNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, size, type, stride);
+		callV(__functionAddress, size, type, stride);
 	}
 
 	// --- [ glEdgeFlagFormatNV ] ---
@@ -134,7 +134,7 @@ public class NVVertexBufferUnifiedMemory {
 		long __functionAddress = GL.getCapabilities().glEdgeFlagFormatNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, stride);
+		callV(__functionAddress, stride);
 	}
 
 	// --- [ glSecondaryColorFormatNV ] ---
@@ -143,7 +143,7 @@ public class NVVertexBufferUnifiedMemory {
 		long __functionAddress = GL.getCapabilities().glSecondaryColorFormatNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, size, type, stride);
+		callV(__functionAddress, size, type, stride);
 	}
 
 	// --- [ glFogCoordFormatNV ] ---
@@ -152,7 +152,7 @@ public class NVVertexBufferUnifiedMemory {
 		long __functionAddress = GL.getCapabilities().glFogCoordFormatNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, type, stride);
+		callV(__functionAddress, type, stride);
 	}
 
 	// --- [ glVertexAttribFormatNV ] ---
@@ -161,7 +161,7 @@ public class NVVertexBufferUnifiedMemory {
 		long __functionAddress = GL.getCapabilities().glVertexAttribFormatNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIZIV(__functionAddress, index, size, type, normalized, stride);
+		callV(__functionAddress, index, size, type, normalized, stride);
 	}
 
 	// --- [ glVertexAttribIFormatNV ] ---
@@ -170,7 +170,7 @@ public class NVVertexBufferUnifiedMemory {
 		long __functionAddress = GL.getCapabilities().glVertexAttribIFormatNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, index, size, type, stride);
+		callV(__functionAddress, index, size, type, stride);
 	}
 
 	// --- [ glGetIntegerui64i_vNV ] ---
@@ -179,7 +179,7 @@ public class NVVertexBufferUnifiedMemory {
 		long __functionAddress = GL.getCapabilities().glGetIntegerui64i_vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, value, index, result);
+		callPV(__functionAddress, value, index, result);
 	}
 
 	public static void glGetIntegerui64i_vNV(int value, int index, LongBuffer result) {
@@ -197,6 +197,16 @@ public class NVVertexBufferUnifiedMemory {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #glGetIntegerui64i_vNV GetIntegerui64i_vNV} */
+	public static void glGetIntegerui64i_vNV(int value, int index, long[] result) {
+		long __functionAddress = GL.getCapabilities().glGetIntegerui64i_vNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(result, 1);
+		}
+		callPV(__functionAddress, value, index, result);
 	}
 
 }

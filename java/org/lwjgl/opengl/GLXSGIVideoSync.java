@@ -72,7 +72,7 @@ public class GLXSGIVideoSync {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXWaitVideoSyncSGI;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIIPI(__functionAddress, divisor, remainder, count);
+		return callPI(__functionAddress, divisor, remainder, count);
 	}
 
 	/**
@@ -92,6 +92,26 @@ public class GLXSGIVideoSync {
 		if ( CHECKS )
 			checkBuffer(count, 1);
 		return nglXWaitVideoSyncSGI(divisor, remainder, memAddress(count));
+	}
+
+	/** Array version of: {@link #glXGetVideoSyncSGI GetVideoSyncSGI} */
+	public static int glXGetVideoSyncSGI(int[] count) {
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetVideoSyncSGI;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(count, 1);
+		}
+		return callPI(__functionAddress, count);
+	}
+
+	/** Array version of: {@link #glXWaitVideoSyncSGI WaitVideoSyncSGI} */
+	public static int glXWaitVideoSyncSGI(int divisor, int remainder, int[] count) {
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXWaitVideoSyncSGI;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(count, 1);
+		}
+		return callPI(__functionAddress, divisor, remainder, count);
 	}
 
 }

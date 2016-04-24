@@ -63,7 +63,7 @@ public class ARBDrawBuffers {
 		long __functionAddress = GL.getCapabilities().glDrawBuffersARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, bufs);
+		callPV(__functionAddress, n, bufs);
 	}
 
 	/**
@@ -73,6 +73,14 @@ public class ARBDrawBuffers {
 	 */
 	public static void glDrawBuffersARB(IntBuffer bufs) {
 		nglDrawBuffersARB(bufs.remaining(), memAddress(bufs));
+	}
+
+	/** Array version of: {@link #glDrawBuffersARB DrawBuffersARB} */
+	public static void glDrawBuffersARB(int[] bufs) {
+		long __functionAddress = GL.getCapabilities().glDrawBuffersARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, bufs.length, bufs);
 	}
 
 }

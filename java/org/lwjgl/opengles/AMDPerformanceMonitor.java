@@ -58,7 +58,7 @@ public class AMDPerformanceMonitor {
 		long __functionAddress = GLES.getCapabilities().glGetPerfMonitorGroupsAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPIPV(__functionAddress, numGroups, groupsSize, groups);
+		callPPV(__functionAddress, numGroups, groupsSize, groups);
 	}
 
 	public static void glGetPerfMonitorGroupsAMD(IntBuffer numGroups, IntBuffer groups) {
@@ -73,7 +73,7 @@ public class AMDPerformanceMonitor {
 		long __functionAddress = GLES.getCapabilities().glGetPerfMonitorCountersAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPPIPV(__functionAddress, group, numCounters, maxActiveCounters, counterSize, counters);
+		callPPPV(__functionAddress, group, numCounters, maxActiveCounters, counterSize, counters);
 	}
 
 	public static void glGetPerfMonitorCountersAMD(int group, IntBuffer numCounters, IntBuffer maxActiveCounters, IntBuffer counters) {
@@ -90,7 +90,7 @@ public class AMDPerformanceMonitor {
 		long __functionAddress = GLES.getCapabilities().glGetPerfMonitorGroupStringAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPPV(__functionAddress, group, bufSize, length, groupString);
+		callPPV(__functionAddress, group, bufSize, length, groupString);
 	}
 
 	public static void glGetPerfMonitorGroupStringAMD(int group, IntBuffer length, ByteBuffer groupString) {
@@ -105,7 +105,7 @@ public class AMDPerformanceMonitor {
 		long __functionAddress = GLES.getCapabilities().glGetPerfMonitorCounterStringAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPPV(__functionAddress, group, counter, bufSize, length, counterString);
+		callPPV(__functionAddress, group, counter, bufSize, length, counterString);
 	}
 
 	public static void glGetPerfMonitorCounterStringAMD(int group, int counter, IntBuffer length, ByteBuffer counterString) {
@@ -120,7 +120,7 @@ public class AMDPerformanceMonitor {
 		long __functionAddress = GLES.getCapabilities().glGetPerfMonitorCounterInfoAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, group, counter, pname, data);
+		callPV(__functionAddress, group, counter, pname, data);
 	}
 
 	public static void glGetPerfMonitorCounterInfoAMD(int group, int counter, int pname, ByteBuffer data) {
@@ -149,7 +149,7 @@ public class AMDPerformanceMonitor {
 		long __functionAddress = GLES.getCapabilities().glGenPerfMonitorsAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, monitors);
+		callPV(__functionAddress, n, monitors);
 	}
 
 	public static void glGenPerfMonitorsAMD(IntBuffer monitors) {
@@ -173,7 +173,7 @@ public class AMDPerformanceMonitor {
 		long __functionAddress = GLES.getCapabilities().glDeletePerfMonitorsAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, monitors);
+		callPV(__functionAddress, n, monitors);
 	}
 
 	public static void glDeletePerfMonitorsAMD(IntBuffer monitors) {
@@ -196,7 +196,7 @@ public class AMDPerformanceMonitor {
 		long __functionAddress = GLES.getCapabilities().glSelectPerfMonitorCountersAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIZIIPV(__functionAddress, monitor, enable, group, numCounters, counterList);
+		callPV(__functionAddress, monitor, enable, group, numCounters, counterList);
 	}
 
 	public static void glSelectPerfMonitorCountersAMD(int monitor, boolean enable, int group, IntBuffer counterList) {
@@ -209,7 +209,7 @@ public class AMDPerformanceMonitor {
 		long __functionAddress = GLES.getCapabilities().glBeginPerfMonitorAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, monitor);
+		callV(__functionAddress, monitor);
 	}
 
 	// --- [ glEndPerfMonitorAMD ] ---
@@ -218,7 +218,7 @@ public class AMDPerformanceMonitor {
 		long __functionAddress = GLES.getCapabilities().glEndPerfMonitorAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, monitor);
+		callV(__functionAddress, monitor);
 	}
 
 	// --- [ glGetPerfMonitorCounterDataAMD ] ---
@@ -227,13 +227,108 @@ public class AMDPerformanceMonitor {
 		long __functionAddress = GLES.getCapabilities().glGetPerfMonitorCounterDataAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPPV(__functionAddress, monitor, pname, dataSize, data, bytesWritten);
+		callPPV(__functionAddress, monitor, pname, dataSize, data, bytesWritten);
 	}
 
 	public static void glGetPerfMonitorCounterDataAMD(int monitor, int pname, IntBuffer data, IntBuffer bytesWritten) {
 		if ( CHECKS )
 			if ( bytesWritten != null ) checkBuffer(bytesWritten, 1);
 		nglGetPerfMonitorCounterDataAMD(monitor, pname, data.remaining(), memAddress(data), memAddressSafe(bytesWritten));
+	}
+
+	/** Array version of: {@link #glGetPerfMonitorGroupsAMD GetPerfMonitorGroupsAMD} */
+	public static void glGetPerfMonitorGroupsAMD(int[] numGroups, int[] groups) {
+		long __functionAddress = GLES.getCapabilities().glGetPerfMonitorGroupsAMD;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( numGroups != null ) checkBuffer(numGroups, 1);
+		}
+		callPPV(__functionAddress, numGroups, groups == null ? 0 : groups.length, groups);
+	}
+
+	/** Array version of: {@link #glGetPerfMonitorCountersAMD GetPerfMonitorCountersAMD} */
+	public static void glGetPerfMonitorCountersAMD(int group, int[] numCounters, int[] maxActiveCounters, int[] counters) {
+		long __functionAddress = GLES.getCapabilities().glGetPerfMonitorCountersAMD;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(numCounters, 1);
+			checkBuffer(maxActiveCounters, 1);
+		}
+		callPPPV(__functionAddress, group, numCounters, maxActiveCounters, counters.length, counters);
+	}
+
+	/** Array version of: {@link #glGetPerfMonitorGroupStringAMD GetPerfMonitorGroupStringAMD} */
+	public static void glGetPerfMonitorGroupStringAMD(int group, int[] length, ByteBuffer groupString) {
+		long __functionAddress = GLES.getCapabilities().glGetPerfMonitorGroupStringAMD;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(length, 1);
+		}
+		callPPV(__functionAddress, group, groupString.remaining(), length, memAddress(groupString));
+	}
+
+	/** Array version of: {@link #glGetPerfMonitorCounterStringAMD GetPerfMonitorCounterStringAMD} */
+	public static void glGetPerfMonitorCounterStringAMD(int group, int counter, int[] length, ByteBuffer counterString) {
+		long __functionAddress = GLES.getCapabilities().glGetPerfMonitorCounterStringAMD;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( length != null ) checkBuffer(length, 1);
+		}
+		callPPV(__functionAddress, group, counter, counterString == null ? 0 : counterString.remaining(), length, memAddressSafe(counterString));
+	}
+
+	/** int[] version of: {@link #glGetPerfMonitorCounterInfoAMD GetPerfMonitorCounterInfoAMD} */
+	public static void glGetPerfMonitorCounterInfoAMD(int group, int counter, int pname, int[] data) {
+		long __functionAddress = GLES.getCapabilities().glGetPerfMonitorCounterInfoAMD;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(data, 4);
+		}
+		callPV(__functionAddress, group, counter, pname, data);
+	}
+
+	/** float[] version of: {@link #glGetPerfMonitorCounterInfoAMD GetPerfMonitorCounterInfoAMD} */
+	public static void glGetPerfMonitorCounterInfoAMD(int group, int counter, int pname, float[] data) {
+		long __functionAddress = GLES.getCapabilities().glGetPerfMonitorCounterInfoAMD;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(data, 4);
+		}
+		callPV(__functionAddress, group, counter, pname, data);
+	}
+
+	/** Array version of: {@link #glGenPerfMonitorsAMD GenPerfMonitorsAMD} */
+	public static void glGenPerfMonitorsAMD(int[] monitors) {
+		long __functionAddress = GLES.getCapabilities().glGenPerfMonitorsAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, monitors.length, monitors);
+	}
+
+	/** Array version of: {@link #glDeletePerfMonitorsAMD DeletePerfMonitorsAMD} */
+	public static void glDeletePerfMonitorsAMD(int[] monitors) {
+		long __functionAddress = GLES.getCapabilities().glDeletePerfMonitorsAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, monitors.length, monitors);
+	}
+
+	/** Array version of: {@link #glSelectPerfMonitorCountersAMD SelectPerfMonitorCountersAMD} */
+	public static void glSelectPerfMonitorCountersAMD(int monitor, boolean enable, int group, int[] counterList) {
+		long __functionAddress = GLES.getCapabilities().glSelectPerfMonitorCountersAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, monitor, enable, group, counterList.length, counterList);
+	}
+
+	/** Array version of: {@link #glGetPerfMonitorCounterDataAMD GetPerfMonitorCounterDataAMD} */
+	public static void glGetPerfMonitorCounterDataAMD(int monitor, int pname, int[] data, int[] bytesWritten) {
+		long __functionAddress = GLES.getCapabilities().glGetPerfMonitorCounterDataAMD;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( bytesWritten != null ) checkBuffer(bytesWritten, 1);
+		}
+		callPPV(__functionAddress, monitor, pname, data.length, data, bytesWritten);
 	}
 
 }

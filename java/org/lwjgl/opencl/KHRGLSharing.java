@@ -114,7 +114,7 @@ public class KHRGLSharing {
 		long __functionAddress = CL.getICD().clGetGLContextInfoKHR;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callPIPPPI(__functionAddress, properties, param_name, param_value_size, param_value, param_value_size_ret);
+		return callPPPPI(__functionAddress, properties, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -176,7 +176,7 @@ public class KHRGLSharing {
 			checkNT(properties);
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
 		}
-		return nclGetGLContextInfoKHR(memAddress(properties), param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetGLContextInfoKHR(memAddress(properties), param_name, (long)(param_value == null ? 0 : param_value.remaining()), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** PointerBuffer version of: {@link #clGetGLContextInfoKHR GetGLContextInfoKHR} */

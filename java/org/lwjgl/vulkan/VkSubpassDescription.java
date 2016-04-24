@@ -49,7 +49,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * fragment shader</li>
  * <li>The {@code attachment} member of any element of {@code pPreserveAttachments} <b>must not</b> be {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED}</li>
  * <li>Any given element of {@code pPreserveAttachments} <b>must not</b> also be an element of any other member of the subpass description</li>
- * <li>If any attachment is used as both an input attachment and a color or depth/stencil attachment, then each use must use the same {@code layout}</li>
+ * <li>If any attachment is used as both an input attachment and a color or depth/stencil attachment, then each use <b>must</b> use the same {@code layout}</li>
  * </ul>
  * 
  * <h3>Member documentation</h3>

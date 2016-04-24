@@ -139,7 +139,7 @@ public class CL11 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(buffer);
 		}
-		return callPJIPPP(__functionAddress, buffer, flags, buffer_create_type, buffer_create_info, errcode_ret);
+		return callPJPPP(__functionAddress, buffer, flags, buffer_create_type, buffer_create_info, errcode_ret);
 	}
 
 	/**
@@ -333,7 +333,7 @@ public class CL11 {
 			checkPointer(command_queue);
 			checkPointer(buffer);
 		}
-		return callPPIPPPPPPPPIPPI(__functionAddress, command_queue, buffer, blocking_read, buffer_offset, host_offset, region, buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event);
+		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, buffer_offset, host_offset, region, buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -548,7 +548,7 @@ public class CL11 {
 			checkPointer(command_queue);
 			checkPointer(buffer);
 		}
-		return callPPIPPPPPPPPIPPI(__functionAddress, command_queue, buffer, blocking_write, buffer_offset, host_offset, region, buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event);
+		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, buffer_offset, host_offset, region, buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -757,7 +757,7 @@ public class CL11 {
 			checkPointer(src_buffer);
 			checkPointer(dst_buffer);
 		}
-		return callPPPPPPPPPPIPPI(__functionAddress, command_queue, src_buffer, dst_buffer, src_origin, dst_origin, region, src_row_pitch, src_slice_pitch, dst_row_pitch, dst_slice_pitch, num_events_in_wait_list, event_wait_list, event);
+		return callPPPPPPPPPPPPI(__functionAddress, command_queue, src_buffer, dst_buffer, src_origin, dst_origin, region, src_row_pitch, src_slice_pitch, dst_row_pitch, dst_slice_pitch, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -936,7 +936,7 @@ clReleaseMemObject(buf2);</code></pre>
 			checkFunctionAddress(__functionAddress);
 			checkPointer(event);
 		}
-		return callPII(__functionAddress, event, execution_status);
+		return callPI(__functionAddress, event, execution_status);
 	}
 
 	// --- [ clSetEventCallback ] ---
@@ -994,7 +994,7 @@ clReleaseMemObject(buf2);</code></pre>
 			checkFunctionAddress(__functionAddress);
 			checkPointer(event);
 		}
-		return callPIPPI(__functionAddress, event, command_exec_callback_type, pfn_notify, user_data);
+		return callPPPI(__functionAddress, event, command_exec_callback_type, pfn_notify, user_data);
 	}
 
 	/**
@@ -1046,6 +1046,148 @@ clReleaseMemObject(buf2);</code></pre>
 	 */
 	public static int clSetEventCallback(long event, int command_exec_callback_type, CLEventCallbackI pfn_notify, long user_data) {
 		return nclSetEventCallback(event, command_exec_callback_type, pfn_notify.address(), user_data);
+	}
+
+	/** Array version of: {@link #clCreateSubBuffer CreateSubBuffer} */
+	public static long clCreateSubBuffer(long buffer, long flags, int buffer_create_type, ByteBuffer buffer_create_info, int[] errcode_ret) {
+		long __functionAddress = CL.getICD().clCreateSubBuffer;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(buffer);
+			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+		}
+		return callPJPPP(__functionAddress, buffer, flags, buffer_create_type, memAddress(buffer_create_info), errcode_ret);
+	}
+
+	/** short[] version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
+	public static int clEnqueueReadBufferRect(long command_queue, long buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, short[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+		long __functionAddress = CL.getICD().clEnqueueReadBufferRect;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(command_queue);
+			checkPointer(buffer);
+			checkBuffer(buffer_offset, 3);
+			checkBuffer(host_offset, 3);
+			checkBuffer(region, 3);
+			if ( event != null ) checkBuffer(event, 1);
+		}
+		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+	}
+
+	/** int[] version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
+	public static int clEnqueueReadBufferRect(long command_queue, long buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, int[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+		long __functionAddress = CL.getICD().clEnqueueReadBufferRect;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(command_queue);
+			checkPointer(buffer);
+			checkBuffer(buffer_offset, 3);
+			checkBuffer(host_offset, 3);
+			checkBuffer(region, 3);
+			if ( event != null ) checkBuffer(event, 1);
+		}
+		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+	}
+
+	/** float[] version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
+	public static int clEnqueueReadBufferRect(long command_queue, long buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, float[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+		long __functionAddress = CL.getICD().clEnqueueReadBufferRect;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(command_queue);
+			checkPointer(buffer);
+			checkBuffer(buffer_offset, 3);
+			checkBuffer(host_offset, 3);
+			checkBuffer(region, 3);
+			if ( event != null ) checkBuffer(event, 1);
+		}
+		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+	}
+
+	/** double[] version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
+	public static int clEnqueueReadBufferRect(long command_queue, long buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, double[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+		long __functionAddress = CL.getICD().clEnqueueReadBufferRect;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(command_queue);
+			checkPointer(buffer);
+			checkBuffer(buffer_offset, 3);
+			checkBuffer(host_offset, 3);
+			checkBuffer(region, 3);
+			if ( event != null ) checkBuffer(event, 1);
+		}
+		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+	}
+
+	/** short[] version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
+	public static int clEnqueueWriteBufferRect(long command_queue, long buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, short[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+		long __functionAddress = CL.getICD().clEnqueueWriteBufferRect;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(command_queue);
+			checkPointer(buffer);
+			checkBuffer(buffer_offset, 3);
+			checkBuffer(host_offset, 3);
+			checkBuffer(region, 3);
+			if ( event != null ) checkBuffer(event, 1);
+		}
+		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+	}
+
+	/** int[] version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
+	public static int clEnqueueWriteBufferRect(long command_queue, long buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, int[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+		long __functionAddress = CL.getICD().clEnqueueWriteBufferRect;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(command_queue);
+			checkPointer(buffer);
+			checkBuffer(buffer_offset, 3);
+			checkBuffer(host_offset, 3);
+			checkBuffer(region, 3);
+			if ( event != null ) checkBuffer(event, 1);
+		}
+		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+	}
+
+	/** float[] version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
+	public static int clEnqueueWriteBufferRect(long command_queue, long buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, float[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+		long __functionAddress = CL.getICD().clEnqueueWriteBufferRect;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(command_queue);
+			checkPointer(buffer);
+			checkBuffer(buffer_offset, 3);
+			checkBuffer(host_offset, 3);
+			checkBuffer(region, 3);
+			if ( event != null ) checkBuffer(event, 1);
+		}
+		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+	}
+
+	/** double[] version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
+	public static int clEnqueueWriteBufferRect(long command_queue, long buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, double[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+		long __functionAddress = CL.getICD().clEnqueueWriteBufferRect;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(command_queue);
+			checkPointer(buffer);
+			checkBuffer(buffer_offset, 3);
+			checkBuffer(host_offset, 3);
+			checkBuffer(region, 3);
+			if ( event != null ) checkBuffer(event, 1);
+		}
+		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+	}
+
+	/** Array version of: {@link #clCreateUserEvent CreateUserEvent} */
+	public static long clCreateUserEvent(long context, int[] errcode_ret) {
+		long __functionAddress = CL.getICD().clCreateUserEvent;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(context);
+			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+		}
+		return callPPP(__functionAddress, context, errcode_ret);
 	}
 
 }

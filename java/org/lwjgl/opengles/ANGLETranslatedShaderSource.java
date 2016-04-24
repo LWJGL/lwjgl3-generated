@@ -48,7 +48,7 @@ public class ANGLETranslatedShaderSource {
 		long __functionAddress = GLES.getCapabilities().glGetTranslatedShaderSourceANGLE;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPPV(__functionAddress, shader, bufsize, length, source);
+		callPPV(__functionAddress, shader, bufsize, length, source);
 	}
 
 	public static void glGetTranslatedShaderSourceANGLE(int shader, IntBuffer length, ByteBuffer source) {
@@ -82,6 +82,16 @@ public class ANGLETranslatedShaderSource {
 			memFree(source);
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #glGetTranslatedShaderSourceANGLE GetTranslatedShaderSourceANGLE} */
+	public static void glGetTranslatedShaderSourceANGLE(int shader, int[] length, ByteBuffer source) {
+		long __functionAddress = GLES.getCapabilities().glGetTranslatedShaderSourceANGLE;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( length != null ) checkBuffer(length, 1);
+		}
+		callPPV(__functionAddress, shader, source.remaining(), length, memAddress(source));
 	}
 
 }

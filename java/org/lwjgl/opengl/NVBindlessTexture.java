@@ -86,7 +86,7 @@ public class NVBindlessTexture {
 		long __functionAddress = GL.getCapabilities().glGetTextureHandleNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIJ(__functionAddress, texture);
+		return callJ(__functionAddress, texture);
 	}
 
 	// --- [ glGetTextureSamplerHandleNV ] ---
@@ -126,7 +126,7 @@ public class NVBindlessTexture {
 		long __functionAddress = GL.getCapabilities().glGetTextureSamplerHandleNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIIJ(__functionAddress, texture, sampler);
+		return callJ(__functionAddress, texture, sampler);
 	}
 
 	// --- [ glMakeTextureHandleResidentNV ] ---
@@ -213,7 +213,7 @@ public class NVBindlessTexture {
 		long __functionAddress = GL.getCapabilities().glGetImageHandleNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIIZIIJ(__functionAddress, texture, level, layered, layer, format);
+		return callJ(__functionAddress, texture, level, layered, layer, format);
 	}
 
 	// --- [ glMakeImageHandleResidentNV ] ---
@@ -237,7 +237,7 @@ public class NVBindlessTexture {
 		long __functionAddress = GL.getCapabilities().glMakeImageHandleResidentNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callJIV(__functionAddress, handle, access);
+		callJV(__functionAddress, handle, access);
 	}
 
 	// --- [ glMakeImageHandleNonResidentNV ] ---
@@ -266,7 +266,7 @@ public class NVBindlessTexture {
 		long __functionAddress = GL.getCapabilities().glUniformHandleui64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIJV(__functionAddress, location, value);
+		callJV(__functionAddress, location, value);
 	}
 
 	// --- [ glUniformHandleui64vNV ] ---
@@ -282,7 +282,7 @@ public class NVBindlessTexture {
 		long __functionAddress = GL.getCapabilities().glUniformHandleui64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, location, count, values);
+		callPV(__functionAddress, location, count, values);
 	}
 
 	/**
@@ -308,7 +308,7 @@ public class NVBindlessTexture {
 		long __functionAddress = GL.getCapabilities().glProgramUniformHandleui64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIJV(__functionAddress, program, location, value);
+		callJV(__functionAddress, program, location, value);
 	}
 
 	// --- [ glProgramUniformHandleui64vNV ] ---
@@ -325,7 +325,7 @@ public class NVBindlessTexture {
 		long __functionAddress = GL.getCapabilities().glProgramUniformHandleui64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, location, count, values);
+		callPV(__functionAddress, program, location, count, values);
 	}
 
 	/**
@@ -365,6 +365,22 @@ public class NVBindlessTexture {
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return callJZ(__functionAddress, handle);
+	}
+
+	/** Array version of: {@link #glUniformHandleui64vNV UniformHandleui64vNV} */
+	public static void glUniformHandleui64vNV(int location, long[] values) {
+		long __functionAddress = GL.getCapabilities().glUniformHandleui64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, location, values.length, values);
+	}
+
+	/** Array version of: {@link #glProgramUniformHandleui64vNV ProgramUniformHandleui64vNV} */
+	public static void glProgramUniformHandleui64vNV(int program, int location, long[] values) {
+		long __functionAddress = GL.getCapabilities().glProgramUniformHandleui64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, program, location, values.length, values);
 	}
 
 }

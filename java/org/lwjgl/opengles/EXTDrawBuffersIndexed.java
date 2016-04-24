@@ -47,7 +47,7 @@ public class EXTDrawBuffersIndexed {
 		long __functionAddress = GLES.getCapabilities().glEnableiEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, target, index);
+		callV(__functionAddress, target, index);
 	}
 
 	// --- [ glDisableiEXT ] ---
@@ -56,7 +56,7 @@ public class EXTDrawBuffersIndexed {
 		long __functionAddress = GLES.getCapabilities().glDisableiEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, target, index);
+		callV(__functionAddress, target, index);
 	}
 
 	// --- [ glBlendEquationiEXT ] ---
@@ -65,7 +65,7 @@ public class EXTDrawBuffersIndexed {
 		long __functionAddress = GLES.getCapabilities().glBlendEquationiEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, buf, mode);
+		callV(__functionAddress, buf, mode);
 	}
 
 	// --- [ glBlendEquationSeparateiEXT ] ---
@@ -74,7 +74,7 @@ public class EXTDrawBuffersIndexed {
 		long __functionAddress = GLES.getCapabilities().glBlendEquationSeparateiEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, buf, modeRGB, modeAlpha);
+		callV(__functionAddress, buf, modeRGB, modeAlpha);
 	}
 
 	// --- [ glBlendFunciEXT ] ---
@@ -83,7 +83,7 @@ public class EXTDrawBuffersIndexed {
 		long __functionAddress = GLES.getCapabilities().glBlendFunciEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, buf, src, dst);
+		callV(__functionAddress, buf, src, dst);
 	}
 
 	// --- [ glBlendFuncSeparateiEXT ] ---
@@ -92,7 +92,7 @@ public class EXTDrawBuffersIndexed {
 		long __functionAddress = GLES.getCapabilities().glBlendFuncSeparateiEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
+		callV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 	}
 
 	// --- [ glColorMaskiEXT ] ---
@@ -101,7 +101,7 @@ public class EXTDrawBuffersIndexed {
 		long __functionAddress = GLES.getCapabilities().glColorMaskiEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIZZZZV(__functionAddress, index, r, g, b, a);
+		callV(__functionAddress, index, r, g, b, a);
 	}
 
 	// --- [ glIsEnablediEXT ] ---
@@ -110,7 +110,7 @@ public class EXTDrawBuffersIndexed {
 		long __functionAddress = GLES.getCapabilities().glIsEnablediEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIIZ(__functionAddress, target, index);
+		return callZ(__functionAddress, target, index);
 	}
 
 }

@@ -55,7 +55,7 @@ public class EXTDebugLabel {
 		long __functionAddress = GLES.getCapabilities().glLabelObjectEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, type, object, length, label);
+		callPV(__functionAddress, type, object, length, label);
 	}
 
 	public static void glLabelObjectEXT(int type, int object, ByteBuffer label) {
@@ -79,7 +79,7 @@ public class EXTDebugLabel {
 		long __functionAddress = GLES.getCapabilities().glGetObjectLabelEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPPV(__functionAddress, type, object, bufSize, length, label);
+		callPPV(__functionAddress, type, object, bufSize, length, label);
 	}
 
 	public static void glGetObjectLabelEXT(int type, int object, IntBuffer length, ByteBuffer label) {
@@ -98,6 +98,16 @@ public class EXTDebugLabel {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #glGetObjectLabelEXT GetObjectLabelEXT} */
+	public static void glGetObjectLabelEXT(int type, int object, int[] length, ByteBuffer label) {
+		long __functionAddress = GLES.getCapabilities().glGetObjectLabelEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(length, 1);
+		}
+		callPPV(__functionAddress, type, object, label.remaining(), length, memAddress(label));
 	}
 
 }

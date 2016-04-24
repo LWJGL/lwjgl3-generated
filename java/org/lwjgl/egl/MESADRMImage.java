@@ -79,4 +79,29 @@ public class MESADRMImage {
 		return neglExportDRMImageMESA(dpy, image, memAddressSafe(name), memAddressSafe(handle), memAddressSafe(stride));
 	}
 
+	/** Array version of: {@link #eglCreateDRMImageMESA CreateDRMImageMESA} */
+	public static long eglCreateDRMImageMESA(long dpy, int[] attrib_list) {
+		long __functionAddress = EGL.getCapabilities().eglCreateDRMImageMESA;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+		}
+		return callPPP(__functionAddress, dpy, attrib_list);
+	}
+
+	/** Array version of: {@link #eglExportDRMImageMESA ExportDRMImageMESA} */
+	public static int eglExportDRMImageMESA(long dpy, long image, int[] name, int[] handle, int[] stride) {
+		long __functionAddress = EGL.getCapabilities().eglExportDRMImageMESA;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			checkPointer(image);
+			if ( name != null ) checkBuffer(name, 1);
+			if ( handle != null ) checkBuffer(handle, 1);
+			if ( stride != null ) checkBuffer(stride, 1);
+		}
+		return callPPPPPI(__functionAddress, dpy, image, name, handle, stride);
+	}
+
 }

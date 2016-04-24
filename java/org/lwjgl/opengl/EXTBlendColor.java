@@ -44,7 +44,7 @@ public class EXTBlendColor {
 		long __functionAddress = GL.getCapabilities().glBlendColorEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFFFV(__functionAddress, red, green, blue, alpha);
+		callV(__functionAddress, red, green, blue, alpha);
 	}
 
 }

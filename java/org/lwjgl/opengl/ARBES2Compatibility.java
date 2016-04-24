@@ -85,7 +85,7 @@ public class ARBES2Compatibility {
 		long __functionAddress = GL.getCapabilities().glShaderBinary;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPIPIV(__functionAddress, count, shaders, binaryformat, binary, length);
+		callPPV(__functionAddress, count, shaders, binaryformat, binary, length);
 	}
 
 	/**
@@ -113,7 +113,7 @@ public class ARBES2Compatibility {
 		long __functionAddress = GL.getCapabilities().glGetShaderPrecisionFormat;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPPV(__functionAddress, shadertype, precisiontype, range, precision);
+		callPPV(__functionAddress, shadertype, precisiontype, range, precision);
 	}
 
 	/**
@@ -164,7 +164,7 @@ public class ARBES2Compatibility {
 		long __functionAddress = GL.getCapabilities().glDepthRangef;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFV(__functionAddress, zNear, zFar);
+		callV(__functionAddress, zNear, zFar);
 	}
 
 	// --- [ glClearDepthf ] ---
@@ -178,7 +178,26 @@ public class ARBES2Compatibility {
 		long __functionAddress = GL.getCapabilities().glClearDepthf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFV(__functionAddress, depth);
+		callV(__functionAddress, depth);
+	}
+
+	/** Array version of: {@link #glShaderBinary ShaderBinary} */
+	public static void glShaderBinary(int[] shaders, int binaryformat, ByteBuffer binary) {
+		long __functionAddress = GL.getCapabilities().glShaderBinary;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, shaders.length, shaders, binaryformat, memAddress(binary), binary.remaining());
+	}
+
+	/** Array version of: {@link #glGetShaderPrecisionFormat GetShaderPrecisionFormat} */
+	public static void glGetShaderPrecisionFormat(int shadertype, int precisiontype, int[] range, int[] precision) {
+		long __functionAddress = GL.getCapabilities().glGetShaderPrecisionFormat;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(range, 2);
+			checkBuffer(precision, 1);
+		}
+		callPPV(__functionAddress, shadertype, precisiontype, range, precision);
 	}
 
 }

@@ -672,7 +672,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alGenEffects;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, n, effects);
+		invokePV(__functionAddress, n, effects);
 	}
 
 	/**
@@ -708,7 +708,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alDeleteEffects;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, n, effects);
+		invokePV(__functionAddress, n, effects);
 	}
 
 	/**
@@ -742,7 +742,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alIsEffect;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return invokeIZ(__functionAddress, effect);
+		return invokeZ(__functionAddress, effect);
 	}
 
 	// --- [ alEffecti ] ---
@@ -758,7 +758,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alEffecti;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, effect, param, value);
+		invokeV(__functionAddress, effect, param, value);
 	}
 
 	// --- [ alEffectiv ] ---
@@ -774,7 +774,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alEffectiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, effect, param, values);
+		invokePV(__functionAddress, effect, param, values);
 	}
 
 	/**
@@ -801,7 +801,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alEffectf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIFV(__functionAddress, effect, param, value);
+		invokeV(__functionAddress, effect, param, value);
 	}
 
 	// --- [ alEffectfv ] ---
@@ -817,7 +817,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alEffectfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, effect, param, values);
+		invokePV(__functionAddress, effect, param, values);
 	}
 
 	/**
@@ -844,7 +844,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alGetEffecti;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, effect, param, value);
+		invokePV(__functionAddress, effect, param, value);
 	}
 
 	/**
@@ -890,7 +890,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alGetEffectiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, effect, param, values);
+		invokePV(__functionAddress, effect, param, values);
 	}
 
 	/**
@@ -919,7 +919,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alGetEffectf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, effect, param, value);
+		invokePV(__functionAddress, effect, param, value);
 	}
 
 	/**
@@ -965,7 +965,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alGetEffectfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, effect, param, values);
+		invokePV(__functionAddress, effect, param, values);
 	}
 
 	/**
@@ -993,7 +993,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alGenFilters;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, n, filters);
+		invokePV(__functionAddress, n, filters);
 	}
 
 	/**
@@ -1029,7 +1029,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alDeleteFilters;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, n, filters);
+		invokePV(__functionAddress, n, filters);
 	}
 
 	/**
@@ -1063,7 +1063,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alIsFilter;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return invokeIZ(__functionAddress, filter);
+		return invokeZ(__functionAddress, filter);
 	}
 
 	// --- [ alFilteri ] ---
@@ -1079,7 +1079,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alFilteri;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, filter, param, value);
+		invokeV(__functionAddress, filter, param, value);
 	}
 
 	// --- [ alFilteriv ] ---
@@ -1095,7 +1095,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alFilteriv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, filter, param, values);
+		invokePV(__functionAddress, filter, param, values);
 	}
 
 	/**
@@ -1122,7 +1122,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alFilterf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIFV(__functionAddress, filter, param, value);
+		invokeV(__functionAddress, filter, param, value);
 	}
 
 	// --- [ alFilterfv ] ---
@@ -1138,7 +1138,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alFilterfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, filter, param, values);
+		invokePV(__functionAddress, filter, param, values);
 	}
 
 	/**
@@ -1165,7 +1165,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alGetFilteri;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, filter, param, value);
+		invokePV(__functionAddress, filter, param, value);
 	}
 
 	/**
@@ -1211,7 +1211,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alGetFilteriv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, filter, param, values);
+		invokePV(__functionAddress, filter, param, values);
 	}
 
 	/**
@@ -1240,7 +1240,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alGetFilterf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, filter, param, value);
+		invokePV(__functionAddress, filter, param, value);
 	}
 
 	/**
@@ -1286,7 +1286,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alGetFilterfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, filter, param, values);
+		invokePV(__functionAddress, filter, param, values);
 	}
 
 	/**
@@ -1314,7 +1314,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alGenAuxiliaryEffectSlots;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, n, effectSlots);
+		invokePV(__functionAddress, n, effectSlots);
 	}
 
 	/**
@@ -1350,7 +1350,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alDeleteAuxiliaryEffectSlots;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, n, effectSlots);
+		invokePV(__functionAddress, n, effectSlots);
 	}
 
 	/**
@@ -1384,7 +1384,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alIsAuxiliaryEffectSlot;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return invokeIZ(__functionAddress, effectSlot);
+		return invokeZ(__functionAddress, effectSlot);
 	}
 
 	// --- [ alAuxiliaryEffectSloti ] ---
@@ -1400,7 +1400,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alAuxiliaryEffectSloti;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, effectSlot, param, value);
+		invokeV(__functionAddress, effectSlot, param, value);
 	}
 
 	// --- [ alAuxiliaryEffectSlotiv ] ---
@@ -1416,7 +1416,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alAuxiliaryEffectSlotiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, effectSlot, param, values);
+		invokePV(__functionAddress, effectSlot, param, values);
 	}
 
 	/**
@@ -1443,7 +1443,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alAuxiliaryEffectSlotf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIFV(__functionAddress, effectSlot, param, value);
+		invokeV(__functionAddress, effectSlot, param, value);
 	}
 
 	// --- [ alAuxiliaryEffectSlotfv ] ---
@@ -1459,7 +1459,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alAuxiliaryEffectSlotfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, effectSlot, param, values);
+		invokePV(__functionAddress, effectSlot, param, values);
 	}
 
 	/**
@@ -1486,7 +1486,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alGetAuxiliaryEffectSloti;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, effectSlot, param, value);
+		invokePV(__functionAddress, effectSlot, param, value);
 	}
 
 	/**
@@ -1532,7 +1532,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alGetAuxiliaryEffectSlotiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, effectSlot, param, values);
+		invokePV(__functionAddress, effectSlot, param, values);
 	}
 
 	/**
@@ -1561,7 +1561,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alGetAuxiliaryEffectSlotf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, effectSlot, param, value);
+		invokePV(__functionAddress, effectSlot, param, value);
 	}
 
 	/**
@@ -1607,7 +1607,7 @@ public class EXTEfx {
 		long __functionAddress = AL.getCapabilities().alGetAuxiliaryEffectSlotfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, effectSlot, param, values);
+		invokePV(__functionAddress, effectSlot, param, values);
 	}
 
 	/**
@@ -1621,6 +1621,222 @@ public class EXTEfx {
 		if ( CHECKS )
 			checkBuffer(values, 1);
 		nalGetAuxiliaryEffectSlotfv(effectSlot, param, memAddress(values));
+	}
+
+	/** Array version of: {@link #alGenEffects GenEffects} */
+	public static void alGenEffects(int[] effects) {
+		long __functionAddress = AL.getCapabilities().alGenEffects;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		invokePV(__functionAddress, effects.length, effects);
+	}
+
+	/** Array version of: {@link #alDeleteEffects DeleteEffects} */
+	public static void alDeleteEffects(int[] effects) {
+		long __functionAddress = AL.getCapabilities().alDeleteEffects;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		invokePV(__functionAddress, effects.length, effects);
+	}
+
+	/** Array version of: {@link #alEffectiv Effectiv} */
+	public static void alEffectiv(int effect, int param, int[] values) {
+		long __functionAddress = AL.getCapabilities().alEffectiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		invokePV(__functionAddress, effect, param, values);
+	}
+
+	/** Array version of: {@link #alEffectfv Effectfv} */
+	public static void alEffectfv(int effect, int param, float[] values) {
+		long __functionAddress = AL.getCapabilities().alEffectfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		invokePV(__functionAddress, effect, param, values);
+	}
+
+	/** Array version of: {@link #alGetEffecti GetEffecti} */
+	public static void alGetEffecti(int effect, int param, int[] value) {
+		long __functionAddress = AL.getCapabilities().alGetEffecti;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(value, 1);
+		}
+		invokePV(__functionAddress, effect, param, value);
+	}
+
+	/** Array version of: {@link #alGetEffectiv GetEffectiv} */
+	public static void alGetEffectiv(int effect, int param, int[] values) {
+		long __functionAddress = AL.getCapabilities().alGetEffectiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(values, 1);
+		}
+		invokePV(__functionAddress, effect, param, values);
+	}
+
+	/** Array version of: {@link #alGetEffectf GetEffectf} */
+	public static void alGetEffectf(int effect, int param, float[] value) {
+		long __functionAddress = AL.getCapabilities().alGetEffectf;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(value, 1);
+		}
+		invokePV(__functionAddress, effect, param, value);
+	}
+
+	/** Array version of: {@link #alGetEffectfv GetEffectfv} */
+	public static void alGetEffectfv(int effect, int param, float[] values) {
+		long __functionAddress = AL.getCapabilities().alGetEffectfv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(values, 1);
+		}
+		invokePV(__functionAddress, effect, param, values);
+	}
+
+	/** Array version of: {@link #alGenFilters GenFilters} */
+	public static void alGenFilters(int[] filters) {
+		long __functionAddress = AL.getCapabilities().alGenFilters;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		invokePV(__functionAddress, filters.length, filters);
+	}
+
+	/** Array version of: {@link #alDeleteFilters DeleteFilters} */
+	public static void alDeleteFilters(int[] filters) {
+		long __functionAddress = AL.getCapabilities().alDeleteFilters;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		invokePV(__functionAddress, filters.length, filters);
+	}
+
+	/** Array version of: {@link #alFilteriv Filteriv} */
+	public static void alFilteriv(int filter, int param, int[] values) {
+		long __functionAddress = AL.getCapabilities().alFilteriv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		invokePV(__functionAddress, filter, param, values);
+	}
+
+	/** Array version of: {@link #alFilterfv Filterfv} */
+	public static void alFilterfv(int filter, int param, float[] values) {
+		long __functionAddress = AL.getCapabilities().alFilterfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		invokePV(__functionAddress, filter, param, values);
+	}
+
+	/** Array version of: {@link #alGetFilteri GetFilteri} */
+	public static void alGetFilteri(int filter, int param, int[] value) {
+		long __functionAddress = AL.getCapabilities().alGetFilteri;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(value, 1);
+		}
+		invokePV(__functionAddress, filter, param, value);
+	}
+
+	/** Array version of: {@link #alGetFilteriv GetFilteriv} */
+	public static void alGetFilteriv(int filter, int param, int[] values) {
+		long __functionAddress = AL.getCapabilities().alGetFilteriv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(values, 1);
+		}
+		invokePV(__functionAddress, filter, param, values);
+	}
+
+	/** Array version of: {@link #alGetFilterf GetFilterf} */
+	public static void alGetFilterf(int filter, int param, float[] value) {
+		long __functionAddress = AL.getCapabilities().alGetFilterf;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(value, 1);
+		}
+		invokePV(__functionAddress, filter, param, value);
+	}
+
+	/** Array version of: {@link #alGetFilterfv GetFilterfv} */
+	public static void alGetFilterfv(int filter, int param, float[] values) {
+		long __functionAddress = AL.getCapabilities().alGetFilterfv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(values, 1);
+		}
+		invokePV(__functionAddress, filter, param, values);
+	}
+
+	/** Array version of: {@link #alGenAuxiliaryEffectSlots GenAuxiliaryEffectSlots} */
+	public static void alGenAuxiliaryEffectSlots(int[] effectSlots) {
+		long __functionAddress = AL.getCapabilities().alGenAuxiliaryEffectSlots;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		invokePV(__functionAddress, effectSlots.length, effectSlots);
+	}
+
+	/** Array version of: {@link #alDeleteAuxiliaryEffectSlots DeleteAuxiliaryEffectSlots} */
+	public static void alDeleteAuxiliaryEffectSlots(int[] effectSlots) {
+		long __functionAddress = AL.getCapabilities().alDeleteAuxiliaryEffectSlots;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		invokePV(__functionAddress, effectSlots.length, effectSlots);
+	}
+
+	/** Array version of: {@link #alAuxiliaryEffectSlotiv AuxiliaryEffectSlotiv} */
+	public static void alAuxiliaryEffectSlotiv(int effectSlot, int param, int[] values) {
+		long __functionAddress = AL.getCapabilities().alAuxiliaryEffectSlotiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		invokePV(__functionAddress, effectSlot, param, values);
+	}
+
+	/** Array version of: {@link #alAuxiliaryEffectSlotfv AuxiliaryEffectSlotfv} */
+	public static void alAuxiliaryEffectSlotfv(int effectSlot, int param, float[] values) {
+		long __functionAddress = AL.getCapabilities().alAuxiliaryEffectSlotfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		invokePV(__functionAddress, effectSlot, param, values);
+	}
+
+	/** Array version of: {@link #alGetAuxiliaryEffectSloti GetAuxiliaryEffectSloti} */
+	public static void alGetAuxiliaryEffectSloti(int effectSlot, int param, int[] value) {
+		long __functionAddress = AL.getCapabilities().alGetAuxiliaryEffectSloti;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(value, 1);
+		}
+		invokePV(__functionAddress, effectSlot, param, value);
+	}
+
+	/** Array version of: {@link #alGetAuxiliaryEffectSlotiv GetAuxiliaryEffectSlotiv} */
+	public static void alGetAuxiliaryEffectSlotiv(int effectSlot, int param, int[] values) {
+		long __functionAddress = AL.getCapabilities().alGetAuxiliaryEffectSlotiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(values, 1);
+		}
+		invokePV(__functionAddress, effectSlot, param, values);
+	}
+
+	/** Array version of: {@link #alGetAuxiliaryEffectSlotf GetAuxiliaryEffectSlotf} */
+	public static void alGetAuxiliaryEffectSlotf(int effectSlot, int param, float[] value) {
+		long __functionAddress = AL.getCapabilities().alGetAuxiliaryEffectSlotf;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(value, 1);
+		}
+		invokePV(__functionAddress, effectSlot, param, value);
+	}
+
+	/** Array version of: {@link #alGetAuxiliaryEffectSlotfv GetAuxiliaryEffectSlotfv} */
+	public static void alGetAuxiliaryEffectSlotfv(int effectSlot, int param, float[] values) {
+		long __functionAddress = AL.getCapabilities().alGetAuxiliaryEffectSlotfv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(values, 1);
+		}
+		invokePV(__functionAddress, effectSlot, param, values);
 	}
 
 }

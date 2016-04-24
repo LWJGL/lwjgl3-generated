@@ -57,7 +57,7 @@ public class ARBInstancedArrays {
 		long __functionAddress = GL.getCapabilities().glVertexAttribDivisorARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, index, divisor);
+		callV(__functionAddress, index, divisor);
 	}
 
 	// --- [ glVertexArrayVertexAttribDivisorEXT ] ---
@@ -80,7 +80,7 @@ if ( caps.GL_ARB_instanced_arrays && ARBInstancedArrays.getInstance().VertexArra
 		long __functionAddress = GL.getCapabilities().glVertexArrayVertexAttribDivisorEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, vaobj, index, divisor);
+		callV(__functionAddress, vaobj, index, divisor);
 	}
 
 }

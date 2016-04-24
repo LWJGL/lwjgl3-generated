@@ -391,7 +391,7 @@ public class CGL {
 		long __functionAddress = Functions.DescribePixelFormat;
 		if ( CHECKS )
 			checkPointer(pix);
-		return callPIIPI(__functionAddress, pix, pix_num, attrib, value);
+		return callPPI(__functionAddress, pix, pix_num, attrib, value);
 	}
 
 	/**
@@ -474,7 +474,7 @@ public class CGL {
 	 */
 	public static int nCGLQueryRendererInfo(int display_mask, long rend, long nrend) {
 		long __functionAddress = Functions.QueryRendererInfo;
-		return callIPPI(__functionAddress, display_mask, rend, nrend);
+		return callPPI(__functionAddress, display_mask, rend, nrend);
 	}
 
 	/**
@@ -529,7 +529,7 @@ public class CGL {
 		long __functionAddress = Functions.DescribeRenderer;
 		if ( CHECKS )
 			checkPointer(rend);
-		return callPIIPI(__functionAddress, rend, rend_num, prop, value);
+		return callPPI(__functionAddress, rend, rend_num, prop, value);
 	}
 
 	/**
@@ -622,7 +622,7 @@ public class CGL {
 			checkPointer(src);
 			checkPointer(dst);
 		}
-		return callPPII(__functionAddress, src, dst, mask);
+		return callPPI(__functionAddress, src, dst, mask);
 	}
 
 	// --- [ CGLRetainContext ] ---
@@ -728,7 +728,7 @@ public class CGL {
 	 */
 	public static int nCGLCreatePBuffer(int width, int height, int target, int internalFormat, int max_level, long pbuffer) {
 		long __functionAddress = Functions.CreatePBuffer;
-		return callIIIIIPI(__functionAddress, width, height, target, internalFormat, max_level, pbuffer);
+		return callPI(__functionAddress, width, height, target, internalFormat, max_level, pbuffer);
 	}
 
 	/**
@@ -874,7 +874,7 @@ public class CGL {
 			checkPointer(ctx);
 			checkPointer(pbuffer);
 		}
-		return callPPII(__functionAddress, ctx, pbuffer, source);
+		return callPPI(__functionAddress, ctx, pbuffer, source);
 	}
 
 	// --- [ CGLRetainPBuffer ] ---
@@ -958,7 +958,7 @@ public class CGL {
 		long __functionAddress = Functions.SetOffScreen;
 		if ( CHECKS )
 			checkPointer(ctx);
-		return callPIIIPI(__functionAddress, ctx, width, height, rowbytes, baseaddr);
+		return callPPI(__functionAddress, ctx, width, height, rowbytes, baseaddr);
 	}
 
 	/**
@@ -1093,7 +1093,7 @@ public class CGL {
 		long __functionAddress = Functions.SetFullScreenOnDisplay;
 		if ( CHECKS )
 			checkPointer(ctx);
-		return callPII(__functionAddress, ctx, display_mask);
+		return callPI(__functionAddress, ctx, display_mask);
 	}
 
 	// --- [ CGLSetPBuffer ] ---
@@ -1137,7 +1137,7 @@ public class CGL {
 			checkPointer(ctx);
 			checkPointer(pbuffer);
 		}
-		return callPPIIII(__functionAddress, ctx, pbuffer, face, level, screen);
+		return callPPI(__functionAddress, ctx, pbuffer, face, level, screen);
 	}
 
 	// --- [ CGLGetPBuffer ] ---
@@ -1232,7 +1232,7 @@ public class CGL {
 		long __functionAddress = Functions.Enable;
 		if ( CHECKS )
 			checkPointer(ctx);
-		return callPII(__functionAddress, ctx, pname);
+		return callPI(__functionAddress, ctx, pname);
 	}
 
 	// --- [ CGLDisable ] ---
@@ -1247,7 +1247,7 @@ public class CGL {
 		long __functionAddress = Functions.Disable;
 		if ( CHECKS )
 			checkPointer(ctx);
-		return callPII(__functionAddress, ctx, pname);
+		return callPI(__functionAddress, ctx, pname);
 	}
 
 	// --- [ CGLIsEnabled ] ---
@@ -1263,7 +1263,7 @@ public class CGL {
 		long __functionAddress = Functions.IsEnabled;
 		if ( CHECKS )
 			checkPointer(ctx);
-		return callPIPI(__functionAddress, ctx, pname, enable);
+		return callPPI(__functionAddress, ctx, pname, enable);
 	}
 
 	/**
@@ -1292,7 +1292,7 @@ public class CGL {
 		long __functionAddress = Functions.SetParameter;
 		if ( CHECKS )
 			checkPointer(ctx);
-		return callPIPI(__functionAddress, ctx, pname, params);
+		return callPPI(__functionAddress, ctx, pname, params);
 	}
 
 	/**
@@ -1337,7 +1337,7 @@ public class CGL {
 		long __functionAddress = Functions.GetParameter;
 		if ( CHECKS )
 			checkPointer(ctx);
-		return callPIPI(__functionAddress, ctx, pname, params);
+		return callPPI(__functionAddress, ctx, pname, params);
 	}
 
 	/**
@@ -1372,7 +1372,7 @@ public class CGL {
 		long __functionAddress = Functions.SetVirtualScreen;
 		if ( CHECKS )
 			checkPointer(ctx);
-		return callPII(__functionAddress, ctx, screen);
+		return callPI(__functionAddress, ctx, screen);
 	}
 
 	// --- [ CGLGetVirtualScreen ] ---
@@ -1434,7 +1434,7 @@ public class CGL {
 	 */
 	public static int nCGLSetGlobalOption(int pname, long params) {
 		long __functionAddress = Functions.SetGlobalOption;
-		return callIPI(__functionAddress, pname, params);
+		return callPI(__functionAddress, pname, params);
 	}
 
 	/**
@@ -1474,7 +1474,7 @@ public class CGL {
 	 */
 	public static int nCGLGetGlobalOption(int pname, long params) {
 		long __functionAddress = Functions.GetGlobalOption;
-		return callIPI(__functionAddress, pname, params);
+		return callPI(__functionAddress, pname, params);
 	}
 
 	/**
@@ -1562,7 +1562,7 @@ public class CGL {
 	 */
 	public static long nCGLErrorString(int error) {
 		long __functionAddress = Functions.ErrorString;
-		return callIP(__functionAddress, error);
+		return callP(__functionAddress, error);
 	}
 
 	/**
@@ -1573,6 +1573,152 @@ public class CGL {
 	public static String CGLErrorString(int error) {
 		long __result = nCGLErrorString(error);
 		return memASCII(__result);
+	}
+
+	/** Array version of: {@link #CGLChoosePixelFormat ChoosePixelFormat} */
+	public static int CGLChoosePixelFormat(int[] attribs, PointerBuffer pix, int[] npix) {
+		long __functionAddress = Functions.ChoosePixelFormat;
+		if ( CHECKS ) {
+			if ( pix != null ) checkBuffer(pix, 1);
+			checkBuffer(npix, 1);
+		}
+		return callPPPI(__functionAddress, attribs, memAddressSafe(pix), npix);
+	}
+
+	/** Array version of: {@link #CGLDescribePixelFormat DescribePixelFormat} */
+	public static int CGLDescribePixelFormat(long pix, int pix_num, int attrib, int[] value) {
+		long __functionAddress = Functions.DescribePixelFormat;
+		if ( CHECKS ) {
+			checkPointer(pix);
+			checkBuffer(value, 1);
+		}
+		return callPPI(__functionAddress, pix, pix_num, attrib, value);
+	}
+
+	/** Array version of: {@link #CGLQueryRendererInfo QueryRendererInfo} */
+	public static int CGLQueryRendererInfo(int display_mask, PointerBuffer rend, int[] nrend) {
+		long __functionAddress = Functions.QueryRendererInfo;
+		if ( CHECKS ) {
+			checkBuffer(rend, 1);
+			checkBuffer(nrend, 1);
+		}
+		return callPPI(__functionAddress, display_mask, memAddress(rend), nrend);
+	}
+
+	/** Array version of: {@link #CGLDescribeRenderer DescribeRenderer} */
+	public static int CGLDescribeRenderer(long rend, int rend_num, int prop, int[] value) {
+		long __functionAddress = Functions.DescribeRenderer;
+		if ( CHECKS ) {
+			checkPointer(rend);
+			checkBuffer(value, 1);
+		}
+		return callPPI(__functionAddress, rend, rend_num, prop, value);
+	}
+
+	/** Array version of: {@link #CGLDescribePBuffer DescribePBuffer} */
+	public static int CGLDescribePBuffer(long obj, int[] width, int[] height, int[] target, int[] internalFormat, int[] mipmap) {
+		long __functionAddress = Functions.DescribePBuffer;
+		if ( CHECKS ) {
+			checkPointer(obj);
+			checkBuffer(width, 1);
+			checkBuffer(height, 1);
+			checkBuffer(target, 1);
+			checkBuffer(internalFormat, 1);
+			checkBuffer(mipmap, 1);
+		}
+		return callPPPPPPI(__functionAddress, obj, width, height, target, internalFormat, mipmap);
+	}
+
+	/** Array version of: {@link #CGLGetOffScreen GetOffScreen} */
+	public static int CGLGetOffScreen(long ctx, int[] width, int[] height, int[] rowbytes, PointerBuffer baseaddr) {
+		long __functionAddress = Functions.GetOffScreen;
+		if ( CHECKS ) {
+			checkPointer(ctx);
+			checkBuffer(width, 1);
+			checkBuffer(height, 1);
+			checkBuffer(rowbytes, 1);
+			checkBuffer(baseaddr, 1);
+		}
+		return callPPPPPI(__functionAddress, ctx, width, height, rowbytes, memAddress(baseaddr));
+	}
+
+	/** Array version of: {@link #CGLGetPBuffer GetPBuffer} */
+	public static int CGLGetPBuffer(long ctx, PointerBuffer pbuffer, int[] face, int[] level, int[] screen) {
+		long __functionAddress = Functions.GetPBuffer;
+		if ( CHECKS ) {
+			checkPointer(ctx);
+			checkBuffer(pbuffer, 1);
+			checkBuffer(face, 1);
+			checkBuffer(level, 1);
+			checkBuffer(screen, 1);
+		}
+		return callPPPPPI(__functionAddress, ctx, memAddress(pbuffer), face, level, screen);
+	}
+
+	/** Array version of: {@link #CGLIsEnabled IsEnabled} */
+	public static int CGLIsEnabled(long ctx, int pname, int[] enable) {
+		long __functionAddress = Functions.IsEnabled;
+		if ( CHECKS ) {
+			checkPointer(ctx);
+			checkBuffer(enable, 1);
+		}
+		return callPPI(__functionAddress, ctx, pname, enable);
+	}
+
+	/** Array version of: {@link #CGLSetParameter SetParameter} */
+	public static int CGLSetParameter(long ctx, int pname, int[] params) {
+		long __functionAddress = Functions.SetParameter;
+		if ( CHECKS ) {
+			checkPointer(ctx);
+			checkBuffer(params, 1);
+		}
+		return callPPI(__functionAddress, ctx, pname, params);
+	}
+
+	/** Array version of: {@link #CGLGetParameter GetParameter} */
+	public static int CGLGetParameter(long ctx, int pname, int[] params) {
+		long __functionAddress = Functions.GetParameter;
+		if ( CHECKS ) {
+			checkPointer(ctx);
+			checkBuffer(params, 1);
+		}
+		return callPPI(__functionAddress, ctx, pname, params);
+	}
+
+	/** Array version of: {@link #CGLGetVirtualScreen GetVirtualScreen} */
+	public static int CGLGetVirtualScreen(long ctx, int[] screen) {
+		long __functionAddress = Functions.GetVirtualScreen;
+		if ( CHECKS ) {
+			checkPointer(ctx);
+			checkBuffer(screen, 1);
+		}
+		return callPPI(__functionAddress, ctx, screen);
+	}
+
+	/** Array version of: {@link #CGLSetGlobalOption SetGlobalOption} */
+	public static int CGLSetGlobalOption(int pname, int[] params) {
+		long __functionAddress = Functions.SetGlobalOption;
+		if ( CHECKS )
+			checkBuffer(params, 1);
+		return callPI(__functionAddress, pname, params);
+	}
+
+	/** Array version of: {@link #CGLGetGlobalOption GetGlobalOption} */
+	public static int CGLGetGlobalOption(int pname, int[] params) {
+		long __functionAddress = Functions.GetGlobalOption;
+		if ( CHECKS )
+			checkBuffer(params, 1);
+		return callPI(__functionAddress, pname, params);
+	}
+
+	/** Array version of: {@link #CGLGetVersion GetVersion} */
+	public static void CGLGetVersion(int[] majorvers, int[] minorvers) {
+		long __functionAddress = Functions.GetVersion;
+		if ( CHECKS ) {
+			checkBuffer(majorvers, 1);
+			checkBuffer(minorvers, 1);
+		}
+		callPPV(__functionAddress, majorvers, minorvers);
 	}
 
 }

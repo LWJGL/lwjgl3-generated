@@ -76,19 +76,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If {@code usage} includes {@link VK10#VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT}, {@link VK10#VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT}, {@link VK10#VK_IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT} or
  * {@link VK10#VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT}, {@code extent.height} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxFramebufferHeight}</li>
  * <li>If {@code usage} includes {@link VK10#VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT}, {@code samples} <b>must</b> be a bit value that is set in
- * {@link VkPhysicalDeviceLimits}{@code ::maxFramebufferColorSamples}</li>
+ * {@link VkPhysicalDeviceLimits}{@code ::framebufferColorSampleCounts}</li>
  * <li>If {@code usage} includes {@link VK10#VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT}, and {@code format} includes a depth aspect, {@code samples} <b>must</b> be a bit
- * value that is set in {@link VkPhysicalDeviceLimits}{@code ::maxFramebufferDepthSamples}</li>
+ * value that is set in {@link VkPhysicalDeviceLimits}{@code ::framebufferDepthSampleCounts}</li>
  * <li>If {@code usage} includes {@link VK10#VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT}, and {@code format} includes a stencil aspect, {@code samples} <b>must</b> be a bit
- * value that is set in {@link VkPhysicalDeviceLimits}{@code ::maxFramebufferStencilSamples}</li>
+ * value that is set in {@link VkPhysicalDeviceLimits}{@code ::framebufferStencilSampleCounts}</li>
  * <li>If {@code usage} includes {@link VK10#VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT}, and {@code format} includes a color aspect, {@code samples} <b>must</b> be a bit value that is set in
- * {@link VkPhysicalDeviceLimits}{@code ::maxSampledImageColorSamples}</li>
+ * {@link VkPhysicalDeviceLimits}{@code ::sampledImageColorSampleCounts}</li>
  * <li>If {@code usage} includes {@link VK10#VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT}, and {@code format} includes a depth aspect, {@code samples} <b>must</b> be a bit value that is set in
- * {@link VkPhysicalDeviceLimits}{@code ::maxSampledImageDepthSamples}</li>
+ * {@link VkPhysicalDeviceLimits}{@code ::sampledImageDepthSampleCounts}</li>
  * <li>If {@code usage} includes {@link VK10#VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT}, and {@code format} is an integer format, {@code samples} <b>must</b> be a bit value that is set in
- * {@link VkPhysicalDeviceLimits}{@code ::maxSampledImageIntegerSamples}</li>
+ * {@link VkPhysicalDeviceLimits}{@code ::sampledImageIntegerSampleCounts}</li>
  * <li>If {@code usage} includes {@link VK10#VK_IMAGE_USAGE_STORAGE_BIT IMAGE_USAGE_STORAGE_BIT}, {@code samples} <b>must</b> be a bit value that is set in
- * {@link VkPhysicalDeviceLimits}{@code ::maxStorageImageSamples}</li>
+ * {@link VkPhysicalDeviceLimits}{@code ::storageImageSampleCounts}</li>
  * <li>If the ETC2 texture compression feature is not enabled, {@code format} <b>must not</b> be {@link VK10#VK_FORMAT_ETC2_R8G8B8_UNORM_BLOCK FORMAT_ETC2_R8G8B8_UNORM_BLOCK}, {@link VK10#VK_FORMAT_ETC2_R8G8B8_SRGB_BLOCK FORMAT_ETC2_R8G8B8_SRGB_BLOCK},
  * {@link VK10#VK_FORMAT_ETC2_R8G8B8A1_UNORM_BLOCK FORMAT_ETC2_R8G8B8A1_UNORM_BLOCK}, {@link VK10#VK_FORMAT_ETC2_R8G8B8A1_SRGB_BLOCK FORMAT_ETC2_R8G8B8A1_SRGB_BLOCK}, {@link VK10#VK_FORMAT_ETC2_R8G8B8A8_UNORM_BLOCK FORMAT_ETC2_R8G8B8A8_UNORM_BLOCK}, {@link VK10#VK_FORMAT_ETC2_R8G8B8A8_SRGB_BLOCK FORMAT_ETC2_R8G8B8A8_SRGB_BLOCK},
  * {@link VK10#VK_FORMAT_EAC_R11_UNORM_BLOCK FORMAT_EAC_R11_UNORM_BLOCK}, {@link VK10#VK_FORMAT_EAC_R11_SNORM_BLOCK FORMAT_EAC_R11_SNORM_BLOCK}, {@link VK10#VK_FORMAT_EAC_R11G11_UNORM_BLOCK FORMAT_EAC_R11G11_UNORM_BLOCK}, or {@link VK10#VK_FORMAT_EAC_R11G11_SNORM_BLOCK FORMAT_EAC_R11G11_SNORM_BLOCK}</li>

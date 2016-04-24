@@ -80,7 +80,7 @@ public class NVDrawBuffers {
 		long __functionAddress = GLES.getCapabilities().glDrawBuffersNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, bufs);
+		callPV(__functionAddress, n, bufs);
 	}
 
 	public static void glDrawBuffersNV(IntBuffer bufs) {
@@ -95,6 +95,14 @@ public class NVDrawBuffers {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #glDrawBuffersNV DrawBuffersNV} */
+	public static void glDrawBuffersNV(int[] bufs) {
+		long __functionAddress = GLES.getCapabilities().glDrawBuffersNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, bufs.length, bufs);
 	}
 
 }

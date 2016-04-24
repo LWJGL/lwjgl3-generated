@@ -70,7 +70,7 @@ public class KHRStreamCrossProcessFD {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 		}
-		return callPIP(__functionAddress, dpy, file_descriptor);
+		return callPP(__functionAddress, dpy, file_descriptor);
 	}
 
 }

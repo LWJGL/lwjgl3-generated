@@ -92,7 +92,7 @@ public class KHRDebug {
 		long __functionAddress = EGL.getCapabilities().eglQueryDebugKHR;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIPI(__functionAddress, attribute, value);
+		return callPI(__functionAddress, attribute, value);
 	}
 
 	public static int eglQueryDebugKHR(int attribute, PointerBuffer value) {
@@ -111,7 +111,7 @@ public class KHRDebug {
 			checkPointer(object);
 			checkPointer(label);
 		}
-		return callPIPPI(__functionAddress, display, objectType, object, label);
+		return callPPPI(__functionAddress, display, objectType, object, label);
 	}
 
 }

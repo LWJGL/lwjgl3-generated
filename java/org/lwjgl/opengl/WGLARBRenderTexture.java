@@ -130,7 +130,7 @@ public class WGLARBRenderTexture {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(pbuffer);
 		}
-		return callPII(__functionAddress, pbuffer, buffer) != 0;
+		return callPI(__functionAddress, pbuffer, buffer) != 0;
 	}
 
 	// --- [ wglReleaseTexImageARB ] ---
@@ -148,7 +148,7 @@ public class WGLARBRenderTexture {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(pbuffer);
 		}
-		return callPII(__functionAddress, pbuffer, buffer) != 0;
+		return callPI(__functionAddress, pbuffer, buffer) != 0;
 	}
 
 	// --- [ wglSetPbufferAttribARB ] ---
@@ -178,6 +178,17 @@ public class WGLARBRenderTexture {
 		if ( CHECKS )
 			if ( attribList != null ) checkNT(attribList);
 		return nwglSetPbufferAttribARB(pbuffer, memAddressSafe(attribList)) != 0;
+	}
+
+	/** Array version of: {@link #wglSetPbufferAttribARB SetPbufferAttribARB} */
+	public static boolean wglSetPbufferAttribARB(long pbuffer, int[] attribList) {
+		long __functionAddress = GL.getCapabilitiesWGL().wglSetPbufferAttribARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(pbuffer);
+			if ( attribList != null ) checkNT(attribList);
+		}
+		return callPPI(__functionAddress, pbuffer, attribList) != 0;
 	}
 
 }

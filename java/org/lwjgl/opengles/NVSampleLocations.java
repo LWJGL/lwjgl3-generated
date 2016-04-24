@@ -67,7 +67,7 @@ public class NVSampleLocations {
 		long __functionAddress = GLES.getCapabilities().glFramebufferSampleLocationsfvNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, target, start, count, v);
+		callPV(__functionAddress, target, start, count, v);
 	}
 
 	public static void glFramebufferSampleLocationsfvNV(int target, int start, FloatBuffer v) {
@@ -80,7 +80,7 @@ public class NVSampleLocations {
 		long __functionAddress = GLES.getCapabilities().glNamedFramebufferSampleLocationsfvNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, framebuffer, start, count, v);
+		callPV(__functionAddress, framebuffer, start, count, v);
 	}
 
 	public static void glNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, FloatBuffer v) {
@@ -94,6 +94,22 @@ public class NVSampleLocations {
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
+	}
+
+	/** Array version of: {@link #glFramebufferSampleLocationsfvNV FramebufferSampleLocationsfvNV} */
+	public static void glFramebufferSampleLocationsfvNV(int target, int start, float[] v) {
+		long __functionAddress = GLES.getCapabilities().glFramebufferSampleLocationsfvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, target, start, v.length, v);
+	}
+
+	/** Array version of: {@link #glNamedFramebufferSampleLocationsfvNV NamedFramebufferSampleLocationsfvNV} */
+	public static void glNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, float[] v) {
+		long __functionAddress = GLES.getCapabilities().glNamedFramebufferSampleLocationsfvNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, framebuffer, start, v.length, v);
 	}
 
 }

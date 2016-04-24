@@ -138,7 +138,7 @@ public class GL15 {
 		long __functionAddress = GL.getCapabilities().glBindBuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, target, buffer);
+		callV(__functionAddress, target, buffer);
 	}
 
 	// --- [ glDeleteBuffers ] ---
@@ -155,7 +155,7 @@ public class GL15 {
 		long __functionAddress = GL.getCapabilities().glDeleteBuffers;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, buffers);
+		callPV(__functionAddress, n, buffers);
 	}
 
 	/**
@@ -198,7 +198,7 @@ public class GL15 {
 		long __functionAddress = GL.getCapabilities().glGenBuffers;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, buffers);
+		callPV(__functionAddress, n, buffers);
 	}
 
 	/**
@@ -241,7 +241,7 @@ public class GL15 {
 		long __functionAddress = GL.getCapabilities().glIsBuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIZ(__functionAddress, buffer);
+		return callZ(__functionAddress, buffer);
 	}
 
 	// --- [ glBufferData ] ---
@@ -279,7 +279,7 @@ public class GL15 {
 		long __functionAddress = GL.getCapabilities().glBufferData;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPPIV(__functionAddress, target, size, data, usage);
+		callPPV(__functionAddress, target, size, data, usage);
 	}
 
 	/**
@@ -314,27 +314,47 @@ public class GL15 {
 		nglBufferData(target, size, NULL, usage);
 	}
 
-	/** ByteBuffer version of: {@link #glBufferData BufferData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ByteBuffer version of: {@link #glBufferData BufferData}
+	 */
 	public static void glBufferData(int target, ByteBuffer data, int usage) {
-		nglBufferData(target, data.remaining(), memAddress(data), usage);
+		nglBufferData(target, (long)data.remaining(), memAddress(data), usage);
 	}
 
-	/** ShortBuffer version of: {@link #glBufferData BufferData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glBufferData BufferData}
+	 */
 	public static void glBufferData(int target, ShortBuffer data, int usage) {
 		nglBufferData(target, data.remaining() << 1, memAddress(data), usage);
 	}
 
-	/** IntBuffer version of: {@link #glBufferData BufferData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glBufferData BufferData}
+	 */
 	public static void glBufferData(int target, IntBuffer data, int usage) {
 		nglBufferData(target, data.remaining() << 2, memAddress(data), usage);
 	}
 
-	/** FloatBuffer version of: {@link #glBufferData BufferData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glBufferData BufferData}
+	 */
 	public static void glBufferData(int target, FloatBuffer data, int usage) {
 		nglBufferData(target, data.remaining() << 2, memAddress(data), usage);
 	}
 
-	/** DoubleBuffer version of: {@link #glBufferData BufferData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * DoubleBuffer version of: {@link #glBufferData BufferData}
+	 */
 	public static void glBufferData(int target, DoubleBuffer data, int usage) {
 		nglBufferData(target, data.remaining() << 3, memAddress(data), usage);
 	}
@@ -355,7 +375,7 @@ public class GL15 {
 		long __functionAddress = GL.getCapabilities().glBufferSubData;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPPPV(__functionAddress, target, offset, size, data);
+		callPPPV(__functionAddress, target, offset, size, data);
 	}
 
 	/**
@@ -368,25 +388,41 @@ public class GL15 {
 	 * @param data   a pointer to the new data that will be copied into the data store
 	 */
 	public static void glBufferSubData(int target, long offset, ByteBuffer data) {
-		nglBufferSubData(target, offset, data.remaining(), memAddress(data));
+		nglBufferSubData(target, offset, (long)data.remaining(), memAddress(data));
 	}
 
-	/** ShortBuffer version of: {@link #glBufferSubData BufferSubData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glBufferSubData BufferSubData}
+	 */
 	public static void glBufferSubData(int target, long offset, ShortBuffer data) {
 		nglBufferSubData(target, offset, data.remaining() << 1, memAddress(data));
 	}
 
-	/** IntBuffer version of: {@link #glBufferSubData BufferSubData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glBufferSubData BufferSubData}
+	 */
 	public static void glBufferSubData(int target, long offset, IntBuffer data) {
 		nglBufferSubData(target, offset, data.remaining() << 2, memAddress(data));
 	}
 
-	/** FloatBuffer version of: {@link #glBufferSubData BufferSubData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glBufferSubData BufferSubData}
+	 */
 	public static void glBufferSubData(int target, long offset, FloatBuffer data) {
 		nglBufferSubData(target, offset, data.remaining() << 2, memAddress(data));
 	}
 
-	/** DoubleBuffer version of: {@link #glBufferSubData BufferSubData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * DoubleBuffer version of: {@link #glBufferSubData BufferSubData}
+	 */
 	public static void glBufferSubData(int target, long offset, DoubleBuffer data) {
 		nglBufferSubData(target, offset, data.remaining() << 3, memAddress(data));
 	}
@@ -407,7 +443,7 @@ public class GL15 {
 		long __functionAddress = GL.getCapabilities().glGetBufferSubData;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPPPV(__functionAddress, target, offset, size, data);
+		callPPPV(__functionAddress, target, offset, size, data);
 	}
 
 	/**
@@ -420,25 +456,41 @@ public class GL15 {
 	 * @param data   a pointer to the location where buffer object data is returned
 	 */
 	public static void glGetBufferSubData(int target, long offset, ByteBuffer data) {
-		nglGetBufferSubData(target, offset, data.remaining(), memAddress(data));
+		nglGetBufferSubData(target, offset, (long)data.remaining(), memAddress(data));
 	}
 
-	/** ShortBuffer version of: {@link #glGetBufferSubData GetBufferSubData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glGetBufferSubData GetBufferSubData}
+	 */
 	public static void glGetBufferSubData(int target, long offset, ShortBuffer data) {
 		nglGetBufferSubData(target, offset, data.remaining() << 1, memAddress(data));
 	}
 
-	/** IntBuffer version of: {@link #glGetBufferSubData GetBufferSubData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glGetBufferSubData GetBufferSubData}
+	 */
 	public static void glGetBufferSubData(int target, long offset, IntBuffer data) {
 		nglGetBufferSubData(target, offset, data.remaining() << 2, memAddress(data));
 	}
 
-	/** FloatBuffer version of: {@link #glGetBufferSubData GetBufferSubData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glGetBufferSubData GetBufferSubData}
+	 */
 	public static void glGetBufferSubData(int target, long offset, FloatBuffer data) {
 		nglGetBufferSubData(target, offset, data.remaining() << 2, memAddress(data));
 	}
 
-	/** DoubleBuffer version of: {@link #glGetBufferSubData GetBufferSubData} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * DoubleBuffer version of: {@link #glGetBufferSubData GetBufferSubData}
+	 */
 	public static void glGetBufferSubData(int target, long offset, DoubleBuffer data) {
 		nglGetBufferSubData(target, offset, data.remaining() << 3, memAddress(data));
 	}
@@ -465,7 +517,7 @@ public class GL15 {
 		long __functionAddress = GL.getCapabilities().glMapBuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIIP(__functionAddress, target, access);
+		return callP(__functionAddress, target, access);
 	}
 
 	/**
@@ -550,7 +602,7 @@ public class GL15 {
 		long __functionAddress = GL.getCapabilities().glUnmapBuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIZ(__functionAddress, target);
+		return callZ(__functionAddress, target);
 	}
 
 	// --- [ glGetBufferParameteriv ] ---
@@ -568,7 +620,7 @@ public class GL15 {
 		long __functionAddress = GL.getCapabilities().glGetBufferParameteriv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -620,7 +672,7 @@ public class GL15 {
 		long __functionAddress = GL.getCapabilities().glGetBufferPointerv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -671,7 +723,7 @@ public class GL15 {
 		long __functionAddress = GL.getCapabilities().glGenQueries;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, ids);
+		callPV(__functionAddress, n, ids);
 	}
 
 	/**
@@ -715,7 +767,7 @@ public class GL15 {
 		long __functionAddress = GL.getCapabilities().glDeleteQueries;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, ids);
+		callPV(__functionAddress, n, ids);
 	}
 
 	/**
@@ -757,7 +809,7 @@ public class GL15 {
 		long __functionAddress = GL.getCapabilities().glIsQuery;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIZ(__functionAddress, id);
+		return callZ(__functionAddress, id);
 	}
 
 	// --- [ glBeginQuery ] ---
@@ -774,7 +826,7 @@ public class GL15 {
 		long __functionAddress = GL.getCapabilities().glBeginQuery;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, target, id);
+		callV(__functionAddress, target, id);
 	}
 
 	// --- [ glEndQuery ] ---
@@ -790,7 +842,7 @@ public class GL15 {
 		long __functionAddress = GL.getCapabilities().glEndQuery;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, target);
+		callV(__functionAddress, target);
 	}
 
 	// --- [ glGetQueryiv ] ---
@@ -808,7 +860,7 @@ public class GL15 {
 		long __functionAddress = GL.getCapabilities().glGetQueryiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -860,7 +912,7 @@ public class GL15 {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjectiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, id, pname, params);
+		callPV(__functionAddress, id, pname, params);
 	}
 
 	/**
@@ -912,7 +964,7 @@ public class GL15 {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjectuiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, id, pname, params);
+		callPV(__functionAddress, id, pname, params);
 	}
 
 	/**
@@ -947,6 +999,254 @@ public class GL15 {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteBuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glDeleteBuffers DeleteBuffers}
+	 */
+	public static void glDeleteBuffers(int[] buffers) {
+		long __functionAddress = GL.getCapabilities().glDeleteBuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, buffers.length, buffers);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenBuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGenBuffers GenBuffers}
+	 */
+	public static void glGenBuffers(int[] buffers) {
+		long __functionAddress = GL.getCapabilities().glGenBuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, buffers.length, buffers);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glBufferData BufferData}
+	 */
+	public static void glBufferData(int target, short[] data, int usage) {
+		long __functionAddress = GL.getCapabilities().glBufferData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, target, (long)(data.length << 1), data, usage);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glBufferData BufferData}
+	 */
+	public static void glBufferData(int target, int[] data, int usage) {
+		long __functionAddress = GL.getCapabilities().glBufferData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, target, (long)(data.length << 2), data, usage);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glBufferData BufferData}
+	 */
+	public static void glBufferData(int target, float[] data, int usage) {
+		long __functionAddress = GL.getCapabilities().glBufferData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, target, (long)(data.length << 2), data, usage);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBufferData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * double[] version of: {@link #glBufferData BufferData}
+	 */
+	public static void glBufferData(int target, double[] data, int usage) {
+		long __functionAddress = GL.getCapabilities().glBufferData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, target, (long)(data.length << 3), data, usage);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glBufferSubData BufferSubData}
+	 */
+	public static void glBufferSubData(int target, long offset, short[] data) {
+		long __functionAddress = GL.getCapabilities().glBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, target, offset, (long)(data.length << 1), data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glBufferSubData BufferSubData}
+	 */
+	public static void glBufferSubData(int target, long offset, int[] data) {
+		long __functionAddress = GL.getCapabilities().glBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glBufferSubData BufferSubData}
+	 */
+	public static void glBufferSubData(int target, long offset, float[] data) {
+		long __functionAddress = GL.getCapabilities().glBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * double[] version of: {@link #glBufferSubData BufferSubData}
+	 */
+	public static void glBufferSubData(int target, long offset, double[] data) {
+		long __functionAddress = GL.getCapabilities().glBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, target, offset, (long)(data.length << 3), data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glGetBufferSubData GetBufferSubData}
+	 */
+	public static void glGetBufferSubData(int target, long offset, short[] data) {
+		long __functionAddress = GL.getCapabilities().glGetBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, target, offset, (long)(data.length << 1), data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glGetBufferSubData GetBufferSubData}
+	 */
+	public static void glGetBufferSubData(int target, long offset, int[] data) {
+		long __functionAddress = GL.getCapabilities().glGetBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glGetBufferSubData GetBufferSubData}
+	 */
+	public static void glGetBufferSubData(int target, long offset, float[] data) {
+		long __functionAddress = GL.getCapabilities().glGetBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetBufferSubData.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * double[] version of: {@link #glGetBufferSubData GetBufferSubData}
+	 */
+	public static void glGetBufferSubData(int target, long offset, double[] data) {
+		long __functionAddress = GL.getCapabilities().glGetBufferSubData;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, target, offset, (long)(data.length << 3), data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetBufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetBufferParameteriv GetBufferParameteriv}
+	 */
+	public static void glGetBufferParameteriv(int target, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetBufferParameteriv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, target, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenQueries.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGenQueries GenQueries}
+	 */
+	public static void glGenQueries(int[] ids) {
+		long __functionAddress = GL.getCapabilities().glGenQueries;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, ids.length, ids);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteQueries.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glDeleteQueries DeleteQueries}
+	 */
+	public static void glDeleteQueries(int[] ids) {
+		long __functionAddress = GL.getCapabilities().glDeleteQueries;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, ids.length, ids);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQuery.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetQueryiv GetQueryiv}
+	 */
+	public static void glGetQueryiv(int target, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetQueryiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, target, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryObject.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetQueryObjectiv GetQueryObjectiv}
+	 */
+	public static void glGetQueryObjectiv(int id, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetQueryObjectiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, id, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryObject.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetQueryObjectuiv GetQueryObjectuiv}
+	 */
+	public static void glGetQueryObjectuiv(int id, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetQueryObjectuiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, id, pname, params);
 	}
 
 }

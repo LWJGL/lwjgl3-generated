@@ -109,7 +109,7 @@ public class ARBShadingLanguageInclude {
 		long __functionAddress = GL.getCapabilities().glNamedStringARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPIPV(__functionAddress, type, namelen, name, stringlen, string);
+		callPPV(__functionAddress, type, namelen, name, stringlen, string);
 	}
 
 	/**
@@ -161,7 +161,7 @@ public class ARBShadingLanguageInclude {
 		long __functionAddress = GL.getCapabilities().glDeleteNamedStringARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, namelen, name);
+		callPV(__functionAddress, namelen, name);
 	}
 
 	/**
@@ -207,7 +207,7 @@ public class ARBShadingLanguageInclude {
 		long __functionAddress = GL.getCapabilities().glCompileShaderIncludeARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPPV(__functionAddress, shader, count, path, length);
+		callPPV(__functionAddress, shader, count, path, length);
 	}
 
 	/**
@@ -240,7 +240,7 @@ public class ARBShadingLanguageInclude {
 		long __functionAddress = GL.getCapabilities().glIsNamedStringARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIPZ(__functionAddress, namelen, name);
+		return callPZ(__functionAddress, namelen, name);
 	}
 
 	/**
@@ -286,7 +286,7 @@ public class ARBShadingLanguageInclude {
 		long __functionAddress = GL.getCapabilities().glGetNamedStringARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPIPPV(__functionAddress, namelen, name, bufSize, stringlen, string);
+		callPPPV(__functionAddress, namelen, name, bufSize, stringlen, string);
 	}
 
 	/**
@@ -378,7 +378,7 @@ public class ARBShadingLanguageInclude {
 		long __functionAddress = GL.getCapabilities().glGetNamedStringivARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPIPV(__functionAddress, namelen, name, pname, params);
+		callPPV(__functionAddress, namelen, name, pname, params);
 	}
 
 	/**
@@ -428,6 +428,70 @@ public class ARBShadingLanguageInclude {
 			IntBuffer params = stack.callocInt(1);
 			nglGetNamedStringivARB(nameEncodedLen, memAddress(nameEncoded), pname, memAddress(params));
 			return params.get(0);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
+	/** Array version of: {@link #glCompileShaderIncludeARB CompileShaderIncludeARB} */
+	public static void glCompileShaderIncludeARB(int shader, PointerBuffer path, int[] length) {
+		long __functionAddress = GL.getCapabilities().glCompileShaderIncludeARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( length != null ) checkBuffer(length, path.remaining());
+		}
+		callPPV(__functionAddress, shader, path.remaining(), memAddress(path), length);
+	}
+
+	/** Array version of: {@link #glGetNamedStringARB GetNamedStringARB} */
+	public static void glGetNamedStringARB(ByteBuffer name, int[] stringlen, ByteBuffer string) {
+		long __functionAddress = GL.getCapabilities().glGetNamedStringARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( stringlen != null ) checkBuffer(stringlen, 1);
+		}
+		callPPPV(__functionAddress, name.remaining(), memAddress(name), string.remaining(), stringlen, memAddress(string));
+	}
+
+	/** Array version of: {@link #glGetNamedStringARB GetNamedStringARB} */
+	public static void glGetNamedStringARB(CharSequence name, int[] stringlen, ByteBuffer string) {
+		long __functionAddress = GL.getCapabilities().glGetNamedStringARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( stringlen != null ) checkBuffer(stringlen, 1);
+		}
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name, false);
+			int nameEncodedLen = nameEncoded.capacity();
+			callPPPV(__functionAddress, nameEncodedLen, memAddress(nameEncoded), string.remaining(), stringlen, memAddress(string));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
+	/** Array version of: {@link #glGetNamedStringivARB GetNamedStringivARB} */
+	public static void glGetNamedStringivARB(ByteBuffer name, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetNamedStringivARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPPV(__functionAddress, name.remaining(), memAddress(name), pname, params);
+	}
+
+	/** Array version of: {@link #glGetNamedStringivARB GetNamedStringivARB} */
+	public static void glGetNamedStringivARB(CharSequence name, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetNamedStringivARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer nameEncoded = stack.ASCII(name, false);
+			int nameEncodedLen = nameEncoded.capacity();
+			callPPV(__functionAddress, nameEncodedLen, memAddress(nameEncoded), pname, params);
 		} finally {
 			stack.setPointer(stackPointer);
 		}

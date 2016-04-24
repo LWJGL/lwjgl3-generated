@@ -47,7 +47,7 @@ public class GLXSGIXSwapBarrier {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
-		callPPIV(__functionAddress, display, drawable, barrier);
+		callPPV(__functionAddress, display, drawable, barrier);
 	}
 
 	// --- [ glXQueryMaxSwapBarriersSGIX ] ---
@@ -65,7 +65,7 @@ public class GLXSGIXSwapBarrier {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 		}
-		return callPIPI(__functionAddress, display, screen, max);
+		return callPPI(__functionAddress, display, screen, max);
 	}
 
 	/**
@@ -79,6 +79,17 @@ public class GLXSGIXSwapBarrier {
 		if ( CHECKS )
 			checkBuffer(max, 1);
 		return nglXQueryMaxSwapBarriersSGIX(display, screen, memAddress(max));
+	}
+
+	/** Array version of: {@link #glXQueryMaxSwapBarriersSGIX QueryMaxSwapBarriersSGIX} */
+	public static int glXQueryMaxSwapBarriersSGIX(long display, int screen, int[] max) {
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryMaxSwapBarriersSGIX;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(display);
+			checkBuffer(max, 1);
+		}
+		return callPPI(__functionAddress, display, screen, max);
 	}
 
 }

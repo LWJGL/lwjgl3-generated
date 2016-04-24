@@ -67,7 +67,7 @@ typedef struct {
 		long __functionAddress = GL.getCapabilities().glMultiDrawArraysIndirectBindlessNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPIIIV(__functionAddress, mode, indirect, drawCount, stride, vertexBufferCount);
+		callPV(__functionAddress, mode, indirect, drawCount, stride, vertexBufferCount);
 	}
 
 	/**
@@ -127,7 +127,7 @@ typedef struct {
 		long __functionAddress = GL.getCapabilities().glMultiDrawElementsIndirectBindlessNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPIIIV(__functionAddress, mode, type, indirect, drawCount, stride, vertexBufferCount);
+		callPV(__functionAddress, mode, type, indirect, drawCount, stride, vertexBufferCount);
 	}
 
 	/**

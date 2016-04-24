@@ -53,4 +53,17 @@ public class KHRStreamProducerEGLSurface {
 		return neglCreateStreamProducerSurfaceKHR(dpy, config, stream, memAddressSafe(attrib_list));
 	}
 
+	/** Array version of: {@link #eglCreateStreamProducerSurfaceKHR CreateStreamProducerSurfaceKHR} */
+	public static long eglCreateStreamProducerSurfaceKHR(long dpy, long config, long stream, int[] attrib_list) {
+		long __functionAddress = EGL.getCapabilities().eglCreateStreamProducerSurfaceKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			checkPointer(config);
+			checkPointer(stream);
+			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+		}
+		return callPPPPP(__functionAddress, dpy, config, stream, attrib_list);
+	}
+
 }

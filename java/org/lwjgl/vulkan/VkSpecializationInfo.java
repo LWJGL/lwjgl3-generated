@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * structures</li>
  * <li>If {@code dataSize} is not 0, {@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
  * <li>The {@code offset} member of any given element of {@code pMapEntries} <b>must</b> be less than {@code dataSize}</li>
- * <li>For any given element of {@code pMapEntries}, {@code size} must be less than or equal to {@code dataSize} minus {@code offset}</li>
+ * <li>For any given element of {@code pMapEntries}, {@code size} <b>must</b> be less than or equal to {@code dataSize} minus {@code offset}</li>
  * </ul>
  * 
  * <h3>Member documentation</h3>

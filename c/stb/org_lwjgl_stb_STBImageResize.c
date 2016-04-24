@@ -25,7 +25,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageResize_nstbir_1resize_1uint8(J
 	return (jint)stbir_resize_uint8(input_pixels, input_w, input_h, input_stride_in_bytes, output_pixels, output_w, output_h, output_stride_in_bytes, num_channels);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageResize_nstbir_1resize_1float(JNIEnv *__env, jclass clazz, jlong input_pixelsAddress, jint input_w, jint input_h, jint input_stride_in_bytes, jlong output_pixelsAddress, jint output_w, jint output_h, jint output_stride_in_bytes, jint num_channels) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageResize_nstbir_1resize_1float__JIIIJIIII(JNIEnv *__env, jclass clazz, jlong input_pixelsAddress, jint input_w, jint input_h, jint input_stride_in_bytes, jlong output_pixelsAddress, jint output_w, jint output_h, jint output_stride_in_bytes, jint num_channels) {
 	const float *input_pixels = (const float *)(intptr_t)input_pixelsAddress;
 	float *output_pixels = (float *)(intptr_t)output_pixelsAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -54,7 +54,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageResize_nstbir_1resize_1uint8_1
 	return (jint)stbir_resize_uint8_generic(input_pixels, input_w, input_h, input_stride_in_bytes, output_pixels, output_w, output_h, output_stride_in_bytes, num_channels, alpha_channel, flags, edge_wrap_mode, filter, space, alloc_context);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageResize_nstbir_1resize_1uint16_1generic(JNIEnv *__env, jclass clazz, jlong input_pixelsAddress, jint input_w, jint input_h, jint input_stride_in_bytes, jlong output_pixelsAddress, jint output_w, jint output_h, jint output_stride_in_bytes, jint num_channels, jint alpha_channel, jint flags, jint edge_wrap_mode, jint filter, jint space, jlong alloc_contextAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageResize_nstbir_1resize_1uint16_1generic__JIIIJIIIIIIIIIJ(JNIEnv *__env, jclass clazz, jlong input_pixelsAddress, jint input_w, jint input_h, jint input_stride_in_bytes, jlong output_pixelsAddress, jint output_w, jint output_h, jint output_stride_in_bytes, jint num_channels, jint alpha_channel, jint flags, jint edge_wrap_mode, jint filter, jint space, jlong alloc_contextAddress) {
 	const stbir_uint16 *input_pixels = (const stbir_uint16 *)(intptr_t)input_pixelsAddress;
 	stbir_uint16 *output_pixels = (stbir_uint16 *)(intptr_t)output_pixelsAddress;
 	void *alloc_context = (void *)(intptr_t)alloc_contextAddress;
@@ -62,7 +62,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageResize_nstbir_1resize_1uint16_
 	return (jint)stbir_resize_uint16_generic(input_pixels, input_w, input_h, input_stride_in_bytes, output_pixels, output_w, output_h, output_stride_in_bytes, num_channels, alpha_channel, flags, edge_wrap_mode, filter, space, alloc_context);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageResize_nstbir_1resize_1float_1generic(JNIEnv *__env, jclass clazz, jlong input_pixelsAddress, jint input_w, jint input_h, jint input_stride_in_bytes, jlong output_pixelsAddress, jint output_w, jint output_h, jint output_stride_in_bytes, jint num_channels, jint alpha_channel, jint flags, jint edge_wrap_mode, jint filter, jint space, jlong alloc_contextAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageResize_nstbir_1resize_1float_1generic__JIIIJIIIIIIIIIJ(JNIEnv *__env, jclass clazz, jlong input_pixelsAddress, jint input_w, jint input_h, jint input_stride_in_bytes, jlong output_pixelsAddress, jint output_w, jint output_h, jint output_stride_in_bytes, jint num_channels, jint alpha_channel, jint flags, jint edge_wrap_mode, jint filter, jint space, jlong alloc_contextAddress) {
 	const float *input_pixels = (const float *)(intptr_t)input_pixelsAddress;
 	float *output_pixels = (float *)(intptr_t)output_pixelsAddress;
 	void *alloc_context = (void *)(intptr_t)alloc_contextAddress;
@@ -92,6 +92,58 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageResize_nstbir_1resize_1region(
 	void *alloc_context = (void *)(intptr_t)alloc_contextAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)stbir_resize_region(input_pixels, input_w, input_h, input_stride_in_bytes, output_pixels, output_w, output_h, output_stride_in_bytes, datatype, num_channels, alpha_channel, flags, edge_mode_horizontal, edge_mode_vertical, filter_horizontal, filter_vertical, space, alloc_context, s0, t0, s1, t1);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageResize_nstbir_1resize_1float___3FIII_3FIIII(JNIEnv *__env, jclass clazz, jfloatArray input_pixelsAddress, jint input_w, jint input_h, jint input_stride_in_bytes, jfloatArray output_pixelsAddress, jint output_w, jint output_h, jint output_stride_in_bytes, jint num_channels) {
+	jint __result;
+	jfloat *input_pixels = (*__env)->GetPrimitiveArrayCritical(__env, input_pixelsAddress, 0);
+	jfloat *output_pixels = (*__env)->GetPrimitiveArrayCritical(__env, output_pixelsAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	__result = (jint)stbir_resize_float((float*)input_pixels, input_w, input_h, input_stride_in_bytes, (float*)output_pixels, output_w, output_h, output_stride_in_bytes, num_channels);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, output_pixelsAddress, output_pixels, 0);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, input_pixelsAddress, input_pixels, 0);
+	return __result;
+}
+JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBImageResize_nstbir_1resize_1float___3FIII_3FIIII(jint input_pixels__length, jfloat* input_pixels, jint input_w, jint input_h, jint input_stride_in_bytes, jint output_pixels__length, jfloat* output_pixels, jint output_w, jint output_h, jint output_stride_in_bytes, jint num_channels) {
+	UNUSED_PARAM(input_pixels__length)
+	UNUSED_PARAM(output_pixels__length)
+	return (jint)stbir_resize_float((float*)input_pixels, input_w, input_h, input_stride_in_bytes, (float*)output_pixels, output_w, output_h, output_stride_in_bytes, num_channels);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageResize_nstbir_1resize_1uint16_1generic___3SIII_3SIIIIIIIIIJ(JNIEnv *__env, jclass clazz, jshortArray input_pixelsAddress, jint input_w, jint input_h, jint input_stride_in_bytes, jshortArray output_pixelsAddress, jint output_w, jint output_h, jint output_stride_in_bytes, jint num_channels, jint alpha_channel, jint flags, jint edge_wrap_mode, jint filter, jint space, jlong alloc_contextAddress) {
+	void *alloc_context = (void *)(intptr_t)alloc_contextAddress;
+	jint __result;
+	jshort *input_pixels = (*__env)->GetPrimitiveArrayCritical(__env, input_pixelsAddress, 0);
+	jshort *output_pixels = (*__env)->GetPrimitiveArrayCritical(__env, output_pixelsAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	__result = (jint)stbir_resize_uint16_generic((stbir_uint16*)input_pixels, input_w, input_h, input_stride_in_bytes, (stbir_uint16*)output_pixels, output_w, output_h, output_stride_in_bytes, num_channels, alpha_channel, flags, edge_wrap_mode, filter, space, alloc_context);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, output_pixelsAddress, output_pixels, 0);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, input_pixelsAddress, input_pixels, 0);
+	return __result;
+}
+JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBImageResize_nstbir_1resize_1uint16_1generic___3SIII_3SIIIIIIIIIJ(jint input_pixels__length, jshort* input_pixels, jint input_w, jint input_h, jint input_stride_in_bytes, jint output_pixels__length, jshort* output_pixels, jint output_w, jint output_h, jint output_stride_in_bytes, jint num_channels, jint alpha_channel, jint flags, jint edge_wrap_mode, jint filter, jint space, jlong alloc_contextAddress) {
+	void *alloc_context = (void *)(intptr_t)alloc_contextAddress;
+	UNUSED_PARAM(input_pixels__length)
+	UNUSED_PARAM(output_pixels__length)
+	return (jint)stbir_resize_uint16_generic((stbir_uint16*)input_pixels, input_w, input_h, input_stride_in_bytes, (stbir_uint16*)output_pixels, output_w, output_h, output_stride_in_bytes, num_channels, alpha_channel, flags, edge_wrap_mode, filter, space, alloc_context);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageResize_nstbir_1resize_1float_1generic___3FIII_3FIIIIIIIIIJ(JNIEnv *__env, jclass clazz, jfloatArray input_pixelsAddress, jint input_w, jint input_h, jint input_stride_in_bytes, jfloatArray output_pixelsAddress, jint output_w, jint output_h, jint output_stride_in_bytes, jint num_channels, jint alpha_channel, jint flags, jint edge_wrap_mode, jint filter, jint space, jlong alloc_contextAddress) {
+	void *alloc_context = (void *)(intptr_t)alloc_contextAddress;
+	jint __result;
+	jfloat *input_pixels = (*__env)->GetPrimitiveArrayCritical(__env, input_pixelsAddress, 0);
+	jfloat *output_pixels = (*__env)->GetPrimitiveArrayCritical(__env, output_pixelsAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	__result = (jint)stbir_resize_float_generic((float*)input_pixels, input_w, input_h, input_stride_in_bytes, (float*)output_pixels, output_w, output_h, output_stride_in_bytes, num_channels, alpha_channel, flags, edge_wrap_mode, filter, space, alloc_context);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, output_pixelsAddress, output_pixels, 0);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, input_pixelsAddress, input_pixels, 0);
+	return __result;
+}
+JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBImageResize_nstbir_1resize_1float_1generic___3FIII_3FIIIIIIIIIJ(jint input_pixels__length, jfloat* input_pixels, jint input_w, jint input_h, jint input_stride_in_bytes, jint output_pixels__length, jfloat* output_pixels, jint output_w, jint output_h, jint output_stride_in_bytes, jint num_channels, jint alpha_channel, jint flags, jint edge_wrap_mode, jint filter, jint space, jlong alloc_contextAddress) {
+	void *alloc_context = (void *)(intptr_t)alloc_contextAddress;
+	UNUSED_PARAM(input_pixels__length)
+	UNUSED_PARAM(output_pixels__length)
+	return (jint)stbir_resize_float_generic((float*)input_pixels, input_w, input_h, input_stride_in_bytes, (float*)output_pixels, output_w, output_h, output_stride_in_bytes, num_channels, alpha_channel, flags, edge_wrap_mode, filter, space, alloc_context);
 }
 
 EXTERN_C_EXIT

@@ -57,7 +57,7 @@ public class WGLNVGPUAffinity {
 		long __functionAddress = GL.getCapabilitiesWGL().wglEnumGpusNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIPI(__functionAddress, gpuIndex, gpu);
+		return callPI(__functionAddress, gpuIndex, gpu);
 	}
 
 	/**
@@ -89,7 +89,7 @@ public class WGLNVGPUAffinity {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(gpu);
 		}
-		return callPIPI(__functionAddress, gpu, deviceIndex, gpuDevice);
+		return callPPI(__functionAddress, gpu, deviceIndex, gpuDevice);
 	}
 
 	/**
@@ -157,7 +157,7 @@ public class WGLNVGPUAffinity {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(affinityDC);
 		}
-		return callPIPI(__functionAddress, affinityDC, gpuIndex, gpu);
+		return callPPI(__functionAddress, affinityDC, gpuIndex, gpu);
 	}
 
 	/**

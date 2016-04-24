@@ -113,7 +113,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glUniform1i64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIJV(__functionAddress, location, x);
+		callJV(__functionAddress, location, x);
 	}
 
 	// --- [ glUniform2i64NV ] ---
@@ -122,7 +122,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glUniform2i64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIJJV(__functionAddress, location, x, y);
+		callJJV(__functionAddress, location, x, y);
 	}
 
 	// --- [ glUniform3i64NV ] ---
@@ -131,7 +131,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glUniform3i64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIJJJV(__functionAddress, location, x, y, z);
+		callJJJV(__functionAddress, location, x, y, z);
 	}
 
 	// --- [ glUniform4i64NV ] ---
@@ -140,7 +140,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glUniform4i64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIJJJJV(__functionAddress, location, x, y, z, w);
+		callJJJJV(__functionAddress, location, x, y, z, w);
 	}
 
 	// --- [ glUniform1i64vNV ] ---
@@ -149,7 +149,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glUniform1i64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, location, count, value);
+		callPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform1i64vNV(int location, LongBuffer value) {
@@ -162,7 +162,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glUniform2i64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, location, count, value);
+		callPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform2i64vNV(int location, LongBuffer value) {
@@ -175,7 +175,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glUniform3i64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, location, count, value);
+		callPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform3i64vNV(int location, LongBuffer value) {
@@ -188,7 +188,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glUniform4i64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, location, count, value);
+		callPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform4i64vNV(int location, LongBuffer value) {
@@ -201,7 +201,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glUniform1ui64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIJV(__functionAddress, location, x);
+		callJV(__functionAddress, location, x);
 	}
 
 	// --- [ glUniform2ui64NV ] ---
@@ -210,7 +210,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glUniform2ui64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIJJV(__functionAddress, location, x, y);
+		callJJV(__functionAddress, location, x, y);
 	}
 
 	// --- [ glUniform3ui64NV ] ---
@@ -219,7 +219,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glUniform3ui64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIJJJV(__functionAddress, location, x, y, z);
+		callJJJV(__functionAddress, location, x, y, z);
 	}
 
 	// --- [ glUniform4ui64NV ] ---
@@ -228,7 +228,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glUniform4ui64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIJJJJV(__functionAddress, location, x, y, z, w);
+		callJJJJV(__functionAddress, location, x, y, z, w);
 	}
 
 	// --- [ glUniform1ui64vNV ] ---
@@ -237,7 +237,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glUniform1ui64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, location, count, value);
+		callPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform1ui64vNV(int location, LongBuffer value) {
@@ -250,7 +250,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glUniform2ui64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, location, count, value);
+		callPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform2ui64vNV(int location, LongBuffer value) {
@@ -263,7 +263,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glUniform3ui64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, location, count, value);
+		callPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform3ui64vNV(int location, LongBuffer value) {
@@ -276,7 +276,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glUniform4ui64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, location, count, value);
+		callPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform4ui64vNV(int location, LongBuffer value) {
@@ -289,7 +289,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glGetUniformi64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, program, location, params);
+		callPV(__functionAddress, program, location, params);
 	}
 
 	public static void glGetUniformi64vNV(int program, int location, LongBuffer params) {
@@ -315,7 +315,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glGetUniformui64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, program, location, params);
+		callPV(__functionAddress, program, location, params);
 	}
 
 	public static void glGetUniformui64vNV(int program, int location, LongBuffer params) {
@@ -341,7 +341,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform1i64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIJV(__functionAddress, program, location, x);
+		callJV(__functionAddress, program, location, x);
 	}
 
 	// --- [ glProgramUniform2i64NV ] ---
@@ -350,7 +350,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform2i64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIJJV(__functionAddress, program, location, x, y);
+		callJJV(__functionAddress, program, location, x, y);
 	}
 
 	// --- [ glProgramUniform3i64NV ] ---
@@ -359,7 +359,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform3i64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIJJJV(__functionAddress, program, location, x, y, z);
+		callJJJV(__functionAddress, program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform4i64NV ] ---
@@ -368,7 +368,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform4i64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIJJJJV(__functionAddress, program, location, x, y, z, w);
+		callJJJJV(__functionAddress, program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform1i64vNV ] ---
@@ -377,7 +377,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform1i64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, location, count, value);
+		callPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform1i64vNV(int program, int location, LongBuffer value) {
@@ -390,7 +390,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform2i64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, location, count, value);
+		callPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform2i64vNV(int program, int location, LongBuffer value) {
@@ -403,7 +403,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform3i64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, location, count, value);
+		callPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform3i64vNV(int program, int location, LongBuffer value) {
@@ -416,7 +416,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform4i64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, location, count, value);
+		callPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform4i64vNV(int program, int location, LongBuffer value) {
@@ -429,7 +429,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform1ui64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIJV(__functionAddress, program, location, x);
+		callJV(__functionAddress, program, location, x);
 	}
 
 	// --- [ glProgramUniform2ui64NV ] ---
@@ -438,7 +438,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform2ui64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIJJV(__functionAddress, program, location, x, y);
+		callJJV(__functionAddress, program, location, x, y);
 	}
 
 	// --- [ glProgramUniform3ui64NV ] ---
@@ -447,7 +447,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform3ui64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIJJJV(__functionAddress, program, location, x, y, z);
+		callJJJV(__functionAddress, program, location, x, y, z);
 	}
 
 	// --- [ glProgramUniform4ui64NV ] ---
@@ -456,7 +456,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform4ui64NV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIJJJJV(__functionAddress, program, location, x, y, z, w);
+		callJJJJV(__functionAddress, program, location, x, y, z, w);
 	}
 
 	// --- [ glProgramUniform1ui64vNV ] ---
@@ -465,7 +465,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform1ui64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, location, count, value);
+		callPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform1ui64vNV(int program, int location, LongBuffer value) {
@@ -478,7 +478,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform2ui64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, location, count, value);
+		callPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform2ui64vNV(int program, int location, LongBuffer value) {
@@ -491,7 +491,7 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform3ui64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, location, count, value);
+		callPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform3ui64vNV(int program, int location, LongBuffer value) {
@@ -504,11 +504,159 @@ public class NVGPUShader5 {
 		long __functionAddress = GLES.getCapabilities().glProgramUniform4ui64vNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, location, count, value);
+		callPV(__functionAddress, program, location, count, value);
 	}
 
 	public static void glProgramUniform4ui64vNV(int program, int location, LongBuffer value) {
 		nglProgramUniform4ui64vNV(program, location, value.remaining() >> 2, memAddress(value));
+	}
+
+	/** Array version of: {@link #glUniform1i64vNV Uniform1i64vNV} */
+	public static void glUniform1i64vNV(int location, long[] value) {
+		long __functionAddress = GLES.getCapabilities().glUniform1i64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, location, value.length, value);
+	}
+
+	/** Array version of: {@link #glUniform2i64vNV Uniform2i64vNV} */
+	public static void glUniform2i64vNV(int location, long[] value) {
+		long __functionAddress = GLES.getCapabilities().glUniform2i64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, location, value.length >> 1, value);
+	}
+
+	/** Array version of: {@link #glUniform3i64vNV Uniform3i64vNV} */
+	public static void glUniform3i64vNV(int location, long[] value) {
+		long __functionAddress = GLES.getCapabilities().glUniform3i64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, location, value.length / 3, value);
+	}
+
+	/** Array version of: {@link #glUniform4i64vNV Uniform4i64vNV} */
+	public static void glUniform4i64vNV(int location, long[] value) {
+		long __functionAddress = GLES.getCapabilities().glUniform4i64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, location, value.length >> 2, value);
+	}
+
+	/** Array version of: {@link #glUniform1ui64vNV Uniform1ui64vNV} */
+	public static void glUniform1ui64vNV(int location, long[] value) {
+		long __functionAddress = GLES.getCapabilities().glUniform1ui64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, location, value.length, value);
+	}
+
+	/** Array version of: {@link #glUniform2ui64vNV Uniform2ui64vNV} */
+	public static void glUniform2ui64vNV(int location, long[] value) {
+		long __functionAddress = GLES.getCapabilities().glUniform2ui64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, location, value.length >> 1, value);
+	}
+
+	/** Array version of: {@link #glUniform3ui64vNV Uniform3ui64vNV} */
+	public static void glUniform3ui64vNV(int location, long[] value) {
+		long __functionAddress = GLES.getCapabilities().glUniform3ui64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, location, value.length / 3, value);
+	}
+
+	/** Array version of: {@link #glUniform4ui64vNV Uniform4ui64vNV} */
+	public static void glUniform4ui64vNV(int location, long[] value) {
+		long __functionAddress = GLES.getCapabilities().glUniform4ui64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, location, value.length >> 2, value);
+	}
+
+	/** Array version of: {@link #glGetUniformi64vNV GetUniformi64vNV} */
+	public static void glGetUniformi64vNV(int program, int location, long[] params) {
+		long __functionAddress = GLES.getCapabilities().glGetUniformi64vNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, program, location, params);
+	}
+
+	/** Array version of: {@link #glGetUniformui64vNV GetUniformui64vNV} */
+	public static void glGetUniformui64vNV(int program, int location, long[] params) {
+		long __functionAddress = GLES.getCapabilities().glGetUniformui64vNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, program, location, params);
+	}
+
+	/** Array version of: {@link #glProgramUniform1i64vNV ProgramUniform1i64vNV} */
+	public static void glProgramUniform1i64vNV(int program, int location, long[] value) {
+		long __functionAddress = GLES.getCapabilities().glProgramUniform1i64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, program, location, value.length, value);
+	}
+
+	/** Array version of: {@link #glProgramUniform2i64vNV ProgramUniform2i64vNV} */
+	public static void glProgramUniform2i64vNV(int program, int location, long[] value) {
+		long __functionAddress = GLES.getCapabilities().glProgramUniform2i64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, program, location, value.length >> 1, value);
+	}
+
+	/** Array version of: {@link #glProgramUniform3i64vNV ProgramUniform3i64vNV} */
+	public static void glProgramUniform3i64vNV(int program, int location, long[] value) {
+		long __functionAddress = GLES.getCapabilities().glProgramUniform3i64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, program, location, value.length / 3, value);
+	}
+
+	/** Array version of: {@link #glProgramUniform4i64vNV ProgramUniform4i64vNV} */
+	public static void glProgramUniform4i64vNV(int program, int location, long[] value) {
+		long __functionAddress = GLES.getCapabilities().glProgramUniform4i64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, program, location, value.length >> 2, value);
+	}
+
+	/** Array version of: {@link #glProgramUniform1ui64vNV ProgramUniform1ui64vNV} */
+	public static void glProgramUniform1ui64vNV(int program, int location, long[] value) {
+		long __functionAddress = GLES.getCapabilities().glProgramUniform1ui64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, program, location, value.length, value);
+	}
+
+	/** Array version of: {@link #glProgramUniform2ui64vNV ProgramUniform2ui64vNV} */
+	public static void glProgramUniform2ui64vNV(int program, int location, long[] value) {
+		long __functionAddress = GLES.getCapabilities().glProgramUniform2ui64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, program, location, value.length >> 1, value);
+	}
+
+	/** Array version of: {@link #glProgramUniform3ui64vNV ProgramUniform3ui64vNV} */
+	public static void glProgramUniform3ui64vNV(int program, int location, long[] value) {
+		long __functionAddress = GLES.getCapabilities().glProgramUniform3ui64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, program, location, value.length / 3, value);
+	}
+
+	/** Array version of: {@link #glProgramUniform4ui64vNV ProgramUniform4ui64vNV} */
+	public static void glProgramUniform4ui64vNV(int program, int location, long[] value) {
+		long __functionAddress = GLES.getCapabilities().glProgramUniform4ui64vNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, program, location, value.length >> 2, value);
 	}
 
 }

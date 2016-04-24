@@ -89,7 +89,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glActiveTextureARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, texture);
+		callV(__functionAddress, texture);
 	}
 
 	// --- [ glClientActiveTextureARB ] ---
@@ -104,7 +104,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glClientActiveTextureARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, texture);
+		callV(__functionAddress, texture);
 	}
 
 	// --- [ glMultiTexCoord1fARB ] ---
@@ -119,7 +119,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord1fARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIFV(__functionAddress, texture, s);
+		callV(__functionAddress, texture, s);
 	}
 
 	// --- [ glMultiTexCoord1sARB ] ---
@@ -134,7 +134,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord1sARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callISV(__functionAddress, texture, s);
+		callV(__functionAddress, texture, s);
 	}
 
 	// --- [ glMultiTexCoord1iARB ] ---
@@ -149,7 +149,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord1iARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, texture, s);
+		callV(__functionAddress, texture, s);
 	}
 
 	// --- [ glMultiTexCoord1dARB ] ---
@@ -164,7 +164,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord1dARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIDV(__functionAddress, texture, s);
+		callV(__functionAddress, texture, s);
 	}
 
 	// --- [ glMultiTexCoord1fvARB ] ---
@@ -179,7 +179,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord1fvARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, texture, v);
+		callPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -206,7 +206,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord1svARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, texture, v);
+		callPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -233,7 +233,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord1ivARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, texture, v);
+		callPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -260,7 +260,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord1dvARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, texture, v);
+		callPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -288,7 +288,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord2fARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIFFV(__functionAddress, texture, s, t);
+		callV(__functionAddress, texture, s, t);
 	}
 
 	// --- [ glMultiTexCoord2sARB ] ---
@@ -304,7 +304,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord2sARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callISSV(__functionAddress, texture, s, t);
+		callV(__functionAddress, texture, s, t);
 	}
 
 	// --- [ glMultiTexCoord2iARB ] ---
@@ -320,7 +320,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord2iARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, texture, s, t);
+		callV(__functionAddress, texture, s, t);
 	}
 
 	// --- [ glMultiTexCoord2dARB ] ---
@@ -336,7 +336,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord2dARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIDDV(__functionAddress, texture, s, t);
+		callV(__functionAddress, texture, s, t);
 	}
 
 	// --- [ glMultiTexCoord2fvARB ] ---
@@ -351,7 +351,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord2fvARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, texture, v);
+		callPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -378,7 +378,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord2svARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, texture, v);
+		callPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -405,7 +405,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord2ivARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, texture, v);
+		callPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -432,7 +432,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord2dvARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, texture, v);
+		callPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -461,7 +461,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord3fARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIFFFV(__functionAddress, texture, s, t, r);
+		callV(__functionAddress, texture, s, t, r);
 	}
 
 	// --- [ glMultiTexCoord3sARB ] ---
@@ -478,7 +478,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord3sARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callISSSV(__functionAddress, texture, s, t, r);
+		callV(__functionAddress, texture, s, t, r);
 	}
 
 	// --- [ glMultiTexCoord3iARB ] ---
@@ -495,7 +495,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord3iARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, texture, s, t, r);
+		callV(__functionAddress, texture, s, t, r);
 	}
 
 	// --- [ glMultiTexCoord3dARB ] ---
@@ -512,7 +512,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord3dARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIDDDV(__functionAddress, texture, s, t, r);
+		callV(__functionAddress, texture, s, t, r);
 	}
 
 	// --- [ glMultiTexCoord3fvARB ] ---
@@ -527,7 +527,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord3fvARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, texture, v);
+		callPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -554,7 +554,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord3svARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, texture, v);
+		callPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -581,7 +581,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord3ivARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, texture, v);
+		callPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -608,7 +608,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord3dvARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, texture, v);
+		callPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -638,7 +638,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord4fARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIFFFFV(__functionAddress, texture, s, t, r, q);
+		callV(__functionAddress, texture, s, t, r, q);
 	}
 
 	// --- [ glMultiTexCoord4sARB ] ---
@@ -656,7 +656,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord4sARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callISSSSV(__functionAddress, texture, s, t, r, q);
+		callV(__functionAddress, texture, s, t, r, q);
 	}
 
 	// --- [ glMultiTexCoord4iARB ] ---
@@ -674,7 +674,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord4iARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, texture, s, t, r, q);
+		callV(__functionAddress, texture, s, t, r, q);
 	}
 
 	// --- [ glMultiTexCoord4dARB ] ---
@@ -692,7 +692,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord4dARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIDDDDV(__functionAddress, texture, s, t, r, q);
+		callV(__functionAddress, texture, s, t, r, q);
 	}
 
 	// --- [ glMultiTexCoord4fvARB ] ---
@@ -707,7 +707,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord4fvARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, texture, v);
+		callPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -734,7 +734,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord4svARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, texture, v);
+		callPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -761,7 +761,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord4ivARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, texture, v);
+		callPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -788,7 +788,7 @@ public class ARBMultitexture {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord4dvARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, texture, v);
+		callPV(__functionAddress, texture, v);
 	}
 
 	/**
@@ -801,6 +801,166 @@ public class ARBMultitexture {
 		if ( CHECKS )
 			checkBuffer(v, 4);
 		nglMultiTexCoord4dvARB(texture, memAddress(v));
+	}
+
+	/** Array version of: {@link #glMultiTexCoord1fvARB MultiTexCoord1fvARB} */
+	public static void glMultiTexCoord1fvARB(int texture, float[] v) {
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord1fvARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 1);
+		}
+		callPV(__functionAddress, texture, v);
+	}
+
+	/** Array version of: {@link #glMultiTexCoord1svARB MultiTexCoord1svARB} */
+	public static void glMultiTexCoord1svARB(int texture, short[] v) {
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord1svARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 1);
+		}
+		callPV(__functionAddress, texture, v);
+	}
+
+	/** Array version of: {@link #glMultiTexCoord1ivARB MultiTexCoord1ivARB} */
+	public static void glMultiTexCoord1ivARB(int texture, int[] v) {
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord1ivARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 1);
+		}
+		callPV(__functionAddress, texture, v);
+	}
+
+	/** Array version of: {@link #glMultiTexCoord1dvARB MultiTexCoord1dvARB} */
+	public static void glMultiTexCoord1dvARB(int texture, double[] v) {
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord1dvARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 1);
+		}
+		callPV(__functionAddress, texture, v);
+	}
+
+	/** Array version of: {@link #glMultiTexCoord2fvARB MultiTexCoord2fvARB} */
+	public static void glMultiTexCoord2fvARB(int texture, float[] v) {
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord2fvARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 2);
+		}
+		callPV(__functionAddress, texture, v);
+	}
+
+	/** Array version of: {@link #glMultiTexCoord2svARB MultiTexCoord2svARB} */
+	public static void glMultiTexCoord2svARB(int texture, short[] v) {
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord2svARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 2);
+		}
+		callPV(__functionAddress, texture, v);
+	}
+
+	/** Array version of: {@link #glMultiTexCoord2ivARB MultiTexCoord2ivARB} */
+	public static void glMultiTexCoord2ivARB(int texture, int[] v) {
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord2ivARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 2);
+		}
+		callPV(__functionAddress, texture, v);
+	}
+
+	/** Array version of: {@link #glMultiTexCoord2dvARB MultiTexCoord2dvARB} */
+	public static void glMultiTexCoord2dvARB(int texture, double[] v) {
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord2dvARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 2);
+		}
+		callPV(__functionAddress, texture, v);
+	}
+
+	/** Array version of: {@link #glMultiTexCoord3fvARB MultiTexCoord3fvARB} */
+	public static void glMultiTexCoord3fvARB(int texture, float[] v) {
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord3fvARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 3);
+		}
+		callPV(__functionAddress, texture, v);
+	}
+
+	/** Array version of: {@link #glMultiTexCoord3svARB MultiTexCoord3svARB} */
+	public static void glMultiTexCoord3svARB(int texture, short[] v) {
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord3svARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 3);
+		}
+		callPV(__functionAddress, texture, v);
+	}
+
+	/** Array version of: {@link #glMultiTexCoord3ivARB MultiTexCoord3ivARB} */
+	public static void glMultiTexCoord3ivARB(int texture, int[] v) {
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord3ivARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 3);
+		}
+		callPV(__functionAddress, texture, v);
+	}
+
+	/** Array version of: {@link #glMultiTexCoord3dvARB MultiTexCoord3dvARB} */
+	public static void glMultiTexCoord3dvARB(int texture, double[] v) {
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord3dvARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 3);
+		}
+		callPV(__functionAddress, texture, v);
+	}
+
+	/** Array version of: {@link #glMultiTexCoord4fvARB MultiTexCoord4fvARB} */
+	public static void glMultiTexCoord4fvARB(int texture, float[] v) {
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord4fvARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 4);
+		}
+		callPV(__functionAddress, texture, v);
+	}
+
+	/** Array version of: {@link #glMultiTexCoord4svARB MultiTexCoord4svARB} */
+	public static void glMultiTexCoord4svARB(int texture, short[] v) {
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord4svARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 4);
+		}
+		callPV(__functionAddress, texture, v);
+	}
+
+	/** Array version of: {@link #glMultiTexCoord4ivARB MultiTexCoord4ivARB} */
+	public static void glMultiTexCoord4ivARB(int texture, int[] v) {
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord4ivARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 4);
+		}
+		callPV(__functionAddress, texture, v);
+	}
+
+	/** Array version of: {@link #glMultiTexCoord4dvARB MultiTexCoord4dvARB} */
+	public static void glMultiTexCoord4dvARB(int texture, double[] v) {
+		long __functionAddress = GL.getCapabilities().glMultiTexCoord4dvARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 4);
+		}
+		callPV(__functionAddress, texture, v);
 	}
 
 }

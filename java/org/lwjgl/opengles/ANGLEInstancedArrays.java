@@ -49,7 +49,7 @@ public class ANGLEInstancedArrays {
 		long __functionAddress = GLES.getCapabilities().glDrawArraysInstancedANGLE;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, mode, first, count, primcount);
+		callV(__functionAddress, mode, first, count, primcount);
 	}
 
 	// --- [ glDrawElementsInstancedANGLE ] ---
@@ -58,7 +58,7 @@ public class ANGLEInstancedArrays {
 		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedANGLE;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPIV(__functionAddress, mode, count, type, indices, primcount);
+		callPV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
 	public static void glDrawElementsInstancedANGLE(int mode, int count, int type, long indices, int primcount) {
@@ -97,7 +97,7 @@ public class ANGLEInstancedArrays {
 		long __functionAddress = GLES.getCapabilities().glVertexAttribDivisorANGLE;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, index, divisor);
+		callV(__functionAddress, index, divisor);
 	}
 
 }

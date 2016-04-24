@@ -49,7 +49,7 @@ public class NVVertexArrayRange {
 		long __functionAddress = GL.getCapabilities().glVertexArrayRangeNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, length, pointer);
+		callPV(__functionAddress, length, pointer);
 	}
 
 	public static void glVertexArrayRangeNV(int length, ByteBuffer pointer) {

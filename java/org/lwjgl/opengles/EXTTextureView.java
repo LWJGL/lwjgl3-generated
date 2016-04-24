@@ -59,7 +59,7 @@ public class EXTTextureView {
 		long __functionAddress = GLES.getCapabilities().glTextureViewEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIIV(__functionAddress, texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
+		callV(__functionAddress, texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
 	}
 
 }

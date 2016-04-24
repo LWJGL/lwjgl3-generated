@@ -59,7 +59,7 @@ public class NVFence {
 		long __functionAddress = GLES.getCapabilities().glDeleteFencesNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, fences);
+		callPV(__functionAddress, n, fences);
 	}
 
 	public static void glDeleteFencesNV(IntBuffer fences) {
@@ -82,7 +82,7 @@ public class NVFence {
 		long __functionAddress = GLES.getCapabilities().glGenFencesNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, fences);
+		callPV(__functionAddress, n, fences);
 	}
 
 	public static void glGenFencesNV(IntBuffer fences) {
@@ -106,7 +106,7 @@ public class NVFence {
 		long __functionAddress = GLES.getCapabilities().glIsFenceNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIZ(__functionAddress, fence);
+		return callZ(__functionAddress, fence);
 	}
 
 	// --- [ glTestFenceNV ] ---
@@ -115,7 +115,7 @@ public class NVFence {
 		long __functionAddress = GLES.getCapabilities().glTestFenceNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIZ(__functionAddress, fence);
+		return callZ(__functionAddress, fence);
 	}
 
 	// --- [ glGetFenceivNV ] ---
@@ -124,7 +124,7 @@ public class NVFence {
 		long __functionAddress = GLES.getCapabilities().glGetFenceivNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, fence, pname, params);
+		callPV(__functionAddress, fence, pname, params);
 	}
 
 	public static void glGetFenceivNV(int fence, int pname, IntBuffer params) {
@@ -150,7 +150,7 @@ public class NVFence {
 		long __functionAddress = GLES.getCapabilities().glFinishFenceNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, fence);
+		callV(__functionAddress, fence);
 	}
 
 	// --- [ glSetFenceNV ] ---
@@ -159,7 +159,33 @@ public class NVFence {
 		long __functionAddress = GLES.getCapabilities().glSetFenceNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, fence, condition);
+		callV(__functionAddress, fence, condition);
+	}
+
+	/** Array version of: {@link #glDeleteFencesNV DeleteFencesNV} */
+	public static void glDeleteFencesNV(int[] fences) {
+		long __functionAddress = GLES.getCapabilities().glDeleteFencesNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, fences.length, fences);
+	}
+
+	/** Array version of: {@link #glGenFencesNV GenFencesNV} */
+	public static void glGenFencesNV(int[] fences) {
+		long __functionAddress = GLES.getCapabilities().glGenFencesNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, fences.length, fences);
+	}
+
+	/** Array version of: {@link #glGetFenceivNV GetFenceivNV} */
+	public static void glGetFenceivNV(int fence, int pname, int[] params) {
+		long __functionAddress = GLES.getCapabilities().glGetFenceivNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, fence, pname, params);
 	}
 
 }

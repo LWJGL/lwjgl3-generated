@@ -43,7 +43,7 @@ public class EXTCompiledVertexArray {
 		long __functionAddress = GL.getCapabilities().glLockArraysEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, first, count);
+		callV(__functionAddress, first, count);
 	}
 
 	// --- [ glUnlockArraysEXT ] ---

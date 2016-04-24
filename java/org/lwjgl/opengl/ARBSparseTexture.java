@@ -135,7 +135,7 @@ public class ARBSparseTexture {
 		long __functionAddress = GL.getCapabilities().glTexPageCommitmentARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIIZV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, commit);
+		callV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, commit);
 	}
 
 	// --- [ glTexturePageCommitmentEXT ] ---
@@ -157,7 +157,7 @@ public class ARBSparseTexture {
 		long __functionAddress = GL.getCapabilities().glTexturePageCommitmentEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIIZV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, commit);
+		callV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, commit);
 	}
 
 }

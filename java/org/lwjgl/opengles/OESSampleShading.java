@@ -51,7 +51,7 @@ public class OESSampleShading {
 		long __functionAddress = GLES.getCapabilities().glMinSampleShadingOES;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFV(__functionAddress, value);
+		callV(__functionAddress, value);
 	}
 
 }

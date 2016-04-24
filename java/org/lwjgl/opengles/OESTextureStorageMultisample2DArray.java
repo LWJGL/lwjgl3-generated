@@ -48,7 +48,7 @@ public class OESTextureStorageMultisample2DArray {
 		long __functionAddress = GLES.getCapabilities().glTexStorage3DMultisampleOES;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIZV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
+		callV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
 }

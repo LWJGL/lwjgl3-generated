@@ -63,4 +63,16 @@ public class APPLECommandQueueSelectComputeUnits {
 		return nclCreateCommandQueueWithPropertiesAPPLE(context, device, memAddress(properties), memAddressSafe(errcode_ret));
 	}
 
+	/** Array version of: {@link #clCreateCommandQueueWithPropertiesAPPLE CreateCommandQueueWithPropertiesAPPLE} */
+	public static long clCreateCommandQueueWithPropertiesAPPLE(long context, long device, PointerBuffer properties, int[] errcode_ret) {
+		long __functionAddress = CL.getICD().clCreateCommandQueueWithPropertiesAPPLE;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(context);
+			checkPointer(device);
+			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+		}
+		return callPPPPP(__functionAddress, context, device, memAddress(properties), errcode_ret);
+	}
+
 }

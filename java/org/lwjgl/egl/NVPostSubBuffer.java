@@ -42,7 +42,7 @@ public class NVPostSubBuffer {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPIIIII(__functionAddress, dpy, surface, x, y, width, height);
+		return callPPI(__functionAddress, dpy, surface, x, y, width, height);
 	}
 
 }

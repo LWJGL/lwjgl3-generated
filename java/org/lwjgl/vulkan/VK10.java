@@ -2309,7 +2309,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param instance             a handle to a Vulkan instance previously created with {@link #vkCreateInstance CreateInstance}
 	 * @param pPhysicalDeviceCount a pointer to an integer related to the number of physical devices available or queried
-	 * @param pPhysicalDevices     either {@code NULL} or a pointer to an array of {@code VkPhysicalDevice} structures
+	 * @param pPhysicalDevices     either {@code NULL} or a pointer to an array of {@code VkPhysicalDevice} handles
 	 */
 	public static int nvkEnumeratePhysicalDevices(VkInstance instance, long pPhysicalDeviceCount, long pPhysicalDevices) {
 		long __functionAddress = instance.getCapabilities().vkEnumeratePhysicalDevices;
@@ -2341,7 +2341,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 *
 	 * @param instance             a handle to a Vulkan instance previously created with {@link #vkCreateInstance CreateInstance}
 	 * @param pPhysicalDeviceCount a pointer to an integer related to the number of physical devices available or queried
-	 * @param pPhysicalDevices     either {@code NULL} or a pointer to an array of {@code VkPhysicalDevice} structures
+	 * @param pPhysicalDevices     either {@code NULL} or a pointer to an array of {@code VkPhysicalDevice} handles
 	 */
 	public static int vkEnumeratePhysicalDevices(VkInstance instance, IntBuffer pPhysicalDeviceCount, PointerBuffer pPhysicalDevices) {
 		if ( CHECKS ) {
@@ -2413,7 +2413,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 */
 	public static void nvkGetPhysicalDeviceFormatProperties(VkPhysicalDevice physicalDevice, int format, long pFormatProperties) {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceFormatProperties;
-		callPIPV(__functionAddress, physicalDevice.address(), format, pFormatProperties);
+		callPPV(__functionAddress, physicalDevice.address(), format, pFormatProperties);
 	}
 
 	/**
@@ -2473,7 +2473,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 */
 	public static int nvkGetPhysicalDeviceImageFormatProperties(VkPhysicalDevice physicalDevice, int format, int type, int tiling, int usage, int flags, long pImageFormatProperties) {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceImageFormatProperties;
-		return callPIIIIIPI(__functionAddress, physicalDevice.address(), format, type, tiling, usage, flags, pImageFormatProperties);
+		return callPPI(__functionAddress, physicalDevice.address(), format, type, tiling, usage, flags, pImageFormatProperties);
 	}
 
 	/**
@@ -3505,7 +3505,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static void nvkGetDeviceQueue(VkDevice device, int queueFamilyIndex, int queueIndex, long pQueue) {
 		long __functionAddress = device.getCapabilities().vkGetDeviceQueue;
-		callPIIPV(__functionAddress, device.address(), queueFamilyIndex, queueIndex, pQueue);
+		callPPV(__functionAddress, device.address(), queueFamilyIndex, queueIndex, pQueue);
 	}
 
 	/**
@@ -3614,7 +3614,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 		long __functionAddress = queue.getCapabilities().vkQueueSubmit;
 		if ( CHECKS )
 			if ( pSubmits != NULL ) VkSubmitInfo.validate(pSubmits, submitCount);
-		return callPIPJI(__functionAddress, queue.address(), submitCount, pSubmits, fence);
+		return callPPJI(__functionAddress, queue.address(), submitCount, pSubmits, fence);
 	}
 
 	/**
@@ -4001,7 +4001,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static int nvkMapMemory(VkDevice device, long memory, long offset, long size, int flags, long ppData) {
 		long __functionAddress = device.getCapabilities().vkMapMemory;
-		return callPJJJIPI(__functionAddress, device.address(), memory, offset, size, flags, ppData);
+		return callPJJJPI(__functionAddress, device.address(), memory, offset, size, flags, ppData);
 	}
 
 	/**
@@ -4123,7 +4123,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static int nvkFlushMappedMemoryRanges(VkDevice device, int memoryRangeCount, long pMemoryRanges) {
 		long __functionAddress = device.getCapabilities().vkFlushMappedMemoryRanges;
-		return callPIPI(__functionAddress, device.address(), memoryRangeCount, pMemoryRanges);
+		return callPPI(__functionAddress, device.address(), memoryRangeCount, pMemoryRanges);
 	}
 
 	/**
@@ -4195,7 +4195,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static int nvkInvalidateMappedMemoryRanges(VkDevice device, int memoryRangeCount, long pMemoryRanges) {
 		long __functionAddress = device.getCapabilities().vkInvalidateMappedMemoryRanges;
-		return callPIPI(__functionAddress, device.address(), memoryRangeCount, pMemoryRanges);
+		return callPPI(__functionAddress, device.address(), memoryRangeCount, pMemoryRanges);
 	}
 
 	/**
@@ -4679,7 +4679,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static void nvkGetPhysicalDeviceSparseImageFormatProperties(VkPhysicalDevice physicalDevice, int format, int type, int samples, int usage, int tiling, long pPropertyCount, long pProperties) {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceSparseImageFormatProperties;
-		callPIIIIIPPV(__functionAddress, physicalDevice.address(), format, type, samples, usage, tiling, pPropertyCount, pProperties);
+		callPPPV(__functionAddress, physicalDevice.address(), format, type, samples, usage, tiling, pPropertyCount, pProperties);
 	}
 
 	/**
@@ -4802,7 +4802,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 		long __functionAddress = queue.getCapabilities().vkQueueBindSparse;
 		if ( CHECKS )
 			VkBindSparseInfo.validate(pBindInfo, bindInfoCount);
-		return callPIPJI(__functionAddress, queue.address(), bindInfoCount, pBindInfo, fence);
+		return callPPJI(__functionAddress, queue.address(), bindInfoCount, pBindInfo, fence);
 	}
 
 	/**
@@ -5067,7 +5067,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static int nvkResetFences(VkDevice device, int fenceCount, long pFences) {
 		long __functionAddress = device.getCapabilities().vkResetFences;
-		return callPIPI(__functionAddress, device.address(), fenceCount, pFences);
+		return callPPI(__functionAddress, device.address(), fenceCount, pFences);
 	}
 
 	/**
@@ -5212,7 +5212,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static int nvkWaitForFences(VkDevice device, int fenceCount, long pFences, int waitAll, long timeout) {
 		long __functionAddress = device.getCapabilities().vkWaitForFences;
-		return callPIPIJI(__functionAddress, device.address(), fenceCount, pFences, waitAll, timeout);
+		return callPPJI(__functionAddress, device.address(), fenceCount, pFences, waitAll, timeout);
 	}
 
 	/**
@@ -5962,8 +5962,8 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code queryPool} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
 	 * <li>Each of {@code device} and {@code queryPool} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
 	 * <li>{@code firstQuery} <b>must</b> be less than the number of queries in {@code queryPool}</li>
-	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is not set in {@code flags} then {@code pData} and {@code stride} must be multiples of 4</li>
-	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is set in {@code flags} then {@code pData} and {@code stride} must be multiples of 8</li>
+	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is not set in {@code flags} then {@code pData} and {@code stride} <b>must</b> be multiples of 4</li>
+	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is set in {@code flags} then {@code pData} and {@code stride} <b>must</b> be multiples of 8</li>
 	 * <li>The sum of {@code firstQuery} and {@code queryCount} <b>must</b> be less than or equal to the number of queries in {@code queryPool}</li>
 	 * <li>{@code dataSize} <b>must</b> be large enough to contain the result of each query, as described here</li>
 	 * <li>If the {@code queryType} used to create {@code queryPool} was {@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}, {@code flags} <b>must not</b> contain {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT}</li>
@@ -5980,7 +5980,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static int nvkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, long dataSize, long pData, long stride, int flags) {
 		long __functionAddress = device.getCapabilities().vkGetQueryPoolResults;
-		return callPJIIPPJII(__functionAddress, device.address(), queryPool, firstQuery, queryCount, dataSize, pData, stride, flags);
+		return callPJPPJI(__functionAddress, device.address(), queryPool, firstQuery, queryCount, dataSize, pData, stride, flags);
 	}
 
 	/**
@@ -6047,8 +6047,8 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code queryPool} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
 	 * <li>Each of {@code device} and {@code queryPool} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
 	 * <li>{@code firstQuery} <b>must</b> be less than the number of queries in {@code queryPool}</li>
-	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is not set in {@code flags} then {@code pData} and {@code stride} must be multiples of 4</li>
-	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is set in {@code flags} then {@code pData} and {@code stride} must be multiples of 8</li>
+	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is not set in {@code flags} then {@code pData} and {@code stride} <b>must</b> be multiples of 4</li>
+	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is set in {@code flags} then {@code pData} and {@code stride} <b>must</b> be multiples of 8</li>
 	 * <li>The sum of {@code firstQuery} and {@code queryCount} <b>must</b> be less than or equal to the number of queries in {@code queryPool}</li>
 	 * <li>{@code dataSize} <b>must</b> be large enough to contain the result of each query, as described here</li>
 	 * <li>If the {@code queryType} used to create {@code queryPool} was {@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}, {@code flags} <b>must not</b> contain {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT}</li>
@@ -6063,15 +6063,23 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param flags      a bitmask of {@code VkQueryResultFlagBits} specifying how and when results are returned. One or more of:<br><table><tr><td>{@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT}</td><td>{@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT}</td><td>{@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT}</td></tr><tr><td>{@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT}</td></tr></table>
 	 */
 	public static int vkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, ByteBuffer pData, long stride, int flags) {
-		return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, pData.remaining(), memAddress(pData), stride, flags);
+		return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, (long)pData.remaining(), memAddress(pData), stride, flags);
 	}
 
-	/** IntBuffer version of: {@link #vkGetQueryPoolResults GetQueryPoolResults} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetQueryPoolResults.html">Khronos Reference Page</a></p>
+	 * 
+	 * IntBuffer version of: {@link #vkGetQueryPoolResults GetQueryPoolResults}
+	 */
 	public static int vkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, IntBuffer pData, long stride, int flags) {
 		return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, pData.remaining() << 2, memAddress(pData), stride, flags);
 	}
 
-	/** LongBuffer version of: {@link #vkGetQueryPoolResults GetQueryPoolResults} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetQueryPoolResults.html">Khronos Reference Page</a></p>
+	 * 
+	 * LongBuffer version of: {@link #vkGetQueryPoolResults GetQueryPoolResults}
+	 */
 	public static int vkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, LongBuffer pData, long stride, int flags) {
 		return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, pData.remaining() << 3, memAddress(pData), stride, flags);
 	}
@@ -7139,7 +7147,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static int nvkMergePipelineCaches(VkDevice device, long dstCache, int srcCacheCount, long pSrcCaches) {
 		long __functionAddress = device.getCapabilities().vkMergePipelineCaches;
-		return callPJIPI(__functionAddress, device.address(), dstCache, srcCacheCount, pSrcCaches);
+		return callPJPI(__functionAddress, device.address(), dstCache, srcCacheCount, pSrcCaches);
 	}
 
 	/**
@@ -7222,7 +7230,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 			VkGraphicsPipelineCreateInfo.validate(pCreateInfos, createInfoCount);
 			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
 		}
-		return callPJIPPPI(__functionAddress, device.address(), pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
+		return callPJPPPI(__functionAddress, device.address(), pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
 	}
 
 	/**
@@ -7306,7 +7314,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 			VkComputePipelineCreateInfo.validate(pCreateInfos, createInfoCount);
 			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
 		}
-		return callPJIPPPI(__functionAddress, device.address(), pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
+		return callPJPPPI(__functionAddress, device.address(), pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
 	}
 
 	/**
@@ -8135,7 +8143,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static int vkResetDescriptorPool(VkDevice device, long descriptorPool, int flags) {
 		long __functionAddress = device.getCapabilities().vkResetDescriptorPool;
-		return callPJII(__functionAddress, device.address(), descriptorPool, flags);
+		return callPJI(__functionAddress, device.address(), descriptorPool, flags);
 	}
 
 	// --- [ vkAllocateDescriptorSets ] ---
@@ -8251,7 +8259,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static int nvkFreeDescriptorSets(VkDevice device, long descriptorPool, int descriptorSetCount, long pDescriptorSets) {
 		long __functionAddress = device.getCapabilities().vkFreeDescriptorSets;
-		return callPJIPI(__functionAddress, device.address(), descriptorPool, descriptorSetCount, pDescriptorSets);
+		return callPJPI(__functionAddress, device.address(), descriptorPool, descriptorSetCount, pDescriptorSets);
 	}
 
 	/**
@@ -8368,7 +8376,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 		long __functionAddress = device.getCapabilities().vkUpdateDescriptorSets;
 		if ( CHECKS )
 			if ( pDescriptorWrites != NULL ) VkWriteDescriptorSet.validate(pDescriptorWrites, descriptorWriteCount);
-		callPIPIPV(__functionAddress, device.address(), descriptorWriteCount, pDescriptorWrites, descriptorCopyCount, pDescriptorCopies);
+		callPPPV(__functionAddress, device.address(), descriptorWriteCount, pDescriptorWrites, descriptorCopyCount, pDescriptorCopies);
 	}
 
 	/**
@@ -8900,7 +8908,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static int vkResetCommandPool(VkDevice device, long commandPool, int flags) {
 		long __functionAddress = device.getCapabilities().vkResetCommandPool;
-		return callPJII(__functionAddress, device.address(), commandPool, flags);
+		return callPJI(__functionAddress, device.address(), commandPool, flags);
 	}
 
 	// --- [ vkAllocateCommandBuffers ] ---
@@ -8998,7 +9006,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static void nvkFreeCommandBuffers(VkDevice device, long commandPool, int commandBufferCount, long pCommandBuffers) {
 		long __functionAddress = device.getCapabilities().vkFreeCommandBuffers;
-		callPJIPV(__functionAddress, device.address(), commandPool, commandBufferCount, pCommandBuffers);
+		callPJPV(__functionAddress, device.address(), commandPool, commandBufferCount, pCommandBuffers);
 	}
 
 	/**
@@ -9262,7 +9270,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static int vkResetCommandBuffer(VkCommandBuffer commandBuffer, int flags) {
 		long __functionAddress = commandBuffer.getCapabilities().vkResetCommandBuffer;
-		return callPII(__functionAddress, commandBuffer.address(), flags);
+		return callPI(__functionAddress, commandBuffer.address(), flags);
 	}
 
 	// --- [ vkCmdBindPipeline ] ---
@@ -9309,7 +9317,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static void vkCmdBindPipeline(VkCommandBuffer commandBuffer, int pipelineBindPoint, long pipeline) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdBindPipeline;
-		callPIJV(__functionAddress, commandBuffer.address(), pipelineBindPoint, pipeline);
+		callPJV(__functionAddress, commandBuffer.address(), pipelineBindPoint, pipeline);
 	}
 
 	// --- [ vkCmdSetViewport ] ---
@@ -9352,7 +9360,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static void nvkCmdSetViewport(VkCommandBuffer commandBuffer, int firstViewport, int viewportCount, long pViewports) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdSetViewport;
-		callPIIPV(__functionAddress, commandBuffer.address(), firstViewport, viewportCount, pViewports);
+		callPPV(__functionAddress, commandBuffer.address(), firstViewport, viewportCount, pViewports);
 	}
 
 	/**
@@ -9452,7 +9460,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static void nvkCmdSetScissor(VkCommandBuffer commandBuffer, int firstScissor, int scissorCount, long pScissors) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdSetScissor;
-		callPIIPV(__functionAddress, commandBuffer.address(), firstScissor, scissorCount, pScissors);
+		callPPV(__functionAddress, commandBuffer.address(), firstScissor, scissorCount, pScissors);
 	}
 
 	/**
@@ -9550,7 +9558,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static void vkCmdSetLineWidth(VkCommandBuffer commandBuffer, float lineWidth) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdSetLineWidth;
-		callPFV(__functionAddress, commandBuffer.address(), lineWidth);
+		callPV(__functionAddress, commandBuffer.address(), lineWidth);
 	}
 
 	// --- [ vkCmdSetDepthBias ] ---
@@ -9630,7 +9638,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static void vkCmdSetDepthBias(VkCommandBuffer commandBuffer, float depthBiasConstantFactor, float depthBiasClamp, float depthBiasSlopeFactor) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdSetDepthBias;
-		callPFFFV(__functionAddress, commandBuffer.address(), depthBiasConstantFactor, depthBiasClamp, depthBiasSlopeFactor);
+		callPV(__functionAddress, commandBuffer.address(), depthBiasConstantFactor, depthBiasClamp, depthBiasSlopeFactor);
 	}
 
 	// --- [ vkCmdSetBlendConstants ] ---
@@ -9738,7 +9746,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static void vkCmdSetDepthBounds(VkCommandBuffer commandBuffer, float minDepthBounds, float maxDepthBounds) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdSetDepthBounds;
-		callPFFV(__functionAddress, commandBuffer.address(), minDepthBounds, maxDepthBounds);
+		callPV(__functionAddress, commandBuffer.address(), minDepthBounds, maxDepthBounds);
 	}
 
 	// --- [ vkCmdSetStencilCompareMask ] ---
@@ -9773,7 +9781,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static void vkCmdSetStencilCompareMask(VkCommandBuffer commandBuffer, int faceMask, int compareMask) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdSetStencilCompareMask;
-		callPIIV(__functionAddress, commandBuffer.address(), faceMask, compareMask);
+		callPV(__functionAddress, commandBuffer.address(), faceMask, compareMask);
 	}
 
 	// --- [ vkCmdSetStencilWriteMask ] ---
@@ -9808,7 +9816,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static void vkCmdSetStencilWriteMask(VkCommandBuffer commandBuffer, int faceMask, int writeMask) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdSetStencilWriteMask;
-		callPIIV(__functionAddress, commandBuffer.address(), faceMask, writeMask);
+		callPV(__functionAddress, commandBuffer.address(), faceMask, writeMask);
 	}
 
 	// --- [ vkCmdSetStencilReference ] ---
@@ -9843,7 +9851,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static void vkCmdSetStencilReference(VkCommandBuffer commandBuffer, int faceMask, int reference) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdSetStencilReference;
-		callPIIV(__functionAddress, commandBuffer.address(), faceMask, reference);
+		callPV(__functionAddress, commandBuffer.address(), faceMask, reference);
 	}
 
 	// --- [ vkCmdBindDescriptorSets ] ---
@@ -9924,7 +9932,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static void nvkCmdBindDescriptorSets(VkCommandBuffer commandBuffer, int pipelineBindPoint, long layout, int firstSet, int descriptorSetCount, long pDescriptorSets, int dynamicOffsetCount, long pDynamicOffsets) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdBindDescriptorSets;
-		callPIJIIPIPV(__functionAddress, commandBuffer.address(), pipelineBindPoint, layout, firstSet, descriptorSetCount, pDescriptorSets, dynamicOffsetCount, pDynamicOffsets);
+		callPJPPV(__functionAddress, commandBuffer.address(), pipelineBindPoint, layout, firstSet, descriptorSetCount, pDescriptorSets, dynamicOffsetCount, pDynamicOffsets);
 	}
 
 	/**
@@ -10038,7 +10046,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static void vkCmdBindIndexBuffer(VkCommandBuffer commandBuffer, long buffer, long offset, int indexType) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdBindIndexBuffer;
-		callPJJIV(__functionAddress, commandBuffer.address(), buffer, offset, indexType);
+		callPJJV(__functionAddress, commandBuffer.address(), buffer, offset, indexType);
 	}
 
 	// --- [ vkCmdBindVertexBuffers ] ---
@@ -10112,7 +10120,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void nvkCmdBindVertexBuffers(VkCommandBuffer commandBuffer, int firstBinding, int bindingCount, long pBuffers, long pOffsets) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdBindVertexBuffers;
-		callPIIPPV(__functionAddress, commandBuffer.address(), firstBinding, bindingCount, pBuffers, pOffsets);
+		callPPPV(__functionAddress, commandBuffer.address(), firstBinding, bindingCount, pBuffers, pOffsets);
 	}
 
 	/**
@@ -10253,7 +10261,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void vkCmdDraw(VkCommandBuffer commandBuffer, int vertexCount, int instanceCount, int firstVertex, int firstInstance) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdDraw;
-		callPIIIIV(__functionAddress, commandBuffer.address(), vertexCount, instanceCount, firstVertex, firstInstance);
+		callPV(__functionAddress, commandBuffer.address(), vertexCount, instanceCount, firstVertex, firstInstance);
 	}
 
 	// --- [ vkCmdDrawIndexed ] ---
@@ -10334,7 +10342,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void vkCmdDrawIndexed(VkCommandBuffer commandBuffer, int indexCount, int instanceCount, int firstIndex, int vertexOffset, int firstInstance) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdDrawIndexed;
-		callPIIIIIV(__functionAddress, commandBuffer.address(), indexCount, instanceCount, firstIndex, vertexOffset, firstInstance);
+		callPV(__functionAddress, commandBuffer.address(), indexCount, instanceCount, firstIndex, vertexOffset, firstInstance);
 	}
 
 	// --- [ vkCmdDrawIndirect ] ---
@@ -10416,7 +10424,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void vkCmdDrawIndirect(VkCommandBuffer commandBuffer, long buffer, long offset, int drawCount, int stride) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdDrawIndirect;
-		callPJJIIV(__functionAddress, commandBuffer.address(), buffer, offset, drawCount, stride);
+		callPJJV(__functionAddress, commandBuffer.address(), buffer, offset, drawCount, stride);
 	}
 
 	// --- [ vkCmdDrawIndexedIndirect ] ---
@@ -10498,7 +10506,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void vkCmdDrawIndexedIndirect(VkCommandBuffer commandBuffer, long buffer, long offset, int drawCount, int stride) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdDrawIndexedIndirect;
-		callPJJIIV(__functionAddress, commandBuffer.address(), buffer, offset, drawCount, stride);
+		callPJJV(__functionAddress, commandBuffer.address(), buffer, offset, drawCount, stride);
 	}
 
 	// --- [ vkCmdDispatch ] ---
@@ -10566,7 +10574,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void vkCmdDispatch(VkCommandBuffer commandBuffer, int x, int y, int z) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdDispatch;
-		callPIIIV(__functionAddress, commandBuffer.address(), x, y, z);
+		callPV(__functionAddress, commandBuffer.address(), x, y, z);
 	}
 
 	// --- [ vkCmdDispatchIndirect ] ---
@@ -10680,7 +10688,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void nvkCmdCopyBuffer(VkCommandBuffer commandBuffer, long srcBuffer, long dstBuffer, int regionCount, long pRegions) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdCopyBuffer;
-		callPJJIPV(__functionAddress, commandBuffer.address(), srcBuffer, dstBuffer, regionCount, pRegions);
+		callPJJPV(__functionAddress, commandBuffer.address(), srcBuffer, dstBuffer, regionCount, pRegions);
 	}
 
 	/**
@@ -10822,7 +10830,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void nvkCmdCopyImage(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstImage, int dstImageLayout, int regionCount, long pRegions) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdCopyImage;
-		callPJIJIIPV(__functionAddress, commandBuffer.address(), srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions);
+		callPJJPV(__functionAddress, commandBuffer.address(), srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions);
 	}
 
 	/**
@@ -10984,7 +10992,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void nvkCmdBlitImage(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstImage, int dstImageLayout, int regionCount, long pRegions, int filter) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdBlitImage;
-		callPJIJIIPIV(__functionAddress, commandBuffer.address(), srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions, filter);
+		callPJJPV(__functionAddress, commandBuffer.address(), srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions, filter);
 	}
 
 	/**
@@ -11104,7 +11112,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void nvkCmdCopyBufferToImage(VkCommandBuffer commandBuffer, long srcBuffer, long dstImage, int dstImageLayout, int regionCount, long pRegions) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdCopyBufferToImage;
-		callPJJIIPV(__functionAddress, commandBuffer.address(), srcBuffer, dstImage, dstImageLayout, regionCount, pRegions);
+		callPJJPV(__functionAddress, commandBuffer.address(), srcBuffer, dstImage, dstImageLayout, regionCount, pRegions);
 	}
 
 	/**
@@ -11206,7 +11214,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void nvkCmdCopyImageToBuffer(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstBuffer, int regionCount, long pRegions) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdCopyImageToBuffer;
-		callPJIJIPV(__functionAddress, commandBuffer.address(), srcImage, srcImageLayout, dstBuffer, regionCount, pRegions);
+		callPJJPV(__functionAddress, commandBuffer.address(), srcImage, srcImageLayout, dstBuffer, regionCount, pRegions);
 	}
 
 	/**
@@ -11349,7 +11357,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param pData         a pointer to the source data for the buffer update, and <b>must</b> be at least {@code dataSize} bytes in size
 	 */
 	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, IntBuffer pData) {
-		nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining(), memAddress(pData));
+		nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, (long)pData.remaining(), memAddress(pData));
 	}
 
 	// --- [ vkCmdFillBuffer ] ---
@@ -11393,7 +11401,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void vkCmdFillBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, long size, int data) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdFillBuffer;
-		callPJJJIV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, size, data);
+		callPJJJV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, size, data);
 	}
 
 	// --- [ vkCmdClearColorImage ] ---
@@ -11423,6 +11431,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * is executed on a {@code VkDevice}</li>
 	 * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
 	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a image subresource range that is contained within {@code image}</li>
+	 * <li>{@code image} <b>must not</b> have a compressed or depth/stencil format</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -11441,7 +11450,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void nvkCmdClearColorImage(VkCommandBuffer commandBuffer, long image, int imageLayout, long pColor, int rangeCount, long pRanges) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdClearColorImage;
-		callPJIPIPV(__functionAddress, commandBuffer.address(), image, imageLayout, pColor, rangeCount, pRanges);
+		callPJPPV(__functionAddress, commandBuffer.address(), image, imageLayout, pColor, rangeCount, pRanges);
 	}
 
 	/**
@@ -11469,6 +11478,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * is executed on a {@code VkDevice}</li>
 	 * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
 	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a image subresource range that is contained within {@code image}</li>
+	 * <li>{@code image} <b>must not</b> have a compressed or depth/stencil format</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -11513,6 +11523,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * is executed on a {@code VkDevice}</li>
 	 * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
 	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a image subresource range that is contained within {@code image}</li>
+	 * <li>{@code image} <b>must not</b> have a compressed or depth/stencil format</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -11555,6 +11566,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * is executed on a {@code VkDevice}</li>
 	 * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
 	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a image subresource range that is contained within {@code image}</li>
+	 * <li>{@code image} <b>must</b> have a depth/stencil format</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -11575,7 +11587,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void nvkCmdClearDepthStencilImage(VkCommandBuffer commandBuffer, long image, int imageLayout, long pDepthStencil, int rangeCount, long pRanges) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdClearDepthStencilImage;
-		callPJIPIPV(__functionAddress, commandBuffer.address(), image, imageLayout, pDepthStencil, rangeCount, pRanges);
+		callPJPPV(__functionAddress, commandBuffer.address(), image, imageLayout, pDepthStencil, rangeCount, pRanges);
 	}
 
 	/**
@@ -11601,6 +11613,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * is executed on a {@code VkDevice}</li>
 	 * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
 	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a image subresource range that is contained within {@code image}</li>
+	 * <li>{@code image} <b>must</b> have a depth/stencil format</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -11645,6 +11658,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * is executed on a {@code VkDevice}</li>
 	 * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
 	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a image subresource range that is contained within {@code image}</li>
+	 * <li>{@code image} <b>must</b> have a depth/stencil format</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -11711,7 +11725,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void nvkCmdClearAttachments(VkCommandBuffer commandBuffer, int attachmentCount, long pAttachments, int rectCount, long pRects) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdClearAttachments;
-		callPIPIPV(__functionAddress, commandBuffer.address(), attachmentCount, pAttachments, rectCount, pRects);
+		callPPPV(__functionAddress, commandBuffer.address(), attachmentCount, pAttachments, rectCount, pRects);
 	}
 
 	/**
@@ -11818,7 +11832,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void nvkCmdResolveImage(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstImage, int dstImageLayout, int regionCount, long pRegions) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdResolveImage;
-		callPJIJIIPV(__functionAddress, commandBuffer.address(), srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions);
+		callPJJPV(__functionAddress, commandBuffer.address(), srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions);
 	}
 
 	/**
@@ -11970,7 +11984,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void vkCmdSetEvent(VkCommandBuffer commandBuffer, long event, int stageMask) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdSetEvent;
-		callPJIV(__functionAddress, commandBuffer.address(), event, stageMask);
+		callPJV(__functionAddress, commandBuffer.address(), event, stageMask);
 	}
 
 	// --- [ vkCmdResetEvent ] ---
@@ -12011,7 +12025,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void vkCmdResetEvent(VkCommandBuffer commandBuffer, long event, int stageMask) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdResetEvent;
-		callPJIV(__functionAddress, commandBuffer.address(), event, stageMask);
+		callPJV(__functionAddress, commandBuffer.address(), event, stageMask);
 	}
 
 	// --- [ vkCmdWaitEvents ] ---
@@ -12097,7 +12111,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void nvkCmdWaitEvents(VkCommandBuffer commandBuffer, int eventCount, long pEvents, int srcStageMask, int dstStageMask, int memoryBarrierCount, long pMemoryBarriers, int bufferMemoryBarrierCount, long pBufferMemoryBarriers, int imageMemoryBarrierCount, long pImageMemoryBarriers) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdWaitEvents;
-		callPIPIIIPIPIPV(__functionAddress, commandBuffer.address(), eventCount, pEvents, srcStageMask, dstStageMask, memoryBarrierCount, pMemoryBarriers, bufferMemoryBarrierCount, pBufferMemoryBarriers, imageMemoryBarrierCount, pImageMemoryBarriers);
+		callPPPPPV(__functionAddress, commandBuffer.address(), eventCount, pEvents, srcStageMask, dstStageMask, memoryBarrierCount, pMemoryBarriers, bufferMemoryBarrierCount, pBufferMemoryBarriers, imageMemoryBarrierCount, pImageMemoryBarriers);
 	}
 
 	/**
@@ -12219,7 +12233,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If the tessellation shaders feature is not enabled, {@code srcStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
 	 * {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
 	 * <li>If the tessellation shaders feature is not enabled, {@code dstStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
-	 * {@code VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
+	 * {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
 	 * <li>If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} is called within a render pass instance, the render pass <b>must</b> declare at least one self-dependency from the current
 	 * subpass to itself - see Subpass Self-dependency</li>
 	 * </ul>
@@ -12247,7 +12261,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void nvkCmdPipelineBarrier(VkCommandBuffer commandBuffer, int srcStageMask, int dstStageMask, int dependencyFlags, int memoryBarrierCount, long pMemoryBarriers, int bufferMemoryBarrierCount, long pBufferMemoryBarriers, int imageMemoryBarrierCount, long pImageMemoryBarriers) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdPipelineBarrier;
-		callPIIIIPIPIPV(__functionAddress, commandBuffer.address(), srcStageMask, dstStageMask, dependencyFlags, memoryBarrierCount, pMemoryBarriers, bufferMemoryBarrierCount, pBufferMemoryBarriers, imageMemoryBarrierCount, pImageMemoryBarriers);
+		callPPPPV(__functionAddress, commandBuffer.address(), srcStageMask, dstStageMask, dependencyFlags, memoryBarrierCount, pMemoryBarriers, bufferMemoryBarrierCount, pBufferMemoryBarriers, imageMemoryBarrierCount, pImageMemoryBarriers);
 	}
 
 	/**
@@ -12288,7 +12302,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If the tessellation shaders feature is not enabled, {@code srcStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
 	 * {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
 	 * <li>If the tessellation shaders feature is not enabled, {@code dstStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
-	 * {@code VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
+	 * {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
 	 * <li>If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} is called within a render pass instance, the render pass <b>must</b> declare at least one self-dependency from the current
 	 * subpass to itself - see Subpass Self-dependency</li>
 	 * </ul>
@@ -12376,7 +12390,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void vkCmdBeginQuery(VkCommandBuffer commandBuffer, long queryPool, int query, int flags) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdBeginQuery;
-		callPJIIV(__functionAddress, commandBuffer.address(), queryPool, query, flags);
+		callPJV(__functionAddress, commandBuffer.address(), queryPool, query, flags);
 	}
 
 	// --- [ vkCmdEndQuery ] ---
@@ -12434,7 +12448,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void vkCmdEndQuery(VkCommandBuffer commandBuffer, long queryPool, int query) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdEndQuery;
-		callPJIV(__functionAddress, commandBuffer.address(), queryPool, query);
+		callPJV(__functionAddress, commandBuffer.address(), queryPool, query);
 	}
 
 	// --- [ vkCmdResetQueryPool ] ---
@@ -12472,7 +12486,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void vkCmdResetQueryPool(VkCommandBuffer commandBuffer, long queryPool, int firstQuery, int queryCount) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdResetQueryPool;
-		callPJIIV(__functionAddress, commandBuffer.address(), queryPool, firstQuery, queryCount);
+		callPJV(__functionAddress, commandBuffer.address(), queryPool, firstQuery, queryCount);
 	}
 
 	// --- [ vkCmdWriteTimestamp ] ---
@@ -12538,7 +12552,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void vkCmdWriteTimestamp(VkCommandBuffer commandBuffer, int pipelineStage, long queryPool, int query) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdWriteTimestamp;
-		callPIJIV(__functionAddress, commandBuffer.address(), pipelineStage, queryPool, query);
+		callPJV(__functionAddress, commandBuffer.address(), pipelineStage, queryPool, query);
 	}
 
 	// --- [ vkCmdCopyQueryPoolResults ] ---
@@ -12592,10 +12606,10 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code dstOffset} <b>must</b> be less than the size of {@code dstBuffer}</li>
 	 * <li>{@code firstQuery} <b>must</b> be less than the number of queries in {@code queryPool}</li>
 	 * <li>The sum of {@code firstQuery} and {@code queryCount} <b>must</b> be less than or equal to the number of queries in {@code queryPool}</li>
-	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is not set in {@code flags} then {@code dstOffset} and {@code stride} must be multiples of 4</li>
-	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is set in {@code flags} then {@code dstOffset} and {@code stride} must be multiples of 8</li>
+	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is not set in {@code flags} then {@code dstOffset} and {@code stride} <b>must</b> be multiples of 4</li>
+	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is set in {@code flags} then {@code dstOffset} and {@code stride} <b>must</b> be multiples of 8</li>
 	 * <li>{@code dstBuffer} <b>must</b> have enough storage, from {@code dstOffset}, to contain the result of each query, as described here</li>
-	 * <li>{@code dstBuffer} <b>must</b> have been created with {@code VK_BUFFER_USAGE_TRANSFER_DST_BIT} usage flag</li>
+	 * <li>{@code dstBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} usage flag</li>
 	 * <li>If the {@code queryType} used to create {@code queryPool} was {@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}, {@code flags} <b>must not</b> contain {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT}</li>
 	 * </ul>
 	 * 
@@ -12620,7 +12634,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void vkCmdCopyQueryPoolResults(VkCommandBuffer commandBuffer, long queryPool, int firstQuery, int queryCount, long dstBuffer, long dstOffset, long stride, int flags) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdCopyQueryPoolResults;
-		callPJIIJJJIV(__functionAddress, commandBuffer.address(), queryPool, firstQuery, queryCount, dstBuffer, dstOffset, stride, flags);
+		callPJJJJV(__functionAddress, commandBuffer.address(), queryPool, firstQuery, queryCount, dstBuffer, dstOffset, stride, flags);
 	}
 
 	// --- [ vkCmdPushConstants ] ---
@@ -12671,7 +12685,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void nvkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, int size, long pValues) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdPushConstants;
-		callPJIIIPV(__functionAddress, commandBuffer.address(), layout, stageFlags, offset, size, pValues);
+		callPJPV(__functionAddress, commandBuffer.address(), layout, stageFlags, offset, size, pValues);
 	}
 
 	/**
@@ -12721,27 +12735,47 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 		nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining(), memAddress(pValues));
 	}
 
-	/** ShortBuffer version of: {@link #vkCmdPushConstants CmdPushConstants} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdPushConstants.html">Khronos Reference Page</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #vkCmdPushConstants CmdPushConstants}
+	 */
 	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, ShortBuffer pValues) {
 		nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining() << 1, memAddress(pValues));
 	}
 
-	/** IntBuffer version of: {@link #vkCmdPushConstants CmdPushConstants} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdPushConstants.html">Khronos Reference Page</a></p>
+	 * 
+	 * IntBuffer version of: {@link #vkCmdPushConstants CmdPushConstants}
+	 */
 	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, IntBuffer pValues) {
 		nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining() << 2, memAddress(pValues));
 	}
 
-	/** LongBuffer version of: {@link #vkCmdPushConstants CmdPushConstants} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdPushConstants.html">Khronos Reference Page</a></p>
+	 * 
+	 * LongBuffer version of: {@link #vkCmdPushConstants CmdPushConstants}
+	 */
 	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, LongBuffer pValues) {
 		nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining() << 3, memAddress(pValues));
 	}
 
-	/** FloatBuffer version of: {@link #vkCmdPushConstants CmdPushConstants} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdPushConstants.html">Khronos Reference Page</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #vkCmdPushConstants CmdPushConstants}
+	 */
 	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, FloatBuffer pValues) {
 		nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining() << 2, memAddress(pValues));
 	}
 
-	/** DoubleBuffer version of: {@link #vkCmdPushConstants CmdPushConstants} */
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdPushConstants.html">Khronos Reference Page</a></p>
+	 * 
+	 * DoubleBuffer version of: {@link #vkCmdPushConstants CmdPushConstants}
+	 */
 	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, DoubleBuffer pValues) {
 		nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining() << 3, memAddress(pValues));
 	}
@@ -12803,7 +12837,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdBeginRenderPass;
 		if ( CHECKS )
 			VkRenderPassBeginInfo.validate(pRenderPassBegin);
-		callPPIV(__functionAddress, commandBuffer.address(), pRenderPassBegin, contents);
+		callPPV(__functionAddress, commandBuffer.address(), pRenderPassBegin, contents);
 	}
 
 	/**
@@ -12902,7 +12936,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void vkCmdNextSubpass(VkCommandBuffer commandBuffer, int contents) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdNextSubpass;
-		callPIV(__functionAddress, commandBuffer.address(), contents);
+		callPV(__functionAddress, commandBuffer.address(), contents);
 	}
 
 	// --- [ vkCmdEndRenderPass ] ---
@@ -13004,7 +13038,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void nvkCmdExecuteCommands(VkCommandBuffer commandBuffer, int commandBufferCount, long pCommandBuffers) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdExecuteCommands;
-		callPIPV(__functionAddress, commandBuffer.address(), commandBufferCount, pCommandBuffers);
+		callPPV(__functionAddress, commandBuffer.address(), commandBufferCount, pCommandBuffers);
 	}
 
 	/**
@@ -13139,6 +13173,641 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkEnumeratePhysicalDevices.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkEnumeratePhysicalDevices EnumeratePhysicalDevices}
+	 */
+	public static int vkEnumeratePhysicalDevices(VkInstance instance, int[] pPhysicalDeviceCount, PointerBuffer pPhysicalDevices) {
+		long __functionAddress = instance.getCapabilities().vkEnumeratePhysicalDevices;
+		if ( CHECKS ) {
+			checkBuffer(pPhysicalDeviceCount, 1);
+			if ( pPhysicalDevices != null ) checkBuffer(pPhysicalDevices, pPhysicalDeviceCount[0]);
+		}
+		return callPPPI(__functionAddress, instance.address(), pPhysicalDeviceCount, memAddressSafe(pPhysicalDevices));
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetPhysicalDeviceQueueFamilyProperties.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties}
+	 */
+	public static void vkGetPhysicalDeviceQueueFamilyProperties(VkPhysicalDevice physicalDevice, int[] pQueueFamilyPropertyCount, VkQueueFamilyProperties.Buffer pQueueFamilyProperties) {
+		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceQueueFamilyProperties;
+		if ( CHECKS ) {
+			checkBuffer(pQueueFamilyPropertyCount, 1);
+			if ( pQueueFamilyProperties != null ) checkBuffer(pQueueFamilyProperties, pQueueFamilyPropertyCount[0]);
+		}
+		callPPPV(__functionAddress, physicalDevice.address(), pQueueFamilyPropertyCount, pQueueFamilyProperties == null ? NULL : pQueueFamilyProperties.address());
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkEnumerateInstanceExtensionProperties.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties}
+	 */
+	public static int vkEnumerateInstanceExtensionProperties(ByteBuffer pLayerName, int[] pPropertyCount, VkExtensionProperties.Buffer pProperties) {
+		long __functionAddress = VK.getGlobalCommands().vkEnumerateInstanceExtensionProperties;
+		if ( CHECKS ) {
+			if ( pLayerName != null ) checkNT1(pLayerName);
+			checkBuffer(pPropertyCount, 1);
+			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount[0]);
+		}
+		return callPPPI(__functionAddress, memAddressSafe(pLayerName), pPropertyCount, pProperties == null ? NULL : pProperties.address());
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkEnumerateInstanceExtensionProperties.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties}
+	 */
+	public static int vkEnumerateInstanceExtensionProperties(CharSequence pLayerName, int[] pPropertyCount, VkExtensionProperties.Buffer pProperties) {
+		long __functionAddress = VK.getGlobalCommands().vkEnumerateInstanceExtensionProperties;
+		if ( CHECKS ) {
+			checkBuffer(pPropertyCount, 1);
+			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount[0]);
+		}
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer pLayerNameEncoded = pLayerName == null ? null : stack.UTF8(pLayerName);
+			return callPPPI(__functionAddress, memAddressSafe(pLayerNameEncoded), pPropertyCount, pProperties == null ? NULL : pProperties.address());
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkEnumerateDeviceExtensionProperties.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkEnumerateDeviceExtensionProperties EnumerateDeviceExtensionProperties}
+	 */
+	public static int vkEnumerateDeviceExtensionProperties(VkPhysicalDevice physicalDevice, ByteBuffer pLayerName, int[] pPropertyCount, VkExtensionProperties.Buffer pProperties) {
+		long __functionAddress = physicalDevice.getCapabilities().vkEnumerateDeviceExtensionProperties;
+		if ( CHECKS ) {
+			if ( pLayerName != null ) checkNT1(pLayerName);
+			checkBuffer(pPropertyCount, 1);
+			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount[0]);
+		}
+		return callPPPPI(__functionAddress, physicalDevice.address(), memAddressSafe(pLayerName), pPropertyCount, pProperties == null ? NULL : pProperties.address());
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkEnumerateDeviceExtensionProperties.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkEnumerateDeviceExtensionProperties EnumerateDeviceExtensionProperties}
+	 */
+	public static int vkEnumerateDeviceExtensionProperties(VkPhysicalDevice physicalDevice, CharSequence pLayerName, int[] pPropertyCount, VkExtensionProperties.Buffer pProperties) {
+		long __functionAddress = physicalDevice.getCapabilities().vkEnumerateDeviceExtensionProperties;
+		if ( CHECKS ) {
+			checkBuffer(pPropertyCount, 1);
+			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount[0]);
+		}
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer pLayerNameEncoded = pLayerName == null ? null : stack.UTF8(pLayerName);
+			return callPPPPI(__functionAddress, physicalDevice.address(), memAddressSafe(pLayerNameEncoded), pPropertyCount, pProperties == null ? NULL : pProperties.address());
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkEnumerateInstanceLayerProperties.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties}
+	 */
+	public static int vkEnumerateInstanceLayerProperties(int[] pPropertyCount, VkLayerProperties.Buffer pProperties) {
+		long __functionAddress = VK.getGlobalCommands().vkEnumerateInstanceLayerProperties;
+		if ( CHECKS ) {
+			checkBuffer(pPropertyCount, 1);
+			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount[0]);
+		}
+		return callPPI(__functionAddress, pPropertyCount, pProperties == null ? NULL : pProperties.address());
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkEnumerateDeviceLayerProperties.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkEnumerateDeviceLayerProperties EnumerateDeviceLayerProperties}
+	 */
+	public static int vkEnumerateDeviceLayerProperties(VkPhysicalDevice physicalDevice, int[] pPropertyCount, VkLayerProperties.Buffer pProperties) {
+		long __functionAddress = physicalDevice.getCapabilities().vkEnumerateDeviceLayerProperties;
+		if ( CHECKS ) {
+			checkBuffer(pPropertyCount, 1);
+			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount[0]);
+		}
+		return callPPPI(__functionAddress, physicalDevice.address(), pPropertyCount, pProperties == null ? NULL : pProperties.address());
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkAllocateMemory.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkAllocateMemory AllocateMemory}
+	 */
+	public static int vkAllocateMemory(VkDevice device, VkMemoryAllocateInfo pAllocateInfo, VkAllocationCallbacks pAllocator, long[] pMemory) {
+		long __functionAddress = device.getCapabilities().vkAllocateMemory;
+		if ( CHECKS ) {
+			checkBuffer(pMemory, 1);
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPPPPI(__functionAddress, device.address(), pAllocateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pMemory);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetDeviceMemoryCommitment.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkGetDeviceMemoryCommitment GetDeviceMemoryCommitment}
+	 */
+	public static void vkGetDeviceMemoryCommitment(VkDevice device, long memory, long[] pCommittedMemoryInBytes) {
+		long __functionAddress = device.getCapabilities().vkGetDeviceMemoryCommitment;
+		if ( CHECKS )
+			checkBuffer(pCommittedMemoryInBytes, 1);
+		callPJPV(__functionAddress, device.address(), memory, pCommittedMemoryInBytes);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetImageSparseMemoryRequirements.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkGetImageSparseMemoryRequirements GetImageSparseMemoryRequirements}
+	 */
+	public static void vkGetImageSparseMemoryRequirements(VkDevice device, long image, int[] pSparseMemoryRequirementCount, VkSparseImageMemoryRequirements.Buffer pSparseMemoryRequirements) {
+		long __functionAddress = device.getCapabilities().vkGetImageSparseMemoryRequirements;
+		if ( CHECKS ) {
+			checkBuffer(pSparseMemoryRequirementCount, 1);
+			if ( pSparseMemoryRequirements != null ) checkBuffer(pSparseMemoryRequirements, pSparseMemoryRequirementCount[0]);
+		}
+		callPJPPV(__functionAddress, device.address(), image, pSparseMemoryRequirementCount, pSparseMemoryRequirements == null ? NULL : pSparseMemoryRequirements.address());
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetPhysicalDeviceSparseImageFormatProperties.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}
+	 */
+	public static void vkGetPhysicalDeviceSparseImageFormatProperties(VkPhysicalDevice physicalDevice, int format, int type, int samples, int usage, int tiling, int[] pPropertyCount, VkSparseImageFormatProperties.Buffer pProperties) {
+		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceSparseImageFormatProperties;
+		if ( CHECKS ) {
+			checkBuffer(pPropertyCount, 1);
+			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount[0]);
+		}
+		callPPPV(__functionAddress, physicalDevice.address(), format, type, samples, usage, tiling, pPropertyCount, pProperties == null ? NULL : pProperties.address());
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateFence.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkCreateFence CreateFence}
+	 */
+	public static int vkCreateFence(VkDevice device, VkFenceCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pFence) {
+		long __functionAddress = device.getCapabilities().vkCreateFence;
+		if ( CHECKS ) {
+			checkBuffer(pFence, 1);
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pFence);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkResetFences.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkResetFences ResetFences}
+	 */
+	public static int vkResetFences(VkDevice device, long[] pFences) {
+		long __functionAddress = device.getCapabilities().vkResetFences;
+		return callPPI(__functionAddress, device.address(), pFences.length, pFences);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkWaitForFences.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkWaitForFences WaitForFences}
+	 */
+	public static int vkWaitForFences(VkDevice device, long[] pFences, int waitAll, long timeout) {
+		long __functionAddress = device.getCapabilities().vkWaitForFences;
+		return callPPJI(__functionAddress, device.address(), pFences.length, pFences, waitAll, timeout);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateSemaphore.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkCreateSemaphore CreateSemaphore}
+	 */
+	public static int vkCreateSemaphore(VkDevice device, VkSemaphoreCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pSemaphore) {
+		long __functionAddress = device.getCapabilities().vkCreateSemaphore;
+		if ( CHECKS ) {
+			checkBuffer(pSemaphore, 1);
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pSemaphore);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateEvent.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkCreateEvent CreateEvent}
+	 */
+	public static int vkCreateEvent(VkDevice device, VkEventCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pEvent) {
+		long __functionAddress = device.getCapabilities().vkCreateEvent;
+		if ( CHECKS ) {
+			checkBuffer(pEvent, 1);
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pEvent);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateQueryPool.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkCreateQueryPool CreateQueryPool}
+	 */
+	public static int vkCreateQueryPool(VkDevice device, VkQueryPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pQueryPool) {
+		long __functionAddress = device.getCapabilities().vkCreateQueryPool;
+		if ( CHECKS ) {
+			checkBuffer(pQueryPool, 1);
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pQueryPool);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetQueryPoolResults.html">Khronos Reference Page</a></p>
+	 * 
+	 * int[] version of: {@link #vkGetQueryPoolResults GetQueryPoolResults}
+	 */
+	public static int vkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, int[] pData, long stride, int flags) {
+		long __functionAddress = device.getCapabilities().vkGetQueryPoolResults;
+		return callPJPPJI(__functionAddress, device.address(), queryPool, firstQuery, queryCount, (long)(pData.length << 2), pData, stride, flags);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetQueryPoolResults.html">Khronos Reference Page</a></p>
+	 * 
+	 * long[] version of: {@link #vkGetQueryPoolResults GetQueryPoolResults}
+	 */
+	public static int vkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, long[] pData, long stride, int flags) {
+		long __functionAddress = device.getCapabilities().vkGetQueryPoolResults;
+		return callPJPPJI(__functionAddress, device.address(), queryPool, firstQuery, queryCount, (long)(pData.length << 3), pData, stride, flags);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateBuffer.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkCreateBuffer CreateBuffer}
+	 */
+	public static int vkCreateBuffer(VkDevice device, VkBufferCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pBuffer) {
+		long __functionAddress = device.getCapabilities().vkCreateBuffer;
+		if ( CHECKS ) {
+			checkBuffer(pBuffer, 1);
+			VkBufferCreateInfo.validate(pCreateInfo.address());
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pBuffer);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateBufferView.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkCreateBufferView CreateBufferView}
+	 */
+	public static int vkCreateBufferView(VkDevice device, VkBufferViewCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pView) {
+		long __functionAddress = device.getCapabilities().vkCreateBufferView;
+		if ( CHECKS ) {
+			checkBuffer(pView, 1);
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pView);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateImage.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkCreateImage CreateImage}
+	 */
+	public static int vkCreateImage(VkDevice device, VkImageCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pImage) {
+		long __functionAddress = device.getCapabilities().vkCreateImage;
+		if ( CHECKS ) {
+			checkBuffer(pImage, 1);
+			VkImageCreateInfo.validate(pCreateInfo.address());
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pImage);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateImageView.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkCreateImageView CreateImageView}
+	 */
+	public static int vkCreateImageView(VkDevice device, VkImageViewCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pView) {
+		long __functionAddress = device.getCapabilities().vkCreateImageView;
+		if ( CHECKS ) {
+			checkBuffer(pView, 1);
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pView);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateShaderModule.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkCreateShaderModule CreateShaderModule}
+	 */
+	public static int vkCreateShaderModule(VkDevice device, VkShaderModuleCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pShaderModule) {
+		long __functionAddress = device.getCapabilities().vkCreateShaderModule;
+		if ( CHECKS ) {
+			checkBuffer(pShaderModule, 1);
+			VkShaderModuleCreateInfo.validate(pCreateInfo.address());
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pShaderModule);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreatePipelineCache.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkCreatePipelineCache CreatePipelineCache}
+	 */
+	public static int vkCreatePipelineCache(VkDevice device, VkPipelineCacheCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pPipelineCache) {
+		long __functionAddress = device.getCapabilities().vkCreatePipelineCache;
+		if ( CHECKS ) {
+			checkBuffer(pPipelineCache, 1);
+			VkPipelineCacheCreateInfo.validate(pCreateInfo.address());
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pPipelineCache);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkMergePipelineCaches.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkMergePipelineCaches MergePipelineCaches}
+	 */
+	public static int vkMergePipelineCaches(VkDevice device, long dstCache, long[] pSrcCaches) {
+		long __functionAddress = device.getCapabilities().vkMergePipelineCaches;
+		return callPJPI(__functionAddress, device.address(), dstCache, pSrcCaches.length, pSrcCaches);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateGraphicsPipelines.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkCreateGraphicsPipelines CreateGraphicsPipelines}
+	 */
+	public static int vkCreateGraphicsPipelines(VkDevice device, long pipelineCache, VkGraphicsPipelineCreateInfo.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, long[] pPipelines) {
+		long __functionAddress = device.getCapabilities().vkCreateGraphicsPipelines;
+		if ( CHECKS ) {
+			checkBuffer(pPipelines, pCreateInfos.remaining());
+			VkGraphicsPipelineCreateInfo.validate(pCreateInfos.address(), pCreateInfos.remaining());
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPJPPPI(__functionAddress, device.address(), pipelineCache, pCreateInfos.remaining(), pCreateInfos.address(), pAllocator == null ? NULL : pAllocator.address(), pPipelines);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateComputePipelines.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkCreateComputePipelines CreateComputePipelines}
+	 */
+	public static int vkCreateComputePipelines(VkDevice device, long pipelineCache, VkComputePipelineCreateInfo.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, long[] pPipelines) {
+		long __functionAddress = device.getCapabilities().vkCreateComputePipelines;
+		if ( CHECKS ) {
+			checkBuffer(pPipelines, pCreateInfos.remaining());
+			VkComputePipelineCreateInfo.validate(pCreateInfos.address(), pCreateInfos.remaining());
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPJPPPI(__functionAddress, device.address(), pipelineCache, pCreateInfos.remaining(), pCreateInfos.address(), pAllocator == null ? NULL : pAllocator.address(), pPipelines);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreatePipelineLayout.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkCreatePipelineLayout CreatePipelineLayout}
+	 */
+	public static int vkCreatePipelineLayout(VkDevice device, VkPipelineLayoutCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pPipelineLayout) {
+		long __functionAddress = device.getCapabilities().vkCreatePipelineLayout;
+		if ( CHECKS ) {
+			checkBuffer(pPipelineLayout, 1);
+			VkPipelineLayoutCreateInfo.validate(pCreateInfo.address());
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pPipelineLayout);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateSampler.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkCreateSampler CreateSampler}
+	 */
+	public static int vkCreateSampler(VkDevice device, VkSamplerCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pSampler) {
+		long __functionAddress = device.getCapabilities().vkCreateSampler;
+		if ( CHECKS ) {
+			checkBuffer(pSampler, 1);
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pSampler);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateDescriptorSetLayout.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkCreateDescriptorSetLayout CreateDescriptorSetLayout}
+	 */
+	public static int vkCreateDescriptorSetLayout(VkDevice device, VkDescriptorSetLayoutCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pSetLayout) {
+		long __functionAddress = device.getCapabilities().vkCreateDescriptorSetLayout;
+		if ( CHECKS ) {
+			checkBuffer(pSetLayout, 1);
+			VkDescriptorSetLayoutCreateInfo.validate(pCreateInfo.address());
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pSetLayout);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateDescriptorPool.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkCreateDescriptorPool CreateDescriptorPool}
+	 */
+	public static int vkCreateDescriptorPool(VkDevice device, VkDescriptorPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pDescriptorPool) {
+		long __functionAddress = device.getCapabilities().vkCreateDescriptorPool;
+		if ( CHECKS ) {
+			checkBuffer(pDescriptorPool, 1);
+			VkDescriptorPoolCreateInfo.validate(pCreateInfo.address());
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pDescriptorPool);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkAllocateDescriptorSets.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkAllocateDescriptorSets AllocateDescriptorSets}
+	 */
+	public static int vkAllocateDescriptorSets(VkDevice device, VkDescriptorSetAllocateInfo pAllocateInfo, long[] pDescriptorSets) {
+		long __functionAddress = device.getCapabilities().vkAllocateDescriptorSets;
+		if ( CHECKS ) {
+			checkBuffer(pDescriptorSets, pAllocateInfo.descriptorSetCount());
+			VkDescriptorSetAllocateInfo.validate(pAllocateInfo.address());
+		}
+		return callPPPI(__functionAddress, device.address(), pAllocateInfo.address(), pDescriptorSets);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkFreeDescriptorSets.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkFreeDescriptorSets FreeDescriptorSets}
+	 */
+	public static int vkFreeDescriptorSets(VkDevice device, long descriptorPool, long[] pDescriptorSets) {
+		long __functionAddress = device.getCapabilities().vkFreeDescriptorSets;
+		return callPJPI(__functionAddress, device.address(), descriptorPool, pDescriptorSets.length, pDescriptorSets);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateFramebuffer.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkCreateFramebuffer CreateFramebuffer}
+	 */
+	public static int vkCreateFramebuffer(VkDevice device, VkFramebufferCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pFramebuffer) {
+		long __functionAddress = device.getCapabilities().vkCreateFramebuffer;
+		if ( CHECKS ) {
+			checkBuffer(pFramebuffer, 1);
+			VkFramebufferCreateInfo.validate(pCreateInfo.address());
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pFramebuffer);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateRenderPass.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkCreateRenderPass CreateRenderPass}
+	 */
+	public static int vkCreateRenderPass(VkDevice device, VkRenderPassCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pRenderPass) {
+		long __functionAddress = device.getCapabilities().vkCreateRenderPass;
+		if ( CHECKS ) {
+			checkBuffer(pRenderPass, 1);
+			VkRenderPassCreateInfo.validate(pCreateInfo.address());
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pRenderPass);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCreateCommandPool.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkCreateCommandPool CreateCommandPool}
+	 */
+	public static int vkCreateCommandPool(VkDevice device, VkCommandPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pCommandPool) {
+		long __functionAddress = device.getCapabilities().vkCreateCommandPool;
+		if ( CHECKS ) {
+			checkBuffer(pCommandPool, 1);
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pCommandPool);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdSetBlendConstants.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkCmdSetBlendConstants CmdSetBlendConstants}
+	 */
+	public static void vkCmdSetBlendConstants(VkCommandBuffer commandBuffer, float[] blendConstants) {
+		long __functionAddress = commandBuffer.getCapabilities().vkCmdSetBlendConstants;
+		if ( CHECKS )
+			checkBuffer(blendConstants, 4);
+		callPPV(__functionAddress, commandBuffer.address(), blendConstants);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdBindDescriptorSets.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkCmdBindDescriptorSets CmdBindDescriptorSets}
+	 */
+	public static void vkCmdBindDescriptorSets(VkCommandBuffer commandBuffer, int pipelineBindPoint, long layout, int firstSet, long[] pDescriptorSets, int[] pDynamicOffsets) {
+		long __functionAddress = commandBuffer.getCapabilities().vkCmdBindDescriptorSets;
+		callPJPPV(__functionAddress, commandBuffer.address(), pipelineBindPoint, layout, firstSet, pDescriptorSets.length, pDescriptorSets, pDynamicOffsets == null ? 0 : pDynamicOffsets.length, pDynamicOffsets);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdBindVertexBuffers.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkCmdBindVertexBuffers CmdBindVertexBuffers}
+	 */
+	public static void vkCmdBindVertexBuffers(VkCommandBuffer commandBuffer, int firstBinding, long[] pBuffers, long[] pOffsets) {
+		long __functionAddress = commandBuffer.getCapabilities().vkCmdBindVertexBuffers;
+		if ( CHECKS )
+			checkBuffer(pOffsets, pBuffers.length);
+		callPPPV(__functionAddress, commandBuffer.address(), firstBinding, pBuffers.length, pBuffers, pOffsets);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdUpdateBuffer.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer}
+	 */
+	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, int[] pData) {
+		long __functionAddress = commandBuffer.getCapabilities().vkCmdUpdateBuffer;
+		callPJJJPV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, (long)pData.length, pData);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdWaitEvents.html">Khronos Reference Page</a></p>
+	 * 
+	 * Array version of: {@link #vkCmdWaitEvents CmdWaitEvents}
+	 */
+	public static void vkCmdWaitEvents(VkCommandBuffer commandBuffer, long[] pEvents, int srcStageMask, int dstStageMask, VkMemoryBarrier.Buffer pMemoryBarriers, VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
+		long __functionAddress = commandBuffer.getCapabilities().vkCmdWaitEvents;
+		callPPPPPV(__functionAddress, commandBuffer.address(), pEvents.length, pEvents, srcStageMask, dstStageMask, pMemoryBarriers == null ? 0 : pMemoryBarriers.remaining(), pMemoryBarriers == null ? NULL : pMemoryBarriers.address(), pBufferMemoryBarriers == null ? 0 : pBufferMemoryBarriers.remaining(), pBufferMemoryBarriers == null ? NULL : pBufferMemoryBarriers.address(), pImageMemoryBarriers == null ? 0 : pImageMemoryBarriers.remaining(), pImageMemoryBarriers == null ? NULL : pImageMemoryBarriers.address());
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdPushConstants.html">Khronos Reference Page</a></p>
+	 * 
+	 * short[] version of: {@link #vkCmdPushConstants CmdPushConstants}
+	 */
+	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, short[] pValues) {
+		long __functionAddress = commandBuffer.getCapabilities().vkCmdPushConstants;
+		callPJPV(__functionAddress, commandBuffer.address(), layout, stageFlags, offset, pValues.length << 1, pValues);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdPushConstants.html">Khronos Reference Page</a></p>
+	 * 
+	 * int[] version of: {@link #vkCmdPushConstants CmdPushConstants}
+	 */
+	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, int[] pValues) {
+		long __functionAddress = commandBuffer.getCapabilities().vkCmdPushConstants;
+		callPJPV(__functionAddress, commandBuffer.address(), layout, stageFlags, offset, pValues.length << 2, pValues);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdPushConstants.html">Khronos Reference Page</a></p>
+	 * 
+	 * long[] version of: {@link #vkCmdPushConstants CmdPushConstants}
+	 */
+	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, long[] pValues) {
+		long __functionAddress = commandBuffer.getCapabilities().vkCmdPushConstants;
+		callPJPV(__functionAddress, commandBuffer.address(), layout, stageFlags, offset, pValues.length << 3, pValues);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdPushConstants.html">Khronos Reference Page</a></p>
+	 * 
+	 * float[] version of: {@link #vkCmdPushConstants CmdPushConstants}
+	 */
+	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, float[] pValues) {
+		long __functionAddress = commandBuffer.getCapabilities().vkCmdPushConstants;
+		callPJPV(__functionAddress, commandBuffer.address(), layout, stageFlags, offset, pValues.length << 2, pValues);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdPushConstants.html">Khronos Reference Page</a></p>
+	 * 
+	 * double[] version of: {@link #vkCmdPushConstants CmdPushConstants}
+	 */
+	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, double[] pValues) {
+		long __functionAddress = commandBuffer.getCapabilities().vkCmdPushConstants;
+		callPJPV(__functionAddress, commandBuffer.address(), layout, stageFlags, offset, pValues.length << 3, pValues);
 	}
 
 }

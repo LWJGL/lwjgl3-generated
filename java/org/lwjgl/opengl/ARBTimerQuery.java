@@ -64,7 +64,7 @@ public class ARBTimerQuery {
 		long __functionAddress = GL.getCapabilities().glQueryCounter;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, id, target);
+		callV(__functionAddress, id, target);
 	}
 
 	// --- [ glGetQueryObjecti64v ] ---
@@ -80,7 +80,7 @@ public class ARBTimerQuery {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjecti64v;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, id, pname, params);
+		callPV(__functionAddress, id, pname, params);
 	}
 
 	/**
@@ -126,7 +126,7 @@ public class ARBTimerQuery {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjectui64v;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, id, pname, params);
+		callPV(__functionAddress, id, pname, params);
 	}
 
 	/**
@@ -157,6 +157,26 @@ public class ARBTimerQuery {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #glGetQueryObjecti64v GetQueryObjecti64v} */
+	public static void glGetQueryObjecti64v(int id, int pname, long[] params) {
+		long __functionAddress = GL.getCapabilities().glGetQueryObjecti64v;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, id, pname, params);
+	}
+
+	/** Array version of: {@link #glGetQueryObjectui64v GetQueryObjectui64v} */
+	public static void glGetQueryObjectui64v(int id, int pname, long[] params) {
+		long __functionAddress = GL.getCapabilities().glGetQueryObjectui64v;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, id, pname, params);
 	}
 
 }

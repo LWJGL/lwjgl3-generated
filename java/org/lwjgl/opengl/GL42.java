@@ -234,7 +234,7 @@ public class GL42 {
 		long __functionAddress = GL.getCapabilities().glGetActiveAtomicCounterBufferiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, bufferIndex, pname, params);
+		callPV(__functionAddress, program, bufferIndex, pname, params);
 	}
 
 	/**
@@ -289,7 +289,7 @@ public class GL42 {
 		long __functionAddress = GL.getCapabilities().glTexStorage1D;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, target, levels, internalformat, width);
+		callV(__functionAddress, target, levels, internalformat, width);
 	}
 
 	// --- [ glTexStorage2D ] ---
@@ -309,7 +309,7 @@ public class GL42 {
 		long __functionAddress = GL.getCapabilities().glTexStorage2D;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, target, levels, internalformat, width, height);
+		callV(__functionAddress, target, levels, internalformat, width, height);
 	}
 
 	// --- [ glTexStorage3D ] ---
@@ -330,7 +330,7 @@ public class GL42 {
 		long __functionAddress = GL.getCapabilities().glTexStorage3D;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIV(__functionAddress, target, levels, internalformat, width, height, depth);
+		callV(__functionAddress, target, levels, internalformat, width, height, depth);
 	}
 
 	// --- [ glDrawTransformFeedbackInstanced ] ---
@@ -348,7 +348,7 @@ public class GL42 {
 		long __functionAddress = GL.getCapabilities().glDrawTransformFeedbackInstanced;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, mode, id, primcount);
+		callV(__functionAddress, mode, id, primcount);
 	}
 
 	// --- [ glDrawTransformFeedbackStreamInstanced ] ---
@@ -367,7 +367,7 @@ public class GL42 {
 		long __functionAddress = GL.getCapabilities().glDrawTransformFeedbackStreamInstanced;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, mode, id, stream, primcount);
+		callV(__functionAddress, mode, id, stream, primcount);
 	}
 
 	// --- [ glDrawArraysInstancedBaseInstance ] ---
@@ -387,7 +387,7 @@ public class GL42 {
 		long __functionAddress = GL.getCapabilities().glDrawArraysInstancedBaseInstance;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, mode, first, count, primcount, baseinstance);
+		callV(__functionAddress, mode, first, count, primcount, baseinstance);
 	}
 
 	// --- [ glDrawElementsInstancedBaseInstance ] ---
@@ -408,7 +408,7 @@ public class GL42 {
 		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedBaseInstance;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPIIV(__functionAddress, mode, count, type, indices, primcount, baseinstance);
+		callPV(__functionAddress, mode, count, type, indices, primcount, baseinstance);
 	}
 
 	/**
@@ -513,7 +513,7 @@ public class GL42 {
 		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedBaseVertexBaseInstance;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPIIIV(__functionAddress, mode, count, type, indices, primcount, basevertex, baseinstance);
+		callPV(__functionAddress, mode, count, type, indices, primcount, basevertex, baseinstance);
 	}
 
 	/**
@@ -623,7 +623,7 @@ public class GL42 {
 		long __functionAddress = GL.getCapabilities().glBindImageTexture;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIZIIIV(__functionAddress, unit, texture, level, layered, layer, access, format);
+		callV(__functionAddress, unit, texture, level, layered, layer, access, format);
 	}
 
 	// --- [ glMemoryBarrier ] ---
@@ -639,7 +639,7 @@ public class GL42 {
 		long __functionAddress = GL.getCapabilities().glMemoryBarrier;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, barriers);
+		callV(__functionAddress, barriers);
 	}
 
 	// --- [ glGetInternalformativ ] ---
@@ -659,7 +659,7 @@ public class GL42 {
 		long __functionAddress = GL.getCapabilities().glGetInternalformativ;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIPV(__functionAddress, target, internalformat, pname, bufSize, params);
+		callPV(__functionAddress, target, internalformat, pname, bufSize, params);
 	}
 
 	/**
@@ -694,6 +694,32 @@ public class GL42 {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveAtomicCounterBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetActiveAtomicCounterBufferiv GetActiveAtomicCounterBufferiv}
+	 */
+	public static void glGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetActiveAtomicCounterBufferiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, program, bufferIndex, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetInternalformat.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetInternalformativ GetInternalformativ}
+	 */
+	public static void glGetInternalformativ(int target, int internalformat, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetInternalformativ;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, target, internalformat, pname, params.length, params);
 	}
 
 }

@@ -49,7 +49,7 @@ public class NVPolygonMode {
 		long __functionAddress = GLES.getCapabilities().glPolygonModeNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, face, mode);
+		callV(__functionAddress, face, mode);
 	}
 
 }

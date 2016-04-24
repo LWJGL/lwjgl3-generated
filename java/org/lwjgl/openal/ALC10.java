@@ -436,7 +436,7 @@ public class ALC10 {
 	 */
 	public static long nalcGetString(long deviceHandle, int token) {
 		long __functionAddress = ALC.getICD().alcGetString;
-		return invokePIP(__functionAddress, deviceHandle, token);
+		return invokePP(__functionAddress, deviceHandle, token);
 	}
 
 	/**
@@ -464,7 +464,7 @@ public class ALC10 {
 	 */
 	public static void nalcGetIntegerv(long deviceHandle, int token, int size, long dest) {
 		long __functionAddress = ALC.getICD().alcGetIntegerv;
-		invokePIIPV(__functionAddress, deviceHandle, token, size, dest);
+		invokePPV(__functionAddress, deviceHandle, token, size, dest);
 	}
 
 	/**
@@ -493,6 +493,22 @@ public class ALC10 {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #alcCreateContext CreateContext} */
+	public static long alcCreateContext(long deviceHandle, int[] attrList) {
+		long __functionAddress = ALC.getICD().alcCreateContext;
+		if ( CHECKS ) {
+			checkPointer(deviceHandle);
+			if ( attrList != null ) checkNT(attrList);
+		}
+		return invokePPP(__functionAddress, deviceHandle, attrList);
+	}
+
+	/** Array version of: {@link #alcGetIntegerv GetIntegerv} */
+	public static void alcGetIntegerv(long deviceHandle, int token, int[] dest) {
+		long __functionAddress = ALC.getICD().alcGetIntegerv;
+		invokePPV(__functionAddress, deviceHandle, token, dest.length, dest);
 	}
 
 }

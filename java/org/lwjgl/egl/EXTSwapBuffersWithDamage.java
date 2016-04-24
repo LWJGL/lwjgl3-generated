@@ -43,11 +43,22 @@ public class EXTSwapBuffersWithDamage {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPPII(__functionAddress, dpy, surface, rects, n_rects);
+		return callPPPI(__functionAddress, dpy, surface, rects, n_rects);
 	}
 
 	public static int eglSwapBuffersWithDamageEXT(long dpy, long surface, IntBuffer rects) {
 		return neglSwapBuffersWithDamageEXT(dpy, surface, memAddressSafe(rects), rects == null ? 0 : rects.remaining());
+	}
+
+	/** Array version of: {@link #eglSwapBuffersWithDamageEXT SwapBuffersWithDamageEXT} */
+	public static int eglSwapBuffersWithDamageEXT(long dpy, long surface, int[] rects) {
+		long __functionAddress = EGL.getCapabilities().eglSwapBuffersWithDamageEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			checkPointer(surface);
+		}
+		return callPPPI(__functionAddress, dpy, surface, rects, rects == null ? 0 : rects.length);
 	}
 
 }

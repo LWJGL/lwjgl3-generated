@@ -112,7 +112,7 @@ public class ARBBufferStorage {
 		long __functionAddress = GL.getCapabilities().glBufferStorage;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPPIV(__functionAddress, target, size, data, flags);
+		callPPV(__functionAddress, target, size, data, flags);
 	}
 
 	/**
@@ -170,7 +170,7 @@ public class ARBBufferStorage {
 
 	/** ByteBuffer version of: {@link #glBufferStorage BufferStorage} */
 	public static void glBufferStorage(int target, ByteBuffer data, int flags) {
-		nglBufferStorage(target, data.remaining(), memAddress(data), flags);
+		nglBufferStorage(target, (long)data.remaining(), memAddress(data), flags);
 	}
 
 	/** ShortBuffer version of: {@link #glBufferStorage BufferStorage} */
@@ -244,7 +244,7 @@ public class ARBBufferStorage {
 		long __functionAddress = GL.getCapabilities().glNamedBufferStorageEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPPIV(__functionAddress, buffer, size, data, flags);
+		callPPV(__functionAddress, buffer, size, data, flags);
 	}
 
 	/**
@@ -296,7 +296,7 @@ public class ARBBufferStorage {
 
 	/** ByteBuffer version of: {@link #glNamedBufferStorageEXT NamedBufferStorageEXT} */
 	public static void glNamedBufferStorageEXT(int buffer, ByteBuffer data, int flags) {
-		nglNamedBufferStorageEXT(buffer, data.remaining(), memAddress(data), flags);
+		nglNamedBufferStorageEXT(buffer, (long)data.remaining(), memAddress(data), flags);
 	}
 
 	/** ShortBuffer version of: {@link #glNamedBufferStorageEXT NamedBufferStorageEXT} */
@@ -317,6 +317,70 @@ public class ARBBufferStorage {
 	/** DoubleBuffer version of: {@link #glNamedBufferStorageEXT NamedBufferStorageEXT} */
 	public static void glNamedBufferStorageEXT(int buffer, DoubleBuffer data, int flags) {
 		nglNamedBufferStorageEXT(buffer, data.remaining() << 3, memAddress(data), flags);
+	}
+
+	/** short[] version of: {@link #glBufferStorage BufferStorage} */
+	public static void glBufferStorage(int target, short[] data, int flags) {
+		long __functionAddress = GL.getCapabilities().glBufferStorage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, target, (long)(data.length << 1), data, flags);
+	}
+
+	/** int[] version of: {@link #glBufferStorage BufferStorage} */
+	public static void glBufferStorage(int target, int[] data, int flags) {
+		long __functionAddress = GL.getCapabilities().glBufferStorage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, target, (long)(data.length << 2), data, flags);
+	}
+
+	/** float[] version of: {@link #glBufferStorage BufferStorage} */
+	public static void glBufferStorage(int target, float[] data, int flags) {
+		long __functionAddress = GL.getCapabilities().glBufferStorage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, target, (long)(data.length << 2), data, flags);
+	}
+
+	/** double[] version of: {@link #glBufferStorage BufferStorage} */
+	public static void glBufferStorage(int target, double[] data, int flags) {
+		long __functionAddress = GL.getCapabilities().glBufferStorage;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, target, (long)(data.length << 3), data, flags);
+	}
+
+	/** short[] version of: {@link #glNamedBufferStorageEXT NamedBufferStorageEXT} */
+	public static void glNamedBufferStorageEXT(int buffer, short[] data, int flags) {
+		long __functionAddress = GL.getCapabilities().glNamedBufferStorageEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, buffer, (long)(data.length << 1), data, flags);
+	}
+
+	/** int[] version of: {@link #glNamedBufferStorageEXT NamedBufferStorageEXT} */
+	public static void glNamedBufferStorageEXT(int buffer, int[] data, int flags) {
+		long __functionAddress = GL.getCapabilities().glNamedBufferStorageEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, buffer, (long)(data.length << 2), data, flags);
+	}
+
+	/** float[] version of: {@link #glNamedBufferStorageEXT NamedBufferStorageEXT} */
+	public static void glNamedBufferStorageEXT(int buffer, float[] data, int flags) {
+		long __functionAddress = GL.getCapabilities().glNamedBufferStorageEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, buffer, (long)(data.length << 2), data, flags);
+	}
+
+	/** double[] version of: {@link #glNamedBufferStorageEXT NamedBufferStorageEXT} */
+	public static void glNamedBufferStorageEXT(int buffer, double[] data, int flags) {
+		long __functionAddress = GL.getCapabilities().glNamedBufferStorageEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, buffer, (long)(data.length << 3), data, flags);
 	}
 
 }

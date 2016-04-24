@@ -61,7 +61,7 @@ public class NVPrimitiveRestart {
 		long __functionAddress = GL.getCapabilities().glPrimitiveRestartIndexNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, index);
+		callV(__functionAddress, index);
 	}
 
 }

@@ -66,7 +66,7 @@ public class ARBGetProgramBinary {
 		long __functionAddress = GL.getCapabilities().glGetProgramBinary;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPPPV(__functionAddress, program, bufSize, length, binaryFormat, binary);
+		callPPPV(__functionAddress, program, bufSize, length, binaryFormat, binary);
 	}
 
 	/**
@@ -99,7 +99,7 @@ public class ARBGetProgramBinary {
 		long __functionAddress = GL.getCapabilities().glProgramBinary;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPIV(__functionAddress, program, binaryFormat, binary, length);
+		callPV(__functionAddress, program, binaryFormat, binary, length);
 	}
 
 	/**
@@ -126,7 +126,18 @@ public class ARBGetProgramBinary {
 		long __functionAddress = GL.getCapabilities().glProgramParameteri;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, program, pname, value);
+		callV(__functionAddress, program, pname, value);
+	}
+
+	/** Array version of: {@link #glGetProgramBinary GetProgramBinary} */
+	public static void glGetProgramBinary(int program, int[] length, int[] binaryFormat, ByteBuffer binary) {
+		long __functionAddress = GL.getCapabilities().glGetProgramBinary;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( length != null ) checkBuffer(length, 1);
+			checkBuffer(binaryFormat, 1);
+		}
+		callPPPV(__functionAddress, program, binary.remaining(), length, binaryFormat, memAddress(binary));
 	}
 
 }

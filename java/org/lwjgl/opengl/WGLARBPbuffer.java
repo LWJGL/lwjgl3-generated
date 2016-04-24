@@ -87,7 +87,7 @@ public class WGLARBPbuffer {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hdc);
 		}
-		return callPIIIPP(__functionAddress, hdc, pixelFormat, width, height, attribList);
+		return callPPP(__functionAddress, hdc, pixelFormat, width, height, attribList);
 	}
 
 	/**
@@ -176,7 +176,7 @@ public class WGLARBPbuffer {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(pbuffer);
 		}
-		return callPIPI(__functionAddress, pbuffer, attribute, value);
+		return callPPI(__functionAddress, pbuffer, attribute, value);
 	}
 
 	/**
@@ -190,6 +190,28 @@ public class WGLARBPbuffer {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		return nwglQueryPbufferARB(pbuffer, attribute, memAddress(value)) != 0;
+	}
+
+	/** Array version of: {@link #wglCreatePbufferARB CreatePbufferARB} */
+	public static long wglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, int[] attribList) {
+		long __functionAddress = GL.getCapabilitiesWGL().wglCreatePbufferARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(hdc);
+			if ( attribList != null ) checkNT(attribList);
+		}
+		return callPPP(__functionAddress, hdc, pixelFormat, width, height, attribList);
+	}
+
+	/** Array version of: {@link #wglQueryPbufferARB QueryPbufferARB} */
+	public static boolean wglQueryPbufferARB(long pbuffer, int attribute, int[] value) {
+		long __functionAddress = GL.getCapabilitiesWGL().wglQueryPbufferARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(pbuffer);
+			checkBuffer(value, 1);
+		}
+		return callPPI(__functionAddress, pbuffer, attribute, value) != 0;
 	}
 
 }

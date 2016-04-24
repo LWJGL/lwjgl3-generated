@@ -50,7 +50,7 @@ public class NVConservativeRaster {
 		long __functionAddress = GLES.getCapabilities().glSubpixelPrecisionBiasNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, xbits, ybits);
+		callV(__functionAddress, xbits, ybits);
 	}
 
 }

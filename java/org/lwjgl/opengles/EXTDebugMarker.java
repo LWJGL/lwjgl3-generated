@@ -43,7 +43,7 @@ public class EXTDebugMarker {
 		long __functionAddress = GLES.getCapabilities().glInsertEventMarkerEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, length, marker);
+		callPV(__functionAddress, length, marker);
 	}
 
 	public static void glInsertEventMarkerEXT(ByteBuffer marker) {
@@ -67,7 +67,7 @@ public class EXTDebugMarker {
 		long __functionAddress = GLES.getCapabilities().glPushGroupMarkerEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, length, marker);
+		callPV(__functionAddress, length, marker);
 	}
 
 	public static void glPushGroupMarkerEXT(ByteBuffer marker) {

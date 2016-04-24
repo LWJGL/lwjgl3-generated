@@ -74,7 +74,7 @@ public class EXTVertexAttrib64bit {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL1dEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIDV(__functionAddress, index, x);
+		callV(__functionAddress, index, x);
 	}
 
 	// --- [ glVertexAttribL2dEXT ] ---
@@ -83,7 +83,7 @@ public class EXTVertexAttrib64bit {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL2dEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIDDV(__functionAddress, index, x, y);
+		callV(__functionAddress, index, x, y);
 	}
 
 	// --- [ glVertexAttribL3dEXT ] ---
@@ -92,7 +92,7 @@ public class EXTVertexAttrib64bit {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL3dEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIDDDV(__functionAddress, index, x, y, z);
+		callV(__functionAddress, index, x, y, z);
 	}
 
 	// --- [ glVertexAttribL4dEXT ] ---
@@ -101,7 +101,7 @@ public class EXTVertexAttrib64bit {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL4dEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIDDDDV(__functionAddress, index, x, y, z, w);
+		callV(__functionAddress, index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttribL1dvEXT ] ---
@@ -110,7 +110,7 @@ public class EXTVertexAttrib64bit {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL1dvEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttribL1dvEXT(int index, DoubleBuffer v) {
@@ -123,7 +123,7 @@ public class EXTVertexAttrib64bit {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL2dvEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttribL2dvEXT(int index, DoubleBuffer v) {
@@ -136,7 +136,7 @@ public class EXTVertexAttrib64bit {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL3dvEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttribL3dvEXT(int index, DoubleBuffer v) {
@@ -149,7 +149,7 @@ public class EXTVertexAttrib64bit {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL4dvEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttribL4dvEXT(int index, DoubleBuffer v) {
@@ -162,7 +162,7 @@ public class EXTVertexAttrib64bit {
 		long __functionAddress = GL.getCapabilities().glVertexAttribLPointerEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIPV(__functionAddress, index, size, type, stride, pointer);
+		callPV(__functionAddress, index, size, type, stride, pointer);
 	}
 
 	public static void glVertexAttribLPointerEXT(int index, int size, int type, int stride, ByteBuffer pointer) {
@@ -189,7 +189,7 @@ public class EXTVertexAttrib64bit {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribLdvEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, index, pname, params);
+		callPV(__functionAddress, index, pname, params);
 	}
 
 	public static void glGetVertexAttribLdvEXT(int index, int pname, DoubleBuffer params) {
@@ -202,7 +202,47 @@ public class EXTVertexAttrib64bit {
 		long __functionAddress = GL.getCapabilities().glVertexArrayVertexAttribLOffsetEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIPV(__functionAddress, vaobj, buffer, index, size, type, stride, offset);
+		callPV(__functionAddress, vaobj, buffer, index, size, type, stride, offset);
+	}
+
+	/** Array version of: {@link #glVertexAttribL1dvEXT VertexAttribL1dvEXT} */
+	public static void glVertexAttribL1dvEXT(int index, double[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribL1dvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, index, v);
+	}
+
+	/** Array version of: {@link #glVertexAttribL2dvEXT VertexAttribL2dvEXT} */
+	public static void glVertexAttribL2dvEXT(int index, double[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribL2dvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, index, v);
+	}
+
+	/** Array version of: {@link #glVertexAttribL3dvEXT VertexAttribL3dvEXT} */
+	public static void glVertexAttribL3dvEXT(int index, double[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribL3dvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, index, v);
+	}
+
+	/** Array version of: {@link #glVertexAttribL4dvEXT VertexAttribL4dvEXT} */
+	public static void glVertexAttribL4dvEXT(int index, double[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribL4dvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, index, v);
+	}
+
+	/** Array version of: {@link #glGetVertexAttribLdvEXT GetVertexAttribLdvEXT} */
+	public static void glGetVertexAttribLdvEXT(int index, int pname, double[] params) {
+		long __functionAddress = GL.getCapabilities().glGetVertexAttribLdvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, index, pname, params);
 	}
 
 }

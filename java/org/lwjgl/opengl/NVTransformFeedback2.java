@@ -60,7 +60,7 @@ public class NVTransformFeedback2 {
 		long __functionAddress = GL.getCapabilities().glBindTransformFeedbackNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, target, id);
+		callV(__functionAddress, target, id);
 	}
 
 	// --- [ glDeleteTransformFeedbacksNV ] ---
@@ -69,7 +69,7 @@ public class NVTransformFeedback2 {
 		long __functionAddress = GL.getCapabilities().glDeleteTransformFeedbacksNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, ids);
+		callPV(__functionAddress, n, ids);
 	}
 
 	public static void glDeleteTransformFeedbacksNV(IntBuffer ids) {
@@ -92,7 +92,7 @@ public class NVTransformFeedback2 {
 		long __functionAddress = GL.getCapabilities().glGenTransformFeedbacksNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, ids);
+		callPV(__functionAddress, n, ids);
 	}
 
 	public static void glGenTransformFeedbacksNV(IntBuffer ids) {
@@ -118,7 +118,7 @@ public class NVTransformFeedback2 {
 		long __functionAddress = GL.getCapabilities().glIsTransformFeedbackNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIZ(__functionAddress, id);
+		return callZ(__functionAddress, id);
 	}
 
 	// --- [ glPauseTransformFeedbackNV ] ---
@@ -145,7 +145,25 @@ public class NVTransformFeedback2 {
 		long __functionAddress = GL.getCapabilities().glDrawTransformFeedbackNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, mode, id);
+		callV(__functionAddress, mode, id);
+	}
+
+	/** Array version of: {@link #glDeleteTransformFeedbacksNV DeleteTransformFeedbacksNV} */
+	public static void glDeleteTransformFeedbacksNV(int[] ids) {
+		long __functionAddress = GL.getCapabilities().glDeleteTransformFeedbacksNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, ids.length, ids);
+	}
+
+	/** Array version of: {@link #glGenTransformFeedbacksNV GenTransformFeedbacksNV} */
+	public static void glGenTransformFeedbacksNV(int[] ids) {
+		long __functionAddress = GL.getCapabilities().glGenTransformFeedbacksNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(ids, 1);
+		}
+		callPV(__functionAddress, ids.length, ids);
 	}
 
 }

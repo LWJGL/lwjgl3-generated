@@ -45,13 +45,25 @@ public class NVStreamSync {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return callPPIPP(__functionAddress, dpy, stream, type, attrib_list);
+		return callPPPP(__functionAddress, dpy, stream, type, attrib_list);
 	}
 
 	public static long eglCreateStreamSyncNV(long dpy, long stream, int type, IntBuffer attrib_list) {
 		if ( CHECKS )
 			checkNT(attrib_list, EGL10.EGL_NONE);
 		return neglCreateStreamSyncNV(dpy, stream, type, memAddress(attrib_list));
+	}
+
+	/** Array version of: {@link #eglCreateStreamSyncNV CreateStreamSyncNV} */
+	public static long eglCreateStreamSyncNV(long dpy, long stream, int type, int[] attrib_list) {
+		long __functionAddress = EGL.getCapabilities().eglCreateStreamSyncNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			checkPointer(stream);
+			checkNT(attrib_list, EGL10.EGL_NONE);
+		}
+		return callPPPP(__functionAddress, dpy, stream, type, attrib_list);
 	}
 
 }

@@ -52,7 +52,7 @@ public class NVFramebufferMultisampleCoverage {
 		long __functionAddress = GL.getCapabilities().glRenderbufferStorageMultisampleCoverageNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIV(__functionAddress, target, coverageSamples, colorSamples, internalformat, width, height);
+		callV(__functionAddress, target, coverageSamples, colorSamples, internalformat, width, height);
 	}
 
 }

@@ -116,7 +116,19 @@ public class KHRWin32Surface {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceWin32PresentationSupportKHR;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callPII(__functionAddress, physicalDevice.address(), queueFamilyIndex);
+		return callPI(__functionAddress, physicalDevice.address(), queueFamilyIndex);
+	}
+
+	/** Array version of: {@link #vkCreateWin32SurfaceKHR CreateWin32SurfaceKHR} */
+	public static int vkCreateWin32SurfaceKHR(VkInstance instance, VkWin32SurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, long[] pSurface) {
+		long __functionAddress = instance.getCapabilities().vkCreateWin32SurfaceKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(pSurface, 1);
+			VkWin32SurfaceCreateInfoKHR.validate(pCreateInfo.address());
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPPPPI(__functionAddress, instance.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pSurface);
 	}
 
 }

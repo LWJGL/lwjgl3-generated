@@ -47,7 +47,7 @@ public class NVDrawInstanced {
 		long __functionAddress = GLES.getCapabilities().glDrawArraysInstancedNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, mode, first, count, primcount);
+		callV(__functionAddress, mode, first, count, primcount);
 	}
 
 	// --- [ glDrawElementsInstancedNV ] ---
@@ -65,7 +65,7 @@ public class NVDrawInstanced {
 		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPIV(__functionAddress, mode, count, type, indices, primcount);
+		callPV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
 	/**

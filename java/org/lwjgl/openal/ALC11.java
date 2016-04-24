@@ -59,7 +59,7 @@ public class ALC11 {
 		long __functionAddress = ALC.getICD().alcCaptureOpenDevice;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return invokePIIIP(__functionAddress, devicename, frequency, format, buffersize);
+		return invokePP(__functionAddress, devicename, frequency, format, buffersize);
 	}
 
 	/**
@@ -172,7 +172,7 @@ public class ALC11 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
 		}
-		invokePPIV(__functionAddress, device, buffer, samples);
+		invokePPV(__functionAddress, device, buffer, samples);
 	}
 
 	/**

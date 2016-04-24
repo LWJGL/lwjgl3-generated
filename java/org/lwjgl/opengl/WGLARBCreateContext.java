@@ -88,4 +88,15 @@ public class WGLARBCreateContext {
 		return nwglCreateContextAttribsARB(hdc, shareContext, memAddressSafe(attribList));
 	}
 
+	/** Array version of: {@link #wglCreateContextAttribsARB CreateContextAttribsARB} */
+	public static long wglCreateContextAttribsARB(long hdc, long shareContext, int[] attribList) {
+		long __functionAddress = GL.getCapabilitiesWGL().wglCreateContextAttribsARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(hdc);
+			if ( attribList != null ) checkNT(attribList);
+		}
+		return callPPPP(__functionAddress, hdc, shareContext, attribList);
+	}
+
 }

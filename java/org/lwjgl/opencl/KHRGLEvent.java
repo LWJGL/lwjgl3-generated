@@ -68,4 +68,16 @@ public class KHRGLEvent {
 		return nclCreateEventFromGLsyncKHR(context, sync, memAddressSafe(errcode_ret));
 	}
 
+	/** Array version of: {@link #clCreateEventFromGLsyncKHR CreateEventFromGLsyncKHR} */
+	public static long clCreateEventFromGLsyncKHR(long context, long sync, int[] errcode_ret) {
+		long __functionAddress = CL.getICD().clCreateEventFromGLsyncKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(context);
+			checkPointer(sync);
+			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+		}
+		return callPPPP(__functionAddress, context, sync, errcode_ret);
+	}
+
 }

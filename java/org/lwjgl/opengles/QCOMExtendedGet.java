@@ -55,7 +55,7 @@ public class QCOMExtendedGet {
 		long __functionAddress = GLES.getCapabilities().glExtGetTexturesQCOM;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPIPV(__functionAddress, textures, maxTextures, numTextures);
+		callPPV(__functionAddress, textures, maxTextures, numTextures);
 	}
 
 	public static void glExtGetTexturesQCOM(IntBuffer textures, IntBuffer numTextures) {
@@ -70,7 +70,7 @@ public class QCOMExtendedGet {
 		long __functionAddress = GLES.getCapabilities().glExtGetBuffersQCOM;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPIPV(__functionAddress, buffers, maxBuffers, numBuffers);
+		callPPV(__functionAddress, buffers, maxBuffers, numBuffers);
 	}
 
 	public static void glExtGetBuffersQCOM(IntBuffer buffers, IntBuffer numBuffers) {
@@ -85,7 +85,7 @@ public class QCOMExtendedGet {
 		long __functionAddress = GLES.getCapabilities().glExtGetRenderbuffersQCOM;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPIPV(__functionAddress, renderbuffers, maxRenderbuffers, numRenderbuffers);
+		callPPV(__functionAddress, renderbuffers, maxRenderbuffers, numRenderbuffers);
 	}
 
 	public static void glExtGetRenderbuffersQCOM(IntBuffer renderbuffers, IntBuffer numRenderbuffers) {
@@ -100,7 +100,7 @@ public class QCOMExtendedGet {
 		long __functionAddress = GLES.getCapabilities().glExtGetFramebuffersQCOM;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPIPV(__functionAddress, framebuffers, maxFramebuffers, numFramebuffers);
+		callPPV(__functionAddress, framebuffers, maxFramebuffers, numFramebuffers);
 	}
 
 	public static void glExtGetFramebuffersQCOM(IntBuffer framebuffers, IntBuffer numFramebuffers) {
@@ -115,7 +115,7 @@ public class QCOMExtendedGet {
 		long __functionAddress = GLES.getCapabilities().glExtGetTexLevelParameterivQCOM;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIPV(__functionAddress, texture, face, level, pname, params);
+		callPV(__functionAddress, texture, face, level, pname, params);
 	}
 
 	public static void glExtGetTexLevelParameterivQCOM(int texture, int face, int level, int pname, IntBuffer params) {
@@ -141,7 +141,7 @@ public class QCOMExtendedGet {
 		long __functionAddress = GLES.getCapabilities().glExtTexObjectStateOverrideiQCOM;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, target, pname, param);
+		callV(__functionAddress, target, pname, param);
 	}
 
 	// --- [ glExtGetTexSubImageQCOM ] ---
@@ -150,7 +150,7 @@ public class QCOMExtendedGet {
 		long __functionAddress = GLES.getCapabilities().glExtGetTexSubImageQCOM;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, texels);
+		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, texels);
 	}
 
 	public static void glExtGetTexSubImageQCOM(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer texels) {
@@ -163,7 +163,7 @@ public class QCOMExtendedGet {
 		long __functionAddress = GLES.getCapabilities().glExtGetBufferPointervQCOM;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, target, params);
+		callPV(__functionAddress, target, params);
 	}
 
 	public static void glExtGetBufferPointervQCOM(int target, PointerBuffer params) {
@@ -181,6 +181,56 @@ public class QCOMExtendedGet {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #glExtGetTexturesQCOM ExtGetTexturesQCOM} */
+	public static void glExtGetTexturesQCOM(int[] textures, int[] numTextures) {
+		long __functionAddress = GLES.getCapabilities().glExtGetTexturesQCOM;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( numTextures != null ) checkBuffer(numTextures, 1);
+		}
+		callPPV(__functionAddress, textures, textures == null ? 0 : textures.length, numTextures);
+	}
+
+	/** Array version of: {@link #glExtGetBuffersQCOM ExtGetBuffersQCOM} */
+	public static void glExtGetBuffersQCOM(int[] buffers, int[] numBuffers) {
+		long __functionAddress = GLES.getCapabilities().glExtGetBuffersQCOM;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( numBuffers != null ) checkBuffer(numBuffers, 1);
+		}
+		callPPV(__functionAddress, buffers, buffers == null ? 0 : buffers.length, numBuffers);
+	}
+
+	/** Array version of: {@link #glExtGetRenderbuffersQCOM ExtGetRenderbuffersQCOM} */
+	public static void glExtGetRenderbuffersQCOM(int[] renderbuffers, int[] numRenderbuffers) {
+		long __functionAddress = GLES.getCapabilities().glExtGetRenderbuffersQCOM;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( numRenderbuffers != null ) checkBuffer(numRenderbuffers, 1);
+		}
+		callPPV(__functionAddress, renderbuffers, renderbuffers == null ? 0 : renderbuffers.length, numRenderbuffers);
+	}
+
+	/** Array version of: {@link #glExtGetFramebuffersQCOM ExtGetFramebuffersQCOM} */
+	public static void glExtGetFramebuffersQCOM(int[] framebuffers, int[] numFramebuffers) {
+		long __functionAddress = GLES.getCapabilities().glExtGetFramebuffersQCOM;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( numFramebuffers != null ) checkBuffer(numFramebuffers, 1);
+		}
+		callPPV(__functionAddress, framebuffers, framebuffers == null ? 0 : framebuffers.length, numFramebuffers);
+	}
+
+	/** Array version of: {@link #glExtGetTexLevelParameterivQCOM ExtGetTexLevelParameterivQCOM} */
+	public static void glExtGetTexLevelParameterivQCOM(int texture, int face, int level, int pname, int[] params) {
+		long __functionAddress = GLES.getCapabilities().glExtGetTexLevelParameterivQCOM;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, texture, face, level, pname, params);
 	}
 
 }

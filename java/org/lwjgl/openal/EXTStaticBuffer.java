@@ -45,7 +45,7 @@ public class EXTStaticBuffer {
 		long __functionAddress = AL.getCapabilities().alBufferDataStatic;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPIIV(__functionAddress, buffer, format, data, len, freq);
+		invokePV(__functionAddress, buffer, format, data, len, freq);
 	}
 
 	/**
@@ -73,6 +73,30 @@ public class EXTStaticBuffer {
 	/** FloatBuffer version of: {@link #alBufferDataStatic BufferDataStatic} */
 	public static void alBufferDataStatic(int buffer, int format, FloatBuffer data, int freq) {
 		nalBufferDataStatic(buffer, format, memAddress(data), data.remaining() << 2, freq);
+	}
+
+	/** short[] version of: {@link #alBufferDataStatic BufferDataStatic} */
+	public static void alBufferDataStatic(int buffer, int format, short[] data, int freq) {
+		long __functionAddress = AL.getCapabilities().alBufferDataStatic;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		invokePV(__functionAddress, buffer, format, data, data.length << 1, freq);
+	}
+
+	/** int[] version of: {@link #alBufferDataStatic BufferDataStatic} */
+	public static void alBufferDataStatic(int buffer, int format, int[] data, int freq) {
+		long __functionAddress = AL.getCapabilities().alBufferDataStatic;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		invokePV(__functionAddress, buffer, format, data, data.length << 2, freq);
+	}
+
+	/** float[] version of: {@link #alBufferDataStatic BufferDataStatic} */
+	public static void alBufferDataStatic(int buffer, int format, float[] data, int freq) {
+		long __functionAddress = AL.getCapabilities().alBufferDataStatic;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		invokePV(__functionAddress, buffer, format, data, data.length << 2, freq);
 	}
 
 }

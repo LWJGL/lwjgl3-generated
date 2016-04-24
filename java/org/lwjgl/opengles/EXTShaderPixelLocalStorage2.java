@@ -54,7 +54,7 @@ public class EXTShaderPixelLocalStorage2 {
 		long __functionAddress = GLES.getCapabilities().glFramebufferPixelLocalStorageSizeEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, target, size);
+		callV(__functionAddress, target, size);
 	}
 
 	// --- [ glGetFramebufferPixelLocalStorageSizeEXT ] ---
@@ -63,7 +63,7 @@ public class EXTShaderPixelLocalStorage2 {
 		long __functionAddress = GLES.getCapabilities().glGetFramebufferPixelLocalStorageSizeEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callII(__functionAddress, target);
+		return callI(__functionAddress, target);
 	}
 
 	// --- [ glClearPixelLocalStorageuiEXT ] ---
@@ -72,11 +72,19 @@ public class EXTShaderPixelLocalStorage2 {
 		long __functionAddress = GLES.getCapabilities().glClearPixelLocalStorageuiEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, offset, n, values);
+		callPV(__functionAddress, offset, n, values);
 	}
 
 	public static void glClearPixelLocalStorageuiEXT(int offset, IntBuffer values) {
 		nglClearPixelLocalStorageuiEXT(offset, values.remaining(), memAddress(values));
+	}
+
+	/** Array version of: {@link #glClearPixelLocalStorageuiEXT ClearPixelLocalStorageuiEXT} */
+	public static void glClearPixelLocalStorageuiEXT(int offset, int[] values) {
+		long __functionAddress = GLES.getCapabilities().glClearPixelLocalStorageuiEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, offset, values.length, values);
 	}
 
 }

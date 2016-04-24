@@ -61,7 +61,7 @@ public class NVDepthBufferFloat {
 		long __functionAddress = GL.getCapabilities().glDepthRangedNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDDV(__functionAddress, zNear, zFar);
+		callV(__functionAddress, zNear, zFar);
 	}
 
 	// --- [ glClearDepthdNV ] ---
@@ -70,7 +70,7 @@ public class NVDepthBufferFloat {
 		long __functionAddress = GL.getCapabilities().glClearDepthdNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDV(__functionAddress, depth);
+		callV(__functionAddress, depth);
 	}
 
 	// --- [ glDepthBoundsdNV ] ---
@@ -79,7 +79,7 @@ public class NVDepthBufferFloat {
 		long __functionAddress = GL.getCapabilities().glDepthBoundsdNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDDV(__functionAddress, zmin, zmax);
+		callV(__functionAddress, zmin, zmax);
 	}
 
 }

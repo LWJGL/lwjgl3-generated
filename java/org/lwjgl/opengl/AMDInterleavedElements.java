@@ -52,7 +52,7 @@ public class AMDInterleavedElements {
 		long __functionAddress = GL.getCapabilities().glVertexAttribParameteriAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, index, pname, param);
+		callV(__functionAddress, index, pname, param);
 	}
 
 }

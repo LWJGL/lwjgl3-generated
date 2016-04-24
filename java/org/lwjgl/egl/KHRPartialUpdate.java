@@ -54,11 +54,22 @@ public class KHRPartialUpdate {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPPII(__functionAddress, dpy, surface, rects, n_rects);
+		return callPPPI(__functionAddress, dpy, surface, rects, n_rects);
 	}
 
 	public static int eglSetDamageRegionKHR(long dpy, long surface, IntBuffer rects) {
 		return neglSetDamageRegionKHR(dpy, surface, memAddressSafe(rects), rects == null ? 0 : rects.remaining());
+	}
+
+	/** Array version of: {@link #eglSetDamageRegionKHR SetDamageRegionKHR} */
+	public static int eglSetDamageRegionKHR(long dpy, long surface, int[] rects) {
+		long __functionAddress = EGL.getCapabilities().eglSetDamageRegionKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			checkPointer(surface);
+		}
+		return callPPPI(__functionAddress, dpy, surface, rects, rects == null ? 0 : rects.length);
 	}
 
 }

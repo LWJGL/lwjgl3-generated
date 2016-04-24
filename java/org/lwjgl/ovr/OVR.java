@@ -1965,4 +1965,80 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 		}
 	}
 
+	/** Array version of: {@link #ovr_GetTextureSwapChainLength GetTextureSwapChainLength} */
+	public static native int novr_GetTextureSwapChainLength(long session, long chain, int[] out_Length);
+
+	/** Array version of: {@link #ovr_GetTextureSwapChainLength GetTextureSwapChainLength} */
+	public static int ovr_GetTextureSwapChainLength(long session, long chain, int[] out_Length) {
+		if ( CHECKS ) {
+			checkPointer(session);
+			checkPointer(chain);
+			checkBuffer(out_Length, 1);
+		}
+		return novr_GetTextureSwapChainLength(session, chain, out_Length);
+	}
+
+	/** Array version of: {@link #ovr_GetTextureSwapChainCurrentIndex GetTextureSwapChainCurrentIndex} */
+	public static native int novr_GetTextureSwapChainCurrentIndex(long session, long chain, int[] out_Index);
+
+	/** Array version of: {@link #ovr_GetTextureSwapChainCurrentIndex GetTextureSwapChainCurrentIndex} */
+	public static int ovr_GetTextureSwapChainCurrentIndex(long session, long chain, int[] out_Index) {
+		if ( CHECKS ) {
+			checkPointer(session);
+			checkPointer(chain);
+			checkBuffer(out_Index, 1);
+		}
+		return novr_GetTextureSwapChainCurrentIndex(session, chain, out_Index);
+	}
+
+	/** Array version of: {@link #ovr_GetFloatArray GetFloatArray} */
+	public static native int novr_GetFloatArray(long session, long propertyName, float[] values, int valuesCapacity);
+
+	/** Array version of: {@link #ovr_GetFloatArray GetFloatArray} */
+	public static int ovr_GetFloatArray(long session, ByteBuffer propertyName, float[] values) {
+		if ( CHECKS ) {
+			checkPointer(session);
+			checkNT1(propertyName);
+		}
+		return novr_GetFloatArray(session, memAddress(propertyName), values, values.length);
+	}
+
+	/** Array version of: {@link #ovr_GetFloatArray GetFloatArray} */
+	public static int ovr_GetFloatArray(long session, CharSequence propertyName, float[] values) {
+		if ( CHECKS )
+			checkPointer(session);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);
+			return novr_GetFloatArray(session, memAddress(propertyNameEncoded), values, values.length);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
+	/** Array version of: {@link #ovr_SetFloatArray SetFloatArray} */
+	public static native boolean novr_SetFloatArray(long session, long propertyName, float[] values, int valuesSize);
+
+	/** Array version of: {@link #ovr_SetFloatArray SetFloatArray} */
+	public static boolean ovr_SetFloatArray(long session, ByteBuffer propertyName, float[] values) {
+		if ( CHECKS ) {
+			checkPointer(session);
+			checkNT1(propertyName);
+		}
+		return novr_SetFloatArray(session, memAddress(propertyName), values, values.length);
+	}
+
+	/** Array version of: {@link #ovr_SetFloatArray SetFloatArray} */
+	public static boolean ovr_SetFloatArray(long session, CharSequence propertyName, float[] values) {
+		if ( CHECKS )
+			checkPointer(session);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);
+			return novr_SetFloatArray(session, memAddress(propertyNameEncoded), values, values.length);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
 }

@@ -37,7 +37,7 @@ public class EXTDrawInstanced {
 		long __functionAddress = GL.getCapabilities().glDrawArraysInstancedEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, mode, start, count, primcount);
+		callV(__functionAddress, mode, start, count, primcount);
 	}
 
 	// --- [ glDrawElementsInstancedEXT ] ---
@@ -46,7 +46,7 @@ public class EXTDrawInstanced {
 		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPIV(__functionAddress, mode, count, type, indices, primcount);
+		callPV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
 	public static void glDrawElementsInstancedEXT(int mode, int count, int type, ByteBuffer indices, int primcount) {

@@ -51,7 +51,7 @@ public class KHRCLEvent2 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 		}
-		return callPIPP(__functionAddress, dpy, type, attrib_list);
+		return callPPP(__functionAddress, dpy, type, attrib_list);
 	}
 
 	public static long eglCreateSync64KHR(long dpy, int type, PointerBuffer attrib_list) {

@@ -126,7 +126,7 @@ public class EXTTextureInteger {
 		long __functionAddress = GL.getCapabilities().glClearColorIiEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, r, g, b, a);
+		callV(__functionAddress, r, g, b, a);
 	}
 
 	// --- [ glClearColorIuiEXT ] ---
@@ -135,7 +135,7 @@ public class EXTTextureInteger {
 		long __functionAddress = GL.getCapabilities().glClearColorIuiEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, r, g, b, a);
+		callV(__functionAddress, r, g, b, a);
 	}
 
 	// --- [ glTexParameterIivEXT ] ---
@@ -144,7 +144,7 @@ public class EXTTextureInteger {
 		long __functionAddress = GL.getCapabilities().glTexParameterIivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glTexParameterIivEXT(int target, int pname, IntBuffer params) {
@@ -169,7 +169,7 @@ public class EXTTextureInteger {
 		long __functionAddress = GL.getCapabilities().glTexParameterIuivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glTexParameterIuivEXT(int target, int pname, IntBuffer params) {
@@ -194,7 +194,7 @@ public class EXTTextureInteger {
 		long __functionAddress = GL.getCapabilities().glGetTexParameterIivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetTexParameterIivEXT(int target, int pname, IntBuffer params) {
@@ -220,7 +220,7 @@ public class EXTTextureInteger {
 		long __functionAddress = GL.getCapabilities().glGetTexParameterIuivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetTexParameterIuivEXT(int target, int pname, IntBuffer params) {
@@ -238,6 +238,46 @@ public class EXTTextureInteger {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #glTexParameterIivEXT TexParameterIivEXT} */
+	public static void glTexParameterIivEXT(int target, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glTexParameterIivEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, target, pname, params);
+	}
+
+	/** Array version of: {@link #glTexParameterIuivEXT TexParameterIuivEXT} */
+	public static void glTexParameterIuivEXT(int target, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glTexParameterIuivEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, target, pname, params);
+	}
+
+	/** Array version of: {@link #glGetTexParameterIivEXT GetTexParameterIivEXT} */
+	public static void glGetTexParameterIivEXT(int target, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetTexParameterIivEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, target, pname, params);
+	}
+
+	/** Array version of: {@link #glGetTexParameterIuivEXT GetTexParameterIuivEXT} */
+	public static void glGetTexParameterIuivEXT(int target, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetTexParameterIuivEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, target, pname, params);
 	}
 
 }

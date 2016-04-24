@@ -154,7 +154,7 @@ public class ARBRobustness {
 		long __functionAddress = GL.getCapabilities().glGetnMapdvARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, target, query, bufSize, data);
+		callPV(__functionAddress, target, query, bufSize, data);
 	}
 
 	/**
@@ -199,7 +199,7 @@ public class ARBRobustness {
 		long __functionAddress = GL.getCapabilities().glGetnMapfvARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, target, query, bufSize, data);
+		callPV(__functionAddress, target, query, bufSize, data);
 	}
 
 	/**
@@ -244,7 +244,7 @@ public class ARBRobustness {
 		long __functionAddress = GL.getCapabilities().glGetnMapivARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, target, query, bufSize, data);
+		callPV(__functionAddress, target, query, bufSize, data);
 	}
 
 	/**
@@ -288,7 +288,7 @@ public class ARBRobustness {
 		long __functionAddress = GL.getCapabilities().glGetnPixelMapfvARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, map, bufSize, data);
+		callPV(__functionAddress, map, bufSize, data);
 	}
 
 	/**
@@ -314,7 +314,7 @@ public class ARBRobustness {
 		long __functionAddress = GL.getCapabilities().glGetnPixelMapuivARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, map, bufSize, data);
+		callPV(__functionAddress, map, bufSize, data);
 	}
 
 	/**
@@ -340,7 +340,7 @@ public class ARBRobustness {
 		long __functionAddress = GL.getCapabilities().glGetnPixelMapusvARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, map, bufSize, data);
+		callPV(__functionAddress, map, bufSize, data);
 	}
 
 	/**
@@ -365,7 +365,7 @@ public class ARBRobustness {
 		long __functionAddress = GL.getCapabilities().glGetnPolygonStippleARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, bufSize, pattern);
+		callPV(__functionAddress, bufSize, pattern);
 	}
 
 	/**
@@ -407,7 +407,7 @@ public class ARBRobustness {
 		long __functionAddress = GL.getCapabilities().glGetnTexImageARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIPV(__functionAddress, tex, level, format, type, bufSize, img);
+		callPV(__functionAddress, tex, level, format, type, bufSize, img);
 	}
 
 	/**
@@ -487,7 +487,7 @@ public class ARBRobustness {
 		long __functionAddress = GL.getCapabilities().glReadnPixelsARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIPV(__functionAddress, x, y, width, height, format, type, bufSize, data);
+		callPV(__functionAddress, x, y, width, height, format, type, bufSize, data);
 	}
 
 	/**
@@ -561,7 +561,7 @@ public class ARBRobustness {
 		long __functionAddress = GL.getCapabilities().glGetnColorTableARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIPV(__functionAddress, target, format, type, bufSize, table);
+		callPV(__functionAddress, target, format, type, bufSize, table);
 	}
 
 	/**
@@ -629,7 +629,7 @@ public class ARBRobustness {
 		long __functionAddress = GL.getCapabilities().glGetnConvolutionFilterARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIPV(__functionAddress, target, format, type, bufSize, image);
+		callPV(__functionAddress, target, format, type, bufSize, image);
 	}
 
 	/**
@@ -679,7 +679,7 @@ public class ARBRobustness {
 		long __functionAddress = GL.getCapabilities().glGetnSeparableFilterARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIPIPPV(__functionAddress, target, format, type, rowBufSize, row, columnBufSize, column, span);
+		callPPPV(__functionAddress, target, format, type, rowBufSize, row, columnBufSize, column, span);
 	}
 
 	/**
@@ -732,7 +732,7 @@ public class ARBRobustness {
 		long __functionAddress = GL.getCapabilities().glGetnHistogramARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIZIIIPV(__functionAddress, target, reset, format, type, bufSize, values);
+		callPV(__functionAddress, target, reset, format, type, bufSize, values);
 	}
 
 	/**
@@ -783,7 +783,7 @@ public class ARBRobustness {
 		long __functionAddress = GL.getCapabilities().glGetnMinmaxARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIZIIIPV(__functionAddress, target, reset, format, type, bufSize, values);
+		callPV(__functionAddress, target, reset, format, type, bufSize, values);
 	}
 
 	/**
@@ -833,7 +833,7 @@ public class ARBRobustness {
 		long __functionAddress = GL.getCapabilities().glGetnCompressedTexImageARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, target, level, bufSize, img);
+		callPV(__functionAddress, target, level, bufSize, img);
 	}
 
 	/**
@@ -880,7 +880,7 @@ public class ARBRobustness {
 		long __functionAddress = GL.getCapabilities().glGetnUniformfvARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, location, bufSize, params);
+		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	/**
@@ -925,7 +925,7 @@ public class ARBRobustness {
 		long __functionAddress = GL.getCapabilities().glGetnUniformivARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, location, bufSize, params);
+		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	/**
@@ -970,7 +970,7 @@ public class ARBRobustness {
 		long __functionAddress = GL.getCapabilities().glGetnUniformuivARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, location, bufSize, params);
+		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	/**
@@ -1015,7 +1015,7 @@ public class ARBRobustness {
 		long __functionAddress = GL.getCapabilities().glGetnUniformdvARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, location, bufSize, params);
+		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	/**
@@ -1044,6 +1044,186 @@ public class ARBRobustness {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #glGetnMapdvARB GetnMapdvARB} */
+	public static void glGetnMapdvARB(int target, int query, double[] data) {
+		long __functionAddress = GL.getCapabilities().glGetnMapdvARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, target, query, data.length, data);
+	}
+
+	/** Array version of: {@link #glGetnMapfvARB GetnMapfvARB} */
+	public static void glGetnMapfvARB(int target, int query, float[] data) {
+		long __functionAddress = GL.getCapabilities().glGetnMapfvARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, target, query, data.length, data);
+	}
+
+	/** Array version of: {@link #glGetnMapivARB GetnMapivARB} */
+	public static void glGetnMapivARB(int target, int query, int[] data) {
+		long __functionAddress = GL.getCapabilities().glGetnMapivARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, target, query, data.length, data);
+	}
+
+	/** Array version of: {@link #glGetnPixelMapfvARB GetnPixelMapfvARB} */
+	public static void glGetnPixelMapfvARB(int map, float[] data) {
+		long __functionAddress = GL.getCapabilities().glGetnPixelMapfvARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, map, data.length, data);
+	}
+
+	/** Array version of: {@link #glGetnPixelMapuivARB GetnPixelMapuivARB} */
+	public static void glGetnPixelMapuivARB(int map, int[] data) {
+		long __functionAddress = GL.getCapabilities().glGetnPixelMapuivARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, map, data.length, data);
+	}
+
+	/** Array version of: {@link #glGetnPixelMapusvARB GetnPixelMapusvARB} */
+	public static void glGetnPixelMapusvARB(int map, short[] data) {
+		long __functionAddress = GL.getCapabilities().glGetnPixelMapusvARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, map, data.length, data);
+	}
+
+	/** short[] version of: {@link #glGetnTexImageARB GetnTexImageARB} */
+	public static void glGetnTexImageARB(int tex, int level, int format, int type, short[] img) {
+		long __functionAddress = GL.getCapabilities().glGetnTexImageARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, tex, level, format, type, img.length << 1, img);
+	}
+
+	/** int[] version of: {@link #glGetnTexImageARB GetnTexImageARB} */
+	public static void glGetnTexImageARB(int tex, int level, int format, int type, int[] img) {
+		long __functionAddress = GL.getCapabilities().glGetnTexImageARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, tex, level, format, type, img.length << 2, img);
+	}
+
+	/** float[] version of: {@link #glGetnTexImageARB GetnTexImageARB} */
+	public static void glGetnTexImageARB(int tex, int level, int format, int type, float[] img) {
+		long __functionAddress = GL.getCapabilities().glGetnTexImageARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, tex, level, format, type, img.length << 2, img);
+	}
+
+	/** double[] version of: {@link #glGetnTexImageARB GetnTexImageARB} */
+	public static void glGetnTexImageARB(int tex, int level, int format, int type, double[] img) {
+		long __functionAddress = GL.getCapabilities().glGetnTexImageARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, tex, level, format, type, img.length << 3, img);
+	}
+
+	/** short[] version of: {@link #glReadnPixelsARB ReadnPixelsARB} */
+	public static void glReadnPixelsARB(int x, int y, int width, int height, int format, int type, short[] data) {
+		long __functionAddress = GL.getCapabilities().glReadnPixelsARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, x, y, width, height, format, type, data.length << 1, data);
+	}
+
+	/** int[] version of: {@link #glReadnPixelsARB ReadnPixelsARB} */
+	public static void glReadnPixelsARB(int x, int y, int width, int height, int format, int type, int[] data) {
+		long __functionAddress = GL.getCapabilities().glReadnPixelsARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, x, y, width, height, format, type, data.length << 2, data);
+	}
+
+	/** float[] version of: {@link #glReadnPixelsARB ReadnPixelsARB} */
+	public static void glReadnPixelsARB(int x, int y, int width, int height, int format, int type, float[] data) {
+		long __functionAddress = GL.getCapabilities().glReadnPixelsARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, x, y, width, height, format, type, data.length << 2, data);
+	}
+
+	/** short[] version of: {@link #glGetnColorTableARB GetnColorTableARB} */
+	public static void glGetnColorTableARB(int target, int format, int type, short[] table) {
+		long __functionAddress = GL.getCapabilities().glGetnColorTableARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, target, format, type, table.length << 1, table);
+	}
+
+	/** int[] version of: {@link #glGetnColorTableARB GetnColorTableARB} */
+	public static void glGetnColorTableARB(int target, int format, int type, int[] table) {
+		long __functionAddress = GL.getCapabilities().glGetnColorTableARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, target, format, type, table.length << 2, table);
+	}
+
+	/** float[] version of: {@link #glGetnColorTableARB GetnColorTableARB} */
+	public static void glGetnColorTableARB(int target, int format, int type, float[] table) {
+		long __functionAddress = GL.getCapabilities().glGetnColorTableARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, target, format, type, table.length << 2, table);
+	}
+
+	/** Array version of: {@link #glGetnUniformfvARB GetnUniformfvARB} */
+	public static void glGetnUniformfvARB(int program, int location, float[] params) {
+		long __functionAddress = GL.getCapabilities().glGetnUniformfvARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, program, location, params.length, params);
+	}
+
+	/** Array version of: {@link #glGetnUniformivARB GetnUniformivARB} */
+	public static void glGetnUniformivARB(int program, int location, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetnUniformivARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, program, location, params.length, params);
+	}
+
+	/** Array version of: {@link #glGetnUniformuivARB GetnUniformuivARB} */
+	public static void glGetnUniformuivARB(int program, int location, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetnUniformuivARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, program, location, params.length, params);
+	}
+
+	/** Array version of: {@link #glGetnUniformdvARB GetnUniformdvARB} */
+	public static void glGetnUniformdvARB(int program, int location, double[] params) {
+		long __functionAddress = GL.getCapabilities().glGetnUniformdvARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, program, location, params.length, params);
 	}
 
 }

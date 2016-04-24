@@ -144,7 +144,7 @@ public class EXTTessellationShader {
 		long __functionAddress = GLES.getCapabilities().glPatchParameteriEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, pname, value);
+		callV(__functionAddress, pname, value);
 	}
 
 }

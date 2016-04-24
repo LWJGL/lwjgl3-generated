@@ -49,7 +49,7 @@ public class OESPrimitiveBoundingBox {
 		long __functionAddress = GLES.getCapabilities().glPrimitiveBoundingBoxOES;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFFFFFFFV(__functionAddress, minX, minY, minZ, minW, maxX, maxY, maxZ, maxW);
+		callV(__functionAddress, minX, minY, minZ, minW, maxX, maxY, maxZ, maxW);
 	}
 
 }

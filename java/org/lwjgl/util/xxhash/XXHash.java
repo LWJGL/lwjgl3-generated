@@ -62,7 +62,7 @@ public class XXHash {
 	 * @param seed  the seed that can be used to alter the result predictably
 	 */
 	public static int XXH32(ByteBuffer input, int seed) {
-		return nXXH32(memAddress(input), input.remaining(), seed);
+		return nXXH32(memAddress(input), (long)input.remaining(), seed);
 	}
 
 	// --- [ XXH64 ] ---
@@ -87,7 +87,7 @@ public class XXHash {
 	 * @param seed  the seed that can be used to alter the result predictably
 	 */
 	public static long XXH64(ByteBuffer input, long seed) {
-		return nXXH64(memAddress(input), input.remaining(), seed);
+		return nXXH64(memAddress(input), (long)input.remaining(), seed);
 	}
 
 	// --- [ XXH32_createState ] ---
@@ -214,7 +214,7 @@ public class XXHash {
 	public static int XXH32_update(long statePtr, ByteBuffer input) {
 		if ( CHECKS )
 			checkPointer(statePtr);
-		return nXXH32_update(statePtr, memAddress(input), input.remaining());
+		return nXXH32_update(statePtr, memAddress(input), (long)input.remaining());
 	}
 
 	// --- [ XXH32_digest ] ---
@@ -279,7 +279,7 @@ public class XXHash {
 	public static int XXH64_update(long statePtr, ByteBuffer input) {
 		if ( CHECKS )
 			checkPointer(statePtr);
-		return nXXH64_update(statePtr, memAddress(input), input.remaining());
+		return nXXH64_update(statePtr, memAddress(input), (long)input.remaining());
 	}
 
 	// --- [ XXH64_digest ] ---

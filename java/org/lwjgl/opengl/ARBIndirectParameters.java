@@ -66,7 +66,7 @@ public class ARBIndirectParameters {
 		long __functionAddress = GL.getCapabilities().glMultiDrawArraysIndirectCountARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPPIIV(__functionAddress, mode, indirect, drawcount, maxdrawcount, stride);
+		callPPV(__functionAddress, mode, indirect, drawcount, maxdrawcount, stride);
 	}
 
 	/**
@@ -135,7 +135,7 @@ public class ARBIndirectParameters {
 		long __functionAddress = GL.getCapabilities().glMultiDrawElementsIndirectCountARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPPIIV(__functionAddress, mode, type, indirect, drawcount, maxdrawcount, stride);
+		callPPV(__functionAddress, mode, type, indirect, drawcount, maxdrawcount, stride);
 	}
 
 	/**
@@ -185,6 +185,28 @@ public class ARBIndirectParameters {
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
 		nglMultiDrawElementsIndirectCountARB(mode, type, memAddress(indirect), drawcount, maxdrawcount, stride);
+	}
+
+	/** int[] version of: {@link #glMultiDrawArraysIndirectCountARB MultiDrawArraysIndirectCountARB} */
+	public static void glMultiDrawArraysIndirectCountARB(int mode, int[] indirect, long drawcount, int maxdrawcount, int stride) {
+		long __functionAddress = GL.getCapabilities().glMultiDrawArraysIndirectCountARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(indirect, maxdrawcount * (stride == 0 ? (4 * 4) : stride));
+			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
+		}
+		callPPV(__functionAddress, mode, indirect, drawcount, maxdrawcount, stride);
+	}
+
+	/** int[] version of: {@link #glMultiDrawElementsIndirectCountARB MultiDrawElementsIndirectCountARB} */
+	public static void glMultiDrawElementsIndirectCountARB(int mode, int type, int[] indirect, long drawcount, int maxdrawcount, int stride) {
+		long __functionAddress = GL.getCapabilities().glMultiDrawElementsIndirectCountARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(indirect, maxdrawcount * (stride == 0 ? (5 * 4) : stride));
+			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
+		}
+		callPPV(__functionAddress, mode, type, indirect, drawcount, maxdrawcount, stride);
 	}
 
 }

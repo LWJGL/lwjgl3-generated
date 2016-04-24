@@ -72,7 +72,7 @@ public class APPLEGLSharing {
 			checkPointer(context);
 			checkPointer(platform_gl_ctx);
 		}
-		return callPPIPPPI(__functionAddress, context, platform_gl_ctx, param_name, param_value_size, param_value, param_value_size_ret);
+		return callPPPPPI(__functionAddress, context, platform_gl_ctx, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -91,7 +91,7 @@ public class APPLEGLSharing {
 	public static int clGetGLContextInfoAPPLE(long context, long platform_gl_ctx, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetGLContextInfoAPPLE(context, platform_gl_ctx, param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetGLContextInfoAPPLE(context, platform_gl_ctx, param_name, (long)(param_value == null ? 0 : param_value.remaining()), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** PointerBuffer version of: {@link #clGetGLContextInfoAPPLE GetGLContextInfoAPPLE} */

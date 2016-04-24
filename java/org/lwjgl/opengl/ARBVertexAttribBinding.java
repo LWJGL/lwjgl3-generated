@@ -89,7 +89,7 @@ public class ARBVertexAttribBinding {
 		long __functionAddress = GL.getCapabilities().glBindVertexBuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPIV(__functionAddress, bindingindex, buffer, offset, stride);
+		callPV(__functionAddress, bindingindex, buffer, offset, stride);
 	}
 
 	// --- [ glVertexAttribFormat ] ---
@@ -108,7 +108,7 @@ public class ARBVertexAttribBinding {
 		long __functionAddress = GL.getCapabilities().glVertexAttribFormat;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIZIV(__functionAddress, attribindex, size, type, normalized, relativeoffset);
+		callV(__functionAddress, attribindex, size, type, normalized, relativeoffset);
 	}
 
 	// --- [ glVertexAttribIFormat ] ---
@@ -125,7 +125,7 @@ public class ARBVertexAttribBinding {
 		long __functionAddress = GL.getCapabilities().glVertexAttribIFormat;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, attribindex, size, type, relativeoffset);
+		callV(__functionAddress, attribindex, size, type, relativeoffset);
 	}
 
 	// --- [ glVertexAttribLFormat ] ---
@@ -142,7 +142,7 @@ public class ARBVertexAttribBinding {
 		long __functionAddress = GL.getCapabilities().glVertexAttribLFormat;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, attribindex, size, type, relativeoffset);
+		callV(__functionAddress, attribindex, size, type, relativeoffset);
 	}
 
 	// --- [ glVertexAttribBinding ] ---
@@ -157,7 +157,7 @@ public class ARBVertexAttribBinding {
 		long __functionAddress = GL.getCapabilities().glVertexAttribBinding;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, attribindex, bindingindex);
+		callV(__functionAddress, attribindex, bindingindex);
 	}
 
 	// --- [ glVertexBindingDivisor ] ---
@@ -172,7 +172,7 @@ public class ARBVertexAttribBinding {
 		long __functionAddress = GL.getCapabilities().glVertexBindingDivisor;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, bindingindex, divisor);
+		callV(__functionAddress, bindingindex, divisor);
 	}
 
 	// --- [ glVertexArrayBindVertexBufferEXT ] ---
@@ -190,7 +190,7 @@ public class ARBVertexAttribBinding {
 		long __functionAddress = GL.getCapabilities().glVertexArrayBindVertexBufferEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPIV(__functionAddress, vaobj, bindingindex, buffer, offset, stride);
+		callPV(__functionAddress, vaobj, bindingindex, buffer, offset, stride);
 	}
 
 	// --- [ glVertexArrayVertexAttribFormatEXT ] ---
@@ -210,7 +210,7 @@ public class ARBVertexAttribBinding {
 		long __functionAddress = GL.getCapabilities().glVertexArrayVertexAttribFormatEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIZIV(__functionAddress, vaobj, attribindex, size, type, normalized, relativeoffset);
+		callV(__functionAddress, vaobj, attribindex, size, type, normalized, relativeoffset);
 	}
 
 	// --- [ glVertexArrayVertexAttribIFormatEXT ] ---
@@ -228,7 +228,7 @@ public class ARBVertexAttribBinding {
 		long __functionAddress = GL.getCapabilities().glVertexArrayVertexAttribIFormatEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, vaobj, attribindex, size, type, relativeoffset);
+		callV(__functionAddress, vaobj, attribindex, size, type, relativeoffset);
 	}
 
 	// --- [ glVertexArrayVertexAttribLFormatEXT ] ---
@@ -246,7 +246,7 @@ public class ARBVertexAttribBinding {
 		long __functionAddress = GL.getCapabilities().glVertexArrayVertexAttribLFormatEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, vaobj, attribindex, size, type, relativeoffset);
+		callV(__functionAddress, vaobj, attribindex, size, type, relativeoffset);
 	}
 
 	// --- [ glVertexArrayVertexAttribBindingEXT ] ---
@@ -262,7 +262,7 @@ public class ARBVertexAttribBinding {
 		long __functionAddress = GL.getCapabilities().glVertexArrayVertexAttribBindingEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, vaobj, attribindex, bindingindex);
+		callV(__functionAddress, vaobj, attribindex, bindingindex);
 	}
 
 	// --- [ glVertexArrayVertexBindingDivisorEXT ] ---
@@ -278,7 +278,7 @@ public class ARBVertexAttribBinding {
 		long __functionAddress = GL.getCapabilities().glVertexArrayVertexBindingDivisorEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, vaobj, bindingindex, divisor);
+		callV(__functionAddress, vaobj, bindingindex, divisor);
 	}
 
 }

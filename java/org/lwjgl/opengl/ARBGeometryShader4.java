@@ -109,7 +109,7 @@ public class ARBGeometryShader4 {
 		long __functionAddress = GL.getCapabilities().glProgramParameteriARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, program, pname, value);
+		callV(__functionAddress, program, pname, value);
 	}
 
 	// --- [ glFramebufferTextureARB ] ---
@@ -138,7 +138,7 @@ public class ARBGeometryShader4 {
 		long __functionAddress = GL.getCapabilities().glFramebufferTextureARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, target, attachment, texture, level);
+		callV(__functionAddress, target, attachment, texture, level);
 	}
 
 	// --- [ glFramebufferTextureLayerARB ] ---
@@ -161,7 +161,7 @@ public class ARBGeometryShader4 {
 		long __functionAddress = GL.getCapabilities().glFramebufferTextureLayerARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, target, attachment, texture, level, layer);
+		callV(__functionAddress, target, attachment, texture, level, layer);
 	}
 
 	// --- [ glFramebufferTextureFaceARB ] ---
@@ -183,7 +183,7 @@ public class ARBGeometryShader4 {
 		long __functionAddress = GL.getCapabilities().glFramebufferTextureFaceARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, target, attachment, texture, level, face);
+		callV(__functionAddress, target, attachment, texture, level, face);
 	}
 
 }

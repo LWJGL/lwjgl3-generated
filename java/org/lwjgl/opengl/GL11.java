@@ -770,7 +770,7 @@ public class GL11 {
 	 */
 	public static void glEnable(int target) {
 		long __functionAddress = GL.getCapabilities().glEnable;
-		callIV(__functionAddress, target);
+		callV(__functionAddress, target);
 	}
 
 	// --- [ glDisable ] ---
@@ -784,7 +784,7 @@ public class GL11 {
 	 */
 	public static void glDisable(int target) {
 		long __functionAddress = GL.getCapabilities().glDisable;
-		callIV(__functionAddress, target);
+		callV(__functionAddress, target);
 	}
 
 	// --- [ glAccum ] ---
@@ -802,7 +802,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glAccum;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIFV(__functionAddress, op, value);
+		callV(__functionAddress, op, value);
 	}
 
 	// --- [ glAlphaFunc ] ---
@@ -821,7 +821,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glAlphaFunc;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIFV(__functionAddress, func, ref);
+		callV(__functionAddress, func, ref);
 	}
 
 	// --- [ glAreTexturesResident ] ---
@@ -841,7 +841,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glAreTexturesResident;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIPPZ(__functionAddress, n, textures, residences);
+		return callPPZ(__functionAddress, n, textures, residences);
 	}
 
 	/**
@@ -892,7 +892,7 @@ public class GL11 {
 	 */
 	public static void glArrayElement(int i) {
 		long __functionAddress = GL.getCapabilities().glArrayElement;
-		callIV(__functionAddress, i);
+		callV(__functionAddress, i);
 	}
 
 	// --- [ glBegin ] ---
@@ -908,7 +908,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glBegin;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, mode);
+		callV(__functionAddress, mode);
 	}
 
 	// --- [ glBindTexture ] ---
@@ -927,7 +927,7 @@ public class GL11 {
 	 */
 	public static void glBindTexture(int target, int texture) {
 		long __functionAddress = GL.getCapabilities().glBindTexture;
-		callIIV(__functionAddress, target, texture);
+		callV(__functionAddress, target, texture);
 	}
 
 	// --- [ glBitmap ] ---
@@ -950,7 +950,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glBitmap;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIFFFFPV(__functionAddress, w, h, xOrig, yOrig, xInc, yInc, data);
+		callPV(__functionAddress, w, h, xOrig, yOrig, xInc, yInc, data);
 	}
 
 	/**
@@ -1005,7 +1005,7 @@ public class GL11 {
 	 */
 	public static void glBlendFunc(int sfactor, int dfactor) {
 		long __functionAddress = GL.getCapabilities().glBlendFunc;
-		callIIV(__functionAddress, sfactor, dfactor);
+		callV(__functionAddress, sfactor, dfactor);
 	}
 
 	// --- [ glCallList ] ---
@@ -1021,7 +1021,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glCallList;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, list);
+		callV(__functionAddress, list);
 	}
 
 	// --- [ glCallLists ] ---
@@ -1039,7 +1039,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glCallLists;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, n, type, lists);
+		callPV(__functionAddress, n, type, lists);
 	}
 
 	/**
@@ -1099,7 +1099,7 @@ public class GL11 {
 	 */
 	public static void glClear(int mask) {
 		long __functionAddress = GL.getCapabilities().glClear;
-		callIV(__functionAddress, mask);
+		callV(__functionAddress, mask);
 	}
 
 	// --- [ glClearAccum ] ---
@@ -1118,7 +1118,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glClearAccum;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFFFV(__functionAddress, red, green, blue, alpha);
+		callV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glClearColor ] ---
@@ -1135,7 +1135,7 @@ public class GL11 {
 	 */
 	public static void glClearColor(float red, float green, float blue, float alpha) {
 		long __functionAddress = GL.getCapabilities().glClearColor;
-		callFFFFV(__functionAddress, red, green, blue, alpha);
+		callV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glClearDepth ] ---
@@ -1150,7 +1150,7 @@ public class GL11 {
 	 */
 	public static void glClearDepth(double depth) {
 		long __functionAddress = GL.getCapabilities().glClearDepth;
-		callDV(__functionAddress, depth);
+		callV(__functionAddress, depth);
 	}
 
 	// --- [ glClearIndex ] ---
@@ -1168,7 +1168,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glClearIndex;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFV(__functionAddress, index);
+		callV(__functionAddress, index);
 	}
 
 	// --- [ glClearStencil ] ---
@@ -1182,7 +1182,7 @@ public class GL11 {
 	 */
 	public static void glClearStencil(int s) {
 		long __functionAddress = GL.getCapabilities().glClearStencil;
-		callIV(__functionAddress, s);
+		callV(__functionAddress, s);
 	}
 
 	// --- [ glClipPlane ] ---
@@ -1201,7 +1201,7 @@ public class GL11 {
 	 */
 	public static void nglClipPlane(int plane, long equation) {
 		long __functionAddress = GL.getCapabilities().glClipPlane;
-		callIPV(__functionAddress, plane, equation);
+		callPV(__functionAddress, plane, equation);
 	}
 
 	/**
@@ -1235,7 +1235,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glColor3b;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callBBBV(__functionAddress, red, green, blue);
+		callV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3s ] ---
@@ -1253,7 +1253,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glColor3s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callSSSV(__functionAddress, red, green, blue);
+		callV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3i ] ---
@@ -1271,7 +1271,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glColor3i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, red, green, blue);
+		callV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3f ] ---
@@ -1289,7 +1289,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glColor3f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFFV(__functionAddress, red, green, blue);
+		callV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3d ] ---
@@ -1307,7 +1307,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glColor3d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDDDV(__functionAddress, red, green, blue);
+		callV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3ub ] ---
@@ -1325,7 +1325,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glColor3ub;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callBBBV(__functionAddress, red, green, blue);
+		callV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3us ] ---
@@ -1343,7 +1343,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glColor3us;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callSSSV(__functionAddress, red, green, blue);
+		callV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3ui ] ---
@@ -1361,7 +1361,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glColor3ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, red, green, blue);
+		callV(__functionAddress, red, green, blue);
 	}
 
 	// --- [ glColor3bv ] ---
@@ -1612,7 +1612,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glColor4b;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callBBBBV(__functionAddress, red, green, blue, alpha);
+		callV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4s ] ---
@@ -1631,7 +1631,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glColor4s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callSSSSV(__functionAddress, red, green, blue, alpha);
+		callV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4i ] ---
@@ -1650,7 +1650,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glColor4i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, red, green, blue, alpha);
+		callV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4f ] ---
@@ -1669,7 +1669,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glColor4f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFFFV(__functionAddress, red, green, blue, alpha);
+		callV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4d ] ---
@@ -1688,7 +1688,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glColor4d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDDDDV(__functionAddress, red, green, blue, alpha);
+		callV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4ub ] ---
@@ -1707,7 +1707,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glColor4ub;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callBBBBV(__functionAddress, red, green, blue, alpha);
+		callV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4us ] ---
@@ -1726,7 +1726,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glColor4us;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callSSSSV(__functionAddress, red, green, blue, alpha);
+		callV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4ui ] ---
@@ -1745,7 +1745,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glColor4ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, red, green, blue, alpha);
+		callV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColor4bv ] ---
@@ -1994,7 +1994,7 @@ public class GL11 {
 	 */
 	public static void glColorMask(boolean red, boolean green, boolean blue, boolean alpha) {
 		long __functionAddress = GL.getCapabilities().glColorMask;
-		callZZZZV(__functionAddress, red, green, blue, alpha);
+		callV(__functionAddress, red, green, blue, alpha);
 	}
 
 	// --- [ glColorMaterial ] ---
@@ -2013,7 +2013,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glColorMaterial;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, face, mode);
+		callV(__functionAddress, face, mode);
 	}
 
 	// --- [ glColorPointer ] ---
@@ -2032,7 +2032,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glColorPointer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, size, type, stride, pointer);
+		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
 	/**
@@ -2067,21 +2067,33 @@ public class GL11 {
 		nglColorPointer(size, type, stride, pointer);
 	}
 
-	/** ShortBuffer version of: {@link #glColorPointer ColorPointer} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColorPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * ShortBuffer version of: {@link #glColorPointer ColorPointer}
+	 */
 	public static void glColorPointer(int size, int type, int stride, ShortBuffer pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglColorPointer(size, type, stride, memAddress(pointer));
 	}
 
-	/** IntBuffer version of: {@link #glColorPointer ColorPointer} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColorPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * IntBuffer version of: {@link #glColorPointer ColorPointer}
+	 */
 	public static void glColorPointer(int size, int type, int stride, IntBuffer pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglColorPointer(size, type, stride, memAddress(pointer));
 	}
 
-	/** FloatBuffer version of: {@link #glColorPointer ColorPointer} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColorPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * FloatBuffer version of: {@link #glColorPointer ColorPointer}
+	 */
 	public static void glColorPointer(int size, int type, int stride, FloatBuffer pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -2103,7 +2115,7 @@ public class GL11 {
 	 */
 	public static void glCopyPixels(int x, int y, int width, int height, int type) {
 		long __functionAddress = GL.getCapabilities().glCopyPixels;
-		callIIIIIV(__functionAddress, x, y, width, height, type);
+		callV(__functionAddress, x, y, width, height, type);
 	}
 
 	// --- [ glCullFace ] ---
@@ -2119,7 +2131,7 @@ public class GL11 {
 	 */
 	public static void glCullFace(int mode) {
 		long __functionAddress = GL.getCapabilities().glCullFace;
-		callIV(__functionAddress, mode);
+		callV(__functionAddress, mode);
 	}
 
 	// --- [ glDeleteLists ] ---
@@ -2137,7 +2149,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glDeleteLists;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, list, range);
+		callV(__functionAddress, list, range);
 	}
 
 	// --- [ glDepthFunc ] ---
@@ -2151,7 +2163,7 @@ public class GL11 {
 	 */
 	public static void glDepthFunc(int func) {
 		long __functionAddress = GL.getCapabilities().glDepthFunc;
-		callIV(__functionAddress, func);
+		callV(__functionAddress, func);
 	}
 
 	// --- [ glDepthMask ] ---
@@ -2165,7 +2177,7 @@ public class GL11 {
 	 */
 	public static void glDepthMask(boolean flag) {
 		long __functionAddress = GL.getCapabilities().glDepthMask;
-		callZV(__functionAddress, flag);
+		callV(__functionAddress, flag);
 	}
 
 	// --- [ glDepthRange ] ---
@@ -2180,7 +2192,7 @@ public class GL11 {
 	 */
 	public static void glDepthRange(double zNear, double zFar) {
 		long __functionAddress = GL.getCapabilities().glDepthRange;
-		callDDV(__functionAddress, zNear, zFar);
+		callV(__functionAddress, zNear, zFar);
 	}
 
 	// --- [ glDisableClientState ] ---
@@ -2196,7 +2208,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glDisableClientState;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, array);
+		callV(__functionAddress, array);
 	}
 
 	// --- [ glDrawArrays ] ---
@@ -2216,7 +2228,7 @@ public class GL11 {
 	 */
 	public static void glDrawArrays(int mode, int first, int count) {
 		long __functionAddress = GL.getCapabilities().glDrawArrays;
-		callIIIV(__functionAddress, mode, first, count);
+		callV(__functionAddress, mode, first, count);
 	}
 
 	// --- [ glDrawBuffer ] ---
@@ -2233,7 +2245,7 @@ public class GL11 {
 	 */
 	public static void glDrawBuffer(int buf) {
 		long __functionAddress = GL.getCapabilities().glDrawBuffer;
-		callIV(__functionAddress, buf);
+		callV(__functionAddress, buf);
 	}
 
 	// --- [ glDrawElements ] ---
@@ -2252,7 +2264,7 @@ public class GL11 {
 	 */
 	public static void nglDrawElements(int mode, int count, int type, long indices) {
 		long __functionAddress = GL.getCapabilities().glDrawElements;
-		callIIIPV(__functionAddress, mode, count, type, indices);
+		callPV(__functionAddress, mode, count, type, indices);
 	}
 
 	/**
@@ -2355,7 +2367,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glDrawPixels;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIPV(__functionAddress, width, height, format, type, pixels);
+		callPV(__functionAddress, width, height, format, type, pixels);
 	}
 
 	/**
@@ -2392,21 +2404,33 @@ public class GL11 {
 		nglDrawPixels(width, height, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glDrawPixels DrawPixels} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glDrawPixels.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * ShortBuffer version of: {@link #glDrawPixels DrawPixels}
+	 */
 	public static void glDrawPixels(int width, int height, int format, int type, ShortBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglDrawPixels(width, height, format, type, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glDrawPixels DrawPixels} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glDrawPixels.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * IntBuffer version of: {@link #glDrawPixels DrawPixels}
+	 */
 	public static void glDrawPixels(int width, int height, int format, int type, IntBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglDrawPixels(width, height, format, type, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glDrawPixels DrawPixels} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glDrawPixels.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * FloatBuffer version of: {@link #glDrawPixels DrawPixels}
+	 */
 	public static void glDrawPixels(int width, int height, int format, int type, FloatBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -2432,7 +2456,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glEdgeFlag;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callZV(__functionAddress, flag);
+		callV(__functionAddress, flag);
 	}
 
 	// --- [ glEdgeFlagv ] ---
@@ -2478,7 +2502,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glEdgeFlagPointer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, stride, pointer);
+		callPV(__functionAddress, stride, pointer);
 	}
 
 	/**
@@ -2522,7 +2546,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glEnableClientState;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, array);
+		callV(__functionAddress, array);
 	}
 
 	// --- [ glEnd ] ---
@@ -2552,7 +2576,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glEvalCoord1f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFV(__functionAddress, u);
+		callV(__functionAddress, u);
 	}
 
 	// --- [ glEvalCoord1fv ] ---
@@ -2595,7 +2619,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glEvalCoord1d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDV(__functionAddress, u);
+		callV(__functionAddress, u);
 	}
 
 	// --- [ glEvalCoord1dv ] ---
@@ -2639,7 +2663,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glEvalCoord2f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFV(__functionAddress, u, v);
+		callV(__functionAddress, u, v);
 	}
 
 	// --- [ glEvalCoord2fv ] ---
@@ -2683,7 +2707,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glEvalCoord2d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDDV(__functionAddress, u, v);
+		callV(__functionAddress, u, v);
 	}
 
 	// --- [ glEvalCoord2dv ] ---
@@ -2728,7 +2752,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glEvalMesh1;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, mode, i1, i2);
+		callV(__functionAddress, mode, i1, i2);
 	}
 
 	// --- [ glEvalMesh2 ] ---
@@ -2748,7 +2772,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glEvalMesh2;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, mode, i1, i2, j1, j2);
+		callV(__functionAddress, mode, i1, i2, j1, j2);
 	}
 
 	// --- [ glEvalPoint1 ] ---
@@ -2764,7 +2788,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glEvalPoint1;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, i);
+		callV(__functionAddress, i);
 	}
 
 	// --- [ glEvalPoint2 ] ---
@@ -2781,7 +2805,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glEvalPoint2;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, i, j);
+		callV(__functionAddress, i, j);
 	}
 
 	// --- [ glFeedbackBuffer ] ---
@@ -2799,7 +2823,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glFeedbackBuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, size, type, buffer);
+		callPV(__functionAddress, size, type, buffer);
 	}
 
 	/**
@@ -2853,7 +2877,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glFogi;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, pname, param);
+		callV(__functionAddress, pname, param);
 	}
 
 	// --- [ glFogiv ] ---
@@ -2870,7 +2894,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glFogiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, pname, params);
+		callPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -2901,7 +2925,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glFogf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIFV(__functionAddress, pname, param);
+		callV(__functionAddress, pname, param);
 	}
 
 	// --- [ glFogfv ] ---
@@ -2918,7 +2942,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glFogfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, pname, params);
+		callPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -2948,7 +2972,7 @@ public class GL11 {
 	 */
 	public static void glFrontFace(int dir) {
 		long __functionAddress = GL.getCapabilities().glFrontFace;
-		callIV(__functionAddress, dir);
+		callV(__functionAddress, dir);
 	}
 
 	// --- [ glGenLists ] ---
@@ -2967,7 +2991,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glGenLists;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callII(__functionAddress, s);
+		return callI(__functionAddress, s);
 	}
 
 	// --- [ glGenTextures ] ---
@@ -2983,7 +3007,7 @@ public class GL11 {
 	 */
 	public static void nglGenTextures(int n, long textures) {
 		long __functionAddress = GL.getCapabilities().glGenTextures;
-		callIPV(__functionAddress, n, textures);
+		callPV(__functionAddress, n, textures);
 	}
 
 	/**
@@ -3033,7 +3057,7 @@ public class GL11 {
 	 */
 	public static void nglDeleteTextures(int n, long textures) {
 		long __functionAddress = GL.getCapabilities().glDeleteTextures;
-		callIPV(__functionAddress, n, textures);
+		callPV(__functionAddress, n, textures);
 	}
 
 	/**
@@ -3087,7 +3111,7 @@ public class GL11 {
 	 */
 	public static void nglGetClipPlane(int plane, long equation) {
 		long __functionAddress = GL.getCapabilities().glGetClipPlane;
-		callIPV(__functionAddress, plane, equation);
+		callPV(__functionAddress, plane, equation);
 	}
 
 	/**
@@ -3121,7 +3145,7 @@ public class GL11 {
 	 */
 	public static void nglGetBooleanv(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetBooleanv;
-		callIPV(__functionAddress, pname, params);
+		callPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -3180,7 +3204,7 @@ public class GL11 {
 	 */
 	public static void nglGetFloatv(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetFloatv;
-		callIPV(__functionAddress, pname, params);
+		callPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -3239,7 +3263,7 @@ public class GL11 {
 	 */
 	public static void nglGetIntegerv(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetIntegerv;
-		callIPV(__functionAddress, pname, params);
+		callPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -3298,7 +3322,7 @@ public class GL11 {
 	 */
 	public static void nglGetDoublev(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetDoublev;
-		callIPV(__functionAddress, pname, params);
+		callPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -3371,7 +3395,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glGetLightiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, light, pname, data);
+		callPV(__functionAddress, light, pname, data);
 	}
 
 	/**
@@ -3423,7 +3447,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glGetLightfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, light, pname, data);
+		callPV(__functionAddress, light, pname, data);
 	}
 
 	/**
@@ -3475,7 +3499,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glGetMapiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, query, data);
+		callPV(__functionAddress, target, query, data);
 	}
 
 	/**
@@ -3527,7 +3551,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glGetMapfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, query, data);
+		callPV(__functionAddress, target, query, data);
 	}
 
 	/**
@@ -3579,7 +3603,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glGetMapdv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, query, data);
+		callPV(__functionAddress, target, query, data);
 	}
 
 	/**
@@ -3631,7 +3655,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glGetMaterialiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, face, pname, data);
+		callPV(__functionAddress, face, pname, data);
 	}
 
 	/**
@@ -3662,7 +3686,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glGetMaterialfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, face, pname, data);
+		callPV(__functionAddress, face, pname, data);
 	}
 
 	/**
@@ -3692,7 +3716,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glGetPixelMapfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, map, data);
+		callPV(__functionAddress, map, data);
 	}
 
 	/**
@@ -3739,7 +3763,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glGetPixelMapusv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, map, data);
+		callPV(__functionAddress, map, data);
 	}
 
 	/**
@@ -3786,7 +3810,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glGetPixelMapuiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, map, data);
+		callPV(__functionAddress, map, data);
 	}
 
 	/**
@@ -3831,7 +3855,7 @@ public class GL11 {
 	 */
 	public static void nglGetPointerv(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetPointerv;
-		callIPV(__functionAddress, pname, params);
+		callPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -3921,7 +3945,7 @@ public class GL11 {
 	 */
 	public static long nglGetString(int name) {
 		long __functionAddress = GL.getCapabilities().glGetString;
-		return callIP(__functionAddress, name);
+		return callP(__functionAddress, name);
 	}
 
 	/**
@@ -3949,7 +3973,7 @@ public class GL11 {
 	 */
 	public static void nglGetTexEnviv(int env, int pname, long data) {
 		long __functionAddress = GL.getCapabilities().glGetTexEnviv;
-		callIIPV(__functionAddress, env, pname, data);
+		callPV(__functionAddress, env, pname, data);
 	}
 
 	/**
@@ -3999,7 +4023,7 @@ public class GL11 {
 	 */
 	public static void nglGetTexEnvfv(int env, int pname, long data) {
 		long __functionAddress = GL.getCapabilities().glGetTexEnvfv;
-		callIIPV(__functionAddress, env, pname, data);
+		callPV(__functionAddress, env, pname, data);
 	}
 
 	/**
@@ -4051,7 +4075,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glGetTexGeniv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, coord, pname, data);
+		callPV(__functionAddress, coord, pname, data);
 	}
 
 	/**
@@ -4103,7 +4127,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glGetTexGenfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, coord, pname, data);
+		callPV(__functionAddress, coord, pname, data);
 	}
 
 	/**
@@ -4155,7 +4179,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glGetTexGendv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, coord, pname, data);
+		callPV(__functionAddress, coord, pname, data);
 	}
 
 	/**
@@ -4207,7 +4231,7 @@ public class GL11 {
 	 */
 	public static void nglGetTexImage(int tex, int level, int format, int type, long pixels) {
 		long __functionAddress = GL.getCapabilities().glGetTexImage;
-		callIIIIPV(__functionAddress, tex, level, format, type, pixels);
+		callPV(__functionAddress, tex, level, format, type, pixels);
 	}
 
 	/**
@@ -4244,28 +4268,44 @@ public class GL11 {
 		nglGetTexImage(tex, level, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glGetTexImage GetTexImage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glGetTexImage GetTexImage}
+	 */
 	public static void glGetTexImage(int tex, int level, int format, int type, ShortBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTexImage(tex, level, format, type, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glGetTexImage GetTexImage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glGetTexImage GetTexImage}
+	 */
 	public static void glGetTexImage(int tex, int level, int format, int type, IntBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTexImage(tex, level, format, type, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glGetTexImage GetTexImage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glGetTexImage GetTexImage}
+	 */
 	public static void glGetTexImage(int tex, int level, int format, int type, FloatBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTexImage(tex, level, format, type, memAddress(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glGetTexImage GetTexImage} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * DoubleBuffer version of: {@link #glGetTexImage GetTexImage}
+	 */
 	public static void glGetTexImage(int tex, int level, int format, int type, DoubleBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -4286,7 +4326,7 @@ public class GL11 {
 	 */
 	public static void nglGetTexLevelParameteriv(int target, int level, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetTexLevelParameteriv;
-		callIIIPV(__functionAddress, target, level, pname, params);
+		callPV(__functionAddress, target, level, pname, params);
 	}
 
 	/**
@@ -4339,7 +4379,7 @@ public class GL11 {
 	 */
 	public static void nglGetTexLevelParameterfv(int target, int level, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetTexLevelParameterfv;
-		callIIIPV(__functionAddress, target, level, pname, params);
+		callPV(__functionAddress, target, level, pname, params);
 	}
 
 	/**
@@ -4391,7 +4431,7 @@ public class GL11 {
 	 */
 	public static void nglGetTexParameteriv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetTexParameteriv;
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -4441,7 +4481,7 @@ public class GL11 {
 	 */
 	public static void nglGetTexParameterfv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetTexParameterfv;
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -4491,7 +4531,7 @@ public class GL11 {
 	 */
 	public static void glHint(int target, int hint) {
 		long __functionAddress = GL.getCapabilities().glHint;
-		callIIV(__functionAddress, target, hint);
+		callV(__functionAddress, target, hint);
 	}
 
 	// --- [ glIndexi ] ---
@@ -4507,7 +4547,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glIndexi;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, index);
+		callV(__functionAddress, index);
 	}
 
 	// --- [ glIndexub ] ---
@@ -4523,7 +4563,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glIndexub;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callBV(__functionAddress, index);
+		callV(__functionAddress, index);
 	}
 
 	// --- [ glIndexs ] ---
@@ -4539,7 +4579,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glIndexs;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callSV(__functionAddress, index);
+		callV(__functionAddress, index);
 	}
 
 	// --- [ glIndexf ] ---
@@ -4555,7 +4595,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glIndexf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFV(__functionAddress, index);
+		callV(__functionAddress, index);
 	}
 
 	// --- [ glIndexd ] ---
@@ -4571,7 +4611,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glIndexd;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDV(__functionAddress, index);
+		callV(__functionAddress, index);
 	}
 
 	// --- [ glIndexiv ] ---
@@ -4734,7 +4774,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glIndexMask;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, mask);
+		callV(__functionAddress, mask);
 	}
 
 	// --- [ glIndexPointer ] ---
@@ -4752,7 +4792,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glIndexPointer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, type, stride, pointer);
+		callPV(__functionAddress, type, stride, pointer);
 	}
 
 	/**
@@ -4854,7 +4894,7 @@ public class GL11 {
 	 */
 	public static void nglInterleavedArrays(int format, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glInterleavedArrays;
-		callIIPV(__functionAddress, format, stride, pointer);
+		callPV(__functionAddress, format, stride, pointer);
 	}
 
 	/**
@@ -4887,28 +4927,44 @@ public class GL11 {
 		nglInterleavedArrays(format, stride, pointer);
 	}
 
-	/** ShortBuffer version of: {@link #glInterleavedArrays InterleavedArrays} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInterleavedArrays.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glInterleavedArrays InterleavedArrays}
+	 */
 	public static void glInterleavedArrays(int format, int stride, ShortBuffer pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglInterleavedArrays(format, stride, memAddress(pointer));
 	}
 
-	/** IntBuffer version of: {@link #glInterleavedArrays InterleavedArrays} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInterleavedArrays.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glInterleavedArrays InterleavedArrays}
+	 */
 	public static void glInterleavedArrays(int format, int stride, IntBuffer pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglInterleavedArrays(format, stride, memAddress(pointer));
 	}
 
-	/** FloatBuffer version of: {@link #glInterleavedArrays InterleavedArrays} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInterleavedArrays.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glInterleavedArrays InterleavedArrays}
+	 */
 	public static void glInterleavedArrays(int format, int stride, FloatBuffer pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglInterleavedArrays(format, stride, memAddress(pointer));
 	}
 
-	/** DoubleBuffer version of: {@link #glInterleavedArrays InterleavedArrays} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInterleavedArrays.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * DoubleBuffer version of: {@link #glInterleavedArrays InterleavedArrays}
+	 */
 	public static void glInterleavedArrays(int format, int stride, DoubleBuffer pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -4926,7 +4982,7 @@ public class GL11 {
 	 */
 	public static boolean glIsEnabled(int cap) {
 		long __functionAddress = GL.getCapabilities().glIsEnabled;
-		return callIZ(__functionAddress, cap);
+		return callZ(__functionAddress, cap);
 	}
 
 	// --- [ glIsList ] ---
@@ -4942,7 +4998,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glIsList;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIZ(__functionAddress, list);
+		return callZ(__functionAddress, list);
 	}
 
 	// --- [ glIsTexture ] ---
@@ -4956,7 +5012,7 @@ public class GL11 {
 	 */
 	public static boolean glIsTexture(int texture) {
 		long __functionAddress = GL.getCapabilities().glIsTexture;
-		return callIZ(__functionAddress, texture);
+		return callZ(__functionAddress, texture);
 	}
 
 	// --- [ glLightModeli ] ---
@@ -4973,7 +5029,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glLightModeli;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, pname, param);
+		callV(__functionAddress, pname, param);
 	}
 
 	// --- [ glLightModelf ] ---
@@ -4990,7 +5046,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glLightModelf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIFV(__functionAddress, pname, param);
+		callV(__functionAddress, pname, param);
 	}
 
 	// --- [ glLightModeliv ] ---
@@ -5007,7 +5063,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glLightModeliv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, pname, params);
+		callPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -5038,7 +5094,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glLightModelfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, pname, params);
+		callPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -5070,7 +5126,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glLighti;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, light, pname, param);
+		callV(__functionAddress, light, pname, param);
 	}
 
 	// --- [ glLightf ] ---
@@ -5088,7 +5144,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glLightf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIFV(__functionAddress, light, pname, param);
+		callV(__functionAddress, light, pname, param);
 	}
 
 	// --- [ glLightiv ] ---
@@ -5106,7 +5162,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glLightiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, light, pname, params);
+		callPV(__functionAddress, light, pname, params);
 	}
 
 	/**
@@ -5139,7 +5195,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glLightfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, light, pname, params);
+		callPV(__functionAddress, light, pname, params);
 	}
 
 	/**
@@ -5173,7 +5229,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glLineStipple;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callISV(__functionAddress, factor, pattern);
+		callV(__functionAddress, factor, pattern);
 	}
 
 	// --- [ glLineWidth ] ---
@@ -5187,7 +5243,7 @@ public class GL11 {
 	 */
 	public static void glLineWidth(float width) {
 		long __functionAddress = GL.getCapabilities().glLineWidth;
-		callFV(__functionAddress, width);
+		callV(__functionAddress, width);
 	}
 
 	// --- [ glListBase ] ---
@@ -5203,7 +5259,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glListBase;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, base);
+		callV(__functionAddress, base);
 	}
 
 	// --- [ glLoadMatrixf ] ---
@@ -5324,7 +5380,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glLoadName;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, name);
+		callV(__functionAddress, name);
 	}
 
 	// --- [ glLogicOp ] ---
@@ -5338,7 +5394,7 @@ public class GL11 {
 	 */
 	public static void glLogicOp(int op) {
 		long __functionAddress = GL.getCapabilities().glLogicOp;
-		callIV(__functionAddress, op);
+		callV(__functionAddress, op);
 	}
 
 	// --- [ glMap1f ] ---
@@ -5360,7 +5416,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glMap1f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIFFIIPV(__functionAddress, target, u1, u2, stride, order, points);
+		callPV(__functionAddress, target, u1, u2, stride, order, points);
 	}
 
 	/**
@@ -5400,7 +5456,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glMap1d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIDDIIPV(__functionAddress, target, u1, u2, stride, order, points);
+		callPV(__functionAddress, target, u1, u2, stride, order, points);
 	}
 
 	/**
@@ -5443,7 +5499,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glMap2f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIFFIIFFIIPV(__functionAddress, target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
+		callPV(__functionAddress, target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
 	}
 
 	/**
@@ -5490,7 +5546,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glMap2d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIDDIIDDIIPV(__functionAddress, target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
+		callPV(__functionAddress, target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
 	}
 
 	/**
@@ -5530,7 +5586,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glMapGrid1f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIFFV(__functionAddress, n, u1, u2);
+		callV(__functionAddress, n, u1, u2);
 	}
 
 	// --- [ glMapGrid1d ] ---
@@ -5548,7 +5604,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glMapGrid1d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIDDV(__functionAddress, n, u1, u2);
+		callV(__functionAddress, n, u1, u2);
 	}
 
 	// --- [ glMapGrid2f ] ---
@@ -5569,7 +5625,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glMapGrid2f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIFFIFFV(__functionAddress, un, u1, u2, vn, v1, v2);
+		callV(__functionAddress, un, u1, u2, vn, v1, v2);
 	}
 
 	// --- [ glMapGrid2d ] ---
@@ -5590,7 +5646,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glMapGrid2d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIDDIDDV(__functionAddress, un, u1, u2, vn, v1, v2);
+		callV(__functionAddress, un, u1, u2, vn, v1, v2);
 	}
 
 	// --- [ glMateriali ] ---
@@ -5608,7 +5664,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glMateriali;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, face, pname, param);
+		callV(__functionAddress, face, pname, param);
 	}
 
 	// --- [ glMaterialf ] ---
@@ -5626,7 +5682,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glMaterialf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIFV(__functionAddress, face, pname, param);
+		callV(__functionAddress, face, pname, param);
 	}
 
 	// --- [ glMaterialiv ] ---
@@ -5644,7 +5700,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glMaterialiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, face, pname, params);
+		callPV(__functionAddress, face, pname, params);
 	}
 
 	/**
@@ -5677,7 +5733,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glMaterialfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, face, pname, params);
+		callPV(__functionAddress, face, pname, params);
 	}
 
 	/**
@@ -5708,7 +5764,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glMatrixMode;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, mode);
+		callV(__functionAddress, mode);
 	}
 
 	// --- [ glMultMatrixf ] ---
@@ -5799,7 +5855,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glFrustum;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDDDDDDV(__functionAddress, l, r, b, t, n, f);
+		callV(__functionAddress, l, r, b, t, n, f);
 	}
 
 	// --- [ glNewList ] ---
@@ -5816,7 +5872,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glNewList;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, n, mode);
+		callV(__functionAddress, n, mode);
 	}
 
 	// --- [ glEndList ] ---
@@ -5849,7 +5905,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glNormal3f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFFV(__functionAddress, nx, ny, nz);
+		callV(__functionAddress, nx, ny, nz);
 	}
 
 	// --- [ glNormal3b ] ---
@@ -5867,7 +5923,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glNormal3b;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callBBBV(__functionAddress, nx, ny, nz);
+		callV(__functionAddress, nx, ny, nz);
 	}
 
 	// --- [ glNormal3s ] ---
@@ -5885,7 +5941,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glNormal3s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callSSSV(__functionAddress, nx, ny, nz);
+		callV(__functionAddress, nx, ny, nz);
 	}
 
 	// --- [ glNormal3i ] ---
@@ -5903,7 +5959,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glNormal3i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, nx, ny, nz);
+		callV(__functionAddress, nx, ny, nz);
 	}
 
 	// --- [ glNormal3d ] ---
@@ -5921,7 +5977,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glNormal3d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDDDV(__functionAddress, nx, ny, nz);
+		callV(__functionAddress, nx, ny, nz);
 	}
 
 	// --- [ glNormal3fv ] ---
@@ -6084,7 +6140,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glNormalPointer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, type, stride, pointer);
+		callPV(__functionAddress, type, stride, pointer);
 	}
 
 	/**
@@ -6117,21 +6173,33 @@ public class GL11 {
 		nglNormalPointer(type, stride, pointer);
 	}
 
-	/** ShortBuffer version of: {@link #glNormalPointer NormalPointer} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormalPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * ShortBuffer version of: {@link #glNormalPointer NormalPointer}
+	 */
 	public static void glNormalPointer(int type, int stride, ShortBuffer pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglNormalPointer(type, stride, memAddress(pointer));
 	}
 
-	/** IntBuffer version of: {@link #glNormalPointer NormalPointer} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormalPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * IntBuffer version of: {@link #glNormalPointer NormalPointer}
+	 */
 	public static void glNormalPointer(int type, int stride, IntBuffer pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglNormalPointer(type, stride, memAddress(pointer));
 	}
 
-	/** FloatBuffer version of: {@link #glNormalPointer NormalPointer} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormalPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * FloatBuffer version of: {@link #glNormalPointer NormalPointer}
+	 */
 	public static void glNormalPointer(int type, int stride, FloatBuffer pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -6168,7 +6236,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glOrtho;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDDDDDDV(__functionAddress, l, r, b, t, n, f);
+		callV(__functionAddress, l, r, b, t, n, f);
 	}
 
 	// --- [ glPassThrough ] ---
@@ -6186,7 +6254,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glPassThrough;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFV(__functionAddress, token);
+		callV(__functionAddress, token);
 	}
 
 	// --- [ glPixelMapfv ] ---
@@ -6204,7 +6272,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glPixelMapfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, map, size, values);
+		callPV(__functionAddress, map, size, values);
 	}
 
 	/**
@@ -6251,7 +6319,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glPixelMapusv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, map, size, values);
+		callPV(__functionAddress, map, size, values);
 	}
 
 	/**
@@ -6298,7 +6366,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glPixelMapuiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, map, size, values);
+		callPV(__functionAddress, map, size, values);
 	}
 
 	/**
@@ -6342,7 +6410,7 @@ public class GL11 {
 	 */
 	public static void glPixelStorei(int pname, int param) {
 		long __functionAddress = GL.getCapabilities().glPixelStorei;
-		callIIV(__functionAddress, pname, param);
+		callV(__functionAddress, pname, param);
 	}
 
 	// --- [ glPixelStoref ] ---
@@ -6357,7 +6425,7 @@ public class GL11 {
 	 */
 	public static void glPixelStoref(int pname, int param) {
 		long __functionAddress = GL.getCapabilities().glPixelStoref;
-		callIIV(__functionAddress, pname, param);
+		callV(__functionAddress, pname, param);
 	}
 
 	// --- [ glPixelTransferi ] ---
@@ -6374,7 +6442,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glPixelTransferi;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, pname, param);
+		callV(__functionAddress, pname, param);
 	}
 
 	// --- [ glPixelTransferf ] ---
@@ -6391,7 +6459,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glPixelTransferf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIFV(__functionAddress, pname, param);
+		callV(__functionAddress, pname, param);
 	}
 
 	// --- [ glPixelZoom ] ---
@@ -6416,7 +6484,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glPixelZoom;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFV(__functionAddress, xfactor, yfactor);
+		callV(__functionAddress, xfactor, yfactor);
 	}
 
 	// --- [ glPointSize ] ---
@@ -6430,7 +6498,7 @@ public class GL11 {
 	 */
 	public static void glPointSize(float size) {
 		long __functionAddress = GL.getCapabilities().glPointSize;
-		callFV(__functionAddress, size);
+		callV(__functionAddress, size);
 	}
 
 	// --- [ glPolygonMode ] ---
@@ -6449,7 +6517,7 @@ public class GL11 {
 	 */
 	public static void glPolygonMode(int face, int mode) {
 		long __functionAddress = GL.getCapabilities().glPolygonMode;
-		callIIV(__functionAddress, face, mode);
+		callV(__functionAddress, face, mode);
 	}
 
 	// --- [ glPolygonOffset ] ---
@@ -6468,7 +6536,7 @@ public class GL11 {
 	 */
 	public static void glPolygonOffset(float factor, float units) {
 		long __functionAddress = GL.getCapabilities().glPolygonOffset;
-		callFFV(__functionAddress, factor, units);
+		callV(__functionAddress, factor, units);
 	}
 
 	// --- [ glPolygonStipple ] ---
@@ -6554,7 +6622,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glPushAttrib;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, mask);
+		callV(__functionAddress, mask);
 	}
 
 	// --- [ glPushClientAttrib ] ---
@@ -6577,7 +6645,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glPushClientAttrib;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, mask);
+		callV(__functionAddress, mask);
 	}
 
 	// --- [ glPopAttrib ] ---
@@ -6652,7 +6720,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glPrioritizeTextures;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPPV(__functionAddress, n, textures, priorities);
+		callPPV(__functionAddress, n, textures, priorities);
 	}
 
 	/**
@@ -6697,7 +6765,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glPushName;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, name);
+		callV(__functionAddress, name);
 	}
 
 	// --- [ glRasterPos2i ] ---
@@ -6720,7 +6788,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glRasterPos2i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, x, y);
+		callV(__functionAddress, x, y);
 	}
 
 	// --- [ glRasterPos2s ] ---
@@ -6737,7 +6805,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glRasterPos2s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callSSV(__functionAddress, x, y);
+		callV(__functionAddress, x, y);
 	}
 
 	// --- [ glRasterPos2f ] ---
@@ -6754,7 +6822,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glRasterPos2f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFV(__functionAddress, x, y);
+		callV(__functionAddress, x, y);
 	}
 
 	// --- [ glRasterPos2d ] ---
@@ -6771,7 +6839,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glRasterPos2d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDDV(__functionAddress, x, y);
+		callV(__functionAddress, x, y);
 	}
 
 	// --- [ glRasterPos2iv ] ---
@@ -6905,7 +6973,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glRasterPos3i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, x, y, z);
+		callV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glRasterPos3s ] ---
@@ -6923,7 +6991,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glRasterPos3s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callSSSV(__functionAddress, x, y, z);
+		callV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glRasterPos3f ] ---
@@ -6941,7 +7009,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glRasterPos3f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFFV(__functionAddress, x, y, z);
+		callV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glRasterPos3d ] ---
@@ -6959,7 +7027,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glRasterPos3d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDDDV(__functionAddress, x, y, z);
+		callV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glRasterPos3iv ] ---
@@ -7094,7 +7162,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glRasterPos4i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, x, y, z, w);
+		callV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glRasterPos4s ] ---
@@ -7113,7 +7181,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glRasterPos4s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callSSSSV(__functionAddress, x, y, z, w);
+		callV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glRasterPos4f ] ---
@@ -7132,7 +7200,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glRasterPos4f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFFFV(__functionAddress, x, y, z, w);
+		callV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glRasterPos4d ] ---
@@ -7151,7 +7219,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glRasterPos4d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDDDDV(__functionAddress, x, y, z, w);
+		callV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glRasterPos4iv ] ---
@@ -7284,7 +7352,7 @@ public class GL11 {
 	 */
 	public static void glReadBuffer(int src) {
 		long __functionAddress = GL.getCapabilities().glReadBuffer;
-		callIV(__functionAddress, src);
+		callV(__functionAddress, src);
 	}
 
 	// --- [ glReadPixels ] ---
@@ -7308,7 +7376,7 @@ public class GL11 {
 	 */
 	public static void nglReadPixels(int x, int y, int width, int height, int format, int type, long pixels) {
 		long __functionAddress = GL.getCapabilities().glReadPixels;
-		callIIIIIIPV(__functionAddress, x, y, width, height, format, type, pixels);
+		callPV(__functionAddress, x, y, width, height, format, type, pixels);
 	}
 
 	/**
@@ -7357,21 +7425,33 @@ public class GL11 {
 		nglReadPixels(x, y, width, height, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glReadPixels ReadPixels} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReadPixels.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glReadPixels ReadPixels}
+	 */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, ShortBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glReadPixels ReadPixels} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReadPixels.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glReadPixels ReadPixels}
+	 */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, IntBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glReadPixels ReadPixels} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReadPixels.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glReadPixels ReadPixels}
+	 */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, FloatBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
@@ -7407,7 +7487,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glRecti;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, x1, y1, x2, y2);
+		callV(__functionAddress, x1, y1, x2, y2);
 	}
 
 	// --- [ glRects ] ---
@@ -7426,7 +7506,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glRects;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callSSSSV(__functionAddress, x1, y1, x2, y2);
+		callV(__functionAddress, x1, y1, x2, y2);
 	}
 
 	// --- [ glRectf ] ---
@@ -7445,7 +7525,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glRectf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFFFV(__functionAddress, x1, y1, x2, y2);
+		callV(__functionAddress, x1, y1, x2, y2);
 	}
 
 	// --- [ glRectd ] ---
@@ -7464,7 +7544,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glRectd;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDDDDV(__functionAddress, x1, y1, x2, y2);
+		callV(__functionAddress, x1, y1, x2, y2);
 	}
 
 	// --- [ glRectiv ] ---
@@ -7612,7 +7692,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glRenderMode;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callII(__functionAddress, mode);
+		return callI(__functionAddress, mode);
 	}
 
 	// --- [ glRotatef ] ---
@@ -7652,7 +7732,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glRotatef;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFFFV(__functionAddress, angle, x, y, z);
+		callV(__functionAddress, angle, x, y, z);
 	}
 
 	// --- [ glRotated ] ---
@@ -7671,7 +7751,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glRotated;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDDDDV(__functionAddress, angle, x, y, z);
+		callV(__functionAddress, angle, x, y, z);
 	}
 
 	// --- [ glScalef ] ---
@@ -7698,7 +7778,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glScalef;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFFV(__functionAddress, x, y, z);
+		callV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glScaled ] ---
@@ -7716,7 +7796,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glScaled;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDDDV(__functionAddress, x, y, z);
+		callV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glScissor ] ---
@@ -7736,7 +7816,7 @@ public class GL11 {
 	 */
 	public static void glScissor(int x, int y, int width, int height) {
 		long __functionAddress = GL.getCapabilities().glScissor;
-		callIIIIV(__functionAddress, x, y, width, height);
+		callV(__functionAddress, x, y, width, height);
 	}
 
 	// --- [ glSelectBuffer ] ---
@@ -7753,7 +7833,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glSelectBuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, size, buffer);
+		callPV(__functionAddress, size, buffer);
 	}
 
 	/**
@@ -7784,7 +7864,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glShadeModel;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, mode);
+		callV(__functionAddress, mode);
 	}
 
 	// --- [ glStencilFunc ] ---
@@ -7805,7 +7885,7 @@ public class GL11 {
 	 */
 	public static void glStencilFunc(int func, int ref, int mask) {
 		long __functionAddress = GL.getCapabilities().glStencilFunc;
-		callIIIV(__functionAddress, func, ref, mask);
+		callV(__functionAddress, func, ref, mask);
 	}
 
 	// --- [ glStencilMask ] ---
@@ -7822,7 +7902,7 @@ public class GL11 {
 	 */
 	public static void glStencilMask(int mask) {
 		long __functionAddress = GL.getCapabilities().glStencilMask;
-		callIV(__functionAddress, mask);
+		callV(__functionAddress, mask);
 	}
 
 	// --- [ glStencilOp ] ---
@@ -7846,7 +7926,7 @@ public class GL11 {
 	 */
 	public static void glStencilOp(int sfail, int dpfail, int dppass) {
 		long __functionAddress = GL.getCapabilities().glStencilOp;
-		callIIIV(__functionAddress, sfail, dpfail, dppass);
+		callV(__functionAddress, sfail, dpfail, dppass);
 	}
 
 	// --- [ glTexCoord1f ] ---
@@ -7862,7 +7942,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glTexCoord1f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFV(__functionAddress, s);
+		callV(__functionAddress, s);
 	}
 
 	// --- [ glTexCoord1s ] ---
@@ -7878,7 +7958,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glTexCoord1s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callSV(__functionAddress, s);
+		callV(__functionAddress, s);
 	}
 
 	// --- [ glTexCoord1i ] ---
@@ -7894,7 +7974,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glTexCoord1i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, s);
+		callV(__functionAddress, s);
 	}
 
 	// --- [ glTexCoord1d ] ---
@@ -7910,7 +7990,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glTexCoord1d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDV(__functionAddress, s);
+		callV(__functionAddress, s);
 	}
 
 	// --- [ glTexCoord1fv ] ---
@@ -8043,7 +8123,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glTexCoord2f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFV(__functionAddress, s, t);
+		callV(__functionAddress, s, t);
 	}
 
 	// --- [ glTexCoord2s ] ---
@@ -8060,7 +8140,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glTexCoord2s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callSSV(__functionAddress, s, t);
+		callV(__functionAddress, s, t);
 	}
 
 	// --- [ glTexCoord2i ] ---
@@ -8077,7 +8157,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glTexCoord2i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, s, t);
+		callV(__functionAddress, s, t);
 	}
 
 	// --- [ glTexCoord2d ] ---
@@ -8094,7 +8174,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glTexCoord2d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDDV(__functionAddress, s, t);
+		callV(__functionAddress, s, t);
 	}
 
 	// --- [ glTexCoord2fv ] ---
@@ -8228,7 +8308,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glTexCoord3f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFFV(__functionAddress, s, t, r);
+		callV(__functionAddress, s, t, r);
 	}
 
 	// --- [ glTexCoord3s ] ---
@@ -8246,7 +8326,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glTexCoord3s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callSSSV(__functionAddress, s, t, r);
+		callV(__functionAddress, s, t, r);
 	}
 
 	// --- [ glTexCoord3i ] ---
@@ -8264,7 +8344,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glTexCoord3i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, s, t, r);
+		callV(__functionAddress, s, t, r);
 	}
 
 	// --- [ glTexCoord3d ] ---
@@ -8282,7 +8362,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glTexCoord3d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDDDV(__functionAddress, s, t, r);
+		callV(__functionAddress, s, t, r);
 	}
 
 	// --- [ glTexCoord3fv ] ---
@@ -8417,7 +8497,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glTexCoord4f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFFFV(__functionAddress, s, t, r, q);
+		callV(__functionAddress, s, t, r, q);
 	}
 
 	// --- [ glTexCoord4s ] ---
@@ -8436,7 +8516,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glTexCoord4s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callSSSSV(__functionAddress, s, t, r, q);
+		callV(__functionAddress, s, t, r, q);
 	}
 
 	// --- [ glTexCoord4i ] ---
@@ -8455,7 +8535,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glTexCoord4i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, s, t, r, q);
+		callV(__functionAddress, s, t, r, q);
 	}
 
 	// --- [ glTexCoord4d ] ---
@@ -8474,7 +8554,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glTexCoord4d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDDDDV(__functionAddress, s, t, r, q);
+		callV(__functionAddress, s, t, r, q);
 	}
 
 	// --- [ glTexCoord4fv ] ---
@@ -8609,7 +8689,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glTexCoordPointer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, size, type, stride, pointer);
+		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
 	/**
@@ -8644,21 +8724,33 @@ public class GL11 {
 		nglTexCoordPointer(size, type, stride, pointer);
 	}
 
-	/** ShortBuffer version of: {@link #glTexCoordPointer TexCoordPointer} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * ShortBuffer version of: {@link #glTexCoordPointer TexCoordPointer}
+	 */
 	public static void glTexCoordPointer(int size, int type, int stride, ShortBuffer pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglTexCoordPointer(size, type, stride, memAddress(pointer));
 	}
 
-	/** IntBuffer version of: {@link #glTexCoordPointer TexCoordPointer} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * IntBuffer version of: {@link #glTexCoordPointer TexCoordPointer}
+	 */
 	public static void glTexCoordPointer(int size, int type, int stride, IntBuffer pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglTexCoordPointer(size, type, stride, memAddress(pointer));
 	}
 
-	/** FloatBuffer version of: {@link #glTexCoordPointer TexCoordPointer} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * FloatBuffer version of: {@link #glTexCoordPointer TexCoordPointer}
+	 */
 	public static void glTexCoordPointer(int size, int type, int stride, FloatBuffer pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -8679,7 +8771,7 @@ public class GL11 {
 	 */
 	public static void glTexEnvi(int target, int pname, int param) {
 		long __functionAddress = GL.getCapabilities().glTexEnvi;
-		callIIIV(__functionAddress, target, pname, param);
+		callV(__functionAddress, target, pname, param);
 	}
 
 	// --- [ glTexEnviv ] ---
@@ -8695,7 +8787,7 @@ public class GL11 {
 	 */
 	public static void nglTexEnviv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glTexEnviv;
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -8726,7 +8818,7 @@ public class GL11 {
 	 */
 	public static void glTexEnvf(int target, int pname, float param) {
 		long __functionAddress = GL.getCapabilities().glTexEnvf;
-		callIIFV(__functionAddress, target, pname, param);
+		callV(__functionAddress, target, pname, param);
 	}
 
 	// --- [ glTexEnvfv ] ---
@@ -8742,7 +8834,7 @@ public class GL11 {
 	 */
 	public static void nglTexEnvfv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glTexEnvfv;
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -8783,7 +8875,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glTexGeni;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, coord, pname, param);
+		callV(__functionAddress, coord, pname, param);
 	}
 
 	// --- [ glTexGeniv ] ---
@@ -8801,7 +8893,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glTexGeniv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, coord, pname, params);
+		callPV(__functionAddress, coord, pname, params);
 	}
 
 	/**
@@ -8834,7 +8926,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glTexGenf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIFV(__functionAddress, coord, pname, param);
+		callV(__functionAddress, coord, pname, param);
 	}
 
 	// --- [ glTexGenfv ] ---
@@ -8852,7 +8944,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glTexGenfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, coord, pname, params);
+		callPV(__functionAddress, coord, pname, params);
 	}
 
 	/**
@@ -8885,7 +8977,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glTexGend;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIDV(__functionAddress, coord, pname, param);
+		callV(__functionAddress, coord, pname, param);
 	}
 
 	// --- [ glTexGendv ] ---
@@ -8903,7 +8995,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glTexGendv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, coord, pname, params);
+		callPV(__functionAddress, coord, pname, params);
 	}
 
 	/**
@@ -8940,7 +9032,7 @@ public class GL11 {
 	 */
 	public static void nglTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels) {
 		long __functionAddress = GL.getCapabilities().glTexImage2D;
-		callIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
+		callPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
 	/**
@@ -8985,28 +9077,44 @@ public class GL11 {
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glTexImage2D TexImage2D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glTexImage2D TexImage2D}
+	 */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, ShortBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glTexImage2D TexImage2D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glTexImage2D TexImage2D}
+	 */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, IntBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glTexImage2D TexImage2D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glTexImage2D TexImage2D}
+	 */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, FloatBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glTexImage2D TexImage2D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * DoubleBuffer version of: {@link #glTexImage2D TexImage2D}
+	 */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, DoubleBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -9031,7 +9139,7 @@ public class GL11 {
 	 */
 	public static void nglTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, long pixels) {
 		long __functionAddress = GL.getCapabilities().glTexImage1D;
-		callIIIIIIIPV(__functionAddress, target, level, internalformat, width, border, format, type, pixels);
+		callPV(__functionAddress, target, level, internalformat, width, border, format, type, pixels);
 	}
 
 	/**
@@ -9074,28 +9182,44 @@ public class GL11 {
 		nglTexImage1D(target, level, internalformat, width, border, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glTexImage1D TexImage1D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glTexImage1D TexImage1D}
+	 */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, ShortBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glTexImage1D TexImage1D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glTexImage1D TexImage1D}
+	 */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, IntBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glTexImage1D TexImage1D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glTexImage1D TexImage1D}
+	 */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, FloatBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glTexImage1D TexImage1D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * DoubleBuffer version of: {@link #glTexImage1D TexImage1D}
+	 */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, DoubleBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -9134,7 +9258,7 @@ public class GL11 {
 	 */
 	public static void glCopyTexImage2D(int target, int level, int internalFormat, int x, int y, int width, int height, int border) {
 		long __functionAddress = GL.getCapabilities().glCopyTexImage2D;
-		callIIIIIIIIV(__functionAddress, target, level, internalFormat, x, y, width, height, border);
+		callV(__functionAddress, target, level, internalFormat, x, y, width, height, border);
 	}
 
 	// --- [ glCopyTexImage1D ] ---
@@ -9158,7 +9282,7 @@ public class GL11 {
 	 */
 	public static void glCopyTexImage1D(int target, int level, int internalFormat, int x, int y, int width, int border) {
 		long __functionAddress = GL.getCapabilities().glCopyTexImage1D;
-		callIIIIIIIV(__functionAddress, target, level, internalFormat, x, y, width, border);
+		callV(__functionAddress, target, level, internalFormat, x, y, width, border);
 	}
 
 	// --- [ glCopyTexSubImage1D ] ---
@@ -9179,7 +9303,7 @@ public class GL11 {
 	 */
 	public static void glCopyTexSubImage1D(int target, int level, int xoffset, int x, int y, int width) {
 		long __functionAddress = GL.getCapabilities().glCopyTexSubImage1D;
-		callIIIIIIV(__functionAddress, target, level, xoffset, x, y, width);
+		callV(__functionAddress, target, level, xoffset, x, y, width);
 	}
 
 	// --- [ glCopyTexSubImage2D ] ---
@@ -9202,7 +9326,7 @@ public class GL11 {
 	 */
 	public static void glCopyTexSubImage2D(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height) {
 		long __functionAddress = GL.getCapabilities().glCopyTexSubImage2D;
-		callIIIIIIIIV(__functionAddress, target, level, xoffset, yoffset, x, y, width, height);
+		callV(__functionAddress, target, level, xoffset, yoffset, x, y, width, height);
 	}
 
 	// --- [ glTexParameteri ] ---
@@ -9218,7 +9342,7 @@ public class GL11 {
 	 */
 	public static void glTexParameteri(int target, int pname, int param) {
 		long __functionAddress = GL.getCapabilities().glTexParameteri;
-		callIIIV(__functionAddress, target, pname, param);
+		callV(__functionAddress, target, pname, param);
 	}
 
 	// --- [ glTexParameteriv ] ---
@@ -9234,7 +9358,7 @@ public class GL11 {
 	 */
 	public static void nglTexParameteriv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glTexParameteriv;
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -9265,7 +9389,7 @@ public class GL11 {
 	 */
 	public static void glTexParameterf(int target, int pname, float param) {
 		long __functionAddress = GL.getCapabilities().glTexParameterf;
-		callIIFV(__functionAddress, target, pname, param);
+		callV(__functionAddress, target, pname, param);
 	}
 
 	// --- [ glTexParameterfv ] ---
@@ -9281,7 +9405,7 @@ public class GL11 {
 	 */
 	public static void nglTexParameterfv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glTexParameterfv;
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -9316,7 +9440,7 @@ public class GL11 {
 	 */
 	public static void nglTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, long pixels) {
 		long __functionAddress = GL.getCapabilities().glTexSubImage1D;
-		callIIIIIIPV(__functionAddress, target, level, xoffset, width, format, type, pixels);
+		callPV(__functionAddress, target, level, xoffset, width, format, type, pixels);
 	}
 
 	/**
@@ -9357,28 +9481,44 @@ public class GL11 {
 		nglTexSubImage1D(target, level, xoffset, width, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glTexSubImage1D TexSubImage1D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glTexSubImage1D TexSubImage1D}
+	 */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, ShortBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glTexSubImage1D TexSubImage1D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glTexSubImage1D TexSubImage1D}
+	 */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, IntBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glTexSubImage1D TexSubImage1D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glTexSubImage1D TexSubImage1D}
+	 */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, FloatBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glTexSubImage1D TexSubImage1D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * DoubleBuffer version of: {@link #glTexSubImage1D TexSubImage1D}
+	 */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, DoubleBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -9405,7 +9545,7 @@ public class GL11 {
 	 */
 	public static void nglTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
 		long __functionAddress = GL.getCapabilities().glTexSubImage2D;
-		callIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
+		callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
 	/**
@@ -9452,28 +9592,44 @@ public class GL11 {
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glTexSubImage2D TexSubImage2D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glTexSubImage2D TexSubImage2D}
+	 */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, ShortBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glTexSubImage2D TexSubImage2D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glTexSubImage2D TexSubImage2D}
+	 */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, IntBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glTexSubImage2D TexSubImage2D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glTexSubImage2D TexSubImage2D}
+	 */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, FloatBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glTexSubImage2D TexSubImage2D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * DoubleBuffer version of: {@link #glTexSubImage2D TexSubImage2D}
+	 */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, DoubleBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -9504,7 +9660,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glTranslatef;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFFV(__functionAddress, x, y, z);
+		callV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glTranslated ] ---
@@ -9522,7 +9678,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glTranslated;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDDDV(__functionAddress, x, y, z);
+		callV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glVertex2f ] ---
@@ -9540,7 +9696,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glVertex2f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFV(__functionAddress, x, y);
+		callV(__functionAddress, x, y);
 	}
 
 	// --- [ glVertex2s ] ---
@@ -9557,7 +9713,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glVertex2s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callSSV(__functionAddress, x, y);
+		callV(__functionAddress, x, y);
 	}
 
 	// --- [ glVertex2i ] ---
@@ -9574,7 +9730,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glVertex2i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, x, y);
+		callV(__functionAddress, x, y);
 	}
 
 	// --- [ glVertex2d ] ---
@@ -9591,7 +9747,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glVertex2d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDDV(__functionAddress, x, y);
+		callV(__functionAddress, x, y);
 	}
 
 	// --- [ glVertex2fv ] ---
@@ -9726,7 +9882,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glVertex3f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFFV(__functionAddress, x, y, z);
+		callV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glVertex3s ] ---
@@ -9744,7 +9900,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glVertex3s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callSSSV(__functionAddress, x, y, z);
+		callV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glVertex3i ] ---
@@ -9762,7 +9918,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glVertex3i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, x, y, z);
+		callV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glVertex3d ] ---
@@ -9780,7 +9936,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glVertex3d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDDDV(__functionAddress, x, y, z);
+		callV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glVertex3fv ] ---
@@ -9915,7 +10071,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glVertex4f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFFFV(__functionAddress, x, y, z, w);
+		callV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glVertex4s ] ---
@@ -9934,7 +10090,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glVertex4s;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callSSSSV(__functionAddress, x, y, z, w);
+		callV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glVertex4i ] ---
@@ -9953,7 +10109,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glVertex4i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, x, y, z, w);
+		callV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glVertex4d ] ---
@@ -9972,7 +10128,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glVertex4d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDDDDV(__functionAddress, x, y, z, w);
+		callV(__functionAddress, x, y, z, w);
 	}
 
 	// --- [ glVertex4fv ] ---
@@ -10107,7 +10263,7 @@ public class GL11 {
 		long __functionAddress = GL.getCapabilities().glVertexPointer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, size, type, stride, pointer);
+		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
 	/**
@@ -10142,21 +10298,33 @@ public class GL11 {
 		nglVertexPointer(size, type, stride, pointer);
 	}
 
-	/** ShortBuffer version of: {@link #glVertexPointer VertexPointer} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertexPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * ShortBuffer version of: {@link #glVertexPointer VertexPointer}
+	 */
 	public static void glVertexPointer(int size, int type, int stride, ShortBuffer pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexPointer(size, type, stride, memAddress(pointer));
 	}
 
-	/** IntBuffer version of: {@link #glVertexPointer VertexPointer} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertexPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * IntBuffer version of: {@link #glVertexPointer VertexPointer}
+	 */
 	public static void glVertexPointer(int size, int type, int stride, IntBuffer pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexPointer(size, type, stride, memAddress(pointer));
 	}
 
-	/** FloatBuffer version of: {@link #glVertexPointer VertexPointer} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertexPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * FloatBuffer version of: {@link #glVertexPointer VertexPointer}
+	 */
 	public static void glVertexPointer(int size, int type, int stride, FloatBuffer pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -10188,7 +10356,2228 @@ public class GL11 {
 	 */
 	public static void glViewport(int x, int y, int w, int h) {
 		long __functionAddress = GL.getCapabilities().glViewport;
-		callIIIIV(__functionAddress, x, y, w, h);
+		callV(__functionAddress, x, y, w, h);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glAreTexturesResident.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glAreTexturesResident AreTexturesResident}
+	 */
+	public static boolean glAreTexturesResident(int[] textures, ByteBuffer residences) {
+		long __functionAddress = GL.getCapabilities().glAreTexturesResident;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(residences, textures.length);
+		}
+		return callPPZ(__functionAddress, textures.length, textures, memAddress(residences));
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClipPlane.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glClipPlane ClipPlane}
+	 */
+	public static void glClipPlane(int plane, double[] equation) {
+		long __functionAddress = GL.getCapabilities().glClipPlane;
+		callPV(__functionAddress, plane, equation);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glColor3sv Color3sv}
+	 */
+	public static void glColor3sv(short[] v) {
+		long __functionAddress = GL.getCapabilities().glColor3sv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 3);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glColor3iv Color3iv}
+	 */
+	public static void glColor3iv(int[] v) {
+		long __functionAddress = GL.getCapabilities().glColor3iv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 3);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glColor3fv Color3fv}
+	 */
+	public static void glColor3fv(float[] v) {
+		long __functionAddress = GL.getCapabilities().glColor3fv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 3);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glColor3dv Color3dv}
+	 */
+	public static void glColor3dv(double[] v) {
+		long __functionAddress = GL.getCapabilities().glColor3dv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 3);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glColor3usv Color3usv}
+	 */
+	public static void glColor3usv(short[] v) {
+		long __functionAddress = GL.getCapabilities().glColor3usv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 3);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glColor3uiv Color3uiv}
+	 */
+	public static void glColor3uiv(int[] v) {
+		long __functionAddress = GL.getCapabilities().glColor3uiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 3);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glColor4sv Color4sv}
+	 */
+	public static void glColor4sv(short[] v) {
+		long __functionAddress = GL.getCapabilities().glColor4sv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 4);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glColor4iv Color4iv}
+	 */
+	public static void glColor4iv(int[] v) {
+		long __functionAddress = GL.getCapabilities().glColor4iv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 4);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glColor4fv Color4fv}
+	 */
+	public static void glColor4fv(float[] v) {
+		long __functionAddress = GL.getCapabilities().glColor4fv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 4);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glColor4dv Color4dv}
+	 */
+	public static void glColor4dv(double[] v) {
+		long __functionAddress = GL.getCapabilities().glColor4dv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 4);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glColor4usv Color4usv}
+	 */
+	public static void glColor4usv(short[] v) {
+		long __functionAddress = GL.getCapabilities().glColor4usv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 4);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glColor4uiv Color4uiv}
+	 */
+	public static void glColor4uiv(int[] v) {
+		long __functionAddress = GL.getCapabilities().glColor4uiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 4);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColorPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * short[] version of: {@link #glColorPointer ColorPointer}
+	 */
+	public static void glColorPointer(int size, int type, int stride, short[] pointer) {
+		long __functionAddress = GL.getCapabilities().glColorPointer;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, size, type, stride, pointer);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColorPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * int[] version of: {@link #glColorPointer ColorPointer}
+	 */
+	public static void glColorPointer(int size, int type, int stride, int[] pointer) {
+		long __functionAddress = GL.getCapabilities().glColorPointer;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, size, type, stride, pointer);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColorPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * float[] version of: {@link #glColorPointer ColorPointer}
+	 */
+	public static void glColorPointer(int size, int type, int stride, float[] pointer) {
+		long __functionAddress = GL.getCapabilities().glColorPointer;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, size, type, stride, pointer);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glDrawPixel.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * short[] version of: {@link #glDrawPixels DrawPixels}
+	 */
+	public static void glDrawPixels(int width, int height, int format, int type, short[] pixels) {
+		long __functionAddress = GL.getCapabilities().glDrawPixels;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, width, height, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glDrawPixels.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * int[] version of: {@link #glDrawPixels DrawPixels}
+	 */
+	public static void glDrawPixels(int width, int height, int format, int type, int[] pixels) {
+		long __functionAddress = GL.getCapabilities().glDrawPixels;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, width, height, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glDrawPixels.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * float[] version of: {@link #glDrawPixels DrawPixels}
+	 */
+	public static void glDrawPixels(int width, int height, int format, int type, float[] pixels) {
+		long __functionAddress = GL.getCapabilities().glDrawPixels;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, width, height, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEvalCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glEvalCoord1fv EvalCoord1fv}
+	 */
+	public static void glEvalCoord1fv(float[] u) {
+		long __functionAddress = GL.getCapabilities().glEvalCoord1fv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, u);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEvalCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glEvalCoord1dv EvalCoord1dv}
+	 */
+	public static void glEvalCoord1dv(double[] u) {
+		long __functionAddress = GL.getCapabilities().glEvalCoord1dv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, u);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEvalCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glEvalCoord2fv EvalCoord2fv}
+	 */
+	public static void glEvalCoord2fv(float[] u) {
+		long __functionAddress = GL.getCapabilities().glEvalCoord2fv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, u);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEvalCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glEvalCoord2dv EvalCoord2dv}
+	 */
+	public static void glEvalCoord2dv(double[] u) {
+		long __functionAddress = GL.getCapabilities().glEvalCoord2dv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, u);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFeedbackBuffer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glFeedbackBuffer FeedbackBuffer}
+	 */
+	public static void glFeedbackBuffer(int type, float[] buffer) {
+		long __functionAddress = GL.getCapabilities().glFeedbackBuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, buffer.length, type, buffer);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFog.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glFogiv Fogiv}
+	 */
+	public static void glFogiv(int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glFogiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFog.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glFogfv Fogfv}
+	 */
+	public static void glFogfv(int pname, float[] params) {
+		long __functionAddress = GL.getCapabilities().glFogfv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenTextures.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGenTextures GenTextures}
+	 */
+	public static void glGenTextures(int[] textures) {
+		long __functionAddress = GL.getCapabilities().glGenTextures;
+		callPV(__functionAddress, textures.length, textures);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteTextures.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glDeleteTextures DeleteTextures}
+	 */
+	public static void glDeleteTextures(int[] textures) {
+		long __functionAddress = GL.getCapabilities().glDeleteTextures;
+		callPV(__functionAddress, textures.length, textures);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetClipPlane.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetClipPlane GetClipPlane}
+	 */
+	public static void glGetClipPlane(int plane, double[] equation) {
+		long __functionAddress = GL.getCapabilities().glGetClipPlane;
+		if ( CHECKS )
+			checkBuffer(equation, 4);
+		callPV(__functionAddress, plane, equation);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetFloatv GetFloatv}
+	 */
+	public static void glGetFloatv(int pname, float[] params) {
+		long __functionAddress = GL.getCapabilities().glGetFloatv;
+		if ( CHECKS )
+			checkBuffer(params, 1);
+		callPV(__functionAddress, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetIntegerv GetIntegerv}
+	 */
+	public static void glGetIntegerv(int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetIntegerv;
+		if ( CHECKS )
+			checkBuffer(params, 1);
+		callPV(__functionAddress, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetDoublev GetDoublev}
+	 */
+	public static void glGetDoublev(int pname, double[] params) {
+		long __functionAddress = GL.getCapabilities().glGetDoublev;
+		if ( CHECKS )
+			checkBuffer(params, 1);
+		callPV(__functionAddress, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetLight.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glGetLightiv GetLightiv}
+	 */
+	public static void glGetLightiv(int light, int pname, int[] data) {
+		long __functionAddress = GL.getCapabilities().glGetLightiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(data, 4);
+		}
+		callPV(__functionAddress, light, pname, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetLight.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glGetLightfv GetLightfv}
+	 */
+	public static void glGetLightfv(int light, int pname, float[] data) {
+		long __functionAddress = GL.getCapabilities().glGetLightfv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(data, 4);
+		}
+		callPV(__functionAddress, light, pname, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glGetMapiv GetMapiv}
+	 */
+	public static void glGetMapiv(int target, int query, int[] data) {
+		long __functionAddress = GL.getCapabilities().glGetMapiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(data, 4);
+		}
+		callPV(__functionAddress, target, query, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glGetMapfv GetMapfv}
+	 */
+	public static void glGetMapfv(int target, int query, float[] data) {
+		long __functionAddress = GL.getCapabilities().glGetMapfv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(data, 4);
+		}
+		callPV(__functionAddress, target, query, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glGetMapdv GetMapdv}
+	 */
+	public static void glGetMapdv(int target, int query, double[] data) {
+		long __functionAddress = GL.getCapabilities().glGetMapdv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(data, 4);
+		}
+		callPV(__functionAddress, target, query, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetMaterial.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glGetMaterialiv GetMaterialiv}
+	 */
+	public static void glGetMaterialiv(int face, int pname, int[] data) {
+		long __functionAddress = GL.getCapabilities().glGetMaterialiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, face, pname, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetMaterial.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glGetMaterialfv GetMaterialfv}
+	 */
+	public static void glGetMaterialfv(int face, int pname, float[] data) {
+		long __functionAddress = GL.getCapabilities().glGetMaterialfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, face, pname, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glGetPixelMapfv GetPixelMapfv}
+	 */
+	public static void glGetPixelMapfv(int map, float[] data) {
+		long __functionAddress = GL.getCapabilities().glGetPixelMapfv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(data, 32);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, map, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glGetPixelMapusv GetPixelMapusv}
+	 */
+	public static void glGetPixelMapusv(int map, short[] data) {
+		long __functionAddress = GL.getCapabilities().glGetPixelMapusv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(data, 32);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, map, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glGetPixelMapuiv GetPixelMapuiv}
+	 */
+	public static void glGetPixelMapuiv(int map, int[] data) {
+		long __functionAddress = GL.getCapabilities().glGetPixelMapuiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(data, 32);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, map, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexEnv.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetTexEnviv GetTexEnviv}
+	 */
+	public static void glGetTexEnviv(int env, int pname, int[] data) {
+		long __functionAddress = GL.getCapabilities().glGetTexEnviv;
+		if ( CHECKS )
+			checkBuffer(data, 1);
+		callPV(__functionAddress, env, pname, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexEnv.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetTexEnvfv GetTexEnvfv}
+	 */
+	public static void glGetTexEnvfv(int env, int pname, float[] data) {
+		long __functionAddress = GL.getCapabilities().glGetTexEnvfv;
+		if ( CHECKS )
+			checkBuffer(data, 1);
+		callPV(__functionAddress, env, pname, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetTexGen.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glGetTexGeniv GetTexGeniv}
+	 */
+	public static void glGetTexGeniv(int coord, int pname, int[] data) {
+		long __functionAddress = GL.getCapabilities().glGetTexGeniv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(data, 1);
+		}
+		callPV(__functionAddress, coord, pname, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetTexGen.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glGetTexGenfv GetTexGenfv}
+	 */
+	public static void glGetTexGenfv(int coord, int pname, float[] data) {
+		long __functionAddress = GL.getCapabilities().glGetTexGenfv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(data, 4);
+		}
+		callPV(__functionAddress, coord, pname, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetTexGen.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glGetTexGendv GetTexGendv}
+	 */
+	public static void glGetTexGendv(int coord, int pname, double[] data) {
+		long __functionAddress = GL.getCapabilities().glGetTexGendv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(data, 4);
+		}
+		callPV(__functionAddress, coord, pname, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glGetTexImage GetTexImage}
+	 */
+	public static void glGetTexImage(int tex, int level, int format, int type, short[] pixels) {
+		long __functionAddress = GL.getCapabilities().glGetTexImage;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		callPV(__functionAddress, tex, level, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glGetTexImage GetTexImage}
+	 */
+	public static void glGetTexImage(int tex, int level, int format, int type, int[] pixels) {
+		long __functionAddress = GL.getCapabilities().glGetTexImage;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		callPV(__functionAddress, tex, level, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glGetTexImage GetTexImage}
+	 */
+	public static void glGetTexImage(int tex, int level, int format, int type, float[] pixels) {
+		long __functionAddress = GL.getCapabilities().glGetTexImage;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		callPV(__functionAddress, tex, level, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexImage.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * double[] version of: {@link #glGetTexImage GetTexImage}
+	 */
+	public static void glGetTexImage(int tex, int level, int format, int type, double[] pixels) {
+		long __functionAddress = GL.getCapabilities().glGetTexImage;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		callPV(__functionAddress, tex, level, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexLevelParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetTexLevelParameteriv GetTexLevelParameteriv}
+	 */
+	public static void glGetTexLevelParameteriv(int target, int level, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetTexLevelParameteriv;
+		if ( CHECKS )
+			checkBuffer(params, 1);
+		callPV(__functionAddress, target, level, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexLevelParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetTexLevelParameterfv GetTexLevelParameterfv}
+	 */
+	public static void glGetTexLevelParameterfv(int target, int level, int pname, float[] params) {
+		long __functionAddress = GL.getCapabilities().glGetTexLevelParameterfv;
+		if ( CHECKS )
+			checkBuffer(params, 1);
+		callPV(__functionAddress, target, level, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetTexParameteriv GetTexParameteriv}
+	 */
+	public static void glGetTexParameteriv(int target, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetTexParameteriv;
+		if ( CHECKS )
+			checkBuffer(params, 1);
+		callPV(__functionAddress, target, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetTexParameterfv GetTexParameterfv}
+	 */
+	public static void glGetTexParameterfv(int target, int pname, float[] params) {
+		long __functionAddress = GL.getCapabilities().glGetTexParameterfv;
+		if ( CHECKS )
+			checkBuffer(params, 1);
+		callPV(__functionAddress, target, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndex.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glIndexiv Indexiv}
+	 */
+	public static void glIndexiv(int[] index) {
+		long __functionAddress = GL.getCapabilities().glIndexiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(index, 1);
+		}
+		callPV(__functionAddress, index);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndex.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glIndexsv Indexsv}
+	 */
+	public static void glIndexsv(short[] index) {
+		long __functionAddress = GL.getCapabilities().glIndexsv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(index, 1);
+		}
+		callPV(__functionAddress, index);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndex.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glIndexfv Indexfv}
+	 */
+	public static void glIndexfv(float[] index) {
+		long __functionAddress = GL.getCapabilities().glIndexfv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(index, 1);
+		}
+		callPV(__functionAddress, index);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndex.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glIndexdv Indexdv}
+	 */
+	public static void glIndexdv(double[] index) {
+		long __functionAddress = GL.getCapabilities().glIndexdv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(index, 1);
+		}
+		callPV(__functionAddress, index);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInterleavedArray.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glInterleavedArrays InterleavedArrays}
+	 */
+	public static void glInterleavedArrays(int format, int stride, short[] pointer) {
+		long __functionAddress = GL.getCapabilities().glInterleavedArrays;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		callPV(__functionAddress, format, stride, pointer);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInterleavedArrays.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glInterleavedArrays InterleavedArrays}
+	 */
+	public static void glInterleavedArrays(int format, int stride, int[] pointer) {
+		long __functionAddress = GL.getCapabilities().glInterleavedArrays;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		callPV(__functionAddress, format, stride, pointer);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInterleavedArrays.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glInterleavedArrays InterleavedArrays}
+	 */
+	public static void glInterleavedArrays(int format, int stride, float[] pointer) {
+		long __functionAddress = GL.getCapabilities().glInterleavedArrays;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		callPV(__functionAddress, format, stride, pointer);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInterleavedArrays.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * double[] version of: {@link #glInterleavedArrays InterleavedArrays}
+	 */
+	public static void glInterleavedArrays(int format, int stride, double[] pointer) {
+		long __functionAddress = GL.getCapabilities().glInterleavedArrays;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		callPV(__functionAddress, format, stride, pointer);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLightModel.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glLightModeliv LightModeliv}
+	 */
+	public static void glLightModeliv(int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glLightModeliv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 4);
+		}
+		callPV(__functionAddress, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLightModel.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glLightModelfv LightModelfv}
+	 */
+	public static void glLightModelfv(int pname, float[] params) {
+		long __functionAddress = GL.getCapabilities().glLightModelfv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 4);
+		}
+		callPV(__functionAddress, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLight.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glLightiv Lightiv}
+	 */
+	public static void glLightiv(int light, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glLightiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 4);
+		}
+		callPV(__functionAddress, light, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLight.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glLightfv Lightfv}
+	 */
+	public static void glLightfv(int light, int pname, float[] params) {
+		long __functionAddress = GL.getCapabilities().glLightfv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 4);
+		}
+		callPV(__functionAddress, light, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLoadMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glLoadMatrixf LoadMatrixf}
+	 */
+	public static void glLoadMatrixf(float[] m) {
+		long __functionAddress = GL.getCapabilities().glLoadMatrixf;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(m, 16);
+		}
+		callPV(__functionAddress, m);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLoadMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glLoadMatrixd LoadMatrixd}
+	 */
+	public static void glLoadMatrixd(double[] m) {
+		long __functionAddress = GL.getCapabilities().glLoadMatrixd;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(m, 16);
+		}
+		callPV(__functionAddress, m);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMap1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glMap1f Map1f}
+	 */
+	public static void glMap1f(int target, float u1, float u2, int stride, int order, float[] points) {
+		long __functionAddress = GL.getCapabilities().glMap1f;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(points, order * stride);
+		}
+		callPV(__functionAddress, target, u1, u2, stride, order, points);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMap1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glMap1d Map1d}
+	 */
+	public static void glMap1d(int target, double u1, double u2, int stride, int order, double[] points) {
+		long __functionAddress = GL.getCapabilities().glMap1d;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(points, stride * order);
+		}
+		callPV(__functionAddress, target, u1, u2, stride, order, points);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMap2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glMap2f Map2f}
+	 */
+	public static void glMap2f(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, float[] points) {
+		long __functionAddress = GL.getCapabilities().glMap2f;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(points, ustride * uorder * vstride * vorder);
+		}
+		callPV(__functionAddress, target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMap2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glMap2d Map2d}
+	 */
+	public static void glMap2d(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, double[] points) {
+		long __functionAddress = GL.getCapabilities().glMap2d;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(points, ustride * uorder * vstride * vorder);
+		}
+		callPV(__functionAddress, target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMaterial.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glMaterialiv Materialiv}
+	 */
+	public static void glMaterialiv(int face, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glMaterialiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 4);
+		}
+		callPV(__functionAddress, face, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMaterial.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glMaterialfv Materialfv}
+	 */
+	public static void glMaterialfv(int face, int pname, float[] params) {
+		long __functionAddress = GL.getCapabilities().glMaterialfv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 4);
+		}
+		callPV(__functionAddress, face, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glMultMatrixf MultMatrixf}
+	 */
+	public static void glMultMatrixf(float[] m) {
+		long __functionAddress = GL.getCapabilities().glMultMatrixf;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(m, 16);
+		}
+		callPV(__functionAddress, m);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glMultMatrixd MultMatrixd}
+	 */
+	public static void glMultMatrixd(double[] m) {
+		long __functionAddress = GL.getCapabilities().glMultMatrixd;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(m, 16);
+		}
+		callPV(__functionAddress, m);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glNormal3fv Normal3fv}
+	 */
+	public static void glNormal3fv(float[] v) {
+		long __functionAddress = GL.getCapabilities().glNormal3fv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 3);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glNormal3sv Normal3sv}
+	 */
+	public static void glNormal3sv(short[] v) {
+		long __functionAddress = GL.getCapabilities().glNormal3sv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 3);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glNormal3iv Normal3iv}
+	 */
+	public static void glNormal3iv(int[] v) {
+		long __functionAddress = GL.getCapabilities().glNormal3iv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 3);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glNormal3dv Normal3dv}
+	 */
+	public static void glNormal3dv(double[] v) {
+		long __functionAddress = GL.getCapabilities().glNormal3dv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 3);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormalPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * short[] version of: {@link #glNormalPointer NormalPointer}
+	 */
+	public static void glNormalPointer(int type, int stride, short[] pointer) {
+		long __functionAddress = GL.getCapabilities().glNormalPointer;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, type, stride, pointer);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormalPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * int[] version of: {@link #glNormalPointer NormalPointer}
+	 */
+	public static void glNormalPointer(int type, int stride, int[] pointer) {
+		long __functionAddress = GL.getCapabilities().glNormalPointer;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, type, stride, pointer);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormalPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * float[] version of: {@link #glNormalPointer NormalPointer}
+	 */
+	public static void glNormalPointer(int type, int stride, float[] pointer) {
+		long __functionAddress = GL.getCapabilities().glNormalPointer;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, type, stride, pointer);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glPixelMapfv PixelMapfv}
+	 */
+	public static void glPixelMapfv(int map, float[] values) {
+		long __functionAddress = GL.getCapabilities().glPixelMapfv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, map, values.length, values);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glPixelMapusv PixelMapusv}
+	 */
+	public static void glPixelMapusv(int map, short[] values) {
+		long __functionAddress = GL.getCapabilities().glPixelMapusv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, map, values.length, values);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glPixelMapuiv PixelMapuiv}
+	 */
+	public static void glPixelMapuiv(int map, int[] values) {
+		long __functionAddress = GL.getCapabilities().glPixelMapuiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, map, values.length, values);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPrioritizeTextures.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glPrioritizeTextures PrioritizeTextures}
+	 */
+	public static void glPrioritizeTextures(int[] textures, float[] priorities) {
+		long __functionAddress = GL.getCapabilities().glPrioritizeTextures;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(priorities, textures.length);
+		}
+		callPPV(__functionAddress, textures.length, textures, priorities);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glRasterPos2iv RasterPos2iv}
+	 */
+	public static void glRasterPos2iv(int[] coords) {
+		long __functionAddress = GL.getCapabilities().glRasterPos2iv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(coords, 2);
+		}
+		callPV(__functionAddress, coords);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glRasterPos2sv RasterPos2sv}
+	 */
+	public static void glRasterPos2sv(short[] coords) {
+		long __functionAddress = GL.getCapabilities().glRasterPos2sv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(coords, 2);
+		}
+		callPV(__functionAddress, coords);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glRasterPos2fv RasterPos2fv}
+	 */
+	public static void glRasterPos2fv(float[] coords) {
+		long __functionAddress = GL.getCapabilities().glRasterPos2fv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(coords, 2);
+		}
+		callPV(__functionAddress, coords);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glRasterPos2dv RasterPos2dv}
+	 */
+	public static void glRasterPos2dv(double[] coords) {
+		long __functionAddress = GL.getCapabilities().glRasterPos2dv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(coords, 2);
+		}
+		callPV(__functionAddress, coords);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glRasterPos3iv RasterPos3iv}
+	 */
+	public static void glRasterPos3iv(int[] coords) {
+		long __functionAddress = GL.getCapabilities().glRasterPos3iv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(coords, 3);
+		}
+		callPV(__functionAddress, coords);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glRasterPos3sv RasterPos3sv}
+	 */
+	public static void glRasterPos3sv(short[] coords) {
+		long __functionAddress = GL.getCapabilities().glRasterPos3sv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(coords, 3);
+		}
+		callPV(__functionAddress, coords);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glRasterPos3fv RasterPos3fv}
+	 */
+	public static void glRasterPos3fv(float[] coords) {
+		long __functionAddress = GL.getCapabilities().glRasterPos3fv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(coords, 3);
+		}
+		callPV(__functionAddress, coords);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glRasterPos3dv RasterPos3dv}
+	 */
+	public static void glRasterPos3dv(double[] coords) {
+		long __functionAddress = GL.getCapabilities().glRasterPos3dv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(coords, 3);
+		}
+		callPV(__functionAddress, coords);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glRasterPos4iv RasterPos4iv}
+	 */
+	public static void glRasterPos4iv(int[] coords) {
+		long __functionAddress = GL.getCapabilities().glRasterPos4iv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(coords, 4);
+		}
+		callPV(__functionAddress, coords);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glRasterPos4sv RasterPos4sv}
+	 */
+	public static void glRasterPos4sv(short[] coords) {
+		long __functionAddress = GL.getCapabilities().glRasterPos4sv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(coords, 4);
+		}
+		callPV(__functionAddress, coords);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glRasterPos4fv RasterPos4fv}
+	 */
+	public static void glRasterPos4fv(float[] coords) {
+		long __functionAddress = GL.getCapabilities().glRasterPos4fv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(coords, 4);
+		}
+		callPV(__functionAddress, coords);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glRasterPos4dv RasterPos4dv}
+	 */
+	public static void glRasterPos4dv(double[] coords) {
+		long __functionAddress = GL.getCapabilities().glRasterPos4dv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(coords, 4);
+		}
+		callPV(__functionAddress, coords);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReadPixel.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glReadPixels ReadPixels}
+	 */
+	public static void glReadPixels(int x, int y, int width, int height, int format, int type, short[] pixels) {
+		long __functionAddress = GL.getCapabilities().glReadPixels;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		callPV(__functionAddress, x, y, width, height, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReadPixels.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glReadPixels ReadPixels}
+	 */
+	public static void glReadPixels(int x, int y, int width, int height, int format, int type, int[] pixels) {
+		long __functionAddress = GL.getCapabilities().glReadPixels;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		callPV(__functionAddress, x, y, width, height, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReadPixels.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glReadPixels ReadPixels}
+	 */
+	public static void glReadPixels(int x, int y, int width, int height, int format, int type, float[] pixels) {
+		long __functionAddress = GL.getCapabilities().glReadPixels;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		callPV(__functionAddress, x, y, width, height, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRect.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glRectiv Rectiv}
+	 */
+	public static void glRectiv(int[] v1, int[] v2) {
+		long __functionAddress = GL.getCapabilities().glRectiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v1, 2);
+			checkBuffer(v2, 2);
+		}
+		callPPV(__functionAddress, v1, v2);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRect.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glRectsv Rectsv}
+	 */
+	public static void glRectsv(short[] v1, short[] v2) {
+		long __functionAddress = GL.getCapabilities().glRectsv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v1, 2);
+			checkBuffer(v2, 2);
+		}
+		callPPV(__functionAddress, v1, v2);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRect.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glRectfv Rectfv}
+	 */
+	public static void glRectfv(float[] v1, float[] v2) {
+		long __functionAddress = GL.getCapabilities().glRectfv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v1, 2);
+			checkBuffer(v2, 2);
+		}
+		callPPV(__functionAddress, v1, v2);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRect.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glRectdv Rectdv}
+	 */
+	public static void glRectdv(double[] v1, double[] v2) {
+		long __functionAddress = GL.getCapabilities().glRectdv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v1, 2);
+			checkBuffer(v2, 2);
+		}
+		callPPV(__functionAddress, v1, v2);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSelectBuffer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glSelectBuffer SelectBuffer}
+	 */
+	public static void glSelectBuffer(int[] buffer) {
+		long __functionAddress = GL.getCapabilities().glSelectBuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, buffer.length, buffer);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glTexCoord1fv TexCoord1fv}
+	 */
+	public static void glTexCoord1fv(float[] v) {
+		long __functionAddress = GL.getCapabilities().glTexCoord1fv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 1);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glTexCoord1sv TexCoord1sv}
+	 */
+	public static void glTexCoord1sv(short[] v) {
+		long __functionAddress = GL.getCapabilities().glTexCoord1sv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 1);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glTexCoord1iv TexCoord1iv}
+	 */
+	public static void glTexCoord1iv(int[] v) {
+		long __functionAddress = GL.getCapabilities().glTexCoord1iv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 1);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glTexCoord1dv TexCoord1dv}
+	 */
+	public static void glTexCoord1dv(double[] v) {
+		long __functionAddress = GL.getCapabilities().glTexCoord1dv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 1);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glTexCoord2fv TexCoord2fv}
+	 */
+	public static void glTexCoord2fv(float[] v) {
+		long __functionAddress = GL.getCapabilities().glTexCoord2fv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 2);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glTexCoord2sv TexCoord2sv}
+	 */
+	public static void glTexCoord2sv(short[] v) {
+		long __functionAddress = GL.getCapabilities().glTexCoord2sv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 2);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glTexCoord2iv TexCoord2iv}
+	 */
+	public static void glTexCoord2iv(int[] v) {
+		long __functionAddress = GL.getCapabilities().glTexCoord2iv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 2);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glTexCoord2dv TexCoord2dv}
+	 */
+	public static void glTexCoord2dv(double[] v) {
+		long __functionAddress = GL.getCapabilities().glTexCoord2dv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 2);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glTexCoord3fv TexCoord3fv}
+	 */
+	public static void glTexCoord3fv(float[] v) {
+		long __functionAddress = GL.getCapabilities().glTexCoord3fv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 3);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glTexCoord3sv TexCoord3sv}
+	 */
+	public static void glTexCoord3sv(short[] v) {
+		long __functionAddress = GL.getCapabilities().glTexCoord3sv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 3);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glTexCoord3iv TexCoord3iv}
+	 */
+	public static void glTexCoord3iv(int[] v) {
+		long __functionAddress = GL.getCapabilities().glTexCoord3iv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 3);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glTexCoord3dv TexCoord3dv}
+	 */
+	public static void glTexCoord3dv(double[] v) {
+		long __functionAddress = GL.getCapabilities().glTexCoord3dv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 3);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glTexCoord4fv TexCoord4fv}
+	 */
+	public static void glTexCoord4fv(float[] v) {
+		long __functionAddress = GL.getCapabilities().glTexCoord4fv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 4);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glTexCoord4sv TexCoord4sv}
+	 */
+	public static void glTexCoord4sv(short[] v) {
+		long __functionAddress = GL.getCapabilities().glTexCoord4sv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 4);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glTexCoord4iv TexCoord4iv}
+	 */
+	public static void glTexCoord4iv(int[] v) {
+		long __functionAddress = GL.getCapabilities().glTexCoord4iv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 4);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glTexCoord4dv TexCoord4dv}
+	 */
+	public static void glTexCoord4dv(double[] v) {
+		long __functionAddress = GL.getCapabilities().glTexCoord4dv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 4);
+		}
+		callPV(__functionAddress, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * short[] version of: {@link #glTexCoordPointer TexCoordPointer}
+	 */
+	public static void glTexCoordPointer(int size, int type, int stride, short[] pointer) {
+		long __functionAddress = GL.getCapabilities().glTexCoordPointer;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, size, type, stride, pointer);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * int[] version of: {@link #glTexCoordPointer TexCoordPointer}
+	 */
+	public static void glTexCoordPointer(int size, int type, int stride, int[] pointer) {
+		long __functionAddress = GL.getCapabilities().glTexCoordPointer;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, size, type, stride, pointer);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * float[] version of: {@link #glTexCoordPointer TexCoordPointer}
+	 */
+	public static void glTexCoordPointer(int size, int type, int stride, float[] pointer) {
+		long __functionAddress = GL.getCapabilities().glTexCoordPointer;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, size, type, stride, pointer);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexEnv.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glTexEnviv TexEnviv}
+	 */
+	public static void glTexEnviv(int target, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glTexEnviv;
+		if ( CHECKS )
+			checkBuffer(params, 4);
+		callPV(__functionAddress, target, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexEnv.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glTexEnvfv TexEnvfv}
+	 */
+	public static void glTexEnvfv(int target, int pname, float[] params) {
+		long __functionAddress = GL.getCapabilities().glTexEnvfv;
+		if ( CHECKS )
+			checkBuffer(params, 4);
+		callPV(__functionAddress, target, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexGen.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glTexGeniv TexGeniv}
+	 */
+	public static void glTexGeniv(int coord, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glTexGeniv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 4);
+		}
+		callPV(__functionAddress, coord, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexGen.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glTexGenfv TexGenfv}
+	 */
+	public static void glTexGenfv(int coord, int pname, float[] params) {
+		long __functionAddress = GL.getCapabilities().glTexGenfv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 4);
+		}
+		callPV(__functionAddress, coord, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexGen.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glTexGendv TexGendv}
+	 */
+	public static void glTexGendv(int coord, int pname, double[] params) {
+		long __functionAddress = GL.getCapabilities().glTexGendv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 4);
+		}
+		callPV(__functionAddress, coord, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glTexImage2D TexImage2D}
+	 */
+	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, short[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTexImage2D;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		callPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glTexImage2D TexImage2D}
+	 */
+	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, int[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTexImage2D;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		callPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glTexImage2D TexImage2D}
+	 */
+	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, float[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTexImage2D;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		callPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * double[] version of: {@link #glTexImage2D TexImage2D}
+	 */
+	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, double[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTexImage2D;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		callPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glTexImage1D TexImage1D}
+	 */
+	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, short[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTexImage1D;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		callPV(__functionAddress, target, level, internalformat, width, border, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glTexImage1D TexImage1D}
+	 */
+	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, int[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTexImage1D;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		callPV(__functionAddress, target, level, internalformat, width, border, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glTexImage1D TexImage1D}
+	 */
+	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, float[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTexImage1D;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		callPV(__functionAddress, target, level, internalformat, width, border, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * double[] version of: {@link #glTexImage1D TexImage1D}
+	 */
+	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, double[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTexImage1D;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		callPV(__functionAddress, target, level, internalformat, width, border, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glTexParameteriv TexParameteriv}
+	 */
+	public static void glTexParameteriv(int target, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glTexParameteriv;
+		if ( CHECKS )
+			checkBuffer(params, 4);
+		callPV(__functionAddress, target, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glTexParameterfv TexParameterfv}
+	 */
+	public static void glTexParameterfv(int target, int pname, float[] params) {
+		long __functionAddress = GL.getCapabilities().glTexParameterfv;
+		if ( CHECKS )
+			checkBuffer(params, 4);
+		callPV(__functionAddress, target, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glTexSubImage1D TexSubImage1D}
+	 */
+	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, short[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTexSubImage1D;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		callPV(__functionAddress, target, level, xoffset, width, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glTexSubImage1D TexSubImage1D}
+	 */
+	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, int[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTexSubImage1D;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		callPV(__functionAddress, target, level, xoffset, width, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glTexSubImage1D TexSubImage1D}
+	 */
+	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, float[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTexSubImage1D;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		callPV(__functionAddress, target, level, xoffset, width, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage1D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * double[] version of: {@link #glTexSubImage1D TexSubImage1D}
+	 */
+	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, double[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTexSubImage1D;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		callPV(__functionAddress, target, level, xoffset, width, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glTexSubImage2D TexSubImage2D}
+	 */
+	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, short[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTexSubImage2D;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glTexSubImage2D TexSubImage2D}
+	 */
+	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, int[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTexSubImage2D;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glTexSubImage2D TexSubImage2D}
+	 */
+	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, float[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTexSubImage2D;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage2D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * double[] version of: {@link #glTexSubImage2D TexSubImage2D}
+	 */
+	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, double[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTexSubImage2D;
+		if ( CHECKS )
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glVertex2fv Vertex2fv}
+	 */
+	public static void glVertex2fv(float[] coords) {
+		long __functionAddress = GL.getCapabilities().glVertex2fv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(coords, 2);
+		}
+		callPV(__functionAddress, coords);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glVertex2sv Vertex2sv}
+	 */
+	public static void glVertex2sv(short[] coords) {
+		long __functionAddress = GL.getCapabilities().glVertex2sv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(coords, 2);
+		}
+		callPV(__functionAddress, coords);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glVertex2iv Vertex2iv}
+	 */
+	public static void glVertex2iv(int[] coords) {
+		long __functionAddress = GL.getCapabilities().glVertex2iv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(coords, 2);
+		}
+		callPV(__functionAddress, coords);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glVertex2dv Vertex2dv}
+	 */
+	public static void glVertex2dv(double[] coords) {
+		long __functionAddress = GL.getCapabilities().glVertex2dv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(coords, 2);
+		}
+		callPV(__functionAddress, coords);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glVertex3fv Vertex3fv}
+	 */
+	public static void glVertex3fv(float[] coords) {
+		long __functionAddress = GL.getCapabilities().glVertex3fv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(coords, 3);
+		}
+		callPV(__functionAddress, coords);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glVertex3sv Vertex3sv}
+	 */
+	public static void glVertex3sv(short[] coords) {
+		long __functionAddress = GL.getCapabilities().glVertex3sv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(coords, 3);
+		}
+		callPV(__functionAddress, coords);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glVertex3iv Vertex3iv}
+	 */
+	public static void glVertex3iv(int[] coords) {
+		long __functionAddress = GL.getCapabilities().glVertex3iv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(coords, 3);
+		}
+		callPV(__functionAddress, coords);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glVertex3dv Vertex3dv}
+	 */
+	public static void glVertex3dv(double[] coords) {
+		long __functionAddress = GL.getCapabilities().glVertex3dv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(coords, 3);
+		}
+		callPV(__functionAddress, coords);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glVertex4fv Vertex4fv}
+	 */
+	public static void glVertex4fv(float[] coords) {
+		long __functionAddress = GL.getCapabilities().glVertex4fv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(coords, 4);
+		}
+		callPV(__functionAddress, coords);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glVertex4sv Vertex4sv}
+	 */
+	public static void glVertex4sv(short[] coords) {
+		long __functionAddress = GL.getCapabilities().glVertex4sv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(coords, 4);
+		}
+		callPV(__functionAddress, coords);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glVertex4iv Vertex4iv}
+	 */
+	public static void glVertex4iv(int[] coords) {
+		long __functionAddress = GL.getCapabilities().glVertex4iv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(coords, 4);
+		}
+		callPV(__functionAddress, coords);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * Array version of: {@link #glVertex4dv Vertex4dv}
+	 */
+	public static void glVertex4dv(double[] coords) {
+		long __functionAddress = GL.getCapabilities().glVertex4dv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(coords, 4);
+		}
+		callPV(__functionAddress, coords);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertexPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * short[] version of: {@link #glVertexPointer VertexPointer}
+	 */
+	public static void glVertexPointer(int size, int type, int stride, short[] pointer) {
+		long __functionAddress = GL.getCapabilities().glVertexPointer;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, size, type, stride, pointer);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertexPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * int[] version of: {@link #glVertexPointer VertexPointer}
+	 */
+	public static void glVertexPointer(int size, int type, int stride, int[] pointer) {
+		long __functionAddress = GL.getCapabilities().glVertexPointer;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, size, type, stride, pointer);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertexPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
+	 * 
+	 * float[] version of: {@link #glVertexPointer VertexPointer}
+	 */
+	public static void glVertexPointer(int size, int type, int stride, float[] pointer) {
+		long __functionAddress = GL.getCapabilities().glVertexPointer;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
 }

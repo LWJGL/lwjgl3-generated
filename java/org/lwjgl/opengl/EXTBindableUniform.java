@@ -51,7 +51,7 @@ public class EXTBindableUniform {
 		long __functionAddress = GL.getCapabilities().glUniformBufferEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, program, location, buffer);
+		callV(__functionAddress, program, location, buffer);
 	}
 
 	// --- [ glGetUniformBufferSizeEXT ] ---
@@ -60,7 +60,7 @@ public class EXTBindableUniform {
 		long __functionAddress = GL.getCapabilities().glGetUniformBufferSizeEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIII(__functionAddress, program, location);
+		return callI(__functionAddress, program, location);
 	}
 
 	// --- [ glGetUniformOffsetEXT ] ---
@@ -69,7 +69,7 @@ public class EXTBindableUniform {
 		long __functionAddress = GL.getCapabilities().glGetUniformOffsetEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIIP(__functionAddress, program, location);
+		return callP(__functionAddress, program, location);
 	}
 
 }

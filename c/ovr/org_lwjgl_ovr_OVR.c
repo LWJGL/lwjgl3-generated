@@ -137,7 +137,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1SetControllerVibration(JNIEn
 	return (jint)ovr_SetControllerVibration(session, controllerType, frequency, amplitude);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetTextureSwapChainLength(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong chainAddress, jlong out_LengthAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetTextureSwapChainLength__JJJ(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong chainAddress, jlong out_LengthAddress) {
 	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
 	ovrTextureSwapChain chain = (ovrTextureSwapChain)(intptr_t)chainAddress;
 	int *out_Length = (int *)(intptr_t)out_LengthAddress;
@@ -145,7 +145,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetTextureSwapChainLength(JN
 	return (jint)ovr_GetTextureSwapChainLength(session, chain, out_Length);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetTextureSwapChainCurrentIndex(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong chainAddress, jlong out_IndexAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetTextureSwapChainCurrentIndex__JJJ(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong chainAddress, jlong out_IndexAddress) {
 	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
 	ovrTextureSwapChain chain = (ovrTextureSwapChain)(intptr_t)chainAddress;
 	int *out_Index = (int *)(intptr_t)out_IndexAddress;
@@ -257,7 +257,7 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_ovr_OVR_novr_1SetFloat(JNIEnv *__env, 
 	return (jboolean)ovr_SetFloat(session, propertyName, value);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetFloatArray(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong propertyNameAddress, jlong valuesAddress, jint valuesCapacity) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetFloatArray__JJJI(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong propertyNameAddress, jlong valuesAddress, jint valuesCapacity) {
 	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
 	const char *propertyName = (const char *)(intptr_t)propertyNameAddress;
 	float *values = (float *)(intptr_t)valuesAddress;
@@ -265,7 +265,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetFloatArray(JNIEnv *__env,
 	return (jint)ovr_GetFloatArray(session, propertyName, values, valuesCapacity);
 }
 
-JNIEXPORT jboolean JNICALL Java_org_lwjgl_ovr_OVR_novr_1SetFloatArray(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong propertyNameAddress, jlong valuesAddress, jint valuesSize) {
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_ovr_OVR_novr_1SetFloatArray__JJJI(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong propertyNameAddress, jlong valuesAddress, jint valuesSize) {
 	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
 	const char *propertyName = (const char *)(intptr_t)propertyNameAddress;
 	float *values = (float *)(intptr_t)valuesAddress;
@@ -287,6 +287,74 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_ovr_OVR_novr_1SetString(JNIEnv *__env,
 	const char *value = (const char *)(intptr_t)valueAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jboolean)ovr_SetString(hmddesc, propertyName, value);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetTextureSwapChainLength__JJ_3I(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong chainAddress, jintArray out_LengthAddress) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	ovrTextureSwapChain chain = (ovrTextureSwapChain)(intptr_t)chainAddress;
+	jint __result;
+	jint *out_Length = (*__env)->GetPrimitiveArrayCritical(__env, out_LengthAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	__result = (jint)ovr_GetTextureSwapChainLength(session, chain, (int*)out_Length);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, out_LengthAddress, out_Length, 0);
+	return __result;
+}
+JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_ovr_OVR_novr_1GetTextureSwapChainLength__JJ_3I(jlong sessionAddress, jlong chainAddress, jint out_Length__length, jint* out_Length) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	ovrTextureSwapChain chain = (ovrTextureSwapChain)(intptr_t)chainAddress;
+	UNUSED_PARAM(out_Length__length)
+	return (jint)ovr_GetTextureSwapChainLength(session, chain, (int*)out_Length);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetTextureSwapChainCurrentIndex__JJ_3I(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong chainAddress, jintArray out_IndexAddress) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	ovrTextureSwapChain chain = (ovrTextureSwapChain)(intptr_t)chainAddress;
+	jint __result;
+	jint *out_Index = (*__env)->GetPrimitiveArrayCritical(__env, out_IndexAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	__result = (jint)ovr_GetTextureSwapChainCurrentIndex(session, chain, (int*)out_Index);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, out_IndexAddress, out_Index, 0);
+	return __result;
+}
+JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_ovr_OVR_novr_1GetTextureSwapChainCurrentIndex__JJ_3I(jlong sessionAddress, jlong chainAddress, jint out_Index__length, jint* out_Index) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	ovrTextureSwapChain chain = (ovrTextureSwapChain)(intptr_t)chainAddress;
+	UNUSED_PARAM(out_Index__length)
+	return (jint)ovr_GetTextureSwapChainCurrentIndex(session, chain, (int*)out_Index);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetFloatArray__JJ_3FI(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong propertyNameAddress, jfloatArray valuesAddress, jint valuesCapacity) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	const char *propertyName = (const char *)(intptr_t)propertyNameAddress;
+	jint __result;
+	jfloat *values = (*__env)->GetPrimitiveArrayCritical(__env, valuesAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	__result = (jint)ovr_GetFloatArray(session, propertyName, (float*)values, valuesCapacity);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, valuesAddress, values, 0);
+	return __result;
+}
+JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_ovr_OVR_novr_1GetFloatArray__JJ_3FI(jlong sessionAddress, jlong propertyNameAddress, jint values__length, jfloat* values, jint valuesCapacity) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	const char *propertyName = (const char *)(intptr_t)propertyNameAddress;
+	UNUSED_PARAM(values__length)
+	return (jint)ovr_GetFloatArray(session, propertyName, (float*)values, valuesCapacity);
+}
+
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_ovr_OVR_novr_1SetFloatArray__JJ_3FI(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong propertyNameAddress, jfloatArray valuesAddress, jint valuesSize) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	const char *propertyName = (const char *)(intptr_t)propertyNameAddress;
+	jboolean __result;
+	jfloat *values = (*__env)->GetPrimitiveArrayCritical(__env, valuesAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	__result = (jboolean)ovr_SetFloatArray(session, propertyName, (float*)values, valuesSize);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, valuesAddress, values, 0);
+	return __result;
+}
+JNIEXPORT jboolean JNICALL JavaCritical_org_lwjgl_ovr_OVR_novr_1SetFloatArray__JJ_3FI(jlong sessionAddress, jlong propertyNameAddress, jint values__length, jfloat* values, jint valuesSize) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	const char *propertyName = (const char *)(intptr_t)propertyNameAddress;
+	UNUSED_PARAM(values__length)
+	return (jboolean)ovr_SetFloatArray(session, propertyName, (float*)values, valuesSize);
 }
 
 EXTERN_C_EXIT

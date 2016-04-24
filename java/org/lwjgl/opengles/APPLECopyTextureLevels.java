@@ -47,7 +47,7 @@ public class APPLECopyTextureLevels {
 		long __functionAddress = GLES.getCapabilities().glCopyTextureLevelsAPPLE;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, destinationTexture, sourceTexture, sourceBaseLevel, sourceLevelCount);
+		callV(__functionAddress, destinationTexture, sourceTexture, sourceBaseLevel, sourceLevelCount);
 	}
 
 }

@@ -30,14 +30,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code dstAlphaBlendFactor} <b>must</b> be a valid {@code VkBlendFactor} value</li>
  * <li>{@code alphaBlendOp} <b>must</b> be a valid {@code VkBlendOp} value</li>
  * <li>{@code colorWriteMask} <b>must</b> be a valid combination of {@code VkColorComponentFlagBits} values</li>
- * <li>If the dual source blending feature is not enabled, {@code srcColorBlendFactor} <b>must not</b> be {@link #BLEND_SRC1_COLOR}, {@link #BLEND_ONE_MINUS_SRC1_COLOR},
- * {@link #BLEND_SRC1_ALPHA}, or {@link #BLEND_ONE_MINUS_SRC1_ALPHA}</li>
- * <li>If the dual source blending feature is not enabled, {@code dstColorBlendFactor} <b>must not</b> be {@link #BLEND_SRC1_COLOR}, {@link #BLEND_ONE_MINUS_SRC1_COLOR},
- * {@link #BLEND_SRC1_ALPHA}, or {@link #BLEND_ONE_MINUS_SRC1_ALPHA}</li>
- * <li>If the dual source blending feature is not enabled, {@code srcAlphaBlendFactor} <b>must not</b> be {@link #BLEND_SRC1_COLOR}, {@link #BLEND_ONE_MINUS_SRC1_COLOR},
- * {@link #BLEND_SRC1_ALPHA}, or {@link #BLEND_ONE_MINUS_SRC1_ALPHA}</li>
- * <li>If the dual source blending feature is not enabled, {@code dstAlphaBlendFactor} <b>must not</b> be {@link #BLEND_SRC1_COLOR}, {@link #BLEND_ONE_MINUS_SRC1_COLOR},
- * {@link #BLEND_SRC1_ALPHA}, or {@link #BLEND_ONE_MINUS_SRC1_ALPHA}</li>
+ * <li>If the dual source blending feature is not enabled, {@code srcColorBlendFactor} <b>must not</b> be {@link VK10#VK_BLEND_FACTOR_SRC1_COLOR BLEND_FACTOR_SRC1_COLOR},
+ * {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR BLEND_FACTOR_ONE_MINUS_SRC1_COLOR}, {@link VK10#VK_BLEND_FACTOR_SRC1_ALPHA BLEND_FACTOR_SRC1_ALPHA}, or {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA}</li>
+ * <li>If the dual source blending feature is not enabled, {@code dstColorBlendFactor} <b>must not</b> be {@link VK10#VK_BLEND_FACTOR_SRC1_COLOR BLEND_FACTOR_SRC1_COLOR},
+ * {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR BLEND_FACTOR_ONE_MINUS_SRC1_COLOR}, {@link VK10#VK_BLEND_FACTOR_SRC1_ALPHA BLEND_FACTOR_SRC1_ALPHA}, or {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA}</li>
+ * <li>If the dual source blending feature is not enabled, {@code srcAlphaBlendFactor} <b>must not</b> be {@link VK10#VK_BLEND_FACTOR_SRC1_COLOR BLEND_FACTOR_SRC1_COLOR},
+ * {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR BLEND_FACTOR_ONE_MINUS_SRC1_COLOR}, {@link VK10#VK_BLEND_FACTOR_SRC1_ALPHA BLEND_FACTOR_SRC1_ALPHA}, or {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA}</li>
+ * <li>If the dual source blending feature is not enabled, {@code dstAlphaBlendFactor} <b>must not</b> be {@link VK10#VK_BLEND_FACTOR_SRC1_COLOR BLEND_FACTOR_SRC1_COLOR},
+ * {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR BLEND_FACTOR_ONE_MINUS_SRC1_COLOR}, {@link VK10#VK_BLEND_FACTOR_SRC1_ALPHA BLEND_FACTOR_SRC1_ALPHA}, or {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA}</li>
  * </ul>
  * 
  * <h3>Member documentation</h3>

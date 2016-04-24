@@ -277,7 +277,7 @@ public class JEmalloc {
 	 */
 	public static long nje_mallocx(long size, int flags) {
 		long __functionAddress = Functions.mallocx;
-		return invokePIP(__functionAddress, size, flags);
+		return invokePP(__functionAddress, size, flags);
 	}
 
 	/**
@@ -305,7 +305,7 @@ public class JEmalloc {
 	 */
 	public static long nje_rallocx(long ptr, long size, int flags) {
 		long __functionAddress = Functions.rallocx;
-		return invokePPIP(__functionAddress, ptr, size, flags);
+		return invokePPP(__functionAddress, ptr, size, flags);
 	}
 
 	/**
@@ -336,7 +336,7 @@ public class JEmalloc {
 	 */
 	public static long nje_xallocx(long ptr, long size, long extra, int flags) {
 		long __functionAddress = Functions.xallocx;
-		return invokePPPIP(__functionAddress, ptr, size, extra, flags);
+		return invokePPPP(__functionAddress, ptr, size, extra, flags);
 	}
 
 	/**
@@ -363,7 +363,7 @@ public class JEmalloc {
 	 */
 	public static long nje_sallocx(long ptr, int flags) {
 		long __functionAddress = Functions.sallocx;
-		return invokePIP(__functionAddress, ptr, flags);
+		return invokePP(__functionAddress, ptr, flags);
 	}
 
 	/**
@@ -386,7 +386,7 @@ public class JEmalloc {
 	 */
 	public static void nje_dallocx(long ptr, int flags) {
 		long __functionAddress = Functions.dallocx;
-		invokePIV(__functionAddress, ptr, flags);
+		invokePV(__functionAddress, ptr, flags);
 	}
 
 	/**
@@ -440,7 +440,7 @@ public class JEmalloc {
 	 */
 	public static void nje_sdallocx(long ptr, long size, int flags) {
 		long __functionAddress = Functions.sdallocx;
-		invokePPIV(__functionAddress, ptr, size, flags);
+		invokePPV(__functionAddress, ptr, size, flags);
 	}
 
 	/**
@@ -450,7 +450,7 @@ public class JEmalloc {
 	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
 	 */
 	public static void je_sdallocx(ByteBuffer ptr, int flags) {
-		nje_sdallocx(memAddress(ptr), ptr.remaining(), flags);
+		nje_sdallocx(memAddress(ptr), (long)ptr.remaining(), flags);
 	}
 
 	/** ShortBuffer version of: {@link #je_sdallocx sdallocx} */
@@ -495,7 +495,7 @@ public class JEmalloc {
 	 */
 	public static long nje_nallocx(long size, int flags) {
 		long __functionAddress = Functions.nallocx;
-		return invokePIP(__functionAddress, size, flags);
+		return invokePP(__functionAddress, size, flags);
 	}
 
 	/**
@@ -550,7 +550,7 @@ public class JEmalloc {
 			checkNT1(name);
 			if ( oldlenp != null ) checkBuffer(oldlenp, 1);
 		}
-		return nje_mallctl(memAddress(name), memAddressSafe(oldp), memAddressSafe(oldlenp), memAddressSafe(newp), newp == null ? 0 : newp.remaining());
+		return nje_mallctl(memAddress(name), memAddressSafe(oldp), memAddressSafe(oldlenp), memAddressSafe(newp), (long)(newp == null ? 0 : newp.remaining()));
 	}
 
 	/**
@@ -572,7 +572,7 @@ public class JEmalloc {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.ASCII(name);
-			return nje_mallctl(memAddress(nameEncoded), memAddressSafe(oldp), memAddressSafe(oldlenp), memAddressSafe(newp), newp == null ? 0 : newp.remaining());
+			return nje_mallctl(memAddress(nameEncoded), memAddressSafe(oldp), memAddressSafe(oldlenp), memAddressSafe(newp), (long)(newp == null ? 0 : newp.remaining()));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -726,7 +726,7 @@ for (i = 0; i < nbins; i++) {
 	public static int je_mallctlbymib(PointerBuffer mib, ByteBuffer oldp, PointerBuffer oldlenp, ByteBuffer newp) {
 		if ( CHECKS )
 			if ( oldlenp != null ) checkBuffer(oldlenp, 1);
-		return nje_mallctlbymib(memAddress(mib), mib.remaining(), memAddressSafe(oldp), memAddressSafe(oldlenp), memAddressSafe(newp), newp == null ? 0 : newp.remaining());
+		return nje_mallctlbymib(memAddress(mib), (long)mib.remaining(), memAddressSafe(oldp), memAddressSafe(oldlenp), memAddressSafe(newp), (long)(newp == null ? 0 : newp.remaining()));
 	}
 
 	// --- [ je_malloc_stats_print ] ---
@@ -816,6 +816,96 @@ for (i = 0; i < nbins; i++) {
 	 */
 	public static long je_malloc_usable_size(ByteBuffer ptr) {
 		return nje_malloc_usable_size(memAddress(ptr));
+	}
+
+	/** short[] version of: {@link #je_free free} */
+	public static void je_free(short[] ptr) {
+		long __functionAddress = Functions.free;
+		invokePV(__functionAddress, ptr);
+	}
+
+	/** int[] version of: {@link #je_free free} */
+	public static void je_free(int[] ptr) {
+		long __functionAddress = Functions.free;
+		invokePV(__functionAddress, ptr);
+	}
+
+	/** long[] version of: {@link #je_free free} */
+	public static void je_free(long[] ptr) {
+		long __functionAddress = Functions.free;
+		invokePV(__functionAddress, ptr);
+	}
+
+	/** float[] version of: {@link #je_free free} */
+	public static void je_free(float[] ptr) {
+		long __functionAddress = Functions.free;
+		invokePV(__functionAddress, ptr);
+	}
+
+	/** double[] version of: {@link #je_free free} */
+	public static void je_free(double[] ptr) {
+		long __functionAddress = Functions.free;
+		invokePV(__functionAddress, ptr);
+	}
+
+	/** short[] version of: {@link #je_dallocx dallocx} */
+	public static void je_dallocx(short[] ptr, int flags) {
+		long __functionAddress = Functions.dallocx;
+		invokePV(__functionAddress, ptr, flags);
+	}
+
+	/** int[] version of: {@link #je_dallocx dallocx} */
+	public static void je_dallocx(int[] ptr, int flags) {
+		long __functionAddress = Functions.dallocx;
+		invokePV(__functionAddress, ptr, flags);
+	}
+
+	/** long[] version of: {@link #je_dallocx dallocx} */
+	public static void je_dallocx(long[] ptr, int flags) {
+		long __functionAddress = Functions.dallocx;
+		invokePV(__functionAddress, ptr, flags);
+	}
+
+	/** float[] version of: {@link #je_dallocx dallocx} */
+	public static void je_dallocx(float[] ptr, int flags) {
+		long __functionAddress = Functions.dallocx;
+		invokePV(__functionAddress, ptr, flags);
+	}
+
+	/** double[] version of: {@link #je_dallocx dallocx} */
+	public static void je_dallocx(double[] ptr, int flags) {
+		long __functionAddress = Functions.dallocx;
+		invokePV(__functionAddress, ptr, flags);
+	}
+
+	/** short[] version of: {@link #je_sdallocx sdallocx} */
+	public static void je_sdallocx(short[] ptr, int flags) {
+		long __functionAddress = Functions.sdallocx;
+		invokePPV(__functionAddress, ptr, (long)(ptr.length << 1), flags);
+	}
+
+	/** int[] version of: {@link #je_sdallocx sdallocx} */
+	public static void je_sdallocx(int[] ptr, int flags) {
+		long __functionAddress = Functions.sdallocx;
+		invokePPV(__functionAddress, ptr, (long)(ptr.length << 2), flags);
+	}
+
+	/** long[] version of: {@link #je_sdallocx sdallocx} */
+	public static void je_sdallocx(long[] ptr, int flags) {
+		long __functionAddress = Functions.sdallocx;
+		invokePPV(__functionAddress, ptr, (long)(ptr.length << 3), flags);
+	}
+
+	/** float[] version of: {@link #je_sdallocx sdallocx} */
+	public static void je_sdallocx(float[] ptr, int flags) {
+		long __functionAddress = Functions.sdallocx;
+		invokePPV(__functionAddress, ptr, (long)(ptr.length << 2), flags);
+	}
+
+	/** double[] version of: {@link #je_sdallocx sdallocx} */
+	public static void je_sdallocx(double[] ptr, int flags) {
+		long __functionAddress = Functions.sdallocx;
+		invokePPV(__functionAddress, ptr, (long)(ptr.length << 3), flags);
 	}
 
 }

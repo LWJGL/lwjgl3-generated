@@ -59,7 +59,7 @@ public class GLXNVCopyImage {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 		}
-		callPPIIIIIIPIIIIIIIIIV(__functionAddress, display, srcCtx, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstCtx, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);
+		callPPPV(__functionAddress, display, srcCtx, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstCtx, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);
 	}
 
 }

@@ -78,7 +78,7 @@ public class ARBInvalidateSubdata {
 		long __functionAddress = GL.getCapabilities().glInvalidateTexSubImage;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIIV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth);
+		callV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth);
 	}
 
 	// --- [ glInvalidateTexImage ] ---
@@ -93,7 +93,7 @@ public class ARBInvalidateSubdata {
 		long __functionAddress = GL.getCapabilities().glInvalidateTexImage;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, texture, level);
+		callV(__functionAddress, texture, level);
 	}
 
 	// --- [ glInvalidateBufferSubData ] ---
@@ -109,7 +109,7 @@ public class ARBInvalidateSubdata {
 		long __functionAddress = GL.getCapabilities().glInvalidateBufferSubData;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPPV(__functionAddress, buffer, offset, length);
+		callPPV(__functionAddress, buffer, offset, length);
 	}
 
 	// --- [ glInvalidateBufferData ] ---
@@ -123,7 +123,7 @@ public class ARBInvalidateSubdata {
 		long __functionAddress = GL.getCapabilities().glInvalidateBufferData;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, buffer);
+		callV(__functionAddress, buffer);
 	}
 
 	// --- [ glInvalidateFramebuffer ] ---
@@ -139,7 +139,7 @@ public class ARBInvalidateSubdata {
 		long __functionAddress = GL.getCapabilities().glInvalidateFramebuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, numAttachments, attachments);
+		callPV(__functionAddress, target, numAttachments, attachments);
 	}
 
 	/**
@@ -184,7 +184,7 @@ public class ARBInvalidateSubdata {
 		long __functionAddress = GL.getCapabilities().glInvalidateSubFramebuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPIIIIV(__functionAddress, target, numAttachments, attachments, x, y, width, height);
+		callPV(__functionAddress, target, numAttachments, attachments, x, y, width, height);
 	}
 
 	/**
@@ -218,6 +218,22 @@ public class ARBInvalidateSubdata {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #glInvalidateFramebuffer InvalidateFramebuffer} */
+	public static void glInvalidateFramebuffer(int target, int[] attachments) {
+		long __functionAddress = GL.getCapabilities().glInvalidateFramebuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, target, attachments.length, attachments);
+	}
+
+	/** Array version of: {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
+	public static void glInvalidateSubFramebuffer(int target, int[] attachments, int x, int y, int width, int height) {
+		long __functionAddress = GL.getCapabilities().glInvalidateSubFramebuffer;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, target, attachments.length, attachments, x, y, width, height);
 	}
 
 }

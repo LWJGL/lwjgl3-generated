@@ -45,7 +45,7 @@ public class OESDrawBuffersIndexed {
 		long __functionAddress = GLES.getCapabilities().glEnableiOES;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, target, index);
+		callV(__functionAddress, target, index);
 	}
 
 	// --- [ glDisableiOES ] ---
@@ -54,7 +54,7 @@ public class OESDrawBuffersIndexed {
 		long __functionAddress = GLES.getCapabilities().glDisableiOES;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, target, index);
+		callV(__functionAddress, target, index);
 	}
 
 	// --- [ glBlendEquationiOES ] ---
@@ -63,7 +63,7 @@ public class OESDrawBuffersIndexed {
 		long __functionAddress = GLES.getCapabilities().glBlendEquationiOES;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, buf, mode);
+		callV(__functionAddress, buf, mode);
 	}
 
 	// --- [ glBlendEquationSeparateiOES ] ---
@@ -72,7 +72,7 @@ public class OESDrawBuffersIndexed {
 		long __functionAddress = GLES.getCapabilities().glBlendEquationSeparateiOES;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, buf, modeRGB, modeAlpha);
+		callV(__functionAddress, buf, modeRGB, modeAlpha);
 	}
 
 	// --- [ glBlendFunciOES ] ---
@@ -81,7 +81,7 @@ public class OESDrawBuffersIndexed {
 		long __functionAddress = GLES.getCapabilities().glBlendFunciOES;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, buf, src, dst);
+		callV(__functionAddress, buf, src, dst);
 	}
 
 	// --- [ glBlendFuncSeparateiOES ] ---
@@ -90,7 +90,7 @@ public class OESDrawBuffersIndexed {
 		long __functionAddress = GLES.getCapabilities().glBlendFuncSeparateiOES;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
+		callV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 	}
 
 	// --- [ glColorMaskiOES ] ---
@@ -99,7 +99,7 @@ public class OESDrawBuffersIndexed {
 		long __functionAddress = GLES.getCapabilities().glColorMaskiOES;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIZZZZV(__functionAddress, index, r, g, b, a);
+		callV(__functionAddress, index, r, g, b, a);
 	}
 
 	// --- [ glIsEnablediOES ] ---
@@ -108,7 +108,7 @@ public class OESDrawBuffersIndexed {
 		long __functionAddress = GLES.getCapabilities().glIsEnablediOES;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIIZ(__functionAddress, target, index);
+		return callZ(__functionAddress, target, index);
 	}
 
 }

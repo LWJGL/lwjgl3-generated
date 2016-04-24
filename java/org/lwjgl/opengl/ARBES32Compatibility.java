@@ -67,7 +67,7 @@ public class ARBES32Compatibility {
 		long __functionAddress = GL.getCapabilities().glPrimitiveBoundingBoxARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFFFFFFFV(__functionAddress, minX, minY, minZ, minW, maxX, maxY, maxZ, maxW);
+		callV(__functionAddress, minX, minY, minZ, minW, maxX, maxY, maxZ, maxW);
 	}
 
 }

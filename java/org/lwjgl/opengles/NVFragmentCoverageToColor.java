@@ -43,7 +43,7 @@ public class NVFragmentCoverageToColor {
 		long __functionAddress = GLES.getCapabilities().glFragmentCoverageColorNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, color);
+		callV(__functionAddress, color);
 	}
 
 }

@@ -63,7 +63,7 @@ public class NVSync {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 		}
-		return callPIPP(__functionAddress, dpy, condition, attrib_list);
+		return callPPP(__functionAddress, dpy, condition, attrib_list);
 	}
 
 	public static long eglCreateFenceSyncNV(long dpy, int condition, IntBuffer attrib_list) {
@@ -102,7 +102,7 @@ public class NVSync {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
 		}
-		return callPIJI(__functionAddress, sync, flags, timeout);
+		return callPJI(__functionAddress, sync, flags, timeout);
 	}
 
 	// --- [ eglSignalSyncNV ] ---
@@ -113,7 +113,7 @@ public class NVSync {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
 		}
-		return callPII(__functionAddress, sync, mode);
+		return callPI(__functionAddress, sync, mode);
 	}
 
 	// --- [ eglGetSyncAttribNV ] ---
@@ -124,13 +124,35 @@ public class NVSync {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
 		}
-		return callPIPI(__functionAddress, sync, attribute, value);
+		return callPPI(__functionAddress, sync, attribute, value);
 	}
 
 	public static int eglGetSyncAttribNV(long sync, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglGetSyncAttribNV(sync, attribute, memAddress(value));
+	}
+
+	/** Array version of: {@link #eglCreateFenceSyncNV CreateFenceSyncNV} */
+	public static long eglCreateFenceSyncNV(long dpy, int condition, int[] attrib_list) {
+		long __functionAddress = EGL.getCapabilities().eglCreateFenceSyncNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			checkNT(attrib_list, EGL10.EGL_NONE);
+		}
+		return callPPP(__functionAddress, dpy, condition, attrib_list);
+	}
+
+	/** Array version of: {@link #eglGetSyncAttribNV GetSyncAttribNV} */
+	public static int eglGetSyncAttribNV(long sync, int attribute, int[] value) {
+		long __functionAddress = EGL.getCapabilities().eglGetSyncAttribNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(sync);
+			checkBuffer(value, 1);
+		}
+		return callPPI(__functionAddress, sync, attribute, value);
 	}
 
 }

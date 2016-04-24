@@ -52,7 +52,7 @@ public class ARBVertexArrayObject {
 		long __functionAddress = GL.getCapabilities().glBindVertexArray;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, array);
+		callV(__functionAddress, array);
 	}
 
 	// --- [ glDeleteVertexArrays ] ---
@@ -67,7 +67,7 @@ public class ARBVertexArrayObject {
 		long __functionAddress = GL.getCapabilities().glDeleteVertexArrays;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, arrays);
+		callPV(__functionAddress, n, arrays);
 	}
 
 	/**
@@ -102,7 +102,7 @@ public class ARBVertexArrayObject {
 		long __functionAddress = GL.getCapabilities().glGenVertexArrays;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, arrays);
+		callPV(__functionAddress, n, arrays);
 	}
 
 	/**
@@ -137,7 +137,23 @@ public class ARBVertexArrayObject {
 		long __functionAddress = GL.getCapabilities().glIsVertexArray;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIZ(__functionAddress, array);
+		return callZ(__functionAddress, array);
+	}
+
+	/** Array version of: {@link #glDeleteVertexArrays DeleteVertexArrays} */
+	public static void glDeleteVertexArrays(int[] arrays) {
+		long __functionAddress = GL.getCapabilities().glDeleteVertexArrays;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, arrays.length, arrays);
+	}
+
+	/** Array version of: {@link #glGenVertexArrays GenVertexArrays} */
+	public static void glGenVertexArrays(int[] arrays) {
+		long __functionAddress = GL.getCapabilities().glGenVertexArrays;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, arrays.length, arrays);
 	}
 
 }

@@ -113,7 +113,7 @@ public class KHRStream {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return callPPIII(__functionAddress, dpy, stream, attribute, value);
+		return callPPI(__functionAddress, dpy, stream, attribute, value);
 	}
 
 	// --- [ eglQueryStreamKHR ] ---
@@ -125,7 +125,7 @@ public class KHRStream {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return callPPIPI(__functionAddress, dpy, stream, attribute, value);
+		return callPPPI(__functionAddress, dpy, stream, attribute, value);
 	}
 
 	public static int eglQueryStreamKHR(long dpy, long stream, int attribute, IntBuffer value) {
@@ -143,13 +143,48 @@ public class KHRStream {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return callPPIPI(__functionAddress, dpy, stream, attribute, value);
+		return callPPPI(__functionAddress, dpy, stream, attribute, value);
 	}
 
 	public static int eglQueryStreamu64KHR(long dpy, long stream, int attribute, LongBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQueryStreamu64KHR(dpy, stream, attribute, memAddress(value));
+	}
+
+	/** Array version of: {@link #eglCreateStreamKHR CreateStreamKHR} */
+	public static long eglCreateStreamKHR(long dpy, int[] attrib_list) {
+		long __functionAddress = EGL.getCapabilities().eglCreateStreamKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+		}
+		return callPPP(__functionAddress, dpy, attrib_list);
+	}
+
+	/** Array version of: {@link #eglQueryStreamKHR QueryStreamKHR} */
+	public static int eglQueryStreamKHR(long dpy, long stream, int attribute, int[] value) {
+		long __functionAddress = EGL.getCapabilities().eglQueryStreamKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			checkPointer(stream);
+			checkBuffer(value, 1);
+		}
+		return callPPPI(__functionAddress, dpy, stream, attribute, value);
+	}
+
+	/** Array version of: {@link #eglQueryStreamu64KHR QueryStreamu64KHR} */
+	public static int eglQueryStreamu64KHR(long dpy, long stream, int attribute, long[] value) {
+		long __functionAddress = EGL.getCapabilities().eglQueryStreamu64KHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			checkPointer(stream);
+			checkBuffer(value, 1);
+		}
+		return callPPPI(__functionAddress, dpy, stream, attribute, value);
 	}
 
 }

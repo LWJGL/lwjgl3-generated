@@ -44,7 +44,7 @@ public class NVConservativeRasterDilate {
 		long __functionAddress = GL.getCapabilities().glConservativeRasterParameterfNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIFV(__functionAddress, pname, value);
+		callV(__functionAddress, pname, value);
 	}
 
 }

@@ -65,7 +65,7 @@ public class EXTMultiviewDrawBuffers {
 		long __functionAddress = GLES.getCapabilities().glReadBufferIndexedEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, src, index);
+		callV(__functionAddress, src, index);
 	}
 
 	// --- [ glDrawBuffersIndexedEXT ] ---
@@ -74,7 +74,7 @@ public class EXTMultiviewDrawBuffers {
 		long __functionAddress = GLES.getCapabilities().glDrawBuffersIndexedEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPPV(__functionAddress, n, location, indices);
+		callPPV(__functionAddress, n, location, indices);
 	}
 
 	public static void glDrawBuffersIndexedEXT(IntBuffer location, IntBuffer indices) {
@@ -89,7 +89,7 @@ public class EXTMultiviewDrawBuffers {
 		long __functionAddress = GLES.getCapabilities().glGetIntegeri_vEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, index, data);
+		callPV(__functionAddress, target, index, data);
 	}
 
 	public static void glGetIntegeri_vEXT(int target, int index, IntBuffer data) {
@@ -107,6 +107,26 @@ public class EXTMultiviewDrawBuffers {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #glDrawBuffersIndexedEXT DrawBuffersIndexedEXT} */
+	public static void glDrawBuffersIndexedEXT(int[] location, int[] indices) {
+		long __functionAddress = GLES.getCapabilities().glDrawBuffersIndexedEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(indices, location.length);
+		}
+		callPPV(__functionAddress, location.length, location, indices);
+	}
+
+	/** Array version of: {@link #glGetIntegeri_vEXT GetIntegeri_vEXT} */
+	public static void glGetIntegeri_vEXT(int target, int index, int[] data) {
+		long __functionAddress = GLES.getCapabilities().glGetIntegeri_vEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(data, 1);
+		}
+		callPV(__functionAddress, target, index, data);
 	}
 
 }

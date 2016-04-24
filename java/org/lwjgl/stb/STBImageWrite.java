@@ -481,4 +481,39 @@ public class STBImageWrite {
 		return nstbi_write_hdr_to_func(func.address(), memAddressSafe(context), w, h, comp, memAddress(data));
 	}
 
+	/** Array version of: {@link #stbi_write_hdr write_hdr} */
+	public static native int nstbi_write_hdr(long filename, int w, int h, int comp, float[] data);
+
+	/** Array version of: {@link #stbi_write_hdr write_hdr} */
+	public static int stbi_write_hdr(ByteBuffer filename, int w, int h, int comp, float[] data) {
+		if ( CHECKS ) {
+			checkNT1(filename);
+			checkBuffer(data, w * h * comp);
+		}
+		return nstbi_write_hdr(memAddress(filename), w, h, comp, data);
+	}
+
+	/** Array version of: {@link #stbi_write_hdr write_hdr} */
+	public static int stbi_write_hdr(CharSequence filename, int w, int h, int comp, float[] data) {
+		if ( CHECKS )
+			checkBuffer(data, w * h * comp);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer filenameEncoded = stack.ASCII(filename);
+			return nstbi_write_hdr(memAddress(filenameEncoded), w, h, comp, data);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
+	/** Array version of: {@link #stbi_write_hdr_to_func write_hdr_to_func} */
+	public static native int nstbi_write_hdr_to_func(long func, long context, int w, int h, int comp, float[] data);
+
+	/** Array version of: {@link #stbi_write_hdr_to_func write_hdr_to_func} */
+	public static int stbi_write_hdr_to_func(STBIWriteCallbackI func, ByteBuffer context, int w, int h, int comp, float[] data) {
+		if ( CHECKS )
+			checkBuffer(data, w * h * comp);
+		return nstbi_write_hdr_to_func(func.address(), memAddressSafe(context), w, h, comp, data);
+	}
+
 }

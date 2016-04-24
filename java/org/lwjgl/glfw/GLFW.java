@@ -1142,7 +1142,7 @@ public class GLFW {
 		long __functionAddress = Functions.SetGamma;
 		if ( CHECKS )
 			checkPointer(monitor);
-		invokePFV(__functionAddress, monitor, gamma);
+		invokePV(__functionAddress, monitor, gamma);
 	}
 
 	// --- [ glfwGetGammaRamp ] ---
@@ -1305,7 +1305,7 @@ public class GLFW {
 	 */
 	public static void glfwWindowHint(int hint, int value) {
 		long __functionAddress = Functions.WindowHint;
-		invokeIIV(__functionAddress, hint, value);
+		invokeV(__functionAddress, hint, value);
 	}
 
 	// --- [ glfwCreateWindow ] ---
@@ -1381,7 +1381,7 @@ public class GLFW {
 	 */
 	public static long nglfwCreateWindow(int width, int height, long title, long monitor, long share) {
 		long __functionAddress = Functions.CreateWindow;
-		return invokeIIPPPP(__functionAddress, width, height, title, monitor, share);
+		return invokePPPP(__functionAddress, width, height, title, monitor, share);
 	}
 
 	/**
@@ -1603,7 +1603,7 @@ public class GLFW {
 		long __functionAddress = Functions.SetWindowShouldClose;
 		if ( CHECKS )
 			checkPointer(window);
-		invokePIV(__functionAddress, window, value ? 1 : 0);
+		invokePV(__functionAddress, window, value ? 1 : 0);
 	}
 
 	// --- [ glfwSetWindowTitle ] ---
@@ -1698,7 +1698,7 @@ public class GLFW {
 			checkPointer(window);
 			if ( images != NULL ) GLFWImage.validate(images, count);
 		}
-		invokePIPV(__functionAddress, window, count, images);
+		invokePPV(__functionAddress, window, count, images);
 	}
 
 	/**
@@ -1793,7 +1793,7 @@ public class GLFW {
 		long __functionAddress = Functions.SetWindowPos;
 		if ( CHECKS )
 			checkPointer(window);
-		invokePIIV(__functionAddress, window, xpos, ypos);
+		invokePV(__functionAddress, window, xpos, ypos);
 	}
 
 	// --- [ glfwGetWindowSize ] ---
@@ -1863,7 +1863,7 @@ public class GLFW {
 		long __functionAddress = Functions.SetWindowSizeLimits;
 		if ( CHECKS )
 			checkPointer(window);
-		invokePIIIIV(__functionAddress, window, minwidth, minheight, maxwidth, maxheight);
+		invokePV(__functionAddress, window, minwidth, minheight, maxwidth, maxheight);
 	}
 
 	// --- [ glfwSetWindowAspectRatio ] ---
@@ -1891,7 +1891,7 @@ public class GLFW {
 		long __functionAddress = Functions.SetWindowAspectRatio;
 		if ( CHECKS )
 			checkPointer(window);
-		invokePIIV(__functionAddress, window, numer, denom);
+		invokePV(__functionAddress, window, numer, denom);
 	}
 
 	// --- [ glfwSetWindowSize ] ---
@@ -1918,7 +1918,7 @@ public class GLFW {
 		long __functionAddress = Functions.SetWindowSize;
 		if ( CHECKS )
 			checkPointer(window);
-		invokePIIV(__functionAddress, window, width, height);
+		invokePV(__functionAddress, window, width, height);
 	}
 
 	// --- [ glfwGetFramebufferSize ] ---
@@ -2199,7 +2199,7 @@ public class GLFW {
 		long __functionAddress = Functions.SetWindowMonitor;
 		if ( CHECKS )
 			checkPointer(window);
-		invokePPIIIIIV(__functionAddress, window, monitor, xpos, ypos, width, height, refreshRate);
+		invokePPV(__functionAddress, window, monitor, xpos, ypos, width, height, refreshRate);
 	}
 
 	// --- [ glfwGetWindowAttrib ] ---
@@ -2225,7 +2225,7 @@ public class GLFW {
 		long __functionAddress = Functions.GetWindowAttrib;
 		if ( CHECKS )
 			checkPointer(window);
-		return invokePII(__functionAddress, window, attrib);
+		return invokePI(__functionAddress, window, attrib);
 	}
 
 	// --- [ glfwSetWindowUserPointer ] ---
@@ -2680,7 +2680,7 @@ public class GLFW {
 	public static void glfwWaitEventsTimeout(double timeout) {
 		long __functionAddress = Functions.WaitEventsTimeout;
 		EventLoop.OnScreen.check();
-		invokeDV(__functionAddress, timeout);
+		invokeV(__functionAddress, timeout);
 	}
 
 	// --- [ glfwPostEmptyEvent ] ---
@@ -2716,7 +2716,7 @@ public class GLFW {
 		long __functionAddress = Functions.GetInputMode;
 		if ( CHECKS )
 			checkPointer(window);
-		return invokePII(__functionAddress, window, mode);
+		return invokePI(__functionAddress, window, mode);
 	}
 
 	// --- [ glfwSetInputMode ] ---
@@ -2754,7 +2754,7 @@ public class GLFW {
 		long __functionAddress = Functions.SetInputMode;
 		if ( CHECKS )
 			checkPointer(window);
-		invokePIIV(__functionAddress, window, mode, value);
+		invokePV(__functionAddress, window, mode, value);
 	}
 
 	// --- [ glfwGetKeyName ] ---
@@ -2805,7 +2805,7 @@ public class GLFW {
 	 */
 	public static long nglfwGetKeyName(int key, int scancode) {
 		long __functionAddress = Functions.GetKeyName;
-		return invokeIIP(__functionAddress, key, scancode);
+		return invokeP(__functionAddress, key, scancode);
 	}
 
 	/**
@@ -2891,7 +2891,7 @@ public class GLFW {
 		long __functionAddress = Functions.GetKey;
 		if ( CHECKS )
 			checkPointer(window);
-		return invokePII(__functionAddress, window, key);
+		return invokePI(__functionAddress, window, key);
 	}
 
 	// --- [ glfwGetMouseButton ] ---
@@ -2916,7 +2916,7 @@ public class GLFW {
 		long __functionAddress = Functions.GetMouseButton;
 		if ( CHECKS )
 			checkPointer(window);
-		return invokePII(__functionAddress, window, button);
+		return invokePI(__functionAddress, window, button);
 	}
 
 	// --- [ glfwGetCursorPos ] ---
@@ -3003,7 +3003,7 @@ public class GLFW {
 		long __functionAddress = Functions.SetCursorPos;
 		if ( CHECKS )
 			checkPointer(window);
-		invokePDDV(__functionAddress, window, xpos, ypos);
+		invokePV(__functionAddress, window, xpos, ypos);
 	}
 
 	// --- [ glfwCreateCursor ] ---
@@ -3038,7 +3038,7 @@ public class GLFW {
 		long __functionAddress = Functions.CreateCursor;
 		if ( CHECKS )
 			GLFWImage.validate(image);
-		return invokePIIP(__functionAddress, image, xhot, yhot);
+		return invokePP(__functionAddress, image, xhot, yhot);
 	}
 
 	/**
@@ -3092,7 +3092,7 @@ public class GLFW {
 	 */
 	public static long glfwCreateStandardCursor(int shape) {
 		long __functionAddress = Functions.CreateStandardCursor;
-		return invokeIP(__functionAddress, shape);
+		return invokeP(__functionAddress, shape);
 	}
 
 	// --- [ glfwDestroyCursor ] ---
@@ -3521,7 +3521,7 @@ public class GLFW {
 	 */
 	public static int glfwJoystickPresent(int joy) {
 		long __functionAddress = Functions.JoystickPresent;
-		return invokeII(__functionAddress, joy);
+		return invokeI(__functionAddress, joy);
 	}
 
 	// --- [ glfwGetJoystickAxes ] ---
@@ -3546,7 +3546,7 @@ public class GLFW {
 	 */
 	public static long nglfwGetJoystickAxes(int joy, long count) {
 		long __functionAddress = Functions.GetJoystickAxes;
-		return invokeIPP(__functionAddress, joy, count);
+		return invokePP(__functionAddress, joy, count);
 	}
 
 	/**
@@ -3599,7 +3599,7 @@ public class GLFW {
 	 */
 	public static long nglfwGetJoystickButtons(int joy, long count) {
 		long __functionAddress = Functions.GetJoystickButtons;
-		return invokeIPP(__functionAddress, joy, count);
+		return invokePP(__functionAddress, joy, count);
 	}
 
 	/**
@@ -3651,7 +3651,7 @@ public class GLFW {
 	 */
 	public static long nglfwGetJoystickName(int joy) {
 		long __functionAddress = Functions.GetJoystickName;
-		return invokeIP(__functionAddress, joy);
+		return invokeP(__functionAddress, joy);
 	}
 
 	/**
@@ -3866,7 +3866,7 @@ public class GLFW {
 	 */
 	public static void glfwSetTime(double time) {
 		long __functionAddress = Functions.SetTime;
-		invokeDV(__functionAddress, time);
+		invokeV(__functionAddress, time);
 	}
 
 	// --- [ glfwGetTimerValue ] ---
@@ -3999,7 +3999,7 @@ public class GLFW {
 	 */
 	public static void glfwSwapInterval(int interval) {
 		long __functionAddress = Functions.SwapInterval;
-		invokeIV(__functionAddress, interval);
+		invokeV(__functionAddress, interval);
 	}
 
 	// --- [ glfwExtensionSupported ] ---
@@ -4181,6 +4181,96 @@ public class GLFW {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #glfwGetVersion GetVersion} */
+	public static void glfwGetVersion(int[] major, int[] minor, int[] rev) {
+		long __functionAddress = Functions.GetVersion;
+		if ( CHECKS ) {
+			if ( major != null ) checkBuffer(major, 1);
+			if ( minor != null ) checkBuffer(minor, 1);
+			if ( rev != null ) checkBuffer(rev, 1);
+		}
+		invokePPPV(__functionAddress, major, minor, rev);
+	}
+
+	/** Array version of: {@link #glfwGetMonitorPos GetMonitorPos} */
+	public static void glfwGetMonitorPos(long monitor, int[] xpos, int[] ypos) {
+		long __functionAddress = Functions.GetMonitorPos;
+		if ( CHECKS ) {
+			checkPointer(monitor);
+			if ( xpos != null ) checkBuffer(xpos, 1);
+			if ( ypos != null ) checkBuffer(ypos, 1);
+		}
+		invokePPPV(__functionAddress, monitor, xpos, ypos);
+	}
+
+	/** Array version of: {@link #glfwGetMonitorPhysicalSize GetMonitorPhysicalSize} */
+	public static void glfwGetMonitorPhysicalSize(long monitor, int[] widthMM, int[] heightMM) {
+		long __functionAddress = Functions.GetMonitorPhysicalSize;
+		if ( CHECKS ) {
+			checkPointer(monitor);
+			if ( widthMM != null ) checkBuffer(widthMM, 1);
+			if ( heightMM != null ) checkBuffer(heightMM, 1);
+		}
+		invokePPPV(__functionAddress, monitor, widthMM, heightMM);
+	}
+
+	/** Array version of: {@link #glfwGetWindowPos GetWindowPos} */
+	public static void glfwGetWindowPos(long window, int[] xpos, int[] ypos) {
+		long __functionAddress = Functions.GetWindowPos;
+		if ( CHECKS ) {
+			checkPointer(window);
+			if ( xpos != null ) checkBuffer(xpos, 1);
+			if ( ypos != null ) checkBuffer(ypos, 1);
+		}
+		invokePPPV(__functionAddress, window, xpos, ypos);
+	}
+
+	/** Array version of: {@link #glfwGetWindowSize GetWindowSize} */
+	public static void glfwGetWindowSize(long window, int[] width, int[] height) {
+		long __functionAddress = Functions.GetWindowSize;
+		if ( CHECKS ) {
+			checkPointer(window);
+			if ( width != null ) checkBuffer(width, 1);
+			if ( height != null ) checkBuffer(height, 1);
+		}
+		invokePPPV(__functionAddress, window, width, height);
+	}
+
+	/** Array version of: {@link #glfwGetFramebufferSize GetFramebufferSize} */
+	public static void glfwGetFramebufferSize(long window, int[] width, int[] height) {
+		long __functionAddress = Functions.GetFramebufferSize;
+		if ( CHECKS ) {
+			checkPointer(window);
+			if ( width != null ) checkBuffer(width, 1);
+			if ( height != null ) checkBuffer(height, 1);
+		}
+		invokePPPV(__functionAddress, window, width, height);
+	}
+
+	/** Array version of: {@link #glfwGetWindowFrameSize GetWindowFrameSize} */
+	public static void glfwGetWindowFrameSize(long window, int[] left, int[] top, int[] right, int[] bottom) {
+		long __functionAddress = Functions.GetWindowFrameSize;
+		if ( CHECKS ) {
+			checkPointer(window);
+			if ( left != null ) checkBuffer(left, 1);
+			if ( top != null ) checkBuffer(top, 1);
+			if ( right != null ) checkBuffer(right, 1);
+			if ( bottom != null ) checkBuffer(bottom, 1);
+		}
+		invokePPPPPV(__functionAddress, window, left, top, right, bottom);
+	}
+
+	/** Array version of: {@link #glfwGetCursorPos GetCursorPos} */
+	public static void glfwGetCursorPos(long window, double[] xpos, double[] ypos) {
+		long __functionAddress = Functions.GetCursorPos;
+		if ( CHECKS ) {
+			checkPointer(window);
+			if ( xpos != null ) checkBuffer(xpos, 1);
+			if ( ypos != null ) checkBuffer(ypos, 1);
+		}
+		invokePPPV(__functionAddress, window, xpos, ypos);
 	}
 
 }

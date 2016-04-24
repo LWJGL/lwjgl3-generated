@@ -47,7 +47,7 @@ public class KHRImage {
 			checkPointer(ctx);
 			checkPointer(buffer);
 		}
-		return callPPIPPP(__functionAddress, dpy, ctx, target, buffer, attrib_list);
+		return callPPPPP(__functionAddress, dpy, ctx, target, buffer, attrib_list);
 	}
 
 	public static long eglCreateImageKHR(long dpy, long ctx, int target, long buffer, IntBuffer attrib_list) {
@@ -66,6 +66,19 @@ public class KHRImage {
 			checkPointer(image);
 		}
 		return callPPI(__functionAddress, dpy, image);
+	}
+
+	/** Array version of: {@link #eglCreateImageKHR CreateImageKHR} */
+	public static long eglCreateImageKHR(long dpy, long ctx, int target, long buffer, int[] attrib_list) {
+		long __functionAddress = EGL.getCapabilities().eglCreateImageKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			checkPointer(ctx);
+			checkPointer(buffer);
+			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+		}
+		return callPPPPP(__functionAddress, dpy, ctx, target, buffer, attrib_list);
 	}
 
 }

@@ -44,7 +44,7 @@ public class EXTBaseInstance {
 		long __functionAddress = GLES.getCapabilities().glDrawArraysInstancedBaseInstanceEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, mode, first, count, instancecount, baseinstance);
+		callV(__functionAddress, mode, first, count, instancecount, baseinstance);
 	}
 
 	// --- [ glDrawElementsInstancedBaseInstanceEXT ] ---
@@ -53,7 +53,7 @@ public class EXTBaseInstance {
 		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedBaseInstanceEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPIIV(__functionAddress, mode, count, type, indices, instancecount, baseinstance);
+		callPV(__functionAddress, mode, count, type, indices, instancecount, baseinstance);
 	}
 
 	public static void glDrawElementsInstancedBaseInstanceEXT(int mode, int count, int type, long indices, int instancecount, int baseinstance) {
@@ -92,7 +92,7 @@ public class EXTBaseInstance {
 		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedBaseVertexBaseInstanceEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPIIIV(__functionAddress, mode, count, type, indices, instancecount, basevertex, baseinstance);
+		callPV(__functionAddress, mode, count, type, indices, instancecount, basevertex, baseinstance);
 	}
 
 	public static void glDrawElementsInstancedBaseVertexBaseInstanceEXT(int mode, int count, int type, long indices, int instancecount, int basevertex, int baseinstance) {

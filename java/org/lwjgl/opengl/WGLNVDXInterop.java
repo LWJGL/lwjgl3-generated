@@ -101,7 +101,7 @@ public class WGLNVDXInterop {
 			checkPointer(device);
 			checkPointer(dxResource);
 		}
-		return callPPIIIP(__functionAddress, device, dxResource, name, type, access);
+		return callPPP(__functionAddress, device, dxResource, name, type, access);
 	}
 
 	// --- [ wglDXUnregisterObjectNV ] ---
@@ -130,7 +130,7 @@ public class WGLNVDXInterop {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(object);
 		}
-		return callPII(__functionAddress, object, access) != 0;
+		return callPI(__functionAddress, object, access) != 0;
 	}
 
 	// --- [ wglDXLockObjectsNV ] ---
@@ -155,7 +155,7 @@ public class WGLNVDXInterop {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
 		}
-		return callPIPI(__functionAddress, device, count, objects);
+		return callPPI(__functionAddress, device, count, objects);
 	}
 
 	/**
@@ -190,7 +190,7 @@ public class WGLNVDXInterop {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
 		}
-		return callPIPI(__functionAddress, device, count, objects);
+		return callPPI(__functionAddress, device, count, objects);
 	}
 
 	/**

@@ -40,7 +40,7 @@ public class OESEGLImage {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(image);
 		}
-		callIPV(__functionAddress, target, image);
+		callPV(__functionAddress, target, image);
 	}
 
 	// --- [ glEGLImageTargetRenderbufferStorageOES ] ---
@@ -51,7 +51,7 @@ public class OESEGLImage {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(image);
 		}
-		callIPV(__functionAddress, target, image);
+		callPV(__functionAddress, target, image);
 	}
 
 }

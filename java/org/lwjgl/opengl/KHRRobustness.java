@@ -145,7 +145,7 @@ public class KHRRobustness {
 		long __functionAddress = GL.getCapabilities().glReadnPixels;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIPV(__functionAddress, x, y, width, height, format, type, bufSize, pixels);
+		callPV(__functionAddress, x, y, width, height, format, type, bufSize, pixels);
 	}
 
 	/**
@@ -218,7 +218,7 @@ public class KHRRobustness {
 		long __functionAddress = GL.getCapabilities().glGetnUniformfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, location, bufSize, params);
+		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	/**
@@ -263,7 +263,7 @@ public class KHRRobustness {
 		long __functionAddress = GL.getCapabilities().glGetnUniformiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, location, bufSize, params);
+		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	/**
@@ -308,7 +308,7 @@ public class KHRRobustness {
 		long __functionAddress = GL.getCapabilities().glGetnUniformuiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, location, bufSize, params);
+		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	/**
@@ -337,6 +337,60 @@ public class KHRRobustness {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** short[] version of: {@link #glReadnPixels ReadnPixels} */
+	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, short[] pixels) {
+		long __functionAddress = GL.getCapabilities().glReadnPixels;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 1, pixels);
+	}
+
+	/** int[] version of: {@link #glReadnPixels ReadnPixels} */
+	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, int[] pixels) {
+		long __functionAddress = GL.getCapabilities().glReadnPixels;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
+	}
+
+	/** float[] version of: {@link #glReadnPixels ReadnPixels} */
+	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, float[] pixels) {
+		long __functionAddress = GL.getCapabilities().glReadnPixels;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
+	}
+
+	/** Array version of: {@link #glGetnUniformfv GetnUniformfv} */
+	public static void glGetnUniformfv(int program, int location, float[] params) {
+		long __functionAddress = GL.getCapabilities().glGetnUniformfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, program, location, params.length, params);
+	}
+
+	/** Array version of: {@link #glGetnUniformiv GetnUniformiv} */
+	public static void glGetnUniformiv(int program, int location, float[] params) {
+		long __functionAddress = GL.getCapabilities().glGetnUniformiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, program, location, params.length, params);
+	}
+
+	/** Array version of: {@link #glGetnUniformuiv GetnUniformuiv} */
+	public static void glGetnUniformuiv(int program, int location, float[] params) {
+		long __functionAddress = GL.getCapabilities().glGetnUniformuiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, program, location, params.length, params);
 	}
 
 }

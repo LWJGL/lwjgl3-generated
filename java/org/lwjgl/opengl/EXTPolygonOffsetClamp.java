@@ -52,7 +52,7 @@ public class EXTPolygonOffsetClamp {
 		long __functionAddress = GL.getCapabilities().glPolygonOffsetClampEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFFV(__functionAddress, factor, units, clamp);
+		callV(__functionAddress, factor, units, clamp);
 	}
 
 }

@@ -220,4 +220,84 @@ public class Stdlib {
 		naligned_free(memAddressSafe(ptr));
 	}
 
+	/** short[] version of: {@link #free} */
+	public static native void nfree(short[] ptr);
+
+	/** short[] version of: {@link #free} */
+	public static void free(short[] ptr) {
+		nfree(ptr);
+	}
+
+	/** int[] version of: {@link #free} */
+	public static native void nfree(int[] ptr);
+
+	/** int[] version of: {@link #free} */
+	public static void free(int[] ptr) {
+		nfree(ptr);
+	}
+
+	/** long[] version of: {@link #free} */
+	public static native void nfree(long[] ptr);
+
+	/** long[] version of: {@link #free} */
+	public static void free(long[] ptr) {
+		nfree(ptr);
+	}
+
+	/** float[] version of: {@link #free} */
+	public static native void nfree(float[] ptr);
+
+	/** float[] version of: {@link #free} */
+	public static void free(float[] ptr) {
+		nfree(ptr);
+	}
+
+	/** double[] version of: {@link #free} */
+	public static native void nfree(double[] ptr);
+
+	/** double[] version of: {@link #free} */
+	public static void free(double[] ptr) {
+		nfree(ptr);
+	}
+
+	/** short[] version of: {@link #aligned_free} */
+	public static native void naligned_free(short[] ptr);
+
+	/** short[] version of: {@link #aligned_free} */
+	public static void aligned_free(short[] ptr) {
+		naligned_free(ptr);
+	}
+
+	/** int[] version of: {@link #aligned_free} */
+	public static native void naligned_free(int[] ptr);
+
+	/** int[] version of: {@link #aligned_free} */
+	public static void aligned_free(int[] ptr) {
+		naligned_free(ptr);
+	}
+
+	/** long[] version of: {@link #aligned_free} */
+	public static native void naligned_free(long[] ptr);
+
+	/** long[] version of: {@link #aligned_free} */
+	public static void aligned_free(long[] ptr) {
+		naligned_free(ptr);
+	}
+
+	/** float[] version of: {@link #aligned_free} */
+	public static native void naligned_free(float[] ptr);
+
+	/** float[] version of: {@link #aligned_free} */
+	public static void aligned_free(float[] ptr) {
+		naligned_free(ptr);
+	}
+
+	/** double[] version of: {@link #aligned_free} */
+	public static native void naligned_free(double[] ptr);
+
+	/** double[] version of: {@link #aligned_free} */
+	public static void aligned_free(double[] ptr) {
+		naligned_free(ptr);
+	}
+
 }

@@ -78,7 +78,7 @@ public class ARBSampleLocations {
 		long __functionAddress = GL.getCapabilities().glFramebufferSampleLocationsfvARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, target, start, count, v);
+		callPV(__functionAddress, target, start, count, v);
 	}
 
 	/**
@@ -111,7 +111,7 @@ public class ARBSampleLocations {
 		long __functionAddress = GL.getCapabilities().glNamedFramebufferSampleLocationsfvARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, framebuffer, start, count, v);
+		callPV(__functionAddress, framebuffer, start, count, v);
 	}
 
 	/**
@@ -137,6 +137,22 @@ public class ARBSampleLocations {
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callV(__functionAddress);
+	}
+
+	/** Array version of: {@link #glFramebufferSampleLocationsfvARB FramebufferSampleLocationsfvARB} */
+	public static void glFramebufferSampleLocationsfvARB(int target, int start, float[] v) {
+		long __functionAddress = GL.getCapabilities().glFramebufferSampleLocationsfvARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, target, start, v.length >> 1, v);
+	}
+
+	/** Array version of: {@link #glNamedFramebufferSampleLocationsfvARB NamedFramebufferSampleLocationsfvARB} */
+	public static void glNamedFramebufferSampleLocationsfvARB(int framebuffer, int start, float[] v) {
+		long __functionAddress = GL.getCapabilities().glNamedFramebufferSampleLocationsfvARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, framebuffer, start, v.length >> 1, v);
 	}
 
 }

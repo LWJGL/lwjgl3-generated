@@ -57,7 +57,7 @@ public class ARBTextureStorage {
 		long __functionAddress = GL.getCapabilities().glTexStorage1D;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, target, levels, internalformat, width);
+		callV(__functionAddress, target, levels, internalformat, width);
 	}
 
 	// --- [ glTexStorage2D ] ---
@@ -75,7 +75,7 @@ public class ARBTextureStorage {
 		long __functionAddress = GL.getCapabilities().glTexStorage2D;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, target, levels, internalformat, width, height);
+		callV(__functionAddress, target, levels, internalformat, width, height);
 	}
 
 	// --- [ glTexStorage3D ] ---
@@ -94,7 +94,7 @@ public class ARBTextureStorage {
 		long __functionAddress = GL.getCapabilities().glTexStorage3D;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIV(__functionAddress, target, levels, internalformat, width, height, depth);
+		callV(__functionAddress, target, levels, internalformat, width, height, depth);
 	}
 
 	// --- [ glTextureStorage1DEXT ] ---
@@ -112,7 +112,7 @@ public class ARBTextureStorage {
 		long __functionAddress = GL.getCapabilities().glTextureStorage1DEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, texture, target, levels, internalformat, width);
+		callV(__functionAddress, texture, target, levels, internalformat, width);
 	}
 
 	// --- [ glTextureStorage2DEXT ] ---
@@ -131,7 +131,7 @@ public class ARBTextureStorage {
 		long __functionAddress = GL.getCapabilities().glTextureStorage2DEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIV(__functionAddress, texture, target, levels, internalformat, width, height);
+		callV(__functionAddress, texture, target, levels, internalformat, width, height);
 	}
 
 	// --- [ glTextureStorage3DEXT ] ---
@@ -151,7 +151,7 @@ public class ARBTextureStorage {
 		long __functionAddress = GL.getCapabilities().glTextureStorage3DEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIV(__functionAddress, texture, target, levels, internalformat, width, height, depth);
+		callV(__functionAddress, texture, target, levels, internalformat, width, height, depth);
 	}
 
 }

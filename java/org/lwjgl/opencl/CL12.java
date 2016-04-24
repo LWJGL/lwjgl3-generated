@@ -388,7 +388,7 @@ public class CL12 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(in_device);
 		}
-		return callPPIPPI(__functionAddress, in_device, properties, num_devices, out_devices, num_devices_ret);
+		return callPPPPI(__functionAddress, in_device, properties, num_devices, out_devices, num_devices_ret);
 	}
 
 	/**
@@ -653,7 +653,7 @@ public class CL12 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
 		}
-		return callPIPPPP(__functionAddress, context, num_devices, device_list, kernel_names, errcode_ret);
+		return callPPPPP(__functionAddress, context, num_devices, device_list, kernel_names, errcode_ret);
 	}
 
 	/**
@@ -821,7 +821,7 @@ public class CL12 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(program);
 		}
-		return callPIPPIPPPPI(__functionAddress, program, num_devices, device_list, options, num_input_headers, input_headers, header_include_names, pfn_notify, user_data);
+		return callPPPPPPPI(__functionAddress, program, num_devices, device_list, options, num_input_headers, input_headers, header_include_names, pfn_notify, user_data);
 	}
 
 	/**
@@ -1143,7 +1143,7 @@ public class CL12 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
 		}
-		return callPIPPIPPPP(__functionAddress, context, num_devices, device_list, options, num_input_programs, input_programs, pfn_notify, user_data);
+		return callPPPPPPP(__functionAddress, context, num_devices, device_list, options, num_input_programs, input_programs, pfn_notify, user_data);
 	}
 
 	/**
@@ -1423,7 +1423,7 @@ public class CL12 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(kernel);
 		}
-		return callPIIPPPI(__functionAddress, kernel, arg_indx, param_name, param_value_size, param_value, param_value_size_ret);
+		return callPPPPI(__functionAddress, kernel, arg_indx, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -1451,7 +1451,7 @@ public class CL12 {
 	public static int clGetKernelArgInfo(long kernel, int arg_indx, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetKernelArgInfo(kernel, arg_indx, param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetKernelArgInfo(kernel, arg_indx, param_name, (long)(param_value == null ? 0 : param_value.remaining()), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetKernelArgInfo GetKernelArgInfo} */
@@ -1521,7 +1521,7 @@ public class CL12 {
 			checkPointer(command_queue);
 			checkPointer(buffer);
 		}
-		return callPPPPPPIPPI(__functionAddress, command_queue, buffer, pattern, pattern_size, offset, size, num_events_in_wait_list, event_wait_list, event);
+		return callPPPPPPPPI(__functionAddress, command_queue, buffer, pattern, pattern_size, offset, size, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -1569,7 +1569,7 @@ public class CL12 {
 	public static int clEnqueueFillBuffer(long command_queue, long buffer, ByteBuffer pattern, long offset, long size, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
-		return nclEnqueueFillBuffer(command_queue, buffer, memAddress(pattern), pattern.remaining(), offset, size, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueFillBuffer(command_queue, buffer, memAddress(pattern), (long)pattern.remaining(), offset, size, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clEnqueueFillImage ] ---
@@ -1629,7 +1629,7 @@ public class CL12 {
 			checkPointer(command_queue);
 			checkPointer(image);
 		}
-		return callPPPPPIPPI(__functionAddress, command_queue, image, fill_color, origin, region, num_events_in_wait_list, event_wait_list, event);
+		return callPPPPPPPI(__functionAddress, command_queue, image, fill_color, origin, region, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -1739,7 +1739,7 @@ public class CL12 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 		}
-		return callPIPJIPPI(__functionAddress, command_queue, num_mem_objects, mem_objects, flags, num_events_in_wait_list, event_wait_list, event);
+		return callPPJPPI(__functionAddress, command_queue, num_mem_objects, mem_objects, flags, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -1827,7 +1827,7 @@ public class CL12 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 		}
-		return callPIPPI(__functionAddress, command_queue, num_events_in_wait_list, event_wait_list, event);
+		return callPPPI(__functionAddress, command_queue, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -1897,7 +1897,7 @@ public class CL12 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 		}
-		return callPIPPI(__functionAddress, command_queue, num_events_in_wait_list, event_wait_list, event);
+		return callPPPI(__functionAddress, command_queue, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -1930,6 +1930,113 @@ public class CL12 {
 		if ( CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
 		return nclEnqueueBarrierWithWaitList(command_queue, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+	}
+
+	/** Array version of: {@link #clCreateSubDevices CreateSubDevices} */
+	public static int clCreateSubDevices(long in_device, PointerBuffer properties, PointerBuffer out_devices, int[] num_devices_ret) {
+		long __functionAddress = CL.getICD().clCreateSubDevices;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(in_device);
+			checkNT(properties);
+			if ( num_devices_ret != null ) checkBuffer(num_devices_ret, 1);
+		}
+		return callPPPPI(__functionAddress, in_device, memAddress(properties), out_devices == null ? 0 : out_devices.remaining(), memAddressSafe(out_devices), num_devices_ret);
+	}
+
+	/** Array version of: {@link #clCreateImage CreateImage} */
+	public static long clCreateImage(long context, long flags, CLImageFormat image_format, CLImageDesc image_desc, ByteBuffer host_ptr, int[] errcode_ret) {
+		long __functionAddress = CL.getICD().clCreateImage;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(context);
+			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+		}
+		return callPJPPPPP(__functionAddress, context, flags, image_format.address(), image_desc.address(), memAddressSafe(host_ptr), errcode_ret);
+	}
+
+	/** short[] version of: {@link #clCreateImage CreateImage} */
+	public static long clCreateImage(long context, long flags, CLImageFormat image_format, CLImageDesc image_desc, short[] host_ptr, int[] errcode_ret) {
+		long __functionAddress = CL.getICD().clCreateImage;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(context);
+			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+		}
+		return callPJPPPPP(__functionAddress, context, flags, image_format.address(), image_desc.address(), host_ptr, errcode_ret);
+	}
+
+	/** int[] version of: {@link #clCreateImage CreateImage} */
+	public static long clCreateImage(long context, long flags, CLImageFormat image_format, CLImageDesc image_desc, int[] host_ptr, int[] errcode_ret) {
+		long __functionAddress = CL.getICD().clCreateImage;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(context);
+			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+		}
+		return callPJPPPPP(__functionAddress, context, flags, image_format.address(), image_desc.address(), host_ptr, errcode_ret);
+	}
+
+	/** float[] version of: {@link #clCreateImage CreateImage} */
+	public static long clCreateImage(long context, long flags, CLImageFormat image_format, CLImageDesc image_desc, float[] host_ptr, int[] errcode_ret) {
+		long __functionAddress = CL.getICD().clCreateImage;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(context);
+			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+		}
+		return callPJPPPPP(__functionAddress, context, flags, image_format.address(), image_desc.address(), host_ptr, errcode_ret);
+	}
+
+	/** Array version of: {@link #clCreateProgramWithBuiltInKernels CreateProgramWithBuiltInKernels} */
+	public static long clCreateProgramWithBuiltInKernels(long context, int num_devices, PointerBuffer device_list, ByteBuffer kernel_names, int[] errcode_ret) {
+		long __functionAddress = CL.getICD().clCreateProgramWithBuiltInKernels;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(context);
+			checkNT1(kernel_names);
+			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+		}
+		return callPPPPP(__functionAddress, context, num_devices, memAddress(device_list), memAddress(kernel_names), errcode_ret);
+	}
+
+	/** Array version of: {@link #clCreateProgramWithBuiltInKernels CreateProgramWithBuiltInKernels} */
+	public static long clCreateProgramWithBuiltInKernels(long context, int num_devices, PointerBuffer device_list, CharSequence kernel_names, int[] errcode_ret) {
+		long __functionAddress = CL.getICD().clCreateProgramWithBuiltInKernels;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(context);
+			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+		}
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer kernel_namesEncoded = stack.ASCII(kernel_names);
+			return callPPPPP(__functionAddress, context, num_devices, memAddress(device_list), memAddress(kernel_namesEncoded), errcode_ret);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
+	/** int[] version of: {@link #clGetKernelArgInfo GetKernelArgInfo} */
+	public static int clGetKernelArgInfo(long kernel, int arg_indx, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
+		long __functionAddress = CL.getICD().clGetKernelArgInfo;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(kernel);
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+		}
+		return callPPPPI(__functionAddress, kernel, arg_indx, param_name, (long)(param_value == null ? 0 : param_value.length << 2), param_value, memAddressSafe(param_value_size_ret));
+	}
+
+	/** long[] version of: {@link #clGetKernelArgInfo GetKernelArgInfo} */
+	public static int clGetKernelArgInfo(long kernel, int arg_indx, int param_name, long[] param_value, PointerBuffer param_value_size_ret) {
+		long __functionAddress = CL.getICD().clGetKernelArgInfo;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(kernel);
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+		}
+		return callPPPPI(__functionAddress, kernel, arg_indx, param_name, (long)(param_value == null ? 0 : param_value.length << 3), param_value, memAddressSafe(param_value_size_ret));
 	}
 
 }

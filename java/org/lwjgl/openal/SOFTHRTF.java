@@ -80,7 +80,7 @@ public class SOFTHRTF {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
 		}
-		return invokePIIP(__functionAddress, device, paramName, index);
+		return invokePP(__functionAddress, device, paramName, index);
 	}
 
 	/**
@@ -133,6 +133,16 @@ public class SOFTHRTF {
 	 */
 	public static boolean alcResetDeviceSOFT(long device, IntBuffer attrList) {
 		return nalcResetDeviceSOFT(device, memAddress(attrList));
+	}
+
+	/** Array version of: {@link #alcResetDeviceSOFT ResetDeviceSOFT} */
+	public static boolean alcResetDeviceSOFT(long device, int[] attrList) {
+		long __functionAddress = ALC.getICD().alcResetDeviceSOFT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(device);
+		}
+		return invokePPZ(__functionAddress, device, attrList);
 	}
 
 }

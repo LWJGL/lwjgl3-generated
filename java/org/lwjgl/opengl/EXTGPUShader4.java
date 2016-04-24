@@ -133,7 +133,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI1iEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, index, x);
+		callV(__functionAddress, index, x);
 	}
 
 	// --- [ glVertexAttribI2iEXT ] ---
@@ -149,7 +149,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI2iEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, index, x, y);
+		callV(__functionAddress, index, x, y);
 	}
 
 	// --- [ glVertexAttribI3iEXT ] ---
@@ -166,7 +166,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI3iEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, index, x, y, z);
+		callV(__functionAddress, index, x, y, z);
 	}
 
 	// --- [ glVertexAttribI4iEXT ] ---
@@ -184,7 +184,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4iEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, index, x, y, z, w);
+		callV(__functionAddress, index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttribI1uiEXT ] ---
@@ -199,7 +199,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI1uiEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, index, x);
+		callV(__functionAddress, index, x);
 	}
 
 	// --- [ glVertexAttribI2uiEXT ] ---
@@ -215,7 +215,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI2uiEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, index, x, y);
+		callV(__functionAddress, index, x, y);
 	}
 
 	// --- [ glVertexAttribI3uiEXT ] ---
@@ -232,7 +232,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI3uiEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, index, x, y, z);
+		callV(__functionAddress, index, x, y, z);
 	}
 
 	// --- [ glVertexAttribI4uiEXT ] ---
@@ -250,7 +250,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4uiEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, index, x, y, z, w);
+		callV(__functionAddress, index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttribI1ivEXT ] ---
@@ -265,7 +265,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI1ivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -292,7 +292,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI2ivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -319,7 +319,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI3ivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -346,7 +346,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4ivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -373,7 +373,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI1uivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -400,7 +400,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI2uivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -427,7 +427,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI3uivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -454,7 +454,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4uivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -481,7 +481,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4bvEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -508,7 +508,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4svEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -535,7 +535,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4ubvEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -562,7 +562,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4usvEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -594,7 +594,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribIPointerEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIPV(__functionAddress, index, size, type, stride, pointer);
+		callPV(__functionAddress, index, size, type, stride, pointer);
 	}
 
 	/**
@@ -658,7 +658,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribIivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, index, pname, params);
+		callPV(__functionAddress, index, pname, params);
 	}
 
 	/**
@@ -704,7 +704,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribIuivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, index, pname, params);
+		callPV(__functionAddress, index, pname, params);
 	}
 
 	/**
@@ -743,7 +743,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glGetUniformuivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, program, location, params);
+		callPV(__functionAddress, program, location, params);
 	}
 
 	public static void glGetUniformuivEXT(int program, int location, IntBuffer params) {
@@ -769,7 +769,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glBindFragDataLocationEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, program, color, name);
+		callPV(__functionAddress, program, color, name);
 	}
 
 	public static void glBindFragDataLocationEXT(int program, int color, ByteBuffer name) {
@@ -794,7 +794,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glGetFragDataLocationEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIPI(__functionAddress, program, name);
+		return callPI(__functionAddress, program, name);
 	}
 
 	public static int glGetFragDataLocationEXT(int program, ByteBuffer name) {
@@ -819,7 +819,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glUniform1uiEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, location, v0);
+		callV(__functionAddress, location, v0);
 	}
 
 	// --- [ glUniform2uiEXT ] ---
@@ -828,7 +828,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glUniform2uiEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, location, v0, v1);
+		callV(__functionAddress, location, v0, v1);
 	}
 
 	// --- [ glUniform3uiEXT ] ---
@@ -837,7 +837,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glUniform3uiEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, location, v0, v1, v2);
+		callV(__functionAddress, location, v0, v1, v2);
 	}
 
 	// --- [ glUniform4uiEXT ] ---
@@ -846,7 +846,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glUniform4uiEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, location, v0, v1, v2, v3);
+		callV(__functionAddress, location, v0, v1, v2, v3);
 	}
 
 	// --- [ glUniform1uivEXT ] ---
@@ -855,7 +855,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glUniform1uivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, location, count, value);
+		callPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform1uivEXT(int location, IntBuffer value) {
@@ -868,7 +868,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glUniform2uivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, location, count, value);
+		callPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform2uivEXT(int location, IntBuffer value) {
@@ -881,7 +881,7 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glUniform3uivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, location, count, value);
+		callPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform3uivEXT(int location, IntBuffer value) {
@@ -894,11 +894,193 @@ public class EXTGPUShader4 {
 		long __functionAddress = GL.getCapabilities().glUniform4uivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, location, count, value);
+		callPV(__functionAddress, location, count, value);
 	}
 
 	public static void glUniform4uivEXT(int location, IntBuffer value) {
 		nglUniform4uivEXT(location, value.remaining() >> 2, memAddress(value));
+	}
+
+	/** Array version of: {@link #glVertexAttribI1ivEXT VertexAttribI1ivEXT} */
+	public static void glVertexAttribI1ivEXT(int index, int[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribI1ivEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 1);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/** Array version of: {@link #glVertexAttribI2ivEXT VertexAttribI2ivEXT} */
+	public static void glVertexAttribI2ivEXT(int index, int[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribI2ivEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 2);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/** Array version of: {@link #glVertexAttribI3ivEXT VertexAttribI3ivEXT} */
+	public static void glVertexAttribI3ivEXT(int index, int[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribI3ivEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 3);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/** Array version of: {@link #glVertexAttribI4ivEXT VertexAttribI4ivEXT} */
+	public static void glVertexAttribI4ivEXT(int index, int[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribI4ivEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 4);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/** Array version of: {@link #glVertexAttribI1uivEXT VertexAttribI1uivEXT} */
+	public static void glVertexAttribI1uivEXT(int index, int[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribI1uivEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 1);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/** Array version of: {@link #glVertexAttribI2uivEXT VertexAttribI2uivEXT} */
+	public static void glVertexAttribI2uivEXT(int index, int[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribI2uivEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 2);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/** Array version of: {@link #glVertexAttribI3uivEXT VertexAttribI3uivEXT} */
+	public static void glVertexAttribI3uivEXT(int index, int[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribI3uivEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 3);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/** Array version of: {@link #glVertexAttribI4uivEXT VertexAttribI4uivEXT} */
+	public static void glVertexAttribI4uivEXT(int index, int[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribI4uivEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 4);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/** Array version of: {@link #glVertexAttribI4svEXT VertexAttribI4svEXT} */
+	public static void glVertexAttribI4svEXT(int index, short[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribI4svEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 4);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/** Array version of: {@link #glVertexAttribI4usvEXT VertexAttribI4usvEXT} */
+	public static void glVertexAttribI4usvEXT(int index, short[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribI4usvEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 4);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/** short[] version of: {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
+	public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, short[] pointer) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribIPointerEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, index, size, type, stride, pointer);
+	}
+
+	/** int[] version of: {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
+	public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, int[] pointer) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribIPointerEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, index, size, type, stride, pointer);
+	}
+
+	/** Array version of: {@link #glGetVertexAttribIivEXT GetVertexAttribIivEXT} */
+	public static void glGetVertexAttribIivEXT(int index, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetVertexAttribIivEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 4);
+		}
+		callPV(__functionAddress, index, pname, params);
+	}
+
+	/** Array version of: {@link #glGetVertexAttribIuivEXT GetVertexAttribIuivEXT} */
+	public static void glGetVertexAttribIuivEXT(int index, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetVertexAttribIuivEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 4);
+		}
+		callPV(__functionAddress, index, pname, params);
+	}
+
+	/** Array version of: {@link #glGetUniformuivEXT GetUniformuivEXT} */
+	public static void glGetUniformuivEXT(int program, int location, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetUniformuivEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, program, location, params);
+	}
+
+	/** Array version of: {@link #glUniform1uivEXT Uniform1uivEXT} */
+	public static void glUniform1uivEXT(int location, int[] value) {
+		long __functionAddress = GL.getCapabilities().glUniform1uivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, location, value.length, value);
+	}
+
+	/** Array version of: {@link #glUniform2uivEXT Uniform2uivEXT} */
+	public static void glUniform2uivEXT(int location, int[] value) {
+		long __functionAddress = GL.getCapabilities().glUniform2uivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, location, value.length >> 1, value);
+	}
+
+	/** Array version of: {@link #glUniform3uivEXT Uniform3uivEXT} */
+	public static void glUniform3uivEXT(int location, int[] value) {
+		long __functionAddress = GL.getCapabilities().glUniform3uivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, location, value.length / 3, value);
+	}
+
+	/** Array version of: {@link #glUniform4uivEXT Uniform4uivEXT} */
+	public static void glUniform4uivEXT(int location, int[] value) {
+		long __functionAddress = GL.getCapabilities().glUniform4uivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, location, value.length >> 2, value);
 	}
 
 }

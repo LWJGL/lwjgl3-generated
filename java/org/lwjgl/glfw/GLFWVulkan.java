@@ -266,7 +266,7 @@ public class GLFWVulkan {
 	 */
 	public static boolean glfwGetPhysicalDevicePresentationSupport(VkInstance instance, VkPhysicalDevice device, int queuefamily) {
 		long __functionAddress = Functions.GetPhysicalDevicePresentationSupport;
-		return invokePPII(__functionAddress, instance.address(), device.address(), queuefamily) != 0;
+		return invokePPI(__functionAddress, instance.address(), device.address(), queuefamily) != 0;
 	}
 
 	// --- [ glfwCreateWindowSurface ] ---
@@ -342,6 +342,17 @@ public class GLFWVulkan {
 		if ( CHECKS )
 			checkBuffer(surface, 1);
 		return nglfwCreateWindowSurface(instance.address(), window, allocator == null ? NULL : allocator.address(), memAddress(surface));
+	}
+
+	/** Array version of: {@link #glfwCreateWindowSurface CreateWindowSurface} */
+	public static int glfwCreateWindowSurface(VkInstance instance, long window, VkAllocationCallbacks allocator, long[] surface) {
+		long __functionAddress = Functions.CreateWindowSurface;
+		if ( CHECKS ) {
+			checkPointer(window);
+			checkBuffer(surface, 1);
+			if ( allocator != null ) VkAllocationCallbacks.validate(allocator.address());
+		}
+		return invokePPPPI(__functionAddress, instance.address(), window, allocator == null ? NULL : allocator.address(), surface);
 	}
 
 }

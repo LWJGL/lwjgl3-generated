@@ -94,7 +94,7 @@ public class ARBOcclusionQuery {
 		long __functionAddress = GL.getCapabilities().glGenQueriesARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, ids);
+		callPV(__functionAddress, n, ids);
 	}
 
 	/**
@@ -130,7 +130,7 @@ public class ARBOcclusionQuery {
 		long __functionAddress = GL.getCapabilities().glDeleteQueriesARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, ids);
+		callPV(__functionAddress, n, ids);
 	}
 
 	/**
@@ -164,7 +164,7 @@ public class ARBOcclusionQuery {
 		long __functionAddress = GL.getCapabilities().glIsQueryARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIZ(__functionAddress, id);
+		return callZ(__functionAddress, id);
 	}
 
 	// --- [ glBeginQueryARB ] ---
@@ -179,7 +179,7 @@ public class ARBOcclusionQuery {
 		long __functionAddress = GL.getCapabilities().glBeginQueryARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, target, id);
+		callV(__functionAddress, target, id);
 	}
 
 	// --- [ glEndQueryARB ] ---
@@ -193,7 +193,7 @@ public class ARBOcclusionQuery {
 		long __functionAddress = GL.getCapabilities().glEndQueryARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, target);
+		callV(__functionAddress, target);
 	}
 
 	// --- [ glGetQueryivARB ] ---
@@ -209,7 +209,7 @@ public class ARBOcclusionQuery {
 		long __functionAddress = GL.getCapabilities().glGetQueryivARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -255,7 +255,7 @@ public class ARBOcclusionQuery {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjectivARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, id, pname, params);
+		callPV(__functionAddress, id, pname, params);
 	}
 
 	/**
@@ -301,7 +301,7 @@ public class ARBOcclusionQuery {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjectuivARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, id, pname, params);
+		callPV(__functionAddress, id, pname, params);
 	}
 
 	/**
@@ -332,6 +332,52 @@ public class ARBOcclusionQuery {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #glGenQueriesARB GenQueriesARB} */
+	public static void glGenQueriesARB(int[] ids) {
+		long __functionAddress = GL.getCapabilities().glGenQueriesARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, ids.length, ids);
+	}
+
+	/** Array version of: {@link #glDeleteQueriesARB DeleteQueriesARB} */
+	public static void glDeleteQueriesARB(int[] ids) {
+		long __functionAddress = GL.getCapabilities().glDeleteQueriesARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, ids.length, ids);
+	}
+
+	/** Array version of: {@link #glGetQueryivARB GetQueryivARB} */
+	public static void glGetQueryivARB(int target, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetQueryivARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, target, pname, params);
+	}
+
+	/** Array version of: {@link #glGetQueryObjectivARB GetQueryObjectivARB} */
+	public static void glGetQueryObjectivARB(int id, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetQueryObjectivARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, id, pname, params);
+	}
+
+	/** Array version of: {@link #glGetQueryObjectuivARB GetQueryObjectuivARB} */
+	public static void glGetQueryObjectuivARB(int id, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetQueryObjectuivARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, id, pname, params);
 	}
 
 }

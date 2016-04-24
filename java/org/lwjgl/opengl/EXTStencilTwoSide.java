@@ -42,7 +42,7 @@ public class EXTStencilTwoSide {
 		long __functionAddress = GL.getCapabilities().glActiveStencilFaceEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, face);
+		callV(__functionAddress, face);
 	}
 
 }

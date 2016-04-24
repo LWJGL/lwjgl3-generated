@@ -80,7 +80,7 @@ public class EXTFramebufferMultisample {
 		long __functionAddress = GL.getCapabilities().glRenderbufferStorageMultisampleEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, target, samples, internalformat, width, height);
+		callV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
 }

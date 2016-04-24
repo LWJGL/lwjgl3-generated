@@ -239,7 +239,7 @@ public class KHRSurface {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceSurfaceSupportKHR;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callPIJPI(__functionAddress, physicalDevice.address(), queueFamilyIndex, surface, pSupported);
+		return callPJPI(__functionAddress, physicalDevice.address(), queueFamilyIndex, surface, pSupported);
 	}
 
 	/**
@@ -444,6 +444,36 @@ public class KHRSurface {
 		if ( CHECKS )
 			if ( pPresentModes != null ) checkBuffer(pPresentModes, pPresentModeCount.get(pPresentModeCount.position()));
 		return nvkGetPhysicalDeviceSurfacePresentModesKHR(physicalDevice, surface, memAddress(pPresentModeCount), memAddressSafe(pPresentModes));
+	}
+
+	/** Array version of: {@link #vkGetPhysicalDeviceSurfaceSupportKHR GetPhysicalDeviceSurfaceSupportKHR} */
+	public static int vkGetPhysicalDeviceSurfaceSupportKHR(VkPhysicalDevice physicalDevice, int queueFamilyIndex, long surface, int[] pSupported) {
+		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceSurfaceSupportKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(pSupported, 1);
+		}
+		return callPJPI(__functionAddress, physicalDevice.address(), queueFamilyIndex, surface, pSupported);
+	}
+
+	/** Array version of: {@link #vkGetPhysicalDeviceSurfaceFormatsKHR GetPhysicalDeviceSurfaceFormatsKHR} */
+	public static int vkGetPhysicalDeviceSurfaceFormatsKHR(VkPhysicalDevice physicalDevice, long surface, int[] pSurfaceFormatCount, VkSurfaceFormatKHR.Buffer pSurfaceFormats) {
+		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceSurfaceFormatsKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( pSurfaceFormats != null ) checkBuffer(pSurfaceFormats, pSurfaceFormatCount[0]);
+		}
+		return callPJPPI(__functionAddress, physicalDevice.address(), surface, pSurfaceFormatCount, pSurfaceFormats == null ? NULL : pSurfaceFormats.address());
+	}
+
+	/** Array version of: {@link #vkGetPhysicalDeviceSurfacePresentModesKHR GetPhysicalDeviceSurfacePresentModesKHR} */
+	public static int vkGetPhysicalDeviceSurfacePresentModesKHR(VkPhysicalDevice physicalDevice, long surface, int[] pPresentModeCount, int[] pPresentModes) {
+		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceSurfacePresentModesKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( pPresentModes != null ) checkBuffer(pPresentModes, pPresentModeCount[0]);
+		}
+		return callPJPPI(__functionAddress, physicalDevice.address(), surface, pPresentModeCount, pPresentModes);
 	}
 
 }

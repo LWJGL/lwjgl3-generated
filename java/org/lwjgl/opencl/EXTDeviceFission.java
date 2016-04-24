@@ -121,7 +121,7 @@ public class EXTDeviceFission {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(in_device);
 		}
-		return callPPIPPI(__functionAddress, in_device, properties, num_entries, out_devices, num_devices);
+		return callPPPPI(__functionAddress, in_device, properties, num_entries, out_devices, num_devices);
 	}
 
 	public static int clCreateSubDevicesEXT(long in_device, LongBuffer properties, PointerBuffer out_devices, IntBuffer num_devices) {
@@ -130,6 +130,18 @@ public class EXTDeviceFission {
 			if ( num_devices != null ) checkBuffer(num_devices, 1);
 		}
 		return nclCreateSubDevicesEXT(in_device, memAddress(properties), out_devices == null ? 0 : out_devices.remaining(), memAddressSafe(out_devices), memAddressSafe(num_devices));
+	}
+
+	/** Array version of: {@link #clCreateSubDevicesEXT CreateSubDevicesEXT} */
+	public static int clCreateSubDevicesEXT(long in_device, long[] properties, PointerBuffer out_devices, int[] num_devices) {
+		long __functionAddress = CL.getICD().clCreateSubDevicesEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(in_device);
+			checkNT(properties);
+			if ( num_devices != null ) checkBuffer(num_devices, 1);
+		}
+		return callPPPPI(__functionAddress, in_device, properties, out_devices == null ? 0 : out_devices.remaining(), memAddressSafe(out_devices), num_devices);
 	}
 
 }

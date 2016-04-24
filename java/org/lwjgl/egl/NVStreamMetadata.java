@@ -71,7 +71,7 @@ public class NVStreamMetadata {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 		}
-		return callPIPI(__functionAddress, dpy, attribute, value);
+		return callPPI(__functionAddress, dpy, attribute, value);
 	}
 
 	public static int eglQueryDisplayAttribNV(long dpy, int attribute, PointerBuffer value) {
@@ -89,7 +89,7 @@ public class NVStreamMetadata {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return callPPIIIPI(__functionAddress, dpy, stream, n, offset, size, data);
+		return callPPPI(__functionAddress, dpy, stream, n, offset, size, data);
 	}
 
 	public static int eglSetStreamMetadataNV(long dpy, long stream, int n, int offset, ByteBuffer data) {
@@ -105,7 +105,7 @@ public class NVStreamMetadata {
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return callPPIIIIPI(__functionAddress, dpy, stream, name, n, offset, size, data);
+		return callPPPI(__functionAddress, dpy, stream, name, n, offset, size, data);
 	}
 
 	public static int eglQueryStreamMetadataNV(long dpy, long stream, int name, int n, int offset, ByteBuffer data) {

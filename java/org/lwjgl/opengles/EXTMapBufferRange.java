@@ -56,7 +56,7 @@ public class EXTMapBufferRange {
 		long __functionAddress = GLES.getCapabilities().glMapBufferRangeEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIPPIP(__functionAddress, target, offset, length, access);
+		return callPPP(__functionAddress, target, offset, length, access);
 	}
 
 	public static ByteBuffer glMapBufferRangeEXT(int target, long offset, long length, int access) {
@@ -75,7 +75,7 @@ public class EXTMapBufferRange {
 		long __functionAddress = GLES.getCapabilities().glFlushMappedBufferRangeEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPPV(__functionAddress, target, offset, length);
+		callPPV(__functionAddress, target, offset, length);
 	}
 
 }

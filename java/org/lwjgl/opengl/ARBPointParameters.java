@@ -61,7 +61,7 @@ public class ARBPointParameters {
 		long __functionAddress = GL.getCapabilities().glPointParameterfARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIFV(__functionAddress, pname, param);
+		callV(__functionAddress, pname, param);
 	}
 
 	// --- [ glPointParameterfvARB ] ---
@@ -76,7 +76,7 @@ public class ARBPointParameters {
 		long __functionAddress = GL.getCapabilities().glPointParameterfvARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, pname, params);
+		callPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -89,6 +89,16 @@ public class ARBPointParameters {
 		if ( CHECKS )
 			checkBuffer(params, 3);
 		nglPointParameterfvARB(pname, memAddress(params));
+	}
+
+	/** Array version of: {@link #glPointParameterfvARB PointParameterfvARB} */
+	public static void glPointParameterfvARB(int pname, float[] params) {
+		long __functionAddress = GL.getCapabilities().glPointParameterfvARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 3);
+		}
+		callPV(__functionAddress, pname, params);
 	}
 
 }

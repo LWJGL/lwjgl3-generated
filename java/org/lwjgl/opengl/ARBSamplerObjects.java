@@ -61,7 +61,7 @@ public class ARBSamplerObjects {
 		long __functionAddress = GL.getCapabilities().glGenSamplers;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, count, samplers);
+		callPV(__functionAddress, count, samplers);
 	}
 
 	/**
@@ -97,7 +97,7 @@ public class ARBSamplerObjects {
 		long __functionAddress = GL.getCapabilities().glDeleteSamplers;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, count, samplers);
+		callPV(__functionAddress, count, samplers);
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class ARBSamplerObjects {
 		long __functionAddress = GL.getCapabilities().glIsSampler;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIZ(__functionAddress, sampler);
+		return callZ(__functionAddress, sampler);
 	}
 
 	// --- [ glBindSampler ] ---
@@ -146,7 +146,7 @@ public class ARBSamplerObjects {
 		long __functionAddress = GL.getCapabilities().glBindSampler;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, unit, sampler);
+		callV(__functionAddress, unit, sampler);
 	}
 
 	// --- [ glSamplerParameteri ] ---
@@ -162,7 +162,7 @@ public class ARBSamplerObjects {
 		long __functionAddress = GL.getCapabilities().glSamplerParameteri;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, sampler, pname, param);
+		callV(__functionAddress, sampler, pname, param);
 	}
 
 	// --- [ glSamplerParameterf ] ---
@@ -178,7 +178,7 @@ public class ARBSamplerObjects {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIFV(__functionAddress, sampler, pname, param);
+		callV(__functionAddress, sampler, pname, param);
 	}
 
 	// --- [ glSamplerParameteriv ] ---
@@ -194,7 +194,7 @@ public class ARBSamplerObjects {
 		long __functionAddress = GL.getCapabilities().glSamplerParameteriv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, sampler, pname, params);
+		callPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -221,7 +221,7 @@ public class ARBSamplerObjects {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, sampler, pname, params);
+		callPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -248,7 +248,7 @@ public class ARBSamplerObjects {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterIiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, sampler, pname, params);
+		callPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -275,7 +275,7 @@ public class ARBSamplerObjects {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterIuiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, sampler, pname, params);
+		callPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -302,7 +302,7 @@ public class ARBSamplerObjects {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameteriv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, sampler, pname, params);
+		callPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -348,7 +348,7 @@ public class ARBSamplerObjects {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameterfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, sampler, pname, params);
+		callPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -394,7 +394,7 @@ public class ARBSamplerObjects {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameterIiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, sampler, pname, params);
+		callPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -440,7 +440,7 @@ public class ARBSamplerObjects {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameterIuiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, sampler, pname, params);
+		callPV(__functionAddress, sampler, pname, params);
 	}
 
 	/**
@@ -471,6 +471,94 @@ public class ARBSamplerObjects {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #glGenSamplers GenSamplers} */
+	public static void glGenSamplers(int[] samplers) {
+		long __functionAddress = GL.getCapabilities().glGenSamplers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, samplers.length, samplers);
+	}
+
+	/** Array version of: {@link #glDeleteSamplers DeleteSamplers} */
+	public static void glDeleteSamplers(int[] samplers) {
+		long __functionAddress = GL.getCapabilities().glDeleteSamplers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, samplers.length, samplers);
+	}
+
+	/** Array version of: {@link #glSamplerParameteriv SamplerParameteriv} */
+	public static void glSamplerParameteriv(int sampler, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glSamplerParameteriv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, sampler, pname, params);
+	}
+
+	/** Array version of: {@link #glSamplerParameterfv SamplerParameterfv} */
+	public static void glSamplerParameterfv(int sampler, int pname, float[] params) {
+		long __functionAddress = GL.getCapabilities().glSamplerParameterfv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, sampler, pname, params);
+	}
+
+	/** Array version of: {@link #glSamplerParameterIiv SamplerParameterIiv} */
+	public static void glSamplerParameterIiv(int sampler, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glSamplerParameterIiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, sampler, pname, params);
+	}
+
+	/** Array version of: {@link #glSamplerParameterIuiv SamplerParameterIuiv} */
+	public static void glSamplerParameterIuiv(int sampler, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glSamplerParameterIuiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, sampler, pname, params);
+	}
+
+	/** Array version of: {@link #glGetSamplerParameteriv GetSamplerParameteriv} */
+	public static void glGetSamplerParameteriv(int sampler, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetSamplerParameteriv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, sampler, pname, params);
+	}
+
+	/** Array version of: {@link #glGetSamplerParameterfv GetSamplerParameterfv} */
+	public static void glGetSamplerParameterfv(int sampler, int pname, float[] params) {
+		long __functionAddress = GL.getCapabilities().glGetSamplerParameterfv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, sampler, pname, params);
+	}
+
+	/** Array version of: {@link #glGetSamplerParameterIiv GetSamplerParameterIiv} */
+	public static void glGetSamplerParameterIiv(int sampler, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetSamplerParameterIiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, sampler, pname, params);
+	}
+
+	/** Array version of: {@link #glGetSamplerParameterIuiv GetSamplerParameterIuiv} */
+	public static void glGetSamplerParameterIuiv(int sampler, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetSamplerParameterIuiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, sampler, pname, params);
 	}
 
 }

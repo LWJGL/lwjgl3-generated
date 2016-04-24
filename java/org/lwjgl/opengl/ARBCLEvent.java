@@ -62,7 +62,7 @@ public class ARBCLEvent {
 			checkPointer(context);
 			checkPointer(event);
 		}
-		return callPPIP(__functionAddress, context, event, flags);
+		return callPPP(__functionAddress, context, event, flags);
 	}
 
 }

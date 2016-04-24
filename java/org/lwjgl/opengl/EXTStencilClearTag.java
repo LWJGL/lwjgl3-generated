@@ -67,7 +67,7 @@ public class EXTStencilClearTag {
 		long __functionAddress = GL.getCapabilities().glStencilClearTagEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, stencilTagBits, stencilClearTag);
+		callV(__functionAddress, stencilTagBits, stencilClearTag);
 	}
 
 }

@@ -132,7 +132,7 @@ public class ARBTessellationShader {
 		long __functionAddress = GL.getCapabilities().glPatchParameteri;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, pname, value);
+		callV(__functionAddress, pname, value);
 	}
 
 	// --- [ glPatchParameterfv ] ---
@@ -147,7 +147,7 @@ public class ARBTessellationShader {
 		long __functionAddress = GL.getCapabilities().glPatchParameterfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, pname, values);
+		callPV(__functionAddress, pname, values);
 	}
 
 	/**
@@ -161,6 +161,17 @@ public class ARBTessellationShader {
 			if ( DEBUG )
 				checkBuffer(values, GL11.glGetInteger(GL_PATCH_VERTICES));
 		nglPatchParameterfv(pname, memAddress(values));
+	}
+
+	/** Array version of: {@link #glPatchParameterfv PatchParameterfv} */
+	public static void glPatchParameterfv(int pname, float[] values) {
+		long __functionAddress = GL.getCapabilities().glPatchParameterfv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( DEBUG )
+				checkBuffer(values, GL11.glGetInteger(GL_PATCH_VERTICES));
+		}
+		callPV(__functionAddress, pname, values);
 	}
 
 }

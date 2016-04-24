@@ -57,7 +57,7 @@ public class EXTProvokingVertex {
 		long __functionAddress = GL.getCapabilities().glProvokingVertexEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, mode);
+		callV(__functionAddress, mode);
 	}
 
 }

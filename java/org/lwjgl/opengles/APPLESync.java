@@ -87,7 +87,7 @@ public class APPLESync {
 		long __functionAddress = GLES.getCapabilities().glFenceSyncAPPLE;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIIP(__functionAddress, condition, flags);
+		return callP(__functionAddress, condition, flags);
 	}
 
 	// --- [ glIsSyncAPPLE ] ---
@@ -120,7 +120,7 @@ public class APPLESync {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
 		}
-		return callPIJI(__functionAddress, sync, flags, timeout);
+		return callPJI(__functionAddress, sync, flags, timeout);
 	}
 
 	// --- [ glWaitSyncAPPLE ] ---
@@ -131,7 +131,7 @@ public class APPLESync {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
 		}
-		callPIJV(__functionAddress, sync, flags, timeout);
+		callPJV(__functionAddress, sync, flags, timeout);
 	}
 
 	// --- [ glGetInteger64vAPPLE ] ---
@@ -140,7 +140,7 @@ public class APPLESync {
 		long __functionAddress = GLES.getCapabilities().glGetInteger64vAPPLE;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, pname, params);
+		callPV(__functionAddress, pname, params);
 	}
 
 	public static void glGetInteger64vAPPLE(int pname, LongBuffer params) {
@@ -168,7 +168,7 @@ public class APPLESync {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
 		}
-		callPIIPPV(__functionAddress, sync, pname, bufSize, length, values);
+		callPPPV(__functionAddress, sync, pname, bufSize, length, values);
 	}
 
 	public static void glGetSyncivAPPLE(long sync, int pname, IntBuffer length, IntBuffer values) {
@@ -188,6 +188,27 @@ public class APPLESync {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #glGetInteger64vAPPLE GetInteger64vAPPLE} */
+	public static void glGetInteger64vAPPLE(int pname, long[] params) {
+		long __functionAddress = GLES.getCapabilities().glGetInteger64vAPPLE;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, pname, params);
+	}
+
+	/** Array version of: {@link #glGetSyncivAPPLE GetSyncivAPPLE} */
+	public static void glGetSyncivAPPLE(long sync, int pname, int[] length, int[] values) {
+		long __functionAddress = GLES.getCapabilities().glGetSyncivAPPLE;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(sync);
+			if ( length != null ) checkBuffer(length, 1);
+		}
+		callPPPV(__functionAddress, sync, pname, values.length, length, values);
 	}
 
 }

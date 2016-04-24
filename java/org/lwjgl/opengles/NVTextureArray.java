@@ -66,7 +66,7 @@ public class NVTextureArray {
 		long __functionAddress = GLES.getCapabilities().glTexImage3DNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIIIPV(__functionAddress, target, level, internalFormat, width, height, depth, border, format, type, pixels);
+		callPV(__functionAddress, target, level, internalFormat, width, height, depth, border, format, type, pixels);
 	}
 
 	public static void glTexImage3DNV(int target, int level, int internalFormat, int width, int height, int depth, int border, int format, int type, ByteBuffer pixels) {
@@ -108,7 +108,7 @@ public class NVTextureArray {
 		long __functionAddress = GLES.getCapabilities().glTexSubImage3DNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
+		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
 	public static void glTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer pixels) {
@@ -150,7 +150,7 @@ public class NVTextureArray {
 		long __functionAddress = GLES.getCapabilities().glCopyTexSubImage3DNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIIIV(__functionAddress, target, level, xoffset, yoffset, zoffset, x, y, width, height);
+		callV(__functionAddress, target, level, xoffset, yoffset, zoffset, x, y, width, height);
 	}
 
 	// --- [ glCompressedTexImage3DNV ] ---
@@ -159,7 +159,7 @@ public class NVTextureArray {
 		long __functionAddress = GLES.getCapabilities().glCompressedTexImage3DNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, imageSize, data);
+		callPV(__functionAddress, target, level, internalformat, width, height, depth, border, imageSize, data);
 	}
 
 	public static void glCompressedTexImage3DNV(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, ByteBuffer data) {
@@ -180,7 +180,7 @@ public class NVTextureArray {
 		long __functionAddress = GLES.getCapabilities().glCompressedTexSubImage3DNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
+		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
 	public static void glCompressedTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, ByteBuffer data) {
@@ -201,7 +201,67 @@ public class NVTextureArray {
 		long __functionAddress = GLES.getCapabilities().glFramebufferTextureLayerNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, target, attachment, texture, level, layer);
+		callV(__functionAddress, target, attachment, texture, level, layer);
+	}
+
+	/** short[] version of: {@link #glTexImage3DNV TexImage3DNV} */
+	public static void glTexImage3DNV(int target, int level, int internalFormat, int width, int height, int depth, int border, int format, int type, short[] pixels) {
+		long __functionAddress = GLES.getCapabilities().glTexImage3DNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, target, level, internalFormat, width, height, depth, border, format, type, pixels);
+	}
+
+	/** int[] version of: {@link #glTexImage3DNV TexImage3DNV} */
+	public static void glTexImage3DNV(int target, int level, int internalFormat, int width, int height, int depth, int border, int format, int type, int[] pixels) {
+		long __functionAddress = GLES.getCapabilities().glTexImage3DNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, target, level, internalFormat, width, height, depth, border, format, type, pixels);
+	}
+
+	/** float[] version of: {@link #glTexImage3DNV TexImage3DNV} */
+	public static void glTexImage3DNV(int target, int level, int internalFormat, int width, int height, int depth, int border, int format, int type, float[] pixels) {
+		long __functionAddress = GLES.getCapabilities().glTexImage3DNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, target, level, internalFormat, width, height, depth, border, format, type, pixels);
+	}
+
+	/** short[] version of: {@link #glTexSubImage3DNV TexSubImage3DNV} */
+	public static void glTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short[] pixels) {
+		long __functionAddress = GLES.getCapabilities().glTexSubImage3DNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
+	}
+
+	/** int[] version of: {@link #glTexSubImage3DNV TexSubImage3DNV} */
+	public static void glTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int[] pixels) {
+		long __functionAddress = GLES.getCapabilities().glTexSubImage3DNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
+	}
+
+	/** float[] version of: {@link #glTexSubImage3DNV TexSubImage3DNV} */
+	public static void glTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float[] pixels) {
+		long __functionAddress = GLES.getCapabilities().glTexSubImage3DNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
 }

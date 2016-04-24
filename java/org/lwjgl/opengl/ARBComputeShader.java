@@ -96,7 +96,7 @@ public class ARBComputeShader {
 		long __functionAddress = GL.getCapabilities().glDispatchCompute;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, num_groups_x, num_groups_y, num_groups_z);
+		callV(__functionAddress, num_groups_x, num_groups_y, num_groups_z);
 	}
 
 	// --- [ glDispatchComputeIndirect ] ---

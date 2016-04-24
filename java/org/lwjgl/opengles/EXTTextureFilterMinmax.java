@@ -52,7 +52,7 @@ public class EXTTextureFilterMinmax {
 		long __functionAddress = GLES.getCapabilities().glRasterSamplesEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIZV(__functionAddress, samples, fixedsamplelocations);
+		callV(__functionAddress, samples, fixedsamplelocations);
 	}
 
 }

@@ -131,7 +131,7 @@ public class ARBVertexBufferObject {
 		long __functionAddress = GL.getCapabilities().glBindBufferARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, target, buffer);
+		callV(__functionAddress, target, buffer);
 	}
 
 	// --- [ glDeleteBuffersARB ] ---
@@ -146,7 +146,7 @@ public class ARBVertexBufferObject {
 		long __functionAddress = GL.getCapabilities().glDeleteBuffersARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, buffers);
+		callPV(__functionAddress, n, buffers);
 	}
 
 	/**
@@ -181,7 +181,7 @@ public class ARBVertexBufferObject {
 		long __functionAddress = GL.getCapabilities().glGenBuffersARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, buffers);
+		callPV(__functionAddress, n, buffers);
 	}
 
 	/**
@@ -216,7 +216,7 @@ public class ARBVertexBufferObject {
 		long __functionAddress = GL.getCapabilities().glIsBufferARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIZ(__functionAddress, buffer);
+		return callZ(__functionAddress, buffer);
 	}
 
 	// --- [ glBufferDataARB ] ---
@@ -252,7 +252,7 @@ public class ARBVertexBufferObject {
 		long __functionAddress = GL.getCapabilities().glBufferDataARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPPIV(__functionAddress, target, size, data, usage);
+		callPPV(__functionAddress, target, size, data, usage);
 	}
 
 	/**
@@ -287,7 +287,7 @@ public class ARBVertexBufferObject {
 
 	/** ByteBuffer version of: {@link #glBufferDataARB BufferDataARB} */
 	public static void glBufferDataARB(int target, ByteBuffer data, int usage) {
-		nglBufferDataARB(target, data.remaining(), memAddress(data), usage);
+		nglBufferDataARB(target, (long)data.remaining(), memAddress(data), usage);
 	}
 
 	/** ShortBuffer version of: {@link #glBufferDataARB BufferDataARB} */
@@ -324,7 +324,7 @@ public class ARBVertexBufferObject {
 		long __functionAddress = GL.getCapabilities().glBufferSubDataARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPPPV(__functionAddress, target, offset, size, data);
+		callPPPV(__functionAddress, target, offset, size, data);
 	}
 
 	/**
@@ -335,7 +335,7 @@ public class ARBVertexBufferObject {
 	 * @param data   a pointer to the new data that will be copied into the data store
 	 */
 	public static void glBufferSubDataARB(int target, long offset, ByteBuffer data) {
-		nglBufferSubDataARB(target, offset, data.remaining(), memAddress(data));
+		nglBufferSubDataARB(target, offset, (long)data.remaining(), memAddress(data));
 	}
 
 	/** ShortBuffer version of: {@link #glBufferSubDataARB BufferSubDataARB} */
@@ -372,7 +372,7 @@ public class ARBVertexBufferObject {
 		long __functionAddress = GL.getCapabilities().glGetBufferSubDataARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPPPV(__functionAddress, target, offset, size, data);
+		callPPPV(__functionAddress, target, offset, size, data);
 	}
 
 	/**
@@ -383,7 +383,7 @@ public class ARBVertexBufferObject {
 	 * @param data   a pointer to the location where buffer object data is returned
 	 */
 	public static void glGetBufferSubDataARB(int target, long offset, ByteBuffer data) {
-		nglGetBufferSubDataARB(target, offset, data.remaining(), memAddress(data));
+		nglGetBufferSubDataARB(target, offset, (long)data.remaining(), memAddress(data));
 	}
 
 	/** ShortBuffer version of: {@link #glGetBufferSubDataARB GetBufferSubDataARB} */
@@ -426,7 +426,7 @@ public class ARBVertexBufferObject {
 		long __functionAddress = GL.getCapabilities().glMapBufferARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIIP(__functionAddress, target, access);
+		return callP(__functionAddress, target, access);
 	}
 
 	/**
@@ -503,7 +503,7 @@ public class ARBVertexBufferObject {
 		long __functionAddress = GL.getCapabilities().glUnmapBufferARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIZ(__functionAddress, target);
+		return callZ(__functionAddress, target);
 	}
 
 	// --- [ glGetBufferParameterivARB ] ---
@@ -519,7 +519,7 @@ public class ARBVertexBufferObject {
 		long __functionAddress = GL.getCapabilities().glGetBufferParameterivARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -565,7 +565,7 @@ public class ARBVertexBufferObject {
 		long __functionAddress = GL.getCapabilities().glGetBufferPointervARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -596,6 +596,128 @@ public class ARBVertexBufferObject {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #glDeleteBuffersARB DeleteBuffersARB} */
+	public static void glDeleteBuffersARB(int[] buffers) {
+		long __functionAddress = GL.getCapabilities().glDeleteBuffersARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, buffers.length, buffers);
+	}
+
+	/** Array version of: {@link #glGenBuffersARB GenBuffersARB} */
+	public static void glGenBuffersARB(int[] buffers) {
+		long __functionAddress = GL.getCapabilities().glGenBuffersARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, buffers.length, buffers);
+	}
+
+	/** short[] version of: {@link #glBufferDataARB BufferDataARB} */
+	public static void glBufferDataARB(int target, short[] data, int usage) {
+		long __functionAddress = GL.getCapabilities().glBufferDataARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, target, (long)(data.length << 1), data, usage);
+	}
+
+	/** int[] version of: {@link #glBufferDataARB BufferDataARB} */
+	public static void glBufferDataARB(int target, int[] data, int usage) {
+		long __functionAddress = GL.getCapabilities().glBufferDataARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, target, (long)(data.length << 2), data, usage);
+	}
+
+	/** float[] version of: {@link #glBufferDataARB BufferDataARB} */
+	public static void glBufferDataARB(int target, float[] data, int usage) {
+		long __functionAddress = GL.getCapabilities().glBufferDataARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, target, (long)(data.length << 2), data, usage);
+	}
+
+	/** double[] version of: {@link #glBufferDataARB BufferDataARB} */
+	public static void glBufferDataARB(int target, double[] data, int usage) {
+		long __functionAddress = GL.getCapabilities().glBufferDataARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPV(__functionAddress, target, (long)(data.length << 3), data, usage);
+	}
+
+	/** short[] version of: {@link #glBufferSubDataARB BufferSubDataARB} */
+	public static void glBufferSubDataARB(int target, long offset, short[] data) {
+		long __functionAddress = GL.getCapabilities().glBufferSubDataARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, target, offset, (long)(data.length << 1), data);
+	}
+
+	/** int[] version of: {@link #glBufferSubDataARB BufferSubDataARB} */
+	public static void glBufferSubDataARB(int target, long offset, int[] data) {
+		long __functionAddress = GL.getCapabilities().glBufferSubDataARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
+	}
+
+	/** float[] version of: {@link #glBufferSubDataARB BufferSubDataARB} */
+	public static void glBufferSubDataARB(int target, long offset, float[] data) {
+		long __functionAddress = GL.getCapabilities().glBufferSubDataARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
+	}
+
+	/** double[] version of: {@link #glBufferSubDataARB BufferSubDataARB} */
+	public static void glBufferSubDataARB(int target, long offset, double[] data) {
+		long __functionAddress = GL.getCapabilities().glBufferSubDataARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, target, offset, (long)(data.length << 3), data);
+	}
+
+	/** short[] version of: {@link #glGetBufferSubDataARB GetBufferSubDataARB} */
+	public static void glGetBufferSubDataARB(int target, long offset, short[] data) {
+		long __functionAddress = GL.getCapabilities().glGetBufferSubDataARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, target, offset, (long)(data.length << 1), data);
+	}
+
+	/** int[] version of: {@link #glGetBufferSubDataARB GetBufferSubDataARB} */
+	public static void glGetBufferSubDataARB(int target, long offset, int[] data) {
+		long __functionAddress = GL.getCapabilities().glGetBufferSubDataARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
+	}
+
+	/** float[] version of: {@link #glGetBufferSubDataARB GetBufferSubDataARB} */
+	public static void glGetBufferSubDataARB(int target, long offset, float[] data) {
+		long __functionAddress = GL.getCapabilities().glGetBufferSubDataARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
+	}
+
+	/** double[] version of: {@link #glGetBufferSubDataARB GetBufferSubDataARB} */
+	public static void glGetBufferSubDataARB(int target, long offset, double[] data) {
+		long __functionAddress = GL.getCapabilities().glGetBufferSubDataARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPPPV(__functionAddress, target, offset, (long)(data.length << 3), data);
+	}
+
+	/** Array version of: {@link #glGetBufferParameterivARB GetBufferParameterivARB} */
+	public static void glGetBufferParameterivARB(int target, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetBufferParameterivARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, target, pname, params);
 	}
 
 }

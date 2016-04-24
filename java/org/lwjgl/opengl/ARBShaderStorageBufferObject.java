@@ -90,7 +90,7 @@ public class ARBShaderStorageBufferObject {
 		long __functionAddress = GL.getCapabilities().glShaderStorageBlockBinding;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, program, storageBlockIndex, storageBlockBinding);
+		callV(__functionAddress, program, storageBlockIndex, storageBlockBinding);
 	}
 
 }

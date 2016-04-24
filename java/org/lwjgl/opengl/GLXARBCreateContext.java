@@ -83,7 +83,7 @@ public class GLXARBCreateContext {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return callPPPIPP(__functionAddress, display, config, share_context, direct, attrib_list);
+		return callPPPPP(__functionAddress, display, config, share_context, direct, attrib_list);
 	}
 
 	/**
@@ -118,6 +118,18 @@ public class GLXARBCreateContext {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list);
 		return nglXCreateContextAttribsARB(display, config, share_context, direct, memAddressSafe(attrib_list));
+	}
+
+	/** Array version of: {@link #glXCreateContextAttribsARB CreateContextAttribsARB} */
+	public static long glXCreateContextAttribsARB(long display, long config, long share_context, int direct, int[] attrib_list) {
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateContextAttribsARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(display);
+			checkPointer(config);
+			if ( attrib_list != null ) checkNT(attrib_list);
+		}
+		return callPPPPP(__functionAddress, display, config, share_context, direct, attrib_list);
 	}
 
 }

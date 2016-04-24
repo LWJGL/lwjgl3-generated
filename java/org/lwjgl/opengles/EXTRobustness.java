@@ -92,7 +92,7 @@ public class EXTRobustness {
 		long __functionAddress = GLES.getCapabilities().glReadnPixelsEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIPV(__functionAddress, x, y, width, height, format, type, bufSize, data);
+		callPV(__functionAddress, x, y, width, height, format, type, bufSize, data);
 	}
 
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int bufSize, long data) {
@@ -134,7 +134,7 @@ public class EXTRobustness {
 		long __functionAddress = GLES.getCapabilities().glGetnUniformfvEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, location, bufSize, params);
+		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	public static void glGetnUniformfvEXT(int program, int location, FloatBuffer params) {
@@ -158,7 +158,7 @@ public class EXTRobustness {
 		long __functionAddress = GLES.getCapabilities().glGetnUniformivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, location, bufSize, params);
+		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
 	public static void glGetnUniformivEXT(int program, int location, IntBuffer params) {
@@ -174,6 +174,52 @@ public class EXTRobustness {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** short[] version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
+	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, short[] data) {
+		long __functionAddress = GLES.getCapabilities().glReadnPixelsEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, x, y, width, height, format, type, data.length << 1, data);
+	}
+
+	/** int[] version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
+	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int[] data) {
+		long __functionAddress = GLES.getCapabilities().glReadnPixelsEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, x, y, width, height, format, type, data.length << 2, data);
+	}
+
+	/** float[] version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
+	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, float[] data) {
+		long __functionAddress = GLES.getCapabilities().glReadnPixelsEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, x, y, width, height, format, type, data.length << 2, data);
+	}
+
+	/** Array version of: {@link #glGetnUniformfvEXT GetnUniformfvEXT} */
+	public static void glGetnUniformfvEXT(int program, int location, float[] params) {
+		long __functionAddress = GLES.getCapabilities().glGetnUniformfvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, program, location, params.length, params);
+	}
+
+	/** Array version of: {@link #glGetnUniformivEXT GetnUniformivEXT} */
+	public static void glGetnUniformivEXT(int program, int location, int[] params) {
+		long __functionAddress = GLES.getCapabilities().glGetnUniformivEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, program, location, params.length, params);
 	}
 
 }

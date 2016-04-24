@@ -57,7 +57,7 @@ public class AL11 {
 		long __functionAddress = AL.getCapabilities().alListener3i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIFFFV(__functionAddress, paramName, value1, value2, value3);
+		invokeV(__functionAddress, paramName, value1, value2, value3);
 	}
 
 	// --- [ alGetListeneriv ] ---
@@ -72,7 +72,7 @@ public class AL11 {
 		long __functionAddress = AL.getCapabilities().alGetListeneriv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, param, values);
+		invokePV(__functionAddress, param, values);
 	}
 
 	/**
@@ -102,7 +102,7 @@ public class AL11 {
 		long __functionAddress = AL.getCapabilities().alSource3i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIV(__functionAddress, source, paramName, value1, value2, value3);
+		invokeV(__functionAddress, source, paramName, value1, value2, value3);
 	}
 
 	// --- [ alListeneriv ] ---
@@ -117,7 +117,7 @@ public class AL11 {
 		long __functionAddress = AL.getCapabilities().alListeneriv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIPV(__functionAddress, listener, value);
+		invokePV(__functionAddress, listener, value);
 	}
 
 	/**
@@ -145,7 +145,7 @@ public class AL11 {
 		long __functionAddress = AL.getCapabilities().alSourceiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, source, paramName, value);
+		invokePV(__functionAddress, source, paramName, value);
 	}
 
 	/**
@@ -174,7 +174,7 @@ public class AL11 {
 		long __functionAddress = AL.getCapabilities().alBufferf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIFV(__functionAddress, buffer, paramName, value);
+		invokeV(__functionAddress, buffer, paramName, value);
 	}
 
 	// --- [ alBuffer3f ] ---
@@ -192,7 +192,7 @@ public class AL11 {
 		long __functionAddress = AL.getCapabilities().alBuffer3f;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIFFFV(__functionAddress, buffer, paramName, value1, value2, value3);
+		invokeV(__functionAddress, buffer, paramName, value1, value2, value3);
 	}
 
 	// --- [ alBufferfv ] ---
@@ -208,7 +208,7 @@ public class AL11 {
 		long __functionAddress = AL.getCapabilities().alBufferfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, buffer, paramName, value);
+		invokePV(__functionAddress, buffer, paramName, value);
 	}
 
 	/**
@@ -237,7 +237,7 @@ public class AL11 {
 		long __functionAddress = AL.getCapabilities().alBufferi;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIV(__functionAddress, buffer, paramName, value);
+		invokeV(__functionAddress, buffer, paramName, value);
 	}
 
 	// --- [ alBuffer3i ] ---
@@ -255,7 +255,7 @@ public class AL11 {
 		long __functionAddress = AL.getCapabilities().alBuffer3i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIIIIV(__functionAddress, buffer, paramName, value1, value2, value3);
+		invokeV(__functionAddress, buffer, paramName, value1, value2, value3);
 	}
 
 	// --- [ alBufferiv ] ---
@@ -271,7 +271,7 @@ public class AL11 {
 		long __functionAddress = AL.getCapabilities().alBufferiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, buffer, paramName, value);
+		invokePV(__functionAddress, buffer, paramName, value);
 	}
 
 	/**
@@ -300,7 +300,7 @@ public class AL11 {
 		long __functionAddress = AL.getCapabilities().alGetBufferi;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, buffer, param, value);
+		invokePV(__functionAddress, buffer, param, value);
 	}
 
 	/**
@@ -346,7 +346,7 @@ public class AL11 {
 		long __functionAddress = AL.getCapabilities().alGetBufferiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, buffer, param, values);
+		invokePV(__functionAddress, buffer, param, values);
 	}
 
 	/**
@@ -375,7 +375,7 @@ public class AL11 {
 		long __functionAddress = AL.getCapabilities().alGetBufferf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, buffer, param, value);
+		invokePV(__functionAddress, buffer, param, value);
 	}
 
 	/**
@@ -421,7 +421,7 @@ public class AL11 {
 		long __functionAddress = AL.getCapabilities().alGetBufferfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPV(__functionAddress, buffer, param, values);
+		invokePV(__functionAddress, buffer, param, values);
 	}
 
 	/**
@@ -448,7 +448,97 @@ public class AL11 {
 		long __functionAddress = AL.getCapabilities().alSpeedOfSound;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeFV(__functionAddress, value);
+		invokeV(__functionAddress, value);
+	}
+
+	/** Array version of: {@link #alGetListeneriv GetListeneriv} */
+	public static void alGetListeneriv(int param, int[] values) {
+		long __functionAddress = AL.getCapabilities().alGetListeneriv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(values, 1);
+		}
+		invokePV(__functionAddress, param, values);
+	}
+
+	/** Array version of: {@link #alListeneriv Listeneriv} */
+	public static void alListeneriv(int listener, int[] value) {
+		long __functionAddress = AL.getCapabilities().alListeneriv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(value, 1);
+		}
+		invokePV(__functionAddress, listener, value);
+	}
+
+	/** Array version of: {@link #alSourceiv Sourceiv} */
+	public static void alSourceiv(int source, int paramName, int[] value) {
+		long __functionAddress = AL.getCapabilities().alSourceiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(value, 1);
+		}
+		invokePV(__functionAddress, source, paramName, value);
+	}
+
+	/** Array version of: {@link #alBufferfv Bufferfv} */
+	public static void alBufferfv(int buffer, int paramName, float[] value) {
+		long __functionAddress = AL.getCapabilities().alBufferfv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(value, 1);
+		}
+		invokePV(__functionAddress, buffer, paramName, value);
+	}
+
+	/** Array version of: {@link #alBufferiv Bufferiv} */
+	public static void alBufferiv(int buffer, int paramName, int[] value) {
+		long __functionAddress = AL.getCapabilities().alBufferiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(value, 1);
+		}
+		invokePV(__functionAddress, buffer, paramName, value);
+	}
+
+	/** Array version of: {@link #alGetBufferi GetBufferi} */
+	public static void alGetBufferi(int buffer, int param, int[] value) {
+		long __functionAddress = AL.getCapabilities().alGetBufferi;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(value, 1);
+		}
+		invokePV(__functionAddress, buffer, param, value);
+	}
+
+	/** Array version of: {@link #alGetBufferiv GetBufferiv} */
+	public static void alGetBufferiv(int buffer, int param, int[] values) {
+		long __functionAddress = AL.getCapabilities().alGetBufferiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(values, 1);
+		}
+		invokePV(__functionAddress, buffer, param, values);
+	}
+
+	/** Array version of: {@link #alGetBufferf GetBufferf} */
+	public static void alGetBufferf(int buffer, int param, float[] value) {
+		long __functionAddress = AL.getCapabilities().alGetBufferf;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(value, 1);
+		}
+		invokePV(__functionAddress, buffer, param, value);
+	}
+
+	/** Array version of: {@link #alGetBufferfv GetBufferfv} */
+	public static void alGetBufferfv(int buffer, int param, float[] values) {
+		long __functionAddress = AL.getCapabilities().alGetBufferfv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(values, 1);
+		}
+		invokePV(__functionAddress, buffer, param, values);
 	}
 
 }

@@ -38,7 +38,7 @@ public class NVDrawTexture {
 		long __functionAddress = GL.getCapabilities().glDrawTextureNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIFFFFFFFFFV(__functionAddress, texture, sampler, x0, y0, x1, y1, z, s0, t0, s1, t1);
+		callV(__functionAddress, texture, sampler, x0, y0, x1, y1, z, s0, t0, s1, t1);
 	}
 
 }

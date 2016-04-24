@@ -52,7 +52,7 @@ public class ARBWindowPos {
 		long __functionAddress = GL.getCapabilities().glWindowPos2iARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, x, y);
+		callV(__functionAddress, x, y);
 	}
 
 	// --- [ glWindowPos2sARB ] ---
@@ -67,7 +67,7 @@ public class ARBWindowPos {
 		long __functionAddress = GL.getCapabilities().glWindowPos2sARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callSSV(__functionAddress, x, y);
+		callV(__functionAddress, x, y);
 	}
 
 	// --- [ glWindowPos2fARB ] ---
@@ -82,7 +82,7 @@ public class ARBWindowPos {
 		long __functionAddress = GL.getCapabilities().glWindowPos2fARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFV(__functionAddress, x, y);
+		callV(__functionAddress, x, y);
 	}
 
 	// --- [ glWindowPos2dARB ] ---
@@ -97,7 +97,7 @@ public class ARBWindowPos {
 		long __functionAddress = GL.getCapabilities().glWindowPos2dARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDDV(__functionAddress, x, y);
+		callV(__functionAddress, x, y);
 	}
 
 	// --- [ glWindowPos2ivARB ] ---
@@ -213,7 +213,7 @@ public class ARBWindowPos {
 		long __functionAddress = GL.getCapabilities().glWindowPos3iARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, x, y, z);
+		callV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glWindowPos3sARB ] ---
@@ -229,7 +229,7 @@ public class ARBWindowPos {
 		long __functionAddress = GL.getCapabilities().glWindowPos3sARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callSSSV(__functionAddress, x, y, z);
+		callV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glWindowPos3fARB ] ---
@@ -245,7 +245,7 @@ public class ARBWindowPos {
 		long __functionAddress = GL.getCapabilities().glWindowPos3fARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFFFV(__functionAddress, x, y, z);
+		callV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glWindowPos3dARB ] ---
@@ -261,7 +261,7 @@ public class ARBWindowPos {
 		long __functionAddress = GL.getCapabilities().glWindowPos3dARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callDDDV(__functionAddress, x, y, z);
+		callV(__functionAddress, x, y, z);
 	}
 
 	// --- [ glWindowPos3ivARB ] ---
@@ -362,6 +362,86 @@ public class ARBWindowPos {
 		if ( CHECKS )
 			checkBuffer(p, 3);
 		nglWindowPos3dvARB(memAddress(p));
+	}
+
+	/** Array version of: {@link #glWindowPos2ivARB WindowPos2ivARB} */
+	public static void glWindowPos2ivARB(int[] p) {
+		long __functionAddress = GL.getCapabilities().glWindowPos2ivARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(p, 2);
+		}
+		callPV(__functionAddress, p);
+	}
+
+	/** Array version of: {@link #glWindowPos2svARB WindowPos2svARB} */
+	public static void glWindowPos2svARB(short[] p) {
+		long __functionAddress = GL.getCapabilities().glWindowPos2svARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(p, 2);
+		}
+		callPV(__functionAddress, p);
+	}
+
+	/** Array version of: {@link #glWindowPos2fvARB WindowPos2fvARB} */
+	public static void glWindowPos2fvARB(float[] p) {
+		long __functionAddress = GL.getCapabilities().glWindowPos2fvARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(p, 2);
+		}
+		callPV(__functionAddress, p);
+	}
+
+	/** Array version of: {@link #glWindowPos2dvARB WindowPos2dvARB} */
+	public static void glWindowPos2dvARB(double[] p) {
+		long __functionAddress = GL.getCapabilities().glWindowPos2dvARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(p, 2);
+		}
+		callPV(__functionAddress, p);
+	}
+
+	/** Array version of: {@link #glWindowPos3ivARB WindowPos3ivARB} */
+	public static void glWindowPos3ivARB(int[] p) {
+		long __functionAddress = GL.getCapabilities().glWindowPos3ivARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(p, 3);
+		}
+		callPV(__functionAddress, p);
+	}
+
+	/** Array version of: {@link #glWindowPos3svARB WindowPos3svARB} */
+	public static void glWindowPos3svARB(short[] p) {
+		long __functionAddress = GL.getCapabilities().glWindowPos3svARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(p, 3);
+		}
+		callPV(__functionAddress, p);
+	}
+
+	/** Array version of: {@link #glWindowPos3fvARB WindowPos3fvARB} */
+	public static void glWindowPos3fvARB(float[] p) {
+		long __functionAddress = GL.getCapabilities().glWindowPos3fvARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(p, 3);
+		}
+		callPV(__functionAddress, p);
+	}
+
+	/** Array version of: {@link #glWindowPos3dvARB WindowPos3dvARB} */
+	public static void glWindowPos3dvARB(double[] p) {
+		long __functionAddress = GL.getCapabilities().glWindowPos3dvARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(p, 3);
+		}
+		callPV(__functionAddress, p);
 	}
 
 }

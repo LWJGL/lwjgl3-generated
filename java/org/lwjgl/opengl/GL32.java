@@ -216,7 +216,7 @@ public class GL32 {
 		long __functionAddress = GL.getCapabilities().glGetBufferParameteri64v;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -270,7 +270,7 @@ public class GL32 {
 		long __functionAddress = GL.getCapabilities().glDrawElementsBaseVertex;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPIV(__functionAddress, mode, count, type, indices, basevertex);
+		callPV(__functionAddress, mode, count, type, indices, basevertex);
 	}
 
 	/**
@@ -370,7 +370,7 @@ public class GL32 {
 		long __functionAddress = GL.getCapabilities().glDrawRangeElementsBaseVertex;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIPIV(__functionAddress, mode, start, end, count, type, indices, basevertex);
+		callPV(__functionAddress, mode, start, end, count, type, indices, basevertex);
 	}
 
 	/**
@@ -479,7 +479,7 @@ public class GL32 {
 		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedBaseVertex;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPIIV(__functionAddress, mode, count, type, indices, primcount, basevertex);
+		callPV(__functionAddress, mode, count, type, indices, primcount, basevertex);
 	}
 
 	/**
@@ -585,7 +585,7 @@ public class GL32 {
 		long __functionAddress = GL.getCapabilities().glMultiDrawElementsBaseVertex;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPIPIPV(__functionAddress, mode, count, type, indices, primcount, basevertex);
+		callPPPV(__functionAddress, mode, count, type, indices, primcount, basevertex);
 	}
 
 	/**
@@ -622,7 +622,7 @@ public class GL32 {
 		long __functionAddress = GL.getCapabilities().glProvokingVertex;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, mode);
+		callV(__functionAddress, mode);
 	}
 
 	// --- [ glTexImage2DMultisample ] ---
@@ -645,7 +645,7 @@ public class GL32 {
 		long __functionAddress = GL.getCapabilities().glTexImage2DMultisample;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIZV(__functionAddress, target, samples, internalformat, width, height, fixedsamplelocations);
+		callV(__functionAddress, target, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
 	// --- [ glTexImage3DMultisample ] ---
@@ -669,7 +669,7 @@ public class GL32 {
 		long __functionAddress = GL.getCapabilities().glTexImage3DMultisample;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIZV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
+		callV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
 	// --- [ glGetMultisamplefv ] ---
@@ -687,7 +687,7 @@ public class GL32 {
 		long __functionAddress = GL.getCapabilities().glGetMultisamplefv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, pname, index, val);
+		callPV(__functionAddress, pname, index, val);
 	}
 
 	/**
@@ -738,7 +738,7 @@ public class GL32 {
 		long __functionAddress = GL.getCapabilities().glSampleMaski;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, index, mask);
+		callV(__functionAddress, index, mask);
 	}
 
 	// --- [ glFramebufferTexture ] ---
@@ -757,7 +757,7 @@ public class GL32 {
 		long __functionAddress = GL.getCapabilities().glFramebufferTexture;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, target, attachment, texture, level);
+		callV(__functionAddress, target, attachment, texture, level);
 	}
 
 	// --- [ glFenceSync ] ---
@@ -775,7 +775,7 @@ public class GL32 {
 		long __functionAddress = GL.getCapabilities().glFenceSync;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIIP(__functionAddress, condition, flags);
+		return callP(__functionAddress, condition, flags);
 	}
 
 	// --- [ glIsSync ] ---
@@ -841,7 +841,7 @@ public class GL32 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
 		}
-		return callPIJI(__functionAddress, sync, flags, timeout);
+		return callPJI(__functionAddress, sync, flags, timeout);
 	}
 
 	// --- [ glWaitSync ] ---
@@ -867,7 +867,7 @@ public class GL32 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
 		}
-		callPIJV(__functionAddress, sync, flags, timeout);
+		callPJV(__functionAddress, sync, flags, timeout);
 	}
 
 	// --- [ glGetInteger64v ] ---
@@ -884,7 +884,7 @@ public class GL32 {
 		long __functionAddress = GL.getCapabilities().glGetInteger64v;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, pname, params);
+		callPV(__functionAddress, pname, params);
 	}
 
 	/**
@@ -934,7 +934,7 @@ public class GL32 {
 		long __functionAddress = GL.getCapabilities().glGetInteger64i_v;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, pname, index, params);
+		callPV(__functionAddress, pname, index, params);
 	}
 
 	/**
@@ -990,7 +990,7 @@ public class GL32 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
 		}
-		callPIIPPV(__functionAddress, sync, pname, bufSize, length, values);
+		callPPPV(__functionAddress, sync, pname, bufSize, length, values);
 	}
 
 	/**
@@ -1029,6 +1029,92 @@ public class GL32 {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetBufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetBufferParameteri64v GetBufferParameteri64v}
+	 */
+	public static void glGetBufferParameteri64v(int target, int pname, long[] params) {
+		long __functionAddress = GL.getCapabilities().glGetBufferParameteri64v;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, target, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMultiDrawElementsBaseVertex.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glMultiDrawElementsBaseVertex MultiDrawElementsBaseVertex}
+	 */
+	public static void glMultiDrawElementsBaseVertex(int mode, int[] count, int type, PointerBuffer indices, int[] basevertex) {
+		long __functionAddress = GL.getCapabilities().glMultiDrawElementsBaseVertex;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(indices, count.length);
+			checkBuffer(basevertex, count.length);
+		}
+		callPPPV(__functionAddress, mode, count, type, memAddress(indices), count.length, basevertex);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetMultisample.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetMultisamplefv GetMultisamplefv}
+	 */
+	public static void glGetMultisamplefv(int pname, int index, float[] val) {
+		long __functionAddress = GL.getCapabilities().glGetMultisamplefv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(val, 1);
+		}
+		callPV(__functionAddress, pname, index, val);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetInteger64v GetInteger64v}
+	 */
+	public static void glGetInteger64v(int pname, long[] params) {
+		long __functionAddress = GL.getCapabilities().glGetInteger64v;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetInteger64i_v GetInteger64i_v}
+	 */
+	public static void glGetInteger64i_v(int pname, int index, long[] params) {
+		long __functionAddress = GL.getCapabilities().glGetInteger64i_v;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, pname, index, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetSync.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetSynciv GetSynciv}
+	 */
+	public static void glGetSynciv(long sync, int pname, int[] length, int[] values) {
+		long __functionAddress = GL.getCapabilities().glGetSynciv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(sync);
+			if ( length != null ) checkBuffer(length, 1);
+		}
+		callPPPV(__functionAddress, sync, pname, values.length, length, values);
 	}
 
 }

@@ -126,7 +126,7 @@ public class ARBProgramInterfaceQuery {
 		long __functionAddress = GL.getCapabilities().glGetProgramInterfaceiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, programInterface, pname, params);
+		callPV(__functionAddress, program, programInterface, pname, params);
 	}
 
 	/**
@@ -174,7 +174,7 @@ public class ARBProgramInterfaceQuery {
 		long __functionAddress = GL.getCapabilities().glGetProgramResourceIndex;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIIPI(__functionAddress, program, programInterface, name);
+		return callPI(__functionAddress, program, programInterface, name);
 	}
 
 	/**
@@ -223,7 +223,7 @@ public class ARBProgramInterfaceQuery {
 		long __functionAddress = GL.getCapabilities().glGetProgramResourceName;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIPPV(__functionAddress, program, programInterface, index, bufSize, length, name);
+		callPPV(__functionAddress, program, programInterface, index, bufSize, length, name);
 	}
 
 	/**
@@ -299,7 +299,7 @@ public class ARBProgramInterfaceQuery {
 		long __functionAddress = GL.getCapabilities().glGetProgramResourceiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIPIPPV(__functionAddress, program, programInterface, index, propCount, props, bufSize, length, params);
+		callPPPV(__functionAddress, program, programInterface, index, propCount, props, bufSize, length, params);
 	}
 
 	/**
@@ -331,7 +331,7 @@ public class ARBProgramInterfaceQuery {
 		long __functionAddress = GL.getCapabilities().glGetProgramResourceLocation;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIIPI(__functionAddress, program, programInterface, name);
+		return callPI(__functionAddress, program, programInterface, name);
 	}
 
 	/**
@@ -377,7 +377,7 @@ public class ARBProgramInterfaceQuery {
 		long __functionAddress = GL.getCapabilities().glGetProgramResourceLocationIndex;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIIPI(__functionAddress, program, programInterface, name);
+		return callPI(__functionAddress, program, programInterface, name);
 	}
 
 	/**
@@ -408,6 +408,36 @@ public class ARBProgramInterfaceQuery {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #glGetProgramInterfaceiv GetProgramInterfaceiv} */
+	public static void glGetProgramInterfaceiv(int program, int programInterface, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetProgramInterfaceiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, program, programInterface, pname, params);
+	}
+
+	/** Array version of: {@link #glGetProgramResourceName GetProgramResourceName} */
+	public static void glGetProgramResourceName(int program, int programInterface, int index, int[] length, ByteBuffer name) {
+		long __functionAddress = GL.getCapabilities().glGetProgramResourceName;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( length != null ) checkBuffer(length, 1);
+		}
+		callPPV(__functionAddress, program, programInterface, index, name.remaining(), length, memAddress(name));
+	}
+
+	/** Array version of: {@link #glGetProgramResourceiv GetProgramResourceiv} */
+	public static void glGetProgramResourceiv(int program, int programInterface, int index, int[] props, int[] length, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetProgramResourceiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( length != null ) checkBuffer(length, 1);
+		}
+		callPPPV(__functionAddress, program, programInterface, index, props.length, props, params.length, length, params);
 	}
 
 }

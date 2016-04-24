@@ -29,7 +29,7 @@ public class WGLNVVertexArrayRange {
 		long __functionAddress = GL.getCapabilitiesWGL().wglAllocateMemoryNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIFFFP(__functionAddress, size, readfreq, writefreq, priority);
+		return callP(__functionAddress, size, readfreq, writefreq, priority);
 	}
 
 	public static ByteBuffer wglAllocateMemoryNV(int size, float readfreq, float writefreq, float priority) {

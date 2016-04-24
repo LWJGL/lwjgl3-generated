@@ -44,7 +44,7 @@ public class OVRMultiviewMultisampledRenderToTexture {
 		long __functionAddress = GLES.getCapabilities().glFramebufferTextureMultisampleMultiviewOVR;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIV(__functionAddress, target, attachment, texture, level, samples, baseViewIndex, numViews);
+		callV(__functionAddress, target, attachment, texture, level, samples, baseViewIndex, numViews);
 	}
 
 }

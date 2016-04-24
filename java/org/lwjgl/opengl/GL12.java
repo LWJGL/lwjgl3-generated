@@ -166,7 +166,7 @@ public class GL12 {
 		long __functionAddress = GL.getCapabilities().glTexImage3D;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIIIPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
+		callPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
 	/**
@@ -213,28 +213,44 @@ public class GL12 {
 		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glTexImage3D TexImage3D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glTexImage3D TexImage3D}
+	 */
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ShortBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glTexImage3D TexImage3D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glTexImage3D TexImage3D}
+	 */
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, IntBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glTexImage3D TexImage3D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glTexImage3D TexImage3D}
+	 */
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, FloatBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glTexImage3D TexImage3D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * DoubleBuffer version of: {@link #glTexImage3D TexImage3D}
+	 */
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, DoubleBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -265,7 +281,7 @@ public class GL12 {
 		long __functionAddress = GL.getCapabilities().glTexSubImage3D;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIIIIPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
+		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
 	/**
@@ -316,28 +332,44 @@ public class GL12 {
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glTexSubImage3D TexSubImage3D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glTexSubImage3D TexSubImage3D}
+	 */
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ShortBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glTexSubImage3D TexSubImage3D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glTexSubImage3D TexSubImage3D}
+	 */
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glTexSubImage3D TexSubImage3D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #glTexSubImage3D TexSubImage3D}
+	 */
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, FloatBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glTexSubImage3D TexSubImage3D} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * DoubleBuffer version of: {@link #glTexSubImage3D TexSubImage3D}
+	 */
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, DoubleBuffer pixels) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
@@ -367,7 +399,7 @@ public class GL12 {
 		long __functionAddress = GL.getCapabilities().glCopyTexSubImage3D;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIIIV(__functionAddress, target, level, xoffset, yoffset, zoffset, x, y, width, height);
+		callV(__functionAddress, target, level, xoffset, yoffset, zoffset, x, y, width, height);
 	}
 
 	// --- [ glDrawRangeElements ] ---
@@ -417,7 +449,7 @@ public class GL12 {
 		long __functionAddress = GL.getCapabilities().glDrawRangeElements;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIPV(__functionAddress, mode, start, end, count, type, indices);
+		callPV(__functionAddress, mode, start, end, count, type, indices);
 	}
 
 	/**
@@ -646,6 +678,118 @@ public class GL12 {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElements(mode, start, end, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices));
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glTexImage3D TexImage3D}
+	 */
+	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, short[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTexImage3D;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glTexImage3D TexImage3D}
+	 */
+	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, int[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTexImage3D;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glTexImage3D TexImage3D}
+	 */
+	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, float[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTexImage3D;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * double[] version of: {@link #glTexImage3D TexImage3D}
+	 */
+	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, double[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTexImage3D;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glTexSubImage3D TexSubImage3D}
+	 */
+	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTexSubImage3D;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glTexSubImage3D TexSubImage3D}
+	 */
+	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTexSubImage3D;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * float[] version of: {@link #glTexSubImage3D TexSubImage3D}
+	 */
+	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTexSubImage3D;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage3D.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * double[] version of: {@link #glTexSubImage3D TexSubImage3D}
+	 */
+	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, double[] pixels) {
+		long __functionAddress = GL.getCapabilities().glTexSubImage3D;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
 }

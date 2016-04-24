@@ -179,7 +179,7 @@ public class ARBDebugOutput {
 		long __functionAddress = GL.getCapabilities().glDebugMessageControlARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIPZV(__functionAddress, source, type, severity, count, ids, enabled);
+		callPV(__functionAddress, source, type, severity, count, ids, enabled);
 	}
 
 	/**
@@ -269,7 +269,7 @@ public class ARBDebugOutput {
 		long __functionAddress = GL.getCapabilities().glDebugMessageInsertARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIPV(__functionAddress, source, type, id, severity, length, buf);
+		callPV(__functionAddress, source, type, id, severity, length, buf);
 	}
 
 	/**
@@ -438,7 +438,7 @@ public class ARBDebugOutput {
 		long __functionAddress = GL.getCapabilities().glGetDebugMessageLogARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIIPPPPPPI(__functionAddress, count, bufSize, sources, types, ids, severities, lengths, messageLog);
+		return callPPPPPPI(__functionAddress, count, bufSize, sources, types, ids, severities, lengths, messageLog);
 	}
 
 	/**
@@ -479,6 +479,28 @@ public class ARBDebugOutput {
 			if ( lengths != null ) checkBuffer(lengths, count);
 		}
 		return nglGetDebugMessageLogARB(count, messageLog == null ? 0 : messageLog.remaining(), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
+	}
+
+	/** Array version of: {@link #glDebugMessageControlARB DebugMessageControlARB} */
+	public static void glDebugMessageControlARB(int source, int type, int severity, int[] ids, boolean enabled) {
+		long __functionAddress = GL.getCapabilities().glDebugMessageControlARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, source, type, severity, ids == null ? 0 : ids.length, ids, enabled);
+	}
+
+	/** Array version of: {@link #glGetDebugMessageLogARB GetDebugMessageLogARB} */
+	public static int glGetDebugMessageLogARB(int count, int[] sources, int[] types, int[] ids, int[] severities, int[] lengths, ByteBuffer messageLog) {
+		long __functionAddress = GL.getCapabilities().glGetDebugMessageLogARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( sources != null ) checkBuffer(sources, count);
+			if ( types != null ) checkBuffer(types, count);
+			if ( ids != null ) checkBuffer(ids, count);
+			if ( severities != null ) checkBuffer(severities, count);
+			if ( lengths != null ) checkBuffer(lengths, count);
+		}
+		return callPPPPPPI(__functionAddress, count, messageLog == null ? 0 : messageLog.remaining(), sources, types, ids, severities, lengths, memAddressSafe(messageLog));
 	}
 
 }

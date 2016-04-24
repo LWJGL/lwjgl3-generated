@@ -66,7 +66,7 @@ public class ARBBlendFuncExtended {
 		long __functionAddress = GL.getCapabilities().glBindFragDataLocationIndexed;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, colorNumber, index, name);
+		callPV(__functionAddress, program, colorNumber, index, name);
 	}
 
 	/**
@@ -113,7 +113,7 @@ public class ARBBlendFuncExtended {
 		long __functionAddress = GL.getCapabilities().glGetFragDataIndex;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIPI(__functionAddress, program, name);
+		return callPI(__functionAddress, program, name);
 	}
 
 	/**

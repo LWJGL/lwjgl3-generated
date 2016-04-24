@@ -49,7 +49,7 @@ public class NVInstancedArrays {
 		long __functionAddress = GLES.getCapabilities().glVertexAttribDivisorNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, index, divisor);
+		callV(__functionAddress, index, divisor);
 	}
 
 }

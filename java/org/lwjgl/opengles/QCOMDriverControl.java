@@ -46,7 +46,7 @@ public class QCOMDriverControl {
 		long __functionAddress = GLES.getCapabilities().glGetDriverControlsQCOM;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPIPV(__functionAddress, num, size, driverControls);
+		callPPV(__functionAddress, num, size, driverControls);
 	}
 
 	public static void glGetDriverControlsQCOM(IntBuffer num, IntBuffer driverControls) {
@@ -61,7 +61,7 @@ public class QCOMDriverControl {
 		long __functionAddress = GLES.getCapabilities().glGetDriverControlStringQCOM;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPPV(__functionAddress, driverControl, bufSize, length, driverControlString);
+		callPPV(__functionAddress, driverControl, bufSize, length, driverControlString);
 	}
 
 	public static void glGetDriverControlStringQCOM(int driverControl, IntBuffer length, ByteBuffer driverControlString) {
@@ -88,7 +88,7 @@ public class QCOMDriverControl {
 		long __functionAddress = GLES.getCapabilities().glEnableDriverControlQCOM;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, driverControl);
+		callV(__functionAddress, driverControl);
 	}
 
 	// --- [ glDisableDriverControlQCOM ] ---
@@ -97,7 +97,27 @@ public class QCOMDriverControl {
 		long __functionAddress = GLES.getCapabilities().glDisableDriverControlQCOM;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, driverControl);
+		callV(__functionAddress, driverControl);
+	}
+
+	/** Array version of: {@link #glGetDriverControlsQCOM GetDriverControlsQCOM} */
+	public static void glGetDriverControlsQCOM(int[] num, int[] driverControls) {
+		long __functionAddress = GLES.getCapabilities().glGetDriverControlsQCOM;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( num != null ) checkBuffer(num, 1);
+		}
+		callPPV(__functionAddress, num, driverControls == null ? 0 : driverControls.length, driverControls);
+	}
+
+	/** Array version of: {@link #glGetDriverControlStringQCOM GetDriverControlStringQCOM} */
+	public static void glGetDriverControlStringQCOM(int driverControl, int[] length, ByteBuffer driverControlString) {
+		long __functionAddress = GLES.getCapabilities().glGetDriverControlStringQCOM;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( length != null ) checkBuffer(length, 1);
+		}
+		callPPV(__functionAddress, driverControl, driverControlString == null ? 0 : driverControlString.remaining(), length, memAddressSafe(driverControlString));
 	}
 
 }

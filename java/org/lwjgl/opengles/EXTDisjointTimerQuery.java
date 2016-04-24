@@ -72,7 +72,7 @@ public class EXTDisjointTimerQuery {
 		long __functionAddress = GLES.getCapabilities().glGenQueriesEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, ids);
+		callPV(__functionAddress, n, ids);
 	}
 
 	public static void glGenQueriesEXT(IntBuffer ids) {
@@ -96,7 +96,7 @@ public class EXTDisjointTimerQuery {
 		long __functionAddress = GLES.getCapabilities().glDeleteQueriesEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, ids);
+		callPV(__functionAddress, n, ids);
 	}
 
 	public static void glDeleteQueriesEXT(IntBuffer ids) {
@@ -119,7 +119,7 @@ public class EXTDisjointTimerQuery {
 		long __functionAddress = GLES.getCapabilities().glIsQueryEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIZ(__functionAddress, id);
+		return callZ(__functionAddress, id);
 	}
 
 	// --- [ glBeginQueryEXT ] ---
@@ -128,7 +128,7 @@ public class EXTDisjointTimerQuery {
 		long __functionAddress = GLES.getCapabilities().glBeginQueryEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, target, id);
+		callV(__functionAddress, target, id);
 	}
 
 	// --- [ glEndQueryEXT ] ---
@@ -137,7 +137,7 @@ public class EXTDisjointTimerQuery {
 		long __functionAddress = GLES.getCapabilities().glEndQueryEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, target);
+		callV(__functionAddress, target);
 	}
 
 	// --- [ glQueryCounterEXT ] ---
@@ -146,7 +146,7 @@ public class EXTDisjointTimerQuery {
 		long __functionAddress = GLES.getCapabilities().glQueryCounterEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, id, target);
+		callV(__functionAddress, id, target);
 	}
 
 	// --- [ glGetQueryivEXT ] ---
@@ -155,7 +155,7 @@ public class EXTDisjointTimerQuery {
 		long __functionAddress = GLES.getCapabilities().glGetQueryivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetQueryivEXT(int target, int pname, IntBuffer params) {
@@ -181,7 +181,7 @@ public class EXTDisjointTimerQuery {
 		long __functionAddress = GLES.getCapabilities().glGetQueryObjectivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, id, pname, params);
+		callPV(__functionAddress, id, pname, params);
 	}
 
 	public static void glGetQueryObjectivEXT(int id, int pname, IntBuffer params) {
@@ -207,7 +207,7 @@ public class EXTDisjointTimerQuery {
 		long __functionAddress = GLES.getCapabilities().glGetQueryObjectuivEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, id, pname, params);
+		callPV(__functionAddress, id, pname, params);
 	}
 
 	public static void glGetQueryObjectuivEXT(int id, int pname, IntBuffer params) {
@@ -233,7 +233,7 @@ public class EXTDisjointTimerQuery {
 		long __functionAddress = GLES.getCapabilities().glGetQueryObjecti64vEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, id, pname, params);
+		callPV(__functionAddress, id, pname, params);
 	}
 
 	public static void glGetQueryObjecti64vEXT(int id, int pname, LongBuffer params) {
@@ -259,7 +259,7 @@ public class EXTDisjointTimerQuery {
 		long __functionAddress = GLES.getCapabilities().glGetQueryObjectui64vEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, id, pname, params);
+		callPV(__functionAddress, id, pname, params);
 	}
 
 	public static void glGetQueryObjectui64vEXT(int id, int pname, LongBuffer params) {
@@ -277,6 +277,72 @@ public class EXTDisjointTimerQuery {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #glGenQueriesEXT GenQueriesEXT} */
+	public static void glGenQueriesEXT(int[] ids) {
+		long __functionAddress = GLES.getCapabilities().glGenQueriesEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, ids.length, ids);
+	}
+
+	/** Array version of: {@link #glDeleteQueriesEXT DeleteQueriesEXT} */
+	public static void glDeleteQueriesEXT(int[] ids) {
+		long __functionAddress = GLES.getCapabilities().glDeleteQueriesEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, ids.length, ids);
+	}
+
+	/** Array version of: {@link #glGetQueryivEXT GetQueryivEXT} */
+	public static void glGetQueryivEXT(int target, int pname, int[] params) {
+		long __functionAddress = GLES.getCapabilities().glGetQueryivEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, target, pname, params);
+	}
+
+	/** Array version of: {@link #glGetQueryObjectivEXT GetQueryObjectivEXT} */
+	public static void glGetQueryObjectivEXT(int id, int pname, int[] params) {
+		long __functionAddress = GLES.getCapabilities().glGetQueryObjectivEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, id, pname, params);
+	}
+
+	/** Array version of: {@link #glGetQueryObjectuivEXT GetQueryObjectuivEXT} */
+	public static void glGetQueryObjectuivEXT(int id, int pname, int[] params) {
+		long __functionAddress = GLES.getCapabilities().glGetQueryObjectuivEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, id, pname, params);
+	}
+
+	/** Array version of: {@link #glGetQueryObjecti64vEXT GetQueryObjecti64vEXT} */
+	public static void glGetQueryObjecti64vEXT(int id, int pname, long[] params) {
+		long __functionAddress = GLES.getCapabilities().glGetQueryObjecti64vEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, id, pname, params);
+	}
+
+	/** Array version of: {@link #glGetQueryObjectui64vEXT GetQueryObjectui64vEXT} */
+	public static void glGetQueryObjectui64vEXT(int id, int pname, long[] params) {
+		long __functionAddress = GLES.getCapabilities().glGetQueryObjectui64vEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, id, pname, params);
 	}
 
 }

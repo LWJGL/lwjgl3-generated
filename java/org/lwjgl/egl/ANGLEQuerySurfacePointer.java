@@ -37,7 +37,7 @@ public class ANGLEQuerySurfacePointer {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPIPI(__functionAddress, dpy, surface, attribute, value);
+		return callPPPI(__functionAddress, dpy, surface, attribute, value);
 	}
 
 	public static int eglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, PointerBuffer value) {

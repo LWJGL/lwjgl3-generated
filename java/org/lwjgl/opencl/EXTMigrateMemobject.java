@@ -68,7 +68,7 @@ public class EXTMigrateMemobject {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 		}
-		return callPIPJIPPI(__functionAddress, command_queue, num_mem_objects, mem_objects, flags, num_events_in_wait_list, event_wait_list, event);
+		return callPPJPPI(__functionAddress, command_queue, num_mem_objects, mem_objects, flags, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**

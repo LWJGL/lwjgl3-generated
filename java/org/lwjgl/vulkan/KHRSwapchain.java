@@ -853,4 +853,37 @@ public class KHRSwapchain {
 		return nvkQueuePresentKHR(queue, pPresentInfo.address());
 	}
 
+	/** Array version of: {@link #vkCreateSwapchainKHR CreateSwapchainKHR} */
+	public static int vkCreateSwapchainKHR(VkDevice device, VkSwapchainCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, long[] pSwapchain) {
+		long __functionAddress = device.getCapabilities().vkCreateSwapchainKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(pSwapchain, 1);
+			VkSwapchainCreateInfoKHR.validate(pCreateInfo.address());
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pSwapchain);
+	}
+
+	/** Array version of: {@link #vkGetSwapchainImagesKHR GetSwapchainImagesKHR} */
+	public static int vkGetSwapchainImagesKHR(VkDevice device, long swapchain, int[] pSwapchainImageCount, long[] pSwapchainImages) {
+		long __functionAddress = device.getCapabilities().vkGetSwapchainImagesKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(pSwapchainImageCount, 1);
+			if ( pSwapchainImages != null ) checkBuffer(pSwapchainImages, pSwapchainImageCount[0]);
+		}
+		return callPJPPI(__functionAddress, device.address(), swapchain, pSwapchainImageCount, pSwapchainImages);
+	}
+
+	/** Array version of: {@link #vkAcquireNextImageKHR AcquireNextImageKHR} */
+	public static int vkAcquireNextImageKHR(VkDevice device, long swapchain, long timeout, long semaphore, long fence, int[] pImageIndex) {
+		long __functionAddress = device.getCapabilities().vkAcquireNextImageKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(pImageIndex, 1);
+		}
+		return callPJJJJPI(__functionAddress, device.address(), swapchain, timeout, semaphore, fence, pImageIndex);
+	}
+
 }

@@ -40,7 +40,7 @@ public class NVTextureMultisample {
 		long __functionAddress = GL.getCapabilities().glTexImage2DMultisampleCoverageNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIZV(__functionAddress, target, coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations);
+		callV(__functionAddress, target, coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations);
 	}
 
 	// --- [ glTexImage3DMultisampleCoverageNV ] ---
@@ -49,7 +49,7 @@ public class NVTextureMultisample {
 		long __functionAddress = GL.getCapabilities().glTexImage3DMultisampleCoverageNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIZV(__functionAddress, target, coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations);
+		callV(__functionAddress, target, coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations);
 	}
 
 	// --- [ glTextureImage2DMultisampleNV ] ---
@@ -58,7 +58,7 @@ public class NVTextureMultisample {
 		long __functionAddress = GL.getCapabilities().glTextureImage2DMultisampleNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIZV(__functionAddress, texture, target, samples, internalFormat, width, height, fixedSampleLocations);
+		callV(__functionAddress, texture, target, samples, internalFormat, width, height, fixedSampleLocations);
 	}
 
 	// --- [ glTextureImage3DMultisampleNV ] ---
@@ -67,7 +67,7 @@ public class NVTextureMultisample {
 		long __functionAddress = GL.getCapabilities().glTextureImage3DMultisampleNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIZV(__functionAddress, texture, target, samples, internalFormat, width, height, depth, fixedSampleLocations);
+		callV(__functionAddress, texture, target, samples, internalFormat, width, height, depth, fixedSampleLocations);
 	}
 
 	// --- [ glTextureImage2DMultisampleCoverageNV ] ---
@@ -76,7 +76,7 @@ public class NVTextureMultisample {
 		long __functionAddress = GL.getCapabilities().glTextureImage2DMultisampleCoverageNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIZV(__functionAddress, texture, target, coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations);
+		callV(__functionAddress, texture, target, coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations);
 	}
 
 	// --- [ glTextureImage3DMultisampleCoverageNV ] ---
@@ -85,7 +85,7 @@ public class NVTextureMultisample {
 		long __functionAddress = GL.getCapabilities().glTextureImage3DMultisampleCoverageNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIIZV(__functionAddress, texture, target, coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations);
+		callV(__functionAddress, texture, target, coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations);
 	}
 
 }

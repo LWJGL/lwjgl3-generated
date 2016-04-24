@@ -60,7 +60,7 @@ public class GLXAMDGPUAssociation {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dstCtx);
 		}
-		callPIIIIIIIIIIV(__functionAddress, dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
+		callPV(__functionAddress, dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
 
 	// --- [ glXCreateAssociatedContextAMD ] ---
@@ -77,7 +77,7 @@ public class GLXAMDGPUAssociation {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(share_list);
 		}
-		return callIPP(__functionAddress, id, share_list);
+		return callPP(__functionAddress, id, share_list);
 	}
 
 	// --- [ glXCreateAssociatedContextAttribsAMD ] ---
@@ -95,7 +95,7 @@ public class GLXAMDGPUAssociation {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(share_context);
 		}
-		return callIPPP(__functionAddress, id, share_context, attribList);
+		return callPPP(__functionAddress, id, share_context, attribList);
 	}
 
 	/**
@@ -163,7 +163,7 @@ public class GLXAMDGPUAssociation {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetGPUIDsAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIII(__functionAddress, maxCount, ids);
+		return callI(__functionAddress, maxCount, ids);
 	}
 
 	// --- [ glXGetGPUInfoAMD ] ---
@@ -181,7 +181,7 @@ public class GLXAMDGPUAssociation {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetGPUInfoAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIIIIPI(__functionAddress, id, property, dataType, size, data);
+		return callPI(__functionAddress, id, property, dataType, size, data);
 	}
 
 	/**
@@ -211,6 +211,16 @@ public class GLXAMDGPUAssociation {
 			checkPointer(ctx);
 		}
 		return callPI(__functionAddress, ctx);
+	}
+
+	/** Array version of: {@link #glXCreateAssociatedContextAttribsAMD CreateAssociatedContextAttribsAMD} */
+	public static long glXCreateAssociatedContextAttribsAMD(int id, long share_context, int[] attribList) {
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateAssociatedContextAttribsAMD;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(share_context);
+		}
+		return callPPP(__functionAddress, id, share_context, attribList);
 	}
 
 }

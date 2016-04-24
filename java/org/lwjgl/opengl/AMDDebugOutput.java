@@ -122,7 +122,7 @@ public class AMDDebugOutput {
 		long __functionAddress = GL.getCapabilities().glDebugMessageEnableAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPZV(__functionAddress, category, severity, count, ids, enabled);
+		callPV(__functionAddress, category, severity, count, ids, enabled);
 	}
 
 	/**
@@ -231,7 +231,7 @@ public class AMDDebugOutput {
 		long __functionAddress = GL.getCapabilities().glDebugMessageInsertAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIPV(__functionAddress, category, severity, id, length, buf);
+		callPV(__functionAddress, category, severity, id, length, buf);
 	}
 
 	/**
@@ -379,7 +379,7 @@ public class AMDDebugOutput {
 		long __functionAddress = GL.getCapabilities().glGetDebugMessageLogAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIIPPPPPI(__functionAddress, count, bufsize, categories, severities, ids, lengths, messageLog);
+		return callPPPPPI(__functionAddress, count, bufsize, categories, severities, ids, lengths, messageLog);
 	}
 
 	/**
@@ -414,6 +414,27 @@ public class AMDDebugOutput {
 			if ( lengths != null ) checkBuffer(lengths, count);
 		}
 		return nglGetDebugMessageLogAMD(count, messageLog == null ? 0 : messageLog.remaining(), memAddressSafe(categories), memAddressSafe(severities), memAddressSafe(ids), memAddressSafe(lengths), memAddressSafe(messageLog));
+	}
+
+	/** Array version of: {@link #glDebugMessageEnableAMD DebugMessageEnableAMD} */
+	public static void glDebugMessageEnableAMD(int category, int severity, int[] ids, boolean enabled) {
+		long __functionAddress = GL.getCapabilities().glDebugMessageEnableAMD;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, category, severity, ids == null ? 0 : ids.length, ids, enabled);
+	}
+
+	/** Array version of: {@link #glGetDebugMessageLogAMD GetDebugMessageLogAMD} */
+	public static int glGetDebugMessageLogAMD(int count, int[] categories, int[] severities, int[] ids, int[] lengths, ByteBuffer messageLog) {
+		long __functionAddress = GL.getCapabilities().glGetDebugMessageLogAMD;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( categories != null ) checkBuffer(categories, count);
+			if ( severities != null ) checkBuffer(severities, count);
+			if ( ids != null ) checkBuffer(ids, count);
+			if ( lengths != null ) checkBuffer(lengths, count);
+		}
+		return callPPPPPI(__functionAddress, count, messageLog == null ? 0 : messageLog.remaining(), categories, severities, ids, lengths, memAddressSafe(messageLog));
 	}
 
 }

@@ -62,7 +62,7 @@ public class OESTextureBorderClamp {
 		long __functionAddress = GLES.getCapabilities().glTexParameterIivOES;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glTexParameterIivOES(int target, int pname, IntBuffer params) {
@@ -85,7 +85,7 @@ public class OESTextureBorderClamp {
 		long __functionAddress = GLES.getCapabilities().glTexParameterIuivOES;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glTexParameterIuivOES(int target, int pname, IntBuffer params) {
@@ -108,7 +108,7 @@ public class OESTextureBorderClamp {
 		long __functionAddress = GLES.getCapabilities().glGetTexParameterIivOES;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetTexParameterIivOES(int target, int pname, IntBuffer params) {
@@ -134,7 +134,7 @@ public class OESTextureBorderClamp {
 		long __functionAddress = GLES.getCapabilities().glGetTexParameterIuivOES;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetTexParameterIuivOES(int target, int pname, IntBuffer params) {
@@ -160,7 +160,7 @@ public class OESTextureBorderClamp {
 		long __functionAddress = GLES.getCapabilities().glSamplerParameterIivOES;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, sampler, pname, params);
+		callPV(__functionAddress, sampler, pname, params);
 	}
 
 	public static void glSamplerParameterIivOES(int sampler, int pname, IntBuffer params) {
@@ -183,7 +183,7 @@ public class OESTextureBorderClamp {
 		long __functionAddress = GLES.getCapabilities().glSamplerParameterIuivOES;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, sampler, pname, params);
+		callPV(__functionAddress, sampler, pname, params);
 	}
 
 	public static void glSamplerParameterIuivOES(int sampler, int pname, IntBuffer params) {
@@ -206,7 +206,7 @@ public class OESTextureBorderClamp {
 		long __functionAddress = GLES.getCapabilities().glGetSamplerParameterIivOES;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, sampler, pname, params);
+		callPV(__functionAddress, sampler, pname, params);
 	}
 
 	public static void glGetSamplerParameterIivOES(int sampler, int pname, IntBuffer params) {
@@ -232,7 +232,7 @@ public class OESTextureBorderClamp {
 		long __functionAddress = GLES.getCapabilities().glGetSamplerParameterIuivOES;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, sampler, pname, params);
+		callPV(__functionAddress, sampler, pname, params);
 	}
 
 	public static void glGetSamplerParameterIuivOES(int sampler, int pname, IntBuffer params) {
@@ -250,6 +250,78 @@ public class OESTextureBorderClamp {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #glTexParameterIivOES TexParameterIivOES} */
+	public static void glTexParameterIivOES(int target, int pname, int[] params) {
+		long __functionAddress = GLES.getCapabilities().glTexParameterIivOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, target, pname, params);
+	}
+
+	/** Array version of: {@link #glTexParameterIuivOES TexParameterIuivOES} */
+	public static void glTexParameterIuivOES(int target, int pname, int[] params) {
+		long __functionAddress = GLES.getCapabilities().glTexParameterIuivOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, target, pname, params);
+	}
+
+	/** Array version of: {@link #glGetTexParameterIivOES GetTexParameterIivOES} */
+	public static void glGetTexParameterIivOES(int target, int pname, int[] params) {
+		long __functionAddress = GLES.getCapabilities().glGetTexParameterIivOES;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, target, pname, params);
+	}
+
+	/** Array version of: {@link #glGetTexParameterIuivOES GetTexParameterIuivOES} */
+	public static void glGetTexParameterIuivOES(int target, int pname, int[] params) {
+		long __functionAddress = GLES.getCapabilities().glGetTexParameterIuivOES;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, target, pname, params);
+	}
+
+	/** Array version of: {@link #glSamplerParameterIivOES SamplerParameterIivOES} */
+	public static void glSamplerParameterIivOES(int sampler, int pname, int[] params) {
+		long __functionAddress = GLES.getCapabilities().glSamplerParameterIivOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, sampler, pname, params);
+	}
+
+	/** Array version of: {@link #glSamplerParameterIuivOES SamplerParameterIuivOES} */
+	public static void glSamplerParameterIuivOES(int sampler, int pname, int[] params) {
+		long __functionAddress = GLES.getCapabilities().glSamplerParameterIuivOES;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, sampler, pname, params);
+	}
+
+	/** Array version of: {@link #glGetSamplerParameterIivOES GetSamplerParameterIivOES} */
+	public static void glGetSamplerParameterIivOES(int sampler, int pname, int[] params) {
+		long __functionAddress = GLES.getCapabilities().glGetSamplerParameterIivOES;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, sampler, pname, params);
+	}
+
+	/** Array version of: {@link #glGetSamplerParameterIuivOES GetSamplerParameterIuivOES} */
+	public static void glGetSamplerParameterIuivOES(int sampler, int pname, int[] params) {
+		long __functionAddress = GLES.getCapabilities().glGetSamplerParameterIuivOES;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, sampler, pname, params);
 	}
 
 }

@@ -51,7 +51,7 @@ public class NVConditionalRender {
 		long __functionAddress = GL.getCapabilities().glBeginConditionalRenderNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, id, mode);
+		callV(__functionAddress, id, mode);
 	}
 
 	// --- [ glEndConditionalRenderNV ] ---

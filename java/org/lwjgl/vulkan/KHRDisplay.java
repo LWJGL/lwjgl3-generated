@@ -216,7 +216,7 @@ public class KHRDisplay {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetDisplayPlaneSupportedDisplaysKHR;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callPIPPI(__functionAddress, physicalDevice.address(), planeIndex, pDisplayCount, pDisplays);
+		return callPPPI(__functionAddress, physicalDevice.address(), planeIndex, pDisplayCount, pDisplays);
 	}
 
 	/**
@@ -418,7 +418,7 @@ public class KHRDisplay {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetDisplayPlaneCapabilitiesKHR;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callPJIPI(__functionAddress, physicalDevice.address(), mode, planeIndex, pCapabilities);
+		return callPJPI(__functionAddress, physicalDevice.address(), mode, planeIndex, pCapabilities);
 	}
 
 	/**
@@ -499,6 +499,72 @@ public class KHRDisplay {
 		if ( CHECKS )
 			checkBuffer(pSurface, 1);
 		return nvkCreateDisplayPlaneSurfaceKHR(instance, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSurface));
+	}
+
+	/** Array version of: {@link #vkGetPhysicalDeviceDisplayPropertiesKHR GetPhysicalDeviceDisplayPropertiesKHR} */
+	public static int vkGetPhysicalDeviceDisplayPropertiesKHR(VkPhysicalDevice physicalDevice, int[] pPropertyCount, VkDisplayPropertiesKHR.Buffer pProperties) {
+		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceDisplayPropertiesKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(pPropertyCount, 1);
+			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount[0]);
+		}
+		return callPPPI(__functionAddress, physicalDevice.address(), pPropertyCount, pProperties == null ? NULL : pProperties.address());
+	}
+
+	/** Array version of: {@link #vkGetPhysicalDeviceDisplayPlanePropertiesKHR GetPhysicalDeviceDisplayPlanePropertiesKHR} */
+	public static int vkGetPhysicalDeviceDisplayPlanePropertiesKHR(VkPhysicalDevice physicalDevice, int[] pPropertyCount, VkDisplayPlanePropertiesKHR.Buffer pProperties) {
+		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceDisplayPlanePropertiesKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(pPropertyCount, 1);
+			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount[0]);
+		}
+		return callPPPI(__functionAddress, physicalDevice.address(), pPropertyCount, pProperties == null ? NULL : pProperties.address());
+	}
+
+	/** Array version of: {@link #vkGetDisplayPlaneSupportedDisplaysKHR GetDisplayPlaneSupportedDisplaysKHR} */
+	public static int vkGetDisplayPlaneSupportedDisplaysKHR(VkPhysicalDevice physicalDevice, int planeIndex, int[] pDisplayCount, long[] pDisplays) {
+		long __functionAddress = physicalDevice.getCapabilities().vkGetDisplayPlaneSupportedDisplaysKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(pDisplayCount, 1);
+			if ( pDisplays != null ) checkBuffer(pDisplays, pDisplayCount[0]);
+		}
+		return callPPPI(__functionAddress, physicalDevice.address(), planeIndex, pDisplayCount, pDisplays);
+	}
+
+	/** Array version of: {@link #vkGetDisplayModePropertiesKHR GetDisplayModePropertiesKHR} */
+	public static int vkGetDisplayModePropertiesKHR(VkPhysicalDevice physicalDevice, long display, int[] pPropertyCount, VkDisplayModePropertiesKHR.Buffer pProperties) {
+		long __functionAddress = physicalDevice.getCapabilities().vkGetDisplayModePropertiesKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(pPropertyCount, 1);
+			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount[0]);
+		}
+		return callPJPPI(__functionAddress, physicalDevice.address(), display, pPropertyCount, pProperties == null ? NULL : pProperties.address());
+	}
+
+	/** Array version of: {@link #vkCreateDisplayModeKHR CreateDisplayModeKHR} */
+	public static int vkCreateDisplayModeKHR(VkPhysicalDevice physicalDevice, long display, VkDisplayModeCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, long[] pMode) {
+		long __functionAddress = physicalDevice.getCapabilities().vkCreateDisplayModeKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(pMode, 1);
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPJPPPI(__functionAddress, physicalDevice.address(), display, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pMode);
+	}
+
+	/** Array version of: {@link #vkCreateDisplayPlaneSurfaceKHR CreateDisplayPlaneSurfaceKHR} */
+	public static int vkCreateDisplayPlaneSurfaceKHR(VkInstance instance, VkDisplaySurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, long[] pSurface) {
+		long __functionAddress = instance.getCapabilities().vkCreateDisplayPlaneSurfaceKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(pSurface, 1);
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPPPPI(__functionAddress, instance.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pSurface);
 	}
 
 }

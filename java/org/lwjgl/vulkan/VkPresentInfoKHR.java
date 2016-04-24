@@ -25,12 +25,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHRSwapchain#VK_STRUCTURE_TYPE_PRESENT_INFO_KHR STRUCTURE_TYPE_PRESENT_INFO_KHR}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
- * <li>If {@code pWaitSemaphores} is not {@code NULL}, {@code pWaitSemaphores} <b>must</b> be a pointer to an array of {@code waitSemaphoreCount} valid
- * {@code VkSemaphore} handles</li>
+ * <li>If {@code waitSemaphoreCount} is not 0, and {@code pWaitSemaphores} is not {@code NULL}, {@code pWaitSemaphores} <b>must</b> be a pointer to an array of
+ * {@code waitSemaphoreCount} valid {@code VkSemaphore} handles</li>
  * <li>{@code pSwapchains} <b>must</b> be a pointer to an array of {@code swapchainCount} valid {@code VkSwapchainKHR} handles</li>
  * <li>{@code pImageIndices} <b>must</b> be a pointer to an array of {@code swapchainCount} {@code uint32_t} values</li>
  * <li>If {@code pResults} is not {@code NULL}, {@code pResults} <b>must</b> be a pointer to an array of {@code swapchainCount} {@code VkResult} values</li>
- * <li>{@code waitSemaphoreCount} <b>must</b> be greater than 0</li>
  * <li>{@code swapchainCount} <b>must</b> be greater than 0</li>
  * <li>Each of the elements of {@code pSwapchains} and the elements of {@code pWaitSemaphores} that are valid handles <b>must</b> have been created, allocated
  * or retrieved from the same {@code VkInstance}</li>

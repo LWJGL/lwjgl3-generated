@@ -72,7 +72,7 @@ public class NVExplicitMultisample {
 		long __functionAddress = GL.getCapabilities().glGetMultisamplefvNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, pname, index, val);
+		callPV(__functionAddress, pname, index, val);
 	}
 
 	public static void glGetMultisamplefvNV(int pname, int index, FloatBuffer val) {
@@ -87,7 +87,7 @@ public class NVExplicitMultisample {
 		long __functionAddress = GL.getCapabilities().glSampleMaskIndexedNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, index, mask);
+		callV(__functionAddress, index, mask);
 	}
 
 	// --- [ glTexRenderbufferNV ] ---
@@ -96,7 +96,17 @@ public class NVExplicitMultisample {
 		long __functionAddress = GL.getCapabilities().glTexRenderbufferNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, target, renderbuffer);
+		callV(__functionAddress, target, renderbuffer);
+	}
+
+	/** Array version of: {@link #glGetMultisamplefvNV GetMultisamplefvNV} */
+	public static void glGetMultisamplefvNV(int pname, int index, float[] val) {
+		long __functionAddress = GL.getCapabilities().glGetMultisamplefvNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(val, 2);
+		}
+		callPV(__functionAddress, pname, index, val);
 	}
 
 }

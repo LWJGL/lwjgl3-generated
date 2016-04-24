@@ -26,8 +26,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} <b>must</b> be {@link KHRDisplay#VK_STRUCTURE_TYPE_DISPLAY_MODE_CREATE_INFO_KHR STRUCTURE_TYPE_DISPLAY_MODE_CREATE_INFO_KHR}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code flags} <b>must</b> be 0</li>
- * <li>The {@code width} and {@code height} members of the {@code visibleRegion} member of {@code parameters} must be greater than 0</li>
- * <li>The {@code refreshRate} member of {@code parameters} must be greater than 0</li>
+ * <li>The {@code width} and {@code height} members of the {@code visibleRegion} member of {@code parameters} <b>must</b> be greater than 0</li>
+ * <li>The {@code refreshRate} member of {@code parameters} <b>must</b> be greater than 0</li>
  * </ul>
  * 
  * <h3>Member documentation</h3>

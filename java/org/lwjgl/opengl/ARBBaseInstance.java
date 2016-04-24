@@ -53,7 +53,7 @@ public class ARBBaseInstance {
 		long __functionAddress = GL.getCapabilities().glDrawArraysInstancedBaseInstance;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, mode, first, count, primcount, baseinstance);
+		callV(__functionAddress, mode, first, count, primcount, baseinstance);
 	}
 
 	// --- [ glDrawElementsInstancedBaseInstance ] ---
@@ -72,7 +72,7 @@ public class ARBBaseInstance {
 		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedBaseInstance;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPIIV(__functionAddress, mode, count, type, indices, primcount, baseinstance);
+		callPV(__functionAddress, mode, count, type, indices, primcount, baseinstance);
 	}
 
 	/**
@@ -165,7 +165,7 @@ public class ARBBaseInstance {
 		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedBaseVertexBaseInstance;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPIIIV(__functionAddress, mode, count, type, indices, primcount, basevertex, baseinstance);
+		callPV(__functionAddress, mode, count, type, indices, primcount, basevertex, baseinstance);
 	}
 
 	/**

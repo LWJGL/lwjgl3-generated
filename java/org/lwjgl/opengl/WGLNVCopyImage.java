@@ -59,7 +59,7 @@ public class WGLNVCopyImage {
 			checkPointer(srcRC);
 			checkPointer(dstRC);
 		}
-		return callPIIIIIIPIIIIIIIIII(__functionAddress, srcRC, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstRC, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth) != 0;
+		return callPPI(__functionAddress, srcRC, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstRC, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth) != 0;
 	}
 
 }

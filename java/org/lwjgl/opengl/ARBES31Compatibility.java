@@ -70,7 +70,7 @@ public class ARBES31Compatibility {
 		long __functionAddress = GL.getCapabilities().glMemoryBarrierByRegion;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, barriers);
+		callV(__functionAddress, barriers);
 	}
 
 }

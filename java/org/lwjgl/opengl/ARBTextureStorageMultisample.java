@@ -51,7 +51,7 @@ public class ARBTextureStorageMultisample {
 		long __functionAddress = GL.getCapabilities().glTexStorage2DMultisample;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIZV(__functionAddress, target, samples, internalformat, width, height, fixedsamplelocations);
+		callV(__functionAddress, target, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
 	// --- [ glTexStorage3DMultisample ] ---
@@ -72,7 +72,7 @@ public class ARBTextureStorageMultisample {
 		long __functionAddress = GL.getCapabilities().glTexStorage3DMultisample;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIZV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
+		callV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
 	// --- [ glTextureStorage2DMultisampleEXT ] ---
@@ -93,7 +93,7 @@ public class ARBTextureStorageMultisample {
 		long __functionAddress = GL.getCapabilities().glTextureStorage2DMultisampleEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIZV(__functionAddress, texture, target, samples, internalformat, width, height, fixedsamplelocations);
+		callV(__functionAddress, texture, target, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
 	// --- [ glTextureStorage3DMultisampleEXT ] ---
@@ -115,7 +115,7 @@ public class ARBTextureStorageMultisample {
 		long __functionAddress = GL.getCapabilities().glTextureStorage3DMultisampleEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIZV(__functionAddress, texture, target, samples, internalformat, width, height, depth, fixedsamplelocations);
+		callV(__functionAddress, texture, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
 }

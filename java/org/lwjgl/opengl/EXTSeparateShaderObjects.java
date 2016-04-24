@@ -71,7 +71,7 @@ public class EXTSeparateShaderObjects {
 		long __functionAddress = GL.getCapabilities().glUseShaderProgramEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, type, program);
+		callV(__functionAddress, type, program);
 	}
 
 	// --- [ glActiveProgramEXT ] ---
@@ -80,7 +80,7 @@ public class EXTSeparateShaderObjects {
 		long __functionAddress = GL.getCapabilities().glActiveProgramEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, program);
+		callV(__functionAddress, program);
 	}
 
 	// --- [ glCreateShaderProgramEXT ] ---
@@ -89,7 +89,7 @@ public class EXTSeparateShaderObjects {
 		long __functionAddress = GL.getCapabilities().glCreateShaderProgramEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIPI(__functionAddress, type, string);
+		return callPI(__functionAddress, type, string);
 	}
 
 	public static int glCreateShaderProgramEXT(int type, ByteBuffer string) {

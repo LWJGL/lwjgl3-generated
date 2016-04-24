@@ -37,7 +37,7 @@ public class AMDDrawBuffersBlend {
 		long __functionAddress = GL.getCapabilities().glBlendFuncIndexedAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, buf, src, dst);
+		callV(__functionAddress, buf, src, dst);
 	}
 
 	// --- [ glBlendFuncSeparateIndexedAMD ] ---
@@ -46,7 +46,7 @@ public class AMDDrawBuffersBlend {
 		long __functionAddress = GL.getCapabilities().glBlendFuncSeparateIndexedAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
+		callV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 	}
 
 	// --- [ glBlendEquationIndexedAMD ] ---
@@ -55,7 +55,7 @@ public class AMDDrawBuffersBlend {
 		long __functionAddress = GL.getCapabilities().glBlendEquationIndexedAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, buf, mode);
+		callV(__functionAddress, buf, mode);
 	}
 
 	// --- [ glBlendEquationSeparateIndexedAMD ] ---
@@ -64,7 +64,7 @@ public class AMDDrawBuffersBlend {
 		long __functionAddress = GL.getCapabilities().glBlendEquationSeparateIndexedAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, buf, modeRGB, modeAlpha);
+		callV(__functionAddress, buf, modeRGB, modeAlpha);
 	}
 
 }

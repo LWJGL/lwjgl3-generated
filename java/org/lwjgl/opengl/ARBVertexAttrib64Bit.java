@@ -81,7 +81,7 @@ public class ARBVertexAttrib64Bit {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL1d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIDV(__functionAddress, index, x);
+		callV(__functionAddress, index, x);
 	}
 
 	// --- [ glVertexAttribL2d ] ---
@@ -97,7 +97,7 @@ public class ARBVertexAttrib64Bit {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL2d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIDDV(__functionAddress, index, x, y);
+		callV(__functionAddress, index, x, y);
 	}
 
 	// --- [ glVertexAttribL3d ] ---
@@ -114,7 +114,7 @@ public class ARBVertexAttrib64Bit {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL3d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIDDDV(__functionAddress, index, x, y, z);
+		callV(__functionAddress, index, x, y, z);
 	}
 
 	// --- [ glVertexAttribL4d ] ---
@@ -132,7 +132,7 @@ public class ARBVertexAttrib64Bit {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL4d;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIDDDDV(__functionAddress, index, x, y, z, w);
+		callV(__functionAddress, index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttribL1dv ] ---
@@ -147,7 +147,7 @@ public class ARBVertexAttrib64Bit {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL1dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -174,7 +174,7 @@ public class ARBVertexAttrib64Bit {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL2dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -201,7 +201,7 @@ public class ARBVertexAttrib64Bit {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL3dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -228,7 +228,7 @@ public class ARBVertexAttrib64Bit {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL4dv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -260,7 +260,7 @@ public class ARBVertexAttrib64Bit {
 		long __functionAddress = GL.getCapabilities().glVertexAttribLPointer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIPV(__functionAddress, index, size, type, stride, pointer);
+		callPV(__functionAddress, index, size, type, stride, pointer);
 	}
 
 	/**
@@ -326,7 +326,7 @@ public class ARBVertexAttrib64Bit {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribLdv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, index, pname, params);
+		callPV(__functionAddress, index, pname, params);
 	}
 
 	/**
@@ -358,7 +358,55 @@ public class ARBVertexAttrib64Bit {
 		long __functionAddress = GL.getCapabilities().glVertexArrayVertexAttribLOffsetEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIPV(__functionAddress, vaobj, buffer, index, size, type, stride, offset);
+		callPV(__functionAddress, vaobj, buffer, index, size, type, stride, offset);
+	}
+
+	/** Array version of: {@link #glVertexAttribL1dv VertexAttribL1dv} */
+	public static void glVertexAttribL1dv(int index, double[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribL1dv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 1);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/** Array version of: {@link #glVertexAttribL2dv VertexAttribL2dv} */
+	public static void glVertexAttribL2dv(int index, double[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribL2dv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 2);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/** Array version of: {@link #glVertexAttribL3dv VertexAttribL3dv} */
+	public static void glVertexAttribL3dv(int index, double[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribL3dv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 3);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/** Array version of: {@link #glVertexAttribL4dv VertexAttribL4dv} */
+	public static void glVertexAttribL4dv(int index, double[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribL4dv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 4);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/** Array version of: {@link #glGetVertexAttribLdv GetVertexAttribLdv} */
+	public static void glGetVertexAttribLdv(int index, int pname, double[] params) {
+		long __functionAddress = GL.getCapabilities().glGetVertexAttribLdv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, index, pname, params);
 	}
 
 }

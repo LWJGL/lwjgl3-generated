@@ -106,7 +106,7 @@ public class ARBTextureMultisample {
 		long __functionAddress = GL.getCapabilities().glTexImage2DMultisample;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIZV(__functionAddress, target, samples, internalformat, width, height, fixedsamplelocations);
+		callV(__functionAddress, target, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
 	// --- [ glTexImage3DMultisample ] ---
@@ -128,7 +128,7 @@ public class ARBTextureMultisample {
 		long __functionAddress = GL.getCapabilities().glTexImage3DMultisample;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIZV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
+		callV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
 	// --- [ glGetMultisamplefv ] ---
@@ -144,7 +144,7 @@ public class ARBTextureMultisample {
 		long __functionAddress = GL.getCapabilities().glGetMultisamplefv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, pname, index, val);
+		callPV(__functionAddress, pname, index, val);
 	}
 
 	/**
@@ -189,7 +189,17 @@ public class ARBTextureMultisample {
 		long __functionAddress = GL.getCapabilities().glSampleMaski;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, index, mask);
+		callV(__functionAddress, index, mask);
+	}
+
+	/** Array version of: {@link #glGetMultisamplefv GetMultisamplefv} */
+	public static void glGetMultisamplefv(int pname, int index, float[] val) {
+		long __functionAddress = GL.getCapabilities().glGetMultisamplefv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(val, 1);
+		}
+		callPV(__functionAddress, pname, index, val);
 	}
 
 }

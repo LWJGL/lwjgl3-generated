@@ -66,7 +66,7 @@ public class WGLNVDelayBeforeSwap {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hDC);
 		}
-		return callPFI(__functionAddress, hDC, seconds) != 0;
+		return callPI(__functionAddress, hDC, seconds) != 0;
 	}
 
 }

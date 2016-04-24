@@ -514,7 +514,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glGetStringi;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIIP(__functionAddress, name, index);
+		return callP(__functionAddress, name, index);
 	}
 
 	/**
@@ -546,7 +546,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glClearBufferiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, buffer, drawbuffer, value);
+		callPV(__functionAddress, buffer, drawbuffer, value);
 	}
 
 	/**
@@ -580,7 +580,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glClearBufferuiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, buffer, drawbuffer, value);
+		callPV(__functionAddress, buffer, drawbuffer, value);
 	}
 
 	/**
@@ -614,7 +614,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glClearBufferfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, buffer, drawbuffer, value);
+		callPV(__functionAddress, buffer, drawbuffer, value);
 	}
 
 	/**
@@ -649,7 +649,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glClearBufferfi;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIFIV(__functionAddress, buffer, drawbuffer, depth, stencil);
+		callV(__functionAddress, buffer, drawbuffer, depth, stencil);
 	}
 
 	// --- [ glVertexAttribI1i ] ---
@@ -666,7 +666,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI1i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, index, x);
+		callV(__functionAddress, index, x);
 	}
 
 	// --- [ glVertexAttribI2i ] ---
@@ -684,7 +684,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI2i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, index, x, y);
+		callV(__functionAddress, index, x, y);
 	}
 
 	// --- [ glVertexAttribI3i ] ---
@@ -703,7 +703,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI3i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, index, x, y, z);
+		callV(__functionAddress, index, x, y, z);
 	}
 
 	// --- [ glVertexAttribI4i ] ---
@@ -723,7 +723,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4i;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, index, x, y, z, w);
+		callV(__functionAddress, index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttribI1ui ] ---
@@ -740,7 +740,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI1ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, index, x);
+		callV(__functionAddress, index, x);
 	}
 
 	// --- [ glVertexAttribI2ui ] ---
@@ -758,7 +758,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI2ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, index, x, y);
+		callV(__functionAddress, index, x, y);
 	}
 
 	// --- [ glVertexAttribI3ui ] ---
@@ -777,7 +777,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI3ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, index, x, y, z);
+		callV(__functionAddress, index, x, y, z);
 	}
 
 	// --- [ glVertexAttribI4ui ] ---
@@ -797,7 +797,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, index, x, y, z, w);
+		callV(__functionAddress, index, x, y, z, w);
 	}
 
 	// --- [ glVertexAttribI1iv ] ---
@@ -814,7 +814,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI1iv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -845,7 +845,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI2iv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -876,7 +876,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI3iv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -907,7 +907,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4iv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -938,7 +938,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI1uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -969,7 +969,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI2uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1000,7 +1000,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI3uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1031,7 +1031,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1062,7 +1062,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4bv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1093,7 +1093,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4sv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1124,7 +1124,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4ubv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1155,7 +1155,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribI4usv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -1191,7 +1191,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glVertexAttribIPointer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIPV(__functionAddress, index, size, type, stride, pointer);
+		callPV(__functionAddress, index, size, type, stride, pointer);
 	}
 
 	/**
@@ -1232,14 +1232,22 @@ public class GL30 {
 		nglVertexAttribIPointer(index, size, type, stride, pointer);
 	}
 
-	/** ShortBuffer version of: {@link #glVertexAttribIPointer VertexAttribIPointer} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribIPointer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #glVertexAttribIPointer VertexAttribIPointer}
+	 */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, ShortBuffer pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer));
 	}
 
-	/** IntBuffer version of: {@link #glVertexAttribIPointer VertexAttribIPointer} */
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribIPointer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * IntBuffer version of: {@link #glVertexAttribIPointer VertexAttribIPointer}
+	 */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, IntBuffer pointer) {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
@@ -1261,7 +1269,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribIiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, index, pname, params);
+		callPV(__functionAddress, index, pname, params);
 	}
 
 	/**
@@ -1313,7 +1321,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribIuiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, index, pname, params);
+		callPV(__functionAddress, index, pname, params);
 	}
 
 	/**
@@ -1364,7 +1372,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glUniform1ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, location, v0);
+		callV(__functionAddress, location, v0);
 	}
 
 	// --- [ glUniform2ui ] ---
@@ -1382,7 +1390,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glUniform2ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, location, v0, v1);
+		callV(__functionAddress, location, v0, v1);
 	}
 
 	// --- [ glUniform3ui ] ---
@@ -1401,7 +1409,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glUniform3ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, location, v0, v1, v2);
+		callV(__functionAddress, location, v0, v1, v2);
 	}
 
 	// --- [ glUniform4ui ] ---
@@ -1421,7 +1429,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glUniform4ui;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, location, v0, v1, v2, v3);
+		callV(__functionAddress, location, v0, v1, v2, v3);
 	}
 
 	// --- [ glUniform1uiv ] ---
@@ -1439,7 +1447,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glUniform1uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, location, count, value);
+		callPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -1469,7 +1477,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glUniform2uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, location, count, value);
+		callPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -1499,7 +1507,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glUniform3uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, location, count, value);
+		callPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -1529,7 +1537,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glUniform4uiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, location, count, value);
+		callPV(__functionAddress, location, count, value);
 	}
 
 	/**
@@ -1559,7 +1567,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glGetUniformuiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, program, location, params);
+		callPV(__functionAddress, program, location, params);
 	}
 
 	/**
@@ -1611,7 +1619,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glBindFragDataLocation;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, program, colorNumber, name);
+		callPV(__functionAddress, program, colorNumber, name);
 	}
 
 	/**
@@ -1662,7 +1670,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glGetFragDataLocation;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIPI(__functionAddress, program, name);
+		return callPI(__functionAddress, program, name);
 	}
 
 	/**
@@ -1711,7 +1719,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glBeginConditionalRender;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, id, mode);
+		callV(__functionAddress, id, mode);
 	}
 
 	// --- [ glEndConditionalRender ] ---
@@ -1751,7 +1759,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glMapBufferRange;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIPPIP(__functionAddress, target, offset, length, access);
+		return callPPP(__functionAddress, target, offset, length, access);
 	}
 
 	/**
@@ -1813,7 +1821,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glFlushMappedBufferRange;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPPV(__functionAddress, target, offset, length);
+		callPPV(__functionAddress, target, offset, length);
 	}
 
 	// --- [ glClampColor ] ---
@@ -1830,7 +1838,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glClampColor;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, target, clamp);
+		callV(__functionAddress, target, clamp);
 	}
 
 	// --- [ glIsRenderbuffer ] ---
@@ -1846,7 +1854,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glIsRenderbuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIZ(__functionAddress, renderbuffer);
+		return callZ(__functionAddress, renderbuffer);
 	}
 
 	// --- [ glBindRenderbuffer ] ---
@@ -1863,7 +1871,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glBindRenderbuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, target, renderbuffer);
+		callV(__functionAddress, target, renderbuffer);
 	}
 
 	// --- [ glDeleteRenderbuffers ] ---
@@ -1880,7 +1888,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glDeleteRenderbuffers;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, renderbuffers);
+		callPV(__functionAddress, n, renderbuffers);
 	}
 
 	/**
@@ -1923,7 +1931,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glGenRenderbuffers;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, renderbuffers);
+		callPV(__functionAddress, n, renderbuffers);
 	}
 
 	/**
@@ -1969,7 +1977,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glRenderbufferStorage;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, target, internalformat, width, height);
+		callV(__functionAddress, target, internalformat, width, height);
 	}
 
 	// --- [ glRenderbufferStorageMultisample ] ---
@@ -1991,7 +1999,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glRenderbufferStorageMultisample;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, target, samples, internalformat, width, height);
+		callV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
 	// --- [ glGetRenderbufferParameteriv ] ---
@@ -2009,7 +2017,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glGetRenderbufferParameteriv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -2059,7 +2067,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glIsFramebuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIZ(__functionAddress, framebuffer);
+		return callZ(__functionAddress, framebuffer);
 	}
 
 	// --- [ glBindFramebuffer ] ---
@@ -2076,7 +2084,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glBindFramebuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, target, framebuffer);
+		callV(__functionAddress, target, framebuffer);
 	}
 
 	// --- [ glDeleteFramebuffers ] ---
@@ -2093,7 +2101,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glDeleteFramebuffers;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, framebuffers);
+		callPV(__functionAddress, n, framebuffers);
 	}
 
 	/**
@@ -2136,7 +2144,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glGenFramebuffers;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, framebuffers);
+		callPV(__functionAddress, n, framebuffers);
 	}
 
 	/**
@@ -2179,7 +2187,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glCheckFramebufferStatus;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callII(__functionAddress, target);
+		return callI(__functionAddress, target);
 	}
 
 	// --- [ glFramebufferTexture1D ] ---
@@ -2199,7 +2207,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glFramebufferTexture1D;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, target, attachment, textarget, texture, level);
+		callV(__functionAddress, target, attachment, textarget, texture, level);
 	}
 
 	// --- [ glFramebufferTexture2D ] ---
@@ -2219,7 +2227,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glFramebufferTexture2D;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, target, attachment, textarget, texture, level);
+		callV(__functionAddress, target, attachment, textarget, texture, level);
 	}
 
 	// --- [ glFramebufferTexture3D ] ---
@@ -2240,7 +2248,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glFramebufferTexture3D;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIV(__functionAddress, target, attachment, textarget, texture, level, layer);
+		callV(__functionAddress, target, attachment, textarget, texture, level, layer);
 	}
 
 	// --- [ glFramebufferTextureLayer ] ---
@@ -2260,7 +2268,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glFramebufferTextureLayer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, target, attachment, texture, level, layer);
+		callV(__functionAddress, target, attachment, texture, level, layer);
 	}
 
 	// --- [ glFramebufferRenderbuffer ] ---
@@ -2279,7 +2287,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glFramebufferRenderbuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, target, attachment, renderbuffertarget, renderbuffer);
+		callV(__functionAddress, target, attachment, renderbuffertarget, renderbuffer);
 	}
 
 	// --- [ glGetFramebufferAttachmentParameteriv ] ---
@@ -2298,7 +2306,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glGetFramebufferAttachmentParameteriv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, target, attachment, pname, params);
+		callPV(__functionAddress, target, attachment, pname, params);
 	}
 
 	/**
@@ -2359,7 +2367,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glBlitFramebuffer;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIIIIV(__functionAddress, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
+		callV(__functionAddress, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
 
 	// --- [ glGenerateMipmap ] ---
@@ -2375,7 +2383,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glGenerateMipmap;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, target);
+		callV(__functionAddress, target);
 	}
 
 	// --- [ glTexParameterIiv ] ---
@@ -2393,7 +2401,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glTexParameterIiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -2444,7 +2452,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glTexParameterIuiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -2495,7 +2503,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glGetTexParameterIiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -2547,7 +2555,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glGetTexParameterIuiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, pname, params);
+		callPV(__functionAddress, target, pname, params);
 	}
 
 	/**
@@ -2601,7 +2609,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glColorMaski;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIZZZZV(__functionAddress, buf, r, g, b, a);
+		callV(__functionAddress, buf, r, g, b, a);
 	}
 
 	// --- [ glGetBooleani_v ] ---
@@ -2619,7 +2627,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glGetBooleani_v;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, index, data);
+		callPV(__functionAddress, target, index, data);
 	}
 
 	/**
@@ -2671,7 +2679,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glGetIntegeri_v;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, index, data);
+		callPV(__functionAddress, target, index, data);
 	}
 
 	/**
@@ -2722,7 +2730,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glEnablei;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, cap, index);
+		callV(__functionAddress, cap, index);
 	}
 
 	// --- [ glDisablei ] ---
@@ -2739,7 +2747,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glDisablei;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, target, index);
+		callV(__functionAddress, target, index);
 	}
 
 	// --- [ glIsEnabledi ] ---
@@ -2756,7 +2764,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glIsEnabledi;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIIZ(__functionAddress, target, index);
+		return callZ(__functionAddress, target, index);
 	}
 
 	// --- [ glBindBufferRange ] ---
@@ -2776,7 +2784,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glBindBufferRange;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPPV(__functionAddress, target, index, buffer, offset, size);
+		callPPV(__functionAddress, target, index, buffer, offset, size);
 	}
 
 	// --- [ glBindBufferBase ] ---
@@ -2794,7 +2802,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glBindBufferBase;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, target, index, buffer);
+		callV(__functionAddress, target, index, buffer);
 	}
 
 	// --- [ glBeginTransformFeedback ] ---
@@ -2810,7 +2818,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glBeginTransformFeedback;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, primitiveMode);
+		callV(__functionAddress, primitiveMode);
 	}
 
 	// --- [ glEndTransformFeedback ] ---
@@ -2843,7 +2851,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glTransformFeedbackVaryings;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPIV(__functionAddress, program, count, varyings, bufferMode);
+		callPV(__functionAddress, program, count, varyings, bufferMode);
 	}
 
 	/**
@@ -2917,7 +2925,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glGetTransformFeedbackVarying;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
+		callPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
 	}
 
 	/**
@@ -3008,7 +3016,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glBindVertexArray;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, array);
+		callV(__functionAddress, array);
 	}
 
 	// --- [ glDeleteVertexArrays ] ---
@@ -3025,7 +3033,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glDeleteVertexArrays;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, arrays);
+		callPV(__functionAddress, n, arrays);
 	}
 
 	/**
@@ -3068,7 +3076,7 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glGenVertexArrays;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, arrays);
+		callPV(__functionAddress, n, arrays);
 	}
 
 	/**
@@ -3111,7 +3119,493 @@ public class GL30 {
 		long __functionAddress = GL.getCapabilities().glIsVertexArray;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIZ(__functionAddress, array);
+		return callZ(__functionAddress, array);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glClearBufferiv ClearBufferiv}
+	 */
+	public static void glClearBufferiv(int buffer, int drawbuffer, int[] value) {
+		long __functionAddress = GL.getCapabilities().glClearBufferiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(value, 1);
+		}
+		callPV(__functionAddress, buffer, drawbuffer, value);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glClearBufferuiv ClearBufferuiv}
+	 */
+	public static void glClearBufferuiv(int buffer, int drawbuffer, int[] value) {
+		long __functionAddress = GL.getCapabilities().glClearBufferuiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(value, 4);
+		}
+		callPV(__functionAddress, buffer, drawbuffer, value);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClearBuffer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glClearBufferfv ClearBufferfv}
+	 */
+	public static void glClearBufferfv(int buffer, int drawbuffer, float[] value) {
+		long __functionAddress = GL.getCapabilities().glClearBufferfv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(value, 1);
+		}
+		callPV(__functionAddress, buffer, drawbuffer, value);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI1.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glVertexAttribI1iv VertexAttribI1iv}
+	 */
+	public static void glVertexAttribI1iv(int index, int[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribI1iv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 1);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI2.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glVertexAttribI2iv VertexAttribI2iv}
+	 */
+	public static void glVertexAttribI2iv(int index, int[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribI2iv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 2);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI3.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glVertexAttribI3iv VertexAttribI3iv}
+	 */
+	public static void glVertexAttribI3iv(int index, int[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribI3iv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 3);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glVertexAttribI4iv VertexAttribI4iv}
+	 */
+	public static void glVertexAttribI4iv(int index, int[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribI4iv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 4);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI1.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glVertexAttribI1uiv VertexAttribI1uiv}
+	 */
+	public static void glVertexAttribI1uiv(int index, int[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribI1uiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 1);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI2.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glVertexAttribI2uiv VertexAttribI2uiv}
+	 */
+	public static void glVertexAttribI2uiv(int index, int[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribI2uiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 2);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI3.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glVertexAttribI3uiv VertexAttribI3uiv}
+	 */
+	public static void glVertexAttribI3uiv(int index, int[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribI3uiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 3);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glVertexAttribI4uiv VertexAttribI4uiv}
+	 */
+	public static void glVertexAttribI4uiv(int index, int[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribI4uiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 4);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glVertexAttribI4sv VertexAttribI4sv}
+	 */
+	public static void glVertexAttribI4sv(int index, short[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribI4sv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 4);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribI4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glVertexAttribI4usv VertexAttribI4usv}
+	 */
+	public static void glVertexAttribI4usv(int index, short[] v) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribI4usv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 4);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribIPointer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * short[] version of: {@link #glVertexAttribIPointer VertexAttribIPointer}
+	 */
+	public static void glVertexAttribIPointer(int index, int size, int type, int stride, short[] pointer) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribIPointer;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, index, size, type, stride, pointer);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribIPointer.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * int[] version of: {@link #glVertexAttribIPointer VertexAttribIPointer}
+	 */
+	public static void glVertexAttribIPointer(int index, int size, int type, int stride, int[] pointer) {
+		long __functionAddress = GL.getCapabilities().glVertexAttribIPointer;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, index, size, type, stride, pointer);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttribI.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetVertexAttribIiv GetVertexAttribIiv}
+	 */
+	public static void glGetVertexAttribIiv(int index, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetVertexAttribIiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 4);
+		}
+		callPV(__functionAddress, index, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttribI.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetVertexAttribIuiv GetVertexAttribIuiv}
+	 */
+	public static void glGetVertexAttribIuiv(int index, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetVertexAttribIuiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 4);
+		}
+		callPV(__functionAddress, index, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glUniform1uiv Uniform1uiv}
+	 */
+	public static void glUniform1uiv(int location, int[] value) {
+		long __functionAddress = GL.getCapabilities().glUniform1uiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, location, value.length, value);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glUniform2uiv Uniform2uiv}
+	 */
+	public static void glUniform2uiv(int location, int[] value) {
+		long __functionAddress = GL.getCapabilities().glUniform2uiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, location, value.length >> 1, value);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glUniform3uiv Uniform3uiv}
+	 */
+	public static void glUniform3uiv(int location, int[] value) {
+		long __functionAddress = GL.getCapabilities().glUniform3uiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, location, value.length / 3, value);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glUniform4uiv Uniform4uiv}
+	 */
+	public static void glUniform4uiv(int location, int[] value) {
+		long __functionAddress = GL.getCapabilities().glUniform4uiv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, location, value.length >> 2, value);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniform.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetUniformuiv GetUniformuiv}
+	 */
+	public static void glGetUniformuiv(int program, int location, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetUniformuiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, program, location, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteRenderbuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glDeleteRenderbuffers DeleteRenderbuffers}
+	 */
+	public static void glDeleteRenderbuffers(int[] renderbuffers) {
+		long __functionAddress = GL.getCapabilities().glDeleteRenderbuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, renderbuffers.length, renderbuffers);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenRenderbuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGenRenderbuffers GenRenderbuffers}
+	 */
+	public static void glGenRenderbuffers(int[] renderbuffers) {
+		long __functionAddress = GL.getCapabilities().glGenRenderbuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, renderbuffers.length, renderbuffers);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetRenderbufferParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv}
+	 */
+	public static void glGetRenderbufferParameteriv(int target, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetRenderbufferParameteriv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, target, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteFramebuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glDeleteFramebuffers DeleteFramebuffers}
+	 */
+	public static void glDeleteFramebuffers(int[] framebuffers) {
+		long __functionAddress = GL.getCapabilities().glDeleteFramebuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, framebuffers.length, framebuffers);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenFramebuffers.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGenFramebuffers GenFramebuffers}
+	 */
+	public static void glGenFramebuffers(int[] framebuffers) {
+		long __functionAddress = GL.getCapabilities().glGenFramebuffers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, framebuffers.length, framebuffers);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetFramebufferAttachmentParameter.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv}
+	 */
+	public static void glGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetFramebufferAttachmentParameteriv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, target, attachment, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glTexParameterIiv TexParameterIiv}
+	 */
+	public static void glTexParameterIiv(int target, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glTexParameterIiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, target, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glTexParameterIuiv TexParameterIuiv}
+	 */
+	public static void glTexParameterIuiv(int target, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glTexParameterIuiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, target, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetTexParameterIiv GetTexParameterIiv}
+	 */
+	public static void glGetTexParameterIiv(int target, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetTexParameterIiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, target, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexParameterI.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetTexParameterIuiv GetTexParameterIuiv}
+	 */
+	public static void glGetTexParameterIuiv(int target, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetTexParameterIuiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, target, pname, params);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetIntegeri_v GetIntegeri_v}
+	 */
+	public static void glGetIntegeri_v(int target, int index, int[] data) {
+		long __functionAddress = GL.getCapabilities().glGetIntegeri_v;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(data, 1);
+		}
+		callPV(__functionAddress, target, index, data);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTransformFeedbackVarying.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying}
+	 */
+	public static void glGetTransformFeedbackVarying(int program, int index, int[] length, int[] size, int[] type, ByteBuffer name) {
+		long __functionAddress = GL.getCapabilities().glGetTransformFeedbackVarying;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( length != null ) checkBuffer(length, 1);
+			checkBuffer(size, 1);
+			checkBuffer(type, 1);
+		}
+		callPPPPV(__functionAddress, program, index, name.remaining(), length, size, type, memAddress(name));
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteVertexArrays.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glDeleteVertexArrays DeleteVertexArrays}
+	 */
+	public static void glDeleteVertexArrays(int[] arrays) {
+		long __functionAddress = GL.getCapabilities().glDeleteVertexArrays;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, arrays.length, arrays);
+	}
+
+	/**
+	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenVertexArrays.xhtml">OpenGL SDK Reference</a></p>
+	 * 
+	 * Array version of: {@link #glGenVertexArrays GenVertexArrays}
+	 */
+	public static void glGenVertexArrays(int[] arrays) {
+		long __functionAddress = GL.getCapabilities().glGenVertexArrays;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, arrays.length, arrays);
 	}
 
 }

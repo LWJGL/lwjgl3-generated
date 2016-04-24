@@ -92,7 +92,7 @@ public class GLXSGIXFBConfig {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return callPPIPI(__functionAddress, display, config, attribute, value);
+		return callPPPI(__functionAddress, display, config, attribute, value);
 	}
 
 	/**
@@ -125,7 +125,7 @@ public class GLXSGIXFBConfig {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 		}
-		return callPIPPP(__functionAddress, display, screen, attrib_list, nelements);
+		return callPPPP(__functionAddress, display, screen, attrib_list, nelements);
 	}
 
 	/**
@@ -184,7 +184,7 @@ public class GLXSGIXFBConfig {
 			checkPointer(config);
 			checkPointer(share_list);
 		}
-		return callPPIPIP(__functionAddress, display, config, render_type, share_list, direct);
+		return callPPPP(__functionAddress, display, config, render_type, share_list, direct);
 	}
 
 	// --- [ glXGetVisualFromFBConfigSGIX ] ---
@@ -242,6 +242,18 @@ public class GLXSGIXFBConfig {
 	 */
 	public static long glXGetFBConfigFromVisualSGIX(long display, XVisualInfo vis) {
 		return nglXGetFBConfigFromVisualSGIX(display, vis.address());
+	}
+
+	/** Array version of: {@link #glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX} */
+	public static int glXGetFBConfigAttribSGIX(long display, long config, int attribute, int[] value) {
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetFBConfigAttribSGIX;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(display);
+			checkPointer(config);
+			checkBuffer(value, 1);
+		}
+		return callPPPI(__functionAddress, display, config, attribute, value);
 	}
 
 }

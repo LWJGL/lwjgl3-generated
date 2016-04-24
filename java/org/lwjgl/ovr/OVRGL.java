@@ -183,4 +183,30 @@ public class OVRGL {
 		return novr_GetMirrorTextureBufferGL(session, mirrorTexture, memAddress(out_TexId));
 	}
 
+	/** Array version of: {@link #ovr_GetTextureSwapChainBufferGL GetTextureSwapChainBufferGL} */
+	public static native int novr_GetTextureSwapChainBufferGL(long session, long chain, int index, int[] out_TexId);
+
+	/** Array version of: {@link #ovr_GetTextureSwapChainBufferGL GetTextureSwapChainBufferGL} */
+	public static int ovr_GetTextureSwapChainBufferGL(long session, long chain, int index, int[] out_TexId) {
+		if ( CHECKS ) {
+			checkPointer(session);
+			checkPointer(chain);
+			checkBuffer(out_TexId, 1);
+		}
+		return novr_GetTextureSwapChainBufferGL(session, chain, index, out_TexId);
+	}
+
+	/** Array version of: {@link #ovr_GetMirrorTextureBufferGL GetMirrorTextureBufferGL} */
+	public static native int novr_GetMirrorTextureBufferGL(long session, long mirrorTexture, int[] out_TexId);
+
+	/** Array version of: {@link #ovr_GetMirrorTextureBufferGL GetMirrorTextureBufferGL} */
+	public static int ovr_GetMirrorTextureBufferGL(long session, long mirrorTexture, int[] out_TexId) {
+		if ( CHECKS ) {
+			checkPointer(session);
+			checkPointer(mirrorTexture);
+			checkBuffer(out_TexId, 1);
+		}
+		return novr_GetMirrorTextureBufferGL(session, mirrorTexture, out_TexId);
+	}
+
 }

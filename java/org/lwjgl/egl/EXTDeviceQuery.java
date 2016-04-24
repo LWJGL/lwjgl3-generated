@@ -51,7 +51,7 @@ public class EXTDeviceQuery {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
 		}
-		return callPIPI(__functionAddress, device, attribute, value);
+		return callPPI(__functionAddress, device, attribute, value);
 	}
 
 	public static int eglQueryDeviceAttribEXT(long device, int attribute, PointerBuffer value) {
@@ -68,7 +68,7 @@ public class EXTDeviceQuery {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
 		}
-		return callPIP(__functionAddress, device, name);
+		return callPP(__functionAddress, device, name);
 	}
 
 	public static String eglQueryDeviceStringEXT(long device, int name) {
@@ -84,7 +84,7 @@ public class EXTDeviceQuery {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 		}
-		return callPIPI(__functionAddress, dpy, attribute, value);
+		return callPPI(__functionAddress, dpy, attribute, value);
 	}
 
 	public static int eglQueryDisplayAttribEXT(long dpy, int attribute, PointerBuffer value) {

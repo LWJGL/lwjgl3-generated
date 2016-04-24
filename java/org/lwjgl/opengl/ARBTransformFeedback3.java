@@ -78,7 +78,7 @@ public class ARBTransformFeedback3 {
 		long __functionAddress = GL.getCapabilities().glDrawTransformFeedbackStream;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, mode, id, stream);
+		callV(__functionAddress, mode, id, stream);
 	}
 
 	// --- [ glBeginQueryIndexed ] ---
@@ -94,7 +94,7 @@ public class ARBTransformFeedback3 {
 		long __functionAddress = GL.getCapabilities().glBeginQueryIndexed;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, target, index, id);
+		callV(__functionAddress, target, index, id);
 	}
 
 	// --- [ glEndQueryIndexed ] ---
@@ -109,7 +109,7 @@ public class ARBTransformFeedback3 {
 		long __functionAddress = GL.getCapabilities().glEndQueryIndexed;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, target, index);
+		callV(__functionAddress, target, index);
 	}
 
 	// --- [ glGetQueryIndexediv ] ---
@@ -126,7 +126,7 @@ public class ARBTransformFeedback3 {
 		long __functionAddress = GL.getCapabilities().glGetQueryIndexediv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, target, index, pname, params);
+		callPV(__functionAddress, target, index, pname, params);
 	}
 
 	/**
@@ -159,6 +159,16 @@ public class ARBTransformFeedback3 {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #glGetQueryIndexediv GetQueryIndexediv} */
+	public static void glGetQueryIndexediv(int target, int index, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetQueryIndexediv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, target, index, pname, params);
 	}
 
 }

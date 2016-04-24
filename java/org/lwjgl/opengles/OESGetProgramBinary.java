@@ -55,7 +55,7 @@ public class OESGetProgramBinary {
 		long __functionAddress = GLES.getCapabilities().glGetProgramBinaryOES;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPPPV(__functionAddress, program, bufSize, length, binaryFormat, binary);
+		callPPPV(__functionAddress, program, bufSize, length, binaryFormat, binary);
 	}
 
 	public static void glGetProgramBinaryOES(int program, IntBuffer length, IntBuffer binaryFormat, ByteBuffer binary) {
@@ -72,11 +72,22 @@ public class OESGetProgramBinary {
 		long __functionAddress = GLES.getCapabilities().glProgramBinaryOES;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPIV(__functionAddress, program, binaryFormat, binary, length);
+		callPV(__functionAddress, program, binaryFormat, binary, length);
 	}
 
 	public static void glProgramBinaryOES(int program, int binaryFormat, ByteBuffer binary) {
 		nglProgramBinaryOES(program, binaryFormat, memAddress(binary), binary.remaining());
+	}
+
+	/** Array version of: {@link #glGetProgramBinaryOES GetProgramBinaryOES} */
+	public static void glGetProgramBinaryOES(int program, int[] length, int[] binaryFormat, ByteBuffer binary) {
+		long __functionAddress = GLES.getCapabilities().glGetProgramBinaryOES;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( length != null ) checkBuffer(length, 1);
+			checkBuffer(binaryFormat, 1);
+		}
+		callPPPV(__functionAddress, program, binary.remaining(), length, binaryFormat, memAddress(binary));
 	}
 
 }

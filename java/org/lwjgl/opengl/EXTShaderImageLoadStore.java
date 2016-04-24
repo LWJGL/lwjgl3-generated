@@ -122,7 +122,7 @@ public class EXTShaderImageLoadStore {
 		long __functionAddress = GL.getCapabilities().glBindImageTextureEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIZIIIV(__functionAddress, index, texture, level, layered, layer, access, format);
+		callV(__functionAddress, index, texture, level, layered, layer, access, format);
 	}
 
 	// --- [ glMemoryBarrierEXT ] ---
@@ -131,7 +131,7 @@ public class EXTShaderImageLoadStore {
 		long __functionAddress = GL.getCapabilities().glMemoryBarrierEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, barriers);
+		callV(__functionAddress, barriers);
 	}
 
 }

@@ -60,7 +60,7 @@ public class KHRReusableSync {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 		}
-		return callPIPP(__functionAddress, dpy, type, attrib_list);
+		return callPPP(__functionAddress, dpy, type, attrib_list);
 	}
 
 	public static long eglCreateSyncKHR(long dpy, int type, IntBuffer attrib_list) {
@@ -90,7 +90,7 @@ public class KHRReusableSync {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return callPPIJI(__functionAddress, dpy, sync, flags, timeout);
+		return callPPJI(__functionAddress, dpy, sync, flags, timeout);
 	}
 
 	// --- [ eglSignalSyncKHR ] ---
@@ -102,7 +102,7 @@ public class KHRReusableSync {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return callPPII(__functionAddress, dpy, sync, mode);
+		return callPPI(__functionAddress, dpy, sync, mode);
 	}
 
 	// --- [ eglGetSyncAttribKHR ] ---
@@ -114,13 +114,36 @@ public class KHRReusableSync {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return callPPIPI(__functionAddress, dpy, sync, attribute, value);
+		return callPPPI(__functionAddress, dpy, sync, attribute, value);
 	}
 
 	public static int eglGetSyncAttribKHR(long dpy, long sync, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglGetSyncAttribKHR(dpy, sync, attribute, memAddress(value));
+	}
+
+	/** Array version of: {@link #eglCreateSyncKHR CreateSyncKHR} */
+	public static long eglCreateSyncKHR(long dpy, int type, int[] attrib_list) {
+		long __functionAddress = EGL.getCapabilities().eglCreateSyncKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+		}
+		return callPPP(__functionAddress, dpy, type, attrib_list);
+	}
+
+	/** Array version of: {@link #eglGetSyncAttribKHR GetSyncAttribKHR} */
+	public static int eglGetSyncAttribKHR(long dpy, long sync, int attribute, int[] value) {
+		long __functionAddress = EGL.getCapabilities().eglGetSyncAttribKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			checkPointer(sync);
+			checkBuffer(value, 1);
+		}
+		return callPPPI(__functionAddress, dpy, sync, attribute, value);
 	}
 
 }

@@ -100,7 +100,7 @@ public class GLXSGIXPbuffer {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return callPPIIPP(__functionAddress, display, config, width, height, attrib_list);
+		return callPPPP(__functionAddress, display, config, width, height, attrib_list);
 	}
 
 	/**
@@ -153,7 +153,7 @@ public class GLXSGIXPbuffer {
 			checkPointer(display);
 			checkPointer(pbuf);
 		}
-		callPPIPV(__functionAddress, display, pbuf, attribute, value);
+		callPPPV(__functionAddress, display, pbuf, attribute, value);
 	}
 
 	/**
@@ -219,6 +219,30 @@ public class GLXSGIXPbuffer {
 		if ( CHECKS )
 			checkBuffer(mask, 1);
 		nglXGetSelectedEventSGIX(display, drawable, memAddress(mask));
+	}
+
+	/** Array version of: {@link #glXCreateGLXPbufferSGIX CreateGLXPbufferSGIX} */
+	public static long glXCreateGLXPbufferSGIX(long display, long config, int width, int height, int[] attrib_list) {
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateGLXPbufferSGIX;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(display);
+			checkPointer(config);
+			if ( attrib_list != null ) checkNT(attrib_list);
+		}
+		return callPPPP(__functionAddress, display, config, width, height, attrib_list);
+	}
+
+	/** Array version of: {@link #glXQueryGLXPbufferSGIX QueryGLXPbufferSGIX} */
+	public static void glXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, int[] value) {
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryGLXPbufferSGIX;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(display);
+			checkPointer(pbuf);
+			checkBuffer(value, 1);
+		}
+		callPPPV(__functionAddress, display, pbuf, attribute, value);
 	}
 
 }

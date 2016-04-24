@@ -57,7 +57,7 @@ public class EXTCapture {
 		long __functionAddress = ALC.getICD().alcCaptureOpenDevice;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return invokePIIIP(__functionAddress, devicename, frequency, format, buffersize);
+		return invokePP(__functionAddress, devicename, frequency, format, buffersize);
 	}
 
 	/**
@@ -170,7 +170,7 @@ public class EXTCapture {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
 		}
-		invokePPIV(__functionAddress, device, buffer, samples);
+		invokePPV(__functionAddress, device, buffer, samples);
 	}
 
 	/**

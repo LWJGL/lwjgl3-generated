@@ -83,7 +83,7 @@ public class EXTDrawElementsBaseVertex {
 		long __functionAddress = GLES.getCapabilities().glDrawElementsBaseVertexEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPIV(__functionAddress, mode, count, type, indices, basevertex);
+		callPV(__functionAddress, mode, count, type, indices, basevertex);
 	}
 
 	public static void glDrawElementsBaseVertexEXT(int mode, int count, int type, long indices, int basevertex) {
@@ -122,7 +122,7 @@ public class EXTDrawElementsBaseVertex {
 		long __functionAddress = GLES.getCapabilities().glDrawRangeElementsBaseVertexEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIPIV(__functionAddress, mode, start, end, count, type, indices, basevertex);
+		callPV(__functionAddress, mode, start, end, count, type, indices, basevertex);
 	}
 
 	public static void glDrawRangeElementsBaseVertexEXT(int mode, int start, int end, int count, int type, long indices, int basevertex) {
@@ -161,7 +161,7 @@ public class EXTDrawElementsBaseVertex {
 		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedBaseVertexEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPIIV(__functionAddress, mode, count, type, indices, instancecount, basevertex);
+		callPV(__functionAddress, mode, count, type, indices, instancecount, basevertex);
 	}
 
 	public static void glDrawElementsInstancedBaseVertexEXT(int mode, int count, int type, long indices, int instancecount, int basevertex) {
@@ -200,7 +200,7 @@ public class EXTDrawElementsBaseVertex {
 		long __functionAddress = GLES.getCapabilities().glMultiDrawElementsBaseVertexEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPIPIPV(__functionAddress, mode, count, type, indices, primcount, basevertex);
+		callPPPV(__functionAddress, mode, count, type, indices, primcount, basevertex);
 	}
 
 	public static void glMultiDrawElementsBaseVertexEXT(int mode, IntBuffer count, int type, PointerBuffer indices, IntBuffer basevertex) {
@@ -209,6 +209,17 @@ public class EXTDrawElementsBaseVertex {
 			checkBuffer(basevertex, count.remaining());
 		}
 		nglMultiDrawElementsBaseVertexEXT(mode, memAddress(count), type, memAddress(indices), count.remaining(), memAddress(basevertex));
+	}
+
+	/** Array version of: {@link #glMultiDrawElementsBaseVertexEXT MultiDrawElementsBaseVertexEXT} */
+	public static void glMultiDrawElementsBaseVertexEXT(int mode, int[] count, int type, PointerBuffer indices, int[] basevertex) {
+		long __functionAddress = GLES.getCapabilities().glMultiDrawElementsBaseVertexEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(indices, count.length);
+			checkBuffer(basevertex, count.length);
+		}
+		callPPPV(__functionAddress, mode, count, type, memAddress(indices), count.length, basevertex);
 	}
 
 }

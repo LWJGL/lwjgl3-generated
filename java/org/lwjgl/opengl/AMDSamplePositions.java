@@ -42,13 +42,23 @@ public class AMDSamplePositions {
 		long __functionAddress = GL.getCapabilities().glSetMultisamplefvAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, pname, index, val);
+		callPV(__functionAddress, pname, index, val);
 	}
 
 	public static void glSetMultisamplefvAMD(int pname, int index, FloatBuffer val) {
 		if ( CHECKS )
 			checkBuffer(val, 2);
 		nglSetMultisamplefvAMD(pname, index, memAddress(val));
+	}
+
+	/** Array version of: {@link #glSetMultisamplefvAMD SetMultisamplefvAMD} */
+	public static void glSetMultisamplefvAMD(int pname, int index, float[] val) {
+		long __functionAddress = GL.getCapabilities().glSetMultisamplefvAMD;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(val, 2);
+		}
+		callPV(__functionAddress, pname, index, val);
 	}
 
 }

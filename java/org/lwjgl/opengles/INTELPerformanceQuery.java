@@ -98,7 +98,7 @@ public class INTELPerformanceQuery {
 		long __functionAddress = GLES.getCapabilities().glBeginPerfQueryINTEL;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, queryHandle);
+		callV(__functionAddress, queryHandle);
 	}
 
 	// --- [ glCreatePerfQueryINTEL ] ---
@@ -107,7 +107,7 @@ public class INTELPerformanceQuery {
 		long __functionAddress = GLES.getCapabilities().glCreatePerfQueryINTEL;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, queryId, queryHandle);
+		callPV(__functionAddress, queryId, queryHandle);
 	}
 
 	public static void glCreatePerfQueryINTEL(int queryId, IntBuffer queryHandle) {
@@ -133,7 +133,7 @@ public class INTELPerformanceQuery {
 		long __functionAddress = GLES.getCapabilities().glDeletePerfQueryINTEL;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, queryHandle);
+		callV(__functionAddress, queryHandle);
 	}
 
 	// --- [ glEndPerfQueryINTEL ] ---
@@ -142,7 +142,7 @@ public class INTELPerformanceQuery {
 		long __functionAddress = GLES.getCapabilities().glEndPerfQueryINTEL;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, queryHandle);
+		callV(__functionAddress, queryHandle);
 	}
 
 	// --- [ glGetFirstPerfQueryIdINTEL ] ---
@@ -177,7 +177,7 @@ public class INTELPerformanceQuery {
 		long __functionAddress = GLES.getCapabilities().glGetNextPerfQueryIdINTEL;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, queryId, nextQueryId);
+		callPV(__functionAddress, queryId, nextQueryId);
 	}
 
 	public static void glGetNextPerfQueryIdINTEL(int queryId, IntBuffer nextQueryId) {
@@ -203,7 +203,7 @@ public class INTELPerformanceQuery {
 		long __functionAddress = GLES.getCapabilities().glGetPerfCounterInfoINTEL;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPIPPPPPPV(__functionAddress, queryId, counterId, counterNameLength, counterName, counterDescLength, counterDesc, counterOffset, counterDataSize, counterTypeEnum, counterDataTypeEnum, rawCounterMaxValue);
+		callPPPPPPPV(__functionAddress, queryId, counterId, counterNameLength, counterName, counterDescLength, counterDesc, counterOffset, counterDataSize, counterTypeEnum, counterDataTypeEnum, rawCounterMaxValue);
 	}
 
 	public static void glGetPerfCounterInfoINTEL(int queryId, int counterId, ByteBuffer counterName, ByteBuffer counterDesc, IntBuffer counterOffset, IntBuffer counterDataSize, IntBuffer counterTypeEnum, IntBuffer counterDataTypeEnum, LongBuffer rawCounterMaxValue) {
@@ -223,7 +223,7 @@ public class INTELPerformanceQuery {
 		long __functionAddress = GLES.getCapabilities().glGetPerfQueryDataINTEL;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPPV(__functionAddress, queryHandle, flags, dataSize, data, bytesWritten);
+		callPPV(__functionAddress, queryHandle, flags, dataSize, data, bytesWritten);
 	}
 
 	public static void glGetPerfQueryDataINTEL(int queryHandle, int flags, ByteBuffer data, IntBuffer bytesWritten) {
@@ -279,7 +279,7 @@ public class INTELPerformanceQuery {
 		long __functionAddress = GLES.getCapabilities().glGetPerfQueryInfoINTEL;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPPPPPV(__functionAddress, queryId, queryNameLength, queryName, dataSize, noCounters, noInstances, capsMask);
+		callPPPPPV(__functionAddress, queryId, queryNameLength, queryName, dataSize, noCounters, noInstances, capsMask);
 	}
 
 	public static void glGetPerfQueryInfoINTEL(int queryId, ByteBuffer queryName, IntBuffer dataSize, IntBuffer noCounters, IntBuffer noInstances, IntBuffer capsMask) {
@@ -290,6 +290,100 @@ public class INTELPerformanceQuery {
 			checkBuffer(capsMask, 1);
 		}
 		nglGetPerfQueryInfoINTEL(queryId, queryName.remaining(), memAddress(queryName), memAddress(dataSize), memAddress(noCounters), memAddress(noInstances), memAddress(capsMask));
+	}
+
+	/** Array version of: {@link #glCreatePerfQueryINTEL CreatePerfQueryINTEL} */
+	public static void glCreatePerfQueryINTEL(int queryId, int[] queryHandle) {
+		long __functionAddress = GLES.getCapabilities().glCreatePerfQueryINTEL;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(queryHandle, 1);
+		}
+		callPV(__functionAddress, queryId, queryHandle);
+	}
+
+	/** Array version of: {@link #glGetFirstPerfQueryIdINTEL GetFirstPerfQueryIdINTEL} */
+	public static void glGetFirstPerfQueryIdINTEL(int[] queryId) {
+		long __functionAddress = GLES.getCapabilities().glGetFirstPerfQueryIdINTEL;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(queryId, 1);
+		}
+		callPV(__functionAddress, queryId);
+	}
+
+	/** Array version of: {@link #glGetNextPerfQueryIdINTEL GetNextPerfQueryIdINTEL} */
+	public static void glGetNextPerfQueryIdINTEL(int queryId, int[] nextQueryId) {
+		long __functionAddress = GLES.getCapabilities().glGetNextPerfQueryIdINTEL;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(nextQueryId, 1);
+		}
+		callPV(__functionAddress, queryId, nextQueryId);
+	}
+
+	/** Array version of: {@link #glGetPerfCounterInfoINTEL GetPerfCounterInfoINTEL} */
+	public static void glGetPerfCounterInfoINTEL(int queryId, int counterId, ByteBuffer counterName, ByteBuffer counterDesc, int[] counterOffset, int[] counterDataSize, int[] counterTypeEnum, int[] counterDataTypeEnum, long[] rawCounterMaxValue) {
+		long __functionAddress = GLES.getCapabilities().glGetPerfCounterInfoINTEL;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(counterOffset, 1);
+			checkBuffer(counterDataSize, 1);
+			checkBuffer(counterTypeEnum, 1);
+			checkBuffer(counterDataTypeEnum, 1);
+			checkBuffer(rawCounterMaxValue, 1);
+		}
+		callPPPPPPPV(__functionAddress, queryId, counterId, counterName.remaining(), memAddress(counterName), counterDesc.remaining(), memAddress(counterDesc), counterOffset, counterDataSize, counterTypeEnum, counterDataTypeEnum, rawCounterMaxValue);
+	}
+
+	/** Array version of: {@link #glGetPerfQueryDataINTEL GetPerfQueryDataINTEL} */
+	public static void glGetPerfQueryDataINTEL(int queryHandle, int flags, ByteBuffer data, int[] bytesWritten) {
+		long __functionAddress = GLES.getCapabilities().glGetPerfQueryDataINTEL;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(bytesWritten, 1);
+		}
+		callPPV(__functionAddress, queryHandle, flags, data.remaining(), memAddress(data), bytesWritten);
+	}
+
+	/** Array version of: {@link #glGetPerfQueryIdByNameINTEL GetPerfQueryIdByNameINTEL} */
+	public static void glGetPerfQueryIdByNameINTEL(ByteBuffer queryName, int[] queryId) {
+		long __functionAddress = GLES.getCapabilities().glGetPerfQueryIdByNameINTEL;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkNT1(queryName);
+			checkBuffer(queryId, 1);
+		}
+		callPPV(__functionAddress, memAddress(queryName), queryId);
+	}
+
+	/** Array version of: {@link #glGetPerfQueryIdByNameINTEL GetPerfQueryIdByNameINTEL} */
+	public static void glGetPerfQueryIdByNameINTEL(CharSequence queryName, int[] queryId) {
+		long __functionAddress = GLES.getCapabilities().glGetPerfQueryIdByNameINTEL;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(queryId, 1);
+		}
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer queryNameEncoded = stack.ASCII(queryName);
+			callPPV(__functionAddress, memAddress(queryNameEncoded), queryId);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
+	/** Array version of: {@link #glGetPerfQueryInfoINTEL GetPerfQueryInfoINTEL} */
+	public static void glGetPerfQueryInfoINTEL(int queryId, ByteBuffer queryName, int[] dataSize, int[] noCounters, int[] noInstances, int[] capsMask) {
+		long __functionAddress = GLES.getCapabilities().glGetPerfQueryInfoINTEL;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(dataSize, 1);
+			checkBuffer(noCounters, 1);
+			checkBuffer(noInstances, 1);
+			checkBuffer(capsMask, 1);
+		}
+		callPPPPPV(__functionAddress, queryId, queryName.remaining(), memAddress(queryName), dataSize, noCounters, noInstances, capsMask);
 	}
 
 }

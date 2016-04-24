@@ -99,7 +99,7 @@ public class AMDVertexShaderTessellator {
 		long __functionAddress = GL.getCapabilities().glTessellationFactorAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callFV(__functionAddress, factor);
+		callV(__functionAddress, factor);
 	}
 
 	// --- [ glTessellationModeAMD ] ---
@@ -108,7 +108,7 @@ public class AMDVertexShaderTessellator {
 		long __functionAddress = GL.getCapabilities().glTessellationModeAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, mode);
+		callV(__functionAddress, mode);
 	}
 
 }

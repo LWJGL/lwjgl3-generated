@@ -58,7 +58,7 @@ public class IMGMultisampledRenderToTexture {
 		long __functionAddress = GLES.getCapabilities().glRenderbufferStorageMultisampleIMG;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, target, samples, internalformat, width, height);
+		callV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
 	// --- [ glFramebufferTexture2DMultisampleIMG ] ---
@@ -67,7 +67,7 @@ public class IMGMultisampledRenderToTexture {
 		long __functionAddress = GLES.getCapabilities().glFramebufferTexture2DMultisampleIMG;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIV(__functionAddress, target, attachment, textarget, texture, level, samples);
+		callV(__functionAddress, target, attachment, textarget, texture, level, samples);
 	}
 
 }

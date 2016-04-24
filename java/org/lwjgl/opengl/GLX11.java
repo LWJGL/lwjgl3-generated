@@ -44,7 +44,7 @@ public class GLX11 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 		}
-		return callPIP(__functionAddress, display, screen);
+		return callPP(__functionAddress, display, screen);
 	}
 
 	/**
@@ -72,7 +72,7 @@ public class GLX11 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 		}
-		return callPIP(__functionAddress, display, name);
+		return callPP(__functionAddress, display, name);
 	}
 
 	/**
@@ -101,7 +101,7 @@ public class GLX11 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 		}
-		return callPIIP(__functionAddress, display, screen, name);
+		return callPP(__functionAddress, display, screen, name);
 	}
 
 	/**

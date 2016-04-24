@@ -65,7 +65,7 @@ public class NVDrawVulkanImage {
 		long __functionAddress = GL.getCapabilities().glDrawVkImageNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callJIFFFFFFFFFV(__functionAddress, vkImage, sampler, x0, y0, x1, y1, z, s0, t0, s1, t1);
+		callJV(__functionAddress, vkImage, sampler, x0, y0, x1, y1, z, s0, t0, s1, t1);
 	}
 
 	// --- [ glGetVkProcAddrNV ] ---

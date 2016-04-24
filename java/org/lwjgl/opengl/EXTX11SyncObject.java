@@ -56,7 +56,7 @@ public class EXTX11SyncObject {
 		long __functionAddress = GL.getCapabilities().glImportSyncEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIPIP(__functionAddress, external_sync_type, external_sync, flags);
+		return callPP(__functionAddress, external_sync_type, external_sync, flags);
 	}
 
 }

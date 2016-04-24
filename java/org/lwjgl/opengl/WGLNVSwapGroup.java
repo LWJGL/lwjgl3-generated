@@ -43,7 +43,7 @@ public class WGLNVSwapGroup {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hDC);
 		}
-		return callPII(__functionAddress, hDC, group) != 0;
+		return callPI(__functionAddress, hDC, group) != 0;
 	}
 
 	// --- [ wglBindSwapBarrierNV ] ---
@@ -52,7 +52,7 @@ public class WGLNVSwapGroup {
 		long __functionAddress = GL.getCapabilitiesWGL().wglBindSwapBarrierNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIII(__functionAddress, group, barrier) != 0;
+		return callI(__functionAddress, group, barrier) != 0;
 	}
 
 	// --- [ wglQuerySwapGroupNV ] ---
@@ -119,6 +119,41 @@ public class WGLNVSwapGroup {
 			checkPointer(hDC);
 		}
 		return callPI(__functionAddress, hDC) != 0;
+	}
+
+	/** Array version of: {@link #wglQuerySwapGroupNV QuerySwapGroupNV} */
+	public static boolean wglQuerySwapGroupNV(long hDC, int[] group, int[] barrier) {
+		long __functionAddress = GL.getCapabilitiesWGL().wglQuerySwapGroupNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(hDC);
+			checkBuffer(group, 1);
+			checkBuffer(barrier, 1);
+		}
+		return callPPPI(__functionAddress, hDC, group, barrier) != 0;
+	}
+
+	/** Array version of: {@link #wglQueryMaxSwapGroupsNV QueryMaxSwapGroupsNV} */
+	public static boolean wglQueryMaxSwapGroupsNV(long hDC, int[] maxGroups, int[] maxBarriers) {
+		long __functionAddress = GL.getCapabilitiesWGL().wglQueryMaxSwapGroupsNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(hDC);
+			checkBuffer(maxGroups, 1);
+			checkBuffer(maxBarriers, 1);
+		}
+		return callPPPI(__functionAddress, hDC, maxGroups, maxBarriers) != 0;
+	}
+
+	/** Array version of: {@link #wglQueryFrameCountNV QueryFrameCountNV} */
+	public static boolean wglQueryFrameCountNV(long hDC, int[] count) {
+		long __functionAddress = GL.getCapabilitiesWGL().wglQueryFrameCountNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(hDC);
+			checkBuffer(count, 1);
+		}
+		return callPPI(__functionAddress, hDC, count) != 0;
 	}
 
 }

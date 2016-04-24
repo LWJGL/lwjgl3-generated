@@ -40,7 +40,7 @@ public class NVCopyBuffer {
 		long __functionAddress = GLES.getCapabilities().glCopyBufferSubDataNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPPPV(__functionAddress, readTarget, writeTarget, readOffset, writeOffset, size);
+		callPPPV(__functionAddress, readTarget, writeTarget, readOffset, writeOffset, size);
 	}
 
 }

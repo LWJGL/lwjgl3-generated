@@ -703,4 +703,42 @@ public class ParShapes {
 		npar_shapes_compute_normals(mesh.address());
 	}
 
+	/** Array version of: {@link #par_shapes_create_disk create_disk} */
+	public static native long npar_shapes_create_disk(float radius, int slices, float[] center, float[] normal);
+
+	/** Array version of: {@link #par_shapes_create_disk create_disk} */
+	public static ParShapesMesh par_shapes_create_disk(float radius, int slices, float[] center, float[] normal) {
+		long __result = npar_shapes_create_disk(radius, slices, center, normal);
+		return ParShapesMesh.create(__result);
+	}
+
+	/** Array version of: {@link #par_shapes_compute_aabb compute_aabb} */
+	public static native void npar_shapes_compute_aabb(long mesh, float[] aabb);
+
+	/** Array version of: {@link #par_shapes_compute_aabb compute_aabb} */
+	public static void par_shapes_compute_aabb(ParShapesMesh mesh, float[] aabb) {
+		if ( CHECKS )
+			checkBuffer(aabb, 6);
+		npar_shapes_compute_aabb(mesh.address(), aabb);
+	}
+
+	/** Array version of: {@link #par_shapes_rotate rotate} */
+	public static native void npar_shapes_rotate(long mesh, float radians, float[] axis);
+
+	/** Array version of: {@link #par_shapes_rotate rotate} */
+	public static void par_shapes_rotate(ParShapesMesh mesh, float radians, float[] axis) {
+		if ( CHECKS )
+			checkBuffer(axis, 3);
+		npar_shapes_rotate(mesh.address(), radians, axis);
+	}
+
+	/** Array version of: {@link #par_shapes_weld weld} */
+	public static native long npar_shapes_weld(long mesh, float epsilon, short[] mapping);
+
+	/** Array version of: {@link #par_shapes_weld weld} */
+	public static ParShapesMesh par_shapes_weld(ParShapesMesh mesh, float epsilon, short[] mapping) {
+		long __result = npar_shapes_weld(mesh.address(), epsilon, mapping);
+		return ParShapesMesh.create(__result);
+	}
+
 }

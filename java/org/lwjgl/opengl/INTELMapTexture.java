@@ -63,7 +63,7 @@ public class INTELMapTexture {
 		long __functionAddress = GL.getCapabilities().glSyncTextureINTEL;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, texture);
+		callV(__functionAddress, texture);
 	}
 
 	// --- [ glUnmapTexture2DINTEL ] ---
@@ -80,7 +80,7 @@ public class INTELMapTexture {
 		long __functionAddress = GL.getCapabilities().glUnmapTexture2DINTEL;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, texture, level);
+		callV(__functionAddress, texture, level);
 	}
 
 	// --- [ glMapTexture2DINTEL ] ---
@@ -101,7 +101,7 @@ public class INTELMapTexture {
 		long __functionAddress = GL.getCapabilities().glMapTexture2DINTEL;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIIIPPP(__functionAddress, texture, level, access, stride, layout);
+		return callPPP(__functionAddress, texture, level, access, stride, layout);
 	}
 
 	/**
@@ -122,7 +122,7 @@ public class INTELMapTexture {
 			checkBuffer(layout, 1);
 		}
 		long __result = nglMapTexture2DINTEL(texture, level, access, memAddress(stride), memAddress(layout));
-		return memByteBuffer(__result, memGetInt(memAddress(stride)) * GLChecks.getTexLevelParameteri(texture, GL11.GL_TEXTURE_2D, level, GL11.GL_TEXTURE_HEIGHT));
+		return memByteBuffer(__result, getStride(stride) * GLChecks.getTexLevelParameteri(texture, GL11.GL_TEXTURE_2D, level, GL11.GL_TEXTURE_HEIGHT));
 	}
 
 	/**
@@ -143,7 +143,7 @@ public class INTELMapTexture {
 			checkBuffer(layout, 1);
 		}
 		long __result = nglMapTexture2DINTEL(texture, level, access, memAddress(stride), memAddress(layout));
-		int length = memGetInt(memAddress(stride)) * GLChecks.getTexLevelParameteri(texture, GL11.GL_TEXTURE_2D, level, GL11.GL_TEXTURE_HEIGHT);
+		int length = getStride(stride) * GLChecks.getTexLevelParameteri(texture, GL11.GL_TEXTURE_2D, level, GL11.GL_TEXTURE_HEIGHT);
 		return old_buffer == null ? memByteBuffer(__result, length) : memSetupBuffer(old_buffer, __result, length);
 	}
 
@@ -166,6 +166,51 @@ public class INTELMapTexture {
 		}
 		long __result = nglMapTexture2DINTEL(texture, level, access, memAddress(stride), memAddress(layout));
 		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
+	}
+
+	/** Array version of: {@link #glMapTexture2DINTEL MapTexture2DINTEL} */
+	public static ByteBuffer glMapTexture2DINTEL(int texture, int level, int access, int[] stride, int[] layout) {
+		long __functionAddress = GL.getCapabilities().glMapTexture2DINTEL;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(stride, 1);
+			checkBuffer(layout, 1);
+		}
+		long __result = callPPP(__functionAddress, texture, level, access, stride, layout);
+		return memByteBuffer(__result, getStride(stride) * GLChecks.getTexLevelParameteri(texture, GL11.GL_TEXTURE_2D, level, GL11.GL_TEXTURE_HEIGHT));
+	}
+
+	/** Array version of: {@link #glMapTexture2DINTEL MapTexture2DINTEL} */
+	public static ByteBuffer glMapTexture2DINTEL(int texture, int level, int access, int[] stride, int[] layout, ByteBuffer old_buffer) {
+		long __functionAddress = GL.getCapabilities().glMapTexture2DINTEL;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(stride, 1);
+			checkBuffer(layout, 1);
+		}
+		long __result = callPPP(__functionAddress, texture, level, access, stride, layout);
+		int length = getStride(stride) * GLChecks.getTexLevelParameteri(texture, GL11.GL_TEXTURE_2D, level, GL11.GL_TEXTURE_HEIGHT);
+		return old_buffer == null ? memByteBuffer(__result, length) : memSetupBuffer(old_buffer, __result, length);
+	}
+
+	/** Array version of: {@link #glMapTexture2DINTEL MapTexture2DINTEL} */
+	public static ByteBuffer glMapTexture2DINTEL(int texture, int level, int access, int[] stride, int[] layout, long length, ByteBuffer old_buffer) {
+		long __functionAddress = GL.getCapabilities().glMapTexture2DINTEL;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(stride, 1);
+			checkBuffer(layout, 1);
+		}
+		long __result = callPPP(__functionAddress, texture, level, access, stride, layout);
+		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
+	}
+
+	private static int getStride(IntBuffer stride) {
+		return stride.get(stride.position());
+	}
+
+	private static int getStride(int[] stride) {
+		return stride[0];
 	}
 
 }

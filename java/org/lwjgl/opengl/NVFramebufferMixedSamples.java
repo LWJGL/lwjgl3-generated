@@ -62,7 +62,7 @@ public class NVFramebufferMixedSamples {
 		long __functionAddress = GL.getCapabilities().glRasterSamplesEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIZV(__functionAddress, samples, fixedsamplelocations);
+		callV(__functionAddress, samples, fixedsamplelocations);
 	}
 
 	// --- [ glCoverageModulationTableNV ] ---
@@ -77,7 +77,7 @@ public class NVFramebufferMixedSamples {
 		long __functionAddress = GL.getCapabilities().glCoverageModulationTableNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, v);
+		callPV(__functionAddress, n, v);
 	}
 
 	/**
@@ -96,7 +96,7 @@ public class NVFramebufferMixedSamples {
 		long __functionAddress = GL.getCapabilities().glGetCoverageModulationTableNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, bufsize, v);
+		callPV(__functionAddress, bufsize, v);
 	}
 
 	public static void glGetCoverageModulationTableNV(int bufsize, FloatBuffer v) {
@@ -109,7 +109,23 @@ public class NVFramebufferMixedSamples {
 		long __functionAddress = GL.getCapabilities().glCoverageModulationNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, components);
+		callV(__functionAddress, components);
+	}
+
+	/** Array version of: {@link #glCoverageModulationTableNV CoverageModulationTableNV} */
+	public static void glCoverageModulationTableNV(int n, float[] v) {
+		long __functionAddress = GL.getCapabilities().glCoverageModulationTableNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, n, v);
+	}
+
+	/** Array version of: {@link #glGetCoverageModulationTableNV GetCoverageModulationTableNV} */
+	public static void glGetCoverageModulationTableNV(int bufsize, float[] v) {
+		long __functionAddress = GL.getCapabilities().glGetCoverageModulationTableNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, bufsize, v);
 	}
 
 }

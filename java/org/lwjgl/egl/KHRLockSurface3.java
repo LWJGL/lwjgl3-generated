@@ -97,13 +97,25 @@ public class KHRLockSurface3 {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPIPI(__functionAddress, dpy, surface, attribute, value);
+		return callPPPI(__functionAddress, dpy, surface, attribute, value);
 	}
 
 	public static int eglQuerySurface64KHR(long dpy, long surface, int attribute, PointerBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
 		return neglQuerySurface64KHR(dpy, surface, attribute, memAddress(value));
+	}
+
+	/** Array version of: {@link #eglLockSurfaceKHR LockSurfaceKHR} */
+	public static int eglLockSurfaceKHR(long dpy, long surface, int[] attrib_list) {
+		long __functionAddress = EGL.getCapabilities().eglLockSurfaceKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			checkPointer(surface);
+			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+		}
+		return callPPPI(__functionAddress, dpy, surface, attrib_list);
 	}
 
 }

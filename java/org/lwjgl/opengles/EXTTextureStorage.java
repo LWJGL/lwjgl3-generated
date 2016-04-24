@@ -74,7 +74,7 @@ public class EXTTextureStorage {
 		long __functionAddress = GLES.getCapabilities().glTexStorage1DEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, target, levels, internalformat, width);
+		callV(__functionAddress, target, levels, internalformat, width);
 	}
 
 	// --- [ glTexStorage2DEXT ] ---
@@ -83,7 +83,7 @@ public class EXTTextureStorage {
 		long __functionAddress = GLES.getCapabilities().glTexStorage2DEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, target, levels, internalformat, width, height);
+		callV(__functionAddress, target, levels, internalformat, width, height);
 	}
 
 	// --- [ glTexStorage3DEXT ] ---
@@ -92,7 +92,7 @@ public class EXTTextureStorage {
 		long __functionAddress = GLES.getCapabilities().glTexStorage3DEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIV(__functionAddress, target, levels, internalformat, width, height, depth);
+		callV(__functionAddress, target, levels, internalformat, width, height, depth);
 	}
 
 	// --- [ glTextureStorage1DEXT ] ---
@@ -101,7 +101,7 @@ public class EXTTextureStorage {
 		long __functionAddress = GLES.getCapabilities().glTextureStorage1DEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, texture, target, levels, internalformat, width);
+		callV(__functionAddress, texture, target, levels, internalformat, width);
 	}
 
 	// --- [ glTextureStorage2DEXT ] ---
@@ -110,7 +110,7 @@ public class EXTTextureStorage {
 		long __functionAddress = GLES.getCapabilities().glTextureStorage2DEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIV(__functionAddress, texture, target, levels, internalformat, width, height);
+		callV(__functionAddress, texture, target, levels, internalformat, width, height);
 	}
 
 	// --- [ glTextureStorage3DEXT ] ---
@@ -119,7 +119,7 @@ public class EXTTextureStorage {
 		long __functionAddress = GLES.getCapabilities().glTextureStorage3DEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIV(__functionAddress, texture, target, levels, internalformat, width, height, depth);
+		callV(__functionAddress, texture, target, levels, internalformat, width, height, depth);
 	}
 
 }

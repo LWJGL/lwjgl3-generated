@@ -115,7 +115,7 @@ public class WGLARBPixelFormat {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hdc);
 		}
-		return callPIIIPPI(__functionAddress, hdc, pixelFormat, layerPlane, n, attributes, values);
+		return callPPPI(__functionAddress, hdc, pixelFormat, layerPlane, n, attributes, values);
 	}
 
 	/**
@@ -171,7 +171,7 @@ public class WGLARBPixelFormat {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hdc);
 		}
-		return callPIIIPPI(__functionAddress, hdc, pixelFormat, layerPlane, n, attributes, values);
+		return callPPPI(__functionAddress, hdc, pixelFormat, layerPlane, n, attributes, values);
 	}
 
 	/**
@@ -230,7 +230,7 @@ public class WGLARBPixelFormat {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hdc);
 		}
-		return callPPPIPPI(__functionAddress, hdc, attribIList, attribFList, maxFormats, formats, numFormats);
+		return callPPPPPI(__functionAddress, hdc, attribIList, attribFList, maxFormats, formats, numFormats);
 	}
 
 	/**
@@ -252,6 +252,41 @@ public class WGLARBPixelFormat {
 			checkBuffer(numFormats, 1);
 		}
 		return nwglChoosePixelFormatARB(hdc, memAddressSafe(attribIList), memAddressSafe(attribFList), formats.remaining(), memAddress(formats), memAddress(numFormats)) != 0;
+	}
+
+	/** Array version of: {@link #wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB} */
+	public static boolean wglGetPixelFormatAttribivARB(long hdc, int pixelFormat, int layerPlane, int[] attributes, int[] values) {
+		long __functionAddress = GL.getCapabilitiesWGL().wglGetPixelFormatAttribivARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(hdc);
+			checkBuffer(values, attributes.length);
+		}
+		return callPPPI(__functionAddress, hdc, pixelFormat, layerPlane, attributes.length, attributes, values) != 0;
+	}
+
+	/** Array version of: {@link #wglGetPixelFormatAttribfvARB GetPixelFormatAttribfvARB} */
+	public static boolean wglGetPixelFormatAttribfvARB(long hdc, int pixelFormat, int layerPlane, int[] attributes, float[] values) {
+		long __functionAddress = GL.getCapabilitiesWGL().wglGetPixelFormatAttribfvARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(hdc);
+			checkBuffer(values, attributes.length);
+		}
+		return callPPPI(__functionAddress, hdc, pixelFormat, layerPlane, attributes.length, attributes, values) != 0;
+	}
+
+	/** Array version of: {@link #wglChoosePixelFormatARB ChoosePixelFormatARB} */
+	public static boolean wglChoosePixelFormatARB(long hdc, int[] attribIList, float[] attribFList, int[] formats, int[] numFormats) {
+		long __functionAddress = GL.getCapabilitiesWGL().wglChoosePixelFormatARB;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(hdc);
+			if ( attribIList != null ) checkNT(attribIList);
+			if ( attribFList != null ) checkNT(attribFList);
+			checkBuffer(numFormats, 1);
+		}
+		return callPPPPPI(__functionAddress, hdc, attribIList, attribFList, formats.length, formats, numFormats) != 0;
 	}
 
 }

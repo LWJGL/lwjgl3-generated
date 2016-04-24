@@ -61,7 +61,7 @@ public class EXTOutputBase {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 		}
-		return callPPPIPI(__functionAddress, dpy, attrib_list, layers, max_layers, num_layers);
+		return callPPPPI(__functionAddress, dpy, attrib_list, layers, max_layers, num_layers);
 	}
 
 	public static int eglGetOutputLayersEXT(long dpy, PointerBuffer attrib_list, PointerBuffer layers, IntBuffer num_layers) {
@@ -80,7 +80,7 @@ public class EXTOutputBase {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 		}
-		return callPPPIPI(__functionAddress, dpy, attrib_list, ports, max_ports, num_ports);
+		return callPPPPI(__functionAddress, dpy, attrib_list, ports, max_ports, num_ports);
 	}
 
 	public static int eglGetOutputPortsEXT(long dpy, PointerBuffer attrib_list, PointerBuffer ports, IntBuffer num_ports) {
@@ -100,7 +100,7 @@ public class EXTOutputBase {
 			checkPointer(dpy);
 			checkPointer(layer);
 		}
-		return callPPIPI(__functionAddress, dpy, layer, attribute, value);
+		return callPPPI(__functionAddress, dpy, layer, attribute, value);
 	}
 
 	// --- [ eglQueryOutputLayerAttribEXT ] ---
@@ -112,7 +112,7 @@ public class EXTOutputBase {
 			checkPointer(dpy);
 			checkPointer(layer);
 		}
-		return callPPIPI(__functionAddress, dpy, layer, attribute, value);
+		return callPPPI(__functionAddress, dpy, layer, attribute, value);
 	}
 
 	public static int eglQueryOutputLayerAttribEXT(long dpy, long layer, int attribute, PointerBuffer value) {
@@ -130,7 +130,7 @@ public class EXTOutputBase {
 			checkPointer(dpy);
 			checkPointer(layer);
 		}
-		return callPPIP(__functionAddress, dpy, layer, name);
+		return callPPP(__functionAddress, dpy, layer, name);
 	}
 
 	public static String eglQueryOutputLayerStringEXT(long dpy, long layer, int name) {
@@ -147,7 +147,7 @@ public class EXTOutputBase {
 			checkPointer(dpy);
 			checkPointer(port);
 		}
-		return callPPIPI(__functionAddress, dpy, port, attribute, value);
+		return callPPPI(__functionAddress, dpy, port, attribute, value);
 	}
 
 	// --- [ eglQueryOutputPortAttribEXT ] ---
@@ -159,7 +159,7 @@ public class EXTOutputBase {
 			checkPointer(dpy);
 			checkPointer(port);
 		}
-		return callPPIPI(__functionAddress, dpy, port, attribute, value);
+		return callPPPI(__functionAddress, dpy, port, attribute, value);
 	}
 
 	public static int eglQueryOutputPortAttribEXT(long dpy, long port, int attribute, PointerBuffer value) {
@@ -177,12 +177,36 @@ public class EXTOutputBase {
 			checkPointer(dpy);
 			checkPointer(port);
 		}
-		return callPPIP(__functionAddress, dpy, port, name);
+		return callPPP(__functionAddress, dpy, port, name);
 	}
 
 	public static String eglQueryOutputPortStringEXT(long dpy, long port, int name) {
 		long __result = neglQueryOutputPortStringEXT(dpy, port, name);
 		return memASCII(__result);
+	}
+
+	/** Array version of: {@link #eglGetOutputLayersEXT GetOutputLayersEXT} */
+	public static int eglGetOutputLayersEXT(long dpy, PointerBuffer attrib_list, PointerBuffer layers, int[] num_layers) {
+		long __functionAddress = EGL.getCapabilities().eglGetOutputLayersEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkBuffer(num_layers, 1);
+		}
+		return callPPPPI(__functionAddress, dpy, memAddressSafe(attrib_list), memAddressSafe(layers), layers == null ? 0 : layers.remaining(), num_layers);
+	}
+
+	/** Array version of: {@link #eglGetOutputPortsEXT GetOutputPortsEXT} */
+	public static int eglGetOutputPortsEXT(long dpy, PointerBuffer attrib_list, PointerBuffer ports, int[] num_ports) {
+		long __functionAddress = EGL.getCapabilities().eglGetOutputPortsEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkBuffer(num_ports, 1);
+		}
+		return callPPPPI(__functionAddress, dpy, memAddressSafe(attrib_list), memAddressSafe(ports), ports == null ? 0 : ports.remaining(), num_ports);
 	}
 
 }

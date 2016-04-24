@@ -115,7 +115,7 @@ public class WGL {
 		long __functionAddress = Functions.CreateLayerContext;
 		if ( CHECKS )
 			checkPointer(hdc);
-		return callPIP(__functionAddress, hdc, layerPlane);
+		return callPP(__functionAddress, hdc, layerPlane);
 	}
 
 	// --- [ wglCopyContext ] ---
@@ -134,7 +134,7 @@ public class WGL {
 			checkPointer(src);
 			checkPointer(dst);
 		}
-		return callPPII(__functionAddress, src, dst, mask) != 0;
+		return callPPI(__functionAddress, src, dst, mask) != 0;
 	}
 
 	// --- [ wglDeleteContext ] ---
@@ -259,7 +259,7 @@ public class WGL {
 		long __functionAddress = Functions.UseFontBitmaps;
 		if ( CHECKS )
 			checkPointer(hdc);
-		return callPIIII(__functionAddress, hdc, first, count, listBase) != 0;
+		return callPI(__functionAddress, hdc, first, count, listBase) != 0;
 	}
 
 	// --- [ wglUseFontOutlines ] ---
@@ -294,7 +294,7 @@ public class WGL {
 		long __functionAddress = Functions.UseFontOutlines;
 		if ( CHECKS )
 			checkPointer(hdc);
-		return callPIIIFFIPI(__functionAddress, hdc, first, count, listBase, deviation, extrusion, format, glyphMetrics);
+		return callPPI(__functionAddress, hdc, first, count, listBase, deviation, extrusion, format, glyphMetrics);
 	}
 
 	/**

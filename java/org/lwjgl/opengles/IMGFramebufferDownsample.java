@@ -49,7 +49,7 @@ public class IMGFramebufferDownsample {
 		long __functionAddress = GLES.getCapabilities().glFramebufferTexture2DDownsampleIMG;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIV(__functionAddress, target, attachment, textarget, texture, level, xscale, yscale);
+		callV(__functionAddress, target, attachment, textarget, texture, level, xscale, yscale);
 	}
 
 	// --- [ glFramebufferTextureLayerDownsampleIMG ] ---
@@ -58,7 +58,7 @@ public class IMGFramebufferDownsample {
 		long __functionAddress = GLES.getCapabilities().glFramebufferTextureLayerDownsampleIMG;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIV(__functionAddress, target, attachment, texture, level, layer, xscale, yscale);
+		callV(__functionAddress, target, attachment, texture, level, layer, xscale, yscale);
 	}
 
 }

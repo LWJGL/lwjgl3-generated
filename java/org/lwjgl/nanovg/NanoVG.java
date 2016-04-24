@@ -2758,4 +2758,208 @@ public class NanoVG {
 		}
 	}
 
+	/** Array version of: {@link #nvgCurrentTransform CurrentTransform} */
+	public static native void nnvgCurrentTransform(long ctx, float[] xform);
+
+	/** Array version of: {@link #nvgCurrentTransform CurrentTransform} */
+	public static void nvgCurrentTransform(long ctx, float[] xform) {
+		if ( CHECKS ) {
+			checkPointer(ctx);
+			checkBuffer(xform, 6);
+		}
+		nnvgCurrentTransform(ctx, xform);
+	}
+
+	/** Array version of: {@link #nvgTransformIdentity TransformIdentity} */
+	public static native void nnvgTransformIdentity(float[] dst);
+
+	/** Array version of: {@link #nvgTransformIdentity TransformIdentity} */
+	public static void nvgTransformIdentity(float[] dst) {
+		if ( CHECKS )
+			checkBuffer(dst, 6);
+		nnvgTransformIdentity(dst);
+	}
+
+	/** Array version of: {@link #nvgTransformTranslate TransformTranslate} */
+	public static native void nnvgTransformTranslate(float[] dst, float tx, float ty);
+
+	/** Array version of: {@link #nvgTransformTranslate TransformTranslate} */
+	public static void nvgTransformTranslate(float[] dst, float tx, float ty) {
+		if ( CHECKS )
+			checkBuffer(dst, 6);
+		nnvgTransformTranslate(dst, tx, ty);
+	}
+
+	/** Array version of: {@link #nvgTransformScale TransformScale} */
+	public static native void nnvgTransformScale(float[] dst, float sx, float sy);
+
+	/** Array version of: {@link #nvgTransformScale TransformScale} */
+	public static void nvgTransformScale(float[] dst, float sx, float sy) {
+		if ( CHECKS )
+			checkBuffer(dst, 6);
+		nnvgTransformScale(dst, sx, sy);
+	}
+
+	/** Array version of: {@link #nvgTransformRotate TransformRotate} */
+	public static native void nnvgTransformRotate(float[] dst, float a);
+
+	/** Array version of: {@link #nvgTransformRotate TransformRotate} */
+	public static void nvgTransformRotate(float[] dst, float a) {
+		if ( CHECKS )
+			checkBuffer(dst, 6);
+		nnvgTransformRotate(dst, a);
+	}
+
+	/** Array version of: {@link #nvgTransformSkewX TransformSkewX} */
+	public static native void nnvgTransformSkewX(float[] dst, float a);
+
+	/** Array version of: {@link #nvgTransformSkewX TransformSkewX} */
+	public static void nvgTransformSkewX(float[] dst, float a) {
+		if ( CHECKS )
+			checkBuffer(dst, 6);
+		nnvgTransformSkewX(dst, a);
+	}
+
+	/** Array version of: {@link #nvgTransformSkewY TransformSkewY} */
+	public static native void nnvgTransformSkewY(float[] dst, float a);
+
+	/** Array version of: {@link #nvgTransformSkewY TransformSkewY} */
+	public static void nvgTransformSkewY(float[] dst, float a) {
+		if ( CHECKS )
+			checkBuffer(dst, 6);
+		nnvgTransformSkewY(dst, a);
+	}
+
+	/** Array version of: {@link #nvgTransformMultiply TransformMultiply} */
+	public static native void nnvgTransformMultiply(float[] dst, float[] src);
+
+	/** Array version of: {@link #nvgTransformMultiply TransformMultiply} */
+	public static void nvgTransformMultiply(float[] dst, float[] src) {
+		if ( CHECKS ) {
+			checkBuffer(dst, 6);
+			checkBuffer(src, 6);
+		}
+		nnvgTransformMultiply(dst, src);
+	}
+
+	/** Array version of: {@link #nvgTransformPremultiply TransformPremultiply} */
+	public static native void nnvgTransformPremultiply(float[] dst, float[] src);
+
+	/** Array version of: {@link #nvgTransformPremultiply TransformPremultiply} */
+	public static void nvgTransformPremultiply(float[] dst, float[] src) {
+		if ( CHECKS ) {
+			checkBuffer(dst, 6);
+			checkBuffer(src, 6);
+		}
+		nnvgTransformPremultiply(dst, src);
+	}
+
+	/** Array version of: {@link #nvgTransformInverse TransformInverse} */
+	public static native int nnvgTransformInverse(float[] dst, float[] src);
+
+	/** Array version of: {@link #nvgTransformInverse TransformInverse} */
+	public static int nvgTransformInverse(float[] dst, float[] src) {
+		if ( CHECKS ) {
+			checkBuffer(dst, 6);
+			checkBuffer(src, 6);
+		}
+		return nnvgTransformInverse(dst, src);
+	}
+
+	/** Array version of: {@link #nvgTransformPoint TransformPoint} */
+	public static native void nnvgTransformPoint(float[] dstx, float[] dsty, float[] xform, float srcx, float srcy);
+
+	/** Array version of: {@link #nvgTransformPoint TransformPoint} */
+	public static void nvgTransformPoint(float[] dstx, float[] dsty, float[] xform, float srcx, float srcy) {
+		if ( CHECKS ) {
+			checkBuffer(dstx, 1);
+			checkBuffer(dsty, 1);
+			checkBuffer(xform, 6);
+		}
+		nnvgTransformPoint(dstx, dsty, xform, srcx, srcy);
+	}
+
+	/** Array version of: {@link #nvgImageSize ImageSize} */
+	public static native void nnvgImageSize(long ctx, int image, int[] w, int[] h);
+
+	/** Array version of: {@link #nvgImageSize ImageSize} */
+	public static void nvgImageSize(long ctx, int image, int[] w, int[] h) {
+		if ( CHECKS ) {
+			checkPointer(ctx);
+			checkBuffer(w, 1);
+			checkBuffer(h, 1);
+		}
+		nnvgImageSize(ctx, image, w, h);
+	}
+
+	/** Array version of: {@link #nvgTextBounds TextBounds} */
+	public static native float nnvgTextBounds(long ctx, float x, float y, long string, long end, float[] bounds);
+
+	/** Array version of: {@link #nvgTextBounds TextBounds} */
+	public static float nvgTextBounds(long ctx, float x, float y, ByteBuffer string, long end, float[] bounds) {
+		if ( CHECKS ) {
+			checkPointer(ctx);
+			checkNT1(string);
+			if ( bounds != null ) checkBuffer(bounds, 4);
+		}
+		return nnvgTextBounds(ctx, x, y, memAddress(string), end, bounds);
+	}
+
+	/** Array version of: {@link #nvgTextBounds TextBounds} */
+	public static float nvgTextBounds(long ctx, float x, float y, CharSequence string, long end, float[] bounds) {
+		if ( CHECKS ) {
+			checkPointer(ctx);
+			if ( bounds != null ) checkBuffer(bounds, 4);
+		}
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer stringEncoded = stack.UTF8(string);
+			return nnvgTextBounds(ctx, x, y, memAddress(stringEncoded), end, bounds);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
+	/** Array version of: {@link #nvgTextBoxBounds TextBoxBounds} */
+	public static native void nnvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, long string, long end, float[] bounds);
+
+	/** Array version of: {@link #nvgTextBoxBounds TextBoxBounds} */
+	public static void nvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, ByteBuffer string, long end, float[] bounds) {
+		if ( CHECKS ) {
+			checkPointer(ctx);
+			checkNT1(string);
+			if ( bounds != null ) checkBuffer(bounds, 4);
+		}
+		nnvgTextBoxBounds(ctx, x, y, breakRowWidth, memAddress(string), end, bounds);
+	}
+
+	/** Array version of: {@link #nvgTextBoxBounds TextBoxBounds} */
+	public static void nvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, CharSequence string, long end, float[] bounds) {
+		if ( CHECKS ) {
+			checkPointer(ctx);
+			if ( bounds != null ) checkBuffer(bounds, 4);
+		}
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer stringEncoded = stack.UTF8(string);
+			nnvgTextBoxBounds(ctx, x, y, breakRowWidth, memAddress(stringEncoded), end, bounds);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
+	/** Array version of: {@link #nvgTextMetrics TextMetrics} */
+	public static native void nnvgTextMetrics(long ctx, float[] ascender, float[] descender, float[] lineh);
+
+	/** Array version of: {@link #nvgTextMetrics TextMetrics} */
+	public static void nvgTextMetrics(long ctx, float[] ascender, float[] descender, float[] lineh) {
+		if ( CHECKS ) {
+			checkPointer(ctx);
+			if ( ascender != null ) checkBuffer(ascender, 1);
+			if ( descender != null ) checkBuffer(descender, 1);
+			if ( lineh != null ) checkBuffer(lineh, 1);
+		}
+		nnvgTextMetrics(ctx, ascender, descender, lineh);
+	}
+
 }

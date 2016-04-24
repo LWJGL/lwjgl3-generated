@@ -51,7 +51,7 @@ public class GLXEXTSwapControl {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
-		callPPIV(__functionAddress, display, drawable, interval);
+		callPPV(__functionAddress, display, drawable, interval);
 	}
 
 }

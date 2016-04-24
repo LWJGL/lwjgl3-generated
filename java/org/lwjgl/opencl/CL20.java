@@ -233,7 +233,7 @@ public class CL20 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
 		}
-		return callPJIIPPP(__functionAddress, context, flags, pipe_packet_size, pipe_max_packets, properties, errcode_ret);
+		return callPJPPP(__functionAddress, context, flags, pipe_packet_size, pipe_max_packets, properties, errcode_ret);
 	}
 
 	/**
@@ -297,7 +297,7 @@ public class CL20 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(pipe);
 		}
-		return callPIPPPI(__functionAddress, pipe, param_name, param_value_size, param_value, param_value_size_ret);
+		return callPPPPI(__functionAddress, pipe, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -321,7 +321,7 @@ public class CL20 {
 	public static int clGetPipeInfo(long pipe, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetPipeInfo(pipe, param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetPipeInfo(pipe, param_name, (long)(param_value == null ? 0 : param_value.remaining()), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetPipeInfo GetPipeInfo} */
@@ -386,7 +386,7 @@ public class CL20 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
 		}
-		return callPJPIP(__functionAddress, context, flags, size, alignment);
+		return callPJPP(__functionAddress, context, flags, size, alignment);
 	}
 
 	/**
@@ -528,7 +528,7 @@ public class CL20 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 		}
-		return callPIPPPIPPI(__functionAddress, command_queue, num_svm_pointers, svm_pointers, pfn_free_func, user_data, num_events_in_wait_list, event_wait_list, event);
+		return callPPPPPPI(__functionAddress, command_queue, num_svm_pointers, svm_pointers, pfn_free_func, user_data, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -621,7 +621,7 @@ public class CL20 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 		}
-		return callPIPPPIPPI(__functionAddress, command_queue, blocking_copy, dst_ptr, src_ptr, size, num_events_in_wait_list, event_wait_list, event);
+		return callPPPPPPI(__functionAddress, command_queue, blocking_copy, dst_ptr, src_ptr, size, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -720,7 +720,7 @@ public class CL20 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 		}
-		return callPPPPPIPPI(__functionAddress, command_queue, svm_ptr, pattern, pattern_size, size, num_events_in_wait_list, event_wait_list, event);
+		return callPPPPPPPI(__functionAddress, command_queue, svm_ptr, pattern, pattern_size, size, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -763,7 +763,7 @@ public class CL20 {
 	public static int clEnqueueSVMMemFill(long command_queue, ByteBuffer svm_ptr, ByteBuffer pattern, long size, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
-		return nclEnqueueSVMMemFill(command_queue, memAddress(svm_ptr), memAddress(pattern), pattern.remaining(), size, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueSVMMemFill(command_queue, memAddress(svm_ptr), memAddress(pattern), (long)pattern.remaining(), size, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clEnqueueSVMMap ] ---
@@ -815,7 +815,7 @@ public class CL20 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 		}
-		return callPIJPPIPPI(__functionAddress, command_queue, blocking_map, map_flags, svm_ptr, size, num_events_in_wait_list, event_wait_list, event);
+		return callPJPPPPI(__functionAddress, command_queue, blocking_map, map_flags, svm_ptr, size, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -860,7 +860,7 @@ public class CL20 {
 	public static int clEnqueueSVMMap(long command_queue, int blocking_map, long map_flags, ByteBuffer svm_ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
-		return nclEnqueueSVMMap(command_queue, blocking_map, map_flags, memAddress(svm_ptr), svm_ptr.remaining(), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueSVMMap(command_queue, blocking_map, map_flags, memAddress(svm_ptr), (long)svm_ptr.remaining(), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clEnqueueSVMUnmap ] ---
@@ -899,7 +899,7 @@ public class CL20 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 		}
-		return callPPIPPI(__functionAddress, command_queue, svm_ptr, num_events_in_wait_list, event_wait_list, event);
+		return callPPPPI(__functionAddress, command_queue, svm_ptr, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -966,7 +966,7 @@ public class CL20 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(kernel);
 		}
-		return callPIPI(__functionAddress, kernel, arg_index, arg_value);
+		return callPPI(__functionAddress, kernel, arg_index, arg_value);
 	}
 
 	/**
@@ -1051,7 +1051,7 @@ public class CL20 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(kernel);
 		}
-		return callPIPPI(__functionAddress, kernel, param_name, param_value_size, param_value);
+		return callPPPI(__functionAddress, kernel, param_name, param_value_size, param_value);
 	}
 
 	/**
@@ -1101,7 +1101,7 @@ public class CL20 {
 	 *         </ul>
 	 */
 	public static int clSetKernelExecInfo(long kernel, int param_name, ByteBuffer param_value) {
-		return nclSetKernelExecInfo(kernel, param_name, param_value.remaining(), memAddress(param_value));
+		return nclSetKernelExecInfo(kernel, param_name, (long)param_value.remaining(), memAddress(param_value));
 	}
 
 	/** PointerBuffer version of: {@link #clSetKernelExecInfo SetKernelExecInfo} */
@@ -1173,6 +1173,64 @@ public class CL20 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		}
 		return nclCreateSamplerWithProperties(context, memAddressSafe(sampler_properties), memAddressSafe(errcode_ret));
+	}
+
+	/** Array version of: {@link #clCreateCommandQueueWithProperties CreateCommandQueueWithProperties} */
+	public static long clCreateCommandQueueWithProperties(long context, long device, long[] properties, int[] errcode_ret) {
+		long __functionAddress = CL.getICD().clCreateCommandQueueWithProperties;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(context);
+			checkPointer(device);
+			if ( properties != null ) checkNT(properties);
+			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+		}
+		return callPPPPP(__functionAddress, context, device, properties, errcode_ret);
+	}
+
+	/** Array version of: {@link #clCreatePipe CreatePipe} */
+	public static long clCreatePipe(long context, long flags, int pipe_packet_size, int pipe_max_packets, int[] properties, int[] errcode_ret) {
+		long __functionAddress = CL.getICD().clCreatePipe;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(context);
+			if ( properties != null ) checkNT(properties);
+			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+		}
+		return callPJPPP(__functionAddress, context, flags, pipe_packet_size, pipe_max_packets, properties, errcode_ret);
+	}
+
+	/** int[] version of: {@link #clGetPipeInfo GetPipeInfo} */
+	public static int clGetPipeInfo(long pipe, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
+		long __functionAddress = CL.getICD().clGetPipeInfo;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(pipe);
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+		}
+		return callPPPPI(__functionAddress, pipe, param_name, (long)(param_value == null ? 0 : param_value.length << 2), param_value, memAddressSafe(param_value_size_ret));
+	}
+
+	/** int[] version of: {@link #clSetKernelExecInfo SetKernelExecInfo} */
+	public static int clSetKernelExecInfo(long kernel, int param_name, int[] param_value) {
+		long __functionAddress = CL.getICD().clSetKernelExecInfo;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(kernel);
+		}
+		return callPPPI(__functionAddress, kernel, param_name, (long)(param_value.length << 2), param_value);
+	}
+
+	/** Array version of: {@link #clCreateSamplerWithProperties CreateSamplerWithProperties} */
+	public static long clCreateSamplerWithProperties(long context, int[] sampler_properties, int[] errcode_ret) {
+		long __functionAddress = CL.getICD().clCreateSamplerWithProperties;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(context);
+			if ( sampler_properties != null ) checkNT(sampler_properties);
+			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+		}
+		return callPPPP(__functionAddress, context, sampler_properties, errcode_ret);
 	}
 
 }

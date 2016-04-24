@@ -48,7 +48,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1tga_1with
 	return (jlong)(intptr_t)&stbi_write_tga_with_rle;
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1hdr(JNIEnv *__env, jclass clazz, jlong filenameAddress, jint w, jint h, jint comp, jlong dataAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1hdr__JIIIJ(JNIEnv *__env, jclass clazz, jlong filenameAddress, jint w, jint h, jint comp, jlong dataAddress) {
 	const char *filename = (const char *)(intptr_t)filenameAddress;
 	const float *data = (const float *)(intptr_t)dataAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -79,12 +79,44 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1tga_1to_1f
 	return (jint)stbi_write_tga_to_func(func, context, w, h, comp, data);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1hdr_1to_1func(JNIEnv *__env, jclass clazz, jlong funcAddress, jlong contextAddress, jint w, jint h, jint comp, jlong dataAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1hdr_1to_1func__JJIIIJ(JNIEnv *__env, jclass clazz, jlong funcAddress, jlong contextAddress, jint w, jint h, jint comp, jlong dataAddress) {
 	stbi_write_func *func = (stbi_write_func *)(intptr_t)funcAddress;
 	void *context = (void *)(intptr_t)contextAddress;
 	const float *data = (const float *)(intptr_t)dataAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)stbi_write_hdr_to_func(func, context, w, h, comp, data);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1hdr__JIII_3F(JNIEnv *__env, jclass clazz, jlong filenameAddress, jint w, jint h, jint comp, jfloatArray dataAddress) {
+	const char *filename = (const char *)(intptr_t)filenameAddress;
+	jint __result;
+	jfloat *data = (*__env)->GetPrimitiveArrayCritical(__env, dataAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	__result = (jint)stbi_write_hdr(filename, w, h, comp, (float*)data);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, dataAddress, data, 0);
+	return __result;
+}
+JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBImageWrite_nstbi_1write_1hdr__JIII_3F(jlong filenameAddress, jint w, jint h, jint comp, jint data__length, jfloat* data) {
+	const char *filename = (const char *)(intptr_t)filenameAddress;
+	UNUSED_PARAM(data__length)
+	return (jint)stbi_write_hdr(filename, w, h, comp, (float*)data);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1hdr_1to_1func__JJIII_3F(JNIEnv *__env, jclass clazz, jlong funcAddress, jlong contextAddress, jint w, jint h, jint comp, jfloatArray dataAddress) {
+	stbi_write_func *func = (stbi_write_func *)(intptr_t)funcAddress;
+	void *context = (void *)(intptr_t)contextAddress;
+	jint __result;
+	jfloat *data = (*__env)->GetPrimitiveArrayCritical(__env, dataAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	__result = (jint)stbi_write_hdr_to_func(func, context, w, h, comp, (float*)data);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, dataAddress, data, 0);
+	return __result;
+}
+JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBImageWrite_nstbi_1write_1hdr_1to_1func__JJIII_3F(jlong funcAddress, jlong contextAddress, jint w, jint h, jint comp, jint data__length, jfloat* data) {
+	stbi_write_func *func = (stbi_write_func *)(intptr_t)funcAddress;
+	void *context = (void *)(intptr_t)contextAddress;
+	UNUSED_PARAM(data__length)
+	return (jint)stbi_write_hdr_to_func(func, context, w, h, comp, (float*)data);
 }
 
 EXTERN_C_EXIT

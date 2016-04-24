@@ -82,7 +82,7 @@ public class EGL15 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 		}
-		return callPIPP(__functionAddress, dpy, type, attrib_list);
+		return callPPP(__functionAddress, dpy, type, attrib_list);
 	}
 
 	public static long eglCreateSync(long dpy, int type, PointerBuffer attrib_list) {
@@ -112,7 +112,7 @@ public class EGL15 {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return callPPIJI(__functionAddress, dpy, sync, flags, timeout);
+		return callPPJI(__functionAddress, dpy, sync, flags, timeout);
 	}
 
 	// --- [ eglGetSyncAttrib ] ---
@@ -124,7 +124,7 @@ public class EGL15 {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return callPPIPI(__functionAddress, dpy, sync, attribute, value);
+		return callPPPI(__functionAddress, dpy, sync, attribute, value);
 	}
 
 	public static int eglGetSyncAttrib(long dpy, long sync, int attribute, PointerBuffer value) {
@@ -143,7 +143,7 @@ public class EGL15 {
 			checkPointer(ctx);
 			checkPointer(buffer);
 		}
-		return callPPIPPP(__functionAddress, dpy, ctx, target, buffer, attrib_list);
+		return callPPPPP(__functionAddress, dpy, ctx, target, buffer, attrib_list);
 	}
 
 	public static long eglCreateImage(long dpy, long ctx, int target, long buffer, PointerBuffer attrib_list) {
@@ -172,7 +172,7 @@ public class EGL15 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(native_display);
 		}
-		return callIPPP(__functionAddress, platform, native_display, attrib_list);
+		return callPPP(__functionAddress, platform, native_display, attrib_list);
 	}
 
 	public static long eglGetPlatformDisplay(int platform, long native_display, PointerBuffer attrib_list) {
@@ -228,7 +228,7 @@ public class EGL15 {
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return callPPII(__functionAddress, dpy, sync, flags);
+		return callPPI(__functionAddress, dpy, sync, flags);
 	}
 
 }

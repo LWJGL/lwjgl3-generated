@@ -105,7 +105,7 @@ public class KHREGLImage {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 		}
-		return callPIPIPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
+		return callPPPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -152,7 +152,7 @@ public class KHREGLImage {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 		}
-		return callPIPIPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
+		return callPPPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -174,6 +174,20 @@ public class KHREGLImage {
 		if ( CHECKS )
 			if ( event != null ) checkBuffer(event, 1);
 		return nclEnqueueReleaseEGLObjectsKHR(command_queue, num_objects, memAddress(mem_objects), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+	}
+
+	/** Array version of: {@link #clCreateFromEGLImageKHR CreateFromEGLImageKHR} */
+	public static long clCreateFromEGLImageKHR(long context, long display, long image, long flags, PointerBuffer properties, int[] errcode_ret) {
+		long __functionAddress = CL.getICD().clCreateFromEGLImageKHR;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(context);
+			checkPointer(display);
+			checkPointer(image);
+			if ( properties != null ) checkNT(properties);
+			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+		}
+		return callPPPJPPP(__functionAddress, context, display, image, flags, memAddressSafe(properties), errcode_ret);
 	}
 
 }

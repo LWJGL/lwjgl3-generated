@@ -90,7 +90,7 @@ public class ARBDrawElementsBaseVertex {
 		long __functionAddress = GL.getCapabilities().glDrawElementsBaseVertex;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPIV(__functionAddress, mode, count, type, indices, basevertex);
+		callPV(__functionAddress, mode, count, type, indices, basevertex);
 	}
 
 	/**
@@ -178,7 +178,7 @@ public class ARBDrawElementsBaseVertex {
 		long __functionAddress = GL.getCapabilities().glDrawRangeElementsBaseVertex;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIPIV(__functionAddress, mode, start, end, count, type, indices, basevertex);
+		callPV(__functionAddress, mode, start, end, count, type, indices, basevertex);
 	}
 
 	/**
@@ -275,7 +275,7 @@ public class ARBDrawElementsBaseVertex {
 		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedBaseVertex;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPIIV(__functionAddress, mode, count, type, indices, primcount, basevertex);
+		callPV(__functionAddress, mode, count, type, indices, primcount, basevertex);
 	}
 
 	/**
@@ -369,7 +369,7 @@ public class ARBDrawElementsBaseVertex {
 		long __functionAddress = GL.getCapabilities().glMultiDrawElementsBaseVertex;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPIPIPV(__functionAddress, mode, count, type, indices, primcount, basevertex);
+		callPPPV(__functionAddress, mode, count, type, indices, primcount, basevertex);
 	}
 
 	/**
@@ -389,6 +389,17 @@ public class ARBDrawElementsBaseVertex {
 			checkBuffer(basevertex, count.remaining());
 		}
 		nglMultiDrawElementsBaseVertex(mode, memAddress(count), type, memAddress(indices), count.remaining(), memAddress(basevertex));
+	}
+
+	/** Array version of: {@link #glMultiDrawElementsBaseVertex MultiDrawElementsBaseVertex} */
+	public static void glMultiDrawElementsBaseVertex(int mode, int[] count, int type, PointerBuffer indices, int[] basevertex) {
+		long __functionAddress = GL.getCapabilities().glMultiDrawElementsBaseVertex;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(indices, count.length);
+			checkBuffer(basevertex, count.length);
+		}
+		callPPPV(__functionAddress, mode, count, type, memAddress(indices), count.length, basevertex);
 	}
 
 }

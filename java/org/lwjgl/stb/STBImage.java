@@ -303,14 +303,14 @@ public class STBImage {
 	 * @param comp     outputs number of components in image
 	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
 	 */
-	public static ByteBuffer stbi_load_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
+	public static ByteBuffer stbi_load_from_callbacks(STBIIOCallbacks clbk, long user, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
 			STBIIOCallbacks.validate(clbk.address());
 		}
-		long __result = nstbi_load_from_callbacks(clbk.address(), memAddressSafe(user), memAddress(x), memAddress(y), memAddress(comp), req_comp);
+		long __result = nstbi_load_from_callbacks(clbk.address(), user, memAddress(x), memAddress(y), memAddress(comp), req_comp);
 		return memByteBuffer(__result, x.get(x.position()) * y.get(y.position()) * comp.get(comp.position()));
 	}
 
@@ -429,14 +429,14 @@ public class STBImage {
 	 * @param comp     outputs number of components in image
 	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
 	 */
-	public static FloatBuffer stbi_loadf_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
+	public static FloatBuffer stbi_loadf_from_callbacks(STBIIOCallbacks clbk, long user, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
 			STBIIOCallbacks.validate(clbk.address());
 		}
-		long __result = nstbi_loadf_from_callbacks(clbk.address(), memAddressSafe(user), memAddress(x), memAddress(y), memAddress(comp), req_comp);
+		long __result = nstbi_loadf_from_callbacks(clbk.address(), user, memAddress(x), memAddress(y), memAddress(comp), req_comp);
 		return memFloatBuffer(__result, x.get(x.position()) * y.get(y.position()) * comp.get(comp.position()));
 	}
 
@@ -552,10 +552,10 @@ public class STBImage {
 	 * @param clbk an {@link STBIIOCallbacks} struct
 	 * @param user a pointer to user data
 	 */
-	public static int stbi_is_hdr_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user) {
+	public static int stbi_is_hdr_from_callbacks(STBIIOCallbacks clbk, long user) {
 		if ( CHECKS )
 			STBIIOCallbacks.validate(clbk.address());
-		return nstbi_is_hdr_from_callbacks(clbk.address(), memAddressSafe(user));
+		return nstbi_is_hdr_from_callbacks(clbk.address(), user);
 	}
 
 	// --- [ stbi_failure_reason ] ---
@@ -703,14 +703,14 @@ public class STBImage {
 	 * @param y    outputs the image height in pixels
 	 * @param comp outputs number of components in image
 	 */
-	public static int stbi_info_from_callbacks(STBIIOCallbacks clbk, ByteBuffer user, IntBuffer x, IntBuffer y, IntBuffer comp) {
+	public static int stbi_info_from_callbacks(STBIIOCallbacks clbk, long user, IntBuffer x, IntBuffer y, IntBuffer comp) {
 		if ( CHECKS ) {
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
 			STBIIOCallbacks.validate(clbk.address());
 		}
-		return nstbi_info_from_callbacks(clbk.address(), memAddressSafe(user), memAddress(x), memAddress(y), memAddress(comp));
+		return nstbi_info_from_callbacks(clbk.address(), user, memAddress(x), memAddress(y), memAddress(comp));
 	}
 
 	// --- [ stbi_set_unpremultiply_on_load ] ---
@@ -762,7 +762,7 @@ public class STBImage {
 	public static ByteBuffer stbi_zlib_decode_malloc_guesssize(ByteBuffer buffer, int initial_size) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-		IntBuffer outlen = stack.callocInt(1);
+			IntBuffer outlen = stack.callocInt(1);
 			long __result = nstbi_zlib_decode_malloc_guesssize(memAddress(buffer), buffer.remaining(), initial_size, memAddress(outlen));
 			return memByteBuffer(__result, outlen.get(0));
 		} finally {
@@ -793,7 +793,7 @@ public class STBImage {
 	public static ByteBuffer stbi_zlib_decode_malloc_guesssize_headerflag(ByteBuffer buffer, int initial_size, int parse_header) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-		IntBuffer outlen = stack.callocInt(1);
+			IntBuffer outlen = stack.callocInt(1);
 			long __result = nstbi_zlib_decode_malloc_guesssize_headerflag(memAddress(buffer), buffer.remaining(), initial_size, memAddress(outlen), parse_header);
 			return memByteBuffer(__result, outlen.get(0));
 		} finally {
@@ -820,7 +820,7 @@ public class STBImage {
 	public static ByteBuffer stbi_zlib_decode_malloc(ByteBuffer buffer) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-		IntBuffer outlen = stack.callocInt(1);
+			IntBuffer outlen = stack.callocInt(1);
 			long __result = nstbi_zlib_decode_malloc(memAddress(buffer), buffer.remaining(), memAddress(outlen));
 			return memByteBuffer(__result, outlen.get(0));
 		} finally {
@@ -869,7 +869,7 @@ public class STBImage {
 	public static ByteBuffer stbi_zlib_decode_noheader_malloc(ByteBuffer buffer) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-		IntBuffer outlen = stack.callocInt(1);
+			IntBuffer outlen = stack.callocInt(1);
 			long __result = nstbi_zlib_decode_noheader_malloc(memAddress(buffer), buffer.remaining(), memAddress(outlen));
 			return memByteBuffer(__result, outlen.get(0));
 		} finally {
@@ -897,6 +897,71 @@ public class STBImage {
 	 */
 	public static int stbi_zlib_decode_noheader_buffer(ByteBuffer obuffer, ByteBuffer ibuffer) {
 		return nstbi_zlib_decode_noheader_buffer(memAddress(obuffer), obuffer.remaining(), memAddress(ibuffer), ibuffer.remaining());
+	}
+
+	/** float[] version of: {@link #stbi_image_free image_free} */
+	public static native void nstbi_image_free(float[] retval_from_stbi_load);
+
+	/** float[] version of: {@link #stbi_image_free image_free} */
+	public static void stbi_image_free(float[] retval_from_stbi_load) {
+		nstbi_image_free(retval_from_stbi_load);
+	}
+
+	/** Array version of: {@link #stbi_info info} */
+	public static native int nstbi_info(long filename, int[] x, int[] y, int[] comp);
+
+	/** Array version of: {@link #stbi_info info} */
+	public static int stbi_info(ByteBuffer filename, int[] x, int[] y, int[] comp) {
+		if ( CHECKS ) {
+			checkNT1(filename);
+			checkBuffer(x, 1);
+			checkBuffer(y, 1);
+			checkBuffer(comp, 1);
+		}
+		return nstbi_info(memAddress(filename), x, y, comp);
+	}
+
+	/** Array version of: {@link #stbi_info info} */
+	public static int stbi_info(CharSequence filename, int[] x, int[] y, int[] comp) {
+		if ( CHECKS ) {
+			checkBuffer(x, 1);
+			checkBuffer(y, 1);
+			checkBuffer(comp, 1);
+		}
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer filenameEncoded = stack.ASCII(filename);
+			return nstbi_info(memAddress(filenameEncoded), x, y, comp);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
+	/** Array version of: {@link #stbi_info_from_memory info_from_memory} */
+	public static native int nstbi_info_from_memory(long buffer, int len, int[] x, int[] y, int[] comp);
+
+	/** Array version of: {@link #stbi_info_from_memory info_from_memory} */
+	public static int stbi_info_from_memory(ByteBuffer buffer, int[] x, int[] y, int[] comp) {
+		if ( CHECKS ) {
+			checkBuffer(x, 1);
+			checkBuffer(y, 1);
+			checkBuffer(comp, 1);
+		}
+		return nstbi_info_from_memory(memAddress(buffer), buffer.remaining(), x, y, comp);
+	}
+
+	/** Array version of: {@link #stbi_info_from_callbacks info_from_callbacks} */
+	public static native int nstbi_info_from_callbacks(long clbk, long user, int[] x, int[] y, int[] comp);
+
+	/** Array version of: {@link #stbi_info_from_callbacks info_from_callbacks} */
+	public static int stbi_info_from_callbacks(STBIIOCallbacks clbk, long user, int[] x, int[] y, int[] comp) {
+		if ( CHECKS ) {
+			checkBuffer(x, 1);
+			checkBuffer(y, 1);
+			checkBuffer(comp, 1);
+			STBIIOCallbacks.validate(clbk.address());
+		}
+		return nstbi_info_from_callbacks(clbk.address(), user, x, y, comp);
 	}
 
 }

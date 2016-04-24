@@ -107,7 +107,7 @@ public class GLX13 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 		}
-		return callPIPP(__functionAddress, display, screen, nelements);
+		return callPPP(__functionAddress, display, screen, nelements);
 	}
 
 	/**
@@ -143,7 +143,7 @@ public class GLX13 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 		}
-		return callPIPPP(__functionAddress, display, screen, attrib_list, nelements);
+		return callPPPP(__functionAddress, display, screen, attrib_list, nelements);
 	}
 
 	/**
@@ -183,7 +183,7 @@ public class GLX13 {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return callPPIPI(__functionAddress, display, config, attribute, value);
+		return callPPPI(__functionAddress, display, config, attribute, value);
 	}
 
 	/**
@@ -382,7 +382,7 @@ public class GLX13 {
 			checkPointer(display);
 			checkPointer(draw);
 		}
-		callPPIPV(__functionAddress, display, draw, attribute, value);
+		callPPPV(__functionAddress, display, draw, attribute, value);
 	}
 
 	/**
@@ -417,7 +417,7 @@ public class GLX13 {
 			checkPointer(display);
 			checkPointer(config);
 		}
-		return callPPIPIP(__functionAddress, display, config, render_type, share_list, direct);
+		return callPPPP(__functionAddress, display, config, render_type, share_list, direct);
 	}
 
 	// --- [ glXMakeContextCurrent ] ---
@@ -466,7 +466,7 @@ public class GLX13 {
 			checkPointer(display);
 			checkPointer(ctx);
 		}
-		return callPPIPI(__functionAddress, display, ctx, attribute, value);
+		return callPPPI(__functionAddress, display, ctx, attribute, value);
 	}
 
 	/**
@@ -530,6 +530,78 @@ public class GLX13 {
 	 */
 	public static void glXGetSelectedEvent(long display, long draw, PointerBuffer event_mask) {
 		nglXGetSelectedEvent(display, draw, memAddress(event_mask));
+	}
+
+	/** Array version of: {@link #glXGetFBConfigAttrib GetFBConfigAttrib} */
+	public static int glXGetFBConfigAttrib(long display, long config, int attribute, int[] value) {
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetFBConfigAttrib;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(display);
+			checkPointer(config);
+			checkBuffer(value, 1);
+		}
+		return callPPPI(__functionAddress, display, config, attribute, value);
+	}
+
+	/** Array version of: {@link #glXCreateWindow CreateWindow} */
+	public static long glXCreateWindow(long display, long config, long win, int[] attrib_list) {
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateWindow;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(display);
+			checkPointer(config);
+			if ( attrib_list != null ) checkNT(attrib_list);
+		}
+		return callPPPPP(__functionAddress, display, config, win, attrib_list);
+	}
+
+	/** Array version of: {@link #glXCreatePixmap CreatePixmap} */
+	public static long glXCreatePixmap(long display, long config, long pixmap, int[] attrib_list) {
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreatePixmap;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(display);
+			checkPointer(config);
+			if ( attrib_list != null ) checkNT(attrib_list);
+		}
+		return callPPPPP(__functionAddress, display, config, pixmap, attrib_list);
+	}
+
+	/** Array version of: {@link #glXCreatePbuffer CreatePbuffer} */
+	public static long glXCreatePbuffer(long display, long config, int[] attrib_list) {
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreatePbuffer;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(display);
+			checkPointer(config);
+			if ( attrib_list != null ) checkNT(attrib_list);
+		}
+		return callPPPP(__functionAddress, display, config, attrib_list);
+	}
+
+	/** Array version of: {@link #glXQueryDrawable QueryDrawable} */
+	public static void glXQueryDrawable(long display, long draw, int attribute, int[] value) {
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryDrawable;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(display);
+			checkPointer(draw);
+			checkBuffer(value, 1);
+		}
+		callPPPV(__functionAddress, display, draw, attribute, value);
+	}
+
+	/** Array version of: {@link #glXQueryContext QueryContext} */
+	public static int glXQueryContext(long display, long ctx, int attribute, int[] value) {
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryContext;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(display);
+			checkPointer(ctx);
+			checkBuffer(value, 1);
+		}
+		return callPPPI(__functionAddress, display, ctx, attribute, value);
 	}
 
 }

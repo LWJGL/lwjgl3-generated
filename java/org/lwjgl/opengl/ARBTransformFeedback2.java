@@ -68,7 +68,7 @@ public class ARBTransformFeedback2 {
 		long __functionAddress = GL.getCapabilities().glBindTransformFeedback;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, target, id);
+		callV(__functionAddress, target, id);
 	}
 
 	// --- [ glDeleteTransformFeedbacks ] ---
@@ -83,7 +83,7 @@ public class ARBTransformFeedback2 {
 		long __functionAddress = GL.getCapabilities().glDeleteTransformFeedbacks;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, ids);
+		callPV(__functionAddress, n, ids);
 	}
 
 	/**
@@ -118,7 +118,7 @@ public class ARBTransformFeedback2 {
 		long __functionAddress = GL.getCapabilities().glGenTransformFeedbacks;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, ids);
+		callPV(__functionAddress, n, ids);
 	}
 
 	/**
@@ -153,7 +153,7 @@ public class ARBTransformFeedback2 {
 		long __functionAddress = GL.getCapabilities().glIsTransformFeedback;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIZ(__functionAddress, id);
+		return callZ(__functionAddress, id);
 	}
 
 	// --- [ glPauseTransformFeedback ] ---
@@ -204,7 +204,23 @@ public class ARBTransformFeedback2 {
 		long __functionAddress = GL.getCapabilities().glDrawTransformFeedback;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, mode, id);
+		callV(__functionAddress, mode, id);
+	}
+
+	/** Array version of: {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks} */
+	public static void glDeleteTransformFeedbacks(int[] ids) {
+		long __functionAddress = GL.getCapabilities().glDeleteTransformFeedbacks;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, ids.length, ids);
+	}
+
+	/** Array version of: {@link #glGenTransformFeedbacks GenTransformFeedbacks} */
+	public static void glGenTransformFeedbacks(int[] ids) {
+		long __functionAddress = GL.getCapabilities().glGenTransformFeedbacks;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, ids.length, ids);
 	}
 
 }

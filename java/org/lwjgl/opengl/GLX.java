@@ -172,7 +172,7 @@ public class GLX {
 			checkPointer(display);
 			XVisualInfo.validate(visual);
 		}
-		return callPPIPI(__functionAddress, display, visual, attribute, value);
+		return callPPPI(__functionAddress, display, visual, attribute, value);
 	}
 
 	/**
@@ -205,7 +205,7 @@ public class GLX {
 		long __functionAddress = Functions.ChooseVisual;
 		if ( CHECKS )
 			checkPointer(display);
-		return callPIPP(__functionAddress, display, screen, attrib_list);
+		return callPPP(__functionAddress, display, screen, attrib_list);
 	}
 
 	/**
@@ -241,7 +241,7 @@ public class GLX {
 			checkPointer(display);
 			XVisualInfo.validate(visual);
 		}
-		return callPPPIP(__functionAddress, display, visual, share_list, direct);
+		return callPPPP(__functionAddress, display, visual, share_list, direct);
 	}
 
 	/**
@@ -404,7 +404,7 @@ public class GLX {
 	 */
 	public static void glXUseXFont(long font, int first, int count, int list_base) {
 		long __functionAddress = Functions.UseXFont;
-		callPIIIV(__functionAddress, font, first, count, list_base);
+		callPV(__functionAddress, font, first, count, list_base);
 	}
 
 	// --- [ glXCreateGLXPixmap ] ---
@@ -451,6 +451,50 @@ public class GLX {
 			checkPointer(pixmap);
 		}
 		callPPV(__functionAddress, display, pixmap);
+	}
+
+	/** Array version of: {@link #glXQueryExtension QueryExtension} */
+	public static int glXQueryExtension(long display, int[] error_base, int[] event_base) {
+		long __functionAddress = Functions.QueryExtension;
+		if ( CHECKS ) {
+			checkPointer(display);
+			checkBuffer(error_base, 1);
+			checkBuffer(event_base, 1);
+		}
+		return callPPPI(__functionAddress, display, error_base, event_base);
+	}
+
+	/** Array version of: {@link #glXQueryVersion QueryVersion} */
+	public static int glXQueryVersion(long display, int[] major, int[] minor) {
+		long __functionAddress = Functions.QueryVersion;
+		if ( CHECKS ) {
+			checkPointer(display);
+			checkBuffer(major, 1);
+			checkBuffer(minor, 1);
+		}
+		return callPPPI(__functionAddress, display, major, minor);
+	}
+
+	/** Array version of: {@link #glXGetConfig GetConfig} */
+	public static int glXGetConfig(long display, XVisualInfo visual, int attribute, int[] value) {
+		long __functionAddress = Functions.GetConfig;
+		if ( CHECKS ) {
+			checkPointer(display);
+			checkBuffer(value, 1);
+			XVisualInfo.validate(visual.address());
+		}
+		return callPPPI(__functionAddress, display, visual.address(), attribute, value);
+	}
+
+	/** Array version of: {@link #glXChooseVisual ChooseVisual} */
+	public static XVisualInfo glXChooseVisual(long display, int screen, int[] attrib_list) {
+		long __functionAddress = Functions.ChooseVisual;
+		if ( CHECKS ) {
+			checkPointer(display);
+			if ( attrib_list != null ) checkNT(attrib_list);
+		}
+		long __result = callPPP(__functionAddress, display, screen, attrib_list);
+		return XVisualInfo.create(__result);
 	}
 
 }

@@ -163,7 +163,7 @@ public class AL10 {
 	 */
 	public static void alEnable(int target) {
 		long __functionAddress = AL.getCapabilities().alEnable;
-		invokeIV(__functionAddress, target);
+		invokeV(__functionAddress, target);
 	}
 
 	// --- [ alDisable ] ---
@@ -175,7 +175,7 @@ public class AL10 {
 	 */
 	public static void alDisable(int target) {
 		long __functionAddress = AL.getCapabilities().alDisable;
-		invokeIV(__functionAddress, target);
+		invokeV(__functionAddress, target);
 	}
 
 	// --- [ alIsEnabled ] ---
@@ -187,7 +187,7 @@ public class AL10 {
 	 */
 	public static boolean alIsEnabled(int target) {
 		long __functionAddress = AL.getCapabilities().alIsEnabled;
-		return invokeIZ(__functionAddress, target);
+		return invokeZ(__functionAddress, target);
 	}
 
 	// --- [ alGetBoolean ] ---
@@ -199,7 +199,7 @@ public class AL10 {
 	 */
 	public static boolean alGetBoolean(int paramName) {
 		long __functionAddress = AL.getCapabilities().alGetBoolean;
-		return invokeIZ(__functionAddress, paramName);
+		return invokeZ(__functionAddress, paramName);
 	}
 
 	// --- [ alGetInteger ] ---
@@ -211,7 +211,7 @@ public class AL10 {
 	 */
 	public static int alGetInteger(int paramName) {
 		long __functionAddress = AL.getCapabilities().alGetInteger;
-		return invokeII(__functionAddress, paramName);
+		return invokeI(__functionAddress, paramName);
 	}
 
 	// --- [ alGetFloat ] ---
@@ -223,7 +223,7 @@ public class AL10 {
 	 */
 	public static float alGetFloat(int paramName) {
 		long __functionAddress = AL.getCapabilities().alGetFloat;
-		return invokeIF(__functionAddress, paramName);
+		return invokeF(__functionAddress, paramName);
 	}
 
 	// --- [ alGetDouble ] ---
@@ -235,7 +235,7 @@ public class AL10 {
 	 */
 	public static double alGetDouble(int paramName) {
 		long __functionAddress = AL.getCapabilities().alGetDouble;
-		return invokeID(__functionAddress, paramName);
+		return invokeD(__functionAddress, paramName);
 	}
 
 	// --- [ alGetBooleanv ] ---
@@ -248,7 +248,7 @@ public class AL10 {
 	 */
 	public static void nalGetBooleanv(int paramName, long dest) {
 		long __functionAddress = AL.getCapabilities().alGetBooleanv;
-		invokeIPV(__functionAddress, paramName, dest);
+		invokePV(__functionAddress, paramName, dest);
 	}
 
 	/**
@@ -273,7 +273,7 @@ public class AL10 {
 	 */
 	public static void nalGetIntegerv(int paramName, long dest) {
 		long __functionAddress = AL.getCapabilities().alGetIntegerv;
-		invokeIPV(__functionAddress, paramName, dest);
+		invokePV(__functionAddress, paramName, dest);
 	}
 
 	/**
@@ -298,7 +298,7 @@ public class AL10 {
 	 */
 	public static void nalGetFloatv(int paramName, long dest) {
 		long __functionAddress = AL.getCapabilities().alGetFloatv;
-		invokeIPV(__functionAddress, paramName, dest);
+		invokePV(__functionAddress, paramName, dest);
 	}
 
 	/**
@@ -323,7 +323,7 @@ public class AL10 {
 	 */
 	public static void nalGetDoublev(int paramName, long dest) {
 		long __functionAddress = AL.getCapabilities().alGetDoublev;
-		invokeIPV(__functionAddress, paramName, dest);
+		invokePV(__functionAddress, paramName, dest);
 	}
 
 	/**
@@ -347,7 +347,7 @@ public class AL10 {
 	 */
 	public static long nalGetString(int paramName) {
 		long __functionAddress = AL.getCapabilities().alGetString;
-		return invokeIP(__functionAddress, paramName);
+		return invokeP(__functionAddress, paramName);
 	}
 
 	/**
@@ -379,7 +379,7 @@ public class AL10 {
 	 */
 	public static void alDistanceModel(int modelName) {
 		long __functionAddress = AL.getCapabilities().alDistanceModel;
-		invokeIV(__functionAddress, modelName);
+		invokeV(__functionAddress, modelName);
 	}
 
 	// --- [ alDopplerFactor ] ---
@@ -425,7 +425,7 @@ f' = f * (SS - DF * vls) / (SS - DF * vss)</code></pre>
 	 */
 	public static void alDopplerFactor(float dopplerFactor) {
 		long __functionAddress = AL.getCapabilities().alDopplerFactor;
-		invokeFV(__functionAddress, dopplerFactor);
+		invokeV(__functionAddress, dopplerFactor);
 	}
 
 	// --- [ alDopplerVelocity ] ---
@@ -449,7 +449,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void alDopplerVelocity(float dopplerVelocity) {
 		long __functionAddress = AL.getCapabilities().alDopplerVelocity;
-		invokeFV(__functionAddress, dopplerVelocity);
+		invokeV(__functionAddress, dopplerVelocity);
 	}
 
 	// --- [ alListenerf ] ---
@@ -462,7 +462,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void alListenerf(int paramName, float value) {
 		long __functionAddress = AL.getCapabilities().alListenerf;
-		invokeIFV(__functionAddress, paramName, value);
+		invokeV(__functionAddress, paramName, value);
 	}
 
 	// --- [ alListeneri ] ---
@@ -475,7 +475,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void alListeneri(int paramName, int values) {
 		long __functionAddress = AL.getCapabilities().alListeneri;
-		invokeIIV(__functionAddress, paramName, values);
+		invokeV(__functionAddress, paramName, values);
 	}
 
 	// --- [ alListener3f ] ---
@@ -490,7 +490,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void alListener3f(int paramName, float value1, float value2, float value3) {
 		long __functionAddress = AL.getCapabilities().alListener3f;
-		invokeIFFFV(__functionAddress, paramName, value1, value2, value3);
+		invokeV(__functionAddress, paramName, value1, value2, value3);
 	}
 
 	// --- [ alListenerfv ] ---
@@ -503,7 +503,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void nalListenerfv(int paramName, long values) {
 		long __functionAddress = AL.getCapabilities().alListenerfv;
-		invokeIPV(__functionAddress, paramName, values);
+		invokePV(__functionAddress, paramName, values);
 	}
 
 	/**
@@ -528,7 +528,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void nalGetListenerf(int paramName, long value) {
 		long __functionAddress = AL.getCapabilities().alGetListenerf;
-		invokeIPV(__functionAddress, paramName, value);
+		invokePV(__functionAddress, paramName, value);
 	}
 
 	/**
@@ -569,7 +569,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void nalGetListeneri(int paramName, long value) {
 		long __functionAddress = AL.getCapabilities().alGetListeneri;
-		invokeIPV(__functionAddress, paramName, value);
+		invokePV(__functionAddress, paramName, value);
 	}
 
 	/**
@@ -612,7 +612,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void nalGetListener3f(int paramName, long value1, long value2, long value3) {
 		long __functionAddress = AL.getCapabilities().alGetListener3f;
-		invokeIPPPV(__functionAddress, paramName, value1, value2, value3);
+		invokePPPV(__functionAddress, paramName, value1, value2, value3);
 	}
 
 	/**
@@ -642,7 +642,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void nalGetListenerfv(int paramName, long values) {
 		long __functionAddress = AL.getCapabilities().alGetListenerfv;
-		invokeIPV(__functionAddress, paramName, values);
+		invokePV(__functionAddress, paramName, values);
 	}
 
 	/**
@@ -667,7 +667,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void nalGenSources(int n, long srcNames) {
 		long __functionAddress = AL.getCapabilities().alGenSources;
-		invokeIPV(__functionAddress, n, srcNames);
+		invokePV(__functionAddress, n, srcNames);
 	}
 
 	/**
@@ -701,7 +701,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void nalDeleteSources(int n, long sources) {
 		long __functionAddress = AL.getCapabilities().alDeleteSources;
-		invokeIPV(__functionAddress, n, sources);
+		invokePV(__functionAddress, n, sources);
 	}
 
 	/**
@@ -733,7 +733,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static boolean alIsSource(int sourceName) {
 		long __functionAddress = AL.getCapabilities().alIsSource;
-		return invokeIZ(__functionAddress, sourceName);
+		return invokeZ(__functionAddress, sourceName);
 	}
 
 	// --- [ alSourcef ] ---
@@ -747,7 +747,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void alSourcef(int source, int param, float value) {
 		long __functionAddress = AL.getCapabilities().alSourcef;
-		invokeIIFV(__functionAddress, source, param, value);
+		invokeV(__functionAddress, source, param, value);
 	}
 
 	// --- [ alSource3f ] ---
@@ -763,7 +763,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void alSource3f(int source, int param, float v1, float v2, float v3) {
 		long __functionAddress = AL.getCapabilities().alSource3f;
-		invokeIIFFFV(__functionAddress, source, param, v1, v2, v3);
+		invokeV(__functionAddress, source, param, v1, v2, v3);
 	}
 
 	// --- [ alSourcefv ] ---
@@ -777,7 +777,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void nalSourcefv(int source, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alSourcefv;
-		invokeIIPV(__functionAddress, source, param, values);
+		invokePV(__functionAddress, source, param, values);
 	}
 
 	/**
@@ -804,7 +804,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void alSourcei(int source, int param, int value) {
 		long __functionAddress = AL.getCapabilities().alSourcei;
-		invokeIIIV(__functionAddress, source, param, value);
+		invokeV(__functionAddress, source, param, value);
 	}
 
 	// --- [ alGetSourcef ] ---
@@ -818,7 +818,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void nalGetSourcef(int source, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetSourcef;
-		invokeIIPV(__functionAddress, source, param, value);
+		invokePV(__functionAddress, source, param, value);
 	}
 
 	/**
@@ -864,7 +864,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void nalGetSource3f(int source, int param, long v1, long v2, long v3) {
 		long __functionAddress = AL.getCapabilities().alGetSource3f;
-		invokeIIPPPV(__functionAddress, source, param, v1, v2, v3);
+		invokePPPV(__functionAddress, source, param, v1, v2, v3);
 	}
 
 	/**
@@ -896,7 +896,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void nalGetSourcefv(int source, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetSourcefv;
-		invokeIIPV(__functionAddress, source, param, values);
+		invokePV(__functionAddress, source, param, values);
 	}
 
 	/**
@@ -923,7 +923,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void nalGetSourcei(int source, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetSourcei;
-		invokeIIPV(__functionAddress, source, param, value);
+		invokePV(__functionAddress, source, param, value);
 	}
 
 	/**
@@ -967,7 +967,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void nalGetSourceiv(int source, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetSourceiv;
-		invokeIIPV(__functionAddress, source, param, values);
+		invokePV(__functionAddress, source, param, values);
 	}
 
 	/**
@@ -998,7 +998,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void nalSourceQueueBuffers(int sourceName, int numBuffers, long bufferNames) {
 		long __functionAddress = AL.getCapabilities().alSourceQueueBuffers;
-		invokeIIPV(__functionAddress, sourceName, numBuffers, bufferNames);
+		invokePV(__functionAddress, sourceName, numBuffers, bufferNames);
 	}
 
 	/**
@@ -1050,7 +1050,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void nalSourceUnqueueBuffers(int sourceName, int numEntries, long bufferNames) {
 		long __functionAddress = AL.getCapabilities().alSourceUnqueueBuffers;
-		invokeIIPV(__functionAddress, sourceName, numEntries, bufferNames);
+		invokePV(__functionAddress, sourceName, numEntries, bufferNames);
 	}
 
 	/**
@@ -1104,7 +1104,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void alSourcePlay(int source) {
 		long __functionAddress = AL.getCapabilities().alSourcePlay;
-		invokeIV(__functionAddress, source);
+		invokeV(__functionAddress, source);
 	}
 
 	// --- [ alSourcePause ] ---
@@ -1120,7 +1120,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void alSourcePause(int source) {
 		long __functionAddress = AL.getCapabilities().alSourcePause;
-		invokeIV(__functionAddress, source);
+		invokeV(__functionAddress, source);
 	}
 
 	// --- [ alSourceStop ] ---
@@ -1136,7 +1136,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void alSourceStop(int source) {
 		long __functionAddress = AL.getCapabilities().alSourceStop;
-		invokeIV(__functionAddress, source);
+		invokeV(__functionAddress, source);
 	}
 
 	// --- [ alSourceRewind ] ---
@@ -1153,7 +1153,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void alSourceRewind(int source) {
 		long __functionAddress = AL.getCapabilities().alSourceRewind;
-		invokeIV(__functionAddress, source);
+		invokeV(__functionAddress, source);
 	}
 
 	// --- [ alSourcePlayv ] ---
@@ -1166,7 +1166,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void nalSourcePlayv(int n, long sources) {
 		long __functionAddress = AL.getCapabilities().alSourcePlayv;
-		invokeIPV(__functionAddress, n, sources);
+		invokePV(__functionAddress, n, sources);
 	}
 
 	/**
@@ -1188,7 +1188,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void nalSourcePausev(int n, long sources) {
 		long __functionAddress = AL.getCapabilities().alSourcePausev;
-		invokeIPV(__functionAddress, n, sources);
+		invokePV(__functionAddress, n, sources);
 	}
 
 	/**
@@ -1210,7 +1210,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void nalSourceStopv(int n, long sources) {
 		long __functionAddress = AL.getCapabilities().alSourceStopv;
-		invokeIPV(__functionAddress, n, sources);
+		invokePV(__functionAddress, n, sources);
 	}
 
 	/**
@@ -1232,7 +1232,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void nalSourceRewindv(int n, long sources) {
 		long __functionAddress = AL.getCapabilities().alSourceRewindv;
-		invokeIPV(__functionAddress, n, sources);
+		invokePV(__functionAddress, n, sources);
 	}
 
 	/**
@@ -1254,7 +1254,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void nalGenBuffers(int n, long bufferNames) {
 		long __functionAddress = AL.getCapabilities().alGenBuffers;
-		invokeIPV(__functionAddress, n, bufferNames);
+		invokePV(__functionAddress, n, bufferNames);
 	}
 
 	/**
@@ -1288,7 +1288,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void nalDeleteBuffers(int n, long bufferNames) {
 		long __functionAddress = AL.getCapabilities().alDeleteBuffers;
-		invokeIPV(__functionAddress, n, bufferNames);
+		invokePV(__functionAddress, n, bufferNames);
 	}
 
 	/**
@@ -1320,7 +1320,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static boolean alIsBuffer(int bufferName) {
 		long __functionAddress = AL.getCapabilities().alIsBuffer;
-		return invokeIZ(__functionAddress, bufferName);
+		return invokeZ(__functionAddress, bufferName);
 	}
 
 	// --- [ alGetBufferf ] ---
@@ -1334,7 +1334,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void nalGetBufferf(int bufferName, int paramName, long value) {
 		long __functionAddress = AL.getCapabilities().alGetBufferf;
-		invokeIIPV(__functionAddress, bufferName, paramName, value);
+		invokePV(__functionAddress, bufferName, paramName, value);
 	}
 
 	/**
@@ -1378,7 +1378,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void nalGetBufferi(int bufferName, int paramName, long value) {
 		long __functionAddress = AL.getCapabilities().alGetBufferi;
-		invokeIIPV(__functionAddress, bufferName, paramName, value);
+		invokePV(__functionAddress, bufferName, paramName, value);
 	}
 
 	/**
@@ -1437,7 +1437,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void nalBufferData(int bufferName, int format, long data, int size, int frequency) {
 		long __functionAddress = AL.getCapabilities().alBufferData;
-		invokeIIPIIV(__functionAddress, bufferName, format, data, size, frequency);
+		invokePV(__functionAddress, bufferName, format, data, size, frequency);
 	}
 
 	/**
@@ -1619,6 +1619,218 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #alGetIntegerv GetIntegerv} */
+	public static void alGetIntegerv(int paramName, int[] dest) {
+		long __functionAddress = AL.getCapabilities().alGetIntegerv;
+		if ( CHECKS )
+			checkBuffer(dest, 1);
+		invokePV(__functionAddress, paramName, dest);
+	}
+
+	/** Array version of: {@link #alGetFloatv GetFloatv} */
+	public static void alGetFloatv(int paramName, float[] dest) {
+		long __functionAddress = AL.getCapabilities().alGetFloatv;
+		if ( CHECKS )
+			checkBuffer(dest, 1);
+		invokePV(__functionAddress, paramName, dest);
+	}
+
+	/** Array version of: {@link #alGetDoublev GetDoublev} */
+	public static void alGetDoublev(int paramName, double[] dest) {
+		long __functionAddress = AL.getCapabilities().alGetDoublev;
+		if ( CHECKS )
+			checkBuffer(dest, 1);
+		invokePV(__functionAddress, paramName, dest);
+	}
+
+	/** Array version of: {@link #alListenerfv Listenerfv} */
+	public static void alListenerfv(int paramName, float[] values) {
+		long __functionAddress = AL.getCapabilities().alListenerfv;
+		if ( CHECKS )
+			checkBuffer(values, 1);
+		invokePV(__functionAddress, paramName, values);
+	}
+
+	/** Array version of: {@link #alGetListenerf GetListenerf} */
+	public static void alGetListenerf(int paramName, float[] value) {
+		long __functionAddress = AL.getCapabilities().alGetListenerf;
+		if ( CHECKS )
+			checkBuffer(value, 1);
+		invokePV(__functionAddress, paramName, value);
+	}
+
+	/** Array version of: {@link #alGetListeneri GetListeneri} */
+	public static void alGetListeneri(int paramName, int[] value) {
+		long __functionAddress = AL.getCapabilities().alGetListeneri;
+		if ( CHECKS )
+			checkBuffer(value, 1);
+		invokePV(__functionAddress, paramName, value);
+	}
+
+	/** Array version of: {@link #alGetListener3f GetListener3f} */
+	public static void alGetListener3f(int paramName, float[] value1, float[] value2, float[] value3) {
+		long __functionAddress = AL.getCapabilities().alGetListener3f;
+		if ( CHECKS ) {
+			checkBuffer(value1, 1);
+			checkBuffer(value2, 1);
+			checkBuffer(value3, 1);
+		}
+		invokePPPV(__functionAddress, paramName, value1, value2, value3);
+	}
+
+	/** Array version of: {@link #alGetListenerfv GetListenerfv} */
+	public static void alGetListenerfv(int paramName, float[] values) {
+		long __functionAddress = AL.getCapabilities().alGetListenerfv;
+		if ( CHECKS )
+			checkBuffer(values, 1);
+		invokePV(__functionAddress, paramName, values);
+	}
+
+	/** Array version of: {@link #alGenSources GenSources} */
+	public static void alGenSources(int[] srcNames) {
+		long __functionAddress = AL.getCapabilities().alGenSources;
+		invokePV(__functionAddress, srcNames.length, srcNames);
+	}
+
+	/** Array version of: {@link #alDeleteSources DeleteSources} */
+	public static void alDeleteSources(int[] sources) {
+		long __functionAddress = AL.getCapabilities().alDeleteSources;
+		invokePV(__functionAddress, sources.length, sources);
+	}
+
+	/** Array version of: {@link #alSourcefv Sourcefv} */
+	public static void alSourcefv(int source, int param, float[] values) {
+		long __functionAddress = AL.getCapabilities().alSourcefv;
+		if ( CHECKS )
+			checkBuffer(values, 1);
+		invokePV(__functionAddress, source, param, values);
+	}
+
+	/** Array version of: {@link #alGetSourcef GetSourcef} */
+	public static void alGetSourcef(int source, int param, float[] value) {
+		long __functionAddress = AL.getCapabilities().alGetSourcef;
+		if ( CHECKS )
+			checkBuffer(value, 1);
+		invokePV(__functionAddress, source, param, value);
+	}
+
+	/** Array version of: {@link #alGetSource3f GetSource3f} */
+	public static void alGetSource3f(int source, int param, float[] v1, float[] v2, float[] v3) {
+		long __functionAddress = AL.getCapabilities().alGetSource3f;
+		if ( CHECKS ) {
+			checkBuffer(v1, 1);
+			checkBuffer(v2, 1);
+			checkBuffer(v3, 1);
+		}
+		invokePPPV(__functionAddress, source, param, v1, v2, v3);
+	}
+
+	/** Array version of: {@link #alGetSourcefv GetSourcefv} */
+	public static void alGetSourcefv(int source, int param, float[] values) {
+		long __functionAddress = AL.getCapabilities().alGetSourcefv;
+		if ( CHECKS )
+			checkBuffer(values, 1);
+		invokePV(__functionAddress, source, param, values);
+	}
+
+	/** Array version of: {@link #alGetSourcei GetSourcei} */
+	public static void alGetSourcei(int source, int param, int[] value) {
+		long __functionAddress = AL.getCapabilities().alGetSourcei;
+		if ( CHECKS )
+			checkBuffer(value, 1);
+		invokePV(__functionAddress, source, param, value);
+	}
+
+	/** Array version of: {@link #alGetSourceiv GetSourceiv} */
+	public static void alGetSourceiv(int source, int param, int[] values) {
+		long __functionAddress = AL.getCapabilities().alGetSourceiv;
+		if ( CHECKS )
+			checkBuffer(values, 1);
+		invokePV(__functionAddress, source, param, values);
+	}
+
+	/** Array version of: {@link #alSourceQueueBuffers SourceQueueBuffers} */
+	public static void alSourceQueueBuffers(int sourceName, int[] bufferNames) {
+		long __functionAddress = AL.getCapabilities().alSourceQueueBuffers;
+		invokePV(__functionAddress, sourceName, bufferNames.length, bufferNames);
+	}
+
+	/** Array version of: {@link #alSourceUnqueueBuffers SourceUnqueueBuffers} */
+	public static void alSourceUnqueueBuffers(int sourceName, int[] bufferNames) {
+		long __functionAddress = AL.getCapabilities().alSourceUnqueueBuffers;
+		invokePV(__functionAddress, sourceName, bufferNames.length, bufferNames);
+	}
+
+	/** Array version of: {@link #alSourcePlayv SourcePlayv} */
+	public static void alSourcePlayv(int[] sources) {
+		long __functionAddress = AL.getCapabilities().alSourcePlayv;
+		invokePV(__functionAddress, sources.length, sources);
+	}
+
+	/** Array version of: {@link #alSourcePausev SourcePausev} */
+	public static void alSourcePausev(int[] sources) {
+		long __functionAddress = AL.getCapabilities().alSourcePausev;
+		invokePV(__functionAddress, sources.length, sources);
+	}
+
+	/** Array version of: {@link #alSourceStopv SourceStopv} */
+	public static void alSourceStopv(int[] sources) {
+		long __functionAddress = AL.getCapabilities().alSourceStopv;
+		invokePV(__functionAddress, sources.length, sources);
+	}
+
+	/** Array version of: {@link #alSourceRewindv SourceRewindv} */
+	public static void alSourceRewindv(int[] sources) {
+		long __functionAddress = AL.getCapabilities().alSourceRewindv;
+		invokePV(__functionAddress, sources.length, sources);
+	}
+
+	/** Array version of: {@link #alGenBuffers GenBuffers} */
+	public static void alGenBuffers(int[] bufferNames) {
+		long __functionAddress = AL.getCapabilities().alGenBuffers;
+		invokePV(__functionAddress, bufferNames.length, bufferNames);
+	}
+
+	/** Array version of: {@link #alDeleteBuffers DeleteBuffers} */
+	public static void alDeleteBuffers(int[] bufferNames) {
+		long __functionAddress = AL.getCapabilities().alDeleteBuffers;
+		invokePV(__functionAddress, bufferNames.length, bufferNames);
+	}
+
+	/** Array version of: {@link #alGetBufferf GetBufferf} */
+	public static void alGetBufferf(int bufferName, int paramName, float[] value) {
+		long __functionAddress = AL.getCapabilities().alGetBufferf;
+		if ( CHECKS )
+			checkBuffer(value, 1);
+		invokePV(__functionAddress, bufferName, paramName, value);
+	}
+
+	/** Array version of: {@link #alGetBufferi GetBufferi} */
+	public static void alGetBufferi(int bufferName, int paramName, int[] value) {
+		long __functionAddress = AL.getCapabilities().alGetBufferi;
+		if ( CHECKS )
+			checkBuffer(value, 1);
+		invokePV(__functionAddress, bufferName, paramName, value);
+	}
+
+	/** short[] version of: {@link #alBufferData BufferData} */
+	public static void alBufferData(int bufferName, int format, short[] data, int frequency) {
+		long __functionAddress = AL.getCapabilities().alBufferData;
+		invokePV(__functionAddress, bufferName, format, data, data.length << 1, frequency);
+	}
+
+	/** int[] version of: {@link #alBufferData BufferData} */
+	public static void alBufferData(int bufferName, int format, int[] data, int frequency) {
+		long __functionAddress = AL.getCapabilities().alBufferData;
+		invokePV(__functionAddress, bufferName, format, data, data.length << 2, frequency);
+	}
+
+	/** float[] version of: {@link #alBufferData BufferData} */
+	public static void alBufferData(int bufferName, int format, float[] data, int frequency) {
+		long __functionAddress = AL.getCapabilities().alBufferData;
+		invokePV(__functionAddress, bufferName, format, data, data.length << 2, frequency);
 	}
 
 }

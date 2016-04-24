@@ -910,4 +910,153 @@ k    l      k <= l, the first k channels</code></pre>
 		return nstb_vorbis_get_samples_short_interleaved(f, channels, memAddress(buffer), buffer.remaining());
 	}
 
+	/** Array version of: {@link #stb_vorbis_open_pushdata open_pushdata} */
+	public static native long nstb_vorbis_open_pushdata(long datablock, int datablock_length_in_bytes, int[] datablock_memory_consumed_in_bytes, int[] error, long alloc_buffer);
+
+	/** Array version of: {@link #stb_vorbis_open_pushdata open_pushdata} */
+	public static long stb_vorbis_open_pushdata(ByteBuffer datablock, int[] datablock_memory_consumed_in_bytes, int[] error, STBVorbisAlloc alloc_buffer) {
+		if ( CHECKS )
+			if ( alloc_buffer != null ) STBVorbisAlloc.validate(alloc_buffer.address());
+		return nstb_vorbis_open_pushdata(memAddress(datablock), datablock.remaining(), datablock_memory_consumed_in_bytes, error, alloc_buffer == null ? NULL : alloc_buffer.address());
+	}
+
+	/** Array version of: {@link #stb_vorbis_decode_frame_pushdata decode_frame_pushdata} */
+	public static native int nstb_vorbis_decode_frame_pushdata(long f, long datablock, int datablock_length_in_bytes, int[] channels, long output, int[] samples);
+
+	/** Array version of: {@link #stb_vorbis_decode_frame_pushdata decode_frame_pushdata} */
+	public static int stb_vorbis_decode_frame_pushdata(long f, ByteBuffer datablock, int[] channels, PointerBuffer output, int[] samples) {
+		if ( CHECKS ) {
+			checkPointer(f);
+			checkBuffer(channels, 1);
+			checkBuffer(output, 1);
+			checkBuffer(samples, 1);
+		}
+		return nstb_vorbis_decode_frame_pushdata(f, memAddress(datablock), datablock.remaining(), channels, memAddress(output), samples);
+	}
+
+	/** Array version of: {@link #stb_vorbis_decode_filename decode_filename} */
+	public static native int nstb_vorbis_decode_filename(long filename, int[] channels, int[] sample_rate, long output);
+
+	/** Array version of: {@link #stb_vorbis_decode_filename decode_filename} */
+	public static int stb_vorbis_decode_filename(ByteBuffer filename, int[] channels, int[] sample_rate, PointerBuffer output) {
+		if ( CHECKS ) {
+			checkNT1(filename);
+			checkBuffer(channels, 1);
+			checkBuffer(sample_rate, 1);
+			checkBuffer(output, 1);
+		}
+		return nstb_vorbis_decode_filename(memAddress(filename), channels, sample_rate, memAddress(output));
+	}
+
+	/** Array version of: {@link #stb_vorbis_decode_filename decode_filename} */
+	public static int stb_vorbis_decode_filename(CharSequence filename, int[] channels, int[] sample_rate, PointerBuffer output) {
+		if ( CHECKS ) {
+			checkBuffer(channels, 1);
+			checkBuffer(sample_rate, 1);
+			checkBuffer(output, 1);
+		}
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer filenameEncoded = stack.ASCII(filename);
+			return nstb_vorbis_decode_filename(memAddress(filenameEncoded), channels, sample_rate, memAddress(output));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
+	/** Array version of: {@link #stb_vorbis_decode_memory decode_memory} */
+	public static native int nstb_vorbis_decode_memory(long mem, int len, int[] channels, int[] sample_rate, long output);
+
+	/** Array version of: {@link #stb_vorbis_decode_memory decode_memory} */
+	public static int stb_vorbis_decode_memory(ByteBuffer mem, int[] channels, int[] sample_rate, PointerBuffer output) {
+		if ( CHECKS ) {
+			checkBuffer(channels, 1);
+			checkBuffer(sample_rate, 1);
+			checkBuffer(output, 1);
+		}
+		return nstb_vorbis_decode_memory(memAddress(mem), mem.remaining(), channels, sample_rate, memAddress(output));
+	}
+
+	/** Array version of: {@link #stb_vorbis_open_memory open_memory} */
+	public static native long nstb_vorbis_open_memory(long mem, int len, int[] error, long alloc_buffer);
+
+	/** Array version of: {@link #stb_vorbis_open_memory open_memory} */
+	public static long stb_vorbis_open_memory(ByteBuffer mem, int[] error, STBVorbisAlloc alloc_buffer) {
+		if ( CHECKS ) {
+			checkBuffer(error, 1);
+			if ( alloc_buffer != null ) STBVorbisAlloc.validate(alloc_buffer.address());
+		}
+		return nstb_vorbis_open_memory(memAddress(mem), mem.remaining(), error, alloc_buffer == null ? NULL : alloc_buffer.address());
+	}
+
+	/** Array version of: {@link #stb_vorbis_open_filename open_filename} */
+	public static native long nstb_vorbis_open_filename(long filename, int[] error, long alloc_buffer);
+
+	/** Array version of: {@link #stb_vorbis_open_filename open_filename} */
+	public static long stb_vorbis_open_filename(ByteBuffer filename, int[] error, STBVorbisAlloc alloc_buffer) {
+		if ( CHECKS ) {
+			checkNT1(filename);
+			checkBuffer(error, 1);
+			if ( alloc_buffer != null ) STBVorbisAlloc.validate(alloc_buffer.address());
+		}
+		return nstb_vorbis_open_filename(memAddress(filename), error, alloc_buffer == null ? NULL : alloc_buffer.address());
+	}
+
+	/** Array version of: {@link #stb_vorbis_open_filename open_filename} */
+	public static long stb_vorbis_open_filename(CharSequence filename, int[] error, STBVorbisAlloc alloc_buffer) {
+		if ( CHECKS ) {
+			checkBuffer(error, 1);
+			if ( alloc_buffer != null ) STBVorbisAlloc.validate(alloc_buffer.address());
+		}
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer filenameEncoded = stack.ASCII(filename);
+			return nstb_vorbis_open_filename(memAddress(filenameEncoded), error, alloc_buffer == null ? NULL : alloc_buffer.address());
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
+	/** Array version of: {@link #stb_vorbis_get_frame_float get_frame_float} */
+	public static native int nstb_vorbis_get_frame_float(long f, int[] channels, long output);
+
+	/** Array version of: {@link #stb_vorbis_get_frame_float get_frame_float} */
+	public static int stb_vorbis_get_frame_float(long f, int[] channels, PointerBuffer output) {
+		if ( CHECKS ) {
+			checkPointer(f);
+			if ( channels != null ) checkBuffer(channels, 1);
+		}
+		return nstb_vorbis_get_frame_float(f, channels, memAddress(output));
+	}
+
+	/** Array version of: {@link #stb_vorbis_get_frame_short_interleaved get_frame_short_interleaved} */
+	public static native int nstb_vorbis_get_frame_short_interleaved(long f, int num_c, short[] buffer, int num_shorts);
+
+	/** Array version of: {@link #stb_vorbis_get_frame_short_interleaved get_frame_short_interleaved} */
+	public static int stb_vorbis_get_frame_short_interleaved(long f, int num_c, short[] buffer) {
+		if ( CHECKS )
+			checkPointer(f);
+		return nstb_vorbis_get_frame_short_interleaved(f, num_c, buffer, buffer.length);
+	}
+
+	/** Array version of: {@link #stb_vorbis_get_samples_float_interleaved get_samples_float_interleaved} */
+	public static native int nstb_vorbis_get_samples_float_interleaved(long f, int channels, float[] buffer, int num_floats);
+
+	/** Array version of: {@link #stb_vorbis_get_samples_float_interleaved get_samples_float_interleaved} */
+	public static int stb_vorbis_get_samples_float_interleaved(long f, int channels, float[] buffer) {
+		if ( CHECKS )
+			checkPointer(f);
+		return nstb_vorbis_get_samples_float_interleaved(f, channels, buffer, buffer.length);
+	}
+
+	/** Array version of: {@link #stb_vorbis_get_samples_short_interleaved get_samples_short_interleaved} */
+	public static native int nstb_vorbis_get_samples_short_interleaved(long f, int channels, short[] buffer, int num_shorts);
+
+	/** Array version of: {@link #stb_vorbis_get_samples_short_interleaved get_samples_short_interleaved} */
+	public static int stb_vorbis_get_samples_short_interleaved(long f, int channels, short[] buffer) {
+		if ( CHECKS )
+			checkPointer(f);
+		return nstb_vorbis_get_samples_short_interleaved(f, channels, buffer, buffer.length);
+	}
+
 }

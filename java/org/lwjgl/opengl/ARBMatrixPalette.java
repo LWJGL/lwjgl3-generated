@@ -73,7 +73,7 @@ public class ARBMatrixPalette {
 		long __functionAddress = GL.getCapabilities().glCurrentPaletteMatrixARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, index);
+		callV(__functionAddress, index);
 	}
 
 	// --- [ glMatrixIndexuivARB ] ---
@@ -88,7 +88,7 @@ public class ARBMatrixPalette {
 		long __functionAddress = GL.getCapabilities().glMatrixIndexuivARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, size, indices);
+		callPV(__functionAddress, size, indices);
 	}
 
 	/**
@@ -112,7 +112,7 @@ public class ARBMatrixPalette {
 		long __functionAddress = GL.getCapabilities().glMatrixIndexubvARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, size, indices);
+		callPV(__functionAddress, size, indices);
 	}
 
 	/**
@@ -136,7 +136,7 @@ public class ARBMatrixPalette {
 		long __functionAddress = GL.getCapabilities().glMatrixIndexusvARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, size, indices);
+		callPV(__functionAddress, size, indices);
 	}
 
 	/**
@@ -162,7 +162,7 @@ public class ARBMatrixPalette {
 		long __functionAddress = GL.getCapabilities().glMatrixIndexPointerARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, size, type, stride, pointer);
+		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
 	/**
@@ -230,6 +230,22 @@ public class ARBMatrixPalette {
 		if ( CHECKS )
 			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglMatrixIndexPointerARB(size, GL11.GL_UNSIGNED_INT, stride, memAddress(pointer));
+	}
+
+	/** Array version of: {@link #glMatrixIndexuivARB MatrixIndexuivARB} */
+	public static void glMatrixIndexuivARB(int[] indices) {
+		long __functionAddress = GL.getCapabilities().glMatrixIndexuivARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, indices.length, indices);
+	}
+
+	/** Array version of: {@link #glMatrixIndexusvARB MatrixIndexusvARB} */
+	public static void glMatrixIndexusvARB(short[] indices) {
+		long __functionAddress = GL.getCapabilities().glMatrixIndexusvARB;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, indices.length, indices);
 	}
 
 }

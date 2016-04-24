@@ -82,7 +82,7 @@ public class EXTTextureBuffer {
 		long __functionAddress = GLES.getCapabilities().glTexBufferEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, target, internalformat, buffer);
+		callV(__functionAddress, target, internalformat, buffer);
 	}
 
 	// --- [ glTexBufferRangeEXT ] ---
@@ -91,7 +91,7 @@ public class EXTTextureBuffer {
 		long __functionAddress = GLES.getCapabilities().glTexBufferRangeEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPPV(__functionAddress, target, internalformat, buffer, offset, size);
+		callPPV(__functionAddress, target, internalformat, buffer, offset, size);
 	}
 
 }

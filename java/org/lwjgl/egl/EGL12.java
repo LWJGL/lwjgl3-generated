@@ -62,7 +62,7 @@ public class EGL12 {
 		long __functionAddress = EGL.getCapabilities().eglBindAPI;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callII(__functionAddress, api);
+		return callI(__functionAddress, api);
 	}
 
 	// --- [ eglQueryAPI ] ---
@@ -84,7 +84,7 @@ public class EGL12 {
 			checkPointer(buffer);
 			checkPointer(config);
 		}
-		return callPIPPPP(__functionAddress, dpy, buftype, buffer, config, attrib_list);
+		return callPPPPP(__functionAddress, dpy, buftype, buffer, config, attrib_list);
 	}
 
 	public static long eglCreatePbufferFromClientBuffer(long dpy, int buftype, long buffer, long config, IntBuffer attrib_list) {
@@ -109,6 +109,19 @@ public class EGL12 {
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		return callI(__functionAddress);
+	}
+
+	/** Array version of: {@link #eglCreatePbufferFromClientBuffer CreatePbufferFromClientBuffer} */
+	public static long eglCreatePbufferFromClientBuffer(long dpy, int buftype, long buffer, long config, int[] attrib_list) {
+		long __functionAddress = EGL.getCapabilities().eglCreatePbufferFromClientBuffer;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(dpy);
+			checkPointer(buffer);
+			checkPointer(config);
+			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+		}
+		return callPPPPP(__functionAddress, dpy, buftype, buffer, config, attrib_list);
 	}
 
 }

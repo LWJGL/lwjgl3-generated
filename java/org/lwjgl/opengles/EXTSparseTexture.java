@@ -74,7 +74,7 @@ public class EXTSparseTexture {
 		long __functionAddress = GLES.getCapabilities().glTexPageCommitmentARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIIIZV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, commit);
+		callV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, commit);
 	}
 
 }

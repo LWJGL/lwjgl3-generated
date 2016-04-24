@@ -1206,7 +1206,7 @@ public class User32 {
 		long __functionAddress = Functions.DefWindowProc;
 		if ( CHECKS )
 			checkPointer(hWnd);
-		return callPIPPP(__functionAddress, hWnd, Msg, wParam, lParam);
+		return callPPPP(__functionAddress, hWnd, Msg, wParam, lParam);
 	}
 
 	// --- [ ShowWindow ] ---
@@ -1223,7 +1223,7 @@ public class User32 {
 		long __functionAddress = Functions.ShowWindow;
 		if ( CHECKS )
 			checkPointer(hWnd);
-		return callPII(__functionAddress, hWnd, nCmdShow) != 0;
+		return callPI(__functionAddress, hWnd, nCmdShow) != 0;
 	}
 
 	// --- [ UpdateWindow ] ---
@@ -1413,7 +1413,7 @@ public class User32 {
 	 */
 	public static int nPeekMessage(long lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax, int wRemoveMsg) {
 		long __functionAddress = Functions.PeekMessage;
-		return callPPIIII(__functionAddress, lpMsg, hWnd, wMsgFilterMin, wMsgFilterMax, wRemoveMsg);
+		return callPPI(__functionAddress, lpMsg, hWnd, wMsgFilterMin, wMsgFilterMax, wRemoveMsg);
 	}
 
 	/**
@@ -2136,7 +2136,7 @@ public class User32 {
 	 */
 	public static int GetSystemMetrics(int index) {
 		long __functionAddress = Functions.GetSystemMetrics;
-		return callII(__functionAddress, index);
+		return callI(__functionAddress, index);
 	}
 
 	// --- [ RegisterTouchWindow ] ---
@@ -2342,7 +2342,7 @@ public class User32 {
 		long __functionAddress = Functions.MonitorFromWindow;
 		if ( CHECKS )
 			checkPointer(hWnd);
-		return callPIP(__functionAddress, hWnd, dwFlags);
+		return callPP(__functionAddress, hWnd, dwFlags);
 	}
 
 	// --- [ GetMonitorInfo ] ---
@@ -2397,7 +2397,7 @@ public class User32 {
 	 */
 	public static int nEnumDisplayDevices(long lpDevice, int iDevNum, long lpDisplayDevice, int dwFlags) {
 		long __functionAddress = Functions.EnumDisplayDevices;
-		return callPIPII(__functionAddress, lpDevice, iDevNum, lpDisplayDevice, dwFlags);
+		return callPPI(__functionAddress, lpDevice, iDevNum, lpDisplayDevice, dwFlags);
 	}
 
 	/**
@@ -2481,7 +2481,7 @@ public class User32 {
 	 */
 	public static int nEnumDisplaySettingsEx(long lpszDeviceName, int iModeNum, long lpDevMode, int dwFlags) {
 		long __functionAddress = Functions.EnumDisplaySettingsEx;
-		return callPIPII(__functionAddress, lpszDeviceName, iModeNum, lpDevMode, dwFlags);
+		return callPPI(__functionAddress, lpszDeviceName, iModeNum, lpDevMode, dwFlags);
 	}
 
 	/**
@@ -2578,7 +2578,7 @@ public class User32 {
 	 */
 	public static int nChangeDisplaySettingsEx(long lpszDeviceName, long lpDevMode, long hwnd, int dwflags, long lParam) {
 		long __functionAddress = Functions.ChangeDisplaySettingsEx;
-		return callPPPIPI(__functionAddress, lpszDeviceName, lpDevMode, hwnd, dwflags, lParam);
+		return callPPPPI(__functionAddress, lpszDeviceName, lpDevMode, hwnd, dwflags, lParam);
 	}
 
 	/**
@@ -2635,6 +2635,16 @@ public class User32 {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #IsTouchWindow} */
+	public static boolean IsTouchWindow(long hWnd, int[] pulFlags) {
+		long __functionAddress = Functions.IsTouchWindow;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(hWnd);
+		}
+		return callPPI(__functionAddress, hWnd, pulFlags) != 0;
 	}
 
 }

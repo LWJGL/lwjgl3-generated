@@ -712,7 +712,7 @@ public class ObjCRuntime {
 	 */
 	public static int nobjc_getClassList(long buffer, int bufferCount) {
 		long __functionAddress = Functions.objc_getClassList;
-		return invokePII(__functionAddress, buffer, bufferCount);
+		return invokePI(__functionAddress, buffer, bufferCount);
 	}
 
 	/**
@@ -862,7 +862,7 @@ public class ObjCRuntime {
 		long __functionAddress = Functions.class_setVersion;
 		if ( CHECKS )
 			checkPointer(cls);
-		invokePIV(__functionAddress, cls, version);
+		invokePV(__functionAddress, cls, version);
 	}
 
 	// --- [ class_getInstanceSize ] ---
@@ -1584,7 +1584,7 @@ public class ObjCRuntime {
 		long __functionAddress = Functions.class_addIvar;
 		if ( CHECKS )
 			checkPointer(cls);
-		return invokePPPBPZ(__functionAddress, cls, name, size, alignment, types);
+		return invokePPPPZ(__functionAddress, cls, name, size, alignment, types);
 	}
 
 	/**
@@ -1681,7 +1681,7 @@ public class ObjCRuntime {
 			checkPointer(cls);
 			ObjCPropertyAttribute.validate(attributes, attributeCount);
 		}
-		return invokePPPIZ(__functionAddress, cls, name, attributes, attributeCount);
+		return invokePPPZ(__functionAddress, cls, name, attributes, attributeCount);
 	}
 
 	/**
@@ -1734,7 +1734,7 @@ public class ObjCRuntime {
 			checkPointer(cls);
 			ObjCPropertyAttribute.validate(attributes, attributeCount);
 		}
-		invokePPPIV(__functionAddress, cls, name, attributes, attributeCount);
+		invokePPPV(__functionAddress, cls, name, attributes, attributeCount);
 	}
 
 	/**
@@ -2143,7 +2143,7 @@ public class ObjCRuntime {
 		long __functionAddress = Functions.method_copyArgumentType;
 		if ( CHECKS )
 			checkPointer(m);
-		return invokePIP(__functionAddress, m, index);
+		return invokePP(__functionAddress, m, index);
 	}
 
 	/**
@@ -2187,7 +2187,7 @@ public class ObjCRuntime {
 	 * @param dst the reference string to store the description
 	 */
 	public static void method_getReturnType(long m, ByteBuffer dst) {
-		nmethod_getReturnType(m, memAddress(dst), dst.remaining());
+		nmethod_getReturnType(m, memAddress(dst), (long)dst.remaining());
 	}
 
 	/**
@@ -2226,7 +2226,7 @@ public class ObjCRuntime {
 		long __functionAddress = Functions.method_getArgumentType;
 		if ( CHECKS )
 			checkPointer(m);
-		invokePIPPV(__functionAddress, m, index, dst, dst_len);
+		invokePPPV(__functionAddress, m, index, dst, dst_len);
 	}
 
 	/**
@@ -2240,7 +2240,7 @@ public class ObjCRuntime {
 	 * @param dst   the reference string to store the description
 	 */
 	public static void method_getArgumentType(long m, int index, ByteBuffer dst) {
-		nmethod_getArgumentType(m, index, memAddress(dst), dst.remaining());
+		nmethod_getArgumentType(m, index, memAddress(dst), (long)dst.remaining());
 	}
 
 	/**
@@ -2751,7 +2751,7 @@ public class ObjCRuntime {
 		long __functionAddress = Functions.protocol_copyMethodDescriptionList;
 		if ( CHECKS )
 			checkPointer(p);
-		return invokePZZPP(__functionAddress, p, isRequiredMethod, isInstanceMethod, outCount);
+		return invokePPP(__functionAddress, p, isRequiredMethod, isInstanceMethod, outCount);
 	}
 
 	/**
@@ -2797,7 +2797,7 @@ public class ObjCRuntime {
 		long __functionAddress = Functions.protocol_getProperty;
 		if ( CHECKS )
 			checkPointer(proto);
-		return invokePPZZP(__functionAddress, proto, name, isRequiredProperty, isInstanceProperty);
+		return invokePPP(__functionAddress, proto, name, isRequiredProperty, isInstanceProperty);
 	}
 
 	/**
@@ -3014,7 +3014,7 @@ public class ObjCRuntime {
 			checkPointer(proto);
 			checkPointer(name);
 		}
-		invokePPPZZV(__functionAddress, proto, name, types, isRequiredMethod, isInstanceMethod);
+		invokePPPV(__functionAddress, proto, name, types, isRequiredMethod, isInstanceMethod);
 	}
 
 	/**
@@ -3102,7 +3102,7 @@ public class ObjCRuntime {
 			checkPointer(proto);
 			ObjCPropertyAttribute.validate(attributes, attributeCount);
 		}
-		invokePPPIZZV(__functionAddress, proto, name, attributes, attributeCount, isRequiredProperty, isInstanceProperty);
+		invokePPPV(__functionAddress, proto, name, attributes, attributeCount, isRequiredProperty, isInstanceProperty);
 	}
 
 	/**
@@ -3252,7 +3252,7 @@ public class ObjCRuntime {
 	public static PointerBuffer objc_copyClassNamesForImage(CharSequence image) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-		IntBuffer outCount = stack.callocInt(1);
+			IntBuffer outCount = stack.callocInt(1);
 			ByteBuffer imageEncoded = stack.UTF8(image);
 			long __result = nobjc_copyClassNamesForImage(memAddress(imageEncoded), memAddress(outCount));
 			return memPointerBuffer(__result, outCount.get(0));

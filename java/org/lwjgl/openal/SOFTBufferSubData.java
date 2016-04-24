@@ -68,7 +68,7 @@ public class SOFTBufferSubData {
 		long __functionAddress = AL.getCapabilities().alBufferSubDataSOFT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		invokeIIPIIV(__functionAddress, buffer, format, data, offset, length);
+		invokePV(__functionAddress, buffer, format, data, offset, length);
 	}
 
 	/**
@@ -116,6 +116,30 @@ public class SOFTBufferSubData {
 	/** FloatBuffer version of: {@link #alBufferSubDataSOFT BufferSubDataSOFT} */
 	public static void alBufferSubDataSOFT(int buffer, int format, FloatBuffer data, int offset) {
 		nalBufferSubDataSOFT(buffer, format, memAddress(data), offset, data.remaining() << 2);
+	}
+
+	/** short[] version of: {@link #alBufferSubDataSOFT BufferSubDataSOFT} */
+	public static void alBufferSubDataSOFT(int buffer, int format, short[] data, int offset) {
+		long __functionAddress = AL.getCapabilities().alBufferSubDataSOFT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		invokePV(__functionAddress, buffer, format, data, offset, data.length << 1);
+	}
+
+	/** int[] version of: {@link #alBufferSubDataSOFT BufferSubDataSOFT} */
+	public static void alBufferSubDataSOFT(int buffer, int format, int[] data, int offset) {
+		long __functionAddress = AL.getCapabilities().alBufferSubDataSOFT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		invokePV(__functionAddress, buffer, format, data, offset, data.length << 2);
+	}
+
+	/** float[] version of: {@link #alBufferSubDataSOFT BufferSubDataSOFT} */
+	public static void alBufferSubDataSOFT(int buffer, int format, float[] data, int offset) {
+		long __functionAddress = AL.getCapabilities().alBufferSubDataSOFT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		invokePV(__functionAddress, buffer, format, data, offset, data.length << 2);
 	}
 
 }

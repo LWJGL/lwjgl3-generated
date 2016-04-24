@@ -41,7 +41,7 @@ public class EXTMultiDrawIndirect {
 		long __functionAddress = GLES.getCapabilities().glMultiDrawArraysIndirectEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPIIV(__functionAddress, mode, indirect, drawcount, stride);
+		callPV(__functionAddress, mode, indirect, drawcount, stride);
 	}
 
 	public static void glMultiDrawArraysIndirectEXT(int mode, ByteBuffer indirect, int drawcount, int stride) {
@@ -73,7 +73,7 @@ public class EXTMultiDrawIndirect {
 		long __functionAddress = GLES.getCapabilities().glMultiDrawElementsIndirectEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPIIV(__functionAddress, mode, type, indirect, drawcount, stride);
+		callPV(__functionAddress, mode, type, indirect, drawcount, stride);
 	}
 
 	public static void glMultiDrawElementsIndirectEXT(int mode, int type, ByteBuffer indirect, int drawcount, int stride) {
@@ -97,6 +97,28 @@ public class EXTMultiDrawIndirect {
 			GLESChecks.ensureBufferObject(GLES31.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
 		nglMultiDrawElementsIndirectEXT(mode, type, memAddress(indirect), drawcount, stride);
+	}
+
+	/** int[] version of: {@link #glMultiDrawArraysIndirectEXT MultiDrawArraysIndirectEXT} */
+	public static void glMultiDrawArraysIndirectEXT(int mode, int[] indirect, int drawcount, int stride) {
+		long __functionAddress = GLES.getCapabilities().glMultiDrawArraysIndirectEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(indirect, drawcount * (stride == 0 ? (4 * 4) : stride));
+			GLESChecks.ensureBufferObject(GLES31.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, mode, indirect, drawcount, stride);
+	}
+
+	/** int[] version of: {@link #glMultiDrawElementsIndirectEXT MultiDrawElementsIndirectEXT} */
+	public static void glMultiDrawElementsIndirectEXT(int mode, int type, int[] indirect, int drawcount, int stride) {
+		long __functionAddress = GLES.getCapabilities().glMultiDrawElementsIndirectEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(indirect, drawcount * (stride == 0 ? (5 * 4) : stride));
+			GLESChecks.ensureBufferObject(GLES31.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, mode, type, indirect, drawcount, stride);
 	}
 
 }

@@ -120,7 +120,7 @@ public class ARBShaderAtomicCounters {
 		long __functionAddress = GL.getCapabilities().glGetActiveAtomicCounterBufferiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, bufferIndex, pname, params);
+		callPV(__functionAddress, program, bufferIndex, pname, params);
 	}
 
 	/**
@@ -153,6 +153,16 @@ public class ARBShaderAtomicCounters {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #glGetActiveAtomicCounterBufferiv GetActiveAtomicCounterBufferiv} */
+	public static void glGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetActiveAtomicCounterBufferiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, program, bufferIndex, pname, params);
 	}
 
 }

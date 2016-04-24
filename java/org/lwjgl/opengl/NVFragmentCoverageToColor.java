@@ -49,7 +49,7 @@ public class NVFragmentCoverageToColor {
 		long __functionAddress = GL.getCapabilities().glFragmentCoverageColorNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, color);
+		callV(__functionAddress, color);
 	}
 
 }

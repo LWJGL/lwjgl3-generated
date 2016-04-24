@@ -39,7 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If {@code alphaMode} is {@link KHRDisplay#VK_DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR} then {@code globalAlpha} <b>must</b> be between 0 and 1, inclusive</li>
  * <li>{@code alphaMode} <b>must</b> be 0 or one of the bits present in the {@code supportedAlpha} member of {@code VkDisplayPlaneCapabilitiesKHR} returned by
  * {@link KHRDisplay#vkGetDisplayPlaneCapabilitiesKHR GetDisplayPlaneCapabilitiesKHR} for the display plane corresponding to {@code displayMode}</li>
- * <li>The {@code width} and {@code height} members of {@code imageExtent} must be less than the {@code maxImageDimensions2D} member of
+ * <li>The {@code width} and {@code height} members of {@code imageExtent} <b>must</b> be less than the {@code maxImageDimensions2D} member of
  * {@code VkPhysicalDeviceLimits}</li>
  * </ul>
  * 

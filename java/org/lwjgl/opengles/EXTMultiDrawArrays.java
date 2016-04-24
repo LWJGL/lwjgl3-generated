@@ -37,7 +37,7 @@ public class EXTMultiDrawArrays {
 		long __functionAddress = GLES.getCapabilities().glMultiDrawArraysEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPPIV(__functionAddress, mode, first, count, primcount);
+		callPPV(__functionAddress, mode, first, count, primcount);
 	}
 
 	public static void glMultiDrawArraysEXT(int mode, IntBuffer first, IntBuffer count) {
@@ -52,13 +52,33 @@ public class EXTMultiDrawArrays {
 		long __functionAddress = GLES.getCapabilities().glMultiDrawElementsEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPIPIV(__functionAddress, mode, count, type, indices, primcount);
+		callPPV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
 	public static void glMultiDrawElementsEXT(int mode, IntBuffer count, int type, PointerBuffer indices) {
 		if ( CHECKS )
 			checkBuffer(indices, count.remaining());
 		nglMultiDrawElementsEXT(mode, memAddress(count), type, memAddress(indices), count.remaining());
+	}
+
+	/** Array version of: {@link #glMultiDrawArraysEXT MultiDrawArraysEXT} */
+	public static void glMultiDrawArraysEXT(int mode, int[] first, int[] count) {
+		long __functionAddress = GLES.getCapabilities().glMultiDrawArraysEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(count, first.length);
+		}
+		callPPV(__functionAddress, mode, first, count, first.length);
+	}
+
+	/** Array version of: {@link #glMultiDrawElementsEXT MultiDrawElementsEXT} */
+	public static void glMultiDrawElementsEXT(int mode, int[] count, int type, PointerBuffer indices) {
+		long __functionAddress = GLES.getCapabilities().glMultiDrawElementsEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(indices, count.length);
+		}
+		callPPV(__functionAddress, mode, count, type, memAddress(indices), count.length);
 	}
 
 }

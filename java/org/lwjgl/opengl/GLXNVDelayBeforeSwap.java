@@ -64,7 +64,7 @@ public class GLXNVDelayBeforeSwap {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
-		return callPPFI(__functionAddress, display, drawable, seconds);
+		return callPPI(__functionAddress, display, drawable, seconds);
 	}
 
 }

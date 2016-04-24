@@ -71,7 +71,7 @@ public class ARBComputeVariableGroupSize {
 		long __functionAddress = GL.getCapabilities().glDispatchComputeGroupSizeARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIIV(__functionAddress, num_groups_x, num_groups_y, num_groups_z, group_size_x, group_size_y, group_size_z);
+		callV(__functionAddress, num_groups_x, num_groups_y, num_groups_z, group_size_x, group_size_y, group_size_z);
 	}
 
 }

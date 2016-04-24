@@ -526,7 +526,7 @@ public class X11 {
 		long __functionAddress = Functions.XRootWindow;
 		if ( CHECKS )
 			checkPointer(display);
-		return invokePIP(__functionAddress, display, screen_number);
+		return invokePP(__functionAddress, display, screen_number);
 	}
 
 	// --- [ XCreateColormap ] ---
@@ -544,7 +544,7 @@ public class X11 {
 		long __functionAddress = Functions.XCreateColormap;
 		if ( CHECKS )
 			checkPointer(display);
-		return invokePPPIP(__functionAddress, display, w, visual, alloc);
+		return invokePPPP(__functionAddress, display, w, visual, alloc);
 	}
 
 	/**
@@ -610,7 +610,7 @@ public class X11 {
 		long __functionAddress = Functions.XCreateWindow;
 		if ( CHECKS )
 			checkPointer(display);
-		return invokePPIIIIIIIPPPP(__functionAddress, display, parent, x, y, width, height, border_width, depth, windowClass, visual, valuemask, attributes);
+		return invokePPPPPP(__functionAddress, display, parent, x, y, width, height, border_width, depth, windowClass, visual, valuemask, attributes);
 	}
 
 	/**

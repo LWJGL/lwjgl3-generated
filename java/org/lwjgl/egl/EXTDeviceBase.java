@@ -52,7 +52,7 @@ public class EXTDeviceBase {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
 		}
-		return callPIPI(__functionAddress, device, attribute, value);
+		return callPPI(__functionAddress, device, attribute, value);
 	}
 
 	public static int eglQueryDeviceAttribEXT(long device, int attribute, PointerBuffer value) {
@@ -69,7 +69,7 @@ public class EXTDeviceBase {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
 		}
-		return callPIP(__functionAddress, device, name);
+		return callPP(__functionAddress, device, name);
 	}
 
 	public static String eglQueryDeviceStringEXT(long device, int name) {
@@ -85,7 +85,7 @@ public class EXTDeviceBase {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 		}
-		return callPIPI(__functionAddress, dpy, attribute, value);
+		return callPPI(__functionAddress, dpy, attribute, value);
 	}
 
 	public static int eglQueryDisplayAttribEXT(long dpy, int attribute, PointerBuffer value) {
@@ -100,13 +100,23 @@ public class EXTDeviceBase {
 		long __functionAddress = EGL.getCapabilities().eglQueryDevicesEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIPPI(__functionAddress, max_devices, devices, num_devices);
+		return callPPI(__functionAddress, max_devices, devices, num_devices);
 	}
 
 	public static int eglQueryDevicesEXT(PointerBuffer devices, IntBuffer num_devices) {
 		if ( CHECKS )
 			checkBuffer(num_devices, 1);
 		return neglQueryDevicesEXT(devices == null ? 0 : devices.remaining(), memAddressSafe(devices), memAddress(num_devices));
+	}
+
+	/** Array version of: {@link #eglQueryDevicesEXT QueryDevicesEXT} */
+	public static int eglQueryDevicesEXT(PointerBuffer devices, int[] num_devices) {
+		long __functionAddress = EGL.getCapabilities().eglQueryDevicesEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(num_devices, 1);
+		}
+		return callPPI(__functionAddress, devices == null ? 0 : devices.remaining(), memAddressSafe(devices), num_devices);
 	}
 
 }

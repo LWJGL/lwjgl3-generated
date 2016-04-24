@@ -171,7 +171,7 @@ public class ARBUniformBufferObject {
 		long __functionAddress = GL.getCapabilities().glGetUniformIndices;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPPV(__functionAddress, program, uniformCount, uniformNames, uniformIndices);
+		callPPV(__functionAddress, program, uniformCount, uniformNames, uniformIndices);
 	}
 
 	/**
@@ -240,7 +240,7 @@ public class ARBUniformBufferObject {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniformsiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPIPV(__functionAddress, program, uniformCount, uniformIndices, pname, params);
+		callPPV(__functionAddress, program, uniformCount, uniformIndices, pname, params);
 	}
 
 	/**
@@ -290,7 +290,7 @@ public class ARBUniformBufferObject {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniformName;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPPV(__functionAddress, program, uniformIndex, bufSize, length, uniformName);
+		callPPV(__functionAddress, program, uniformIndex, bufSize, length, uniformName);
 	}
 
 	/**
@@ -357,7 +357,7 @@ public class ARBUniformBufferObject {
 		long __functionAddress = GL.getCapabilities().glGetUniformBlockIndex;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIPI(__functionAddress, program, uniformBlockName);
+		return callPI(__functionAddress, program, uniformBlockName);
 	}
 
 	/**
@@ -402,7 +402,7 @@ public class ARBUniformBufferObject {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniformBlockiv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, program, uniformBlockIndex, pname, params);
+		callPV(__functionAddress, program, uniformBlockIndex, pname, params);
 	}
 
 	/**
@@ -452,7 +452,7 @@ public class ARBUniformBufferObject {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniformBlockName;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPPV(__functionAddress, program, uniformBlockIndex, bufSize, length, uniformBlockName);
+		callPPV(__functionAddress, program, uniformBlockIndex, bufSize, length, uniformBlockName);
 	}
 
 	/**
@@ -522,7 +522,7 @@ public class ARBUniformBufferObject {
 		long __functionAddress = GL.getCapabilities().glBindBufferRange;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPPV(__functionAddress, target, index, buffer, offset, size);
+		callPPV(__functionAddress, target, index, buffer, offset, size);
 	}
 
 	// --- [ glBindBufferBase ] ---
@@ -538,7 +538,7 @@ public class ARBUniformBufferObject {
 		long __functionAddress = GL.getCapabilities().glBindBufferBase;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, target, index, buffer);
+		callV(__functionAddress, target, index, buffer);
 	}
 
 	// --- [ glGetIntegeri_v ] ---
@@ -554,7 +554,7 @@ public class ARBUniformBufferObject {
 		long __functionAddress = GL.getCapabilities().glGetIntegeri_v;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, index, data);
+		callPV(__functionAddress, target, index, data);
 	}
 
 	/**
@@ -600,7 +600,67 @@ public class ARBUniformBufferObject {
 		long __functionAddress = GL.getCapabilities().glUniformBlockBinding;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, program, uniformBlockIndex, uniformBlockBinding);
+		callV(__functionAddress, program, uniformBlockIndex, uniformBlockBinding);
+	}
+
+	/** Array version of: {@link #glGetUniformIndices GetUniformIndices} */
+	public static void glGetUniformIndices(int program, PointerBuffer uniformNames, int[] uniformIndices) {
+		long __functionAddress = GL.getCapabilities().glGetUniformIndices;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(uniformIndices, uniformNames.remaining());
+		}
+		callPPV(__functionAddress, program, uniformNames.remaining(), memAddress(uniformNames), uniformIndices);
+	}
+
+	/** Array version of: {@link #glGetActiveUniformsiv GetActiveUniformsiv} */
+	public static void glGetActiveUniformsiv(int program, int[] uniformIndices, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetActiveUniformsiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, uniformIndices.length);
+		}
+		callPPV(__functionAddress, program, uniformIndices.length, uniformIndices, pname, params);
+	}
+
+	/** Array version of: {@link #glGetActiveUniformName GetActiveUniformName} */
+	public static void glGetActiveUniformName(int program, int uniformIndex, int[] length, ByteBuffer uniformName) {
+		long __functionAddress = GL.getCapabilities().glGetActiveUniformName;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( length != null ) checkBuffer(length, 1);
+		}
+		callPPV(__functionAddress, program, uniformIndex, uniformName.remaining(), length, memAddress(uniformName));
+	}
+
+	/** Array version of: {@link #glGetActiveUniformBlockiv GetActiveUniformBlockiv} */
+	public static void glGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, int[] params) {
+		long __functionAddress = GL.getCapabilities().glGetActiveUniformBlockiv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(params, 1);
+		}
+		callPV(__functionAddress, program, uniformBlockIndex, pname, params);
+	}
+
+	/** Array version of: {@link #glGetActiveUniformBlockName GetActiveUniformBlockName} */
+	public static void glGetActiveUniformBlockName(int program, int uniformBlockIndex, int[] length, ByteBuffer uniformBlockName) {
+		long __functionAddress = GL.getCapabilities().glGetActiveUniformBlockName;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( length != null ) checkBuffer(length, 1);
+		}
+		callPPV(__functionAddress, program, uniformBlockIndex, uniformBlockName.remaining(), length, memAddress(uniformBlockName));
+	}
+
+	/** Array version of: {@link #glGetIntegeri_v GetIntegeri_v} */
+	public static void glGetIntegeri_v(int target, int index, int[] data) {
+		long __functionAddress = GL.getCapabilities().glGetIntegeri_v;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(data, 1);
+		}
+		callPV(__functionAddress, target, index, data);
 	}
 
 }

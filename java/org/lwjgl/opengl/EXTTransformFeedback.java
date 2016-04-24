@@ -102,7 +102,7 @@ public class EXTTransformFeedback {
 		long __functionAddress = GL.getCapabilities().glBindBufferRangeEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPPV(__functionAddress, target, index, buffer, offset, size);
+		callPPV(__functionAddress, target, index, buffer, offset, size);
 	}
 
 	// --- [ glBindBufferOffsetEXT ] ---
@@ -111,7 +111,7 @@ public class EXTTransformFeedback {
 		long __functionAddress = GL.getCapabilities().glBindBufferOffsetEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, target, index, buffer, offset);
+		callPV(__functionAddress, target, index, buffer, offset);
 	}
 
 	// --- [ glBindBufferBaseEXT ] ---
@@ -120,7 +120,7 @@ public class EXTTransformFeedback {
 		long __functionAddress = GL.getCapabilities().glBindBufferBaseEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, target, index, buffer);
+		callV(__functionAddress, target, index, buffer);
 	}
 
 	// --- [ glBeginTransformFeedbackEXT ] ---
@@ -129,7 +129,7 @@ public class EXTTransformFeedback {
 		long __functionAddress = GL.getCapabilities().glBeginTransformFeedbackEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, primitiveMode);
+		callV(__functionAddress, primitiveMode);
 	}
 
 	// --- [ glEndTransformFeedbackEXT ] ---
@@ -147,7 +147,7 @@ public class EXTTransformFeedback {
 		long __functionAddress = GL.getCapabilities().glTransformFeedbackVaryingsEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPIV(__functionAddress, program, count, varyings, bufferMode);
+		callPV(__functionAddress, program, count, varyings, bufferMode);
 	}
 
 	public static void glTransformFeedbackVaryingsEXT(int program, PointerBuffer varyings, int bufferMode) {
@@ -182,7 +182,7 @@ public class EXTTransformFeedback {
 		long __functionAddress = GL.getCapabilities().glGetTransformFeedbackVaryingEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
+		callPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
 	}
 
 	public static void glGetTransformFeedbackVaryingEXT(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
@@ -235,7 +235,7 @@ public class EXTTransformFeedback {
 		long __functionAddress = GL.getCapabilities().glGetIntegerIndexedvEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, param, index, values);
+		callPV(__functionAddress, param, index, values);
 	}
 
 	public static void glGetIntegerIndexedvEXT(int param, int index, IntBuffer values) {
@@ -261,7 +261,7 @@ public class EXTTransformFeedback {
 		long __functionAddress = GL.getCapabilities().glGetBooleanIndexedvEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, param, index, values);
+		callPV(__functionAddress, param, index, values);
 	}
 
 	public static void glGetBooleanIndexedvEXT(int param, int index, ByteBuffer values) {
@@ -279,6 +279,28 @@ public class EXTTransformFeedback {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #glGetTransformFeedbackVaryingEXT GetTransformFeedbackVaryingEXT} */
+	public static void glGetTransformFeedbackVaryingEXT(int program, int index, int[] length, int[] size, int[] type, ByteBuffer name) {
+		long __functionAddress = GL.getCapabilities().glGetTransformFeedbackVaryingEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( length != null ) checkBuffer(length, 1);
+			checkBuffer(size, 1);
+			checkBuffer(type, 1);
+		}
+		callPPPPV(__functionAddress, program, index, name.remaining(), length, size, type, memAddress(name));
+	}
+
+	/** Array version of: {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
+	public static void glGetIntegerIndexedvEXT(int param, int index, int[] values) {
+		long __functionAddress = GL.getCapabilities().glGetIntegerIndexedvEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(values, 1);
+		}
+		callPV(__functionAddress, param, index, values);
 	}
 
 }

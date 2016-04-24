@@ -38,7 +38,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_Stdlib_nrealloc(JNIEnv *__env
 	return (jlong)(intptr_t)realloc(ptr, (size_t)size);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_system_libc_Stdlib_nfree(JNIEnv *__env, jclass clazz, jlong ptrAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_system_libc_Stdlib_nfree__J(JNIEnv *__env, jclass clazz, jlong ptrAddress) {
 	void *ptr = (void *)(intptr_t)ptrAddress;
 	UNUSED_PARAMS(__env, clazz)
 	free(ptr);
@@ -49,10 +49,120 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_Stdlib_naligned_1alloc(JNIEnv
 	return (jlong)(intptr_t)aligned_alloc((size_t)alignment, (size_t)size);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_system_libc_Stdlib_naligned_1free(JNIEnv *__env, jclass clazz, jlong ptrAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_system_libc_Stdlib_naligned_1free__J(JNIEnv *__env, jclass clazz, jlong ptrAddress) {
 	void *ptr = (void *)(intptr_t)ptrAddress;
 	UNUSED_PARAMS(__env, clazz)
 	aligned_free(ptr);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_system_libc_Stdlib_nfree___3S(JNIEnv *__env, jclass clazz, jshortArray ptrAddress) {
+	jshort *ptr = (*__env)->GetPrimitiveArrayCritical(__env, ptrAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	free((void*)ptr);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, ptrAddress, ptr, 0);
+}
+JNIEXPORT void JNICALL JavaCritical_org_lwjgl_system_libc_Stdlib_nfree___3S(jint ptr__length, jshort* ptr) {
+	UNUSED_PARAM(ptr__length)
+	free((void*)ptr);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_system_libc_Stdlib_nfree___3I(JNIEnv *__env, jclass clazz, jintArray ptrAddress) {
+	jint *ptr = (*__env)->GetPrimitiveArrayCritical(__env, ptrAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	free((void*)ptr);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, ptrAddress, ptr, 0);
+}
+JNIEXPORT void JNICALL JavaCritical_org_lwjgl_system_libc_Stdlib_nfree___3I(jint ptr__length, jint* ptr) {
+	UNUSED_PARAM(ptr__length)
+	free((void*)ptr);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_system_libc_Stdlib_nfree___3J(JNIEnv *__env, jclass clazz, jlongArray ptrAddress) {
+	jlong *ptr = (*__env)->GetPrimitiveArrayCritical(__env, ptrAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	free((void*)ptr);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, ptrAddress, ptr, 0);
+}
+JNIEXPORT void JNICALL JavaCritical_org_lwjgl_system_libc_Stdlib_nfree___3J(jint ptr__length, jlong* ptr) {
+	UNUSED_PARAM(ptr__length)
+	free((void*)ptr);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_system_libc_Stdlib_nfree___3F(JNIEnv *__env, jclass clazz, jfloatArray ptrAddress) {
+	jfloat *ptr = (*__env)->GetPrimitiveArrayCritical(__env, ptrAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	free((void*)ptr);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, ptrAddress, ptr, 0);
+}
+JNIEXPORT void JNICALL JavaCritical_org_lwjgl_system_libc_Stdlib_nfree___3F(jint ptr__length, jfloat* ptr) {
+	UNUSED_PARAM(ptr__length)
+	free((void*)ptr);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_system_libc_Stdlib_nfree___3D(JNIEnv *__env, jclass clazz, jdoubleArray ptrAddress) {
+	jdouble *ptr = (*__env)->GetPrimitiveArrayCritical(__env, ptrAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	free((void*)ptr);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, ptrAddress, ptr, 0);
+}
+JNIEXPORT void JNICALL JavaCritical_org_lwjgl_system_libc_Stdlib_nfree___3D(jint ptr__length, jdouble* ptr) {
+	UNUSED_PARAM(ptr__length)
+	free((void*)ptr);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_system_libc_Stdlib_naligned_1free___3S(JNIEnv *__env, jclass clazz, jshortArray ptrAddress) {
+	jshort *ptr = (*__env)->GetPrimitiveArrayCritical(__env, ptrAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	aligned_free((void*)ptr);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, ptrAddress, ptr, 0);
+}
+JNIEXPORT void JNICALL JavaCritical_org_lwjgl_system_libc_Stdlib_naligned_1free___3S(jint ptr__length, jshort* ptr) {
+	UNUSED_PARAM(ptr__length)
+	aligned_free((void*)ptr);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_system_libc_Stdlib_naligned_1free___3I(JNIEnv *__env, jclass clazz, jintArray ptrAddress) {
+	jint *ptr = (*__env)->GetPrimitiveArrayCritical(__env, ptrAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	aligned_free((void*)ptr);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, ptrAddress, ptr, 0);
+}
+JNIEXPORT void JNICALL JavaCritical_org_lwjgl_system_libc_Stdlib_naligned_1free___3I(jint ptr__length, jint* ptr) {
+	UNUSED_PARAM(ptr__length)
+	aligned_free((void*)ptr);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_system_libc_Stdlib_naligned_1free___3J(JNIEnv *__env, jclass clazz, jlongArray ptrAddress) {
+	jlong *ptr = (*__env)->GetPrimitiveArrayCritical(__env, ptrAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	aligned_free((void*)ptr);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, ptrAddress, ptr, 0);
+}
+JNIEXPORT void JNICALL JavaCritical_org_lwjgl_system_libc_Stdlib_naligned_1free___3J(jint ptr__length, jlong* ptr) {
+	UNUSED_PARAM(ptr__length)
+	aligned_free((void*)ptr);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_system_libc_Stdlib_naligned_1free___3F(JNIEnv *__env, jclass clazz, jfloatArray ptrAddress) {
+	jfloat *ptr = (*__env)->GetPrimitiveArrayCritical(__env, ptrAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	aligned_free((void*)ptr);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, ptrAddress, ptr, 0);
+}
+JNIEXPORT void JNICALL JavaCritical_org_lwjgl_system_libc_Stdlib_naligned_1free___3F(jint ptr__length, jfloat* ptr) {
+	UNUSED_PARAM(ptr__length)
+	aligned_free((void*)ptr);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_system_libc_Stdlib_naligned_1free___3D(JNIEnv *__env, jclass clazz, jdoubleArray ptrAddress) {
+	jdouble *ptr = (*__env)->GetPrimitiveArrayCritical(__env, ptrAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	aligned_free((void*)ptr);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, ptrAddress, ptr, 0);
+}
+JNIEXPORT void JNICALL JavaCritical_org_lwjgl_system_libc_Stdlib_naligned_1free___3D(jint ptr__length, jdouble* ptr) {
+	UNUSED_PARAM(ptr__length)
+	aligned_free((void*)ptr);
 }
 
 EXTERN_C_EXIT

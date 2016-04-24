@@ -39,7 +39,7 @@ public class EXTGPUProgramParameters {
 		long __functionAddress = GL.getCapabilities().glProgramEnvParameters4fvEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, target, index, count, params);
+		callPV(__functionAddress, target, index, count, params);
 	}
 
 	public static void glProgramEnvParameters4fvEXT(int target, int index, FloatBuffer params) {
@@ -52,11 +52,27 @@ public class EXTGPUProgramParameters {
 		long __functionAddress = GL.getCapabilities().glProgramLocalParameters4fvEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, target, index, count, params);
+		callPV(__functionAddress, target, index, count, params);
 	}
 
 	public static void glProgramLocalParameters4fvEXT(int target, int index, FloatBuffer params) {
 		nglProgramLocalParameters4fvEXT(target, index, params.remaining() >> 2, memAddress(params));
+	}
+
+	/** Array version of: {@link #glProgramEnvParameters4fvEXT ProgramEnvParameters4fvEXT} */
+	public static void glProgramEnvParameters4fvEXT(int target, int index, float[] params) {
+		long __functionAddress = GL.getCapabilities().glProgramEnvParameters4fvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, target, index, params.length >> 2, params);
+	}
+
+	/** Array version of: {@link #glProgramLocalParameters4fvEXT ProgramLocalParameters4fvEXT} */
+	public static void glProgramLocalParameters4fvEXT(int target, int index, float[] params) {
+		long __functionAddress = GL.getCapabilities().glProgramLocalParameters4fvEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, target, index, params.length >> 2, params);
 	}
 
 }

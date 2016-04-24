@@ -41,7 +41,7 @@ public class EXTBlendFuncSeparate {
 		long __functionAddress = GL.getCapabilities().glBlendFuncSeparateEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
+		callV(__functionAddress, sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
 	}
 
 }

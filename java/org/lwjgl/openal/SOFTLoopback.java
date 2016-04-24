@@ -148,7 +148,7 @@ public class SOFTLoopback {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
 		}
-		return invokePIIIZ(__functionAddress, device, frequency, channels, type);
+		return invokePZ(__functionAddress, device, frequency, channels, type);
 	}
 
 	// --- [ alcRenderSamplesSOFT ] ---
@@ -167,7 +167,7 @@ public class SOFTLoopback {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
 		}
-		invokePPIV(__functionAddress, device, buffer, samples);
+		invokePPV(__functionAddress, device, buffer, samples);
 	}
 
 	/**
@@ -195,6 +195,36 @@ public class SOFTLoopback {
 	/** FloatBuffer version of: {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
 	public static void alcRenderSamplesSOFT(long device, FloatBuffer buffer, int samples) {
 		nalcRenderSamplesSOFT(device, memAddress(buffer), samples);
+	}
+
+	/** short[] version of: {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
+	public static void alcRenderSamplesSOFT(long device, short[] buffer, int samples) {
+		long __functionAddress = ALC.getICD().alcRenderSamplesSOFT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(device);
+		}
+		invokePPV(__functionAddress, device, buffer, samples);
+	}
+
+	/** int[] version of: {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
+	public static void alcRenderSamplesSOFT(long device, int[] buffer, int samples) {
+		long __functionAddress = ALC.getICD().alcRenderSamplesSOFT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(device);
+		}
+		invokePPV(__functionAddress, device, buffer, samples);
+	}
+
+	/** float[] version of: {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
+	public static void alcRenderSamplesSOFT(long device, float[] buffer, int samples) {
+		long __functionAddress = ALC.getICD().alcRenderSamplesSOFT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(device);
+		}
+		invokePPV(__functionAddress, device, buffer, samples);
 	}
 
 }

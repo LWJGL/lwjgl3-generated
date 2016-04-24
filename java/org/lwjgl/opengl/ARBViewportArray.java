@@ -69,7 +69,7 @@ public class ARBViewportArray {
 		long __functionAddress = GL.getCapabilities().glViewportArrayv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, first, count, v);
+		callPV(__functionAddress, first, count, v);
 	}
 
 	/**
@@ -97,7 +97,7 @@ public class ARBViewportArray {
 		long __functionAddress = GL.getCapabilities().glViewportIndexedf;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIFFFFV(__functionAddress, index, x, y, w, h);
+		callV(__functionAddress, index, x, y, w, h);
 	}
 
 	// --- [ glViewportIndexedfv ] ---
@@ -112,7 +112,7 @@ public class ARBViewportArray {
 		long __functionAddress = GL.getCapabilities().glViewportIndexedfv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -140,7 +140,7 @@ public class ARBViewportArray {
 		long __functionAddress = GL.getCapabilities().glScissorArrayv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, first, count, v);
+		callPV(__functionAddress, first, count, v);
 	}
 
 	/**
@@ -168,7 +168,7 @@ public class ARBViewportArray {
 		long __functionAddress = GL.getCapabilities().glScissorIndexed;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, index, left, bottom, width, height);
+		callV(__functionAddress, index, left, bottom, width, height);
 	}
 
 	// --- [ glScissorIndexedv ] ---
@@ -183,7 +183,7 @@ public class ARBViewportArray {
 		long __functionAddress = GL.getCapabilities().glScissorIndexedv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, index, v);
+		callPV(__functionAddress, index, v);
 	}
 
 	/**
@@ -211,7 +211,7 @@ public class ARBViewportArray {
 		long __functionAddress = GL.getCapabilities().glDepthRangeArrayv;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, first, count, v);
+		callPV(__functionAddress, first, count, v);
 	}
 
 	/**
@@ -237,7 +237,7 @@ public class ARBViewportArray {
 		long __functionAddress = GL.getCapabilities().glDepthRangeIndexed;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIDDV(__functionAddress, index, zNear, zFar);
+		callV(__functionAddress, index, zNear, zFar);
 	}
 
 	// --- [ glGetFloati_v ] ---
@@ -253,7 +253,7 @@ public class ARBViewportArray {
 		long __functionAddress = GL.getCapabilities().glGetFloati_v;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, index, data);
+		callPV(__functionAddress, target, index, data);
 	}
 
 	/**
@@ -299,7 +299,7 @@ public class ARBViewportArray {
 		long __functionAddress = GL.getCapabilities().glGetDoublei_v;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, target, index, data);
+		callPV(__functionAddress, target, index, data);
 	}
 
 	/**
@@ -330,6 +330,70 @@ public class ARBViewportArray {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #glViewportArrayv ViewportArrayv} */
+	public static void glViewportArrayv(int first, float[] v) {
+		long __functionAddress = GL.getCapabilities().glViewportArrayv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, first, v.length >> 2, v);
+	}
+
+	/** Array version of: {@link #glViewportIndexedfv ViewportIndexedfv} */
+	public static void glViewportIndexedfv(int index, float[] v) {
+		long __functionAddress = GL.getCapabilities().glViewportIndexedfv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 4);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/** Array version of: {@link #glScissorArrayv ScissorArrayv} */
+	public static void glScissorArrayv(int first, int[] v) {
+		long __functionAddress = GL.getCapabilities().glScissorArrayv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, first, v.length >> 2, v);
+	}
+
+	/** Array version of: {@link #glScissorIndexedv ScissorIndexedv} */
+	public static void glScissorIndexedv(int index, int[] v) {
+		long __functionAddress = GL.getCapabilities().glScissorIndexedv;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(v, 4);
+		}
+		callPV(__functionAddress, index, v);
+	}
+
+	/** Array version of: {@link #glDepthRangeArrayv DepthRangeArrayv} */
+	public static void glDepthRangeArrayv(int first, double[] v) {
+		long __functionAddress = GL.getCapabilities().glDepthRangeArrayv;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, first, v.length >> 1, v);
+	}
+
+	/** Array version of: {@link #glGetFloati_v GetFloati_v} */
+	public static void glGetFloati_v(int target, int index, float[] data) {
+		long __functionAddress = GL.getCapabilities().glGetFloati_v;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(data, 1);
+		}
+		callPV(__functionAddress, target, index, data);
+	}
+
+	/** Array version of: {@link #glGetDoublei_v GetDoublei_v} */
+	public static void glGetDoublei_v(int target, int index, double[] data) {
+		long __functionAddress = GL.getCapabilities().glGetDoublei_v;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(data, 1);
+		}
+		callPV(__functionAddress, target, index, data);
 	}
 
 }

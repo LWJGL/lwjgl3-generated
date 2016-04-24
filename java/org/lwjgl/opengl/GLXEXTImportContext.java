@@ -63,7 +63,7 @@ public class GLXEXTImportContext {
 			checkPointer(display);
 			checkPointer(context);
 		}
-		return callPPIPI(__functionAddress, display, context, attribute, value);
+		return callPPPI(__functionAddress, display, context, attribute, value);
 	}
 
 	/**
@@ -129,6 +129,18 @@ public class GLXEXTImportContext {
 			checkPointer(context);
 		}
 		callPPV(__functionAddress, display, context);
+	}
+
+	/** Array version of: {@link #glXQueryContextInfoEXT QueryContextInfoEXT} */
+	public static int glXQueryContextInfoEXT(long display, long context, int attribute, int[] value) {
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryContextInfoEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(display);
+			checkPointer(context);
+			checkBuffer(value, 1);
+		}
+		return callPPPI(__functionAddress, display, context, attribute, value);
 	}
 
 }

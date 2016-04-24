@@ -202,7 +202,7 @@ public class NVCommandList {
 		long __functionAddress = GL.getCapabilities().glCreateStatesNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, states);
+		callPV(__functionAddress, n, states);
 	}
 
 	/**
@@ -239,7 +239,7 @@ public class NVCommandList {
 		long __functionAddress = GL.getCapabilities().glDeleteStatesNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, states);
+		callPV(__functionAddress, n, states);
 	}
 
 	/**
@@ -277,7 +277,7 @@ public class NVCommandList {
 		long __functionAddress = GL.getCapabilities().glIsStateNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIZ(__functionAddress, state);
+		return callZ(__functionAddress, state);
 	}
 
 	// --- [ glStateCaptureNV ] ---
@@ -309,7 +309,7 @@ public class NVCommandList {
 		long __functionAddress = GL.getCapabilities().glStateCaptureNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, state, mode);
+		callV(__functionAddress, state, mode);
 	}
 
 	// --- [ glGetCommandHeaderNV ] ---
@@ -325,7 +325,7 @@ public class NVCommandList {
 		long __functionAddress = GL.getCapabilities().glGetCommandHeaderNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIII(__functionAddress, tokenID, size);
+		return callI(__functionAddress, tokenID, size);
 	}
 
 	// --- [ glGetStageIndexNV ] ---
@@ -340,7 +340,7 @@ public class NVCommandList {
 		long __functionAddress = GL.getCapabilities().glGetStageIndexNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIS(__functionAddress, shadertype);
+		return callS(__functionAddress, shadertype);
 	}
 
 	// --- [ glDrawCommandsNV ] ---
@@ -359,7 +359,7 @@ public class NVCommandList {
 		long __functionAddress = GL.getCapabilities().glDrawCommandsNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPPIV(__functionAddress, primitiveMode, buffer, indirects, sizes, count);
+		callPPV(__functionAddress, primitiveMode, buffer, indirects, sizes, count);
 	}
 
 	/**
@@ -392,7 +392,7 @@ public class NVCommandList {
 		long __functionAddress = GL.getCapabilities().glDrawCommandsAddressNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPPIV(__functionAddress, primitiveMode, indirects, sizes, count);
+		callPPV(__functionAddress, primitiveMode, indirects, sizes, count);
 	}
 
 	/**
@@ -428,7 +428,7 @@ public class NVCommandList {
 		long __functionAddress = GL.getCapabilities().glDrawCommandsStatesNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPPPPIV(__functionAddress, buffer, indirects, sizes, states, fbos, count);
+		callPPPPV(__functionAddress, buffer, indirects, sizes, states, fbos, count);
 	}
 
 	/**
@@ -470,7 +470,7 @@ public class NVCommandList {
 		long __functionAddress = GL.getCapabilities().glDrawCommandsStatesAddressNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPPPPIV(__functionAddress, indirects, sizes, states, fbos, count);
+		callPPPPV(__functionAddress, indirects, sizes, states, fbos, count);
 	}
 
 	/**
@@ -505,7 +505,7 @@ public class NVCommandList {
 		long __functionAddress = GL.getCapabilities().glCreateCommandListsNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, lists);
+		callPV(__functionAddress, n, lists);
 	}
 
 	/**
@@ -542,7 +542,7 @@ public class NVCommandList {
 		long __functionAddress = GL.getCapabilities().glDeleteCommandListsNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, lists);
+		callPV(__functionAddress, n, lists);
 	}
 
 	/**
@@ -580,7 +580,7 @@ public class NVCommandList {
 		long __functionAddress = GL.getCapabilities().glIsCommandListNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callIZ(__functionAddress, list);
+		return callZ(__functionAddress, list);
 	}
 
 	// --- [ glListDrawCommandsStatesClientNV ] ---
@@ -614,7 +614,7 @@ public class NVCommandList {
 		long __functionAddress = GL.getCapabilities().glListDrawCommandsStatesClientNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPPPPIV(__functionAddress, list, segment, indirects, sizes, states, fbos, count);
+		callPPPPV(__functionAddress, list, segment, indirects, sizes, states, fbos, count);
 	}
 
 	/**
@@ -663,7 +663,7 @@ public class NVCommandList {
 		long __functionAddress = GL.getCapabilities().glCommandListSegmentsNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, list, segments);
+		callV(__functionAddress, list, segments);
 	}
 
 	// --- [ glCompileCommandListNV ] ---
@@ -678,7 +678,7 @@ public class NVCommandList {
 		long __functionAddress = GL.getCapabilities().glCompileCommandListNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, list);
+		callV(__functionAddress, list);
 	}
 
 	// --- [ glCallCommandListNV ] ---
@@ -694,7 +694,95 @@ public class NVCommandList {
 		long __functionAddress = GL.getCapabilities().glCallCommandListNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIV(__functionAddress, list);
+		callV(__functionAddress, list);
+	}
+
+	/** Array version of: {@link #glCreateStatesNV CreateStatesNV} */
+	public static void glCreateStatesNV(int[] states) {
+		long __functionAddress = GL.getCapabilities().glCreateStatesNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, states.length, states);
+	}
+
+	/** Array version of: {@link #glDeleteStatesNV DeleteStatesNV} */
+	public static void glDeleteStatesNV(int[] states) {
+		long __functionAddress = GL.getCapabilities().glDeleteStatesNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, states.length, states);
+	}
+
+	/** Array version of: {@link #glDrawCommandsNV DrawCommandsNV} */
+	public static void glDrawCommandsNV(int primitiveMode, int buffer, PointerBuffer indirects, int[] sizes) {
+		long __functionAddress = GL.getCapabilities().glDrawCommandsNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(sizes, indirects.remaining());
+		}
+		callPPV(__functionAddress, primitiveMode, buffer, memAddress(indirects), sizes, indirects.remaining());
+	}
+
+	/** Array version of: {@link #glDrawCommandsAddressNV DrawCommandsAddressNV} */
+	public static void glDrawCommandsAddressNV(int primitiveMode, long[] indirects, int[] sizes) {
+		long __functionAddress = GL.getCapabilities().glDrawCommandsAddressNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(sizes, indirects.length);
+		}
+		callPPV(__functionAddress, primitiveMode, indirects, sizes, indirects.length);
+	}
+
+	/** Array version of: {@link #glDrawCommandsStatesNV DrawCommandsStatesNV} */
+	public static void glDrawCommandsStatesNV(int buffer, PointerBuffer indirects, int[] sizes, int[] states, int[] fbos) {
+		long __functionAddress = GL.getCapabilities().glDrawCommandsStatesNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(sizes, indirects.remaining());
+			checkBuffer(states, indirects.remaining());
+			checkBuffer(fbos, indirects.remaining());
+		}
+		callPPPPV(__functionAddress, buffer, memAddress(indirects), sizes, states, fbos, indirects.remaining());
+	}
+
+	/** Array version of: {@link #glDrawCommandsStatesAddressNV DrawCommandsStatesAddressNV} */
+	public static void glDrawCommandsStatesAddressNV(long[] indirects, int[] sizes, int[] states, int[] fbos) {
+		long __functionAddress = GL.getCapabilities().glDrawCommandsStatesAddressNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(sizes, indirects.length);
+			checkBuffer(states, indirects.length);
+			checkBuffer(fbos, indirects.length);
+		}
+		callPPPPV(__functionAddress, indirects, sizes, states, fbos, indirects.length);
+	}
+
+	/** Array version of: {@link #glCreateCommandListsNV CreateCommandListsNV} */
+	public static void glCreateCommandListsNV(int[] lists) {
+		long __functionAddress = GL.getCapabilities().glCreateCommandListsNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, lists.length, lists);
+	}
+
+	/** Array version of: {@link #glDeleteCommandListsNV DeleteCommandListsNV} */
+	public static void glDeleteCommandListsNV(int[] lists) {
+		long __functionAddress = GL.getCapabilities().glDeleteCommandListsNV;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, lists.length, lists);
+	}
+
+	/** Array version of: {@link #glListDrawCommandsStatesClientNV ListDrawCommandsStatesClientNV} */
+	public static void glListDrawCommandsStatesClientNV(int list, int segment, PointerBuffer indirects, PointerBuffer sizes, int[] states, int[] fbos) {
+		long __functionAddress = GL.getCapabilities().glListDrawCommandsStatesClientNV;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(sizes, indirects.remaining());
+			checkBuffer(states, indirects.remaining());
+			checkBuffer(fbos, indirects.remaining());
+		}
+		callPPPPV(__functionAddress, list, segment, memAddress(indirects), memAddress(sizes), states, fbos, indirects.remaining());
 	}
 
 }

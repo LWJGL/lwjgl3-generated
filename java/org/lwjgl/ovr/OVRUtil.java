@@ -259,4 +259,17 @@ public class OVRUtil {
 		novrPosef_FlipHandedness(inPose.address(), outPose.address());
 	}
 
+	/** Array version of: {@link #ovr_GetEyePoses _GetEyePoses} */
+	public static native void novr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, long HmdToEyeOffset, long outEyePoses, double[] outSensorSampleTime);
+
+	/** Array version of: {@link #ovr_GetEyePoses _GetEyePoses} */
+	public static void ovr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, OVRVector3f.Buffer HmdToEyeOffset, OVRPosef.Buffer outEyePoses, double[] outSensorSampleTime) {
+		if ( CHECKS ) {
+			checkPointer(session);
+			checkBuffer(HmdToEyeOffset, 2);
+			checkBuffer(outEyePoses, 2);
+		}
+		novr_GetEyePoses(session, frameIndex, latencyMarker, HmdToEyeOffset.address(), outEyePoses.address(), outSensorSampleTime);
+	}
+
 }

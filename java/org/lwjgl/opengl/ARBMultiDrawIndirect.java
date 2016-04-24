@@ -70,7 +70,7 @@ for ( i = 0; i < primcount; i++ ) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawArraysIndirect;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPIIV(__functionAddress, mode, indirect, primcount, stride);
+		callPV(__functionAddress, mode, indirect, primcount, stride);
 	}
 
 	/**
@@ -188,7 +188,7 @@ for ( i = 0; i < primcount; i++ ) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawElementsIndirect;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPIIV(__functionAddress, mode, type, indirect, primcount, stride);
+		callPV(__functionAddress, mode, type, indirect, primcount, stride);
 	}
 
 	/**
@@ -272,6 +272,28 @@ for ( i = 0; i < primcount; i++ ) {
 			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
 		nglMultiDrawElementsIndirect(mode, type, memAddress(indirect), primcount, stride);
+	}
+
+	/** int[] version of: {@link #glMultiDrawArraysIndirect MultiDrawArraysIndirect} */
+	public static void glMultiDrawArraysIndirect(int mode, int[] indirect, int primcount, int stride) {
+		long __functionAddress = GL.getCapabilities().glMultiDrawArraysIndirect;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(indirect, primcount * (stride == 0 ? (4 * 4) : stride));
+			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, mode, indirect, primcount, stride);
+	}
+
+	/** int[] version of: {@link #glMultiDrawElementsIndirect MultiDrawElementsIndirect} */
+	public static void glMultiDrawElementsIndirect(int mode, int type, int[] indirect, int primcount, int stride) {
+		long __functionAddress = GL.getCapabilities().glMultiDrawElementsIndirect;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(indirect, primcount * (stride == 0 ? (5 * 4) : stride));
+			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
+		}
+		callPV(__functionAddress, mode, type, indirect, primcount, stride);
 	}
 
 }

@@ -88,7 +88,7 @@ public class EXTGeometryShader4 {
 		long __functionAddress = GL.getCapabilities().glProgramParameteriEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIV(__functionAddress, program, pname, value);
+		callV(__functionAddress, program, pname, value);
 	}
 
 	// --- [ glFramebufferTextureEXT ] ---
@@ -97,7 +97,7 @@ public class EXTGeometryShader4 {
 		long __functionAddress = GL.getCapabilities().glFramebufferTextureEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIV(__functionAddress, target, attachment, texture, level);
+		callV(__functionAddress, target, attachment, texture, level);
 	}
 
 	// --- [ glFramebufferTextureLayerEXT ] ---
@@ -106,7 +106,7 @@ public class EXTGeometryShader4 {
 		long __functionAddress = GL.getCapabilities().glFramebufferTextureLayerEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, target, attachment, texture, level, layer);
+		callV(__functionAddress, target, attachment, texture, level, layer);
 	}
 
 	// --- [ glFramebufferTextureFaceEXT ] ---
@@ -115,7 +115,7 @@ public class EXTGeometryShader4 {
 		long __functionAddress = GL.getCapabilities().glFramebufferTextureFaceEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, target, attachment, texture, level, face);
+		callV(__functionAddress, target, attachment, texture, level, face);
 	}
 
 }

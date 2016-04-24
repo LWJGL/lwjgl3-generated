@@ -105,7 +105,7 @@ public class GLXEXTTextureFromPixmap {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
-		callPPIPV(__functionAddress, display, drawable, buffer, attrib_list);
+		callPPPV(__functionAddress, display, drawable, buffer, attrib_list);
 	}
 
 	/**
@@ -139,7 +139,19 @@ public class GLXEXTTextureFromPixmap {
 			checkPointer(display);
 			checkPointer(drawable);
 		}
-		callPPIV(__functionAddress, display, drawable, buffer);
+		callPPV(__functionAddress, display, drawable, buffer);
+	}
+
+	/** Array version of: {@link #glXBindTexImageEXT BindTexImageEXT} */
+	public static void glXBindTexImageEXT(long display, long drawable, int buffer, int[] attrib_list) {
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXBindTexImageEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(display);
+			checkPointer(drawable);
+			if ( attrib_list != null ) checkNT(attrib_list);
+		}
+		callPPPV(__functionAddress, display, drawable, buffer, attrib_list);
 	}
 
 }

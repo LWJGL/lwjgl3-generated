@@ -144,7 +144,7 @@ public class OESTessellationShader {
 		long __functionAddress = GLES.getCapabilities().glPatchParameteriOES;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIV(__functionAddress, pname, value);
+		callV(__functionAddress, pname, value);
 	}
 
 }

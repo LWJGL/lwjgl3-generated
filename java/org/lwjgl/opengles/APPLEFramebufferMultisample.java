@@ -69,7 +69,7 @@ public class APPLEFramebufferMultisample {
 		long __functionAddress = GLES.getCapabilities().glRenderbufferStorageMultisampleAPPLE;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIIIV(__functionAddress, target, samples, internalformat, width, height);
+		callV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
 	// --- [ glResolveMultisampleFramebufferAPPLE ] ---

@@ -125,7 +125,7 @@ public class CL10GL {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
 		}
-		return callPJIPP(__functionAddress, context, flags, bufobj, errcode_ret);
+		return callPJPP(__functionAddress, context, flags, bufobj, errcode_ret);
 	}
 
 	/**
@@ -207,7 +207,7 @@ public class CL10GL {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
 		}
-		return callPJIIIPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
+		return callPJPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
 	}
 
 	/**
@@ -299,7 +299,7 @@ public class CL10GL {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
 		}
-		return callPJIIIPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
+		return callPJPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
 	}
 
 	/**
@@ -382,7 +382,7 @@ public class CL10GL {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
 		}
-		return callPJIPP(__functionAddress, context, flags, renderbuffer, errcode_ret);
+		return callPJPP(__functionAddress, context, flags, renderbuffer, errcode_ret);
 	}
 
 	/**
@@ -497,7 +497,7 @@ public class CL10GL {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(memobj);
 		}
-		return callPIPPPI(__functionAddress, memobj, param_name, param_value_size, param_value, param_value_size_ret);
+		return callPPPPI(__functionAddress, memobj, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
 	/**
@@ -522,7 +522,7 @@ public class CL10GL {
 	public static int clGetGLTextureInfo(long memobj, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
-		return nclGetGLTextureInfo(memobj, param_name, param_value == null ? 0 : param_value.remaining(), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetGLTextureInfo(memobj, param_name, (long)(param_value == null ? 0 : param_value.remaining()), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetGLTextureInfo GetGLTextureInfo} */
@@ -581,7 +581,7 @@ public class CL10GL {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 		}
-		return callPIPIPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
+		return callPPPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -724,7 +724,7 @@ public class CL10GL {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(command_queue);
 		}
-		return callPIPIPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
+		return callPPPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
 	}
 
 	/**
@@ -812,6 +812,71 @@ public class CL10GL {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #clCreateFromGLBuffer CreateFromGLBuffer} */
+	public static long clCreateFromGLBuffer(long context, long flags, int bufobj, int[] errcode_ret) {
+		long __functionAddress = CL.getICD().clCreateFromGLBuffer;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(context);
+			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+		}
+		return callPJPP(__functionAddress, context, flags, bufobj, errcode_ret);
+	}
+
+	/** Array version of: {@link #clCreateFromGLTexture2D CreateFromGLTexture2D} */
+	public static long clCreateFromGLTexture2D(long context, long flags, int texture_target, int miplevel, int texture, int[] errcode_ret) {
+		long __functionAddress = CL.getICD().clCreateFromGLTexture2D;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(context);
+			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+		}
+		return callPJPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
+	}
+
+	/** Array version of: {@link #clCreateFromGLTexture3D CreateFromGLTexture3D} */
+	public static long clCreateFromGLTexture3D(long context, long flags, int texture_target, int miplevel, int texture, int[] errcode_ret) {
+		long __functionAddress = CL.getICD().clCreateFromGLTexture3D;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(context);
+			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+		}
+		return callPJPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
+	}
+
+	/** Array version of: {@link #clCreateFromGLRenderbuffer CreateFromGLRenderbuffer} */
+	public static long clCreateFromGLRenderbuffer(long context, long flags, int renderbuffer, int[] errcode_ret) {
+		long __functionAddress = CL.getICD().clCreateFromGLRenderbuffer;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(context);
+			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+		}
+		return callPJPP(__functionAddress, context, flags, renderbuffer, errcode_ret);
+	}
+
+	/** Array version of: {@link #clGetGLObjectInfo GetGLObjectInfo} */
+	public static int clGetGLObjectInfo(long memobj, int[] gl_object_type, int[] gl_object_name) {
+		long __functionAddress = CL.getICD().clGetGLObjectInfo;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(memobj);
+		}
+		return callPPPI(__functionAddress, memobj, gl_object_type, gl_object_name);
+	}
+
+	/** int[] version of: {@link #clGetGLTextureInfo GetGLTextureInfo} */
+	public static int clGetGLTextureInfo(long memobj, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
+		long __functionAddress = CL.getICD().clGetGLTextureInfo;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(memobj);
+			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+		}
+		return callPPPPI(__functionAddress, memobj, param_name, (long)(param_value == null ? 0 : param_value.length << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
 
 }

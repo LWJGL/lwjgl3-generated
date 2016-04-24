@@ -285,7 +285,7 @@ public class EXTDebugReport {
 		long __functionAddress = instance.getCapabilities().vkDebugReportMessageEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPIIJPIPPV(__functionAddress, instance.address(), flags, objectType, object, location, messageCode, pLayerPrefix, pMessage);
+		callPJPPPV(__functionAddress, instance.address(), flags, objectType, object, location, messageCode, pLayerPrefix, pMessage);
 	}
 
 	/**
@@ -369,6 +369,18 @@ public class EXTDebugReport {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #vkCreateDebugReportCallbackEXT CreateDebugReportCallbackEXT} */
+	public static int vkCreateDebugReportCallbackEXT(VkInstance instance, VkDebugReportCallbackCreateInfoEXT pCreateInfo, VkAllocationCallbacks pAllocator, long[] pCallback) {
+		long __functionAddress = instance.getCapabilities().vkCreateDebugReportCallbackEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkBuffer(pCallback, 1);
+			VkDebugReportCallbackCreateInfoEXT.validate(pCreateInfo.address());
+			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
+		}
+		return callPPPPI(__functionAddress, instance.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pCallback);
 	}
 
 }

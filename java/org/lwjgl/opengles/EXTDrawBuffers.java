@@ -88,7 +88,7 @@ public class EXTDrawBuffers {
 		long __functionAddress = GLES.getCapabilities().glDrawBuffersEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIPV(__functionAddress, n, bufs);
+		callPV(__functionAddress, n, bufs);
 	}
 
 	public static void glDrawBuffersEXT(IntBuffer bufs) {
@@ -103,6 +103,14 @@ public class EXTDrawBuffers {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #glDrawBuffersEXT DrawBuffersEXT} */
+	public static void glDrawBuffersEXT(int[] bufs) {
+		long __functionAddress = GLES.getCapabilities().glDrawBuffersEXT;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, bufs.length, bufs);
 	}
 
 }

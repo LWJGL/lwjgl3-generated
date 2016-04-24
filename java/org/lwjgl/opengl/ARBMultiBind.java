@@ -69,7 +69,7 @@ public class ARBMultiBind {
 		long __functionAddress = GL.getCapabilities().glBindBuffersBase;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPV(__functionAddress, target, first, count, buffers);
+		callPV(__functionAddress, target, first, count, buffers);
 	}
 
 	/**
@@ -129,7 +129,7 @@ public class ARBMultiBind {
 		long __functionAddress = GL.getCapabilities().glBindBuffersRange;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIIPPPV(__functionAddress, target, first, count, buffers, offsets, sizes);
+		callPPPV(__functionAddress, target, first, count, buffers, offsets, sizes);
 	}
 
 	/**
@@ -212,7 +212,7 @@ public class ARBMultiBind {
 		long __functionAddress = GL.getCapabilities().glBindTextures;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, first, count, textures);
+		callPV(__functionAddress, first, count, textures);
 	}
 
 	/**
@@ -286,7 +286,7 @@ public class ARBMultiBind {
 		long __functionAddress = GL.getCapabilities().glBindSamplers;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, first, count, samplers);
+		callPV(__functionAddress, first, count, samplers);
 	}
 
 	/**
@@ -355,7 +355,7 @@ public class ARBMultiBind {
 		long __functionAddress = GL.getCapabilities().glBindImageTextures;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPV(__functionAddress, first, count, textures);
+		callPV(__functionAddress, first, count, textures);
 	}
 
 	/**
@@ -431,7 +431,7 @@ public class ARBMultiBind {
 		long __functionAddress = GL.getCapabilities().glBindVertexBuffers;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callIIPPPV(__functionAddress, first, count, buffers, offsets, strides);
+		callPPPV(__functionAddress, first, count, buffers, offsets, strides);
 	}
 
 	/**
@@ -469,6 +469,60 @@ public class ARBMultiBind {
 			if ( strides != null ) checkBuffer(strides, buffers.remaining());
 		}
 		nglBindVertexBuffers(first, buffers == null ? 0 : buffers.remaining(), memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(strides));
+	}
+
+	/** Array version of: {@link #glBindBuffersBase BindBuffersBase} */
+	public static void glBindBuffersBase(int target, int first, int[] buffers) {
+		long __functionAddress = GL.getCapabilities().glBindBuffersBase;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, target, first, buffers == null ? 0 : buffers.length, buffers);
+	}
+
+	/** Array version of: {@link #glBindBuffersRange BindBuffersRange} */
+	public static void glBindBuffersRange(int target, int first, int[] buffers, PointerBuffer offsets, PointerBuffer sizes) {
+		long __functionAddress = GL.getCapabilities().glBindBuffersRange;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( offsets != null ) checkBuffer(offsets, buffers.length);
+			if ( sizes != null ) checkBuffer(sizes, buffers.length);
+		}
+		callPPPV(__functionAddress, target, first, buffers == null ? 0 : buffers.length, buffers, memAddressSafe(offsets), memAddressSafe(sizes));
+	}
+
+	/** Array version of: {@link #glBindTextures BindTextures} */
+	public static void glBindTextures(int first, int[] textures) {
+		long __functionAddress = GL.getCapabilities().glBindTextures;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, first, textures == null ? 0 : textures.length, textures);
+	}
+
+	/** Array version of: {@link #glBindSamplers BindSamplers} */
+	public static void glBindSamplers(int first, int[] samplers) {
+		long __functionAddress = GL.getCapabilities().glBindSamplers;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, first, samplers == null ? 0 : samplers.length, samplers);
+	}
+
+	/** Array version of: {@link #glBindImageTextures BindImageTextures} */
+	public static void glBindImageTextures(int first, int[] textures) {
+		long __functionAddress = GL.getCapabilities().glBindImageTextures;
+		if ( CHECKS )
+			checkFunctionAddress(__functionAddress);
+		callPV(__functionAddress, first, textures == null ? 0 : textures.length, textures);
+	}
+
+	/** Array version of: {@link #glBindVertexBuffers BindVertexBuffers} */
+	public static void glBindVertexBuffers(int first, int[] buffers, PointerBuffer offsets, int[] strides) {
+		long __functionAddress = GL.getCapabilities().glBindVertexBuffers;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			if ( offsets != null ) checkBuffer(offsets, buffers.length);
+			if ( strides != null ) checkBuffer(strides, buffers.length);
+		}
+		callPPPV(__functionAddress, first, buffers == null ? 0 : buffers.length, buffers, memAddressSafe(offsets), strides);
 	}
 
 }

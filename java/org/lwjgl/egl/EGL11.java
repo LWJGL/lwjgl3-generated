@@ -47,7 +47,7 @@ public class EGL11 {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPII(__functionAddress, dpy, surface, buffer);
+		return callPPI(__functionAddress, dpy, surface, buffer);
 	}
 
 	// --- [ eglReleaseTexImage ] ---
@@ -59,7 +59,7 @@ public class EGL11 {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPII(__functionAddress, dpy, surface, buffer);
+		return callPPI(__functionAddress, dpy, surface, buffer);
 	}
 
 	// --- [ eglSurfaceAttrib ] ---
@@ -71,7 +71,7 @@ public class EGL11 {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPIII(__functionAddress, dpy, surface, attribute, value);
+		return callPPI(__functionAddress, dpy, surface, attribute, value);
 	}
 
 	// --- [ eglSwapInterval ] ---
@@ -82,7 +82,7 @@ public class EGL11 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 		}
-		return callPII(__functionAddress, dpy, interval);
+		return callPI(__functionAddress, dpy, interval);
 	}
 
 }
