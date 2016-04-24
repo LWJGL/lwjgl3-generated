@@ -22,6 +22,10 @@
  * </ul>
  * 
  * <p>The shared library may be replaced with a custom build that has more features enabled.</p>
+ * 
+ * <p>Dynamic configuration (for enabled features) is also possible, using either the {@code MALLOC_CONF} environment variable or the
+ * <a href="http://www.canonware.com/download/jemalloc/jemalloc-latest/doc/jemalloc.html#mallctl_namespace">MALLCTL NAMESPACE</a> and the
+ * {@code mallctl*} functions.</p>
  */
 package org.lwjgl.system.jemalloc;
 
