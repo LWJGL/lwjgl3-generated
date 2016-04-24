@@ -13,7 +13,7 @@ public final class OVRVersion {
 		OVR_PRODUCT_VERSION = 1,
 		OVR_MAJOR_VERSION   = 1,
 		OVR_MINOR_VERSION   = 3,
-		OVR_PATCH_VERSION   = 0,
+		OVR_PATCH_VERSION   = 2,
 		OVR_BUILD_NUMBER    = 0;
 
 	/** The {@code ((product * 100) + major)} version of the service that the DLL is compatible with. */

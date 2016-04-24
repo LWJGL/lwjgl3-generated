@@ -201,6 +201,18 @@ public class OVRErrorCode {
 	/** A catastrophic failure has occurred.  We will attempt to recover by resetting the device */
 	public static final int ovrError_CatastrophicFailure = -4017;
 
+	/** The catastrophic recovery has timed out. */
+	public static final int ovrError_CatastrophicTimeout = -4018;
+
+	/** Catastrophic failure has repeated too many times. */
+	public static final int ovrError_RepeatCatastrophicFail = -4019;
+
+	/** Could not open handle for Rift device (likely already in use by another process). */
+	public static final int ovrError_USBOpenDeviceFailure = -4020;
+
+	/** Unexpected HMD issues that don't fit a specific bucket. */
+	public static final int ovrError_HMDGeneralFailure = -4021;
+
 	/** The HMD Firmware is out of date and is unacceptable. */
 	public static final int ovrError_HMDFirmwareMismatch = -4100;
 
@@ -239,6 +251,18 @@ public class OVRErrorCode {
 
 	/** The {@code ovrTextureSwapChain} is in an incomplete or inconsistent state. Ensure {@link OVR#ovr_CommitTextureSwapChain CommitTextureSwapChain} was called at least once first. */
 	public static final int ovrError_TextureSwapChainInvalid = -6002;
+
+	/** Graphics device has been reset (TDR, etc...) */
+	public static final int ovrError_GraphicsDeviceReset = -6003;
+
+	/** HMD removed from the display adapter */
+	public static final int ovrError_DisplayRemoved = -6004;
+
+	/** Application declared itself as an invisible type and is not allowed to submit frames. */
+	public static final int ovrError_ApplicationInvisible = -6005;
+
+	/** The given request is disallowed under the current conditions. */
+	public static final int ovrError_Disallowed = -6006;
 
 	/** A runtime exception occurred. The application is required to shutdown LibOVR and re-initialize it before this error state will be cleared. */
 	public static final int ovrError_RuntimeException = -7000;
