@@ -2452,7 +2452,6 @@ public class ObjCRuntime {
 	 * Returns an array of property attributes for a given property.
 	 *
 	 * @param property the property whose attributes you want to copy
-	 * @param outCount the number of attributes returned in the array
 	 *
 	 * @return an array of property attributes. You must free the array with free().
 	 */
@@ -2762,7 +2761,6 @@ public class ObjCRuntime {
 	 * @param p                a protocol
 	 * @param isRequiredMethod a Boolean value that indicates whether returned methods should be required methods (pass {@link #YES} to specify required methods)
 	 * @param isInstanceMethod a Boolean value that indicates whether returned methods should be instance methods (pass {@link #YES} to specify instance methods)
-	 * @param outCount         upon return, contains the number of method description structures in the returned array
 	 *
 	 * @return a C array of objc_method_description structures containing the names and types of {@code p}'s methods specified by {@code isRequiredMethod} and
 	 *         {@code isInstanceMethod}. The array contains {@code *outCount} pointers followed by a {@code NULL} terminator. You must free the list with free().

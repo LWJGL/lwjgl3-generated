@@ -1064,7 +1064,6 @@ public class GLFW {
 	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param monitor the monitor to query
-	 * @param count   where to store the number of video modes in the returned array. This is set to zero if an error occurred.
 	 *
 	 * @return an array of video modes, or {@code NULL} if an error occured
 	 *

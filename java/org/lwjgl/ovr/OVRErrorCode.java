@@ -63,13 +63,13 @@ public class OVRErrorCode {
 	/** Specified device type isn't available. */
 	public static final int ovrError_DeviceUnavailable = -1010;
 
-	/** The headset was in an invalid orientation for the requested operation (e.g. vertically oriented during {@link OVR#OVR_RecenterPose RecenterPose}). */
+	/** The headset was in an invalid orientation for the requested operation (e.g. vertically oriented during {@link OVR#ovr_RecenterTrackingOrigin}). */
 	public static final int ovrError_InvalidHeadsetOrientation = -1011;
 
-	/** The client failed to call {@link OVR#OVR_Destroy Destroy} on an active session before calling {@link OVR#OVR_Shutdown Shutdown}. Or the client crashed. */
+	/** The client failed to call {@link OVR#ovr_Destroy} on an active session before calling {@link OVR#ovr_Shutdown}. Or the client crashed. */
 	public static final int ovrError_ClientSkippedDestroy = -1012;
 
-	/** The client failed to call {@link OVR#OVR_Shutdown Shutdown} or the client crashed. */
+	/** The client failed to call {@link OVR#ovr_Shutdown} or the client crashed. */
 	public static final int ovrError_ClientSkippedShutdown = -1013;
 
 	/** First Audio error. */

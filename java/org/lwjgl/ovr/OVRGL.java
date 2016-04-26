@@ -33,7 +33,7 @@ public class OVRGL {
 	 * Creates a TextureSwapChain suitable for use with OpenGL.
 	 * 
 	 * <p>The format provided should be thought of as the format the distortion compositor will use when reading the contents of the texture. To that end, it is
-	 * highly recommended that the application requests texture swap chain formats that are in sRGB-space (e.g. {@link OVR#ovrFORMAT_R8G8B8A8_UNORM_SRGB FORMAT_R8G8B8A8_UNORM_SRGB}) as the
+	 * highly recommended that the application requests texture swap chain formats that are in sRGB-space (e.g. {@link OVR#OVR_FORMAT_R8G8B8A8_UNORM_SRGB}) as the
 	 * distortion compositor does sRGB-correct rendering. Furthermore, the app should then make sure "{@code glEnable(GL_FRAMEBUFFER_SRGB);}" is called before
 	 * rendering into these textures. Even though it is not recommended, if the application would like to treat the texture as a linear format and do
 	 * linear-to-gamma conversion in GLSL, then the application can avoid calling "{@code glEnable(GL_FRAMEBUFFER_SRGB);}", but should still pass in an sRGB
@@ -52,7 +52,7 @@ public class OVRGL {
 	 * Creates a TextureSwapChain suitable for use with OpenGL.
 	 * 
 	 * <p>The format provided should be thought of as the format the distortion compositor will use when reading the contents of the texture. To that end, it is
-	 * highly recommended that the application requests texture swap chain formats that are in sRGB-space (e.g. {@link OVR#ovrFORMAT_R8G8B8A8_UNORM_SRGB FORMAT_R8G8B8A8_UNORM_SRGB}) as the
+	 * highly recommended that the application requests texture swap chain formats that are in sRGB-space (e.g. {@link OVR#OVR_FORMAT_R8G8B8A8_UNORM_SRGB}) as the
 	 * distortion compositor does sRGB-correct rendering. Furthermore, the app should then make sure "{@code glEnable(GL_FRAMEBUFFER_SRGB);}" is called before
 	 * rendering into these textures. Even though it is not recommended, if the application would like to treat the texture as a linear format and do
 	 * linear-to-gamma conversion in GLSL, then the application can avoid calling "{@code glEnable(GL_FRAMEBUFFER_SRGB);}", but should still pass in an sRGB

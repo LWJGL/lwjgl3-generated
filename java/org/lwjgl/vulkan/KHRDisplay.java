@@ -208,7 +208,7 @@ public class KHRDisplay {
 	 * </ul>
 	 *
 	 * @param physicalDevice a physical device
-	 * @param planeIndex     the plane which the application wishes to use, and must be in the range {@code [0, physicaldeviceplanecount − 1]
+	 * @param planeIndex     the plane which the application wishes to use, and must be in the range {@code [0, physicaldeviceplanecount − 1]}
 	 * @param pDisplayCount  a pointer to an integer related to the number of display planes available or queried
 	 * @param pDisplays      either {@code NULL} or a pointer to an array of {@code VkDisplayKHR} structures
 	 */
@@ -241,7 +241,7 @@ public class KHRDisplay {
 	 * </ul>
 	 *
 	 * @param physicalDevice a physical device
-	 * @param planeIndex     the plane which the application wishes to use, and must be in the range {@code [0, physicaldeviceplanecount − 1]
+	 * @param planeIndex     the plane which the application wishes to use, and must be in the range {@code [0, physicaldeviceplanecount − 1]}
 	 * @param pDisplayCount  a pointer to an integer related to the number of display planes available or queried
 	 * @param pDisplays      either {@code NULL} or a pointer to an array of {@code VkDisplayKHR} structures
 	 */
