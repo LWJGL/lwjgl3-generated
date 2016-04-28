@@ -9,8 +9,6 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-import org.lwjgl.opengl.GL11;
-
 import static org.lwjgl.glfw.GLFW.*;
 
 /** Instances of this class may be passed to the {@link GLFW#glfwSetCursorEnterCallback SetCursorEnterCallback} method. */

@@ -31,7 +31,7 @@ public interface GLFWWindowIconifyCallbackI extends CallbackI.V {
 	 * Will be called when the specified window is iconified or restored.
 	 *
 	 * @param window    the window that was iconified or restored.
-	 * @param iconified {@link GL11#GL_TRUE} if the window was iconified, or {@link GL11#GL_FALSE} if it was restored
+	 * @param iconified {@link GLFW#GLFW_TRUE TRUE} if the window was iconified, or {@link GLFW#GLFW_FALSE FALSE} if it was restored
 	 */
 	void invoke(long window, boolean iconified);
 

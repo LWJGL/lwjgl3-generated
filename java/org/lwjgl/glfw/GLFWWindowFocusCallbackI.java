@@ -31,7 +31,7 @@ public interface GLFWWindowFocusCallbackI extends CallbackI.V {
 	 * Will be called when the specified window gains or loses focus.
 	 *
 	 * @param window  the window that was focused or defocused
-	 * @param focused {@link GL11#GL_TRUE} if the window was focused, or {@link GL11#GL_FALSE} if it was defocused
+	 * @param focused {@link GLFW#GLFW_TRUE TRUE} if the window was focused, or {@link GLFW#GLFW_FALSE FALSE} if it was defocused
 	 */
 	void invoke(long window, boolean focused);
 

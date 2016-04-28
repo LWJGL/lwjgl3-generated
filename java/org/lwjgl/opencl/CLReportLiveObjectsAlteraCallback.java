@@ -9,7 +9,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Instances of this class may be passed to the {@link ALTERALiveObjectTracking#ReportLiveObjectsAltera} method. */
+/** Instances of this class may be passed to the {@link ALTERALiveObjectTracking#clReportLiveObjectsAltera ReportLiveObjectsAltera} method. */
 public abstract class CLReportLiveObjectsAlteraCallback extends Callback implements CLReportLiveObjectsAlteraCallbackI {
 
 	/** Creates a {@code CLReportLiveObjectsAlteraCallback} instance from the specified function pointer. */

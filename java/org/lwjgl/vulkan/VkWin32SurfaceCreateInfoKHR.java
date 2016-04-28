@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>{@code sType} <b>must</b> be {@link #STRUCTURE_TYPE_WIN_SURFACE_CREATE_INFO_KHR}</li>
+ * <li>{@code sType} <b>must</b> be {@link KHRWin32Surface#VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code flags} <b>must</b> be 0</li>
  * </ul>
@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure. Must be: {@link #STRUCTURE_TYPE_WIN32SURFACE_CREATE_INFO_KHR}</li>
+ * <li>{@code sType} &ndash; the type of this structure. Must be: {@link KHRWin32Surface#VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR}</li>
  * <li>{@code pNext} &ndash; reserved for use by extensions</li>
  * <li>{@code flags} &ndash; reserved for future use</li>
  * <li>{@code hinstance} &ndash; the WIN32 HINSTANCE for the window to associate the surface with</li>

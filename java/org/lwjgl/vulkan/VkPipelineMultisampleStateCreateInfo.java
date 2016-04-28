@@ -30,7 +30,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If {@code pSampleMask} is not {@code NULL}, {@code pSampleMask} <b>must</b> be a pointer to an array of {@code ceil(rasterizationSamples / 32)} {@code VkSampleMask} values</li>
  * <li>If the sample rate shading feature is not enabled, {@code sampleShadingEnable} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
  * <li>If the alpha to one feature is not enabled, {@code alphaToOneEnable} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
- * <li>{@code minSampleShading} <b>must</b> be in the range {@code [0,1]</li>
+ * <li>{@code minSampleShading} <b>must</b> be in the range {@code [0,1]}</li>
  * </ul>
  * 
  * <h3>Member documentation</h3>

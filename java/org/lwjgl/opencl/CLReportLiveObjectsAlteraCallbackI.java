@@ -10,7 +10,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link ALTERALiveObjectTracking#ReportLiveObjectsAltera} method. */
+/** Instances of this interface may be passed to the {@link ALTERALiveObjectTracking#clReportLiveObjectsAltera ReportLiveObjectsAltera} method. */
 @FunctionalInterface
 public interface CLReportLiveObjectsAlteraCallbackI extends CallbackI.V {
 
@@ -32,7 +32,7 @@ public interface CLReportLiveObjectsAlteraCallbackI extends CallbackI.V {
 	/**
 	 * Reports a live OpenCL API object.
 	 *
-	 * @param user_data the {@code user_data} argument specified to {@link ALTERALiveObjectTracking#clReportLiveObjectsAltera}
+	 * @param user_data the {@code user_data} argument specified to {@link ALTERALiveObjectTracking#clReportLiveObjectsAltera ReportLiveObjectsAltera}
 	 * @param obj_ptr   a pointer to the live object
 	 * @param type_name a C string corresponding to the OpenCL API object type. For example, a leaked {@code cl_mem} object will have "cl_mem" as its type string.
 	 * @param refcount  an instantaneous reference count for the object. Consider it to be immediately stale.
