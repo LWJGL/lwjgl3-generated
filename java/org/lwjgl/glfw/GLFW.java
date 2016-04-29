@@ -3518,9 +3518,9 @@ public class GLFW {
 	 *
 	 * @since version 3.0
 	 */
-	public static int glfwJoystickPresent(int joy) {
+	public static boolean glfwJoystickPresent(int joy) {
 		long __functionAddress = Functions.JoystickPresent;
-		return invokeI(__functionAddress, joy);
+		return invokeI(__functionAddress, joy) != 0;
 	}
 
 	// --- [ glfwGetJoystickAxes ] ---
