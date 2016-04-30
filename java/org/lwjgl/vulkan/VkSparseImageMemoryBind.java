@@ -49,7 +49,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code offset} &ndash; the coordinates of the first texel within the image subresource to bind</li>
  * <li>{@code extent} &ndash; 
  * the size in texels of the region within the image subresource to bind. The extent must be a multiple of the sparse image block dimensions, except when
- * binding sparse image blocks along the edge of a image subresource it can instead be such that any coordinate of offset+extentoffset+extent equals the
+ * binding sparse image blocks along the edge of an image subresource it can instead be such that any coordinate of {@code offset + extent} equals the
  * corresponding dimensions of the image subresource.</li>
  * <li>{@code memory} &ndash; 
  * the {@code VkDeviceMemory} object that the sparse image blocks of the image are bound to. If memory is {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, the sparse image blocks are

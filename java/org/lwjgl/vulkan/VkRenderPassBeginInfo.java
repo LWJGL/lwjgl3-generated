@@ -44,7 +44,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code clearValueCount} &ndash; the number of elements in {@code pClearValues}</li>
  * <li>{@code pClearValues} &ndash; 
  * an array of {@link VkClearValue} structures that contains clear values for each attachment, if the attachment uses a {@code loadOp} value of
- * {@link VK10#VK_ATTACHMENT_LOAD_OP_CLEAR ATTACHMENT_LOAD_OP_CLEAR}. The array is indexed by attachment number, with elements corresponding to uncleared attachments being unused.</li>
+ * {@link VK10#VK_ATTACHMENT_LOAD_OP_CLEAR ATTACHMENT_LOAD_OP_CLEAR}. The array is indexed by attachment number. Only elements corresponding to cleared attachments are used. Other elements of
+ * {@code pClearValues} are ignored.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

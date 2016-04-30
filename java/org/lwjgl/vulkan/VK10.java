@@ -1487,8 +1487,10 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	public static final int VK_FORMAT_FEATURE_BLIT_DST_BIT = 0x800;
 
 	/**
-	 * {@code VkImage} <b>can</b> be used with a sampler that has either of {@code magFilter} or {@code minFilter} set to {@link #VK_FILTER_LINEAR FILTER_LINEAR}, or {@code mipmapMode}
-	 * set to {@link #VK_SAMPLER_MIPMAP_MODE_LINEAR SAMPLER_MIPMAP_MODE_LINEAR}. This bit <b>must</b> only be exposed for formats that also support the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT FORMAT_FEATURE_SAMPLED_IMAGE_BIT}.
+	 * If {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT FORMAT_FEATURE_SAMPLED_IMAGE_BIT} is also set, {@code VkImageView} <b>can</b> be used with a sampler that has either of {@code magFilter} or
+	 * {@code minFilter} set to {@link #VK_FILTER_LINEAR FILTER_LINEAR}, or {@code mipmapMode} set to {@link #VK_SAMPLER_MIPMAP_MODE_LINEAR SAMPLER_MIPMAP_MODE_LINEAR}. If {@link #VK_FORMAT_FEATURE_BLIT_SRC_BIT FORMAT_FEATURE_BLIT_SRC_BIT} is also set,
+	 * {@code VkImage} can be used as the {@code srcImage} to {@link #vkCmdBlitImage CmdBlitImage} with a {@code filter} of {@link #VK_FILTER_LINEAR FILTER_LINEAR}. This bit <b>must</b> only be exposed for
+	 * formats that also support the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT FORMAT_FEATURE_SAMPLED_IMAGE_BIT} or {@link #VK_FORMAT_FEATURE_BLIT_SRC_BIT FORMAT_FEATURE_BLIT_SRC_BIT}.
 	 * 
 	 * <p>If the format being queried is a depth/stencil format, this bit only indicates that the depth aspect (not the stencil aspect) supports linear
 	 * filtering, and that linear filtering of the depth aspect is supported whether depth compare is enabled in the sampler or not. If this bit is not
@@ -3574,7 +3576,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * of batches to submit. Each batch includes zero or more semaphores to wait upon, and a corresponding set of stages that will wait for the semaphore to
 	 * be signalled before executing any work, followed by a number of command buffers that will be executed, and finally, zero or more semaphores that will
 	 * be signaled after command buffer execution completes. Each batch is represented as an instance of the {@link VkSubmitInfo} structure stored in an array, the
-	 * address of which is passed in {@code pSubmitInfo}.</p>
+	 * address of which is passed in {@code pSubmits}.</p>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
 	 * 
@@ -3589,8 +3591,9 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>If {@code submitCount} is not 0, {@code pSubmits} <b>must</b> be a pointer to an array of {@code submitCount} valid {@link VkSubmitInfo} structures</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
 	 * <li>Each of {@code queue} and {@code fence} that are valid handles <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
-	 * <li>{@code fence} <b>must</b> be unsignalled</li>
-	 * <li>{@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on that queue</li>
+	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be unsignalled</li>
+	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on
+	 * that queue</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -3606,9 +3609,10 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param submitCount the number of elements in the {@code pSubmits} array
 	 * @param pSubmits    a pointer to an array of {@link VkSubmitInfo} structures which describe the work to submit. All work described by {@code pSubmits} <b>must</b> be submitted to
 	 *                    the queue before the command returns.
-	 * @param fence       an optional handle to a fence. If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the fence is signaled when execution of all
-	 *                    {@code VkSubmitInfo::pCommandBuffers} members of {@code pSubmits} is completed. If {@code submitCount} is zero but fence is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the
-	 *                    fence will still be submitted to the queue and will become signaled when all work previously submitted to the queue has completed.
+	 * @param fence       an optional handle to a fence. If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the fence is signaled when execution of all command buffers specified in the
+	 *                    {@link VkSubmitInfo}{@code ::pCommandBuffers} members of {@code pSubmits} is complete, providing certain implicit ordering guarantees. If
+	 *                    {@code submitCount} is zero but {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the fence will still be submitted to the queue and will become signaled when all
+	 *                    work previously submitted to the queue has completed.
 	 */
 	public static int nvkQueueSubmit(VkQueue queue, int submitCount, long pSubmits, long fence) {
 		long __functionAddress = queue.getCapabilities().vkQueueSubmit;
@@ -3626,7 +3630,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * of batches to submit. Each batch includes zero or more semaphores to wait upon, and a corresponding set of stages that will wait for the semaphore to
 	 * be signalled before executing any work, followed by a number of command buffers that will be executed, and finally, zero or more semaphores that will
 	 * be signaled after command buffer execution completes. Each batch is represented as an instance of the {@link VkSubmitInfo} structure stored in an array, the
-	 * address of which is passed in {@code pSubmitInfo}.</p>
+	 * address of which is passed in {@code pSubmits}.</p>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
 	 * 
@@ -3641,8 +3645,9 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>If {@code submitCount} is not 0, {@code pSubmits} <b>must</b> be a pointer to an array of {@code submitCount} valid {@link VkSubmitInfo} structures</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
 	 * <li>Each of {@code queue} and {@code fence} that are valid handles <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
-	 * <li>{@code fence} <b>must</b> be unsignalled</li>
-	 * <li>{@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on that queue</li>
+	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be unsignalled</li>
+	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on
+	 * that queue</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -3657,9 +3662,10 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param queue    the handle of the queue that the command buffers will be submitted to
 	 * @param pSubmits a pointer to an array of {@link VkSubmitInfo} structures which describe the work to submit. All work described by {@code pSubmits} <b>must</b> be submitted to
 	 *                 the queue before the command returns.
-	 * @param fence    an optional handle to a fence. If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the fence is signaled when execution of all
-	 *                 {@code VkSubmitInfo::pCommandBuffers} members of {@code pSubmits} is completed. If {@code submitCount} is zero but fence is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the
-	 *                 fence will still be submitted to the queue and will become signaled when all work previously submitted to the queue has completed.
+	 * @param fence    an optional handle to a fence. If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the fence is signaled when execution of all command buffers specified in the
+	 *                 {@link VkSubmitInfo}{@code ::pCommandBuffers} members of {@code pSubmits} is complete, providing certain implicit ordering guarantees. If
+	 *                 {@code submitCount} is zero but {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the fence will still be submitted to the queue and will become signaled when all
+	 *                 work previously submitted to the queue has completed.
 	 */
 	public static int vkQueueSubmit(VkQueue queue, VkSubmitInfo.Buffer pSubmits, long fence) {
 		return nvkQueueSubmit(queue, pSubmits == null ? 0 : pSubmits.remaining(), pSubmits == null ? NULL : pSubmits.address(), fence);
@@ -3674,7 +3680,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * of batches to submit. Each batch includes zero or more semaphores to wait upon, and a corresponding set of stages that will wait for the semaphore to
 	 * be signalled before executing any work, followed by a number of command buffers that will be executed, and finally, zero or more semaphores that will
 	 * be signaled after command buffer execution completes. Each batch is represented as an instance of the {@link VkSubmitInfo} structure stored in an array, the
-	 * address of which is passed in {@code pSubmitInfo}.</p>
+	 * address of which is passed in {@code pSubmits}.</p>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
 	 * 
@@ -3689,8 +3695,9 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>If {@code submitCount} is not 0, {@code pSubmits} <b>must</b> be a pointer to an array of {@code submitCount} valid {@link VkSubmitInfo} structures</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
 	 * <li>Each of {@code queue} and {@code fence} that are valid handles <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
-	 * <li>{@code fence} <b>must</b> be unsignalled</li>
-	 * <li>{@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on that queue</li>
+	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be unsignalled</li>
+	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on
+	 * that queue</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -3703,9 +3710,10 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * </ul>
 	 *
 	 * @param queue the handle of the queue that the command buffers will be submitted to
-	 * @param fence an optional handle to a fence. If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the fence is signaled when execution of all
-	 *              {@code VkSubmitInfo::pCommandBuffers} members of {@code pSubmits} is completed. If {@code submitCount} is zero but fence is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the
-	 *              fence will still be submitted to the queue and will become signaled when all work previously submitted to the queue has completed.
+	 * @param fence an optional handle to a fence. If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the fence is signaled when execution of all command buffers specified in the
+	 *              {@link VkSubmitInfo}{@code ::pCommandBuffers} members of {@code pSubmits} is complete, providing certain implicit ordering guarantees. If
+	 *              {@code submitCount} is zero but {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the fence will still be submitted to the queue and will become signaled when all
+	 *              work previously submitted to the queue has completed.
 	 */
 	public static int vkQueueSubmit(VkQueue queue, VkSubmitInfo pSubmit, long fence) {
 		return nvkQueueSubmit(queue, 1, pSubmit.address(), fence);
@@ -4104,10 +4112,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkFlushMappedMemoryRanges.html">Khronos Reference Page</a></p>
 	 * 
-	 * Flushes mapped memory ranges.
-	 * 
-	 * <p>{@code vkFlushMappedMemoryRanges} <b>must</b> be called after the host writes to non-coherent memory have completed and before command buffers that will read
-	 * or write any of those memory locations are submitted to a queue.</p>
+	 * Flushes ranges of non-coherent memory from the host caches.
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
@@ -4116,6 +4121,10 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pMemoryRanges} <b>must</b> be a pointer to an array of {@code memoryRangeCount} valid {@link VkMappedMemoryRange} structures</li>
 	 * <li>{@code memoryRangeCount} <b>must</b> be greater than 0</li>
 	 * </ul>
+	 * 
+	 * <p>{@code vkFlushMappedMemoryRanges} <b>must</b> be used to guarantee that host writes to non-coherent memory are visible to the device. It <b>must</b> be called
+	 * after the host writes to non-coherent memory have completed and before command buffers that will read or write any of those memory locations are
+	 * submitted to a queue.</p>
 	 *
 	 * @param device           the logical device that owns the memory ranges
 	 * @param memoryRangeCount the length of the {@code pMemoryRanges} array
@@ -4129,10 +4138,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkFlushMappedMemoryRanges.html">Khronos Reference Page</a></p>
 	 * 
-	 * Flushes mapped memory ranges.
-	 * 
-	 * <p>{@code vkFlushMappedMemoryRanges} <b>must</b> be called after the host writes to non-coherent memory have completed and before command buffers that will read
-	 * or write any of those memory locations are submitted to a queue.</p>
+	 * Flushes ranges of non-coherent memory from the host caches.
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
@@ -4141,6 +4147,10 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pMemoryRanges} <b>must</b> be a pointer to an array of {@code memoryRangeCount} valid {@link VkMappedMemoryRange} structures</li>
 	 * <li>{@code memoryRangeCount} <b>must</b> be greater than 0</li>
 	 * </ul>
+	 * 
+	 * <p>{@code vkFlushMappedMemoryRanges} <b>must</b> be used to guarantee that host writes to non-coherent memory are visible to the device. It <b>must</b> be called
+	 * after the host writes to non-coherent memory have completed and before command buffers that will read or write any of those memory locations are
+	 * submitted to a queue.</p>
 	 *
 	 * @param device        the logical device that owns the memory ranges
 	 * @param pMemoryRanges a pointer to an array of {@link VkMappedMemoryRange} structures describing the memory ranges to flush
@@ -4152,10 +4162,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkFlushMappedMemoryRanges.html">Khronos Reference Page</a></p>
 	 * 
-	 * Flushes mapped memory ranges.
-	 * 
-	 * <p>{@code vkFlushMappedMemoryRanges} <b>must</b> be called after the host writes to non-coherent memory have completed and before command buffers that will read
-	 * or write any of those memory locations are submitted to a queue.</p>
+	 * Flushes ranges of non-coherent memory from the host caches.
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
@@ -4164,6 +4171,10 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pMemoryRanges} <b>must</b> be a pointer to an array of {@code memoryRangeCount} valid {@link VkMappedMemoryRange} structures</li>
 	 * <li>{@code memoryRangeCount} <b>must</b> be greater than 0</li>
 	 * </ul>
+	 * 
+	 * <p>{@code vkFlushMappedMemoryRanges} <b>must</b> be used to guarantee that host writes to non-coherent memory are visible to the device. It <b>must</b> be called
+	 * after the host writes to non-coherent memory have completed and before command buffers that will read or write any of those memory locations are
+	 * submitted to a queue.</p>
 	 *
 	 * @param device the logical device that owns the memory ranges
 	 */
@@ -4178,9 +4189,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * 
 	 * Invalidates ranges of mapped memory objects.
 	 * 
-	 * <p>{@code vkInvalidateMappedMemoryRanges} <b>must</b> be called after command buffers that execute and flush (via memory barriers) the device writes have
-	 * completed, and before the host will read or write any of those locations.</p>
-	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
 	 * <ul>
@@ -4188,6 +4196,10 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pMemoryRanges} <b>must</b> be a pointer to an array of {@code memoryRangeCount} valid {@link VkMappedMemoryRange} structures</li>
 	 * <li>{@code memoryRangeCount} <b>must</b> be greater than 0</li>
 	 * </ul>
+	 * 
+	 * <p>{@code vkInvalidateMappedMemoryRanges} <b>must</b> be used to guarantee that device writes to non-coherent memory are visible to the host. It <b>must</b> be called
+	 * after command buffers that execute and flush (via memory barriers) the device writes have completed, and before the host will read or write any of
+	 * those locations. If a range of non-coherent memory is written by the host and then invalidated without first being flushed, its contents are undefined.</p>
 	 *
 	 * @param device           the logical device that owns the memory ranges
 	 * @param memoryRangeCount the length of the {@code pMemoryRanges} array
@@ -4203,9 +4215,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * 
 	 * Invalidates ranges of mapped memory objects.
 	 * 
-	 * <p>{@code vkInvalidateMappedMemoryRanges} <b>must</b> be called after command buffers that execute and flush (via memory barriers) the device writes have
-	 * completed, and before the host will read or write any of those locations.</p>
-	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
 	 * <ul>
@@ -4213,6 +4222,10 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pMemoryRanges} <b>must</b> be a pointer to an array of {@code memoryRangeCount} valid {@link VkMappedMemoryRange} structures</li>
 	 * <li>{@code memoryRangeCount} <b>must</b> be greater than 0</li>
 	 * </ul>
+	 * 
+	 * <p>{@code vkInvalidateMappedMemoryRanges} <b>must</b> be used to guarantee that device writes to non-coherent memory are visible to the host. It <b>must</b> be called
+	 * after command buffers that execute and flush (via memory barriers) the device writes have completed, and before the host will read or write any of
+	 * those locations. If a range of non-coherent memory is written by the host and then invalidated without first being flushed, its contents are undefined.</p>
 	 *
 	 * @param device        the logical device that owns the memory ranges
 	 * @param pMemoryRanges a pointer to an array of {@link VkMappedMemoryRange} structures describing the memory ranges to invalidate
@@ -4226,9 +4239,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * 
 	 * Invalidates ranges of mapped memory objects.
 	 * 
-	 * <p>{@code vkInvalidateMappedMemoryRanges} <b>must</b> be called after command buffers that execute and flush (via memory barriers) the device writes have
-	 * completed, and before the host will read or write any of those locations.</p>
-	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
 	 * <ul>
@@ -4236,6 +4246,10 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pMemoryRanges} <b>must</b> be a pointer to an array of {@code memoryRangeCount} valid {@link VkMappedMemoryRange} structures</li>
 	 * <li>{@code memoryRangeCount} <b>must</b> be greater than 0</li>
 	 * </ul>
+	 * 
+	 * <p>{@code vkInvalidateMappedMemoryRanges} <b>must</b> be used to guarantee that device writes to non-coherent memory are visible to the host. It <b>must</b> be called
+	 * after command buffers that execute and flush (via memory barriers) the device writes have completed, and before the host will read or write any of
+	 * those locations. If a range of non-coherent memory is written by the host and then invalidated without first being flushed, its contents are undefined.</p>
 	 *
 	 * @param device the logical device that owns the memory ranges
 	 */
@@ -5326,8 +5340,8 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pSemaphore} <b>must</b> be a pointer to a {@code VkSemaphore} handle</li>
 	 * </ul>
 	 * 
-	 * <p>To signal a semaphore from a queue, include it in an element of the array of {@link VkSubmitInfo} structures passed through the {@code pSubmitInfo} parameter
-	 * to a call to {@link #vkQueueSubmit QueueSubmit}, or in an element of the array of {@link VkBindSparseInfo} structures passed through the {@code pBindInfo} parameter to a call to
+	 * <p>To signal a semaphore from a queue, include it in an element of the array of {@link VkSubmitInfo} structures passed through the {@code pSubmits} parameter to
+	 * a call to {@link #vkQueueSubmit QueueSubmit}, or in an element of the array of {@link VkBindSparseInfo} structures passed through the {@code pBindInfo} parameter to a call to
 	 * {@link #vkQueueBindSparse QueueBindSparse}.</p>
 	 * 
 	 * <p>Semaphores included in the {@code pSignalSemaphores} array of one of the elements of a queue submission are signaled once queue execution reaches the
@@ -5407,8 +5421,8 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pSemaphore} <b>must</b> be a pointer to a {@code VkSemaphore} handle</li>
 	 * </ul>
 	 * 
-	 * <p>To signal a semaphore from a queue, include it in an element of the array of {@link VkSubmitInfo} structures passed through the {@code pSubmitInfo} parameter
-	 * to a call to {@link #vkQueueSubmit QueueSubmit}, or in an element of the array of {@link VkBindSparseInfo} structures passed through the {@code pBindInfo} parameter to a call to
+	 * <p>To signal a semaphore from a queue, include it in an element of the array of {@link VkSubmitInfo} structures passed through the {@code pSubmits} parameter to
+	 * a call to {@link #vkQueueSubmit QueueSubmit}, or in an element of the array of {@link VkBindSparseInfo} structures passed through the {@code pBindInfo} parameter to a call to
 	 * {@link #vkQueueBindSparse QueueBindSparse}.</p>
 	 * 
 	 * <p>Semaphores included in the {@code pSignalSemaphores} array of one of the elements of a queue submission are signaled once queue execution reaches the
@@ -5752,6 +5766,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code event} <b>must</b> be a valid {@code VkEvent} handle</li>
 	 * <li>{@code event} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
 	 * <li>Each of {@code device} and {@code event} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code event} <b>must not</b> be waited on by a {@link #vkCmdWaitEvents CmdWaitEvents} command that is currently executing</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -10242,9 +10257,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If the robust buffer access feature is not enabled, and any shader stage in the {@code VkPipeline} object currently bound to
 	 * {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} accesses a storage buffer, it <b>must not</b> access values outside of the range of that buffer specified in the currently
 	 * bound descriptor set</li>
-	 * <li>Any {@code VkImage} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as
-	 * specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} returned by
-	 * {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>Any {@code VkImageView} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as
+	 * specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
+	 * {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -10322,9 +10337,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If the robust buffer access feature is not enabled, and any shader stage in the {@code VkPipeline} object currently bound to
 	 * {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} accesses a storage buffer, it <b>must not</b> access values outside of the range of that buffer specified in the currently
 	 * bound descriptor set</li>
-	 * <li>Any {@code VkImage} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as
-	 * specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} returned by
-	 * {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>Any {@code VkImageView} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as
+	 * specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
+	 * {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -10405,9 +10420,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If the robust buffer access feature is not enabled, and any shader stage in the {@code VkPipeline} object currently bound to
 	 * {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} accesses a storage buffer, it <b>must not</b> access values outside of the range of that buffer specified in the currently
 	 * bound descriptor set</li>
-	 * <li>Any {@code VkImage} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as
-	 * specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} returned by
-	 * {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>Any {@code VkImageView} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as
+	 * specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
+	 * {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -10487,9 +10502,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If the robust buffer access feature is not enabled, and any shader stage in the {@code VkPipeline} object currently bound to
 	 * {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} accesses a storage buffer, it <b>must not</b> access values outside of the range of that buffer specified in the currently
 	 * bound descriptor set</li>
-	 * <li>Any {@code VkImage} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as
-	 * specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} returned by
-	 * {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>Any {@code VkImageView} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as
+	 * specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
+	 * {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -10556,9 +10571,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If the robust buffer access feature is not enabled, and any shader stage in the {@code VkPipeline} object currently bound to
 	 * {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE} accesses a storage buffer, it <b>must not</b> access values outside of the range of that buffer specified in the currently
 	 * bound descriptor set</li>
-	 * <li>Any {@code VkImage} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as
-	 * specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} returned by
-	 * {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>Any {@code VkImageView} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as
+	 * specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
+	 * {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -10620,9 +10635,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If the robust buffer access feature is not enabled, and any shader stage in the {@code VkPipeline} object currently bound to
 	 * {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE} accesses a storage buffer, it <b>must not</b> access values outside of the range of that buffer specified in the currently
 	 * bound descriptor set</li>
-	 * <li>Any {@code VkImage} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as
-	 * specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} returned by
-	 * {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>Any {@code VkImageView} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as
+	 * specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
+	 * {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -10776,7 +10791,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * the block dimensions. If the {@code srcImage is} compressed and if {@code extent.width} is not a multiple of the block width then
 	 * {@code (extent.width + srcOffset.x)} <b>must</b> equal the image subresource width, if {@code extent.height} is not a multiple of the block height then
 	 * {@code (extent.height + srcOffset.y)} <b>must</b> equal the image subresource height and if {@code extent.depth} is not a multiple of the block depth then
-	 * {@code (extent.depth + srcOffset.z)} <b>must</b> equal the image subresource depth. Similarily if the {@code dstImage} is compressed and if
+	 * {@code (extent.depth + srcOffset.z)} <b>must</b> equal the image subresource depth. Similarly if the {@code dstImage} is compressed and if
 	 * {@code extent.width} is not a multiple of the block width then {@code (extent.width + dstOffset.x)} <b>must</b> equal the image subresource width, if
 	 * {@code extent.height} is not a multiple of the block height then {@code (extent.height + dstOffset.y)} <b>must</b> equal the image subresource height and if
 	 * {@code extent.depth} is not a multiple of the block depth then {@code (extent.depth + dstOffset.z)} <b>must</b> equal the image subresource depth. This
@@ -10869,7 +10884,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * the block dimensions. If the {@code srcImage is} compressed and if {@code extent.width} is not a multiple of the block width then
 	 * {@code (extent.width + srcOffset.x)} <b>must</b> equal the image subresource width, if {@code extent.height} is not a multiple of the block height then
 	 * {@code (extent.height + srcOffset.y)} <b>must</b> equal the image subresource height and if {@code extent.depth} is not a multiple of the block depth then
-	 * {@code (extent.depth + srcOffset.z)} <b>must</b> equal the image subresource depth. Similarily if the {@code dstImage} is compressed and if
+	 * {@code (extent.depth + srcOffset.z)} <b>must</b> equal the image subresource depth. Similarly if the {@code dstImage} is compressed and if
 	 * {@code extent.width} is not a multiple of the block width then {@code (extent.width + dstOffset.x)} <b>must</b> equal the image subresource width, if
 	 * {@code extent.height} is not a multiple of the block height then {@code (extent.height + dstOffset.y)} <b>must</b> equal the image subresource height and if
 	 * {@code extent.depth} is not a multiple of the block depth then {@code (extent.depth + dstOffset.z)} <b>must</b> equal the image subresource depth. This
@@ -10973,6 +10988,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * with an unsigned integer {@code VkFormat}</li>
 	 * <li>If either of {@code srcImage} or {@code dstImage} was created with a depth/stencil format, the other <b>must</b> have exactly the same format</li>
 	 * <li>If {@code srcImage} was created with a depth/stencil format, {@code filter} <b>must</b> be {@link #VK_FILTER_NEAREST FILTER_NEAREST}</li>
+	 * <li>If {@code filter} is {@link #VK_FILTER_LINEAR FILTER_LINEAR}, {@code srcImage} <b>must</b> be of a format which supports linear filtering, as specified by the
+	 * {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
+	 * {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -11042,6 +11060,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * with an unsigned integer {@code VkFormat}</li>
 	 * <li>If either of {@code srcImage} or {@code dstImage} was created with a depth/stencil format, the other <b>must</b> have exactly the same format</li>
 	 * <li>If {@code srcImage} was created with a depth/stencil format, {@code filter} <b>must</b> be {@link #VK_FILTER_NEAREST FILTER_NEAREST}</li>
+	 * <li>If {@code filter} is {@link #VK_FILTER_LINEAR FILTER_LINEAR}, {@code srcImage} <b>must</b> be of a format which supports linear filtering, as specified by the
+	 * {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
+	 * {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -11396,7 +11417,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param commandBuffer the command buffer into which the command will be recorded
 	 * @param dstBuffer     the buffer to be filled
 	 * @param dstOffset     the byte offset into the buffer at which to start filling, and <b>must</b> be a multiple of 4
-	 * @param size          the number of bytes to fill, and <b>must</b> be either a multiple of 4, or {@link #VK_WHOLE_SIZE WHOLE_SIZE} to fill the range from offset to the end of the buffer
+	 * @param size          the number of bytes to fill, and <b>must</b> be either a multiple of 4, or {@link #VK_WHOLE_SIZE WHOLE_SIZE} to fill the range from offset to the end of the buffer. If
+	 *                      {@link #VK_WHOLE_SIZE WHOLE_SIZE} is used and the remaining size of the buffer is not a multiple of 4, then the nearest smaller multiple is used.
 	 * @param data          the 4-byte word written repeatedly to the buffer to fill size bytes of data. The data word is written to memory according to the host endianness.
 	 */
 	public static void vkCmdFillBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, long size, int data) {
@@ -11430,7 +11452,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command
 	 * is executed on a {@code VkDevice}</li>
 	 * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
-	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a image subresource range that is contained within {@code image}</li>
+	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be an image subresource range that is contained within {@code image}</li>
 	 * <li>{@code image} <b>must not</b> have a compressed or depth/stencil format</li>
 	 * </ul>
 	 * 
@@ -11477,7 +11499,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command
 	 * is executed on a {@code VkDevice}</li>
 	 * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
-	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a image subresource range that is contained within {@code image}</li>
+	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be an image subresource range that is contained within {@code image}</li>
 	 * <li>{@code image} <b>must not</b> have a compressed or depth/stencil format</li>
 	 * </ul>
 	 * 
@@ -11522,7 +11544,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command
 	 * is executed on a {@code VkDevice}</li>
 	 * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
-	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a image subresource range that is contained within {@code image}</li>
+	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be an image subresource range that is contained within {@code image}</li>
 	 * <li>{@code image} <b>must not</b> have a compressed or depth/stencil format</li>
 	 * </ul>
 	 * 
@@ -11565,7 +11587,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command
 	 * is executed on a {@code VkDevice}</li>
 	 * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
-	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a image subresource range that is contained within {@code image}</li>
+	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be an image subresource range that is contained within {@code image}</li>
 	 * <li>{@code image} <b>must</b> have a depth/stencil format</li>
 	 * </ul>
 	 * 
@@ -11612,7 +11634,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command
 	 * is executed on a {@code VkDevice}</li>
 	 * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
-	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a image subresource range that is contained within {@code image}</li>
+	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be an image subresource range that is contained within {@code image}</li>
 	 * <li>{@code image} <b>must</b> have a depth/stencil format</li>
 	 * </ul>
 	 * 
@@ -11657,7 +11679,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command
 	 * is executed on a {@code VkDevice}</li>
 	 * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
-	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be a image subresource range that is contained within {@code image}</li>
+	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be an image subresource range that is contained within {@code image}</li>
 	 * <li>{@code image} <b>must</b> have a depth/stencil format</li>
 	 * </ul>
 	 * 
@@ -12011,6 +12033,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If the geometry shaders feature is not enabled, {@code stageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
 	 * <li>If the tessellation shaders feature is not enabled, {@code stageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
 	 * {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
+	 * <li>When this command executes, {@code event} <b>must not</b> be waited on by a {@link #vkCmdWaitEvents CmdWaitEvents} command that is currently executing</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>

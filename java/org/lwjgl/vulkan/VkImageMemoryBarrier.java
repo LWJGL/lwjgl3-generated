@@ -19,7 +19,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkImageMemoryBarrier">Vulkan Specification</a>
  * 
  * <p>Specifies an image memory barrier. This type of barrier only applies to memory accesses involving a specific image subresource range of the specified
- * image object. That is, a memory dependency formed from a image memory barrier is scoped to the specified subresources of the image. It is also used to
+ * image object. That is, a memory dependency formed from an image memory barrier is scoped to the specified subresources of the image. It is also used to
  * perform a layout transition for an image subresource range, or to transfer ownership of an image subresource range from one queue family to another.</p>
  * 
  * <h5>Valid Usage</h5>

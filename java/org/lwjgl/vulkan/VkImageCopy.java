@@ -44,21 +44,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code dstOffset.z} and ({@code extent.depth} + {@code dstOffset.z}) <b>must</b> both be greater than or equal to 0 and less than or equal to the
  * destination image subresource depth</li>
  * <li>If the calling command's {@code srcImage} is a compressed format image:</li>
- * <li>all members of {@code srcOffset} <b>must</b> be a multiple of the corresponding dimensions of the compressed texel block</li>
- * <li>{@code extent.width} <b>must</b> be a multiple of the compressed texel block width or ({@code extent.width} + {@code srcOffset.x}) <b>must</b> equal the source
- * image subresource width</li>
- * <li>{@code extent.height} <b>must</b> be a multiple of the compressed texel block height or ({@code extent.height} + {@code srcOffset.y}) <b>must</b> equal the
- * source image subresource height</li>
- * <li>{@code extent.depth} <b>must</b> be a multiple of the compressed texel block depth or ({@code extent.depth} + {@code srcOffset.z}) <b>must</b> equal the source
- * image subresource depth</li>
  * <li>If the calling command's {@code dstImage} is a compressed format image:</li>
- * <li>all members of {@code dstOffset} <b>must</b> be a multiple of the corresponding dimensions of the compressed texel block</li>
- * <li>{@code extent.width} <b>must</b> be a multiple of the compressed texel block width or ({@code extent.width} + {@code dstOffset.x}) <b>must</b> equal the
- * destination image subresource width</li>
- * <li>{@code extent.height} <b>must</b> be a multiple of the compressed texel block height or ({@code extent.height} + {@code dstOffset.y}) <b>must</b> equal the
- * destination image subresource height</li>
- * <li>{@code extent.depth} <b>must</b> be a multiple of the compressed texel block depth or ({@code extent.depth} + {@code dstOffset.z}) <b>must</b> equal the
- * destination image subresource depth</li>
  * <li>{@code srcOffset}, {@code dstOffset}, and {@code extent} <b>must</b> respect the image transfer granularity requirements of the queue family that it will
  * be submitted against, as described in Physical Device Enumeration</li>
  * </ul>
