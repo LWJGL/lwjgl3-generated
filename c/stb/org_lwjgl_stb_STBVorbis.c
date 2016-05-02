@@ -305,10 +305,10 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1get_1frame_1fl
 	stb_vorbis *f = (stb_vorbis *)(intptr_t)fAddress;
 	float ***output = (float ***)(intptr_t)outputAddress;
 	jint __result;
-	jint *channels = (*__env)->GetPrimitiveArrayCritical(__env, channelsAddress, 0);
+	jint *channels = channelsAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, channelsAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
 	__result = (jint)stb_vorbis_get_frame_float(f, (int*)channels, output);
-	(*__env)->ReleasePrimitiveArrayCritical(__env, channelsAddress, channels, 0);
+	if ( channels != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, channelsAddress, channels, 0);
 	return __result;
 }
 JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1get_1frame_1float__J_3IJ(jlong fAddress, jint channels__length, jint* channels, jlong outputAddress) {

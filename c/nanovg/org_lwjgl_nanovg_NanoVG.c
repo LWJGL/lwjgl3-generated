@@ -754,10 +754,10 @@ JNIEXPORT jfloat JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextBounds__JFFJJ_3F(J
 	const char *string = (const char *)(intptr_t)stringAddress;
 	const char *end = (const char *)(intptr_t)endAddress;
 	jfloat __result;
-	jfloat *bounds = (*__env)->GetPrimitiveArrayCritical(__env, boundsAddress, 0);
+	jfloat *bounds = boundsAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, boundsAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
 	__result = (jfloat)nvgTextBounds(ctx, x, y, string, end, (float*)bounds);
-	(*__env)->ReleasePrimitiveArrayCritical(__env, boundsAddress, bounds, 0);
+	if ( bounds != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, boundsAddress, bounds, 0);
 	return __result;
 }
 JNIEXPORT jfloat JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTextBounds__JFFJJ_3F(jlong ctxAddress, jfloat x, jfloat y, jlong stringAddress, jlong endAddress, jint bounds__length, jfloat* bounds) {
@@ -772,10 +772,10 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextBoxBounds__JFFFJJ_3F
 	NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
 	const char *string = (const char *)(intptr_t)stringAddress;
 	const char *end = (const char *)(intptr_t)endAddress;
-	jfloat *bounds = (*__env)->GetPrimitiveArrayCritical(__env, boundsAddress, 0);
+	jfloat *bounds = boundsAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, boundsAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
 	nvgTextBoxBounds(ctx, x, y, breakRowWidth, string, end, (float*)bounds);
-	(*__env)->ReleasePrimitiveArrayCritical(__env, boundsAddress, bounds, 0);
+	if ( bounds != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, boundsAddress, bounds, 0);
 }
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTextBoxBounds__JFFFJJ_3F(jlong ctxAddress, jfloat x, jfloat y, jfloat breakRowWidth, jlong stringAddress, jlong endAddress, jint bounds__length, jfloat* bounds) {
 	NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
@@ -787,14 +787,14 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTextBoxBounds__J
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextMetrics__J_3F_3F_3F(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloatArray ascenderAddress, jfloatArray descenderAddress, jfloatArray linehAddress) {
 	NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
-	jfloat *ascender = (*__env)->GetPrimitiveArrayCritical(__env, ascenderAddress, 0);
-	jfloat *descender = (*__env)->GetPrimitiveArrayCritical(__env, descenderAddress, 0);
-	jfloat *lineh = (*__env)->GetPrimitiveArrayCritical(__env, linehAddress, 0);
+	jfloat *ascender = ascenderAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, ascenderAddress, 0);
+	jfloat *descender = descenderAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, descenderAddress, 0);
+	jfloat *lineh = linehAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, linehAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
 	nvgTextMetrics(ctx, (float*)ascender, (float*)descender, (float*)lineh);
-	(*__env)->ReleasePrimitiveArrayCritical(__env, linehAddress, lineh, 0);
-	(*__env)->ReleasePrimitiveArrayCritical(__env, descenderAddress, descender, 0);
-	(*__env)->ReleasePrimitiveArrayCritical(__env, ascenderAddress, ascender, 0);
+	if ( lineh != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, linehAddress, lineh, 0);
+	if ( descender != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, descenderAddress, descender, 0);
+	if ( ascender != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, ascenderAddress, ascender, 0);
 }
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTextMetrics__J_3F_3F_3F(jlong ctxAddress, jint ascender__length, jfloat* ascender, jint descender__length, jfloat* descender, jint lineh__length, jfloat* lineh) {
 	NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;

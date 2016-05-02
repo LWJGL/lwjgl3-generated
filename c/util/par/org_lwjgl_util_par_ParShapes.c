@@ -248,10 +248,10 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_util_par_ParShapes_npar_1shapes_1r
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_par_ParShapes_npar_1shapes_1weld__JF_3S(JNIEnv *__env, jclass clazz, jlong meshAddress, jfloat epsilon, jshortArray mappingAddress) {
 	const par_shapes_mesh *mesh = (const par_shapes_mesh *)(intptr_t)meshAddress;
 	jlong __result;
-	jshort *mapping = (*__env)->GetPrimitiveArrayCritical(__env, mappingAddress, 0);
+	jshort *mapping = mappingAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, mappingAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
 	__result = (jlong)(intptr_t)par_shapes_weld(mesh, epsilon, (PAR_SHAPES_T*)mapping);
-	(*__env)->ReleasePrimitiveArrayCritical(__env, mappingAddress, mapping, 0);
+	if ( mapping != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, mappingAddress, mapping, 0);
 	return __result;
 }
 JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_util_par_ParShapes_npar_1shapes_1weld__JF_3S(jlong meshAddress, jfloat epsilon, jint mapping__length, jshort* mapping) {
