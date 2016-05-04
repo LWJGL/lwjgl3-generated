@@ -84,8 +84,6 @@ public final class JNI {
 	public static native void invokeV(long __functionAddress, int param0, int param1, float param2, float param3, float param4);
 	public static native void invokeV(long __functionAddress, int param0, int param1, int param2);
 	public static native void invokeV(long __functionAddress, int param0, int param1, int param2, int param3, int param4);
-	public static native void invokePV(long __functionAddress, int param0, int param1, int param2, int param3, int param4, int param5, long param6);
-	public static native void invokePV(long __functionAddress, int param0, int param1, int param2, int param3, int param4, long param5);
 	public static native void invokePV(long __functionAddress, int param0, int param1, long param2);
 	public static native void invokeJV(long __functionAddress, int param0, int param1, long param2);
 	public static native void invokePV(long __functionAddress, int param0, int param1, long param2, int param3, int param4);

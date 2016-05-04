@@ -20,9 +20,6 @@ public final class ALCapabilities {
 		alBuffer3i,
 		alBufferData,
 		alBufferDataStatic,
-		alBufferSamplesSOFT,
-		alBufferSubDataSOFT,
-		alBufferSubSamplesSOFT,
 		alBufferf,
 		alBufferfv,
 		alBufferi,
@@ -57,7 +54,6 @@ public final class ALCapabilities {
 		alGetAuxiliaryEffectSlotiv,
 		alGetBoolean,
 		alGetBooleanv,
-		alGetBufferSamplesSOFT,
 		alGetBufferf,
 		alGetBufferfv,
 		alGetBufferi,
@@ -98,7 +94,6 @@ public final class ALCapabilities {
 		alGetString,
 		alIsAuxiliaryEffectSlot,
 		alIsBuffer,
-		alIsBufferFormatSupportedSOFT,
 		alIsEffect,
 		alIsEnabled,
 		alIsExtensionPresent,
@@ -183,10 +178,6 @@ public final class ALCapabilities {
 	public final boolean AL_LOKI_WAVE_format;
 	/** When true, {@link SOFTBlockAlignment} is supported. */
 	public final boolean AL_SOFT_block_alignment;
-	/** When true, {@link SOFTBufferSamples} is supported. */
-	public final boolean AL_SOFT_buffer_samples;
-	/** When true, {@link SOFTBufferSubData} is supported. */
-	public final boolean AL_SOFT_buffer_sub_data;
 	/** When true, {@link SOFTDeferredUpdates} is supported. */
 	public final boolean AL_SOFT_deferred_updates;
 	/** When true, {@link SOFTDirectChannels} is supported. */
@@ -209,9 +200,6 @@ public final class ALCapabilities {
 		alBuffer3i = provider.getFunctionAddress("alBuffer3i");
 		alBufferData = provider.getFunctionAddress("alBufferData");
 		alBufferDataStatic = provider.getFunctionAddress("alBufferDataStatic");
-		alBufferSamplesSOFT = provider.getFunctionAddress("alBufferSamplesSOFT");
-		alBufferSubDataSOFT = provider.getFunctionAddress("alBufferSubDataSOFT");
-		alBufferSubSamplesSOFT = provider.getFunctionAddress("alBufferSubSamplesSOFT");
 		alBufferf = provider.getFunctionAddress("alBufferf");
 		alBufferfv = provider.getFunctionAddress("alBufferfv");
 		alBufferi = provider.getFunctionAddress("alBufferi");
@@ -246,7 +234,6 @@ public final class ALCapabilities {
 		alGetAuxiliaryEffectSlotiv = provider.getFunctionAddress("alGetAuxiliaryEffectSlotiv");
 		alGetBoolean = provider.getFunctionAddress("alGetBoolean");
 		alGetBooleanv = provider.getFunctionAddress("alGetBooleanv");
-		alGetBufferSamplesSOFT = provider.getFunctionAddress("alGetBufferSamplesSOFT");
 		alGetBufferf = provider.getFunctionAddress("alGetBufferf");
 		alGetBufferfv = provider.getFunctionAddress("alGetBufferfv");
 		alGetBufferi = provider.getFunctionAddress("alGetBufferi");
@@ -287,7 +274,6 @@ public final class ALCapabilities {
 		alGetString = provider.getFunctionAddress("alGetString");
 		alIsAuxiliaryEffectSlot = provider.getFunctionAddress("alIsAuxiliaryEffectSlot");
 		alIsBuffer = provider.getFunctionAddress("alIsBuffer");
-		alIsBufferFormatSupportedSOFT = provider.getFunctionAddress("alIsBufferFormatSupportedSOFT");
 		alIsEffect = provider.getFunctionAddress("alIsEffect");
 		alIsEnabled = provider.getFunctionAddress("alIsEnabled");
 		alIsExtensionPresent = provider.getFunctionAddress("alIsExtensionPresent");
@@ -348,8 +334,6 @@ public final class ALCapabilities {
 		AL_LOKI_quadriphonic = ext.contains("AL_LOKI_quadriphonic");
 		AL_LOKI_WAVE_format = ext.contains("AL_LOKI_WAVE_format");
 		AL_SOFT_block_alignment = ext.contains("AL_SOFT_block_alignment");
-		AL_SOFT_buffer_samples = ext.contains("AL_SOFT_buffer_samples") && AL.checkExtension("AL_SOFT_buffer_samples", SOFTBufferSamples.isAvailable(this));
-		AL_SOFT_buffer_sub_data = ext.contains("AL_SOFT_buffer_sub_data") && AL.checkExtension("AL_SOFT_buffer_sub_data", SOFTBufferSubData.isAvailable(this));
 		AL_SOFT_deferred_updates = ext.contains("AL_SOFT_deferred_updates") && AL.checkExtension("AL_SOFT_deferred_updates", SOFTDeferredUpdates.isAvailable(this));
 		AL_SOFT_direct_channels = ext.contains("AL_SOFT_direct_channels");
 		AL_SOFT_loop_points = ext.contains("AL_SOFT_loop_points");
