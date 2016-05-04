@@ -419,18 +419,112 @@ public class GLFW {
 		GLFW_REFRESH_RATE     = 0x2100F,
 		GLFW_DOUBLEBUFFER     = 0x21010;
 
-	/** Client API hints. */
-	public static final int
-		GLFW_CLIENT_API               = 0x22001,
-		GLFW_CONTEXT_VERSION_MAJOR    = 0x22002,
-		GLFW_CONTEXT_VERSION_MINOR    = 0x22003,
-		GLFW_CONTEXT_REVISION         = 0x22004,
-		GLFW_CONTEXT_ROBUSTNESS       = 0x22005,
-		GLFW_OPENGL_FORWARD_COMPAT    = 0x22006,
-		GLFW_OPENGL_DEBUG_CONTEXT     = 0x22007,
-		GLFW_OPENGL_PROFILE           = 0x22008,
-		GLFW_CONTEXT_RELEASE_BEHAVIOR = 0x22009,
-		GLFW_CONTEXT_NO_ERROR         = 0x2200A;
+	/**
+	 * {@link #glfwWindowHint WindowHint}: Specifies which client API to create the context for. Possible values are {@link #GLFW_OPENGL_API OPENGL_API}, {@link #GLFW_OPENGL_ES_API OPENGL_ES_API} and {@link #GLFW_NO_API NO_API}. This is a hard
+	 * constraint.
+	 * 
+	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates the client API provided by the window's context; either {@link #GLFW_OPENGL_API OPENGL_API}, {@link #GLFW_OPENGL_ES_API OPENGL_ES_API} or {@link #GLFW_NO_API NO_API}.</p>
+	 */
+	public static final int GLFW_CLIENT_API = 0x22001;
+
+	/**
+	 * {@link #glfwWindowHint WindowHint}: Specifies the client API major version that the created context must be compatible with. The exact behavior of this hint depends on
+	 * the requested client API.
+	 * 
+	 * <p>Notes:</p>
+	 * 
+	 * <ul>
+	 * <li>While there is no way to ask the driver for a context of the highest supported version, GLFW will attempt to provide this when you ask for a
+	 * version 1.0 context, which is the default for these hints.</li>
+	 * <li><b>OpenGL</b>: {@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR} and {@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR} are not hard constraints, but creation will fail if the OpenGL version of the
+	 * created context is less than the one requested. It is therefore perfectly safe to use the default of version 1.0 for legacy code and you may
+	 * still get backwards-compatible contexts of version 3.0 and above when available.</li>
+	 * <li><b>OpenGL ES</b>: {@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR} and {@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR} are not hard constraints, but creation will fail if the OpenGL ES version
+	 * of the created context is less than the one requested. Additionally, OpenGL ES 1.x cannot be returned if 2.0 or later was requested, and vice
+	 * versa. This is because OpenGL ES 3.x is backward compatible with 2.0, but OpenGL ES 2.0 is not backward compatible with 1.x.</li>
+	 * </ul>
+	 * 
+	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicate the client API major version of the window's context.</p>
+	 */
+	public static final int GLFW_CONTEXT_VERSION_MAJOR = 0x22002;
+
+	/**
+	 * {@link #glfwWindowHint WindowHint}: Specifies the client API minor version that the created context must be compatible with. The exact behavior of this hint depends on
+	 * the requested client API.
+	 * 
+	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicate the client API minor version of the window's context.</p>
+	 */
+	public static final int GLFW_CONTEXT_VERSION_MINOR = 0x22003;
+
+	/** {@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates the client API version of the window's context. */
+	public static final int GLFW_CONTEXT_REVISION = 0x22004;
+
+	/**
+	 * {@link #glfwWindowHint WindowHint}: Specifies the robustness strategy to be used by the context. This can be one of {@link #GLFW_NO_RESET_NOTIFICATION NO_RESET_NOTIFICATION} or {@link #GLFW_LOSE_CONTEXT_ON_RESET LOSE_CONTEXT_ON_RESET}, or
+	 * {@link #GLFW_NO_ROBUSTNESS NO_ROBUSTNESS} to not request a robustness strategy.
+	 * 
+	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates the robustness strategy used by the context. This is {@link #GLFW_LOSE_CONTEXT_ON_RESET LOSE_CONTEXT_ON_RESET} or {@link #GLFW_NO_RESET_NOTIFICATION NO_RESET_NOTIFICATION} if the window's
+	 * context supports robustness, or {@link #GLFW_NO_ROBUSTNESS NO_ROBUSTNESS} otherwise.</p>
+	 */
+	public static final int GLFW_CONTEXT_ROBUSTNESS = 0x22005;
+
+	/**
+	 * {@link #glfwWindowHint WindowHint}: Specifies whether the OpenGL context should be forward-compatible, i.e. one where all functionality deprecated in the requested
+	 * version of OpenGL is removed. This must only be used if the requested OpenGL version is 3.0 or above. If OpenGL ES is requested, this hint is
+	 * ignored.
+	 * 
+	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates if the window's context is an OpenGL forward-compatible one.</p>
+	 */
+	public static final int GLFW_OPENGL_FORWARD_COMPAT = 0x22006;
+
+	/**
+	 * {@link #glfwWindowHint WindowHint}: Specifies whether to create a debug OpenGL context, which may have additional error and performance issue reporting functionality.
+	 * If OpenGL ES is requested, this hint is ignored.
+	 * 
+	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates if the window's context is an OpenGL debug context.</p>
+	 */
+	public static final int GLFW_OPENGL_DEBUG_CONTEXT = 0x22007;
+
+	/**
+	 * {@link #glfwWindowHint WindowHint}: Specifies which OpenGL profile to create the context for. Possible values are one of {@link #GLFW_OPENGL_CORE_PROFILE OPENGL_CORE_PROFILE} or {@link #GLFW_OPENGL_COMPAT_PROFILE OPENGL_COMPAT_PROFILE},
+	 * or {@link #GLFW_OPENGL_ANY_PROFILE OPENGL_ANY_PROFILE} to not request a specific profile. If requesting an OpenGL version below 3.2, {@link #GLFW_OPENGL_ANY_PROFILE OPENGL_ANY_PROFILE} must be used. If OpenGL ES
+	 * is requested, this hint is ignored.
+	 * 
+	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates the OpenGL profile used by the context. This is {@link #GLFW_OPENGL_CORE_PROFILE OPENGL_CORE_PROFILE} or {@link #GLFW_OPENGL_COMPAT_PROFILE OPENGL_COMPAT_PROFILE} if the context uses a
+	 * known profile, or {@link #GLFW_OPENGL_ANY_PROFILE OPENGL_ANY_PROFILE} if the OpenGL profile is unknown or the context is an OpenGL ES context. Note that the returned profile may
+	 * not match the profile bits of the context flags, as GLFW will try other means of detecting the profile when no bits are set.</p>
+	 */
+	public static final int GLFW_OPENGL_PROFILE = 0x22008;
+
+	/**
+	 * {@link #glfwWindowHint WindowHint}: Specifies the release behavior to be used by the context. If the behavior is {@link #GLFW_ANY_RELEASE_BEHAVIOR ANY_RELEASE_BEHAVIOR}, the default behavior of the
+	 * context creation API will be used. If the behavior is {@link #GLFW_RELEASE_BEHAVIOR_FLUSH RELEASE_BEHAVIOR_FLUSH}, the pipeline will be flushed whenever the context is released from
+	 * being the current one. If the behavior is {@link #GLFW_RELEASE_BEHAVIOR_NONE RELEASE_BEHAVIOR_NONE}, the pipeline will not be flushed on release.
+	 */
+	public static final int GLFW_CONTEXT_RELEASE_BEHAVIOR = 0x22009;
+
+	/**
+	 * {@link #glfwWindowHint WindowHint}: Specifies whether errors should be generated by the context. If enabled, situations that would have generated errors instead cause
+	 * undefined behavior.
+	 */
+	public static final int GLFW_CONTEXT_NO_ERROR = 0x2200A;
+
+	/**
+	 * {@link #glfwWindowHint WindowHint}: Specifies which context creation API to use to create the context. Possible values are {@link #GLFW_NATIVE_CONTEXT_API NATIVE_CONTEXT_API} and {@link #GLFW_EGL_CONTEXT_API EGL_CONTEXT_API}.
+	 * This is a hard constraint. If no client API is requested, this hint is ignored.
+	 * 
+	 * <p>Notes:</p>
+	 * 
+	 * <ul>
+	 * <li><b>Mac OS X</b>: The EGL API is not available on this platform and requests to use it will fail.</li>
+	 * <li><b>Wayland, Mir</b>: The EGL API <i>is</i> the native context creation API, so this hint will have no effect.</li>
+	 * <li>An OpenGL extension loader library that assumes it knows which context creation API is used on a given platform may fail if you change this
+	 * hint. This can be resolved by having it load via {@link #glfwGetProcAddress GetProcAddress}, which always uses the selected API.</li>
+	 * </ul>
+	 * 
+	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates the context creation API used to create the window's context; either {@link #GLFW_NATIVE_CONTEXT_API NATIVE_CONTEXT_API} or {@link #GLFW_EGL_CONTEXT_API EGL_CONTEXT_API}.</p>
+	 */
+	public static final int GLFW_CONTEXT_CREATION_API = 0x2200B;
 
 	/** Values for the {@link #GLFW_CLIENT_API CLIENT_API} hint. */
 	public static final int
@@ -455,6 +549,11 @@ public class GLFW {
 		GLFW_ANY_RELEASE_BEHAVIOR   = 0x0,
 		GLFW_RELEASE_BEHAVIOR_FLUSH = 0x35001,
 		GLFW_RELEASE_BEHAVIOR_NONE  = 0x35002;
+
+	/** Values for the {@link #GLFW_CONTEXT_CREATION_API CONTEXT_CREATION_API} hint. */
+	public static final int
+		GLFW_NATIVE_CONTEXT_API = 0x36001,
+		GLFW_EGL_CONTEXT_API    = 0x36002;
 
 	protected GLFW() {
 		throw new UnsupportedOperationException();
@@ -1290,6 +1389,8 @@ public class GLFW {
 	 * <tr><td>{@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}</td><td>0</td><td>Any valid minor version number of the chosen client API</td></tr>
 	 * <tr><td>{@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}</td><td>{@link #GLFW_NO_ROBUSTNESS NO_ROBUSTNESS}</td><td>{@link #GLFW_NO_ROBUSTNESS NO_ROBUSTNESS} {@link #GLFW_NO_RESET_NOTIFICATION NO_RESET_NOTIFICATION} {@link #GLFW_LOSE_CONTEXT_ON_RESET LOSE_CONTEXT_ON_RESET}</td></tr>
 	 * <tr><td>{@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}</td><td>{@link #GLFW_ANY_RELEASE_BEHAVIOR ANY_RELEASE_BEHAVIOR}</td><td>{@link #GLFW_ANY_RELEASE_BEHAVIOR ANY_RELEASE_BEHAVIOR} {@link #GLFW_RELEASE_BEHAVIOR_FLUSH RELEASE_BEHAVIOR_FLUSH} {@link #GLFW_RELEASE_BEHAVIOR_NONE RELEASE_BEHAVIOR_NONE}</td></tr>
+	 * <tr><td>{@link #GLFW_CONTEXT_NO_ERROR CONTEXT_NO_ERROR}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
+	 * <tr><td>{@link #GLFW_CONTEXT_CREATION_API CONTEXT_CREATION_API}</td><td>{@link #GLFW_NATIVE_CONTEXT_API NATIVE_CONTEXT_API}</td><td>{@link #GLFW_NATIVE_CONTEXT_API NATIVE_CONTEXT_API} {@link #GLFW_EGL_CONTEXT_API EGL_CONTEXT_API}</td></tr>
 	 * <tr><td>{@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
 	 * <tr><td>{@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}</td><td>{@link #GLFW_OPENGL_ANY_PROFILE OPENGL_ANY_PROFILE}</td><td>{@link #GLFW_OPENGL_ANY_PROFILE OPENGL_ANY_PROFILE} {@link #GLFW_OPENGL_CORE_PROFILE OPENGL_CORE_PROFILE} {@link #GLFW_OPENGL_COMPAT_PROFILE OPENGL_COMPAT_PROFILE}</td></tr>
@@ -1297,7 +1398,7 @@ public class GLFW {
 	 * 
 	 * <p>This function must only be called from the main thread.</p>
 	 *
-	 * @param hint  the window hint to set. One of:<br><table><tr><td>{@link #GLFW_RESIZABLE RESIZABLE}</td><td>{@link #GLFW_VISIBLE VISIBLE}</td><td>{@link #GLFW_DECORATED DECORATED}</td><td>{@link #GLFW_CLIENT_API CLIENT_API}</td><td>{@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}</td><td>{@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}</td></tr><tr><td>{@link #GLFW_CONTEXT_REVISION CONTEXT_REVISION}</td><td>{@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}</td><td>{@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}</td><td>{@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}</td><td>{@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}</td><td>{@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}</td></tr><tr><td>{@link #GLFW_CONTEXT_NO_ERROR CONTEXT_NO_ERROR}</td><td>{@link #GLFW_RED_BITS RED_BITS}</td><td>{@link #GLFW_GREEN_BITS GREEN_BITS}</td><td>{@link #GLFW_BLUE_BITS BLUE_BITS}</td><td>{@link #GLFW_ALPHA_BITS ALPHA_BITS}</td><td>{@link #GLFW_DEPTH_BITS DEPTH_BITS}</td></tr><tr><td>{@link #GLFW_STENCIL_BITS STENCIL_BITS}</td><td>{@link #GLFW_ACCUM_RED_BITS ACCUM_RED_BITS}</td><td>{@link #GLFW_ACCUM_GREEN_BITS ACCUM_GREEN_BITS}</td><td>{@link #GLFW_ACCUM_BLUE_BITS ACCUM_BLUE_BITS}</td><td>{@link #GLFW_ACCUM_ALPHA_BITS ACCUM_ALPHA_BITS}</td><td>{@link #GLFW_AUX_BUFFERS AUX_BUFFERS}</td></tr><tr><td>{@link #GLFW_STEREO STEREO}</td><td>{@link #GLFW_SAMPLES SAMPLES}</td><td>{@link #GLFW_SRGB_CAPABLE SRGB_CAPABLE}</td><td>{@link #GLFW_REFRESH_RATE REFRESH_RATE}</td><td>{@link #GLFW_DOUBLEBUFFER DOUBLEBUFFER}</td></tr></table>
+	 * @param hint  the window hint to set. One of:<br><table><tr><td>{@link #GLFW_FOCUSED FOCUSED}</td><td>{@link #GLFW_RESIZABLE RESIZABLE}</td><td>{@link #GLFW_VISIBLE VISIBLE}</td><td>{@link #GLFW_DECORATED DECORATED}</td><td>{@link #GLFW_AUTO_ICONIFY AUTO_ICONIFY}</td><td>{@link #GLFW_FLOATING FLOATING}</td></tr><tr><td>{@link #GLFW_MAXIMIZED MAXIMIZED}</td><td>{@link #GLFW_CLIENT_API CLIENT_API}</td><td>{@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}</td><td>{@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}</td><td>{@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}</td><td>{@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}</td></tr><tr><td>{@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}</td><td>{@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}</td><td>{@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}</td><td>{@link #GLFW_CONTEXT_NO_ERROR CONTEXT_NO_ERROR}</td><td>{@link #GLFW_CONTEXT_CREATION_API CONTEXT_CREATION_API}</td><td>{@link #GLFW_RED_BITS RED_BITS}</td></tr><tr><td>{@link #GLFW_GREEN_BITS GREEN_BITS}</td><td>{@link #GLFW_BLUE_BITS BLUE_BITS}</td><td>{@link #GLFW_ALPHA_BITS ALPHA_BITS}</td><td>{@link #GLFW_DEPTH_BITS DEPTH_BITS}</td><td>{@link #GLFW_STENCIL_BITS STENCIL_BITS}</td><td>{@link #GLFW_ACCUM_RED_BITS ACCUM_RED_BITS}</td></tr><tr><td>{@link #GLFW_ACCUM_GREEN_BITS ACCUM_GREEN_BITS}</td><td>{@link #GLFW_ACCUM_BLUE_BITS ACCUM_BLUE_BITS}</td><td>{@link #GLFW_ACCUM_ALPHA_BITS ACCUM_ALPHA_BITS}</td><td>{@link #GLFW_AUX_BUFFERS AUX_BUFFERS}</td><td>{@link #GLFW_STEREO STEREO}</td><td>{@link #GLFW_SAMPLES SAMPLES}</td></tr><tr><td>{@link #GLFW_SRGB_CAPABLE SRGB_CAPABLE}</td><td>{@link #GLFW_REFRESH_RATE REFRESH_RATE}</td><td>{@link #GLFW_DOUBLEBUFFER DOUBLEBUFFER}</td></tr></table>
 	 * @param value the new value of the window hint
 	 *
 	 * @since version 2.2
@@ -1848,6 +1949,8 @@ public class GLFW {
 	 * 
 	 * <p>The size limits are applied immediately to a windowed mode window and may cause it to be resized.</p>
 	 * 
+	 * <p>The maximum dimensions must be greater than or equal to the minimum dimensions and all must be greater than or equal to zero.</p>
+	 * 
 	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window    the window to set limits for
@@ -2214,7 +2317,7 @@ public class GLFW {
 	 * function should not fail as long as it is passed valid arguments and the library has been initialized.</p>
 	 *
 	 * @param window the window to query
-	 * @param attrib the <a href="http://www.glfw.org/docs/latest/window.html#window_attribs">window attribute</a> whose value to return. One of:<br><table><tr><td>{@link #GLFW_FOCUSED FOCUSED}</td><td>{@link #GLFW_ICONIFIED ICONIFIED}</td><td>{@link #GLFW_RESIZABLE RESIZABLE}</td><td>{@link #GLFW_VISIBLE VISIBLE}</td><td>{@link #GLFW_DECORATED DECORATED}</td><td>{@link #GLFW_FLOATING FLOATING}</td><td>{@link #GLFW_MAXIMIZED MAXIMIZED}</td></tr></table>
+	 * @param attrib the <a href="http://www.glfw.org/docs/latest/window.html#window_attribs">window attribute</a> whose value to return. One of:<br><table><tr><td>{@link #GLFW_FOCUSED FOCUSED}</td><td>{@link #GLFW_ICONIFIED ICONIFIED}</td><td>{@link #GLFW_RESIZABLE RESIZABLE}</td><td>{@link #GLFW_VISIBLE VISIBLE}</td><td>{@link #GLFW_DECORATED DECORATED}</td></tr><tr><td>{@link #GLFW_FLOATING FLOATING}</td><td>{@link #GLFW_MAXIMIZED MAXIMIZED}</td><td>{@link #GLFW_CLIENT_API CLIENT_API}</td><td>{@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}</td><td>{@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}</td></tr><tr><td>{@link #GLFW_CONTEXT_REVISION CONTEXT_REVISION}</td><td>{@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}</td><td>{@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}</td><td>{@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}</td><td>{@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}</td></tr><tr><td>{@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}</td><td>{@link #GLFW_CONTEXT_NO_ERROR CONTEXT_NO_ERROR}</td><td>{@link #GLFW_CONTEXT_CREATION_API CONTEXT_CREATION_API}</td></tr></table>
 	 *
 	 * @return the value of the attribute, or zero if an error occured
 	 *
