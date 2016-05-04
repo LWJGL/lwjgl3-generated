@@ -94,26 +94,26 @@ public class KHRStream {
 
 	// --- [ eglDestroyStreamKHR ] ---
 
-	public static int eglDestroyStreamKHR(long dpy, long stream) {
+	public static boolean eglDestroyStreamKHR(long dpy, long stream) {
 		long __functionAddress = EGL.getCapabilities().eglDestroyStreamKHR;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return callPPI(__functionAddress, dpy, stream);
+		return callPPI(__functionAddress, dpy, stream) != 0;
 	}
 
 	// --- [ eglStreamAttribKHR ] ---
 
-	public static int eglStreamAttribKHR(long dpy, long stream, int attribute, int value) {
+	public static boolean eglStreamAttribKHR(long dpy, long stream, int attribute, int value) {
 		long __functionAddress = EGL.getCapabilities().eglStreamAttribKHR;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(stream);
 		}
-		return callPPI(__functionAddress, dpy, stream, attribute, value);
+		return callPPI(__functionAddress, dpy, stream, attribute, value) != 0;
 	}
 
 	// --- [ eglQueryStreamKHR ] ---
@@ -128,10 +128,10 @@ public class KHRStream {
 		return callPPPI(__functionAddress, dpy, stream, attribute, value);
 	}
 
-	public static int eglQueryStreamKHR(long dpy, long stream, int attribute, IntBuffer value) {
+	public static boolean eglQueryStreamKHR(long dpy, long stream, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
-		return neglQueryStreamKHR(dpy, stream, attribute, memAddress(value));
+		return neglQueryStreamKHR(dpy, stream, attribute, memAddress(value)) != 0;
 	}
 
 	// --- [ eglQueryStreamu64KHR ] ---
@@ -146,10 +146,10 @@ public class KHRStream {
 		return callPPPI(__functionAddress, dpy, stream, attribute, value);
 	}
 
-	public static int eglQueryStreamu64KHR(long dpy, long stream, int attribute, LongBuffer value) {
+	public static boolean eglQueryStreamu64KHR(long dpy, long stream, int attribute, LongBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
-		return neglQueryStreamu64KHR(dpy, stream, attribute, memAddress(value));
+		return neglQueryStreamu64KHR(dpy, stream, attribute, memAddress(value)) != 0;
 	}
 
 	/** Array version of: {@link #eglCreateStreamKHR CreateStreamKHR} */
@@ -164,7 +164,7 @@ public class KHRStream {
 	}
 
 	/** Array version of: {@link #eglQueryStreamKHR QueryStreamKHR} */
-	public static int eglQueryStreamKHR(long dpy, long stream, int attribute, int[] value) {
+	public static boolean eglQueryStreamKHR(long dpy, long stream, int attribute, int[] value) {
 		long __functionAddress = EGL.getCapabilities().eglQueryStreamKHR;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
@@ -172,11 +172,11 @@ public class KHRStream {
 			checkPointer(stream);
 			checkBuffer(value, 1);
 		}
-		return callPPPI(__functionAddress, dpy, stream, attribute, value);
+		return callPPPI(__functionAddress, dpy, stream, attribute, value) != 0;
 	}
 
 	/** Array version of: {@link #eglQueryStreamu64KHR QueryStreamu64KHR} */
-	public static int eglQueryStreamu64KHR(long dpy, long stream, int attribute, long[] value) {
+	public static boolean eglQueryStreamu64KHR(long dpy, long stream, int attribute, long[] value) {
 		long __functionAddress = EGL.getCapabilities().eglQueryStreamu64KHR;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
@@ -184,7 +184,7 @@ public class KHRStream {
 			checkPointer(stream);
 			checkBuffer(value, 1);
 		}
-		return callPPPI(__functionAddress, dpy, stream, attribute, value);
+		return callPPPI(__functionAddress, dpy, stream, attribute, value) != 0;
 	}
 
 }

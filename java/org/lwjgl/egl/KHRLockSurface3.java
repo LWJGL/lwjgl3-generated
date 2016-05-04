@@ -70,22 +70,22 @@ public class KHRLockSurface3 {
 		return callPPPI(__functionAddress, dpy, surface, attrib_list);
 	}
 
-	public static int eglLockSurfaceKHR(long dpy, long surface, IntBuffer attrib_list) {
+	public static boolean eglLockSurfaceKHR(long dpy, long surface, IntBuffer attrib_list) {
 		if ( CHECKS )
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
-		return neglLockSurfaceKHR(dpy, surface, memAddressSafe(attrib_list));
+		return neglLockSurfaceKHR(dpy, surface, memAddressSafe(attrib_list)) != 0;
 	}
 
 	// --- [ eglUnlockSurfaceKHR ] ---
 
-	public static int eglUnlockSurfaceKHR(long dpy, long surface) {
+	public static boolean eglUnlockSurfaceKHR(long dpy, long surface) {
 		long __functionAddress = EGL.getCapabilities().eglUnlockSurfaceKHR;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPI(__functionAddress, dpy, surface);
+		return callPPI(__functionAddress, dpy, surface) != 0;
 	}
 
 	// --- [ eglQuerySurface64KHR ] ---
@@ -100,14 +100,14 @@ public class KHRLockSurface3 {
 		return callPPPI(__functionAddress, dpy, surface, attribute, value);
 	}
 
-	public static int eglQuerySurface64KHR(long dpy, long surface, int attribute, PointerBuffer value) {
+	public static boolean eglQuerySurface64KHR(long dpy, long surface, int attribute, PointerBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
-		return neglQuerySurface64KHR(dpy, surface, attribute, memAddress(value));
+		return neglQuerySurface64KHR(dpy, surface, attribute, memAddress(value)) != 0;
 	}
 
 	/** Array version of: {@link #eglLockSurfaceKHR LockSurfaceKHR} */
-	public static int eglLockSurfaceKHR(long dpy, long surface, int[] attrib_list) {
+	public static boolean eglLockSurfaceKHR(long dpy, long surface, int[] attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglLockSurfaceKHR;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
@@ -115,7 +115,7 @@ public class KHRLockSurface3 {
 			checkPointer(surface);
 			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
 		}
-		return callPPPI(__functionAddress, dpy, surface, attrib_list);
+		return callPPPI(__functionAddress, dpy, surface, attrib_list) != 0;
 	}
 
 }

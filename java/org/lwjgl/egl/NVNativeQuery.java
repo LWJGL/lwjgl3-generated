@@ -39,10 +39,10 @@ public class NVNativeQuery {
 		return callPPI(__functionAddress, dpy, display_id);
 	}
 
-	public static int eglQueryNativeDisplayNV(long dpy, PointerBuffer display_id) {
+	public static boolean eglQueryNativeDisplayNV(long dpy, PointerBuffer display_id) {
 		if ( CHECKS )
 			checkBuffer(display_id, 1);
-		return neglQueryNativeDisplayNV(dpy, memAddress(display_id));
+		return neglQueryNativeDisplayNV(dpy, memAddress(display_id)) != 0;
 	}
 
 	// --- [ eglQueryNativeWindowNV ] ---
@@ -57,10 +57,10 @@ public class NVNativeQuery {
 		return callPPPI(__functionAddress, dpy, surf, window);
 	}
 
-	public static int eglQueryNativeWindowNV(long dpy, long surf, PointerBuffer window) {
+	public static boolean eglQueryNativeWindowNV(long dpy, long surf, PointerBuffer window) {
 		if ( CHECKS )
 			checkBuffer(window, 1);
-		return neglQueryNativeWindowNV(dpy, surf, memAddress(window));
+		return neglQueryNativeWindowNV(dpy, surf, memAddress(window)) != 0;
 	}
 
 	// --- [ eglQueryNativePixmapNV ] ---
@@ -75,10 +75,10 @@ public class NVNativeQuery {
 		return callPPPI(__functionAddress, dpy, surf, pixmap);
 	}
 
-	public static int eglQueryNativePixmapNV(long dpy, long surf, PointerBuffer pixmap) {
+	public static boolean eglQueryNativePixmapNV(long dpy, long surf, PointerBuffer pixmap) {
 		if ( CHECKS )
 			checkBuffer(pixmap, 1);
-		return neglQueryNativePixmapNV(dpy, surf, memAddress(pixmap));
+		return neglQueryNativePixmapNV(dpy, surf, memAddress(pixmap)) != 0;
 	}
 
 }

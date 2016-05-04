@@ -74,10 +74,10 @@ public class NVStreamMetadata {
 		return callPPI(__functionAddress, dpy, attribute, value);
 	}
 
-	public static int eglQueryDisplayAttribNV(long dpy, int attribute, PointerBuffer value) {
+	public static boolean eglQueryDisplayAttribNV(long dpy, int attribute, PointerBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
-		return neglQueryDisplayAttribNV(dpy, attribute, memAddress(value));
+		return neglQueryDisplayAttribNV(dpy, attribute, memAddress(value)) != 0;
 	}
 
 	// --- [ eglSetStreamMetadataNV ] ---
@@ -92,8 +92,8 @@ public class NVStreamMetadata {
 		return callPPPI(__functionAddress, dpy, stream, n, offset, size, data);
 	}
 
-	public static int eglSetStreamMetadataNV(long dpy, long stream, int n, int offset, ByteBuffer data) {
-		return neglSetStreamMetadataNV(dpy, stream, n, offset, data.remaining(), memAddress(data));
+	public static boolean eglSetStreamMetadataNV(long dpy, long stream, int n, int offset, ByteBuffer data) {
+		return neglSetStreamMetadataNV(dpy, stream, n, offset, data.remaining(), memAddress(data)) != 0;
 	}
 
 	// --- [ eglQueryStreamMetadataNV ] ---
@@ -108,8 +108,8 @@ public class NVStreamMetadata {
 		return callPPPI(__functionAddress, dpy, stream, name, n, offset, size, data);
 	}
 
-	public static int eglQueryStreamMetadataNV(long dpy, long stream, int name, int n, int offset, ByteBuffer data) {
-		return neglQueryStreamMetadataNV(dpy, stream, name, n, offset, data.remaining(), memAddress(data));
+	public static boolean eglQueryStreamMetadataNV(long dpy, long stream, int name, int n, int offset, ByteBuffer data) {
+		return neglQueryStreamMetadataNV(dpy, stream, name, n, offset, data.remaining(), memAddress(data)) != 0;
 	}
 
 }

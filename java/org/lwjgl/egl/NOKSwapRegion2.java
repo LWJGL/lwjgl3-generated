@@ -51,19 +51,19 @@ public class NOKSwapRegion2 {
 		return callPPPI(__functionAddress, dpy, surface, numRects, rects);
 	}
 
-	public static int eglSwapBuffersRegion2NOK(long dpy, long surface, IntBuffer rects) {
-		return neglSwapBuffersRegion2NOK(dpy, surface, rects == null ? 0 : rects.remaining(), memAddressSafe(rects));
+	public static boolean eglSwapBuffersRegion2NOK(long dpy, long surface, IntBuffer rects) {
+		return neglSwapBuffersRegion2NOK(dpy, surface, rects == null ? 0 : rects.remaining(), memAddressSafe(rects)) != 0;
 	}
 
 	/** Array version of: {@link #eglSwapBuffersRegion2NOK SwapBuffersRegion2NOK} */
-	public static int eglSwapBuffersRegion2NOK(long dpy, long surface, int[] rects) {
+	public static boolean eglSwapBuffersRegion2NOK(long dpy, long surface, int[] rects) {
 		long __functionAddress = EGL.getCapabilities().eglSwapBuffersRegion2NOK;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPPI(__functionAddress, dpy, surface, rects == null ? 0 : rects.length, rects);
+		return callPPPI(__functionAddress, dpy, surface, rects == null ? 0 : rects.length, rects) != 0;
 	}
 
 }

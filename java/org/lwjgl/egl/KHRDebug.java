@@ -95,10 +95,10 @@ public class KHRDebug {
 		return callPI(__functionAddress, attribute, value);
 	}
 
-	public static int eglQueryDebugKHR(int attribute, PointerBuffer value) {
+	public static boolean eglQueryDebugKHR(int attribute, PointerBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
-		return neglQueryDebugKHR(attribute, memAddress(value));
+		return neglQueryDebugKHR(attribute, memAddress(value)) != 0;
 	}
 
 	// --- [ eglLabelObjectKHR ] ---

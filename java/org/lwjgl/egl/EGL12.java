@@ -58,11 +58,11 @@ public class EGL12 {
 
 	// --- [ eglBindAPI ] ---
 
-	public static int eglBindAPI(int api) {
+	public static boolean eglBindAPI(int api) {
 		long __functionAddress = EGL.getCapabilities().eglBindAPI;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callI(__functionAddress, api);
+		return callI(__functionAddress, api) != 0;
 	}
 
 	// --- [ eglQueryAPI ] ---
@@ -95,20 +95,20 @@ public class EGL12 {
 
 	// --- [ eglReleaseThread ] ---
 
-	public static int eglReleaseThread() {
+	public static boolean eglReleaseThread() {
 		long __functionAddress = EGL.getCapabilities().eglReleaseThread;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callI(__functionAddress);
+		return callI(__functionAddress) != 0;
 	}
 
 	// --- [ eglWaitClient ] ---
 
-	public static int eglWaitClient() {
+	public static boolean eglWaitClient() {
 		long __functionAddress = EGL.getCapabilities().eglWaitClient;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callI(__functionAddress);
+		return callI(__functionAddress) != 0;
 	}
 
 	/** Array version of: {@link #eglCreatePbufferFromClientBuffer CreatePbufferFromClientBuffer} */

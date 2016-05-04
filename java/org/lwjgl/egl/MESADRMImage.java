@@ -70,13 +70,13 @@ public class MESADRMImage {
 		return callPPPPPI(__functionAddress, dpy, image, name, handle, stride);
 	}
 
-	public static int eglExportDRMImageMESA(long dpy, long image, IntBuffer name, IntBuffer handle, IntBuffer stride) {
+	public static boolean eglExportDRMImageMESA(long dpy, long image, IntBuffer name, IntBuffer handle, IntBuffer stride) {
 		if ( CHECKS ) {
 			if ( name != null ) checkBuffer(name, 1);
 			if ( handle != null ) checkBuffer(handle, 1);
 			if ( stride != null ) checkBuffer(stride, 1);
 		}
-		return neglExportDRMImageMESA(dpy, image, memAddressSafe(name), memAddressSafe(handle), memAddressSafe(stride));
+		return neglExportDRMImageMESA(dpy, image, memAddressSafe(name), memAddressSafe(handle), memAddressSafe(stride)) != 0;
 	}
 
 	/** Array version of: {@link #eglCreateDRMImageMESA CreateDRMImageMESA} */
@@ -91,7 +91,7 @@ public class MESADRMImage {
 	}
 
 	/** Array version of: {@link #eglExportDRMImageMESA ExportDRMImageMESA} */
-	public static int eglExportDRMImageMESA(long dpy, long image, int[] name, int[] handle, int[] stride) {
+	public static boolean eglExportDRMImageMESA(long dpy, long image, int[] name, int[] handle, int[] stride) {
 		long __functionAddress = EGL.getCapabilities().eglExportDRMImageMESA;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
@@ -101,7 +101,7 @@ public class MESADRMImage {
 			if ( handle != null ) checkBuffer(handle, 1);
 			if ( stride != null ) checkBuffer(stride, 1);
 		}
-		return callPPPPPI(__functionAddress, dpy, image, name, handle, stride);
+		return callPPPPPI(__functionAddress, dpy, image, name, handle, stride) != 0;
 	}
 
 }

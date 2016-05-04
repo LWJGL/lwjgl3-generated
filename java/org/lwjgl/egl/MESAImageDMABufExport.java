@@ -46,13 +46,13 @@ public class MESAImageDMABufExport {
 		return callPPPPPI(__functionAddress, dpy, image, fourcc, num_planes, modifiers);
 	}
 
-	public static int eglExportDMABUFImageQueryMESA(long dpy, long image, IntBuffer fourcc, IntBuffer num_planes, LongBuffer modifiers) {
+	public static boolean eglExportDMABUFImageQueryMESA(long dpy, long image, IntBuffer fourcc, IntBuffer num_planes, LongBuffer modifiers) {
 		if ( CHECKS ) {
 			if ( fourcc != null ) checkBuffer(fourcc, 1);
 			if ( num_planes != null ) checkBuffer(num_planes, 1);
 			if ( modifiers != null ) checkBuffer(modifiers, 1);
 		}
-		return neglExportDMABUFImageQueryMESA(dpy, image, memAddressSafe(fourcc), memAddressSafe(num_planes), memAddressSafe(modifiers));
+		return neglExportDMABUFImageQueryMESA(dpy, image, memAddressSafe(fourcc), memAddressSafe(num_planes), memAddressSafe(modifiers)) != 0;
 	}
 
 	// --- [ eglExportDMABUFImageMESA ] ---
@@ -67,17 +67,17 @@ public class MESAImageDMABufExport {
 		return callPPPPPI(__functionAddress, dpy, image, fds, strides, offsets);
 	}
 
-	public static int eglExportDMABUFImageMESA(long dpy, long image, IntBuffer fds, IntBuffer strides, IntBuffer offsets) {
+	public static boolean eglExportDMABUFImageMESA(long dpy, long image, IntBuffer fds, IntBuffer strides, IntBuffer offsets) {
 		if ( CHECKS ) {
 			if ( fds != null ) checkBuffer(fds, 1);
 			if ( strides != null ) checkBuffer(strides, 1);
 			if ( offsets != null ) checkBuffer(offsets, 1);
 		}
-		return neglExportDMABUFImageMESA(dpy, image, memAddressSafe(fds), memAddressSafe(strides), memAddressSafe(offsets));
+		return neglExportDMABUFImageMESA(dpy, image, memAddressSafe(fds), memAddressSafe(strides), memAddressSafe(offsets)) != 0;
 	}
 
 	/** Array version of: {@link #eglExportDMABUFImageQueryMESA ExportDMABUFImageQueryMESA} */
-	public static int eglExportDMABUFImageQueryMESA(long dpy, long image, int[] fourcc, int[] num_planes, long[] modifiers) {
+	public static boolean eglExportDMABUFImageQueryMESA(long dpy, long image, int[] fourcc, int[] num_planes, long[] modifiers) {
 		long __functionAddress = EGL.getCapabilities().eglExportDMABUFImageQueryMESA;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
@@ -87,11 +87,11 @@ public class MESAImageDMABufExport {
 			if ( num_planes != null ) checkBuffer(num_planes, 1);
 			if ( modifiers != null ) checkBuffer(modifiers, 1);
 		}
-		return callPPPPPI(__functionAddress, dpy, image, fourcc, num_planes, modifiers);
+		return callPPPPPI(__functionAddress, dpy, image, fourcc, num_planes, modifiers) != 0;
 	}
 
 	/** Array version of: {@link #eglExportDMABUFImageMESA ExportDMABUFImageMESA} */
-	public static int eglExportDMABUFImageMESA(long dpy, long image, int[] fds, int[] strides, int[] offsets) {
+	public static boolean eglExportDMABUFImageMESA(long dpy, long image, int[] fds, int[] strides, int[] offsets) {
 		long __functionAddress = EGL.getCapabilities().eglExportDMABUFImageMESA;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
@@ -101,7 +101,7 @@ public class MESAImageDMABufExport {
 			if ( strides != null ) checkBuffer(strides, 1);
 			if ( offsets != null ) checkBuffer(offsets, 1);
 		}
-		return callPPPPPI(__functionAddress, dpy, image, fds, strides, offsets);
+		return callPPPPPI(__functionAddress, dpy, image, fds, strides, offsets) != 0;
 	}
 
 }

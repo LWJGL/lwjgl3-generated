@@ -40,49 +40,49 @@ public class EGL11 {
 
 	// --- [ eglBindTexImage ] ---
 
-	public static int eglBindTexImage(long dpy, long surface, int buffer) {
+	public static boolean eglBindTexImage(long dpy, long surface, int buffer) {
 		long __functionAddress = EGL.getCapabilities().eglBindTexImage;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPI(__functionAddress, dpy, surface, buffer);
+		return callPPI(__functionAddress, dpy, surface, buffer) != 0;
 	}
 
 	// --- [ eglReleaseTexImage ] ---
 
-	public static int eglReleaseTexImage(long dpy, long surface, int buffer) {
+	public static boolean eglReleaseTexImage(long dpy, long surface, int buffer) {
 		long __functionAddress = EGL.getCapabilities().eglReleaseTexImage;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPI(__functionAddress, dpy, surface, buffer);
+		return callPPI(__functionAddress, dpy, surface, buffer) != 0;
 	}
 
 	// --- [ eglSurfaceAttrib ] ---
 
-	public static int eglSurfaceAttrib(long dpy, long surface, int attribute, int value) {
+	public static boolean eglSurfaceAttrib(long dpy, long surface, int attribute, int value) {
 		long __functionAddress = EGL.getCapabilities().eglSurfaceAttrib;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPI(__functionAddress, dpy, surface, attribute, value);
+		return callPPI(__functionAddress, dpy, surface, attribute, value) != 0;
 	}
 
 	// --- [ eglSwapInterval ] ---
 
-	public static int eglSwapInterval(long dpy, int interval) {
+	public static boolean eglSwapInterval(long dpy, int interval) {
 		long __functionAddress = EGL.getCapabilities().eglSwapInterval;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 		}
-		return callPI(__functionAddress, dpy, interval);
+		return callPI(__functionAddress, dpy, interval) != 0;
 	}
 
 }

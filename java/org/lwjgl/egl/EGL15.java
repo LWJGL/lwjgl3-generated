@@ -93,14 +93,14 @@ public class EGL15 {
 
 	// --- [ eglDestroySync ] ---
 
-	public static int eglDestroySync(long dpy, long sync) {
+	public static boolean eglDestroySync(long dpy, long sync) {
 		long __functionAddress = EGL.getCapabilities().eglDestroySync;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return callPPI(__functionAddress, dpy, sync);
+		return callPPI(__functionAddress, dpy, sync) != 0;
 	}
 
 	// --- [ eglClientWaitSync ] ---
@@ -127,10 +127,10 @@ public class EGL15 {
 		return callPPPI(__functionAddress, dpy, sync, attribute, value);
 	}
 
-	public static int eglGetSyncAttrib(long dpy, long sync, int attribute, PointerBuffer value) {
+	public static boolean eglGetSyncAttrib(long dpy, long sync, int attribute, PointerBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
-		return neglGetSyncAttrib(dpy, sync, attribute, memAddress(value));
+		return neglGetSyncAttrib(dpy, sync, attribute, memAddress(value)) != 0;
 	}
 
 	// --- [ eglCreateImage ] ---
@@ -154,14 +154,14 @@ public class EGL15 {
 
 	// --- [ eglDestroyImage ] ---
 
-	public static int eglDestroyImage(long dpy, long image) {
+	public static boolean eglDestroyImage(long dpy, long image) {
 		long __functionAddress = EGL.getCapabilities().eglDestroyImage;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(image);
 		}
-		return callPPI(__functionAddress, dpy, image);
+		return callPPI(__functionAddress, dpy, image) != 0;
 	}
 
 	// --- [ eglGetPlatformDisplay ] ---
@@ -221,14 +221,14 @@ public class EGL15 {
 
 	// --- [ eglWaitSync ] ---
 
-	public static int eglWaitSync(long dpy, long sync, int flags) {
+	public static boolean eglWaitSync(long dpy, long sync, int flags) {
 		long __functionAddress = EGL.getCapabilities().eglWaitSync;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(sync);
 		}
-		return callPPI(__functionAddress, dpy, sync, flags);
+		return callPPI(__functionAddress, dpy, sync, flags) != 0;
 	}
 
 }

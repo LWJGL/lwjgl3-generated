@@ -40,10 +40,10 @@ public class ANGLEQuerySurfacePointer {
 		return callPPPI(__functionAddress, dpy, surface, attribute, value);
 	}
 
-	public static int eglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, PointerBuffer value) {
+	public static boolean eglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, PointerBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
-		return neglQuerySurfacePointerANGLE(dpy, surface, attribute, memAddress(value));
+		return neglQuerySurfacePointerANGLE(dpy, surface, attribute, memAddress(value)) != 0;
 	}
 
 }

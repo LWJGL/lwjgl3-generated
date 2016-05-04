@@ -49,20 +49,20 @@ public class EXTDeviceEnumeration {
 		return callPPI(__functionAddress, max_devices, devices, num_devices);
 	}
 
-	public static int eglQueryDevicesEXT(PointerBuffer devices, IntBuffer num_devices) {
+	public static boolean eglQueryDevicesEXT(PointerBuffer devices, IntBuffer num_devices) {
 		if ( CHECKS )
 			checkBuffer(num_devices, 1);
-		return neglQueryDevicesEXT(devices == null ? 0 : devices.remaining(), memAddressSafe(devices), memAddress(num_devices));
+		return neglQueryDevicesEXT(devices == null ? 0 : devices.remaining(), memAddressSafe(devices), memAddress(num_devices)) != 0;
 	}
 
 	/** Array version of: {@link #eglQueryDevicesEXT QueryDevicesEXT} */
-	public static int eglQueryDevicesEXT(PointerBuffer devices, int[] num_devices) {
+	public static boolean eglQueryDevicesEXT(PointerBuffer devices, int[] num_devices) {
 		long __functionAddress = EGL.getCapabilities().eglQueryDevicesEXT;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(num_devices, 1);
 		}
-		return callPPI(__functionAddress, devices == null ? 0 : devices.remaining(), memAddressSafe(devices), num_devices);
+		return callPPI(__functionAddress, devices == null ? 0 : devices.remaining(), memAddressSafe(devices), num_devices) != 0;
 	}
 
 }

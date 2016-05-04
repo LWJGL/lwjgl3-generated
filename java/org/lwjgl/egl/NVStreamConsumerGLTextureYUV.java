@@ -60,8 +60,8 @@ public class NVStreamConsumerGLTextureYUV {
 		return callPPPI(__functionAddress, dpy, stream, attrib_list);
 	}
 
-	public static int eglStreamConsumerGLTextureExternalAttribsNV(long dpy, long stream, PointerBuffer attrib_list) {
-		return neglStreamConsumerGLTextureExternalAttribsNV(dpy, stream, memAddressSafe(attrib_list));
+	public static boolean eglStreamConsumerGLTextureExternalAttribsNV(long dpy, long stream, PointerBuffer attrib_list) {
+		return neglStreamConsumerGLTextureExternalAttribsNV(dpy, stream, memAddressSafe(attrib_list)) != 0;
 	}
 
 }

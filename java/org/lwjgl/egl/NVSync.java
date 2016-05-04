@@ -74,24 +74,24 @@ public class NVSync {
 
 	// --- [ eglDestroySyncNV ] ---
 
-	public static int eglDestroySyncNV(long sync) {
+	public static boolean eglDestroySyncNV(long sync) {
 		long __functionAddress = EGL.getCapabilities().eglDestroySyncNV;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
 		}
-		return callPI(__functionAddress, sync);
+		return callPI(__functionAddress, sync) != 0;
 	}
 
 	// --- [ eglFenceNV ] ---
 
-	public static int eglFenceNV(long sync) {
+	public static boolean eglFenceNV(long sync) {
 		long __functionAddress = EGL.getCapabilities().eglFenceNV;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
 		}
-		return callPI(__functionAddress, sync);
+		return callPI(__functionAddress, sync) != 0;
 	}
 
 	// --- [ eglClientWaitSyncNV ] ---
@@ -107,13 +107,13 @@ public class NVSync {
 
 	// --- [ eglSignalSyncNV ] ---
 
-	public static int eglSignalSyncNV(long sync, int mode) {
+	public static boolean eglSignalSyncNV(long sync, int mode) {
 		long __functionAddress = EGL.getCapabilities().eglSignalSyncNV;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
 		}
-		return callPI(__functionAddress, sync, mode);
+		return callPI(__functionAddress, sync, mode) != 0;
 	}
 
 	// --- [ eglGetSyncAttribNV ] ---
@@ -127,10 +127,10 @@ public class NVSync {
 		return callPPI(__functionAddress, sync, attribute, value);
 	}
 
-	public static int eglGetSyncAttribNV(long sync, int attribute, IntBuffer value) {
+	public static boolean eglGetSyncAttribNV(long sync, int attribute, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
-		return neglGetSyncAttribNV(sync, attribute, memAddress(value));
+		return neglGetSyncAttribNV(sync, attribute, memAddress(value)) != 0;
 	}
 
 	/** Array version of: {@link #eglCreateFenceSyncNV CreateFenceSyncNV} */
@@ -145,14 +145,14 @@ public class NVSync {
 	}
 
 	/** Array version of: {@link #eglGetSyncAttribNV GetSyncAttribNV} */
-	public static int eglGetSyncAttribNV(long sync, int attribute, int[] value) {
+	public static boolean eglGetSyncAttribNV(long sync, int attribute, int[] value) {
 		long __functionAddress = EGL.getCapabilities().eglGetSyncAttribNV;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
 			checkBuffer(value, 1);
 		}
-		return callPPI(__functionAddress, sync, attribute, value);
+		return callPPI(__functionAddress, sync, attribute, value) != 0;
 	}
 
 }

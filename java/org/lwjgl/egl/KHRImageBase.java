@@ -59,14 +59,14 @@ public class KHRImageBase {
 
 	// --- [ eglDestroyImageKHR ] ---
 
-	public static int eglDestroyImageKHR(long dpy, long image) {
+	public static boolean eglDestroyImageKHR(long dpy, long image) {
 		long __functionAddress = EGL.getCapabilities().eglDestroyImageKHR;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(image);
 		}
-		return callPPI(__functionAddress, dpy, image);
+		return callPPI(__functionAddress, dpy, image) != 0;
 	}
 
 	/** Array version of: {@link #eglCreateImageKHR CreateImageKHR} */
