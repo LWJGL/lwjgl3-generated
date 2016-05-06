@@ -91,8 +91,8 @@ public class GL11 {
 
 	/** BlendingFactorDest */
 	public static final int
-		GL_ZERO                = 0x0,
-		GL_ONE                 = 0x1,
+		GL_ZERO                = 0,
+		GL_ONE                 = 1,
 		GL_SRC_COLOR           = 0x300,
 		GL_ONE_MINUS_SRC_COLOR = 0x301,
 		GL_SRC_ALPHA           = 0x302,
@@ -108,8 +108,8 @@ public class GL11 {
 
 	/** Boolean */
 	public static final int
-		GL_TRUE  = 0x1,
-		GL_FALSE = 0x0;
+		GL_TRUE  = 1,
+		GL_FALSE = 0;
 
 	/** ClipPlaneName */
 	public static final int
@@ -136,7 +136,7 @@ public class GL11 {
 
 	/** DrawBufferMode */
 	public static final int
-		GL_NONE           = 0x0,
+		GL_NONE           = 0,
 		GL_FRONT_LEFT     = 0x400,
 		GL_FRONT_RIGHT    = 0x401,
 		GL_BACK_LEFT      = 0x402,
@@ -153,7 +153,7 @@ public class GL11 {
 
 	/** ErrorCode */
 	public static final int
-		GL_NO_ERROR          = 0x0,
+		GL_NO_ERROR          = 0,
 		GL_INVALID_ENUM      = 0x500,
 		GL_INVALID_VALUE     = 0x501,
 		GL_INVALID_OPERATION = 0x502,

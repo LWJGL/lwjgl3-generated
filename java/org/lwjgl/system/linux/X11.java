@@ -23,44 +23,44 @@ public class X11 {
 
 	/** Boolean values */
 	public static final int
-		True  = 0x1,
-		False = 0x0;
+		True  = 1,
+		False = 0;
 
 	/** RESERVED RESOURCE AND CONSTANT DEFINITIONS */
 	public static final int
-		None            = 0x0,
-		ParentRelative  = 0x1,
-		CopyFromParent  = 0x0,
-		PointerWindow   = 0x0,
-		InputFocus      = 0x1,
-		PointerRoot     = 0x1,
-		AnyPropertyType = 0x0,
-		AnyKey          = 0x0,
-		AnyButton       = 0x0,
-		AllTemporary    = 0x0,
-		CurrentTime     = 0x0,
-		NoSymbol        = 0x0;
+		None            = 0,
+		ParentRelative  = 1,
+		CopyFromParent  = 0,
+		PointerWindow   = 0,
+		InputFocus      = 1,
+		PointerRoot     = 1,
+		AnyPropertyType = 0,
+		AnyKey          = 0,
+		AnyButton       = 0,
+		AllTemporary    = 0,
+		CurrentTime     = 0,
+		NoSymbol        = 0;
 
 	/** ERROR CODES */
 	public static final int
-		Success           = 0x0,
-		BadRequest        = 0x1,
-		BadValue          = 0x2,
-		BadWindow         = 0x3,
-		BadPixmap         = 0x4,
-		BadAtom           = 0x5,
-		BadCursor         = 0x6,
-		BadFont           = 0x7,
-		BadMatch          = 0x8,
-		BadDrawable       = 0x9,
-		BadAccess         = 0xA,
-		BadAlloc          = 0xB,
-		BadColor          = 0xC,
-		BadGC             = 0xD,
-		BadIDChoice       = 0xE,
-		BadName           = 0xF,
-		BadLength         = 0x10,
-		BadImplementation = 0x11;
+		Success           = 0,
+		BadRequest        = 1,
+		BadValue          = 2,
+		BadWindow         = 3,
+		BadPixmap         = 4,
+		BadAtom           = 5,
+		BadCursor         = 6,
+		BadFont           = 7,
+		BadMatch          = 8,
+		BadDrawable       = 9,
+		BadAccess         = 10,
+		BadAlloc          = 11,
+		BadColor          = 12,
+		BadGC             = 13,
+		BadIDChoice       = 14,
+		BadName           = 15,
+		BadLength         = 16,
+		BadImplementation = 17;
 
 	/** Window attributes for CreateWindow and ChangeWindowAttributes */
 	public static final int
@@ -82,7 +82,7 @@ public class X11 {
 
 	/** Input Event Masks. Used as event-mask window attribute and as arguments to Grab requests. Not to be confused with event names. */
 	public static final int
-		NoEventMask              = 0x0,
+		NoEventMask              = 0,
 		KeyPressMask             = 1 << 0,
 		KeyReleaseMask           = 1 << 1,
 		ButtonPressMask          = 1 << 2,
@@ -114,41 +114,41 @@ public class X11 {
 	 * the protocol for errors and replies.
 	 */
 	public static final int
-		KeyPress         = 0x2,
-		KeyRelease       = 0x3,
-		ButtonPress      = 0x4,
-		ButtonRelease    = 0x5,
-		MotionNotify     = 0x6,
-		EnterNotify      = 0x7,
-		LeaveNotify      = 0x8,
-		FocusIn          = 0x9,
-		FocusOut         = 0xA,
-		KeymapNotify     = 0xB,
-		Expose           = 0xC,
-		GraphicsExpose   = 0xD,
-		NoExpose         = 0xE,
-		VisibilityNotify = 0xF,
-		CreateNotify     = 0x10,
-		DestroyNotify    = 0x11,
-		UnmapNotify      = 0x12,
-		MapNotify        = 0x13,
-		MapRequest       = 0x14,
-		ReparentNotify   = 0x15,
-		ConfigureNotify  = 0x16,
-		ConfigureRequest = 0x17,
-		GravityNotify    = 0x18,
-		ResizeRequest    = 0x19,
-		CirculateNotify  = 0x1A,
-		CirculateRequest = 0x1B,
-		PropertyNotify   = 0x1C,
-		SelectionClear   = 0x1D,
-		SelectionRequest = 0x1E,
-		SelectionNotify  = 0x1F,
-		ColormapNotify   = 0x20,
-		ClientMessage    = 0x21,
-		MappingNotify    = 0x22,
-		GenericEvent     = 0x23,
-		LASTEvent        = 0x24;
+		KeyPress         = 2,
+		KeyRelease       = 3,
+		ButtonPress      = 4,
+		ButtonRelease    = 5,
+		MotionNotify     = 6,
+		EnterNotify      = 7,
+		LeaveNotify      = 8,
+		FocusIn          = 9,
+		FocusOut         = 10,
+		KeymapNotify     = 11,
+		Expose           = 12,
+		GraphicsExpose   = 13,
+		NoExpose         = 14,
+		VisibilityNotify = 15,
+		CreateNotify     = 16,
+		DestroyNotify    = 17,
+		UnmapNotify      = 18,
+		MapNotify        = 19,
+		MapRequest       = 20,
+		ReparentNotify   = 21,
+		ConfigureNotify  = 22,
+		ConfigureRequest = 23,
+		GravityNotify    = 24,
+		ResizeRequest    = 25,
+		CirculateNotify  = 26,
+		CirculateRequest = 27,
+		PropertyNotify   = 28,
+		SelectionClear   = 29,
+		SelectionRequest = 30,
+		SelectionNotify  = 31,
+		ColormapNotify   = 32,
+		ClientMessage    = 33,
+		MappingNotify    = 34,
+		GenericEvent     = 35,
+		LASTEvent        = 36;
 
 	/** Key masks. Used as modifiers to GrabButton and GrabKey, results of QueryPointer, state in various key-, mouse-, and button-related events. */
 	public static final int
@@ -163,14 +163,14 @@ public class X11 {
 
 	/** modifier names. Used to build a SetModifierMapping request or to read a GetModifierMapping request. These correspond to the masks defined above. */
 	public static final int
-		ShiftMapIndex   = 0x0,
-		LockMapIndex    = 0x1,
-		ControlMapIndex = 0x2,
-		Mod1MapIndex    = 0x3,
-		Mod2MapIndex    = 0x4,
-		Mod3MapIndex    = 0x5,
-		Mod4MapIndex    = 0x6,
-		Mod5MapIndex    = 0x7;
+		ShiftMapIndex   = 0,
+		LockMapIndex    = 1,
+		ControlMapIndex = 2,
+		Mod1MapIndex    = 3,
+		Mod2MapIndex    = 4,
+		Mod3MapIndex    = 5,
+		Mod4MapIndex    = 6,
+		Mod5MapIndex    = 7;
 
 	/** button masks. Used in same manner as Key masks above. Not to be confused with button names below. */
 	public static final int
@@ -186,110 +186,110 @@ public class X11 {
 	 * that 0 is already defined above as "AnyButton".
 	 */
 	public static final int
-		Button1 = 0x1,
-		Button2 = 0x2,
-		Button3 = 0x3,
-		Button4 = 0x4,
-		Button5 = 0x5;
+		Button1 = 1,
+		Button2 = 2,
+		Button3 = 3,
+		Button4 = 4,
+		Button5 = 5;
 
 	/** Notify modes */
 	public static final int
-		NotifyNormal       = 0x0,
-		NotifyGrab         = 0x1,
-		NotifyUngrab       = 0x2,
-		NotifyWhileGrabbed = 0x3,
-		NotifyHint         = 0x1;
+		NotifyNormal       = 0,
+		NotifyGrab         = 1,
+		NotifyUngrab       = 2,
+		NotifyWhileGrabbed = 3,
+		NotifyHint         = 1;
 
 	/** Notify detail */
 	public static final int
-		NotifyAncestor         = 0x0,
-		NotifyVirtual          = 0x1,
-		NotifyInferior         = 0x2,
-		NotifyNonlinear        = 0x3,
-		NotifyNonlinearVirtual = 0x4,
-		NotifyPointer          = 0x5,
-		NotifyPointerRoot      = 0x6,
-		NotifyDetailNone       = 0x7;
+		NotifyAncestor         = 0,
+		NotifyVirtual          = 1,
+		NotifyInferior         = 2,
+		NotifyNonlinear        = 3,
+		NotifyNonlinearVirtual = 4,
+		NotifyPointer          = 5,
+		NotifyPointerRoot      = 6,
+		NotifyDetailNone       = 7;
 
 	/** Visibility notify */
 	public static final int
-		VisibilityUnobscured        = 0x0,
-		VisibilityPartiallyObscured = 0x1,
-		VisibilityFullyObscured     = 0x2;
+		VisibilityUnobscured        = 0,
+		VisibilityPartiallyObscured = 1,
+		VisibilityFullyObscured     = 2;
 
 	/** Circulation request */
 	public static final int
-		PlaceOnTop    = 0x0,
-		PlaceOnBottom = 0x1;
+		PlaceOnTop    = 0,
+		PlaceOnBottom = 1;
 
 	/** Property notification */
 	public static final int
-		PropertyNewValue = 0x0,
-		PropertyDelete   = 0x1;
+		PropertyNewValue = 0,
+		PropertyDelete   = 1;
 
 	/** Color Map notification */
 	public static final int
-		ColormapUninstalled = 0x0,
-		ColormapInstalled   = 0x1;
+		ColormapUninstalled = 0,
+		ColormapInstalled   = 1;
 
 	/** GrabPointer, GrabButton, GrabKeyboard, GrabKey Modes */
 	public static final int
-		GrabModeSync  = 0x0,
-		GrabModeAsync = 0x1;
+		GrabModeSync  = 0,
+		GrabModeAsync = 1;
 
 	/** GrabPointer, GrabKeyboard reply status */
 	public static final int
-		GrabSuccess     = 0x0,
-		AlreadyGrabbed  = 0x1,
-		GrabInvalidTime = 0x2,
-		GrabNotViewable = 0x3,
-		GrabFrozen      = 0x4;
+		GrabSuccess     = 0,
+		AlreadyGrabbed  = 1,
+		GrabInvalidTime = 2,
+		GrabNotViewable = 3,
+		GrabFrozen      = 4;
 
 	/** AllowEvents modes */
 	public static final int
-		AsyncPointer   = 0x0,
-		SyncPointer    = 0x1,
-		ReplayPointer  = 0x2,
-		AsyncKeyboard  = 0x3,
-		SyncKeyboard   = 0x4,
-		ReplayKeyboard = 0x5,
-		AsyncBoth      = 0x6,
-		SyncBoth       = 0x7;
+		AsyncPointer   = 0,
+		SyncPointer    = 1,
+		ReplayPointer  = 2,
+		AsyncKeyboard  = 3,
+		SyncKeyboard   = 4,
+		ReplayKeyboard = 5,
+		AsyncBoth      = 6,
+		SyncBoth       = 7;
 
 	/** For {@link #XCreateColormap}. */
 	public static final int
-		AllocNone = 0x0,
-		AllocAll  = 0x1;
+		AllocNone = 0,
+		AllocAll  = 1;
 
 	/** Used in XSetInputFocus(), XGetInputFocus(). */
 	public static final int
 		RevertToNone        = None,
 		RevertToPointerRoot = PointerRoot,
-		RevertToParent      = 0x2;
+		RevertToParent      = 2;
 
 	/** Window classes used by {@link #XCreateWindow}. */
 	public static final int
-		InputOutput = 0x1,
-		InputOnly   = 0x2;
+		InputOutput = 1,
+		InputOnly   = 2;
 
 	/** SCREEN SAVER STUFF */
 	public static final int
-		DontPreferBlanking    = 0x0,
-		PreferBlanking        = 0x1,
-		DefaultBlanking       = 0x2,
-		DisableScreenSaver    = 0x0,
-		DisableScreenInterval = 0x0,
-		DontAllowExposures    = 0x0,
-		AllowExposures        = 0x1,
-		DefaultExposures      = 0x2,
-		ScreenSaverReset      = 0x0,
-		ScreenSaverActive     = 0x1;
+		DontPreferBlanking    = 0,
+		PreferBlanking        = 1,
+		DefaultBlanking       = 2,
+		DisableScreenSaver    = 0,
+		DisableScreenInterval = 0,
+		DontAllowExposures    = 0,
+		AllowExposures        = 1,
+		DefaultExposures      = 2,
+		ScreenSaverReset      = 0,
+		ScreenSaverActive     = 1;
 
 	/** Property modes */
 	public static final int
-		PropModeReplace = 0x0,
-		PropModePrepend = 0x1,
-		PropModeAppend  = 0x2;
+		PropModeReplace = 0,
+		PropModePrepend = 1,
+		PropModeAppend  = 2;
 
 	/** graphics functions, as in GC.alu */
 	public static final int
@@ -312,62 +312,62 @@ public class X11 {
 
 	/** LineStyle */
 	public static final int
-		LineSolid      = 0x0,
-		LineOnOffDash  = 0x1,
-		LineDoubleDash = 0x2;
+		LineSolid      = 0,
+		LineOnOffDash  = 1,
+		LineDoubleDash = 2;
 
 	/** capStyle */
 	public static final int
-		CapNotLast    = 0x0,
-		CapButt       = 0x1,
-		CapRound      = 0x2,
-		CapProjecting = 0x3;
+		CapNotLast    = 0,
+		CapButt       = 1,
+		CapRound      = 2,
+		CapProjecting = 3;
 
 	/** joinStyle */
 	public static final int
-		JoinMiter = 0x0,
-		JoinRound = 0x1,
-		JoinBevel = 0x2;
+		JoinMiter = 0,
+		JoinRound = 1,
+		JoinBevel = 2;
 
 	/** fillStyle */
 	public static final int
-		FillSolid          = 0x0,
-		FillTiled          = 0x1,
-		FillStippled       = 0x2,
-		FillOpaqueStippled = 0x3;
+		FillSolid          = 0,
+		FillTiled          = 1,
+		FillStippled       = 2,
+		FillOpaqueStippled = 3;
 
 	/** fillRule */
 	public static final int
-		EvenOddRule = 0x0,
-		WindingRule = 0x1;
+		EvenOddRule = 0,
+		WindingRule = 1;
 
 	/** subwindow mode */
 	public static final int
-		ClipByChildren   = 0x0,
-		IncludeInferiors = 0x1;
+		ClipByChildren   = 0,
+		IncludeInferiors = 1;
 
 	/** SetClipRectangles ordering */
 	public static final int
-		Unsorted = 0x0,
-		YSorted  = 0x1,
-		YXSorted = 0x2,
-		YXBanded = 0x3;
+		Unsorted = 0,
+		YSorted  = 1,
+		YXSorted = 2,
+		YXBanded = 3;
 
 	/** CoordinateMode for drawing routines */
 	public static final int
-		CoordModeOrigin   = 0x0,
-		CoordModePrevious = 0x1;
+		CoordModeOrigin   = 0,
+		CoordModePrevious = 1;
 
 	/** Polygon shapes */
 	public static final int
-		Complex   = 0x0,
-		Nonconvex = 0x1,
-		Convex    = 0x2;
+		Complex   = 0,
+		Nonconvex = 1,
+		Convex    = 2;
 
 	/** Arc modes for PolyFillArc */
 	public static final int
-		ArcChord    = 0x0,
-		ArcPieSlice = 0x1;
+		ArcChord    = 0,
+		ArcPieSlice = 1;
 
 	/** GC components: masks used in CreateGC, CopyGC, ChangeGC, OR'ed into GC.stateChanges */
 	public static final int
@@ -394,7 +394,7 @@ public class X11 {
 		GCDashOffset        = 1<<20,
 		GCDashList          = 1<<21,
 		GCArcMode           = 1<<22,
-		GCLastBit           = 0x16;
+		GCLastBit           = 22;
 
 	protected X11() {
 		throw new UnsupportedOperationException();

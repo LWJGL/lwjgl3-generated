@@ -18,7 +18,7 @@ import static org.lwjgl.system.Pointer.*;
 public class APPLEGLSharing {
 
 	/** Error code returned by {@link #clGetGLContextInfoAPPLE GetGLContextInfoAPPLE} if an invalid {@code platform_gl_ctx} is provided. */
-	public static final int CL_INVALID_GL_CONTEXT_APPLE = 0xFFFFFC18;
+	public static final int CL_INVALID_GL_CONTEXT_APPLE = -1000;
 
 	/**
 	 * This enumerated value can be specified as part of the {@code properties} argument passed to {@link CL10#clCreateContext CreateContext} to allow OpenCL compliant

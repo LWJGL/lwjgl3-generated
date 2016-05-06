@@ -17,7 +17,7 @@ public final class GLXNVMultisampleCoverage {
 	 * {@code attrib_list} parameter of glXChooseFBConfig, and the {@code attribute} parameter of glXGetFBConfigAttrib.
 	 */
 	public static final int
-		GLX_COVERAGE_SAMPLES_NV = 0x186A1,
+		GLX_COVERAGE_SAMPLES_NV = 100001,
 		GLX_COLOR_SAMPLES_NV    = 0x20B3;
 
 	private GLXNVMultisampleCoverage() {}

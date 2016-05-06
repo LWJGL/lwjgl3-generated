@@ -28,7 +28,7 @@ public class ANDROIDNativeFenceSync {
 		EGL_SYNC_NATIVE_FENCE_ANDROID          = 0x3144,
 		EGL_SYNC_NATIVE_FENCE_FD_ANDROID       = 0x3145,
 		EGL_SYNC_NATIVE_FENCE_SIGNALED_ANDROID = 0x3146,
-		EGL_NO_NATIVE_FENCE_FD_ANDROID         = 0xFFFFFFFF;
+		EGL_NO_NATIVE_FENCE_FD_ANDROID         = -1;
 
 	protected ANDROIDNativeFenceSync() {
 		throw new UnsupportedOperationException();

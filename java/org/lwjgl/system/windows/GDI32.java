@@ -71,16 +71,16 @@ public class GDI32 {
 
 	/** {@link DEVMODE} {@code dmDisplayOrientation} specifications. */
 	public static final int
-		DMDO_DEFAULT = 0x0,
-		DMDO_90      = 0x1,
-		DMDO_180     = 0x2,
-		DMDO_270     = 0x3;
+		DMDO_DEFAULT = 0,
+		DMDO_90      = 1,
+		DMDO_180     = 2,
+		DMDO_270     = 3;
 
 	/** {@link DEVMODE} {@code dmDisplayFixedOutput} specifications. */
 	public static final int
-		DMDFO_DEFAULT = 0x0,
-		DMDFO_STRETCH = 0x1,
-		DMDFO_CENTER  = 0x2;
+		DMDFO_DEFAULT = 0,
+		DMDFO_STRETCH = 1,
+		DMDFO_CENTER  = 2;
 
 	/** {@link DEVMODE} {@code dmDisplayFlags} flags. */
 	public static final int

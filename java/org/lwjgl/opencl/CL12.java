@@ -32,7 +32,7 @@ public class CL12 {
 		CL_INVALID_DEVICE_PARTITION_COUNT = -68;
 
 	/** OpenCL Version. */
-	public static final int CL_VERSION_1_2 = 0x1;
+	public static final int CL_VERSION_1_2 = 1;
 
 	/** cl_bool */
 	public static final int
@@ -182,7 +182,7 @@ public class CL12 {
 
 	/** cl_kernel_arg_type_qualifier */
 	public static final int
-		CL_KERNEL_ARG_TYPE_NONE     = 0x0,
+		CL_KERNEL_ARG_TYPE_NONE     = 0,
 		CL_KERNEL_ARG_TYPE_CONST    = 1 << 0,
 		CL_KERNEL_ARG_TYPE_RESTRICT = 1 << 1,
 		CL_KERNEL_ARG_TYPE_VOLATILE = 1 << 2;

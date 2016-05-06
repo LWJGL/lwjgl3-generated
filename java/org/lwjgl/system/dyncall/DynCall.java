@@ -30,51 +30,51 @@ public class DynCall {
 
 	/** Supported calling convention modes. */
 	public static final int
-		DC_CALL_C_DEFAULT            = 0x0,
-		DC_CALL_C_ELLIPSIS           = 0x64,
-		DC_CALL_C_ELLIPSIS_VARARGS   = 0x65,
-		DC_CALL_C_X86_CDECL          = 0x1,
-		DC_CALL_C_X86_WIN32_STD      = 0x2,
-		DC_CALL_C_X86_WIN32_FAST_MS  = 0x3,
-		DC_CALL_C_X86_WIN32_FAST_GNU = 0x4,
-		DC_CALL_C_X86_WIN32_THIS_MS  = 0x5,
-		DC_CALL_C_X86_WIN32_THIS_GNU = 0x6,
-		DC_CALL_C_X64_WIN64          = 0x7,
-		DC_CALL_C_X64_SYSV           = 0x8,
-		DC_CALL_C_PPC32_DARWIN       = 0x9,
+		DC_CALL_C_DEFAULT            = 0,
+		DC_CALL_C_ELLIPSIS           = 100,
+		DC_CALL_C_ELLIPSIS_VARARGS   = 101,
+		DC_CALL_C_X86_CDECL          = 1,
+		DC_CALL_C_X86_WIN32_STD      = 2,
+		DC_CALL_C_X86_WIN32_FAST_MS  = 3,
+		DC_CALL_C_X86_WIN32_FAST_GNU = 4,
+		DC_CALL_C_X86_WIN32_THIS_MS  = 5,
+		DC_CALL_C_X86_WIN32_THIS_GNU = 6,
+		DC_CALL_C_X64_WIN64          = 7,
+		DC_CALL_C_X64_SYSV           = 8,
+		DC_CALL_C_PPC32_DARWIN       = 9,
 		DC_CALL_C_PPC32_OSX          = DC_CALL_C_PPC32_DARWIN,
-		DC_CALL_C_ARM_ARM_EABI       = 0xA,
-		DC_CALL_C_ARM_THUMB_EABI     = 0xB,
-		DC_CALL_C_ARM_ARMHF          = 0x1E,
-		DC_CALL_C_MIPS32_EABI        = 0xC,
-		DC_CALL_C_PPC32_SYSV         = 0xD,
+		DC_CALL_C_ARM_ARM_EABI       = 10,
+		DC_CALL_C_ARM_THUMB_EABI     = 11,
+		DC_CALL_C_ARM_ARMHF          = 30,
+		DC_CALL_C_MIPS32_EABI        = 12,
+		DC_CALL_C_PPC32_SYSV         = 13,
 		DC_CALL_C_PPC32_LINUX        = DC_CALL_C_PPC32_SYSV,
-		DC_CALL_C_ARM_ARM            = 0xE,
-		DC_CALL_C_ARM_THUMB          = 0xF,
-		DC_CALL_C_MIPS32_O32         = 0x10,
-		DC_CALL_C_MIPS64_N32         = 0x11,
-		DC_CALL_C_MIPS64_N64         = 0x12,
-		DC_CALL_C_X86_PLAN9          = 0x13,
-		DC_CALL_C_SPARC32            = 0x14,
-		DC_CALL_C_SPARC64            = 0x15,
-		DC_CALL_C_ARM64              = 0x16,
-		DC_CALL_C_PPC64              = 0x17,
+		DC_CALL_C_ARM_ARM            = 14,
+		DC_CALL_C_ARM_THUMB          = 15,
+		DC_CALL_C_MIPS32_O32         = 16,
+		DC_CALL_C_MIPS64_N32         = 17,
+		DC_CALL_C_MIPS64_N64         = 18,
+		DC_CALL_C_X86_PLAN9          = 19,
+		DC_CALL_C_SPARC32            = 20,
+		DC_CALL_C_SPARC64            = 21,
+		DC_CALL_C_ARM64              = 22,
+		DC_CALL_C_PPC64              = 23,
 		DC_CALL_C_PPC64_LINUX        = DC_CALL_C_PPC64,
-		DC_CALL_SYS_DEFAULT          = 0xC8,
-		DC_CALL_SYS_X86_INT80H_LINUX = 0xC9,
-		DC_CALL_SYS_X86_INT80H_BSD   = 0xCA,
-		DC_CALL_SYS_PPC32            = 0xD2,
-		DC_CALL_SYS_PPC64            = 0xD3;
+		DC_CALL_SYS_DEFAULT          = 200,
+		DC_CALL_SYS_X86_INT80H_LINUX = 201,
+		DC_CALL_SYS_X86_INT80H_BSD   = 202,
+		DC_CALL_SYS_PPC32            = 210,
+		DC_CALL_SYS_PPC64            = 211;
 
 	/** Error codes. */
 	public static final int
-		DC_ERROR_NONE             = 0x0,
+		DC_ERROR_NONE             = 0,
 		DC_ERROR_UNSUPPORTED_MODE = -1;
 
 	/** Boolean values. */
 	public static final int
-		DC_TRUE  = 0x1,
-		DC_FALSE = 0x0;
+		DC_TRUE  = 1,
+		DC_FALSE = 0;
 
 	/** Signatures. */
 	public static final char

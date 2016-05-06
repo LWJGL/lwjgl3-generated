@@ -16,8 +16,8 @@ public final class GLXARBMultisample {
 
 	/** Accepted by the {@code attribList} parameter of {@link GLX#glXChooseVisual ChooseVisual}, and by the {@code attrib} parameter of {@link GLX#glXGetConfig GetConfig}. */
 	public static final int
-		GLX_SAMPLE_BUFFERS_ARB = 0x186A0,
-		GLX_SAMPLES_ARB        = 0x186A1;
+		GLX_SAMPLE_BUFFERS_ARB = 100000,
+		GLX_SAMPLES_ARB        = 100001;
 
 	private GLXARBMultisample() {}
 

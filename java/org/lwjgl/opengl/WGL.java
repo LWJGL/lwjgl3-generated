@@ -22,8 +22,8 @@ public class WGL {
 
 	/** UseFontOutlines format. */
 	public static final int
-		WGL_FONT_LINES    = 0x0,
-		WGL_FONT_POLYGONS = 0x1;
+		WGL_FONT_LINES    = 0,
+		WGL_FONT_POLYGONS = 1;
 
 	/** SwapLayerBuffers flags. */
 	public static final int

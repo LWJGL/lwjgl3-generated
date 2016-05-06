@@ -373,14 +373,14 @@ public class EXTEfx {
 
 	/** Chorus effect parameter ranges and defaults */
 	public static final int
-		AL_CHORUS_WAVEFORM_SINUSOID = 0x0,
-		AL_CHORUS_WAVEFORM_TRIANGLE = 0x1,
-		AL_CHORUS_MIN_WAVEFORM      = 0x0,
-		AL_CHORUS_MAX_WAVEFORM      = 0x1,
-		AL_CHORUS_DEFAULT_WAVEFORM  = 0x1,
-		AL_CHORUS_MIN_PHASE         = 0xFFFFFF4C,
-		AL_CHORUS_MAX_PHASE         = 0xB4,
-		AL_CHORUS_DEFAULT_PHASE     = 0x5A;
+		AL_CHORUS_WAVEFORM_SINUSOID = 0,
+		AL_CHORUS_WAVEFORM_TRIANGLE = 1,
+		AL_CHORUS_MIN_WAVEFORM      = 0,
+		AL_CHORUS_MAX_WAVEFORM      = 1,
+		AL_CHORUS_DEFAULT_WAVEFORM  = 1,
+		AL_CHORUS_MIN_PHASE         = -180,
+		AL_CHORUS_MAX_PHASE         = 180,
+		AL_CHORUS_DEFAULT_PHASE     = 90;
 
 	/** Chorus effect parameter ranges and defaults */
 	public static final float
@@ -435,14 +435,14 @@ public class EXTEfx {
 
 	/** Flanger effect parameter ranges and defaults */
 	public static final int
-		AL_FLANGER_WAVEFORM_SINUSOID = 0x0,
-		AL_FLANGER_WAVEFORM_TRIANGLE = 0x1,
-		AL_FLANGER_MIN_WAVEFORM      = 0x0,
-		AL_FLANGER_MAX_WAVEFORM      = 0x1,
-		AL_FLANGER_DEFAULT_WAVEFORM  = 0x1,
-		AL_FLANGER_MIN_PHASE         = 0xFFFFFF4C,
-		AL_FLANGER_MAX_PHASE         = 0xB4,
-		AL_FLANGER_DEFAULT_PHASE     = 0x0;
+		AL_FLANGER_WAVEFORM_SINUSOID = 0,
+		AL_FLANGER_WAVEFORM_TRIANGLE = 1,
+		AL_FLANGER_MIN_WAVEFORM      = 0,
+		AL_FLANGER_MAX_WAVEFORM      = 1,
+		AL_FLANGER_DEFAULT_WAVEFORM  = 1,
+		AL_FLANGER_MIN_PHASE         = -180,
+		AL_FLANGER_MAX_PHASE         = 180,
+		AL_FLANGER_DEFAULT_PHASE     = 0;
 
 	/** Flanger effect parameter ranges and defaults */
 	public static final float
@@ -467,66 +467,66 @@ public class EXTEfx {
 
 	/** Frequency shifter effect parameter ranges and defaults */
 	public static final int
-		AL_FREQUENCY_SHIFTER_MIN_LEFT_DIRECTION      = 0x0,
-		AL_FREQUENCY_SHIFTER_MAX_LEFT_DIRECTION      = 0x2,
-		AL_FREQUENCY_SHIFTER_DEFAULT_LEFT_DIRECTION  = 0x0,
-		AL_FREQUENCY_SHIFTER_DIRECTION_DOWN          = 0x0,
-		AL_FREQUENCY_SHIFTER_DIRECTION_UP            = 0x1,
-		AL_FREQUENCY_SHIFTER_DIRECTION_OFF           = 0x2,
-		AL_FREQUENCY_SHIFTER_MIN_RIGHT_DIRECTION     = 0x0,
-		AL_FREQUENCY_SHIFTER_MAX_RIGHT_DIRECTION     = 0x2,
-		AL_FREQUENCY_SHIFTER_DEFAULT_RIGHT_DIRECTION = 0x0;
+		AL_FREQUENCY_SHIFTER_MIN_LEFT_DIRECTION      = 0,
+		AL_FREQUENCY_SHIFTER_MAX_LEFT_DIRECTION      = 2,
+		AL_FREQUENCY_SHIFTER_DEFAULT_LEFT_DIRECTION  = 0,
+		AL_FREQUENCY_SHIFTER_DIRECTION_DOWN          = 0,
+		AL_FREQUENCY_SHIFTER_DIRECTION_UP            = 1,
+		AL_FREQUENCY_SHIFTER_DIRECTION_OFF           = 2,
+		AL_FREQUENCY_SHIFTER_MIN_RIGHT_DIRECTION     = 0,
+		AL_FREQUENCY_SHIFTER_MAX_RIGHT_DIRECTION     = 2,
+		AL_FREQUENCY_SHIFTER_DEFAULT_RIGHT_DIRECTION = 0;
 
 	/** Vocal morpher effect parameter ranges and defaults */
 	public static final int
-		AL_VOCAL_MORPHER_MIN_PHONEMEA                   = 0x0,
-		AL_VOCAL_MORPHER_MAX_PHONEMEA                   = 0x1D,
-		AL_VOCAL_MORPHER_DEFAULT_PHONEMEA               = 0x0,
-		AL_VOCAL_MORPHER_MIN_PHONEMEA_COARSE_TUNING     = 0xFFFFFFE8,
-		AL_VOCAL_MORPHER_MAX_PHONEMEA_COARSE_TUNING     = 0x18,
-		AL_VOCAL_MORPHER_DEFAULT_PHONEMEA_COARSE_TUNING = 0x0,
-		AL_VOCAL_MORPHER_MIN_PHONEMEB                   = 0x0,
-		AL_VOCAL_MORPHER_MAX_PHONEMEB                   = 0x1D,
-		AL_VOCAL_MORPHER_DEFAULT_PHONEMEB               = 0xA,
-		AL_VOCAL_MORPHER_MIN_PHONEMEB_COARSE_TUNING     = 0xFFFFFFE8,
-		AL_VOCAL_MORPHER_MAX_PHONEMEB_COARSE_TUNING     = 0x18,
-		AL_VOCAL_MORPHER_DEFAULT_PHONEMEB_COARSE_TUNING = 0x0,
-		AL_VOCAL_MORPHER_PHONEME_A                      = 0x0,
-		AL_VOCAL_MORPHER_PHONEME_E                      = 0x1,
-		AL_VOCAL_MORPHER_PHONEME_I                      = 0x2,
-		AL_VOCAL_MORPHER_PHONEME_O                      = 0x3,
-		AL_VOCAL_MORPHER_PHONEME_U                      = 0x4,
-		AL_VOCAL_MORPHER_PHONEME_AA                     = 0x5,
-		AL_VOCAL_MORPHER_PHONEME_AE                     = 0x6,
-		AL_VOCAL_MORPHER_PHONEME_AH                     = 0x7,
-		AL_VOCAL_MORPHER_PHONEME_AO                     = 0x8,
-		AL_VOCAL_MORPHER_PHONEME_EH                     = 0x9,
-		AL_VOCAL_MORPHER_PHONEME_ER                     = 0xA,
-		AL_VOCAL_MORPHER_PHONEME_IH                     = 0xB,
-		AL_VOCAL_MORPHER_PHONEME_IY                     = 0xC,
-		AL_VOCAL_MORPHER_PHONEME_UH                     = 0xD,
-		AL_VOCAL_MORPHER_PHONEME_UW                     = 0xE,
-		AL_VOCAL_MORPHER_PHONEME_B                      = 0xF,
-		AL_VOCAL_MORPHER_PHONEME_D                      = 0x10,
-		AL_VOCAL_MORPHER_PHONEME_F                      = 0x11,
-		AL_VOCAL_MORPHER_PHONEME_G                      = 0x12,
-		AL_VOCAL_MORPHER_PHONEME_J                      = 0x13,
-		AL_VOCAL_MORPHER_PHONEME_K                      = 0x14,
-		AL_VOCAL_MORPHER_PHONEME_L                      = 0x15,
-		AL_VOCAL_MORPHER_PHONEME_M                      = 0x16,
-		AL_VOCAL_MORPHER_PHONEME_N                      = 0x17,
-		AL_VOCAL_MORPHER_PHONEME_P                      = 0x18,
-		AL_VOCAL_MORPHER_PHONEME_R                      = 0x19,
-		AL_VOCAL_MORPHER_PHONEME_S                      = 0x1A,
-		AL_VOCAL_MORPHER_PHONEME_T                      = 0x1B,
-		AL_VOCAL_MORPHER_PHONEME_V                      = 0x1C,
-		AL_VOCAL_MORPHER_PHONEME_Z                      = 0x1D,
-		AL_VOCAL_MORPHER_WAVEFORM_SINUSOID              = 0x0,
-		AL_VOCAL_MORPHER_WAVEFORM_TRIANGLE              = 0x1,
-		AL_VOCAL_MORPHER_WAVEFORM_SAWTOOTH              = 0x2,
-		AL_VOCAL_MORPHER_MIN_WAVEFORM                   = 0x0,
-		AL_VOCAL_MORPHER_MAX_WAVEFORM                   = 0x2,
-		AL_VOCAL_MORPHER_DEFAULT_WAVEFORM               = 0x0;
+		AL_VOCAL_MORPHER_MIN_PHONEMEA                   = 0,
+		AL_VOCAL_MORPHER_MAX_PHONEMEA                   = 29,
+		AL_VOCAL_MORPHER_DEFAULT_PHONEMEA               = 0,
+		AL_VOCAL_MORPHER_MIN_PHONEMEA_COARSE_TUNING     = -24,
+		AL_VOCAL_MORPHER_MAX_PHONEMEA_COARSE_TUNING     = 24,
+		AL_VOCAL_MORPHER_DEFAULT_PHONEMEA_COARSE_TUNING = 0,
+		AL_VOCAL_MORPHER_MIN_PHONEMEB                   = 0,
+		AL_VOCAL_MORPHER_MAX_PHONEMEB                   = 29,
+		AL_VOCAL_MORPHER_DEFAULT_PHONEMEB               = 10,
+		AL_VOCAL_MORPHER_MIN_PHONEMEB_COARSE_TUNING     = -24,
+		AL_VOCAL_MORPHER_MAX_PHONEMEB_COARSE_TUNING     = 24,
+		AL_VOCAL_MORPHER_DEFAULT_PHONEMEB_COARSE_TUNING = 0,
+		AL_VOCAL_MORPHER_PHONEME_A                      = 0,
+		AL_VOCAL_MORPHER_PHONEME_E                      = 1,
+		AL_VOCAL_MORPHER_PHONEME_I                      = 2,
+		AL_VOCAL_MORPHER_PHONEME_O                      = 3,
+		AL_VOCAL_MORPHER_PHONEME_U                      = 4,
+		AL_VOCAL_MORPHER_PHONEME_AA                     = 5,
+		AL_VOCAL_MORPHER_PHONEME_AE                     = 6,
+		AL_VOCAL_MORPHER_PHONEME_AH                     = 7,
+		AL_VOCAL_MORPHER_PHONEME_AO                     = 8,
+		AL_VOCAL_MORPHER_PHONEME_EH                     = 9,
+		AL_VOCAL_MORPHER_PHONEME_ER                     = 10,
+		AL_VOCAL_MORPHER_PHONEME_IH                     = 11,
+		AL_VOCAL_MORPHER_PHONEME_IY                     = 12,
+		AL_VOCAL_MORPHER_PHONEME_UH                     = 13,
+		AL_VOCAL_MORPHER_PHONEME_UW                     = 14,
+		AL_VOCAL_MORPHER_PHONEME_B                      = 15,
+		AL_VOCAL_MORPHER_PHONEME_D                      = 16,
+		AL_VOCAL_MORPHER_PHONEME_F                      = 17,
+		AL_VOCAL_MORPHER_PHONEME_G                      = 18,
+		AL_VOCAL_MORPHER_PHONEME_J                      = 19,
+		AL_VOCAL_MORPHER_PHONEME_K                      = 20,
+		AL_VOCAL_MORPHER_PHONEME_L                      = 21,
+		AL_VOCAL_MORPHER_PHONEME_M                      = 22,
+		AL_VOCAL_MORPHER_PHONEME_N                      = 23,
+		AL_VOCAL_MORPHER_PHONEME_P                      = 24,
+		AL_VOCAL_MORPHER_PHONEME_R                      = 25,
+		AL_VOCAL_MORPHER_PHONEME_S                      = 26,
+		AL_VOCAL_MORPHER_PHONEME_T                      = 27,
+		AL_VOCAL_MORPHER_PHONEME_V                      = 28,
+		AL_VOCAL_MORPHER_PHONEME_Z                      = 29,
+		AL_VOCAL_MORPHER_WAVEFORM_SINUSOID              = 0,
+		AL_VOCAL_MORPHER_WAVEFORM_TRIANGLE              = 1,
+		AL_VOCAL_MORPHER_WAVEFORM_SAWTOOTH              = 2,
+		AL_VOCAL_MORPHER_MIN_WAVEFORM                   = 0,
+		AL_VOCAL_MORPHER_MAX_WAVEFORM                   = 2,
+		AL_VOCAL_MORPHER_DEFAULT_WAVEFORM               = 0;
 
 	/** Vocal morpher effect parameter ranges and defaults */
 	public static final float
@@ -536,12 +536,12 @@ public class EXTEfx {
 
 	/** Pitch shifter effect parameter ranges and defaults */
 	public static final int
-		AL_PITCH_SHIFTER_MIN_COARSE_TUNE     = 0xFFFFFFF4,
-		AL_PITCH_SHIFTER_MAX_COARSE_TUNE     = 0xC,
-		AL_PITCH_SHIFTER_DEFAULT_COARSE_TUNE = 0xC,
-		AL_PITCH_SHIFTER_MIN_FINE_TUNE       = 0xFFFFFFCE,
-		AL_PITCH_SHIFTER_MAX_FINE_TUNE       = 0x32,
-		AL_PITCH_SHIFTER_DEFAULT_FINE_TUNE   = 0x0;
+		AL_PITCH_SHIFTER_MIN_COARSE_TUNE     = -12,
+		AL_PITCH_SHIFTER_MAX_COARSE_TUNE     = 12,
+		AL_PITCH_SHIFTER_DEFAULT_COARSE_TUNE = 12,
+		AL_PITCH_SHIFTER_MIN_FINE_TUNE       = -50,
+		AL_PITCH_SHIFTER_MAX_FINE_TUNE       = 50,
+		AL_PITCH_SHIFTER_DEFAULT_FINE_TUNE   = 0;
 
 	/** Ring modulator effect parameter ranges and defaults */
 	public static final float
@@ -554,12 +554,12 @@ public class EXTEfx {
 
 	/** Ring modulator effect parameter ranges and defaults */
 	public static final int
-		AL_RING_MODULATOR_SINUSOID         = 0x0,
-		AL_RING_MODULATOR_SAWTOOTH         = 0x1,
-		AL_RING_MODULATOR_SQUARE           = 0x2,
-		AL_RING_MODULATOR_MIN_WAVEFORM     = 0x0,
-		AL_RING_MODULATOR_MAX_WAVEFORM     = 0x2,
-		AL_RING_MODULATOR_DEFAULT_WAVEFORM = 0x0;
+		AL_RING_MODULATOR_SINUSOID         = 0,
+		AL_RING_MODULATOR_SAWTOOTH         = 1,
+		AL_RING_MODULATOR_SQUARE           = 2,
+		AL_RING_MODULATOR_MIN_WAVEFORM     = 0,
+		AL_RING_MODULATOR_MAX_WAVEFORM     = 2,
+		AL_RING_MODULATOR_DEFAULT_WAVEFORM = 0;
 
 	/** Autowah effect parameter ranges and defaults */
 	public static final float
@@ -578,9 +578,9 @@ public class EXTEfx {
 
 	/** Compressor effect parameter ranges and defaults */
 	public static final int
-		AL_COMPRESSOR_MIN_ONOFF     = 0x0,
-		AL_COMPRESSOR_MAX_ONOFF     = 0x1,
-		AL_COMPRESSOR_DEFAULT_ONOFF = 0x1;
+		AL_COMPRESSOR_MIN_ONOFF     = 0,
+		AL_COMPRESSOR_MAX_ONOFF     = 1,
+		AL_COMPRESSOR_DEFAULT_ONOFF = 1;
 
 	/** Equalizer effect parameter ranges and defaults */
 	public static final float

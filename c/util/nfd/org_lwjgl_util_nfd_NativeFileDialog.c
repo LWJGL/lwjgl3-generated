@@ -9,6 +9,9 @@
 #include "common_tools.h"
 #include "nfd_common.h"
 #include "nfd.h"
+#ifdef LWJGL_WINDOWS
+	__pragma(warning(disable : 4711))
+#endif
 
 EXTERN_C_ENTER
 

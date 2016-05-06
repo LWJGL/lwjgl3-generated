@@ -23,7 +23,7 @@ public final class GLXARBCreateContextProfile {
 		GLX_CONTEXT_COMPATIBILITY_PROFILE_BIT_ARB = 0x2;
 
 	/** GLX error. */
-	public static final int GLXBadProfileARB = 0xD;
+	public static final int GLXBadProfileARB = 13;
 
 	private GLXARBCreateContextProfile() {}
 

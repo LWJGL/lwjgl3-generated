@@ -88,11 +88,11 @@ public class ObjCRuntime {
 
 	/** Policies related to associative references. */
 	public static final int
-		OBJC_ASSOCIATION_ASSIGN           = 0x0,
-		OBJC_ASSOCIATION_RETAIN_NONATOMIC = 0x1,
-		OBJC_ASSOCIATION_COPY_NONATOMIC   = 0x3,
-		OBJC_ASSOCIATION_RETAIN           = 0x579,
-		OBJC_ASSOCIATION_COPY             = 0x57B;
+		OBJC_ASSOCIATION_ASSIGN           = 0,
+		OBJC_ASSOCIATION_RETAIN_NONATOMIC = 1,
+		OBJC_ASSOCIATION_COPY_NONATOMIC   = 3,
+		OBJC_ASSOCIATION_RETAIN           = 1401,
+		OBJC_ASSOCIATION_COPY             = 1403;
 
 	static { Library.initialize(); }
 

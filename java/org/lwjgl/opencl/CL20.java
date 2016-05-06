@@ -18,7 +18,7 @@ import static org.lwjgl.system.Pointer.*;
 public class CL20 {
 
 	/** OpenCL Version. */
-	public static final int CL_VERSION_2_0 = 0x1;
+	public static final int CL_VERSION_2_0 = 1;
 
 	/** Error Codes */
 	public static final int

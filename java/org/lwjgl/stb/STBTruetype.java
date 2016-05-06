@@ -230,44 +230,44 @@ public class STBTruetype {
 
 	/** Style flags, use in {@link #stbtt_FindMatchingFont FindMatchingFont}. */
 	public static final int
-		STBTT_MACSTYLE_DONTCARE   = 0x0,
-		STBTT_MACSTYLE_BOLD       = 0x1,
-		STBTT_MACSTYLE_ITALIC     = 0x2,
-		STBTT_MACSTYLE_UNDERSCORE = 0x4,
-		STBTT_MACSTYLE_NONE       = 0x8;
+		STBTT_MACSTYLE_DONTCARE   = 0,
+		STBTT_MACSTYLE_BOLD       = 1,
+		STBTT_MACSTYLE_ITALIC     = 2,
+		STBTT_MACSTYLE_UNDERSCORE = 4,
+		STBTT_MACSTYLE_NONE       = 8;
 
 	/** Platform IDs. */
 	public static final int
-		STBTT_PLATFORM_ID_UNICODE   = 0x0,
-		STBTT_PLATFORM_ID_MAC       = 0x1,
-		STBTT_PLATFORM_ID_ISO       = 0x2,
-		STBTT_PLATFORM_ID_MICROSOFT = 0x3;
+		STBTT_PLATFORM_ID_UNICODE   = 0,
+		STBTT_PLATFORM_ID_MAC       = 1,
+		STBTT_PLATFORM_ID_ISO       = 2,
+		STBTT_PLATFORM_ID_MICROSOFT = 3;
 
 	/** Encoding IDs for {@link #STBTT_PLATFORM_ID_UNICODE PLATFORM_ID_UNICODE}. */
 	public static final int
-		STBTT_UNICODE_EID_UNICODE_1_0      = 0x0,
-		STBTT_UNICODE_EID_UNICODE_1_1      = 0x1,
-		STBTT_UNICODE_EID_ISO_10646        = 0x2,
-		STBTT_UNICODE_EID_UNICODE_2_0_BMP  = 0x3,
-		STBTT_UNICODE_EID_UNICODE_2_0_FULL = 0x4;
+		STBTT_UNICODE_EID_UNICODE_1_0      = 0,
+		STBTT_UNICODE_EID_UNICODE_1_1      = 1,
+		STBTT_UNICODE_EID_ISO_10646        = 2,
+		STBTT_UNICODE_EID_UNICODE_2_0_BMP  = 3,
+		STBTT_UNICODE_EID_UNICODE_2_0_FULL = 4;
 
 	/** Encoding IDs for {@link #STBTT_PLATFORM_ID_MICROSOFT PLATFORM_ID_MICROSOFT}. */
 	public static final int
-		STBTT_MS_EID_SYMBOL       = 0x0,
-		STBTT_MS_EID_UNICODE_BMP  = 0x1,
-		STBTT_MS_EID_SHIFTJIS     = 0x2,
-		STBTT_MS_EID_UNICODE_FULL = 0xA;
+		STBTT_MS_EID_SYMBOL       = 0,
+		STBTT_MS_EID_UNICODE_BMP  = 1,
+		STBTT_MS_EID_SHIFTJIS     = 2,
+		STBTT_MS_EID_UNICODE_FULL = 10;
 
 	/** Encoding IDs for {@link #STBTT_PLATFORM_ID_MAC PLATFORM_ID_MAC}. */
 	public static final int
-		STBTT_MAC_EID_ROMAN        = 0x0,
-		STBTT_MAC_EID_JAPANESE     = 0x1,
-		STBTT_MAC_EID_CHINESE_TRAD = 0x2,
-		STBTT_MAC_EID_KOREAN       = 0x3,
-		STBTT_MAC_EID_ARABIC       = 0x4,
-		STBTT_MAC_EID_HEBREW       = 0x5,
-		STBTT_MAC_EID_GREEK        = 0x6,
-		STBTT_MAC_EID_RUSSIAN      = 0x7;
+		STBTT_MAC_EID_ROMAN        = 0,
+		STBTT_MAC_EID_JAPANESE     = 1,
+		STBTT_MAC_EID_CHINESE_TRAD = 2,
+		STBTT_MAC_EID_KOREAN       = 3,
+		STBTT_MAC_EID_ARABIC       = 4,
+		STBTT_MAC_EID_HEBREW       = 5,
+		STBTT_MAC_EID_GREEK        = 6,
+		STBTT_MAC_EID_RUSSIAN      = 7;
 
 	/** Language ID for {@link #STBTT_PLATFORM_ID_MICROSOFT PLATFORM_ID_MICROSOFT}. */
 	public static final int
@@ -286,20 +286,20 @@ public class STBTruetype {
 
 	/** Language ID for {@link #STBTT_PLATFORM_ID_MAC PLATFORM_ID_MAC}. */
 	public static final int
-		STBTT_MAC_LANG_ENGLISH            = 0x0,
-		STBTT_MAC_LANG_ARABIC             = 0xC,
-		STBTT_MAC_LANG_DUTCH              = 0x4,
-		STBTT_MAC_LANG_FRENCH             = 0x1,
-		STBTT_MAC_LANG_GERMAN             = 0x2,
-		STBTT_MAC_LANG_HEBREW             = 0xA,
-		STBTT_MAC_LANG_ITALIAN            = 0x3,
-		STBTT_MAC_LANG_JAPANESE           = 0xB,
-		STBTT_MAC_LANG_KOREAN             = 0x17,
-		STBTT_MAC_LANG_RUSSIAN            = 0x20,
-		STBTT_MAC_LANG_SPANISH            = 0x6,
-		STBTT_MAC_LANG_SWEDISH            = 0x5,
-		STBTT_MAC_LANG_CHINESE_SIMPLIFIED = 0x21,
-		STBTT_MAC_LANG_CHINESE_TRAD       = 0x13;
+		STBTT_MAC_LANG_ENGLISH            = 0,
+		STBTT_MAC_LANG_ARABIC             = 12,
+		STBTT_MAC_LANG_DUTCH              = 4,
+		STBTT_MAC_LANG_FRENCH             = 1,
+		STBTT_MAC_LANG_GERMAN             = 2,
+		STBTT_MAC_LANG_HEBREW             = 10,
+		STBTT_MAC_LANG_ITALIAN            = 3,
+		STBTT_MAC_LANG_JAPANESE           = 11,
+		STBTT_MAC_LANG_KOREAN             = 23,
+		STBTT_MAC_LANG_RUSSIAN            = 32,
+		STBTT_MAC_LANG_SPANISH            = 6,
+		STBTT_MAC_LANG_SWEDISH            = 5,
+		STBTT_MAC_LANG_CHINESE_SIMPLIFIED = 33,
+		STBTT_MAC_LANG_CHINESE_TRAD       = 19;
 
 	static { Library.initialize(); }
 

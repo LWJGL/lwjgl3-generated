@@ -18,7 +18,7 @@ import static org.lwjgl.system.Pointer.*;
 public class CL21 {
 
 	/** OpenCL Version. */
-	public static final int CL_VERSION_2_1 = 0x1;
+	public static final int CL_VERSION_2_1 = 1;
 
 	/** cl_platform_info */
 	public static final int CL_PLATFORM_HOST_TIMER_RESOLUTION = 0x905;

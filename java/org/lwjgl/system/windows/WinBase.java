@@ -18,8 +18,8 @@ public class WinBase {
 
 	/** BOOL return values. */
 	public static final int
-		FALSE = 0x0,
-		TRUE  = 0x1;
+		FALSE = 0,
+		TRUE  = 1;
 
 	static { Library.initialize(); }
 

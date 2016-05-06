@@ -22,7 +22,7 @@ public class CoreFoundation {
 
 	/** Platform-independent built-in encodings; always available on all platforms. */
 	public static final int
-		kCFStringEncodingMacRoman      = 0x0,
+		kCFStringEncodingMacRoman      = 0,
 		kCFStringEncodingWindowsLatin1 = 0x500,
 		kCFStringEncodingISOLatin1     = 0x201,
 		kCFStringEncodingNextStepLatin = 0xB01,
@@ -39,9 +39,9 @@ public class CoreFoundation {
 
 	/** URL path styles. */
 	public static final int
-		kCFURLPOSIXPathStyle   = 0x0,
-		kCFURLHFSPathStyle     = 0x1,
-		kCFURLWindowsPathStyle = 0x2;
+		kCFURLPOSIXPathStyle   = 0,
+		kCFURLHFSPathStyle     = 1,
+		kCFURLWindowsPathStyle = 2;
 
 	static { Library.initialize(); }
 

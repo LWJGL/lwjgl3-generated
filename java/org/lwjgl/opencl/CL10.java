@@ -22,7 +22,7 @@ public class CL10 {
 
 	/** Error Codes */
 	public static final int
-		CL_SUCCESS                         = 0x0,
+		CL_SUCCESS                         = 0,
 		CL_DEVICE_NOT_FOUND                = -1,
 		CL_DEVICE_NOT_AVAILABLE            = -2,
 		CL_COMPILER_NOT_AVAILABLE          = -3,
@@ -69,12 +69,12 @@ public class CL10 {
 		CL_INVALID_GLOBAL_WORK_SIZE        = -63;
 
 	/** OpenCL Version */
-	public static final int CL_VERSION_1_0 = 0x1;
+	public static final int CL_VERSION_1_0 = 1;
 
 	/** cl_bool */
 	public static final int
-		CL_FALSE = 0x0,
-		CL_TRUE  = 0x1;
+		CL_FALSE = 0,
+		CL_TRUE  = 1;
 
 	/** cl_platform_info */
 	public static final int
@@ -300,10 +300,10 @@ public class CL10 {
 
 	/** cl_build_status */
 	public static final int
-		CL_BUILD_SUCCESS     = 0x0,
-		CL_BUILD_NONE        = 0xFFFFFFFF,
-		CL_BUILD_ERROR       = 0xFFFFFFFE,
-		CL_BUILD_IN_PROGRESS = 0xFFFFFFFD;
+		CL_BUILD_SUCCESS     = 0,
+		CL_BUILD_NONE        = -1,
+		CL_BUILD_ERROR       = -2,
+		CL_BUILD_IN_PROGRESS = -3;
 
 	/** cl_kernel_info */
 	public static final int

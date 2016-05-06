@@ -63,16 +63,16 @@ stbir_resize_uint8_srgb_edgemode(
 public class STBImageResize {
 
 	/** Set this flag if you have no alpha channel, or otherwise provide the index of the alpha channel. */
-	public static final int STBIR_ALPHA_CHANNEL_NONE = 0xFFFFFFFF;
+	public static final int STBIR_ALPHA_CHANNEL_NONE = -1;
 
 	/**
 	 * Set this flag if your texture has premultiplied alpha. Otherwise, stbir will use alpha-weighted resampling (effectively premultiplying, resampling,
 	 * then unpremultiplying).
 	 */
-	public static final int STBIR_FLAG_ALPHA_PREMULTIPLIED = 0xFFFFFFFF;
+	public static final int STBIR_FLAG_ALPHA_PREMULTIPLIED = -1;
 
 	/** The specified alpha channel should be handled as gamma-corrected value even when doing sRGB operations. */
-	public static final int STBIR_FLAG_ALPHA_USES_COLORSPACE = 0xFFFFFFFF;
+	public static final int STBIR_FLAG_ALPHA_USES_COLORSPACE = -1;
 
 	/** Edge wrap mode. */
 	public static final int

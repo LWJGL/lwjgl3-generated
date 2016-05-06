@@ -53,8 +53,8 @@ public class OVR {
 
 	/** Boolean values */
 	public static final int
-		ovrFalse = 0x0,
-		ovrTrue  = 0x1;
+		ovrFalse = 0,
+		ovrTrue  = 1;
 
 	/**
 	 * When a debug library is requested, a slower debugging version of the library will run which can be used to help solve problems in the library and
@@ -338,7 +338,7 @@ public class OVR {
 		ovrHand_Right = 0x1;
 
 	/** Specifies the maximum number of layers supported by {@link #ovr_SubmitFrame SubmitFrame}. */
-	public static final int ovrMaxLayerCount = 0x10;
+	public static final int ovrMaxLayerCount = 16;
 
 	/** Layer is disabled. */
 	public static final int ovrLayerType_Disabled = 0;
@@ -396,10 +396,10 @@ public class OVR {
 
 	/** Visual properties of the stereo guide. */
 	public static final int
-		ovrDebugHudStereo_Off                 = 0x0,
-		ovrDebugHudStereo_Quad                = 0x1,
-		ovrDebugHudStereo_QuadWithCrosshair   = 0x2,
-		ovrDebugHudStereo_CrosshairAtInfinity = 0x3;
+		ovrDebugHudStereo_Off                 = 0,
+		ovrDebugHudStereo_Quad                = 1,
+		ovrDebugHudStereo_QuadWithCrosshair   = 2,
+		ovrDebugHudStereo_CrosshairAtInfinity = 3;
 
 	static { Library.initialize(); }
 

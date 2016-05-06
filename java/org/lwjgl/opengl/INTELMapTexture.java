@@ -33,9 +33,9 @@ public class INTELMapTexture {
 
 	/** Accepted by the {@code params} when {@code pname} is set to {@code TEXTURE_MEMORY_LAYOUT_INTEL}. */
 	public static final int
-		GL_LAYOUT_DEFAULT_INTEL           = 0x0,
-		GL_LAYOUT_LINEAR_INTEL            = 0x1,
-		GL_LAYOUT_LINEAR_CPU_CACHED_INTEL = 0x2;
+		GL_LAYOUT_DEFAULT_INTEL           = 0,
+		GL_LAYOUT_LINEAR_INTEL            = 1,
+		GL_LAYOUT_LINEAR_CPU_CACHED_INTEL = 2;
 
 	protected INTELMapTexture() {
 		throw new UnsupportedOperationException();

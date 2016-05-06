@@ -34,7 +34,7 @@ public class DynamicLinkLoader {
 	 * Unix98 demands the following flag which is the inverse to {@link #RTLD_GLOBAL}. The implementation does this by default and so we can define the value
 	 * to zero.
 	 */
-	public static final int RTLD_LOCAL = 0x0;
+	public static final int RTLD_LOCAL = 0;
 
 	/** Do not delete object when closed. */
 	public static final int RTLD_NODELETE = 0x1000;

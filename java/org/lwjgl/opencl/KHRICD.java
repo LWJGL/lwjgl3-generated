@@ -12,7 +12,7 @@ public final class KHRICD {
 	public static final int CL_PLATFORM_ICD_SUFFIX_KHR = 0x920;
 
 	/** Returned by {@link CL10#clGetPlatformIDs GetPlatformIDs} when no platforms are found. */
-	public static final int CL_PLATFORM_NOT_FOUND_KHR = 0xFFFFFC17;
+	public static final int CL_PLATFORM_NOT_FOUND_KHR = -1001;
 
 	private KHRICD() {}
 

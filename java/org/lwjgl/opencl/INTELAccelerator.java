@@ -45,10 +45,10 @@ public class INTELAccelerator {
 
 	/** Error codes used by functions in this extension. */
 	public static final int
-		CL_INVALID_ACCELERATOR_INTEL            = 0xFFFFFBBA,
-		CL_INVALID_ACCELERATOR_TYPE_INTEL       = 0xFFFFFBB9,
-		CL_INVALID_ACCELERATOR_DESCRIPTOR_INTEL = 0xFFFFFBB8,
-		CL_ACCELERATOR_TYPE_NOT_SUPPORTED_INTEL = 0xFFFFFBB7;
+		CL_INVALID_ACCELERATOR_INTEL            = -1094,
+		CL_INVALID_ACCELERATOR_TYPE_INTEL       = -1095,
+		CL_INVALID_ACCELERATOR_DESCRIPTOR_INTEL = -1096,
+		CL_ACCELERATOR_TYPE_NOT_SUPPORTED_INTEL = -1097;
 
 	protected INTELAccelerator() {
 		throw new UnsupportedOperationException();

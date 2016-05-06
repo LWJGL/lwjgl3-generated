@@ -19,49 +19,49 @@ public class GLX {
 
 	/** Errors. */
 	public static final int
-		GLXBadContext                = 0x0,
-		GLXBadContextState           = 0x1,
-		GLXBadDrawable               = 0x2,
-		GLXBadPixmap                 = 0x3,
-		GLXBadContextTag             = 0x4,
-		GLXBadCurrentWindow          = 0x5,
-		GLXBadRenderRequest          = 0x6,
-		GLXBadLargeRequest           = 0x7,
-		GLXUnsupportedPrivateRequest = 0x8,
-		GLXBadFBConfig               = 0x9,
-		GLXBadPbuffer                = 0xA,
-		GLXBadCurrentDrawable        = 0xB,
-		GLXBadWindow                 = 0xC;
+		GLXBadContext                = 0,
+		GLXBadContextState           = 1,
+		GLXBadDrawable               = 2,
+		GLXBadPixmap                 = 3,
+		GLXBadContextTag             = 4,
+		GLXBadCurrentWindow          = 5,
+		GLXBadRenderRequest          = 6,
+		GLXBadLargeRequest           = 7,
+		GLXUnsupportedPrivateRequest = 8,
+		GLXBadFBConfig               = 9,
+		GLXBadPbuffer                = 10,
+		GLXBadCurrentDrawable        = 11,
+		GLXBadWindow                 = 12;
 
 	/** Names for attributes to {@link #glXGetConfig GetConfig}. */
 	public static final int
-		GLX_USE_GL           = 0x1,
-		GLX_BUFFER_SIZE      = 0x2,
-		GLX_LEVEL            = 0x3,
-		GLX_RGBA             = 0x4,
-		GLX_DOUBLEBUFFER     = 0x5,
-		GLX_STEREO           = 0x6,
-		GLX_AUX_BUFFERS      = 0x7,
-		GLX_RED_SIZE         = 0x8,
-		GLX_GREEN_SIZE       = 0x9,
-		GLX_BLUE_SIZE        = 0xA,
-		GLX_ALPHA_SIZE       = 0xB,
-		GLX_DEPTH_SIZE       = 0xC,
-		GLX_STENCIL_SIZE     = 0xD,
-		GLX_ACCUM_RED_SIZE   = 0xE,
-		GLX_ACCUM_GREEN_SIZE = 0xF,
-		GLX_ACCUM_BLUE_SIZE  = 0x10,
-		GLX_ACCUM_ALPHA_SIZE = 0x11;
+		GLX_USE_GL           = 1,
+		GLX_BUFFER_SIZE      = 2,
+		GLX_LEVEL            = 3,
+		GLX_RGBA             = 4,
+		GLX_DOUBLEBUFFER     = 5,
+		GLX_STEREO           = 6,
+		GLX_AUX_BUFFERS      = 7,
+		GLX_RED_SIZE         = 8,
+		GLX_GREEN_SIZE       = 9,
+		GLX_BLUE_SIZE        = 10,
+		GLX_ALPHA_SIZE       = 11,
+		GLX_DEPTH_SIZE       = 12,
+		GLX_STENCIL_SIZE     = 13,
+		GLX_ACCUM_RED_SIZE   = 14,
+		GLX_ACCUM_GREEN_SIZE = 15,
+		GLX_ACCUM_BLUE_SIZE  = 16,
+		GLX_ACCUM_ALPHA_SIZE = 17;
 
 	/** Error return values from {@link #glXGetConfig GetConfig}. Success is indicated by a value of 0. */
 	public static final int
-		GLX_BAD_SCREEN    = 0x1,
-		GLX_BAD_ATTRIBUTE = 0x2,
-		GLX_NO_EXTENSION  = 0x3,
-		GLX_BAD_VISUAL    = 0x4,
-		GLX_BAD_CONTEXT   = 0x5,
-		GLX_BAD_VALUE     = 0x6,
-		GLX_BAD_ENUM      = 0x7;
+		GLX_BAD_SCREEN    = 1,
+		GLX_BAD_ATTRIBUTE = 2,
+		GLX_NO_EXTENSION  = 3,
+		GLX_BAD_VISUAL    = 4,
+		GLX_BAD_CONTEXT   = 5,
+		GLX_BAD_VALUE     = 6,
+		GLX_BAD_ENUM      = 7;
 
 	protected GLX() {
 		throw new UnsupportedOperationException();
