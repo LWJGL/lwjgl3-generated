@@ -3773,7 +3773,7 @@ public class CL10 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			long stringsAddress = org.lwjgl.system.APIUtil.apiArrayUTF8p(stack, strings);
+			long stringsAddress = org.lwjgl.system.APIUtil.apiArrayp(stack, MemoryUtil::memUTF8, strings);
 			long __result = nclCreateProgramWithSource(context, strings.length, stringsAddress, stringsAddress - (strings.length << POINTER_SHIFT), memAddressSafe(errcode_ret));
 			org.lwjgl.system.APIUtil.apiArrayFree(stringsAddress, strings.length);
 			return __result;
@@ -3805,7 +3805,7 @@ public class CL10 {
 			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			long stringsAddress = org.lwjgl.system.APIUtil.apiArrayUTF8p(stack, string);
+			long stringsAddress = org.lwjgl.system.APIUtil.apiArrayp(stack, MemoryUtil::memUTF8, string);
 			long __result = nclCreateProgramWithSource(context, 1, stringsAddress, stringsAddress - POINTER_SIZE, memAddressSafe(errcode_ret));
 			org.lwjgl.system.APIUtil.apiArrayFree(stringsAddress, 1);
 			return __result;

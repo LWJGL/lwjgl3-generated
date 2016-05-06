@@ -998,7 +998,7 @@ public class CL12 {
 		try {
 			ByteBuffer optionsEncoded = stack.ASCII(options);
 			long input_headersAddress = org.lwjgl.system.APIUtil.apiArray(stack, input_headers);
-			long header_include_namesAddress = org.lwjgl.system.APIUtil.apiArrayASCII(stack, header_include_names);
+			long header_include_namesAddress = org.lwjgl.system.APIUtil.apiArray(stack, MemoryUtil::memASCII, header_include_names);
 			int __result = nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), input_headers.length, input_headersAddress, header_include_namesAddress, pfn_notify == null ? NULL : pfn_notify.address(), user_data);
 			org.lwjgl.system.APIUtil.apiArrayFree(header_include_namesAddress, header_include_names.length);
 			return __result;
@@ -1056,7 +1056,7 @@ public class CL12 {
 		try {
 			ByteBuffer optionsEncoded = stack.ASCII(options);
 			long input_headersAddress = org.lwjgl.system.APIUtil.apiArray(stack, input_header);
-			long header_include_namesAddress = org.lwjgl.system.APIUtil.apiArrayASCII(stack, header_include_name);
+			long header_include_namesAddress = org.lwjgl.system.APIUtil.apiArray(stack, MemoryUtil::memASCII, header_include_name);
 			int __result = nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), 1, input_headersAddress, header_include_namesAddress, pfn_notify == null ? NULL : pfn_notify.address(), user_data);
 			org.lwjgl.system.APIUtil.apiArrayFree(header_include_namesAddress, 1);
 			return __result;

@@ -157,7 +157,7 @@ public class EXTTransformFeedback {
 	public static void glTransformFeedbackVaryingsEXT(int program, CharSequence[] varyings, int bufferMode) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			long varyingsAddress = org.lwjgl.system.APIUtil.apiArrayASCII(stack, varyings);
+			long varyingsAddress = org.lwjgl.system.APIUtil.apiArray(stack, MemoryUtil::memASCII, varyings);
 			nglTransformFeedbackVaryingsEXT(program, varyings.length, varyingsAddress, bufferMode);
 			org.lwjgl.system.APIUtil.apiArrayFree(varyingsAddress, varyings.length);
 		} finally {
@@ -168,7 +168,7 @@ public class EXTTransformFeedback {
 	public static void glTransformFeedbackVaryingsEXT(int program, CharSequence varying, int bufferMode) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			long varyingsAddress = org.lwjgl.system.APIUtil.apiArrayASCII(stack, varying);
+			long varyingsAddress = org.lwjgl.system.APIUtil.apiArray(stack, MemoryUtil::memASCII, varying);
 			nglTransformFeedbackVaryingsEXT(program, 1, varyingsAddress, bufferMode);
 			org.lwjgl.system.APIUtil.apiArrayFree(varyingsAddress, 1);
 		} finally {

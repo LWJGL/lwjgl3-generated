@@ -399,7 +399,7 @@ public class GL20 {
 	public static void glShaderSource(int shader, CharSequence... strings) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			long stringsAddress = org.lwjgl.system.APIUtil.apiArrayUTF8i(stack, strings);
+			long stringsAddress = org.lwjgl.system.APIUtil.apiArrayi(stack, MemoryUtil::memUTF8, strings);
 			nglShaderSource(shader, strings.length, stringsAddress, stringsAddress - (strings.length << 2));
 			org.lwjgl.system.APIUtil.apiArrayFree(stringsAddress, strings.length);
 		} finally {
@@ -422,7 +422,7 @@ public class GL20 {
 	public static void glShaderSource(int shader, CharSequence string) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			long stringsAddress = org.lwjgl.system.APIUtil.apiArrayUTF8i(stack, string);
+			long stringsAddress = org.lwjgl.system.APIUtil.apiArrayi(stack, MemoryUtil::memUTF8, string);
 			nglShaderSource(shader, 1, stringsAddress, stringsAddress - 4);
 			org.lwjgl.system.APIUtil.apiArrayFree(stringsAddress, 1);
 		} finally {

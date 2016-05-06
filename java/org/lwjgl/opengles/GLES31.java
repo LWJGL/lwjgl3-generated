@@ -501,7 +501,7 @@ public class GLES31 {
 	public static int glCreateShaderProgramv(int type, CharSequence... strings) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			long stringsAddress = org.lwjgl.system.APIUtil.apiArrayUTF8(stack, strings);
+			long stringsAddress = org.lwjgl.system.APIUtil.apiArray(stack, MemoryUtil::memUTF8, strings);
 			int __result = nglCreateShaderProgramv(type, strings.length, stringsAddress);
 			org.lwjgl.system.APIUtil.apiArrayFree(stringsAddress, strings.length);
 			return __result;
@@ -513,7 +513,7 @@ public class GLES31 {
 	public static int glCreateShaderProgramv(int type, CharSequence string) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			long stringsAddress = org.lwjgl.system.APIUtil.apiArrayUTF8(stack, string);
+			long stringsAddress = org.lwjgl.system.APIUtil.apiArray(stack, MemoryUtil::memUTF8, string);
 			int __result = nglCreateShaderProgramv(type, 1, stringsAddress);
 			org.lwjgl.system.APIUtil.apiArrayFree(stringsAddress, 1);
 			return __result;

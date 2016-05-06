@@ -222,7 +222,7 @@ public class ARBShaderObjects {
 	public static void glShaderSourceARB(int shaderObj, CharSequence... string) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			long stringAddress = org.lwjgl.system.APIUtil.apiArrayUTF8i(stack, string);
+			long stringAddress = org.lwjgl.system.APIUtil.apiArrayi(stack, MemoryUtil::memUTF8, string);
 			nglShaderSourceARB(shaderObj, string.length, stringAddress, stringAddress - (string.length << 2));
 			org.lwjgl.system.APIUtil.apiArrayFree(stringAddress, string.length);
 		} finally {
@@ -243,7 +243,7 @@ public class ARBShaderObjects {
 	public static void glShaderSourceARB(int shaderObj, CharSequence string) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			long stringAddress = org.lwjgl.system.APIUtil.apiArrayUTF8i(stack, string);
+			long stringAddress = org.lwjgl.system.APIUtil.apiArrayi(stack, MemoryUtil::memUTF8, string);
 			nglShaderSourceARB(shaderObj, 1, stringAddress, stringAddress - 4);
 			org.lwjgl.system.APIUtil.apiArrayFree(stringAddress, 1);
 		} finally {

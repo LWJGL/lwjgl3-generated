@@ -421,7 +421,7 @@ public class GL31 {
 			checkBuffer(uniformIndices, uniformNames.length);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			long uniformNamesAddress = org.lwjgl.system.APIUtil.apiArrayASCII(stack, uniformNames);
+			long uniformNamesAddress = org.lwjgl.system.APIUtil.apiArray(stack, MemoryUtil::memASCII, uniformNames);
 			nglGetUniformIndices(program, uniformNames.length, uniformNamesAddress, memAddress(uniformIndices));
 			org.lwjgl.system.APIUtil.apiArrayFree(uniformNamesAddress, uniformNames.length);
 		} finally {
@@ -439,7 +439,7 @@ public class GL31 {
 	public static int glGetUniformIndices(int program, CharSequence uniformName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			long uniformNamesAddress = org.lwjgl.system.APIUtil.apiArrayASCII(stack, uniformName);
+			long uniformNamesAddress = org.lwjgl.system.APIUtil.apiArray(stack, MemoryUtil::memASCII, uniformName);
 			IntBuffer uniformIndices = stack.callocInt(1);
 			nglGetUniformIndices(program, 1, uniformNamesAddress, memAddress(uniformIndices));
 			org.lwjgl.system.APIUtil.apiArrayFree(uniformNamesAddress, 1);
