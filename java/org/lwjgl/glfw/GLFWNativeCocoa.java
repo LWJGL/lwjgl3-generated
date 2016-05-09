@@ -37,15 +37,15 @@ public class GLFWNativeCocoa {
 	 *
 	 * @param monitor the GLFW monitor
 	 *
-	 * @return The <code>CGDirectDisplayID</code> of the specified monitor, or kCGNullDirectDisplay` if an error occurred.
+	 * @return The <code>CGDirectDisplayID</code> of the specified monitor, or {@code kCGNullDirectDisplay} if an error occurred.
 	 *
 	 * @since version 3.1
 	 */
-	public static long glfwGetCocoaMonitor(long monitor) {
+	public static int glfwGetCocoaMonitor(long monitor) {
 		long __functionAddress = Functions.GetCocoaMonitor;
 		if ( CHECKS )
 			checkPointer(monitor);
-		return invokePP(__functionAddress, monitor);
+		return invokePI(__functionAddress, monitor);
 	}
 
 	// --- [ glfwGetCocoaWindow ] ---
