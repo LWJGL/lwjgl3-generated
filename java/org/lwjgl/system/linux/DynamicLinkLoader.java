@@ -79,7 +79,7 @@ public class DynamicLinkLoader {
 	public static long dlopen(CharSequence filename, int mode) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer filenameEncoded = filename == null ? null : stack.ASCII(filename);
+			ByteBuffer filenameEncoded = stack.ASCII(filename);
 			return ndlopen(memAddressSafe(filenameEncoded), mode);
 		} finally {
 			stack.setPointer(stackPointer);

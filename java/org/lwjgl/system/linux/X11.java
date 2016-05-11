@@ -475,7 +475,7 @@ public class X11 {
 	public static long XOpenDisplay(CharSequence display_name) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer display_nameEncoded = display_name == null ? null : stack.ASCII(display_name);
+			ByteBuffer display_nameEncoded = stack.ASCII(display_name);
 			return nXOpenDisplay(memAddressSafe(display_nameEncoded));
 		} finally {
 			stack.setPointer(stackPointer);

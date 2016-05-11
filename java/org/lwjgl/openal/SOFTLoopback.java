@@ -122,7 +122,7 @@ public class SOFTLoopback {
 	public static long alcLoopbackOpenDeviceSOFT(CharSequence deviceName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer deviceNameEncoded = deviceName == null ? null : stack.UTF8(deviceName);
+			ByteBuffer deviceNameEncoded = stack.UTF8(deviceName);
 			return nalcLoopbackOpenDeviceSOFT(memAddressSafe(deviceNameEncoded));
 		} finally {
 			stack.setPointer(stackPointer);

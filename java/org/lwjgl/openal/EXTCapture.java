@@ -91,7 +91,7 @@ public class EXTCapture {
 	public static long alcCaptureOpenDevice(CharSequence devicename, int frequency, int format, int buffersize) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer devicenameEncoded = devicename == null ? null : stack.UTF8(devicename);
+			ByteBuffer devicenameEncoded = stack.UTF8(devicename);
 			return nalcCaptureOpenDevice(memAddressSafe(devicenameEncoded), frequency, format, buffersize);
 		} finally {
 			stack.setPointer(stackPointer);

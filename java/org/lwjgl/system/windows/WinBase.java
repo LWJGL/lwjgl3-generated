@@ -92,7 +92,7 @@ public class WinBase {
 	public static long GetModuleHandle(CharSequence moduleName) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer moduleNameEncoded = moduleName == null ? null : stack.UTF16(moduleName);
+			ByteBuffer moduleNameEncoded = stack.UTF16(moduleName);
 			return nGetModuleHandle(memAddressSafe(moduleNameEncoded));
 		} finally {
 			stack.setPointer(stackPointer);

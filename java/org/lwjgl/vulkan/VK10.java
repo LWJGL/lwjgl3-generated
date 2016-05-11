@@ -3164,7 +3164,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer pLayerNameEncoded = pLayerName == null ? null : stack.UTF8(pLayerName);
+			ByteBuffer pLayerNameEncoded = stack.UTF8(pLayerName);
 			return nvkEnumerateInstanceExtensionProperties(memAddressSafe(pLayerNameEncoded), memAddress(pPropertyCount), pProperties == null ? NULL : pProperties.address());
 		} finally {
 			stack.setPointer(stackPointer);
@@ -3293,7 +3293,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer pLayerNameEncoded = pLayerName == null ? null : stack.UTF8(pLayerName);
+			ByteBuffer pLayerNameEncoded = stack.UTF8(pLayerName);
 			return nvkEnumerateDeviceExtensionProperties(physicalDevice, memAddressSafe(pLayerNameEncoded), memAddress(pPropertyCount), pProperties == null ? NULL : pProperties.address());
 		} finally {
 			stack.setPointer(stackPointer);
@@ -13254,7 +13254,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer pLayerNameEncoded = pLayerName == null ? null : stack.UTF8(pLayerName);
+			ByteBuffer pLayerNameEncoded = stack.UTF8(pLayerName);
 			return callPPPI(__functionAddress, memAddressSafe(pLayerNameEncoded), pPropertyCount, pProperties == null ? NULL : pProperties.address());
 		} finally {
 			stack.setPointer(stackPointer);
@@ -13289,7 +13289,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer pLayerNameEncoded = pLayerName == null ? null : stack.UTF8(pLayerName);
+			ByteBuffer pLayerNameEncoded = stack.UTF8(pLayerName);
 			return callPPPPI(__functionAddress, physicalDevice.address(), memAddressSafe(pLayerNameEncoded), pPropertyCount, pProperties == null ? NULL : pProperties.address());
 		} finally {
 			stack.setPointer(stackPointer);

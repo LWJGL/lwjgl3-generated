@@ -1152,8 +1152,8 @@ public class User32 {
 	public static long CreateWindowEx(int dwExStyle, CharSequence lpClassName, CharSequence lpWindowName, int dwStyle, int x, int y, int nWidth, int nHeight, long hWndParent, long hMenu, long hInstance, long lpParam) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer lpClassNameEncoded = lpClassName == null ? null : stack.UTF16(lpClassName);
-			ByteBuffer lpWindowNameEncoded = lpWindowName == null ? null : stack.UTF16(lpWindowName);
+			ByteBuffer lpClassNameEncoded = stack.UTF16(lpClassName);
+			ByteBuffer lpWindowNameEncoded = stack.UTF16(lpWindowName);
 			return nCreateWindowEx(dwExStyle, memAddressSafe(lpClassNameEncoded), memAddressSafe(lpWindowNameEncoded), dwStyle, x, y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam);
 		} finally {
 			stack.setPointer(stackPointer);
@@ -2443,7 +2443,7 @@ public class User32 {
 	public static boolean EnumDisplayDevices(CharSequence lpDevice, int iDevNum, DISPLAY_DEVICE lpDisplayDevice, int dwFlags) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer lpDeviceEncoded = lpDevice == null ? null : stack.UTF16(lpDevice);
+			ByteBuffer lpDeviceEncoded = stack.UTF16(lpDevice);
 			return nEnumDisplayDevices(memAddressSafe(lpDeviceEncoded), iDevNum, lpDisplayDevice.address(), dwFlags) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
@@ -2547,7 +2547,7 @@ public class User32 {
 	public static boolean EnumDisplaySettingsEx(CharSequence lpszDeviceName, int iModeNum, DEVMODE lpDevMode, int dwFlags) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer lpszDeviceNameEncoded = lpszDeviceName == null ? null : stack.UTF16(lpszDeviceName);
+			ByteBuffer lpszDeviceNameEncoded = stack.UTF16(lpszDeviceName);
 			return nEnumDisplaySettingsEx(memAddressSafe(lpszDeviceNameEncoded), iModeNum, lpDevMode.address(), dwFlags) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
@@ -2630,7 +2630,7 @@ public class User32 {
 	public static int ChangeDisplaySettingsEx(CharSequence lpszDeviceName, DEVMODE lpDevMode, long hwnd, int dwflags, long lParam) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer lpszDeviceNameEncoded = lpszDeviceName == null ? null : stack.UTF16(lpszDeviceName);
+			ByteBuffer lpszDeviceNameEncoded = stack.UTF16(lpszDeviceName);
 			return nChangeDisplaySettingsEx(memAddressSafe(lpszDeviceNameEncoded), lpDevMode == null ? NULL : lpDevMode.address(), hwnd, dwflags, lParam);
 		} finally {
 			stack.setPointer(stackPointer);

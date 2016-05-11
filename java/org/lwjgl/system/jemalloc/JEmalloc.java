@@ -784,7 +784,7 @@ for (i = 0; i < nbins; i++) {
 	public static void je_malloc_stats_print(MallocMessageCallbackI write_cb, ByteBuffer je_cbopaque, CharSequence opts) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer optsEncoded = opts == null ? null : stack.ASCII(opts);
+			ByteBuffer optsEncoded = stack.ASCII(opts);
 			nje_malloc_stats_print(write_cb == null ? NULL : write_cb.address(), memAddressSafe(je_cbopaque), memAddressSafe(optsEncoded));
 		} finally {
 			stack.setPointer(stackPointer);

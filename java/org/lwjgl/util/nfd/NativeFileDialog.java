@@ -125,8 +125,8 @@ public class NativeFileDialog {
 			checkBuffer(outPath, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer filterListEncoded = filterList == null ? null : stack.UTF8(filterList);
-			ByteBuffer defaultPathEncoded = defaultPath == null ? null : stack.UTF8(defaultPath);
+			ByteBuffer filterListEncoded = stack.UTF8(filterList);
+			ByteBuffer defaultPathEncoded = stack.UTF8(defaultPath);
 			return nNFD_OpenDialog(memAddressSafe(filterListEncoded), memAddressSafe(defaultPathEncoded), memAddress(outPath));
 		} finally {
 			stack.setPointer(stackPointer);
@@ -178,8 +178,8 @@ public class NativeFileDialog {
 	public static int NFD_OpenDialogMultiple(CharSequence filterList, CharSequence defaultPath, NFDPathSet outPaths) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer filterListEncoded = filterList == null ? null : stack.UTF8(filterList);
-			ByteBuffer defaultPathEncoded = defaultPath == null ? null : stack.UTF8(defaultPath);
+			ByteBuffer filterListEncoded = stack.UTF8(filterList);
+			ByteBuffer defaultPathEncoded = stack.UTF8(defaultPath);
 			return nNFD_OpenDialogMultiple(memAddressSafe(filterListEncoded), memAddressSafe(defaultPathEncoded), outPaths.address());
 		} finally {
 			stack.setPointer(stackPointer);
@@ -234,8 +234,8 @@ public class NativeFileDialog {
 			checkBuffer(outPath, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer filterListEncoded = filterList == null ? null : stack.UTF8(filterList);
-			ByteBuffer defaultPathEncoded = defaultPath == null ? null : stack.UTF8(defaultPath);
+			ByteBuffer filterListEncoded = stack.UTF8(filterList);
+			ByteBuffer defaultPathEncoded = stack.UTF8(defaultPath);
 			return nNFD_SaveDialog(memAddressSafe(filterListEncoded), memAddressSafe(defaultPathEncoded), memAddress(outPath));
 		} finally {
 			stack.setPointer(stackPointer);

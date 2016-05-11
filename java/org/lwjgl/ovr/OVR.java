@@ -1898,7 +1898,7 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);
-			ByteBuffer defaultValEncoded = defaultVal == null ? null : stack.UTF8(defaultVal);
+			ByteBuffer defaultValEncoded = stack.UTF8(defaultVal);
 			long __result = novr_GetString(session, memAddress(propertyNameEncoded), memAddressSafe(defaultValEncoded));
 			return memUTF8(__result);
 		} finally {

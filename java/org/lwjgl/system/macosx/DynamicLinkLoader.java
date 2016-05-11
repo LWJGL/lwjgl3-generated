@@ -223,7 +223,7 @@ public class DynamicLinkLoader {
 	public static long dlopen(CharSequence path, int mode) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer pathEncoded = path == null ? null : stack.ASCII(path);
+			ByteBuffer pathEncoded = stack.ASCII(path);
 			return ndlopen(memAddressSafe(pathEncoded), mode);
 		} finally {
 			stack.setPointer(stackPointer);

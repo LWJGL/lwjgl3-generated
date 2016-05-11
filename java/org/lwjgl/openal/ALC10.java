@@ -103,7 +103,7 @@ public class ALC10 {
 	public static long alcOpenDevice(CharSequence deviceSpecifier) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
-			ByteBuffer deviceSpecifierEncoded = deviceSpecifier == null ? null : stack.UTF8(deviceSpecifier);
+			ByteBuffer deviceSpecifierEncoded = stack.UTF8(deviceSpecifier);
 			return nalcOpenDevice(memAddressSafe(deviceSpecifierEncoded));
 		} finally {
 			stack.setPointer(stackPointer);
