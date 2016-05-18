@@ -3058,7 +3058,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
 	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an
 	 * array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
-	 * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of an instance layer returned by {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties}</li>
+	 * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of a layer returned by {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties}</li>
 	 * </ul>
 	 * 
 	 * <p>When {@code pLayerName} parameter is {@code NULL}, only extensions provided by the Vulkan implementation or by implicitly enabled layers are returned. When
@@ -3067,7 +3067,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <p>To enable an instance extension, the name of the extension <b>should</b> be added to the {@code ppEnabledExtensionNames} member of {@link VkInstanceCreateInfo} when
 	 * creating a {@code VkInstance}.</p>
 	 *
-	 * @param pLayerName     either {@code NULL} or a pointer to a null-terminated UTF-8 string naming the instance layer to retrieve extensions from
+	 * @param pLayerName     either {@code NULL} or a pointer to a null-terminated UTF-8 string naming the layer to retrieve extensions from
 	 * @param pPropertyCount a pointer to an integer related to the number of extension properties available or queried
 	 * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkExtensionProperties} structures
 	 */
@@ -3099,7 +3099,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
 	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an
 	 * array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
-	 * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of an instance layer returned by {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties}</li>
+	 * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of a layer returned by {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties}</li>
 	 * </ul>
 	 * 
 	 * <p>When {@code pLayerName} parameter is {@code NULL}, only extensions provided by the Vulkan implementation or by implicitly enabled layers are returned. When
@@ -3108,7 +3108,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <p>To enable an instance extension, the name of the extension <b>should</b> be added to the {@code ppEnabledExtensionNames} member of {@link VkInstanceCreateInfo} when
 	 * creating a {@code VkInstance}.</p>
 	 *
-	 * @param pLayerName     either {@code NULL} or a pointer to a null-terminated UTF-8 string naming the instance layer to retrieve extensions from
+	 * @param pLayerName     either {@code NULL} or a pointer to a null-terminated UTF-8 string naming the layer to retrieve extensions from
 	 * @param pPropertyCount a pointer to an integer related to the number of extension properties available or queried
 	 * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkExtensionProperties} structures
 	 */
@@ -3144,7 +3144,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
 	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an
 	 * array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
-	 * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of an instance layer returned by {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties}</li>
+	 * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of a layer returned by {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties}</li>
 	 * </ul>
 	 * 
 	 * <p>When {@code pLayerName} parameter is {@code NULL}, only extensions provided by the Vulkan implementation or by implicitly enabled layers are returned. When
@@ -3153,7 +3153,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <p>To enable an instance extension, the name of the extension <b>should</b> be added to the {@code ppEnabledExtensionNames} member of {@link VkInstanceCreateInfo} when
 	 * creating a {@code VkInstance}.</p>
 	 *
-	 * @param pLayerName     either {@code NULL} or a pointer to a null-terminated UTF-8 string naming the instance layer to retrieve extensions from
+	 * @param pLayerName     either {@code NULL} or a pointer to a null-terminated UTF-8 string naming the layer to retrieve extensions from
 	 * @param pPropertyCount a pointer to an integer related to the number of extension properties available or queried
 	 * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkExtensionProperties} structures
 	 */
@@ -3192,7 +3192,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
 	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an
 	 * array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
-	 * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of a device layer returned by {@link #vkEnumerateDeviceLayerProperties EnumerateDeviceLayerProperties}</li>
+	 * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of a layer returned by {@link #vkEnumerateDeviceLayerProperties EnumerateDeviceLayerProperties}</li>
 	 * </ul>
 	 * 
 	 * <p>When {@code pLayerName} parameter is {@code NULL}, only extensions provided by the Vulkan implementation or by implicitly enabled layers are returned. When
@@ -3202,7 +3202,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * {@code VkDevice}.</p>
 	 *
 	 * @param physicalDevice the physical device that will be queried
-	 * @param pLayerName     either {@code NULL} or a pointer to a null-terminated UTF-8 string naming the device layer to retrieve extensions from
+	 * @param pLayerName     either {@code NULL} or a pointer to a null-terminated UTF-8 string naming the layer to retrieve extensions from
 	 * @param pPropertyCount a pointer to an integer related to the number of extension properties available or queried
 	 * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkExtensionProperties} structures
 	 */
@@ -3230,7 +3230,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
 	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an
 	 * array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
-	 * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of a device layer returned by {@link #vkEnumerateDeviceLayerProperties EnumerateDeviceLayerProperties}</li>
+	 * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of a layer returned by {@link #vkEnumerateDeviceLayerProperties EnumerateDeviceLayerProperties}</li>
 	 * </ul>
 	 * 
 	 * <p>When {@code pLayerName} parameter is {@code NULL}, only extensions provided by the Vulkan implementation or by implicitly enabled layers are returned. When
@@ -3240,7 +3240,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * {@code VkDevice}.</p>
 	 *
 	 * @param physicalDevice the physical device that will be queried
-	 * @param pLayerName     either {@code NULL} or a pointer to a null-terminated UTF-8 string naming the device layer to retrieve extensions from
+	 * @param pLayerName     either {@code NULL} or a pointer to a null-terminated UTF-8 string naming the layer to retrieve extensions from
 	 * @param pPropertyCount a pointer to an integer related to the number of extension properties available or queried
 	 * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkExtensionProperties} structures
 	 */
@@ -3272,7 +3272,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
 	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an
 	 * array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
-	 * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of a device layer returned by {@link #vkEnumerateDeviceLayerProperties EnumerateDeviceLayerProperties}</li>
+	 * <li>If {@code pLayerName} is not {@code NULL}, it <b>must</b> be the name of a layer returned by {@link #vkEnumerateDeviceLayerProperties EnumerateDeviceLayerProperties}</li>
 	 * </ul>
 	 * 
 	 * <p>When {@code pLayerName} parameter is {@code NULL}, only extensions provided by the Vulkan implementation or by implicitly enabled layers are returned. When
@@ -3282,7 +3282,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * {@code VkDevice}.</p>
 	 *
 	 * @param physicalDevice the physical device that will be queried
-	 * @param pLayerName     either {@code NULL} or a pointer to a null-terminated UTF-8 string naming the device layer to retrieve extensions from
+	 * @param pLayerName     either {@code NULL} or a pointer to a null-terminated UTF-8 string naming the layer to retrieve extensions from
 	 * @param pPropertyCount a pointer to an integer related to the number of extension properties available or queried
 	 * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkExtensionProperties} structures
 	 */
@@ -3321,7 +3321,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * array of {@code pPropertyCount} {@link VkLayerProperties} structures</li>
 	 * </ul>
 	 * 
-	 * <p>To enable a instance layer, the name of the layer <b>should</b> be added to the {@code ppEnabledLayerNames} member of {@link VkInstanceCreateInfo} when creating a
+	 * <p>To enable an instance layer, the name of the layer <b>should</b> be added to the {@code ppEnabledLayerNames} member of {@link VkInstanceCreateInfo} when creating a
 	 * {@code VkInstance}.</p>
 	 * 
 	 * <p>When a layer is enabled, it inserts itself into the call chain for Vulkan commands the layer is interested in. A common use of layers is to validate
@@ -3356,7 +3356,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * array of {@code pPropertyCount} {@link VkLayerProperties} structures</li>
 	 * </ul>
 	 * 
-	 * <p>To enable a instance layer, the name of the layer <b>should</b> be added to the {@code ppEnabledLayerNames} member of {@link VkInstanceCreateInfo} when creating a
+	 * <p>To enable an instance layer, the name of the layer <b>should</b> be added to the {@code ppEnabledLayerNames} member of {@link VkInstanceCreateInfo} when creating a
 	 * {@code VkInstance}.</p>
 	 * 
 	 * <p>When a layer is enabled, it inserts itself into the call chain for Vulkan commands the layer is interested in. A common use of layers is to validate
@@ -3574,7 +3574,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * 
 	 * <p>Each call to {@code vkQueueSubmit} submits zero or more batches of work to the queue for execution. {@code submitCount} is used to specify the number
 	 * of batches to submit. Each batch includes zero or more semaphores to wait upon, and a corresponding set of stages that will wait for the semaphore to
-	 * be signalled before executing any work, followed by a number of command buffers that will be executed, and finally, zero or more semaphores that will
+	 * be signaled before executing any work, followed by a number of command buffers that will be executed, and finally, zero or more semaphores that will
 	 * be signaled after command buffer execution completes. Each batch is represented as an instance of the {@link VkSubmitInfo} structure stored in an array, the
 	 * address of which is passed in {@code pSubmits}.</p>
 	 * 
@@ -3591,7 +3591,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>If {@code submitCount} is not 0, {@code pSubmits} <b>must</b> be a pointer to an array of {@code submitCount} valid {@link VkSubmitInfo} structures</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
 	 * <li>Each of {@code queue} and {@code fence} that are valid handles <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
-	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be unsignalled</li>
+	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be unsignaled</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on
 	 * that queue</li>
 	 * </ul>
@@ -3628,7 +3628,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * 
 	 * <p>Each call to {@code vkQueueSubmit} submits zero or more batches of work to the queue for execution. {@code submitCount} is used to specify the number
 	 * of batches to submit. Each batch includes zero or more semaphores to wait upon, and a corresponding set of stages that will wait for the semaphore to
-	 * be signalled before executing any work, followed by a number of command buffers that will be executed, and finally, zero or more semaphores that will
+	 * be signaled before executing any work, followed by a number of command buffers that will be executed, and finally, zero or more semaphores that will
 	 * be signaled after command buffer execution completes. Each batch is represented as an instance of the {@link VkSubmitInfo} structure stored in an array, the
 	 * address of which is passed in {@code pSubmits}.</p>
 	 * 
@@ -3645,7 +3645,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>If {@code submitCount} is not 0, {@code pSubmits} <b>must</b> be a pointer to an array of {@code submitCount} valid {@link VkSubmitInfo} structures</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
 	 * <li>Each of {@code queue} and {@code fence} that are valid handles <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
-	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be unsignalled</li>
+	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be unsignaled</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on
 	 * that queue</li>
 	 * </ul>
@@ -3678,7 +3678,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * 
 	 * <p>Each call to {@code vkQueueSubmit} submits zero or more batches of work to the queue for execution. {@code submitCount} is used to specify the number
 	 * of batches to submit. Each batch includes zero or more semaphores to wait upon, and a corresponding set of stages that will wait for the semaphore to
-	 * be signalled before executing any work, followed by a number of command buffers that will be executed, and finally, zero or more semaphores that will
+	 * be signaled before executing any work, followed by a number of command buffers that will be executed, and finally, zero or more semaphores that will
 	 * be signaled after command buffer execution completes. Each batch is represented as an instance of the {@link VkSubmitInfo} structure stored in an array, the
 	 * address of which is passed in {@code pSubmits}.</p>
 	 * 
@@ -3695,7 +3695,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>If {@code submitCount} is not 0, {@code pSubmits} <b>must</b> be a pointer to an array of {@code submitCount} valid {@link VkSubmitInfo} structures</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
 	 * <li>Each of {@code queue} and {@code fence} that are valid handles <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
-	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be unsignalled</li>
+	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be unsignaled</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on
 	 * that queue</li>
 	 * </ul>
@@ -4791,7 +4791,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
 	 * <li>The {@code queue} <b>must</b> support sparse binding operations</li>
 	 * <li>Each of {@code queue} and {@code fence} that are valid handles <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
-	 * <li>{@code fence} <b>must</b> be unsignalled</li>
+	 * <li>{@code fence} <b>must</b> be unsignaled</li>
 	 * <li>{@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on that queue</li>
 	 * </ul>
 	 * 
@@ -4843,7 +4843,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
 	 * <li>The {@code queue} <b>must</b> support sparse binding operations</li>
 	 * <li>Each of {@code queue} and {@code fence} that are valid handles <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
-	 * <li>{@code fence} <b>must</b> be unsignalled</li>
+	 * <li>{@code fence} <b>must</b> be unsignaled</li>
 	 * <li>{@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on that queue</li>
 	 * </ul>
 	 * 
@@ -4891,7 +4891,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
 	 * <li>The {@code queue} <b>must</b> support sparse binding operations</li>
 	 * <li>Each of {@code queue} and {@code fence} that are valid handles <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
-	 * <li>{@code fence} <b>must</b> be unsignalled</li>
+	 * <li>{@code fence} <b>must</b> be unsignaled</li>
 	 * <li>{@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on that queue</li>
 	 * </ul>
 	 * 
@@ -6840,8 +6840,15 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <p>Pipeline cache objects allow the result of pipeline construction to be reused between pipelines and between runs of an application. Reuse between
 	 * pipelines is achieved by passing the same pipeline cache object when creating multiple related pipelines. Reuse across runs of an application is
 	 * achieved by retrieving pipeline cache contents in one run of an application, saving the contents, and using them to preinitialize a pipeline cache on a
-	 * subsequent run. The contents and size of the pipeline cache objects are managed by the implementation. Applications <b>can</b> control the amount of data
-	 * retrieved from a pipeline cache object.</p>
+	 * subsequent run. The contents of the pipeline cache objects are managed by the implementation. Applications <b>can</b> manage the host memory consumed by a
+	 * pipeline cache object and control the amount of data retrieved from a pipeline cache object.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>Applications <b>can</b> track and manage the total host memory size of a pipeline cache object using the {@code pAllocator}. Applications <b>can</b> limit the
+	 * amount of data retrieved from a pipeline cache object in {@link #vkGetPipelineCacheData GetPipelineCacheData}. Implementations <b>should not</b> internally limit the total number of
+	 * entries added to a pipeline cache object or the total host memory consumed.</p>
+	 * </div>
 	 * 
 	 * <p>Once created, a pipeline cache <b>can</b> be passed to the {@link #vkCreateGraphicsPipelines CreateGraphicsPipelines} and {@link #vkCreateComputePipelines CreateComputePipelines} commands. If the pipeline cache passed
 	 * into these commands is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the implementation will query it for possible reuse opportunities and update it with new content. The use of
@@ -6885,8 +6892,15 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <p>Pipeline cache objects allow the result of pipeline construction to be reused between pipelines and between runs of an application. Reuse between
 	 * pipelines is achieved by passing the same pipeline cache object when creating multiple related pipelines. Reuse across runs of an application is
 	 * achieved by retrieving pipeline cache contents in one run of an application, saving the contents, and using them to preinitialize a pipeline cache on a
-	 * subsequent run. The contents and size of the pipeline cache objects are managed by the implementation. Applications <b>can</b> control the amount of data
-	 * retrieved from a pipeline cache object.</p>
+	 * subsequent run. The contents of the pipeline cache objects are managed by the implementation. Applications <b>can</b> manage the host memory consumed by a
+	 * pipeline cache object and control the amount of data retrieved from a pipeline cache object.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>Applications <b>can</b> track and manage the total host memory size of a pipeline cache object using the {@code pAllocator}. Applications <b>can</b> limit the
+	 * amount of data retrieved from a pipeline cache object in {@link #vkGetPipelineCacheData GetPipelineCacheData}. Implementations <b>should not</b> internally limit the total number of
+	 * entries added to a pipeline cache object or the total host memory consumed.</p>
+	 * </div>
 	 * 
 	 * <p>Once created, a pipeline cache <b>can</b> be passed to the {@link #vkCreateGraphicsPipelines CreateGraphicsPipelines} and {@link #vkCreateComputePipelines CreateComputePipelines} commands. If the pipeline cache passed
 	 * into these commands is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the implementation will query it for possible reuse opportunities and update it with new content. The use of
@@ -9133,7 +9147,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <p>A secondary command buffer is considered to be pending execution from the time its execution is recorded into a primary buffer (via
 	 * {@link #vkCmdExecuteCommands CmdExecuteCommands}) until the final time that primary buffer’s submission to a queue completes. If, after the primary buffer completes, the
 	 * secondary command buffer is recorded to execute on a different primary buffer, the first primary buffer <b>must not</b> be resubmitted until after it is reset
-	 * with {@link #vkResetCommandBuffer ResetCommandBuffer}.</p>
+	 * with {@link #vkResetCommandBuffer ResetCommandBuffer} unless the secondary command buffer was recorded with {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT}.</p>
 	 * 
 	 * <p>If {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} is not set on a secondary command buffer, that command buffer <b>must not</b> be used more than once in a given
 	 * primary command buffer. Furthermore, if a secondary command buffer without {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} set is recorded to execute in a
@@ -9193,7 +9207,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <p>A secondary command buffer is considered to be pending execution from the time its execution is recorded into a primary buffer (via
 	 * {@link #vkCmdExecuteCommands CmdExecuteCommands}) until the final time that primary buffer’s submission to a queue completes. If, after the primary buffer completes, the
 	 * secondary command buffer is recorded to execute on a different primary buffer, the first primary buffer <b>must not</b> be resubmitted until after it is reset
-	 * with {@link #vkResetCommandBuffer ResetCommandBuffer}.</p>
+	 * with {@link #vkResetCommandBuffer ResetCommandBuffer} unless the secondary command buffer was recorded with {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT}.</p>
 	 * 
 	 * <p>If {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} is not set on a secondary command buffer, that command buffer <b>must not</b> be used more than once in a given
 	 * primary command buffer. Furthermore, if a secondary command buffer without {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} set is recorded to execute in a

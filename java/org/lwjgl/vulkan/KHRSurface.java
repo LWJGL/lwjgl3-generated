@@ -34,7 +34,7 @@ public class KHRSurface {
 	public static final int VK_ERROR_NATIVE_WINDOW_IN_USE_KHR = -1000000001;
 
 	/** The presentation engine supports the sRGB colorspace. */
-	public static final int VK_COLORSPACE_SRGB_NONLINEAR_KHR = 0;
+	public static final int VK_COLOR_SPACE_SRGB_NONLINEAR_KHR = 0;
 
 	/**
 	 * The presentation engine does not wait for a vertical blanking period to update the current image, meaning this mode <b>may</b> result in visible tearing.

@@ -22,7 +22,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code layerName} &ndash; a null-terminated UTF-8 string specifying the name of the layer</li>
+ * <li>{@code layerName} &ndash; 
+ * a null-terminated UTF-8 string specifying the name of the layer. Use this name in the {@code ppEnabledLayerNames} array passed in the
+ * {@link VkInstanceCreateInfo} structure to enable this layer for an instance.</li>
  * <li>{@code specVersion} &ndash; the Vulkan version the layer was written to</li>
  * <li>{@code implementationVersion} &ndash; the version of this layer</li>
  * <li>{@code description} &ndash; a null-terminated UTF-8 string providing additional details that can be used by the application to identify the layer</li>

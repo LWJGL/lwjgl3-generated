@@ -36,7 +36,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * {@code VkSemaphore} handles</li>
  * <li>Each of the elements of {@code pWaitSemaphores}, the elements of {@code pCommandBuffers} and the elements of {@code pSignalSemaphores} that are
  * valid handles <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
- * <li>Any given element of {@code pSignalSemaphores} <b>must</b> currently be unsignalled</li>
+ * <li>Any given element of {@code pSignalSemaphores} <b>must</b> currently be unsignaled</li>
  * <li>Any given element of {@code pCommandBuffers} <b>must</b> either have been recorded with the {@link VK10#VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT}, or not currently
  * be executing on the device</li>
  * <li>Any given element of {@code pCommandBuffers} <b>must</b> be in the executable state</li>

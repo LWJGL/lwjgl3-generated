@@ -412,8 +412,8 @@ public class KHRSwapchain {
 	 * <li>If {@code fence} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
 	 * <li>Each of {@code swapchain}, {@code device}, {@code semaphore} and {@code fence} that are valid handles <b>must</b> have been created, allocated or
 	 * retrieved from the same {@code VkInstance}</li>
-	 * <li>If {@code semaphore} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> be unsignalled</li>
-	 * <li>If {@code fence} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> be unsignalled and <b>must not</b> be associated with any other queue command that has not yet completed
+	 * <li>If {@code semaphore} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> be unsignaled</li>
+	 * <li>If {@code fence} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> be unsignaled and <b>must not</b> be associated with any other queue command that has not yet completed
 	 * execution on that queue</li>
 	 * </ul>
 	 * 
@@ -586,8 +586,8 @@ public class KHRSwapchain {
 	 * <li>If {@code fence} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
 	 * <li>Each of {@code swapchain}, {@code device}, {@code semaphore} and {@code fence} that are valid handles <b>must</b> have been created, allocated or
 	 * retrieved from the same {@code VkInstance}</li>
-	 * <li>If {@code semaphore} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> be unsignalled</li>
-	 * <li>If {@code fence} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> be unsignalled and <b>must not</b> be associated with any other queue command that has not yet completed
+	 * <li>If {@code semaphore} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> be unsignaled</li>
+	 * <li>If {@code fence} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> be unsignaled and <b>must not</b> be associated with any other queue command that has not yet completed
 	 * execution on that queue</li>
 	 * </ul>
 	 * 

@@ -30,7 +30,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code format} &ndash; a {@code VkFormat} that is compatible with the surface</li>
- * <li>{@code colorSpace} &ndash; a presentation {@code VkColorSpaceKHR} that is compatible with the surface. Must be:<br><table><tr><td>{@link KHRSurface#VK_COLORSPACE_SRGB_NONLINEAR_KHR COLORSPACE_SRGB_NONLINEAR_KHR}</td></tr></table></li>
+ * <li>{@code colorSpace} &ndash; a presentation {@code VkColorSpaceKHR} that is compatible with the surface. Must be:<br><table><tr><td>{@link KHRSurface#VK_COLOR_SPACE_SRGB_NONLINEAR_KHR COLOR_SPACE_SRGB_NONLINEAR_KHR}</td></tr></table></li>
  * </ul>
  * 
  * <h3>Layout</h3>

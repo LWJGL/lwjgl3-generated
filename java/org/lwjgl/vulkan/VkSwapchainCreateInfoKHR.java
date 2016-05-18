@@ -41,7 +41,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * {@code VkInstance}</li>
  * <li>{@code surface} <b>must</b> be a surface that is supported by the device as determined using {@link KHRSurface#vkGetPhysicalDeviceSurfaceSupportKHR GetPhysicalDeviceSurfaceSupportKHR}</li>
  * <li>The native window referred to by {@code surface} <b>must not</b> already be associated with a swapchain other than {@code oldSwapchain}, or with a
- * non-{apiname} graphics API surface</li>
+ * non-Vulkan graphics API surface</li>
  * <li>{@code minImageCount} <b>must</b> be greater than or equal to the value returned in the {@code minImageCount} member of the {@link VkSurfaceCapabilitiesKHR}
  * structure returned by {@link KHRSurface#vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR} for the surface</li>
  * <li>{@code minImageCount} <b>must</b> be less than or equal to the value returned in the {@code maxImageCount} member of the {@link VkSurfaceCapabilitiesKHR}
@@ -76,7 +76,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * the minimum number of presentable images that the application needs. The platform will either create the swapchain with at least that many images, or
  * will fail to create the swapchain.</li>
  * <li>{@code imageFormat} &ndash; a {@code VkFormat} that is valid for swapchains on the specified surface</li>
- * <li>{@code imageColorSpace} &ndash; a {@code VkColorSpaceKHR} that is valid for swapchains on the specified surface. Must be:<br><table><tr><td>{@link KHRSurface#VK_COLORSPACE_SRGB_NONLINEAR_KHR COLORSPACE_SRGB_NONLINEAR_KHR}</td></tr></table></li>
+ * <li>{@code imageColorSpace} &ndash; a {@code VkColorSpaceKHR} that is valid for swapchains on the specified surface. Must be:<br><table><tr><td>{@link KHRSurface#VK_COLOR_SPACE_SRGB_NONLINEAR_KHR COLOR_SPACE_SRGB_NONLINEAR_KHR}</td></tr></table></li>
  * <li>{@code imageExtent} &ndash; 
  * the size (in pixels) of the swapchain. Behavior is platform-dependent when the image extent does not match the surface’s {@code currentExtent} as
  * returned by {@link KHRSurface#vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR}.</li>

@@ -33,8 +33,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * null-terminated strings</li>
  * <li>If {@code pEnabledFeatures} is not {@code NULL}, {@code pEnabledFeatures} <b>must</b> be a pointer to a valid {@link VkPhysicalDeviceFeatures} structure</li>
  * <li>{@code queueCreateInfoCount} <b>must</b> be greater than 0</li>
- * <li>Any given element of {@code ppEnabledLayerNames} <b>must</b> be the name of a layer present on the system, exactly matching a string returned in the
- * {@link VkLayerProperties} structure by {@link VK10#vkEnumerateDeviceLayerProperties EnumerateDeviceLayerProperties}</li>
+ * <li>{@code ppEnabledLayerNames} <b>must</b> either be {@code NULL} or contain the same sequence of layer names that was enabled when creating the parent
+ * instance</li>
  * <li>Any given element of {@code ppEnabledExtensionNames} <b>must</b> be the name of an extension present on the system, exactly matching a string returned in
  * the {@link VkExtensionProperties} structure by {@link VK10#vkEnumerateDeviceExtensionProperties EnumerateDeviceExtensionProperties}</li>
  * <li>If an extension listed in {@code ppEnabledExtensionNames} is provided as part of a layer, then both the layer and extension <b>must</b> be enabled to
@@ -50,8 +50,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code flags} &ndash; reserved for future use</li>
  * <li>{@code queueCreateInfoCount} &ndash; the unsigned integer size of the {@code pQueueCreateInfos} array</li>
  * <li>{@code pQueueCreateInfos} &ndash; a pointer to an array of {@link VkDeviceQueueCreateInfo} structures describing the queues that are requested to be created along with the logical device</li>
- * <li>{@code enabledLayerCount} &ndash; the number of device layers to enable</li>
- * <li>{@code ppEnabledLayerNames} &ndash; a pointer to an array of {@code enabledLayerCount} null-terminated UTF-8 strings containing the names of layers to enable for the created device</li>
+ * <li>{@code enabledLayerCount} &ndash; deprecated and ignored</li>
+ * <li>{@code ppEnabledLayerNames} &ndash; deprecated and ignored</li>
  * <li>{@code enabledExtensionCount} &ndash; the number of device extensions to enable</li>
  * <li>{@code ppEnabledExtensionNames} &ndash; 
  * a pointer to an array of {@code enabledExtensionCount} null-terminated UTF-8 strings containing the names of extensions to enable for the created
