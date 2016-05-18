@@ -34,6 +34,9 @@ public class VKCapabilities {
 		vkCmdCopyImage,
 		vkCmdCopyImageToBuffer,
 		vkCmdCopyQueryPoolResults,
+		vkCmdDebugMarkerBeginEXT,
+		vkCmdDebugMarkerEndEXT,
+		vkCmdDebugMarkerInsertEXT,
 		vkCmdDispatch,
 		vkCmdDispatchIndirect,
 		vkCmdDraw,
@@ -91,6 +94,8 @@ public class VKCapabilities {
 		vkCreateSwapchainKHR,
 		vkCreateWin32SurfaceKHR,
 		vkCreateXlibSurfaceKHR,
+		vkDebugMarkerSetObjectNameEXT,
+		vkDebugMarkerSetObjectTagEXT,
 		vkDebugReportMessageEXT,
 		vkDestroyBuffer,
 		vkDestroyBufferView,
@@ -181,6 +186,8 @@ public class VKCapabilities {
 
 	/** When true, {@link VK10} is supported. */
 	public final boolean Vulkan10;
+	/** When true, {@link EXTDebugMarker} is supported. */
+	public final boolean VK_EXT_debug_marker;
 	/** When true, {@link EXTDebugReport} is supported. */
 	public final boolean VK_EXT_debug_report;
 	/** When true, {@link IMGFilterCubic} is supported. */
@@ -227,6 +234,9 @@ public class VKCapabilities {
 		vkCmdCopyImage = provider.getFunctionAddress("vkCmdCopyImage");
 		vkCmdCopyImageToBuffer = provider.getFunctionAddress("vkCmdCopyImageToBuffer");
 		vkCmdCopyQueryPoolResults = provider.getFunctionAddress("vkCmdCopyQueryPoolResults");
+		vkCmdDebugMarkerBeginEXT = provider.getFunctionAddress("vkCmdDebugMarkerBeginEXT");
+		vkCmdDebugMarkerEndEXT = provider.getFunctionAddress("vkCmdDebugMarkerEndEXT");
+		vkCmdDebugMarkerInsertEXT = provider.getFunctionAddress("vkCmdDebugMarkerInsertEXT");
 		vkCmdDispatch = provider.getFunctionAddress("vkCmdDispatch");
 		vkCmdDispatchIndirect = provider.getFunctionAddress("vkCmdDispatchIndirect");
 		vkCmdDraw = provider.getFunctionAddress("vkCmdDraw");
@@ -284,6 +294,8 @@ public class VKCapabilities {
 		vkCreateSwapchainKHR = provider.getFunctionAddress("vkCreateSwapchainKHR");
 		vkCreateWin32SurfaceKHR = provider.getFunctionAddress("vkCreateWin32SurfaceKHR");
 		vkCreateXlibSurfaceKHR = provider.getFunctionAddress("vkCreateXlibSurfaceKHR");
+		vkDebugMarkerSetObjectNameEXT = provider.getFunctionAddress("vkDebugMarkerSetObjectNameEXT");
+		vkDebugMarkerSetObjectTagEXT = provider.getFunctionAddress("vkDebugMarkerSetObjectTagEXT");
 		vkDebugReportMessageEXT = provider.getFunctionAddress("vkDebugReportMessageEXT");
 		vkDestroyBuffer = provider.getFunctionAddress("vkDestroyBuffer");
 		vkDestroyBufferView = provider.getFunctionAddress("vkDestroyBufferView");
@@ -369,6 +381,7 @@ public class VKCapabilities {
 		vkWaitForFences = provider.getFunctionAddress("vkWaitForFences");
 
 		Vulkan10 = ext.contains("Vulkan10") && VK.checkExtension("Vulkan10", VK10.isAvailable(this));
+		VK_EXT_debug_marker = ext.contains("VK_EXT_debug_marker") && VK.checkExtension("VK_EXT_debug_marker", EXTDebugMarker.isAvailable(this));
 		VK_EXT_debug_report = ext.contains("VK_EXT_debug_report") && VK.checkExtension("VK_EXT_debug_report", EXTDebugReport.isAvailable(this));
 		VK_IMG_filter_cubic = ext.contains("VK_IMG_filter_cubic");
 		VK_KHR_display = ext.contains("VK_KHR_display") && VK.checkExtension("VK_KHR_display", KHRDisplay.isAvailable(this));
