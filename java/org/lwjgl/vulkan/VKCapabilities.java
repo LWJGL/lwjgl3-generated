@@ -186,6 +186,8 @@ public class VKCapabilities {
 
 	/** When true, {@link VK10} is supported. */
 	public final boolean Vulkan10;
+	/** When true, {@link AMDRasterizationOrder} is supported. */
+	public final boolean VK_AMD_rasterization_order;
 	/** When true, {@link EXTDebugMarker} is supported. */
 	public final boolean VK_EXT_debug_marker;
 	/** When true, {@link EXTDebugReport} is supported. */
@@ -381,6 +383,7 @@ public class VKCapabilities {
 		vkWaitForFences = provider.getFunctionAddress("vkWaitForFences");
 
 		Vulkan10 = ext.contains("Vulkan10") && VK.checkExtension("Vulkan10", VK10.isAvailable(this));
+		VK_AMD_rasterization_order = ext.contains("VK_AMD_rasterization_order");
 		VK_EXT_debug_marker = ext.contains("VK_EXT_debug_marker") && VK.checkExtension("VK_EXT_debug_marker", EXTDebugMarker.isAvailable(this));
 		VK_EXT_debug_report = ext.contains("VK_EXT_debug_report") && VK.checkExtension("VK_EXT_debug_report", EXTDebugReport.isAvailable(this));
 		VK_IMG_filter_cubic = ext.contains("VK_IMG_filter_cubic");
