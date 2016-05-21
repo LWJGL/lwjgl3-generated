@@ -188,6 +188,18 @@ public class VKCapabilities {
 	public final boolean Vulkan10;
 	/** When true, {@link AMDRasterizationOrder} is supported. */
 	public final boolean VK_AMD_rasterization_order;
+	/**
+	 * When true, the AMD_shader_ballot extension is supported.
+	 * 
+	 * <p>This extension introduces two new shader functions:</p>
+	 * 
+	 * <ul>
+	 * <li><b>mbcnt</b> computes the number of bits set in the provided argument, masked with a thread mask which contains 1 for all active threads less than
+	 * the current thread within a wavefront.</li>
+	 * <li><b>ballot</b> returns a 64-bit mask which contains 1 if that thread within the wavefront passed true into the instruction, and 0 otherwise.</li>
+	 * </ul>
+	 */
+	public final boolean VK_AMD_shader_ballot;
 	/** When true, {@link EXTDebugMarker} is supported. */
 	public final boolean VK_EXT_debug_marker;
 	/** When true, {@link EXTDebugReport} is supported. */
@@ -384,6 +396,7 @@ public class VKCapabilities {
 
 		Vulkan10 = ext.contains("Vulkan10") && VK.checkExtension("Vulkan10", VK10.isAvailable(this));
 		VK_AMD_rasterization_order = ext.contains("VK_AMD_rasterization_order");
+		VK_AMD_shader_ballot = ext.contains("VK_AMD_shader_ballot");
 		VK_EXT_debug_marker = ext.contains("VK_EXT_debug_marker") && VK.checkExtension("VK_EXT_debug_marker", EXTDebugMarker.isAvailable(this));
 		VK_EXT_debug_report = ext.contains("VK_EXT_debug_report") && VK.checkExtension("VK_EXT_debug_report", EXTDebugReport.isAvailable(this));
 		VK_IMG_filter_cubic = ext.contains("VK_IMG_filter_cubic");
