@@ -27,6 +27,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code commandPool} <b>must</b> be a valid {@code VkCommandPool} handle</li>
  * <li>{@code level} <b>must</b> be a valid {@code VkCommandBufferLevel} value</li>
+ * <li>{@code commandBufferCount} <b>must</b> be greater than 0</li>
  * </ul>
  * 
  * <h3>Member documentation</h3>
