@@ -2293,7 +2293,7 @@ public class GLFW {
 	 * @param ypos        the desired y-coordinate of the upper-left corner of the client area
 	 * @param width       the desired with, in screen coordinates, of the client area or video mode
 	 * @param height      the desired height, in screen coordinates, of the client area or video mode
-	 * @param refreshRate the desired refresh rate, in Hz, of the video mode
+	 * @param refreshRate the desired refresh rate, in Hz, of the video mode, or {@link #GLFW_DONT_CARE DONT_CARE}
 	 *
 	 * @since version 3.2
 	 */
