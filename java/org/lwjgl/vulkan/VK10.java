@@ -12852,11 +12852,11 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * {@code pRenderPassBegin} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT} or {@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT} set</li>
 	 * <li>If any of the {@code initialLayout} or {@code finalLayout} member of the {@link VkAttachmentDescription} structures or the {@code layout} member of the
 	 * {@link VkAttachmentReference} structures specified when creating the render pass specified in the {@code renderPass} member of {@code pRenderPassBegin}
-	 * is {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_BIT IMAGE_LAYOUT_TRANSFER_SRC_BIT} then the corresponding attachment image of the framebuffer specified in the {@code framebuffer} member of
+	 * is {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} then the corresponding attachment image of the framebuffer specified in the {@code framebuffer} member of
 	 * {@code pRenderPassBegin} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} set</li>
 	 * <li>If any of the {@code initialLayout} or {@code finalLayout} member of the {@link VkAttachmentDescription} structures or the {@code layout} member of the
 	 * {@link VkAttachmentReference} structures specified when creating the render pass specified in the {@code renderPass} member of {@code pRenderPassBegin}
-	 * is {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_BIT IMAGE_LAYOUT_TRANSFER_DST_BIT} then the corresponding attachment image of the framebuffer specified in the {@code framebuffer} member of
+	 * is {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} then the corresponding attachment image of the framebuffer specified in the {@code framebuffer} member of
 	 * {@code pRenderPassBegin} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} set</li>
 	 * </ul>
 	 * 
@@ -12910,11 +12910,11 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * {@code pRenderPassBegin} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT} or {@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT} set</li>
 	 * <li>If any of the {@code initialLayout} or {@code finalLayout} member of the {@link VkAttachmentDescription} structures or the {@code layout} member of the
 	 * {@link VkAttachmentReference} structures specified when creating the render pass specified in the {@code renderPass} member of {@code pRenderPassBegin}
-	 * is {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_BIT IMAGE_LAYOUT_TRANSFER_SRC_BIT} then the corresponding attachment image of the framebuffer specified in the {@code framebuffer} member of
+	 * is {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} then the corresponding attachment image of the framebuffer specified in the {@code framebuffer} member of
 	 * {@code pRenderPassBegin} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} set</li>
 	 * <li>If any of the {@code initialLayout} or {@code finalLayout} member of the {@link VkAttachmentDescription} structures or the {@code layout} member of the
 	 * {@link VkAttachmentReference} structures specified when creating the render pass specified in the {@code renderPass} member of {@code pRenderPassBegin}
-	 * is {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_BIT IMAGE_LAYOUT_TRANSFER_DST_BIT} then the corresponding attachment image of the framebuffer specified in the {@code framebuffer} member of
+	 * is {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} then the corresponding attachment image of the framebuffer specified in the {@code framebuffer} member of
 	 * {@code pRenderPassBegin} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} set</li>
 	 * </ul>
 	 * 

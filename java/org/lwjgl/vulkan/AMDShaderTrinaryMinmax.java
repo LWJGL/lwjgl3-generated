@@ -8,6 +8,9 @@ package org.lwjgl.vulkan;
 /**
  * When the {@code VK_AMD_shader_trinary_minmax} device extension is enabled the application <b>can</b> pass a SPIR-V module to {@link VK10#vkCreateShaderModule CreateShaderModule} that uses
  * the {@code SPV_AMD_shader_trinary_minmax} SPIR-V extension.
+ * 
+ * <p>This extension introduces 3-parameter {@code min}, {@code max} and {@code med} functions which map directly to the corresponding GCN opcodes:
+ * {@code min3}, {@code max3}, {@code med3}</p>
  */
 public final class AMDShaderTrinaryMinmax {
 

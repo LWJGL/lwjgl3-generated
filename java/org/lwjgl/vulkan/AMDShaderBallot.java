@@ -9,9 +9,9 @@ package org.lwjgl.vulkan;
  * This extension introduces two new shader functions:
  * 
  * <ul>
- * <li><b>mbcnt</b> computes the number of bits set in the provided argument, masked with a thread mask which contains 1 for all active threads less than
- * the current thread within a wavefront.</li>
- * <li><b>ballot</b> returns a 64-bit mask which contains 1 if that thread within the wavefront passed true into the instruction, and 0 otherwise.</li>
+ * <li><b>mbcntAMD</b> computes the number of bits set in the provided argument, masked with a thread mask which contains 1 for all active threads less
+ * than the current thread within a wavefront.</li>
+ * <li><b>ballotARB</b> returns a 64-bit mask which contains 1 if that thread within the wavefront passed true into the instruction, and 0 otherwise.</li>
  * </ul>
  */
 public final class AMDShaderBallot {
