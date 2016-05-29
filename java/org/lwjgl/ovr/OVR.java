@@ -154,6 +154,13 @@ public class OVR {
 	/** Cube maps. Not currently supported on PC. */
 	public static final int ovrTexture_Cube = 2;
 
+	/**
+	 * The bindings required for texture swap chain. ({@code ovrTextureBindFlags})
+	 * 
+	 * <p>All texture swap chains are automatically bindable as shader input resources since the Oculus runtime needs this to read them.</p>
+	 */
+	public static final int ovrTextureBind_None = 0;
+
 	/** The application can write into the chain with pixel shader */
 	public static final int ovrTextureBind_DX_RenderTarget = 0x1;
 
@@ -163,12 +170,17 @@ public class OVR {
 	/** The chain buffers can be bound as depth and/or stencil buffers */
 	public static final int ovrTextureBind_DX_DepthStencil = 0x4;
 
-	/**
-	 * The bindings required for texture swap chain. ({@code ovrTextureBindFlags})
-	 * 
-	 * <p>All texture swap chains are automatically bindable as shader input resources since the Oculus runtime needs this to read them.</p>
-	 */
-	public static final int ovrTextureBind_None = 0;
+	/** The format of a texture. ({@code ovrTextureFormat}) */
+	public static final int
+		OVR_FORMAT_UNKNOWN              = 0,
+		OVR_FORMAT_R8G8B8A8_UNORM       = 4,
+		OVR_FORMAT_R8G8B8A8_UNORM_SRGB  = 5,
+		OVR_FORMAT_B8G8R8A8_UNORM       = 6,
+		OVR_FORMAT_R16G16B16A16_FLOAT   = 10,
+		OVR_FORMAT_D16_UNORM            = 11,
+		OVR_FORMAT_D24_UNORM_S8_UINT    = 12,
+		OVR_FORMAT_D32_FLOAT            = 13,
+		OVR_FORMAT_D32_FLOAT_S8X24_UINT = 14;
 
 	/** Not currently supported on PC. Would require a DirectX 11.1 device. */
 	public static final int OVR_FORMAT_B5G6R5_UNORM = 1;
@@ -188,17 +200,8 @@ public class OVR {
 	/** Not supported for OpenGL applications. */
 	public static final int OVR_FORMAT_B8G8R8X8_UNORM_SRGB = 9;
 
-	/** The format of a texture. ({@code ovrTextureFormat}) */
-	public static final int
-		OVR_FORMAT_UNKNOWN              = 0,
-		OVR_FORMAT_R8G8B8A8_UNORM       = 4,
-		OVR_FORMAT_R8G8B8A8_UNORM_SRGB  = 5,
-		OVR_FORMAT_B8G8R8A8_UNORM       = 6,
-		OVR_FORMAT_R16G16B16A16_FLOAT   = 10,
-		OVR_FORMAT_D16_UNORM            = 11,
-		OVR_FORMAT_D24_UNORM_S8_UINT    = 12,
-		OVR_FORMAT_D32_FLOAT            = 13,
-		OVR_FORMAT_D32_FLOAT_S8X24_UINT = 14;
+	/** Misc flags overriding particular behaviors of a texture swap chain. ({@code ovrTextureFlags}) */
+	public static final int ovrTextureMisc_None = 0;
 
 	/**
 	 * DX only: The underlying texture is created with a TYPELESS equivalent of the format specified in the texture desc. The SDK will still access the
@@ -208,9 +211,6 @@ public class OVR {
 
 	/** DX only: Allow generation of the mip chain on the GPU via the GenerateMips call. This flag requires that RenderTarget binding also be specified. */
 	public static final int ovrTextureMisc_AllowGenerateMips = 0x2;
-
-	/** Misc flags overriding particular behaviors of a texture swap chain. ({@code ovrTextureFlags}) */
-	public static final int ovrTextureMisc_None = 0;
 
 	/** Button A */
 	public static final int ovrButton_A = 0x1;
