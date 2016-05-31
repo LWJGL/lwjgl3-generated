@@ -964,7 +964,12 @@ public class User32 {
 			GetMonitorInfo             = apiGetFunctionAddress(USER32, "GetMonitorInfoW"),
 			EnumDisplayDevices         = apiGetFunctionAddress(USER32, "EnumDisplayDevicesW"),
 			EnumDisplaySettingsEx      = apiGetFunctionAddress(USER32, "EnumDisplaySettingsExW"),
-			ChangeDisplaySettingsEx    = apiGetFunctionAddress(USER32, "ChangeDisplaySettingsExW");
+			ChangeDisplaySettingsEx    = apiGetFunctionAddress(USER32, "ChangeDisplaySettingsExW"),
+			GetCursorPos               = apiGetFunctionAddress(USER32, "GetCursorPos"),
+			SetCursorPos               = apiGetFunctionAddress(USER32, "SetCursorPos"),
+			ClipCursor                 = apiGetFunctionAddress(USER32, "ClipCursor"),
+			ShowCursor                 = apiGetFunctionAddress(USER32, "ShowCursor"),
+			SetCursor                  = apiGetFunctionAddress(USER32, "SetCursor");
 
 	}
 
@@ -2635,6 +2640,110 @@ public class User32 {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	// --- [ GetCursorPos ] ---
+
+	/**
+	 * Retrieves the position of the mouse cursor, in screen coordinates.
+	 *
+	 * @param point a pointer to a {@link POINT} structure that receives the screen coordinates of the cursor
+	 */
+	public static int nGetCursorPos(long point) {
+		long __functionAddress = Functions.GetCursorPos;
+		return callPI(__functionAddress, point);
+	}
+
+	/**
+	 * Retrieves the position of the mouse cursor, in screen coordinates.
+	 *
+	 * @param point a pointer to a {@link POINT} structure that receives the screen coordinates of the cursor
+	 */
+	public static boolean GetCursorPos(POINT point) {
+		return nGetCursorPos(point.address()) != 0;
+	}
+
+	// --- [ SetCursorPos ] ---
+
+	/**
+	 * Moves the cursor to the specified screen coordinates. If the new coordinates are not within the screen rectangle set by the most recent {@link #ClipCursor}
+	 * function call, the system automatically adjusts the coordinates so that the cursor stays within the rectangle.
+	 *
+	 * @param X the new x-coordinate of the cursor, in screen coordinates.
+	 * @param Y the new y-coordinate of the cursor, in screen coordinates.
+	 */
+	public static boolean SetCursorPos(int X, int Y) {
+		long __functionAddress = Functions.SetCursorPos;
+		return callI(__functionAddress, X, Y) != 0;
+	}
+
+	// --- [ ClipCursor ] ---
+
+	/**
+	 * Confines the cursor to a rectangular area on the screen. If a subsequent cursor position (set by the {@link #SetCursorPos} function or the mouse) lies
+	 * outside the rectangle, the system automatically adjusts the position to keep the cursor inside the rectangular area.
+	 *
+	 * @param rect a pointer to the structure that contains the screen coordinates of the upper-left and lower-right corners of the confining rectangle. If this
+	 *             parameter is {@code NULL}, the cursor is free to move anywhere on the screen.
+	 */
+	public static int nClipCursor(long rect) {
+		long __functionAddress = Functions.ClipCursor;
+		return callPI(__functionAddress, rect);
+	}
+
+	/**
+	 * Confines the cursor to a rectangular area on the screen. If a subsequent cursor position (set by the {@link #SetCursorPos} function or the mouse) lies
+	 * outside the rectangle, the system automatically adjusts the position to keep the cursor inside the rectangular area.
+	 *
+	 * @param rect a pointer to the structure that contains the screen coordinates of the upper-left and lower-right corners of the confining rectangle. If this
+	 *             parameter is {@code NULL}, the cursor is free to move anywhere on the screen.
+	 */
+	public static boolean ClipCursor(RECT rect) {
+		return nClipCursor(rect == null ? NULL : rect.address()) != 0;
+	}
+
+	// --- [ ShowCursor ] ---
+
+	/**
+	 * Displays or hides the cursor.
+	 * 
+	 * <p>This function sets an internal display counter that determines whether the cursor should be displayed. The cursor is displayed only if the display
+	 * count is greater than or equal to 0. If a mouse is installed, the initial display count is 0. If no mouse is installed, the display count is –1.</p>
+	 *
+	 * @param show If {@code show} is {@link WinBase#TRUE}, the display count is incremented by one. If {@code show} is {@link WinBase#FALSE}, the display count is decremented by one.
+	 *
+	 * @return the new display counter
+	 */
+	public static int ShowCursor(boolean show) {
+		long __functionAddress = Functions.ShowCursor;
+		return callI(__functionAddress, show ? 1 : 0);
+	}
+
+	// --- [ SetCursor ] ---
+
+	/**
+	 * Sets the cursor shape.
+	 * 
+	 * <p>The cursor is set only if the new cursor is different from the previous cursor; otherwise, the function returns immediately.</p>
+	 * 
+	 * <p>The cursor is a shared resource. A window should set the cursor shape only when the cursor is in its client area or when the window is capturing mouse
+	 * input. In systems without a mouse, the window should restore the previous cursor before the cursor leaves the client area or before it relinquishes
+	 * control to another window.</p>
+	 * 
+	 * <p>If your application must set the cursor while it is in a window, make sure the class cursor for the specified window's class is set to {@code NULL}. If the
+	 * class cursor is not {@code NULL}, the system restores the class cursor each time the mouse is moved.</p>
+	 * 
+	 * <p>The cursor is not shown on the screen if the internal cursor display count is less than zero. This occurs if the application uses the {@link #ShowCursor}
+	 * function to hide the cursor more times than to show the cursor.</p>
+	 *
+	 * @param hCursor a handle to the cursor. The cursor must have been created by the {@link #CreateCursor} function or loaded by the {@link #LoadCursor} or {@link #LoadImage} function.
+	 *                If this parameter is {@code NULL}, the cursor is removed from the screen.
+	 *
+	 * @return the handle to the previous cursor, if there was one
+	 */
+	public static long SetCursor(long hCursor) {
+		long __functionAddress = Functions.SetCursor;
+		return callPP(__functionAddress, hCursor);
 	}
 
 	/** Array version of: {@link #IsTouchWindow} */
