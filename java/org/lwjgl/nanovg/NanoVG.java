@@ -264,8 +264,9 @@ public class NanoVG {
 	 * @param g the green value
 	 * @param b the blue value
 	 */
-	public static void nvgRGB(byte r, byte g, byte b, NVGColor __result) {
+	public static NVGColor nvgRGB(byte r, byte g, byte b, NVGColor __result) {
 		nnvgRGB(r, g, b, __result.address());
+		return __result;
 	}
 
 	// --- [ nvgRGBf ] ---
@@ -286,8 +287,9 @@ public class NanoVG {
 	 * @param g the green value
 	 * @param b the blue value
 	 */
-	public static void nvgRGBf(float r, float g, float b, NVGColor __result) {
+	public static NVGColor nvgRGBf(float r, float g, float b, NVGColor __result) {
 		nnvgRGBf(r, g, b, __result.address());
+		return __result;
 	}
 
 	// --- [ nvgRGBA ] ---
@@ -310,8 +312,9 @@ public class NanoVG {
 	 * @param b the blue value
 	 * @param a the alpha value
 	 */
-	public static void nvgRGBA(byte r, byte g, byte b, byte a, NVGColor __result) {
+	public static NVGColor nvgRGBA(byte r, byte g, byte b, byte a, NVGColor __result) {
 		nnvgRGBA(r, g, b, a, __result.address());
+		return __result;
 	}
 
 	// --- [ nvgRGBAf ] ---
@@ -334,8 +337,9 @@ public class NanoVG {
 	 * @param b the blue value
 	 * @param a the alpha value
 	 */
-	public static void nvgRGBAf(float r, float g, float b, float a, NVGColor __result) {
+	public static NVGColor nvgRGBAf(float r, float g, float b, float a, NVGColor __result) {
 		nnvgRGBAf(r, g, b, a, __result.address());
+		return __result;
 	}
 
 	// --- [ nvgLerpRGBA ] ---
@@ -356,8 +360,9 @@ public class NanoVG {
 	 * @param c1 the second color
 	 * @param u  the interpolation factor
 	 */
-	public static void nvgLerpRGBA(NVGColor c0, NVGColor c1, float u, NVGColor __result) {
+	public static NVGColor nvgLerpRGBA(NVGColor c0, NVGColor c1, float u, NVGColor __result) {
 		nnvgLerpRGBA(c0.address(), c1.address(), u, __result.address());
+		return __result;
 	}
 
 	// --- [ nvgTransRGBA ] ---
@@ -376,8 +381,9 @@ public class NanoVG {
 	 * @param c0 the color
 	 * @param a  the alpha value
 	 */
-	public static void nvgTransRGBA(NVGColor c0, byte a, NVGColor __result) {
+	public static NVGColor nvgTransRGBA(NVGColor c0, byte a, NVGColor __result) {
 		nnvgTransRGBA(c0.address(), a, __result.address());
+		return __result;
 	}
 
 	// --- [ nvgTransRGBAf ] ---
@@ -396,8 +402,9 @@ public class NanoVG {
 	 * @param c0 the color
 	 * @param a  the alpha value
 	 */
-	public static void nvgTransRGBAf(NVGColor c0, float a, NVGColor __result) {
+	public static NVGColor nvgTransRGBAf(NVGColor c0, float a, NVGColor __result) {
 		nnvgTransRGBAf(c0.address(), a, __result.address());
+		return __result;
 	}
 
 	// --- [ nvgHSL ] ---
@@ -422,8 +429,9 @@ public class NanoVG {
 	 * @param s the saturation value
 	 * @param l the lightness value
 	 */
-	public static void nvgHSL(float h, float s, float l, NVGColor __result) {
+	public static NVGColor nvgHSL(float h, float s, float l, NVGColor __result) {
 		nnvgHSL(h, s, l, __result.address());
+		return __result;
 	}
 
 	// --- [ nvgHSLA ] ---
@@ -450,8 +458,9 @@ public class NanoVG {
 	 * @param l the lightness value
 	 * @param a the alpha value
 	 */
-	public static void nvgHSLA(float h, float s, float l, byte a, NVGColor __result) {
+	public static NVGColor nvgHSLA(float h, float s, float l, byte a, NVGColor __result) {
 		nnvgHSLA(h, s, l, a, __result.address());
+		return __result;
 	}
 
 	// --- [ nvgSave ] ---
@@ -1408,10 +1417,11 @@ public class NanoVG {
 	 * @param icol the start color
 	 * @param ocol the end color
 	 */
-	public static void nvgLinearGradient(long ctx, float sx, float sy, float ex, float ey, NVGColor icol, NVGColor ocol, NVGPaint __result) {
+	public static NVGPaint nvgLinearGradient(long ctx, float sx, float sy, float ex, float ey, NVGColor icol, NVGColor ocol, NVGPaint __result) {
 		if ( CHECKS )
 			checkPointer(ctx);
 		nnvgLinearGradient(ctx, sx, sy, ex, ey, icol.address(), ocol.address(), __result.address());
+		return __result;
 	}
 
 	// --- [ nvgBoxGradient ] ---
@@ -1448,10 +1458,11 @@ public class NanoVG {
 	 * @param icol the inner color
 	 * @param ocol the outer color
 	 */
-	public static void nvgBoxGradient(long ctx, float x, float y, float w, float h, float r, float f, NVGColor icol, NVGColor ocol, NVGPaint __result) {
+	public static NVGPaint nvgBoxGradient(long ctx, float x, float y, float w, float h, float r, float f, NVGColor icol, NVGColor ocol, NVGPaint __result) {
 		if ( CHECKS )
 			checkPointer(ctx);
 		nnvgBoxGradient(ctx, x, y, w, h, r, f, icol.address(), ocol.address(), __result.address());
+		return __result;
 	}
 
 	// --- [ nvgRadialGradient ] ---
@@ -1484,10 +1495,11 @@ public class NanoVG {
 	 * @param icol the start color
 	 * @param ocol the end color
 	 */
-	public static void nvgRadialGradient(long ctx, float cx, float cy, float inr, float outr, NVGColor icol, NVGColor ocol, NVGPaint __result) {
+	public static NVGPaint nvgRadialGradient(long ctx, float cx, float cy, float inr, float outr, NVGColor icol, NVGColor ocol, NVGPaint __result) {
 		if ( CHECKS )
 			checkPointer(ctx);
 		nnvgRadialGradient(ctx, cx, cy, inr, outr, icol.address(), ocol.address(), __result.address());
+		return __result;
 	}
 
 	// --- [ nvgImagePattern ] ---
@@ -1522,10 +1534,11 @@ public class NanoVG {
 	 * @param image the image to render
 	 * @param alpha the alpha value
 	 */
-	public static void nvgImagePattern(long ctx, float ox, float oy, float ex, float ey, float angle, int image, float alpha, NVGPaint __result) {
+	public static NVGPaint nvgImagePattern(long ctx, float ox, float oy, float ex, float ey, float angle, int image, float alpha, NVGPaint __result) {
 		if ( CHECKS )
 			checkPointer(ctx);
 		nnvgImagePattern(ctx, ox, oy, ex, ey, angle, image, alpha, __result.address());
+		return __result;
 	}
 
 	// --- [ nvgScissor ] ---

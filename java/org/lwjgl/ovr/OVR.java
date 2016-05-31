@@ -627,8 +627,9 @@ public class OVR {
 	 *                 info if so.
 	 * @param __result an {@link OVRHmdDesc}. If the {@code hmd} is {@code NULL} and ovrHmdDesc::Type is {@link #ovrHmd_None Hmd_None} then no HMD is present.
 	 */
-	public static void ovr_GetHmdDesc(long session, OVRHmdDesc __result) {
+	public static OVRHmdDesc ovr_GetHmdDesc(long session, OVRHmdDesc __result) {
 		novr_GetHmdDesc(session, __result.address());
+		return __result;
 	}
 
 	// --- [ ovr_GetTrackerCount ] ---
@@ -683,10 +684,11 @@ public class OVR {
 	 * @param trackerDescIndex a sensor index. The valid indexes are in the range of 0 to the sensor count returned by {@link #ovr_GetTrackerCount GetTrackerCount}.
 	 * @param __result         an {@link OVRTrackerDesc}. An empty {@code OVRTrackerDesc} will be returned if {@code trackerDescIndex} is out of range.
 	 */
-	public static void ovr_GetTrackerDesc(long session, int trackerDescIndex, OVRTrackerDesc __result) {
+	public static OVRTrackerDesc ovr_GetTrackerDesc(long session, int trackerDescIndex, OVRTrackerDesc __result) {
 		if ( CHECKS )
 			checkPointer(session);
 		novr_GetTrackerDesc(session, trackerDescIndex, __result.address());
+		return __result;
 	}
 
 	// --- [ ovr_Create ] ---
@@ -915,10 +917,11 @@ public class OVR {
 	 *                      "SensorSampleTimestamp", that will override the value stored here.
 	 * @param __result      the {@link OVRTrackingState} that is predicted for the given {@code absTime}
 	 */
-	public static void ovr_GetTrackingState(long session, double absTime, boolean latencyMarker, OVRTrackingState __result) {
+	public static OVRTrackingState ovr_GetTrackingState(long session, double absTime, boolean latencyMarker, OVRTrackingState __result) {
 		if ( CHECKS )
 			checkPointer(session);
 		novr_GetTrackingState(session, absTime, latencyMarker, __result.address());
+		return __result;
 	}
 
 	// --- [ ovr_GetTrackerPose ] ---
@@ -937,10 +940,11 @@ public class OVR {
 	 * @param session          an {@code ovrSession} previously returned by {@link #ovr_Create Create}
 	 * @param trackerPoseIndex index of the sensor being requested.
 	 */
-	public static void ovr_GetTrackerPose(long session, int trackerPoseIndex, OVRTrackerPose __result) {
+	public static OVRTrackerPose ovr_GetTrackerPose(long session, int trackerPoseIndex, OVRTrackerPose __result) {
 		if ( CHECKS )
 			checkPointer(session);
 		novr_GetTrackerPose(session, trackerPoseIndex, __result.address());
+		return __result;
 	}
 
 	// --- [ ovr_GetInputState ] ---
@@ -1217,10 +1221,11 @@ public class OVR {
 	 *                              performance, higher values give improved quality.
 	 * @param __result              the texture width and height size
 	 */
-	public static void ovr_GetFovTextureSize(long session, int eye, OVRFovPort fov, float pixelsPerDisplayPixel, OVRSizei __result) {
+	public static OVRSizei ovr_GetFovTextureSize(long session, int eye, OVRFovPort fov, float pixelsPerDisplayPixel, OVRSizei __result) {
 		if ( CHECKS )
 			checkPointer(session);
 		novr_GetFovTextureSize(session, eye, fov.address(), pixelsPerDisplayPixel, __result.address());
+		return __result;
 	}
 
 	// --- [ ovr_GetRenderDesc ] ---
@@ -1243,10 +1248,11 @@ public class OVR {
 	 * @param fov      the {@link OVRFovPort} to use.
 	 * @param __result the computed {@link OVREyeRenderDesc} for the given {@code eyeType} and field of view
 	 */
-	public static void ovr_GetRenderDesc(long session, int eyeType, OVRFovPort fov, OVREyeRenderDesc __result) {
+	public static OVREyeRenderDesc ovr_GetRenderDesc(long session, int eyeType, OVRFovPort fov, OVREyeRenderDesc __result) {
 		if ( CHECKS )
 			checkPointer(session);
 		novr_GetRenderDesc(session, eyeType, fov.address(), __result.address());
+		return __result;
 	}
 
 	// --- [ ovr_SubmitFrame ] ---

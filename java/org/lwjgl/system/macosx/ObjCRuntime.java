@@ -2725,8 +2725,9 @@ public class ObjCRuntime {
 	 *                         
 	 *                         <p>If the protocol does not contain the specified method, returns an objc_method_description structure with the value <code>{NULL, NULL}</code>.</p>
 	 */
-	public static void protocol_getMethodDescription(long p, long aSel, boolean isRequiredMethod, boolean isInstanceMethod, ObjCMethodDescription __result) {
+	public static ObjCMethodDescription protocol_getMethodDescription(long p, long aSel, boolean isRequiredMethod, boolean isInstanceMethod, ObjCMethodDescription __result) {
 		nprotocol_getMethodDescription(p, aSel, isRequiredMethod, isInstanceMethod, __result.address());
+		return __result;
 	}
 
 	// --- [ protocol_copyMethodDescriptionList ] ---

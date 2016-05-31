@@ -74,8 +74,9 @@ public class OVRUtil {
 	 *
 	 * @param timeoutMilliseconds a timeout to wait for HMD to be attached or 0 to poll
 	 */
-	public static void ovr_Detect(int timeoutMilliseconds, OVRDetectResult __result) {
+	public static OVRDetectResult ovr_Detect(int timeoutMilliseconds, OVRDetectResult __result) {
 		novr_Detect(timeoutMilliseconds, __result.address());
+		return __result;
 	}
 
 	// --- [ ovrMatrix4f_Projection ] ---
@@ -100,8 +101,9 @@ public class OVRUtil {
 	 * @param projectionModFlags a combination of the {@code ovrProjectionModifier} flags. One or more of:<br><table><tr><td>{@link #ovrProjection_None Projection_None}</td><td>{@link #ovrProjection_FarLessThanNear Projection_FarLessThanNear}</td><td>{@link #ovrProjection_FarClipAtInfinity Projection_FarClipAtInfinity}</td></tr><tr><td>{@link #ovrProjection_ClipRangeOpenGL Projection_ClipRangeOpenGL}</td></tr></table>
 	 * @param __result           the calculated projection matrix
 	 */
-	public static void ovrMatrix4f_Projection(OVRFovPort fov, float znear, float zfar, int projectionModFlags, OVRMatrix4f __result) {
+	public static OVRMatrix4f ovrMatrix4f_Projection(OVRFovPort fov, float znear, float zfar, int projectionModFlags, OVRMatrix4f __result) {
 		novrMatrix4f_Projection(fov.address(), znear, zfar, projectionModFlags, __result.address());
+		return __result;
 	}
 
 	// --- [ ovrTimewarpProjectionDesc_FromProjection ] ---
@@ -122,8 +124,9 @@ public class OVRUtil {
 	 * @param projectionModFlags a combination of the ovrProjectionModifier flags. One or more of:<br><table><tr><td>{@link #ovrProjection_None Projection_None}</td><td>{@link #ovrProjection_FarLessThanNear Projection_FarLessThanNear}</td><td>{@link #ovrProjection_FarClipAtInfinity Projection_FarClipAtInfinity}</td></tr><tr><td>{@link #ovrProjection_ClipRangeOpenGL Projection_ClipRangeOpenGL}</td></tr></table>
 	 * @param __result           the extracted ovrTimewarpProjectionDesc
 	 */
-	public static void ovrTimewarpProjectionDesc_FromProjection(OVRMatrix4f projection, int projectionModFlags, OVRTimewarpProjectionDesc __result) {
+	public static OVRTimewarpProjectionDesc ovrTimewarpProjectionDesc_FromProjection(OVRMatrix4f projection, int projectionModFlags, OVRTimewarpProjectionDesc __result) {
 		novrTimewarpProjectionDesc_FromProjection(projection.address(), projectionModFlags, __result.address());
+		return __result;
 	}
 
 	// --- [ ovrMatrix4f_OrthoSubProjection ] ---
@@ -152,8 +155,9 @@ public class OVRUtil {
 	 * @param HmdToEyeOffsetX the offset of the eye from the center
 	 * @param __result        the calculated projection matrix
 	 */
-	public static void ovrMatrix4f_OrthoSubProjection(OVRMatrix4f projection, OVRVector2f orthoScale, float orthoDistance, float HmdToEyeOffsetX, OVRMatrix4f __result) {
+	public static OVRMatrix4f ovrMatrix4f_OrthoSubProjection(OVRMatrix4f projection, OVRVector2f orthoScale, float orthoDistance, float HmdToEyeOffsetX, OVRMatrix4f __result) {
 		novrMatrix4f_OrthoSubProjection(projection.address(), orthoScale.address(), orthoDistance, HmdToEyeOffsetX, __result.address());
+		return __result;
 	}
 
 	// --- [ ovr_CalcEyePoses ] ---

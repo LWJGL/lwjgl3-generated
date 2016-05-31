@@ -93,10 +93,11 @@ public class STBVorbis {
 	 *
 	 * @param f an ogg vorbis file decoder
 	 */
-	public static void stb_vorbis_get_info(long f, STBVorbisInfo __result) {
+	public static STBVorbisInfo stb_vorbis_get_info(long f, STBVorbisInfo __result) {
 		if ( CHECKS )
 			checkPointer(f);
 		nstb_vorbis_get_info(f, __result.address());
+		return __result;
 	}
 
 	// --- [ stb_vorbis_get_error ] ---

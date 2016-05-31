@@ -437,7 +437,7 @@ public class GLFW {
 	 * <li>While there is no way to ask the driver for a context of the highest supported version, GLFW will attempt to provide this when you ask for a
 	 * version 1.0 context, which is the default for these hints.</li>
 	 * <li><b>OpenGL</b>: {@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR} and {@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR} are not hard constraints, but creation will fail if the OpenGL version of the
-	 * created context is less than the one requested. It is therefore perfectly safe to use the default of version 1.0 for legacy code and you may
+	 * created context is less than the one requested. It is therefore perfectly safe to use the default of version 1.0 for legacy code and you will
 	 * still get backwards-compatible contexts of version 3.0 and above when available.</li>
 	 * <li><b>OpenGL ES</b>: {@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR} and {@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR} are not hard constraints, but creation will fail if the OpenGL ES version
 	 * of the created context is less than the one requested. Additionally, OpenGL ES 1.x cannot be returned if 2.0 or later was requested, and vice
@@ -1448,8 +1448,8 @@ public class GLFW {
 	 * <li>This function must only be called from the main thread.</li>
 	 * <li>This function must not be called from a callback.</li>
 	 * <li><b>Windows</b>: Window creation will fail if the Microsoft GDI software OpenGL implementation is the only one available.</li>
-	 * <li><b>Windows</b>: If the executable has an icon resource named {@code GLFW_ICON}, it will be set as the icon for the window. If no such icon
-	 * is present, the {@code IDI_WINLOGO} icon will be used instead.</li>
+	 * <li><b>Windows</b>: If the executable has an icon resource named {@code GLFW_ICON}, it will be set as the initial icon for the window. If no such icon
+	 * is present, the {@code IDI_WINLOGO} icon will be used instead. To set a different icon, see {@link #glfwSetWindowIcon SetWindowIcon}.</li>
 	 * <li><b>Windows</b>: The context to share resources with may not be current on any other thread.</li>
 	 * <li><b>OS X</b>: The GLFW window has no icon, as it is not a document window, but the dock icon will be the same as the application bundle's
 	 * icon. Also, the first time a window is opened the menu bar is populated with common commands like Hide, Quit and About. The (minimal) about dialog
@@ -1522,8 +1522,8 @@ public class GLFW {
 	 * <li>This function must only be called from the main thread.</li>
 	 * <li>This function must not be called from a callback.</li>
 	 * <li><b>Windows</b>: Window creation will fail if the Microsoft GDI software OpenGL implementation is the only one available.</li>
-	 * <li><b>Windows</b>: If the executable has an icon resource named {@code GLFW_ICON}, it will be set as the icon for the window. If no such icon
-	 * is present, the {@code IDI_WINLOGO} icon will be used instead.</li>
+	 * <li><b>Windows</b>: If the executable has an icon resource named {@code GLFW_ICON}, it will be set as the initial icon for the window. If no such icon
+	 * is present, the {@code IDI_WINLOGO} icon will be used instead. To set a different icon, see {@link #glfwSetWindowIcon SetWindowIcon}.</li>
 	 * <li><b>Windows</b>: The context to share resources with may not be current on any other thread.</li>
 	 * <li><b>OS X</b>: The GLFW window has no icon, as it is not a document window, but the dock icon will be the same as the application bundle's
 	 * icon. Also, the first time a window is opened the menu bar is populated with common commands like Hide, Quit and About. The (minimal) about dialog
@@ -1598,8 +1598,8 @@ public class GLFW {
 	 * <li>This function must only be called from the main thread.</li>
 	 * <li>This function must not be called from a callback.</li>
 	 * <li><b>Windows</b>: Window creation will fail if the Microsoft GDI software OpenGL implementation is the only one available.</li>
-	 * <li><b>Windows</b>: If the executable has an icon resource named {@code GLFW_ICON}, it will be set as the icon for the window. If no such icon
-	 * is present, the {@code IDI_WINLOGO} icon will be used instead.</li>
+	 * <li><b>Windows</b>: If the executable has an icon resource named {@code GLFW_ICON}, it will be set as the initial icon for the window. If no such icon
+	 * is present, the {@code IDI_WINLOGO} icon will be used instead. To set a different icon, see {@link #glfwSetWindowIcon SetWindowIcon}.</li>
 	 * <li><b>Windows</b>: The context to share resources with may not be current on any other thread.</li>
 	 * <li><b>OS X</b>: The GLFW window has no icon, as it is not a document window, but the dock icon will be the same as the application bundle's
 	 * icon. Also, the first time a window is opened the menu bar is populated with common commands like Hide, Quit and About. The (minimal) about dialog
@@ -1780,9 +1780,10 @@ public class GLFW {
 	 * 
 	 * <p>The specified image data is copied before this function returns.</p>
 	 * 
-	 * <p><b>OS X</b>: The GLFW window has no icon, as it is not a document window, but the dock icon will be the same as the application bundle's icon. For more
-	 * information on bundles, see the <a href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming
-	 * Guide</a> in the Mac Developer Library.</p>
+	 * <p><b>OS X</b>: The GLFW window has no icon, as it is not a document window, so this function does nothing. The dock icon will be the same as the
+	 * application bundle's icon. For more information on bundles, see the
+	 * <a href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac Developer
+	 * Library.</p>
 	 * 
 	 * <p>This function must only be called from the main thread.</p>
 	 *
@@ -1812,9 +1813,10 @@ public class GLFW {
 	 * 
 	 * <p>The specified image data is copied before this function returns.</p>
 	 * 
-	 * <p><b>OS X</b>: The GLFW window has no icon, as it is not a document window, but the dock icon will be the same as the application bundle's icon. For more
-	 * information on bundles, see the <a href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming
-	 * Guide</a> in the Mac Developer Library.</p>
+	 * <p><b>OS X</b>: The GLFW window has no icon, as it is not a document window, so this function does nothing. The dock icon will be the same as the
+	 * application bundle's icon. For more information on bundles, see the
+	 * <a href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac Developer
+	 * Library.</p>
 	 * 
 	 * <p>This function must only be called from the main thread.</p>
 	 *
@@ -3940,7 +3942,8 @@ public class GLFW {
 	 * <p>The resolution of the timer is system dependent, but is usually on the order of a few micro- or nanoseconds. It uses the highest-resolution monotonic
 	 * time source on each supported platform.</p>
 	 * 
-	 * <p>This function may be called from any thread. Reading of the internal timer offset is not atomic.</p>
+	 * <p>This function may be called from any thread. Reading and writing of the internal timer offset is not atomic, so it needs to be externally synchronized
+	 * with calls to {@link #glfwSetTime SetTime}.</p>
 	 *
 	 * @return the current value, in seconds, or zero if an error occurred
 	 *
@@ -3960,7 +3963,8 @@ public class GLFW {
 	 * <p>The upper limit of the timer is calculated as <code>floor((2<sup>64</sup> - 1) / 10<sup>9</sup>)</code> and is due to implementations storing nanoseconds
 	 * in 64 bits. The limit may be increased in the future.</p>
 	 * 
-	 * <p>This function may be called from any thread. Writing of the internal timer offset is not atomic.</p>
+	 * <p>This function may be called from any thread. Reading and writing of the internal timer offset is not atomic, so it needs to be externally synchronized
+	 * with calls to {@link #glfwGetTime GetTime}.</p>
 	 *
 	 * @param time the new value, in seconds
 	 *
