@@ -186,6 +186,8 @@ public class VKCapabilities {
 
 	/** When true, {@link VK10} is supported. */
 	public final boolean Vulkan10;
+	/** When true, {@link AMDGCNShader} is supported. */
+	public final boolean VK_AMD_gcn_shader;
 	/** When true, {@link AMDRasterizationOrder} is supported. */
 	public final boolean VK_AMD_rasterization_order;
 	/** When true, {@link AMDShaderBallot} is supported. */
@@ -389,6 +391,7 @@ public class VKCapabilities {
 		vkWaitForFences = provider.getFunctionAddress("vkWaitForFences");
 
 		Vulkan10 = ext.contains("Vulkan10") && VK.checkExtension("Vulkan10", VK10.isAvailable(this));
+		VK_AMD_gcn_shader = ext.contains("VK_AMD_gcn_shader");
 		VK_AMD_rasterization_order = ext.contains("VK_AMD_rasterization_order");
 		VK_AMD_shader_ballot = ext.contains("VK_AMD_shader_ballot");
 		VK_AMD_shader_explicit_vertex_parameter = ext.contains("VK_AMD_shader_explicit_vertex_parameter");
