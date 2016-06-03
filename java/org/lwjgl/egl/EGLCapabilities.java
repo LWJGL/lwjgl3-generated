@@ -405,6 +405,8 @@ public class EGLCapabilities {
 	public final boolean EGL_NV_post_convert_rounding;
 	/** When true, {@link NVPostSubBuffer} is supported. */
 	public final boolean EGL_NV_post_sub_buffer;
+	/** When true, {@link NVRobustnessVideoMemoryPurge} is supported. */
+	public final boolean EGL_NV_robustness_video_memory_purge;
 	/** When true, {@link NVStreamConsumerGLTextureYUV} is supported. */
 	public final boolean EGL_NV_stream_consumer_gltexture_yuv;
 	/** When true, {@link NVStreamMetadata} is supported. */
@@ -870,6 +872,7 @@ public class EGLCapabilities {
 		EGL_NV_native_query = ext.contains("EGL_NV_native_query") && EGL.checkExtension("EGL_NV_native_query", NVNativeQuery.isAvailable(this));
 		EGL_NV_post_convert_rounding = ext.contains("EGL_NV_post_convert_rounding");
 		EGL_NV_post_sub_buffer = ext.contains("EGL_NV_post_sub_buffer") && EGL.checkExtension("EGL_NV_post_sub_buffer", NVPostSubBuffer.isAvailable(this));
+		EGL_NV_robustness_video_memory_purge = ext.contains("EGL_NV_robustness_video_memory_purge");
 		EGL_NV_stream_consumer_gltexture_yuv = ext.contains("EGL_NV_stream_consumer_gltexture_yuv") && EGL.checkExtension("EGL_NV_stream_consumer_gltexture_yuv", NVStreamConsumerGLTextureYUV.isAvailable(this));
 		EGL_NV_stream_metadata = ext.contains("EGL_NV_stream_metadata") && EGL.checkExtension("EGL_NV_stream_metadata", NVStreamMetadata.isAvailable(this));
 		EGL_NV_stream_sync = ext.contains("EGL_NV_stream_sync") && EGL.checkExtension("EGL_NV_stream_sync", NVStreamSync.isAvailable(this));

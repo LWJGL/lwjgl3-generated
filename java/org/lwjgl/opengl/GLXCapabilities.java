@@ -167,6 +167,8 @@ public final class GLXCapabilities {
 	public final boolean GLX_NV_float_buffer;
 	/** When true, {@link GLXNVMultisampleCoverage} is supported. */
 	public final boolean GLX_NV_multisample_coverage;
+	/** When true, {@link GLXNVRobustnessVideoMemoryPurge} is supported. */
+	public final boolean GLX_NV_robustness_video_memory_purge;
 	/** When true, {@link GLXNVSwapGroup} is supported. */
 	public final boolean GLX_NV_swap_group;
 	/** When true, {@link GLXSGIMakeCurrentRead} is supported. */
@@ -289,6 +291,7 @@ public final class GLXCapabilities {
 		GLX_NV_delay_before_swap = ext.contains("GLX_NV_delay_before_swap") && checkExtension("GLX_NV_delay_before_swap", GLXNVDelayBeforeSwap.isAvailable(this));
 		GLX_NV_float_buffer = ext.contains("GLX_NV_float_buffer");
 		GLX_NV_multisample_coverage = ext.contains("GLX_NV_multisample_coverage");
+		GLX_NV_robustness_video_memory_purge = ext.contains("GLX_NV_robustness_video_memory_purge");
 		GLX_NV_swap_group = ext.contains("GLX_NV_swap_group") && checkExtension("GLX_NV_swap_group", GLXNVSwapGroup.isAvailable(this));
 		GLX_SGI_make_current_read = ext.contains("GLX_SGI_make_current_read") && checkExtension("GLX_SGI_make_current_read", GLXSGIMakeCurrentRead.isAvailable(this));
 		GLX_SGI_swap_control = ext.contains("GLX_SGI_swap_control") && checkExtension("GLX_SGI_swap_control", GLXSGISwapControl.isAvailable(this));

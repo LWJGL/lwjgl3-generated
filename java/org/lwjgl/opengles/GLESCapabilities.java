@@ -95,6 +95,7 @@ public final class GLESCapabilities {
 		glCompressedTexSubImage3D,
 		glCompressedTexSubImage3DNV,
 		glCompressedTexSubImage3DOES,
+		glConservativeRasterParameteriNV,
 		glCopyBufferSubData,
 		glCopyBufferSubDataNV,
 		glCopyImageSubData,
@@ -1309,6 +1310,8 @@ public final class GLESCapabilities {
 	public final boolean GL_NV_conditional_render;
 	/** When true, {@link NVConservativeRaster} is supported. */
 	public final boolean GL_NV_conservative_raster;
+	/** When true, {@link NVConservativeRasterPreSnapTriangles} is supported. */
+	public final boolean GL_NV_conservative_raster_pre_snap_triangles;
 	/** When true, {@link NVCopyBuffer} is supported. */
 	public final boolean GL_NV_copy_buffer;
 	/** When true, {@link NVCoverageSample} is supported. */
@@ -1984,6 +1987,7 @@ public final class GLESCapabilities {
 		glCompressedTexSubImage3D = provider.getFunctionAddress("glCompressedTexSubImage3D");
 		glCompressedTexSubImage3DNV = provider.getFunctionAddress("glCompressedTexSubImage3DNV");
 		glCompressedTexSubImage3DOES = provider.getFunctionAddress("glCompressedTexSubImage3DOES");
+		glConservativeRasterParameteriNV = provider.getFunctionAddress("glConservativeRasterParameteriNV");
 		glCopyBufferSubData = provider.getFunctionAddress("glCopyBufferSubData");
 		glCopyBufferSubDataNV = provider.getFunctionAddress("glCopyBufferSubDataNV");
 		glCopyImageSubData = provider.getFunctionAddress("glCopyImageSubData");
@@ -2808,6 +2812,7 @@ public final class GLESCapabilities {
 		GL_NV_blend_equation_advanced_coherent = ext.contains("GL_NV_blend_equation_advanced_coherent");
 		GL_NV_conditional_render = ext.contains("GL_NV_conditional_render") && GLES.checkExtension("GL_NV_conditional_render", NVConditionalRender.isAvailable(this));
 		GL_NV_conservative_raster = ext.contains("GL_NV_conservative_raster") && GLES.checkExtension("GL_NV_conservative_raster", NVConservativeRaster.isAvailable(this));
+		GL_NV_conservative_raster_pre_snap_triangles = ext.contains("GL_NV_conservative_raster_pre_snap_triangles") && GLES.checkExtension("GL_NV_conservative_raster_pre_snap_triangles", NVConservativeRasterPreSnapTriangles.isAvailable(this));
 		GL_NV_copy_buffer = ext.contains("GL_NV_copy_buffer") && GLES.checkExtension("GL_NV_copy_buffer", NVCopyBuffer.isAvailable(this));
 		GL_NV_coverage_sample = ext.contains("GL_NV_coverage_sample") && GLES.checkExtension("GL_NV_coverage_sample", NVCoverageSample.isAvailable(this));
 		GL_NV_depth_nonlinear = ext.contains("GL_NV_depth_nonlinear");

@@ -236,6 +236,7 @@ public final class GLCapabilities {
 		glCompressedTextureSubImage3D,
 		glCompressedTextureSubImage3DEXT,
 		glConservativeRasterParameterfNV,
+		glConservativeRasterParameteriNV,
 		glConvolutionFilter1D,
 		glConvolutionFilter2D,
 		glConvolutionParameterf,
@@ -2082,6 +2083,7 @@ public final class GLCapabilities {
 		glViewportArrayv,
 		glViewportIndexedf,
 		glViewportIndexedfv,
+		glViewportPositionWScaleNV,
 		glViewportSwizzleNV,
 		glWaitSync,
 		glWaitVkSemaphoreNV,
@@ -2219,6 +2221,18 @@ public final class GLCapabilities {
 	 * <p>Requires {@link GL42 OpenGL 4.2} or {@link #GL_ARB_shader_atomic_counters ARB_shader_atomic_counters}.</p>
 	 */
 	public final boolean GL_AMD_shader_atomic_counter_ops;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/AMD/shader_explicit_vertex_parameter.txt">AMD_shader_explicit_vertex_parameter</a> extension is supported.
+	 * 
+	 * <p>Unextended GLSL provides a set of fixed function interpolation modes and even those are limited to certain types of interpolants (for example,
+	 * interpolation of integer and double isn't supported).</p>
+	 * 
+	 * <p>This extension introduces new built-in functions allowing access to vertex parameters explicitly in the fragment shader. It also exposes barycentric
+	 * coordinates as new built-in variables, which can be used to implement custom interpolation algorithms using shader code.</p>
+	 * 
+	 * <p>Requires {@link GL20 OpenGL 2.0} or {@link ARBShaderObjects ARB_shader_objects}.</p>
+	 */
+	public final boolean GL_AMD_shader_explicit_vertex_parameter;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/AMD/shader_stencil_export.txt">AMD_shader_stencil_export</a> extension is supported.
 	 * 
@@ -3485,6 +3499,8 @@ shadow2DRectProjGradARB(
 	public final boolean GL_NV_blend_equation_advanced_coherent;
 	/** When true, the <a href="http://www.opengl.org/registry/specs/NV/blend_square.txt">NV_blend_square</a> extension is supported. */
 	public final boolean GL_NV_blend_square;
+	/** When true, {@link NVClipSpaceWScaling} is supported. */
+	public final boolean GL_NV_clip_space_w_scaling;
 	/** When true, {@link NVCommandList} is supported. */
 	public final boolean GL_NV_command_list;
 	/** When true, {@link NVConditionalRender} is supported. */
@@ -3493,6 +3509,8 @@ shadow2DRectProjGradARB(
 	public final boolean GL_NV_conservative_raster;
 	/** When true, {@link NVConservativeRasterDilate} is supported. */
 	public final boolean GL_NV_conservative_raster_dilate;
+	/** When true, {@link NVConservativeRasterPreSnapTriangles} is supported. */
+	public final boolean GL_NV_conservative_raster_pre_snap_triangles;
 	/** When true, {@link NVCopyDepthToColor} is supported. */
 	public final boolean GL_NV_copy_depth_to_color;
 	/** When true, {@link NVCopyImage} is supported. */
@@ -3613,6 +3631,8 @@ shadow2DRectProjGradARB(
 	public final boolean GL_NV_point_sprite;
 	/** When true, {@link NVPrimitiveRestart} is supported. */
 	public final boolean GL_NV_primitive_restart;
+	/** When true, {@link NVRobustnessVideoMemoryPurge} is supported. */
+	public final boolean GL_NV_robustness_video_memory_purge;
 	/** When true, {@link NVSampleLocations} is supported. */
 	public final boolean GL_NV_sample_locations;
 	/**
@@ -3635,6 +3655,20 @@ shadow2DRectProjGradARB(
 	 * for these operations is also provided if <a href="http://www.opengl.org/registry/specs/NV/gpu_program5.txt">NV_shader_atomic_float</a> is supported.</p>
 	 */
 	public final boolean GL_NV_shader_atomic_float;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/shader_atomic_float64.txt">NV_shader_atomic_float64</a> extension is supported.
+	 * 
+	 * <p>This extension provides GLSL built-in functions and assembly opcodes allowing shaders to perform atomic read-modify-write operations to buffer or
+	 * shared memory with double-precision floating-point components.  The set of atomic operations provided by this extension is limited to adds and
+	 * exchanges. Providing atomic add support allows shaders to atomically accumulate the sum of double-precision floating-point values into buffer memory
+	 * across multiple (possibly concurrent) shader invocations.</p>
+	 * 
+	 * <p>This extension provides GLSL support for atomics targeting double-precision floating-point pointers (if {@link NVGPUShader5 NV_gpu_shader5} is supported).
+	 * Additionally, assembly opcodes for these operations are also provided if {@code NV_gpu_program5} is supported.</p>
+	 * 
+	 * <p>Requires {@link ARBGPUShaderFP64 ARB_gpu_shader_fp64} or {@code NV_gpu_program_fp64}.</p>
+	 */
+	public final boolean GL_NV_shader_atomic_float64;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/shader_atomic_fp16_vector.txt">NV_shader_atomic_fp16_vector</a> extension is supported.
 	 * 
@@ -3667,6 +3701,25 @@ shadow2DRectProjGradARB(
 	 * <p>Requires {@link GL43 OpenGL 4.3} and GLSL 4.3.</p>
 	 */
 	public final boolean GL_NV_shader_thread_shuffle;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/stereo_view_rendering.txt">NV_stereo_view_rendering</a> extension is supported.
+	 * 
+	 * <p>Virtual reality (VR) applications often render a single logical scene from multiple views corresponding to a pair of eyes. The views (eyes) are
+	 * separated by a fixed offset in the X direction.</p>
+	 * 
+	 * <p>Traditionally, multiple views are rendered via multiple rendering passes. This is expensive for the GPU because the objects in the scene must be
+	 * transformed, rasterized, shaded, and fragment processed redundantly. This is expensive for the CPU because the scene graph needs to be visited multiple
+	 * times and driver validation happens for each view. Rendering N passes tends to take N times longer than a single pass.</p>
+	 * 
+	 * <p>This extension provides a mechanism to render binocular (stereo) views from a single stream of OpenGL rendering commands. Vertex, tessellation, and
+	 * geometry (VTG) shaders can output two positions for each vertex corresponding to the two eye views. A built-in "gl_SecondaryPositionNV" is added to
+	 * specify the second position. The positions from each view may be sent to different viewports and/or layers. A built-in "gl_SecondaryViewportMaskNV[]"
+	 * is also added to specify the viewport mask for the second view. A new layout-qualifier "secondary_view_offset" is added for built-in output "gl_Layer"
+	 * which allows for the geometry from each view to be sent to different layers for rendering.</p>
+	 * 
+	 * <p>Requires {@link \#GL_NV_viewport_array2 NV_viewport_array2}.</p>
+	 */
+	public final boolean GL_NV_stereo_view_rendering;
 	/** When true, {@link NVTexgenReflection} is supported. */
 	public final boolean GL_NV_texgen_reflection;
 	/** When true, {@link NVTextureBarrier} is supported. */
@@ -3954,6 +4007,7 @@ shadow2DRectProjGradARB(
 		glCompressedTextureSubImage3D = provider.getFunctionAddress("glCompressedTextureSubImage3D");
 		glCompressedTextureSubImage3DEXT = provider.getFunctionAddress("glCompressedTextureSubImage3DEXT");
 		glConservativeRasterParameterfNV = provider.getFunctionAddress("glConservativeRasterParameterfNV");
+		glConservativeRasterParameteriNV = provider.getFunctionAddress("glConservativeRasterParameteriNV");
 		glConvolutionFilter1D = getFunctionAddress(fc, provider, "glConvolutionFilter1D");
 		glConvolutionFilter2D = getFunctionAddress(fc, provider, "glConvolutionFilter2D");
 		glConvolutionParameterf = getFunctionAddress(fc, provider, "glConvolutionParameterf");
@@ -5800,6 +5854,7 @@ shadow2DRectProjGradARB(
 		glViewportArrayv = provider.getFunctionAddress("glViewportArrayv");
 		glViewportIndexedf = provider.getFunctionAddress("glViewportIndexedf");
 		glViewportIndexedfv = provider.getFunctionAddress("glViewportIndexedfv");
+		glViewportPositionWScaleNV = provider.getFunctionAddress("glViewportPositionWScaleNV");
 		glViewportSwizzleNV = provider.getFunctionAddress("glViewportSwizzleNV");
 		glWaitSync = provider.getFunctionAddress("glWaitSync");
 		glWaitVkSemaphoreNV = provider.getFunctionAddress("glWaitVkSemaphoreNV");
@@ -5878,6 +5933,7 @@ shadow2DRectProjGradARB(
 		GL_AMD_sample_positions = ext.contains("GL_AMD_sample_positions") && checkExtension("GL_AMD_sample_positions", AMDSamplePositions.isAvailable(this));
 		GL_AMD_seamless_cubemap_per_texture = ext.contains("GL_AMD_seamless_cubemap_per_texture");
 		GL_AMD_shader_atomic_counter_ops = ext.contains("GL_AMD_shader_atomic_counter_ops");
+		GL_AMD_shader_explicit_vertex_parameter = ext.contains("GL_AMD_shader_explicit_vertex_parameter");
 		GL_AMD_shader_stencil_export = ext.contains("GL_AMD_shader_stencil_export");
 		GL_AMD_shader_trinary_minmax = ext.contains("GL_AMD_shader_trinary_minmax");
 		GL_AMD_sparse_texture = ext.contains("GL_AMD_sparse_texture") && checkExtension("GL_AMD_sparse_texture", AMDSparseTexture.isAvailable(this));
@@ -6141,10 +6197,12 @@ shadow2DRectProjGradARB(
 		GL_NV_blend_equation_advanced = ext.contains("GL_NV_blend_equation_advanced") && checkExtension("GL_NV_blend_equation_advanced", NVBlendEquationAdvanced.isAvailable(this));
 		GL_NV_blend_equation_advanced_coherent = ext.contains("GL_NV_blend_equation_advanced_coherent");
 		GL_NV_blend_square = ext.contains("GL_NV_blend_square");
+		GL_NV_clip_space_w_scaling = ext.contains("GL_NV_clip_space_w_scaling") && checkExtension("GL_NV_clip_space_w_scaling", NVClipSpaceWScaling.isAvailable(this));
 		GL_NV_command_list = ext.contains("GL_NV_command_list") && checkExtension("GL_NV_command_list", NVCommandList.isAvailable(this));
 		GL_NV_conditional_render = ext.contains("GL_NV_conditional_render") && checkExtension("GL_NV_conditional_render", NVConditionalRender.isAvailable(this));
 		GL_NV_conservative_raster = ext.contains("GL_NV_conservative_raster") && checkExtension("GL_NV_conservative_raster", NVConservativeRaster.isAvailable(this));
 		GL_NV_conservative_raster_dilate = ext.contains("GL_NV_conservative_raster_dilate") && checkExtension("GL_NV_conservative_raster_dilate", NVConservativeRasterDilate.isAvailable(this));
+		GL_NV_conservative_raster_pre_snap_triangles = ext.contains("GL_NV_conservative_raster_pre_snap_triangles") && checkExtension("GL_NV_conservative_raster_pre_snap_triangles", NVConservativeRasterPreSnapTriangles.isAvailable(this));
 		GL_NV_copy_depth_to_color = ext.contains("GL_NV_copy_depth_to_color");
 		GL_NV_copy_image = ext.contains("GL_NV_copy_image") && checkExtension("GL_NV_copy_image", NVCopyImage.isAvailable(this));
 		GL_NV_deep_texture3D = ext.contains("GL_NV_deep_texture3D");
@@ -6178,15 +6236,18 @@ shadow2DRectProjGradARB(
 		GL_NV_pixel_data_range = ext.contains("GL_NV_pixel_data_range") && checkExtension("GL_NV_pixel_data_range", NVPixelDataRange.isAvailable(this));
 		GL_NV_point_sprite = ext.contains("GL_NV_point_sprite") && checkExtension("GL_NV_point_sprite", NVPointSprite.isAvailable(this));
 		GL_NV_primitive_restart = ext.contains("GL_NV_primitive_restart") && checkExtension("GL_NV_primitive_restart", NVPrimitiveRestart.isAvailable(this));
+		GL_NV_robustness_video_memory_purge = ext.contains("GL_NV_robustness_video_memory_purge");
 		GL_NV_sample_locations = ext.contains("GL_NV_sample_locations") && checkExtension("GL_NV_sample_locations", NVSampleLocations.isAvailable(this));
 		GL_NV_sample_mask_override_coverage = ext.contains("GL_NV_sample_mask_override_coverage");
 		GL_NV_shader_atomic_float = ext.contains("GL_NV_shader_atomic_float");
+		GL_NV_shader_atomic_float64 = ext.contains("GL_NV_shader_atomic_float64");
 		GL_NV_shader_atomic_fp16_vector = ext.contains("GL_NV_shader_atomic_fp16_vector");
 		GL_NV_shader_atomic_int64 = ext.contains("GL_NV_shader_atomic_int64");
 		GL_NV_shader_buffer_load = ext.contains("GL_NV_shader_buffer_load") && checkExtension("GL_NV_shader_buffer_load", NVShaderBufferLoad.isAvailable(this));
 		GL_NV_shader_buffer_store = ext.contains("GL_NV_shader_buffer_store");
 		GL_NV_shader_thread_group = ext.contains("GL_NV_shader_thread_group");
 		GL_NV_shader_thread_shuffle = ext.contains("GL_NV_shader_thread_shuffle");
+		GL_NV_stereo_view_rendering = ext.contains("GL_NV_stereo_view_rendering");
 		GL_NV_texgen_reflection = ext.contains("GL_NV_texgen_reflection");
 		GL_NV_texture_barrier = ext.contains("GL_NV_texture_barrier") && checkExtension("GL_NV_texture_barrier", NVTextureBarrier.isAvailable(this));
 		GL_NV_texture_compression_vtc = ext.contains("GL_NV_texture_compression_vtc");
