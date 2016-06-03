@@ -72,6 +72,9 @@ public class OVRErrorCode {
 	/** The client failed to call {@link OVR#ovr_Shutdown} or the client crashed. */
 	public static final int ovrError_ClientSkippedShutdown = -1013;
 
+	/** The service watchdog discovered a deadlock. */
+	public static final int ovrError_ServiceDeadlockDetected = -1014;
+
 	/** First Audio error. */
 	public static final int ovrError_AudioReservedBegin = -2000;
 
@@ -228,6 +231,15 @@ public class OVRErrorCode {
 	/** The controller firmware is out of date and is unacceptable. */
 	public static final int ovrError_ControllerFirmwareMismatch = -4104;
 
+	/** A DeviceManagement mode HMD is detected by the service. */
+	public static final int ovrError_DevManDeviceDetected = -4105;
+
+	/** Had to reboot bootloader device, which succeeded. */
+	public static final int ovrError_RebootedBootloaderDevice = -4106;
+
+	/** Had to reboot bootloader device, which failed. Device is stuck in bootloader mode. */
+	public static final int ovrError_FailedRebootBootloaderDev = -4107;
+
 	/** Too many lost IMU samples. */
 	public static final int ovrError_IMUTooManyLostSamples = -4200;
 
@@ -236,6 +248,15 @@ public class OVRErrorCode {
 
 	/** A feature report has failed. */
 	public static final int ovrError_FeatureReportFailure = -4202;
+
+	/** HMD wireless interface never returned from busy state. */
+	public static final int ovrError_HMDWirelessTimeout = -4203;
+
+	/** HMD Bootloader Assert Log was not empty. */
+	public static final int ovrError_BootloaderAssertLog = -4300;
+
+	/** HMD App Assert Log was not empty. */
+	public static final int ovrError_AppAssertLog = -4301;
 
 	/** Requested async work not yet complete. */
 	public static final int ovrError_Incomplete = -5000;
@@ -258,11 +279,17 @@ public class OVRErrorCode {
 	/** HMD removed from the display adapter */
 	public static final int ovrError_DisplayRemoved = -6004;
 
+	/** Content protection is not available for the display */
+	public static final int ovrError_ContentProtectionNotAvailable = -6005;
+
 	/** Application declared itself as an invisible type and is not allowed to submit frames. */
-	public static final int ovrError_ApplicationInvisible = -6005;
+	public static final int ovrError_ApplicationInvisible = -6006;
 
 	/** The given request is disallowed under the current conditions. */
-	public static final int ovrError_Disallowed = -6006;
+	public static final int ovrError_Disallowed = -6007;
+
+	/** Display portion of HMD is plugged into an incompatible port (ex: IGP) */
+	public static final int ovrError_DisplayPluggedIncorrectly = -6008;
 
 	/** A runtime exception occurred. The application is required to shutdown LibOVR and re-initialize it before this error state will be cleared. */
 	public static final int ovrError_RuntimeException = -7000;

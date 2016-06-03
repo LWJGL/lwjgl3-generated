@@ -23,8 +23,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code ArraySize} &ndash; only supported with {@link OVR#ovrTexture_2D}. Not supported on PC at this time.</li>
  * <li>{@code SampleCount} &ndash; current only supported on depth textures</li>
  * <li>{@code StaticImage} &ndash; not buffered in a chain. For images that don't change</li>
- * <li>{@code MiscFlags} &ndash; {@code ovrTextureMiscFlags}</li>
- * <li>{@code BindFlags} &ndash; {@code ovrTextureBindFlags}. Not used for GL.</li>
+ * <li>{@code MiscFlags} &ndash; {@code ovrTextureFlags}. One or more of:<br><table><tr><td>{@link OVR#ovrTextureMisc_AllowGenerateMips TextureMisc_AllowGenerateMips}</td><td>{@link OVR#ovrTextureMisc_DX_Typeless TextureMisc_DX_Typeless}</td><td>{@link OVR#ovrTextureMisc_None TextureMisc_None}</td></tr><tr><td>{@link OVR#ovrTextureMisc_ProtectedContent TextureMisc_ProtectedContent}</td></tr></table></li>
+ * <li>{@code BindFlags} &ndash; {@code ovrTextureBindFlags}. Not used for GL. One or more of:<br><table><tr><td>{@link OVR#ovrTextureBind_DX_DepthStencil TextureBind_DX_DepthStencil}</td><td>{@link OVR#ovrTextureBind_DX_RenderTarget TextureBind_DX_RenderTarget}</td><td>{@link OVR#ovrTextureBind_DX_UnorderedAccess TextureBind_DX_UnorderedAccess}</td></tr><tr><td>{@link OVR#ovrTextureBind_None TextureBind_None}</td></tr></table></li>
  * </ul>
  * 
  * <h3>Layout</h3>

@@ -19,7 +19,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code Type} &ndash; this HMD's type</li>
+ * <li>{@code Type} &ndash; this HMD's type. One of:<br><table><tr><td>{@link OVR#ovrHmd_CB Hmd_CB}</td><td>{@link OVR#ovrHmd_CV1 Hmd_CV1}</td><td>{@link OVR#ovrHmd_DK1 Hmd_DK1}</td><td>{@link OVR#ovrHmd_DK2 Hmd_DK2}</td><td>{@link OVR#ovrHmd_DKHD Hmd_DKHD}</td><td>{@link OVR#ovrHmd_E3_2015 Hmd_E3_2015}</td><td>{@link OVR#ovrHmd_ES06 Hmd_ES06}</td><td>{@link OVR#ovrHmd_ES09 Hmd_ES09}</td><td>{@link OVR#ovrHmd_ES11 Hmd_ES11}</td><td>{@link OVR#ovrHmd_None Hmd_None}</td></tr><tr><td>{@link OVR#ovrHmd_Other Hmd_Other}</td></tr></table></li>
  * <li>{@code ProductName} &ndash; name string describing the product: "Oculus Rift DK1", etc.</li>
  * <li>{@code Manufacturer} &ndash; string describing the manufacturer. Usually "Oculus".</li>
  * <li>{@code VendorId} &ndash; HID Vendor ID of the device</li>

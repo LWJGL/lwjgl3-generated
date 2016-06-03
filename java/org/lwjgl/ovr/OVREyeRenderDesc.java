@@ -20,7 +20,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code Eye} &ndash; the eye index this instance corresponds to</li>
+ * <li>{@code Eye} &ndash; the eye index this instance corresponds to. One of:<br><table><tr><td>{@link OVR#ovrEye_Left Eye_Left}</td><td>{@link OVR#ovrEye_Right Eye_Right}</td></tr></table></li>
  * <li>{@code Fov} &ndash; the field of view</li>
  * <li>{@code DistortedViewport} &ndash; distortion viewport</li>
  * <li>{@code PixelsPerTanAngleAtCenter} &ndash; wow many display pixels will fit in tan(angle) = 1</li>

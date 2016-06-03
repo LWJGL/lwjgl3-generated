@@ -212,6 +212,12 @@ public class OVR {
 	/** DX only: Allow generation of the mip chain on the GPU via the GenerateMips call. This flag requires that RenderTarget binding also be specified. */
 	public static final int ovrTextureMisc_AllowGenerateMips = 0x2;
 
+	/**
+	 * Texture swap chain contains protected content, and requires HDCP connection in order to display to HMD. Also prevents mirroring or other
+	 * redirection of any frame containing this contents
+	 */
+	public static final int ovrTextureMisc_ProtectedContent = 0x4;
+
 	/** Button A */
 	public static final int ovrButton_A = 0x1;
 
@@ -411,9 +417,9 @@ public class OVR {
 
 	/**
 	 * Initialize LibOVR for application usage. This includes finding and loading the LibOVRRT shared library. No LibOVR API functions, other than
-	 * {@link #ovr_GetLastErrorInfo GetLastErrorInfo}, can be called unless {@link #ovr_Initialize Initialize} succeeds. A successful call to {@code ovr_Initialize} must be eventually followed by a call to
-	 * {@link #ovr_Shutdown Shutdown}. {@code ovr_Initialize} calls are idempotent. Calling {@code ovr_Initialize} twice does not require two matching calls to
-	 * {@code ovr_Shutdown}. If already initialized, the return value is {@link OVRErrorCode#ovrSuccess Success}.
+	 * {@link #ovr_GetLastErrorInfo GetLastErrorInfo} and {@link OVRUtil#ovr_Detect _Detect}, can be called unless {@link #ovr_Initialize Initialize} succeeds. A successful call to {@code ovr_Initialize} must be eventually
+	 * followed by a call to {@link #ovr_Shutdown Shutdown}. {@code ovr_Initialize} calls are idempotent. Calling {@code ovr_Initialize} twice does not require two matching
+	 * calls to {@code ovr_Shutdown}. If already initialized, the return value is {@link OVRErrorCode#ovrSuccess Success}.
 	 * 
 	 * <p>LibOVRRT shared library search order:</p>
 	 * 
@@ -446,9 +452,9 @@ public class OVR {
 
 	/**
 	 * Initialize LibOVR for application usage. This includes finding and loading the LibOVRRT shared library. No LibOVR API functions, other than
-	 * {@link #ovr_GetLastErrorInfo GetLastErrorInfo}, can be called unless {@link #ovr_Initialize Initialize} succeeds. A successful call to {@code ovr_Initialize} must be eventually followed by a call to
-	 * {@link #ovr_Shutdown Shutdown}. {@code ovr_Initialize} calls are idempotent. Calling {@code ovr_Initialize} twice does not require two matching calls to
-	 * {@code ovr_Shutdown}. If already initialized, the return value is {@link OVRErrorCode#ovrSuccess Success}.
+	 * {@link #ovr_GetLastErrorInfo GetLastErrorInfo} and {@link OVRUtil#ovr_Detect _Detect}, can be called unless {@link #ovr_Initialize Initialize} succeeds. A successful call to {@code ovr_Initialize} must be eventually
+	 * followed by a call to {@link #ovr_Shutdown Shutdown}. {@code ovr_Initialize} calls are idempotent. Calling {@code ovr_Initialize} twice does not require two matching
+	 * calls to {@code ovr_Shutdown}. If already initialized, the return value is {@link OVRErrorCode#ovrSuccess Success}.
 	 * 
 	 * <p>LibOVRRT shared library search order:</p>
 	 * 
@@ -1198,6 +1204,12 @@ public class OVR {
 	 * 
 	 * <p>Higher FOV will generally require larger textures to maintain quality. Apps packing multiple eye views together on the same texture should ensure there
 	 * are at least 8 pixels of padding between them to prevent texture filtering and chromatic aberration causing images to leak between the two eye views.</p>
+	 * 
+	 * <p>Example code:</p>
+	 * 
+	 * <pre><code>ovrHmdDesc hmdDesc = ovr_GetHmdDesc(session);
+ovrSizei eyeSizeLeft  = ovr_GetFovTextureSize(session, ovrEye_Left,  hmdDesc.DefaultEyeFov[ovrEye_Left],  1.0f);
+ovrSizei eyeSizeRight = ovr_GetFovTextureSize(session, ovrEye_Right, hmdDesc.DefaultEyeFov[ovrEye_Right], 1.0f);</code></pre>
 	 *
 	 * @param session               an {@code ovrSession} previously returned by {@link #ovr_Create Create}
 	 * @param eye                   which eye (left or right) to calculate for. One of:<br><table><tr><td>{@link #ovrEye_Left Eye_Left}</td><td>{@link #ovrEye_Right Eye_Right}</td></tr></table>
@@ -1213,6 +1225,12 @@ public class OVR {
 	 * 
 	 * <p>Higher FOV will generally require larger textures to maintain quality. Apps packing multiple eye views together on the same texture should ensure there
 	 * are at least 8 pixels of padding between them to prevent texture filtering and chromatic aberration causing images to leak between the two eye views.</p>
+	 * 
+	 * <p>Example code:</p>
+	 * 
+	 * <pre><code>ovrHmdDesc hmdDesc = ovr_GetHmdDesc(session);
+ovrSizei eyeSizeLeft  = ovr_GetFovTextureSize(session, ovrEye_Left,  hmdDesc.DefaultEyeFov[ovrEye_Left],  1.0f);
+ovrSizei eyeSizeRight = ovr_GetFovTextureSize(session, ovrEye_Right, hmdDesc.DefaultEyeFov[ovrEye_Right], 1.0f);</code></pre>
 	 *
 	 * @param session               an {@code ovrSession} previously returned by {@link #ovr_Create Create}
 	 * @param eye                   which eye (left or right) to calculate for. One of:<br><table><tr><td>{@link #ovrEye_Left Eye_Left}</td><td>{@link #ovrEye_Right Eye_Right}</td></tr></table>

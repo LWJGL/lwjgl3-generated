@@ -203,12 +203,12 @@ public class OVRUtil {
 	 * @param frameIndex          the targeted frame index, or 0 to refer to one frame after the last time {@link OVR#ovr_SubmitFrame _SubmitFrame} was called
 	 * @param latencyMarker       Specifies that this call is the point in time where the "App-to-Mid-Photon" latency timer starts from. If a given {@code ovrLayer} provides
 	 *                            "SensorSampleTimestamp", that will override the value stored here.
-	 * @param HmdToEyeOffset      can be {@link OVREyeRenderDesc}{@code .HmdToEyeOffset} returned from {@link OVR#ovr_GetRenderDesc _GetRenderDesc}. For monoscopic rendering, use a vector that is the
+	 * @param hmdToEyeOffset      can be {@link OVREyeRenderDesc}{@code .HmdToEyeOffset} returned from {@link OVR#ovr_GetRenderDesc _GetRenderDesc}. For monoscopic rendering, use a vector that is the
 	 *                            average of the two vectors for both eyes.
 	 * @param outEyePoses         the predicted eye poses
 	 * @param outSensorSampleTime the time when this function was called. May be NULL, in which case it is ignored.
 	 */
-	public static native void novr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, long HmdToEyeOffset, long outEyePoses, long outSensorSampleTime);
+	public static native void novr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, long hmdToEyeOffset, long outEyePoses, long outSensorSampleTime);
 
 	/**
 	 * Returns the predicted head pose in {@code outHmdTrackingState} and offset eye poses in {@code outEyePoses}.
@@ -221,18 +221,18 @@ public class OVRUtil {
 	 * @param frameIndex          the targeted frame index, or 0 to refer to one frame after the last time {@link OVR#ovr_SubmitFrame _SubmitFrame} was called
 	 * @param latencyMarker       Specifies that this call is the point in time where the "App-to-Mid-Photon" latency timer starts from. If a given {@code ovrLayer} provides
 	 *                            "SensorSampleTimestamp", that will override the value stored here.
-	 * @param HmdToEyeOffset      can be {@link OVREyeRenderDesc}{@code .HmdToEyeOffset} returned from {@link OVR#ovr_GetRenderDesc _GetRenderDesc}. For monoscopic rendering, use a vector that is the
+	 * @param hmdToEyeOffset      can be {@link OVREyeRenderDesc}{@code .HmdToEyeOffset} returned from {@link OVR#ovr_GetRenderDesc _GetRenderDesc}. For monoscopic rendering, use a vector that is the
 	 *                            average of the two vectors for both eyes.
 	 * @param outEyePoses         the predicted eye poses
 	 * @param outSensorSampleTime the time when this function was called. May be NULL, in which case it is ignored.
 	 */
-	public static void ovr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, OVRVector3f.Buffer HmdToEyeOffset, OVRPosef.Buffer outEyePoses, DoubleBuffer outSensorSampleTime) {
+	public static void ovr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, OVRVector3f.Buffer hmdToEyeOffset, OVRPosef.Buffer outEyePoses, DoubleBuffer outSensorSampleTime) {
 		if ( CHECKS ) {
 			checkPointer(session);
-			checkBuffer(HmdToEyeOffset, 2);
+			checkBuffer(hmdToEyeOffset, 2);
 			checkBuffer(outEyePoses, 2);
 		}
-		novr_GetEyePoses(session, frameIndex, latencyMarker, HmdToEyeOffset.address(), outEyePoses.address(), memAddressSafe(outSensorSampleTime));
+		novr_GetEyePoses(session, frameIndex, latencyMarker, hmdToEyeOffset.address(), outEyePoses.address(), memAddressSafe(outSensorSampleTime));
 	}
 
 	// --- [ ovrPosef_FlipHandedness ] ---
@@ -264,16 +264,16 @@ public class OVRUtil {
 	}
 
 	/** Array version of: {@link #ovr_GetEyePoses _GetEyePoses} */
-	public static native void novr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, long HmdToEyeOffset, long outEyePoses, double[] outSensorSampleTime);
+	public static native void novr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, long hmdToEyeOffset, long outEyePoses, double[] outSensorSampleTime);
 
 	/** Array version of: {@link #ovr_GetEyePoses _GetEyePoses} */
-	public static void ovr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, OVRVector3f.Buffer HmdToEyeOffset, OVRPosef.Buffer outEyePoses, double[] outSensorSampleTime) {
+	public static void ovr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, OVRVector3f.Buffer hmdToEyeOffset, OVRPosef.Buffer outEyePoses, double[] outSensorSampleTime) {
 		if ( CHECKS ) {
 			checkPointer(session);
-			checkBuffer(HmdToEyeOffset, 2);
+			checkBuffer(hmdToEyeOffset, 2);
 			checkBuffer(outEyePoses, 2);
 		}
-		novr_GetEyePoses(session, frameIndex, latencyMarker, HmdToEyeOffset.address(), outEyePoses.address(), outSensorSampleTime);
+		novr_GetEyePoses(session, frameIndex, latencyMarker, hmdToEyeOffset.address(), outEyePoses.address(), outSensorSampleTime);
 	}
 
 }
