@@ -387,13 +387,13 @@ public class STBTruetype {
 	 * @param q               an {@link STBTTAlignedQuad} struct in which to return the quad to draw
 	 * @param opengl_fillrule 1 if opengl fill rule; 0 if DX9 or earlier
 	 */
-	public static void stbtt_GetBakedQuad(STBTTBakedChar.Buffer chardata, int pw, int ph, int char_index, FloatBuffer xpos, FloatBuffer ypos, STBTTAlignedQuad q, int opengl_fillrule) {
+	public static void stbtt_GetBakedQuad(STBTTBakedChar.Buffer chardata, int pw, int ph, int char_index, FloatBuffer xpos, FloatBuffer ypos, STBTTAlignedQuad q, boolean opengl_fillrule) {
 		if ( CHECKS ) {
 			checkBuffer(chardata, char_index + 1);
 			checkBuffer(xpos, 1);
 			checkBuffer(ypos, 1);
 		}
-		nstbtt_GetBakedQuad(chardata.address(), pw, ph, char_index, memAddress(xpos), memAddress(ypos), q.address(), opengl_fillrule);
+		nstbtt_GetBakedQuad(chardata.address(), pw, ph, char_index, memAddress(xpos), memAddress(ypos), q.address(), opengl_fillrule ? 1 : 0);
 	}
 
 	// --- [ stbtt_PackBegin ] ---
@@ -633,13 +633,13 @@ public class STBTruetype {
 	 * @param q                an {@link STBTTAlignedQuad} struct in which to return the quad to draw
 	 * @param align_to_integer 1 to align the quad to integer coordinates
 	 */
-	public static void stbtt_GetPackedQuad(STBTTPackedchar.Buffer chardata, int pw, int ph, int char_index, FloatBuffer xpos, FloatBuffer ypos, STBTTAlignedQuad q, int align_to_integer) {
+	public static void stbtt_GetPackedQuad(STBTTPackedchar.Buffer chardata, int pw, int ph, int char_index, FloatBuffer xpos, FloatBuffer ypos, STBTTAlignedQuad q, boolean align_to_integer) {
 		if ( CHECKS ) {
 			checkBuffer(chardata, char_index + 1);
 			checkBuffer(xpos, 1);
 			checkBuffer(ypos, 1);
 		}
-		nstbtt_GetPackedQuad(chardata.address(), pw, ph, char_index, memAddress(xpos), memAddress(ypos), q.address(), align_to_integer);
+		nstbtt_GetPackedQuad(chardata.address(), pw, ph, char_index, memAddress(xpos), memAddress(ypos), q.address(), align_to_integer ? 1 : 0);
 	}
 
 	// --- [ stbtt_PackFontRangesGatherRects ] ---
@@ -903,11 +903,11 @@ public class STBTruetype {
 	 */
 	public static void stbtt_GetFontVMetrics(STBTTFontinfo info, IntBuffer ascent, IntBuffer descent, IntBuffer lineGap) {
 		if ( CHECKS ) {
-			checkBuffer(ascent, 1);
-			checkBuffer(descent, 1);
-			checkBuffer(lineGap, 1);
+			if ( ascent != null ) checkBuffer(ascent, 1);
+			if ( descent != null ) checkBuffer(descent, 1);
+			if ( lineGap != null ) checkBuffer(lineGap, 1);
 		}
-		nstbtt_GetFontVMetrics(info.address(), memAddress(ascent), memAddress(descent), memAddress(lineGap));
+		nstbtt_GetFontVMetrics(info.address(), memAddressSafe(ascent), memAddressSafe(descent), memAddressSafe(lineGap));
 	}
 
 	// --- [ stbtt_GetFontBoundingBox ] ---
@@ -968,10 +968,10 @@ public class STBTruetype {
 	 */
 	public static void stbtt_GetCodepointHMetrics(STBTTFontinfo info, int codepoint, IntBuffer advanceWidth, IntBuffer leftSideBearing) {
 		if ( CHECKS ) {
-			checkBuffer(advanceWidth, 1);
-			checkBuffer(leftSideBearing, 1);
+			if ( advanceWidth != null ) checkBuffer(advanceWidth, 1);
+			if ( leftSideBearing != null ) checkBuffer(leftSideBearing, 1);
 		}
-		nstbtt_GetCodepointHMetrics(info.address(), codepoint, memAddress(advanceWidth), memAddress(leftSideBearing));
+		nstbtt_GetCodepointHMetrics(info.address(), codepoint, memAddressSafe(advanceWidth), memAddressSafe(leftSideBearing));
 	}
 
 	// --- [ stbtt_GetCodepointKernAdvance ] ---
@@ -1022,12 +1022,12 @@ public class STBTruetype {
 	 */
 	public static int stbtt_GetCodepointBox(STBTTFontinfo info, int codepoint, IntBuffer x0, IntBuffer y0, IntBuffer x1, IntBuffer y1) {
 		if ( CHECKS ) {
-			checkBuffer(x0, 1);
-			checkBuffer(y0, 1);
-			checkBuffer(x1, 1);
-			checkBuffer(y1, 1);
+			if ( x0 != null ) checkBuffer(x0, 1);
+			if ( y0 != null ) checkBuffer(y0, 1);
+			if ( x1 != null ) checkBuffer(x1, 1);
+			if ( y1 != null ) checkBuffer(y1, 1);
 		}
-		return nstbtt_GetCodepointBox(info.address(), codepoint, memAddress(x0), memAddress(y0), memAddress(x1), memAddress(y1));
+		return nstbtt_GetCodepointBox(info.address(), codepoint, memAddressSafe(x0), memAddressSafe(y0), memAddressSafe(x1), memAddressSafe(y1));
 	}
 
 	// --- [ stbtt_GetGlyphHMetrics ] ---
@@ -1052,10 +1052,10 @@ public class STBTruetype {
 	 */
 	public static void stbtt_GetGlyphHMetrics(STBTTFontinfo info, int glyph_index, IntBuffer advanceWidth, IntBuffer leftSideBearing) {
 		if ( CHECKS ) {
-			checkBuffer(advanceWidth, 1);
-			checkBuffer(leftSideBearing, 1);
+			if ( advanceWidth != null ) checkBuffer(advanceWidth, 1);
+			if ( leftSideBearing != null ) checkBuffer(leftSideBearing, 1);
 		}
-		nstbtt_GetGlyphHMetrics(info.address(), glyph_index, memAddress(advanceWidth), memAddress(leftSideBearing));
+		nstbtt_GetGlyphHMetrics(info.address(), glyph_index, memAddressSafe(advanceWidth), memAddressSafe(leftSideBearing));
 	}
 
 	// --- [ stbtt_GetGlyphKernAdvance ] ---
@@ -1106,12 +1106,12 @@ public class STBTruetype {
 	 */
 	public static int stbtt_GetGlyphBox(STBTTFontinfo info, int glyph_index, IntBuffer x0, IntBuffer y0, IntBuffer x1, IntBuffer y1) {
 		if ( CHECKS ) {
-			checkBuffer(x0, 1);
-			checkBuffer(y0, 1);
-			checkBuffer(x1, 1);
-			checkBuffer(y1, 1);
+			if ( x0 != null ) checkBuffer(x0, 1);
+			if ( y0 != null ) checkBuffer(y0, 1);
+			if ( x1 != null ) checkBuffer(x1, 1);
+			if ( y1 != null ) checkBuffer(y1, 1);
 		}
-		return nstbtt_GetGlyphBox(info.address(), glyph_index, memAddress(x0), memAddress(y0), memAddress(x1), memAddress(y1));
+		return nstbtt_GetGlyphBox(info.address(), glyph_index, memAddressSafe(x0), memAddressSafe(y0), memAddressSafe(x1), memAddressSafe(y1));
 	}
 
 	// --- [ stbtt_IsGlyphEmpty ] ---
@@ -1308,10 +1308,10 @@ public class STBTruetype {
 		if ( CHECKS ) {
 			checkBuffer(width, 1);
 			checkBuffer(height, 1);
-			checkBuffer(xoff, 1);
-			checkBuffer(yoff, 1);
+			if ( xoff != null ) checkBuffer(xoff, 1);
+			if ( yoff != null ) checkBuffer(yoff, 1);
 		}
-		long __result = nstbtt_GetCodepointBitmap(info.address(), scale_x, scale_y, codepoint, memAddress(width), memAddress(height), memAddress(xoff), memAddress(yoff));
+		long __result = nstbtt_GetCodepointBitmap(info.address(), scale_x, scale_y, codepoint, memAddress(width), memAddress(height), memAddressSafe(xoff), memAddressSafe(yoff));
 		return memByteBuffer(__result, width.get(width.position()) * height.get(height.position()));
 	}
 
@@ -1351,10 +1351,10 @@ public class STBTruetype {
 		if ( CHECKS ) {
 			checkBuffer(width, 1);
 			checkBuffer(height, 1);
-			checkBuffer(xoff, 1);
-			checkBuffer(yoff, 1);
+			if ( xoff != null ) checkBuffer(xoff, 1);
+			if ( yoff != null ) checkBuffer(yoff, 1);
 		}
-		long __result = nstbtt_GetCodepointBitmapSubpixel(info.address(), scale_x, scale_y, shift_x, shift_y, codepoint, memAddress(width), memAddress(height), memAddress(xoff), memAddress(yoff));
+		long __result = nstbtt_GetCodepointBitmapSubpixel(info.address(), scale_x, scale_y, shift_x, shift_y, codepoint, memAddress(width), memAddress(height), memAddressSafe(xoff), memAddressSafe(yoff));
 		return memByteBuffer(__result, width.get(width.position()) * height.get(height.position()));
 	}
 
@@ -1468,12 +1468,12 @@ public class STBTruetype {
 	 */
 	public static void stbtt_GetCodepointBitmapBox(STBTTFontinfo font, int codepoint, float scale_x, float scale_y, IntBuffer ix0, IntBuffer iy0, IntBuffer ix1, IntBuffer iy1) {
 		if ( CHECKS ) {
-			checkBuffer(ix0, 1);
-			checkBuffer(iy0, 1);
-			checkBuffer(ix1, 1);
-			checkBuffer(iy1, 1);
+			if ( ix0 != null ) checkBuffer(ix0, 1);
+			if ( iy0 != null ) checkBuffer(iy0, 1);
+			if ( ix1 != null ) checkBuffer(ix1, 1);
+			if ( iy1 != null ) checkBuffer(iy1, 1);
 		}
-		nstbtt_GetCodepointBitmapBox(font.address(), codepoint, scale_x, scale_y, memAddress(ix0), memAddress(iy0), memAddress(ix1), memAddress(iy1));
+		nstbtt_GetCodepointBitmapBox(font.address(), codepoint, scale_x, scale_y, memAddressSafe(ix0), memAddressSafe(iy0), memAddressSafe(ix1), memAddressSafe(iy1));
 	}
 
 	// --- [ stbtt_GetCodepointBitmapBoxSubpixel ] ---
@@ -1510,12 +1510,12 @@ public class STBTruetype {
 	 */
 	public static void stbtt_GetCodepointBitmapBoxSubpixel(STBTTFontinfo font, int codepoint, float scale_x, float scale_y, float shift_x, float shift_y, IntBuffer ix0, IntBuffer iy0, IntBuffer ix1, IntBuffer iy1) {
 		if ( CHECKS ) {
-			checkBuffer(ix0, 1);
-			checkBuffer(iy0, 1);
-			checkBuffer(ix1, 1);
-			checkBuffer(iy1, 1);
+			if ( ix0 != null ) checkBuffer(ix0, 1);
+			if ( iy0 != null ) checkBuffer(iy0, 1);
+			if ( ix1 != null ) checkBuffer(ix1, 1);
+			if ( iy1 != null ) checkBuffer(iy1, 1);
 		}
-		nstbtt_GetCodepointBitmapBoxSubpixel(font.address(), codepoint, scale_x, scale_y, shift_x, shift_y, memAddress(ix0), memAddress(iy0), memAddress(ix1), memAddress(iy1));
+		nstbtt_GetCodepointBitmapBoxSubpixel(font.address(), codepoint, scale_x, scale_y, shift_x, shift_y, memAddressSafe(ix0), memAddressSafe(iy0), memAddressSafe(ix1), memAddressSafe(iy1));
 	}
 
 	// --- [ stbtt_GetGlyphBitmap ] ---
@@ -1550,10 +1550,10 @@ public class STBTruetype {
 		if ( CHECKS ) {
 			checkBuffer(width, 1);
 			checkBuffer(height, 1);
-			checkBuffer(xoff, 1);
-			checkBuffer(yoff, 1);
+			if ( xoff != null ) checkBuffer(xoff, 1);
+			if ( yoff != null ) checkBuffer(yoff, 1);
 		}
-		long __result = nstbtt_GetGlyphBitmap(info.address(), scale_x, scale_y, glyph, memAddress(width), memAddress(height), memAddress(xoff), memAddress(yoff));
+		long __result = nstbtt_GetGlyphBitmap(info.address(), scale_x, scale_y, glyph, memAddress(width), memAddress(height), memAddressSafe(xoff), memAddressSafe(yoff));
 		return memByteBuffer(__result, width.get(width.position()) * height.get(height.position()));
 	}
 
@@ -1593,10 +1593,10 @@ public class STBTruetype {
 		if ( CHECKS ) {
 			checkBuffer(width, 1);
 			checkBuffer(height, 1);
-			checkBuffer(xoff, 1);
-			checkBuffer(yoff, 1);
+			if ( xoff != null ) checkBuffer(xoff, 1);
+			if ( yoff != null ) checkBuffer(yoff, 1);
 		}
-		long __result = nstbtt_GetGlyphBitmapSubpixel(info.address(), scale_x, scale_y, shift_x, shift_y, glyph, memAddress(width), memAddress(height), memAddress(xoff), memAddress(yoff));
+		long __result = nstbtt_GetGlyphBitmapSubpixel(info.address(), scale_x, scale_y, shift_x, shift_y, glyph, memAddress(width), memAddress(height), memAddressSafe(xoff), memAddressSafe(yoff));
 		return memByteBuffer(__result, width.get(width.position()) * height.get(height.position()));
 	}
 
@@ -1710,12 +1710,12 @@ public class STBTruetype {
 	 */
 	public static void stbtt_GetGlyphBitmapBox(STBTTFontinfo font, int glyph, float scale_x, float scale_y, IntBuffer ix0, IntBuffer iy0, IntBuffer ix1, IntBuffer iy1) {
 		if ( CHECKS ) {
-			checkBuffer(ix0, 1);
-			checkBuffer(iy0, 1);
-			checkBuffer(ix1, 1);
-			checkBuffer(iy1, 1);
+			if ( ix0 != null ) checkBuffer(ix0, 1);
+			if ( iy0 != null ) checkBuffer(iy0, 1);
+			if ( ix1 != null ) checkBuffer(ix1, 1);
+			if ( iy1 != null ) checkBuffer(iy1, 1);
 		}
-		nstbtt_GetGlyphBitmapBox(font.address(), glyph, scale_x, scale_y, memAddress(ix0), memAddress(iy0), memAddress(ix1), memAddress(iy1));
+		nstbtt_GetGlyphBitmapBox(font.address(), glyph, scale_x, scale_y, memAddressSafe(ix0), memAddressSafe(iy0), memAddressSafe(ix1), memAddressSafe(iy1));
 	}
 
 	// --- [ stbtt_GetGlyphBitmapBoxSubpixel ] ---
@@ -1752,12 +1752,12 @@ public class STBTruetype {
 	 */
 	public static void stbtt_GetGlyphBitmapBoxSubpixel(STBTTFontinfo font, int glyph, float scale_x, float scale_y, float shift_x, float shift_y, IntBuffer ix0, IntBuffer iy0, IntBuffer ix1, IntBuffer iy1) {
 		if ( CHECKS ) {
-			checkBuffer(ix0, 1);
-			checkBuffer(iy0, 1);
-			checkBuffer(ix1, 1);
-			checkBuffer(iy1, 1);
+			if ( ix0 != null ) checkBuffer(ix0, 1);
+			if ( iy0 != null ) checkBuffer(iy0, 1);
+			if ( ix1 != null ) checkBuffer(ix1, 1);
+			if ( iy1 != null ) checkBuffer(iy1, 1);
 		}
-		nstbtt_GetGlyphBitmapBoxSubpixel(font.address(), glyph, scale_x, scale_y, shift_x, shift_y, memAddress(ix0), memAddress(iy0), memAddress(ix1), memAddress(iy1));
+		nstbtt_GetGlyphBitmapBoxSubpixel(font.address(), glyph, scale_x, scale_y, shift_x, shift_y, memAddressSafe(ix0), memAddressSafe(iy0), memAddressSafe(ix1), memAddressSafe(iy1));
 	}
 
 	// --- [ stbtt_FindMatchingFont ] ---
@@ -1886,26 +1886,26 @@ public class STBTruetype {
 	public static native void nstbtt_GetBakedQuad(long chardata, int pw, int ph, int char_index, float[] xpos, float[] ypos, long q, int opengl_fillrule);
 
 	/** Array version of: {@link #stbtt_GetBakedQuad GetBakedQuad} */
-	public static void stbtt_GetBakedQuad(STBTTBakedChar.Buffer chardata, int pw, int ph, int char_index, float[] xpos, float[] ypos, STBTTAlignedQuad q, int opengl_fillrule) {
+	public static void stbtt_GetBakedQuad(STBTTBakedChar.Buffer chardata, int pw, int ph, int char_index, float[] xpos, float[] ypos, STBTTAlignedQuad q, boolean opengl_fillrule) {
 		if ( CHECKS ) {
 			checkBuffer(chardata, char_index + 1);
 			checkBuffer(xpos, 1);
 			checkBuffer(ypos, 1);
 		}
-		nstbtt_GetBakedQuad(chardata.address(), pw, ph, char_index, xpos, ypos, q.address(), opengl_fillrule);
+		nstbtt_GetBakedQuad(chardata.address(), pw, ph, char_index, xpos, ypos, q.address(), opengl_fillrule ? 1 : 0);
 	}
 
 	/** Array version of: {@link #stbtt_GetPackedQuad GetPackedQuad} */
 	public static native void nstbtt_GetPackedQuad(long chardata, int pw, int ph, int char_index, float[] xpos, float[] ypos, long q, int align_to_integer);
 
 	/** Array version of: {@link #stbtt_GetPackedQuad GetPackedQuad} */
-	public static void stbtt_GetPackedQuad(STBTTPackedchar.Buffer chardata, int pw, int ph, int char_index, float[] xpos, float[] ypos, STBTTAlignedQuad q, int align_to_integer) {
+	public static void stbtt_GetPackedQuad(STBTTPackedchar.Buffer chardata, int pw, int ph, int char_index, float[] xpos, float[] ypos, STBTTAlignedQuad q, boolean align_to_integer) {
 		if ( CHECKS ) {
 			checkBuffer(chardata, char_index + 1);
 			checkBuffer(xpos, 1);
 			checkBuffer(ypos, 1);
 		}
-		nstbtt_GetPackedQuad(chardata.address(), pw, ph, char_index, xpos, ypos, q.address(), align_to_integer);
+		nstbtt_GetPackedQuad(chardata.address(), pw, ph, char_index, xpos, ypos, q.address(), align_to_integer ? 1 : 0);
 	}
 
 	/** Array version of: {@link #stbtt_GetFontVMetrics GetFontVMetrics} */
@@ -1914,9 +1914,9 @@ public class STBTruetype {
 	/** Array version of: {@link #stbtt_GetFontVMetrics GetFontVMetrics} */
 	public static void stbtt_GetFontVMetrics(STBTTFontinfo info, int[] ascent, int[] descent, int[] lineGap) {
 		if ( CHECKS ) {
-			checkBuffer(ascent, 1);
-			checkBuffer(descent, 1);
-			checkBuffer(lineGap, 1);
+			if ( ascent != null ) checkBuffer(ascent, 1);
+			if ( descent != null ) checkBuffer(descent, 1);
+			if ( lineGap != null ) checkBuffer(lineGap, 1);
 		}
 		nstbtt_GetFontVMetrics(info.address(), ascent, descent, lineGap);
 	}
@@ -1941,8 +1941,8 @@ public class STBTruetype {
 	/** Array version of: {@link #stbtt_GetCodepointHMetrics GetCodepointHMetrics} */
 	public static void stbtt_GetCodepointHMetrics(STBTTFontinfo info, int codepoint, int[] advanceWidth, int[] leftSideBearing) {
 		if ( CHECKS ) {
-			checkBuffer(advanceWidth, 1);
-			checkBuffer(leftSideBearing, 1);
+			if ( advanceWidth != null ) checkBuffer(advanceWidth, 1);
+			if ( leftSideBearing != null ) checkBuffer(leftSideBearing, 1);
 		}
 		nstbtt_GetCodepointHMetrics(info.address(), codepoint, advanceWidth, leftSideBearing);
 	}
@@ -1953,10 +1953,10 @@ public class STBTruetype {
 	/** Array version of: {@link #stbtt_GetCodepointBox GetCodepointBox} */
 	public static int stbtt_GetCodepointBox(STBTTFontinfo info, int codepoint, int[] x0, int[] y0, int[] x1, int[] y1) {
 		if ( CHECKS ) {
-			checkBuffer(x0, 1);
-			checkBuffer(y0, 1);
-			checkBuffer(x1, 1);
-			checkBuffer(y1, 1);
+			if ( x0 != null ) checkBuffer(x0, 1);
+			if ( y0 != null ) checkBuffer(y0, 1);
+			if ( x1 != null ) checkBuffer(x1, 1);
+			if ( y1 != null ) checkBuffer(y1, 1);
 		}
 		return nstbtt_GetCodepointBox(info.address(), codepoint, x0, y0, x1, y1);
 	}
@@ -1967,8 +1967,8 @@ public class STBTruetype {
 	/** Array version of: {@link #stbtt_GetGlyphHMetrics GetGlyphHMetrics} */
 	public static void stbtt_GetGlyphHMetrics(STBTTFontinfo info, int glyph_index, int[] advanceWidth, int[] leftSideBearing) {
 		if ( CHECKS ) {
-			checkBuffer(advanceWidth, 1);
-			checkBuffer(leftSideBearing, 1);
+			if ( advanceWidth != null ) checkBuffer(advanceWidth, 1);
+			if ( leftSideBearing != null ) checkBuffer(leftSideBearing, 1);
 		}
 		nstbtt_GetGlyphHMetrics(info.address(), glyph_index, advanceWidth, leftSideBearing);
 	}
@@ -1979,10 +1979,10 @@ public class STBTruetype {
 	/** Array version of: {@link #stbtt_GetGlyphBox GetGlyphBox} */
 	public static int stbtt_GetGlyphBox(STBTTFontinfo info, int glyph_index, int[] x0, int[] y0, int[] x1, int[] y1) {
 		if ( CHECKS ) {
-			checkBuffer(x0, 1);
-			checkBuffer(y0, 1);
-			checkBuffer(x1, 1);
-			checkBuffer(y1, 1);
+			if ( x0 != null ) checkBuffer(x0, 1);
+			if ( y0 != null ) checkBuffer(y0, 1);
+			if ( x1 != null ) checkBuffer(x1, 1);
+			if ( y1 != null ) checkBuffer(y1, 1);
 		}
 		return nstbtt_GetGlyphBox(info.address(), glyph_index, x0, y0, x1, y1);
 	}
@@ -1993,10 +1993,10 @@ public class STBTruetype {
 	/** Array version of: {@link #stbtt_GetCodepointBitmapBox GetCodepointBitmapBox} */
 	public static void stbtt_GetCodepointBitmapBox(STBTTFontinfo font, int codepoint, float scale_x, float scale_y, int[] ix0, int[] iy0, int[] ix1, int[] iy1) {
 		if ( CHECKS ) {
-			checkBuffer(ix0, 1);
-			checkBuffer(iy0, 1);
-			checkBuffer(ix1, 1);
-			checkBuffer(iy1, 1);
+			if ( ix0 != null ) checkBuffer(ix0, 1);
+			if ( iy0 != null ) checkBuffer(iy0, 1);
+			if ( ix1 != null ) checkBuffer(ix1, 1);
+			if ( iy1 != null ) checkBuffer(iy1, 1);
 		}
 		nstbtt_GetCodepointBitmapBox(font.address(), codepoint, scale_x, scale_y, ix0, iy0, ix1, iy1);
 	}
@@ -2007,10 +2007,10 @@ public class STBTruetype {
 	/** Array version of: {@link #stbtt_GetCodepointBitmapBoxSubpixel GetCodepointBitmapBoxSubpixel} */
 	public static void stbtt_GetCodepointBitmapBoxSubpixel(STBTTFontinfo font, int codepoint, float scale_x, float scale_y, float shift_x, float shift_y, int[] ix0, int[] iy0, int[] ix1, int[] iy1) {
 		if ( CHECKS ) {
-			checkBuffer(ix0, 1);
-			checkBuffer(iy0, 1);
-			checkBuffer(ix1, 1);
-			checkBuffer(iy1, 1);
+			if ( ix0 != null ) checkBuffer(ix0, 1);
+			if ( iy0 != null ) checkBuffer(iy0, 1);
+			if ( ix1 != null ) checkBuffer(ix1, 1);
+			if ( iy1 != null ) checkBuffer(iy1, 1);
 		}
 		nstbtt_GetCodepointBitmapBoxSubpixel(font.address(), codepoint, scale_x, scale_y, shift_x, shift_y, ix0, iy0, ix1, iy1);
 	}
@@ -2021,10 +2021,10 @@ public class STBTruetype {
 	/** Array version of: {@link #stbtt_GetGlyphBitmapBox GetGlyphBitmapBox} */
 	public static void stbtt_GetGlyphBitmapBox(STBTTFontinfo font, int glyph, float scale_x, float scale_y, int[] ix0, int[] iy0, int[] ix1, int[] iy1) {
 		if ( CHECKS ) {
-			checkBuffer(ix0, 1);
-			checkBuffer(iy0, 1);
-			checkBuffer(ix1, 1);
-			checkBuffer(iy1, 1);
+			if ( ix0 != null ) checkBuffer(ix0, 1);
+			if ( iy0 != null ) checkBuffer(iy0, 1);
+			if ( ix1 != null ) checkBuffer(ix1, 1);
+			if ( iy1 != null ) checkBuffer(iy1, 1);
 		}
 		nstbtt_GetGlyphBitmapBox(font.address(), glyph, scale_x, scale_y, ix0, iy0, ix1, iy1);
 	}
@@ -2035,10 +2035,10 @@ public class STBTruetype {
 	/** Array version of: {@link #stbtt_GetGlyphBitmapBoxSubpixel GetGlyphBitmapBoxSubpixel} */
 	public static void stbtt_GetGlyphBitmapBoxSubpixel(STBTTFontinfo font, int glyph, float scale_x, float scale_y, float shift_x, float shift_y, int[] ix0, int[] iy0, int[] ix1, int[] iy1) {
 		if ( CHECKS ) {
-			checkBuffer(ix0, 1);
-			checkBuffer(iy0, 1);
-			checkBuffer(ix1, 1);
-			checkBuffer(iy1, 1);
+			if ( ix0 != null ) checkBuffer(ix0, 1);
+			if ( iy0 != null ) checkBuffer(iy0, 1);
+			if ( ix1 != null ) checkBuffer(ix1, 1);
+			if ( iy1 != null ) checkBuffer(iy1, 1);
 		}
 		nstbtt_GetGlyphBitmapBoxSubpixel(font.address(), glyph, scale_x, scale_y, shift_x, shift_y, ix0, iy0, ix1, iy1);
 	}

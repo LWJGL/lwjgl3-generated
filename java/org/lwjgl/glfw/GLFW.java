@@ -3089,13 +3089,7 @@ public class GLFW {
 	 * 
 	 * <p>If the cursor mode is {@link #GLFW_CURSOR_DISABLED CURSOR_DISABLED} then the cursor position is unconstrained and limited only by the minimum and maximum values of <b>double</b>.</p>
 	 * 
-	 * <p>Notes:</p>
-	 * 
-	 * <ul>
-	 * <li>This function must only be called from the main thread.</li>
-	 * <li><b>X11:</b> Due to the asynchronous nature of X11, it may take a moment for the window focus event to arrive. This means you may not be able to set
-	 * the cursor position directly after window creation.</li>
-	 * </ul>
+	 * <p>This function must only be called from the main thread.</p>
 	 *
 	 * @param window the desired window
 	 * @param xpos   the desired x-coordinate, relative to the left edge of the client area

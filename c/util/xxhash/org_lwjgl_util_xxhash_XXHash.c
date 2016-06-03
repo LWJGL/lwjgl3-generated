@@ -3,6 +3,9 @@
  * License terms: http://lwjgl.org/license.php
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
+#ifdef LWJGL_WINDOWS
+	__pragma(warning(disable : 4710))
+#endif
 #include "common_tools.h"
 DISABLE_WARNINGS()
 #ifdef LWJGL_WINDOWS
