@@ -33,8 +33,7 @@ public abstract class GLFWMonitorCallback extends Callback implements GLFWMonito
 	}
 
 	protected GLFWMonitorCallback() {
-		super(NULL);
-		address = GLFWMonitorCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private GLFWMonitorCallback(long functionPointer) {

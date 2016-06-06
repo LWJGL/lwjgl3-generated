@@ -7,17 +7,16 @@ package org.lwjgl.system.windows;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** An application-defined function that processes messages sent to a window. */
 @FunctionalInterface
 public interface WindowProcI extends CallbackI.P {
 
+	String SIGNATURE = Callback.__stdcall("(pipp)p");
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(pipp)p", true);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default long callback(long args) {

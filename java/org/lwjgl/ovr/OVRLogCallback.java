@@ -31,8 +31,7 @@ public abstract class OVRLogCallback extends Callback implements OVRLogCallbackI
 	}
 
 	protected OVRLogCallback() {
-		super(NULL);
-		address = OVRLogCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private OVRLogCallback(long functionPointer) {

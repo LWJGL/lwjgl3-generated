@@ -7,17 +7,16 @@ package org.lwjgl.vulkan;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@code pfnAllocation} member of the {@link VkAllocationCallbacks} struct. */
 @FunctionalInterface
 public interface VkAllocationFunctionI extends CallbackI.P {
 
+	String SIGNATURE = Callback.__stdcall("(pppi)p");
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(pppi)p", true);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default long callback(long args) {

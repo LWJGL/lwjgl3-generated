@@ -31,8 +31,7 @@ public abstract class CLContextCallback extends Callback implements CLContextCal
 	}
 
 	protected CLContextCallback() {
-		super(NULL);
-		address = CLContextCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private CLContextCallback(long functionPointer) {

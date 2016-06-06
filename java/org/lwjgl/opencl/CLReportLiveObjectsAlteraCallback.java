@@ -31,8 +31,7 @@ public abstract class CLReportLiveObjectsAlteraCallback extends Callback impleme
 	}
 
 	protected CLReportLiveObjectsAlteraCallback() {
-		super(NULL);
-		address = CLReportLiveObjectsAlteraCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private CLReportLiveObjectsAlteraCallback(long functionPointer) {

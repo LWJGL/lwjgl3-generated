@@ -33,8 +33,7 @@ public abstract class GLFWCursorPosCallback extends Callback implements GLFWCurs
 	}
 
 	protected GLFWCursorPosCallback() {
-		super(NULL);
-		address = GLFWCursorPosCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private GLFWCursorPosCallback(long functionPointer) {

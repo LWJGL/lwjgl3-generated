@@ -7,17 +7,16 @@ package org.lwjgl.egl;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link KHRDebug#eglDebugMessageControlKHR DebugMessageControlKHR} method. */
 @FunctionalInterface
 public interface EGLDebugMessageKHRCallbackI extends CallbackI.V {
 
+	String SIGNATURE = Callback.__stdcall("(ipippp)v");
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(ipippp)v", true);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default void callback(long args) {

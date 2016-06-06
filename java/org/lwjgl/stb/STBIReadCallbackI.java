@@ -7,17 +7,16 @@ package org.lwjgl.stb;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@code read} field of the {@link STBIIOCallbacks} struct. */
 @FunctionalInterface
 public interface STBIReadCallbackI extends CallbackI.I {
 
+	String SIGNATURE = "(ppi)i";
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(ppi)i", false);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default int callback(long args) {

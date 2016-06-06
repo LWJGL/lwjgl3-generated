@@ -31,8 +31,7 @@ public abstract class VkAllocationFunction extends Callback implements VkAllocat
 	}
 
 	protected VkAllocationFunction() {
-		super(NULL);
-		address = VkAllocationFunctionI.super.address();
+		super(SIGNATURE);
 	}
 
 	private VkAllocationFunction(long functionPointer) {

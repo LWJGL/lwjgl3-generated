@@ -7,17 +7,16 @@ package org.lwjgl.nuklear;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@code nk_style_*} structs. */
 @FunctionalInterface
 public interface NkDrawBeginCallbackI extends CallbackI.F {
 
+	String SIGNATURE = "(pp)f";
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(pp)f", false);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default float callback(long args) {

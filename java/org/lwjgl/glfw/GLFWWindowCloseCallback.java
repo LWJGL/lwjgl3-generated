@@ -33,8 +33,7 @@ public abstract class GLFWWindowCloseCallback extends Callback implements GLFWWi
 	}
 
 	protected GLFWWindowCloseCallback() {
-		super(NULL);
-		address = GLFWWindowCloseCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private GLFWWindowCloseCallback(long functionPointer) {

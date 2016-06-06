@@ -33,8 +33,7 @@ public abstract class GLFWMouseButtonCallback extends Callback implements GLFWMo
 	}
 
 	protected GLFWMouseButtonCallback() {
-		super(NULL);
-		address = GLFWMouseButtonCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private GLFWMouseButtonCallback(long functionPointer) {

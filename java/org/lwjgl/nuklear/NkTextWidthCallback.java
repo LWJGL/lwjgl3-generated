@@ -31,8 +31,7 @@ public abstract class NkTextWidthCallback extends Callback implements NkTextWidt
 	}
 
 	protected NkTextWidthCallback() {
-		super(NULL);
-		address = NkTextWidthCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private NkTextWidthCallback(long functionPointer) {

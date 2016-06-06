@@ -35,8 +35,7 @@ public abstract class VkInternalAllocationNotification extends Callback implemen
 	}
 
 	protected VkInternalAllocationNotification() {
-		super(NULL);
-		address = VkInternalAllocationNotificationI.super.address();
+		super(SIGNATURE);
 	}
 
 	private VkInternalAllocationNotification(long functionPointer) {

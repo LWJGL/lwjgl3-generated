@@ -31,8 +31,7 @@ public abstract class NkItemGetter extends Callback implements NkItemGetterI {
 	}
 
 	protected NkItemGetter() {
-		super(NULL);
-		address = NkItemGetterI.super.address();
+		super(SIGNATURE);
 	}
 
 	private NkItemGetter(long functionPointer) {

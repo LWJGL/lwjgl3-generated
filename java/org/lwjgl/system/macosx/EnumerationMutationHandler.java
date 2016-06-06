@@ -31,8 +31,7 @@ public abstract class EnumerationMutationHandler extends Callback implements Enu
 	}
 
 	protected EnumerationMutationHandler() {
-		super(NULL);
-		address = EnumerationMutationHandlerI.super.address();
+		super(SIGNATURE);
 	}
 
 	private EnumerationMutationHandler(long functionPointer) {

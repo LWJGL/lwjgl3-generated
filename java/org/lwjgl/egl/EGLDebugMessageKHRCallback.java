@@ -31,8 +31,7 @@ public abstract class EGLDebugMessageKHRCallback extends Callback implements EGL
 	}
 
 	protected EGLDebugMessageKHRCallback() {
-		super(NULL);
-		address = EGLDebugMessageKHRCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private EGLDebugMessageKHRCallback(long functionPointer) {

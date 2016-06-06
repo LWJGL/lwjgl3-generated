@@ -7,17 +7,16 @@ package org.lwjgl.glfw;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetScrollCallback SetScrollCallback} method. */
 @FunctionalInterface
 public interface GLFWScrollCallbackI extends CallbackI.V {
 
+	String SIGNATURE = "(pdd)v";
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(pdd)v", false);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default void callback(long args) {

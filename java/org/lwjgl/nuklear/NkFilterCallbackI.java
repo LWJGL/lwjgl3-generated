@@ -7,17 +7,16 @@ package org.lwjgl.nuklear;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@link NkTextEdit} struct. */
 @FunctionalInterface
 public interface NkFilterCallbackI extends CallbackI.I {
 
+	String SIGNATURE = "(pi)i";
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(pi)i", false);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default int callback(long args) {

@@ -31,8 +31,7 @@ public abstract class NkDrawEndCallback extends Callback implements NkDrawEndCal
 	}
 
 	protected NkDrawEndCallback() {
-		super(NULL);
-		address = NkDrawEndCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private NkDrawEndCallback(long functionPointer) {

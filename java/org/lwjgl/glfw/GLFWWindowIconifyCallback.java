@@ -33,8 +33,7 @@ public abstract class GLFWWindowIconifyCallback extends Callback implements GLFW
 	}
 
 	protected GLFWWindowIconifyCallback() {
-		super(NULL);
-		address = GLFWWindowIconifyCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private GLFWWindowIconifyCallback(long functionPointer) {

@@ -31,8 +31,7 @@ public abstract class ChunkDecommit extends Callback implements ChunkDecommitI {
 	}
 
 	protected ChunkDecommit() {
-		super(NULL);
-		address = ChunkDecommitI.super.address();
+		super(SIGNATURE);
 	}
 
 	private ChunkDecommit(long functionPointer) {

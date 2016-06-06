@@ -7,17 +7,16 @@ package org.lwjgl.nuklear;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link #nk_plot_function} function. */
 @FunctionalInterface
 public interface NkValueGetterI extends CallbackI.F {
 
+	String SIGNATURE = "(pi)f";
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(pi)f", false);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default float callback(long args) {

@@ -33,8 +33,7 @@ public abstract class GLFWWindowPosCallback extends Callback implements GLFWWind
 	}
 
 	protected GLFWWindowPosCallback() {
-		super(NULL);
-		address = GLFWWindowPosCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private GLFWWindowPosCallback(long functionPointer) {

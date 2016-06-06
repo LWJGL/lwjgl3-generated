@@ -33,8 +33,7 @@ public abstract class GLFWScrollCallback extends Callback implements GLFWScrollC
 	}
 
 	protected GLFWScrollCallback() {
-		super(NULL);
-		address = GLFWScrollCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private GLFWScrollCallback(long functionPointer) {

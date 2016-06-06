@@ -7,7 +7,6 @@ package org.lwjgl.vulkan;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /**
@@ -18,10 +17,10 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface VkInternalFreeNotificationI extends CallbackI.V {
 
+	String SIGNATURE = Callback.__stdcall("(ppii)v");
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(ppii)v", true);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default void callback(long args) {

@@ -31,8 +31,7 @@ public abstract class ChunkCommit extends Callback implements ChunkCommitI {
 	}
 
 	protected ChunkCommit() {
-		super(NULL);
-		address = ChunkCommitI.super.address();
+		super(SIGNATURE);
 	}
 
 	private ChunkCommit(long functionPointer) {

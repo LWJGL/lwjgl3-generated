@@ -36,8 +36,7 @@ public abstract class VkFreeFunction extends Callback implements VkFreeFunctionI
 	}
 
 	protected VkFreeFunction() {
-		super(NULL);
-		address = VkFreeFunctionI.super.address();
+		super(SIGNATURE);
 	}
 
 	private VkFreeFunction(long functionPointer) {

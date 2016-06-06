@@ -31,8 +31,7 @@ public abstract class GLDebugMessageKHRCallback extends Callback implements GLDe
 	}
 
 	protected GLDebugMessageKHRCallback() {
-		super(NULL);
-		address = GLDebugMessageKHRCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private GLDebugMessageKHRCallback(long functionPointer) {

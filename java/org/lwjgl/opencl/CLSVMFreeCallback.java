@@ -31,8 +31,7 @@ public abstract class CLSVMFreeCallback extends Callback implements CLSVMFreeCal
 	}
 
 	protected CLSVMFreeCallback() {
-		super(NULL);
-		address = CLSVMFreeCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private CLSVMFreeCallback(long functionPointer) {

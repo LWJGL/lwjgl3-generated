@@ -31,8 +31,7 @@ public abstract class CLNativeKernel extends Callback implements CLNativeKernelI
 	}
 
 	protected CLNativeKernel() {
-		super(NULL);
-		address = CLNativeKernelI.super.address();
+		super(SIGNATURE);
 	}
 
 	private CLNativeKernel(long functionPointer) {

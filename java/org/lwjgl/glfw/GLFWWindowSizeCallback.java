@@ -33,8 +33,7 @@ public abstract class GLFWWindowSizeCallback extends Callback implements GLFWWin
 	}
 
 	protected GLFWWindowSizeCallback() {
-		super(NULL);
-		address = GLFWWindowSizeCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private GLFWWindowSizeCallback(long functionPointer) {

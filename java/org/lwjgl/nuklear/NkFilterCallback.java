@@ -31,8 +31,7 @@ public abstract class NkFilterCallback extends Callback implements NkFilterCallb
 	}
 
 	protected NkFilterCallback() {
-		super(NULL);
-		address = NkFilterCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private NkFilterCallback(long functionPointer) {

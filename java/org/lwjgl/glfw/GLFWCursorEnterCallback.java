@@ -33,8 +33,7 @@ public abstract class GLFWCursorEnterCallback extends Callback implements GLFWCu
 	}
 
 	protected GLFWCursorEnterCallback() {
-		super(NULL);
-		address = GLFWCursorEnterCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private GLFWCursorEnterCallback(long functionPointer) {

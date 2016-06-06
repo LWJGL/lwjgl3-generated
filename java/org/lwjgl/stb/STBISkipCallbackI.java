@@ -7,17 +7,16 @@ package org.lwjgl.stb;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@code skip} field of the {@link STBIIOCallbacks} struct. */
 @FunctionalInterface
 public interface STBISkipCallbackI extends CallbackI.V {
 
+	String SIGNATURE = "(pi)v";
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(pi)v", false);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default void callback(long args) {

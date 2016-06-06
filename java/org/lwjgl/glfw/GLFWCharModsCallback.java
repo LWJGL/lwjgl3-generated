@@ -33,8 +33,7 @@ public abstract class GLFWCharModsCallback extends Callback implements GLFWCharM
 	}
 
 	protected GLFWCharModsCallback() {
-		super(NULL);
-		address = GLFWCharModsCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private GLFWCharModsCallback(long functionPointer) {

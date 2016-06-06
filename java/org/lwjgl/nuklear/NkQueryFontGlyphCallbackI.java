@@ -7,17 +7,16 @@ package org.lwjgl.nuklear;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@link NkUserFont} struct. */
 @FunctionalInterface
 public interface NkQueryFontGlyphCallbackI extends CallbackI.V {
 
+	String SIGNATURE = "(pfpii)v";
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(pfpii)v", false);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default void callback(long args) {

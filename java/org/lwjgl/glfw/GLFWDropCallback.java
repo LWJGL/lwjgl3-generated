@@ -33,8 +33,7 @@ public abstract class GLFWDropCallback extends Callback implements GLFWDropCallb
 	}
 
 	protected GLFWDropCallback() {
-		super(NULL);
-		address = GLFWDropCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private GLFWDropCallback(long functionPointer) {

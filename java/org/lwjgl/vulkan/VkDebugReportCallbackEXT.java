@@ -39,8 +39,7 @@ public abstract class VkDebugReportCallbackEXT extends Callback implements VkDeb
 	}
 
 	protected VkDebugReportCallbackEXT() {
-		super(NULL);
-		address = VkDebugReportCallbackEXTI.super.address();
+		super(SIGNATURE);
 	}
 
 	private VkDebugReportCallbackEXT(long functionPointer) {

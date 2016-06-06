@@ -33,8 +33,7 @@ public abstract class STBIWriteCallback extends Callback implements STBIWriteCal
 	}
 
 	protected STBIWriteCallback() {
-		super(NULL);
-		address = STBIWriteCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private STBIWriteCallback(long functionPointer) {

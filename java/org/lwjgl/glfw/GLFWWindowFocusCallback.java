@@ -33,8 +33,7 @@ public abstract class GLFWWindowFocusCallback extends Callback implements GLFWWi
 	}
 
 	protected GLFWWindowFocusCallback() {
-		super(NULL);
-		address = GLFWWindowFocusCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private GLFWWindowFocusCallback(long functionPointer) {

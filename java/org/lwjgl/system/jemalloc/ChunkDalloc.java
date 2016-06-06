@@ -31,8 +31,7 @@ public abstract class ChunkDalloc extends Callback implements ChunkDallocI {
 	}
 
 	protected ChunkDalloc() {
-		super(NULL);
-		address = ChunkDallocI.super.address();
+		super(SIGNATURE);
 	}
 
 	private ChunkDalloc(long functionPointer) {

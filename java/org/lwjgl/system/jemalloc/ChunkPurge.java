@@ -31,8 +31,7 @@ public abstract class ChunkPurge extends Callback implements ChunkPurgeI {
 	}
 
 	protected ChunkPurge() {
-		super(NULL);
-		address = ChunkPurgeI.super.address();
+		super(SIGNATURE);
 	}
 
 	private ChunkPurge(long functionPointer) {

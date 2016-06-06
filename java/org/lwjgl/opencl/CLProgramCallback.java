@@ -31,8 +31,7 @@ public abstract class CLProgramCallback extends Callback implements CLProgramCal
 	}
 
 	protected CLProgramCallback() {
-		super(NULL);
-		address = CLProgramCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private CLProgramCallback(long functionPointer) {

@@ -7,17 +7,16 @@ package org.lwjgl.opencl;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link ALTERALiveObjectTracking#clReportLiveObjectsAltera ReportLiveObjectsAltera} method. */
 @FunctionalInterface
 public interface CLReportLiveObjectsAlteraCallbackI extends CallbackI.V {
 
+	String SIGNATURE = Callback.__stdcall("(pppi)v");
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(pppi)v", true);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default void callback(long args) {

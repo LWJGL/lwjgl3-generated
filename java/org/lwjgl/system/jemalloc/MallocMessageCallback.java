@@ -31,8 +31,7 @@ public abstract class MallocMessageCallback extends Callback implements MallocMe
 	}
 
 	protected MallocMessageCallback() {
-		super(NULL);
-		address = MallocMessageCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private MallocMessageCallback(long functionPointer) {

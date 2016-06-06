@@ -33,8 +33,7 @@ public abstract class GLFWKeyCallback extends Callback implements GLFWKeyCallbac
 	}
 
 	protected GLFWKeyCallback() {
-		super(NULL);
-		address = GLFWKeyCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private GLFWKeyCallback(long functionPointer) {

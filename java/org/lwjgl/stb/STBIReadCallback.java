@@ -33,8 +33,7 @@ public abstract class STBIReadCallback extends Callback implements STBIReadCallb
 	}
 
 	protected STBIReadCallback() {
-		super(NULL);
-		address = STBIReadCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private STBIReadCallback(long functionPointer) {

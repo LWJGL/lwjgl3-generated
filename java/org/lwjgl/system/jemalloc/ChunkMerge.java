@@ -31,8 +31,7 @@ public abstract class ChunkMerge extends Callback implements ChunkMergeI {
 	}
 
 	protected ChunkMerge() {
-		super(NULL);
-		address = ChunkMergeI.super.address();
+		super(SIGNATURE);
 	}
 
 	private ChunkMerge(long functionPointer) {

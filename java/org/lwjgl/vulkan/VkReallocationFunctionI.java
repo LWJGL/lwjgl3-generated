@@ -7,7 +7,6 @@ package org.lwjgl.vulkan;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /**
@@ -25,10 +24,10 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface VkReallocationFunctionI extends CallbackI.P {
 
+	String SIGNATURE = Callback.__stdcall("(ppppi)p");
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(ppppi)p", true);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default long callback(long args) {

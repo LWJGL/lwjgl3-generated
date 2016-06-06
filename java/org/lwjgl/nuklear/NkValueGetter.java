@@ -31,8 +31,7 @@ public abstract class NkValueGetter extends Callback implements NkValueGetterI {
 	}
 
 	protected NkValueGetter() {
-		super(NULL);
-		address = NkValueGetterI.super.address();
+		super(SIGNATURE);
 	}
 
 	private NkValueGetter(long functionPointer) {

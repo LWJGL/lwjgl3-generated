@@ -7,7 +7,6 @@ package org.lwjgl.vulkan;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /**
@@ -22,10 +21,10 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface VkDebugReportCallbackEXTI extends CallbackI.I {
 
+	String SIGNATURE = Callback.__stdcall("(iilpippp)i");
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(iilpippp)i", true);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default int callback(long args) {

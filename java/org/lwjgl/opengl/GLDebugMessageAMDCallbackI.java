@@ -7,17 +7,16 @@ package org.lwjgl.opengl;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link AMDDebugOutput#glDebugMessageCallbackAMD DebugMessageCallbackAMD} method. */
 @FunctionalInterface
 public interface GLDebugMessageAMDCallbackI extends CallbackI.V {
 
+	String SIGNATURE = Callback.__stdcall("(iiiipp)v");
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(iiiipp)v", true);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default void callback(long args) {

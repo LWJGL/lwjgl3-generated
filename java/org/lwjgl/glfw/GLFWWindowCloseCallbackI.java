@@ -7,17 +7,16 @@ package org.lwjgl.glfw;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowCloseCallback SetWindowCloseCallback} method. */
 @FunctionalInterface
 public interface GLFWWindowCloseCallbackI extends CallbackI.V {
 
+	String SIGNATURE = "(p)v";
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(p)v", false);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default void callback(long args) {

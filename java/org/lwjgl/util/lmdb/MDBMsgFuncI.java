@@ -7,17 +7,16 @@ package org.lwjgl.util.lmdb;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** A callback function used to print a message from the library. */
 @FunctionalInterface
 public interface MDBMsgFuncI extends CallbackI.I {
 
+	String SIGNATURE = "(pp)i";
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(pp)i", false);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default int callback(long args) {

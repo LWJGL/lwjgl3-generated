@@ -42,8 +42,7 @@ public abstract class VkReallocationFunction extends Callback implements VkReall
 	}
 
 	protected VkReallocationFunction() {
-		super(NULL);
-		address = VkReallocationFunctionI.super.address();
+		super(SIGNATURE);
 	}
 
 	private VkReallocationFunction(long functionPointer) {

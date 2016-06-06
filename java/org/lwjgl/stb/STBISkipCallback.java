@@ -31,8 +31,7 @@ public abstract class STBISkipCallback extends Callback implements STBISkipCallb
 	}
 
 	protected STBISkipCallback() {
-		super(NULL);
-		address = STBISkipCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private STBISkipCallback(long functionPointer) {

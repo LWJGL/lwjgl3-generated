@@ -31,8 +31,7 @@ public abstract class NkCopyCallback extends Callback implements NkCopyCallbackI
 	}
 
 	protected NkCopyCallback() {
-		super(NULL);
-		address = NkCopyCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private NkCopyCallback(long functionPointer) {

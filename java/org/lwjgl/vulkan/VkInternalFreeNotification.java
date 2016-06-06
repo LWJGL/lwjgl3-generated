@@ -35,8 +35,7 @@ public abstract class VkInternalFreeNotification extends Callback implements VkI
 	}
 
 	protected VkInternalFreeNotification() {
-		super(NULL);
-		address = VkInternalFreeNotificationI.super.address();
+		super(SIGNATURE);
 	}
 
 	private VkInternalFreeNotification(long functionPointer) {

@@ -7,17 +7,16 @@ package org.lwjgl.glfw;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetDropCallback SetDropCallback} method. */
 @FunctionalInterface
 public interface GLFWDropCallbackI extends CallbackI.V {
 
+	String SIGNATURE = "(pip)v";
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(pip)v", false);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default void callback(long args) {

@@ -7,17 +7,16 @@ package org.lwjgl.nuklear;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link #nk_combo_callback} and {@link #nk_combobox_callback} functions. */
 @FunctionalInterface
 public interface NkItemGetterI extends CallbackI.F {
 
+	String SIGNATURE = "(pip)f";
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(pip)f", false);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default float callback(long args) {

@@ -7,17 +7,16 @@ package org.lwjgl.util.lmdb;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 
 @FunctionalInterface
 public interface MDBCmpFuncI extends CallbackI.I {
 
+	String SIGNATURE = "(pp)i";
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(pp)i", false);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default int callback(long args) {

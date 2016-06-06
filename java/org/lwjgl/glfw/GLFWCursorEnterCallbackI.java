@@ -7,17 +7,16 @@ package org.lwjgl.glfw;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetCursorEnterCallback SetCursorEnterCallback} method. */
 @FunctionalInterface
 public interface GLFWCursorEnterCallbackI extends CallbackI.V {
 
+	String SIGNATURE = "(pi)v";
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(pi)v", false);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default void callback(long args) {

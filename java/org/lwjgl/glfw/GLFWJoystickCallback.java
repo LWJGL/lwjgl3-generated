@@ -33,8 +33,7 @@ public abstract class GLFWJoystickCallback extends Callback implements GLFWJoyst
 	}
 
 	protected GLFWJoystickCallback() {
-		super(NULL);
-		address = GLFWJoystickCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private GLFWJoystickCallback(long functionPointer) {

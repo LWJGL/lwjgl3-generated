@@ -7,7 +7,6 @@ package org.lwjgl.util.lmdb;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /**
@@ -20,10 +19,10 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @FunctionalInterface
 public interface MDBRelFuncI extends CallbackI.V {
 
+	String SIGNATURE = "(pppp)v";
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(pppp)v", false);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default void callback(long args) {

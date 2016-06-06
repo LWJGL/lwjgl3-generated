@@ -31,8 +31,7 @@ public abstract class MDBMsgFunc extends Callback implements MDBMsgFuncI {
 	}
 
 	protected MDBMsgFunc() {
-		super(NULL);
-		address = MDBMsgFuncI.super.address();
+		super(SIGNATURE);
 	}
 
 	private MDBMsgFunc(long functionPointer) {

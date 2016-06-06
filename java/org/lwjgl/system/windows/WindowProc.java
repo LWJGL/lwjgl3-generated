@@ -31,8 +31,7 @@ public abstract class WindowProc extends Callback implements WindowProcI {
 	}
 
 	protected WindowProc() {
-		super(NULL);
-		address = WindowProcI.super.address();
+		super(SIGNATURE);
 	}
 
 	private WindowProc(long functionPointer) {

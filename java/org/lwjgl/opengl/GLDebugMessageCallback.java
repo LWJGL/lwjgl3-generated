@@ -31,8 +31,7 @@ public abstract class GLDebugMessageCallback extends Callback implements GLDebug
 	}
 
 	protected GLDebugMessageCallback() {
-		super(NULL);
-		address = GLDebugMessageCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private GLDebugMessageCallback(long functionPointer) {

@@ -7,17 +7,16 @@ package org.lwjgl.nuklear;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@link NkAllocator} struct. */
 @FunctionalInterface
 public interface NkMallocI extends CallbackI.P {
 
+	String SIGNATURE = "(ppp)p";
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(ppp)p", false);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default long callback(long args) {

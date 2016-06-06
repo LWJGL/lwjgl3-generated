@@ -31,8 +31,7 @@ public abstract class CLMemObjectDestructorCallback extends Callback implements 
 	}
 
 	protected CLMemObjectDestructorCallback() {
-		super(NULL);
-		address = CLMemObjectDestructorCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private CLMemObjectDestructorCallback(long functionPointer) {

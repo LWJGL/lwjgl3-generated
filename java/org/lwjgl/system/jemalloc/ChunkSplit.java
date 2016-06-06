@@ -31,8 +31,7 @@ public abstract class ChunkSplit extends Callback implements ChunkSplitI {
 	}
 
 	protected ChunkSplit() {
-		super(NULL);
-		address = ChunkSplitI.super.address();
+		super(SIGNATURE);
 	}
 
 	private ChunkSplit(long functionPointer) {

@@ -31,8 +31,7 @@ public abstract class NkMalloc extends Callback implements NkMallocI {
 	}
 
 	protected NkMalloc() {
-		super(NULL);
-		address = NkMallocI.super.address();
+		super(SIGNATURE);
 	}
 
 	private NkMalloc(long functionPointer) {

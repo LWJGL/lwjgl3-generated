@@ -7,17 +7,16 @@ package org.lwjgl.system.jemalloc;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link JEmalloc#je_malloc_usable_size malloc_usable_size} method. */
 @FunctionalInterface
 public interface MallocMessageCallbackI extends CallbackI.V {
 
+	String SIGNATURE = "(pp)v";
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(pp)v", false);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default void callback(long args) {

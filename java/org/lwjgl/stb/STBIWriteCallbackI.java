@@ -7,17 +7,16 @@ package org.lwjgl.stb;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be used with the {@link STBImageWrite} {@code write_type_to_func} functions. */
 @FunctionalInterface
 public interface STBIWriteCallbackI extends CallbackI.V {
 
+	String SIGNATURE = "(ppi)v";
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(ppi)v", false);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default void callback(long args) {

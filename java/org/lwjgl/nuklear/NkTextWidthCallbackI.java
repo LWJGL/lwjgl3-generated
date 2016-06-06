@@ -7,17 +7,16 @@ package org.lwjgl.nuklear;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@link NkUserFont} struct. */
 @FunctionalInterface
 public interface NkTextWidthCallbackI extends CallbackI.F {
 
+	String SIGNATURE = "(pfpi)f";
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(pfpi)f", false);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default float callback(long args) {

@@ -31,8 +31,7 @@ public abstract class EGLGetBlobFuncANDROID extends Callback implements EGLGetBl
 	}
 
 	protected EGLGetBlobFuncANDROID() {
-		super(NULL);
-		address = EGLGetBlobFuncANDROIDI.super.address();
+		super(SIGNATURE);
 	}
 
 	private EGLGetBlobFuncANDROID(long functionPointer) {

@@ -33,8 +33,7 @@ public abstract class GLFWWindowRefreshCallback extends Callback implements GLFW
 	}
 
 	protected GLFWWindowRefreshCallback() {
-		super(NULL);
-		address = GLFWWindowRefreshCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private GLFWWindowRefreshCallback(long functionPointer) {

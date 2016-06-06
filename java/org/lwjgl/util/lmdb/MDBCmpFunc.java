@@ -31,8 +31,7 @@ public abstract class MDBCmpFunc extends Callback implements MDBCmpFuncI {
 	}
 
 	protected MDBCmpFunc() {
-		super(NULL);
-		address = MDBCmpFuncI.super.address();
+		super(SIGNATURE);
 	}
 
 	private MDBCmpFunc(long functionPointer) {

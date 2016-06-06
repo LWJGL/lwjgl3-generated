@@ -31,8 +31,7 @@ public abstract class NkPasteCallback extends Callback implements NkPasteCallbac
 	}
 
 	protected NkPasteCallback() {
-		super(NULL);
-		address = NkPasteCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private NkPasteCallback(long functionPointer) {

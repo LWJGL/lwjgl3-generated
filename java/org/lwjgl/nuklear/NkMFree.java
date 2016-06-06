@@ -31,8 +31,7 @@ public abstract class NkMFree extends Callback implements NkMFreeI {
 	}
 
 	protected NkMFree() {
-		super(NULL);
-		address = NkMFreeI.super.address();
+		super(SIGNATURE);
 	}
 
 	private NkMFree(long functionPointer) {

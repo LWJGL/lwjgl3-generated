@@ -7,17 +7,16 @@ package org.lwjgl.ovr;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@code LogCallback} member of the {@link OVRInitParams} struct. */
 @FunctionalInterface
 public interface OVRLogCallbackI extends CallbackI.V {
 
+	String SIGNATURE = "(pip)v";
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(pip)v", false);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default void callback(long args) {

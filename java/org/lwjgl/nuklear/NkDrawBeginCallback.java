@@ -31,8 +31,7 @@ public abstract class NkDrawBeginCallback extends Callback implements NkDrawBegi
 	}
 
 	protected NkDrawBeginCallback() {
-		super(NULL);
-		address = NkDrawBeginCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private NkDrawBeginCallback(long functionPointer) {

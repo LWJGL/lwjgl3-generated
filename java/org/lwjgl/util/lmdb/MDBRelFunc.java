@@ -37,8 +37,7 @@ public abstract class MDBRelFunc extends Callback implements MDBRelFuncI {
 	}
 
 	protected MDBRelFunc() {
-		super(NULL);
-		address = MDBRelFuncI.super.address();
+		super(SIGNATURE);
 	}
 
 	private MDBRelFunc(long functionPointer) {

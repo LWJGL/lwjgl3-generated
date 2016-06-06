@@ -33,8 +33,7 @@ public abstract class GLFWFramebufferSizeCallback extends Callback implements GL
 	}
 
 	protected GLFWFramebufferSizeCallback() {
-		super(NULL);
-		address = GLFWFramebufferSizeCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private GLFWFramebufferSizeCallback(long functionPointer) {

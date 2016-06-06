@@ -37,8 +37,7 @@ public abstract class GLFWErrorCallback extends Callback implements GLFWErrorCal
 	}
 
 	protected GLFWErrorCallback() {
-		super(NULL);
-		address = GLFWErrorCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private GLFWErrorCallback(long functionPointer) {

@@ -31,8 +31,7 @@ public abstract class STBIEOFCallback extends Callback implements STBIEOFCallbac
 	}
 
 	protected STBIEOFCallback() {
-		super(NULL);
-		address = STBIEOFCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private STBIEOFCallback(long functionPointer) {

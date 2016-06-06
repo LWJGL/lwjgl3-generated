@@ -31,8 +31,7 @@ public abstract class NkQueryFontGlyphCallback extends Callback implements NkQue
 	}
 
 	protected NkQueryFontGlyphCallback() {
-		super(NULL);
-		address = NkQueryFontGlyphCallbackI.super.address();
+		super(SIGNATURE);
 	}
 
 	private NkQueryFontGlyphCallback(long functionPointer) {

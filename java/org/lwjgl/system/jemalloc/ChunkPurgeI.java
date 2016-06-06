@@ -7,17 +7,16 @@ package org.lwjgl.system.jemalloc;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@link ChunkHooks} struct. */
 @FunctionalInterface
 public interface ChunkPurgeI extends CallbackI.Z {
 
+	String SIGNATURE = "(ppppi)B";
+
 	@Override
-	default long address() {
-		return apiCreateCallback(this, "(ppppi)B", false);
-	}
+	default String getSignature() { return SIGNATURE; }
 
 	@Override
 	default boolean callback(long args) {
