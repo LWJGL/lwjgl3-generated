@@ -1109,12 +1109,12 @@ public class GLES20 {
 		nglGetBooleanv(pname, memAddress(data));
 	}
 
-	public static byte glGetBoolean(int pname) {
+	public static boolean glGetBoolean(int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer data = stack.calloc(1);
 			nglGetBooleanv(pname, memAddress(data));
-			return data.get(0);
+			return data.get(0) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}

@@ -2653,12 +2653,12 @@ public class GL30 {
 	 * @param target the indexed state to query
 	 * @param index  the index of the element being queried
 	 */
-	public static byte glGetBooleani(int target, int index) {
+	public static boolean glGetBooleani(int target, int index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer data = stack.calloc(1);
 			nglGetBooleani_v(target, index, memAddress(data));
-			return data.get(0);
+			return data.get(0) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}

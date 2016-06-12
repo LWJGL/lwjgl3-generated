@@ -1069,12 +1069,12 @@ public class GLES31 {
 		nglGetBooleani_v(target, index, memAddress(data));
 	}
 
-	public static byte glGetBooleani(int target, int index) {
+	public static boolean glGetBooleani(int target, int index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer data = stack.calloc(1);
 			nglGetBooleani_v(target, index, memAddress(data));
-			return data.get(0);
+			return data.get(0) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}

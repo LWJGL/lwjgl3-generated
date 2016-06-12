@@ -2108,12 +2108,12 @@ public class EXTDirectStateAccess {
 		nglGetBooleanIndexedvEXT(target, index, memAddress(params));
 	}
 
-	public static byte glGetBooleanIndexedEXT(int target, int index) {
+	public static boolean glGetBooleanIndexedEXT(int target, int index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer params = stack.calloc(1);
 			nglGetBooleanIndexedvEXT(target, index, memAddress(params));
-			return params.get(0);
+			return params.get(0) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}

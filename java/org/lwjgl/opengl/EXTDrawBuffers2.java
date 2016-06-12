@@ -62,12 +62,12 @@ public class EXTDrawBuffers2 {
 		nglGetBooleanIndexedvEXT(target, index, memAddress(data));
 	}
 
-	public static byte glGetBooleanIndexedEXT(int target, int index) {
+	public static boolean glGetBooleanIndexedEXT(int target, int index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer data = stack.calloc(1);
 			nglGetBooleanIndexedvEXT(target, index, memAddress(data));
-			return data.get(0);
+			return data.get(0) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}

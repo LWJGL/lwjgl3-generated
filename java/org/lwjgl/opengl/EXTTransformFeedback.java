@@ -270,12 +270,12 @@ public class EXTTransformFeedback {
 		nglGetBooleanIndexedvEXT(param, index, memAddress(values));
 	}
 
-	public static byte glGetBooleanIndexedEXT(int param, int index) {
+	public static boolean glGetBooleanIndexedEXT(int param, int index) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer values = stack.calloc(1);
 			nglGetBooleanIndexedvEXT(param, index, memAddress(values));
-			return values.get(0);
+			return values.get(0) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}

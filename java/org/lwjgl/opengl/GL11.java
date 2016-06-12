@@ -3177,12 +3177,12 @@ public class GL11 {
 	 *
 	 * @param pname the state variable
 	 */
-	public static byte glGetBoolean(int pname) {
+	public static boolean glGetBoolean(int pname) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer params = stack.calloc(1);
 			nglGetBooleanv(pname, memAddress(params));
-			return params.get(0);
+			return params.get(0) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
