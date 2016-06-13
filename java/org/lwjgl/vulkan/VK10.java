@@ -6721,7 +6721,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param device        the logical device that creates the shader module
 	 * @param pCreateInfo   a pointer to an instance of the {@link VkShaderModuleCreateInfo} structure
 	 * @param pAllocator    controls host memory allocation
-	 * @param pShaderModule points to a {@code VkShaderModule} handle in which the resulting render pass object is returned
+	 * @param pShaderModule points to a {@code VkShaderModule} handle in which the resulting shader module object is returned
 	 */
 	public static int nvkCreateShaderModule(VkDevice device, long pCreateInfo, long pAllocator, long pShaderModule) {
 		long __functionAddress = device.getCapabilities().vkCreateShaderModule;
@@ -6753,7 +6753,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param device        the logical device that creates the shader module
 	 * @param pCreateInfo   a pointer to an instance of the {@link VkShaderModuleCreateInfo} structure
 	 * @param pAllocator    controls host memory allocation
-	 * @param pShaderModule points to a {@code VkShaderModule} handle in which the resulting render pass object is returned
+	 * @param pShaderModule points to a {@code VkShaderModule} handle in which the resulting shader module object is returned
 	 */
 	public static int vkCreateShaderModule(VkDevice device, VkShaderModuleCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pShaderModule) {
 		if ( CHECKS )
@@ -9251,7 +9251,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <ul>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>{@link #vkEndCommandBuffer EndCommandBuffer} <b>must not</b> be called inside a render pass instance</li>
+	 * <li>If {@code commandBuffer} is a primary command buffer, there <b>must not</b> be an active render pass instance</li>
 	 * <li>All queries made active during the recording of {@code commandBuffer} <b>must</b> have been made inactive</li>
 	 * </ul>
 	 * 
@@ -9372,6 +9372,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
 	 * <li>{@code viewportCount} <b>must</b> be greater than 0</li>
+	 * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_VIEWPORT DYNAMIC_STATE_VIEWPORT} dynamic state enabled</li>
 	 * <li>{@code firstViewport} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxViewports}</li>
 	 * <li>The sum of {@code firstViewport} and {@code viewportCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceLimits}{@code ::maxViewports}, inclusive</li>
 	 * </ul>
@@ -9413,6 +9414,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
 	 * <li>{@code viewportCount} <b>must</b> be greater than 0</li>
+	 * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_VIEWPORT DYNAMIC_STATE_VIEWPORT} dynamic state enabled</li>
 	 * <li>{@code firstViewport} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxViewports}</li>
 	 * <li>The sum of {@code firstViewport} and {@code viewportCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceLimits}{@code ::maxViewports}, inclusive</li>
 	 * </ul>
@@ -9469,6 +9471,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
 	 * <li>{@code scissorCount} <b>must</b> be greater than 0</li>
+	 * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_SCISSOR DYNAMIC_STATE_SCISSOR} dynamic state enabled</li>
 	 * <li>{@code firstScissor} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxViewports}</li>
 	 * <li>The sum of {@code firstScissor} and {@code scissorCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceLimits}{@code ::maxViewports}, inclusive</li>
 	 * <li>The {@code x} and {@code y} members of {@code offset} <b>must</b> be greater than or equal to 0</li>
@@ -9528,6 +9531,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
 	 * <li>{@code scissorCount} <b>must</b> be greater than 0</li>
+	 * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_SCISSOR DYNAMIC_STATE_SCISSOR} dynamic state enabled</li>
 	 * <li>{@code firstScissor} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxViewports}</li>
 	 * <li>The sum of {@code firstScissor} and {@code scissorCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceLimits}{@code ::maxViewports}, inclusive</li>
 	 * <li>The {@code x} and {@code y} members of {@code offset} <b>must</b> be greater than or equal to 0</li>
@@ -9573,6 +9577,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
+	 * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_LINE_WIDTH DYNAMIC_STATE_LINE_WIDTH} dynamic state enabled</li>
 	 * <li>If the wide lines feature is not enabled, {@code lineWidth} <b>must</b> be {@code 1.0}</li>
 	 * </ul>
 	 * 
@@ -9651,6 +9656,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
+	 * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_DEPTH_BIAS DYNAMIC_STATE_DEPTH_BIAS} dynamic state enabled</li>
 	 * <li>If the depth bias clamping feature is not enabled, {@code depthBiasClamp} <b>must</b> be 0.0</li>
 	 * </ul>
 	 * 
@@ -9687,6 +9693,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
+	 * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_BLEND_CONSTANTS DYNAMIC_STATE_BLEND_CONSTANTS} dynamic state enabled</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -9718,6 +9725,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
+	 * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_BLEND_CONSTANTS DYNAMIC_STATE_BLEND_CONSTANTS} dynamic state enabled</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -9759,6 +9767,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
+	 * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_DEPTH_BOUNDS DYNAMIC_STATE_DEPTH_BOUNDS} dynamic state enabled</li>
 	 * <li>{@code minDepthBounds} <b>must</b> be between {@code 0.0} and {@code 1.0}, inclusive</li>
 	 * <li>{@code maxDepthBounds} <b>must</b> be between {@code 0.0} and {@code 1.0}, inclusive</li>
 	 * </ul>
@@ -9796,6 +9805,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code faceMask} <b>must not</b> be 0</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
+	 * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_STENCIL_COMPARE_MASK DYNAMIC_STATE_STENCIL_COMPARE_MASK} dynamic state enabled</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -9831,6 +9841,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code faceMask} <b>must not</b> be 0</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
+	 * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_STENCIL_WRITE_MASK DYNAMIC_STATE_STENCIL_WRITE_MASK} dynamic state enabled</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -9866,6 +9877,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code faceMask} <b>must not</b> be 0</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
+	 * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_STENCIL_REFERENCE DYNAMIC_STATE_STENCIL_REFERENCE} dynamic state enabled</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -13046,8 +13058,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, any given element of {@code pCommandBuffers} <b>must</b> have been recorded with
 	 * a render pass that is compatible with the current render pass</li>
 	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, and any given element of {@code pCommandBuffers} was recorded with
-	 * {@link VkCommandBufferInheritanceInfo}{@code ::framebuffer} not equal to {@link #VK_NULL_HANDLE NULL_HANDLE}, that {@code VkFramebuffer} <b>must</b> be compatible with the
-	 * {@code VkFramebuffer} used in the current render pass instance</li>
+	 * {@link VkCommandBufferInheritanceInfo}{@code ::framebuffer} not equal to {@link #VK_NULL_HANDLE NULL_HANDLE}, that {@code VkFramebuffer} <b>must</b> match the {@code VkFramebuffer}
+	 * used in the current render pass instance</li>
 	 * <li>If the inherited queries feature is not enabled, {@code commandBuffer} <b>must not</b> have any queries active</li>
 	 * <li>If {@code commandBuffer} has a {@link #VK_QUERY_TYPE_OCCLUSION QUERY_TYPE_OCCLUSION} query active, then each element of {@code pCommandBuffers} <b>must</b> have been recorded with
 	 * {@link VkCommandBufferInheritanceInfo}{@code ::occlusionQueryEnable} set to {@link #VK_TRUE TRUE}</li>
@@ -13112,8 +13124,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, any given element of {@code pCommandBuffers} <b>must</b> have been recorded with
 	 * a render pass that is compatible with the current render pass</li>
 	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, and any given element of {@code pCommandBuffers} was recorded with
-	 * {@link VkCommandBufferInheritanceInfo}{@code ::framebuffer} not equal to {@link #VK_NULL_HANDLE NULL_HANDLE}, that {@code VkFramebuffer} <b>must</b> be compatible with the
-	 * {@code VkFramebuffer} used in the current render pass instance</li>
+	 * {@link VkCommandBufferInheritanceInfo}{@code ::framebuffer} not equal to {@link #VK_NULL_HANDLE NULL_HANDLE}, that {@code VkFramebuffer} <b>must</b> match the {@code VkFramebuffer}
+	 * used in the current render pass instance</li>
 	 * <li>If the inherited queries feature is not enabled, {@code commandBuffer} <b>must not</b> have any queries active</li>
 	 * <li>If {@code commandBuffer} has a {@link #VK_QUERY_TYPE_OCCLUSION QUERY_TYPE_OCCLUSION} query active, then each element of {@code pCommandBuffers} <b>must</b> have been recorded with
 	 * {@link VkCommandBufferInheritanceInfo}{@code ::occlusionQueryEnable} set to {@link #VK_TRUE TRUE}</li>
@@ -13176,8 +13188,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, any given element of {@code pCommandBuffers} <b>must</b> have been recorded with
 	 * a render pass that is compatible with the current render pass</li>
 	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, and any given element of {@code pCommandBuffers} was recorded with
-	 * {@link VkCommandBufferInheritanceInfo}{@code ::framebuffer} not equal to {@link #VK_NULL_HANDLE NULL_HANDLE}, that {@code VkFramebuffer} <b>must</b> be compatible with the
-	 * {@code VkFramebuffer} used in the current render pass instance</li>
+	 * {@link VkCommandBufferInheritanceInfo}{@code ::framebuffer} not equal to {@link #VK_NULL_HANDLE NULL_HANDLE}, that {@code VkFramebuffer} <b>must</b> match the {@code VkFramebuffer}
+	 * used in the current render pass instance</li>
 	 * <li>If the inherited queries feature is not enabled, {@code commandBuffer} <b>must not</b> have any queries active</li>
 	 * <li>If {@code commandBuffer} has a {@link #VK_QUERY_TYPE_OCCLUSION QUERY_TYPE_OCCLUSION} query active, then each element of {@code pCommandBuffers} <b>must</b> have been recorded with
 	 * {@link VkCommandBufferInheritanceInfo}{@code ::occlusionQueryEnable} set to {@link #VK_TRUE TRUE}</li>
