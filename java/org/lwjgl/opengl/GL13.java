@@ -263,8 +263,6 @@ public class GL13 {
 	 * @param data           a pointer to the compressed image data
 	 */
 	public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, data);
 	}
 
@@ -283,8 +281,6 @@ public class GL13 {
 	 * @param data           a pointer to the compressed image data
 	 */
 	public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, ByteBuffer data) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, data == null ? 0 : data.remaining(), memAddressSafe(data));
 	}
 
@@ -326,8 +322,6 @@ public class GL13 {
 	 * @param data           a pointer to the compressed image data
 	 */
 	public static void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, data);
 	}
 
@@ -345,8 +339,6 @@ public class GL13 {
 	 * @param data           a pointer to the compressed image data
 	 */
 	public static void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, ByteBuffer data) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTexImage2D(target, level, internalformat, width, height, border, data == null ? 0 : data.remaining(), memAddressSafe(data));
 	}
 
@@ -386,8 +378,6 @@ public class GL13 {
 	 * @param data           a pointer to the compressed image data
 	 */
 	public static void glCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, long data) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTexImage1D(target, level, internalformat, width, border, imageSize, data);
 	}
 
@@ -404,8 +394,6 @@ public class GL13 {
 	 * @param data           a pointer to the compressed image data
 	 */
 	public static void glCompressedTexImage1D(int target, int level, int internalformat, int width, int border, ByteBuffer data) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTexImage1D(target, level, internalformat, width, border, data == null ? 0 : data.remaining(), memAddressSafe(data));
 	}
 
@@ -453,8 +441,6 @@ public class GL13 {
 	 * @param data      a pointer to the compressed image data
 	 */
 	public static void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
@@ -475,8 +461,6 @@ public class GL13 {
 	 * @param data    a pointer to the compressed image data
 	 */
 	public static void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, ByteBuffer data) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, data.remaining(), memAddress(data));
 	}
 
@@ -520,8 +504,6 @@ public class GL13 {
 	 * @param data      a pointer to the compressed image data
 	 */
 	public static void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, data);
 	}
 
@@ -540,8 +522,6 @@ public class GL13 {
 	 * @param data    a pointer to the compressed image data
 	 */
 	public static void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, ByteBuffer data) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, data.remaining(), memAddress(data));
 	}
 
@@ -581,8 +561,6 @@ public class GL13 {
 	 * @param data      a pointer to the compressed image data
 	 */
 	public static void glCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, int imageSize, long data) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTexSubImage1D(target, level, xoffset, width, format, imageSize, data);
 	}
 
@@ -599,8 +577,6 @@ public class GL13 {
 	 * @param data    a pointer to the compressed image data
 	 */
 	public static void glCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, ByteBuffer data) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTexSubImage1D(target, level, xoffset, width, format, data.remaining(), memAddress(data));
 	}
 
@@ -632,11 +608,9 @@ public class GL13 {
 	 * @param pixels a buffer in which to return the compressed texture image
 	 */
 	public static void glGetCompressedTexImage(int target, int level, ByteBuffer pixels) {
-		if ( CHECKS ) {
+		if ( CHECKS )
 			if ( DEBUG )
 				checkBuffer(pixels, GL11.glGetTexLevelParameteri(target, level, GL_TEXTURE_COMPRESSED_IMAGE_SIZE));
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
 		nglGetCompressedTexImage(target, level, memAddress(pixels));
 	}
 
@@ -650,8 +624,6 @@ public class GL13 {
 	 * @param pixels a buffer in which to return the compressed texture image
 	 */
 	public static void glGetCompressedTexImage(int target, int level, long pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetCompressedTexImage(target, level, pixels);
 	}
 

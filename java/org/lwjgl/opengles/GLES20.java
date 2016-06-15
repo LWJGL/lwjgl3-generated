@@ -569,14 +569,10 @@ public class GLES20 {
 	}
 
 	public static void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, data);
 	}
 
 	public static void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, ByteBuffer data) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTexImage2D(target, level, internalformat, width, height, border, data == null ? 0 : data.remaining(), memAddressSafe(data));
 	}
 
@@ -588,14 +584,10 @@ public class GLES20 {
 	}
 
 	public static void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, data);
 	}
 
 	public static void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, ByteBuffer data) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, data.remaining(), memAddress(data));
 	}
 
@@ -789,32 +781,22 @@ public class GLES20 {
 	}
 
 	public static void glDrawElements(int mode, int count, int type, long indices) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawElements(mode, count, type, indices);
 	}
 
 	public static void glDrawElements(int mode, int type, ByteBuffer indices) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElements(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices));
 	}
 
 	public static void glDrawElements(int mode, ByteBuffer indices) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElements(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices));
 	}
 
 	public static void glDrawElements(int mode, ShortBuffer indices) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElements(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices));
 	}
 
 	public static void glDrawElements(int mode, IntBuffer indices) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElements(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices));
 	}
 
@@ -1703,35 +1685,25 @@ public class GLES20 {
 	}
 
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels));
 	}
 
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, long pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglReadPixels(x, y, width, height, format, type, pixels);
 	}
 
 	/** ShortBuffer version of: {@link #glReadPixels ReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, ShortBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glReadPixels ReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, IntBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glReadPixels ReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, FloatBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels));
 	}
 
@@ -1859,35 +1831,25 @@ public class GLES20 {
 	}
 
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, ByteBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
 
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
 	/** ShortBuffer version of: {@link #glTexImage2D TexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, ShortBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glTexImage2D TexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, IntBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glTexImage2D TexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, FloatBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
 
@@ -1939,35 +1901,25 @@ public class GLES20 {
 	}
 
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, ByteBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
 	/** ShortBuffer version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, ShortBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, IntBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, FloatBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
@@ -2250,35 +2202,25 @@ public class GLES20 {
 	}
 
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, ByteBuffer pointer) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointer) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ARRAY_BUFFER_BINDING, true);
 		nglVertexAttribPointer(index, size, type, normalized, stride, pointer);
 	}
 
 	/** ShortBuffer version of: {@link #glVertexAttribPointer VertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, ShortBuffer pointer) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
 	/** IntBuffer version of: {@link #glVertexAttribPointer VertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, IntBuffer pointer) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
 	/** FloatBuffer version of: {@link #glVertexAttribPointer VertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, FloatBuffer pointer) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
@@ -2544,24 +2486,18 @@ public class GLES20 {
 	/** short[] version of: {@link #glReadPixels ReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, short[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadPixels;
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, x, y, width, height, format, type, pixels);
 	}
 
 	/** int[] version of: {@link #glReadPixels ReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, int[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadPixels;
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, x, y, width, height, format, type, pixels);
 	}
 
 	/** float[] version of: {@link #glReadPixels ReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, float[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadPixels;
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, x, y, width, height, format, type, pixels);
 	}
 
@@ -2582,24 +2518,18 @@ public class GLES20 {
 	/** short[] version of: {@link #glTexImage2D TexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, short[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexImage2D;
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
 	/** int[] version of: {@link #glTexImage2D TexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, int[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexImage2D;
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
 	/** float[] version of: {@link #glTexImage2D TexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, float[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexImage2D;
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
@@ -2622,24 +2552,18 @@ public class GLES20 {
 	/** short[] version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, short[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexSubImage2D;
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
 	/** int[] version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, int[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexSubImage2D;
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
 	/** float[] version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, float[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexSubImage2D;
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
@@ -2744,24 +2668,18 @@ public class GLES20 {
 	/** short[] version of: {@link #glVertexAttribPointer VertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, short[] pointer) {
 		long __functionAddress = GLES.getCapabilities().glVertexAttribPointer;
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ARRAY_BUFFER_BINDING, false);
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
 	/** int[] version of: {@link #glVertexAttribPointer VertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, int[] pointer) {
 		long __functionAddress = GLES.getCapabilities().glVertexAttribPointer;
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ARRAY_BUFFER_BINDING, false);
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
 	/** float[] version of: {@link #glVertexAttribPointer VertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, float[] pointer) {
 		long __functionAddress = GLES.getCapabilities().glVertexAttribPointer;
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ARRAY_BUFFER_BINDING, false);
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 

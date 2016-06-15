@@ -405,8 +405,6 @@ public class EXTSecondaryColor {
 	 * @param pointer the secondary color array data
 	 */
 	public static void glSecondaryColorPointerEXT(int size, int type, int stride, ByteBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglSecondaryColorPointerEXT(size, type, stride, memAddress(pointer));
 	}
 
@@ -419,29 +417,21 @@ public class EXTSecondaryColor {
 	 * @param pointer the secondary color array data
 	 */
 	public static void glSecondaryColorPointerEXT(int size, int type, int stride, long pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglSecondaryColorPointerEXT(size, type, stride, pointer);
 	}
 
 	/** ShortBuffer version of: {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
 	public static void glSecondaryColorPointerEXT(int size, int type, int stride, ShortBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglSecondaryColorPointerEXT(size, type, stride, memAddress(pointer));
 	}
 
 	/** IntBuffer version of: {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
 	public static void glSecondaryColorPointerEXT(int size, int type, int stride, IntBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglSecondaryColorPointerEXT(size, type, stride, memAddress(pointer));
 	}
 
 	/** FloatBuffer version of: {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
 	public static void glSecondaryColorPointerEXT(int size, int type, int stride, FloatBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglSecondaryColorPointerEXT(size, type, stride, memAddress(pointer));
 	}
 
@@ -508,30 +498,24 @@ public class EXTSecondaryColor {
 	/** short[] version of: {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
 	public static void glSecondaryColorPointerEXT(int size, int type, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColorPointerEXT;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
 	/** int[] version of: {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
 	public static void glSecondaryColorPointerEXT(int size, int type, int stride, int[] pointer) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColorPointerEXT;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
 	/** float[] version of: {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
 	public static void glSecondaryColorPointerEXT(int size, int type, int stride, float[] pointer) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColorPointerEXT;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 

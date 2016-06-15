@@ -1244,32 +1244,22 @@ public class GLES32 {
 	}
 
 	public static void glDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawElementsBaseVertex(mode, count, type, indices, basevertex);
 	}
 
 	public static void glDrawElementsBaseVertex(int mode, int type, ByteBuffer indices, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertex(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), basevertex);
 	}
 
 	public static void glDrawElementsBaseVertex(int mode, ByteBuffer indices, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertex(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), basevertex);
 	}
 
 	public static void glDrawElementsBaseVertex(int mode, ShortBuffer indices, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertex(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), basevertex);
 	}
 
 	public static void glDrawElementsBaseVertex(int mode, IntBuffer indices, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertex(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), basevertex);
 	}
 
@@ -1283,32 +1273,22 @@ public class GLES32 {
 	}
 
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawRangeElementsBaseVertex(mode, start, end, count, type, indices, basevertex);
 	}
 
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int type, ByteBuffer indices, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), basevertex);
 	}
 
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, ByteBuffer indices, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), basevertex);
 	}
 
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, ShortBuffer indices, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), basevertex);
 	}
 
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, IntBuffer indices, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), basevertex);
 	}
 
@@ -1322,32 +1302,22 @@ public class GLES32 {
 	}
 
 	public static void glDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int instancecount, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawElementsInstancedBaseVertex(mode, count, type, indices, instancecount, basevertex);
 	}
 
 	public static void glDrawElementsInstancedBaseVertex(int mode, int type, ByteBuffer indices, int instancecount, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), instancecount, basevertex);
 	}
 
 	public static void glDrawElementsInstancedBaseVertex(int mode, ByteBuffer indices, int instancecount, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), instancecount, basevertex);
 	}
 
 	public static void glDrawElementsInstancedBaseVertex(int mode, ShortBuffer indices, int instancecount, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), instancecount, basevertex);
 	}
 
 	public static void glDrawElementsInstancedBaseVertex(int mode, IntBuffer indices, int instancecount, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), instancecount, basevertex);
 	}
 
@@ -1463,8 +1433,6 @@ public class GLES32 {
 	 * @param pixels  a buffer in which to place the returned pixel data
 	 */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglReadnPixels(x, y, width, height, format, type, bufSize, pixels);
 	}
 
@@ -1480,29 +1448,21 @@ public class GLES32 {
 	 * @param pixels a buffer in which to place the returned pixel data
 	 */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining(), memAddress(pixels));
 	}
 
 	/** ShortBuffer version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, ShortBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 1, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, IntBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, FloatBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
@@ -1928,30 +1888,24 @@ public class GLES32 {
 	/** short[] version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, short[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixels;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 1, pixels);
 	}
 
 	/** int[] version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, int[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixels;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
 	}
 
 	/** float[] version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, float[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixels;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
 	}
 

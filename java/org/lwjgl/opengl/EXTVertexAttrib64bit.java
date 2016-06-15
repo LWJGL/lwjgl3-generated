@@ -166,20 +166,14 @@ public class EXTVertexAttrib64bit {
 	}
 
 	public static void glVertexAttribLPointerEXT(int index, int size, int type, int stride, ByteBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribLPointerEXT(index, size, type, stride, memAddress(pointer));
 	}
 
 	public static void glVertexAttribLPointerEXT(int index, int size, int type, int stride, long pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglVertexAttribLPointerEXT(index, size, type, stride, pointer);
 	}
 
 	public static void glVertexAttribLPointerEXT(int index, int size, int stride, DoubleBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribLPointerEXT(index, size, GL11.GL_DOUBLE, stride, memAddress(pointer));
 	}
 

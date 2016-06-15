@@ -1820,8 +1820,6 @@ public class ARBDirectStateAccess {
 	 * @param pixels  the pixel data
 	 */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, ByteBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage1D(texture, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
@@ -1837,36 +1835,26 @@ public class ARBDirectStateAccess {
 	 * @param pixels  the pixel data
 	 */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, long pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglTextureSubImage1D(texture, level, xoffset, width, format, type, pixels);
 	}
 
 	/** ShortBuffer version of: {@link #glTextureSubImage1D TextureSubImage1D} */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, ShortBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage1D(texture, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glTextureSubImage1D TextureSubImage1D} */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, IntBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage1D(texture, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glTextureSubImage1D TextureSubImage1D} */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, FloatBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage1D(texture, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
 	/** DoubleBuffer version of: {@link #glTextureSubImage1D TextureSubImage1D} */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, DoubleBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage1D(texture, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
@@ -1906,8 +1894,6 @@ public class ARBDirectStateAccess {
 	 * @param pixels  the pixel data
 	 */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, ByteBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
@@ -1925,36 +1911,26 @@ public class ARBDirectStateAccess {
 	 * @param pixels  the pixel data
 	 */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
 	/** ShortBuffer version of: {@link #glTextureSubImage2D TextureSubImage2D} */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, ShortBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glTextureSubImage2D TextureSubImage2D} */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, IntBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glTextureSubImage2D TextureSubImage2D} */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, FloatBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
 	/** DoubleBuffer version of: {@link #glTextureSubImage2D TextureSubImage2D} */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, DoubleBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
@@ -1998,8 +1974,6 @@ public class ARBDirectStateAccess {
 	 * @param pixels  the pixel data
 	 */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
@@ -2019,36 +1993,26 @@ public class ARBDirectStateAccess {
 	 * @param pixels  the pixel data
 	 */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
 	/** ShortBuffer version of: {@link #glTextureSubImage3D TextureSubImage3D} */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ShortBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glTextureSubImage3D TextureSubImage3D} */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glTextureSubImage3D TextureSubImage3D} */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, FloatBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
 	/** DoubleBuffer version of: {@link #glTextureSubImage3D TextureSubImage3D} */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, DoubleBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
@@ -2084,8 +2048,6 @@ public class ARBDirectStateAccess {
 	 * @param data      a pointer to the compressed image data
 	 */
 	public static void glCompressedTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int imageSize, long data) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTextureSubImage1D(texture, level, xoffset, width, format, imageSize, data);
 	}
 
@@ -2100,8 +2062,6 @@ public class ARBDirectStateAccess {
 	 * @param data    a pointer to the compressed image data
 	 */
 	public static void glCompressedTextureSubImage1D(int texture, int level, int xoffset, int width, int format, ByteBuffer data) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTextureSubImage1D(texture, level, xoffset, width, format, data.remaining(), memAddress(data));
 	}
 
@@ -2141,8 +2101,6 @@ public class ARBDirectStateAccess {
 	 * @param data      a pointer to the compressed image data
 	 */
 	public static void glCompressedTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, imageSize, data);
 	}
 
@@ -2159,8 +2117,6 @@ public class ARBDirectStateAccess {
 	 * @param data    a pointer to the compressed image data
 	 */
 	public static void glCompressedTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, ByteBuffer data) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, data.remaining(), memAddress(data));
 	}
 
@@ -2204,8 +2160,6 @@ public class ARBDirectStateAccess {
 	 * @param data      a pointer to the compressed image data
 	 */
 	public static void glCompressedTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
@@ -2224,8 +2178,6 @@ public class ARBDirectStateAccess {
 	 * @param data    a pointer to the compressed image data
 	 */
 	public static void glCompressedTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, ByteBuffer data) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, data.remaining(), memAddress(data));
 	}
 
@@ -2534,8 +2486,6 @@ public class ARBDirectStateAccess {
 	 * @param pixels  the buffer in which to place the returned data
 	 */
 	public static void glGetTextureImage(int texture, int level, int format, int type, int bufSize, long pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetTextureImage(texture, level, format, type, bufSize, pixels);
 	}
 
@@ -2549,36 +2499,26 @@ public class ARBDirectStateAccess {
 	 * @param pixels  the buffer in which to place the returned data
 	 */
 	public static void glGetTextureImage(int texture, int level, int format, int type, ByteBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureImage(texture, level, format, type, pixels.remaining(), memAddress(pixels));
 	}
 
 	/** ShortBuffer version of: {@link #glGetTextureImage GetTextureImage} */
 	public static void glGetTextureImage(int texture, int level, int format, int type, ShortBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureImage(texture, level, format, type, pixels.remaining() << 1, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glGetTextureImage GetTextureImage} */
 	public static void glGetTextureImage(int texture, int level, int format, int type, IntBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureImage(texture, level, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glGetTextureImage GetTextureImage} */
 	public static void glGetTextureImage(int texture, int level, int format, int type, FloatBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureImage(texture, level, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
 	/** DoubleBuffer version of: {@link #glGetTextureImage GetTextureImage} */
 	public static void glGetTextureImage(int texture, int level, int format, int type, DoubleBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTextureImage(texture, level, format, type, pixels.remaining() << 3, memAddress(pixels));
 	}
 
@@ -2608,8 +2548,6 @@ public class ARBDirectStateAccess {
 	 * @param pixels  a buffer in which to return the compressed texture image
 	 */
 	public static void glGetCompressedTextureImage(int texture, int level, int bufSize, long pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetCompressedTextureImage(texture, level, bufSize, pixels);
 	}
 
@@ -2621,11 +2559,9 @@ public class ARBDirectStateAccess {
 	 * @param pixels  a buffer in which to return the compressed texture image
 	 */
 	public static void glGetCompressedTextureImage(int texture, int level, ByteBuffer pixels) {
-		if ( CHECKS ) {
+		if ( CHECKS )
 			if ( DEBUG )
 				checkBuffer(pixels, glGetTextureLevelParameteri(texture, level, GL13.GL_TEXTURE_COMPRESSED_IMAGE_SIZE));
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
 		nglGetCompressedTextureImage(texture, level, pixels.remaining(), memAddress(pixels));
 	}
 
@@ -3813,120 +3749,96 @@ public class ARBDirectStateAccess {
 	/** short[] version of: {@link #glTextureSubImage1D TextureSubImage1D} */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage1D;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, texture, level, xoffset, width, format, type, pixels);
 	}
 
 	/** int[] version of: {@link #glTextureSubImage1D TextureSubImage1D} */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage1D;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, texture, level, xoffset, width, format, type, pixels);
 	}
 
 	/** float[] version of: {@link #glTextureSubImage1D TextureSubImage1D} */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage1D;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, texture, level, xoffset, width, format, type, pixels);
 	}
 
 	/** double[] version of: {@link #glTextureSubImage1D TextureSubImage1D} */
 	public static void glTextureSubImage1D(int texture, int level, int xoffset, int width, int format, int type, double[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage1D;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, texture, level, xoffset, width, format, type, pixels);
 	}
 
 	/** short[] version of: {@link #glTextureSubImage2D TextureSubImage2D} */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage2D;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
 	/** int[] version of: {@link #glTextureSubImage2D TextureSubImage2D} */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage2D;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
 	/** float[] version of: {@link #glTextureSubImage2D TextureSubImage2D} */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage2D;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
 	/** double[] version of: {@link #glTextureSubImage2D TextureSubImage2D} */
 	public static void glTextureSubImage2D(int texture, int level, int xoffset, int yoffset, int width, int height, int format, int type, double[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage2D;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, texture, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
 	/** short[] version of: {@link #glTextureSubImage3D TextureSubImage3D} */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage3D;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
 	/** int[] version of: {@link #glTextureSubImage3D TextureSubImage3D} */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage3D;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
 	/** float[] version of: {@link #glTextureSubImage3D TextureSubImage3D} */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage3D;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
 	/** double[] version of: {@link #glTextureSubImage3D TextureSubImage3D} */
 	public static void glTextureSubImage3D(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, double[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage3D;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
@@ -3973,40 +3885,32 @@ public class ARBDirectStateAccess {
 	/** short[] version of: {@link #glGetTextureImage GetTextureImage} */
 	public static void glGetTextureImage(int texture, int level, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glGetTextureImage;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, texture, level, format, type, pixels.length << 1, pixels);
 	}
 
 	/** int[] version of: {@link #glGetTextureImage GetTextureImage} */
 	public static void glGetTextureImage(int texture, int level, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glGetTextureImage;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, texture, level, format, type, pixels.length << 2, pixels);
 	}
 
 	/** float[] version of: {@link #glGetTextureImage GetTextureImage} */
 	public static void glGetTextureImage(int texture, int level, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glGetTextureImage;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, texture, level, format, type, pixels.length << 2, pixels);
 	}
 
 	/** double[] version of: {@link #glGetTextureImage GetTextureImage} */
 	public static void glGetTextureImage(int texture, int level, int format, int type, double[] pixels) {
 		long __functionAddress = GL.getCapabilities().glGetTextureImage;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, texture, level, format, type, pixels.length << 3, pixels);
 	}
 

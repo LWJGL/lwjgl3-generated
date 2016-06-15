@@ -392,32 +392,22 @@ public class GLES30 {
 	}
 
 	public static void glDrawRangeElements(int mode, int start, int end, int count, int type, long indices) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawRangeElements(mode, start, end, count, type, indices);
 	}
 
 	public static void glDrawRangeElements(int mode, int start, int end, int type, ByteBuffer indices) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElements(mode, start, end, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices));
 	}
 
 	public static void glDrawRangeElements(int mode, int start, int end, ByteBuffer indices) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElements(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices));
 	}
 
 	public static void glDrawRangeElements(int mode, int start, int end, ShortBuffer indices) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElements(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices));
 	}
 
 	public static void glDrawRangeElements(int mode, int start, int end, IntBuffer indices) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElements(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices));
 	}
 
@@ -431,35 +421,25 @@ public class GLES30 {
 	}
 
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ByteBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
 
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
 	/** ShortBuffer version of: {@link #glTexImage3D TexImage3D} */
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ShortBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glTexImage3D TexImage3D} */
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, IntBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glTexImage3D TexImage3D} */
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, FloatBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
 
@@ -473,35 +453,25 @@ public class GLES30 {
 	}
 
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
 	/** ShortBuffer version of: {@link #glTexSubImage3D TexSubImage3D} */
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ShortBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glTexSubImage3D TexSubImage3D} */
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glTexSubImage3D TexSubImage3D} */
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, FloatBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
@@ -524,14 +494,10 @@ public class GLES30 {
 	}
 
 	public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, data);
 	}
 
 	public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, ByteBuffer data) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, data == null ? 0 : data.remaining(), memAddressSafe(data));
 	}
 
@@ -545,14 +511,10 @@ public class GLES30 {
 	}
 
 	public static void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
 	public static void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, ByteBuffer data) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, data.remaining(), memAddress(data));
 	}
 
@@ -1096,28 +1058,20 @@ public class GLES30 {
 	}
 
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, ByteBuffer pointer) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer));
 	}
 
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, long pointer) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ARRAY_BUFFER_BINDING, true);
 		nglVertexAttribIPointer(index, size, type, stride, pointer);
 	}
 
 	/** ShortBuffer version of: {@link #glVertexAttribIPointer VertexAttribIPointer} */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, ShortBuffer pointer) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer));
 	}
 
 	/** IntBuffer version of: {@link #glVertexAttribIPointer VertexAttribIPointer} */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, IntBuffer pointer) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer));
 	}
 
@@ -1586,32 +1540,22 @@ public class GLES30 {
 	}
 
 	public static void glDrawElementsInstanced(int mode, int count, int type, long indices, int instancecount) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawElementsInstanced(mode, count, type, indices, instancecount);
 	}
 
 	public static void glDrawElementsInstanced(int mode, int type, ByteBuffer indices, int instancecount) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstanced(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), instancecount);
 	}
 
 	public static void glDrawElementsInstanced(int mode, ByteBuffer indices, int instancecount) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstanced(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), instancecount);
 	}
 
 	public static void glDrawElementsInstanced(int mode, ShortBuffer indices, int instancecount) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstanced(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), instancecount);
 	}
 
 	public static void glDrawElementsInstanced(int mode, IntBuffer indices, int instancecount) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstanced(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), instancecount);
 	}
 
@@ -2159,60 +2103,48 @@ public class GLES30 {
 	/** short[] version of: {@link #glTexImage3D TexImage3D} */
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, short[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexImage3D;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
 	/** int[] version of: {@link #glTexImage3D TexImage3D} */
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, int[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexImage3D;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
 	/** float[] version of: {@link #glTexImage3D TexImage3D} */
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, float[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexImage3D;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
 	/** short[] version of: {@link #glTexSubImage3D TexSubImage3D} */
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexSubImage3D;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
 	/** int[] version of: {@link #glTexSubImage3D TexSubImage3D} */
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexSubImage3D;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
 	/** float[] version of: {@link #glTexSubImage3D TexSubImage3D} */
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexSubImage3D;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
@@ -2349,20 +2281,16 @@ public class GLES30 {
 	/** short[] version of: {@link #glVertexAttribIPointer VertexAttribIPointer} */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, short[] pointer) {
 		long __functionAddress = GLES.getCapabilities().glVertexAttribIPointer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLESChecks.ensureBufferObject(GLES20.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, index, size, type, stride, pointer);
 	}
 
 	/** int[] version of: {@link #glVertexAttribIPointer VertexAttribIPointer} */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, int[] pointer) {
 		long __functionAddress = GLES.getCapabilities().glVertexAttribIPointer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLESChecks.ensureBufferObject(GLES20.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, index, size, type, stride, pointer);
 	}
 

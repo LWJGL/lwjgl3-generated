@@ -87,32 +87,22 @@ public class EXTDrawElementsBaseVertex {
 	}
 
 	public static void glDrawElementsBaseVertexEXT(int mode, int count, int type, long indices, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawElementsBaseVertexEXT(mode, count, type, indices, basevertex);
 	}
 
 	public static void glDrawElementsBaseVertexEXT(int mode, int type, ByteBuffer indices, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertexEXT(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), basevertex);
 	}
 
 	public static void glDrawElementsBaseVertexEXT(int mode, ByteBuffer indices, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertexEXT(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), basevertex);
 	}
 
 	public static void glDrawElementsBaseVertexEXT(int mode, ShortBuffer indices, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertexEXT(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), basevertex);
 	}
 
 	public static void glDrawElementsBaseVertexEXT(int mode, IntBuffer indices, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertexEXT(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), basevertex);
 	}
 
@@ -126,32 +116,22 @@ public class EXTDrawElementsBaseVertex {
 	}
 
 	public static void glDrawRangeElementsBaseVertexEXT(int mode, int start, int end, int count, int type, long indices, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawRangeElementsBaseVertexEXT(mode, start, end, count, type, indices, basevertex);
 	}
 
 	public static void glDrawRangeElementsBaseVertexEXT(int mode, int start, int end, int type, ByteBuffer indices, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertexEXT(mode, start, end, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), basevertex);
 	}
 
 	public static void glDrawRangeElementsBaseVertexEXT(int mode, int start, int end, ByteBuffer indices, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertexEXT(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), basevertex);
 	}
 
 	public static void glDrawRangeElementsBaseVertexEXT(int mode, int start, int end, ShortBuffer indices, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertexEXT(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), basevertex);
 	}
 
 	public static void glDrawRangeElementsBaseVertexEXT(int mode, int start, int end, IntBuffer indices, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertexEXT(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), basevertex);
 	}
 
@@ -165,32 +145,22 @@ public class EXTDrawElementsBaseVertex {
 	}
 
 	public static void glDrawElementsInstancedBaseVertexEXT(int mode, int count, int type, long indices, int instancecount, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawElementsInstancedBaseVertexEXT(mode, count, type, indices, instancecount, basevertex);
 	}
 
 	public static void glDrawElementsInstancedBaseVertexEXT(int mode, int type, ByteBuffer indices, int instancecount, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertexEXT(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), instancecount, basevertex);
 	}
 
 	public static void glDrawElementsInstancedBaseVertexEXT(int mode, ByteBuffer indices, int instancecount, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertexEXT(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), instancecount, basevertex);
 	}
 
 	public static void glDrawElementsInstancedBaseVertexEXT(int mode, ShortBuffer indices, int instancecount, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertexEXT(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), instancecount, basevertex);
 	}
 
 	public static void glDrawElementsInstancedBaseVertexEXT(int mode, IntBuffer indices, int instancecount, int basevertex) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertexEXT(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), instancecount, basevertex);
 	}
 

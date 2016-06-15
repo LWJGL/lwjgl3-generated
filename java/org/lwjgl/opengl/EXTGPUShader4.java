@@ -609,8 +609,6 @@ public class EXTGPUShader4 {
 	 *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
 	 */
 	public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, ByteBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribIPointerEXT(index, size, type, stride, memAddress(pointer));
 	}
 
@@ -626,22 +624,16 @@ public class EXTGPUShader4 {
 	 *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
 	 */
 	public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, long pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglVertexAttribIPointerEXT(index, size, type, stride, pointer);
 	}
 
 	/** ShortBuffer version of: {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
 	public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, ShortBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribIPointerEXT(index, size, type, stride, memAddress(pointer));
 	}
 
 	/** IntBuffer version of: {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
 	public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, IntBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribIPointerEXT(index, size, type, stride, memAddress(pointer));
 	}
 
@@ -1004,20 +996,16 @@ public class EXTGPUShader4 {
 	/** short[] version of: {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
 	public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribIPointerEXT;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, index, size, type, stride, pointer);
 	}
 
 	/** int[] version of: {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
 	public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, int[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribIPointerEXT;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, index, size, type, stride, pointer);
 	}
 

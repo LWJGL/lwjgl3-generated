@@ -122,10 +122,8 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 */
 	public static void glDispatchComputeIndirect(long indirect) {
 		long __functionAddress = GL.getCapabilities().glDispatchComputeIndirect;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL43.GL_DISPATCH_INDIRECT_BUFFER_BINDING, true);
-		}
 		callPV(__functionAddress, indirect);
 	}
 

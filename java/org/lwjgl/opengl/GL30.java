@@ -1208,8 +1208,6 @@ public class GL30 {
 	 *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
 	 */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, ByteBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer));
 	}
 
@@ -1227,8 +1225,6 @@ public class GL30 {
 	 *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
 	 */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, long pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglVertexAttribIPointer(index, size, type, stride, pointer);
 	}
 
@@ -1238,8 +1234,6 @@ public class GL30 {
 	 * ShortBuffer version of: {@link #glVertexAttribIPointer VertexAttribIPointer}
 	 */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, ShortBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer));
 	}
 
@@ -1249,8 +1243,6 @@ public class GL30 {
 	 * IntBuffer version of: {@link #glVertexAttribIPointer VertexAttribIPointer}
 	 */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, IntBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer));
 	}
 
@@ -3311,10 +3303,8 @@ public class GL30 {
 	 */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribIPointer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, index, size, type, stride, pointer);
 	}
 
@@ -3325,10 +3315,8 @@ public class GL30 {
 	 */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, int[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribIPointer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, index, size, type, stride, pointer);
 	}
 

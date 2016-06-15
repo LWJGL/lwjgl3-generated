@@ -86,8 +86,6 @@ public class ARBBaseInstance {
 	 * @param baseinstance the base instance for use in fetching instanced vertex attributes
 	 */
 	public static void glDrawElementsInstancedBaseInstance(int mode, int count, int type, long indices, int primcount, int baseinstance) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawElementsInstancedBaseInstance(mode, count, type, indices, primcount, baseinstance);
 	}
 
@@ -101,8 +99,6 @@ public class ARBBaseInstance {
 	 * @param baseinstance the base instance for use in fetching instanced vertex attributes
 	 */
 	public static void glDrawElementsInstancedBaseInstance(int mode, int type, ByteBuffer indices, int primcount, int baseinstance) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseInstance(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), primcount, baseinstance);
 	}
 
@@ -115,8 +111,6 @@ public class ARBBaseInstance {
 	 * @param baseinstance the base instance for use in fetching instanced vertex attributes
 	 */
 	public static void glDrawElementsInstancedBaseInstance(int mode, ByteBuffer indices, int primcount, int baseinstance) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount, baseinstance);
 	}
 
@@ -129,8 +123,6 @@ public class ARBBaseInstance {
 	 * @param baseinstance the base instance for use in fetching instanced vertex attributes
 	 */
 	public static void glDrawElementsInstancedBaseInstance(int mode, ShortBuffer indices, int primcount, int baseinstance) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount, baseinstance);
 	}
 
@@ -143,8 +135,6 @@ public class ARBBaseInstance {
 	 * @param baseinstance the base instance for use in fetching instanced vertex attributes
 	 */
 	public static void glDrawElementsInstancedBaseInstance(int mode, IntBuffer indices, int primcount, int baseinstance) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), primcount, baseinstance);
 	}
 
@@ -180,8 +170,6 @@ public class ARBBaseInstance {
 	 * @param baseinstance the base instance for use in fetching instanced vertex attributes
 	 */
 	public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, long indices, int primcount, int basevertex, int baseinstance) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawElementsInstancedBaseVertexBaseInstance(mode, count, type, indices, primcount, basevertex, baseinstance);
 	}
 
@@ -196,8 +184,6 @@ public class ARBBaseInstance {
 	 * @param baseinstance the base instance for use in fetching instanced vertex attributes
 	 */
 	public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, int type, ByteBuffer indices, int primcount, int basevertex, int baseinstance) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertexBaseInstance(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), primcount, basevertex, baseinstance);
 	}
 
@@ -211,8 +197,6 @@ public class ARBBaseInstance {
 	 * @param baseinstance the base instance for use in fetching instanced vertex attributes
 	 */
 	public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, ByteBuffer indices, int primcount, int basevertex, int baseinstance) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertexBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount, basevertex, baseinstance);
 	}
 
@@ -226,8 +210,6 @@ public class ARBBaseInstance {
 	 * @param baseinstance the base instance for use in fetching instanced vertex attributes
 	 */
 	public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, ShortBuffer indices, int primcount, int basevertex, int baseinstance) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertexBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount, basevertex, baseinstance);
 	}
 
@@ -241,8 +223,6 @@ public class ARBBaseInstance {
 	 * @param baseinstance the base instance for use in fetching instanced vertex attributes
 	 */
 	public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, IntBuffer indices, int primcount, int basevertex, int baseinstance) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertexBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), primcount, basevertex, baseinstance);
 	}
 

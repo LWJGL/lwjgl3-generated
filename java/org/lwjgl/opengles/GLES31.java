@@ -247,25 +247,19 @@ public class GLES31 {
 	}
 
 	public static void glDrawArraysIndirect(int mode, ByteBuffer indirect) {
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkBuffer(indirect, 4 * 4);
-			GLESChecks.ensureBufferObject(GLES31.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
-		}
 		nglDrawArraysIndirect(mode, memAddress(indirect));
 	}
 
 	public static void glDrawArraysIndirect(int mode, long indirect) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES31.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
 		nglDrawArraysIndirect(mode, indirect);
 	}
 
 	/** IntBuffer version of: {@link #glDrawArraysIndirect DrawArraysIndirect} */
 	public static void glDrawArraysIndirect(int mode, IntBuffer indirect) {
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkBuffer(indirect, (4 * 4) >> 2);
-			GLESChecks.ensureBufferObject(GLES31.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
-		}
 		nglDrawArraysIndirect(mode, memAddress(indirect));
 	}
 
@@ -279,25 +273,19 @@ public class GLES31 {
 	}
 
 	public static void glDrawElementsIndirect(int mode, int type, ByteBuffer indirect) {
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkBuffer(indirect, 5 * 4);
-			GLESChecks.ensureBufferObject(GLES31.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
-		}
 		nglDrawElementsIndirect(mode, type, memAddress(indirect));
 	}
 
 	public static void glDrawElementsIndirect(int mode, int type, long indirect) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES31.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
 		nglDrawElementsIndirect(mode, type, indirect);
 	}
 
 	/** IntBuffer version of: {@link #glDrawElementsIndirect DrawElementsIndirect} */
 	public static void glDrawElementsIndirect(int mode, int type, IntBuffer indirect) {
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkBuffer(indirect, (5 * 4) >> 2);
-			GLESChecks.ensureBufferObject(GLES31.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
-		}
 		nglDrawElementsIndirect(mode, type, memAddress(indirect));
 	}
 
@@ -1245,7 +1233,6 @@ public class GLES31 {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(indirect, 4 * 4);
-			GLESChecks.ensureBufferObject(GLES31.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
 		callPV(__functionAddress, mode, indirect);
 	}
@@ -1256,7 +1243,6 @@ public class GLES31 {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(indirect, 5 * 4);
-			GLESChecks.ensureBufferObject(GLES31.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
 		callPV(__functionAddress, mode, type, indirect);
 	}

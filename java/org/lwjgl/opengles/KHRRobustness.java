@@ -160,8 +160,6 @@ public class KHRRobustness {
 	 * @param pixels  a buffer in which to place the returned pixel data
 	 */
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglReadnPixelsKHR(x, y, width, height, format, type, bufSize, pixels);
 	}
 
@@ -177,29 +175,21 @@ public class KHRRobustness {
 	 * @param pixels a buffer in which to place the returned pixel data
 	 */
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining(), memAddress(pixels));
 	}
 
 	/** ShortBuffer version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, ShortBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining() << 1, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, IntBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, FloatBuffer pixels) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
@@ -341,30 +331,24 @@ public class KHRRobustness {
 	/** short[] version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, short[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixelsKHR;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 1, pixels);
 	}
 
 	/** int[] version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixelsKHR;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
 	}
 
 	/** float[] version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, float[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixelsKHR;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
 	}
 

@@ -966,8 +966,6 @@ public class ARBVertexShader {
 	 *                   currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
 	 */
 	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, ByteBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribPointerARB(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
@@ -984,29 +982,21 @@ public class ARBVertexShader {
 	 *                   currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
 	 */
 	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, long pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglVertexAttribPointerARB(index, size, type, normalized, stride, pointer);
 	}
 
 	/** ShortBuffer version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
 	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, ShortBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribPointerARB(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
 	/** IntBuffer version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
 	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, IntBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribPointerARB(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
 	/** FloatBuffer version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
 	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, FloatBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribPointerARB(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
@@ -1561,30 +1551,24 @@ public class ARBVertexShader {
 	/** short[] version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
 	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribPointerARB;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
 	/** int[] version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
 	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, int[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribPointerARB;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
 	/** float[] version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
 	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, float[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribPointerARB;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 

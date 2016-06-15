@@ -102,10 +102,8 @@ for ( i = 0; i < primcount; i++ ) {
 	 * @param stride    the distance in basic machine units between elements of the draw parameter array
 	 */
 	public static void glMultiDrawArraysIndirect(int mode, ByteBuffer indirect, int primcount, int stride) {
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkBuffer(indirect, primcount * (stride == 0 ? (4 * 4) : stride));
-			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
-		}
 		nglMultiDrawArraysIndirect(mode, memAddress(indirect), primcount, stride);
 	}
 
@@ -138,17 +136,13 @@ for ( i = 0; i < primcount; i++ ) {
 	 * @param stride    the distance in basic machine units between elements of the draw parameter array
 	 */
 	public static void glMultiDrawArraysIndirect(int mode, long indirect, int primcount, int stride) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
 		nglMultiDrawArraysIndirect(mode, indirect, primcount, stride);
 	}
 
 	/** IntBuffer version of: {@link #glMultiDrawArraysIndirect MultiDrawArraysIndirect} */
 	public static void glMultiDrawArraysIndirect(int mode, IntBuffer indirect, int primcount, int stride) {
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkBuffer(indirect, (primcount * (stride == 0 ? (4 * 4) : stride)) >> 2);
-			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
-		}
 		nglMultiDrawArraysIndirect(mode, memAddress(indirect), primcount, stride);
 	}
 
@@ -222,10 +216,8 @@ for ( i = 0; i < primcount; i++ ) {
 	 * @param stride    the distance in basic machine units between elements of the draw parameter array
 	 */
 	public static void glMultiDrawElementsIndirect(int mode, int type, ByteBuffer indirect, int primcount, int stride) {
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkBuffer(indirect, primcount * (stride == 0 ? (5 * 4) : stride));
-			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
-		}
 		nglMultiDrawElementsIndirect(mode, type, memAddress(indirect), primcount, stride);
 	}
 
@@ -260,17 +252,13 @@ for ( i = 0; i < primcount; i++ ) {
 	 * @param stride    the distance in basic machine units between elements of the draw parameter array
 	 */
 	public static void glMultiDrawElementsIndirect(int mode, int type, long indirect, int primcount, int stride) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
 		nglMultiDrawElementsIndirect(mode, type, indirect, primcount, stride);
 	}
 
 	/** IntBuffer version of: {@link #glMultiDrawElementsIndirect MultiDrawElementsIndirect} */
 	public static void glMultiDrawElementsIndirect(int mode, int type, IntBuffer indirect, int primcount, int stride) {
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkBuffer(indirect, (primcount * (stride == 0 ? (5 * 4) : stride)) >> 2);
-			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
-		}
 		nglMultiDrawElementsIndirect(mode, type, memAddress(indirect), primcount, stride);
 	}
 
@@ -280,7 +268,6 @@ for ( i = 0; i < primcount; i++ ) {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(indirect, primcount * (stride == 0 ? (4 * 4) : stride));
-			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
 		callPV(__functionAddress, mode, indirect, primcount, stride);
 	}
@@ -291,7 +278,6 @@ for ( i = 0; i < primcount; i++ ) {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(indirect, primcount * (stride == 0 ? (5 * 4) : stride));
-			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
 		callPV(__functionAddress, mode, type, indirect, primcount, stride);
 	}

@@ -96,35 +96,25 @@ public class EXTRobustness {
 	}
 
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int bufSize, long data) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglReadnPixelsEXT(x, y, width, height, format, type, bufSize, data);
 	}
 
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, ByteBuffer data) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixelsEXT(x, y, width, height, format, type, data.remaining(), memAddress(data));
 	}
 
 	/** ShortBuffer version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, ShortBuffer data) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixelsEXT(x, y, width, height, format, type, data.remaining() << 1, memAddress(data));
 	}
 
 	/** IntBuffer version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, IntBuffer data) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixelsEXT(x, y, width, height, format, type, data.remaining() << 2, memAddress(data));
 	}
 
 	/** FloatBuffer version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, FloatBuffer data) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixelsEXT(x, y, width, height, format, type, data.remaining() << 2, memAddress(data));
 	}
 
@@ -179,30 +169,24 @@ public class EXTRobustness {
 	/** short[] version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, short[] data) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixelsEXT;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, x, y, width, height, format, type, data.length << 1, data);
 	}
 
 	/** int[] version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int[] data) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixelsEXT;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, x, y, width, height, format, type, data.length << 2, data);
 	}
 
 	/** float[] version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, float[] data) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixelsEXT;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLESChecks.ensureBufferObject(GLES30.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, x, y, width, height, format, type, data.length << 2, data);
 	}
 

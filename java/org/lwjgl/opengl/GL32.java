@@ -285,8 +285,6 @@ public class GL32 {
 	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
 	 */
 	public static void glDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawElementsBaseVertex(mode, count, type, indices, basevertex);
 	}
 
@@ -301,8 +299,6 @@ public class GL32 {
 	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
 	 */
 	public static void glDrawElementsBaseVertex(int mode, int type, ByteBuffer indices, int basevertex) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertex(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), basevertex);
 	}
 
@@ -316,8 +312,6 @@ public class GL32 {
 	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
 	 */
 	public static void glDrawElementsBaseVertex(int mode, ByteBuffer indices, int basevertex) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), basevertex);
 	}
 
@@ -331,8 +325,6 @@ public class GL32 {
 	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
 	 */
 	public static void glDrawElementsBaseVertex(int mode, ShortBuffer indices, int basevertex) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), basevertex);
 	}
 
@@ -346,8 +338,6 @@ public class GL32 {
 	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
 	 */
 	public static void glDrawElementsBaseVertex(int mode, IntBuffer indices, int basevertex) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), basevertex);
 	}
 
@@ -387,8 +377,6 @@ public class GL32 {
 	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
 	 */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawRangeElementsBaseVertex(mode, start, end, count, type, indices, basevertex);
 	}
 
@@ -405,8 +393,6 @@ public class GL32 {
 	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
 	 */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int type, ByteBuffer indices, int basevertex) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), basevertex);
 	}
 
@@ -422,8 +408,6 @@ public class GL32 {
 	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
 	 */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, ByteBuffer indices, int basevertex) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), basevertex);
 	}
 
@@ -439,8 +423,6 @@ public class GL32 {
 	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
 	 */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, ShortBuffer indices, int basevertex) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), basevertex);
 	}
 
@@ -456,8 +438,6 @@ public class GL32 {
 	 * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
 	 */
 	public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, IntBuffer indices, int basevertex) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), basevertex);
 	}
 
@@ -495,8 +475,6 @@ public class GL32 {
 	 * @param basevertex a constant that should be added to each element of indices when chosing elements from the enabled vertex arrays
 	 */
 	public static void glDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int primcount, int basevertex) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawElementsInstancedBaseVertex(mode, count, type, indices, primcount, basevertex);
 	}
 
@@ -512,8 +490,6 @@ public class GL32 {
 	 * @param basevertex a constant that should be added to each element of indices when chosing elements from the enabled vertex arrays
 	 */
 	public static void glDrawElementsInstancedBaseVertex(int mode, int type, ByteBuffer indices, int primcount, int basevertex) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), primcount, basevertex);
 	}
 
@@ -528,8 +504,6 @@ public class GL32 {
 	 * @param basevertex a constant that should be added to each element of indices when chosing elements from the enabled vertex arrays
 	 */
 	public static void glDrawElementsInstancedBaseVertex(int mode, ByteBuffer indices, int primcount, int basevertex) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount, basevertex);
 	}
 
@@ -544,8 +518,6 @@ public class GL32 {
 	 * @param basevertex a constant that should be added to each element of indices when chosing elements from the enabled vertex arrays
 	 */
 	public static void glDrawElementsInstancedBaseVertex(int mode, ShortBuffer indices, int primcount, int basevertex) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount, basevertex);
 	}
 
@@ -560,8 +532,6 @@ public class GL32 {
 	 * @param basevertex a constant that should be added to each element of indices when chosing elements from the enabled vertex arrays
 	 */
 	public static void glDrawElementsInstancedBaseVertex(int mode, IntBuffer indices, int primcount, int basevertex) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), primcount, basevertex);
 	}
 

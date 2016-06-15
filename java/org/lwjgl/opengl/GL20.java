@@ -2587,8 +2587,6 @@ public class GL20 {
 	 *                   currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
 	 */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, ByteBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
@@ -2607,8 +2605,6 @@ public class GL20 {
 	 *                   currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
 	 */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglVertexAttribPointer(index, size, type, normalized, stride, pointer);
 	}
 
@@ -2618,8 +2614,6 @@ public class GL20 {
 	 * ShortBuffer version of: {@link #glVertexAttribPointer VertexAttribPointer}
 	 */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, ShortBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
@@ -2629,8 +2623,6 @@ public class GL20 {
 	 * IntBuffer version of: {@link #glVertexAttribPointer VertexAttribPointer}
 	 */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, IntBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
@@ -2640,8 +2632,6 @@ public class GL20 {
 	 * FloatBuffer version of: {@link #glVertexAttribPointer VertexAttribPointer}
 	 */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, FloatBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
@@ -3711,10 +3701,8 @@ public class GL20 {
 	 */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribPointer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
@@ -3725,10 +3713,8 @@ public class GL20 {
 	 */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, int[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribPointer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
@@ -3739,10 +3725,8 @@ public class GL20 {
 	 */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, float[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribPointer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 

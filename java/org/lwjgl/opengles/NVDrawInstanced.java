@@ -78,8 +78,6 @@ public class NVDrawInstanced {
 	 * @param primcount 
 	 */
 	public static void glDrawElementsInstancedNV(int mode, int count, int type, long indices, int primcount) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawElementsInstancedNV(mode, count, type, indices, primcount);
 	}
 
@@ -92,26 +90,18 @@ public class NVDrawInstanced {
 	 * @param primcount 
 	 */
 	public static void glDrawElementsInstancedNV(int mode, int type, ByteBuffer indices, int primcount) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedNV(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), primcount);
 	}
 
 	public static void glDrawElementsInstancedNV(int mode, ByteBuffer indices, int primcount) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedNV(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), primcount);
 	}
 
 	public static void glDrawElementsInstancedNV(int mode, ShortBuffer indices, int primcount) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedNV(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), primcount);
 	}
 
 	public static void glDrawElementsInstancedNV(int mode, IntBuffer indices, int primcount) {
-		if ( CHECKS )
-			GLESChecks.ensureBufferObject(GLES20.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedNV(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), primcount);
 	}
 

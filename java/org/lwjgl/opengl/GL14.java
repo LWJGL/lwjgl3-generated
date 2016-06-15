@@ -331,8 +331,6 @@ public class GL14 {
 	 * @param pointer the fog coordinate array data
 	 */
 	public static void glFogCoordPointer(int type, int stride, ByteBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglFogCoordPointer(type, stride, memAddress(pointer));
 	}
 
@@ -346,8 +344,6 @@ public class GL14 {
 	 * @param pointer the fog coordinate array data
 	 */
 	public static void glFogCoordPointer(int type, int stride, long pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglFogCoordPointer(type, stride, pointer);
 	}
 
@@ -357,8 +353,6 @@ public class GL14 {
 	 * ShortBuffer version of: {@link #glFogCoordPointer FogCoordPointer}
 	 */
 	public static void glFogCoordPointer(int type, int stride, ShortBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglFogCoordPointer(type, stride, memAddress(pointer));
 	}
 
@@ -368,8 +362,6 @@ public class GL14 {
 	 * FloatBuffer version of: {@link #glFogCoordPointer FogCoordPointer}
 	 */
 	public static void glFogCoordPointer(int type, int stride, FloatBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglFogCoordPointer(type, stride, memAddress(pointer));
 	}
 
@@ -949,8 +941,6 @@ public class GL14 {
 	 * @param pointer the secondary color array data
 	 */
 	public static void glSecondaryColorPointer(int size, int type, int stride, ByteBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglSecondaryColorPointer(size, type, stride, memAddress(pointer));
 	}
 
@@ -965,8 +955,6 @@ public class GL14 {
 	 * @param pointer the secondary color array data
 	 */
 	public static void glSecondaryColorPointer(int size, int type, int stride, long pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglSecondaryColorPointer(size, type, stride, pointer);
 	}
 
@@ -976,8 +964,6 @@ public class GL14 {
 	 * ShortBuffer version of: {@link #glSecondaryColorPointer SecondaryColorPointer}
 	 */
 	public static void glSecondaryColorPointer(int size, int type, int stride, ShortBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglSecondaryColorPointer(size, type, stride, memAddress(pointer));
 	}
 
@@ -987,8 +973,6 @@ public class GL14 {
 	 * IntBuffer version of: {@link #glSecondaryColorPointer SecondaryColorPointer}
 	 */
 	public static void glSecondaryColorPointer(int size, int type, int stride, IntBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglSecondaryColorPointer(size, type, stride, memAddress(pointer));
 	}
 
@@ -998,8 +982,6 @@ public class GL14 {
 	 * FloatBuffer version of: {@link #glSecondaryColorPointer SecondaryColorPointer}
 	 */
 	public static void glSecondaryColorPointer(int size, int type, int stride, FloatBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglSecondaryColorPointer(size, type, stride, memAddress(pointer));
 	}
 
@@ -1429,10 +1411,8 @@ public class GL14 {
 	 */
 	public static void glFogCoordPointer(int type, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glFogCoordPointer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, type, stride, pointer);
 	}
 
@@ -1443,10 +1423,8 @@ public class GL14 {
 	 */
 	public static void glFogCoordPointer(int type, int stride, float[] pointer) {
 		long __functionAddress = GL.getCapabilities().glFogCoordPointer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, type, stride, pointer);
 	}
 
@@ -1597,10 +1575,8 @@ public class GL14 {
 	 */
 	public static void glSecondaryColorPointer(int size, int type, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColorPointer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -1611,10 +1587,8 @@ public class GL14 {
 	 */
 	public static void glSecondaryColorPointer(int size, int type, int stride, int[] pointer) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColorPointer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -1625,10 +1599,8 @@ public class GL14 {
 	 */
 	public static void glSecondaryColorPointer(int size, int type, int stride, float[] pointer) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColorPointer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 

@@ -968,8 +968,6 @@ public class GL11 {
 	 * @param data  the buffer containing the bitmap data.
 	 */
 	public static void glBitmap(int w, int h, float xOrig, float yOrig, float xInc, float yInc, ByteBuffer data) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglBitmap(w, h, xOrig, yOrig, xInc, yInc, memAddressSafe(data));
 	}
 
@@ -988,8 +986,6 @@ public class GL11 {
 	 * @param data  the buffer containing the bitmap data.
 	 */
 	public static void glBitmap(int w, int h, float xOrig, float yOrig, float xInc, float yInc, long data) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglBitmap(w, h, xOrig, yOrig, xInc, yInc, data);
 	}
 
@@ -2046,8 +2042,6 @@ public class GL11 {
 	 * @param pointer the color array data
 	 */
 	public static void glColorPointer(int size, int type, int stride, ByteBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglColorPointer(size, type, stride, memAddress(pointer));
 	}
 
@@ -2062,8 +2056,6 @@ public class GL11 {
 	 * @param pointer the color array data
 	 */
 	public static void glColorPointer(int size, int type, int stride, long pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglColorPointer(size, type, stride, pointer);
 	}
 
@@ -2073,8 +2065,6 @@ public class GL11 {
 	 * ShortBuffer version of: {@link #glColorPointer ColorPointer}
 	 */
 	public static void glColorPointer(int size, int type, int stride, ShortBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglColorPointer(size, type, stride, memAddress(pointer));
 	}
 
@@ -2084,8 +2074,6 @@ public class GL11 {
 	 * IntBuffer version of: {@link #glColorPointer ColorPointer}
 	 */
 	public static void glColorPointer(int size, int type, int stride, IntBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglColorPointer(size, type, stride, memAddress(pointer));
 	}
 
@@ -2095,8 +2083,6 @@ public class GL11 {
 	 * FloatBuffer version of: {@link #glColorPointer ColorPointer}
 	 */
 	public static void glColorPointer(int size, int type, int stride, FloatBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglColorPointer(size, type, stride, memAddress(pointer));
 	}
 
@@ -2280,8 +2266,6 @@ public class GL11 {
 	 * @param indices the index values
 	 */
 	public static void glDrawElements(int mode, int count, int type, long indices) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawElements(mode, count, type, indices);
 	}
 
@@ -2297,8 +2281,6 @@ public class GL11 {
 	 * @param indices the index values
 	 */
 	public static void glDrawElements(int mode, int type, ByteBuffer indices) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElements(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices));
 	}
 
@@ -2313,8 +2295,6 @@ public class GL11 {
 	 * @param indices the index values
 	 */
 	public static void glDrawElements(int mode, ByteBuffer indices) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElements(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices));
 	}
 
@@ -2329,8 +2309,6 @@ public class GL11 {
 	 * @param indices the index values
 	 */
 	public static void glDrawElements(int mode, ShortBuffer indices) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElements(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices));
 	}
 
@@ -2345,8 +2323,6 @@ public class GL11 {
 	 * @param indices the index values
 	 */
 	public static void glDrawElements(int mode, IntBuffer indices) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElements(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices));
 	}
 
@@ -2382,8 +2358,6 @@ public class GL11 {
 	 * @param pixels the pixel data
 	 */
 	public static void glDrawPixels(int width, int height, int format, int type, ByteBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglDrawPixels(width, height, format, type, memAddress(pixels));
 	}
 
@@ -2399,8 +2373,6 @@ public class GL11 {
 	 * @param pixels the pixel data
 	 */
 	public static void glDrawPixels(int width, int height, int format, int type, long pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglDrawPixels(width, height, format, type, pixels);
 	}
 
@@ -2410,8 +2382,6 @@ public class GL11 {
 	 * ShortBuffer version of: {@link #glDrawPixels DrawPixels}
 	 */
 	public static void glDrawPixels(int width, int height, int format, int type, ShortBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglDrawPixels(width, height, format, type, memAddress(pixels));
 	}
 
@@ -2421,8 +2391,6 @@ public class GL11 {
 	 * IntBuffer version of: {@link #glDrawPixels DrawPixels}
 	 */
 	public static void glDrawPixels(int width, int height, int format, int type, IntBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglDrawPixels(width, height, format, type, memAddress(pixels));
 	}
 
@@ -2432,8 +2400,6 @@ public class GL11 {
 	 * FloatBuffer version of: {@link #glDrawPixels DrawPixels}
 	 */
 	public static void glDrawPixels(int width, int height, int format, int type, FloatBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglDrawPixels(width, height, format, type, memAddress(pixels));
 	}
 
@@ -2514,8 +2480,6 @@ public class GL11 {
 	 * @param pointer the edge flag array data
 	 */
 	public static void glEdgeFlagPointer(int stride, ByteBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglEdgeFlagPointer(stride, memAddress(pointer));
 	}
 
@@ -2528,8 +2492,6 @@ public class GL11 {
 	 * @param pointer the edge flag array data
 	 */
 	public static void glEdgeFlagPointer(int stride, long pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglEdgeFlagPointer(stride, pointer);
 	}
 
@@ -3728,10 +3690,8 @@ public class GL11 {
 	 * @param data a buffer in which to place the returned data
 	 */
 	public static void glGetPixelMapfv(int map, FloatBuffer data) {
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkBuffer(data, 32);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
 		nglGetPixelMapfv(map, memAddress(data));
 	}
 
@@ -3744,8 +3704,6 @@ public class GL11 {
 	 * @param data a buffer in which to place the returned data
 	 */
 	public static void glGetPixelMapfv(int map, long data) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetPixelMapfv(map, data);
 	}
 
@@ -3775,10 +3733,8 @@ public class GL11 {
 	 * @param data a buffer in which to place the returned data
 	 */
 	public static void glGetPixelMapusv(int map, ShortBuffer data) {
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkBuffer(data, 32);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
 		nglGetPixelMapusv(map, memAddress(data));
 	}
 
@@ -3791,8 +3747,6 @@ public class GL11 {
 	 * @param data a buffer in which to place the returned data
 	 */
 	public static void glGetPixelMapusv(int map, long data) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetPixelMapusv(map, data);
 	}
 
@@ -3822,10 +3776,8 @@ public class GL11 {
 	 * @param data a buffer in which to place the returned data
 	 */
 	public static void glGetPixelMapuiv(int map, IntBuffer data) {
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkBuffer(data, 32);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
 		nglGetPixelMapuiv(map, memAddress(data));
 	}
 
@@ -3838,8 +3790,6 @@ public class GL11 {
 	 * @param data a buffer in which to place the returned data
 	 */
 	public static void glGetPixelMapuiv(int map, long data) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetPixelMapuiv(map, data);
 	}
 
@@ -3914,10 +3864,8 @@ public class GL11 {
 	 * @param pattern a buffer in which to place the returned data
 	 */
 	public static void glGetPolygonStipple(ByteBuffer pattern) {
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkBuffer(pattern, 128);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
 		nglGetPolygonStipple(memAddress(pattern));
 	}
 
@@ -3929,8 +3877,6 @@ public class GL11 {
 	 * @param pattern a buffer in which to place the returned data
 	 */
 	public static void glGetPolygonStipple(long pattern) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetPolygonStipple(pattern);
 	}
 
@@ -4246,8 +4192,6 @@ public class GL11 {
 	 * @param pixels the buffer in which to place the returned data
 	 */
 	public static void glGetTexImage(int tex, int level, int format, int type, ByteBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTexImage(tex, level, format, type, memAddress(pixels));
 	}
 
@@ -4263,8 +4207,6 @@ public class GL11 {
 	 * @param pixels the buffer in which to place the returned data
 	 */
 	public static void glGetTexImage(int tex, int level, int format, int type, long pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglGetTexImage(tex, level, format, type, pixels);
 	}
 
@@ -4274,8 +4216,6 @@ public class GL11 {
 	 * ShortBuffer version of: {@link #glGetTexImage GetTexImage}
 	 */
 	public static void glGetTexImage(int tex, int level, int format, int type, ShortBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTexImage(tex, level, format, type, memAddress(pixels));
 	}
 
@@ -4285,8 +4225,6 @@ public class GL11 {
 	 * IntBuffer version of: {@link #glGetTexImage GetTexImage}
 	 */
 	public static void glGetTexImage(int tex, int level, int format, int type, IntBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTexImage(tex, level, format, type, memAddress(pixels));
 	}
 
@@ -4296,8 +4234,6 @@ public class GL11 {
 	 * FloatBuffer version of: {@link #glGetTexImage GetTexImage}
 	 */
 	public static void glGetTexImage(int tex, int level, int format, int type, FloatBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTexImage(tex, level, format, type, memAddress(pixels));
 	}
 
@@ -4307,8 +4243,6 @@ public class GL11 {
 	 * DoubleBuffer version of: {@link #glGetTexImage GetTexImage}
 	 */
 	public static void glGetTexImage(int tex, int level, int format, int type, DoubleBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglGetTexImage(tex, level, format, type, memAddress(pixels));
 	}
 
@@ -4805,8 +4739,6 @@ public class GL11 {
 	 * @param pointer the color index array data
 	 */
 	public static void glIndexPointer(int type, int stride, ByteBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglIndexPointer(type, stride, memAddress(pointer));
 	}
 
@@ -4820,8 +4752,6 @@ public class GL11 {
 	 * @param pointer the color index array data
 	 */
 	public static void glIndexPointer(int type, int stride, long pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglIndexPointer(type, stride, pointer);
 	}
 
@@ -4834,8 +4764,6 @@ public class GL11 {
 	 * @param pointer the color index array data
 	 */
 	public static void glIndexPointer(int stride, ByteBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglIndexPointer(GL11.GL_UNSIGNED_BYTE, stride, memAddress(pointer));
 	}
 
@@ -4848,8 +4776,6 @@ public class GL11 {
 	 * @param pointer the color index array data
 	 */
 	public static void glIndexPointer(int stride, ShortBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglIndexPointer(GL11.GL_SHORT, stride, memAddress(pointer));
 	}
 
@@ -4862,8 +4788,6 @@ public class GL11 {
 	 * @param pointer the color index array data
 	 */
 	public static void glIndexPointer(int stride, IntBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglIndexPointer(GL11.GL_INT, stride, memAddress(pointer));
 	}
 
@@ -4907,8 +4831,6 @@ public class GL11 {
 	 * @param pointer the vertex array data
 	 */
 	public static void glInterleavedArrays(int format, int stride, ByteBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglInterleavedArrays(format, stride, memAddress(pointer));
 	}
 
@@ -4922,8 +4844,6 @@ public class GL11 {
 	 * @param pointer the vertex array data
 	 */
 	public static void glInterleavedArrays(int format, int stride, long pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglInterleavedArrays(format, stride, pointer);
 	}
 
@@ -4933,8 +4853,6 @@ public class GL11 {
 	 * ShortBuffer version of: {@link #glInterleavedArrays InterleavedArrays}
 	 */
 	public static void glInterleavedArrays(int format, int stride, ShortBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglInterleavedArrays(format, stride, memAddress(pointer));
 	}
 
@@ -4944,8 +4862,6 @@ public class GL11 {
 	 * IntBuffer version of: {@link #glInterleavedArrays InterleavedArrays}
 	 */
 	public static void glInterleavedArrays(int format, int stride, IntBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglInterleavedArrays(format, stride, memAddress(pointer));
 	}
 
@@ -4955,8 +4871,6 @@ public class GL11 {
 	 * FloatBuffer version of: {@link #glInterleavedArrays InterleavedArrays}
 	 */
 	public static void glInterleavedArrays(int format, int stride, FloatBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglInterleavedArrays(format, stride, memAddress(pointer));
 	}
 
@@ -4966,8 +4880,6 @@ public class GL11 {
 	 * DoubleBuffer version of: {@link #glInterleavedArrays InterleavedArrays}
 	 */
 	public static void glInterleavedArrays(int format, int stride, DoubleBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglInterleavedArrays(format, stride, memAddress(pointer));
 	}
 
@@ -6153,8 +6065,6 @@ public class GL11 {
 	 * @param pointer the normal array data
 	 */
 	public static void glNormalPointer(int type, int stride, ByteBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglNormalPointer(type, stride, memAddress(pointer));
 	}
 
@@ -6168,8 +6078,6 @@ public class GL11 {
 	 * @param pointer the normal array data
 	 */
 	public static void glNormalPointer(int type, int stride, long pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglNormalPointer(type, stride, pointer);
 	}
 
@@ -6179,8 +6087,6 @@ public class GL11 {
 	 * ShortBuffer version of: {@link #glNormalPointer NormalPointer}
 	 */
 	public static void glNormalPointer(int type, int stride, ShortBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglNormalPointer(type, stride, memAddress(pointer));
 	}
 
@@ -6190,8 +6096,6 @@ public class GL11 {
 	 * IntBuffer version of: {@link #glNormalPointer NormalPointer}
 	 */
 	public static void glNormalPointer(int type, int stride, IntBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglNormalPointer(type, stride, memAddress(pointer));
 	}
 
@@ -6201,8 +6105,6 @@ public class GL11 {
 	 * FloatBuffer version of: {@link #glNormalPointer NormalPointer}
 	 */
 	public static void glNormalPointer(int type, int stride, FloatBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglNormalPointer(type, stride, memAddress(pointer));
 	}
 
@@ -6285,8 +6187,6 @@ public class GL11 {
 	 * @param values the map values
 	 */
 	public static void glPixelMapfv(int map, int size, long values) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglPixelMapfv(map, size, values);
 	}
 
@@ -6299,8 +6199,6 @@ public class GL11 {
 	 * @param values the map values
 	 */
 	public static void glPixelMapfv(int map, FloatBuffer values) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglPixelMapfv(map, values.remaining(), memAddress(values));
 	}
 
@@ -6332,8 +6230,6 @@ public class GL11 {
 	 * @param values the map values
 	 */
 	public static void glPixelMapusv(int map, int size, long values) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglPixelMapusv(map, size, values);
 	}
 
@@ -6346,8 +6242,6 @@ public class GL11 {
 	 * @param values the map values
 	 */
 	public static void glPixelMapusv(int map, ShortBuffer values) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglPixelMapusv(map, values.remaining(), memAddress(values));
 	}
 
@@ -6379,8 +6273,6 @@ public class GL11 {
 	 * @param values the map values
 	 */
 	public static void glPixelMapuiv(int map, int size, long values) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglPixelMapuiv(map, size, values);
 	}
 
@@ -6393,8 +6285,6 @@ public class GL11 {
 	 * @param values the map values
 	 */
 	public static void glPixelMapuiv(int map, IntBuffer values) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglPixelMapuiv(map, values.remaining(), memAddress(values));
 	}
 
@@ -6577,8 +6467,6 @@ public class GL11 {
 	 * @param pattern a pointer to memory into which a 32 &times; 32 pattern is packed
 	 */
 	public static void glPolygonStipple(ByteBuffer pattern) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglPolygonStipple(memAddress(pattern));
 	}
 
@@ -6597,8 +6485,6 @@ public class GL11 {
 	 * @param pattern a pointer to memory into which a 32 &times; 32 pattern is packed
 	 */
 	public static void glPolygonStipple(long pattern) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglPolygonStipple(pattern);
 	}
 
@@ -7397,8 +7283,6 @@ public class GL11 {
 	 * @param pixels a buffer in which to place the returned pixel data
 	 */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels));
 	}
 
@@ -7420,8 +7304,6 @@ public class GL11 {
 	 * @param pixels a buffer in which to place the returned pixel data
 	 */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, long pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglReadPixels(x, y, width, height, format, type, pixels);
 	}
 
@@ -7431,8 +7313,6 @@ public class GL11 {
 	 * ShortBuffer version of: {@link #glReadPixels ReadPixels}
 	 */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, ShortBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels));
 	}
 
@@ -7442,8 +7322,6 @@ public class GL11 {
 	 * IntBuffer version of: {@link #glReadPixels ReadPixels}
 	 */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, IntBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels));
 	}
 
@@ -7453,8 +7331,6 @@ public class GL11 {
 	 * FloatBuffer version of: {@link #glReadPixels ReadPixels}
 	 */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, FloatBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels));
 	}
 
@@ -8703,8 +8579,6 @@ public class GL11 {
 	 * @param pointer the texture coordinate array data
 	 */
 	public static void glTexCoordPointer(int size, int type, int stride, ByteBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglTexCoordPointer(size, type, stride, memAddress(pointer));
 	}
 
@@ -8719,8 +8593,6 @@ public class GL11 {
 	 * @param pointer the texture coordinate array data
 	 */
 	public static void glTexCoordPointer(int size, int type, int stride, long pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglTexCoordPointer(size, type, stride, pointer);
 	}
 
@@ -8730,8 +8602,6 @@ public class GL11 {
 	 * ShortBuffer version of: {@link #glTexCoordPointer TexCoordPointer}
 	 */
 	public static void glTexCoordPointer(int size, int type, int stride, ShortBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglTexCoordPointer(size, type, stride, memAddress(pointer));
 	}
 
@@ -8741,8 +8611,6 @@ public class GL11 {
 	 * IntBuffer version of: {@link #glTexCoordPointer TexCoordPointer}
 	 */
 	public static void glTexCoordPointer(int size, int type, int stride, IntBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglTexCoordPointer(size, type, stride, memAddress(pointer));
 	}
 
@@ -8752,8 +8620,6 @@ public class GL11 {
 	 * FloatBuffer version of: {@link #glTexCoordPointer TexCoordPointer}
 	 */
 	public static void glTexCoordPointer(int size, int type, int stride, FloatBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglTexCoordPointer(size, type, stride, memAddress(pointer));
 	}
 
@@ -9051,8 +8917,6 @@ public class GL11 {
 	 * @param pixels         the texel data
 	 */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, ByteBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
 
@@ -9072,8 +8936,6 @@ public class GL11 {
 	 * @param pixels         the texel data
 	 */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
@@ -9083,8 +8945,6 @@ public class GL11 {
 	 * ShortBuffer version of: {@link #glTexImage2D TexImage2D}
 	 */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, ShortBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
 
@@ -9094,8 +8954,6 @@ public class GL11 {
 	 * IntBuffer version of: {@link #glTexImage2D TexImage2D}
 	 */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, IntBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
 
@@ -9105,8 +8963,6 @@ public class GL11 {
 	 * FloatBuffer version of: {@link #glTexImage2D TexImage2D}
 	 */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, FloatBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
 
@@ -9116,8 +8972,6 @@ public class GL11 {
 	 * DoubleBuffer version of: {@link #glTexImage2D TexImage2D}
 	 */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, DoubleBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
 
@@ -9157,8 +9011,6 @@ public class GL11 {
 	 * @param pixels         the texel data
 	 */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, ByteBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
 	}
 
@@ -9177,8 +9029,6 @@ public class GL11 {
 	 * @param pixels         the texel data
 	 */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, long pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglTexImage1D(target, level, internalformat, width, border, format, type, pixels);
 	}
 
@@ -9188,8 +9038,6 @@ public class GL11 {
 	 * ShortBuffer version of: {@link #glTexImage1D TexImage1D}
 	 */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, ShortBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
 	}
 
@@ -9199,8 +9047,6 @@ public class GL11 {
 	 * IntBuffer version of: {@link #glTexImage1D TexImage1D}
 	 */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, IntBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
 	}
 
@@ -9210,8 +9056,6 @@ public class GL11 {
 	 * FloatBuffer version of: {@link #glTexImage1D TexImage1D}
 	 */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, FloatBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
 	}
 
@@ -9221,8 +9065,6 @@ public class GL11 {
 	 * DoubleBuffer version of: {@link #glTexImage1D TexImage1D}
 	 */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, DoubleBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
 	}
 
@@ -9457,8 +9299,6 @@ public class GL11 {
 	 * @param pixels  the pixel data
 	 */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, ByteBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
@@ -9476,8 +9316,6 @@ public class GL11 {
 	 * @param pixels  the pixel data
 	 */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, long pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglTexSubImage1D(target, level, xoffset, width, format, type, pixels);
 	}
 
@@ -9487,8 +9325,6 @@ public class GL11 {
 	 * ShortBuffer version of: {@link #glTexSubImage1D TexSubImage1D}
 	 */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, ShortBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
@@ -9498,8 +9334,6 @@ public class GL11 {
 	 * IntBuffer version of: {@link #glTexSubImage1D TexSubImage1D}
 	 */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, IntBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
@@ -9509,8 +9343,6 @@ public class GL11 {
 	 * FloatBuffer version of: {@link #glTexSubImage1D TexSubImage1D}
 	 */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, FloatBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
@@ -9520,8 +9352,6 @@ public class GL11 {
 	 * DoubleBuffer version of: {@link #glTexSubImage1D TexSubImage1D}
 	 */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, DoubleBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
@@ -9565,8 +9395,6 @@ public class GL11 {
 	 * @param pixels  the pixel data
 	 */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, ByteBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
@@ -9587,8 +9415,6 @@ public class GL11 {
 	 * @param pixels  the pixel data
 	 */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, true);
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
@@ -9598,8 +9424,6 @@ public class GL11 {
 	 * ShortBuffer version of: {@link #glTexSubImage2D TexSubImage2D}
 	 */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, ShortBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
@@ -9609,8 +9433,6 @@ public class GL11 {
 	 * IntBuffer version of: {@link #glTexSubImage2D TexSubImage2D}
 	 */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, IntBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
@@ -9620,8 +9442,6 @@ public class GL11 {
 	 * FloatBuffer version of: {@link #glTexSubImage2D TexSubImage2D}
 	 */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, FloatBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
@@ -9631,8 +9451,6 @@ public class GL11 {
 	 * DoubleBuffer version of: {@link #glTexSubImage2D TexSubImage2D}
 	 */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, DoubleBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
@@ -10277,8 +10095,6 @@ public class GL11 {
 	 * @param pointer the vertex array data
 	 */
 	public static void glVertexPointer(int size, int type, int stride, ByteBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexPointer(size, type, stride, memAddress(pointer));
 	}
 
@@ -10293,8 +10109,6 @@ public class GL11 {
 	 * @param pointer the vertex array data
 	 */
 	public static void glVertexPointer(int size, int type, int stride, long pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglVertexPointer(size, type, stride, pointer);
 	}
 
@@ -10304,8 +10118,6 @@ public class GL11 {
 	 * ShortBuffer version of: {@link #glVertexPointer VertexPointer}
 	 */
 	public static void glVertexPointer(int size, int type, int stride, ShortBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexPointer(size, type, stride, memAddress(pointer));
 	}
 
@@ -10315,8 +10127,6 @@ public class GL11 {
 	 * IntBuffer version of: {@link #glVertexPointer VertexPointer}
 	 */
 	public static void glVertexPointer(int size, int type, int stride, IntBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexPointer(size, type, stride, memAddress(pointer));
 	}
 
@@ -10326,8 +10136,6 @@ public class GL11 {
 	 * FloatBuffer version of: {@link #glVertexPointer VertexPointer}
 	 */
 	public static void glVertexPointer(int size, int type, int stride, FloatBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglVertexPointer(size, type, stride, memAddress(pointer));
 	}
 
@@ -10558,10 +10366,8 @@ public class GL11 {
 	 */
 	public static void glColorPointer(int size, int type, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glColorPointer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -10572,10 +10378,8 @@ public class GL11 {
 	 */
 	public static void glColorPointer(int size, int type, int stride, int[] pointer) {
 		long __functionAddress = GL.getCapabilities().glColorPointer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -10586,10 +10390,8 @@ public class GL11 {
 	 */
 	public static void glColorPointer(int size, int type, int stride, float[] pointer) {
 		long __functionAddress = GL.getCapabilities().glColorPointer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -10600,10 +10402,8 @@ public class GL11 {
 	 */
 	public static void glDrawPixels(int width, int height, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glDrawPixels;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, width, height, format, type, pixels);
 	}
 
@@ -10614,10 +10414,8 @@ public class GL11 {
 	 */
 	public static void glDrawPixels(int width, int height, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glDrawPixels;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, width, height, format, type, pixels);
 	}
 
@@ -10628,10 +10426,8 @@ public class GL11 {
 	 */
 	public static void glDrawPixels(int width, int height, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glDrawPixels;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, width, height, format, type, pixels);
 	}
 
@@ -10895,7 +10691,6 @@ public class GL11 {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 32);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		callPV(__functionAddress, map, data);
 	}
@@ -10910,7 +10705,6 @@ public class GL11 {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 32);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		callPV(__functionAddress, map, data);
 	}
@@ -10925,7 +10719,6 @@ public class GL11 {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(data, 32);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		}
 		callPV(__functionAddress, map, data);
 	}
@@ -11003,8 +10796,6 @@ public class GL11 {
 	 */
 	public static void glGetTexImage(int tex, int level, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glGetTexImage;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, tex, level, format, type, pixels);
 	}
 
@@ -11015,8 +10806,6 @@ public class GL11 {
 	 */
 	public static void glGetTexImage(int tex, int level, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glGetTexImage;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, tex, level, format, type, pixels);
 	}
 
@@ -11027,8 +10816,6 @@ public class GL11 {
 	 */
 	public static void glGetTexImage(int tex, int level, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glGetTexImage;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, tex, level, format, type, pixels);
 	}
 
@@ -11039,8 +10826,6 @@ public class GL11 {
 	 */
 	public static void glGetTexImage(int tex, int level, int format, int type, double[] pixels) {
 		long __functionAddress = GL.getCapabilities().glGetTexImage;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, tex, level, format, type, pixels);
 	}
 
@@ -11155,8 +10940,6 @@ public class GL11 {
 	 */
 	public static void glInterleavedArrays(int format, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glInterleavedArrays;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		callPV(__functionAddress, format, stride, pointer);
 	}
 
@@ -11167,8 +10950,6 @@ public class GL11 {
 	 */
 	public static void glInterleavedArrays(int format, int stride, int[] pointer) {
 		long __functionAddress = GL.getCapabilities().glInterleavedArrays;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		callPV(__functionAddress, format, stride, pointer);
 	}
 
@@ -11179,8 +10960,6 @@ public class GL11 {
 	 */
 	public static void glInterleavedArrays(int format, int stride, float[] pointer) {
 		long __functionAddress = GL.getCapabilities().glInterleavedArrays;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		callPV(__functionAddress, format, stride, pointer);
 	}
 
@@ -11191,8 +10970,6 @@ public class GL11 {
 	 */
 	public static void glInterleavedArrays(int format, int stride, double[] pointer) {
 		long __functionAddress = GL.getCapabilities().glInterleavedArrays;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		callPV(__functionAddress, format, stride, pointer);
 	}
 
@@ -11455,10 +11232,8 @@ public class GL11 {
 	 */
 	public static void glNormalPointer(int type, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glNormalPointer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, type, stride, pointer);
 	}
 
@@ -11469,10 +11244,8 @@ public class GL11 {
 	 */
 	public static void glNormalPointer(int type, int stride, int[] pointer) {
 		long __functionAddress = GL.getCapabilities().glNormalPointer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, type, stride, pointer);
 	}
 
@@ -11483,10 +11256,8 @@ public class GL11 {
 	 */
 	public static void glNormalPointer(int type, int stride, float[] pointer) {
 		long __functionAddress = GL.getCapabilities().glNormalPointer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, type, stride, pointer);
 	}
 
@@ -11497,10 +11268,8 @@ public class GL11 {
 	 */
 	public static void glPixelMapfv(int map, float[] values) {
 		long __functionAddress = GL.getCapabilities().glPixelMapfv;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, map, values.length, values);
 	}
 
@@ -11511,10 +11280,8 @@ public class GL11 {
 	 */
 	public static void glPixelMapusv(int map, short[] values) {
 		long __functionAddress = GL.getCapabilities().glPixelMapusv;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, map, values.length, values);
 	}
 
@@ -11525,10 +11292,8 @@ public class GL11 {
 	 */
 	public static void glPixelMapuiv(int map, int[] values) {
 		long __functionAddress = GL.getCapabilities().glPixelMapuiv;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, map, values.length, values);
 	}
 
@@ -11721,8 +11486,6 @@ public class GL11 {
 	 */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glReadPixels;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, x, y, width, height, format, type, pixels);
 	}
 
@@ -11733,8 +11496,6 @@ public class GL11 {
 	 */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glReadPixels;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, x, y, width, height, format, type, pixels);
 	}
 
@@ -11745,8 +11506,6 @@ public class GL11 {
 	 */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glReadPixels;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, x, y, width, height, format, type, pixels);
 	}
 
@@ -12053,10 +11812,8 @@ public class GL11 {
 	 */
 	public static void glTexCoordPointer(int size, int type, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glTexCoordPointer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -12067,10 +11824,8 @@ public class GL11 {
 	 */
 	public static void glTexCoordPointer(int size, int type, int stride, int[] pointer) {
 		long __functionAddress = GL.getCapabilities().glTexCoordPointer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -12081,10 +11836,8 @@ public class GL11 {
 	 */
 	public static void glTexCoordPointer(int size, int type, int stride, float[] pointer) {
 		long __functionAddress = GL.getCapabilities().glTexCoordPointer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -12161,8 +11914,6 @@ public class GL11 {
 	 */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTexImage2D;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
@@ -12173,8 +11924,6 @@ public class GL11 {
 	 */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTexImage2D;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
@@ -12185,8 +11934,6 @@ public class GL11 {
 	 */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTexImage2D;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
@@ -12197,8 +11944,6 @@ public class GL11 {
 	 */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, double[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTexImage2D;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
@@ -12209,8 +11954,6 @@ public class GL11 {
 	 */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTexImage1D;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, target, level, internalformat, width, border, format, type, pixels);
 	}
 
@@ -12221,8 +11964,6 @@ public class GL11 {
 	 */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTexImage1D;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, target, level, internalformat, width, border, format, type, pixels);
 	}
 
@@ -12233,8 +11974,6 @@ public class GL11 {
 	 */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTexImage1D;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, target, level, internalformat, width, border, format, type, pixels);
 	}
 
@@ -12245,8 +11984,6 @@ public class GL11 {
 	 */
 	public static void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, double[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTexImage1D;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, target, level, internalformat, width, border, format, type, pixels);
 	}
 
@@ -12281,8 +12018,6 @@ public class GL11 {
 	 */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTexSubImage1D;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, target, level, xoffset, width, format, type, pixels);
 	}
 
@@ -12293,8 +12028,6 @@ public class GL11 {
 	 */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTexSubImage1D;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, target, level, xoffset, width, format, type, pixels);
 	}
 
@@ -12305,8 +12038,6 @@ public class GL11 {
 	 */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTexSubImage1D;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, target, level, xoffset, width, format, type, pixels);
 	}
 
@@ -12317,8 +12048,6 @@ public class GL11 {
 	 */
 	public static void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, double[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTexSubImage1D;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, target, level, xoffset, width, format, type, pixels);
 	}
 
@@ -12329,8 +12058,6 @@ public class GL11 {
 	 */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTexSubImage2D;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
@@ -12341,8 +12068,6 @@ public class GL11 {
 	 */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTexSubImage2D;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
@@ -12353,8 +12078,6 @@ public class GL11 {
 	 */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTexSubImage2D;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
@@ -12365,8 +12088,6 @@ public class GL11 {
 	 */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, double[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTexSubImage2D;
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_UNPACK_BUFFER_BINDING, false);
 		callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
@@ -12545,10 +12266,8 @@ public class GL11 {
 	 */
 	public static void glVertexPointer(int size, int type, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexPointer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -12559,10 +12278,8 @@ public class GL11 {
 	 */
 	public static void glVertexPointer(int size, int type, int stride, int[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexPointer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -12573,10 +12290,8 @@ public class GL11 {
 	 */
 	public static void glVertexPointer(int size, int type, int stride, float[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexPointer;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 

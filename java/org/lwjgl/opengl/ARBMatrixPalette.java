@@ -174,8 +174,6 @@ public class ARBMatrixPalette {
 	 * @param pointer the matrix index data
 	 */
 	public static void glMatrixIndexPointerARB(int size, int type, int stride, ByteBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglMatrixIndexPointerARB(size, type, stride, memAddress(pointer));
 	}
 
@@ -188,8 +186,6 @@ public class ARBMatrixPalette {
 	 * @param pointer the matrix index data
 	 */
 	public static void glMatrixIndexPointerARB(int size, int type, int stride, long pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, true);
 		nglMatrixIndexPointerARB(size, type, stride, pointer);
 	}
 
@@ -201,8 +197,6 @@ public class ARBMatrixPalette {
 	 * @param pointer the matrix index data
 	 */
 	public static void glMatrixIndexPointerARB(int size, int stride, ByteBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglMatrixIndexPointerARB(size, GL11.GL_UNSIGNED_BYTE, stride, memAddress(pointer));
 	}
 
@@ -214,8 +208,6 @@ public class ARBMatrixPalette {
 	 * @param pointer the matrix index data
 	 */
 	public static void glMatrixIndexPointerARB(int size, int stride, ShortBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglMatrixIndexPointerARB(size, GL11.GL_UNSIGNED_SHORT, stride, memAddress(pointer));
 	}
 
@@ -227,8 +219,6 @@ public class ARBMatrixPalette {
 	 * @param pointer the matrix index data
 	 */
 	public static void glMatrixIndexPointerARB(int size, int stride, IntBuffer pointer) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ARRAY_BUFFER_BINDING, false);
 		nglMatrixIndexPointerARB(size, GL11.GL_UNSIGNED_INT, stride, memAddress(pointer));
 	}
 

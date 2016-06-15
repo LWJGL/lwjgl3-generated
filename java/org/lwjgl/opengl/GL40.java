@@ -338,10 +338,8 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param indirect a structure containing the draw parameters
 	 */
 	public static void glDrawArraysIndirect(int mode, ByteBuffer indirect) {
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkBuffer(indirect, 4 * 4);
-			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
-		}
 		nglDrawArraysIndirect(mode, memAddress(indirect));
 	}
 
@@ -369,8 +367,6 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param indirect a structure containing the draw parameters
 	 */
 	public static void glDrawArraysIndirect(int mode, long indirect) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
 		nglDrawArraysIndirect(mode, indirect);
 	}
 
@@ -380,10 +376,8 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * IntBuffer version of: {@link #glDrawArraysIndirect DrawArraysIndirect}
 	 */
 	public static void glDrawArraysIndirect(int mode, IntBuffer indirect) {
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkBuffer(indirect, (4 * 4) >> 2);
-			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
-		}
 		nglDrawArraysIndirect(mode, memAddress(indirect));
 	}
 
@@ -471,10 +465,8 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param indirect the address of a structure containing the draw parameters
 	 */
 	public static void glDrawElementsIndirect(int mode, int type, ByteBuffer indirect) {
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkBuffer(indirect, 5 * 4);
-			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
-		}
 		nglDrawElementsIndirect(mode, type, memAddress(indirect));
 	}
 
@@ -516,8 +508,6 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * @param indirect the address of a structure containing the draw parameters
 	 */
 	public static void glDrawElementsIndirect(int mode, int type, long indirect) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, true);
 		nglDrawElementsIndirect(mode, type, indirect);
 	}
 
@@ -527,10 +517,8 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 * IntBuffer version of: {@link #glDrawElementsIndirect DrawElementsIndirect}
 	 */
 	public static void glDrawElementsIndirect(int mode, int type, IntBuffer indirect) {
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkBuffer(indirect, (5 * 4) >> 2);
-			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
-		}
 		nglDrawElementsIndirect(mode, type, memAddress(indirect));
 	}
 
@@ -1908,7 +1896,6 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(indirect, 4 * 4);
-			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
 		callPV(__functionAddress, mode, indirect);
 	}
@@ -1923,7 +1910,6 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(indirect, 5 * 4);
-			GLChecks.ensureBufferObject(GL40.GL_DRAW_INDIRECT_BUFFER_BINDING, false);
 		}
 		callPV(__functionAddress, mode, type, indirect);
 	}

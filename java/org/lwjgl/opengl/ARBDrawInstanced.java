@@ -86,8 +86,6 @@ public class ARBDrawInstanced {
 	 * @param primcount the number of instances of the specified range of indices to be rendered
 	 */
 	public static void glDrawElementsInstancedARB(int mode, int count, int type, long indices, int primcount) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, true);
 		nglDrawElementsInstancedARB(mode, count, type, indices, primcount);
 	}
 
@@ -100,8 +98,6 @@ public class ARBDrawInstanced {
 	 * @param primcount the number of instances of the specified range of indices to be rendered
 	 */
 	public static void glDrawElementsInstancedARB(int mode, int type, ByteBuffer indices, int primcount) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedARB(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), primcount);
 	}
 
@@ -113,8 +109,6 @@ public class ARBDrawInstanced {
 	 * @param primcount the number of instances of the specified range of indices to be rendered
 	 */
 	public static void glDrawElementsInstancedARB(int mode, ByteBuffer indices, int primcount) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedARB(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount);
 	}
 
@@ -126,8 +120,6 @@ public class ARBDrawInstanced {
 	 * @param primcount the number of instances of the specified range of indices to be rendered
 	 */
 	public static void glDrawElementsInstancedARB(int mode, ShortBuffer indices, int primcount) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedARB(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount);
 	}
 
@@ -139,8 +131,6 @@ public class ARBDrawInstanced {
 	 * @param primcount the number of instances of the specified range of indices to be rendered
 	 */
 	public static void glDrawElementsInstancedARB(int mode, IntBuffer indices, int primcount) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL15.GL_ELEMENT_ARRAY_BUFFER_BINDING, false);
 		nglDrawElementsInstancedARB(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), primcount);
 	}
 

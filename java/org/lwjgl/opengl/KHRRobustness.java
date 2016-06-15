@@ -161,8 +161,6 @@ public class KHRRobustness {
 	 * @param pixels  a buffer in which to place the returned pixel data
 	 */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, true);
 		nglReadnPixels(x, y, width, height, format, type, bufSize, pixels);
 	}
 
@@ -178,29 +176,21 @@ public class KHRRobustness {
 	 * @param pixels a buffer in which to place the returned pixel data
 	 */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining(), memAddress(pixels));
 	}
 
 	/** ShortBuffer version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, ShortBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 1, memAddress(pixels));
 	}
 
 	/** IntBuffer version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, IntBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
 	/** FloatBuffer version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, FloatBuffer pixels) {
-		if ( CHECKS )
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
@@ -342,30 +332,24 @@ public class KHRRobustness {
 	/** short[] version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glReadnPixels;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 1, pixels);
 	}
 
 	/** int[] version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glReadnPixels;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
 	}
 
 	/** float[] version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glReadnPixels;
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-			GLChecks.ensureBufferObject(GL21.GL_PIXEL_PACK_BUFFER_BINDING, false);
-		}
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
 	}
 
