@@ -21,10 +21,15 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkStyleItem struct nk_style_item} normal;
     {@link NkStyleItem struct nk_style_item} hover;
     {@link NkStyleItem struct nk_style_item} active;
+    {@link NkColor struct nk_color} border_color;
     {@link NkStyleItem struct nk_style_item} cursor_normal;
     {@link NkStyleItem struct nk_style_item} cursor_hover;
     {@link NkStyleItem struct nk_style_item} cursor_active;
+    {@link NkColor struct nk_color} cursor_border_color;
     float rounding;
+    float border;
+    float cursor_border;
+    float cursor_rounding;
     {@link NkVec2 struct nk_vec2} padding;
     {@link NkHandle nk_handle} userdata;
     nk_draw_begin draw_begin;
@@ -43,10 +48,15 @@ public class NkStyleProgress extends Struct {
 		NORMAL,
 		HOVER,
 		ACTIVE,
+		BORDER_COLOR,
 		CURSOR_NORMAL,
 		CURSOR_HOVER,
 		CURSOR_ACTIVE,
+		CURSOR_BORDER_COLOR,
 		ROUNDING,
+		BORDER,
+		CURSOR_BORDER,
+		CURSOR_ROUNDING,
 		PADDING,
 		USERDATA,
 		DRAW_BEGIN,
@@ -57,9 +67,14 @@ public class NkStyleProgress extends Struct {
 			__member(NkStyleItem.SIZEOF, NkStyleItem.ALIGNOF),
 			__member(NkStyleItem.SIZEOF, NkStyleItem.ALIGNOF),
 			__member(NkStyleItem.SIZEOF, NkStyleItem.ALIGNOF),
+			__member(NkColor.SIZEOF, NkColor.ALIGNOF),
 			__member(NkStyleItem.SIZEOF, NkStyleItem.ALIGNOF),
 			__member(NkStyleItem.SIZEOF, NkStyleItem.ALIGNOF),
 			__member(NkStyleItem.SIZEOF, NkStyleItem.ALIGNOF),
+			__member(NkColor.SIZEOF, NkColor.ALIGNOF),
+			__member(4),
+			__member(4),
+			__member(4),
 			__member(4),
 			__member(NkVec2.SIZEOF, NkVec2.ALIGNOF),
 			__member(NkHandle.SIZEOF, NkHandle.ALIGNOF),
@@ -73,14 +88,19 @@ public class NkStyleProgress extends Struct {
 		NORMAL = layout.offsetof(0);
 		HOVER = layout.offsetof(1);
 		ACTIVE = layout.offsetof(2);
-		CURSOR_NORMAL = layout.offsetof(3);
-		CURSOR_HOVER = layout.offsetof(4);
-		CURSOR_ACTIVE = layout.offsetof(5);
-		ROUNDING = layout.offsetof(6);
-		PADDING = layout.offsetof(7);
-		USERDATA = layout.offsetof(8);
-		DRAW_BEGIN = layout.offsetof(9);
-		DRAW_END = layout.offsetof(10);
+		BORDER_COLOR = layout.offsetof(3);
+		CURSOR_NORMAL = layout.offsetof(4);
+		CURSOR_HOVER = layout.offsetof(5);
+		CURSOR_ACTIVE = layout.offsetof(6);
+		CURSOR_BORDER_COLOR = layout.offsetof(7);
+		ROUNDING = layout.offsetof(8);
+		BORDER = layout.offsetof(9);
+		CURSOR_BORDER = layout.offsetof(10);
+		CURSOR_ROUNDING = layout.offsetof(11);
+		PADDING = layout.offsetof(12);
+		USERDATA = layout.offsetof(13);
+		DRAW_BEGIN = layout.offsetof(14);
+		DRAW_END = layout.offsetof(15);
 	}
 
 	NkStyleProgress(long address, ByteBuffer container) {
@@ -106,14 +126,24 @@ public class NkStyleProgress extends Struct {
 	public NkStyleItem hover() { return nhover(address()); }
 	/** Returns a {@link NkStyleItem} view of the {@code active} field. */
 	public NkStyleItem active() { return nactive(address()); }
+	/** Returns a {@link NkColor} view of the {@code border_color} field. */
+	public NkColor border_color() { return nborder_color(address()); }
 	/** Returns a {@link NkStyleItem} view of the {@code cursor_normal} field. */
 	public NkStyleItem cursor_normal() { return ncursor_normal(address()); }
 	/** Returns a {@link NkStyleItem} view of the {@code cursor_hover} field. */
 	public NkStyleItem cursor_hover() { return ncursor_hover(address()); }
 	/** Returns a {@link NkStyleItem} view of the {@code cursor_active} field. */
 	public NkStyleItem cursor_active() { return ncursor_active(address()); }
+	/** Returns a {@link NkColor} view of the {@code cursor_border_color} field. */
+	public NkColor cursor_border_color() { return ncursor_border_color(address()); }
 	/** Returns the value of the {@code rounding} field. */
 	public float rounding() { return nrounding(address()); }
+	/** Returns the value of the {@code border} field. */
+	public float border() { return nborder(address()); }
+	/** Returns the value of the {@code cursor_border} field. */
+	public float cursor_border() { return ncursor_border(address()); }
+	/** Returns the value of the {@code cursor_rounding} field. */
+	public float cursor_rounding() { return ncursor_rounding(address()); }
 	/** Returns a {@link NkVec2} view of the {@code padding} field. */
 	public NkVec2 padding() { return npadding(address()); }
 	/** Returns a {@link NkHandle} view of the {@code userdata} field. */
@@ -129,14 +159,24 @@ public class NkStyleProgress extends Struct {
 	public NkStyleProgress hover(NkStyleItem value) { nhover(address(), value); return this; }
 	/** Copies the specified {@link NkStyleItem} to the {@code active} field. */
 	public NkStyleProgress active(NkStyleItem value) { nactive(address(), value); return this; }
+	/** Copies the specified {@link NkColor} to the {@code border_color} field. */
+	public NkStyleProgress border_color(NkColor value) { nborder_color(address(), value); return this; }
 	/** Copies the specified {@link NkStyleItem} to the {@code cursor_normal} field. */
 	public NkStyleProgress cursor_normal(NkStyleItem value) { ncursor_normal(address(), value); return this; }
 	/** Copies the specified {@link NkStyleItem} to the {@code cursor_hover} field. */
 	public NkStyleProgress cursor_hover(NkStyleItem value) { ncursor_hover(address(), value); return this; }
 	/** Copies the specified {@link NkStyleItem} to the {@code cursor_active} field. */
 	public NkStyleProgress cursor_active(NkStyleItem value) { ncursor_active(address(), value); return this; }
+	/** Copies the specified {@link NkColor} to the {@code cursor_border_color} field. */
+	public NkStyleProgress cursor_border_color(NkColor value) { ncursor_border_color(address(), value); return this; }
 	/** Sets the specified value to the {@code rounding} field. */
 	public NkStyleProgress rounding(float value) { nrounding(address(), value); return this; }
+	/** Sets the specified value to the {@code border} field. */
+	public NkStyleProgress border(float value) { nborder(address(), value); return this; }
+	/** Sets the specified value to the {@code cursor_border} field. */
+	public NkStyleProgress cursor_border(float value) { ncursor_border(address(), value); return this; }
+	/** Sets the specified value to the {@code cursor_rounding} field. */
+	public NkStyleProgress cursor_rounding(float value) { ncursor_rounding(address(), value); return this; }
 	/** Copies the specified {@link NkVec2} to the {@code padding} field. */
 	public NkStyleProgress padding(NkVec2 value) { npadding(address(), value); return this; }
 	/** Copies the specified {@link NkHandle} to the {@code userdata} field. */
@@ -298,14 +338,24 @@ public class NkStyleProgress extends Struct {
 	public static NkStyleItem nhover(long struct) { return NkStyleItem.create(struct + NkStyleProgress.HOVER); }
 	/** Unsafe version of {@link #active}. */
 	public static NkStyleItem nactive(long struct) { return NkStyleItem.create(struct + NkStyleProgress.ACTIVE); }
+	/** Unsafe version of {@link #border_color}. */
+	public static NkColor nborder_color(long struct) { return NkColor.create(struct + NkStyleProgress.BORDER_COLOR); }
 	/** Unsafe version of {@link #cursor_normal}. */
 	public static NkStyleItem ncursor_normal(long struct) { return NkStyleItem.create(struct + NkStyleProgress.CURSOR_NORMAL); }
 	/** Unsafe version of {@link #cursor_hover}. */
 	public static NkStyleItem ncursor_hover(long struct) { return NkStyleItem.create(struct + NkStyleProgress.CURSOR_HOVER); }
 	/** Unsafe version of {@link #cursor_active}. */
 	public static NkStyleItem ncursor_active(long struct) { return NkStyleItem.create(struct + NkStyleProgress.CURSOR_ACTIVE); }
+	/** Unsafe version of {@link #cursor_border_color}. */
+	public static NkColor ncursor_border_color(long struct) { return NkColor.create(struct + NkStyleProgress.CURSOR_BORDER_COLOR); }
 	/** Unsafe version of {@link #rounding}. */
 	public static float nrounding(long struct) { return memGetFloat(struct + NkStyleProgress.ROUNDING); }
+	/** Unsafe version of {@link #border}. */
+	public static float nborder(long struct) { return memGetFloat(struct + NkStyleProgress.BORDER); }
+	/** Unsafe version of {@link #cursor_border}. */
+	public static float ncursor_border(long struct) { return memGetFloat(struct + NkStyleProgress.CURSOR_BORDER); }
+	/** Unsafe version of {@link #cursor_rounding}. */
+	public static float ncursor_rounding(long struct) { return memGetFloat(struct + NkStyleProgress.CURSOR_ROUNDING); }
 	/** Unsafe version of {@link #padding}. */
 	public static NkVec2 npadding(long struct) { return NkVec2.create(struct + NkStyleProgress.PADDING); }
 	/** Unsafe version of {@link #userdata}. */
@@ -321,14 +371,24 @@ public class NkStyleProgress extends Struct {
 	public static void nhover(long struct, NkStyleItem value) { memCopy(value.address(), struct + NkStyleProgress.HOVER, NkStyleItem.SIZEOF); }
 	/** Unsafe version of {@link #active(NkStyleItem) active}. */
 	public static void nactive(long struct, NkStyleItem value) { memCopy(value.address(), struct + NkStyleProgress.ACTIVE, NkStyleItem.SIZEOF); }
+	/** Unsafe version of {@link #border_color(NkColor) border_color}. */
+	public static void nborder_color(long struct, NkColor value) { memCopy(value.address(), struct + NkStyleProgress.BORDER_COLOR, NkColor.SIZEOF); }
 	/** Unsafe version of {@link #cursor_normal(NkStyleItem) cursor_normal}. */
 	public static void ncursor_normal(long struct, NkStyleItem value) { memCopy(value.address(), struct + NkStyleProgress.CURSOR_NORMAL, NkStyleItem.SIZEOF); }
 	/** Unsafe version of {@link #cursor_hover(NkStyleItem) cursor_hover}. */
 	public static void ncursor_hover(long struct, NkStyleItem value) { memCopy(value.address(), struct + NkStyleProgress.CURSOR_HOVER, NkStyleItem.SIZEOF); }
 	/** Unsafe version of {@link #cursor_active(NkStyleItem) cursor_active}. */
 	public static void ncursor_active(long struct, NkStyleItem value) { memCopy(value.address(), struct + NkStyleProgress.CURSOR_ACTIVE, NkStyleItem.SIZEOF); }
+	/** Unsafe version of {@link #cursor_border_color(NkColor) cursor_border_color}. */
+	public static void ncursor_border_color(long struct, NkColor value) { memCopy(value.address(), struct + NkStyleProgress.CURSOR_BORDER_COLOR, NkColor.SIZEOF); }
 	/** Unsafe version of {@link #rounding(float) rounding}. */
 	public static void nrounding(long struct, float value) { memPutFloat(struct + NkStyleProgress.ROUNDING, value); }
+	/** Unsafe version of {@link #border(float) border}. */
+	public static void nborder(long struct, float value) { memPutFloat(struct + NkStyleProgress.BORDER, value); }
+	/** Unsafe version of {@link #cursor_border(float) cursor_border}. */
+	public static void ncursor_border(long struct, float value) { memPutFloat(struct + NkStyleProgress.CURSOR_BORDER, value); }
+	/** Unsafe version of {@link #cursor_rounding(float) cursor_rounding}. */
+	public static void ncursor_rounding(long struct, float value) { memPutFloat(struct + NkStyleProgress.CURSOR_ROUNDING, value); }
 	/** Unsafe version of {@link #padding(NkVec2) padding}. */
 	public static void npadding(long struct, NkVec2 value) { memCopy(value.address(), struct + NkStyleProgress.PADDING, NkVec2.SIZEOF); }
 	/** Unsafe version of {@link #userdata(NkHandle) userdata}. */
@@ -386,14 +446,24 @@ public class NkStyleProgress extends Struct {
 		public NkStyleItem hover() { return NkStyleProgress.nhover(address()); }
 		/** Returns a {@link NkStyleItem} view of the {@code active} field. */
 		public NkStyleItem active() { return NkStyleProgress.nactive(address()); }
+		/** Returns a {@link NkColor} view of the {@code border_color} field. */
+		public NkColor border_color() { return NkStyleProgress.nborder_color(address()); }
 		/** Returns a {@link NkStyleItem} view of the {@code cursor_normal} field. */
 		public NkStyleItem cursor_normal() { return NkStyleProgress.ncursor_normal(address()); }
 		/** Returns a {@link NkStyleItem} view of the {@code cursor_hover} field. */
 		public NkStyleItem cursor_hover() { return NkStyleProgress.ncursor_hover(address()); }
 		/** Returns a {@link NkStyleItem} view of the {@code cursor_active} field. */
 		public NkStyleItem cursor_active() { return NkStyleProgress.ncursor_active(address()); }
+		/** Returns a {@link NkColor} view of the {@code cursor_border_color} field. */
+		public NkColor cursor_border_color() { return NkStyleProgress.ncursor_border_color(address()); }
 		/** Returns the value of the {@code rounding} field. */
 		public float rounding() { return NkStyleProgress.nrounding(address()); }
+		/** Returns the value of the {@code border} field. */
+		public float border() { return NkStyleProgress.nborder(address()); }
+		/** Returns the value of the {@code cursor_border} field. */
+		public float cursor_border() { return NkStyleProgress.ncursor_border(address()); }
+		/** Returns the value of the {@code cursor_rounding} field. */
+		public float cursor_rounding() { return NkStyleProgress.ncursor_rounding(address()); }
 		/** Returns a {@link NkVec2} view of the {@code padding} field. */
 		public NkVec2 padding() { return NkStyleProgress.npadding(address()); }
 		/** Returns a {@link NkHandle} view of the {@code userdata} field. */
@@ -409,14 +479,24 @@ public class NkStyleProgress extends Struct {
 		public NkStyleProgress.Buffer hover(NkStyleItem value) { NkStyleProgress.nhover(address(), value); return this; }
 		/** Copies the specified {@link NkStyleItem} to the {@code active} field. */
 		public NkStyleProgress.Buffer active(NkStyleItem value) { NkStyleProgress.nactive(address(), value); return this; }
+		/** Copies the specified {@link NkColor} to the {@code border_color} field. */
+		public NkStyleProgress.Buffer border_color(NkColor value) { NkStyleProgress.nborder_color(address(), value); return this; }
 		/** Copies the specified {@link NkStyleItem} to the {@code cursor_normal} field. */
 		public NkStyleProgress.Buffer cursor_normal(NkStyleItem value) { NkStyleProgress.ncursor_normal(address(), value); return this; }
 		/** Copies the specified {@link NkStyleItem} to the {@code cursor_hover} field. */
 		public NkStyleProgress.Buffer cursor_hover(NkStyleItem value) { NkStyleProgress.ncursor_hover(address(), value); return this; }
 		/** Copies the specified {@link NkStyleItem} to the {@code cursor_active} field. */
 		public NkStyleProgress.Buffer cursor_active(NkStyleItem value) { NkStyleProgress.ncursor_active(address(), value); return this; }
+		/** Copies the specified {@link NkColor} to the {@code cursor_border_color} field. */
+		public NkStyleProgress.Buffer cursor_border_color(NkColor value) { NkStyleProgress.ncursor_border_color(address(), value); return this; }
 		/** Sets the specified value to the {@code rounding} field. */
 		public NkStyleProgress.Buffer rounding(float value) { NkStyleProgress.nrounding(address(), value); return this; }
+		/** Sets the specified value to the {@code border} field. */
+		public NkStyleProgress.Buffer border(float value) { NkStyleProgress.nborder(address(), value); return this; }
+		/** Sets the specified value to the {@code cursor_border} field. */
+		public NkStyleProgress.Buffer cursor_border(float value) { NkStyleProgress.ncursor_border(address(), value); return this; }
+		/** Sets the specified value to the {@code cursor_rounding} field. */
+		public NkStyleProgress.Buffer cursor_rounding(float value) { NkStyleProgress.ncursor_rounding(address(), value); return this; }
 		/** Copies the specified {@link NkVec2} to the {@code padding} field. */
 		public NkStyleProgress.Buffer padding(NkVec2 value) { NkStyleProgress.npadding(address(), value); return this; }
 		/** Copies the specified {@link NkHandle} to the {@code userdata} field. */

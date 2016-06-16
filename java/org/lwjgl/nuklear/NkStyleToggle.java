@@ -21,6 +21,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkStyleItem struct nk_style_item} normal;
     {@link NkStyleItem struct nk_style_item} hover;
     {@link NkStyleItem struct nk_style_item} active;
+    {@link NkColor struct nk_color} border_color;
     {@link NkStyleItem struct nk_style_item} cursor_normal;
     {@link NkStyleItem struct nk_style_item} cursor_hover;
     {@link NkColor struct nk_color} text_normal;
@@ -30,6 +31,8 @@ import static org.lwjgl.system.MemoryStack.*;
     nk_flags text_alignment;
     {@link NkVec2 struct nk_vec2} padding;
     {@link NkVec2 struct nk_vec2} touch_padding;
+    float spacing;
+    float border;
     {@link NkHandle nk_handle} userdata;
     nk_draw_begin draw_begin;
     nk_draw_end draw_end;
@@ -47,6 +50,7 @@ public class NkStyleToggle extends Struct {
 		NORMAL,
 		HOVER,
 		ACTIVE,
+		BORDER_COLOR,
 		CURSOR_NORMAL,
 		CURSOR_HOVER,
 		TEXT_NORMAL,
@@ -56,6 +60,8 @@ public class NkStyleToggle extends Struct {
 		TEXT_ALIGNMENT,
 		PADDING,
 		TOUCH_PADDING,
+		SPACING,
+		BORDER,
 		USERDATA,
 		DRAW_BEGIN,
 		DRAW_END;
@@ -65,6 +71,7 @@ public class NkStyleToggle extends Struct {
 			__member(NkStyleItem.SIZEOF, NkStyleItem.ALIGNOF),
 			__member(NkStyleItem.SIZEOF, NkStyleItem.ALIGNOF),
 			__member(NkStyleItem.SIZEOF, NkStyleItem.ALIGNOF),
+			__member(NkColor.SIZEOF, NkColor.ALIGNOF),
 			__member(NkStyleItem.SIZEOF, NkStyleItem.ALIGNOF),
 			__member(NkStyleItem.SIZEOF, NkStyleItem.ALIGNOF),
 			__member(NkColor.SIZEOF, NkColor.ALIGNOF),
@@ -74,6 +81,8 @@ public class NkStyleToggle extends Struct {
 			__member(4),
 			__member(NkVec2.SIZEOF, NkVec2.ALIGNOF),
 			__member(NkVec2.SIZEOF, NkVec2.ALIGNOF),
+			__member(4),
+			__member(4),
 			__member(NkHandle.SIZEOF, NkHandle.ALIGNOF),
 			__member(POINTER_SIZE),
 			__member(POINTER_SIZE)
@@ -85,18 +94,21 @@ public class NkStyleToggle extends Struct {
 		NORMAL = layout.offsetof(0);
 		HOVER = layout.offsetof(1);
 		ACTIVE = layout.offsetof(2);
-		CURSOR_NORMAL = layout.offsetof(3);
-		CURSOR_HOVER = layout.offsetof(4);
-		TEXT_NORMAL = layout.offsetof(5);
-		TEXT_HOVER = layout.offsetof(6);
-		TEXT_ACTIVE = layout.offsetof(7);
-		TEXT_BACKGROUND = layout.offsetof(8);
-		TEXT_ALIGNMENT = layout.offsetof(9);
-		PADDING = layout.offsetof(10);
-		TOUCH_PADDING = layout.offsetof(11);
-		USERDATA = layout.offsetof(12);
-		DRAW_BEGIN = layout.offsetof(13);
-		DRAW_END = layout.offsetof(14);
+		BORDER_COLOR = layout.offsetof(3);
+		CURSOR_NORMAL = layout.offsetof(4);
+		CURSOR_HOVER = layout.offsetof(5);
+		TEXT_NORMAL = layout.offsetof(6);
+		TEXT_HOVER = layout.offsetof(7);
+		TEXT_ACTIVE = layout.offsetof(8);
+		TEXT_BACKGROUND = layout.offsetof(9);
+		TEXT_ALIGNMENT = layout.offsetof(10);
+		PADDING = layout.offsetof(11);
+		TOUCH_PADDING = layout.offsetof(12);
+		SPACING = layout.offsetof(13);
+		BORDER = layout.offsetof(14);
+		USERDATA = layout.offsetof(15);
+		DRAW_BEGIN = layout.offsetof(16);
+		DRAW_END = layout.offsetof(17);
 	}
 
 	NkStyleToggle(long address, ByteBuffer container) {
@@ -122,6 +134,8 @@ public class NkStyleToggle extends Struct {
 	public NkStyleItem hover() { return nhover(address()); }
 	/** Returns a {@link NkStyleItem} view of the {@code active} field. */
 	public NkStyleItem active() { return nactive(address()); }
+	/** Returns a {@link NkColor} view of the {@code border_color} field. */
+	public NkColor border_color() { return nborder_color(address()); }
 	/** Returns a {@link NkStyleItem} view of the {@code cursor_normal} field. */
 	public NkStyleItem cursor_normal() { return ncursor_normal(address()); }
 	/** Returns a {@link NkStyleItem} view of the {@code cursor_hover} field. */
@@ -140,6 +154,10 @@ public class NkStyleToggle extends Struct {
 	public NkVec2 padding() { return npadding(address()); }
 	/** Returns a {@link NkVec2} view of the {@code touch_padding} field. */
 	public NkVec2 touch_padding() { return ntouch_padding(address()); }
+	/** Returns the value of the {@code spacing} field. */
+	public float spacing() { return nspacing(address()); }
+	/** Returns the value of the {@code border} field. */
+	public float border() { return nborder(address()); }
 	/** Returns a {@link NkHandle} view of the {@code userdata} field. */
 	public NkHandle userdata() { return nuserdata(address()); }
 	/** Returns the {@code NkDrawBeginCallback} instance at the {@code draw_begin} field. */
@@ -153,6 +171,8 @@ public class NkStyleToggle extends Struct {
 	public NkStyleToggle hover(NkStyleItem value) { nhover(address(), value); return this; }
 	/** Copies the specified {@link NkStyleItem} to the {@code active} field. */
 	public NkStyleToggle active(NkStyleItem value) { nactive(address(), value); return this; }
+	/** Copies the specified {@link NkColor} to the {@code border_color} field. */
+	public NkStyleToggle border_color(NkColor value) { nborder_color(address(), value); return this; }
 	/** Copies the specified {@link NkStyleItem} to the {@code cursor_normal} field. */
 	public NkStyleToggle cursor_normal(NkStyleItem value) { ncursor_normal(address(), value); return this; }
 	/** Copies the specified {@link NkStyleItem} to the {@code cursor_hover} field. */
@@ -171,6 +191,10 @@ public class NkStyleToggle extends Struct {
 	public NkStyleToggle padding(NkVec2 value) { npadding(address(), value); return this; }
 	/** Copies the specified {@link NkVec2} to the {@code touch_padding} field. */
 	public NkStyleToggle touch_padding(NkVec2 value) { ntouch_padding(address(), value); return this; }
+	/** Sets the specified value to the {@code spacing} field. */
+	public NkStyleToggle spacing(float value) { nspacing(address(), value); return this; }
+	/** Sets the specified value to the {@code border} field. */
+	public NkStyleToggle border(float value) { nborder(address(), value); return this; }
 	/** Copies the specified {@link NkHandle} to the {@code userdata} field. */
 	public NkStyleToggle userdata(NkHandle value) { nuserdata(address(), value); return this; }
 	/** Sets the address of the specified {@link NkDrawBeginCallbackI} to the {@code draw_begin} field. */
@@ -330,6 +354,8 @@ public class NkStyleToggle extends Struct {
 	public static NkStyleItem nhover(long struct) { return NkStyleItem.create(struct + NkStyleToggle.HOVER); }
 	/** Unsafe version of {@link #active}. */
 	public static NkStyleItem nactive(long struct) { return NkStyleItem.create(struct + NkStyleToggle.ACTIVE); }
+	/** Unsafe version of {@link #border_color}. */
+	public static NkColor nborder_color(long struct) { return NkColor.create(struct + NkStyleToggle.BORDER_COLOR); }
 	/** Unsafe version of {@link #cursor_normal}. */
 	public static NkStyleItem ncursor_normal(long struct) { return NkStyleItem.create(struct + NkStyleToggle.CURSOR_NORMAL); }
 	/** Unsafe version of {@link #cursor_hover}. */
@@ -348,6 +374,10 @@ public class NkStyleToggle extends Struct {
 	public static NkVec2 npadding(long struct) { return NkVec2.create(struct + NkStyleToggle.PADDING); }
 	/** Unsafe version of {@link #touch_padding}. */
 	public static NkVec2 ntouch_padding(long struct) { return NkVec2.create(struct + NkStyleToggle.TOUCH_PADDING); }
+	/** Unsafe version of {@link #spacing}. */
+	public static float nspacing(long struct) { return memGetFloat(struct + NkStyleToggle.SPACING); }
+	/** Unsafe version of {@link #border}. */
+	public static float nborder(long struct) { return memGetFloat(struct + NkStyleToggle.BORDER); }
 	/** Unsafe version of {@link #userdata}. */
 	public static NkHandle nuserdata(long struct) { return NkHandle.create(struct + NkStyleToggle.USERDATA); }
 	/** Unsafe version of {@link #draw_begin}. */
@@ -361,6 +391,8 @@ public class NkStyleToggle extends Struct {
 	public static void nhover(long struct, NkStyleItem value) { memCopy(value.address(), struct + NkStyleToggle.HOVER, NkStyleItem.SIZEOF); }
 	/** Unsafe version of {@link #active(NkStyleItem) active}. */
 	public static void nactive(long struct, NkStyleItem value) { memCopy(value.address(), struct + NkStyleToggle.ACTIVE, NkStyleItem.SIZEOF); }
+	/** Unsafe version of {@link #border_color(NkColor) border_color}. */
+	public static void nborder_color(long struct, NkColor value) { memCopy(value.address(), struct + NkStyleToggle.BORDER_COLOR, NkColor.SIZEOF); }
 	/** Unsafe version of {@link #cursor_normal(NkStyleItem) cursor_normal}. */
 	public static void ncursor_normal(long struct, NkStyleItem value) { memCopy(value.address(), struct + NkStyleToggle.CURSOR_NORMAL, NkStyleItem.SIZEOF); }
 	/** Unsafe version of {@link #cursor_hover(NkStyleItem) cursor_hover}. */
@@ -379,6 +411,10 @@ public class NkStyleToggle extends Struct {
 	public static void npadding(long struct, NkVec2 value) { memCopy(value.address(), struct + NkStyleToggle.PADDING, NkVec2.SIZEOF); }
 	/** Unsafe version of {@link #touch_padding(NkVec2) touch_padding}. */
 	public static void ntouch_padding(long struct, NkVec2 value) { memCopy(value.address(), struct + NkStyleToggle.TOUCH_PADDING, NkVec2.SIZEOF); }
+	/** Unsafe version of {@link #spacing(float) spacing}. */
+	public static void nspacing(long struct, float value) { memPutFloat(struct + NkStyleToggle.SPACING, value); }
+	/** Unsafe version of {@link #border(float) border}. */
+	public static void nborder(long struct, float value) { memPutFloat(struct + NkStyleToggle.BORDER, value); }
 	/** Unsafe version of {@link #userdata(NkHandle) userdata}. */
 	public static void nuserdata(long struct, NkHandle value) { memCopy(value.address(), struct + NkStyleToggle.USERDATA, NkHandle.SIZEOF); }
 	/** Unsafe version of {@link #draw_begin(NkDrawBeginCallbackI) draw_begin}. */
@@ -434,6 +470,8 @@ public class NkStyleToggle extends Struct {
 		public NkStyleItem hover() { return NkStyleToggle.nhover(address()); }
 		/** Returns a {@link NkStyleItem} view of the {@code active} field. */
 		public NkStyleItem active() { return NkStyleToggle.nactive(address()); }
+		/** Returns a {@link NkColor} view of the {@code border_color} field. */
+		public NkColor border_color() { return NkStyleToggle.nborder_color(address()); }
 		/** Returns a {@link NkStyleItem} view of the {@code cursor_normal} field. */
 		public NkStyleItem cursor_normal() { return NkStyleToggle.ncursor_normal(address()); }
 		/** Returns a {@link NkStyleItem} view of the {@code cursor_hover} field. */
@@ -452,6 +490,10 @@ public class NkStyleToggle extends Struct {
 		public NkVec2 padding() { return NkStyleToggle.npadding(address()); }
 		/** Returns a {@link NkVec2} view of the {@code touch_padding} field. */
 		public NkVec2 touch_padding() { return NkStyleToggle.ntouch_padding(address()); }
+		/** Returns the value of the {@code spacing} field. */
+		public float spacing() { return NkStyleToggle.nspacing(address()); }
+		/** Returns the value of the {@code border} field. */
+		public float border() { return NkStyleToggle.nborder(address()); }
 		/** Returns a {@link NkHandle} view of the {@code userdata} field. */
 		public NkHandle userdata() { return NkStyleToggle.nuserdata(address()); }
 		/** Returns the {@code NkDrawBeginCallback} instance at the {@code draw_begin} field. */
@@ -465,6 +507,8 @@ public class NkStyleToggle extends Struct {
 		public NkStyleToggle.Buffer hover(NkStyleItem value) { NkStyleToggle.nhover(address(), value); return this; }
 		/** Copies the specified {@link NkStyleItem} to the {@code active} field. */
 		public NkStyleToggle.Buffer active(NkStyleItem value) { NkStyleToggle.nactive(address(), value); return this; }
+		/** Copies the specified {@link NkColor} to the {@code border_color} field. */
+		public NkStyleToggle.Buffer border_color(NkColor value) { NkStyleToggle.nborder_color(address(), value); return this; }
 		/** Copies the specified {@link NkStyleItem} to the {@code cursor_normal} field. */
 		public NkStyleToggle.Buffer cursor_normal(NkStyleItem value) { NkStyleToggle.ncursor_normal(address(), value); return this; }
 		/** Copies the specified {@link NkStyleItem} to the {@code cursor_hover} field. */
@@ -483,6 +527,10 @@ public class NkStyleToggle extends Struct {
 		public NkStyleToggle.Buffer padding(NkVec2 value) { NkStyleToggle.npadding(address(), value); return this; }
 		/** Copies the specified {@link NkVec2} to the {@code touch_padding} field. */
 		public NkStyleToggle.Buffer touch_padding(NkVec2 value) { NkStyleToggle.ntouch_padding(address(), value); return this; }
+		/** Sets the specified value to the {@code spacing} field. */
+		public NkStyleToggle.Buffer spacing(float value) { NkStyleToggle.nspacing(address(), value); return this; }
+		/** Sets the specified value to the {@code border} field. */
+		public NkStyleToggle.Buffer border(float value) { NkStyleToggle.nborder(address(), value); return this; }
 		/** Copies the specified {@link NkHandle} to the {@code userdata} field. */
 		public NkStyleToggle.Buffer userdata(NkHandle value) { NkStyleToggle.nuserdata(address(), value); return this; }
 		/** Sets the address of the specified {@link NkDrawBeginCallbackI} to the {@code draw_begin} field. */

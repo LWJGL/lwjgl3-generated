@@ -25,8 +25,11 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkStyleItem struct nk_style_item} cursor_normal;
     {@link NkStyleItem struct nk_style_item} cursor_hover;
     {@link NkStyleItem struct nk_style_item} cursor_active;
+    {@link NkColor struct nk_color} cursor_border_color;
     float border;
     float rounding;
+    float border_cursor;
+    float rounding_cursor;
     {@link NkVec2 struct nk_vec2} padding;
     int show_buttons;
     {@link NkStyleButton struct nk_style_button} inc_button;
@@ -54,8 +57,11 @@ public class NkStyleScrollbar extends Struct {
 		CURSOR_NORMAL,
 		CURSOR_HOVER,
 		CURSOR_ACTIVE,
+		CURSOR_BORDER_COLOR,
 		BORDER,
 		ROUNDING,
+		BORDER_CURSOR,
+		ROUNDING_CURSOR,
 		PADDING,
 		SHOW_BUTTONS,
 		INC_BUTTON,
@@ -75,6 +81,9 @@ public class NkStyleScrollbar extends Struct {
 			__member(NkStyleItem.SIZEOF, NkStyleItem.ALIGNOF),
 			__member(NkStyleItem.SIZEOF, NkStyleItem.ALIGNOF),
 			__member(NkStyleItem.SIZEOF, NkStyleItem.ALIGNOF),
+			__member(NkColor.SIZEOF, NkColor.ALIGNOF),
+			__member(4),
+			__member(4),
 			__member(4),
 			__member(4),
 			__member(NkVec2.SIZEOF, NkVec2.ALIGNOF),
@@ -98,17 +107,20 @@ public class NkStyleScrollbar extends Struct {
 		CURSOR_NORMAL = layout.offsetof(4);
 		CURSOR_HOVER = layout.offsetof(5);
 		CURSOR_ACTIVE = layout.offsetof(6);
-		BORDER = layout.offsetof(7);
-		ROUNDING = layout.offsetof(8);
-		PADDING = layout.offsetof(9);
-		SHOW_BUTTONS = layout.offsetof(10);
-		INC_BUTTON = layout.offsetof(11);
-		DEC_BUTTON = layout.offsetof(12);
-		INC_SYMBOL = layout.offsetof(13);
-		DEC_SYMBOL = layout.offsetof(14);
-		USERDATA = layout.offsetof(15);
-		DRAW_BEGIN = layout.offsetof(16);
-		DRAW_END = layout.offsetof(17);
+		CURSOR_BORDER_COLOR = layout.offsetof(7);
+		BORDER = layout.offsetof(8);
+		ROUNDING = layout.offsetof(9);
+		BORDER_CURSOR = layout.offsetof(10);
+		ROUNDING_CURSOR = layout.offsetof(11);
+		PADDING = layout.offsetof(12);
+		SHOW_BUTTONS = layout.offsetof(13);
+		INC_BUTTON = layout.offsetof(14);
+		DEC_BUTTON = layout.offsetof(15);
+		INC_SYMBOL = layout.offsetof(16);
+		DEC_SYMBOL = layout.offsetof(17);
+		USERDATA = layout.offsetof(18);
+		DRAW_BEGIN = layout.offsetof(19);
+		DRAW_END = layout.offsetof(20);
 	}
 
 	NkStyleScrollbar(long address, ByteBuffer container) {
@@ -142,10 +154,16 @@ public class NkStyleScrollbar extends Struct {
 	public NkStyleItem cursor_hover() { return ncursor_hover(address()); }
 	/** Returns a {@link NkStyleItem} view of the {@code cursor_active} field. */
 	public NkStyleItem cursor_active() { return ncursor_active(address()); }
+	/** Returns a {@link NkColor} view of the {@code cursor_border_color} field. */
+	public NkColor cursor_border_color() { return ncursor_border_color(address()); }
 	/** Returns the value of the {@code border} field. */
 	public float border() { return nborder(address()); }
 	/** Returns the value of the {@code rounding} field. */
 	public float rounding() { return nrounding(address()); }
+	/** Returns the value of the {@code border_cursor} field. */
+	public float border_cursor() { return nborder_cursor(address()); }
+	/** Returns the value of the {@code rounding_cursor} field. */
+	public float rounding_cursor() { return nrounding_cursor(address()); }
 	/** Returns a {@link NkVec2} view of the {@code padding} field. */
 	public NkVec2 padding() { return npadding(address()); }
 	/** Returns the value of the {@code show_buttons} field. */
@@ -179,10 +197,16 @@ public class NkStyleScrollbar extends Struct {
 	public NkStyleScrollbar cursor_hover(NkStyleItem value) { ncursor_hover(address(), value); return this; }
 	/** Copies the specified {@link NkStyleItem} to the {@code cursor_active} field. */
 	public NkStyleScrollbar cursor_active(NkStyleItem value) { ncursor_active(address(), value); return this; }
+	/** Copies the specified {@link NkColor} to the {@code cursor_border_color} field. */
+	public NkStyleScrollbar cursor_border_color(NkColor value) { ncursor_border_color(address(), value); return this; }
 	/** Sets the specified value to the {@code border} field. */
 	public NkStyleScrollbar border(float value) { nborder(address(), value); return this; }
 	/** Sets the specified value to the {@code rounding} field. */
 	public NkStyleScrollbar rounding(float value) { nrounding(address(), value); return this; }
+	/** Sets the specified value to the {@code border_cursor} field. */
+	public NkStyleScrollbar border_cursor(float value) { nborder_cursor(address(), value); return this; }
+	/** Sets the specified value to the {@code rounding_cursor} field. */
+	public NkStyleScrollbar rounding_cursor(float value) { nrounding_cursor(address(), value); return this; }
 	/** Copies the specified {@link NkVec2} to the {@code padding} field. */
 	public NkStyleScrollbar padding(NkVec2 value) { npadding(address(), value); return this; }
 	/** Sets the specified value to the {@code show_buttons} field. */
@@ -362,10 +386,16 @@ public class NkStyleScrollbar extends Struct {
 	public static NkStyleItem ncursor_hover(long struct) { return NkStyleItem.create(struct + NkStyleScrollbar.CURSOR_HOVER); }
 	/** Unsafe version of {@link #cursor_active}. */
 	public static NkStyleItem ncursor_active(long struct) { return NkStyleItem.create(struct + NkStyleScrollbar.CURSOR_ACTIVE); }
+	/** Unsafe version of {@link #cursor_border_color}. */
+	public static NkColor ncursor_border_color(long struct) { return NkColor.create(struct + NkStyleScrollbar.CURSOR_BORDER_COLOR); }
 	/** Unsafe version of {@link #border}. */
 	public static float nborder(long struct) { return memGetFloat(struct + NkStyleScrollbar.BORDER); }
 	/** Unsafe version of {@link #rounding}. */
 	public static float nrounding(long struct) { return memGetFloat(struct + NkStyleScrollbar.ROUNDING); }
+	/** Unsafe version of {@link #border_cursor}. */
+	public static float nborder_cursor(long struct) { return memGetFloat(struct + NkStyleScrollbar.BORDER_CURSOR); }
+	/** Unsafe version of {@link #rounding_cursor}. */
+	public static float nrounding_cursor(long struct) { return memGetFloat(struct + NkStyleScrollbar.ROUNDING_CURSOR); }
 	/** Unsafe version of {@link #padding}. */
 	public static NkVec2 npadding(long struct) { return NkVec2.create(struct + NkStyleScrollbar.PADDING); }
 	/** Unsafe version of {@link #show_buttons}. */
@@ -399,10 +429,16 @@ public class NkStyleScrollbar extends Struct {
 	public static void ncursor_hover(long struct, NkStyleItem value) { memCopy(value.address(), struct + NkStyleScrollbar.CURSOR_HOVER, NkStyleItem.SIZEOF); }
 	/** Unsafe version of {@link #cursor_active(NkStyleItem) cursor_active}. */
 	public static void ncursor_active(long struct, NkStyleItem value) { memCopy(value.address(), struct + NkStyleScrollbar.CURSOR_ACTIVE, NkStyleItem.SIZEOF); }
+	/** Unsafe version of {@link #cursor_border_color(NkColor) cursor_border_color}. */
+	public static void ncursor_border_color(long struct, NkColor value) { memCopy(value.address(), struct + NkStyleScrollbar.CURSOR_BORDER_COLOR, NkColor.SIZEOF); }
 	/** Unsafe version of {@link #border(float) border}. */
 	public static void nborder(long struct, float value) { memPutFloat(struct + NkStyleScrollbar.BORDER, value); }
 	/** Unsafe version of {@link #rounding(float) rounding}. */
 	public static void nrounding(long struct, float value) { memPutFloat(struct + NkStyleScrollbar.ROUNDING, value); }
+	/** Unsafe version of {@link #border_cursor(float) border_cursor}. */
+	public static void nborder_cursor(long struct, float value) { memPutFloat(struct + NkStyleScrollbar.BORDER_CURSOR, value); }
+	/** Unsafe version of {@link #rounding_cursor(float) rounding_cursor}. */
+	public static void nrounding_cursor(long struct, float value) { memPutFloat(struct + NkStyleScrollbar.ROUNDING_CURSOR, value); }
 	/** Unsafe version of {@link #padding(NkVec2) padding}. */
 	public static void npadding(long struct, NkVec2 value) { memCopy(value.address(), struct + NkStyleScrollbar.PADDING, NkVec2.SIZEOF); }
 	/** Unsafe version of {@link #show_buttons(int) show_buttons}. */
@@ -478,10 +514,16 @@ public class NkStyleScrollbar extends Struct {
 		public NkStyleItem cursor_hover() { return NkStyleScrollbar.ncursor_hover(address()); }
 		/** Returns a {@link NkStyleItem} view of the {@code cursor_active} field. */
 		public NkStyleItem cursor_active() { return NkStyleScrollbar.ncursor_active(address()); }
+		/** Returns a {@link NkColor} view of the {@code cursor_border_color} field. */
+		public NkColor cursor_border_color() { return NkStyleScrollbar.ncursor_border_color(address()); }
 		/** Returns the value of the {@code border} field. */
 		public float border() { return NkStyleScrollbar.nborder(address()); }
 		/** Returns the value of the {@code rounding} field. */
 		public float rounding() { return NkStyleScrollbar.nrounding(address()); }
+		/** Returns the value of the {@code border_cursor} field. */
+		public float border_cursor() { return NkStyleScrollbar.nborder_cursor(address()); }
+		/** Returns the value of the {@code rounding_cursor} field. */
+		public float rounding_cursor() { return NkStyleScrollbar.nrounding_cursor(address()); }
 		/** Returns a {@link NkVec2} view of the {@code padding} field. */
 		public NkVec2 padding() { return NkStyleScrollbar.npadding(address()); }
 		/** Returns the value of the {@code show_buttons} field. */
@@ -515,10 +557,16 @@ public class NkStyleScrollbar extends Struct {
 		public NkStyleScrollbar.Buffer cursor_hover(NkStyleItem value) { NkStyleScrollbar.ncursor_hover(address(), value); return this; }
 		/** Copies the specified {@link NkStyleItem} to the {@code cursor_active} field. */
 		public NkStyleScrollbar.Buffer cursor_active(NkStyleItem value) { NkStyleScrollbar.ncursor_active(address(), value); return this; }
+		/** Copies the specified {@link NkColor} to the {@code cursor_border_color} field. */
+		public NkStyleScrollbar.Buffer cursor_border_color(NkColor value) { NkStyleScrollbar.ncursor_border_color(address(), value); return this; }
 		/** Sets the specified value to the {@code border} field. */
 		public NkStyleScrollbar.Buffer border(float value) { NkStyleScrollbar.nborder(address(), value); return this; }
 		/** Sets the specified value to the {@code rounding} field. */
 		public NkStyleScrollbar.Buffer rounding(float value) { NkStyleScrollbar.nrounding(address(), value); return this; }
+		/** Sets the specified value to the {@code border_cursor} field. */
+		public NkStyleScrollbar.Buffer border_cursor(float value) { NkStyleScrollbar.nborder_cursor(address(), value); return this; }
+		/** Sets the specified value to the {@code rounding_cursor} field. */
+		public NkStyleScrollbar.Buffer rounding_cursor(float value) { NkStyleScrollbar.nrounding_cursor(address(), value); return this; }
 		/** Copies the specified {@link NkVec2} to the {@code padding} field. */
 		public NkStyleScrollbar.Buffer padding(NkVec2 value) { NkStyleScrollbar.npadding(address(), value); return this; }
 		/** Sets the specified value to the {@code show_buttons} field. */
