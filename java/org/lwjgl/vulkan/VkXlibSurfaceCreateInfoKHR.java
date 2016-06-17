@@ -49,7 +49,7 @@ import static org.lwjgl.system.MemoryStack.*;
     Window window;
 }</code></pre>
  */
-public class VkXlibSurfaceCreateInfoKHR extends Struct {
+public class VkXlibSurfaceCreateInfoKHR extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -330,7 +330,7 @@ public class VkXlibSurfaceCreateInfoKHR extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkXlibSurfaceCreateInfoKHR} structs. */
-	public static final class Buffer extends StructBuffer<VkXlibSurfaceCreateInfoKHR, Buffer> {
+	public static final class Buffer extends StructBuffer<VkXlibSurfaceCreateInfoKHR, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkXlibSurfaceCreateInfoKHR.Buffer} instance backed by the specified container.

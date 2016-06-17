@@ -45,7 +45,7 @@ import static org.lwjgl.system.MemoryStack.*;
     double SensorSampleTime;
 }</code></pre>
  */
-public class OVRLayerEyeFov extends Struct {
+public class OVRLayerEyeFov extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -397,7 +397,7 @@ public class OVRLayerEyeFov extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link OVRLayerEyeFov} structs. */
-	public static final class Buffer extends StructBuffer<OVRLayerEyeFov, Buffer> {
+	public static final class Buffer extends StructBuffer<OVRLayerEyeFov, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRLayerEyeFov.Buffer} instance backed by the specified container.

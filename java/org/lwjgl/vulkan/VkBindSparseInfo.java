@@ -73,7 +73,7 @@ import static org.lwjgl.system.MemoryStack.*;
     const VkSemaphore * pSignalSemaphores;
 }</code></pre>
  */
-public class VkBindSparseInfo extends Struct {
+public class VkBindSparseInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -446,7 +446,7 @@ public class VkBindSparseInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkBindSparseInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkBindSparseInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkBindSparseInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkBindSparseInfo.Buffer} instance backed by the specified container.

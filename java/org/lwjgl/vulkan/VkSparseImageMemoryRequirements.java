@@ -41,7 +41,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkDeviceSize imageMipTailStride;
 }</code></pre>
  */
-public class VkSparseImageMemoryRequirements extends Struct {
+public class VkSparseImageMemoryRequirements extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -246,7 +246,7 @@ public class VkSparseImageMemoryRequirements extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkSparseImageMemoryRequirements} structs. */
-	public static final class Buffer extends StructBuffer<VkSparseImageMemoryRequirements, Buffer> {
+	public static final class Buffer extends StructBuffer<VkSparseImageMemoryRequirements, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkSparseImageMemoryRequirements.Buffer} instance backed by the specified container.

@@ -69,7 +69,7 @@ import static org.lwjgl.system.MemoryStack.*;
     float lineWidth;
 }</code></pre>
  */
-public class VkPipelineRasterizationStateCreateInfo extends Struct {
+public class VkPipelineRasterizationStateCreateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -434,7 +434,7 @@ public class VkPipelineRasterizationStateCreateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineRasterizationStateCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineRasterizationStateCreateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkPipelineRasterizationStateCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineRasterizationStateCreateInfo.Buffer} instance backed by the specified container.

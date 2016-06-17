@@ -45,7 +45,7 @@ import org.lwjgl.system.windows.*;
     {@link RECT RECT} rcVirtualScreen;
 }</code></pre>
  */
-public class GPU_DEVICE extends Struct {
+public class GPU_DEVICE extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -258,7 +258,7 @@ public class GPU_DEVICE extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link GPU_DEVICE} structs. */
-	public static final class Buffer extends StructBuffer<GPU_DEVICE, Buffer> {
+	public static final class Buffer extends StructBuffer<GPU_DEVICE, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link GPU_DEVICE.Buffer} instance backed by the specified container.

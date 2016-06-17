@@ -40,7 +40,7 @@ import static org.lwjgl.system.MemoryStack.*;
     float HmdSpaceToWorldScaleInMeters;
 }</code></pre>
  */
-public class OVRViewScaleDesc extends Struct {
+public class OVRViewScaleDesc extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -277,7 +277,7 @@ public class OVRViewScaleDesc extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link OVRViewScaleDesc} structs. */
-	public static final class Buffer extends StructBuffer<OVRViewScaleDesc, Buffer> {
+	public static final class Buffer extends StructBuffer<OVRViewScaleDesc, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRViewScaleDesc.Buffer} instance backed by the specified container.

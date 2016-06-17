@@ -36,7 +36,7 @@ import static org.lwjgl.system.MemoryStack.*;
     FLOAT gmfCellIncY;
 }</code></pre>
  */
-public class GLYPHMETRICSFLOAT extends Struct {
+public class GLYPHMETRICSFLOAT extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -241,7 +241,7 @@ public class GLYPHMETRICSFLOAT extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link GLYPHMETRICSFLOAT} structs. */
-	public static final class Buffer extends StructBuffer<GLYPHMETRICSFLOAT, Buffer> {
+	public static final class Buffer extends StructBuffer<GLYPHMETRICSFLOAT, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link GLYPHMETRICSFLOAT.Buffer} instance backed by the specified container.

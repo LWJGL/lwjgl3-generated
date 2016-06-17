@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
     int id;
 }</code></pre>
  */
-public class NkHandle extends Struct {
+public class NkHandle extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -233,7 +233,7 @@ public class NkHandle extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkHandle} structs. */
-	public static final class Buffer extends StructBuffer<NkHandle, Buffer> {
+	public static final class Buffer extends StructBuffer<NkHandle, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkHandle.Buffer} instance backed by the specified container.

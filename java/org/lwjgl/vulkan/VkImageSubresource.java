@@ -45,7 +45,7 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t arrayLayer;
 }</code></pre>
  */
-public class VkImageSubresource extends Struct {
+public class VkImageSubresource extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -280,7 +280,7 @@ public class VkImageSubresource extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkImageSubresource} structs. */
-	public static final class Buffer extends StructBuffer<VkImageSubresource, Buffer> {
+	public static final class Buffer extends StructBuffer<VkImageSubresource, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkImageSubresource.Buffer} instance backed by the specified container.

@@ -39,7 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkDeviceSize depthPitch;
 }</code></pre>
  */
-public class VkSubresourceLayout extends Struct {
+public class VkSubresourceLayout extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -244,7 +244,7 @@ public class VkSubresourceLayout extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkSubresourceLayout} structs. */
-	public static final class Buffer extends StructBuffer<VkSubresourceLayout, Buffer> {
+	public static final class Buffer extends StructBuffer<VkSubresourceLayout, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkSubresourceLayout.Buffer} instance backed by the specified container.

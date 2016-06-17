@@ -43,7 +43,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkImageLayout layout;
 }</code></pre>
  */
-public class VkAttachmentReference extends Struct {
+public class VkAttachmentReference extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -265,7 +265,7 @@ public class VkAttachmentReference extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkAttachmentReference} structs. */
-	public static final class Buffer extends StructBuffer<VkAttachmentReference, Buffer> {
+	public static final class Buffer extends StructBuffer<VkAttachmentReference, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkAttachmentReference.Buffer} instance backed by the specified container.

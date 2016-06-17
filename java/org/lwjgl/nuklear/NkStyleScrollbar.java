@@ -41,7 +41,7 @@ import static org.lwjgl.system.MemoryStack.*;
     nk_draw_end draw_end;
 }</code></pre>
  */
-public class NkStyleScrollbar extends Struct {
+public class NkStyleScrollbar extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -461,7 +461,7 @@ public class NkStyleScrollbar extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkStyleScrollbar} structs. */
-	public static final class Buffer extends StructBuffer<NkStyleScrollbar, Buffer> {
+	public static final class Buffer extends StructBuffer<NkStyleScrollbar, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkStyleScrollbar.Buffer} instance backed by the specified container.

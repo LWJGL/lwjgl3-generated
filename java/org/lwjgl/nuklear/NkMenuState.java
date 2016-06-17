@@ -25,7 +25,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkScroll struct nk_scroll} offset;
 }</code></pre>
  */
-public class NkMenuState extends Struct {
+public class NkMenuState extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -286,7 +286,7 @@ public class NkMenuState extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkMenuState} structs. */
-	public static final class Buffer extends StructBuffer<NkMenuState, Buffer> {
+	public static final class Buffer extends StructBuffer<NkMenuState, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkMenuState.Buffer} instance backed by the specified container.

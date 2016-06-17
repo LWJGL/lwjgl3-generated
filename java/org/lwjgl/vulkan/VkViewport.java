@@ -54,7 +54,7 @@ import static org.lwjgl.system.MemoryStack.*;
     float maxDepth;
 }</code></pre>
  */
-public class VkViewport extends Struct {
+public class VkViewport extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -328,7 +328,7 @@ public class VkViewport extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkViewport} structs. */
-	public static final class Buffer extends StructBuffer<VkViewport, Buffer> {
+	public static final class Buffer extends StructBuffer<VkViewport, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkViewport.Buffer} instance backed by the specified container.

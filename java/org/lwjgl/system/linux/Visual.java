@@ -30,7 +30,7 @@ import static org.lwjgl.system.MemoryStack.*;
     int map_entries;
 }</code></pre>
  */
-public class Visual extends Struct {
+public class Visual extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -330,7 +330,7 @@ public class Visual extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link Visual} structs. */
-	public static final class Buffer extends StructBuffer<Visual, Buffer> {
+	public static final class Buffer extends StructBuffer<Visual, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link Visual.Buffer} instance backed by the specified container.

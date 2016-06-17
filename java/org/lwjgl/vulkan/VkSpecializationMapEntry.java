@@ -36,7 +36,7 @@ import static org.lwjgl.system.MemoryStack.*;
     size_t size;
 }</code></pre>
  */
-public class VkSpecializationMapEntry extends Struct {
+public class VkSpecializationMapEntry extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -271,7 +271,7 @@ public class VkSpecializationMapEntry extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkSpecializationMapEntry} structs. */
-	public static final class Buffer extends StructBuffer<VkSpecializationMapEntry, Buffer> {
+	public static final class Buffer extends StructBuffer<VkSpecializationMapEntry, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkSpecializationMapEntry.Buffer} instance backed by the specified container.

@@ -53,7 +53,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link VkExtent2D VkExtent2D} maxDstExtent;
 }</code></pre>
  */
-public class VkDisplayPlaneCapabilitiesKHR extends Struct {
+public class VkDisplayPlaneCapabilitiesKHR extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -286,7 +286,7 @@ public class VkDisplayPlaneCapabilitiesKHR extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkDisplayPlaneCapabilitiesKHR} structs. */
-	public static final class Buffer extends StructBuffer<VkDisplayPlaneCapabilitiesKHR, Buffer> {
+	public static final class Buffer extends StructBuffer<VkDisplayPlaneCapabilitiesKHR, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDisplayPlaneCapabilitiesKHR.Buffer} instance backed by the specified container.

@@ -58,7 +58,7 @@ import static org.lwjgl.system.MemoryStack.*;
     const VkSampler * pImmutableSamplers;
 }</code></pre>
  */
-public class VkDescriptorSetLayoutBinding extends Struct {
+public class VkDescriptorSetLayoutBinding extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -323,7 +323,7 @@ public class VkDescriptorSetLayoutBinding extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkDescriptorSetLayoutBinding} structs. */
-	public static final class Buffer extends StructBuffer<VkDescriptorSetLayoutBinding, Buffer> {
+	public static final class Buffer extends StructBuffer<VkDescriptorSetLayoutBinding, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDescriptorSetLayoutBinding.Buffer} instance backed by the specified container.

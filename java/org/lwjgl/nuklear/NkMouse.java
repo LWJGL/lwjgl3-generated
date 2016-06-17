@@ -28,7 +28,7 @@ import static org.lwjgl.system.MemoryStack.*;
     bool ungrab;
 }</code></pre>
  */
-public class NkMouse extends Struct {
+public class NkMouse extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -343,7 +343,7 @@ public class NkMouse extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkMouse} structs. */
-	public static final class Buffer extends StructBuffer<NkMouse, Buffer> {
+	public static final class Buffer extends StructBuffer<NkMouse, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkMouse.Buffer} instance backed by the specified container.

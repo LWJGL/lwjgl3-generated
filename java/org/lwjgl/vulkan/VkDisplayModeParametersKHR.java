@@ -34,7 +34,7 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t refreshRate;
 }</code></pre>
  */
-public class VkDisplayModeParametersKHR extends Struct {
+public class VkDisplayModeParametersKHR extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -256,7 +256,7 @@ public class VkDisplayModeParametersKHR extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkDisplayModeParametersKHR} structs. */
-	public static final class Buffer extends StructBuffer<VkDisplayModeParametersKHR, Buffer> {
+	public static final class Buffer extends StructBuffer<VkDisplayModeParametersKHR, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDisplayModeParametersKHR.Buffer} instance backed by the specified container.

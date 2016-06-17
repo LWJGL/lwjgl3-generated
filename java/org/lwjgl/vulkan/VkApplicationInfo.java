@@ -58,7 +58,7 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t apiVersion;
 }</code></pre>
  */
-public class VkApplicationInfo extends Struct {
+public class VkApplicationInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -359,7 +359,7 @@ public class VkApplicationInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkApplicationInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkApplicationInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkApplicationInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkApplicationInfo.Buffer} instance backed by the specified container.

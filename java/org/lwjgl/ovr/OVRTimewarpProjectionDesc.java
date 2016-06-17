@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
     float Projection32;
 }</code></pre>
  */
-public class OVRTimewarpProjectionDesc extends Struct {
+public class OVRTimewarpProjectionDesc extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -270,7 +270,7 @@ public class OVRTimewarpProjectionDesc extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link OVRTimewarpProjectionDesc} structs. */
-	public static final class Buffer extends StructBuffer<OVRTimewarpProjectionDesc, Buffer> {
+	public static final class Buffer extends StructBuffer<OVRTimewarpProjectionDesc, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRTimewarpProjectionDesc.Buffer} instance backed by the specified container.

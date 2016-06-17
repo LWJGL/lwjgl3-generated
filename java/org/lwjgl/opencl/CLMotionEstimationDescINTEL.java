@@ -38,7 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
     cl_uint search_path_type;
 }</code></pre>
  */
-public class CLMotionEstimationDescINTEL extends Struct {
+public class CLMotionEstimationDescINTEL extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -286,7 +286,7 @@ public class CLMotionEstimationDescINTEL extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link CLMotionEstimationDescINTEL} structs. */
-	public static final class Buffer extends StructBuffer<CLMotionEstimationDescINTEL, Buffer> {
+	public static final class Buffer extends StructBuffer<CLMotionEstimationDescINTEL, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link CLMotionEstimationDescINTEL.Buffer} instance backed by the specified container.

@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkStyleItemData struct nk_style_item_data} data;
 }</code></pre>
  */
-public class NkStyleItem extends Struct {
+public class NkStyleItem extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -233,7 +233,7 @@ public class NkStyleItem extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkStyleItem} structs. */
-	public static final class Buffer extends StructBuffer<NkStyleItem, Buffer> {
+	public static final class Buffer extends StructBuffer<NkStyleItem, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkStyleItem.Buffer} instance backed by the specified container.

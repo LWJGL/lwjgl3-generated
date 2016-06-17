@@ -41,7 +41,7 @@ import static org.lwjgl.system.MemoryStack.*;
     nk_draw_end draw_end;
 }</code></pre>
  */
-public class NkStyleSelectable extends Struct {
+public class NkStyleSelectable extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -461,7 +461,7 @@ public class NkStyleSelectable extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkStyleSelectable} structs. */
-	public static final class Buffer extends StructBuffer<NkStyleSelectable, Buffer> {
+	public static final class Buffer extends StructBuffer<NkStyleSelectable, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkStyleSelectable.Buffer} instance backed by the specified container.

@@ -29,7 +29,7 @@ import static org.lwjgl.system.MemoryStack.*;
     int index;
 }</code></pre>
  */
-public class NkChartSlot extends Struct {
+public class NkChartSlot extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -342,7 +342,7 @@ public class NkChartSlot extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkChartSlot} structs. */
-	public static final class Buffer extends StructBuffer<NkChartSlot, Buffer> {
+	public static final class Buffer extends StructBuffer<NkChartSlot, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkChartSlot.Buffer} instance backed by the specified container.

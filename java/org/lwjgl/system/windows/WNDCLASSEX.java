@@ -59,7 +59,7 @@ import static org.lwjgl.system.MemoryStack.*;
     HICON hIconSm;
 }</code></pre>
  */
-public class WNDCLASSEX extends Struct {
+public class WNDCLASSEX extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -447,7 +447,7 @@ public class WNDCLASSEX extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link WNDCLASSEX} structs. */
-	public static final class Buffer extends StructBuffer<WNDCLASSEX, Buffer> {
+	public static final class Buffer extends StructBuffer<WNDCLASSEX, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link WNDCLASSEX.Buffer} instance backed by the specified container.

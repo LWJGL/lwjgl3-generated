@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
     char * value;
 }</code></pre>
  */
-public class ObjCPropertyAttribute extends Struct {
+public class ObjCPropertyAttribute extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -288,7 +288,7 @@ public class ObjCPropertyAttribute extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link ObjCPropertyAttribute} structs. */
-	public static final class Buffer extends StructBuffer<ObjCPropertyAttribute, Buffer> {
+	public static final class Buffer extends StructBuffer<ObjCPropertyAttribute, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link ObjCPropertyAttribute.Buffer} instance backed by the specified container.

@@ -50,7 +50,7 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t commandBufferCount;
 }</code></pre>
  */
-public class VkCommandBufferAllocateInfo extends Struct {
+public class VkCommandBufferAllocateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -311,7 +311,7 @@ public class VkCommandBufferAllocateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkCommandBufferAllocateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkCommandBufferAllocateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkCommandBufferAllocateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkCommandBufferAllocateInfo.Buffer} instance backed by the specified container.

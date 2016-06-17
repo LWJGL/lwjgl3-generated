@@ -47,7 +47,7 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t queueFamilyIndex;
 }</code></pre>
  */
-public class VkCommandPoolCreateInfo extends Struct {
+public class VkCommandPoolCreateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -295,7 +295,7 @@ public class VkCommandPoolCreateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkCommandPoolCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkCommandPoolCreateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkCommandPoolCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkCommandPoolCreateInfo.Buffer} instance backed by the specified container.

@@ -33,7 +33,7 @@ import static org.lwjgl.system.MemoryStack.*;
     unsigned char * pixels;
 }</code></pre>
  */
-public class GLFWImage extends Struct {
+public class GLFWImage extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -292,7 +292,7 @@ public class GLFWImage extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link GLFWImage} structs. */
-	public static final class Buffer extends StructBuffer<GLFWImage, Buffer> {
+	public static final class Buffer extends StructBuffer<GLFWImage, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link GLFWImage.Buffer} instance backed by the specified container.

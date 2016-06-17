@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
     nk_size offset;
 }</code></pre>
  */
-public class NkBufferMarker extends Struct {
+public class NkBufferMarker extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -244,7 +244,7 @@ public class NkBufferMarker extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkBufferMarker} structs. */
-	public static final class Buffer extends StructBuffer<NkBufferMarker, Buffer> {
+	public static final class Buffer extends StructBuffer<NkBufferMarker, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkBufferMarker.Buffer} instance backed by the specified container.

@@ -52,7 +52,7 @@ import static org.lwjgl.system.MemoryStack.*;
     const void * pInitialData;
 }</code></pre>
  */
-public class VkPipelineCacheCreateInfo extends Struct {
+public class VkPipelineCacheCreateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -330,7 +330,7 @@ public class VkPipelineCacheCreateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineCacheCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineCacheCreateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkPipelineCacheCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineCacheCreateInfo.Buffer} instance backed by the specified container.

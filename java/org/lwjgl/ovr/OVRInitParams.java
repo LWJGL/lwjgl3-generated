@@ -44,7 +44,7 @@ import static org.lwjgl.system.MemoryStack.*;
     char[4];
 }</code></pre>
  */
-public class OVRInitParams extends Struct {
+public class OVRInitParams extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -306,7 +306,7 @@ public class OVRInitParams extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link OVRInitParams} structs. */
-	public static final class Buffer extends StructBuffer<OVRInitParams, Buffer> {
+	public static final class Buffer extends StructBuffer<OVRInitParams, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRInitParams.Buffer} instance backed by the specified container.

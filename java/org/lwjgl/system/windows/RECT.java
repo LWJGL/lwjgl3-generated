@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
     LONG bottom;
 }</code></pre>
  */
-public class RECT extends Struct {
+public class RECT extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -283,7 +283,7 @@ public class RECT extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link RECT} structs. */
-	public static final class Buffer extends StructBuffer<RECT, Buffer> {
+	public static final class Buffer extends StructBuffer<RECT, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link RECT.Buffer} instance backed by the specified container.

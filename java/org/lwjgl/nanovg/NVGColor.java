@@ -41,7 +41,7 @@ import static org.lwjgl.system.MemoryStack.*;
     };
 }</code></pre>
  */
-public class NVGColor extends Struct {
+public class NVGColor extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -302,7 +302,7 @@ public class NVGColor extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NVGColor} structs. */
-	public static final class Buffer extends StructBuffer<NVGColor, Buffer> {
+	public static final class Buffer extends StructBuffer<NVGColor, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NVGColor.Buffer} instance backed by the specified container.

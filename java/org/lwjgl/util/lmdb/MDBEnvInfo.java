@@ -38,7 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
     unsigned int me_numreaders;
 }</code></pre>
  */
-public class MDBEnvInfo extends Struct {
+public class MDBEnvInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -250,7 +250,7 @@ public class MDBEnvInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link MDBEnvInfo} structs. */
-	public static final class Buffer extends StructBuffer<MDBEnvInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<MDBEnvInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link MDBEnvInfo.Buffer} instance backed by the specified container.

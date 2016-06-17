@@ -46,7 +46,7 @@ import static org.lwjgl.system.MemoryStack.*;
     const VkSparseMemoryBind * pBinds;
 }</code></pre>
  */
-public class VkSparseImageOpaqueMemoryBindInfo extends Struct {
+public class VkSparseImageOpaqueMemoryBindInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -297,7 +297,7 @@ public class VkSparseImageOpaqueMemoryBindInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkSparseImageOpaqueMemoryBindInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkSparseImageOpaqueMemoryBindInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkSparseImageOpaqueMemoryBindInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkSparseImageOpaqueMemoryBindInfo.Buffer} instance backed by the specified container.

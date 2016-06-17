@@ -47,7 +47,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link VkPhysicalDeviceSparseProperties VkPhysicalDeviceSparseProperties} sparseProperties;
 }</code></pre>
  */
-public class VkPhysicalDeviceProperties extends Struct {
+public class VkPhysicalDeviceProperties extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -290,7 +290,7 @@ public class VkPhysicalDeviceProperties extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkPhysicalDeviceProperties} structs. */
-	public static final class Buffer extends StructBuffer<VkPhysicalDeviceProperties, Buffer> {
+	public static final class Buffer extends StructBuffer<VkPhysicalDeviceProperties, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPhysicalDeviceProperties.Buffer} instance backed by the specified container.

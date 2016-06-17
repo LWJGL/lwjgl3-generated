@@ -96,7 +96,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkBool32 unnormalizedCoordinates;
 }</code></pre>
  */
-public class VkSamplerCreateInfo extends Struct {
+public class VkSamplerCreateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -526,7 +526,7 @@ public class VkSamplerCreateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkSamplerCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkSamplerCreateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkSamplerCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkSamplerCreateInfo.Buffer} instance backed by the specified container.

@@ -47,7 +47,7 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t size;
 }</code></pre>
  */
-public class VkPushConstantRange extends Struct {
+public class VkPushConstantRange extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -282,7 +282,7 @@ public class VkPushConstantRange extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkPushConstantRange} structs. */
-	public static final class Buffer extends StructBuffer<VkPushConstantRange, Buffer> {
+	public static final class Buffer extends StructBuffer<VkPushConstantRange, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPushConstantRange.Buffer} instance backed by the specified container.

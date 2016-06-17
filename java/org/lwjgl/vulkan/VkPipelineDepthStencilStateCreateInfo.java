@@ -66,7 +66,7 @@ import static org.lwjgl.system.MemoryStack.*;
     float maxDepthBounds;
 }</code></pre>
  */
-public class VkPipelineDepthStencilStateCreateInfo extends Struct {
+public class VkPipelineDepthStencilStateCreateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -418,7 +418,7 @@ public class VkPipelineDepthStencilStateCreateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineDepthStencilStateCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineDepthStencilStateCreateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkPipelineDepthStencilStateCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineDepthStencilStateCreateInfo.Buffer} instance backed by the specified container.

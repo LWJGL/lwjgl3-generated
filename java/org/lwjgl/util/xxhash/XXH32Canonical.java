@@ -28,7 +28,7 @@ import static org.lwjgl.system.MemoryStack.*;
     unsigned char[4] digest;
 }</code></pre>
  */
-public class XXH32Canonical extends Struct {
+public class XXH32Canonical extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -211,7 +211,7 @@ public class XXH32Canonical extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link XXH32Canonical} structs. */
-	public static final class Buffer extends StructBuffer<XXH32Canonical, Buffer> {
+	public static final class Buffer extends StructBuffer<XXH32Canonical, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link XXH32Canonical.Buffer} instance backed by the specified container.

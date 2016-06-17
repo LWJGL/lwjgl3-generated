@@ -78,7 +78,7 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t layers;
 }</code></pre>
  */
-public class VkFramebufferCreateInfo extends Struct {
+public class VkFramebufferCreateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -408,7 +408,7 @@ public class VkFramebufferCreateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkFramebufferCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkFramebufferCreateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkFramebufferCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkFramebufferCreateInfo.Buffer} instance backed by the specified container.

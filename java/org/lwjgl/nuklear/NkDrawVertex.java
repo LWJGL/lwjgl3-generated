@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
     nk_draw_vertex_color col;
 }</code></pre>
  */
-public class NkDrawVertex extends Struct {
+public class NkDrawVertex extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -258,7 +258,7 @@ public class NkDrawVertex extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkDrawVertex} structs. */
-	public static final class Buffer extends StructBuffer<NkDrawVertex, Buffer> {
+	public static final class Buffer extends StructBuffer<NkDrawVertex, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkDrawVertex.Buffer} instance backed by the specified container.

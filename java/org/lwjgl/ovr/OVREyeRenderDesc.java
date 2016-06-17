@@ -37,7 +37,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link OVRVector3f ovrVector3f} HmdToEyeOffset;
 }</code></pre>
  */
-public class OVREyeRenderDesc extends Struct {
+public class OVREyeRenderDesc extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -242,7 +242,7 @@ public class OVREyeRenderDesc extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link OVREyeRenderDesc} structs. */
-	public static final class Buffer extends StructBuffer<OVREyeRenderDesc, Buffer> {
+	public static final class Buffer extends StructBuffer<OVREyeRenderDesc, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVREyeRenderDesc.Buffer} instance backed by the specified container.

@@ -25,7 +25,7 @@ import static org.lwjgl.system.MemoryStack.*;
     int active;
 }</code></pre>
  */
-public class NkPopupBuffer extends Struct {
+public class NkPopupBuffer extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -286,7 +286,7 @@ public class NkPopupBuffer extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkPopupBuffer} structs. */
-	public static final class Buffer extends StructBuffer<NkPopupBuffer, Buffer> {
+	public static final class Buffer extends StructBuffer<NkPopupBuffer, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkPopupBuffer.Buffer} instance backed by the specified container.

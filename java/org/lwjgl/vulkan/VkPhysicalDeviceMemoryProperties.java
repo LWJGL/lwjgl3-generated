@@ -37,7 +37,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link VkMemoryHeap VkMemoryHeap}[16] memoryHeaps;
 }</code></pre>
  */
-public class VkPhysicalDeviceMemoryProperties extends Struct {
+public class VkPhysicalDeviceMemoryProperties extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -251,7 +251,7 @@ public class VkPhysicalDeviceMemoryProperties extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkPhysicalDeviceMemoryProperties} structs. */
-	public static final class Buffer extends StructBuffer<VkPhysicalDeviceMemoryProperties, Buffer> {
+	public static final class Buffer extends StructBuffer<VkPhysicalDeviceMemoryProperties, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPhysicalDeviceMemoryProperties.Buffer} instance backed by the specified container.

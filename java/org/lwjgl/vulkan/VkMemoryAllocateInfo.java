@@ -48,7 +48,7 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t memoryTypeIndex;
 }</code></pre>
  */
-public class VkMemoryAllocateInfo extends Struct {
+public class VkMemoryAllocateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -296,7 +296,7 @@ public class VkMemoryAllocateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkMemoryAllocateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkMemoryAllocateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkMemoryAllocateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkMemoryAllocateInfo.Buffer} instance backed by the specified container.

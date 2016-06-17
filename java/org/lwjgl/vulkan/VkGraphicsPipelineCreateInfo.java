@@ -179,7 +179,7 @@ import static org.lwjgl.system.MemoryStack.*;
     int32_t basePipelineIndex;
 }</code></pre>
  */
-public class VkGraphicsPipelineCreateInfo extends Struct {
+public class VkGraphicsPipelineCreateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -652,7 +652,7 @@ public class VkGraphicsPipelineCreateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkGraphicsPipelineCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkGraphicsPipelineCreateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkGraphicsPipelineCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkGraphicsPipelineCreateInfo.Buffer} instance backed by the specified container.

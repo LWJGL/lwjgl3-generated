@@ -74,7 +74,7 @@ import static org.lwjgl.system.MemoryStack.*;
     const VkPhysicalDeviceFeatures * pEnabledFeatures;
 }</code></pre>
  */
-public class VkDeviceCreateInfo extends Struct {
+public class VkDeviceCreateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -415,7 +415,7 @@ public class VkDeviceCreateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkDeviceCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkDeviceCreateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkDeviceCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDeviceCreateInfo.Buffer} instance backed by the specified container.

@@ -47,7 +47,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkComponentSwizzle a;
 }</code></pre>
  */
-public class VkComponentMapping extends Struct {
+public class VkComponentMapping extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -295,7 +295,7 @@ public class VkComponentMapping extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkComponentMapping} structs. */
-	public static final class Buffer extends StructBuffer<VkComponentMapping, Buffer> {
+	public static final class Buffer extends StructBuffer<VkComponentMapping, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkComponentMapping.Buffer} instance backed by the specified container.

@@ -48,7 +48,7 @@ import static org.lwjgl.system.MemoryStack.*;
     void * pUserData;
 }</code></pre>
  */
-public class VkDebugReportCallbackCreateInfoEXT extends Struct {
+public class VkDebugReportCallbackCreateInfoEXT extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -329,7 +329,7 @@ public class VkDebugReportCallbackCreateInfoEXT extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkDebugReportCallbackCreateInfoEXT} structs. */
-	public static final class Buffer extends StructBuffer<VkDebugReportCallbackCreateInfoEXT, Buffer> {
+	public static final class Buffer extends StructBuffer<VkDebugReportCallbackCreateInfoEXT, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDebugReportCallbackCreateInfoEXT.Buffer} instance backed by the specified container.

@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /** The opaque {@code stbrp_node} struct. */
-public class STBRPNode extends Struct {
+public class STBRPNode extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -180,7 +180,7 @@ public class STBRPNode extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link STBRPNode} structs. */
-	public static final class Buffer extends StructBuffer<STBRPNode, Buffer> {
+	public static final class Buffer extends StructBuffer<STBRPNode, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link STBRPNode.Buffer} instance backed by the specified container.

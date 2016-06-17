@@ -66,7 +66,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkColorComponentFlags colorWriteMask;
 }</code></pre>
  */
-public class VkPipelineColorBlendAttachmentState extends Struct {
+public class VkPipelineColorBlendAttachmentState extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -366,7 +366,7 @@ public class VkPipelineColorBlendAttachmentState extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineColorBlendAttachmentState} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineColorBlendAttachmentState, Buffer> {
+	public static final class Buffer extends StructBuffer<VkPipelineColorBlendAttachmentState, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineColorBlendAttachmentState.Buffer} instance backed by the specified container.

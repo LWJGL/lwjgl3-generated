@@ -43,7 +43,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkDeviceSize range;
 }</code></pre>
  */
-public class VkDescriptorBufferInfo extends Struct {
+public class VkDescriptorBufferInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -278,7 +278,7 @@ public class VkDescriptorBufferInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkDescriptorBufferInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkDescriptorBufferInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkDescriptorBufferInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDescriptorBufferInfo.Buffer} instance backed by the specified container.

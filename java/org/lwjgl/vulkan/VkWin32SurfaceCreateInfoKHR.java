@@ -48,7 +48,7 @@ import static org.lwjgl.system.MemoryStack.*;
     HWND hwnd;
 }</code></pre>
  */
-public class VkWin32SurfaceCreateInfoKHR extends Struct {
+public class VkWin32SurfaceCreateInfoKHR extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -330,7 +330,7 @@ public class VkWin32SurfaceCreateInfoKHR extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkWin32SurfaceCreateInfoKHR} structs. */
-	public static final class Buffer extends StructBuffer<VkWin32SurfaceCreateInfoKHR, Buffer> {
+	public static final class Buffer extends StructBuffer<VkWin32SurfaceCreateInfoKHR, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkWin32SurfaceCreateInfoKHR.Buffer} instance backed by the specified container.

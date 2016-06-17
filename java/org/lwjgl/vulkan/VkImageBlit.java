@@ -63,7 +63,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link VkOffset3D VkOffset3D}[2] dstOffsets;
 }</code></pre>
  */
-public class VkImageBlit extends Struct {
+public class VkImageBlit extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -341,7 +341,7 @@ public class VkImageBlit extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkImageBlit} structs. */
-	public static final class Buffer extends StructBuffer<VkImageBlit, Buffer> {
+	public static final class Buffer extends StructBuffer<VkImageBlit, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkImageBlit.Buffer} instance backed by the specified container.

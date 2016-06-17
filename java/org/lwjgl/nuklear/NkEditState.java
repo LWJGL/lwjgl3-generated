@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
     bool single_line;
 }</code></pre>
  */
-public class NkEditState extends Struct {
+public class NkEditState extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -370,7 +370,7 @@ public class NkEditState extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkEditState} structs. */
-	public static final class Buffer extends StructBuffer<NkEditState, Buffer> {
+	public static final class Buffer extends StructBuffer<NkEditState, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkEditState.Buffer} instance backed by the specified container.

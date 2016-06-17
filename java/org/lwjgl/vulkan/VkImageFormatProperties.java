@@ -39,7 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkDeviceSize maxResourceSize;
 }</code></pre>
  */
-public class VkImageFormatProperties extends Struct {
+public class VkImageFormatProperties extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -244,7 +244,7 @@ public class VkImageFormatProperties extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkImageFormatProperties} structs. */
-	public static final class Buffer extends StructBuffer<VkImageFormatProperties, Buffer> {
+	public static final class Buffer extends StructBuffer<VkImageFormatProperties, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkImageFormatProperties.Buffer} instance backed by the specified container.

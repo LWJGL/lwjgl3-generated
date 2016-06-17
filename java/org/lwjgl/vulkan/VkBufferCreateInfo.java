@@ -66,7 +66,7 @@ import static org.lwjgl.system.MemoryStack.*;
     const uint32_t * pQueueFamilyIndices;
 }</code></pre>
  */
-public class VkBufferCreateInfo extends Struct {
+public class VkBufferCreateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -383,7 +383,7 @@ public class VkBufferCreateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkBufferCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkBufferCreateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkBufferCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkBufferCreateInfo.Buffer} instance backed by the specified container.

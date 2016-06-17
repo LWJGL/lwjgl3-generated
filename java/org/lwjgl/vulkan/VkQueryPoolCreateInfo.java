@@ -54,7 +54,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkQueryPipelineStatisticFlags pipelineStatistics;
 }</code></pre>
  */
-public class VkQueryPoolCreateInfo extends Struct {
+public class VkQueryPoolCreateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -328,7 +328,7 @@ public class VkQueryPoolCreateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkQueryPoolCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkQueryPoolCreateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkQueryPoolCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkQueryPoolCreateInfo.Buffer} instance backed by the specified container.

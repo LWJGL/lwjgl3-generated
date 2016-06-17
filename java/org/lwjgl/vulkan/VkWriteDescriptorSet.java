@@ -100,7 +100,7 @@ import static org.lwjgl.system.MemoryStack.*;
     const VkBufferView * pTexelBufferView;
 }</code></pre>
  */
-public class VkWriteDescriptorSet extends Struct {
+public class VkWriteDescriptorSet extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -450,7 +450,7 @@ public class VkWriteDescriptorSet extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkWriteDescriptorSet} structs. */
-	public static final class Buffer extends StructBuffer<VkWriteDescriptorSet, Buffer> {
+	public static final class Buffer extends StructBuffer<VkWriteDescriptorSet, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkWriteDescriptorSet.Buffer} instance backed by the specified container.

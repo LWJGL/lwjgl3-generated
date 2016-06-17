@@ -39,7 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
     int was_packed;
 }</code></pre>
  */
-public class STBRPRect extends Struct {
+public class STBRPRect extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -313,7 +313,7 @@ public class STBRPRect extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link STBRPRect} structs. */
-	public static final class Buffer extends StructBuffer<STBRPRect, Buffer> {
+	public static final class Buffer extends StructBuffer<STBRPRect, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link STBRPRect.Buffer} instance backed by the specified container.

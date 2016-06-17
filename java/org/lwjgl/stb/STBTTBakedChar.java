@@ -28,7 +28,7 @@ import static org.lwjgl.system.MemoryStack.*;
     float xadvance;
 }</code></pre>
  */
-public class STBTTBakedChar extends Struct {
+public class STBTTBakedChar extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -247,7 +247,7 @@ public class STBTTBakedChar extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link STBTTBakedChar} structs. */
-	public static final class Buffer extends StructBuffer<STBTTBakedChar, Buffer> {
+	public static final class Buffer extends StructBuffer<STBTTBakedChar, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link STBTTBakedChar.Buffer} instance backed by the specified container.

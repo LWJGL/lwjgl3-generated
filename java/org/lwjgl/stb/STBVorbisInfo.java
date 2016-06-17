@@ -27,7 +27,7 @@ import static org.lwjgl.system.MemoryStack.*;
     int max_frame_size;
 }</code></pre>
  */
-public class STBVorbisInfo extends Struct {
+public class STBVorbisInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -239,7 +239,7 @@ public class STBVorbisInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link STBVorbisInfo} structs. */
-	public static final class Buffer extends StructBuffer<STBVorbisInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<STBVorbisInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link STBVorbisInfo.Buffer} instance backed by the specified container.

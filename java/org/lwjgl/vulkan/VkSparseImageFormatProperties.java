@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkSparseImageFormatFlags flags;
 }</code></pre>
  */
-public class VkSparseImageFormatProperties extends Struct {
+public class VkSparseImageFormatProperties extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -226,7 +226,7 @@ public class VkSparseImageFormatProperties extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkSparseImageFormatProperties} structs. */
-	public static final class Buffer extends StructBuffer<VkSparseImageFormatProperties, Buffer> {
+	public static final class Buffer extends StructBuffer<VkSparseImageFormatProperties, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkSparseImageFormatProperties.Buffer} instance backed by the specified container.

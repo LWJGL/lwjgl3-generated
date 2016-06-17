@@ -26,7 +26,7 @@ import static org.lwjgl.system.MemoryStack.*;
     unsigned char type;
 }</code></pre>
  */
-public class STBTTVertex extends Struct {
+public class STBTTVertex extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -231,7 +231,7 @@ public class STBTTVertex extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link STBTTVertex} structs. */
-	public static final class Buffer extends StructBuffer<STBTTVertex, Buffer> {
+	public static final class Buffer extends StructBuffer<STBTTVertex, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link STBTTVertex.Buffer} instance backed by the specified container.

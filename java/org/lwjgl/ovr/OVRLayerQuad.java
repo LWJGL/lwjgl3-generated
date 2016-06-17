@@ -49,7 +49,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link OVRVector2f ovrVector2f} QuadSize;
 }</code></pre>
  */
-public class OVRLayerQuad extends Struct {
+public class OVRLayerQuad extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -330,7 +330,7 @@ public class OVRLayerQuad extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link OVRLayerQuad} structs. */
-	public static final class Buffer extends StructBuffer<OVRLayerQuad, Buffer> {
+	public static final class Buffer extends StructBuffer<OVRLayerQuad, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRLayerQuad.Buffer} instance backed by the specified container.

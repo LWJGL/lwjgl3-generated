@@ -87,7 +87,7 @@ import static org.lwjgl.system.MemoryStack.*;
     const VkSpecializationInfo * pSpecializationInfo;
 }</code></pre>
  */
-public class VkPipelineShaderStageCreateInfo extends Struct {
+public class VkPipelineShaderStageCreateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -404,7 +404,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineShaderStageCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineShaderStageCreateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkPipelineShaderStageCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineShaderStageCreateInfo.Buffer} instance backed by the specified container.

@@ -92,7 +92,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link VkImageSubresourceRange VkImageSubresourceRange} subresourceRange;
 }</code></pre>
  */
-public class VkImageMemoryBarrier extends Struct {
+public class VkImageMemoryBarrier extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -418,7 +418,7 @@ public class VkImageMemoryBarrier extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkImageMemoryBarrier} structs. */
-	public static final class Buffer extends StructBuffer<VkImageMemoryBarrier, Buffer> {
+	public static final class Buffer extends StructBuffer<VkImageMemoryBarrier, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkImageMemoryBarrier.Buffer} instance backed by the specified container.

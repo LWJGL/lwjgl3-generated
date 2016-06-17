@@ -55,7 +55,7 @@ import static org.lwjgl.system.MemoryStack.*;
     const VkDescriptorPoolSize * pPoolSizes;
 }</code></pre>
  */
-public class VkDescriptorPoolCreateInfo extends Struct {
+public class VkDescriptorPoolCreateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -345,7 +345,7 @@ public class VkDescriptorPoolCreateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkDescriptorPoolCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkDescriptorPoolCreateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkDescriptorPoolCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDescriptorPoolCreateInfo.Buffer} instance backed by the specified container.

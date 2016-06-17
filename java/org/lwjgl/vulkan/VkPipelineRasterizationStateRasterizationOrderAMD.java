@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkRasterizationOrderAMD rasterizationOrder;
 }</code></pre>
  */
-public class VkPipelineRasterizationStateRasterizationOrderAMD extends Struct {
+public class VkPipelineRasterizationStateRasterizationOrderAMD extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -270,7 +270,7 @@ public class VkPipelineRasterizationStateRasterizationOrderAMD extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineRasterizationStateRasterizationOrderAMD} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineRasterizationStateRasterizationOrderAMD, Buffer> {
+	public static final class Buffer extends StructBuffer<VkPipelineRasterizationStateRasterizationOrderAMD, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineRasterizationStateRasterizationOrderAMD.Buffer} instance backed by the specified container.

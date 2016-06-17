@@ -41,7 +41,7 @@ import static org.lwjgl.system.MemoryStack.*;
     int image;
 }</code></pre>
  */
-public class NVGPaint extends Struct {
+public class NVGPaint extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -354,7 +354,7 @@ public class NVGPaint extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NVGPaint} structs. */
-	public static final class Buffer extends StructBuffer<NVGPaint, Buffer> {
+	public static final class Buffer extends StructBuffer<NVGPaint, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NVGPaint.Buffer} instance backed by the specified container.

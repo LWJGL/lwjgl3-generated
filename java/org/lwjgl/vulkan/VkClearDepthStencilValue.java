@@ -38,7 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t stencil;
 }</code></pre>
  */
-public class VkClearDepthStencilValue extends Struct {
+public class VkClearDepthStencilValue extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -260,7 +260,7 @@ public class VkClearDepthStencilValue extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkClearDepthStencilValue} structs. */
-	public static final class Buffer extends StructBuffer<VkClearDepthStencilValue, Buffer> {
+	public static final class Buffer extends StructBuffer<VkClearDepthStencilValue, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkClearDepthStencilValue.Buffer} instance backed by the specified container.

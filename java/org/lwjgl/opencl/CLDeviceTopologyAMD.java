@@ -32,7 +32,7 @@ import static org.lwjgl.system.MemoryStack.*;
     } pcie;
 }</code></pre>
  */
-public class CLDeviceTopologyAMD extends Struct {
+public class CLDeviceTopologyAMD extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -259,7 +259,7 @@ public class CLDeviceTopologyAMD extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link CLDeviceTopologyAMD} structs. */
-	public static final class Buffer extends StructBuffer<CLDeviceTopologyAMD, Buffer> {
+	public static final class Buffer extends StructBuffer<CLDeviceTopologyAMD, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link CLDeviceTopologyAMD.Buffer} instance backed by the specified container.

@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
     nk_copy_f copy;
 }</code></pre>
  */
-public class NkClipboard extends Struct {
+public class NkClipboard extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -245,7 +245,7 @@ public class NkClipboard extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkClipboard} structs. */
-	public static final class Buffer extends StructBuffer<NkClipboard, Buffer> {
+	public static final class Buffer extends StructBuffer<NkClipboard, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkClipboard.Buffer} instance backed by the specified container.

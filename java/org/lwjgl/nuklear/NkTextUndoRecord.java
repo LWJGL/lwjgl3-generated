@@ -24,7 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
     short char_storage;
 }</code></pre>
  */
-public class NkTextUndoRecord extends Struct {
+public class NkTextUndoRecord extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -272,7 +272,7 @@ public class NkTextUndoRecord extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkTextUndoRecord} structs. */
-	public static final class Buffer extends StructBuffer<NkTextUndoRecord, Buffer> {
+	public static final class Buffer extends StructBuffer<NkTextUndoRecord, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkTextUndoRecord.Buffer} instance backed by the specified container.

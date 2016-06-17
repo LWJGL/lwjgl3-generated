@@ -37,7 +37,7 @@ import static org.lwjgl.system.MemoryStack.*;
     nk_draw_end draw_end;
 }</code></pre>
  */
-public class NkStyleButton extends Struct {
+public class NkStyleButton extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -413,7 +413,7 @@ public class NkStyleButton extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkStyleButton} structs. */
-	public static final class Buffer extends StructBuffer<NkStyleButton, Buffer> {
+	public static final class Buffer extends StructBuffer<NkStyleButton, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkStyleButton.Buffer} instance backed by the specified container.

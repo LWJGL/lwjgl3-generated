@@ -36,7 +36,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkHandle nk_handle} userdata;
 }</code></pre>
  */
-public class NkDrawList extends Struct {
+public class NkDrawList extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -416,7 +416,7 @@ public class NkDrawList extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkDrawList} structs. */
-	public static final class Buffer extends StructBuffer<NkDrawList, Buffer> {
+	public static final class Buffer extends StructBuffer<NkDrawList, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkDrawList.Buffer} instance backed by the specified container.

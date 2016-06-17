@@ -36,7 +36,7 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t layerCount;
 }</code></pre>
  */
-public class VkClearRect extends Struct {
+public class VkClearRect extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -271,7 +271,7 @@ public class VkClearRect extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkClearRect} structs. */
-	public static final class Buffer extends StructBuffer<VkClearRect, Buffer> {
+	public static final class Buffer extends StructBuffer<VkClearRect, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkClearRect.Buffer} instance backed by the specified container.

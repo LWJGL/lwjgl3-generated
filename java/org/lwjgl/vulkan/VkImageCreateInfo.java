@@ -186,7 +186,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkImageLayout initialLayout;
 }</code></pre>
  */
-public class VkImageCreateInfo extends Struct {
+public class VkImageCreateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -594,7 +594,7 @@ public class VkImageCreateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkImageCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkImageCreateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkImageCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkImageCreateInfo.Buffer} instance backed by the specified container.

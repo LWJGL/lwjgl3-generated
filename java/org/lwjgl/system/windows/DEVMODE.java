@@ -141,7 +141,7 @@ import static org.lwjgl.system.MemoryStack.*;
     DWORD dmPanningHeight;
 }</code></pre>
  */
-public class DEVMODE extends Struct {
+public class DEVMODE extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -624,7 +624,7 @@ public class DEVMODE extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link DEVMODE} structs. */
-	public static final class Buffer extends StructBuffer<DEVMODE, Buffer> {
+	public static final class Buffer extends StructBuffer<DEVMODE, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link DEVMODE.Buffer} instance backed by the specified container.

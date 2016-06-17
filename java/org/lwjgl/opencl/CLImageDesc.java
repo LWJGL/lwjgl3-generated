@@ -68,7 +68,7 @@ import static org.lwjgl.system.MemoryStack.*;
     cl_mem buffer;
 }</code></pre>
  */
-public class CLImageDesc extends Struct {
+public class CLImageDesc extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -394,7 +394,7 @@ public class CLImageDesc extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link CLImageDesc} structs. */
-	public static final class Buffer extends StructBuffer<CLImageDesc, Buffer> {
+	public static final class Buffer extends StructBuffer<CLImageDesc, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link CLImageDesc.Buffer} instance backed by the specified container.

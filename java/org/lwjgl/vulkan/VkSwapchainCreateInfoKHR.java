@@ -141,7 +141,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkSwapchainKHR oldSwapchain;
 }</code></pre>
  */
-public class VkSwapchainCreateInfoKHR extends Struct {
+public class VkSwapchainCreateInfoKHR extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -588,7 +588,7 @@ public class VkSwapchainCreateInfoKHR extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkSwapchainCreateInfoKHR} structs. */
-	public static final class Buffer extends StructBuffer<VkSwapchainCreateInfoKHR, Buffer> {
+	public static final class Buffer extends StructBuffer<VkSwapchainCreateInfoKHR, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkSwapchainCreateInfoKHR.Buffer} instance backed by the specified container.

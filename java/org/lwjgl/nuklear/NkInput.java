@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkMouse struct nk_mouse} mouse;
 }</code></pre>
  */
-public class NkInput extends Struct {
+public class NkInput extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -244,7 +244,7 @@ public class NkInput extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkInput} structs. */
-	public static final class Buffer extends StructBuffer<NkInput, Buffer> {
+	public static final class Buffer extends StructBuffer<NkInput, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkInput.Buffer} instance backed by the specified container.

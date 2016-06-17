@@ -29,7 +29,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkVec2 struct nk_vec2} uv;
 }</code></pre>
  */
-public class NkDrawNullTexture extends Struct {
+public class NkDrawNullTexture extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -240,7 +240,7 @@ public class NkDrawNullTexture extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkDrawNullTexture} structs. */
-	public static final class Buffer extends StructBuffer<NkDrawNullTexture, Buffer> {
+	public static final class Buffer extends StructBuffer<NkDrawNullTexture, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkDrawNullTexture.Buffer} instance backed by the specified container.

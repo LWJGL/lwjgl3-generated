@@ -41,7 +41,7 @@ import static org.lwjgl.system.MemoryStack.*;
     const void * pTag;
 }</code></pre>
  */
-public class VkDebugMarkerObjectTagInfoEXT extends Struct {
+public class VkDebugMarkerObjectTagInfoEXT extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -344,7 +344,7 @@ public class VkDebugMarkerObjectTagInfoEXT extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkDebugMarkerObjectTagInfoEXT} structs. */
-	public static final class Buffer extends StructBuffer<VkDebugMarkerObjectTagInfoEXT, Buffer> {
+	public static final class Buffer extends StructBuffer<VkDebugMarkerObjectTagInfoEXT, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDebugMarkerObjectTagInfoEXT.Buffer} instance backed by the specified container.

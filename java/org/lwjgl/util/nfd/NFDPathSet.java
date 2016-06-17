@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /** An opaque data structure to be used with {@link NativeFileDialog#NFD_OpenDialogMultiple OpenDialogMultiple}. */
-public class NFDPathSet extends Struct {
+public class NFDPathSet extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -180,7 +180,7 @@ public class NFDPathSet extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NFDPathSet} structs. */
-	public static final class Buffer extends StructBuffer<NFDPathSet, Buffer> {
+	public static final class Buffer extends StructBuffer<NFDPathSet, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NFDPathSet.Buffer} instance backed by the specified container.

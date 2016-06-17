@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkVec2 struct nk_vec2} spacing;
 }</code></pre>
  */
-public class NkStyleWindowHeader extends Struct {
+public class NkStyleWindowHeader extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -426,7 +426,7 @@ public class NkStyleWindowHeader extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkStyleWindowHeader} structs. */
-	public static final class Buffer extends StructBuffer<NkStyleWindowHeader, Buffer> {
+	public static final class Buffer extends StructBuffer<NkStyleWindowHeader, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkStyleWindowHeader.Buffer} instance backed by the specified container.

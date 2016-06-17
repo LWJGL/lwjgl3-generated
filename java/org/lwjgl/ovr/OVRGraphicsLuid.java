@@ -30,7 +30,7 @@ import static org.lwjgl.system.MemoryStack.*;
     char[8] Reserved;
 }</code></pre>
  */
-public class OVRGraphicsLuid extends Struct {
+public class OVRGraphicsLuid extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -213,7 +213,7 @@ public class OVRGraphicsLuid extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link OVRGraphicsLuid} structs. */
-	public static final class Buffer extends StructBuffer<OVRGraphicsLuid, Buffer> {
+	public static final class Buffer extends StructBuffer<OVRGraphicsLuid, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRGraphicsLuid.Buffer} instance backed by the specified container.

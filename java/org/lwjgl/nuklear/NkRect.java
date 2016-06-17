@@ -24,7 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
     float h;
 }</code></pre>
  */
-public class NkRect extends Struct {
+public class NkRect extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -272,7 +272,7 @@ public class NkRect extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkRect} structs. */
-	public static final class Buffer extends StructBuffer<NkRect, Buffer> {
+	public static final class Buffer extends StructBuffer<NkRect, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkRect.Buffer} instance backed by the specified container.

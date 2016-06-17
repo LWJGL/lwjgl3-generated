@@ -38,7 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
     mdb_size_t ms_entries;
 }</code></pre>
  */
-public class MDBStat extends Struct {
+public class MDBStat extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -250,7 +250,7 @@ public class MDBStat extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link MDBStat} structs. */
-	public static final class Buffer extends StructBuffer<MDBStat, Buffer> {
+	public static final class Buffer extends StructBuffer<MDBStat, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link MDBStat.Buffer} instance backed by the specified container.

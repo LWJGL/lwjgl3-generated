@@ -54,7 +54,7 @@ import static org.lwjgl.system.MemoryStack.*;
     const VkCommandBufferInheritanceInfo * pInheritanceInfo;
 }</code></pre>
  */
-public class VkCommandBufferBeginInfo extends Struct {
+public class VkCommandBufferBeginInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -302,7 +302,7 @@ public class VkCommandBufferBeginInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkCommandBufferBeginInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkCommandBufferBeginInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkCommandBufferBeginInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkCommandBufferBeginInfo.Buffer} instance backed by the specified container.

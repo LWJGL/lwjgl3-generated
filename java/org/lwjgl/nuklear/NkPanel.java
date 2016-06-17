@@ -38,7 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
     struct nk_panel * parent;
 }</code></pre>
  */
-public class NkPanel extends Struct {
+public class NkPanel extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -493,7 +493,7 @@ public class NkPanel extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkPanel} structs. */
-	public static final class Buffer extends StructBuffer<NkPanel, Buffer> {
+	public static final class Buffer extends StructBuffer<NkPanel, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkPanel.Buffer} instance backed by the specified container.

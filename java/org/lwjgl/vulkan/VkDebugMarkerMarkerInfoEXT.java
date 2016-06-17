@@ -37,7 +37,7 @@ import static org.lwjgl.system.MemoryStack.*;
     float[4] color;
 }</code></pre>
  */
-public class VkDebugMarkerMarkerInfoEXT extends Struct {
+public class VkDebugMarkerMarkerInfoEXT extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -325,7 +325,7 @@ public class VkDebugMarkerMarkerInfoEXT extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkDebugMarkerMarkerInfoEXT} structs. */
-	public static final class Buffer extends StructBuffer<VkDebugMarkerMarkerInfoEXT, Buffer> {
+	public static final class Buffer extends StructBuffer<VkDebugMarkerMarkerInfoEXT, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDebugMarkerMarkerInfoEXT.Buffer} instance backed by the specified container.

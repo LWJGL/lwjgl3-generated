@@ -36,7 +36,7 @@ import static org.lwjgl.system.MemoryStack.*;
     struct nk_window * parent;
 }</code></pre>
  */
-public class NkWindow extends Struct {
+public class NkWindow extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -468,7 +468,7 @@ public class NkWindow extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkWindow} structs. */
-	public static final class Buffer extends StructBuffer<NkWindow, Buffer> {
+	public static final class Buffer extends StructBuffer<NkWindow, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkWindow.Buffer} instance backed by the specified container.

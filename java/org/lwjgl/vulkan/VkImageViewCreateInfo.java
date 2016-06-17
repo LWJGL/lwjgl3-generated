@@ -104,7 +104,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link VkImageSubresourceRange VkImageSubresourceRange} subresourceRange;
 }</code></pre>
  */
-public class VkImageViewCreateInfo extends Struct {
+public class VkImageViewCreateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -404,7 +404,7 @@ public class VkImageViewCreateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkImageViewCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkImageViewCreateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkImageViewCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkImageViewCreateInfo.Buffer} instance backed by the specified container.

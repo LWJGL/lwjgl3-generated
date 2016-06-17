@@ -37,7 +37,7 @@ import static org.lwjgl.system.MemoryStack.*;
     float RightTan;
 }</code></pre>
  */
-public class OVRFovPort extends Struct {
+public class OVRFovPort extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -285,7 +285,7 @@ public class OVRFovPort extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link OVRFovPort} structs. */
-	public static final class Buffer extends StructBuffer<OVRFovPort, Buffer> {
+	public static final class Buffer extends StructBuffer<OVRFovPort, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRFovPort.Buffer} instance backed by the specified container.

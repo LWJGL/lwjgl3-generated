@@ -36,7 +36,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkDeviceSize size;
 }</code></pre>
  */
-public class VkBufferCopy extends Struct {
+public class VkBufferCopy extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -271,7 +271,7 @@ public class VkBufferCopy extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkBufferCopy} structs. */
-	public static final class Buffer extends StructBuffer<VkBufferCopy, Buffer> {
+	public static final class Buffer extends StructBuffer<VkBufferCopy, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkBufferCopy.Buffer} instance backed by the specified container.

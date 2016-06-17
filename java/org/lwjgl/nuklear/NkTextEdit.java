@@ -36,7 +36,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkTextUndoState struct nk_text_undo_state} undo;
 }</code></pre>
  */
-public class NkTextEdit extends Struct {
+public class NkTextEdit extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -428,7 +428,7 @@ public class NkTextEdit extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkTextEdit} structs. */
-	public static final class Buffer extends StructBuffer<NkTextEdit, Buffer> {
+	public static final class Buffer extends StructBuffer<NkTextEdit, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkTextEdit.Buffer} instance backed by the specified container.

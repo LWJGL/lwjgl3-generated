@@ -49,7 +49,7 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t offset;
 }</code></pre>
  */
-public class VkVertexInputAttributeDescription extends Struct {
+public class VkVertexInputAttributeDescription extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -297,7 +297,7 @@ public class VkVertexInputAttributeDescription extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkVertexInputAttributeDescription} structs. */
-	public static final class Buffer extends StructBuffer<VkVertexInputAttributeDescription, Buffer> {
+	public static final class Buffer extends StructBuffer<VkVertexInputAttributeDescription, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkVertexInputAttributeDescription.Buffer} instance backed by the specified container.

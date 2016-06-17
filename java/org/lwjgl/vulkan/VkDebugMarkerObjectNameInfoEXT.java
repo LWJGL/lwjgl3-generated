@@ -37,7 +37,7 @@ import static org.lwjgl.system.MemoryStack.*;
     const char * pObjectName;
 }</code></pre>
  */
-public class VkDebugMarkerObjectNameInfoEXT extends Struct {
+public class VkDebugMarkerObjectNameInfoEXT extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -305,7 +305,7 @@ public class VkDebugMarkerObjectNameInfoEXT extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkDebugMarkerObjectNameInfoEXT} structs. */
-	public static final class Buffer extends StructBuffer<VkDebugMarkerObjectNameInfoEXT, Buffer> {
+	public static final class Buffer extends StructBuffer<VkDebugMarkerObjectNameInfoEXT, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDebugMarkerObjectNameInfoEXT.Buffer} instance backed by the specified container.

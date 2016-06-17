@@ -47,7 +47,7 @@ import static org.lwjgl.system.MemoryStack.*;
     TCHAR[32] szDevice;
 }</code></pre>
  */
-public class MONITORINFOEX extends Struct {
+public class MONITORINFOEX extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -279,7 +279,7 @@ public class MONITORINFOEX extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link MONITORINFOEX} structs. */
-	public static final class Buffer extends StructBuffer<MONITORINFOEX, Buffer> {
+	public static final class Buffer extends StructBuffer<MONITORINFOEX, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link MONITORINFOEX.Buffer} instance backed by the specified container.

@@ -63,7 +63,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkBool32 persistent;
 }</code></pre>
  */
-public class VkDisplayPresentInfoKHR extends Struct {
+public class VkDisplayPresentInfoKHR extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -324,7 +324,7 @@ public class VkDisplayPresentInfoKHR extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkDisplayPresentInfoKHR} structs. */
-	public static final class Buffer extends StructBuffer<VkDisplayPresentInfoKHR, Buffer> {
+	public static final class Buffer extends StructBuffer<VkDisplayPresentInfoKHR, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDisplayPresentInfoKHR.Buffer} instance backed by the specified container.

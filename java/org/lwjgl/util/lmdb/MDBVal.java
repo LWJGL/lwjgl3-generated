@@ -37,7 +37,7 @@ import static org.lwjgl.system.MemoryStack.*;
     void * mv_data;
 }</code></pre>
  */
-public class MDBVal extends Struct {
+public class MDBVal extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -259,7 +259,7 @@ public class MDBVal extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link MDBVal} structs. */
-	public static final class Buffer extends StructBuffer<MDBVal, Buffer> {
+	public static final class Buffer extends StructBuffer<MDBVal, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link MDBVal.Buffer} instance backed by the specified container.

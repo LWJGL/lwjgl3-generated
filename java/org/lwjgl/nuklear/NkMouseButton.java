@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkVec2 struct nk_vec2} clicked_pos;
 }</code></pre>
  */
-public class NkMouseButton extends Struct {
+public class NkMouseButton extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -258,7 +258,7 @@ public class NkMouseButton extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkMouseButton} structs. */
-	public static final class Buffer extends StructBuffer<NkMouseButton, Buffer> {
+	public static final class Buffer extends StructBuffer<NkMouseButton, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkMouseButton.Buffer} instance backed by the specified container.

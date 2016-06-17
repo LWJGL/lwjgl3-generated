@@ -39,7 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link VkDisplayModeParametersKHR VkDisplayModeParametersKHR} parameters;
 }</code></pre>
  */
-public class VkDisplayModePropertiesKHR extends Struct {
+public class VkDisplayModePropertiesKHR extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -223,7 +223,7 @@ public class VkDisplayModePropertiesKHR extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkDisplayModePropertiesKHR} structs. */
-	public static final class Buffer extends StructBuffer<VkDisplayModePropertiesKHR, Buffer> {
+	public static final class Buffer extends StructBuffer<VkDisplayModePropertiesKHR, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDisplayModePropertiesKHR.Buffer} instance backed by the specified container.

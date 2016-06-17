@@ -68,7 +68,7 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t descriptorCount;
 }</code></pre>
  */
-public class VkCopyDescriptorSet extends Struct {
+public class VkCopyDescriptorSet extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -381,7 +381,7 @@ public class VkCopyDescriptorSet extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkCopyDescriptorSet} structs. */
-	public static final class Buffer extends StructBuffer<VkCopyDescriptorSet, Buffer> {
+	public static final class Buffer extends StructBuffer<VkCopyDescriptorSet, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkCopyDescriptorSet.Buffer} instance backed by the specified container.

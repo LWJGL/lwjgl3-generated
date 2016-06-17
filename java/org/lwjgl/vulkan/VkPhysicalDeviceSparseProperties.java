@@ -7,11 +7,9 @@ package org.lwjgl.vulkan;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPhysicalDeviceSparseProperties.html">Khronos Reference Page</a><br>
@@ -106,51 +104,9 @@ public class VkPhysicalDeviceSparseProperties extends Struct {
 
 	// -----------------------------------
 
-	/** Returns a new {@link VkPhysicalDeviceSparseProperties} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-	public static VkPhysicalDeviceSparseProperties malloc() {
-		return create(nmemAlloc(SIZEOF));
-	}
-
-	/** Returns a new {@link VkPhysicalDeviceSparseProperties} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-	public static VkPhysicalDeviceSparseProperties calloc() {
-		return create(nmemCalloc(1, SIZEOF));
-	}
-
-	/** Returns a new {@link VkPhysicalDeviceSparseProperties} instance allocated with {@link BufferUtils}. */
-	public static VkPhysicalDeviceSparseProperties create() {
-		return new VkPhysicalDeviceSparseProperties(BufferUtils.createByteBuffer(SIZEOF));
-	}
-
 	/** Returns a new {@link VkPhysicalDeviceSparseProperties} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
 	public static VkPhysicalDeviceSparseProperties create(long address) {
 		return address == NULL ? null : new VkPhysicalDeviceSparseProperties(address, null);
-	}
-
-	/**
-	 * Returns a new {@link VkPhysicalDeviceSparseProperties.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer malloc(int capacity) {
-		return create(nmemAlloc(capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link VkPhysicalDeviceSparseProperties.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer calloc(int capacity) {
-		return create(nmemCalloc(capacity, SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link VkPhysicalDeviceSparseProperties.Buffer} instance allocated with {@link BufferUtils}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -161,74 +117,6 @@ public class VkPhysicalDeviceSparseProperties extends Struct {
 	 */
 	public static Buffer create(long address, int capacity) {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
-	}
-
-	// -----------------------------------
-
-	/** Returns a new {@link VkPhysicalDeviceSparseProperties} instance allocated on the thread-local {@link MemoryStack}. */
-	public static VkPhysicalDeviceSparseProperties mallocStack() {
-		return mallocStack(stackGet());
-	}
-
-	/** Returns a new {@link VkPhysicalDeviceSparseProperties} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-	public static VkPhysicalDeviceSparseProperties callocStack() {
-		return callocStack(stackGet());
-	}
-
-	/**
-	 * Returns a new {@link VkPhysicalDeviceSparseProperties} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static VkPhysicalDeviceSparseProperties mallocStack(MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link VkPhysicalDeviceSparseProperties} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static VkPhysicalDeviceSparseProperties callocStack(MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link VkPhysicalDeviceSparseProperties.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity) {
-		return mallocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link VkPhysicalDeviceSparseProperties.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity) {
-		return callocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link VkPhysicalDeviceSparseProperties.Buffer} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity, MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link VkPhysicalDeviceSparseProperties.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity, MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
 	}
 
 	// -----------------------------------

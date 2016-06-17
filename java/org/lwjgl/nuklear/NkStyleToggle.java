@@ -38,7 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
     nk_draw_end draw_end;
 }</code></pre>
  */
-public class NkStyleToggle extends Struct {
+public class NkStyleToggle extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -425,7 +425,7 @@ public class NkStyleToggle extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkStyleToggle} structs. */
-	public static final class Buffer extends StructBuffer<NkStyleToggle, Buffer> {
+	public static final class Buffer extends StructBuffer<NkStyleToggle, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkStyleToggle.Buffer} instance backed by the specified container.

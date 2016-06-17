@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
     unsigned int size;
 }</code></pre>
  */
-public class GLFWGammaRamp extends Struct {
+public class GLFWGammaRamp extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -305,7 +305,7 @@ public class GLFWGammaRamp extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link GLFWGammaRamp} structs. */
-	public static final class Buffer extends StructBuffer<GLFWGammaRamp, Buffer> {
+	public static final class Buffer extends StructBuffer<GLFWGammaRamp, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link GLFWGammaRamp.Buffer} instance backed by the specified container.

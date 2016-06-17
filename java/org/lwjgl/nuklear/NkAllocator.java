@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
     nk_mfree mfree;
 }</code></pre>
  */
-public class NkAllocator extends Struct {
+public class NkAllocator extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -245,7 +245,7 @@ public class NkAllocator extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkAllocator} structs. */
-	public static final class Buffer extends StructBuffer<NkAllocator, Buffer> {
+	public static final class Buffer extends StructBuffer<NkAllocator, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkAllocator.Buffer} instance backed by the specified container.

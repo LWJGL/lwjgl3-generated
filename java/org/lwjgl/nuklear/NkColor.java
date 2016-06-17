@@ -24,7 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
     nk_byte a;
 }</code></pre>
  */
-public class NkColor extends Struct {
+public class NkColor extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -272,7 +272,7 @@ public class NkColor extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkColor} structs. */
-	public static final class Buffer extends StructBuffer<NkColor, Buffer> {
+	public static final class Buffer extends StructBuffer<NkColor, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkColor.Buffer} instance backed by the specified container.

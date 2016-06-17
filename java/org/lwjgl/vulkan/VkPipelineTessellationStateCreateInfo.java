@@ -47,7 +47,7 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t patchControlPoints;
 }</code></pre>
  */
-public class VkPipelineTessellationStateCreateInfo extends Struct {
+public class VkPipelineTessellationStateCreateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -295,7 +295,7 @@ public class VkPipelineTessellationStateCreateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineTessellationStateCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineTessellationStateCreateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkPipelineTessellationStateCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineTessellationStateCreateInfo.Buffer} instance backed by the specified container.

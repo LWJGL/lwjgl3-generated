@@ -59,7 +59,7 @@ import static org.lwjgl.system.MemoryStack.*;
     float[4] blendConstants;
 }</code></pre>
  */
-public class VkPipelineColorBlendStateCreateInfo extends Struct {
+public class VkPipelineColorBlendStateCreateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -389,7 +389,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineColorBlendStateCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineColorBlendStateCreateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkPipelineColorBlendStateCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineColorBlendStateCreateInfo.Buffer} instance backed by the specified container.

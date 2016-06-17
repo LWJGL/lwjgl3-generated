@@ -39,7 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
     char[6];
 }</code></pre>
  */
-public class OVRDetectResult extends Struct {
+public class OVRDetectResult extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -224,7 +224,7 @@ public class OVRDetectResult extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link OVRDetectResult} structs. */
-	public static final class Buffer extends StructBuffer<OVRDetectResult, Buffer> {
+	public static final class Buffer extends StructBuffer<OVRDetectResult, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRDetectResult.Buffer} instance backed by the specified container.

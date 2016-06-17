@@ -56,7 +56,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkBool32 primitiveRestartEnable;
 }</code></pre>
  */
-public class VkPipelineInputAssemblyStateCreateInfo extends Struct {
+public class VkPipelineInputAssemblyStateCreateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -317,7 +317,7 @@ public class VkPipelineInputAssemblyStateCreateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineInputAssemblyStateCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineInputAssemblyStateCreateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkPipelineInputAssemblyStateCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineInputAssemblyStateCreateInfo.Buffer} instance backed by the specified container.

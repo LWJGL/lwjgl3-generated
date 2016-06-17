@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
     float xadvance;
 }</code></pre>
  */
-public class NkUserFontGlyph extends Struct {
+public class NkUserFontGlyph extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -311,7 +311,7 @@ public class NkUserFontGlyph extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkUserFontGlyph} structs. */
-	public static final class Buffer extends StructBuffer<NkUserFontGlyph, Buffer> {
+	public static final class Buffer extends StructBuffer<NkUserFontGlyph, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkUserFontGlyph.Buffer} instance backed by the specified container.

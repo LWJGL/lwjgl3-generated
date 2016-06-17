@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
     int text_len;
 }</code></pre>
  */
-public class NkKeyboard extends Struct {
+public class NkKeyboard extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -286,7 +286,7 @@ public class NkKeyboard extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkKeyboard} structs. */
-	public static final class Buffer extends StructBuffer<NkKeyboard, Buffer> {
+	public static final class Buffer extends StructBuffer<NkKeyboard, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkKeyboard.Buffer} instance backed by the specified container.

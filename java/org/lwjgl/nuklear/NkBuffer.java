@@ -43,7 +43,7 @@ import static org.lwjgl.system.MemoryStack.*;
     nk_size size;
 }</code></pre>
  */
-public class NkBuffer extends Struct {
+public class NkBuffer extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -371,7 +371,7 @@ public class NkBuffer extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkBuffer} structs. */
-	public static final class Buffer extends StructBuffer<NkBuffer, Buffer> {
+	public static final class Buffer extends StructBuffer<NkBuffer, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkBuffer.Buffer} instance backed by the specified container.

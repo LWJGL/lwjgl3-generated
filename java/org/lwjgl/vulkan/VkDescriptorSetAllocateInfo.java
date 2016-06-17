@@ -54,7 +54,7 @@ import static org.lwjgl.system.MemoryStack.*;
     const VkDescriptorSetLayout * pSetLayouts;
 }</code></pre>
  */
-public class VkDescriptorSetAllocateInfo extends Struct {
+public class VkDescriptorSetAllocateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -331,7 +331,7 @@ public class VkDescriptorSetAllocateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkDescriptorSetAllocateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkDescriptorSetAllocateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkDescriptorSetAllocateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDescriptorSetAllocateInfo.Buffer} instance backed by the specified container.

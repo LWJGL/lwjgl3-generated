@@ -40,7 +40,7 @@ import static org.lwjgl.system.MemoryStack.*;
     EGLint iStride;
 }</code></pre>
  */
-public class EGLClientPixmapHI extends Struct {
+public class EGLClientPixmapHI extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -312,7 +312,7 @@ public class EGLClientPixmapHI extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link EGLClientPixmapHI} structs. */
-	public static final class Buffer extends StructBuffer<EGLClientPixmapHI, Buffer> {
+	public static final class Buffer extends StructBuffer<EGLClientPixmapHI, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link EGLClientPixmapHI.Buffer} instance backed by the specified container.

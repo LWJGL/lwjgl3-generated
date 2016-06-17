@@ -66,7 +66,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkImageUsageFlags supportedUsageFlags;
 }</code></pre>
  */
-public class VkSurfaceCapabilitiesKHR extends Struct {
+public class VkSurfaceCapabilitiesKHR extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -306,7 +306,7 @@ public class VkSurfaceCapabilitiesKHR extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkSurfaceCapabilitiesKHR} structs. */
-	public static final class Buffer extends StructBuffer<VkSurfaceCapabilitiesKHR, Buffer> {
+	public static final class Buffer extends StructBuffer<VkSurfaceCapabilitiesKHR, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkSurfaceCapabilitiesKHR.Buffer} instance backed by the specified container.

@@ -32,7 +32,7 @@ import static org.lwjgl.system.MemoryStack.*;
     int bits_per_rgb;
 }</code></pre>
  */
-public class XVisualInfo extends Struct {
+public class XVisualInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -378,7 +378,7 @@ public class XVisualInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link XVisualInfo} structs. */
-	public static final class Buffer extends StructBuffer<XVisualInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<XVisualInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link XVisualInfo.Buffer} instance backed by the specified container.

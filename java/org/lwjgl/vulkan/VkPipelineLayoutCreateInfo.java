@@ -71,7 +71,7 @@ import static org.lwjgl.system.MemoryStack.*;
     const VkPushConstantRange * pPushConstantRanges;
 }</code></pre>
  */
-public class VkPipelineLayoutCreateInfo extends Struct {
+public class VkPipelineLayoutCreateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -373,7 +373,7 @@ public class VkPipelineLayoutCreateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineLayoutCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineLayoutCreateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkPipelineLayoutCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineLayoutCreateInfo.Buffer} instance backed by the specified container.

@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
     LONG y;
 }</code></pre>
  */
-public class POINT extends Struct {
+public class POINT extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -253,7 +253,7 @@ public class POINT extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link POINT} structs. */
-	public static final class Buffer extends StructBuffer<POINT, Buffer> {
+	public static final class Buffer extends StructBuffer<POINT, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link POINT.Buffer} instance backed by the specified container.

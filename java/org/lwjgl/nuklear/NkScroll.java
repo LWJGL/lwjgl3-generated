@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
     unsigned short y;
 }</code></pre>
  */
-public class NkScroll extends Struct {
+public class NkScroll extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -244,7 +244,7 @@ public class NkScroll extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkScroll} structs. */
-	public static final class Buffer extends StructBuffer<NkScroll, Buffer> {
+	public static final class Buffer extends StructBuffer<NkScroll, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkScroll.Buffer} instance backed by the specified container.

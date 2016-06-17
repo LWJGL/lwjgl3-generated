@@ -65,7 +65,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkDependencyFlags dependencyFlags;
 }</code></pre>
  */
-public class VkSubpassDependency extends Struct {
+public class VkSubpassDependency extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -352,7 +352,7 @@ public class VkSubpassDependency extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkSubpassDependency} structs. */
-	public static final class Buffer extends StructBuffer<VkSubpassDependency, Buffer> {
+	public static final class Buffer extends StructBuffer<VkSubpassDependency, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkSubpassDependency.Buffer} instance backed by the specified container.

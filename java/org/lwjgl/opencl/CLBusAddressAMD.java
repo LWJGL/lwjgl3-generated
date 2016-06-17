@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
     cl_long signalbusaddress;
 }</code></pre>
  */
-public class CLBusAddressAMD extends Struct {
+public class CLBusAddressAMD extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -253,7 +253,7 @@ public class CLBusAddressAMD extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link CLBusAddressAMD} structs. */
-	public static final class Buffer extends StructBuffer<CLBusAddressAMD, Buffer> {
+	public static final class Buffer extends StructBuffer<CLBusAddressAMD, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link CLBusAddressAMD.Buffer} instance backed by the specified container.

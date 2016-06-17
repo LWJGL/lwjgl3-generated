@@ -24,7 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
     int alloc_buffer_length_in_bytes;
 }</code></pre>
  */
-public class STBVorbisAlloc extends Struct {
+public class STBVorbisAlloc extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -253,7 +253,7 @@ public class STBVorbisAlloc extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link STBVorbisAlloc} structs. */
-	public static final class Buffer extends StructBuffer<STBVorbisAlloc, Buffer> {
+	public static final class Buffer extends StructBuffer<STBVorbisAlloc, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link STBVorbisAlloc.Buffer} instance backed by the specified container.

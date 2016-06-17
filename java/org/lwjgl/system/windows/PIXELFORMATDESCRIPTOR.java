@@ -85,7 +85,7 @@ import static org.lwjgl.system.MemoryStack.*;
     DWORD dwDamageMask;
 }</code></pre>
  */
-public class PIXELFORMATDESCRIPTOR extends Struct {
+public class PIXELFORMATDESCRIPTOR extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -619,7 +619,7 @@ public class PIXELFORMATDESCRIPTOR extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link PIXELFORMATDESCRIPTOR} structs. */
-	public static final class Buffer extends StructBuffer<PIXELFORMATDESCRIPTOR, Buffer> {
+	public static final class Buffer extends StructBuffer<PIXELFORMATDESCRIPTOR, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link PIXELFORMATDESCRIPTOR.Buffer} instance backed by the specified container.

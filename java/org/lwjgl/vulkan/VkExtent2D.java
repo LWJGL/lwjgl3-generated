@@ -34,7 +34,7 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t height;
 }</code></pre>
  */
-public class VkExtent2D extends Struct {
+public class VkExtent2D extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -256,7 +256,7 @@ public class VkExtent2D extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkExtent2D} structs. */
-	public static final class Buffer extends StructBuffer<VkExtent2D, Buffer> {
+	public static final class Buffer extends StructBuffer<VkExtent2D, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkExtent2D.Buffer} instance backed by the specified container.

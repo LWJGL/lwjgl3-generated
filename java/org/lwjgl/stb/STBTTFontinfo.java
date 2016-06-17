@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /** An opaque structure that contains font information. */
-public class STBTTFontinfo extends Struct {
+public class STBTTFontinfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -180,7 +180,7 @@ public class STBTTFontinfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link STBTTFontinfo} structs. */
-	public static final class Buffer extends StructBuffer<STBTTFontinfo, Buffer> {
+	public static final class Buffer extends StructBuffer<STBTTFontinfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link STBTTFontinfo.Buffer} instance backed by the specified container.

@@ -60,7 +60,7 @@ import static org.lwjgl.system.MemoryStack.*;
     DWORD cyContact;
 }</code></pre>
  */
-public class TOUCHINPUT extends Struct {
+public class TOUCHINPUT extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -300,7 +300,7 @@ public class TOUCHINPUT extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link TOUCHINPUT} structs. */
-	public static final class Buffer extends StructBuffer<TOUCHINPUT, Buffer> {
+	public static final class Buffer extends StructBuffer<TOUCHINPUT, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link TOUCHINPUT.Buffer} instance backed by the specified container.

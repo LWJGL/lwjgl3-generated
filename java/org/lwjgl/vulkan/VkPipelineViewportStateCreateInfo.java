@@ -61,7 +61,7 @@ import static org.lwjgl.system.MemoryStack.*;
     const VkRect2D * pScissors;
 }</code></pre>
  */
-public class VkPipelineViewportStateCreateInfo extends Struct {
+public class VkPipelineViewportStateCreateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -348,7 +348,7 @@ public class VkPipelineViewportStateCreateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineViewportStateCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineViewportStateCreateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkPipelineViewportStateCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineViewportStateCreateInfo.Buffer} instance backed by the specified container.

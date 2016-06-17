@@ -30,7 +30,7 @@ import static org.lwjgl.system.MemoryStack.*;
     char * types;
 }</code></pre>
  */
-public class ObjCMethodDescription extends Struct {
+public class ObjCMethodDescription extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -218,7 +218,7 @@ public class ObjCMethodDescription extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link ObjCMethodDescription} structs. */
-	public static final class Buffer extends StructBuffer<ObjCMethodDescription, Buffer> {
+	public static final class Buffer extends StructBuffer<ObjCMethodDescription, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link ObjCMethodDescription.Buffer} instance backed by the specified container.

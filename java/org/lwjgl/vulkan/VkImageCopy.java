@@ -69,7 +69,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link VkExtent3D VkExtent3D} extent;
 }</code></pre>
  */
-public class VkImageCopy extends Struct {
+public class VkImageCopy extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -330,7 +330,7 @@ public class VkImageCopy extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkImageCopy} structs. */
-	public static final class Buffer extends StructBuffer<VkImageCopy, Buffer> {
+	public static final class Buffer extends StructBuffer<VkImageCopy, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkImageCopy.Buffer} instance backed by the specified container.

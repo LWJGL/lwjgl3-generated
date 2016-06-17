@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkFormatFeatureFlags bufferFeatures;
 }</code></pre>
  */
-public class VkFormatProperties extends Struct {
+public class VkFormatProperties extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -226,7 +226,7 @@ public class VkFormatProperties extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkFormatProperties} structs. */
-	public static final class Buffer extends StructBuffer<VkFormatProperties, Buffer> {
+	public static final class Buffer extends StructBuffer<VkFormatProperties, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkFormatProperties.Buffer} instance backed by the specified container.

@@ -34,7 +34,7 @@ import static org.lwjgl.system.MemoryStack.*;
     unsigned int Flags;
 }</code></pre>
  */
-public class OVRLayerHeader extends Struct {
+public class OVRLayerHeader extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -256,7 +256,7 @@ public class OVRLayerHeader extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link OVRLayerHeader} structs. */
-	public static final class Buffer extends StructBuffer<OVRLayerHeader, Buffer> {
+	public static final class Buffer extends StructBuffer<OVRLayerHeader, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRLayerHeader.Buffer} instance backed by the specified container.

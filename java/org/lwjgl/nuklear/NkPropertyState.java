@@ -29,7 +29,7 @@ import static org.lwjgl.system.MemoryStack.*;
     int state;
 }</code></pre>
  */
-public class NkPropertyState extends Struct {
+public class NkPropertyState extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -355,7 +355,7 @@ public class NkPropertyState extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkPropertyState} structs. */
-	public static final class Buffer extends StructBuffer<NkPropertyState, Buffer> {
+	public static final class Buffer extends StructBuffer<NkPropertyState, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkPropertyState.Buffer} instance backed by the specified container.

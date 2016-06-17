@@ -37,7 +37,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link VkExtent3D VkExtent3D} minImageTransferGranularity;
 }</code></pre>
  */
-public class VkQueueFamilyProperties extends Struct {
+public class VkQueueFamilyProperties extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -235,7 +235,7 @@ public class VkQueueFamilyProperties extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkQueueFamilyProperties} structs. */
-	public static final class Buffer extends StructBuffer<VkQueueFamilyProperties, Buffer> {
+	public static final class Buffer extends StructBuffer<VkQueueFamilyProperties, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkQueueFamilyProperties.Buffer} instance backed by the specified container.

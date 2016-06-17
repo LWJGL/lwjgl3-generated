@@ -34,7 +34,7 @@ import static org.lwjgl.system.MemoryStack.*;
     void * GetComponent;
 }</code></pre>
  */
-public class JAWT extends Struct {
+public class JAWT extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -308,7 +308,7 @@ public class JAWT extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link JAWT} structs. */
-	public static final class Buffer extends StructBuffer<JAWT, Buffer> {
+	public static final class Buffer extends StructBuffer<JAWT, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link JAWT.Buffer} instance backed by the specified container.

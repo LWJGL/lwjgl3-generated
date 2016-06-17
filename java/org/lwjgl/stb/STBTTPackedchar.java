@@ -30,7 +30,7 @@ import static org.lwjgl.system.MemoryStack.*;
     float yoff2;
 }</code></pre>
  */
-public class STBTTPackedchar extends Struct {
+public class STBTTPackedchar extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -263,7 +263,7 @@ public class STBTTPackedchar extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link STBTTPackedchar} structs. */
-	public static final class Buffer extends StructBuffer<STBTTPackedchar, Buffer> {
+	public static final class Buffer extends StructBuffer<STBTTPackedchar, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link STBTTPackedchar.Buffer} instance backed by the specified container.

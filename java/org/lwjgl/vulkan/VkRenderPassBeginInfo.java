@@ -60,7 +60,7 @@ import static org.lwjgl.system.MemoryStack.*;
     const VkClearValue * pClearValues;
 }</code></pre>
  */
-public class VkRenderPassBeginInfo extends Struct {
+public class VkRenderPassBeginInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -364,7 +364,7 @@ public class VkRenderPassBeginInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkRenderPassBeginInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkRenderPassBeginInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkRenderPassBeginInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkRenderPassBeginInfo.Buffer} instance backed by the specified container.

@@ -59,7 +59,7 @@ import static org.lwjgl.system.MemoryStack.*;
     const uint32_t * pCode;
 }</code></pre>
  */
-public class VkShaderModuleCreateInfo extends Struct {
+public class VkShaderModuleCreateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -336,7 +336,7 @@ public class VkShaderModuleCreateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkShaderModuleCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkShaderModuleCreateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkShaderModuleCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkShaderModuleCreateInfo.Buffer} instance backed by the specified container.

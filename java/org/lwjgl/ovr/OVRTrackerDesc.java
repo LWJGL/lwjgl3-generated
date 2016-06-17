@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
     float FrustumFarZInMeters;
 }</code></pre>
  */
-public class OVRTrackerDesc extends Struct {
+public class OVRTrackerDesc extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -283,7 +283,7 @@ public class OVRTrackerDesc extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link OVRTrackerDesc} structs. */
-	public static final class Buffer extends StructBuffer<OVRTrackerDesc, Buffer> {
+	public static final class Buffer extends StructBuffer<OVRTrackerDesc, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRTrackerDesc.Buffer} instance backed by the specified container.

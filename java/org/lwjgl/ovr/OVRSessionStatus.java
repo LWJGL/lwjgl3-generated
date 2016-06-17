@@ -38,7 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
     ovrBool ShouldRecenter;
 }</code></pre>
  */
-public class OVRSessionStatus extends Struct {
+public class OVRSessionStatus extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -250,7 +250,7 @@ public class OVRSessionStatus extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link OVRSessionStatus} structs. */
-	public static final class Buffer extends StructBuffer<OVRSessionStatus, Buffer> {
+	public static final class Buffer extends StructBuffer<OVRSessionStatus, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRSessionStatus.Buffer} instance backed by the specified container.

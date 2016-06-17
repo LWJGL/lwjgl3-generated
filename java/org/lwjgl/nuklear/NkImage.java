@@ -24,7 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
     unsigned short[4] region;
 }</code></pre>
  */
-public class NkImage extends Struct {
+public class NkImage extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -270,7 +270,7 @@ public class NkImage extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkImage} structs. */
-	public static final class Buffer extends StructBuffer<NkImage, Buffer> {
+	public static final class Buffer extends StructBuffer<NkImage, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkImage.Buffer} instance backed by the specified container.

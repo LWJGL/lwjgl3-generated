@@ -42,7 +42,7 @@ import static org.lwjgl.system.MemoryStack.*;
     unsigned int BindFlags;
 }</code></pre>
  */
-public class OVRTextureSwapChainDesc extends Struct {
+public class OVRTextureSwapChainDesc extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -368,7 +368,7 @@ public class OVRTextureSwapChainDesc extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link OVRTextureSwapChainDesc} structs. */
-	public static final class Buffer extends StructBuffer<OVRTextureSwapChainDesc, Buffer> {
+	public static final class Buffer extends StructBuffer<OVRTextureSwapChainDesc, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRTextureSwapChainDesc.Buffer} instance backed by the specified container.

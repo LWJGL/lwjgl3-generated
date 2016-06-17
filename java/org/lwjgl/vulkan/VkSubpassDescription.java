@@ -90,7 +90,7 @@ import static org.lwjgl.system.MemoryStack.*;
     const uint32_t * pPreserveAttachments;
 }</code></pre>
  */
-public class VkSubpassDescription extends Struct {
+public class VkSubpassDescription extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -433,7 +433,7 @@ public class VkSubpassDescription extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkSubpassDescription} structs. */
-	public static final class Buffer extends StructBuffer<VkSubpassDescription, Buffer> {
+	public static final class Buffer extends StructBuffer<VkSubpassDescription, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkSubpassDescription.Buffer} instance backed by the specified container.

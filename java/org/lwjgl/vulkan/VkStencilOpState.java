@@ -53,7 +53,7 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t reference;
 }</code></pre>
  */
-public class VkStencilOpState extends Struct {
+public class VkStencilOpState extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -340,7 +340,7 @@ public class VkStencilOpState extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkStencilOpState} structs. */
-	public static final class Buffer extends StructBuffer<VkStencilOpState, Buffer> {
+	public static final class Buffer extends StructBuffer<VkStencilOpState, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkStencilOpState.Buffer} instance backed by the specified container.

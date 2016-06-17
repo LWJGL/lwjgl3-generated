@@ -46,7 +46,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link OVRPosef ovrPosef} CalibratedOrigin;
 }</code></pre>
  */
-public class OVRTrackingState extends Struct {
+public class OVRTrackingState extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -265,7 +265,7 @@ public class OVRTrackingState extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link OVRTrackingState} structs. */
-	public static final class Buffer extends StructBuffer<OVRTrackingState, Buffer> {
+	public static final class Buffer extends StructBuffer<OVRTrackingState, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRTrackingState.Buffer} instance backed by the specified container.

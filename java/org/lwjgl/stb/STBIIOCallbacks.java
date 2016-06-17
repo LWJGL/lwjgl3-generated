@@ -33,7 +33,7 @@ import static org.lwjgl.system.MemoryStack.*;
     stbi_io_callbacks.eof eof;
 }</code></pre>
  */
-public class STBIIOCallbacks extends Struct {
+public class STBIIOCallbacks extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -290,7 +290,7 @@ public class STBIIOCallbacks extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link STBIIOCallbacks} structs. */
-	public static final class Buffer extends StructBuffer<STBIIOCallbacks, Buffer> {
+	public static final class Buffer extends StructBuffer<STBIIOCallbacks, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link STBIIOCallbacks.Buffer} instance backed by the specified container.

@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
     int tree_depth;
 }</code></pre>
  */
-public class NkRowLayout extends Struct {
+public class NkRowLayout extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -394,7 +394,7 @@ public class NkRowLayout extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkRowLayout} structs. */
-	public static final class Buffer extends StructBuffer<NkRowLayout, Buffer> {
+	public static final class Buffer extends StructBuffer<NkRowLayout, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkRowLayout.Buffer} instance backed by the specified container.

@@ -155,7 +155,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkBool32 inheritedQueries;
 }</code></pre>
  */
-public class VkPhysicalDeviceFeatures extends Struct {
+public class VkPhysicalDeviceFeatures extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -1066,7 +1066,7 @@ public class VkPhysicalDeviceFeatures extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkPhysicalDeviceFeatures} structs. */
-	public static final class Buffer extends StructBuffer<VkPhysicalDeviceFeatures, Buffer> {
+	public static final class Buffer extends StructBuffer<VkPhysicalDeviceFeatures, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPhysicalDeviceFeatures.Buffer} instance backed by the specified container.

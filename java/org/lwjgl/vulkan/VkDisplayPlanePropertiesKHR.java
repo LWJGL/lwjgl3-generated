@@ -39,7 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t currentStackIndex;
 }</code></pre>
  */
-public class VkDisplayPlanePropertiesKHR extends Struct {
+public class VkDisplayPlanePropertiesKHR extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -223,7 +223,7 @@ public class VkDisplayPlanePropertiesKHR extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkDisplayPlanePropertiesKHR} structs. */
-	public static final class Buffer extends StructBuffer<VkDisplayPlanePropertiesKHR, Buffer> {
+	public static final class Buffer extends StructBuffer<VkDisplayPlanePropertiesKHR, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDisplayPlanePropertiesKHR.Buffer} instance backed by the specified container.

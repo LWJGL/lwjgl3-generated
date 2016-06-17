@@ -36,7 +36,7 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t[4] uint32;
 }</code></pre>
  */
-public class VkClearColorValue extends Struct {
+public class VkClearColorValue extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -297,7 +297,7 @@ public class VkClearColorValue extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkClearColorValue} structs. */
-	public static final class Buffer extends StructBuffer<VkClearColorValue, Buffer> {
+	public static final class Buffer extends StructBuffer<VkClearColorValue, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkClearColorValue.Buffer} instance backed by the specified container.

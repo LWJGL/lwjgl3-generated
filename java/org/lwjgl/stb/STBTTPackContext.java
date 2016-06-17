@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /** An opaque structure which holds all the context needed from {@link STBTruetype#stbtt_PackBegin} to {@link STBTruetype#stbtt_PackEnd}. */
-public class STBTTPackContext extends Struct {
+public class STBTTPackContext extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -180,7 +180,7 @@ public class STBTTPackContext extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link STBTTPackContext} structs. */
-	public static final class Buffer extends StructBuffer<STBTTPackContext, Buffer> {
+	public static final class Buffer extends StructBuffer<STBTTPackContext, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link STBTTPackContext.Buffer} instance backed by the specified container.

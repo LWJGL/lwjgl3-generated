@@ -61,7 +61,7 @@ TexV  = P.y/P.z</code></pre></li>
     double SensorSampleTime;
 }</code></pre>
  */
-public class OVRLayerEyeMatrix extends Struct {
+public class OVRLayerEyeMatrix extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -413,7 +413,7 @@ public class OVRLayerEyeMatrix extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link OVRLayerEyeMatrix} structs. */
-	public static final class Buffer extends StructBuffer<OVRLayerEyeMatrix, Buffer> {
+	public static final class Buffer extends StructBuffer<OVRLayerEyeMatrix, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRLayerEyeMatrix.Buffer} instance backed by the specified container.

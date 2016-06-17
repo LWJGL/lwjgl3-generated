@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkHandle nk_handle} texture;
 }</code></pre>
  */
-public class NkUserFont extends Struct {
+public class NkUserFont extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -279,7 +279,7 @@ public class NkUserFont extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkUserFont} structs. */
-	public static final class Buffer extends StructBuffer<NkUserFont, Buffer> {
+	public static final class Buffer extends StructBuffer<NkUserFont, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkUserFont.Buffer} instance backed by the specified container.

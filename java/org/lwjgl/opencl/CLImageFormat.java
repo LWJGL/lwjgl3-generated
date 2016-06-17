@@ -33,7 +33,7 @@ import static org.lwjgl.system.MemoryStack.*;
     cl_channel_type image_channel_data_type;
 }</code></pre>
  */
-public class CLImageFormat extends Struct {
+public class CLImageFormat extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -255,7 +255,7 @@ public class CLImageFormat extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link CLImageFormat} structs. */
-	public static final class Buffer extends StructBuffer<CLImageFormat, Buffer> {
+	public static final class Buffer extends StructBuffer<CLImageFormat, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link CLImageFormat.Buffer} instance backed by the specified container.

@@ -73,7 +73,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link VkExtent2D VkExtent2D} imageExtent;
 }</code></pre>
  */
-public class VkDisplaySurfaceCreateInfoKHR extends Struct {
+public class VkDisplaySurfaceCreateInfoKHR extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -399,7 +399,7 @@ public class VkDisplaySurfaceCreateInfoKHR extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkDisplaySurfaceCreateInfoKHR} structs. */
-	public static final class Buffer extends StructBuffer<VkDisplaySurfaceCreateInfoKHR, Buffer> {
+	public static final class Buffer extends StructBuffer<VkDisplaySurfaceCreateInfoKHR, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDisplaySurfaceCreateInfoKHR.Buffer} instance backed by the specified container.

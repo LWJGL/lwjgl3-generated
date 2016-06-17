@@ -34,7 +34,7 @@ import static org.lwjgl.system.MemoryStack.*;
     int32_t y;
 }</code></pre>
  */
-public class VkOffset2D extends Struct {
+public class VkOffset2D extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -256,7 +256,7 @@ public class VkOffset2D extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkOffset2D} structs. */
-	public static final class Buffer extends StructBuffer<VkOffset2D, Buffer> {
+	public static final class Buffer extends StructBuffer<VkOffset2D, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkOffset2D.Buffer} instance backed by the specified container.

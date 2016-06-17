@@ -32,7 +32,7 @@ import static org.lwjgl.system.MemoryStack.*;
     unsigned int MiscFlags;
 }</code></pre>
  */
-public class OVRMirrorTextureDesc extends Struct {
+public class OVRMirrorTextureDesc extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -280,7 +280,7 @@ public class OVRMirrorTextureDesc extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link OVRMirrorTextureDesc} structs. */
-	public static final class Buffer extends StructBuffer<OVRMirrorTextureDesc, Buffer> {
+	public static final class Buffer extends StructBuffer<OVRMirrorTextureDesc, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRMirrorTextureDesc.Buffer} instance backed by the specified container.

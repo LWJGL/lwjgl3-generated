@@ -56,7 +56,7 @@ import static org.lwjgl.system.MemoryStack.*;
     const float * pQueuePriorities;
 }</code></pre>
  */
-public class VkDeviceQueueCreateInfo extends Struct {
+public class VkDeviceQueueCreateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -346,7 +346,7 @@ public class VkDeviceQueueCreateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkDeviceQueueCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkDeviceQueueCreateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkDeviceQueueCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDeviceQueueCreateInfo.Buffer} instance backed by the specified container.

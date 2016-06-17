@@ -39,7 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkDrawNullTexture struct nk_draw_null_texture} null_texture;
 }</code></pre>
  */
-public class NkConvertConfig extends Struct {
+public class NkConvertConfig extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -326,7 +326,7 @@ public class NkConvertConfig extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkConvertConfig} structs. */
-	public static final class Buffer extends StructBuffer<NkConvertConfig, Buffer> {
+	public static final class Buffer extends StructBuffer<NkConvertConfig, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkConvertConfig.Buffer} instance backed by the specified container.

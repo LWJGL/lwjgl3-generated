@@ -40,7 +40,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkColorSpaceKHR colorSpace;
 }</code></pre>
  */
-public class VkSurfaceFormatKHR extends Struct {
+public class VkSurfaceFormatKHR extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -224,7 +224,7 @@ public class VkSurfaceFormatKHR extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkSurfaceFormatKHR} structs. */
-	public static final class Buffer extends StructBuffer<VkSurfaceFormatKHR, Buffer> {
+	public static final class Buffer extends StructBuffer<VkSurfaceFormatKHR, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkSurfaceFormatKHR.Buffer} instance backed by the specified container.

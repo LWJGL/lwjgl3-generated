@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
     jint height;
 }</code></pre>
  */
-public class JAWTRectangle extends Struct {
+public class JAWTRectangle extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -283,7 +283,7 @@ public class JAWTRectangle extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link JAWTRectangle} structs. */
-	public static final class Buffer extends StructBuffer<JAWTRectangle, Buffer> {
+	public static final class Buffer extends StructBuffer<JAWTRectangle, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link JAWTRectangle.Buffer} instance backed by the specified container.

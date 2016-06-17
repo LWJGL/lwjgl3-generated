@@ -52,7 +52,7 @@ import static org.lwjgl.system.MemoryStack.*;
     const void * pData;
 }</code></pre>
  */
-public class VkSpecializationInfo extends Struct {
+public class VkSpecializationInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -315,7 +315,7 @@ public class VkSpecializationInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkSpecializationInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkSpecializationInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkSpecializationInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkSpecializationInfo.Buffer} instance backed by the specified container.

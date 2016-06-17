@@ -44,7 +44,7 @@ import static org.lwjgl.system.MemoryStack.*;
     ovrControllerType ControllerType;
 }</code></pre>
  */
-public class OVRInputState extends Struct {
+public class OVRInputState extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -385,7 +385,7 @@ public class OVRInputState extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link OVRInputState} structs. */
-	public static final class Buffer extends StructBuffer<OVRInputState, Buffer> {
+	public static final class Buffer extends StructBuffer<OVRInputState, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRInputState.Buffer} instance backed by the specified container.

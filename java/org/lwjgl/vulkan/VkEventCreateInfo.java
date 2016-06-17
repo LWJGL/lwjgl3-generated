@@ -44,7 +44,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkEventCreateFlags flags;
 }</code></pre>
  */
-public class VkEventCreateInfo extends Struct {
+public class VkEventCreateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -279,7 +279,7 @@ public class VkEventCreateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkEventCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkEventCreateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkEventCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkEventCreateInfo.Buffer} instance backed by the specified container.

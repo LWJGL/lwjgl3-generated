@@ -30,7 +30,7 @@ import static org.lwjgl.system.MemoryStack.*;
     char[512] ErrorString;
 }</code></pre>
  */
-public class OVRErrorInfo extends Struct {
+public class OVRErrorInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -218,7 +218,7 @@ public class OVRErrorInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link OVRErrorInfo} structs. */
-	public static final class Buffer extends StructBuffer<OVRErrorInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<OVRErrorInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRErrorInfo.Buffer} instance backed by the specified container.

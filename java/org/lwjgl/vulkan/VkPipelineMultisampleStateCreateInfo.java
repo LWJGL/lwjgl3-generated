@@ -61,7 +61,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkBool32 alphaToOneEnable;
 }</code></pre>
  */
-public class VkPipelineMultisampleStateCreateInfo extends Struct {
+public class VkPipelineMultisampleStateCreateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -378,7 +378,7 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineMultisampleStateCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineMultisampleStateCreateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkPipelineMultisampleStateCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineMultisampleStateCreateInfo.Buffer} instance backed by the specified container.

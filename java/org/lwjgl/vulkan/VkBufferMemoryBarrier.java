@@ -71,7 +71,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkDeviceSize size;
 }</code></pre>
  */
-public class VkBufferMemoryBarrier extends Struct {
+public class VkBufferMemoryBarrier extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -384,7 +384,7 @@ public class VkBufferMemoryBarrier extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkBufferMemoryBarrier} structs. */
-	public static final class Buffer extends StructBuffer<VkBufferMemoryBarrier, Buffer> {
+	public static final class Buffer extends StructBuffer<VkBufferMemoryBarrier, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkBufferMemoryBarrier.Buffer} instance backed by the specified container.

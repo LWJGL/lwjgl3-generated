@@ -43,7 +43,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkVec2 struct nk_vec2} min_size;
 }</code></pre>
  */
-public class NkStyleWindow extends Struct {
+public class NkStyleWindow extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -538,7 +538,7 @@ public class NkStyleWindow extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkStyleWindow} structs. */
-	public static final class Buffer extends StructBuffer<NkStyleWindow, Buffer> {
+	public static final class Buffer extends StructBuffer<NkStyleWindow, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkStyleWindow.Buffer} instance backed by the specified container.

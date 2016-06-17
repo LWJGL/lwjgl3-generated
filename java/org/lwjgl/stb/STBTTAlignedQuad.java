@@ -29,7 +29,7 @@ import static org.lwjgl.system.MemoryStack.*;
     float t1;
 }</code></pre>
  */
-public class STBTTAlignedQuad extends Struct {
+public class STBTTAlignedQuad extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -255,7 +255,7 @@ public class STBTTAlignedQuad extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link STBTTAlignedQuad} structs. */
-	public static final class Buffer extends StructBuffer<STBTTAlignedQuad, Buffer> {
+	public static final class Buffer extends StructBuffer<STBTTAlignedQuad, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link STBTTAlignedQuad.Buffer} instance backed by the specified container.

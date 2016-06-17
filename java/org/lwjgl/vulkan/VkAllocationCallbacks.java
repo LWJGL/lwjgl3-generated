@@ -58,7 +58,7 @@ import static org.lwjgl.system.MemoryStack.*;
     PFN_vkInternalFreeNotification pfnInternalFree;
 }</code></pre>
  */
-public class VkAllocationCallbacks extends Struct {
+public class VkAllocationCallbacks extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -354,7 +354,7 @@ public class VkAllocationCallbacks extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkAllocationCallbacks} structs. */
-	public static final class Buffer extends StructBuffer<VkAllocationCallbacks, Buffer> {
+	public static final class Buffer extends StructBuffer<VkAllocationCallbacks, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkAllocationCallbacks.Buffer} instance backed by the specified container.

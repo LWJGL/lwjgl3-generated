@@ -48,7 +48,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link VkClearValue VkClearValue} clearValue;
 }</code></pre>
  */
-public class VkClearAttachment extends Struct {
+public class VkClearAttachment extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -270,7 +270,7 @@ public class VkClearAttachment extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkClearAttachment} structs. */
-	public static final class Buffer extends StructBuffer<VkClearAttachment, Buffer> {
+	public static final class Buffer extends StructBuffer<VkClearAttachment, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkClearAttachment.Buffer} instance backed by the specified container.

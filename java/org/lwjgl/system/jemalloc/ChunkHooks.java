@@ -46,7 +46,7 @@ import static org.lwjgl.system.MemoryStack.*;
     chunk_merge_t merge;
 }</code></pre>
  */
-public class ChunkHooks extends Struct {
+public class ChunkHooks extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -359,7 +359,7 @@ public class ChunkHooks extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link ChunkHooks} structs. */
-	public static final class Buffer extends StructBuffer<ChunkHooks, Buffer> {
+	public static final class Buffer extends StructBuffer<ChunkHooks, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link ChunkHooks.Buffer} instance backed by the specified container.

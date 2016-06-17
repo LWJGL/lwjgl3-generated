@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
     float w;
 }</code></pre>
  */
-public class OVRQuatf extends Struct {
+public class OVRQuatf extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -283,7 +283,7 @@ public class OVRQuatf extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link OVRQuatf} structs. */
-	public static final class Buffer extends StructBuffer<OVRQuatf, Buffer> {
+	public static final class Buffer extends StructBuffer<OVRQuatf, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRQuatf.Buffer} instance backed by the specified container.

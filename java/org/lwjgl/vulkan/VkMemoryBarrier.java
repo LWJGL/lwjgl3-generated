@@ -48,7 +48,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkAccessFlags dstAccessMask;
 }</code></pre>
  */
-public class VkMemoryBarrier extends Struct {
+public class VkMemoryBarrier extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -296,7 +296,7 @@ public class VkMemoryBarrier extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkMemoryBarrier} structs. */
-	public static final class Buffer extends StructBuffer<VkMemoryBarrier, Buffer> {
+	public static final class Buffer extends StructBuffer<VkMemoryBarrier, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkMemoryBarrier.Buffer} instance backed by the specified container.

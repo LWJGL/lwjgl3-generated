@@ -39,7 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
     char[256] description;
 }</code></pre>
  */
-public class VkLayerProperties extends Struct {
+public class VkLayerProperties extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -245,7 +245,7 @@ public class VkLayerProperties extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkLayerProperties} structs. */
-	public static final class Buffer extends StructBuffer<VkLayerProperties, Buffer> {
+	public static final class Buffer extends StructBuffer<VkLayerProperties, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkLayerProperties.Buffer} instance backed by the specified container.

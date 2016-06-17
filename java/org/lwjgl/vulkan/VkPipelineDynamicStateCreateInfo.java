@@ -52,7 +52,7 @@ import static org.lwjgl.system.MemoryStack.*;
     const VkDynamicState * pDynamicStates;
 }</code></pre>
  */
-public class VkPipelineDynamicStateCreateInfo extends Struct {
+public class VkPipelineDynamicStateCreateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -329,7 +329,7 @@ public class VkPipelineDynamicStateCreateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineDynamicStateCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineDynamicStateCreateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkPipelineDynamicStateCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineDynamicStateCreateInfo.Buffer} instance backed by the specified container.

@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkVec2 struct nk_vec2} padding;
 }</code></pre>
  */
-public class NkStyleText extends Struct {
+public class NkStyleText extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -244,7 +244,7 @@ public class NkStyleText extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkStyleText} structs. */
-	public static final class Buffer extends StructBuffer<NkStyleText, Buffer> {
+	public static final class Buffer extends StructBuffer<NkStyleText, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkStyleText.Buffer} instance backed by the specified container.

@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkHandle nk_handle} userdata;
 }</code></pre>
  */
-public class NkCommand extends Struct {
+public class NkCommand extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -245,7 +245,7 @@ public class NkCommand extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkCommand} structs. */
-	public static final class Buffer extends StructBuffer<NkCommand, Buffer> {
+	public static final class Buffer extends StructBuffer<NkCommand, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkCommand.Buffer} instance backed by the specified container.

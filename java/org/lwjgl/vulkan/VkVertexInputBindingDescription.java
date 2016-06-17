@@ -44,7 +44,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkVertexInputRate inputRate;
 }</code></pre>
  */
-public class VkVertexInputBindingDescription extends Struct {
+public class VkVertexInputBindingDescription extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -279,7 +279,7 @@ public class VkVertexInputBindingDescription extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkVertexInputBindingDescription} structs. */
-	public static final class Buffer extends StructBuffer<VkVertexInputBindingDescription, Buffer> {
+	public static final class Buffer extends StructBuffer<VkVertexInputBindingDescription, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkVertexInputBindingDescription.Buffer} instance backed by the specified container.

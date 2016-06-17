@@ -50,7 +50,7 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t layerCount;
 }</code></pre>
  */
-public class VkImageSubresourceLayers extends Struct {
+public class VkImageSubresourceLayers extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -298,7 +298,7 @@ public class VkImageSubresourceLayers extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkImageSubresourceLayers} structs. */
-	public static final class Buffer extends StructBuffer<VkImageSubresourceLayers, Buffer> {
+	public static final class Buffer extends StructBuffer<VkImageSubresourceLayers, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkImageSubresourceLayers.Buffer} instance backed by the specified container.

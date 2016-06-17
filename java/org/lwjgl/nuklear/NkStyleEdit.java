@@ -42,7 +42,7 @@ import static org.lwjgl.system.MemoryStack.*;
     float row_padding;
 }</code></pre>
  */
-public class NkStyleEdit extends Struct {
+public class NkStyleEdit extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -524,7 +524,7 @@ public class NkStyleEdit extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkStyleEdit} structs. */
-	public static final class Buffer extends StructBuffer<NkStyleEdit, Buffer> {
+	public static final class Buffer extends StructBuffer<NkStyleEdit, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkStyleEdit.Buffer} instance backed by the specified container.

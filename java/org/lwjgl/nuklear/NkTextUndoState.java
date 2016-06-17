@@ -26,7 +26,7 @@ import static org.lwjgl.system.MemoryStack.*;
     short redo_char_point;
 }</code></pre>
  */
-public class NkTextUndoState extends Struct {
+public class NkTextUndoState extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -328,7 +328,7 @@ public class NkTextUndoState extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkTextUndoState} structs. */
-	public static final class Buffer extends StructBuffer<NkTextUndoState, Buffer> {
+	public static final class Buffer extends StructBuffer<NkTextUndoState, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkTextUndoState.Buffer} instance backed by the specified container.

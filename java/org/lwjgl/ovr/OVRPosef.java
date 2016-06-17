@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link OVRVector3f ovrVector3f} Position;
 }</code></pre>
  */
-public class OVRPosef extends Struct {
+public class OVRPosef extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -253,7 +253,7 @@ public class OVRPosef extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link OVRPosef} structs. */
-	public static final class Buffer extends StructBuffer<OVRPosef, Buffer> {
+	public static final class Buffer extends StructBuffer<OVRPosef, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRPosef.Buffer} instance backed by the specified container.

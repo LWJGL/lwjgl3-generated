@@ -37,7 +37,7 @@ import static org.lwjgl.system.MemoryStack.*;
     unsigned int seq;
 }</code></pre>
  */
-public class NkContext extends Struct {
+public class NkContext extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -413,7 +413,7 @@ public class NkContext extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkContext} structs. */
-	public static final class Buffer extends StructBuffer<NkContext, Buffer> {
+	public static final class Buffer extends StructBuffer<NkContext, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkContext.Buffer} instance backed by the specified container.

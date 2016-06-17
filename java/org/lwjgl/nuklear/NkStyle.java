@@ -38,7 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkStyleWindow struct nk_style_window} window;
 }</code></pre>
  */
-public class NkStyle extends Struct {
+public class NkStyle extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -468,7 +468,7 @@ public class NkStyle extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkStyle} structs. */
-	public static final class Buffer extends StructBuffer<NkStyle, Buffer> {
+	public static final class Buffer extends StructBuffer<NkStyle, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkStyle.Buffer} instance backed by the specified container.

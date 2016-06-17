@@ -44,7 +44,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkSemaphoreCreateFlags flags;
 }</code></pre>
  */
-public class VkSemaphoreCreateInfo extends Struct {
+public class VkSemaphoreCreateInfo extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -279,7 +279,7 @@ public class VkSemaphoreCreateInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkSemaphoreCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkSemaphoreCreateInfo, Buffer> {
+	public static final class Buffer extends StructBuffer<VkSemaphoreCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkSemaphoreCreateInfo.Buffer} instance backed by the specified container.

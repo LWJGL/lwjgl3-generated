@@ -33,7 +33,7 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t specVersion;
 }</code></pre>
  */
-public class VkExtensionProperties extends Struct {
+public class VkExtensionProperties extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -221,7 +221,7 @@ public class VkExtensionProperties extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkExtensionProperties} structs. */
-	public static final class Buffer extends StructBuffer<VkExtensionProperties, Buffer> {
+	public static final class Buffer extends StructBuffer<VkExtensionProperties, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkExtensionProperties.Buffer} instance backed by the specified container.

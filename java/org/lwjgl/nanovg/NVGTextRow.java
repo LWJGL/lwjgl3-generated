@@ -39,7 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
     float maxx;
 }</code></pre>
  */
-public class NVGTextRow extends Struct {
+public class NVGTextRow extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -335,7 +335,7 @@ public class NVGTextRow extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NVGTextRow} structs. */
-	public static final class Buffer extends StructBuffer<NVGTextRow, Buffer> {
+	public static final class Buffer extends StructBuffer<NVGTextRow, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NVGTextRow.Buffer} instance backed by the specified container.

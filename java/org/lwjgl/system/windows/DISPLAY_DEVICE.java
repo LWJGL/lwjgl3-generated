@@ -43,7 +43,7 @@ import static org.lwjgl.system.MemoryStack.*;
     TCHAR[128] DeviceKey;
 }</code></pre>
  */
-public class DISPLAY_DEVICE extends Struct {
+public class DISPLAY_DEVICE extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -294,7 +294,7 @@ public class DISPLAY_DEVICE extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link DISPLAY_DEVICE} structs. */
-	public static final class Buffer extends StructBuffer<DISPLAY_DEVICE, Buffer> {
+	public static final class Buffer extends StructBuffer<DISPLAY_DEVICE, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link DISPLAY_DEVICE.Buffer} instance backed by the specified container.

@@ -41,7 +41,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link RECT RECT} rcNormalPosition;
 }</code></pre>
  */
-public class WINDOWPLACEMENT extends Struct {
+public class WINDOWPLACEMENT extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -315,7 +315,7 @@ public class WINDOWPLACEMENT extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link WINDOWPLACEMENT} structs. */
-	public static final class Buffer extends StructBuffer<WINDOWPLACEMENT, Buffer> {
+	public static final class Buffer extends StructBuffer<WINDOWPLACEMENT, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link WINDOWPLACEMENT.Buffer} instance backed by the specified container.
