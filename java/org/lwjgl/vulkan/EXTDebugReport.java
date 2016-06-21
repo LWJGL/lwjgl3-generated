@@ -25,14 +25,14 @@ import static org.lwjgl.system.MemoryUtil.*;
  * the information to a file, others may cause a debug break point or other application defined behavior. An application can register callbacks even when
  * no validation layers are enabled, but they will only be called for loader and, if implemented, driver events.</p>
  * 
- * <p>To capture issues found while creating an instance an application can link a {@link VkDebugReportCallbackCreateInfoEXT} structure to the {@code pNext}
- * element of the {@link VkInstanceCreateInfo} structure given to {@link VK10#vkCreateInstance CreateInstance}. This callback is only valid for the duration of the
- * {@code vkCreateInstance} call. Use {@link #vkCreateDebugReportCallbackEXT CreateDebugReportCallbackEXT} to create persistent callback objects.</p>
+ * <p>To capture issues found while creating or destroying an instance an application can link a {@link VkDebugReportCallbackCreateInfoEXT} structure to the
+ * {@code pNext} element of the {@link VkInstanceCreateInfo} structure given to {@link VK10#vkCreateInstance CreateInstance}. This callback is only valid for the duration of the
+ * {@link VK10#vkCreateInstance CreateInstance} and the {@link VK10#vkDestroyInstance DestroyInstance} call. Use {@link #vkCreateDebugReportCallbackEXT CreateDebugReportCallbackEXT} to create persistent callback objects.</p>
  */
 public class EXTDebugReport {
 
 	/** The extension specification version. */
-	public static final int VK_EXT_DEBUG_REPORT_SPEC_VERSION = 2;
+	public static final int VK_EXT_DEBUG_REPORT_SPEC_VERSION = 3;
 
 	/** The extension name. */
 	public static final String VK_EXT_DEBUG_REPORT_EXTENSION_NAME = "VK_EXT_debug_report";

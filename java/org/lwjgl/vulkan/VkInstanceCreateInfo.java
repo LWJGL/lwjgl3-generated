@@ -31,12 +31,6 @@ import static org.lwjgl.system.MemoryStack.*;
  * strings</li>
  * <li>If {@code enabledExtensionCount} is not 0, {@code ppEnabledExtensionNames} <b>must</b> be a pointer to an array of {@code enabledExtensionCount}
  * null-terminated strings</li>
- * <li>Any given element of {@code ppEnabledLayerNames} <b>must</b> be the name of a layer present on the system, exactly matching a string returned in the
- * {@link VkLayerProperties} structure by {@link VK10#vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties}</li>
- * <li>Any given element of {@code ppEnabledExtensionNames} <b>must</b> be the name of an extension present on the system, exactly matching a string returned in
- * the {@link VkExtensionProperties} structure by {@link VK10#vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties}</li>
- * <li>If an extension listed in {@code ppEnabledExtensionNames} is provided as part of a layer, then both the layer and extension <b>must</b> be enabled to
- * enable that extension</li>
  * </ul>
  * 
  * <h3>Member documentation</h3>

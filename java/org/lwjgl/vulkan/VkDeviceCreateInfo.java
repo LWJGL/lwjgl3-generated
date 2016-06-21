@@ -33,12 +33,6 @@ import static org.lwjgl.system.MemoryStack.*;
  * null-terminated strings</li>
  * <li>If {@code pEnabledFeatures} is not {@code NULL}, {@code pEnabledFeatures} <b>must</b> be a pointer to a valid {@link VkPhysicalDeviceFeatures} structure</li>
  * <li>{@code queueCreateInfoCount} <b>must</b> be greater than 0</li>
- * <li>{@code ppEnabledLayerNames} <b>must</b> either be {@code NULL} or contain the same sequence of layer names that was enabled when creating the parent
- * instance</li>
- * <li>Any given element of {@code ppEnabledExtensionNames} <b>must</b> be the name of an extension present on the system, exactly matching a string returned in
- * the {@link VkExtensionProperties} structure by {@link VK10#vkEnumerateDeviceExtensionProperties EnumerateDeviceExtensionProperties}</li>
- * <li>If an extension listed in {@code ppEnabledExtensionNames} is provided as part of a layer, then both the layer and extension <b>must</b> be enabled to
- * enable that extension</li>
  * <li>The {@code queueFamilyIndex} member of any given element of {@code pQueueCreateInfos} <b>must</b> be unique within {@code pQueueCreateInfos}</li>
  * </ul>
  * 
