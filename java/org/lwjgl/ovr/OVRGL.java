@@ -21,7 +21,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class OVRGL {
 
-	static { Library.initialize(); }
+	static { LibOVR.initialize(); }
 
 	protected OVRGL() {
 		throw new UnsupportedOperationException();

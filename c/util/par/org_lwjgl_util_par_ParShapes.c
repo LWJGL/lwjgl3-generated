@@ -8,7 +8,7 @@
 	__pragma(warning(disable : 4710))
 #endif
 #include "common_tools.h"
-#define PAR_SHAPES_IMPLEMENTATION
+#include "lwjgl_malloc.h"
 #define PAR_MALLOC(T, N) ((T*) lwjgl_malloc(N * sizeof(T)))
 #define PAR_CALLOC(T, N) ((T*) lwjgl_calloc(N, sizeof(T)))
 #define PAR_REALLOC(T, BUF, N) ((T*) lwjgl_realloc(BUF, sizeof(T) * N))
@@ -19,6 +19,7 @@ DISABLE_WARNINGS()
 #elif LWJGL_LINUX
 	#pragma GCC diagnostic ignored "-Wunused-parameter"
 #endif
+#define PAR_SHAPES_IMPLEMENTATION
 #include "par_shapes.h"
 ENABLE_WARNINGS()
 

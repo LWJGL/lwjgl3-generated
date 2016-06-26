@@ -36,7 +36,7 @@ public class XXHash {
 	/** The version number */
 	public static final int XXH_VERSION_NUMBER = (XXH_VERSION_MAJOR *100*100 + XXH_VERSION_MINOR *100 + XXH_VERSION_RELEASE);
 
-	static { Library.initialize(); }
+	static { LibXXHash.initialize(); }
 
 	static { MemoryUtil.getAllocator(); }
 

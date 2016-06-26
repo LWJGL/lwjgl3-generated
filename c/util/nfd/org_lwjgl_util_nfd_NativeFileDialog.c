@@ -7,6 +7,7 @@
 	#define _CRT_SECURE_NO_WARNINGS
 #endif
 #include "common_tools.h"
+#include "lwjgl_malloc.h"
 #include "nfd_common.h"
 #include "nfd.h"
 #ifdef LWJGL_WINDOWS

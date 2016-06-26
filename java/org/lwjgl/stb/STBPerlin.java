@@ -16,7 +16,7 @@ import static org.lwjgl.system.Checks.*;
  */
 public class STBPerlin {
 
-	static { Library.initialize(); }
+	static { LibSTB.initialize(); }
 
 	protected STBPerlin() {
 		throw new UnsupportedOperationException();

@@ -175,6 +175,26 @@ public class CoreFoundation {
 		return nCFBundleCreate(allocator, bundleURL);
 	}
 
+	// --- [ CFBundleGetBundleWithIdentifier ] ---
+
+	/**
+	 * Locates a bundle given its program-defined identifier.
+	 *
+	 * @param bundleID the identifier of the bundle to locate. Note that identifier names are case-sensitive.
+	 */
+	public static native long nCFBundleGetBundleWithIdentifier(long bundleID);
+
+	/**
+	 * Locates a bundle given its program-defined identifier.
+	 *
+	 * @param bundleID the identifier of the bundle to locate. Note that identifier names are case-sensitive.
+	 */
+	public static long CFBundleGetBundleWithIdentifier(long bundleID) {
+		if ( CHECKS )
+			checkPointer(bundleID);
+		return nCFBundleGetBundleWithIdentifier(bundleID);
+	}
+
 	// --- [ CFBundleGetFunctionPointerForName ] ---
 
 	/**

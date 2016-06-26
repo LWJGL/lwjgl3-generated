@@ -164,7 +164,7 @@ public class NanoVG {
 	/** Image data has premultiplied alpha. */
 	public static final int NVG_IMAGE_PREMULTIPLIED = 1<<4;
 
-	static { Library.initialize(); }
+	static { LibNanoVG.initialize(); }
 
 	protected NanoVG() {
 		throw new UnsupportedOperationException();

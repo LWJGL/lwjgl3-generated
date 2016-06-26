@@ -36,7 +36,7 @@ par_shapes_free_mesh(m);</code></pre>
  */
 public class ParShapes {
 
-	static { Library.initialize(); }
+	static { LibPar.initialize(); }
 
 	static { MemoryUtil.getAllocator(); }
 

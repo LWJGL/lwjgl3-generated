@@ -26,7 +26,7 @@ public class STBRectPack {
 		STBRP_HEURISTIC_Skyline_BL_sortHeight = STBRP_HEURISTIC_Skyline_default,
 		STBRP_HEURISTIC_Skyline_BF_sortHeight = 1;
 
-	static { Library.initialize(); }
+	static { LibSTB.initialize(); }
 
 	protected STBRectPack() {
 		throw new UnsupportedOperationException();

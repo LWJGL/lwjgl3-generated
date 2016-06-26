@@ -28,7 +28,7 @@ public class STBDXT {
 	/** High quality mode, does two refinement steps instead of 1. ~30-40% slower. */
 	public static final int STB_DXT_HIGHQUAL = 0x2;
 
-	static { Library.initialize(); }
+	static { LibSTB.initialize(); }
 
 	protected STBDXT() {
 		throw new UnsupportedOperationException();

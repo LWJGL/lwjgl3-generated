@@ -50,7 +50,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class STBEasyFont {
 
-	static { Library.initialize(); }
+	static { LibSTB.initialize(); }
 
 	protected STBEasyFont() {
 		throw new UnsupportedOperationException();

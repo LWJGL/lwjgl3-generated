@@ -111,9 +111,7 @@ public class STBImageResize {
 		STBIR_TYPE_UINT32 = 2,
 		STBIR_TYPE_FLOAT  = 3;
 
-	static { Library.initialize(); }
-
-	static { MemoryUtil.getAllocator(); }
+	static { LibSTB.initialize(); }
 
 	protected STBImageResize() {
 		throw new UnsupportedOperationException();

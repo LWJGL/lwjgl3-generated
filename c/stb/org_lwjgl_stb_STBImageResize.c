@@ -8,11 +8,12 @@ DISABLE_WARNINGS()
 #ifdef LWJGL_WINDOWS
 	__pragma(warning(disable : 4701 4702 4711 4738))
 #endif
-#define STB_IMAGE_RESIZE_IMPLEMENTATION
-#define STB_IMAGE_RESIZE_STATIC
-#define STBIR_ASSERT(x)
+#include "lwjgl_malloc.h"
 #define STBIR_MALLOC(size,c) lwjgl_malloc(size)
 #define STBIR_FREE(ptr,c)    lwjgl_free(ptr)
+#define STBIR_ASSERT(x)
+#define STB_IMAGE_RESIZE_IMPLEMENTATION
+#define STB_IMAGE_RESIZE_STATIC
 #include "stb_image_resize.h"
 ENABLE_WARNINGS()
 

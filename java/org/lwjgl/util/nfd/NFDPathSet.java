@@ -22,6 +22,8 @@ public class NFDPathSet extends Struct implements NativeResource {
 	public static final int ALIGNOF;
 
 	static {
+		LibNFD.initialize();
+
 		try ( MemoryStack stack = stackPush() ) {
 			IntBuffer offsets = stack.mallocInt(1);
 			SIZEOF = offsets(memAddress(offsets));

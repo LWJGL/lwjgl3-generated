@@ -407,7 +407,7 @@ public class OVR {
 		ovrDebugHudStereo_QuadWithCrosshair   = 2,
 		ovrDebugHudStereo_CrosshairAtInfinity = 3;
 
-	static { Library.initialize(); }
+	static { LibOVR.initialize(); }
 
 	protected OVR() {
 		throw new UnsupportedOperationException();

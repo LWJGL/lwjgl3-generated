@@ -73,7 +73,7 @@ public class STBVorbis {
 		VORBIS_cant_find_last_page              = 36,
 		VORBIS_seek_failed                      = 37;
 
-	static { Library.initialize(); }
+	static { LibSTB.initialize(); }
 
 	protected STBVorbis() {
 		throw new UnsupportedOperationException();

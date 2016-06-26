@@ -46,7 +46,7 @@ public class SSE {
 		_MM_FLUSH_ZERO_ON   = 0x8000,
 		_MM_FLUSH_ZERO_OFF  = 0x0;
 
-	static { Library.initialize(); }
+	static { LibSSE.initialize(); }
 
 	protected SSE() {
 		throw new UnsupportedOperationException();

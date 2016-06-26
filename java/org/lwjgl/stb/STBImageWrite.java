@@ -51,7 +51,7 @@ int stbi_write_hdr_to_func(stbi_write_func *func, void *context, int w, int h, i
  */
 public class STBImageWrite {
 
-	static { Library.initialize(); }
+	static { LibSTB.initialize(); }
 
 	static { MemoryUtil.getAllocator(); }
 

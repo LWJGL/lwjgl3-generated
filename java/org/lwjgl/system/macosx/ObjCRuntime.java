@@ -20,8 +20,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Native bindings to the Objective-C Runtime.
  * 
- * <p>Due to the nature of the {@code objc_msgSend*} functions, they are not directly exposed in this binding. Advanced users with good understanding of
- * the complexity involved with using these functions, may access them via the {@link #getLibrary} method:</p>
+ * <p>Due to the nature of the {@code objc_msgSend*} functions, they are not directly exposed in this binding. Advanced users with good understanding of the
+ * complexity involved with using these functions, may access them via the {@link #getLibrary} method:</p>
  * 
  * <pre><code>SharedLibrary objc = ObjCRuntime.getLibrary();
 long objc_msgSend = objc.getFunctionAddress("objc_msgSend");
@@ -30,9 +30,8 @@ long objc_msgSend = objc.getFunctionAddress("objc_msgSend");
 long NSThread = objc_getClass("NSThread");
 long currentThread = invokePPP(objc_msgSend, NSThread, sel_getUid("currentThread"));</code></pre>
  * 
- * <p>The safe way to use objc_msgSend in C code is to cast it to an appropriate function pointer. This is exactly what the
- * {@link org.lwjgl.system.JNI JNI} class does. If a particular function signature is not available, {@link org.lwjgl.system.dyncall.DynCall DynCall}
- * may be used to invoke it.</p>
+ * <p>The safe way to use objc_msgSend in C code is to cast it to an appropriate function pointer. This is exactly what the {@link org.lwjgl.system.JNI JNI}
+ * class does. If a particular function signature is not available, {@link org.lwjgl.system.dyncall.DynCall DynCall} may be used to invoke it.</p>
  * 
  * <p>The functions not exposed are:</p>
  * 

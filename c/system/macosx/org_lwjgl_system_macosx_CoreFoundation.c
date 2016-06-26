@@ -57,6 +57,12 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_macosx_CoreFoundation_nCFBundleCre
 	return (jlong)(intptr_t)CFBundleCreate(allocator, bundleURL);
 }
 
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_macosx_CoreFoundation_nCFBundleGetBundleWithIdentifier(JNIEnv *__env, jclass clazz, jlong bundleIDAddress) {
+	CFStringRef bundleID = (CFStringRef)(intptr_t)bundleIDAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)(intptr_t)CFBundleGetBundleWithIdentifier(bundleID);
+}
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_macosx_CoreFoundation_nCFBundleGetFunctionPointerForName(JNIEnv *__env, jclass clazz, jlong bundleAddress, jlong functionNameAddress) {
 	CFBundleRef bundle = (CFBundleRef)(intptr_t)bundleAddress;
 	CFStringRef functionName = (CFStringRef)(intptr_t)functionNameAddress;

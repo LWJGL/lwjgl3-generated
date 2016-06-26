@@ -108,9 +108,7 @@ public class STBImage {
 		STBI_rgb        = 3,
 		STBI_rgb_alpha  = 4;
 
-	static { Library.initialize(); }
-
-	static { MemoryUtil.getAllocator(); }
+	static { LibSTB.initialize(); }
 
 	protected STBImage() {
 		throw new UnsupportedOperationException();

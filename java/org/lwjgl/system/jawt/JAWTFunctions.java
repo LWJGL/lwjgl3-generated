@@ -59,7 +59,7 @@ public class JAWTFunctions {
 		JAWT_LOCK_BOUNDS_CHANGED  = 0x4,
 		JAWT_LOCK_SURFACE_CHANGED = 0x8;
 
-	static { Library.initialize(); }
+	static { Library.loadSystem("lwjgl_jawt"); }
 
 	protected JAWTFunctions() {
 		throw new UnsupportedOperationException();

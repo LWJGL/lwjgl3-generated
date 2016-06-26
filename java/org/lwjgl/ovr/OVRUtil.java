@@ -48,7 +48,7 @@ public class OVRUtil {
 	 */
 	public static final int ovrProjection_ClipRangeOpenGL = 0x8;
 
-	static { Library.initialize(); }
+	static { LibOVR.initialize(); }
 
 	protected OVRUtil() {
 		throw new UnsupportedOperationException();

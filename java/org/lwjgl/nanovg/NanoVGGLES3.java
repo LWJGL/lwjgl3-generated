@@ -28,7 +28,7 @@ public class NanoVGGLES3 {
 	/** Do not delete GL texture handle. */
 	public static final int NVG_IMAGE_NODELETE = 1<<16;
 
-	static { Library.initialize(); }
+	static { LibNanoVG.initialize(); }
 
 	protected NanoVGGLES3() {
 		throw new UnsupportedOperationException();

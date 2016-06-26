@@ -29,7 +29,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_nanovg_NanoVGGL2_nnvglImageHandleGL2(JNIEn
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_nanovg_NanoVGGL2_nvgCreateGL2(JNIEnv *__env, jclass clazz, jint flags) {
-	UNUSED_PARAMS(__env, clazz)
+	UNUSED_PARAM(clazz)
 	return (jlong)(intptr_t)nvgCreateGL2(__env, flags);
 }
 

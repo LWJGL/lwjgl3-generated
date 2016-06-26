@@ -308,7 +308,7 @@ public class OVRErrorCode {
 		ovrError_MetricsSessionAlreadyActive = -90009,
 		ovrError_MetricsSessionNotActive     = -90010;
 
-	static { Library.initialize(); }
+	static { LibOVR.initialize(); }
 
 	protected OVRErrorCode() {
 		throw new UnsupportedOperationException();

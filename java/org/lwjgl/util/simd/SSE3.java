@@ -18,7 +18,7 @@ public class SSE3 {
 		_MM_DENORMALS_ZERO_ON   = 0x40,
 		_MM_DENORMALS_ZERO_OFF  = 0x0;
 
-	static { Library.initialize(); }
+	static { LibSSE.initialize(); }
 
 	protected SSE3() {
 		throw new UnsupportedOperationException();

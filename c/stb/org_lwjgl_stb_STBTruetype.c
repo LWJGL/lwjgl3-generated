@@ -8,10 +8,12 @@ DISABLE_WARNINGS()
 #ifdef LWJGL_WINDOWS
 	__pragma(warning(disable : 4701 4702 4711 4738))
 #endif
-#define STB_TRUETYPE_IMPLEMENTATION
-#define STBTT_assert
+#include "lwjgl_malloc.h"
 #define STBTT_malloc(x,u)  ((void)(u),lwjgl_malloc(x))
 #define STBTT_free(x,u)    ((void)(u),lwjgl_free(x))
+#define STBTT_assert
+#define STB_TRUETYPE_IMPLEMENTATION
+#define STBTT_STATIC
 #include "stb_rect_pack.h"
 #include "stb_truetype.h"
 ENABLE_WARNINGS()

@@ -301,9 +301,7 @@ public class STBTruetype {
 		STBTT_MAC_LANG_CHINESE_SIMPLIFIED = 33,
 		STBTT_MAC_LANG_CHINESE_TRAD       = 19;
 
-	static { Library.initialize(); }
-
-	static { MemoryUtil.getAllocator(); }
+	static { LibSTB.initialize(); }
 
 	protected STBTruetype() {
 		throw new UnsupportedOperationException();

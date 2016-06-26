@@ -69,7 +69,7 @@ public class NativeFileDialog {
 	/** User pressed cancel. */
 	public static final int NFD_CANCEL = 2;
 
-	static { Library.initialize(); }
+	static { LibNFD.initialize(); }
 
 	static { MemoryUtil.getAllocator(); }
 

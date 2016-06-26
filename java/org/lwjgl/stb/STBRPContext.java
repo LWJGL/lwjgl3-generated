@@ -22,6 +22,8 @@ public class STBRPContext extends Struct implements NativeResource {
 	public static final int ALIGNOF;
 
 	static {
+		LibSTB.initialize();
+
 		try ( MemoryStack stack = stackPush() ) {
 			IntBuffer offsets = stack.mallocInt(1);
 			SIZEOF = offsets(memAddress(offsets));
