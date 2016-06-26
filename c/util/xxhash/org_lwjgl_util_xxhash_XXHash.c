@@ -12,7 +12,8 @@ DISABLE_WARNINGS()
 	__pragma(warning(disable : 4711))
 #endif
 #define XXH_PRIVATE_API
-#include "xxhash.c"
+#include "lwjgl_malloc.h"
+#include "xxhash.h"
 ENABLE_WARNINGS()
 
 EXTERN_C_ENTER
@@ -29,7 +30,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH64(JNIEnv *__env, 
 	return (jlong)XXH64(input, (size_t)length, seed);
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_util_xxhash_XXHash_XXH32_1createState(JNIEnv *__env, jclass clazz) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH32_1createState(JNIEnv *__env, jclass clazz) {
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)XXH32_createState();
 }
@@ -40,7 +41,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH32_1freeState(JNIEn
 	return (jint)XXH32_freeState(statePtr);
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_util_xxhash_XXHash_XXH64_1createState(JNIEnv *__env, jclass clazz) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH64_1createState(JNIEnv *__env, jclass clazz) {
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)XXH64_createState();
 }
@@ -87,6 +88,20 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH64_1digest(JNIEnv 
 	const XXH64_state_t *statePtr = (const XXH64_state_t *)(intptr_t)statePtrAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)XXH64_digest(statePtr);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH32_1copyState(JNIEnv *__env, jclass clazz, jlong dst_stateAddress, jlong src_stateAddress) {
+	XXH32_state_t *dst_state = (XXH32_state_t *)(intptr_t)dst_stateAddress;
+	const XXH32_state_t *src_state = (const XXH32_state_t *)(intptr_t)src_stateAddress;
+	UNUSED_PARAMS(__env, clazz)
+	XXH32_copyState(dst_state, src_state);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH64_1copyState(JNIEnv *__env, jclass clazz, jlong dst_stateAddress, jlong src_stateAddress) {
+	XXH64_state_t *dst_state = (XXH64_state_t *)(intptr_t)dst_stateAddress;
+	const XXH64_state_t *src_state = (const XXH64_state_t *)(intptr_t)src_stateAddress;
+	UNUSED_PARAMS(__env, clazz)
+	XXH64_copyState(dst_state, src_state);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH32_1canonicalFromHash(JNIEnv *__env, jclass clazz, jlong dstAddress, jint hash) {

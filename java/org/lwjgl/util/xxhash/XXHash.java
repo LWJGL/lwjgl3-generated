@@ -31,7 +31,7 @@ public class XXHash {
 	public static final int XXH_VERSION_MINOR = 6;
 
 	/** The release version number. */
-	public static final int XXH_VERSION_RELEASE = 0;
+	public static final int XXH_VERSION_RELEASE = 1;
 
 	/** The version number */
 	public static final int XXH_VERSION_NUMBER = (XXH_VERSION_MAJOR *100*100 + XXH_VERSION_MINOR *100 + XXH_VERSION_RELEASE);
@@ -70,7 +70,7 @@ public class XXHash {
 	/**
 	 * 64-bit version of {@link #XXH32 32}.
 	 * 
-	 * <p>This function runs faster on 64-bits systems, but slower on 32-bits systems.</p>
+	 * <p>This function runs 2x faster on 64-bits systems, but slower on 32-bits systems.</p>
 	 *
 	 * @param input  the bytes to hash. The memory between {@code input} &amp; {@code input+length} must be valid (allocated and read-accessible).
 	 * @param length the number of bytes stored at memory address {@code input}
@@ -81,7 +81,7 @@ public class XXHash {
 	/**
 	 * 64-bit version of {@link #XXH32 32}.
 	 * 
-	 * <p>This function runs faster on 64-bits systems, but slower on 32-bits systems.</p>
+	 * <p>This function runs 2x faster on 64-bits systems, but slower on 32-bits systems.</p>
 	 *
 	 * @param input the bytes to hash. The memory between {@code input} &amp; {@code input+length} must be valid (allocated and read-accessible).
 	 * @param seed  the seed that can be used to alter the result predictably
@@ -97,7 +97,17 @@ public class XXHash {
 	 * 
 	 * <p><b>LWJGL note</b>: This function simply delegates to the system {@code malloc()} function.</p>
 	 */
-	public static native long XXH32_createState();
+	public static native long nXXH32_createState();
+
+	/**
+	 * Creates memory for {@code XXH32_state_t}. The state must then be initialized using {@link #XXH32_reset 32_reset} before first use.
+	 * 
+	 * <p><b>LWJGL note</b>: This function simply delegates to the system {@code malloc()} function.</p>
+	 */
+	public static XXH32State XXH32_createState() {
+		long __result = nXXH32_createState();
+		return XXH32State.create(__result);
+	}
 
 	// --- [ XXH32_freeState ] ---
 
@@ -113,16 +123,20 @@ public class XXHash {
 	 *
 	 * @param statePtr the state to free
 	 */
-	public static int XXH32_freeState(long statePtr) {
-		if ( CHECKS )
-			checkPointer(statePtr);
-		return nXXH32_freeState(statePtr);
+	public static int XXH32_freeState(XXH32State statePtr) {
+		return nXXH32_freeState(statePtr.address());
 	}
 
 	// --- [ XXH64_createState ] ---
 
 	/** 64-bit version of {@link #XXH32_createState 32_createState}. */
-	public static native long XXH64_createState();
+	public static native long nXXH64_createState();
+
+	/** 64-bit version of {@link #XXH32_createState 32_createState}. */
+	public static XXH64State XXH64_createState() {
+		long __result = nXXH64_createState();
+		return XXH64State.create(__result);
+	}
 
 	// --- [ XXH64_freeState ] ---
 
@@ -138,10 +152,8 @@ public class XXHash {
 	 *
 	 * @param statePtr the state to free
 	 */
-	public static int XXH64_freeState(long statePtr) {
-		if ( CHECKS )
-			checkPointer(statePtr);
-		return nXXH64_freeState(statePtr);
+	public static int XXH64_freeState(XXH64State statePtr) {
+		return nXXH64_freeState(statePtr.address());
 	}
 
 	// --- [ XXH32_reset ] ---
@@ -160,27 +172,26 @@ public class XXHash {
 	 * @param statePtr the {@code XXH32_state_t} to reset
 	 * @param seed     the seed that can be used to alter the hashing result predictably
 	 */
-	public static int XXH32_reset(long statePtr, int seed) {
-		if ( CHECKS )
-			checkPointer(statePtr);
-		return nXXH32_reset(statePtr, seed);
+	public static int XXH32_reset(XXH32State statePtr, int seed) {
+		return nXXH32_reset(statePtr.address(), seed);
 	}
 
 	// --- [ XXH32_update ] ---
 
 	/**
-	 * Calculates the xxHash of an input provided in multiple segments, as opposed to provided as a single block.
+	 * These functions generate the xxHash of an input provided in multiple segments. Note that, for small input, they are slower than single-call functions,
+	 * due to state management. For small input, prefer {@link #XXH32 32}.
 	 * 
-	 * <p>XXH state must first be allocated.</p>
+	 * <p>XXH state must first be allocated, using {@link #XXH32_createState 32_createState}.</p>
 	 * 
 	 * <p>Start a new hash by initializing state with a seed, using {@link #XXH32_reset 32_reset}.</p>
 	 * 
-	 * <p>Then, feed the hash state by calling {@link #XXH32_update 32_update} as many times as necessary. Obviously, input must be valid, hence allocated and read accessible. The
-	 * function returns an error code, with 0 meaning OK, and any other value meaning there is an error.</p>
+	 * <p>Then, feed the hash state by calling {@link #XXH32_update 32_update} as many times as necessary. Obviously, input must be allocated and read accessible. The function
+	 * returns an error code, with 0 meaning OK, and any other value meaning there is an error.</p>
 	 * 
 	 * <p>Finally, a hash value can be produced anytime, by using {@link #XXH32_digest 32_digest}. This function returns the 32-bits hash as an int.</p>
 	 * 
-	 * <p>It's still possible to continue inserting input into the hash state after a digest, and later on generate some new hashes, by calling again
+	 * <p>It's still possible to continue inserting input into the hash state after a digest, and generate some new hashes later on, by calling again
 	 * {@link #XXH32_digest 32_digest}.</p>
 	 * 
 	 * <p>When done, free XXH state space.</p>
@@ -192,18 +203,19 @@ public class XXHash {
 	public static native int nXXH32_update(long statePtr, long input, long length);
 
 	/**
-	 * Calculates the xxHash of an input provided in multiple segments, as opposed to provided as a single block.
+	 * These functions generate the xxHash of an input provided in multiple segments. Note that, for small input, they are slower than single-call functions,
+	 * due to state management. For small input, prefer {@link #XXH32 32}.
 	 * 
-	 * <p>XXH state must first be allocated.</p>
+	 * <p>XXH state must first be allocated, using {@link #XXH32_createState 32_createState}.</p>
 	 * 
 	 * <p>Start a new hash by initializing state with a seed, using {@link #XXH32_reset 32_reset}.</p>
 	 * 
-	 * <p>Then, feed the hash state by calling {@link #XXH32_update 32_update} as many times as necessary. Obviously, input must be valid, hence allocated and read accessible. The
-	 * function returns an error code, with 0 meaning OK, and any other value meaning there is an error.</p>
+	 * <p>Then, feed the hash state by calling {@link #XXH32_update 32_update} as many times as necessary. Obviously, input must be allocated and read accessible. The function
+	 * returns an error code, with 0 meaning OK, and any other value meaning there is an error.</p>
 	 * 
 	 * <p>Finally, a hash value can be produced anytime, by using {@link #XXH32_digest 32_digest}. This function returns the 32-bits hash as an int.</p>
 	 * 
-	 * <p>It's still possible to continue inserting input into the hash state after a digest, and later on generate some new hashes, by calling again
+	 * <p>It's still possible to continue inserting input into the hash state after a digest, and generate some new hashes later on, by calling again
 	 * {@link #XXH32_digest 32_digest}.</p>
 	 * 
 	 * <p>When done, free XXH state space.</p>
@@ -211,10 +223,8 @@ public class XXHash {
 	 * @param statePtr the {@code XXH32_state_t} to use
 	 * @param input    the bytes to hash. The memory between {@code input} &amp; {@code input+length} must be valid (allocated and read-accessible).
 	 */
-	public static int XXH32_update(long statePtr, ByteBuffer input) {
-		if ( CHECKS )
-			checkPointer(statePtr);
-		return nXXH32_update(statePtr, memAddress(input), (long)input.remaining());
+	public static int XXH32_update(XXH32State statePtr, ByteBuffer input) {
+		return nXXH32_update(statePtr.address(), memAddress(input), (long)input.remaining());
 	}
 
 	// --- [ XXH32_digest ] ---
@@ -231,10 +241,8 @@ public class XXHash {
 	 *
 	 * @param statePtr the {@code XXH32_state_t} to use
 	 */
-	public static int XXH32_digest(long statePtr) {
-		if ( CHECKS )
-			checkPointer(statePtr);
-		return nXXH32_digest(statePtr);
+	public static int XXH32_digest(XXH32State statePtr) {
+		return nXXH32_digest(statePtr.address());
 	}
 
 	// --- [ XXH64_reset ] ---
@@ -253,10 +261,8 @@ public class XXHash {
 	 * @param statePtr the {@code XXH64_state_t} to reset
 	 * @param seed     the seed that can be used to alter the hashing result predictably
 	 */
-	public static int XXH64_reset(long statePtr, long seed) {
-		if ( CHECKS )
-			checkPointer(statePtr);
-		return nXXH64_reset(statePtr, seed);
+	public static int XXH64_reset(XXH64State statePtr, long seed) {
+		return nXXH64_reset(statePtr.address(), seed);
 	}
 
 	// --- [ XXH64_update ] ---
@@ -276,10 +282,8 @@ public class XXHash {
 	 * @param statePtr the {@code XXH64_state_t} to use
 	 * @param input    the bytes to hash. The memory between {@code input} &amp; {@code input+length} must be valid (allocated and read-accessible).
 	 */
-	public static int XXH64_update(long statePtr, ByteBuffer input) {
-		if ( CHECKS )
-			checkPointer(statePtr);
-		return nXXH64_update(statePtr, memAddress(input), (long)input.remaining());
+	public static int XXH64_update(XXH64State statePtr, ByteBuffer input) {
+		return nXXH64_update(statePtr.address(), memAddress(input), (long)input.remaining());
 	}
 
 	// --- [ XXH64_digest ] ---
@@ -296,10 +300,24 @@ public class XXHash {
 	 *
 	 * @param statePtr the {@code XXH64_state_t} to use
 	 */
-	public static long XXH64_digest(long statePtr) {
-		if ( CHECKS )
-			checkPointer(statePtr);
-		return nXXH64_digest(statePtr);
+	public static long XXH64_digest(XXH64State statePtr) {
+		return nXXH64_digest(statePtr.address());
+	}
+
+	// --- [ XXH32_copyState ] ---
+
+	public static native void nXXH32_copyState(long dst_state, long src_state);
+
+	public static void XXH32_copyState(XXH32State dst_state, XXH32State src_state) {
+		nXXH32_copyState(dst_state.address(), src_state.address());
+	}
+
+	// --- [ XXH64_copyState ] ---
+
+	public static native void nXXH64_copyState(long dst_state, long src_state);
+
+	public static void XXH64_copyState(XXH64State dst_state, XXH64State src_state) {
+		nXXH64_copyState(dst_state.address(), src_state.address());
 	}
 
 	// --- [ XXH32_canonicalFromHash ] ---
