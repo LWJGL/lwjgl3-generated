@@ -20,6 +20,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Contains information about a specialization constant.</p>
  * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>For a {@code constantID} specialization constant declared in a shader, {@code size} <b>must</b> match the byte size of the {@code constantID}. If the
+ * specialization constant is of type boolean, {@code size} <b>must</b> be the byte size of VkBool32</li>
+ * </ul>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>

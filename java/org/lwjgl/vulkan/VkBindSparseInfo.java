@@ -45,15 +45,19 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_BIND_SPARSE_INFO STRUCTURE_TYPE_BIND_SPARSE_INFO}</li>
  * <li>{@code pNext} &ndash; reserved for use by extensions</li>
  * <li>{@code waitSemaphoreCount} &ndash; the number of semaphores upon which to wait before executing the sparse binding operations for the batch</li>
- * <li>{@code pWaitSemaphores} &ndash; a pointer to an array of semaphores upon which to wait before executing the sparse binding operations in the batch</li>
- * <li>{@code bufferBindCount} &ndash; the number of sparse buffer bindings to perform</li>
- * <li>{@code pBufferBinds} &ndash; an array of {@link VkSparseBufferMemoryBindInfo} structures, indicating sparse buffer bindings to perform</li>
+ * <li>{@code pWaitSemaphores} &ndash; 
+ * a pointer to an array of semaphores upon which to wait on before the sparse binding operations for this batch begin execution. If semaphores to wait on
+ * are provided, they define a semaphore wait operation.</li>
+ * <li>{@code bufferBindCount} &ndash; the number of sparse buffer bindings to perform in the batch</li>
+ * <li>{@code pBufferBinds} &ndash; a pointer to an array of {@link VkSparseBufferMemoryBindInfo} structures</li>
  * <li>{@code imageOpaqueBindCount} &ndash; the number of opaque sparse image bindings to perform</li>
- * <li>{@code pImageOpaqueBinds} &ndash; an array of {@link VkSparseImageOpaqueMemoryBindInfo} structures, indicating opaque sparse image bindings to perform</li>
+ * <li>{@code pImageOpaqueBinds} &ndash; a pointer to an array of {@link VkSparseImageOpaqueMemoryBindInfo} structures, indicating opaque sparse image bindings to perform</li>
  * <li>{@code imageBindCount} &ndash; the number of sparse image bindings to perform</li>
- * <li>{@code pImageBinds} &ndash; an array of {@link VkSparseImageMemoryBindInfo} structures, indicating sparse image bindings to perform</li>
+ * <li>{@code pImageBinds} &ndash; a pointer to an array of {@link VkSparseImageMemoryBindInfo} structures, indicating sparse image bindings to perform</li>
  * <li>{@code signalSemaphoreCount} &ndash; the number of semaphores to be signaled once the sparse binding operations specified by the structure have completed execution</li>
- * <li>{@code pSignalSemaphores} &ndash; a pointer to an array of semaphores which will be signaled when the sparse binding operations for this batch have completed execution</li>
+ * <li>{@code pSignalSemaphores} &ndash; 
+ * a pointer to an array of semaphores which will be signaled when the sparse binding operations for this batch have completed execution. If semaphores to
+ * be signaled are provided, they define a semaphore signal operation.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

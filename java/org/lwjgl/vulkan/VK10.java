@@ -2673,8 +2673,8 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 * <li>{@code pName} <b>must</b> be a null-terminated string</li>
 	 * <li>If {@code instance} is {@code NULL}, {@code pName} <b>must</b> be one of: {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties}, {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties} or
 	 * {@link #vkCreateInstance CreateInstance}</li>
-	 * <li>If {@code instance} is not {@code NULL}, {@code pName} <b>must</b> be the name of a core command or a command from an enabled extension, other than:
-	 * {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties}, {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties} or {@link #vkCreateInstance CreateInstance}</li>
+	 * <li>If {@code instance} is not {@code NULL}, {@code pName} <b>must not</b> be {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties}, {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties} or
+	 * {@link #vkCreateInstance CreateInstance}</li>
 	 * </ul>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>LWJGL Note</h5>
@@ -2705,8 +2705,8 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pName} <b>must</b> be a null-terminated string</li>
 	 * <li>If {@code instance} is {@code NULL}, {@code pName} <b>must</b> be one of: {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties}, {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties} or
 	 * {@link #vkCreateInstance CreateInstance}</li>
-	 * <li>If {@code instance} is not {@code NULL}, {@code pName} <b>must</b> be the name of a core command or a command from an enabled extension, other than:
-	 * {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties}, {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties} or {@link #vkCreateInstance CreateInstance}</li>
+	 * <li>If {@code instance} is not {@code NULL}, {@code pName} <b>must not</b> be {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties}, {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties} or
+	 * {@link #vkCreateInstance CreateInstance}</li>
 	 * </ul>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>LWJGL Note</h5>
@@ -2738,8 +2738,8 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pName} <b>must</b> be a null-terminated string</li>
 	 * <li>If {@code instance} is {@code NULL}, {@code pName} <b>must</b> be one of: {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties}, {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties} or
 	 * {@link #vkCreateInstance CreateInstance}</li>
-	 * <li>If {@code instance} is not {@code NULL}, {@code pName} <b>must</b> be the name of a core command or a command from an enabled extension, other than:
-	 * {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties}, {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties} or {@link #vkCreateInstance CreateInstance}</li>
+	 * <li>If {@code instance} is not {@code NULL}, {@code pName} <b>must not</b> be {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties}, {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties} or
+	 * {@link #vkCreateInstance CreateInstance}</li>
 	 * </ul>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>LWJGL Note</h5>
@@ -2780,8 +2780,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <ul>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code pName} <b>must</b> be a null-terminated string</li>
-	 * <li>{@code pName} <b>must</b> be the name of a supported command that has a first parameter of type {@code VkDevice}, {@code VkQueue} or
-	 * {@code VkCommandBuffer}, either in the core API or an enabled extension</li>
 	 * </ul>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>LWJGL Note</h5>
@@ -2822,8 +2820,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <ul>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code pName} <b>must</b> be a null-terminated string</li>
-	 * <li>{@code pName} <b>must</b> be the name of a supported command that has a first parameter of type {@code VkDevice}, {@code VkQueue} or
-	 * {@code VkCommandBuffer}, either in the core API or an enabled extension</li>
 	 * </ul>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>LWJGL Note</h5>
@@ -2865,8 +2861,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <ul>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code pName} <b>must</b> be a null-terminated string</li>
-	 * <li>{@code pName} <b>must</b> be the name of a supported command that has a first parameter of type {@code VkDevice}, {@code VkQueue} or
-	 * {@code VkCommandBuffer}, either in the core API or an enabled extension</li>
 	 * </ul>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>LWJGL Note</h5>
@@ -3572,16 +3566,13 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * 
 	 * Submits a sequence of semaphores or command buffers to a queue.
 	 * 
-	 * <p>Each call to {@code vkQueueSubmit} submits zero or more batches of work to the queue for execution. {@code submitCount} is used to specify the number
-	 * of batches to submit. Each batch includes zero or more semaphores to wait upon, and a corresponding set of stages that will wait for the semaphore to
-	 * be signaled before executing any work, followed by a number of command buffers that will be executed, and finally, zero or more semaphores that will
-	 * be signaled after command buffer execution completes. Each batch is represented as an instance of the {@link VkSubmitInfo} structure stored in an array, the
-	 * address of which is passed in {@code pSubmits}.</p>
+	 * <p>{@code vkQueueSubmit} is a queue submission command, with each batch defined by an element of {@code pSubmits} as an instance of the {@link VkSubmitInfo}
+	 * structure.</p>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
 	 * 
-	 * <p>The exact definition of a submission is platform-specific, but is considered a relatively expensive operation. In general, applications <b>should</b>
-	 * attempt to batch work together into as few calls to {@code vkQueueSubmit} as possible.</p>
+	 * <p>Submission can be a high overhead operation, and applications <b>should</b> attempt to batch work together into as few calls to {@code vkQueueSubmit} as
+	 * possible.</p>
 	 * </div>
 	 * 
 	 * <h5>Valid Usage</h5>
@@ -3605,14 +3596,10 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>Host access to {@code fence} <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 *
-	 * @param queue       the handle of the queue that the command buffers will be submitted to
+	 * @param queue       the queue that the command buffers will be submitted to
 	 * @param submitCount the number of elements in the {@code pSubmits} array
-	 * @param pSubmits    a pointer to an array of {@link VkSubmitInfo} structures which describe the work to submit. All work described by {@code pSubmits} <b>must</b> be submitted to
-	 *                    the queue before the command returns.
-	 * @param fence       an optional handle to a fence. If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the fence is signaled when execution of all command buffers specified in the
-	 *                    {@link VkSubmitInfo}{@code ::pCommandBuffers} members of {@code pSubmits} is complete, providing certain implicit ordering guarantees. If
-	 *                    {@code submitCount} is zero but {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the fence will still be submitted to the queue and will become signaled when all
-	 *                    work previously submitted to the queue has completed.
+	 * @param pSubmits    a pointer to an array of {@link VkSubmitInfo} structures, each specifying a command buffer submission batch
+	 * @param fence       an optional handle to a fence to be signaled. If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, it defines a fence signal operation.
 	 */
 	public static int nvkQueueSubmit(VkQueue queue, int submitCount, long pSubmits, long fence) {
 		long __functionAddress = queue.getCapabilities().vkQueueSubmit;
@@ -3626,16 +3613,13 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * 
 	 * Submits a sequence of semaphores or command buffers to a queue.
 	 * 
-	 * <p>Each call to {@code vkQueueSubmit} submits zero or more batches of work to the queue for execution. {@code submitCount} is used to specify the number
-	 * of batches to submit. Each batch includes zero or more semaphores to wait upon, and a corresponding set of stages that will wait for the semaphore to
-	 * be signaled before executing any work, followed by a number of command buffers that will be executed, and finally, zero or more semaphores that will
-	 * be signaled after command buffer execution completes. Each batch is represented as an instance of the {@link VkSubmitInfo} structure stored in an array, the
-	 * address of which is passed in {@code pSubmits}.</p>
+	 * <p>{@code vkQueueSubmit} is a queue submission command, with each batch defined by an element of {@code pSubmits} as an instance of the {@link VkSubmitInfo}
+	 * structure.</p>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
 	 * 
-	 * <p>The exact definition of a submission is platform-specific, but is considered a relatively expensive operation. In general, applications <b>should</b>
-	 * attempt to batch work together into as few calls to {@code vkQueueSubmit} as possible.</p>
+	 * <p>Submission can be a high overhead operation, and applications <b>should</b> attempt to batch work together into as few calls to {@code vkQueueSubmit} as
+	 * possible.</p>
 	 * </div>
 	 * 
 	 * <h5>Valid Usage</h5>
@@ -3659,13 +3643,9 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>Host access to {@code fence} <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 *
-	 * @param queue    the handle of the queue that the command buffers will be submitted to
-	 * @param pSubmits a pointer to an array of {@link VkSubmitInfo} structures which describe the work to submit. All work described by {@code pSubmits} <b>must</b> be submitted to
-	 *                 the queue before the command returns.
-	 * @param fence    an optional handle to a fence. If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the fence is signaled when execution of all command buffers specified in the
-	 *                 {@link VkSubmitInfo}{@code ::pCommandBuffers} members of {@code pSubmits} is complete, providing certain implicit ordering guarantees. If
-	 *                 {@code submitCount} is zero but {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the fence will still be submitted to the queue and will become signaled when all
-	 *                 work previously submitted to the queue has completed.
+	 * @param queue    the queue that the command buffers will be submitted to
+	 * @param pSubmits a pointer to an array of {@link VkSubmitInfo} structures, each specifying a command buffer submission batch
+	 * @param fence    an optional handle to a fence to be signaled. If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, it defines a fence signal operation.
 	 */
 	public static int vkQueueSubmit(VkQueue queue, VkSubmitInfo.Buffer pSubmits, long fence) {
 		return nvkQueueSubmit(queue, pSubmits == null ? 0 : pSubmits.remaining(), pSubmits == null ? NULL : pSubmits.address(), fence);
@@ -3676,16 +3656,13 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * 
 	 * Submits a sequence of semaphores or command buffers to a queue.
 	 * 
-	 * <p>Each call to {@code vkQueueSubmit} submits zero or more batches of work to the queue for execution. {@code submitCount} is used to specify the number
-	 * of batches to submit. Each batch includes zero or more semaphores to wait upon, and a corresponding set of stages that will wait for the semaphore to
-	 * be signaled before executing any work, followed by a number of command buffers that will be executed, and finally, zero or more semaphores that will
-	 * be signaled after command buffer execution completes. Each batch is represented as an instance of the {@link VkSubmitInfo} structure stored in an array, the
-	 * address of which is passed in {@code pSubmits}.</p>
+	 * <p>{@code vkQueueSubmit} is a queue submission command, with each batch defined by an element of {@code pSubmits} as an instance of the {@link VkSubmitInfo}
+	 * structure.</p>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
 	 * 
-	 * <p>The exact definition of a submission is platform-specific, but is considered a relatively expensive operation. In general, applications <b>should</b>
-	 * attempt to batch work together into as few calls to {@code vkQueueSubmit} as possible.</p>
+	 * <p>Submission can be a high overhead operation, and applications <b>should</b> attempt to batch work together into as few calls to {@code vkQueueSubmit} as
+	 * possible.</p>
 	 * </div>
 	 * 
 	 * <h5>Valid Usage</h5>
@@ -3709,11 +3686,8 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>Host access to {@code fence} <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 *
-	 * @param queue the handle of the queue that the command buffers will be submitted to
-	 * @param fence an optional handle to a fence. If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the fence is signaled when execution of all command buffers specified in the
-	 *              {@link VkSubmitInfo}{@code ::pCommandBuffers} members of {@code pSubmits} is complete, providing certain implicit ordering guarantees. If
-	 *              {@code submitCount} is zero but {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, the fence will still be submitted to the queue and will become signaled when all
-	 *              work previously submitted to the queue has completed.
+	 * @param queue the queue that the command buffers will be submitted to
+	 * @param fence an optional handle to a fence to be signaled. If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, it defines a fence signal operation.
 	 */
 	public static int vkQueueSubmit(VkQueue queue, VkSubmitInfo pSubmit, long fence) {
 		return nvkQueueSubmit(queue, 1, pSubmit.address(), fence);
@@ -4772,12 +4746,8 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * 
 	 * Submits sparse binding operations to a queue for execution.
 	 * 
-	 * <p>Each batch of sparse binding operations is represented by a list of {@link VkSparseBufferMemoryBindInfo}, {@link VkSparseImageOpaqueMemoryBindInfo}, and
-	 * {@link VkSparseImageMemoryBindInfo} structures (encapsulated in a {@link VkBindSparseInfo} structure), each preceded by a list of semaphores upon which to wait
-	 * before beginning execution of the operations, and followed by a second list of semaphores to signal upon completion of the operations.</p>
-	 * 
-	 * <p>When all sparse binding operations in {@code pBindInfo} have completed execution, the status of fence is set to signaled, providing certain implicit
-	 * ordering guarantees.</p>
+	 * <p>{@code vkQueueBindSparse} is a queue submission command, with each batch defined by an element of {@code pBindInfo} as an instance of the
+	 * {@link VkBindSparseInfo} structure.</p>
 	 * 
 	 * <p>Within a batch, a given range of a resource <b>must not</b> be bound more than once. Across batches, if a range is to be bound to one allocation and offset
 	 * and then to another allocation and offset, then the application <b>must</b> guarantee (usually using semaphores) that the binding operations are executed in
@@ -4806,11 +4776,14 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>Host access to {@code pBindInfo}[].pImageBinds[].image <b>must</b> be externally synchronized</li>
 	 * <li>Host access to {@code fence} <b>must</b> be externally synchronized</li>
 	 * </ul>
+	 * 
+	 * <p>As no operation to {@code vkQueueBindSparse} causes any pipeline stage to access memory, synchronization primitives used in this command effectively
+	 * only define execution dependencies.</p>
 	 *
-	 * @param queue         the queue to submit the sparse binding operation to
-	 * @param bindInfoCount the size of the array pointed to by {@code pBindInfo}
-	 * @param pBindInfo     an array of {@link VkBindSparseInfo} structures each specifying the parameters of a sparse binding operation batch
-	 * @param fence         if not {@link #VK_NULL_HANDLE NULL_HANDLE}, is a fence to be signaled once the sparse binding operation completes
+	 * @param queue         the queue that the sparse binding operations will be submitted to
+	 * @param bindInfoCount the number of elements in the {@code pBindInfo} array
+	 * @param pBindInfo     an array of {@link VkBindSparseInfo} structures, each specifying a sparse binding submission batch
+	 * @param fence         an optional handle to a fence to be signaled. If fence is not {@link #VK_NULL_HANDLE NULL_HANDLE}, it defines a fence signal operation.
 	 */
 	public static int nvkQueueBindSparse(VkQueue queue, int bindInfoCount, long pBindInfo, long fence) {
 		long __functionAddress = queue.getCapabilities().vkQueueBindSparse;
@@ -4824,12 +4797,8 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * 
 	 * Submits sparse binding operations to a queue for execution.
 	 * 
-	 * <p>Each batch of sparse binding operations is represented by a list of {@link VkSparseBufferMemoryBindInfo}, {@link VkSparseImageOpaqueMemoryBindInfo}, and
-	 * {@link VkSparseImageMemoryBindInfo} structures (encapsulated in a {@link VkBindSparseInfo} structure), each preceded by a list of semaphores upon which to wait
-	 * before beginning execution of the operations, and followed by a second list of semaphores to signal upon completion of the operations.</p>
-	 * 
-	 * <p>When all sparse binding operations in {@code pBindInfo} have completed execution, the status of fence is set to signaled, providing certain implicit
-	 * ordering guarantees.</p>
+	 * <p>{@code vkQueueBindSparse} is a queue submission command, with each batch defined by an element of {@code pBindInfo} as an instance of the
+	 * {@link VkBindSparseInfo} structure.</p>
 	 * 
 	 * <p>Within a batch, a given range of a resource <b>must not</b> be bound more than once. Across batches, if a range is to be bound to one allocation and offset
 	 * and then to another allocation and offset, then the application <b>must</b> guarantee (usually using semaphores) that the binding operations are executed in
@@ -4858,10 +4827,13 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>Host access to {@code pBindInfo}[].pImageBinds[].image <b>must</b> be externally synchronized</li>
 	 * <li>Host access to {@code fence} <b>must</b> be externally synchronized</li>
 	 * </ul>
+	 * 
+	 * <p>As no operation to {@code vkQueueBindSparse} causes any pipeline stage to access memory, synchronization primitives used in this command effectively
+	 * only define execution dependencies.</p>
 	 *
-	 * @param queue     the queue to submit the sparse binding operation to
-	 * @param pBindInfo an array of {@link VkBindSparseInfo} structures each specifying the parameters of a sparse binding operation batch
-	 * @param fence     if not {@link #VK_NULL_HANDLE NULL_HANDLE}, is a fence to be signaled once the sparse binding operation completes
+	 * @param queue     the queue that the sparse binding operations will be submitted to
+	 * @param pBindInfo an array of {@link VkBindSparseInfo} structures, each specifying a sparse binding submission batch
+	 * @param fence     an optional handle to a fence to be signaled. If fence is not {@link #VK_NULL_HANDLE NULL_HANDLE}, it defines a fence signal operation.
 	 */
 	public static int vkQueueBindSparse(VkQueue queue, VkBindSparseInfo.Buffer pBindInfo, long fence) {
 		return nvkQueueBindSparse(queue, pBindInfo.remaining(), pBindInfo.address(), fence);
@@ -4872,12 +4844,8 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * 
 	 * Submits sparse binding operations to a queue for execution.
 	 * 
-	 * <p>Each batch of sparse binding operations is represented by a list of {@link VkSparseBufferMemoryBindInfo}, {@link VkSparseImageOpaqueMemoryBindInfo}, and
-	 * {@link VkSparseImageMemoryBindInfo} structures (encapsulated in a {@link VkBindSparseInfo} structure), each preceded by a list of semaphores upon which to wait
-	 * before beginning execution of the operations, and followed by a second list of semaphores to signal upon completion of the operations.</p>
-	 * 
-	 * <p>When all sparse binding operations in {@code pBindInfo} have completed execution, the status of fence is set to signaled, providing certain implicit
-	 * ordering guarantees.</p>
+	 * <p>{@code vkQueueBindSparse} is a queue submission command, with each batch defined by an element of {@code pBindInfo} as an instance of the
+	 * {@link VkBindSparseInfo} structure.</p>
 	 * 
 	 * <p>Within a batch, a given range of a resource <b>must not</b> be bound more than once. Across batches, if a range is to be bound to one allocation and offset
 	 * and then to another allocation and offset, then the application <b>must</b> guarantee (usually using semaphores) that the binding operations are executed in
@@ -4906,10 +4874,13 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>Host access to {@code pBindInfo}[].pImageBinds[].image <b>must</b> be externally synchronized</li>
 	 * <li>Host access to {@code fence} <b>must</b> be externally synchronized</li>
 	 * </ul>
+	 * 
+	 * <p>As no operation to {@code vkQueueBindSparse} causes any pipeline stage to access memory, synchronization primitives used in this command effectively
+	 * only define execution dependencies.</p>
 	 *
-	 * @param queue     the queue to submit the sparse binding operation to
-	 * @param pBindInfo an array of {@link VkBindSparseInfo} structures each specifying the parameters of a sparse binding operation batch
-	 * @param fence     if not {@link #VK_NULL_HANDLE NULL_HANDLE}, is a fence to be signaled once the sparse binding operation completes
+	 * @param queue     the queue that the sparse binding operations will be submitted to
+	 * @param pBindInfo an array of {@link VkBindSparseInfo} structures, each specifying a sparse binding submission batch
+	 * @param fence     an optional handle to a fence to be signaled. If fence is not {@link #VK_NULL_HANDLE NULL_HANDLE}, it defines a fence signal operation.
 	 */
 	public static int vkQueueBindSparse(VkQueue queue, VkBindSparseInfo pBindInfo, long fence) {
 		return nvkQueueBindSparse(queue, 1, pBindInfo.address(), fence);
@@ -4922,7 +4893,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * 
 	 * Creates a new fence object.
 	 * 
-	 * <p>Fences <b>can</b> be used by the host to determine completion of execution of submissions to queues performed with {@link #vkQueueSubmit QueueSubmit} and {@link #vkQueueBindSparse QueueBindSparse}.</p>
+	 * <p>Fences <b>can</b> be used by the host to determine completion of execution of queue operations.</p>
 	 * 
 	 * <p>A fence’s status is always either signaled or unsignaled. The host <b>can</b> poll the status of a single fence, or wait for any or all of a group of fences
 	 * to become signaled.</p>
@@ -4953,7 +4924,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * 
 	 * Creates a new fence object.
 	 * 
-	 * <p>Fences <b>can</b> be used by the host to determine completion of execution of submissions to queues performed with {@link #vkQueueSubmit QueueSubmit} and {@link #vkQueueBindSparse QueueBindSparse}.</p>
+	 * <p>Fences <b>can</b> be used by the host to determine completion of execution of queue operations.</p>
 	 * 
 	 * <p>A fence’s status is always either signaled or unsignaled. The host <b>can</b> poll the status of a single fence, or wait for any or all of a group of fences
 	 * to become signaled.</p>
@@ -5327,9 +5298,9 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * 
 	 * Creates a new queue semaphore object.
 	 * 
-	 * <p>Semaphores are used to coordinate operations between queues and between queue submissions within a single queue. An application might associate
-	 * semaphores with resources or groups of resources to marshal ownership of shared data. A semaphore’s status is always either <em>signaled</em> or
-	 * <em>unsignaled</em>. Semaphores are signaled by queues and <b>can</b> also be waited on in the same or different queues until they are signaled.</p>
+	 * <p>Semaphores are used to coordinate queue operations both within a queue and
+between different queues. A semaphore's status is always either _signaled_
+or _unsignaled_.</p>
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
@@ -5340,35 +5311,39 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pSemaphore} <b>must</b> be a pointer to a {@code VkSemaphore} handle</li>
 	 * </ul>
 	 * 
-	 * <p>To signal a semaphore from a queue, include it in an element of the array of {@link VkSubmitInfo} structures passed through the {@code pSubmits} parameter to
-	 * a call to {@link #vkQueueSubmit QueueSubmit}, or in an element of the array of {@link VkBindSparseInfo} structures passed through the {@code pBindInfo} parameter to a call to
-	 * {@link #vkQueueBindSparse QueueBindSparse}.</p>
+	 * <p>Semaphores <b>can</b> be signaled by including them in a batch as part of a queue submission command, defining a queue operation to signal that semaphore.
+	 * This semaphore signal operation defines the first half of a memory dependency, guaranteeing that all memory accesses defined by the submitted queue
+	 * operations in the batch are made available, and that those queue operations have completed execution.</p>
 	 * 
-	 * <p>Semaphores included in the {@code pSignalSemaphores} array of one of the elements of a queue submission are signaled once queue execution reaches the
-	 * signal operation, and all previous work in the queue completes. Any operations waiting on that semaphore in other queues will be released once it is
-	 * signaled.</p>
+	 * <p>Semaphore signal operations for {@link #vkQueueSubmit QueueSubmit} additionally include all queue operations previously submitted via {@link #vkQueueSubmit QueueSubmit} in their half of a
+	 * memory dependency, and all batches that are stored at a lower index in the same {@code pSubmits} array.</p>
 	 * 
-	 * <p>Similarly, to wait on a semaphore from a queue, include it in the {@code pWaitSemaphores} array of one of the elements of a batch in a queue
-	 * submission. When queue execution reaches the wait operation, will stall execution of subsequently submitted operations until the semaphore reaches the
-	 * signaled state due to a signaling operation. Once the semaphore is signaled, the subsequent operations will be permitted to execute and the status of
-	 * the semaphore will be reset to the unsignaled state.</p>
+	 * <p>Signaling of semaphores <b>can</b> be waited on by similarly including them in a batch, defining a queue operation to wait for a signal. A semaphore wait
+	 * operation defines the second half of a memory dependency for the semaphores being waited on. This half of the memory dependency guarantees that the
+	 * first half has completed execution, and also guarantees that all available memory accesses are made visible to the queue operations in the batch.</p>
 	 * 
-	 * <p>In the case of {@code VkSubmitInfo}, command buffers wait at specific pipeline stages, rather than delaying the entire command buffer’s execution, with the
-	 * pipeline stages determined by the value of the corresponding element of the {@code pWaitDstStageMask} member of {@code VkSubmitInfo}. Execution of work
-	 * by those stages in subsequent commands is stalled until the corresponding semaphore reaches the signaled state. Subsequent sparse binding operations
-	 * wait for the semaphore to become signaled, regardless of the values of {@code pWaitDstStageMask}.</p>
+	 * <p>Semaphore wait operations for {@link #vkQueueSubmit QueueSubmit} additionally include all queue operations subsequently submitted via {@link #vkQueueSubmit QueueSubmit} in their half of a
+	 * memory dependency, and all batches that are stored at a higher index in the same pname:pSubmits array.</p>
+	 * 
+	 * <p>When queue execution reaches a semaphore wait operation, the queue will stall execution of queue operations in the batch until each semaphore becomes
+	 * signaled. Once all semaphores are signaled, the semaphores will be reset to the unsignaled state, and subsequent queue operations will be permitted to
+	 * execute.</p>
+	 * 
+	 * <p>Semaphore wait operations defined by {@link #vkQueueSubmit QueueSubmit} only wait at specific pipeline stages, rather than delaying all of each command buffer's execution,
+	 * with the pipeline stages determined by the corresponding element of the {@code pWaitDstStageMask} member of {@link VkSubmitInfo}. Execution of work by those
+	 * stages in subsequent commands is stalled until the corresponding semaphore reaches the signaled state.</p>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
 	 * 
 	 * <p>A common scenario for using {@code pWaitDstStageMask} with values other than {@link #VK_PIPELINE_STAGE_ALL_COMMANDS_BIT PIPELINE_STAGE_ALL_COMMANDS_BIT} is when synchronizing a window system
-	 * presentation operation against subsequent command buffers which render the next frame. In this case, an image that was being presented <b>must not</b> be
-	 * overwritten until the presentation operation completes, but other pipeline stages <b>can</b> execute without waiting. A mask of
+	 * presentation operation against subsequent command buffers which render the next frame. In this case, a presentation image <b>must not</b> be overwritten
+	 * until the presentation operation completes, but other pipeline stages <b>can</b> execute without waiting. A mask of
 	 * {@link #VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT} prevents subsequent color attachment writes from executing until the semaphore signals. Some
 	 * implementations <b>may</b> be able to execute transfer operations and/or vertex processing work before the semaphore is signaled.</p>
 	 * 
-	 * <p>If an image layout transition needs to be performed on a swapchain image before it is used in a framebuffer, that <b>can</b> be performed as the first
-	 * operation submitted to the queue after acquiring the image, and <b>should not</b> prevent other work from overlapping with the presentation operation.
-	 * For example, a {@link VkImageMemoryBarrier} could use:</p>
+	 * <p>If an image layout transition needs to be performed on a swapchain image before it is used in a framebuffer, that can: be performed as the first
+	 * operation submitted to the queue after acquiring the image, and <b>should not</b> prevent other work from overlapping with the presentation operation. For
+	 * example, a {@link VkImageMemoryBarrier} could use:</p>
 	 * 
 	 * <ul>
 	 * <li><code>srcStageMask = {@link #VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT}</code></li>
@@ -5379,17 +5354,13 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li><code>newLayout = {@link #VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL}</code></li>
 	 * </ul>
 	 * 
-	 * <p>Alternately, {@code oldLayout} <b>can</b> be {@link #VK_IMAGE_LAYOUT_UNDEFINED IMAGE_LAYOUT_UNDEFINED}, if the image’s contents need not be preserved.</p>
+	 * <p>Alternatively, {@code oldLayout} <b>can</b> be {@link #VK_IMAGE_LAYOUT_UNDEFINED IMAGE_LAYOUT_UNDEFINED}, if the image's contents need not be preserved.</p>
 	 * 
 	 * <p>This barrier accomplishes a dependency chain between previous presentation operations and subsequent color attachment output operations, with the
 	 * layout transition performed in between, and does not introduce a dependency between previous work and any vertex processing stages. More precisely,
 	 * the semaphore signals after the presentation operation completes, then the semaphore wait stalls the {@link #VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT}
 	 * stage, then there is a dependency from that same stage to itself with the layout transition performed in between.</p>
 	 * </div>
-	 * 
-	 * <p>When a queue signals or waits upon a semaphore, certain implicit ordering guarantees are provided.</p>
-	 * 
-	 * <p>Semaphore operations <b>may</b> not make the side effects of commands visible to the host.</p>
 	 *
 	 * @param device      the logical device that creates the semaphore
 	 * @param pCreateInfo points to a {@link VkSemaphoreCreateInfo} structure specifying the state of the semaphore object
@@ -5408,9 +5379,9 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * 
 	 * Creates a new queue semaphore object.
 	 * 
-	 * <p>Semaphores are used to coordinate operations between queues and between queue submissions within a single queue. An application might associate
-	 * semaphores with resources or groups of resources to marshal ownership of shared data. A semaphore’s status is always either <em>signaled</em> or
-	 * <em>unsignaled</em>. Semaphores are signaled by queues and <b>can</b> also be waited on in the same or different queues until they are signaled.</p>
+	 * <p>Semaphores are used to coordinate queue operations both within a queue and
+between different queues. A semaphore's status is always either _signaled_
+or _unsignaled_.</p>
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
@@ -5421,35 +5392,39 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pSemaphore} <b>must</b> be a pointer to a {@code VkSemaphore} handle</li>
 	 * </ul>
 	 * 
-	 * <p>To signal a semaphore from a queue, include it in an element of the array of {@link VkSubmitInfo} structures passed through the {@code pSubmits} parameter to
-	 * a call to {@link #vkQueueSubmit QueueSubmit}, or in an element of the array of {@link VkBindSparseInfo} structures passed through the {@code pBindInfo} parameter to a call to
-	 * {@link #vkQueueBindSparse QueueBindSparse}.</p>
+	 * <p>Semaphores <b>can</b> be signaled by including them in a batch as part of a queue submission command, defining a queue operation to signal that semaphore.
+	 * This semaphore signal operation defines the first half of a memory dependency, guaranteeing that all memory accesses defined by the submitted queue
+	 * operations in the batch are made available, and that those queue operations have completed execution.</p>
 	 * 
-	 * <p>Semaphores included in the {@code pSignalSemaphores} array of one of the elements of a queue submission are signaled once queue execution reaches the
-	 * signal operation, and all previous work in the queue completes. Any operations waiting on that semaphore in other queues will be released once it is
-	 * signaled.</p>
+	 * <p>Semaphore signal operations for {@link #vkQueueSubmit QueueSubmit} additionally include all queue operations previously submitted via {@link #vkQueueSubmit QueueSubmit} in their half of a
+	 * memory dependency, and all batches that are stored at a lower index in the same {@code pSubmits} array.</p>
 	 * 
-	 * <p>Similarly, to wait on a semaphore from a queue, include it in the {@code pWaitSemaphores} array of one of the elements of a batch in a queue
-	 * submission. When queue execution reaches the wait operation, will stall execution of subsequently submitted operations until the semaphore reaches the
-	 * signaled state due to a signaling operation. Once the semaphore is signaled, the subsequent operations will be permitted to execute and the status of
-	 * the semaphore will be reset to the unsignaled state.</p>
+	 * <p>Signaling of semaphores <b>can</b> be waited on by similarly including them in a batch, defining a queue operation to wait for a signal. A semaphore wait
+	 * operation defines the second half of a memory dependency for the semaphores being waited on. This half of the memory dependency guarantees that the
+	 * first half has completed execution, and also guarantees that all available memory accesses are made visible to the queue operations in the batch.</p>
 	 * 
-	 * <p>In the case of {@code VkSubmitInfo}, command buffers wait at specific pipeline stages, rather than delaying the entire command buffer’s execution, with the
-	 * pipeline stages determined by the value of the corresponding element of the {@code pWaitDstStageMask} member of {@code VkSubmitInfo}. Execution of work
-	 * by those stages in subsequent commands is stalled until the corresponding semaphore reaches the signaled state. Subsequent sparse binding operations
-	 * wait for the semaphore to become signaled, regardless of the values of {@code pWaitDstStageMask}.</p>
+	 * <p>Semaphore wait operations for {@link #vkQueueSubmit QueueSubmit} additionally include all queue operations subsequently submitted via {@link #vkQueueSubmit QueueSubmit} in their half of a
+	 * memory dependency, and all batches that are stored at a higher index in the same pname:pSubmits array.</p>
+	 * 
+	 * <p>When queue execution reaches a semaphore wait operation, the queue will stall execution of queue operations in the batch until each semaphore becomes
+	 * signaled. Once all semaphores are signaled, the semaphores will be reset to the unsignaled state, and subsequent queue operations will be permitted to
+	 * execute.</p>
+	 * 
+	 * <p>Semaphore wait operations defined by {@link #vkQueueSubmit QueueSubmit} only wait at specific pipeline stages, rather than delaying all of each command buffer's execution,
+	 * with the pipeline stages determined by the corresponding element of the {@code pWaitDstStageMask} member of {@link VkSubmitInfo}. Execution of work by those
+	 * stages in subsequent commands is stalled until the corresponding semaphore reaches the signaled state.</p>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
 	 * 
 	 * <p>A common scenario for using {@code pWaitDstStageMask} with values other than {@link #VK_PIPELINE_STAGE_ALL_COMMANDS_BIT PIPELINE_STAGE_ALL_COMMANDS_BIT} is when synchronizing a window system
-	 * presentation operation against subsequent command buffers which render the next frame. In this case, an image that was being presented <b>must not</b> be
-	 * overwritten until the presentation operation completes, but other pipeline stages <b>can</b> execute without waiting. A mask of
+	 * presentation operation against subsequent command buffers which render the next frame. In this case, a presentation image <b>must not</b> be overwritten
+	 * until the presentation operation completes, but other pipeline stages <b>can</b> execute without waiting. A mask of
 	 * {@link #VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT} prevents subsequent color attachment writes from executing until the semaphore signals. Some
 	 * implementations <b>may</b> be able to execute transfer operations and/or vertex processing work before the semaphore is signaled.</p>
 	 * 
-	 * <p>If an image layout transition needs to be performed on a swapchain image before it is used in a framebuffer, that <b>can</b> be performed as the first
-	 * operation submitted to the queue after acquiring the image, and <b>should not</b> prevent other work from overlapping with the presentation operation.
-	 * For example, a {@link VkImageMemoryBarrier} could use:</p>
+	 * <p>If an image layout transition needs to be performed on a swapchain image before it is used in a framebuffer, that can: be performed as the first
+	 * operation submitted to the queue after acquiring the image, and <b>should not</b> prevent other work from overlapping with the presentation operation. For
+	 * example, a {@link VkImageMemoryBarrier} could use:</p>
 	 * 
 	 * <ul>
 	 * <li><code>srcStageMask = {@link #VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT}</code></li>
@@ -5460,17 +5435,13 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li><code>newLayout = {@link #VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL}</code></li>
 	 * </ul>
 	 * 
-	 * <p>Alternately, {@code oldLayout} <b>can</b> be {@link #VK_IMAGE_LAYOUT_UNDEFINED IMAGE_LAYOUT_UNDEFINED}, if the image’s contents need not be preserved.</p>
+	 * <p>Alternatively, {@code oldLayout} <b>can</b> be {@link #VK_IMAGE_LAYOUT_UNDEFINED IMAGE_LAYOUT_UNDEFINED}, if the image's contents need not be preserved.</p>
 	 * 
 	 * <p>This barrier accomplishes a dependency chain between previous presentation operations and subsequent color attachment output operations, with the
 	 * layout transition performed in between, and does not introduce a dependency between previous work and any vertex processing stages. More precisely,
 	 * the semaphore signals after the presentation operation completes, then the semaphore wait stalls the {@link #VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT}
 	 * stage, then there is a dependency from that same stage to itself with the layout transition performed in between.</p>
 	 * </div>
-	 * 
-	 * <p>When a queue signals or waits upon a semaphore, certain implicit ordering guarantees are provided.</p>
-	 * 
-	 * <p>Semaphore operations <b>may</b> not make the side effects of commands visible to the host.</p>
 	 *
 	 * @param device      the logical device that creates the semaphore
 	 * @param pCreateInfo points to a {@link VkSemaphoreCreateInfo} structure specifying the state of the semaphore object

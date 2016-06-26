@@ -65,9 +65,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_SUBMIT_INFO STRUCTURE_TYPE_SUBMIT_INFO}</li>
  * <li>{@code pNext} &ndash; reserved for use by extensions</li>
  * <li>{@code waitSemaphoreCount} &ndash; the number of semaphores upon which to wait before executing the command buffers for the batch</li>
- * <li>{@code pWaitSemaphores} &ndash; a pointer to an array of semaphores upon which to wait before executing the command buffers in the batch</li>
+ * <li>{@code pWaitSemaphores} &ndash; 
+ * a pointer to an array of semaphores upon which to wait before the command buffers for this batch begin execution. If semaphores to wait on are
+ * provided, they define a semaphore wait operation.</li>
  * <li>{@code pWaitDstStageMask} &ndash; a pointer to an array of pipeline stages at which each corresponding semaphore wait will occur</li>
- * <li>{@code commandBufferCount} &ndash; contains the number of command buffers to execute in the batch</li>
+ * <li>{@code commandBufferCount} &ndash; the number of command buffers to execute in the batch</li>
  * <li>{@code pCommandBuffers} &ndash; a pointer to an array of command buffers to execute in the batch</li>
  * <li>{@code signalSemaphoreCount} &ndash; the number of semaphores to be signaled once the commands specified in {@code pCommandBuffers} have completed execution</li>
  * <li>{@code pSignalSemaphores} &ndash; a pointer to an array of semaphores which will be signaled when the command buffers for this batch have completed execution</li>
