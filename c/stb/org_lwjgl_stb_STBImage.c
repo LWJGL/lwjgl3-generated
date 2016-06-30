@@ -155,17 +155,17 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImage_nstbi_1info_1from_1callbacks_
 	return (jint)stbi_info_from_callbacks(clbk, user, x, y, comp);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBImage_stbi_1set_1unpremultiply_1on_1load(JNIEnv *__env, jclass clazz, jint flag_true_if_should_unpremultiply) {
+JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBImage_nstbi_1set_1unpremultiply_1on_1load(JNIEnv *__env, jclass clazz, jint flag_true_if_should_unpremultiply) {
 	UNUSED_PARAMS(__env, clazz)
 	stbi_set_unpremultiply_on_load(flag_true_if_should_unpremultiply);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBImage_stbi_1convert_1iphone_1png_1to_1rgb(JNIEnv *__env, jclass clazz, jint flag_true_if_should_convert) {
+JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBImage_nstbi_1convert_1iphone_1png_1to_1rgb(JNIEnv *__env, jclass clazz, jint flag_true_if_should_convert) {
 	UNUSED_PARAMS(__env, clazz)
 	stbi_convert_iphone_png_to_rgb(flag_true_if_should_convert);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBImage_stbi_1set_1flip_1vertically_1on_1load(JNIEnv *__env, jclass clazz, jint flag_true_if_should_flip) {
+JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBImage_nstbi_1set_1flip_1vertically_1on_1load(JNIEnv *__env, jclass clazz, jint flag_true_if_should_flip) {
 	UNUSED_PARAMS(__env, clazz)
 	stbi_set_flip_vertically_on_load(flag_true_if_should_flip);
 }

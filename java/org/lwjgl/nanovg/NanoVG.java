@@ -1145,12 +1145,12 @@ public class NanoVG {
 	 *
 	 * @return 1 if the inverse could be calculated, else 0
 	 */
-	public static int nvgTransformInverse(FloatBuffer dst, FloatBuffer src) {
+	public static boolean nvgTransformInverse(FloatBuffer dst, FloatBuffer src) {
 		if ( CHECKS ) {
 			checkBuffer(dst, 6);
 			checkBuffer(src, 6);
 		}
-		return nnvgTransformInverse(memAddress(dst), memAddress(src));
+		return nnvgTransformInverse(memAddress(dst), memAddress(src)) != 0;
 	}
 
 	// --- [ nvgTransformPoint ] ---
@@ -1292,6 +1292,8 @@ public class NanoVG {
 	 * @param h          the image height
 	 * @param imageFlags the image flags. One of:<br><table><tr><td>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}</td><td>{@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}</td><td>{@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}</td><td>{@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}</td><td>{@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}</td></tr></table>
 	 * @param data       the image data
+	 *
+	 * @return a handle to the image
 	 */
 	public static native int nnvgCreateImageRGBA(long ctx, int w, int h, int imageFlags, long data);
 
@@ -1303,6 +1305,8 @@ public class NanoVG {
 	 * @param h          the image height
 	 * @param imageFlags the image flags. One of:<br><table><tr><td>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}</td><td>{@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}</td><td>{@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}</td><td>{@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}</td><td>{@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}</td></tr></table>
 	 * @param data       the image data
+	 *
+	 * @return a handle to the image
 	 */
 	public static int nvgCreateImageRGBA(long ctx, int w, int h, int imageFlags, ByteBuffer data) {
 		if ( CHECKS ) {
@@ -2080,6 +2084,8 @@ public class NanoVG {
 	 * @param data     the font data
 	 * @param ndata    the font data size, in bytes
 	 * @param freeData 1 if the font data should be freed automatically, 0 otherwise
+	 *
+	 * @return a handle to the font
 	 */
 	public static native int nnvgCreateFontMem(long ctx, long name, long data, int ndata, int freeData);
 
@@ -2092,6 +2098,8 @@ public class NanoVG {
 	 * @param name     the font name
 	 * @param data     the font data
 	 * @param freeData 1 if the font data should be freed automatically, 0 otherwise
+	 *
+	 * @return a handle to the font
 	 */
 	public static int nvgCreateFontMem(long ctx, ByteBuffer name, ByteBuffer data, int freeData) {
 		if ( CHECKS ) {
@@ -2110,6 +2118,8 @@ public class NanoVG {
 	 * @param name     the font name
 	 * @param data     the font data
 	 * @param freeData 1 if the font data should be freed automatically, 0 otherwise
+	 *
+	 * @return a handle to the font
 	 */
 	public static int nvgCreateFontMem(long ctx, CharSequence name, ByteBuffer data, int freeData) {
 		if ( CHECKS )
@@ -2871,12 +2881,12 @@ public class NanoVG {
 	public static native int nnvgTransformInverse(float[] dst, float[] src);
 
 	/** Array version of: {@link #nvgTransformInverse TransformInverse} */
-	public static int nvgTransformInverse(float[] dst, float[] src) {
+	public static boolean nvgTransformInverse(float[] dst, float[] src) {
 		if ( CHECKS ) {
 			checkBuffer(dst, 6);
 			checkBuffer(src, 6);
 		}
-		return nnvgTransformInverse(dst, src);
+		return nnvgTransformInverse(dst, src) != 0;
 	}
 
 	/** Array version of: {@link #nvgTransformPoint TransformPoint} */

@@ -426,10 +426,10 @@ public class STBTruetype {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static int stbtt_PackBegin(STBTTPackContext spc, ByteBuffer pixels, int width, int height, int stride_in_bytes, int padding, ByteBuffer alloc_context) {
+	public static boolean stbtt_PackBegin(STBTTPackContext spc, ByteBuffer pixels, int width, int height, int stride_in_bytes, int padding, ByteBuffer alloc_context) {
 		if ( CHECKS )
 			checkBuffer(pixels, width * height);
-		return nstbtt_PackBegin(spc.address(), memAddress(pixels), width, height, stride_in_bytes, padding, memAddressSafe(alloc_context));
+		return nstbtt_PackBegin(spc.address(), memAddress(pixels), width, height, stride_in_bytes, padding, memAddressSafe(alloc_context)) != 0;
 	}
 
 	/**
@@ -445,10 +445,10 @@ public class STBTruetype {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static int stbtt_PackBegin(STBTTPackContext spc, ByteBuffer pixels, int width, int height, int stride_in_bytes, int padding) {
+	public static boolean stbtt_PackBegin(STBTTPackContext spc, ByteBuffer pixels, int width, int height, int stride_in_bytes, int padding) {
 		if ( CHECKS )
 			checkBuffer(pixels, width * height);
-		return nstbtt_PackBegin(spc.address(), memAddress(pixels), width, height, stride_in_bytes, padding, NULL);
+		return nstbtt_PackBegin(spc.address(), memAddress(pixels), width, height, stride_in_bytes, padding, NULL) != 0;
 	}
 
 	// --- [ stbtt_PackEnd ] ---
@@ -522,8 +522,8 @@ public class STBTruetype {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static int stbtt_PackFontRange(STBTTPackContext spc, ByteBuffer fontdata, int font_index, float font_size, int first_unicode_char_in_range, STBTTPackedchar.Buffer chardata_for_range) {
-		return nstbtt_PackFontRange(spc.address(), memAddress(fontdata), font_index, font_size, first_unicode_char_in_range, chardata_for_range.remaining(), chardata_for_range.address());
+	public static boolean stbtt_PackFontRange(STBTTPackContext spc, ByteBuffer fontdata, int font_index, float font_size, int first_unicode_char_in_range, STBTTPackedchar.Buffer chardata_for_range) {
+		return nstbtt_PackFontRange(spc.address(), memAddress(fontdata), font_index, font_size, first_unicode_char_in_range, chardata_for_range.remaining(), chardata_for_range.address()) != 0;
 	}
 
 	// --- [ stbtt_PackFontRanges ] ---
@@ -553,10 +553,10 @@ public class STBTruetype {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static int stbtt_PackFontRanges(STBTTPackContext spc, ByteBuffer fontdata, int font_index, STBTTPackRange.Buffer ranges) {
+	public static boolean stbtt_PackFontRanges(STBTTPackContext spc, ByteBuffer fontdata, int font_index, STBTTPackRange.Buffer ranges) {
 		if ( CHECKS )
 			STBTTPackRange.validate(ranges.address(), ranges.remaining());
-		return nstbtt_PackFontRanges(spc.address(), memAddress(fontdata), font_index, ranges.address(), ranges.remaining());
+		return nstbtt_PackFontRanges(spc.address(), memAddress(fontdata), font_index, ranges.address(), ranges.remaining()) != 0;
 	}
 
 	// --- [ stbtt_PackSetOversampling ] ---
@@ -653,6 +653,8 @@ public class STBTruetype {
 	 * @param ranges     an array of {@link STBTTPackRange} structs
 	 * @param num_ranges the number of {@link STBTTPackRange} structs in {@code ranges}
 	 * @param rects      an array of {@link STBRPRect} structs. It must be big enough to accommodate all characters in the given ranges.
+	 *
+	 * @return the number of structs written in {@code rects}
 	 */
 	public static native int nstbtt_PackFontRangesGatherRects(long spc, long info, long ranges, int num_ranges, long rects);
 
@@ -666,6 +668,8 @@ public class STBTruetype {
 	 * @param info   an {@link STBTTFontinfo} struct
 	 * @param ranges an array of {@link STBTTPackRange} structs
 	 * @param rects  an array of {@link STBRPRect} structs. It must be big enough to accommodate all characters in the given ranges.
+	 *
+	 * @return the number of structs written in {@code rects}
 	 */
 	public static int stbtt_PackFontRangesGatherRects(STBTTPackContext spc, STBTTFontinfo info, STBTTPackRange.Buffer ranges, STBRPRect rects) {
 		if ( CHECKS )
@@ -704,6 +708,8 @@ public class STBTruetype {
 	 * @param ranges     an array of {@link STBTTPackRange} structs
 	 * @param num_ranges the number of {@link STBTTPackRange} structs in {@code ranges}
 	 * @param rects      an array of {@link STBRPRect} structs. It must be big enough to accommodate all characters in the given ranges.
+	 *
+	 * @return 1 on success, 0 on failure
 	 */
 	public static native int nstbtt_PackFontRangesRenderIntoRects(long spc, long info, long ranges, int num_ranges, long rects);
 
@@ -714,11 +720,13 @@ public class STBTruetype {
 	 * @param info   an {@link STBTTFontinfo} struct
 	 * @param ranges an array of {@link STBTTPackRange} structs
 	 * @param rects  an array of {@link STBRPRect} structs. It must be big enough to accommodate all characters in the given ranges.
+	 *
+	 * @return 1 on success, 0 on failure
 	 */
-	public static int stbtt_PackFontRangesRenderIntoRects(STBTTPackContext spc, STBTTFontinfo info, STBTTPackRange.Buffer ranges, STBRPRect rects) {
+	public static boolean stbtt_PackFontRangesRenderIntoRects(STBTTPackContext spc, STBTTFontinfo info, STBTTPackRange.Buffer ranges, STBRPRect rects) {
 		if ( CHECKS )
 			STBTTPackRange.validate(ranges.address(), ranges.remaining());
-		return nstbtt_PackFontRangesRenderIntoRects(spc.address(), info.address(), ranges.address(), ranges.remaining(), rects.address());
+		return nstbtt_PackFontRangesRenderIntoRects(spc.address(), info.address(), ranges.address(), ranges.remaining(), rects.address()) != 0;
 	}
 
 	// --- [ stbtt_GetFontOffsetForIndex ] ---
@@ -771,8 +779,8 @@ public class STBTruetype {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static int stbtt_InitFont(STBTTFontinfo info, ByteBuffer data, int offset) {
-		return nstbtt_InitFont(info.address(), memAddress(data), offset);
+	public static boolean stbtt_InitFont(STBTTFontinfo info, ByteBuffer data, int offset) {
+		return nstbtt_InitFont(info.address(), memAddress(data), offset) != 0;
 	}
 
 	/**
@@ -785,8 +793,8 @@ public class STBTruetype {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static int stbtt_InitFont(STBTTFontinfo info, ByteBuffer data) {
-		return nstbtt_InitFont(info.address(), memAddress(data), 0);
+	public static boolean stbtt_InitFont(STBTTFontinfo info, ByteBuffer data) {
+		return nstbtt_InitFont(info.address(), memAddress(data), 0) != 0;
 	}
 
 	// --- [ stbtt_FindGlyphIndex ] ---
@@ -1018,14 +1026,14 @@ public class STBTruetype {
 	 * @param x1        returns the right coordinate
 	 * @param y1        returns the top coordinate
 	 */
-	public static int stbtt_GetCodepointBox(STBTTFontinfo info, int codepoint, IntBuffer x0, IntBuffer y0, IntBuffer x1, IntBuffer y1) {
+	public static boolean stbtt_GetCodepointBox(STBTTFontinfo info, int codepoint, IntBuffer x0, IntBuffer y0, IntBuffer x1, IntBuffer y1) {
 		if ( CHECKS ) {
 			if ( x0 != null ) checkBuffer(x0, 1);
 			if ( y0 != null ) checkBuffer(y0, 1);
 			if ( x1 != null ) checkBuffer(x1, 1);
 			if ( y1 != null ) checkBuffer(y1, 1);
 		}
-		return nstbtt_GetCodepointBox(info.address(), codepoint, memAddressSafe(x0), memAddressSafe(y0), memAddressSafe(x1), memAddressSafe(y1));
+		return nstbtt_GetCodepointBox(info.address(), codepoint, memAddressSafe(x0), memAddressSafe(y0), memAddressSafe(x1), memAddressSafe(y1)) != 0;
 	}
 
 	// --- [ stbtt_GetGlyphHMetrics ] ---
@@ -1102,14 +1110,14 @@ public class STBTruetype {
 	 * @param x1          returns the right coordinate
 	 * @param y1          returns the top coordinate
 	 */
-	public static int stbtt_GetGlyphBox(STBTTFontinfo info, int glyph_index, IntBuffer x0, IntBuffer y0, IntBuffer x1, IntBuffer y1) {
+	public static boolean stbtt_GetGlyphBox(STBTTFontinfo info, int glyph_index, IntBuffer x0, IntBuffer y0, IntBuffer x1, IntBuffer y1) {
 		if ( CHECKS ) {
 			if ( x0 != null ) checkBuffer(x0, 1);
 			if ( y0 != null ) checkBuffer(y0, 1);
 			if ( x1 != null ) checkBuffer(x1, 1);
 			if ( y1 != null ) checkBuffer(y1, 1);
 		}
-		return nstbtt_GetGlyphBox(info.address(), glyph_index, memAddressSafe(x0), memAddressSafe(y0), memAddressSafe(x1), memAddressSafe(y1));
+		return nstbtt_GetGlyphBox(info.address(), glyph_index, memAddressSafe(x0), memAddressSafe(y0), memAddressSafe(x1), memAddressSafe(y1)) != 0;
 	}
 
 	// --- [ stbtt_IsGlyphEmpty ] ---
@@ -1128,8 +1136,8 @@ public class STBTruetype {
 	 * @param info        an {@link STBTTFontinfo} struct
 	 * @param glyph_index the glyph index
 	 */
-	public static int stbtt_IsGlyphEmpty(STBTTFontinfo info, int glyph_index) {
-		return nstbtt_IsGlyphEmpty(info.address(), glyph_index);
+	public static boolean stbtt_IsGlyphEmpty(STBTTFontinfo info, int glyph_index) {
+		return nstbtt_IsGlyphEmpty(info.address(), glyph_index) != 0;
 	}
 
 	// --- [ stbtt_GetCodepointShape ] ---
@@ -1828,8 +1836,8 @@ public class STBTruetype {
 	 * @param s1 the first string
 	 * @param s2 the second string
 	 */
-	public static int stbtt_CompareUTF8toUTF16_bigendian(ByteBuffer s1, ByteBuffer s2) {
-		return nstbtt_CompareUTF8toUTF16_bigendian(memAddress(s1), s1.remaining(), memAddress(s2), s2.remaining());
+	public static boolean stbtt_CompareUTF8toUTF16_bigendian(ByteBuffer s1, ByteBuffer s2) {
+		return nstbtt_CompareUTF8toUTF16_bigendian(memAddress(s1), s1.remaining(), memAddress(s2), s2.remaining()) != 0;
 	}
 
 	// --- [ stbtt_GetFontNameString ] ---
@@ -1949,14 +1957,14 @@ public class STBTruetype {
 	public static native int nstbtt_GetCodepointBox(long info, int codepoint, int[] x0, int[] y0, int[] x1, int[] y1);
 
 	/** Array version of: {@link #stbtt_GetCodepointBox GetCodepointBox} */
-	public static int stbtt_GetCodepointBox(STBTTFontinfo info, int codepoint, int[] x0, int[] y0, int[] x1, int[] y1) {
+	public static boolean stbtt_GetCodepointBox(STBTTFontinfo info, int codepoint, int[] x0, int[] y0, int[] x1, int[] y1) {
 		if ( CHECKS ) {
 			if ( x0 != null ) checkBuffer(x0, 1);
 			if ( y0 != null ) checkBuffer(y0, 1);
 			if ( x1 != null ) checkBuffer(x1, 1);
 			if ( y1 != null ) checkBuffer(y1, 1);
 		}
-		return nstbtt_GetCodepointBox(info.address(), codepoint, x0, y0, x1, y1);
+		return nstbtt_GetCodepointBox(info.address(), codepoint, x0, y0, x1, y1) != 0;
 	}
 
 	/** Array version of: {@link #stbtt_GetGlyphHMetrics GetGlyphHMetrics} */
@@ -1975,14 +1983,14 @@ public class STBTruetype {
 	public static native int nstbtt_GetGlyphBox(long info, int glyph_index, int[] x0, int[] y0, int[] x1, int[] y1);
 
 	/** Array version of: {@link #stbtt_GetGlyphBox GetGlyphBox} */
-	public static int stbtt_GetGlyphBox(STBTTFontinfo info, int glyph_index, int[] x0, int[] y0, int[] x1, int[] y1) {
+	public static boolean stbtt_GetGlyphBox(STBTTFontinfo info, int glyph_index, int[] x0, int[] y0, int[] x1, int[] y1) {
 		if ( CHECKS ) {
 			if ( x0 != null ) checkBuffer(x0, 1);
 			if ( y0 != null ) checkBuffer(y0, 1);
 			if ( x1 != null ) checkBuffer(x1, 1);
 			if ( y1 != null ) checkBuffer(y1, 1);
 		}
-		return nstbtt_GetGlyphBox(info.address(), glyph_index, x0, y0, x1, y1);
+		return nstbtt_GetGlyphBox(info.address(), glyph_index, x0, y0, x1, y1) != 0;
 	}
 
 	/** Array version of: {@link #stbtt_GetCodepointBitmapBox GetCodepointBitmapBox} */

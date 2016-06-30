@@ -565,10 +565,10 @@ public class STBVorbis {
 	 * @param f             an ogg vorbis file decoder
 	 * @param sample_number the sample index
 	 */
-	public static int stb_vorbis_seek_frame(long f, int sample_number) {
+	public static boolean stb_vorbis_seek_frame(long f, int sample_number) {
 		if ( CHECKS )
 			checkPointer(f);
-		return nstb_vorbis_seek_frame(f, sample_number);
+		return nstb_vorbis_seek_frame(f, sample_number) != 0;
 	}
 
 	// --- [ stb_vorbis_seek ] ---
@@ -589,10 +589,10 @@ public class STBVorbis {
 	 * @param f             an ogg vorbis file decoder
 	 * @param sample_number the sample index
 	 */
-	public static int stb_vorbis_seek(long f, int sample_number) {
+	public static boolean stb_vorbis_seek(long f, int sample_number) {
 		if ( CHECKS )
 			checkPointer(f);
-		return nstb_vorbis_seek(f, sample_number);
+		return nstb_vorbis_seek(f, sample_number) != 0;
 	}
 
 	// --- [ stb_vorbis_seek_start ] ---

@@ -8196,8 +8196,8 @@ public class Nuklear {
 
 	public static native int nnk_textedit_cut(long box);
 
-	public static int nk_textedit_cut(NkTextEdit box) {
-		return nnk_textedit_cut(box.address());
+	public static boolean nk_textedit_cut(NkTextEdit box) {
+		return nnk_textedit_cut(box.address()) != 0;
 	}
 
 	// --- [ nk_textedit_paste ] ---

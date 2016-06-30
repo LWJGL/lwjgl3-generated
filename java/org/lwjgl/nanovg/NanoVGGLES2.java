@@ -44,6 +44,8 @@ public class NanoVGGLES2 {
 	 * @param w         the image width
 	 * @param h         the image height
 	 * @param flags     the image flags
+	 *
+	 * @return a handle to the image
 	 */
 	public static native int nnvglCreateImageFromHandleGLES2(long ctx, int textureId, int w, int h, int flags);
 
@@ -55,6 +57,8 @@ public class NanoVGGLES2 {
 	 * @param w         the image width
 	 * @param h         the image height
 	 * @param flags     the image flags
+	 *
+	 * @return a handle to the image
 	 */
 	public static int nvglCreateImageFromHandleGLES2(long ctx, int textureId, int w, int h, int flags) {
 		if ( CHECKS )

@@ -984,10 +984,10 @@ public class LMDB {
 	 *         <li>{@code EIO} - an error occurred during synchronization.</li>
 	 *         </ul>
 	 */
-	public static int mdb_env_sync(long env, int force) {
+	public static int mdb_env_sync(long env, boolean force) {
 		if ( CHECKS )
 			checkPointer(env);
-		return nmdb_env_sync(env, force);
+		return nmdb_env_sync(env, force ? 1 : 0);
 	}
 
 	// --- [ mdb_env_close ] ---
@@ -1052,10 +1052,10 @@ public class LMDB {
 	 *         <li>{@code EINVAL} - an invalid parameter was specified.</li>
 	 *         </ul>
 	 */
-	public static int mdb_env_set_flags(long env, int flags, int onoff) {
+	public static int mdb_env_set_flags(long env, int flags, boolean onoff) {
 		if ( CHECKS )
 			checkPointer(env);
-		return nmdb_env_set_flags(env, flags, onoff);
+		return nmdb_env_set_flags(env, flags, onoff ? 1 : 0);
 	}
 
 	// --- [ mdb_env_get_flags ] ---
@@ -1928,10 +1928,10 @@ public class LMDB {
 	 * @param dbi a database handle returned by {@link #mdb_dbi_open dbi_open}
 	 * @param del 0 to empty the DB, 1 to delete it from the environment and close the DB handle
 	 */
-	public static int mdb_drop(long txn, int dbi, int del) {
+	public static int mdb_drop(long txn, int dbi, boolean del) {
 		if ( CHECKS )
 			checkPointer(txn);
-		return nmdb_drop(txn, dbi, del);
+		return nmdb_drop(txn, dbi, del ? 1 : 0);
 	}
 
 	// --- [ mdb_set_compare ] ---

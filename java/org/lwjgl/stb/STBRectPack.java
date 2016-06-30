@@ -156,8 +156,8 @@ public class STBRectPack {
 	 * @param context          an {@link STBRPContext} struct
 	 * @param allow_out_of_mem 1 to allow running out of temporary storage
 	 */
-	public static void stbrp_setup_allow_out_of_mem(STBRPContext context, int allow_out_of_mem) {
-		nstbrp_setup_allow_out_of_mem(context.address(), allow_out_of_mem);
+	public static void stbrp_setup_allow_out_of_mem(STBRPContext context, boolean allow_out_of_mem) {
+		nstbrp_setup_allow_out_of_mem(context.address(), allow_out_of_mem ? 1 : 0);
 	}
 
 	// --- [ stbrp_setup_heuristic ] ---

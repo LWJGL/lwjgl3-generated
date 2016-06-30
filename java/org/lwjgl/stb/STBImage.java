@@ -468,7 +468,7 @@ public class STBImage {
 	// --- [ stbi_ldr_to_hdr_scale ] ---
 
 	/**
-	 * Changes the gamma value used when converting LDR images to HDR. The default value is 2.2f
+	 * Changes the scale value used when converting LDR images to HDR. The default value is 1.0f
 	 *
 	 * @param scale the scale factor
 	 */
@@ -492,10 +492,10 @@ public class STBImage {
 	 *
 	 * @return 1 if the image is HDR, 0 otherwise
 	 */
-	public static int stbi_is_hdr(ByteBuffer filename) {
+	public static boolean stbi_is_hdr(ByteBuffer filename) {
 		if ( CHECKS )
 			checkNT1(filename);
-		return nstbi_is_hdr(memAddress(filename));
+		return nstbi_is_hdr(memAddress(filename)) != 0;
 	}
 
 	/**
@@ -505,11 +505,11 @@ public class STBImage {
 	 *
 	 * @return 1 if the image is HDR, 0 otherwise
 	 */
-	public static int stbi_is_hdr(CharSequence filename) {
+	public static boolean stbi_is_hdr(CharSequence filename) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer filenameEncoded = stack.ASCII(filename);
-			return nstbi_is_hdr(memAddress(filenameEncoded));
+			return nstbi_is_hdr(memAddress(filenameEncoded)) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -530,8 +530,8 @@ public class STBImage {
 	 *
 	 * @param buffer the buffer from which to read the image data
 	 */
-	public static int stbi_is_hdr_from_memory(ByteBuffer buffer) {
-		return nstbi_is_hdr_from_memory(memAddress(buffer), buffer.remaining());
+	public static boolean stbi_is_hdr_from_memory(ByteBuffer buffer) {
+		return nstbi_is_hdr_from_memory(memAddress(buffer), buffer.remaining()) != 0;
 	}
 
 	// --- [ stbi_is_hdr_from_callbacks ] ---
@@ -550,10 +550,10 @@ public class STBImage {
 	 * @param clbk an {@link STBIIOCallbacks} struct
 	 * @param user a pointer to user data
 	 */
-	public static int stbi_is_hdr_from_callbacks(STBIIOCallbacks clbk, long user) {
+	public static boolean stbi_is_hdr_from_callbacks(STBIIOCallbacks clbk, long user) {
 		if ( CHECKS )
 			STBIIOCallbacks.validate(clbk.address());
-		return nstbi_is_hdr_from_callbacks(clbk.address(), user);
+		return nstbi_is_hdr_from_callbacks(clbk.address(), user) != 0;
 	}
 
 	// --- [ stbi_failure_reason ] ---
@@ -614,14 +614,14 @@ public class STBImage {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static int stbi_info(ByteBuffer filename, IntBuffer x, IntBuffer y, IntBuffer comp) {
+	public static boolean stbi_info(ByteBuffer filename, IntBuffer x, IntBuffer y, IntBuffer comp) {
 		if ( CHECKS ) {
 			checkNT1(filename);
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
 		}
-		return nstbi_info(memAddress(filename), memAddress(x), memAddress(y), memAddress(comp));
+		return nstbi_info(memAddress(filename), memAddress(x), memAddress(y), memAddress(comp)) != 0;
 	}
 
 	/**
@@ -634,7 +634,7 @@ public class STBImage {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static int stbi_info(CharSequence filename, IntBuffer x, IntBuffer y, IntBuffer comp) {
+	public static boolean stbi_info(CharSequence filename, IntBuffer x, IntBuffer y, IntBuffer comp) {
 		if ( CHECKS ) {
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
@@ -643,7 +643,7 @@ public class STBImage {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer filenameEncoded = stack.ASCII(filename);
-			return nstbi_info(memAddress(filenameEncoded), memAddress(x), memAddress(y), memAddress(comp));
+			return nstbi_info(memAddress(filenameEncoded), memAddress(x), memAddress(y), memAddress(comp)) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -670,13 +670,13 @@ public class STBImage {
 	 * @param y      outputs the image height in pixels
 	 * @param comp   outputs number of components in image
 	 */
-	public static int stbi_info_from_memory(ByteBuffer buffer, IntBuffer x, IntBuffer y, IntBuffer comp) {
+	public static boolean stbi_info_from_memory(ByteBuffer buffer, IntBuffer x, IntBuffer y, IntBuffer comp) {
 		if ( CHECKS ) {
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
 		}
-		return nstbi_info_from_memory(memAddress(buffer), buffer.remaining(), memAddress(x), memAddress(y), memAddress(comp));
+		return nstbi_info_from_memory(memAddress(buffer), buffer.remaining(), memAddress(x), memAddress(y), memAddress(comp)) != 0;
 	}
 
 	// --- [ stbi_info_from_callbacks ] ---
@@ -701,14 +701,14 @@ public class STBImage {
 	 * @param y    outputs the image height in pixels
 	 * @param comp outputs number of components in image
 	 */
-	public static int stbi_info_from_callbacks(STBIIOCallbacks clbk, long user, IntBuffer x, IntBuffer y, IntBuffer comp) {
+	public static boolean stbi_info_from_callbacks(STBIIOCallbacks clbk, long user, IntBuffer x, IntBuffer y, IntBuffer comp) {
 		if ( CHECKS ) {
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
 			STBIIOCallbacks.validate(clbk.address());
 		}
-		return nstbi_info_from_callbacks(clbk.address(), user, memAddress(x), memAddress(y), memAddress(comp));
+		return nstbi_info_from_callbacks(clbk.address(), user, memAddress(x), memAddress(y), memAddress(comp)) != 0;
 	}
 
 	// --- [ stbi_set_unpremultiply_on_load ] ---
@@ -719,7 +719,17 @@ public class STBImage {
 	 *
 	 * @param flag_true_if_should_unpremultiply the unpremultiply flag
 	 */
-	public static native void stbi_set_unpremultiply_on_load(int flag_true_if_should_unpremultiply);
+	public static native void nstbi_set_unpremultiply_on_load(int flag_true_if_should_unpremultiply);
+
+	/**
+	 * For image formats that explicitly notate that they have premultiplied alpha, we just return the colors as stored in the file. Set this flag to force
+	 * unpremultiplication. Results are undefined if the unpremultiply overflows.
+	 *
+	 * @param flag_true_if_should_unpremultiply the unpremultiply flag
+	 */
+	public static void stbi_set_unpremultiply_on_load(boolean flag_true_if_should_unpremultiply) {
+		nstbi_set_unpremultiply_on_load(flag_true_if_should_unpremultiply ? 1 : 0);
+	}
 
 	// --- [ stbi_convert_iphone_png_to_rgb ] ---
 
@@ -728,7 +738,16 @@ public class STBImage {
 	 *
 	 * @param flag_true_if_should_convert the convert iPhone PNG to RGB flag
 	 */
-	public static native void stbi_convert_iphone_png_to_rgb(int flag_true_if_should_convert);
+	public static native void nstbi_convert_iphone_png_to_rgb(int flag_true_if_should_convert);
+
+	/**
+	 * Indicate whether we should process iPhone images back to canonical format, or just pass them through "as-is".
+	 *
+	 * @param flag_true_if_should_convert the convert iPhone PNG to RGB flag
+	 */
+	public static void stbi_convert_iphone_png_to_rgb(boolean flag_true_if_should_convert) {
+		nstbi_convert_iphone_png_to_rgb(flag_true_if_should_convert ? 1 : 0);
+	}
 
 	// --- [ stbi_set_flip_vertically_on_load ] ---
 
@@ -737,7 +756,16 @@ public class STBImage {
 	 *
 	 * @param flag_true_if_should_flip the flip vertically on load flag
 	 */
-	public static native void stbi_set_flip_vertically_on_load(int flag_true_if_should_flip);
+	public static native void nstbi_set_flip_vertically_on_load(int flag_true_if_should_flip);
+
+	/**
+	 * Flips the image vertically, so the first pixel in the output array is the bottom left.
+	 *
+	 * @param flag_true_if_should_flip the flip vertically on load flag
+	 */
+	public static void stbi_set_flip_vertically_on_load(boolean flag_true_if_should_flip) {
+		nstbi_set_flip_vertically_on_load(flag_true_if_should_flip ? 1 : 0);
+	}
 
 	// --- [ stbi_zlib_decode_malloc_guesssize ] ---
 
@@ -788,11 +816,11 @@ public class STBImage {
 	 * @param initial_size 
 	 * @param parse_header 
 	 */
-	public static ByteBuffer stbi_zlib_decode_malloc_guesssize_headerflag(ByteBuffer buffer, int initial_size, int parse_header) {
+	public static ByteBuffer stbi_zlib_decode_malloc_guesssize_headerflag(ByteBuffer buffer, int initial_size, boolean parse_header) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			IntBuffer outlen = stack.callocInt(1);
-			long __result = nstbi_zlib_decode_malloc_guesssize_headerflag(memAddress(buffer), buffer.remaining(), initial_size, memAddress(outlen), parse_header);
+			long __result = nstbi_zlib_decode_malloc_guesssize_headerflag(memAddress(buffer), buffer.remaining(), initial_size, memAddress(outlen), parse_header ? 1 : 0);
 			return memByteBuffer(__result, outlen.get(0));
 		} finally {
 			stack.setPointer(stackPointer);
@@ -909,18 +937,18 @@ public class STBImage {
 	public static native int nstbi_info(long filename, int[] x, int[] y, int[] comp);
 
 	/** Array version of: {@link #stbi_info info} */
-	public static int stbi_info(ByteBuffer filename, int[] x, int[] y, int[] comp) {
+	public static boolean stbi_info(ByteBuffer filename, int[] x, int[] y, int[] comp) {
 		if ( CHECKS ) {
 			checkNT1(filename);
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
 		}
-		return nstbi_info(memAddress(filename), x, y, comp);
+		return nstbi_info(memAddress(filename), x, y, comp) != 0;
 	}
 
 	/** Array version of: {@link #stbi_info info} */
-	public static int stbi_info(CharSequence filename, int[] x, int[] y, int[] comp) {
+	public static boolean stbi_info(CharSequence filename, int[] x, int[] y, int[] comp) {
 		if ( CHECKS ) {
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
@@ -929,7 +957,7 @@ public class STBImage {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer filenameEncoded = stack.ASCII(filename);
-			return nstbi_info(memAddress(filenameEncoded), x, y, comp);
+			return nstbi_info(memAddress(filenameEncoded), x, y, comp) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -939,27 +967,27 @@ public class STBImage {
 	public static native int nstbi_info_from_memory(long buffer, int len, int[] x, int[] y, int[] comp);
 
 	/** Array version of: {@link #stbi_info_from_memory info_from_memory} */
-	public static int stbi_info_from_memory(ByteBuffer buffer, int[] x, int[] y, int[] comp) {
+	public static boolean stbi_info_from_memory(ByteBuffer buffer, int[] x, int[] y, int[] comp) {
 		if ( CHECKS ) {
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
 		}
-		return nstbi_info_from_memory(memAddress(buffer), buffer.remaining(), x, y, comp);
+		return nstbi_info_from_memory(memAddress(buffer), buffer.remaining(), x, y, comp) != 0;
 	}
 
 	/** Array version of: {@link #stbi_info_from_callbacks info_from_callbacks} */
 	public static native int nstbi_info_from_callbacks(long clbk, long user, int[] x, int[] y, int[] comp);
 
 	/** Array version of: {@link #stbi_info_from_callbacks info_from_callbacks} */
-	public static int stbi_info_from_callbacks(STBIIOCallbacks clbk, long user, int[] x, int[] y, int[] comp) {
+	public static boolean stbi_info_from_callbacks(STBIIOCallbacks clbk, long user, int[] x, int[] y, int[] comp) {
 		if ( CHECKS ) {
 			checkBuffer(x, 1);
 			checkBuffer(y, 1);
 			checkBuffer(comp, 1);
 			STBIIOCallbacks.validate(clbk.address());
 		}
-		return nstbi_info_from_callbacks(clbk.address(), user, x, y, comp);
+		return nstbi_info_from_callbacks(clbk.address(), user, x, y, comp) != 0;
 	}
 
 }
