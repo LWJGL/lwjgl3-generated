@@ -184,7 +184,7 @@ public class STBImage {
 			checkBuffer(comp, 1);
 		}
 		long __result = nstbi_load(memAddress(filename), memAddress(x), memAddress(y), memAddress(comp), req_comp);
-		return memByteBuffer(__result, x.get(x.position()) * y.get(y.position()) * comp.get(comp.position()));
+		return memByteBuffer(__result, x.get(x.position()) * y.get(y.position()) * (req_comp != 0 ? req_comp : comp.get(comp.position())));
 	}
 
 	/**
@@ -226,7 +226,7 @@ public class STBImage {
 		try {
 			ByteBuffer filenameEncoded = stack.ASCII(filename);
 			long __result = nstbi_load(memAddress(filenameEncoded), memAddress(x), memAddress(y), memAddress(comp), req_comp);
-			return memByteBuffer(__result, x.get(x.position()) * y.get(y.position()) * comp.get(comp.position()));
+			return memByteBuffer(__result, x.get(x.position()) * y.get(y.position()) * (req_comp != 0 ? req_comp : comp.get(comp.position())));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -262,7 +262,7 @@ public class STBImage {
 			checkBuffer(comp, 1);
 		}
 		long __result = nstbi_load_from_memory(memAddress(buffer), buffer.remaining(), memAddress(x), memAddress(y), memAddress(comp), req_comp);
-		return memByteBuffer(__result, x.get(x.position()) * y.get(y.position()) * comp.get(comp.position()));
+		return memByteBuffer(__result, x.get(x.position()) * y.get(y.position()) * (req_comp != 0 ? req_comp : comp.get(comp.position())));
 	}
 
 	// --- [ stbi_load_from_callbacks ] ---
@@ -309,7 +309,7 @@ public class STBImage {
 			STBIIOCallbacks.validate(clbk.address());
 		}
 		long __result = nstbi_load_from_callbacks(clbk.address(), user, memAddress(x), memAddress(y), memAddress(comp), req_comp);
-		return memByteBuffer(__result, x.get(x.position()) * y.get(y.position()) * comp.get(comp.position()));
+		return memByteBuffer(__result, x.get(x.position()) * y.get(y.position()) * (req_comp != 0 ? req_comp : comp.get(comp.position())));
 	}
 
 	// --- [ stbi_loadf ] ---
@@ -342,7 +342,7 @@ public class STBImage {
 			checkBuffer(comp, 1);
 		}
 		long __result = nstbi_loadf(memAddress(filename), memAddress(x), memAddress(y), memAddress(comp), req_comp);
-		return memFloatBuffer(__result, x.get(x.position()) * y.get(y.position()) * comp.get(comp.position()));
+		return memFloatBuffer(__result, x.get(x.position()) * y.get(y.position()) * (req_comp != 0 ? req_comp : comp.get(comp.position())));
 	}
 
 	/**
@@ -364,7 +364,7 @@ public class STBImage {
 		try {
 			ByteBuffer filenameEncoded = stack.ASCII(filename);
 			long __result = nstbi_loadf(memAddress(filenameEncoded), memAddress(x), memAddress(y), memAddress(comp), req_comp);
-			return memFloatBuffer(__result, x.get(x.position()) * y.get(y.position()) * comp.get(comp.position()));
+			return memFloatBuffer(__result, x.get(x.position()) * y.get(y.position()) * (req_comp != 0 ? req_comp : comp.get(comp.position())));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -400,7 +400,7 @@ public class STBImage {
 			checkBuffer(comp, 1);
 		}
 		long __result = nstbi_loadf_from_memory(memAddress(buffer), buffer.remaining(), memAddress(x), memAddress(y), memAddress(comp), req_comp);
-		return memFloatBuffer(__result, x.get(x.position()) * y.get(y.position()) * comp.get(comp.position()));
+		return memFloatBuffer(__result, x.get(x.position()) * y.get(y.position()) * (req_comp != 0 ? req_comp : comp.get(comp.position())));
 	}
 
 	// --- [ stbi_loadf_from_callbacks ] ---
@@ -435,7 +435,7 @@ public class STBImage {
 			STBIIOCallbacks.validate(clbk.address());
 		}
 		long __result = nstbi_loadf_from_callbacks(clbk.address(), user, memAddress(x), memAddress(y), memAddress(comp), req_comp);
-		return memFloatBuffer(__result, x.get(x.position()) * y.get(y.position()) * comp.get(comp.position()));
+		return memFloatBuffer(__result, x.get(x.position()) * y.get(y.position()) * (req_comp != 0 ? req_comp : comp.get(comp.position())));
 	}
 
 	// --- [ stbi_hdr_to_ldr_gamma ] ---
