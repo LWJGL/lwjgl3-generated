@@ -121,7 +121,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBImage_nstbi_1failure_1reason(JNIEn
 	return (jlong)(intptr_t)stbi_failure_reason();
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBImage_nstbi_1image_1free__J(JNIEnv *__env, jclass clazz, jlong retval_from_stbi_loadAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBImage_nstbi_1image_1free(JNIEnv *__env, jclass clazz, jlong retval_from_stbi_loadAddress) {
 	void *retval_from_stbi_load = (void *)(intptr_t)retval_from_stbi_loadAddress;
 	UNUSED_PARAMS(__env, clazz)
 	stbi_image_free(retval_from_stbi_load);
@@ -210,17 +210,6 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImage_nstbi_1zlib_1decode_1noheader
 	const char *ibuffer = (const char *)(intptr_t)ibufferAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)stbi_zlib_decode_noheader_buffer(obuffer, olen, ibuffer, ilen);
-}
-
-JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBImage_nstbi_1image_1free___3F(JNIEnv *__env, jclass clazz, jfloatArray retval_from_stbi_loadAddress) {
-	jfloat *retval_from_stbi_load = (*__env)->GetPrimitiveArrayCritical(__env, retval_from_stbi_loadAddress, 0);
-	UNUSED_PARAMS(__env, clazz)
-	stbi_image_free((void*)retval_from_stbi_load);
-	(*__env)->ReleasePrimitiveArrayCritical(__env, retval_from_stbi_loadAddress, retval_from_stbi_load, 0);
-}
-JNIEXPORT void JNICALL JavaCritical_org_lwjgl_stb_STBImage_nstbi_1image_1free___3F(jint retval_from_stbi_load__length, jfloat* retval_from_stbi_load) {
-	UNUSED_PARAM(retval_from_stbi_load__length)
-	stbi_image_free((void*)retval_from_stbi_load);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImage_nstbi_1info__J_3I_3I_3I(JNIEnv *__env, jclass clazz, jlong filenameAddress, jintArray xAddress, jintArray yAddress, jintArray compAddress) {

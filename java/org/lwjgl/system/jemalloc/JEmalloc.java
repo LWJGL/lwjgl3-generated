@@ -818,36 +818,6 @@ for (i = 0; i < nbins; i++) {
 		return nje_malloc_usable_size(memAddress(ptr));
 	}
 
-	/** short[] version of: {@link #je_free free} */
-	public static void je_free(short[] ptr) {
-		long __functionAddress = Functions.free;
-		invokePV(__functionAddress, ptr);
-	}
-
-	/** int[] version of: {@link #je_free free} */
-	public static void je_free(int[] ptr) {
-		long __functionAddress = Functions.free;
-		invokePV(__functionAddress, ptr);
-	}
-
-	/** long[] version of: {@link #je_free free} */
-	public static void je_free(long[] ptr) {
-		long __functionAddress = Functions.free;
-		invokePV(__functionAddress, ptr);
-	}
-
-	/** float[] version of: {@link #je_free free} */
-	public static void je_free(float[] ptr) {
-		long __functionAddress = Functions.free;
-		invokePV(__functionAddress, ptr);
-	}
-
-	/** double[] version of: {@link #je_free free} */
-	public static void je_free(double[] ptr) {
-		long __functionAddress = Functions.free;
-		invokePV(__functionAddress, ptr);
-	}
-
 	/** short[] version of: {@link #je_dallocx dallocx} */
 	public static void je_dallocx(short[] ptr, int flags) {
 		long __functionAddress = Functions.dallocx;

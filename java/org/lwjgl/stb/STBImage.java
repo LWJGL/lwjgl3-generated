@@ -925,14 +925,6 @@ public class STBImage {
 		return nstbi_zlib_decode_noheader_buffer(memAddress(obuffer), obuffer.remaining(), memAddress(ibuffer), ibuffer.remaining());
 	}
 
-	/** float[] version of: {@link #stbi_image_free image_free} */
-	public static native void nstbi_image_free(float[] retval_from_stbi_load);
-
-	/** float[] version of: {@link #stbi_image_free image_free} */
-	public static void stbi_image_free(float[] retval_from_stbi_load) {
-		nstbi_image_free(retval_from_stbi_load);
-	}
-
 	/** Array version of: {@link #stbi_info info} */
 	public static native int nstbi_info(long filename, int[] x, int[] y, int[] comp);
 
