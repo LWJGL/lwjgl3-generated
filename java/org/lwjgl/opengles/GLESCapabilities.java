@@ -785,7 +785,8 @@ public final class GLESCapabilities {
 		glViewportSwizzleNV,
 		glWaitSync,
 		glWaitSyncAPPLE,
-		glWeightPathsNV;
+		glWeightPathsNV,
+		glWindowRectanglesEXT;
 
 	/** When true, {@link GLES20} is supported. */
 	public final boolean GLES20;
@@ -1232,6 +1233,8 @@ public final class GLESCapabilities {
 	public final boolean GL_EXT_texture_view;
 	/** When true, {@link EXTUnpackSubimage} is supported. */
 	public final boolean GL_EXT_unpack_subimage;
+	/** When true, {@link EXTWindowRectangles} is supported. */
+	public final boolean GL_EXT_window_rectangles;
 	/** When true, {@link EXTYUVTarget} is supported. */
 	public final boolean GL_EXT_YUV_target;
 	/** When true, {@link FJShaderBinaryGCCSO} is supported. */
@@ -2678,6 +2681,7 @@ public final class GLESCapabilities {
 		glWaitSync = provider.getFunctionAddress("glWaitSync");
 		glWaitSyncAPPLE = provider.getFunctionAddress("glWaitSyncAPPLE");
 		glWeightPathsNV = provider.getFunctionAddress("glWeightPathsNV");
+		glWindowRectanglesEXT = provider.getFunctionAddress("glWindowRectanglesEXT");
 
 		GLES20 = ext.contains("GLES20") && GLES.checkExtension("GLES20", org.lwjgl.opengles.GLES20.isAvailable(this));
 		GLES30 = ext.contains("GLES30") && GLES.checkExtension("GLES30", org.lwjgl.opengles.GLES30.isAvailable(this));
@@ -2785,6 +2789,7 @@ public final class GLESCapabilities {
 		GL_EXT_texture_type_2_10_10_10_REV = ext.contains("GL_EXT_texture_type_2_10_10_10_REV");
 		GL_EXT_texture_view = ext.contains("GL_EXT_texture_view") && GLES.checkExtension("GL_EXT_texture_view", EXTTextureView.isAvailable(this));
 		GL_EXT_unpack_subimage = ext.contains("GL_EXT_unpack_subimage");
+		GL_EXT_window_rectangles = ext.contains("GL_EXT_window_rectangles") && GLES.checkExtension("GL_EXT_window_rectangles", EXTWindowRectangles.isAvailable(this));
 		GL_EXT_YUV_target = ext.contains("GL_EXT_YUV_target");
 		GL_FJ_shader_binary_GCCSO = ext.contains("GL_FJ_shader_binary_GCCSO");
 		GL_IMG_framebuffer_downsample = ext.contains("GL_IMG_framebuffer_downsample") && GLES.checkExtension("GL_IMG_framebuffer_downsample", IMGFramebufferDownsample.isAvailable(this));

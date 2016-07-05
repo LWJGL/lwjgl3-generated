@@ -2128,7 +2128,8 @@ public final class GLCapabilities {
 		glWindowPos3s,
 		glWindowPos3sARB,
 		glWindowPos3sv,
-		glWindowPos3svARB;
+		glWindowPos3svARB,
+		glWindowRectanglesEXT;
 
 	/** When true, {@link GL11} is supported. */
 	public final boolean OpenGL11;
@@ -3422,6 +3423,8 @@ shadow2DRectProjGradARB(
 	public final boolean GL_EXT_vertex_array_bgra;
 	/** When true, {@link EXTVertexAttrib64bit} is supported. */
 	public final boolean GL_EXT_vertex_attrib_64bit;
+	/** When true, {@link EXTWindowRectangles} is supported. */
+	public final boolean GL_EXT_window_rectangles;
 	/** When true, {@link EXTX11SyncObject} is supported. */
 	public final boolean GL_EXT_x11_sync_object;
 	/**
@@ -5900,6 +5903,7 @@ shadow2DRectProjGradARB(
 		glWindowPos3sARB = provider.getFunctionAddress("glWindowPos3sARB");
 		glWindowPos3sv = getFunctionAddress(fc, provider, "glWindowPos3sv");
 		glWindowPos3svARB = provider.getFunctionAddress("glWindowPos3svARB");
+		glWindowRectanglesEXT = provider.getFunctionAddress("glWindowRectanglesEXT");
 
 		OpenGL11 = ext.contains("OpenGL11") && checkExtension("OpenGL11", GL11.isAvailable(this, fc));
 		OpenGL12 = ext.contains("OpenGL12") && checkExtension("OpenGL12", GL12.isAvailable(this));
@@ -6176,6 +6180,7 @@ shadow2DRectProjGradARB(
 		GL_EXT_transform_feedback = ext.contains("GL_EXT_transform_feedback") && checkExtension("GL_EXT_transform_feedback", EXTTransformFeedback.isAvailable(this));
 		GL_EXT_vertex_array_bgra = ext.contains("GL_EXT_vertex_array_bgra");
 		GL_EXT_vertex_attrib_64bit = ext.contains("GL_EXT_vertex_attrib_64bit") && checkExtension("GL_EXT_vertex_attrib_64bit", EXTVertexAttrib64bit.isAvailable(this, ext));
+		GL_EXT_window_rectangles = ext.contains("GL_EXT_window_rectangles") && checkExtension("GL_EXT_window_rectangles", EXTWindowRectangles.isAvailable(this));
 		GL_EXT_x11_sync_object = ext.contains("GL_EXT_x11_sync_object") && checkExtension("GL_EXT_x11_sync_object", EXTX11SyncObject.isAvailable(this));
 		GL_INTEL_fragment_shader_ordering = ext.contains("GL_INTEL_fragment_shader_ordering");
 		GL_INTEL_framebuffer_CMAA = ext.contains("GL_INTEL_framebuffer_CMAA") && checkExtension("GL_INTEL_framebuffer_CMAA", INTELFramebufferCMAA.isAvailable(this));
