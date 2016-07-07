@@ -4345,9 +4345,10 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * {@link VkPhysicalDeviceLimits}{@code ::minStorageBufferOffsetAlignment}</li>
 	 * <li>{@code memory} <b>must</b> have been allocated using one of the memory types allowed in the {@code memoryTypeBits} member of the {@link VkMemoryRequirements}
 	 * structure returned from a call to {@link #vkGetBufferMemoryRequirements GetBufferMemoryRequirements} with {@code buffer}</li>
-	 * <li>The size of {@code buffer} <b>must</b> be less than or equal to the size of {@code memory} minus {@code memoryOffset}</li>
 	 * <li>{@code memoryOffset} <b>must</b> be an integer multiple of the {@code alignment} member of the {@link VkMemoryRequirements} structure returned from a call to
 	 * {@link #vkGetBufferMemoryRequirements GetBufferMemoryRequirements} with {@code buffer}</li>
+	 * <li>The {@code size} member of the {@link VkMemoryRequirements} structure returned from a call to {@link #vkGetBufferMemoryRequirements GetBufferMemoryRequirements} with {@code buffer} <b>must</b> be
+	 * less than or equal to the size of {@code memory} minus {@code memoryOffset}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -4416,7 +4417,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetBufferMemoryRequirements.html">Khronos Reference Page</a></p>
 	 * 
-	 * Determines the memory requirements for a non-sparse buffer resource.
+	 * Determines the memory requirements for a buffer resource.
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
@@ -4440,7 +4441,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetBufferMemoryRequirements.html">Khronos Reference Page</a></p>
 	 * 
-	 * Determines the memory requirements for a non-sparse buffer resource.
+	 * Determines the memory requirements for a buffer resource.
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
@@ -4465,7 +4466,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetImageMemoryRequirements.html">Khronos Reference Page</a></p>
 	 * 
-	 * Determines the memory requirements for a non-sparse image resource.
+	 * Determines the memory requirements for an image resource.
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
@@ -4489,7 +4490,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkGetImageMemoryRequirements.html">Khronos Reference Page</a></p>
 	 * 
-	 * Determines the memory requirements for a non-sparse image resource.
+	 * Determines the memory requirements for an image resource.
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
@@ -6507,6 +6508,8 @@ or _unsignaled_.</p>
 	 * <li>{@code image} <b>must</b> have been created with {@code tiling} equal to {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR}</li>
 	 * <li>The {@code aspectMask} member of {@code pSubresource} <b>must</b> only have a single bit set</li>
 	 * </ul>
+	 * 
+	 * <p>{@code vkGetImageSubresourceLayout} is invariant for the lifetime of a single image.</p>
 	 *
 	 * @param device       the logical device that owns the image
 	 * @param image        the image whose layout is being queried
@@ -6535,6 +6538,8 @@ or _unsignaled_.</p>
 	 * <li>{@code image} <b>must</b> have been created with {@code tiling} equal to {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR}</li>
 	 * <li>The {@code aspectMask} member of {@code pSubresource} <b>must</b> only have a single bit set</li>
 	 * </ul>
+	 * 
+	 * <p>{@code vkGetImageSubresourceLayout} is invariant for the lifetime of a single image.</p>
 	 *
 	 * @param device       the logical device that owns the image
 	 * @param image        the image whose layout is being queried
@@ -11302,12 +11307,12 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <ul>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
-	 * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize / 4} {@code uint32_t} values</li>
+	 * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics or compute operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
-	 * <li>Each of {@code commandBuffer} and {@code dstBuffer} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code dataSize} <b>must</b> be greater than 0</li>
+	 * <li>Each of {@code commandBuffer} and {@code dstBuffer} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code dstOffset} <b>must</b> be less than the size of {@code dstBuffer}</li>
 	 * <li>{@code dataSize} <b>must</b> be less than or equal to the size of {@code dstBuffer} minus {@code dstOffset}</li>
 	 * <li>{@code dstBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} usage flag</li>
@@ -11349,12 +11354,12 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <ul>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
-	 * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize / 4} {@code uint32_t} values</li>
+	 * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics or compute operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
-	 * <li>Each of {@code commandBuffer} and {@code dstBuffer} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code dataSize} <b>must</b> be greater than 0</li>
+	 * <li>Each of {@code commandBuffer} and {@code dstBuffer} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code dstOffset} <b>must</b> be less than the size of {@code dstBuffer}</li>
 	 * <li>{@code dataSize} <b>must</b> be less than or equal to the size of {@code dstBuffer} minus {@code dstOffset}</li>
 	 * <li>{@code dstBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} usage flag</li>
@@ -11374,8 +11379,53 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param dstOffset     the byte offset into the buffer to start updating, and <b>must</b> be a multiple of 4
 	 * @param pData         a pointer to the source data for the buffer update, and <b>must</b> be at least {@code dataSize} bytes in size
 	 */
-	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, IntBuffer pData) {
+	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, ByteBuffer pData) {
 		nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, (long)pData.remaining(), memAddress(pData));
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdUpdateBuffer.html">Khronos Reference Page</a></p>
+	 * 
+	 * ShortBuffer version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer}
+	 */
+	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, ShortBuffer pData) {
+		nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining() << 1, memAddress(pData));
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdUpdateBuffer.html">Khronos Reference Page</a></p>
+	 * 
+	 * IntBuffer version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer}
+	 */
+	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, IntBuffer pData) {
+		nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining() << 2, memAddress(pData));
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdUpdateBuffer.html">Khronos Reference Page</a></p>
+	 * 
+	 * LongBuffer version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer}
+	 */
+	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, LongBuffer pData) {
+		nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining() << 3, memAddress(pData));
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdUpdateBuffer.html">Khronos Reference Page</a></p>
+	 * 
+	 * FloatBuffer version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer}
+	 */
+	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, FloatBuffer pData) {
+		nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining() << 2, memAddress(pData));
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdUpdateBuffer.html">Khronos Reference Page</a></p>
+	 * 
+	 * DoubleBuffer version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer}
+	 */
+	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, DoubleBuffer pData) {
+		nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining() << 3, memAddress(pData));
 	}
 
 	// --- [ vkCmdFillBuffer ] ---
@@ -12843,9 +12893,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * is {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} then the corresponding attachment image subresource of the framebuffer specified in the {@code framebuffer}
 	 * member of {@code pRenderPassBegin} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} set</li>
 	 * <li>If any of the {@code initialLayout} members of the {@link VkAttachmentDescription} structures specified when creating the render pass specified in the
-	 * {@code renderPass} member of {@code pRenderPassBegin} is not one of {@link #VK_IMAGE_LAYOUT_UNDEFINED IMAGE_LAYOUT_UNDEFINED} or {@link #VK_IMAGE_LAYOUT_PREINITIALIZED IMAGE_LAYOUT_PREINITIALIZED}, then each such
-	 * {@code initialLayout} <b>must</b> be equal to the current layout of the corresponding attachment image subresource of the framebuffer specified in the
-	 * {@code framebuffer} member of {@code pRenderPassBegin}.</li>
+	 * {@code renderPass} member of {@code pRenderPassBegin} is not {@link #VK_IMAGE_LAYOUT_UNDEFINED IMAGE_LAYOUT_UNDEFINED}, then each such {@code initialLayout} <b>must</b> be equal to the
+	 * current layout of the corresponding attachment image subresource of the framebuffer specified in the {@code framebuffer} member of
+	 * {@code pRenderPassBegin}.</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -12906,9 +12956,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * is {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} then the corresponding attachment image subresource of the framebuffer specified in the {@code framebuffer}
 	 * member of {@code pRenderPassBegin} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} set</li>
 	 * <li>If any of the {@code initialLayout} members of the {@link VkAttachmentDescription} structures specified when creating the render pass specified in the
-	 * {@code renderPass} member of {@code pRenderPassBegin} is not one of {@link #VK_IMAGE_LAYOUT_UNDEFINED IMAGE_LAYOUT_UNDEFINED} or {@link #VK_IMAGE_LAYOUT_PREINITIALIZED IMAGE_LAYOUT_PREINITIALIZED}, then each such
-	 * {@code initialLayout} <b>must</b> be equal to the current layout of the corresponding attachment image subresource of the framebuffer specified in the
-	 * {@code framebuffer} member of {@code pRenderPassBegin}.</li>
+	 * {@code renderPass} member of {@code pRenderPassBegin} is not {@link #VK_IMAGE_LAYOUT_UNDEFINED IMAGE_LAYOUT_UNDEFINED}, then each such {@code initialLayout} <b>must</b> be equal to the
+	 * current layout of the corresponding attachment image subresource of the framebuffer specified in the {@code framebuffer} member of
+	 * {@code pRenderPassBegin}.</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -13770,11 +13820,51 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	/**
 	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdUpdateBuffer.html">Khronos Reference Page</a></p>
 	 * 
-	 * Array version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer}
+	 * short[] version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer}
+	 */
+	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, short[] pData) {
+		long __functionAddress = commandBuffer.getCapabilities().vkCmdUpdateBuffer;
+		callPJJJPV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, (long)(pData.length << 1), pData);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdUpdateBuffer.html">Khronos Reference Page</a></p>
+	 * 
+	 * int[] version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer}
 	 */
 	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, int[] pData) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdUpdateBuffer;
-		callPJJJPV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, (long)pData.length, pData);
+		callPJJJPV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, (long)(pData.length << 2), pData);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdUpdateBuffer.html">Khronos Reference Page</a></p>
+	 * 
+	 * long[] version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer}
+	 */
+	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, long[] pData) {
+		long __functionAddress = commandBuffer.getCapabilities().vkCmdUpdateBuffer;
+		callPJJJPV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, (long)(pData.length << 3), pData);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdUpdateBuffer.html">Khronos Reference Page</a></p>
+	 * 
+	 * float[] version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer}
+	 */
+	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, float[] pData) {
+		long __functionAddress = commandBuffer.getCapabilities().vkCmdUpdateBuffer;
+		callPJJJPV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, (long)(pData.length << 2), pData);
+	}
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/vkCmdUpdateBuffer.html">Khronos Reference Page</a></p>
+	 * 
+	 * double[] version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer}
+	 */
+	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, double[] pData) {
+		long __functionAddress = commandBuffer.getCapabilities().vkCmdUpdateBuffer;
+		callPJJJPV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, (long)(pData.length << 3), pData);
 	}
 
 	/**
