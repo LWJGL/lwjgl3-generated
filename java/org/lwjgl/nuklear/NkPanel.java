@@ -29,6 +29,7 @@ import static org.lwjgl.system.MemoryStack.*;
     float footer_h;
     float header_h;
     float border;
+    unsigned int has_scrolling;
     {@link NkRect struct nk_rect} clip;
     {@link NkMenuState struct nk_menu_state} menu;
     {@link NkRowLayout struct nk_row_layout} row;
@@ -58,6 +59,7 @@ public class NkPanel extends Struct implements NativeResource {
 		FOOTER_H,
 		HEADER_H,
 		BORDER,
+		HAS_SCROLLING,
 		CLIP,
 		MENU,
 		ROW,
@@ -71,6 +73,7 @@ public class NkPanel extends Struct implements NativeResource {
 			__member(4),
 			__member(NkRect.SIZEOF, NkRect.ALIGNOF),
 			__member(POINTER_SIZE),
+			__member(4),
 			__member(4),
 			__member(4),
 			__member(4),
@@ -102,13 +105,14 @@ public class NkPanel extends Struct implements NativeResource {
 		FOOTER_H = layout.offsetof(8);
 		HEADER_H = layout.offsetof(9);
 		BORDER = layout.offsetof(10);
-		CLIP = layout.offsetof(11);
-		MENU = layout.offsetof(12);
-		ROW = layout.offsetof(13);
-		CHART = layout.offsetof(14);
-		POPUP_BUFFER = layout.offsetof(15);
-		BUFFER = layout.offsetof(16);
-		PARENT = layout.offsetof(17);
+		HAS_SCROLLING = layout.offsetof(11);
+		CLIP = layout.offsetof(12);
+		MENU = layout.offsetof(13);
+		ROW = layout.offsetof(14);
+		CHART = layout.offsetof(15);
+		POPUP_BUFFER = layout.offsetof(16);
+		BUFFER = layout.offsetof(17);
+		PARENT = layout.offsetof(18);
 	}
 
 	NkPanel(long address, ByteBuffer container) {
@@ -150,6 +154,8 @@ public class NkPanel extends Struct implements NativeResource {
 	public float header_h() { return nheader_h(address()); }
 	/** Returns the value of the {@code border} field. */
 	public float border() { return nborder(address()); }
+	/** Returns the value of the {@code has_scrolling} field. */
+	public int has_scrolling() { return nhas_scrolling(address()); }
 	/** Returns a {@link NkRect} view of the {@code clip} field. */
 	public NkRect clip() { return nclip(address()); }
 	/** Returns a {@link NkMenuState} view of the {@code menu} field. */
@@ -187,6 +193,8 @@ public class NkPanel extends Struct implements NativeResource {
 	public NkPanel header_h(float value) { nheader_h(address(), value); return this; }
 	/** Sets the specified value to the {@code border} field. */
 	public NkPanel border(float value) { nborder(address(), value); return this; }
+	/** Sets the specified value to the {@code has_scrolling} field. */
+	public NkPanel has_scrolling(int value) { nhas_scrolling(address(), value); return this; }
 	/** Copies the specified {@link NkRect} to the {@code clip} field. */
 	public NkPanel clip(NkRect value) { nclip(address(), value); return this; }
 	/** Copies the specified {@link NkMenuState} to the {@code menu} field. */
@@ -215,6 +223,7 @@ public class NkPanel extends Struct implements NativeResource {
 		float footer_h,
 		float header_h,
 		float border,
+		int has_scrolling,
 		NkRect clip,
 		NkMenuState menu,
 		NkRowLayout row,
@@ -234,6 +243,7 @@ public class NkPanel extends Struct implements NativeResource {
 		footer_h(footer_h);
 		header_h(header_h);
 		border(border);
+		has_scrolling(has_scrolling);
 		clip(clip);
 		menu(menu);
 		row(row);
@@ -413,6 +423,8 @@ public class NkPanel extends Struct implements NativeResource {
 	public static float nheader_h(long struct) { return memGetFloat(struct + NkPanel.HEADER_H); }
 	/** Unsafe version of {@link #border}. */
 	public static float nborder(long struct) { return memGetFloat(struct + NkPanel.BORDER); }
+	/** Unsafe version of {@link #has_scrolling}. */
+	public static int nhas_scrolling(long struct) { return memGetInt(struct + NkPanel.HAS_SCROLLING); }
 	/** Unsafe version of {@link #clip}. */
 	public static NkRect nclip(long struct) { return NkRect.create(struct + NkPanel.CLIP); }
 	/** Unsafe version of {@link #menu}. */
@@ -450,6 +462,8 @@ public class NkPanel extends Struct implements NativeResource {
 	public static void nheader_h(long struct, float value) { memPutFloat(struct + NkPanel.HEADER_H, value); }
 	/** Unsafe version of {@link #border(float) border}. */
 	public static void nborder(long struct, float value) { memPutFloat(struct + NkPanel.BORDER, value); }
+	/** Unsafe version of {@link #has_scrolling(int) has_scrolling}. */
+	public static void nhas_scrolling(long struct, int value) { memPutInt(struct + NkPanel.HAS_SCROLLING, value); }
 	/** Unsafe version of {@link #clip(NkRect) clip}. */
 	public static void nclip(long struct, NkRect value) { memCopy(value.address(), struct + NkPanel.CLIP, NkRect.SIZEOF); }
 	/** Unsafe version of {@link #menu(NkMenuState) menu}. */
@@ -554,6 +568,8 @@ public class NkPanel extends Struct implements NativeResource {
 		public float header_h() { return NkPanel.nheader_h(address()); }
 		/** Returns the value of the {@code border} field. */
 		public float border() { return NkPanel.nborder(address()); }
+		/** Returns the value of the {@code has_scrolling} field. */
+		public int has_scrolling() { return NkPanel.nhas_scrolling(address()); }
 		/** Returns a {@link NkRect} view of the {@code clip} field. */
 		public NkRect clip() { return NkPanel.nclip(address()); }
 		/** Returns a {@link NkMenuState} view of the {@code menu} field. */
@@ -591,6 +607,8 @@ public class NkPanel extends Struct implements NativeResource {
 		public NkPanel.Buffer header_h(float value) { NkPanel.nheader_h(address(), value); return this; }
 		/** Sets the specified value to the {@code border} field. */
 		public NkPanel.Buffer border(float value) { NkPanel.nborder(address(), value); return this; }
+		/** Sets the specified value to the {@code has_scrolling} field. */
+		public NkPanel.Buffer has_scrolling(int value) { NkPanel.nhas_scrolling(address(), value); return this; }
 		/** Copies the specified {@link NkRect} to the {@code clip} field. */
 		public NkPanel.Buffer clip(NkRect value) { NkPanel.nclip(address(), value); return this; }
 		/** Copies the specified {@link NkMenuState} to the {@code menu} field. */

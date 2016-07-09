@@ -28,6 +28,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkPropertyState struct nk_property_state} property;
     {@link NkPopupState struct nk_popup_state} popup;
     {@link NkEditState struct nk_edit_state} edit;
+    unsigned int scrolled;
     nk_table * tables;
     unsigned short table_count;
     unsigned short table_size;
@@ -55,6 +56,7 @@ public class NkWindow extends Struct implements NativeResource {
 		PROPERTY,
 		POPUP,
 		EDIT,
+		SCROLLED,
 		TABLES,
 		TABLE_COUNT,
 		TABLE_SIZE,
@@ -74,6 +76,7 @@ public class NkWindow extends Struct implements NativeResource {
 			__member(NkPropertyState.SIZEOF, NkPropertyState.ALIGNOF),
 			__member(NkPopupState.SIZEOF, NkPopupState.ALIGNOF),
 			__member(NkEditState.SIZEOF, NkEditState.ALIGNOF),
+			__member(4),
 			__member(POINTER_SIZE),
 			__member(2),
 			__member(2),
@@ -95,12 +98,13 @@ public class NkWindow extends Struct implements NativeResource {
 		PROPERTY = layout.offsetof(7);
 		POPUP = layout.offsetof(8);
 		EDIT = layout.offsetof(9);
-		TABLES = layout.offsetof(10);
-		TABLE_COUNT = layout.offsetof(11);
-		TABLE_SIZE = layout.offsetof(12);
-		NEXT = layout.offsetof(13);
-		PREV = layout.offsetof(14);
-		PARENT = layout.offsetof(15);
+		SCROLLED = layout.offsetof(10);
+		TABLES = layout.offsetof(11);
+		TABLE_COUNT = layout.offsetof(12);
+		TABLE_SIZE = layout.offsetof(13);
+		NEXT = layout.offsetof(14);
+		PREV = layout.offsetof(15);
+		PARENT = layout.offsetof(16);
 	}
 
 	NkWindow(long address, ByteBuffer container) {
@@ -140,6 +144,8 @@ public class NkWindow extends Struct implements NativeResource {
 	public NkPopupState popup() { return npopup(address()); }
 	/** Returns a {@link NkEditState} view of the {@code edit} field. */
 	public NkEditState edit() { return nedit(address()); }
+	/** Returns the value of the {@code scrolled} field. */
+	public int scrolled() { return nscrolled(address()); }
 	/** Returns the value of the {@code tables} field. */
 	public long tables() { return ntables(address()); }
 	/** Returns the value of the {@code table_count} field. */
@@ -173,6 +179,8 @@ public class NkWindow extends Struct implements NativeResource {
 	public NkWindow popup(NkPopupState value) { npopup(address(), value); return this; }
 	/** Copies the specified {@link NkEditState} to the {@code edit} field. */
 	public NkWindow edit(NkEditState value) { nedit(address(), value); return this; }
+	/** Sets the specified value to the {@code scrolled} field. */
+	public NkWindow scrolled(int value) { nscrolled(address(), value); return this; }
 	/** Sets the specified value to the {@code tables} field. */
 	public NkWindow tables(long value) { ntables(address(), value); return this; }
 	/** Sets the specified value to the {@code table_count} field. */
@@ -198,6 +206,7 @@ public class NkWindow extends Struct implements NativeResource {
 		NkPropertyState property,
 		NkPopupState popup,
 		NkEditState edit,
+		int scrolled,
 		long tables,
 		short table_count,
 		short table_size,
@@ -215,6 +224,7 @@ public class NkWindow extends Struct implements NativeResource {
 		property(property);
 		popup(popup);
 		edit(edit);
+		scrolled(scrolled);
 		tables(tables);
 		table_count(table_count);
 		table_size(table_size);
@@ -391,6 +401,8 @@ public class NkWindow extends Struct implements NativeResource {
 	public static NkPopupState npopup(long struct) { return NkPopupState.create(struct + NkWindow.POPUP); }
 	/** Unsafe version of {@link #edit}. */
 	public static NkEditState nedit(long struct) { return NkEditState.create(struct + NkWindow.EDIT); }
+	/** Unsafe version of {@link #scrolled}. */
+	public static int nscrolled(long struct) { return memGetInt(struct + NkWindow.SCROLLED); }
 	/** Unsafe version of {@link #tables}. */
 	public static long ntables(long struct) { return memGetAddress(struct + NkWindow.TABLES); }
 	/** Unsafe version of {@link #table_count}. */
@@ -424,6 +436,8 @@ public class NkWindow extends Struct implements NativeResource {
 	public static void npopup(long struct, NkPopupState value) { memCopy(value.address(), struct + NkWindow.POPUP, NkPopupState.SIZEOF); }
 	/** Unsafe version of {@link #edit(NkEditState) edit}. */
 	public static void nedit(long struct, NkEditState value) { memCopy(value.address(), struct + NkWindow.EDIT, NkEditState.SIZEOF); }
+	/** Unsafe version of {@link #scrolled(int) scrolled}. */
+	public static void nscrolled(long struct, int value) { memPutInt(struct + NkWindow.SCROLLED, value); }
 	/** Unsafe version of {@link #tables(long) tables}. */
 	public static void ntables(long struct, long value) { memPutAddress(struct + NkWindow.TABLES, checkPointer(value)); }
 	/** Unsafe version of {@link #table_count(short) table_count}. */
@@ -527,6 +541,8 @@ public class NkWindow extends Struct implements NativeResource {
 		public NkPopupState popup() { return NkWindow.npopup(address()); }
 		/** Returns a {@link NkEditState} view of the {@code edit} field. */
 		public NkEditState edit() { return NkWindow.nedit(address()); }
+		/** Returns the value of the {@code scrolled} field. */
+		public int scrolled() { return NkWindow.nscrolled(address()); }
 		/** Returns the value of the {@code tables} field. */
 		public long tables() { return NkWindow.ntables(address()); }
 		/** Returns the value of the {@code table_count} field. */
@@ -560,6 +576,8 @@ public class NkWindow extends Struct implements NativeResource {
 		public NkWindow.Buffer popup(NkPopupState value) { NkWindow.npopup(address(), value); return this; }
 		/** Copies the specified {@link NkEditState} to the {@code edit} field. */
 		public NkWindow.Buffer edit(NkEditState value) { NkWindow.nedit(address(), value); return this; }
+		/** Sets the specified value to the {@code scrolled} field. */
+		public NkWindow.Buffer scrolled(int value) { NkWindow.nscrolled(address(), value); return this; }
 		/** Sets the specified value to the {@code tables} field. */
 		public NkWindow.Buffer tables(long value) { NkWindow.ntables(address(), value); return this; }
 		/** Sets the specified value to the {@code table_count} field. */

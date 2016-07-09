@@ -18,7 +18,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_keyboard {
-    {@link NkKey struct nk_key}[25] keys;
+    {@link NkKey struct nk_key}[29] keys;
     char[16] text;
     int text_len;
 }</code></pre>
@@ -38,7 +38,7 @@ public class NkKeyboard extends Struct implements NativeResource {
 
 	static {
 		Layout layout = __struct(
-			__array(NkKey.SIZEOF, NkKey.ALIGNOF, 25),
+			__array(NkKey.SIZEOF, NkKey.ALIGNOF, 29),
 			__array(1, 16),
 			__member(4)
 		);
@@ -251,7 +251,7 @@ public class NkKeyboard extends Struct implements NativeResource {
 
 	/** Unsafe version of {@link #keys}. */
 	public static NkKey.Buffer nkeys(long struct) {
-		return NkKey.create(struct + NkKeyboard.KEYS, 25);
+		return NkKey.create(struct + NkKeyboard.KEYS, 29);
 	}
 	/** Unsafe version of {@link #keys(int) keys}. */
 	public static NkKey nkeys(long struct, int index) {
@@ -268,7 +268,7 @@ public class NkKeyboard extends Struct implements NativeResource {
 
 	/** Unsafe version of {@link #keys(NkKey.Buffer) keys}. */
 	public static void nkeys(long struct, NkKey.Buffer value) {
-		if ( CHECKS ) checkBufferGT(value, 25);
+		if ( CHECKS ) checkBufferGT(value, 29);
 		memCopy(value.address(), struct + NkKeyboard.KEYS, value.remaining() * NkKey.SIZEOF);
 	}
 	/** Unsafe version of {@link #keys(int, NkKey) keys}. */
