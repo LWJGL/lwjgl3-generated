@@ -216,6 +216,8 @@ public class VKCapabilities {
 	public final boolean VK_KHR_win32_surface;
 	/** When true, {@link KHRXlibSurface} is supported. */
 	public final boolean VK_KHR_xlib_surface;
+	/** When true, {@link NVDedicatedAllocation} is supported. */
+	public final boolean VK_NV_dedicated_allocation;
 	/** When true, {@link NVGLSLShader} is supported. */
 	public final boolean VK_NV_glsl_shader;
 
@@ -406,6 +408,7 @@ public class VKCapabilities {
 		VK_KHR_swapchain = ext.contains("VK_KHR_swapchain") && VK.checkExtension("VK_KHR_swapchain", KHRSwapchain.isAvailable(this));
 		VK_KHR_win32_surface = ext.contains("VK_KHR_win32_surface") && VK.checkExtension("VK_KHR_win32_surface", KHRWin32Surface.isAvailable(this));
 		VK_KHR_xlib_surface = ext.contains("VK_KHR_xlib_surface") && VK.checkExtension("VK_KHR_xlib_surface", KHRXlibSurface.isAvailable(this));
+		VK_NV_dedicated_allocation = ext.contains("VK_NV_dedicated_allocation");
 		VK_NV_glsl_shader = ext.contains("VK_NV_glsl_shader");
 	}
 

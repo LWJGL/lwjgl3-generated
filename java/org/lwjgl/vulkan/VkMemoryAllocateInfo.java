@@ -24,7 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}, or a pointer to a valid instance of {@code VkDedicatedAllocationMemoryAllocateInfoNV}</li>
  * <li>{@code allocationSize} <b>must</b> be less than or equal to the amount of memory available to the {@code VkMemoryHeap} specified by
  * {@code memoryTypeIndex} and the calling command's {@code VkDevice}</li>
  * <li>{@code allocationSize} <b>must</b> be greater than 0</li>

@@ -4349,6 +4349,10 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * {@link #vkGetBufferMemoryRequirements GetBufferMemoryRequirements} with {@code buffer}</li>
 	 * <li>The {@code size} member of the {@link VkMemoryRequirements} structure returned from a call to {@link #vkGetBufferMemoryRequirements GetBufferMemoryRequirements} with {@code buffer} <b>must</b> be
 	 * less than or equal to the size of {@code memory} minus {@code memoryOffset}</li>
+	 * <li>If {@code buffer} was created with {@link VkDedicatedAllocationBufferCreateInfoNV}{@code ::dedicatedAllocation} equal to {@link #VK_TRUE TRUE}, {@code memory} <b>must</b> have
+	 * been created with {@link VkDedicatedAllocationMemoryAllocateInfoNV}{@code ::buffer} equal to {@code buffer} and {@code memoryOffset} <b>must</b> be zero.</li>
+	 * <li>If {@code buffer} was not created with {@link VkDedicatedAllocationBufferCreateInfoNV}{@code ::dedicatedAllocation} equal to {@link #VK_TRUE TRUE}, {@code memory} <b>must</b>
+	 * not have been allocated dedicated for a specific buffer or image</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -4393,6 +4397,10 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * {@link #vkGetImageMemoryRequirements GetImageMemoryRequirements} with {@code image}</li>
 	 * <li>The {@code size} member of the {@link VkMemoryRequirements} structure returned from a call to {@link #vkGetImageMemoryRequirements GetImageMemoryRequirements} with {@code image} <b>must</b> be
 	 * less than or equal to the size of {@code memory} minus {@code memoryOffset}</li>
+	 * <li>If {@code image} was created with {@link VkDedicatedAllocationImageCreateInfoNV}{@code ::dedicatedAllocation} equal to {@link #VK_TRUE TRUE}, {@code memory} <b>must</b> have
+	 * been created with {@link VkDedicatedAllocationMemoryAllocateInfoNV}{@code ::image} equal to {@code image} and {@code memoryOffset} <b>must</b> be zero.</li>
+	 * <li>If {@code image} was not created with {@link VkDedicatedAllocationImageCreateInfoNV}{@code ::dedicatedAllocation} equal to {@link #VK_TRUE TRUE}, {@code memory} <b>must</b>
+	 * not have been allocated dedicated for a specific buffer or image</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
