@@ -140,13 +140,13 @@ public class KHRXlibSurface {
 	 * @param dpy              a pointer to an Xlib {@code Display} connection to the server
 	 * @param visualID         an X11 visual (VisualID)
 	 */
-	public static int vkGetPhysicalDeviceXlibPresentationSupportKHR(VkPhysicalDevice physicalDevice, int queueFamilyIndex, long dpy, long visualID) {
+	public static boolean vkGetPhysicalDeviceXlibPresentationSupportKHR(VkPhysicalDevice physicalDevice, int queueFamilyIndex, long dpy, long visualID) {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceXlibPresentationSupportKHR;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 		}
-		return callPPPI(__functionAddress, physicalDevice.address(), queueFamilyIndex, dpy, visualID);
+		return callPPPI(__functionAddress, physicalDevice.address(), queueFamilyIndex, dpy, visualID) != 0;
 	}
 
 	/** Array version of: {@link #vkCreateXlibSurfaceKHR CreateXlibSurfaceKHR} */

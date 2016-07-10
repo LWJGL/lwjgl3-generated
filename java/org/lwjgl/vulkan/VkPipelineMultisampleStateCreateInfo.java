@@ -133,7 +133,7 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
 	/** Returns the value of the {@code rasterizationSamples} field. */
 	public int rasterizationSamples() { return nrasterizationSamples(address()); }
 	/** Returns the value of the {@code sampleShadingEnable} field. */
-	public int sampleShadingEnable() { return nsampleShadingEnable(address()); }
+	public boolean sampleShadingEnable() { return nsampleShadingEnable(address()) != 0; }
 	/** Returns the value of the {@code minSampleShading} field. */
 	public float minSampleShading() { return nminSampleShading(address()); }
 	/**
@@ -143,9 +143,9 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
 	 */
 	public IntBuffer pSampleMask(int capacity) { return npSampleMask(address(), capacity); }
 	/** Returns the value of the {@code alphaToCoverageEnable} field. */
-	public int alphaToCoverageEnable() { return nalphaToCoverageEnable(address()); }
+	public boolean alphaToCoverageEnable() { return nalphaToCoverageEnable(address()) != 0; }
 	/** Returns the value of the {@code alphaToOneEnable} field. */
-	public int alphaToOneEnable() { return nalphaToOneEnable(address()); }
+	public boolean alphaToOneEnable() { return nalphaToOneEnable(address()) != 0; }
 
 	/** Sets the specified value to the {@code sType} field. */
 	public VkPipelineMultisampleStateCreateInfo sType(int value) { nsType(address(), value); return this; }
@@ -156,15 +156,15 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
 	/** Sets the specified value to the {@code rasterizationSamples} field. */
 	public VkPipelineMultisampleStateCreateInfo rasterizationSamples(int value) { nrasterizationSamples(address(), value); return this; }
 	/** Sets the specified value to the {@code sampleShadingEnable} field. */
-	public VkPipelineMultisampleStateCreateInfo sampleShadingEnable(int value) { nsampleShadingEnable(address(), value); return this; }
+	public VkPipelineMultisampleStateCreateInfo sampleShadingEnable(boolean value) { nsampleShadingEnable(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code minSampleShading} field. */
 	public VkPipelineMultisampleStateCreateInfo minSampleShading(float value) { nminSampleShading(address(), value); return this; }
 	/** Sets the address of the specified {@link IntBuffer} to the {@code pSampleMask} field. */
 	public VkPipelineMultisampleStateCreateInfo pSampleMask(IntBuffer value) { npSampleMask(address(), value); return this; }
 	/** Sets the specified value to the {@code alphaToCoverageEnable} field. */
-	public VkPipelineMultisampleStateCreateInfo alphaToCoverageEnable(int value) { nalphaToCoverageEnable(address(), value); return this; }
+	public VkPipelineMultisampleStateCreateInfo alphaToCoverageEnable(boolean value) { nalphaToCoverageEnable(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code alphaToOneEnable} field. */
-	public VkPipelineMultisampleStateCreateInfo alphaToOneEnable(int value) { nalphaToOneEnable(address(), value); return this; }
+	public VkPipelineMultisampleStateCreateInfo alphaToOneEnable(boolean value) { nalphaToOneEnable(address(), value ? 1 : 0); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public VkPipelineMultisampleStateCreateInfo set(
@@ -172,11 +172,11 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
 		long pNext,
 		int flags,
 		int rasterizationSamples,
-		int sampleShadingEnable,
+		boolean sampleShadingEnable,
 		float minSampleShading,
 		IntBuffer pSampleMask,
-		int alphaToCoverageEnable,
-		int alphaToOneEnable
+		boolean alphaToCoverageEnable,
+		boolean alphaToOneEnable
 	) {
 		sType(sType);
 		pNext(pNext);
@@ -426,7 +426,7 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
 		/** Returns the value of the {@code rasterizationSamples} field. */
 		public int rasterizationSamples() { return VkPipelineMultisampleStateCreateInfo.nrasterizationSamples(address()); }
 		/** Returns the value of the {@code sampleShadingEnable} field. */
-		public int sampleShadingEnable() { return VkPipelineMultisampleStateCreateInfo.nsampleShadingEnable(address()); }
+		public boolean sampleShadingEnable() { return VkPipelineMultisampleStateCreateInfo.nsampleShadingEnable(address()) != 0; }
 		/** Returns the value of the {@code minSampleShading} field. */
 		public float minSampleShading() { return VkPipelineMultisampleStateCreateInfo.nminSampleShading(address()); }
 		/**
@@ -436,9 +436,9 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
 		 */
 		public IntBuffer pSampleMask(int capacity) { return VkPipelineMultisampleStateCreateInfo.npSampleMask(address(), capacity); }
 		/** Returns the value of the {@code alphaToCoverageEnable} field. */
-		public int alphaToCoverageEnable() { return VkPipelineMultisampleStateCreateInfo.nalphaToCoverageEnable(address()); }
+		public boolean alphaToCoverageEnable() { return VkPipelineMultisampleStateCreateInfo.nalphaToCoverageEnable(address()) != 0; }
 		/** Returns the value of the {@code alphaToOneEnable} field. */
-		public int alphaToOneEnable() { return VkPipelineMultisampleStateCreateInfo.nalphaToOneEnable(address()); }
+		public boolean alphaToOneEnable() { return VkPipelineMultisampleStateCreateInfo.nalphaToOneEnable(address()) != 0; }
 
 		/** Sets the specified value to the {@code sType} field. */
 		public VkPipelineMultisampleStateCreateInfo.Buffer sType(int value) { VkPipelineMultisampleStateCreateInfo.nsType(address(), value); return this; }
@@ -449,15 +449,15 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
 		/** Sets the specified value to the {@code rasterizationSamples} field. */
 		public VkPipelineMultisampleStateCreateInfo.Buffer rasterizationSamples(int value) { VkPipelineMultisampleStateCreateInfo.nrasterizationSamples(address(), value); return this; }
 		/** Sets the specified value to the {@code sampleShadingEnable} field. */
-		public VkPipelineMultisampleStateCreateInfo.Buffer sampleShadingEnable(int value) { VkPipelineMultisampleStateCreateInfo.nsampleShadingEnable(address(), value); return this; }
+		public VkPipelineMultisampleStateCreateInfo.Buffer sampleShadingEnable(boolean value) { VkPipelineMultisampleStateCreateInfo.nsampleShadingEnable(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code minSampleShading} field. */
 		public VkPipelineMultisampleStateCreateInfo.Buffer minSampleShading(float value) { VkPipelineMultisampleStateCreateInfo.nminSampleShading(address(), value); return this; }
 		/** Sets the address of the specified {@link IntBuffer} to the {@code pSampleMask} field. */
 		public VkPipelineMultisampleStateCreateInfo.Buffer pSampleMask(IntBuffer value) { VkPipelineMultisampleStateCreateInfo.npSampleMask(address(), value); return this; }
 		/** Sets the specified value to the {@code alphaToCoverageEnable} field. */
-		public VkPipelineMultisampleStateCreateInfo.Buffer alphaToCoverageEnable(int value) { VkPipelineMultisampleStateCreateInfo.nalphaToCoverageEnable(address(), value); return this; }
+		public VkPipelineMultisampleStateCreateInfo.Buffer alphaToCoverageEnable(boolean value) { VkPipelineMultisampleStateCreateInfo.nalphaToCoverageEnable(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code alphaToOneEnable} field. */
-		public VkPipelineMultisampleStateCreateInfo.Buffer alphaToOneEnable(int value) { VkPipelineMultisampleStateCreateInfo.nalphaToOneEnable(address(), value); return this; }
+		public VkPipelineMultisampleStateCreateInfo.Buffer alphaToOneEnable(boolean value) { VkPipelineMultisampleStateCreateInfo.nalphaToOneEnable(address(), value ? 1 : 0); return this; }
 
 	}
 

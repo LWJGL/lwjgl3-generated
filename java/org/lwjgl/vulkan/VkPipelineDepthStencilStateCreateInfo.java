@@ -145,15 +145,15 @@ public class VkPipelineDepthStencilStateCreateInfo extends Struct implements Nat
 	/** Returns the value of the {@code flags} field. */
 	public int flags() { return nflags(address()); }
 	/** Returns the value of the {@code depthTestEnable} field. */
-	public int depthTestEnable() { return ndepthTestEnable(address()); }
+	public boolean depthTestEnable() { return ndepthTestEnable(address()) != 0; }
 	/** Returns the value of the {@code depthWriteEnable} field. */
-	public int depthWriteEnable() { return ndepthWriteEnable(address()); }
+	public boolean depthWriteEnable() { return ndepthWriteEnable(address()) != 0; }
 	/** Returns the value of the {@code depthCompareOp} field. */
 	public int depthCompareOp() { return ndepthCompareOp(address()); }
 	/** Returns the value of the {@code depthBoundsTestEnable} field. */
-	public int depthBoundsTestEnable() { return ndepthBoundsTestEnable(address()); }
+	public boolean depthBoundsTestEnable() { return ndepthBoundsTestEnable(address()) != 0; }
 	/** Returns the value of the {@code stencilTestEnable} field. */
-	public int stencilTestEnable() { return nstencilTestEnable(address()); }
+	public boolean stencilTestEnable() { return nstencilTestEnable(address()) != 0; }
 	/** Returns a {@link VkStencilOpState} view of the {@code front} field. */
 	public VkStencilOpState front() { return nfront(address()); }
 	/** Returns a {@link VkStencilOpState} view of the {@code back} field. */
@@ -170,15 +170,15 @@ public class VkPipelineDepthStencilStateCreateInfo extends Struct implements Nat
 	/** Sets the specified value to the {@code flags} field. */
 	public VkPipelineDepthStencilStateCreateInfo flags(int value) { nflags(address(), value); return this; }
 	/** Sets the specified value to the {@code depthTestEnable} field. */
-	public VkPipelineDepthStencilStateCreateInfo depthTestEnable(int value) { ndepthTestEnable(address(), value); return this; }
+	public VkPipelineDepthStencilStateCreateInfo depthTestEnable(boolean value) { ndepthTestEnable(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code depthWriteEnable} field. */
-	public VkPipelineDepthStencilStateCreateInfo depthWriteEnable(int value) { ndepthWriteEnable(address(), value); return this; }
+	public VkPipelineDepthStencilStateCreateInfo depthWriteEnable(boolean value) { ndepthWriteEnable(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code depthCompareOp} field. */
 	public VkPipelineDepthStencilStateCreateInfo depthCompareOp(int value) { ndepthCompareOp(address(), value); return this; }
 	/** Sets the specified value to the {@code depthBoundsTestEnable} field. */
-	public VkPipelineDepthStencilStateCreateInfo depthBoundsTestEnable(int value) { ndepthBoundsTestEnable(address(), value); return this; }
+	public VkPipelineDepthStencilStateCreateInfo depthBoundsTestEnable(boolean value) { ndepthBoundsTestEnable(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code stencilTestEnable} field. */
-	public VkPipelineDepthStencilStateCreateInfo stencilTestEnable(int value) { nstencilTestEnable(address(), value); return this; }
+	public VkPipelineDepthStencilStateCreateInfo stencilTestEnable(boolean value) { nstencilTestEnable(address(), value ? 1 : 0); return this; }
 	/** Copies the specified {@link VkStencilOpState} to the {@code front} field. */
 	public VkPipelineDepthStencilStateCreateInfo front(VkStencilOpState value) { nfront(address(), value); return this; }
 	/** Copies the specified {@link VkStencilOpState} to the {@code back} field. */
@@ -193,11 +193,11 @@ public class VkPipelineDepthStencilStateCreateInfo extends Struct implements Nat
 		int sType,
 		long pNext,
 		int flags,
-		int depthTestEnable,
-		int depthWriteEnable,
+		boolean depthTestEnable,
+		boolean depthWriteEnable,
 		int depthCompareOp,
-		int depthBoundsTestEnable,
-		int stencilTestEnable,
+		boolean depthBoundsTestEnable,
+		boolean stencilTestEnable,
 		VkStencilOpState front,
 		VkStencilOpState back,
 		float minDepthBounds,
@@ -464,15 +464,15 @@ public class VkPipelineDepthStencilStateCreateInfo extends Struct implements Nat
 		/** Returns the value of the {@code flags} field. */
 		public int flags() { return VkPipelineDepthStencilStateCreateInfo.nflags(address()); }
 		/** Returns the value of the {@code depthTestEnable} field. */
-		public int depthTestEnable() { return VkPipelineDepthStencilStateCreateInfo.ndepthTestEnable(address()); }
+		public boolean depthTestEnable() { return VkPipelineDepthStencilStateCreateInfo.ndepthTestEnable(address()) != 0; }
 		/** Returns the value of the {@code depthWriteEnable} field. */
-		public int depthWriteEnable() { return VkPipelineDepthStencilStateCreateInfo.ndepthWriteEnable(address()); }
+		public boolean depthWriteEnable() { return VkPipelineDepthStencilStateCreateInfo.ndepthWriteEnable(address()) != 0; }
 		/** Returns the value of the {@code depthCompareOp} field. */
 		public int depthCompareOp() { return VkPipelineDepthStencilStateCreateInfo.ndepthCompareOp(address()); }
 		/** Returns the value of the {@code depthBoundsTestEnable} field. */
-		public int depthBoundsTestEnable() { return VkPipelineDepthStencilStateCreateInfo.ndepthBoundsTestEnable(address()); }
+		public boolean depthBoundsTestEnable() { return VkPipelineDepthStencilStateCreateInfo.ndepthBoundsTestEnable(address()) != 0; }
 		/** Returns the value of the {@code stencilTestEnable} field. */
-		public int stencilTestEnable() { return VkPipelineDepthStencilStateCreateInfo.nstencilTestEnable(address()); }
+		public boolean stencilTestEnable() { return VkPipelineDepthStencilStateCreateInfo.nstencilTestEnable(address()) != 0; }
 		/** Returns a {@link VkStencilOpState} view of the {@code front} field. */
 		public VkStencilOpState front() { return VkPipelineDepthStencilStateCreateInfo.nfront(address()); }
 		/** Returns a {@link VkStencilOpState} view of the {@code back} field. */
@@ -489,15 +489,15 @@ public class VkPipelineDepthStencilStateCreateInfo extends Struct implements Nat
 		/** Sets the specified value to the {@code flags} field. */
 		public VkPipelineDepthStencilStateCreateInfo.Buffer flags(int value) { VkPipelineDepthStencilStateCreateInfo.nflags(address(), value); return this; }
 		/** Sets the specified value to the {@code depthTestEnable} field. */
-		public VkPipelineDepthStencilStateCreateInfo.Buffer depthTestEnable(int value) { VkPipelineDepthStencilStateCreateInfo.ndepthTestEnable(address(), value); return this; }
+		public VkPipelineDepthStencilStateCreateInfo.Buffer depthTestEnable(boolean value) { VkPipelineDepthStencilStateCreateInfo.ndepthTestEnable(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code depthWriteEnable} field. */
-		public VkPipelineDepthStencilStateCreateInfo.Buffer depthWriteEnable(int value) { VkPipelineDepthStencilStateCreateInfo.ndepthWriteEnable(address(), value); return this; }
+		public VkPipelineDepthStencilStateCreateInfo.Buffer depthWriteEnable(boolean value) { VkPipelineDepthStencilStateCreateInfo.ndepthWriteEnable(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code depthCompareOp} field. */
 		public VkPipelineDepthStencilStateCreateInfo.Buffer depthCompareOp(int value) { VkPipelineDepthStencilStateCreateInfo.ndepthCompareOp(address(), value); return this; }
 		/** Sets the specified value to the {@code depthBoundsTestEnable} field. */
-		public VkPipelineDepthStencilStateCreateInfo.Buffer depthBoundsTestEnable(int value) { VkPipelineDepthStencilStateCreateInfo.ndepthBoundsTestEnable(address(), value); return this; }
+		public VkPipelineDepthStencilStateCreateInfo.Buffer depthBoundsTestEnable(boolean value) { VkPipelineDepthStencilStateCreateInfo.ndepthBoundsTestEnable(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code stencilTestEnable} field. */
-		public VkPipelineDepthStencilStateCreateInfo.Buffer stencilTestEnable(int value) { VkPipelineDepthStencilStateCreateInfo.nstencilTestEnable(address(), value); return this; }
+		public VkPipelineDepthStencilStateCreateInfo.Buffer stencilTestEnable(boolean value) { VkPipelineDepthStencilStateCreateInfo.nstencilTestEnable(address(), value ? 1 : 0); return this; }
 		/** Copies the specified {@link VkStencilOpState} to the {@code front} field. */
 		public VkPipelineDepthStencilStateCreateInfo.Buffer front(VkStencilOpState value) { VkPipelineDepthStencilStateCreateInfo.nfront(address(), value); return this; }
 		/** Copies the specified {@link VkStencilOpState} to the {@code back} field. */

@@ -112,11 +112,11 @@ public class KHRWin32Surface {
 	 * @param physicalDevice   the physical device
 	 * @param queueFamilyIndex the queue family index
 	 */
-	public static int vkGetPhysicalDeviceWin32PresentationSupportKHR(VkPhysicalDevice physicalDevice, int queueFamilyIndex) {
+	public static boolean vkGetPhysicalDeviceWin32PresentationSupportKHR(VkPhysicalDevice physicalDevice, int queueFamilyIndex) {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceWin32PresentationSupportKHR;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callPI(__functionAddress, physicalDevice.address(), queueFamilyIndex);
+		return callPI(__functionAddress, physicalDevice.address(), queueFamilyIndex) != 0;
 	}
 
 	/** Array version of: {@link #vkCreateWin32SurfaceKHR CreateWin32SurfaceKHR} */

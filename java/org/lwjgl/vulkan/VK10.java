@@ -5248,8 +5248,8 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param timeout the timeout period in units of nanoseconds. {@code timeout} is adjusted to the closest value allowed by the implementation-dependent
 	 *                timeout accuracy, which <b>may</b> be substantially longer than one nanosecond, and <b>may</b> be longer than the requested period.
 	 */
-	public static int vkWaitForFences(VkDevice device, LongBuffer pFences, int waitAll, long timeout) {
-		return nvkWaitForFences(device, pFences.remaining(), memAddress(pFences), waitAll, timeout);
+	public static int vkWaitForFences(VkDevice device, LongBuffer pFences, boolean waitAll, long timeout) {
+		return nvkWaitForFences(device, pFences.remaining(), memAddress(pFences), waitAll ? 1 : 0, timeout);
 	}
 
 	/**
@@ -5290,11 +5290,11 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param timeout the timeout period in units of nanoseconds. {@code timeout} is adjusted to the closest value allowed by the implementation-dependent
 	 *                timeout accuracy, which <b>may</b> be substantially longer than one nanosecond, and <b>may</b> be longer than the requested period.
 	 */
-	public static int vkWaitForFences(VkDevice device, long pFence, int waitAll, long timeout) {
+	public static int vkWaitForFences(VkDevice device, long pFence, boolean waitAll, long timeout) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			LongBuffer pFences = stack.longs(pFence);
-			return nvkWaitForFences(device, 1, memAddress(pFences), waitAll, timeout);
+			return nvkWaitForFences(device, 1, memAddress(pFences), waitAll ? 1 : 0, timeout);
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -13469,9 +13469,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * 
 	 * Array version of: {@link #vkWaitForFences WaitForFences}
 	 */
-	public static int vkWaitForFences(VkDevice device, long[] pFences, int waitAll, long timeout) {
+	public static int vkWaitForFences(VkDevice device, long[] pFences, boolean waitAll, long timeout) {
 		long __functionAddress = device.getCapabilities().vkWaitForFences;
-		return callPPJI(__functionAddress, device.address(), pFences.length, pFences, waitAll, timeout);
+		return callPPJI(__functionAddress, device.address(), pFences.length, pFences, waitAll ? 1 : 0, timeout);
 	}
 
 	/**

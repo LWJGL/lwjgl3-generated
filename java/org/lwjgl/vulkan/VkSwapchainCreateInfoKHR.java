@@ -264,7 +264,7 @@ public class VkSwapchainCreateInfoKHR extends Struct implements NativeResource {
 	/** Returns the value of the {@code presentMode} field. */
 	public int presentMode() { return npresentMode(address()); }
 	/** Returns the value of the {@code clipped} field. */
-	public int clipped() { return nclipped(address()); }
+	public boolean clipped() { return nclipped(address()) != 0; }
 	/** Returns the value of the {@code oldSwapchain} field. */
 	public long oldSwapchain() { return noldSwapchain(address()); }
 
@@ -299,7 +299,7 @@ public class VkSwapchainCreateInfoKHR extends Struct implements NativeResource {
 	/** Sets the specified value to the {@code presentMode} field. */
 	public VkSwapchainCreateInfoKHR presentMode(int value) { npresentMode(address(), value); return this; }
 	/** Sets the specified value to the {@code clipped} field. */
-	public VkSwapchainCreateInfoKHR clipped(int value) { nclipped(address(), value); return this; }
+	public VkSwapchainCreateInfoKHR clipped(boolean value) { nclipped(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code oldSwapchain} field. */
 	public VkSwapchainCreateInfoKHR oldSwapchain(long value) { noldSwapchain(address(), value); return this; }
 
@@ -320,7 +320,7 @@ public class VkSwapchainCreateInfoKHR extends Struct implements NativeResource {
 		int preTransform,
 		int compositeAlpha,
 		int presentMode,
-		int clipped,
+		boolean clipped,
 		long oldSwapchain
 	) {
 		sType(sType);
@@ -660,7 +660,7 @@ public class VkSwapchainCreateInfoKHR extends Struct implements NativeResource {
 		/** Returns the value of the {@code presentMode} field. */
 		public int presentMode() { return VkSwapchainCreateInfoKHR.npresentMode(address()); }
 		/** Returns the value of the {@code clipped} field. */
-		public int clipped() { return VkSwapchainCreateInfoKHR.nclipped(address()); }
+		public boolean clipped() { return VkSwapchainCreateInfoKHR.nclipped(address()) != 0; }
 		/** Returns the value of the {@code oldSwapchain} field. */
 		public long oldSwapchain() { return VkSwapchainCreateInfoKHR.noldSwapchain(address()); }
 
@@ -695,7 +695,7 @@ public class VkSwapchainCreateInfoKHR extends Struct implements NativeResource {
 		/** Sets the specified value to the {@code presentMode} field. */
 		public VkSwapchainCreateInfoKHR.Buffer presentMode(int value) { VkSwapchainCreateInfoKHR.npresentMode(address(), value); return this; }
 		/** Sets the specified value to the {@code clipped} field. */
-		public VkSwapchainCreateInfoKHR.Buffer clipped(int value) { VkSwapchainCreateInfoKHR.nclipped(address(), value); return this; }
+		public VkSwapchainCreateInfoKHR.Buffer clipped(boolean value) { VkSwapchainCreateInfoKHR.nclipped(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code oldSwapchain} field. */
 		public VkSwapchainCreateInfoKHR.Buffer oldSwapchain(long value) { VkSwapchainCreateInfoKHR.noldSwapchain(address(), value); return this; }
 

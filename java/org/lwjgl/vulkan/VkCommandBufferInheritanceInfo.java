@@ -136,7 +136,7 @@ public class VkCommandBufferInheritanceInfo extends Struct implements NativeReso
 	/** Returns the value of the {@code framebuffer} field. */
 	public long framebuffer() { return nframebuffer(address()); }
 	/** Returns the value of the {@code occlusionQueryEnable} field. */
-	public int occlusionQueryEnable() { return nocclusionQueryEnable(address()); }
+	public boolean occlusionQueryEnable() { return nocclusionQueryEnable(address()) != 0; }
 	/** Returns the value of the {@code queryFlags} field. */
 	public int queryFlags() { return nqueryFlags(address()); }
 	/** Returns the value of the {@code pipelineStatistics} field. */
@@ -153,7 +153,7 @@ public class VkCommandBufferInheritanceInfo extends Struct implements NativeReso
 	/** Sets the specified value to the {@code framebuffer} field. */
 	public VkCommandBufferInheritanceInfo framebuffer(long value) { nframebuffer(address(), value); return this; }
 	/** Sets the specified value to the {@code occlusionQueryEnable} field. */
-	public VkCommandBufferInheritanceInfo occlusionQueryEnable(int value) { nocclusionQueryEnable(address(), value); return this; }
+	public VkCommandBufferInheritanceInfo occlusionQueryEnable(boolean value) { nocclusionQueryEnable(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code queryFlags} field. */
 	public VkCommandBufferInheritanceInfo queryFlags(int value) { nqueryFlags(address(), value); return this; }
 	/** Sets the specified value to the {@code pipelineStatistics} field. */
@@ -166,7 +166,7 @@ public class VkCommandBufferInheritanceInfo extends Struct implements NativeReso
 		long renderPass,
 		int subpass,
 		long framebuffer,
-		int occlusionQueryEnable,
+		boolean occlusionQueryEnable,
 		int queryFlags,
 		int pipelineStatistics
 	) {
@@ -415,7 +415,7 @@ public class VkCommandBufferInheritanceInfo extends Struct implements NativeReso
 		/** Returns the value of the {@code framebuffer} field. */
 		public long framebuffer() { return VkCommandBufferInheritanceInfo.nframebuffer(address()); }
 		/** Returns the value of the {@code occlusionQueryEnable} field. */
-		public int occlusionQueryEnable() { return VkCommandBufferInheritanceInfo.nocclusionQueryEnable(address()); }
+		public boolean occlusionQueryEnable() { return VkCommandBufferInheritanceInfo.nocclusionQueryEnable(address()) != 0; }
 		/** Returns the value of the {@code queryFlags} field. */
 		public int queryFlags() { return VkCommandBufferInheritanceInfo.nqueryFlags(address()); }
 		/** Returns the value of the {@code pipelineStatistics} field. */
@@ -432,7 +432,7 @@ public class VkCommandBufferInheritanceInfo extends Struct implements NativeReso
 		/** Sets the specified value to the {@code framebuffer} field. */
 		public VkCommandBufferInheritanceInfo.Buffer framebuffer(long value) { VkCommandBufferInheritanceInfo.nframebuffer(address(), value); return this; }
 		/** Sets the specified value to the {@code occlusionQueryEnable} field. */
-		public VkCommandBufferInheritanceInfo.Buffer occlusionQueryEnable(int value) { VkCommandBufferInheritanceInfo.nocclusionQueryEnable(address(), value); return this; }
+		public VkCommandBufferInheritanceInfo.Buffer occlusionQueryEnable(boolean value) { VkCommandBufferInheritanceInfo.nocclusionQueryEnable(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code queryFlags} field. */
 		public VkCommandBufferInheritanceInfo.Buffer queryFlags(int value) { VkCommandBufferInheritanceInfo.nqueryFlags(address(), value); return this; }
 		/** Sets the specified value to the {@code pipelineStatistics} field. */

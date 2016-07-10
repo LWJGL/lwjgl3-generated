@@ -126,7 +126,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
 	/** Returns the value of the {@code flags} field. */
 	public int flags() { return nflags(address()); }
 	/** Returns the value of the {@code logicOpEnable} field. */
-	public int logicOpEnable() { return nlogicOpEnable(address()); }
+	public boolean logicOpEnable() { return nlogicOpEnable(address()) != 0; }
 	/** Returns the value of the {@code logicOp} field. */
 	public int logicOp() { return nlogicOp(address()); }
 	/** Returns the value of the {@code attachmentCount} field. */
@@ -145,7 +145,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
 	/** Sets the specified value to the {@code flags} field. */
 	public VkPipelineColorBlendStateCreateInfo flags(int value) { nflags(address(), value); return this; }
 	/** Sets the specified value to the {@code logicOpEnable} field. */
-	public VkPipelineColorBlendStateCreateInfo logicOpEnable(int value) { nlogicOpEnable(address(), value); return this; }
+	public VkPipelineColorBlendStateCreateInfo logicOpEnable(boolean value) { nlogicOpEnable(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code logicOp} field. */
 	public VkPipelineColorBlendStateCreateInfo logicOp(int value) { nlogicOp(address(), value); return this; }
 	/** Sets the address of the specified {@link VkPipelineColorBlendAttachmentState.Buffer} to the {@code pAttachments} field. */
@@ -160,7 +160,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
 		int sType,
 		long pNext,
 		int flags,
-		int logicOpEnable,
+		boolean logicOpEnable,
 		int logicOp,
 		VkPipelineColorBlendAttachmentState.Buffer pAttachments,
 		FloatBuffer blendConstants
@@ -435,7 +435,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
 		/** Returns the value of the {@code flags} field. */
 		public int flags() { return VkPipelineColorBlendStateCreateInfo.nflags(address()); }
 		/** Returns the value of the {@code logicOpEnable} field. */
-		public int logicOpEnable() { return VkPipelineColorBlendStateCreateInfo.nlogicOpEnable(address()); }
+		public boolean logicOpEnable() { return VkPipelineColorBlendStateCreateInfo.nlogicOpEnable(address()) != 0; }
 		/** Returns the value of the {@code logicOp} field. */
 		public int logicOp() { return VkPipelineColorBlendStateCreateInfo.nlogicOp(address()); }
 		/** Returns the value of the {@code attachmentCount} field. */
@@ -454,7 +454,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
 		/** Sets the specified value to the {@code flags} field. */
 		public VkPipelineColorBlendStateCreateInfo.Buffer flags(int value) { VkPipelineColorBlendStateCreateInfo.nflags(address(), value); return this; }
 		/** Sets the specified value to the {@code logicOpEnable} field. */
-		public VkPipelineColorBlendStateCreateInfo.Buffer logicOpEnable(int value) { VkPipelineColorBlendStateCreateInfo.nlogicOpEnable(address(), value); return this; }
+		public VkPipelineColorBlendStateCreateInfo.Buffer logicOpEnable(boolean value) { VkPipelineColorBlendStateCreateInfo.nlogicOpEnable(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code logicOp} field. */
 		public VkPipelineColorBlendStateCreateInfo.Buffer logicOp(int value) { VkPipelineColorBlendStateCreateInfo.nlogicOp(address(), value); return this; }
 		/** Sets the address of the specified {@link VkPipelineColorBlendAttachmentState.Buffer} to the {@code pAttachments} field. */

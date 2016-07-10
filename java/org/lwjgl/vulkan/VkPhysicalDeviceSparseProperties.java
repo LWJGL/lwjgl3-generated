@@ -92,15 +92,15 @@ public class VkPhysicalDeviceSparseProperties extends Struct {
 	public int sizeof() { return SIZEOF; }
 
 	/** Returns the value of the {@code residencyStandard2DBlockShape} field. */
-	public int residencyStandard2DBlockShape() { return nresidencyStandard2DBlockShape(address()); }
+	public boolean residencyStandard2DBlockShape() { return nresidencyStandard2DBlockShape(address()) != 0; }
 	/** Returns the value of the {@code residencyStandard2DMultisampleBlockShape} field. */
-	public int residencyStandard2DMultisampleBlockShape() { return nresidencyStandard2DMultisampleBlockShape(address()); }
+	public boolean residencyStandard2DMultisampleBlockShape() { return nresidencyStandard2DMultisampleBlockShape(address()) != 0; }
 	/** Returns the value of the {@code residencyStandard3DBlockShape} field. */
-	public int residencyStandard3DBlockShape() { return nresidencyStandard3DBlockShape(address()); }
+	public boolean residencyStandard3DBlockShape() { return nresidencyStandard3DBlockShape(address()) != 0; }
 	/** Returns the value of the {@code residencyAlignedMipSize} field. */
-	public int residencyAlignedMipSize() { return nresidencyAlignedMipSize(address()); }
+	public boolean residencyAlignedMipSize() { return nresidencyAlignedMipSize(address()) != 0; }
 	/** Returns the value of the {@code residencyNonResidentStrict} field. */
-	public int residencyNonResidentStrict() { return nresidencyNonResidentStrict(address()); }
+	public boolean residencyNonResidentStrict() { return nresidencyNonResidentStrict(address()) != 0; }
 
 	// -----------------------------------
 
@@ -175,15 +175,15 @@ public class VkPhysicalDeviceSparseProperties extends Struct {
 		}
 
 		/** Returns the value of the {@code residencyStandard2DBlockShape} field. */
-		public int residencyStandard2DBlockShape() { return VkPhysicalDeviceSparseProperties.nresidencyStandard2DBlockShape(address()); }
+		public boolean residencyStandard2DBlockShape() { return VkPhysicalDeviceSparseProperties.nresidencyStandard2DBlockShape(address()) != 0; }
 		/** Returns the value of the {@code residencyStandard2DMultisampleBlockShape} field. */
-		public int residencyStandard2DMultisampleBlockShape() { return VkPhysicalDeviceSparseProperties.nresidencyStandard2DMultisampleBlockShape(address()); }
+		public boolean residencyStandard2DMultisampleBlockShape() { return VkPhysicalDeviceSparseProperties.nresidencyStandard2DMultisampleBlockShape(address()) != 0; }
 		/** Returns the value of the {@code residencyStandard3DBlockShape} field. */
-		public int residencyStandard3DBlockShape() { return VkPhysicalDeviceSparseProperties.nresidencyStandard3DBlockShape(address()); }
+		public boolean residencyStandard3DBlockShape() { return VkPhysicalDeviceSparseProperties.nresidencyStandard3DBlockShape(address()) != 0; }
 		/** Returns the value of the {@code residencyAlignedMipSize} field. */
-		public int residencyAlignedMipSize() { return VkPhysicalDeviceSparseProperties.nresidencyAlignedMipSize(address()); }
+		public boolean residencyAlignedMipSize() { return VkPhysicalDeviceSparseProperties.nresidencyAlignedMipSize(address()) != 0; }
 		/** Returns the value of the {@code residencyNonResidentStrict} field. */
-		public int residencyNonResidentStrict() { return VkPhysicalDeviceSparseProperties.nresidencyNonResidentStrict(address()); }
+		public boolean residencyNonResidentStrict() { return VkPhysicalDeviceSparseProperties.nresidencyNonResidentStrict(address()) != 0; }
 
 	}
 

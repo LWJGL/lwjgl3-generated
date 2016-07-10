@@ -357,284 +357,284 @@ public class VkPhysicalDeviceFeatures extends Struct implements NativeResource {
 	public int sizeof() { return SIZEOF; }
 
 	/** Returns the value of the {@code robustBufferAccess} field. */
-	public int robustBufferAccess() { return nrobustBufferAccess(address()); }
+	public boolean robustBufferAccess() { return nrobustBufferAccess(address()) != 0; }
 	/** Returns the value of the {@code fullDrawIndexUint32} field. */
-	public int fullDrawIndexUint32() { return nfullDrawIndexUint32(address()); }
+	public boolean fullDrawIndexUint32() { return nfullDrawIndexUint32(address()) != 0; }
 	/** Returns the value of the {@code imageCubeArray} field. */
-	public int imageCubeArray() { return nimageCubeArray(address()); }
+	public boolean imageCubeArray() { return nimageCubeArray(address()) != 0; }
 	/** Returns the value of the {@code independentBlend} field. */
-	public int independentBlend() { return nindependentBlend(address()); }
+	public boolean independentBlend() { return nindependentBlend(address()) != 0; }
 	/** Returns the value of the {@code geometryShader} field. */
-	public int geometryShader() { return ngeometryShader(address()); }
+	public boolean geometryShader() { return ngeometryShader(address()) != 0; }
 	/** Returns the value of the {@code tessellationShader} field. */
-	public int tessellationShader() { return ntessellationShader(address()); }
+	public boolean tessellationShader() { return ntessellationShader(address()) != 0; }
 	/** Returns the value of the {@code sampleRateShading} field. */
-	public int sampleRateShading() { return nsampleRateShading(address()); }
+	public boolean sampleRateShading() { return nsampleRateShading(address()) != 0; }
 	/** Returns the value of the {@code dualSrcBlend} field. */
-	public int dualSrcBlend() { return ndualSrcBlend(address()); }
+	public boolean dualSrcBlend() { return ndualSrcBlend(address()) != 0; }
 	/** Returns the value of the {@code logicOp} field. */
-	public int logicOp() { return nlogicOp(address()); }
+	public boolean logicOp() { return nlogicOp(address()) != 0; }
 	/** Returns the value of the {@code multiDrawIndirect} field. */
-	public int multiDrawIndirect() { return nmultiDrawIndirect(address()); }
+	public boolean multiDrawIndirect() { return nmultiDrawIndirect(address()) != 0; }
 	/** Returns the value of the {@code drawIndirectFirstInstance} field. */
-	public int drawIndirectFirstInstance() { return ndrawIndirectFirstInstance(address()); }
+	public boolean drawIndirectFirstInstance() { return ndrawIndirectFirstInstance(address()) != 0; }
 	/** Returns the value of the {@code depthClamp} field. */
-	public int depthClamp() { return ndepthClamp(address()); }
+	public boolean depthClamp() { return ndepthClamp(address()) != 0; }
 	/** Returns the value of the {@code depthBiasClamp} field. */
-	public int depthBiasClamp() { return ndepthBiasClamp(address()); }
+	public boolean depthBiasClamp() { return ndepthBiasClamp(address()) != 0; }
 	/** Returns the value of the {@code fillModeNonSolid} field. */
-	public int fillModeNonSolid() { return nfillModeNonSolid(address()); }
+	public boolean fillModeNonSolid() { return nfillModeNonSolid(address()) != 0; }
 	/** Returns the value of the {@code depthBounds} field. */
-	public int depthBounds() { return ndepthBounds(address()); }
+	public boolean depthBounds() { return ndepthBounds(address()) != 0; }
 	/** Returns the value of the {@code wideLines} field. */
-	public int wideLines() { return nwideLines(address()); }
+	public boolean wideLines() { return nwideLines(address()) != 0; }
 	/** Returns the value of the {@code largePoints} field. */
-	public int largePoints() { return nlargePoints(address()); }
+	public boolean largePoints() { return nlargePoints(address()) != 0; }
 	/** Returns the value of the {@code alphaToOne} field. */
-	public int alphaToOne() { return nalphaToOne(address()); }
+	public boolean alphaToOne() { return nalphaToOne(address()) != 0; }
 	/** Returns the value of the {@code multiViewport} field. */
-	public int multiViewport() { return nmultiViewport(address()); }
+	public boolean multiViewport() { return nmultiViewport(address()) != 0; }
 	/** Returns the value of the {@code samplerAnisotropy} field. */
-	public int samplerAnisotropy() { return nsamplerAnisotropy(address()); }
+	public boolean samplerAnisotropy() { return nsamplerAnisotropy(address()) != 0; }
 	/** Returns the value of the {@code textureCompressionETC2} field. */
-	public int textureCompressionETC2() { return ntextureCompressionETC2(address()); }
+	public boolean textureCompressionETC2() { return ntextureCompressionETC2(address()) != 0; }
 	/** Returns the value of the {@code textureCompressionASTC_LDR} field. */
-	public int textureCompressionASTC_LDR() { return ntextureCompressionASTC_LDR(address()); }
+	public boolean textureCompressionASTC_LDR() { return ntextureCompressionASTC_LDR(address()) != 0; }
 	/** Returns the value of the {@code textureCompressionBC} field. */
-	public int textureCompressionBC() { return ntextureCompressionBC(address()); }
+	public boolean textureCompressionBC() { return ntextureCompressionBC(address()) != 0; }
 	/** Returns the value of the {@code occlusionQueryPrecise} field. */
-	public int occlusionQueryPrecise() { return nocclusionQueryPrecise(address()); }
+	public boolean occlusionQueryPrecise() { return nocclusionQueryPrecise(address()) != 0; }
 	/** Returns the value of the {@code pipelineStatisticsQuery} field. */
-	public int pipelineStatisticsQuery() { return npipelineStatisticsQuery(address()); }
+	public boolean pipelineStatisticsQuery() { return npipelineStatisticsQuery(address()) != 0; }
 	/** Returns the value of the {@code vertexPipelineStoresAndAtomics} field. */
-	public int vertexPipelineStoresAndAtomics() { return nvertexPipelineStoresAndAtomics(address()); }
+	public boolean vertexPipelineStoresAndAtomics() { return nvertexPipelineStoresAndAtomics(address()) != 0; }
 	/** Returns the value of the {@code fragmentStoresAndAtomics} field. */
-	public int fragmentStoresAndAtomics() { return nfragmentStoresAndAtomics(address()); }
+	public boolean fragmentStoresAndAtomics() { return nfragmentStoresAndAtomics(address()) != 0; }
 	/** Returns the value of the {@code shaderTessellationAndGeometryPointSize} field. */
-	public int shaderTessellationAndGeometryPointSize() { return nshaderTessellationAndGeometryPointSize(address()); }
+	public boolean shaderTessellationAndGeometryPointSize() { return nshaderTessellationAndGeometryPointSize(address()) != 0; }
 	/** Returns the value of the {@code shaderImageGatherExtended} field. */
-	public int shaderImageGatherExtended() { return nshaderImageGatherExtended(address()); }
+	public boolean shaderImageGatherExtended() { return nshaderImageGatherExtended(address()) != 0; }
 	/** Returns the value of the {@code shaderStorageImageExtendedFormats} field. */
-	public int shaderStorageImageExtendedFormats() { return nshaderStorageImageExtendedFormats(address()); }
+	public boolean shaderStorageImageExtendedFormats() { return nshaderStorageImageExtendedFormats(address()) != 0; }
 	/** Returns the value of the {@code shaderStorageImageMultisample} field. */
-	public int shaderStorageImageMultisample() { return nshaderStorageImageMultisample(address()); }
+	public boolean shaderStorageImageMultisample() { return nshaderStorageImageMultisample(address()) != 0; }
 	/** Returns the value of the {@code shaderStorageImageReadWithoutFormat} field. */
-	public int shaderStorageImageReadWithoutFormat() { return nshaderStorageImageReadWithoutFormat(address()); }
+	public boolean shaderStorageImageReadWithoutFormat() { return nshaderStorageImageReadWithoutFormat(address()) != 0; }
 	/** Returns the value of the {@code shaderStorageImageWriteWithoutFormat} field. */
-	public int shaderStorageImageWriteWithoutFormat() { return nshaderStorageImageWriteWithoutFormat(address()); }
+	public boolean shaderStorageImageWriteWithoutFormat() { return nshaderStorageImageWriteWithoutFormat(address()) != 0; }
 	/** Returns the value of the {@code shaderUniformBufferArrayDynamicIndexing} field. */
-	public int shaderUniformBufferArrayDynamicIndexing() { return nshaderUniformBufferArrayDynamicIndexing(address()); }
+	public boolean shaderUniformBufferArrayDynamicIndexing() { return nshaderUniformBufferArrayDynamicIndexing(address()) != 0; }
 	/** Returns the value of the {@code shaderSampledImageArrayDynamicIndexing} field. */
-	public int shaderSampledImageArrayDynamicIndexing() { return nshaderSampledImageArrayDynamicIndexing(address()); }
+	public boolean shaderSampledImageArrayDynamicIndexing() { return nshaderSampledImageArrayDynamicIndexing(address()) != 0; }
 	/** Returns the value of the {@code shaderStorageBufferArrayDynamicIndexing} field. */
-	public int shaderStorageBufferArrayDynamicIndexing() { return nshaderStorageBufferArrayDynamicIndexing(address()); }
+	public boolean shaderStorageBufferArrayDynamicIndexing() { return nshaderStorageBufferArrayDynamicIndexing(address()) != 0; }
 	/** Returns the value of the {@code shaderStorageImageArrayDynamicIndexing} field. */
-	public int shaderStorageImageArrayDynamicIndexing() { return nshaderStorageImageArrayDynamicIndexing(address()); }
+	public boolean shaderStorageImageArrayDynamicIndexing() { return nshaderStorageImageArrayDynamicIndexing(address()) != 0; }
 	/** Returns the value of the {@code shaderClipDistance} field. */
-	public int shaderClipDistance() { return nshaderClipDistance(address()); }
+	public boolean shaderClipDistance() { return nshaderClipDistance(address()) != 0; }
 	/** Returns the value of the {@code shaderCullDistance} field. */
-	public int shaderCullDistance() { return nshaderCullDistance(address()); }
+	public boolean shaderCullDistance() { return nshaderCullDistance(address()) != 0; }
 	/** Returns the value of the {@code shaderFloat64} field. */
-	public int shaderFloat64() { return nshaderFloat64(address()); }
+	public boolean shaderFloat64() { return nshaderFloat64(address()) != 0; }
 	/** Returns the value of the {@code shaderInt64} field. */
-	public int shaderInt64() { return nshaderInt64(address()); }
+	public boolean shaderInt64() { return nshaderInt64(address()) != 0; }
 	/** Returns the value of the {@code shaderInt16} field. */
-	public int shaderInt16() { return nshaderInt16(address()); }
+	public boolean shaderInt16() { return nshaderInt16(address()) != 0; }
 	/** Returns the value of the {@code shaderResourceResidency} field. */
-	public int shaderResourceResidency() { return nshaderResourceResidency(address()); }
+	public boolean shaderResourceResidency() { return nshaderResourceResidency(address()) != 0; }
 	/** Returns the value of the {@code shaderResourceMinLod} field. */
-	public int shaderResourceMinLod() { return nshaderResourceMinLod(address()); }
+	public boolean shaderResourceMinLod() { return nshaderResourceMinLod(address()) != 0; }
 	/** Returns the value of the {@code sparseBinding} field. */
-	public int sparseBinding() { return nsparseBinding(address()); }
+	public boolean sparseBinding() { return nsparseBinding(address()) != 0; }
 	/** Returns the value of the {@code sparseResidencyBuffer} field. */
-	public int sparseResidencyBuffer() { return nsparseResidencyBuffer(address()); }
+	public boolean sparseResidencyBuffer() { return nsparseResidencyBuffer(address()) != 0; }
 	/** Returns the value of the {@code sparseResidencyImage2D} field. */
-	public int sparseResidencyImage2D() { return nsparseResidencyImage2D(address()); }
+	public boolean sparseResidencyImage2D() { return nsparseResidencyImage2D(address()) != 0; }
 	/** Returns the value of the {@code sparseResidencyImage3D} field. */
-	public int sparseResidencyImage3D() { return nsparseResidencyImage3D(address()); }
+	public boolean sparseResidencyImage3D() { return nsparseResidencyImage3D(address()) != 0; }
 	/** Returns the value of the {@code sparseResidency2Samples} field. */
-	public int sparseResidency2Samples() { return nsparseResidency2Samples(address()); }
+	public boolean sparseResidency2Samples() { return nsparseResidency2Samples(address()) != 0; }
 	/** Returns the value of the {@code sparseResidency4Samples} field. */
-	public int sparseResidency4Samples() { return nsparseResidency4Samples(address()); }
+	public boolean sparseResidency4Samples() { return nsparseResidency4Samples(address()) != 0; }
 	/** Returns the value of the {@code sparseResidency8Samples} field. */
-	public int sparseResidency8Samples() { return nsparseResidency8Samples(address()); }
+	public boolean sparseResidency8Samples() { return nsparseResidency8Samples(address()) != 0; }
 	/** Returns the value of the {@code sparseResidency16Samples} field. */
-	public int sparseResidency16Samples() { return nsparseResidency16Samples(address()); }
+	public boolean sparseResidency16Samples() { return nsparseResidency16Samples(address()) != 0; }
 	/** Returns the value of the {@code sparseResidencyAliased} field. */
-	public int sparseResidencyAliased() { return nsparseResidencyAliased(address()); }
+	public boolean sparseResidencyAliased() { return nsparseResidencyAliased(address()) != 0; }
 	/** Returns the value of the {@code variableMultisampleRate} field. */
-	public int variableMultisampleRate() { return nvariableMultisampleRate(address()); }
+	public boolean variableMultisampleRate() { return nvariableMultisampleRate(address()) != 0; }
 	/** Returns the value of the {@code inheritedQueries} field. */
-	public int inheritedQueries() { return ninheritedQueries(address()); }
+	public boolean inheritedQueries() { return ninheritedQueries(address()) != 0; }
 
 	/** Sets the specified value to the {@code robustBufferAccess} field. */
-	public VkPhysicalDeviceFeatures robustBufferAccess(int value) { nrobustBufferAccess(address(), value); return this; }
+	public VkPhysicalDeviceFeatures robustBufferAccess(boolean value) { nrobustBufferAccess(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code fullDrawIndexUint32} field. */
-	public VkPhysicalDeviceFeatures fullDrawIndexUint32(int value) { nfullDrawIndexUint32(address(), value); return this; }
+	public VkPhysicalDeviceFeatures fullDrawIndexUint32(boolean value) { nfullDrawIndexUint32(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code imageCubeArray} field. */
-	public VkPhysicalDeviceFeatures imageCubeArray(int value) { nimageCubeArray(address(), value); return this; }
+	public VkPhysicalDeviceFeatures imageCubeArray(boolean value) { nimageCubeArray(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code independentBlend} field. */
-	public VkPhysicalDeviceFeatures independentBlend(int value) { nindependentBlend(address(), value); return this; }
+	public VkPhysicalDeviceFeatures independentBlend(boolean value) { nindependentBlend(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code geometryShader} field. */
-	public VkPhysicalDeviceFeatures geometryShader(int value) { ngeometryShader(address(), value); return this; }
+	public VkPhysicalDeviceFeatures geometryShader(boolean value) { ngeometryShader(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code tessellationShader} field. */
-	public VkPhysicalDeviceFeatures tessellationShader(int value) { ntessellationShader(address(), value); return this; }
+	public VkPhysicalDeviceFeatures tessellationShader(boolean value) { ntessellationShader(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code sampleRateShading} field. */
-	public VkPhysicalDeviceFeatures sampleRateShading(int value) { nsampleRateShading(address(), value); return this; }
+	public VkPhysicalDeviceFeatures sampleRateShading(boolean value) { nsampleRateShading(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code dualSrcBlend} field. */
-	public VkPhysicalDeviceFeatures dualSrcBlend(int value) { ndualSrcBlend(address(), value); return this; }
+	public VkPhysicalDeviceFeatures dualSrcBlend(boolean value) { ndualSrcBlend(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code logicOp} field. */
-	public VkPhysicalDeviceFeatures logicOp(int value) { nlogicOp(address(), value); return this; }
+	public VkPhysicalDeviceFeatures logicOp(boolean value) { nlogicOp(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code multiDrawIndirect} field. */
-	public VkPhysicalDeviceFeatures multiDrawIndirect(int value) { nmultiDrawIndirect(address(), value); return this; }
+	public VkPhysicalDeviceFeatures multiDrawIndirect(boolean value) { nmultiDrawIndirect(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code drawIndirectFirstInstance} field. */
-	public VkPhysicalDeviceFeatures drawIndirectFirstInstance(int value) { ndrawIndirectFirstInstance(address(), value); return this; }
+	public VkPhysicalDeviceFeatures drawIndirectFirstInstance(boolean value) { ndrawIndirectFirstInstance(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code depthClamp} field. */
-	public VkPhysicalDeviceFeatures depthClamp(int value) { ndepthClamp(address(), value); return this; }
+	public VkPhysicalDeviceFeatures depthClamp(boolean value) { ndepthClamp(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code depthBiasClamp} field. */
-	public VkPhysicalDeviceFeatures depthBiasClamp(int value) { ndepthBiasClamp(address(), value); return this; }
+	public VkPhysicalDeviceFeatures depthBiasClamp(boolean value) { ndepthBiasClamp(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code fillModeNonSolid} field. */
-	public VkPhysicalDeviceFeatures fillModeNonSolid(int value) { nfillModeNonSolid(address(), value); return this; }
+	public VkPhysicalDeviceFeatures fillModeNonSolid(boolean value) { nfillModeNonSolid(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code depthBounds} field. */
-	public VkPhysicalDeviceFeatures depthBounds(int value) { ndepthBounds(address(), value); return this; }
+	public VkPhysicalDeviceFeatures depthBounds(boolean value) { ndepthBounds(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code wideLines} field. */
-	public VkPhysicalDeviceFeatures wideLines(int value) { nwideLines(address(), value); return this; }
+	public VkPhysicalDeviceFeatures wideLines(boolean value) { nwideLines(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code largePoints} field. */
-	public VkPhysicalDeviceFeatures largePoints(int value) { nlargePoints(address(), value); return this; }
+	public VkPhysicalDeviceFeatures largePoints(boolean value) { nlargePoints(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code alphaToOne} field. */
-	public VkPhysicalDeviceFeatures alphaToOne(int value) { nalphaToOne(address(), value); return this; }
+	public VkPhysicalDeviceFeatures alphaToOne(boolean value) { nalphaToOne(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code multiViewport} field. */
-	public VkPhysicalDeviceFeatures multiViewport(int value) { nmultiViewport(address(), value); return this; }
+	public VkPhysicalDeviceFeatures multiViewport(boolean value) { nmultiViewport(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code samplerAnisotropy} field. */
-	public VkPhysicalDeviceFeatures samplerAnisotropy(int value) { nsamplerAnisotropy(address(), value); return this; }
+	public VkPhysicalDeviceFeatures samplerAnisotropy(boolean value) { nsamplerAnisotropy(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code textureCompressionETC2} field. */
-	public VkPhysicalDeviceFeatures textureCompressionETC2(int value) { ntextureCompressionETC2(address(), value); return this; }
+	public VkPhysicalDeviceFeatures textureCompressionETC2(boolean value) { ntextureCompressionETC2(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code textureCompressionASTC_LDR} field. */
-	public VkPhysicalDeviceFeatures textureCompressionASTC_LDR(int value) { ntextureCompressionASTC_LDR(address(), value); return this; }
+	public VkPhysicalDeviceFeatures textureCompressionASTC_LDR(boolean value) { ntextureCompressionASTC_LDR(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code textureCompressionBC} field. */
-	public VkPhysicalDeviceFeatures textureCompressionBC(int value) { ntextureCompressionBC(address(), value); return this; }
+	public VkPhysicalDeviceFeatures textureCompressionBC(boolean value) { ntextureCompressionBC(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code occlusionQueryPrecise} field. */
-	public VkPhysicalDeviceFeatures occlusionQueryPrecise(int value) { nocclusionQueryPrecise(address(), value); return this; }
+	public VkPhysicalDeviceFeatures occlusionQueryPrecise(boolean value) { nocclusionQueryPrecise(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code pipelineStatisticsQuery} field. */
-	public VkPhysicalDeviceFeatures pipelineStatisticsQuery(int value) { npipelineStatisticsQuery(address(), value); return this; }
+	public VkPhysicalDeviceFeatures pipelineStatisticsQuery(boolean value) { npipelineStatisticsQuery(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code vertexPipelineStoresAndAtomics} field. */
-	public VkPhysicalDeviceFeatures vertexPipelineStoresAndAtomics(int value) { nvertexPipelineStoresAndAtomics(address(), value); return this; }
+	public VkPhysicalDeviceFeatures vertexPipelineStoresAndAtomics(boolean value) { nvertexPipelineStoresAndAtomics(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code fragmentStoresAndAtomics} field. */
-	public VkPhysicalDeviceFeatures fragmentStoresAndAtomics(int value) { nfragmentStoresAndAtomics(address(), value); return this; }
+	public VkPhysicalDeviceFeatures fragmentStoresAndAtomics(boolean value) { nfragmentStoresAndAtomics(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code shaderTessellationAndGeometryPointSize} field. */
-	public VkPhysicalDeviceFeatures shaderTessellationAndGeometryPointSize(int value) { nshaderTessellationAndGeometryPointSize(address(), value); return this; }
+	public VkPhysicalDeviceFeatures shaderTessellationAndGeometryPointSize(boolean value) { nshaderTessellationAndGeometryPointSize(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code shaderImageGatherExtended} field. */
-	public VkPhysicalDeviceFeatures shaderImageGatherExtended(int value) { nshaderImageGatherExtended(address(), value); return this; }
+	public VkPhysicalDeviceFeatures shaderImageGatherExtended(boolean value) { nshaderImageGatherExtended(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code shaderStorageImageExtendedFormats} field. */
-	public VkPhysicalDeviceFeatures shaderStorageImageExtendedFormats(int value) { nshaderStorageImageExtendedFormats(address(), value); return this; }
+	public VkPhysicalDeviceFeatures shaderStorageImageExtendedFormats(boolean value) { nshaderStorageImageExtendedFormats(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code shaderStorageImageMultisample} field. */
-	public VkPhysicalDeviceFeatures shaderStorageImageMultisample(int value) { nshaderStorageImageMultisample(address(), value); return this; }
+	public VkPhysicalDeviceFeatures shaderStorageImageMultisample(boolean value) { nshaderStorageImageMultisample(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code shaderStorageImageReadWithoutFormat} field. */
-	public VkPhysicalDeviceFeatures shaderStorageImageReadWithoutFormat(int value) { nshaderStorageImageReadWithoutFormat(address(), value); return this; }
+	public VkPhysicalDeviceFeatures shaderStorageImageReadWithoutFormat(boolean value) { nshaderStorageImageReadWithoutFormat(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code shaderStorageImageWriteWithoutFormat} field. */
-	public VkPhysicalDeviceFeatures shaderStorageImageWriteWithoutFormat(int value) { nshaderStorageImageWriteWithoutFormat(address(), value); return this; }
+	public VkPhysicalDeviceFeatures shaderStorageImageWriteWithoutFormat(boolean value) { nshaderStorageImageWriteWithoutFormat(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code shaderUniformBufferArrayDynamicIndexing} field. */
-	public VkPhysicalDeviceFeatures shaderUniformBufferArrayDynamicIndexing(int value) { nshaderUniformBufferArrayDynamicIndexing(address(), value); return this; }
+	public VkPhysicalDeviceFeatures shaderUniformBufferArrayDynamicIndexing(boolean value) { nshaderUniformBufferArrayDynamicIndexing(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code shaderSampledImageArrayDynamicIndexing} field. */
-	public VkPhysicalDeviceFeatures shaderSampledImageArrayDynamicIndexing(int value) { nshaderSampledImageArrayDynamicIndexing(address(), value); return this; }
+	public VkPhysicalDeviceFeatures shaderSampledImageArrayDynamicIndexing(boolean value) { nshaderSampledImageArrayDynamicIndexing(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code shaderStorageBufferArrayDynamicIndexing} field. */
-	public VkPhysicalDeviceFeatures shaderStorageBufferArrayDynamicIndexing(int value) { nshaderStorageBufferArrayDynamicIndexing(address(), value); return this; }
+	public VkPhysicalDeviceFeatures shaderStorageBufferArrayDynamicIndexing(boolean value) { nshaderStorageBufferArrayDynamicIndexing(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code shaderStorageImageArrayDynamicIndexing} field. */
-	public VkPhysicalDeviceFeatures shaderStorageImageArrayDynamicIndexing(int value) { nshaderStorageImageArrayDynamicIndexing(address(), value); return this; }
+	public VkPhysicalDeviceFeatures shaderStorageImageArrayDynamicIndexing(boolean value) { nshaderStorageImageArrayDynamicIndexing(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code shaderClipDistance} field. */
-	public VkPhysicalDeviceFeatures shaderClipDistance(int value) { nshaderClipDistance(address(), value); return this; }
+	public VkPhysicalDeviceFeatures shaderClipDistance(boolean value) { nshaderClipDistance(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code shaderCullDistance} field. */
-	public VkPhysicalDeviceFeatures shaderCullDistance(int value) { nshaderCullDistance(address(), value); return this; }
+	public VkPhysicalDeviceFeatures shaderCullDistance(boolean value) { nshaderCullDistance(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code shaderFloat64} field. */
-	public VkPhysicalDeviceFeatures shaderFloat64(int value) { nshaderFloat64(address(), value); return this; }
+	public VkPhysicalDeviceFeatures shaderFloat64(boolean value) { nshaderFloat64(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code shaderInt64} field. */
-	public VkPhysicalDeviceFeatures shaderInt64(int value) { nshaderInt64(address(), value); return this; }
+	public VkPhysicalDeviceFeatures shaderInt64(boolean value) { nshaderInt64(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code shaderInt16} field. */
-	public VkPhysicalDeviceFeatures shaderInt16(int value) { nshaderInt16(address(), value); return this; }
+	public VkPhysicalDeviceFeatures shaderInt16(boolean value) { nshaderInt16(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code shaderResourceResidency} field. */
-	public VkPhysicalDeviceFeatures shaderResourceResidency(int value) { nshaderResourceResidency(address(), value); return this; }
+	public VkPhysicalDeviceFeatures shaderResourceResidency(boolean value) { nshaderResourceResidency(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code shaderResourceMinLod} field. */
-	public VkPhysicalDeviceFeatures shaderResourceMinLod(int value) { nshaderResourceMinLod(address(), value); return this; }
+	public VkPhysicalDeviceFeatures shaderResourceMinLod(boolean value) { nshaderResourceMinLod(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code sparseBinding} field. */
-	public VkPhysicalDeviceFeatures sparseBinding(int value) { nsparseBinding(address(), value); return this; }
+	public VkPhysicalDeviceFeatures sparseBinding(boolean value) { nsparseBinding(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code sparseResidencyBuffer} field. */
-	public VkPhysicalDeviceFeatures sparseResidencyBuffer(int value) { nsparseResidencyBuffer(address(), value); return this; }
+	public VkPhysicalDeviceFeatures sparseResidencyBuffer(boolean value) { nsparseResidencyBuffer(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code sparseResidencyImage2D} field. */
-	public VkPhysicalDeviceFeatures sparseResidencyImage2D(int value) { nsparseResidencyImage2D(address(), value); return this; }
+	public VkPhysicalDeviceFeatures sparseResidencyImage2D(boolean value) { nsparseResidencyImage2D(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code sparseResidencyImage3D} field. */
-	public VkPhysicalDeviceFeatures sparseResidencyImage3D(int value) { nsparseResidencyImage3D(address(), value); return this; }
+	public VkPhysicalDeviceFeatures sparseResidencyImage3D(boolean value) { nsparseResidencyImage3D(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code sparseResidency2Samples} field. */
-	public VkPhysicalDeviceFeatures sparseResidency2Samples(int value) { nsparseResidency2Samples(address(), value); return this; }
+	public VkPhysicalDeviceFeatures sparseResidency2Samples(boolean value) { nsparseResidency2Samples(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code sparseResidency4Samples} field. */
-	public VkPhysicalDeviceFeatures sparseResidency4Samples(int value) { nsparseResidency4Samples(address(), value); return this; }
+	public VkPhysicalDeviceFeatures sparseResidency4Samples(boolean value) { nsparseResidency4Samples(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code sparseResidency8Samples} field. */
-	public VkPhysicalDeviceFeatures sparseResidency8Samples(int value) { nsparseResidency8Samples(address(), value); return this; }
+	public VkPhysicalDeviceFeatures sparseResidency8Samples(boolean value) { nsparseResidency8Samples(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code sparseResidency16Samples} field. */
-	public VkPhysicalDeviceFeatures sparseResidency16Samples(int value) { nsparseResidency16Samples(address(), value); return this; }
+	public VkPhysicalDeviceFeatures sparseResidency16Samples(boolean value) { nsparseResidency16Samples(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code sparseResidencyAliased} field. */
-	public VkPhysicalDeviceFeatures sparseResidencyAliased(int value) { nsparseResidencyAliased(address(), value); return this; }
+	public VkPhysicalDeviceFeatures sparseResidencyAliased(boolean value) { nsparseResidencyAliased(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code variableMultisampleRate} field. */
-	public VkPhysicalDeviceFeatures variableMultisampleRate(int value) { nvariableMultisampleRate(address(), value); return this; }
+	public VkPhysicalDeviceFeatures variableMultisampleRate(boolean value) { nvariableMultisampleRate(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code inheritedQueries} field. */
-	public VkPhysicalDeviceFeatures inheritedQueries(int value) { ninheritedQueries(address(), value); return this; }
+	public VkPhysicalDeviceFeatures inheritedQueries(boolean value) { ninheritedQueries(address(), value ? 1 : 0); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public VkPhysicalDeviceFeatures set(
-		int robustBufferAccess,
-		int fullDrawIndexUint32,
-		int imageCubeArray,
-		int independentBlend,
-		int geometryShader,
-		int tessellationShader,
-		int sampleRateShading,
-		int dualSrcBlend,
-		int logicOp,
-		int multiDrawIndirect,
-		int drawIndirectFirstInstance,
-		int depthClamp,
-		int depthBiasClamp,
-		int fillModeNonSolid,
-		int depthBounds,
-		int wideLines,
-		int largePoints,
-		int alphaToOne,
-		int multiViewport,
-		int samplerAnisotropy,
-		int textureCompressionETC2,
-		int textureCompressionASTC_LDR,
-		int textureCompressionBC,
-		int occlusionQueryPrecise,
-		int pipelineStatisticsQuery,
-		int vertexPipelineStoresAndAtomics,
-		int fragmentStoresAndAtomics,
-		int shaderTessellationAndGeometryPointSize,
-		int shaderImageGatherExtended,
-		int shaderStorageImageExtendedFormats,
-		int shaderStorageImageMultisample,
-		int shaderStorageImageReadWithoutFormat,
-		int shaderStorageImageWriteWithoutFormat,
-		int shaderUniformBufferArrayDynamicIndexing,
-		int shaderSampledImageArrayDynamicIndexing,
-		int shaderStorageBufferArrayDynamicIndexing,
-		int shaderStorageImageArrayDynamicIndexing,
-		int shaderClipDistance,
-		int shaderCullDistance,
-		int shaderFloat64,
-		int shaderInt64,
-		int shaderInt16,
-		int shaderResourceResidency,
-		int shaderResourceMinLod,
-		int sparseBinding,
-		int sparseResidencyBuffer,
-		int sparseResidencyImage2D,
-		int sparseResidencyImage3D,
-		int sparseResidency2Samples,
-		int sparseResidency4Samples,
-		int sparseResidency8Samples,
-		int sparseResidency16Samples,
-		int sparseResidencyAliased,
-		int variableMultisampleRate,
-		int inheritedQueries
+		boolean robustBufferAccess,
+		boolean fullDrawIndexUint32,
+		boolean imageCubeArray,
+		boolean independentBlend,
+		boolean geometryShader,
+		boolean tessellationShader,
+		boolean sampleRateShading,
+		boolean dualSrcBlend,
+		boolean logicOp,
+		boolean multiDrawIndirect,
+		boolean drawIndirectFirstInstance,
+		boolean depthClamp,
+		boolean depthBiasClamp,
+		boolean fillModeNonSolid,
+		boolean depthBounds,
+		boolean wideLines,
+		boolean largePoints,
+		boolean alphaToOne,
+		boolean multiViewport,
+		boolean samplerAnisotropy,
+		boolean textureCompressionETC2,
+		boolean textureCompressionASTC_LDR,
+		boolean textureCompressionBC,
+		boolean occlusionQueryPrecise,
+		boolean pipelineStatisticsQuery,
+		boolean vertexPipelineStoresAndAtomics,
+		boolean fragmentStoresAndAtomics,
+		boolean shaderTessellationAndGeometryPointSize,
+		boolean shaderImageGatherExtended,
+		boolean shaderStorageImageExtendedFormats,
+		boolean shaderStorageImageMultisample,
+		boolean shaderStorageImageReadWithoutFormat,
+		boolean shaderStorageImageWriteWithoutFormat,
+		boolean shaderUniformBufferArrayDynamicIndexing,
+		boolean shaderSampledImageArrayDynamicIndexing,
+		boolean shaderStorageBufferArrayDynamicIndexing,
+		boolean shaderStorageImageArrayDynamicIndexing,
+		boolean shaderClipDistance,
+		boolean shaderCullDistance,
+		boolean shaderFloat64,
+		boolean shaderInt64,
+		boolean shaderInt16,
+		boolean shaderResourceResidency,
+		boolean shaderResourceMinLod,
+		boolean sparseBinding,
+		boolean sparseResidencyBuffer,
+		boolean sparseResidencyImage2D,
+		boolean sparseResidencyImage3D,
+		boolean sparseResidency2Samples,
+		boolean sparseResidency4Samples,
+		boolean sparseResidency8Samples,
+		boolean sparseResidency16Samples,
+		boolean sparseResidencyAliased,
+		boolean variableMultisampleRate,
+		boolean inheritedQueries
 	) {
 		robustBufferAccess(robustBufferAccess);
 		fullDrawIndexUint32(fullDrawIndexUint32);
@@ -1106,226 +1106,226 @@ public class VkPhysicalDeviceFeatures extends Struct implements NativeResource {
 		}
 
 		/** Returns the value of the {@code robustBufferAccess} field. */
-		public int robustBufferAccess() { return VkPhysicalDeviceFeatures.nrobustBufferAccess(address()); }
+		public boolean robustBufferAccess() { return VkPhysicalDeviceFeatures.nrobustBufferAccess(address()) != 0; }
 		/** Returns the value of the {@code fullDrawIndexUint32} field. */
-		public int fullDrawIndexUint32() { return VkPhysicalDeviceFeatures.nfullDrawIndexUint32(address()); }
+		public boolean fullDrawIndexUint32() { return VkPhysicalDeviceFeatures.nfullDrawIndexUint32(address()) != 0; }
 		/** Returns the value of the {@code imageCubeArray} field. */
-		public int imageCubeArray() { return VkPhysicalDeviceFeatures.nimageCubeArray(address()); }
+		public boolean imageCubeArray() { return VkPhysicalDeviceFeatures.nimageCubeArray(address()) != 0; }
 		/** Returns the value of the {@code independentBlend} field. */
-		public int independentBlend() { return VkPhysicalDeviceFeatures.nindependentBlend(address()); }
+		public boolean independentBlend() { return VkPhysicalDeviceFeatures.nindependentBlend(address()) != 0; }
 		/** Returns the value of the {@code geometryShader} field. */
-		public int geometryShader() { return VkPhysicalDeviceFeatures.ngeometryShader(address()); }
+		public boolean geometryShader() { return VkPhysicalDeviceFeatures.ngeometryShader(address()) != 0; }
 		/** Returns the value of the {@code tessellationShader} field. */
-		public int tessellationShader() { return VkPhysicalDeviceFeatures.ntessellationShader(address()); }
+		public boolean tessellationShader() { return VkPhysicalDeviceFeatures.ntessellationShader(address()) != 0; }
 		/** Returns the value of the {@code sampleRateShading} field. */
-		public int sampleRateShading() { return VkPhysicalDeviceFeatures.nsampleRateShading(address()); }
+		public boolean sampleRateShading() { return VkPhysicalDeviceFeatures.nsampleRateShading(address()) != 0; }
 		/** Returns the value of the {@code dualSrcBlend} field. */
-		public int dualSrcBlend() { return VkPhysicalDeviceFeatures.ndualSrcBlend(address()); }
+		public boolean dualSrcBlend() { return VkPhysicalDeviceFeatures.ndualSrcBlend(address()) != 0; }
 		/** Returns the value of the {@code logicOp} field. */
-		public int logicOp() { return VkPhysicalDeviceFeatures.nlogicOp(address()); }
+		public boolean logicOp() { return VkPhysicalDeviceFeatures.nlogicOp(address()) != 0; }
 		/** Returns the value of the {@code multiDrawIndirect} field. */
-		public int multiDrawIndirect() { return VkPhysicalDeviceFeatures.nmultiDrawIndirect(address()); }
+		public boolean multiDrawIndirect() { return VkPhysicalDeviceFeatures.nmultiDrawIndirect(address()) != 0; }
 		/** Returns the value of the {@code drawIndirectFirstInstance} field. */
-		public int drawIndirectFirstInstance() { return VkPhysicalDeviceFeatures.ndrawIndirectFirstInstance(address()); }
+		public boolean drawIndirectFirstInstance() { return VkPhysicalDeviceFeatures.ndrawIndirectFirstInstance(address()) != 0; }
 		/** Returns the value of the {@code depthClamp} field. */
-		public int depthClamp() { return VkPhysicalDeviceFeatures.ndepthClamp(address()); }
+		public boolean depthClamp() { return VkPhysicalDeviceFeatures.ndepthClamp(address()) != 0; }
 		/** Returns the value of the {@code depthBiasClamp} field. */
-		public int depthBiasClamp() { return VkPhysicalDeviceFeatures.ndepthBiasClamp(address()); }
+		public boolean depthBiasClamp() { return VkPhysicalDeviceFeatures.ndepthBiasClamp(address()) != 0; }
 		/** Returns the value of the {@code fillModeNonSolid} field. */
-		public int fillModeNonSolid() { return VkPhysicalDeviceFeatures.nfillModeNonSolid(address()); }
+		public boolean fillModeNonSolid() { return VkPhysicalDeviceFeatures.nfillModeNonSolid(address()) != 0; }
 		/** Returns the value of the {@code depthBounds} field. */
-		public int depthBounds() { return VkPhysicalDeviceFeatures.ndepthBounds(address()); }
+		public boolean depthBounds() { return VkPhysicalDeviceFeatures.ndepthBounds(address()) != 0; }
 		/** Returns the value of the {@code wideLines} field. */
-		public int wideLines() { return VkPhysicalDeviceFeatures.nwideLines(address()); }
+		public boolean wideLines() { return VkPhysicalDeviceFeatures.nwideLines(address()) != 0; }
 		/** Returns the value of the {@code largePoints} field. */
-		public int largePoints() { return VkPhysicalDeviceFeatures.nlargePoints(address()); }
+		public boolean largePoints() { return VkPhysicalDeviceFeatures.nlargePoints(address()) != 0; }
 		/** Returns the value of the {@code alphaToOne} field. */
-		public int alphaToOne() { return VkPhysicalDeviceFeatures.nalphaToOne(address()); }
+		public boolean alphaToOne() { return VkPhysicalDeviceFeatures.nalphaToOne(address()) != 0; }
 		/** Returns the value of the {@code multiViewport} field. */
-		public int multiViewport() { return VkPhysicalDeviceFeatures.nmultiViewport(address()); }
+		public boolean multiViewport() { return VkPhysicalDeviceFeatures.nmultiViewport(address()) != 0; }
 		/** Returns the value of the {@code samplerAnisotropy} field. */
-		public int samplerAnisotropy() { return VkPhysicalDeviceFeatures.nsamplerAnisotropy(address()); }
+		public boolean samplerAnisotropy() { return VkPhysicalDeviceFeatures.nsamplerAnisotropy(address()) != 0; }
 		/** Returns the value of the {@code textureCompressionETC2} field. */
-		public int textureCompressionETC2() { return VkPhysicalDeviceFeatures.ntextureCompressionETC2(address()); }
+		public boolean textureCompressionETC2() { return VkPhysicalDeviceFeatures.ntextureCompressionETC2(address()) != 0; }
 		/** Returns the value of the {@code textureCompressionASTC_LDR} field. */
-		public int textureCompressionASTC_LDR() { return VkPhysicalDeviceFeatures.ntextureCompressionASTC_LDR(address()); }
+		public boolean textureCompressionASTC_LDR() { return VkPhysicalDeviceFeatures.ntextureCompressionASTC_LDR(address()) != 0; }
 		/** Returns the value of the {@code textureCompressionBC} field. */
-		public int textureCompressionBC() { return VkPhysicalDeviceFeatures.ntextureCompressionBC(address()); }
+		public boolean textureCompressionBC() { return VkPhysicalDeviceFeatures.ntextureCompressionBC(address()) != 0; }
 		/** Returns the value of the {@code occlusionQueryPrecise} field. */
-		public int occlusionQueryPrecise() { return VkPhysicalDeviceFeatures.nocclusionQueryPrecise(address()); }
+		public boolean occlusionQueryPrecise() { return VkPhysicalDeviceFeatures.nocclusionQueryPrecise(address()) != 0; }
 		/** Returns the value of the {@code pipelineStatisticsQuery} field. */
-		public int pipelineStatisticsQuery() { return VkPhysicalDeviceFeatures.npipelineStatisticsQuery(address()); }
+		public boolean pipelineStatisticsQuery() { return VkPhysicalDeviceFeatures.npipelineStatisticsQuery(address()) != 0; }
 		/** Returns the value of the {@code vertexPipelineStoresAndAtomics} field. */
-		public int vertexPipelineStoresAndAtomics() { return VkPhysicalDeviceFeatures.nvertexPipelineStoresAndAtomics(address()); }
+		public boolean vertexPipelineStoresAndAtomics() { return VkPhysicalDeviceFeatures.nvertexPipelineStoresAndAtomics(address()) != 0; }
 		/** Returns the value of the {@code fragmentStoresAndAtomics} field. */
-		public int fragmentStoresAndAtomics() { return VkPhysicalDeviceFeatures.nfragmentStoresAndAtomics(address()); }
+		public boolean fragmentStoresAndAtomics() { return VkPhysicalDeviceFeatures.nfragmentStoresAndAtomics(address()) != 0; }
 		/** Returns the value of the {@code shaderTessellationAndGeometryPointSize} field. */
-		public int shaderTessellationAndGeometryPointSize() { return VkPhysicalDeviceFeatures.nshaderTessellationAndGeometryPointSize(address()); }
+		public boolean shaderTessellationAndGeometryPointSize() { return VkPhysicalDeviceFeatures.nshaderTessellationAndGeometryPointSize(address()) != 0; }
 		/** Returns the value of the {@code shaderImageGatherExtended} field. */
-		public int shaderImageGatherExtended() { return VkPhysicalDeviceFeatures.nshaderImageGatherExtended(address()); }
+		public boolean shaderImageGatherExtended() { return VkPhysicalDeviceFeatures.nshaderImageGatherExtended(address()) != 0; }
 		/** Returns the value of the {@code shaderStorageImageExtendedFormats} field. */
-		public int shaderStorageImageExtendedFormats() { return VkPhysicalDeviceFeatures.nshaderStorageImageExtendedFormats(address()); }
+		public boolean shaderStorageImageExtendedFormats() { return VkPhysicalDeviceFeatures.nshaderStorageImageExtendedFormats(address()) != 0; }
 		/** Returns the value of the {@code shaderStorageImageMultisample} field. */
-		public int shaderStorageImageMultisample() { return VkPhysicalDeviceFeatures.nshaderStorageImageMultisample(address()); }
+		public boolean shaderStorageImageMultisample() { return VkPhysicalDeviceFeatures.nshaderStorageImageMultisample(address()) != 0; }
 		/** Returns the value of the {@code shaderStorageImageReadWithoutFormat} field. */
-		public int shaderStorageImageReadWithoutFormat() { return VkPhysicalDeviceFeatures.nshaderStorageImageReadWithoutFormat(address()); }
+		public boolean shaderStorageImageReadWithoutFormat() { return VkPhysicalDeviceFeatures.nshaderStorageImageReadWithoutFormat(address()) != 0; }
 		/** Returns the value of the {@code shaderStorageImageWriteWithoutFormat} field. */
-		public int shaderStorageImageWriteWithoutFormat() { return VkPhysicalDeviceFeatures.nshaderStorageImageWriteWithoutFormat(address()); }
+		public boolean shaderStorageImageWriteWithoutFormat() { return VkPhysicalDeviceFeatures.nshaderStorageImageWriteWithoutFormat(address()) != 0; }
 		/** Returns the value of the {@code shaderUniformBufferArrayDynamicIndexing} field. */
-		public int shaderUniformBufferArrayDynamicIndexing() { return VkPhysicalDeviceFeatures.nshaderUniformBufferArrayDynamicIndexing(address()); }
+		public boolean shaderUniformBufferArrayDynamicIndexing() { return VkPhysicalDeviceFeatures.nshaderUniformBufferArrayDynamicIndexing(address()) != 0; }
 		/** Returns the value of the {@code shaderSampledImageArrayDynamicIndexing} field. */
-		public int shaderSampledImageArrayDynamicIndexing() { return VkPhysicalDeviceFeatures.nshaderSampledImageArrayDynamicIndexing(address()); }
+		public boolean shaderSampledImageArrayDynamicIndexing() { return VkPhysicalDeviceFeatures.nshaderSampledImageArrayDynamicIndexing(address()) != 0; }
 		/** Returns the value of the {@code shaderStorageBufferArrayDynamicIndexing} field. */
-		public int shaderStorageBufferArrayDynamicIndexing() { return VkPhysicalDeviceFeatures.nshaderStorageBufferArrayDynamicIndexing(address()); }
+		public boolean shaderStorageBufferArrayDynamicIndexing() { return VkPhysicalDeviceFeatures.nshaderStorageBufferArrayDynamicIndexing(address()) != 0; }
 		/** Returns the value of the {@code shaderStorageImageArrayDynamicIndexing} field. */
-		public int shaderStorageImageArrayDynamicIndexing() { return VkPhysicalDeviceFeatures.nshaderStorageImageArrayDynamicIndexing(address()); }
+		public boolean shaderStorageImageArrayDynamicIndexing() { return VkPhysicalDeviceFeatures.nshaderStorageImageArrayDynamicIndexing(address()) != 0; }
 		/** Returns the value of the {@code shaderClipDistance} field. */
-		public int shaderClipDistance() { return VkPhysicalDeviceFeatures.nshaderClipDistance(address()); }
+		public boolean shaderClipDistance() { return VkPhysicalDeviceFeatures.nshaderClipDistance(address()) != 0; }
 		/** Returns the value of the {@code shaderCullDistance} field. */
-		public int shaderCullDistance() { return VkPhysicalDeviceFeatures.nshaderCullDistance(address()); }
+		public boolean shaderCullDistance() { return VkPhysicalDeviceFeatures.nshaderCullDistance(address()) != 0; }
 		/** Returns the value of the {@code shaderFloat64} field. */
-		public int shaderFloat64() { return VkPhysicalDeviceFeatures.nshaderFloat64(address()); }
+		public boolean shaderFloat64() { return VkPhysicalDeviceFeatures.nshaderFloat64(address()) != 0; }
 		/** Returns the value of the {@code shaderInt64} field. */
-		public int shaderInt64() { return VkPhysicalDeviceFeatures.nshaderInt64(address()); }
+		public boolean shaderInt64() { return VkPhysicalDeviceFeatures.nshaderInt64(address()) != 0; }
 		/** Returns the value of the {@code shaderInt16} field. */
-		public int shaderInt16() { return VkPhysicalDeviceFeatures.nshaderInt16(address()); }
+		public boolean shaderInt16() { return VkPhysicalDeviceFeatures.nshaderInt16(address()) != 0; }
 		/** Returns the value of the {@code shaderResourceResidency} field. */
-		public int shaderResourceResidency() { return VkPhysicalDeviceFeatures.nshaderResourceResidency(address()); }
+		public boolean shaderResourceResidency() { return VkPhysicalDeviceFeatures.nshaderResourceResidency(address()) != 0; }
 		/** Returns the value of the {@code shaderResourceMinLod} field. */
-		public int shaderResourceMinLod() { return VkPhysicalDeviceFeatures.nshaderResourceMinLod(address()); }
+		public boolean shaderResourceMinLod() { return VkPhysicalDeviceFeatures.nshaderResourceMinLod(address()) != 0; }
 		/** Returns the value of the {@code sparseBinding} field. */
-		public int sparseBinding() { return VkPhysicalDeviceFeatures.nsparseBinding(address()); }
+		public boolean sparseBinding() { return VkPhysicalDeviceFeatures.nsparseBinding(address()) != 0; }
 		/** Returns the value of the {@code sparseResidencyBuffer} field. */
-		public int sparseResidencyBuffer() { return VkPhysicalDeviceFeatures.nsparseResidencyBuffer(address()); }
+		public boolean sparseResidencyBuffer() { return VkPhysicalDeviceFeatures.nsparseResidencyBuffer(address()) != 0; }
 		/** Returns the value of the {@code sparseResidencyImage2D} field. */
-		public int sparseResidencyImage2D() { return VkPhysicalDeviceFeatures.nsparseResidencyImage2D(address()); }
+		public boolean sparseResidencyImage2D() { return VkPhysicalDeviceFeatures.nsparseResidencyImage2D(address()) != 0; }
 		/** Returns the value of the {@code sparseResidencyImage3D} field. */
-		public int sparseResidencyImage3D() { return VkPhysicalDeviceFeatures.nsparseResidencyImage3D(address()); }
+		public boolean sparseResidencyImage3D() { return VkPhysicalDeviceFeatures.nsparseResidencyImage3D(address()) != 0; }
 		/** Returns the value of the {@code sparseResidency2Samples} field. */
-		public int sparseResidency2Samples() { return VkPhysicalDeviceFeatures.nsparseResidency2Samples(address()); }
+		public boolean sparseResidency2Samples() { return VkPhysicalDeviceFeatures.nsparseResidency2Samples(address()) != 0; }
 		/** Returns the value of the {@code sparseResidency4Samples} field. */
-		public int sparseResidency4Samples() { return VkPhysicalDeviceFeatures.nsparseResidency4Samples(address()); }
+		public boolean sparseResidency4Samples() { return VkPhysicalDeviceFeatures.nsparseResidency4Samples(address()) != 0; }
 		/** Returns the value of the {@code sparseResidency8Samples} field. */
-		public int sparseResidency8Samples() { return VkPhysicalDeviceFeatures.nsparseResidency8Samples(address()); }
+		public boolean sparseResidency8Samples() { return VkPhysicalDeviceFeatures.nsparseResidency8Samples(address()) != 0; }
 		/** Returns the value of the {@code sparseResidency16Samples} field. */
-		public int sparseResidency16Samples() { return VkPhysicalDeviceFeatures.nsparseResidency16Samples(address()); }
+		public boolean sparseResidency16Samples() { return VkPhysicalDeviceFeatures.nsparseResidency16Samples(address()) != 0; }
 		/** Returns the value of the {@code sparseResidencyAliased} field. */
-		public int sparseResidencyAliased() { return VkPhysicalDeviceFeatures.nsparseResidencyAliased(address()); }
+		public boolean sparseResidencyAliased() { return VkPhysicalDeviceFeatures.nsparseResidencyAliased(address()) != 0; }
 		/** Returns the value of the {@code variableMultisampleRate} field. */
-		public int variableMultisampleRate() { return VkPhysicalDeviceFeatures.nvariableMultisampleRate(address()); }
+		public boolean variableMultisampleRate() { return VkPhysicalDeviceFeatures.nvariableMultisampleRate(address()) != 0; }
 		/** Returns the value of the {@code inheritedQueries} field. */
-		public int inheritedQueries() { return VkPhysicalDeviceFeatures.ninheritedQueries(address()); }
+		public boolean inheritedQueries() { return VkPhysicalDeviceFeatures.ninheritedQueries(address()) != 0; }
 
 		/** Sets the specified value to the {@code robustBufferAccess} field. */
-		public VkPhysicalDeviceFeatures.Buffer robustBufferAccess(int value) { VkPhysicalDeviceFeatures.nrobustBufferAccess(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer robustBufferAccess(boolean value) { VkPhysicalDeviceFeatures.nrobustBufferAccess(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code fullDrawIndexUint32} field. */
-		public VkPhysicalDeviceFeatures.Buffer fullDrawIndexUint32(int value) { VkPhysicalDeviceFeatures.nfullDrawIndexUint32(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer fullDrawIndexUint32(boolean value) { VkPhysicalDeviceFeatures.nfullDrawIndexUint32(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code imageCubeArray} field. */
-		public VkPhysicalDeviceFeatures.Buffer imageCubeArray(int value) { VkPhysicalDeviceFeatures.nimageCubeArray(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer imageCubeArray(boolean value) { VkPhysicalDeviceFeatures.nimageCubeArray(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code independentBlend} field. */
-		public VkPhysicalDeviceFeatures.Buffer independentBlend(int value) { VkPhysicalDeviceFeatures.nindependentBlend(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer independentBlend(boolean value) { VkPhysicalDeviceFeatures.nindependentBlend(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code geometryShader} field. */
-		public VkPhysicalDeviceFeatures.Buffer geometryShader(int value) { VkPhysicalDeviceFeatures.ngeometryShader(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer geometryShader(boolean value) { VkPhysicalDeviceFeatures.ngeometryShader(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code tessellationShader} field. */
-		public VkPhysicalDeviceFeatures.Buffer tessellationShader(int value) { VkPhysicalDeviceFeatures.ntessellationShader(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer tessellationShader(boolean value) { VkPhysicalDeviceFeatures.ntessellationShader(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code sampleRateShading} field. */
-		public VkPhysicalDeviceFeatures.Buffer sampleRateShading(int value) { VkPhysicalDeviceFeatures.nsampleRateShading(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer sampleRateShading(boolean value) { VkPhysicalDeviceFeatures.nsampleRateShading(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code dualSrcBlend} field. */
-		public VkPhysicalDeviceFeatures.Buffer dualSrcBlend(int value) { VkPhysicalDeviceFeatures.ndualSrcBlend(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer dualSrcBlend(boolean value) { VkPhysicalDeviceFeatures.ndualSrcBlend(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code logicOp} field. */
-		public VkPhysicalDeviceFeatures.Buffer logicOp(int value) { VkPhysicalDeviceFeatures.nlogicOp(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer logicOp(boolean value) { VkPhysicalDeviceFeatures.nlogicOp(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code multiDrawIndirect} field. */
-		public VkPhysicalDeviceFeatures.Buffer multiDrawIndirect(int value) { VkPhysicalDeviceFeatures.nmultiDrawIndirect(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer multiDrawIndirect(boolean value) { VkPhysicalDeviceFeatures.nmultiDrawIndirect(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code drawIndirectFirstInstance} field. */
-		public VkPhysicalDeviceFeatures.Buffer drawIndirectFirstInstance(int value) { VkPhysicalDeviceFeatures.ndrawIndirectFirstInstance(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer drawIndirectFirstInstance(boolean value) { VkPhysicalDeviceFeatures.ndrawIndirectFirstInstance(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code depthClamp} field. */
-		public VkPhysicalDeviceFeatures.Buffer depthClamp(int value) { VkPhysicalDeviceFeatures.ndepthClamp(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer depthClamp(boolean value) { VkPhysicalDeviceFeatures.ndepthClamp(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code depthBiasClamp} field. */
-		public VkPhysicalDeviceFeatures.Buffer depthBiasClamp(int value) { VkPhysicalDeviceFeatures.ndepthBiasClamp(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer depthBiasClamp(boolean value) { VkPhysicalDeviceFeatures.ndepthBiasClamp(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code fillModeNonSolid} field. */
-		public VkPhysicalDeviceFeatures.Buffer fillModeNonSolid(int value) { VkPhysicalDeviceFeatures.nfillModeNonSolid(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer fillModeNonSolid(boolean value) { VkPhysicalDeviceFeatures.nfillModeNonSolid(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code depthBounds} field. */
-		public VkPhysicalDeviceFeatures.Buffer depthBounds(int value) { VkPhysicalDeviceFeatures.ndepthBounds(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer depthBounds(boolean value) { VkPhysicalDeviceFeatures.ndepthBounds(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code wideLines} field. */
-		public VkPhysicalDeviceFeatures.Buffer wideLines(int value) { VkPhysicalDeviceFeatures.nwideLines(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer wideLines(boolean value) { VkPhysicalDeviceFeatures.nwideLines(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code largePoints} field. */
-		public VkPhysicalDeviceFeatures.Buffer largePoints(int value) { VkPhysicalDeviceFeatures.nlargePoints(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer largePoints(boolean value) { VkPhysicalDeviceFeatures.nlargePoints(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code alphaToOne} field. */
-		public VkPhysicalDeviceFeatures.Buffer alphaToOne(int value) { VkPhysicalDeviceFeatures.nalphaToOne(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer alphaToOne(boolean value) { VkPhysicalDeviceFeatures.nalphaToOne(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code multiViewport} field. */
-		public VkPhysicalDeviceFeatures.Buffer multiViewport(int value) { VkPhysicalDeviceFeatures.nmultiViewport(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer multiViewport(boolean value) { VkPhysicalDeviceFeatures.nmultiViewport(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code samplerAnisotropy} field. */
-		public VkPhysicalDeviceFeatures.Buffer samplerAnisotropy(int value) { VkPhysicalDeviceFeatures.nsamplerAnisotropy(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer samplerAnisotropy(boolean value) { VkPhysicalDeviceFeatures.nsamplerAnisotropy(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code textureCompressionETC2} field. */
-		public VkPhysicalDeviceFeatures.Buffer textureCompressionETC2(int value) { VkPhysicalDeviceFeatures.ntextureCompressionETC2(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer textureCompressionETC2(boolean value) { VkPhysicalDeviceFeatures.ntextureCompressionETC2(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code textureCompressionASTC_LDR} field. */
-		public VkPhysicalDeviceFeatures.Buffer textureCompressionASTC_LDR(int value) { VkPhysicalDeviceFeatures.ntextureCompressionASTC_LDR(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer textureCompressionASTC_LDR(boolean value) { VkPhysicalDeviceFeatures.ntextureCompressionASTC_LDR(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code textureCompressionBC} field. */
-		public VkPhysicalDeviceFeatures.Buffer textureCompressionBC(int value) { VkPhysicalDeviceFeatures.ntextureCompressionBC(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer textureCompressionBC(boolean value) { VkPhysicalDeviceFeatures.ntextureCompressionBC(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code occlusionQueryPrecise} field. */
-		public VkPhysicalDeviceFeatures.Buffer occlusionQueryPrecise(int value) { VkPhysicalDeviceFeatures.nocclusionQueryPrecise(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer occlusionQueryPrecise(boolean value) { VkPhysicalDeviceFeatures.nocclusionQueryPrecise(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code pipelineStatisticsQuery} field. */
-		public VkPhysicalDeviceFeatures.Buffer pipelineStatisticsQuery(int value) { VkPhysicalDeviceFeatures.npipelineStatisticsQuery(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer pipelineStatisticsQuery(boolean value) { VkPhysicalDeviceFeatures.npipelineStatisticsQuery(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code vertexPipelineStoresAndAtomics} field. */
-		public VkPhysicalDeviceFeatures.Buffer vertexPipelineStoresAndAtomics(int value) { VkPhysicalDeviceFeatures.nvertexPipelineStoresAndAtomics(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer vertexPipelineStoresAndAtomics(boolean value) { VkPhysicalDeviceFeatures.nvertexPipelineStoresAndAtomics(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code fragmentStoresAndAtomics} field. */
-		public VkPhysicalDeviceFeatures.Buffer fragmentStoresAndAtomics(int value) { VkPhysicalDeviceFeatures.nfragmentStoresAndAtomics(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer fragmentStoresAndAtomics(boolean value) { VkPhysicalDeviceFeatures.nfragmentStoresAndAtomics(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code shaderTessellationAndGeometryPointSize} field. */
-		public VkPhysicalDeviceFeatures.Buffer shaderTessellationAndGeometryPointSize(int value) { VkPhysicalDeviceFeatures.nshaderTessellationAndGeometryPointSize(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer shaderTessellationAndGeometryPointSize(boolean value) { VkPhysicalDeviceFeatures.nshaderTessellationAndGeometryPointSize(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code shaderImageGatherExtended} field. */
-		public VkPhysicalDeviceFeatures.Buffer shaderImageGatherExtended(int value) { VkPhysicalDeviceFeatures.nshaderImageGatherExtended(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer shaderImageGatherExtended(boolean value) { VkPhysicalDeviceFeatures.nshaderImageGatherExtended(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code shaderStorageImageExtendedFormats} field. */
-		public VkPhysicalDeviceFeatures.Buffer shaderStorageImageExtendedFormats(int value) { VkPhysicalDeviceFeatures.nshaderStorageImageExtendedFormats(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer shaderStorageImageExtendedFormats(boolean value) { VkPhysicalDeviceFeatures.nshaderStorageImageExtendedFormats(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code shaderStorageImageMultisample} field. */
-		public VkPhysicalDeviceFeatures.Buffer shaderStorageImageMultisample(int value) { VkPhysicalDeviceFeatures.nshaderStorageImageMultisample(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer shaderStorageImageMultisample(boolean value) { VkPhysicalDeviceFeatures.nshaderStorageImageMultisample(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code shaderStorageImageReadWithoutFormat} field. */
-		public VkPhysicalDeviceFeatures.Buffer shaderStorageImageReadWithoutFormat(int value) { VkPhysicalDeviceFeatures.nshaderStorageImageReadWithoutFormat(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer shaderStorageImageReadWithoutFormat(boolean value) { VkPhysicalDeviceFeatures.nshaderStorageImageReadWithoutFormat(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code shaderStorageImageWriteWithoutFormat} field. */
-		public VkPhysicalDeviceFeatures.Buffer shaderStorageImageWriteWithoutFormat(int value) { VkPhysicalDeviceFeatures.nshaderStorageImageWriteWithoutFormat(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer shaderStorageImageWriteWithoutFormat(boolean value) { VkPhysicalDeviceFeatures.nshaderStorageImageWriteWithoutFormat(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code shaderUniformBufferArrayDynamicIndexing} field. */
-		public VkPhysicalDeviceFeatures.Buffer shaderUniformBufferArrayDynamicIndexing(int value) { VkPhysicalDeviceFeatures.nshaderUniformBufferArrayDynamicIndexing(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer shaderUniformBufferArrayDynamicIndexing(boolean value) { VkPhysicalDeviceFeatures.nshaderUniformBufferArrayDynamicIndexing(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code shaderSampledImageArrayDynamicIndexing} field. */
-		public VkPhysicalDeviceFeatures.Buffer shaderSampledImageArrayDynamicIndexing(int value) { VkPhysicalDeviceFeatures.nshaderSampledImageArrayDynamicIndexing(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer shaderSampledImageArrayDynamicIndexing(boolean value) { VkPhysicalDeviceFeatures.nshaderSampledImageArrayDynamicIndexing(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code shaderStorageBufferArrayDynamicIndexing} field. */
-		public VkPhysicalDeviceFeatures.Buffer shaderStorageBufferArrayDynamicIndexing(int value) { VkPhysicalDeviceFeatures.nshaderStorageBufferArrayDynamicIndexing(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer shaderStorageBufferArrayDynamicIndexing(boolean value) { VkPhysicalDeviceFeatures.nshaderStorageBufferArrayDynamicIndexing(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code shaderStorageImageArrayDynamicIndexing} field. */
-		public VkPhysicalDeviceFeatures.Buffer shaderStorageImageArrayDynamicIndexing(int value) { VkPhysicalDeviceFeatures.nshaderStorageImageArrayDynamicIndexing(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer shaderStorageImageArrayDynamicIndexing(boolean value) { VkPhysicalDeviceFeatures.nshaderStorageImageArrayDynamicIndexing(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code shaderClipDistance} field. */
-		public VkPhysicalDeviceFeatures.Buffer shaderClipDistance(int value) { VkPhysicalDeviceFeatures.nshaderClipDistance(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer shaderClipDistance(boolean value) { VkPhysicalDeviceFeatures.nshaderClipDistance(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code shaderCullDistance} field. */
-		public VkPhysicalDeviceFeatures.Buffer shaderCullDistance(int value) { VkPhysicalDeviceFeatures.nshaderCullDistance(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer shaderCullDistance(boolean value) { VkPhysicalDeviceFeatures.nshaderCullDistance(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code shaderFloat64} field. */
-		public VkPhysicalDeviceFeatures.Buffer shaderFloat64(int value) { VkPhysicalDeviceFeatures.nshaderFloat64(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer shaderFloat64(boolean value) { VkPhysicalDeviceFeatures.nshaderFloat64(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code shaderInt64} field. */
-		public VkPhysicalDeviceFeatures.Buffer shaderInt64(int value) { VkPhysicalDeviceFeatures.nshaderInt64(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer shaderInt64(boolean value) { VkPhysicalDeviceFeatures.nshaderInt64(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code shaderInt16} field. */
-		public VkPhysicalDeviceFeatures.Buffer shaderInt16(int value) { VkPhysicalDeviceFeatures.nshaderInt16(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer shaderInt16(boolean value) { VkPhysicalDeviceFeatures.nshaderInt16(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code shaderResourceResidency} field. */
-		public VkPhysicalDeviceFeatures.Buffer shaderResourceResidency(int value) { VkPhysicalDeviceFeatures.nshaderResourceResidency(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer shaderResourceResidency(boolean value) { VkPhysicalDeviceFeatures.nshaderResourceResidency(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code shaderResourceMinLod} field. */
-		public VkPhysicalDeviceFeatures.Buffer shaderResourceMinLod(int value) { VkPhysicalDeviceFeatures.nshaderResourceMinLod(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer shaderResourceMinLod(boolean value) { VkPhysicalDeviceFeatures.nshaderResourceMinLod(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code sparseBinding} field. */
-		public VkPhysicalDeviceFeatures.Buffer sparseBinding(int value) { VkPhysicalDeviceFeatures.nsparseBinding(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer sparseBinding(boolean value) { VkPhysicalDeviceFeatures.nsparseBinding(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code sparseResidencyBuffer} field. */
-		public VkPhysicalDeviceFeatures.Buffer sparseResidencyBuffer(int value) { VkPhysicalDeviceFeatures.nsparseResidencyBuffer(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer sparseResidencyBuffer(boolean value) { VkPhysicalDeviceFeatures.nsparseResidencyBuffer(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code sparseResidencyImage2D} field. */
-		public VkPhysicalDeviceFeatures.Buffer sparseResidencyImage2D(int value) { VkPhysicalDeviceFeatures.nsparseResidencyImage2D(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer sparseResidencyImage2D(boolean value) { VkPhysicalDeviceFeatures.nsparseResidencyImage2D(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code sparseResidencyImage3D} field. */
-		public VkPhysicalDeviceFeatures.Buffer sparseResidencyImage3D(int value) { VkPhysicalDeviceFeatures.nsparseResidencyImage3D(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer sparseResidencyImage3D(boolean value) { VkPhysicalDeviceFeatures.nsparseResidencyImage3D(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code sparseResidency2Samples} field. */
-		public VkPhysicalDeviceFeatures.Buffer sparseResidency2Samples(int value) { VkPhysicalDeviceFeatures.nsparseResidency2Samples(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer sparseResidency2Samples(boolean value) { VkPhysicalDeviceFeatures.nsparseResidency2Samples(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code sparseResidency4Samples} field. */
-		public VkPhysicalDeviceFeatures.Buffer sparseResidency4Samples(int value) { VkPhysicalDeviceFeatures.nsparseResidency4Samples(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer sparseResidency4Samples(boolean value) { VkPhysicalDeviceFeatures.nsparseResidency4Samples(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code sparseResidency8Samples} field. */
-		public VkPhysicalDeviceFeatures.Buffer sparseResidency8Samples(int value) { VkPhysicalDeviceFeatures.nsparseResidency8Samples(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer sparseResidency8Samples(boolean value) { VkPhysicalDeviceFeatures.nsparseResidency8Samples(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code sparseResidency16Samples} field. */
-		public VkPhysicalDeviceFeatures.Buffer sparseResidency16Samples(int value) { VkPhysicalDeviceFeatures.nsparseResidency16Samples(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer sparseResidency16Samples(boolean value) { VkPhysicalDeviceFeatures.nsparseResidency16Samples(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code sparseResidencyAliased} field. */
-		public VkPhysicalDeviceFeatures.Buffer sparseResidencyAliased(int value) { VkPhysicalDeviceFeatures.nsparseResidencyAliased(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer sparseResidencyAliased(boolean value) { VkPhysicalDeviceFeatures.nsparseResidencyAliased(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code variableMultisampleRate} field. */
-		public VkPhysicalDeviceFeatures.Buffer variableMultisampleRate(int value) { VkPhysicalDeviceFeatures.nvariableMultisampleRate(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer variableMultisampleRate(boolean value) { VkPhysicalDeviceFeatures.nvariableMultisampleRate(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code inheritedQueries} field. */
-		public VkPhysicalDeviceFeatures.Buffer inheritedQueries(int value) { VkPhysicalDeviceFeatures.ninheritedQueries(address(), value); return this; }
+		public VkPhysicalDeviceFeatures.Buffer inheritedQueries(boolean value) { VkPhysicalDeviceFeatures.ninheritedQueries(address(), value ? 1 : 0); return this; }
 
 	}
 

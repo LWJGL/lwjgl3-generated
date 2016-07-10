@@ -123,7 +123,7 @@ public class VkDisplayPresentInfoKHR extends Struct implements NativeResource {
 	/** Returns a {@link VkRect2D} view of the {@code dstRect} field. */
 	public VkRect2D dstRect() { return ndstRect(address()); }
 	/** Returns the value of the {@code persistent} field. */
-	public int persistent() { return npersistent(address()); }
+	public boolean persistent() { return npersistent(address()) != 0; }
 
 	/** Sets the specified value to the {@code sType} field. */
 	public VkDisplayPresentInfoKHR sType(int value) { nsType(address(), value); return this; }
@@ -134,7 +134,7 @@ public class VkDisplayPresentInfoKHR extends Struct implements NativeResource {
 	/** Copies the specified {@link VkRect2D} to the {@code dstRect} field. */
 	public VkDisplayPresentInfoKHR dstRect(VkRect2D value) { ndstRect(address(), value); return this; }
 	/** Sets the specified value to the {@code persistent} field. */
-	public VkDisplayPresentInfoKHR persistent(int value) { npersistent(address(), value); return this; }
+	public VkDisplayPresentInfoKHR persistent(boolean value) { npersistent(address(), value ? 1 : 0); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public VkDisplayPresentInfoKHR set(
@@ -142,7 +142,7 @@ public class VkDisplayPresentInfoKHR extends Struct implements NativeResource {
 		long pNext,
 		VkRect2D srcRect,
 		VkRect2D dstRect,
-		int persistent
+		boolean persistent
 	) {
 		sType(sType);
 		pNext(pNext);
@@ -372,7 +372,7 @@ public class VkDisplayPresentInfoKHR extends Struct implements NativeResource {
 		/** Returns a {@link VkRect2D} view of the {@code dstRect} field. */
 		public VkRect2D dstRect() { return VkDisplayPresentInfoKHR.ndstRect(address()); }
 		/** Returns the value of the {@code persistent} field. */
-		public int persistent() { return VkDisplayPresentInfoKHR.npersistent(address()); }
+		public boolean persistent() { return VkDisplayPresentInfoKHR.npersistent(address()) != 0; }
 
 		/** Sets the specified value to the {@code sType} field. */
 		public VkDisplayPresentInfoKHR.Buffer sType(int value) { VkDisplayPresentInfoKHR.nsType(address(), value); return this; }
@@ -383,7 +383,7 @@ public class VkDisplayPresentInfoKHR extends Struct implements NativeResource {
 		/** Copies the specified {@link VkRect2D} to the {@code dstRect} field. */
 		public VkDisplayPresentInfoKHR.Buffer dstRect(VkRect2D value) { VkDisplayPresentInfoKHR.ndstRect(address(), value); return this; }
 		/** Sets the specified value to the {@code persistent} field. */
-		public VkDisplayPresentInfoKHR.Buffer persistent(int value) { VkDisplayPresentInfoKHR.npersistent(address(), value); return this; }
+		public VkDisplayPresentInfoKHR.Buffer persistent(boolean value) { VkDisplayPresentInfoKHR.npersistent(address(), value ? 1 : 0); return this; }
 
 	}
 

@@ -151,9 +151,9 @@ public class VkPipelineRasterizationStateCreateInfo extends Struct implements Na
 	/** Returns the value of the {@code flags} field. */
 	public int flags() { return nflags(address()); }
 	/** Returns the value of the {@code depthClampEnable} field. */
-	public int depthClampEnable() { return ndepthClampEnable(address()); }
+	public boolean depthClampEnable() { return ndepthClampEnable(address()) != 0; }
 	/** Returns the value of the {@code rasterizerDiscardEnable} field. */
-	public int rasterizerDiscardEnable() { return nrasterizerDiscardEnable(address()); }
+	public boolean rasterizerDiscardEnable() { return nrasterizerDiscardEnable(address()) != 0; }
 	/** Returns the value of the {@code polygonMode} field. */
 	public int polygonMode() { return npolygonMode(address()); }
 	/** Returns the value of the {@code cullMode} field. */
@@ -161,7 +161,7 @@ public class VkPipelineRasterizationStateCreateInfo extends Struct implements Na
 	/** Returns the value of the {@code frontFace} field. */
 	public int frontFace() { return nfrontFace(address()); }
 	/** Returns the value of the {@code depthBiasEnable} field. */
-	public int depthBiasEnable() { return ndepthBiasEnable(address()); }
+	public boolean depthBiasEnable() { return ndepthBiasEnable(address()) != 0; }
 	/** Returns the value of the {@code depthBiasConstantFactor} field. */
 	public float depthBiasConstantFactor() { return ndepthBiasConstantFactor(address()); }
 	/** Returns the value of the {@code depthBiasClamp} field. */
@@ -178,9 +178,9 @@ public class VkPipelineRasterizationStateCreateInfo extends Struct implements Na
 	/** Sets the specified value to the {@code flags} field. */
 	public VkPipelineRasterizationStateCreateInfo flags(int value) { nflags(address(), value); return this; }
 	/** Sets the specified value to the {@code depthClampEnable} field. */
-	public VkPipelineRasterizationStateCreateInfo depthClampEnable(int value) { ndepthClampEnable(address(), value); return this; }
+	public VkPipelineRasterizationStateCreateInfo depthClampEnable(boolean value) { ndepthClampEnable(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code rasterizerDiscardEnable} field. */
-	public VkPipelineRasterizationStateCreateInfo rasterizerDiscardEnable(int value) { nrasterizerDiscardEnable(address(), value); return this; }
+	public VkPipelineRasterizationStateCreateInfo rasterizerDiscardEnable(boolean value) { nrasterizerDiscardEnable(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code polygonMode} field. */
 	public VkPipelineRasterizationStateCreateInfo polygonMode(int value) { npolygonMode(address(), value); return this; }
 	/** Sets the specified value to the {@code cullMode} field. */
@@ -188,7 +188,7 @@ public class VkPipelineRasterizationStateCreateInfo extends Struct implements Na
 	/** Sets the specified value to the {@code frontFace} field. */
 	public VkPipelineRasterizationStateCreateInfo frontFace(int value) { nfrontFace(address(), value); return this; }
 	/** Sets the specified value to the {@code depthBiasEnable} field. */
-	public VkPipelineRasterizationStateCreateInfo depthBiasEnable(int value) { ndepthBiasEnable(address(), value); return this; }
+	public VkPipelineRasterizationStateCreateInfo depthBiasEnable(boolean value) { ndepthBiasEnable(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code depthBiasConstantFactor} field. */
 	public VkPipelineRasterizationStateCreateInfo depthBiasConstantFactor(float value) { ndepthBiasConstantFactor(address(), value); return this; }
 	/** Sets the specified value to the {@code depthBiasClamp} field. */
@@ -203,12 +203,12 @@ public class VkPipelineRasterizationStateCreateInfo extends Struct implements Na
 		int sType,
 		long pNext,
 		int flags,
-		int depthClampEnable,
-		int rasterizerDiscardEnable,
+		boolean depthClampEnable,
+		boolean rasterizerDiscardEnable,
 		int polygonMode,
 		int cullMode,
 		int frontFace,
-		int depthBiasEnable,
+		boolean depthBiasEnable,
 		float depthBiasConstantFactor,
 		float depthBiasClamp,
 		float depthBiasSlopeFactor,
@@ -480,9 +480,9 @@ public class VkPipelineRasterizationStateCreateInfo extends Struct implements Na
 		/** Returns the value of the {@code flags} field. */
 		public int flags() { return VkPipelineRasterizationStateCreateInfo.nflags(address()); }
 		/** Returns the value of the {@code depthClampEnable} field. */
-		public int depthClampEnable() { return VkPipelineRasterizationStateCreateInfo.ndepthClampEnable(address()); }
+		public boolean depthClampEnable() { return VkPipelineRasterizationStateCreateInfo.ndepthClampEnable(address()) != 0; }
 		/** Returns the value of the {@code rasterizerDiscardEnable} field. */
-		public int rasterizerDiscardEnable() { return VkPipelineRasterizationStateCreateInfo.nrasterizerDiscardEnable(address()); }
+		public boolean rasterizerDiscardEnable() { return VkPipelineRasterizationStateCreateInfo.nrasterizerDiscardEnable(address()) != 0; }
 		/** Returns the value of the {@code polygonMode} field. */
 		public int polygonMode() { return VkPipelineRasterizationStateCreateInfo.npolygonMode(address()); }
 		/** Returns the value of the {@code cullMode} field. */
@@ -490,7 +490,7 @@ public class VkPipelineRasterizationStateCreateInfo extends Struct implements Na
 		/** Returns the value of the {@code frontFace} field. */
 		public int frontFace() { return VkPipelineRasterizationStateCreateInfo.nfrontFace(address()); }
 		/** Returns the value of the {@code depthBiasEnable} field. */
-		public int depthBiasEnable() { return VkPipelineRasterizationStateCreateInfo.ndepthBiasEnable(address()); }
+		public boolean depthBiasEnable() { return VkPipelineRasterizationStateCreateInfo.ndepthBiasEnable(address()) != 0; }
 		/** Returns the value of the {@code depthBiasConstantFactor} field. */
 		public float depthBiasConstantFactor() { return VkPipelineRasterizationStateCreateInfo.ndepthBiasConstantFactor(address()); }
 		/** Returns the value of the {@code depthBiasClamp} field. */
@@ -507,9 +507,9 @@ public class VkPipelineRasterizationStateCreateInfo extends Struct implements Na
 		/** Sets the specified value to the {@code flags} field. */
 		public VkPipelineRasterizationStateCreateInfo.Buffer flags(int value) { VkPipelineRasterizationStateCreateInfo.nflags(address(), value); return this; }
 		/** Sets the specified value to the {@code depthClampEnable} field. */
-		public VkPipelineRasterizationStateCreateInfo.Buffer depthClampEnable(int value) { VkPipelineRasterizationStateCreateInfo.ndepthClampEnable(address(), value); return this; }
+		public VkPipelineRasterizationStateCreateInfo.Buffer depthClampEnable(boolean value) { VkPipelineRasterizationStateCreateInfo.ndepthClampEnable(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code rasterizerDiscardEnable} field. */
-		public VkPipelineRasterizationStateCreateInfo.Buffer rasterizerDiscardEnable(int value) { VkPipelineRasterizationStateCreateInfo.nrasterizerDiscardEnable(address(), value); return this; }
+		public VkPipelineRasterizationStateCreateInfo.Buffer rasterizerDiscardEnable(boolean value) { VkPipelineRasterizationStateCreateInfo.nrasterizerDiscardEnable(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code polygonMode} field. */
 		public VkPipelineRasterizationStateCreateInfo.Buffer polygonMode(int value) { VkPipelineRasterizationStateCreateInfo.npolygonMode(address(), value); return this; }
 		/** Sets the specified value to the {@code cullMode} field. */
@@ -517,7 +517,7 @@ public class VkPipelineRasterizationStateCreateInfo extends Struct implements Na
 		/** Sets the specified value to the {@code frontFace} field. */
 		public VkPipelineRasterizationStateCreateInfo.Buffer frontFace(int value) { VkPipelineRasterizationStateCreateInfo.nfrontFace(address(), value); return this; }
 		/** Sets the specified value to the {@code depthBiasEnable} field. */
-		public VkPipelineRasterizationStateCreateInfo.Buffer depthBiasEnable(int value) { VkPipelineRasterizationStateCreateInfo.ndepthBiasEnable(address(), value); return this; }
+		public VkPipelineRasterizationStateCreateInfo.Buffer depthBiasEnable(boolean value) { VkPipelineRasterizationStateCreateInfo.ndepthBiasEnable(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code depthBiasConstantFactor} field. */
 		public VkPipelineRasterizationStateCreateInfo.Buffer depthBiasConstantFactor(float value) { VkPipelineRasterizationStateCreateInfo.ndepthBiasConstantFactor(address(), value); return this; }
 		/** Sets the specified value to the {@code depthBiasClamp} field. */

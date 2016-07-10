@@ -207,11 +207,11 @@ public class VkSamplerCreateInfo extends Struct implements NativeResource {
 	/** Returns the value of the {@code mipLodBias} field. */
 	public float mipLodBias() { return nmipLodBias(address()); }
 	/** Returns the value of the {@code anisotropyEnable} field. */
-	public int anisotropyEnable() { return nanisotropyEnable(address()); }
+	public boolean anisotropyEnable() { return nanisotropyEnable(address()) != 0; }
 	/** Returns the value of the {@code maxAnisotropy} field. */
 	public float maxAnisotropy() { return nmaxAnisotropy(address()); }
 	/** Returns the value of the {@code compareEnable} field. */
-	public int compareEnable() { return ncompareEnable(address()); }
+	public boolean compareEnable() { return ncompareEnable(address()) != 0; }
 	/** Returns the value of the {@code compareOp} field. */
 	public int compareOp() { return ncompareOp(address()); }
 	/** Returns the value of the {@code minLod} field. */
@@ -221,7 +221,7 @@ public class VkSamplerCreateInfo extends Struct implements NativeResource {
 	/** Returns the value of the {@code borderColor} field. */
 	public int borderColor() { return nborderColor(address()); }
 	/** Returns the value of the {@code unnormalizedCoordinates} field. */
-	public int unnormalizedCoordinates() { return nunnormalizedCoordinates(address()); }
+	public boolean unnormalizedCoordinates() { return nunnormalizedCoordinates(address()) != 0; }
 
 	/** Sets the specified value to the {@code sType} field. */
 	public VkSamplerCreateInfo sType(int value) { nsType(address(), value); return this; }
@@ -244,11 +244,11 @@ public class VkSamplerCreateInfo extends Struct implements NativeResource {
 	/** Sets the specified value to the {@code mipLodBias} field. */
 	public VkSamplerCreateInfo mipLodBias(float value) { nmipLodBias(address(), value); return this; }
 	/** Sets the specified value to the {@code anisotropyEnable} field. */
-	public VkSamplerCreateInfo anisotropyEnable(int value) { nanisotropyEnable(address(), value); return this; }
+	public VkSamplerCreateInfo anisotropyEnable(boolean value) { nanisotropyEnable(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code maxAnisotropy} field. */
 	public VkSamplerCreateInfo maxAnisotropy(float value) { nmaxAnisotropy(address(), value); return this; }
 	/** Sets the specified value to the {@code compareEnable} field. */
-	public VkSamplerCreateInfo compareEnable(int value) { ncompareEnable(address(), value); return this; }
+	public VkSamplerCreateInfo compareEnable(boolean value) { ncompareEnable(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code compareOp} field. */
 	public VkSamplerCreateInfo compareOp(int value) { ncompareOp(address(), value); return this; }
 	/** Sets the specified value to the {@code minLod} field. */
@@ -258,7 +258,7 @@ public class VkSamplerCreateInfo extends Struct implements NativeResource {
 	/** Sets the specified value to the {@code borderColor} field. */
 	public VkSamplerCreateInfo borderColor(int value) { nborderColor(address(), value); return this; }
 	/** Sets the specified value to the {@code unnormalizedCoordinates} field. */
-	public VkSamplerCreateInfo unnormalizedCoordinates(int value) { nunnormalizedCoordinates(address(), value); return this; }
+	public VkSamplerCreateInfo unnormalizedCoordinates(boolean value) { nunnormalizedCoordinates(address(), value ? 1 : 0); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public VkSamplerCreateInfo set(
@@ -272,14 +272,14 @@ public class VkSamplerCreateInfo extends Struct implements NativeResource {
 		int addressModeV,
 		int addressModeW,
 		float mipLodBias,
-		int anisotropyEnable,
+		boolean anisotropyEnable,
 		float maxAnisotropy,
-		int compareEnable,
+		boolean compareEnable,
 		int compareOp,
 		float minLod,
 		float maxLod,
 		int borderColor,
-		int unnormalizedCoordinates
+		boolean unnormalizedCoordinates
 	) {
 		sType(sType);
 		pNext(pNext);
@@ -586,11 +586,11 @@ public class VkSamplerCreateInfo extends Struct implements NativeResource {
 		/** Returns the value of the {@code mipLodBias} field. */
 		public float mipLodBias() { return VkSamplerCreateInfo.nmipLodBias(address()); }
 		/** Returns the value of the {@code anisotropyEnable} field. */
-		public int anisotropyEnable() { return VkSamplerCreateInfo.nanisotropyEnable(address()); }
+		public boolean anisotropyEnable() { return VkSamplerCreateInfo.nanisotropyEnable(address()) != 0; }
 		/** Returns the value of the {@code maxAnisotropy} field. */
 		public float maxAnisotropy() { return VkSamplerCreateInfo.nmaxAnisotropy(address()); }
 		/** Returns the value of the {@code compareEnable} field. */
-		public int compareEnable() { return VkSamplerCreateInfo.ncompareEnable(address()); }
+		public boolean compareEnable() { return VkSamplerCreateInfo.ncompareEnable(address()) != 0; }
 		/** Returns the value of the {@code compareOp} field. */
 		public int compareOp() { return VkSamplerCreateInfo.ncompareOp(address()); }
 		/** Returns the value of the {@code minLod} field. */
@@ -600,7 +600,7 @@ public class VkSamplerCreateInfo extends Struct implements NativeResource {
 		/** Returns the value of the {@code borderColor} field. */
 		public int borderColor() { return VkSamplerCreateInfo.nborderColor(address()); }
 		/** Returns the value of the {@code unnormalizedCoordinates} field. */
-		public int unnormalizedCoordinates() { return VkSamplerCreateInfo.nunnormalizedCoordinates(address()); }
+		public boolean unnormalizedCoordinates() { return VkSamplerCreateInfo.nunnormalizedCoordinates(address()) != 0; }
 
 		/** Sets the specified value to the {@code sType} field. */
 		public VkSamplerCreateInfo.Buffer sType(int value) { VkSamplerCreateInfo.nsType(address(), value); return this; }
@@ -623,11 +623,11 @@ public class VkSamplerCreateInfo extends Struct implements NativeResource {
 		/** Sets the specified value to the {@code mipLodBias} field. */
 		public VkSamplerCreateInfo.Buffer mipLodBias(float value) { VkSamplerCreateInfo.nmipLodBias(address(), value); return this; }
 		/** Sets the specified value to the {@code anisotropyEnable} field. */
-		public VkSamplerCreateInfo.Buffer anisotropyEnable(int value) { VkSamplerCreateInfo.nanisotropyEnable(address(), value); return this; }
+		public VkSamplerCreateInfo.Buffer anisotropyEnable(boolean value) { VkSamplerCreateInfo.nanisotropyEnable(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code maxAnisotropy} field. */
 		public VkSamplerCreateInfo.Buffer maxAnisotropy(float value) { VkSamplerCreateInfo.nmaxAnisotropy(address(), value); return this; }
 		/** Sets the specified value to the {@code compareEnable} field. */
-		public VkSamplerCreateInfo.Buffer compareEnable(int value) { VkSamplerCreateInfo.ncompareEnable(address(), value); return this; }
+		public VkSamplerCreateInfo.Buffer compareEnable(boolean value) { VkSamplerCreateInfo.ncompareEnable(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code compareOp} field. */
 		public VkSamplerCreateInfo.Buffer compareOp(int value) { VkSamplerCreateInfo.ncompareOp(address(), value); return this; }
 		/** Sets the specified value to the {@code minLod} field. */
@@ -637,7 +637,7 @@ public class VkSamplerCreateInfo extends Struct implements NativeResource {
 		/** Sets the specified value to the {@code borderColor} field. */
 		public VkSamplerCreateInfo.Buffer borderColor(int value) { VkSamplerCreateInfo.nborderColor(address(), value); return this; }
 		/** Sets the specified value to the {@code unnormalizedCoordinates} field. */
-		public VkSamplerCreateInfo.Buffer unnormalizedCoordinates(int value) { VkSamplerCreateInfo.nunnormalizedCoordinates(address(), value); return this; }
+		public VkSamplerCreateInfo.Buffer unnormalizedCoordinates(boolean value) { VkSamplerCreateInfo.nunnormalizedCoordinates(address(), value ? 1 : 0); return this; }
 
 	}
 

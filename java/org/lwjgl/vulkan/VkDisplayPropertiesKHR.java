@@ -125,9 +125,9 @@ public class VkDisplayPropertiesKHR extends Struct implements NativeResource {
 	/** Returns the value of the {@code supportedTransforms} field. */
 	public int supportedTransforms() { return nsupportedTransforms(address()); }
 	/** Returns the value of the {@code planeReorderPossible} field. */
-	public int planeReorderPossible() { return nplaneReorderPossible(address()); }
+	public boolean planeReorderPossible() { return nplaneReorderPossible(address()) != 0; }
 	/** Returns the value of the {@code persistentContent} field. */
-	public int persistentContent() { return npersistentContent(address()); }
+	public boolean persistentContent() { return npersistentContent(address()) != 0; }
 
 	// -----------------------------------
 
@@ -330,9 +330,9 @@ public class VkDisplayPropertiesKHR extends Struct implements NativeResource {
 		/** Returns the value of the {@code supportedTransforms} field. */
 		public int supportedTransforms() { return VkDisplayPropertiesKHR.nsupportedTransforms(address()); }
 		/** Returns the value of the {@code planeReorderPossible} field. */
-		public int planeReorderPossible() { return VkDisplayPropertiesKHR.nplaneReorderPossible(address()); }
+		public boolean planeReorderPossible() { return VkDisplayPropertiesKHR.nplaneReorderPossible(address()) != 0; }
 		/** Returns the value of the {@code persistentContent} field. */
-		public int persistentContent() { return VkDisplayPropertiesKHR.npersistentContent(address()); }
+		public boolean persistentContent() { return VkDisplayPropertiesKHR.npersistentContent(address()) != 0; }
 
 	}
 

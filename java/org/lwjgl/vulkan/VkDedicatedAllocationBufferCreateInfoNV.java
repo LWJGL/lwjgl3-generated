@@ -96,20 +96,20 @@ public class VkDedicatedAllocationBufferCreateInfoNV extends Struct implements N
 	/** Returns the value of the {@code pNext} field. */
 	public long pNext() { return npNext(address()); }
 	/** Returns the value of the {@code dedicatedAllocation} field. */
-	public int dedicatedAllocation() { return ndedicatedAllocation(address()); }
+	public boolean dedicatedAllocation() { return ndedicatedAllocation(address()) != 0; }
 
 	/** Sets the specified value to the {@code sType} field. */
 	public VkDedicatedAllocationBufferCreateInfoNV sType(int value) { nsType(address(), value); return this; }
 	/** Sets the specified value to the {@code pNext} field. */
 	public VkDedicatedAllocationBufferCreateInfoNV pNext(long value) { npNext(address(), value); return this; }
 	/** Sets the specified value to the {@code dedicatedAllocation} field. */
-	public VkDedicatedAllocationBufferCreateInfoNV dedicatedAllocation(int value) { ndedicatedAllocation(address(), value); return this; }
+	public VkDedicatedAllocationBufferCreateInfoNV dedicatedAllocation(boolean value) { ndedicatedAllocation(address(), value ? 1 : 0); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public VkDedicatedAllocationBufferCreateInfoNV set(
 		int sType,
 		long pNext,
-		int dedicatedAllocation
+		boolean dedicatedAllocation
 	) {
 		sType(sType);
 		pNext(pNext);
@@ -325,14 +325,14 @@ public class VkDedicatedAllocationBufferCreateInfoNV extends Struct implements N
 		/** Returns the value of the {@code pNext} field. */
 		public long pNext() { return VkDedicatedAllocationBufferCreateInfoNV.npNext(address()); }
 		/** Returns the value of the {@code dedicatedAllocation} field. */
-		public int dedicatedAllocation() { return VkDedicatedAllocationBufferCreateInfoNV.ndedicatedAllocation(address()); }
+		public boolean dedicatedAllocation() { return VkDedicatedAllocationBufferCreateInfoNV.ndedicatedAllocation(address()) != 0; }
 
 		/** Sets the specified value to the {@code sType} field. */
 		public VkDedicatedAllocationBufferCreateInfoNV.Buffer sType(int value) { VkDedicatedAllocationBufferCreateInfoNV.nsType(address(), value); return this; }
 		/** Sets the specified value to the {@code pNext} field. */
 		public VkDedicatedAllocationBufferCreateInfoNV.Buffer pNext(long value) { VkDedicatedAllocationBufferCreateInfoNV.npNext(address(), value); return this; }
 		/** Sets the specified value to the {@code dedicatedAllocation} field. */
-		public VkDedicatedAllocationBufferCreateInfoNV.Buffer dedicatedAllocation(int value) { VkDedicatedAllocationBufferCreateInfoNV.ndedicatedAllocation(address(), value); return this; }
+		public VkDedicatedAllocationBufferCreateInfoNV.Buffer dedicatedAllocation(boolean value) { VkDedicatedAllocationBufferCreateInfoNV.ndedicatedAllocation(address(), value ? 1 : 0); return this; }
 
 	}
 

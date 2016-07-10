@@ -127,7 +127,7 @@ public class VkPipelineColorBlendAttachmentState extends Struct implements Nativ
 	public int sizeof() { return SIZEOF; }
 
 	/** Returns the value of the {@code blendEnable} field. */
-	public int blendEnable() { return nblendEnable(address()); }
+	public boolean blendEnable() { return nblendEnable(address()) != 0; }
 	/** Returns the value of the {@code srcColorBlendFactor} field. */
 	public int srcColorBlendFactor() { return nsrcColorBlendFactor(address()); }
 	/** Returns the value of the {@code dstColorBlendFactor} field. */
@@ -144,7 +144,7 @@ public class VkPipelineColorBlendAttachmentState extends Struct implements Nativ
 	public int colorWriteMask() { return ncolorWriteMask(address()); }
 
 	/** Sets the specified value to the {@code blendEnable} field. */
-	public VkPipelineColorBlendAttachmentState blendEnable(int value) { nblendEnable(address(), value); return this; }
+	public VkPipelineColorBlendAttachmentState blendEnable(boolean value) { nblendEnable(address(), value ? 1 : 0); return this; }
 	/** Sets the specified value to the {@code srcColorBlendFactor} field. */
 	public VkPipelineColorBlendAttachmentState srcColorBlendFactor(int value) { nsrcColorBlendFactor(address(), value); return this; }
 	/** Sets the specified value to the {@code dstColorBlendFactor} field. */
@@ -162,7 +162,7 @@ public class VkPipelineColorBlendAttachmentState extends Struct implements Nativ
 
 	/** Initializes this struct with the specified values. */
 	public VkPipelineColorBlendAttachmentState set(
-		int blendEnable,
+		boolean blendEnable,
 		int srcColorBlendFactor,
 		int dstColorBlendFactor,
 		int colorBlendOp,
@@ -406,7 +406,7 @@ public class VkPipelineColorBlendAttachmentState extends Struct implements Nativ
 		}
 
 		/** Returns the value of the {@code blendEnable} field. */
-		public int blendEnable() { return VkPipelineColorBlendAttachmentState.nblendEnable(address()); }
+		public boolean blendEnable() { return VkPipelineColorBlendAttachmentState.nblendEnable(address()) != 0; }
 		/** Returns the value of the {@code srcColorBlendFactor} field. */
 		public int srcColorBlendFactor() { return VkPipelineColorBlendAttachmentState.nsrcColorBlendFactor(address()); }
 		/** Returns the value of the {@code dstColorBlendFactor} field. */
@@ -423,7 +423,7 @@ public class VkPipelineColorBlendAttachmentState extends Struct implements Nativ
 		public int colorWriteMask() { return VkPipelineColorBlendAttachmentState.ncolorWriteMask(address()); }
 
 		/** Sets the specified value to the {@code blendEnable} field. */
-		public VkPipelineColorBlendAttachmentState.Buffer blendEnable(int value) { VkPipelineColorBlendAttachmentState.nblendEnable(address(), value); return this; }
+		public VkPipelineColorBlendAttachmentState.Buffer blendEnable(boolean value) { VkPipelineColorBlendAttachmentState.nblendEnable(address(), value ? 1 : 0); return this; }
 		/** Sets the specified value to the {@code srcColorBlendFactor} field. */
 		public VkPipelineColorBlendAttachmentState.Buffer srcColorBlendFactor(int value) { VkPipelineColorBlendAttachmentState.nsrcColorBlendFactor(address(), value); return this; }
 		/** Sets the specified value to the {@code dstColorBlendFactor} field. */

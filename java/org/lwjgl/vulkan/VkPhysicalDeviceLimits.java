@@ -826,7 +826,7 @@ public class VkPhysicalDeviceLimits extends Struct {
 	/** Returns the value of the {@code maxSampleMaskWords} field. */
 	public int maxSampleMaskWords() { return nmaxSampleMaskWords(address()); }
 	/** Returns the value of the {@code timestampComputeAndGraphics} field. */
-	public int timestampComputeAndGraphics() { return ntimestampComputeAndGraphics(address()); }
+	public boolean timestampComputeAndGraphics() { return ntimestampComputeAndGraphics(address()) != 0; }
 	/** Returns the value of the {@code timestampPeriod} field. */
 	public float timestampPeriod() { return ntimestampPeriod(address()); }
 	/** Returns the value of the {@code maxClipDistances} field. */
@@ -850,9 +850,9 @@ public class VkPhysicalDeviceLimits extends Struct {
 	/** Returns the value of the {@code lineWidthGranularity} field. */
 	public float lineWidthGranularity() { return nlineWidthGranularity(address()); }
 	/** Returns the value of the {@code strictLines} field. */
-	public int strictLines() { return nstrictLines(address()); }
+	public boolean strictLines() { return nstrictLines(address()) != 0; }
 	/** Returns the value of the {@code standardSampleLocations} field. */
-	public int standardSampleLocations() { return nstandardSampleLocations(address()); }
+	public boolean standardSampleLocations() { return nstandardSampleLocations(address()) != 0; }
 	/** Returns the value of the {@code optimalBufferCopyOffsetAlignment} field. */
 	public long optimalBufferCopyOffsetAlignment() { return noptimalBufferCopyOffsetAlignment(address()); }
 	/** Returns the value of the {@code optimalBufferCopyRowPitchAlignment} field. */
@@ -1349,7 +1349,7 @@ public class VkPhysicalDeviceLimits extends Struct {
 		/** Returns the value of the {@code maxSampleMaskWords} field. */
 		public int maxSampleMaskWords() { return VkPhysicalDeviceLimits.nmaxSampleMaskWords(address()); }
 		/** Returns the value of the {@code timestampComputeAndGraphics} field. */
-		public int timestampComputeAndGraphics() { return VkPhysicalDeviceLimits.ntimestampComputeAndGraphics(address()); }
+		public boolean timestampComputeAndGraphics() { return VkPhysicalDeviceLimits.ntimestampComputeAndGraphics(address()) != 0; }
 		/** Returns the value of the {@code timestampPeriod} field. */
 		public float timestampPeriod() { return VkPhysicalDeviceLimits.ntimestampPeriod(address()); }
 		/** Returns the value of the {@code maxClipDistances} field. */
@@ -1373,9 +1373,9 @@ public class VkPhysicalDeviceLimits extends Struct {
 		/** Returns the value of the {@code lineWidthGranularity} field. */
 		public float lineWidthGranularity() { return VkPhysicalDeviceLimits.nlineWidthGranularity(address()); }
 		/** Returns the value of the {@code strictLines} field. */
-		public int strictLines() { return VkPhysicalDeviceLimits.nstrictLines(address()); }
+		public boolean strictLines() { return VkPhysicalDeviceLimits.nstrictLines(address()) != 0; }
 		/** Returns the value of the {@code standardSampleLocations} field. */
-		public int standardSampleLocations() { return VkPhysicalDeviceLimits.nstandardSampleLocations(address()); }
+		public boolean standardSampleLocations() { return VkPhysicalDeviceLimits.nstandardSampleLocations(address()) != 0; }
 		/** Returns the value of the {@code optimalBufferCopyOffsetAlignment} field. */
 		public long optimalBufferCopyOffsetAlignment() { return VkPhysicalDeviceLimits.noptimalBufferCopyOffsetAlignment(address()); }
 		/** Returns the value of the {@code optimalBufferCopyRowPitchAlignment} field. */
