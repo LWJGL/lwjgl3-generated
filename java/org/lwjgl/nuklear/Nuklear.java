@@ -1151,6 +1151,44 @@ public class Nuklear {
 		nnk_window_set_size(ctx.address(), size.address());
 	}
 
+	// --- [ nk_window_set_title ] ---
+
+	/**
+	 * 
+	 *
+	 * @param ctx          the nuklear context
+	 * @param title_to_set 
+	 */
+	public static native void nnk_window_set_title(long ctx, long title_to_set);
+
+	/**
+	 * 
+	 *
+	 * @param ctx          the nuklear context
+	 * @param title_to_set 
+	 */
+	public static void nk_window_set_title(NkContext ctx, ByteBuffer title_to_set) {
+		if ( CHECKS )
+			checkNT1(title_to_set);
+		nnk_window_set_title(ctx.address(), memAddress(title_to_set));
+	}
+
+	/**
+	 * 
+	 *
+	 * @param ctx          the nuklear context
+	 * @param title_to_set 
+	 */
+	public static void nk_window_set_title(NkContext ctx, CharSequence title_to_set) {
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer title_to_setEncoded = stack.UTF8(title_to_set);
+			nnk_window_set_title(ctx.address(), memAddress(title_to_setEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
 	// --- [ nk_window_set_focus ] ---
 
 	/**

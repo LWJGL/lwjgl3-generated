@@ -234,6 +234,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1window_1set_1size(JNI
 	nk_window_set_size(ctx, *size);
 }
 
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1window_1set_1title(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong title_to_setAddress) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	const char *title_to_set = (const char *)(intptr_t)title_to_setAddress;
+	UNUSED_PARAMS(__env, clazz)
+	nk_window_set_title(ctx, title_to_set);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1window_1set_1focus(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong nameAddress) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
 	const char *name = (const char *)(intptr_t)nameAddress;
