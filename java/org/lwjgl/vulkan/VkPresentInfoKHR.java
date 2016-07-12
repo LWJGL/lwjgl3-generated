@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * or retrieved from the same {@code VkInstance}</li>
  * <li>Any given element of {@code pImageIndices} <b>must</b> be the index of a presentable image acquired from the swapchain specified by the corresponding
  * element of the {@code pSwapchains} array</li>
- * <li>Any given element of {@code VkSemaphore} in {@code pWaitSemaphores} <b>must</b> refer to a prior signal of that {@code VkSemaphore} that won't be
+ * <li>Any given element of {@code VkSemaphore} in {@code pWaitSemaphores} <b>must</b> refer to a prior signal of that {@code VkSemaphore} that will not be
  * consumed by any other wait on that semaphore</li>
  * </ul>
  * 

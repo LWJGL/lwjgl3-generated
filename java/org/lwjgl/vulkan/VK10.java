@@ -2671,10 +2671,10 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 * <ul>
 	 * <li>If {@code instance} is not {@code NULL}, {@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
 	 * <li>{@code pName} <b>must</b> be a null-terminated string</li>
-	 * <li>If {@code instance} is {@code NULL}, {@code pName} <b>must</b> be one of: {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties}, {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties} or
-	 * {@link #vkCreateInstance CreateInstance}</li>
-	 * <li>If {@code instance} is not {@code NULL}, {@code pName} <b>must not</b> be {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties}, {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties} or
-	 * {@link #vkCreateInstance CreateInstance}</li>
+	 * <li>If {@code instance} is {@code NULL}, {@code pName} <b>must</b> be "vkEnumerateInstanceExtensionProperties", "vkEnumerateInstanceLayerProperties", or
+	 * "vkCreateInstance"</li>
+	 * <li>If {@code instance} is not {@code NULL}, {@code pName} <b>must not</b> be "vkEnumerateInstanceExtensionProperties", "vkEnumerateInstanceLayerProperties", or
+	 * "vkCreateInstance"</li>
 	 * </ul>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>LWJGL Note</h5>
@@ -2703,10 +2703,10 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <ul>
 	 * <li>If {@code instance} is not {@code NULL}, {@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
 	 * <li>{@code pName} <b>must</b> be a null-terminated string</li>
-	 * <li>If {@code instance} is {@code NULL}, {@code pName} <b>must</b> be one of: {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties}, {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties} or
-	 * {@link #vkCreateInstance CreateInstance}</li>
-	 * <li>If {@code instance} is not {@code NULL}, {@code pName} <b>must not</b> be {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties}, {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties} or
-	 * {@link #vkCreateInstance CreateInstance}</li>
+	 * <li>If {@code instance} is {@code NULL}, {@code pName} <b>must</b> be "vkEnumerateInstanceExtensionProperties", "vkEnumerateInstanceLayerProperties", or
+	 * "vkCreateInstance"</li>
+	 * <li>If {@code instance} is not {@code NULL}, {@code pName} <b>must not</b> be "vkEnumerateInstanceExtensionProperties", "vkEnumerateInstanceLayerProperties", or
+	 * "vkCreateInstance"</li>
 	 * </ul>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>LWJGL Note</h5>
@@ -2736,10 +2736,10 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <ul>
 	 * <li>If {@code instance} is not {@code NULL}, {@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
 	 * <li>{@code pName} <b>must</b> be a null-terminated string</li>
-	 * <li>If {@code instance} is {@code NULL}, {@code pName} <b>must</b> be one of: {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties}, {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties} or
-	 * {@link #vkCreateInstance CreateInstance}</li>
-	 * <li>If {@code instance} is not {@code NULL}, {@code pName} <b>must not</b> be {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties}, {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties} or
-	 * {@link #vkCreateInstance CreateInstance}</li>
+	 * <li>If {@code instance} is {@code NULL}, {@code pName} <b>must</b> be "vkEnumerateInstanceExtensionProperties", "vkEnumerateInstanceLayerProperties", or
+	 * "vkCreateInstance"</li>
+	 * <li>If {@code instance} is not {@code NULL}, {@code pName} <b>must not</b> be "vkEnumerateInstanceExtensionProperties", "vkEnumerateInstanceLayerProperties", or
+	 * "vkCreateInstance"</li>
 	 * </ul>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>LWJGL Note</h5>
@@ -8254,6 +8254,7 @@ or _unsignaled_.</p>
 	 * <li>All submitted commands that refer to any element of {@code pDescriptorSets} <b>must</b> have completed execution</li>
 	 * <li>{@code pDescriptorSets} <b>must</b> be a pointer to an array of {@code descriptorSetCount} {@code VkDescriptorSet} handles, each element of which <b>must</b>
 	 * either be a valid handle or {@link #VK_NULL_HANDLE NULL_HANDLE}</li>
+	 * <li>Each valid handle in {@code pDescriptorSets} <b>must</b> have been allocated from {@code descriptorPool}</li>
 	 * <li>{@code descriptorPool} <b>must</b> have been created with the {@link #VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT} flag</li>
 	 * </ul>
 	 * 
@@ -8293,6 +8294,7 @@ or _unsignaled_.</p>
 	 * <li>All submitted commands that refer to any element of {@code pDescriptorSets} <b>must</b> have completed execution</li>
 	 * <li>{@code pDescriptorSets} <b>must</b> be a pointer to an array of {@code descriptorSetCount} {@code VkDescriptorSet} handles, each element of which <b>must</b>
 	 * either be a valid handle or {@link #VK_NULL_HANDLE NULL_HANDLE}</li>
+	 * <li>Each valid handle in {@code pDescriptorSets} <b>must</b> have been allocated from {@code descriptorPool}</li>
 	 * <li>{@code descriptorPool} <b>must</b> have been created with the {@link #VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT} flag</li>
 	 * </ul>
 	 * 
@@ -8330,6 +8332,7 @@ or _unsignaled_.</p>
 	 * <li>All submitted commands that refer to any element of {@code pDescriptorSets} <b>must</b> have completed execution</li>
 	 * <li>{@code pDescriptorSets} <b>must</b> be a pointer to an array of {@code descriptorSetCount} {@code VkDescriptorSet} handles, each element of which <b>must</b>
 	 * either be a valid handle or {@link #VK_NULL_HANDLE NULL_HANDLE}</li>
+	 * <li>Each valid handle in {@code pDescriptorSets} <b>must</b> have been allocated from {@code descriptorPool}</li>
 	 * <li>{@code descriptorPool} <b>must</b> have been created with the {@link #VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT} flag</li>
 	 * </ul>
 	 * 
@@ -10053,7 +10056,7 @@ or _unsignaled_.</p>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
 	 * <li>Each of {@code commandBuffer} and {@code buffer} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code offset} <b>must</b> be less than the size of {@code buffer}</li>
-	 * <li>The sum of {@code offset}, and the address of the range of {@code VkDeviceMemory} object that's backing {@code buffer}, <b>must</b> be a multiple of the
+	 * <li>The sum of {@code offset} and the address of the range of {@code VkDeviceMemory} object that is backing {@code buffer}, <b>must</b> be a multiple of the
 	 * type indicated by {@code indexType}</li>
 	 * <li>{@code buffer} <b>must</b> have been created with the {@link #VK_BUFFER_USAGE_INDEX_BUFFER_BIT BUFFER_USAGE_INDEX_BUFFER_BIT} flag</li>
 	 * </ul>

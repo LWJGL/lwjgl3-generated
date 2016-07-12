@@ -65,7 +65,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * contain an {@code OpExecutionMode} instruction that specifies the out patch size in the pipeline, they <b>must</b> both specify the same patch size</li>
  * <li>If {@code pStages} includes tessellation shader stages, the {@code topology} member of {@code pInputAssembly} <b>must</b> be
  * {@link VK10#VK_PRIMITIVE_TOPOLOGY_PATCH_LIST PRIMITIVE_TOPOLOGY_PATCH_LIST}</li>
- * <li>If {@code pStages} includes a geometry shader stage, and doesn't include any tessellation shader stages, its shader code <b>must</b> contain an
+ * <li>If {@code pStages} includes a geometry shader stage, and does not include any tessellation shader stages, its shader code <b>must</b> contain an
  * {@code OpExecutionMode} instruction that specifies an input primitive type that is compatible with the primitive topology specified in
  * {@code pInputAssembly}</li>
  * <li>If {@code pStages} includes a geometry shader stage, and also includes tessellation shader stages, its shader code <b>must</b> contain an
