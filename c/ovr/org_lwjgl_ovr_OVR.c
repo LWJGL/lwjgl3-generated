@@ -44,6 +44,12 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_ovr_OVR_novr_1TraceMessage(JNIEnv *__env,
 	return (jlong)(intptr_t)ovr_TraceMessage(level, message);
 }
 
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1IdentifyClient(JNIEnv *__env, jclass clazz, jlong identityAddress) {
+	const char *identity = (const char *)(intptr_t)identityAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)ovr_IdentifyClient(identity);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetHmdDesc(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong __result) {
 	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
 	UNUSED_PARAMS(__env, clazz)

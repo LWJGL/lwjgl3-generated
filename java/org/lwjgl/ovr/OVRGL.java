@@ -42,7 +42,7 @@ public class OVRGL {
 	 * @param session              an {@code ovrSession} previously returned by {@link OVR#ovr_Create Create}
 	 * @param desc                 the requested texture properties. See notes for more info about texture format.
 	 * @param out_TextureSwapChain returns the created {@code ovrTextureSwapChain}, which will be valid upon a successful return value, else it will be {@code NULL}. This texture swap chain must
-	 *                             be eventually destroyed via {@link OVR#ovr_DestroyTextureSwapChain DestroyTextureSwapChain} before destroying the HMD with {@link OVR#ovr_Destroy Destroy}.
+	 *                             be eventually destroyed via {@link OVR#ovr_DestroyTextureSwapChain DestroyTextureSwapChain} before destroying the session with {@link OVR#ovr_Destroy Destroy}.
 	 *
 	 * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
 	 */
@@ -61,7 +61,7 @@ public class OVRGL {
 	 * @param session              an {@code ovrSession} previously returned by {@link OVR#ovr_Create Create}
 	 * @param desc                 the requested texture properties. See notes for more info about texture format.
 	 * @param out_TextureSwapChain returns the created {@code ovrTextureSwapChain}, which will be valid upon a successful return value, else it will be {@code NULL}. This texture swap chain must
-	 *                             be eventually destroyed via {@link OVR#ovr_DestroyTextureSwapChain DestroyTextureSwapChain} before destroying the HMD with {@link OVR#ovr_Destroy Destroy}.
+	 *                             be eventually destroyed via {@link OVR#ovr_DestroyTextureSwapChain DestroyTextureSwapChain} before destroying the session with {@link OVR#ovr_Destroy Destroy}.
 	 *
 	 * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
 	 */
@@ -122,7 +122,7 @@ public class OVRGL {
 	 * @param session           an {@code ovrSession} previously returned by {@link OVR#ovr_Create Create}
 	 * @param desc              the requested mirror texture description
 	 * @param out_MirrorTexture returns the created {@code OVRMirrorTextur}e, which will be valid upon a successful return value, else it will be {@code NULL}. This texture must be
-	 *                          eventually destroyed via {@link OVR#ovr_DestroyMirrorTexture DestroyMirrorTexture} before destroying the HMD with {@link OVR#ovr_Destroy Destroy}.
+	 *                          eventually destroyed via {@link OVR#ovr_DestroyMirrorTexture DestroyMirrorTexture} before destroying the session with {@link OVR#ovr_Destroy Destroy}.
 	 *
 	 * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
 	 */
@@ -140,7 +140,7 @@ public class OVRGL {
 	 * @param session           an {@code ovrSession} previously returned by {@link OVR#ovr_Create Create}
 	 * @param desc              the requested mirror texture description
 	 * @param out_MirrorTexture returns the created {@code OVRMirrorTextur}e, which will be valid upon a successful return value, else it will be {@code NULL}. This texture must be
-	 *                          eventually destroyed via {@link OVR#ovr_DestroyMirrorTexture DestroyMirrorTexture} before destroying the HMD with {@link OVR#ovr_Destroy Destroy}.
+	 *                          eventually destroyed via {@link OVR#ovr_DestroyMirrorTexture DestroyMirrorTexture} before destroying the session with {@link OVR#ovr_Destroy Destroy}.
 	 *
 	 * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
 	 */

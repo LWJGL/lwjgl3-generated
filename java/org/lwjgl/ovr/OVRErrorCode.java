@@ -21,23 +21,8 @@ public class OVRErrorCode {
 	 */
 	public static final int ovrSuccess_NotVisible = 1000;
 
-	/** The HMD Firmware is out of date but is acceptable. */
-	public static final int ovrSuccess_HMDFirmwareMismatch = 4100;
-
-	/** The Tracker Firmware is out of date but is acceptable. */
-	public static final int ovrSuccess_TrackerFirmwareMismatch = 4101;
-
-	/** The controller firmware is out of date but is acceptable. */
-	public static final int ovrSuccess_ControllerFirmwareMismatch = 4104;
-
-	/** The tracker driver interface was not found. Can be a temporary error. */
-	public static final int ovrSuccess_TrackerDriverNotFound = 4105;
-
 	/** Failure to allocate memory. */
 	public static final int ovrError_MemoryAllocationFailure = -1000;
-
-	/** Failure to create a socket. */
-	public static final int ovrError_SocketCreationFailure = -1001;
 
 	/** Invalid ovrSession parameter provided. */
 	public static final int ovrError_InvalidSession = -1002;
@@ -75,17 +60,11 @@ public class OVRErrorCode {
 	/** The service watchdog discovered a deadlock. */
 	public static final int ovrError_ServiceDeadlockDetected = -1014;
 
-	/** First Audio error. */
-	public static final int ovrError_AudioReservedBegin = -2000;
-
 	/** Failure to find the specified audio device. */
 	public static final int ovrError_AudioDeviceNotFound = -2001;
 
 	/** Generic COM error. */
 	public static final int ovrError_AudioComError = -2002;
-
-	/** Last Audio error. */
-	public static final int ovrError_AudioReservedEnd = -2999;
 
 	/** Generic initialization error. */
 	public static final int ovrError_Initialize = -3000;
@@ -150,114 +129,6 @@ public class OVRErrorCode {
 	/** Failed to get the interface for an attached tracker */
 	public static final int ovrError_TrackerDriverInit = -3020;
 
-	/** Headset has no bundle adjustment data. */
-	public static final int ovrError_InvalidBundleAdjustment = -4000;
-
-	/** The USB hub cannot handle the camera frame bandwidth. */
-	public static final int ovrError_USBBandwidth = -4001;
-
-	/** The USB camera is not enumerating at the correct device speed. */
-	public static final int ovrError_USBEnumeratedSpeed = -4002;
-
-	/** Unable to communicate with the image sensor. */
-	public static final int ovrError_ImageSensorCommError = -4003;
-
-	/** We use this to report various sensor issues that don't fit in an easily classifiable bucket. */
-	public static final int ovrError_GeneralTrackerFailure = -4004;
-
-	/** A more than acceptable number of frames are coming back truncated. */
-	public static final int ovrError_ExcessiveFrameTruncation = -4005;
-
-	/** A more than acceptable number of frames have been skipped. */
-	public static final int ovrError_ExcessiveFrameSkipping = -4006;
-
-	/** The sensor is not receiving the sync signal (cable disconnected?). */
-	public static final int ovrError_SyncDisconnected = -4007;
-
-	/** Failed to read memory from the sensor. */
-	public static final int ovrError_TrackerMemoryReadFailure = -4008;
-
-	/** Failed to write memory from the sensor. */
-	public static final int ovrError_TrackerMemoryWriteFailure = -4009;
-
-	/** Timed out waiting for a camera frame. */
-	public static final int ovrError_TrackerFrameTimeout = -4010;
-
-	/** Truncated frame returned from sensor. */
-	public static final int ovrError_TrackerTruncatedFrame = -4011;
-
-	/** The sensor driver has encountered a problem. */
-	public static final int ovrError_TrackerDriverFailure = -4012;
-
-	/** The sensor wireless subsystem has encountered a problem. */
-	public static final int ovrError_TrackerNRFFailure = -4013;
-
-	/** The hardware has been unplugged */
-	public static final int ovrError_HardwareGone = -4014;
-
-	/** The nordic indicates that sync is enabled but it is not sending sync pulses */
-	public static final int ovrError_NordicEnabledNoSync = -4015;
-
-	/** It looks like we're getting a sync signal, but no camera frames have been received */
-	public static final int ovrError_NordicSyncNoFrames = -4016;
-
-	/** A catastrophic failure has occurred.  We will attempt to recover by resetting the device */
-	public static final int ovrError_CatastrophicFailure = -4017;
-
-	/** The catastrophic recovery has timed out. */
-	public static final int ovrError_CatastrophicTimeout = -4018;
-
-	/** Catastrophic failure has repeated too many times. */
-	public static final int ovrError_RepeatCatastrophicFail = -4019;
-
-	/** Could not open handle for Rift device (likely already in use by another process). */
-	public static final int ovrError_USBOpenDeviceFailure = -4020;
-
-	/** Unexpected HMD issues that don't fit a specific bucket. */
-	public static final int ovrError_HMDGeneralFailure = -4021;
-
-	/** The HMD Firmware is out of date and is unacceptable. */
-	public static final int ovrError_HMDFirmwareMismatch = -4100;
-
-	/** The sensor Firmware is out of date and is unacceptable. */
-	public static final int ovrError_TrackerFirmwareMismatch = -4101;
-
-	/** A bootloader HMD is detected by the service. */
-	public static final int ovrError_BootloaderDeviceDetected = -4102;
-
-	/** The sensor calibration is missing or incorrect. */
-	public static final int ovrError_TrackerCalibrationError = -4103;
-
-	/** The controller firmware is out of date and is unacceptable. */
-	public static final int ovrError_ControllerFirmwareMismatch = -4104;
-
-	/** A DeviceManagement mode HMD is detected by the service. */
-	public static final int ovrError_DevManDeviceDetected = -4105;
-
-	/** Had to reboot bootloader device, which succeeded. */
-	public static final int ovrError_RebootedBootloaderDevice = -4106;
-
-	/** Had to reboot bootloader device, which failed. Device is stuck in bootloader mode. */
-	public static final int ovrError_FailedRebootBootloaderDev = -4107;
-
-	/** Too many lost IMU samples. */
-	public static final int ovrError_IMUTooManyLostSamples = -4200;
-
-	/** IMU rate is outside of the expected range. */
-	public static final int ovrError_IMURateError = -4201;
-
-	/** A feature report has failed. */
-	public static final int ovrError_FeatureReportFailure = -4202;
-
-	/** HMD wireless interface never returned from busy state. */
-	public static final int ovrError_HMDWirelessTimeout = -4203;
-
-	/** HMD Bootloader Assert Log was not empty. */
-	public static final int ovrError_BootloaderAssertLog = -4300;
-
-	/** HMD App Assert Log was not empty. */
-	public static final int ovrError_AppAssertLog = -4301;
-
 	/** Requested async work not yet complete. */
 	public static final int ovrError_Incomplete = -5000;
 
@@ -293,20 +164,6 @@ public class OVRErrorCode {
 
 	/** A runtime exception occurred. The application is required to shutdown LibOVR and re-initialize it before this error state will be cleared. */
 	public static final int ovrError_RuntimeException = -7000;
-
-	/** Error codes ({@code ovrErrorType}) */
-	public static final int
-		ovrError_MetricsUnknownApp           = -90000,
-		ovrError_MetricsDuplicateApp         = -90001,
-		ovrError_MetricsNoEvents             = -90002,
-		ovrError_MetricsRuntime              = -90003,
-		ovrError_MetricsFile                 = -90004,
-		ovrError_MetricsNoClientInfo         = -90005,
-		ovrError_MetricsNoAppMetaData        = -90006,
-		ovrError_MetricsNoApp                = -90007,
-		ovrError_MetricsOafFailure           = -90008,
-		ovrError_MetricsSessionAlreadyActive = -90009,
-		ovrError_MetricsSessionNotActive     = -90010;
 
 	static { LibOVR.initialize(); }
 

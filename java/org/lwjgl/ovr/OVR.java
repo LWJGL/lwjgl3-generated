@@ -15,40 +15,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/**
- * Native bindings to libOVR, using the <a href="https://developer.oculus.com/">Oculus SDK</a> C API.
- * 
- * <p>Overview of the API:</p>
- * 
- * <h3>Setup</h3>
- * 
- * <ul>
- * <li>{@link #ovr_Initialize Initialize}</li>
- * <li>{@link #ovr_Create Create}(&hmd, &graphicsId)</li>
- * <li>Use hmd members and {@link #ovr_GetFovTextureSize GetFovTextureSize} to determine graphics configuration and {@link #ovr_GetRenderDesc GetRenderDesc} to get per-eye rendering parameters.</li>
- * <li>Allocate texture swap chains with {@code ovr_CreateTextureSwapChainDX()} or {@link OVRGL#ovr_CreateTextureSwapChainGL CreateTextureSwapChainGL}. Create any associated render target
- * views or frame buffer objects.</li>
- * </ul>
- * 
- * <h3>Application Loop</h3>
- * 
- * <ul>
- * <li>Call {@link #ovr_GetPredictedDisplayTime GetPredictedDisplayTime} to get the current frame timing information.</li>
- * <li>Call {@link #ovr_GetTrackingState GetTrackingState} and {@link OVRUtil#ovr_CalcEyePoses CalcEyePoses} to obtain the predicted rendering pose for each eye based on timing.</li>
- * <li>Render the scene content into the current buffer of the texture swapchains for each eye and layer you plan to update this frame. If you render into
- * a texture swap chain, you must call {@link #ovr_CommitTextureSwapChain CommitTextureSwapChain} on it to commit the changes before you reference the chain this frame (otherwise,
- * your latest changes won't be picked up).</li>
- * <li>Call {@link #ovr_SubmitFrame SubmitFrame} to render the distorted layers to and present them on the HMD. If {@link #ovr_SubmitFrame SubmitFrame} returns {@link OVRErrorCode#ovrSuccess_NotVisible Success_NotVisible}, there
- * is no need to render the scene for the next loop iteration. Instead, just call {@link #ovr_SubmitFrame SubmitFrame} again until it returns {@link OVRErrorCode#ovrSuccess Success}.</li>
- * </ul>
- * 
- * <h3>Shutdown</h3>
- * 
- * <ul>
- * <li>{@link #ovr_Destroy Destroy}</li>
- * <li>{@link #ovr_Shutdown Shutdown}</li>
- * </ul>
- */
+/** Native bindings to libOVR, using the <a href="https://developer.oculus.com/">Oculus SDK</a> C API. */
 public class OVR {
 
 	/** Boolean values */
@@ -180,7 +147,17 @@ public class OVR {
 		OVR_FORMAT_D16_UNORM            = 11,
 		OVR_FORMAT_D24_UNORM_S8_UINT    = 12,
 		OVR_FORMAT_D32_FLOAT            = 13,
-		OVR_FORMAT_D32_FLOAT_S8X24_UINT = 14;
+		OVR_FORMAT_D32_FLOAT_S8X24_UINT = 14,
+		OVR_FORMAT_BC1_UNORM            = 15,
+		OVR_FORMAT_BC1_UNORM_SRGB       = 16,
+		OVR_FORMAT_BC2_UNORM            = 17,
+		OVR_FORMAT_BC2_UNORM_SRGB       = 18,
+		OVR_FORMAT_BC3_UNORM            = 19,
+		OVR_FORMAT_BC3_UNORM_SRGB       = 20,
+		OVR_FORMAT_BC6H_UF16            = 21,
+		OVR_FORMAT_BC6H_SF16            = 22,
+		OVR_FORMAT_BC7_UNORM            = 23,
+		OVR_FORMAT_BC7_UNORM_SRGB       = 24;
 
 	/** Not currently supported on PC. Would require a DirectX 11.1 device. */
 	public static final int OVR_FORMAT_B5G6R5_UNORM = 1;
@@ -287,11 +264,14 @@ public class OVR {
 	/** Touch RThumb */
 	public static final int ovrTouch_RThumb = ovrButton_RThumb;
 
+	/** Touch RThumbRest */
+	public static final int ovrTouch_RThumbRest = 0x8;
+
 	/** Touch RIndexTrigger */
 	public static final int ovrTouch_RIndexTrigger = 0x10;
 
 	/** Bit mask of all the button touches on the right controller */
-	public static final int ovrTouch_RButtonMask = ovrTouch_A | ovrTouch_B | ovrTouch_RThumb | ovrTouch_RIndexTrigger;
+	public static final int ovrTouch_RButtonMask = ovrTouch_A | ovrTouch_B | ovrTouch_RThumb | ovrTouch_RThumbRest | ovrTouch_RIndexTrigger;
 
 	/** Touch X */
 	public static final int ovrTouch_X = ovrButton_X;
@@ -302,11 +282,14 @@ public class OVR {
 	/** Touch LThumb */
 	public static final int ovrTouch_LThumb = ovrButton_LThumb;
 
+	/** Touch LThumbRest */
+	public static final int ovrTouch_LThumbRest = 0x800;
+
 	/** Touch LIndexTrigger */
 	public static final int ovrTouch_LIndexTrigger = 0x1000;
 
 	/** Bit mask of all the button touches on the left controller */
-	public static final int ovrTouch_LButtonMask = ovrTouch_X | ovrTouch_Y | ovrTouch_LThumb | ovrTouch_LIndexTrigger;
+	public static final int ovrTouch_LButtonMask = ovrTouch_X | ovrTouch_Y | ovrTouch_LThumb | ovrTouch_LThumbRest | ovrTouch_LIndexTrigger;
 
 	/** TouchRIndexPointing */
 	public static final int ovrTouch_RIndexPointing = 0x20;
@@ -400,12 +383,17 @@ public class OVR {
 	/** Shows info about a specific layer */
 	public static final int ovrLayerHud_Info = 1;
 
-	/** Visual properties of the stereo guide. */
-	public static final int
-		ovrDebugHudStereo_Off                 = 0,
-		ovrDebugHudStereo_Quad                = 1,
-		ovrDebugHudStereo_QuadWithCrosshair   = 2,
-		ovrDebugHudStereo_CrosshairAtInfinity = 3;
+	/** Turns off the Stereo Debug HUD */
+	public static final int ovrDebugHudStereo_Off = 0;
+
+	/** Renders Quad in world for Stereo Debugging */
+	public static final int ovrDebugHudStereo_Quad = 1;
+
+	/** Renders Quad+crosshair in world for Stereo Debugging */
+	public static final int ovrDebugHudStereo_QuadWithCrosshair = 2;
+
+	/** Renders screen-space crosshair at infinity for Stereo Debugging */
+	public static final int ovrDebugHudStereo_CrosshairAtInfinity = 3;
 
 	static { LibOVR.initialize(); }
 
@@ -611,6 +599,101 @@ public class OVR {
 		}
 	}
 
+	// --- [ ovr_IdentifyClient ] ---
+
+	/**
+	 * Identifies client application info.
+	 * 
+	 * <p>The string is one or more newline-delimited lines of optional info indicating engine name, engine version, engine plugin name, engine plugin version,
+	 * engine editor. The order of the lines is not relevant. Individual lines are optional. A newline is not necessary at the end of the last line. Call
+	 * after {@link #ovr_Initialize Initialize} and before the first call to {@link #ovr_Create Create}. Each value is limited to 20 characters. Key names such as 'EngineName:', 'EngineVersion:'
+	 * do not count towards this limit.</p>
+	 * 
+	 * <pre><code>EngineName: %s\n
+EngineVersion: %s\n
+EnginePluginName: %s\n
+EnginePluginVersion: %s\n
+EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
+	 * 
+	 * <p>Example code:</p>
+	 * 
+	 * <pre><code>ovr_IdentifyClient(
+    "EngineName: Unity\n" +
+    "EngineVersion: 5.3.3\n" +
+    "EnginePluginName: OVRPlugin\n" +
+    "EnginePluginVersion: 1.2.0\n" +
+    "EngineEditor: true");</code></pre>
+	 *
+	 * @param identity specifies one or more newline-delimited lines of optional info
+	 */
+	public static native int novr_IdentifyClient(long identity);
+
+	/**
+	 * Identifies client application info.
+	 * 
+	 * <p>The string is one or more newline-delimited lines of optional info indicating engine name, engine version, engine plugin name, engine plugin version,
+	 * engine editor. The order of the lines is not relevant. Individual lines are optional. A newline is not necessary at the end of the last line. Call
+	 * after {@link #ovr_Initialize Initialize} and before the first call to {@link #ovr_Create Create}. Each value is limited to 20 characters. Key names such as 'EngineName:', 'EngineVersion:'
+	 * do not count towards this limit.</p>
+	 * 
+	 * <pre><code>EngineName: %s\n
+EngineVersion: %s\n
+EnginePluginName: %s\n
+EnginePluginVersion: %s\n
+EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
+	 * 
+	 * <p>Example code:</p>
+	 * 
+	 * <pre><code>ovr_IdentifyClient(
+    "EngineName: Unity\n" +
+    "EngineVersion: 5.3.3\n" +
+    "EnginePluginName: OVRPlugin\n" +
+    "EnginePluginVersion: 1.2.0\n" +
+    "EngineEditor: true");</code></pre>
+	 *
+	 * @param identity specifies one or more newline-delimited lines of optional info
+	 */
+	public static int ovr_IdentifyClient(ByteBuffer identity) {
+		if ( CHECKS )
+			checkNT1(identity);
+		return novr_IdentifyClient(memAddress(identity));
+	}
+
+	/**
+	 * Identifies client application info.
+	 * 
+	 * <p>The string is one or more newline-delimited lines of optional info indicating engine name, engine version, engine plugin name, engine plugin version,
+	 * engine editor. The order of the lines is not relevant. Individual lines are optional. A newline is not necessary at the end of the last line. Call
+	 * after {@link #ovr_Initialize Initialize} and before the first call to {@link #ovr_Create Create}. Each value is limited to 20 characters. Key names such as 'EngineName:', 'EngineVersion:'
+	 * do not count towards this limit.</p>
+	 * 
+	 * <pre><code>EngineName: %s\n
+EngineVersion: %s\n
+EnginePluginName: %s\n
+EnginePluginVersion: %s\n
+EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
+	 * 
+	 * <p>Example code:</p>
+	 * 
+	 * <pre><code>ovr_IdentifyClient(
+    "EngineName: Unity\n" +
+    "EngineVersion: 5.3.3\n" +
+    "EnginePluginName: OVRPlugin\n" +
+    "EnginePluginVersion: 1.2.0\n" +
+    "EngineEditor: true");</code></pre>
+	 *
+	 * @param identity specifies one or more newline-delimited lines of optional info
+	 */
+	public static int ovr_IdentifyClient(CharSequence identity) {
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer identityEncoded = stack.UTF8(identity);
+			return novr_IdentifyClient(memAddress(identityEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
 	// --- [ ovr_GetHmdDesc ] ---
 
 	/**
@@ -703,14 +786,14 @@ public class OVR {
 	 * Creates a handle to a VR session.
 	 * 
 	 * <p>Upon success the returned {@code ovrSession} must be eventually freed with {@link #ovr_Destroy Destroy} when it is no longer needed. A second call to {@link #ovr_Create Create} will result
-	 * in an error return value if the previous {@code Hmd} has not been destroyed.</p>
+	 * in an error return value if the previous session has not been destroyed.</p>
 	 *
 	 * @param pSession a pointer to an {@code ovrSession} which will be written to upon success
 	 * @param luid     a system specific graphics adapter identifier that locates which graphics adapter has the HMD attached. This must match the adapter used by the
 	 *                 application or no rendering output will be possible. This is important for stability on multi-adapter systems. An application that simply chooses
 	 *                 the default adapter will not run reliably on multi-adapter systems.
 	 *
-	 * @return an {@code ovrResult} indicating success or failure. Upon failure the returned {@code pHmd} will be {@code NULL}.
+	 * @return an {@code ovrResult} indicating success or failure. Upon failure the returned {@code ovrSession} will be {@code NULL}.
 	 */
 	public static native int novr_Create(long pSession, long luid);
 
@@ -718,14 +801,14 @@ public class OVR {
 	 * Creates a handle to a VR session.
 	 * 
 	 * <p>Upon success the returned {@code ovrSession} must be eventually freed with {@link #ovr_Destroy Destroy} when it is no longer needed. A second call to {@link #ovr_Create Create} will result
-	 * in an error return value if the previous {@code Hmd} has not been destroyed.</p>
+	 * in an error return value if the previous session has not been destroyed.</p>
 	 *
 	 * @param pSession a pointer to an {@code ovrSession} which will be written to upon success
 	 * @param luid     a system specific graphics adapter identifier that locates which graphics adapter has the HMD attached. This must match the adapter used by the
 	 *                 application or no rendering output will be possible. This is important for stability on multi-adapter systems. An application that simply chooses
 	 *                 the default adapter will not run reliably on multi-adapter systems.
 	 *
-	 * @return an {@code ovrResult} indicating success or failure. Upon failure the returned {@code pHmd} will be {@code NULL}.
+	 * @return an {@code ovrResult} indicating success or failure. Upon failure the returned {@code ovrSession} will be {@code NULL}.
 	 */
 	public static int ovr_Create(PointerBuffer pSession, OVRGraphicsLuid luid) {
 		if ( CHECKS )
@@ -736,14 +819,14 @@ public class OVR {
 	// --- [ ovr_Destroy ] ---
 
 	/**
-	 * Destroys the HMD.
+	 * Destroys the session.
 	 *
 	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
 	 */
 	public static native void novr_Destroy(long session);
 
 	/**
-	 * Destroys the HMD.
+	 * Destroys the session.
 	 *
 	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
 	 */
@@ -902,7 +985,7 @@ public class OVR {
 	 * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
 	 * @param absTime       the absolute future time to predict the return {@link OVRTrackingState} value. Use 0 to request the most recent tracking state.
 	 * @param latencyMarker specifies that this call is the point in time where the "App-to-Mid-Photon" latency timer starts from. If a given {@code ovrLayer} provides
-	 *                      "SensorSampleTimestamp", that will override the value stored here.
+	 *                      "SensorSampleTime", that will override the value stored here.
 	 * @param __result      the {@link OVRTrackingState} that is predicted for the given {@code absTime}
 	 */
 	public static native void novr_GetTrackingState(long session, double absTime, boolean latencyMarker, long __result);
@@ -920,7 +1003,7 @@ public class OVR {
 	 * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
 	 * @param absTime       the absolute future time to predict the return {@link OVRTrackingState} value. Use 0 to request the most recent tracking state.
 	 * @param latencyMarker specifies that this call is the point in time where the "App-to-Mid-Photon" latency timer starts from. If a given {@code ovrLayer} provides
-	 *                      "SensorSampleTimestamp", that will override the value stored here.
+	 *                      "SensorSampleTime", that will override the value stored here.
 	 * @param __result      the {@link OVRTrackingState} that is predicted for the given {@code absTime}
 	 */
 	public static OVRTrackingState ovr_GetTrackingState(long session, double absTime, boolean latencyMarker, OVRTrackingState __result) {
@@ -1297,7 +1380,7 @@ ovrSizei eyeSizeRight = ovr_GetFovTextureSize(session, ovrEye_Right, hmdDesc.Def
 ovrLayerQuad    layer1;
 ...
 ovrLayerHeader* layers[2] = { &layer0.Header, &layer1.Header };
-ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code></pre>
+ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</code></pre>
 	 *
 	 * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
 	 * @param frameIndex    the targeted application frame index, or 0 to refer to one frame after the last time {@link #ovr_SubmitFrame SubmitFrame} was called
@@ -1348,7 +1431,7 @@ ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code><
 ovrLayerQuad    layer1;
 ...
 ovrLayerHeader* layers[2] = { &layer0.Header, &layer1.Header };
-ovrResult result = ovr_SubmitFrame(hmd, frameIndex, nullptr, layers, 2);</code></pre>
+ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</code></pre>
 	 *
 	 * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
 	 * @param frameIndex    the targeted application frame index, or 0 to refer to one frame after the last time {@link #ovr_SubmitFrame SubmitFrame} was called
