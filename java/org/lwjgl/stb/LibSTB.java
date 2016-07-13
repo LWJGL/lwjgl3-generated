@@ -7,12 +7,24 @@ package org.lwjgl.stb;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.MemoryUtil.*;
+
 /** Initializes the stb shared library. */
 final class LibSTB {
 
 	static {
-		Library.loadSystem("lwjgl_stb");
-		MemoryUtil.setupAllocator("lwjgl_stb");
+		String libName = Platform.mapLibraryNameBundled("lwjgl_stb");
+		Library.loadSystem(libName);
+
+		MemoryAllocator allocator = getAllocator();
+		setupMalloc(
+			allocator.getMalloc(),
+			allocator.getCalloc(),
+			allocator.getRealloc(),
+			allocator.getFree(),
+			allocator.getAlignedAlloc(),
+			allocator.getAlignedFree()
+		);
 	}
 
 	private LibSTB() {
@@ -21,5 +33,14 @@ final class LibSTB {
 	static void initialize() {
 		// intentionally empty to trigger static initializer
 	}
+
+	private static native void setupMalloc(
+		long malloc,
+		long calloc,
+		long realloc,
+		long free,
+		long aligned_alloc,
+		long aligned_free
+	);
 
 }

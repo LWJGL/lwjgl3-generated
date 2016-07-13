@@ -11,7 +11,8 @@ import org.lwjgl.system.*;
 final class LibOVR {
 
 	static {
-		Library.loadSystem("lwjgl_ovr");
+		String libName = Platform.mapLibraryNameBundled("lwjgl_ovr");
+		Library.loadSystem(libName);
 	}
 
 	private LibOVR() {

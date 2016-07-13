@@ -559,7 +559,7 @@ public class GLFW {
 		throw new UnsupportedOperationException();
 	}
 
-	private static final SharedLibrary GLFW = Library.loadNative(Configuration.GLFW_LIBRARY_NAME.get(Pointer.BITS64 ? "glfw" : "glfw32"));
+	private static final SharedLibrary GLFW = Library.loadNative(Configuration.GLFW_LIBRARY_NAME.get(Platform.mapLibraryNameBundled("glfw")));
 
 	/** Contains the function pointers loaded from the glfw {@link SharedLibrary}. */
 	public static final class Functions {

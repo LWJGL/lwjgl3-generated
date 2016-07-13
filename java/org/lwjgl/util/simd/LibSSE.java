@@ -11,7 +11,8 @@ import org.lwjgl.system.*;
 final class LibSSE {
 
 	static {
-		Library.loadSystem("lwjgl_sse");
+		String libName = Platform.mapLibraryNameBundled("lwjgl_sse");
+		Library.loadSystem(libName);
 	}
 
 	private LibSSE() {

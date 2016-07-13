@@ -7,12 +7,24 @@ package org.lwjgl.util.xxhash;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.MemoryUtil.*;
+
 /** Initializes the xxhash shared library. */
 final class LibXXHash {
 
 	static {
-		Library.loadSystem("lwjgl_xxhash");
-		MemoryUtil.setupAllocator("lwjgl_xxhash");
+		String libName = Platform.mapLibraryNameBundled("lwjgl_xxhash");
+		Library.loadSystem(libName);
+
+		MemoryAllocator allocator = getAllocator();
+		setupMalloc(
+			allocator.getMalloc(),
+			allocator.getCalloc(),
+			allocator.getRealloc(),
+			allocator.getFree(),
+			allocator.getAlignedAlloc(),
+			allocator.getAlignedFree()
+		);
 	}
 
 	private LibXXHash() {
@@ -21,5 +33,14 @@ final class LibXXHash {
 	static void initialize() {
 		// intentionally empty to trigger static initializer
 	}
+
+	private static native void setupMalloc(
+		long malloc,
+		long calloc,
+		long realloc,
+		long free,
+		long aligned_alloc,
+		long aligned_free
+	);
 
 }

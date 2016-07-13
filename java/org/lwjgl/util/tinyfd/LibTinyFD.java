@@ -11,7 +11,8 @@ import org.lwjgl.system.*;
 final class LibTinyFD {
 
 	static {
-		Library.loadSystem("lwjgl_tinyfd");
+		String libName = Platform.mapLibraryNameBundled("lwjgl_tinyfd");
+		Library.loadSystem(libName);
 	}
 
 	private LibTinyFD() {

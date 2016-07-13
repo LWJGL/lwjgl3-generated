@@ -7,12 +7,24 @@ package org.lwjgl.util.par;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.MemoryUtil.*;
+
 /** Initializes the par shared library. */
 final class LibPar {
 
 	static {
-		Library.loadSystem("lwjgl_par");
-		MemoryUtil.setupAllocator("lwjgl_par");
+		String libName = Platform.mapLibraryNameBundled("lwjgl_par");
+		Library.loadSystem(libName);
+
+		MemoryAllocator allocator = getAllocator();
+		setupMalloc(
+			allocator.getMalloc(),
+			allocator.getCalloc(),
+			allocator.getRealloc(),
+			allocator.getFree(),
+			allocator.getAlignedAlloc(),
+			allocator.getAlignedFree()
+		);
 	}
 
 	private LibPar() {
@@ -21,5 +33,14 @@ final class LibPar {
 	static void initialize() {
 		// intentionally empty to trigger static initializer
 	}
+
+	private static native void setupMalloc(
+		long malloc,
+		long calloc,
+		long realloc,
+		long free,
+		long aligned_alloc,
+		long aligned_free
+	);
 
 }
