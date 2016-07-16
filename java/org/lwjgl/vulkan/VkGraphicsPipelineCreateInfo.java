@@ -54,17 +54,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If {@code pStages} includes a tessellation evaluation shader stage, it <b>must</b> include a tessellation control shader stage</li>
  * <li>If {@code pStages} includes a tessellation control shader stage and a tessellation evaluation shader stage, {@code pTessellationState} <b>must not</b> be
  * {@code NULL}</li>
- * <li>If {@code pStages} includes both a tessellation control shader stage and a tessellation evaluation shader stage, the shader code of at least one
- * <b>must</b> contain an {@code OpExecutionMode} instruction that specifies the type of subdivision in the pipeline</li>
- * <li>If {@code pStages} includes both a tessellation control shader stage and a tessellation evaluation shader stage, and the shader code of both
- * contain an {@code OpExecutionMode} instruction that specifies the type of subdivision in the pipeline, they <b>must</b> both specify the same subdivision
- * mode</li>
- * <li>If {@code pStages} includes both a tessellation control shader stage and a tessellation evaluation shader stage, the shader code of at least one
- * <b>must</b> contain an {@code OpExecutionMode} instruction that specifies the output patch size in the pipeline</li>
- * <li>If {@code pStages} includes both a tessellation control shader stage and a tessellation evaluation shader stage, and the shader code of both
- * contain an {@code OpExecutionMode} instruction that specifies the out patch size in the pipeline, they <b>must</b> both specify the same patch size</li>
+ * <li>If {@code pStages} includes tessellation shader stages, the shader code of at least one stage <b>must</b> contain an {@code OpExecutionMode} instruction
+ * that specifies the type of subdivision in the pipeline</li>
+ * <li>If {@code pStages} includes tessellation shader stages, and the shader code of both stages contain an {@code OpExecutionMode} instruction that
+ * specifies the type of subdivision in the pipeline, they <b>must</b> both specify the same subdivision mode</li>
+ * <li>If {@code pStages} includes tessellation shader stages, the shader code of at least one stage <b>must</b> contain an {@code OpExecutionMode} instruction
+ * that specifies the output patch size in the pipeline</li>
+ * <li>If {@code pStages} includes tessellation shader stages, and the shader code of both contain an {@code OpExecutionMode} instruction that specifies
+ * the out patch size in the pipeline, they <b>must</b> both specify the same patch size</li>
  * <li>If {@code pStages} includes tessellation shader stages, the {@code topology} member of {@code pInputAssembly} <b>must</b> be
  * {@link VK10#VK_PRIMITIVE_TOPOLOGY_PATCH_LIST PRIMITIVE_TOPOLOGY_PATCH_LIST}</li>
+ * <li>If the {@code topology} member of {@code pInputAssembly} is {@link VK10#VK_PRIMITIVE_TOPOLOGY_PATCH_LIST PRIMITIVE_TOPOLOGY_PATCH_LIST}, {@code pStages} <b>must</b> include tessellation shader
+ * stages</li>
  * <li>If {@code pStages} includes a geometry shader stage, and does not include any tessellation shader stages, its shader code <b>must</b> contain an
  * {@code OpExecutionMode} instruction that specifies an input primitive type that is compatible with the primitive topology specified in
  * {@code pInputAssembly}</li>

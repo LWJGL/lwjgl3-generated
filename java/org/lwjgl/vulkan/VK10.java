@@ -4644,16 +4644,9 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
 	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an
 	 * array of {@code pPropertyCount} {@link VkSparseImageFormatProperties} structures</li>
-	 * <li>If {@code format} is an integer format, samples <b>must</b> be one of the bit flags specified in
-	 * {@link VkPhysicalDeviceLimits}{@code ::sampledImageIntegerSampleCounts}</li>
-	 * <li>If {@code format} is a non-integer color format, samples <b>must</b> be one of the bit flags specified in
-	 * {@link VkPhysicalDeviceLimits}{@code ::sampledImageColorSampleCounts}</li>
-	 * <li>If {@code format} is a depth format, samples <b>must</b> be one of the bit flags specified in
-	 * {@link VkPhysicalDeviceLimits}{@code ::sampledImageDepthSampleCounts}</li>
-	 * <li>If {@code format} is a stencil format, samples <b>must</b> be one of the bit flags specified in
-	 * {@link VkPhysicalDeviceLimits}{@code ::sampledImageStencilSampleCounts}</li>
-	 * <li>If {@code usage} includes {@link #VK_IMAGE_USAGE_STORAGE_BIT IMAGE_USAGE_STORAGE_BIT}, samples <b>must</b> be one of the bit flags specified in
-	 * {@link VkPhysicalDeviceLimits}{@code ::storageImageSampleCounts}</li>
+	 * <li>{@code samples} <b>must</b> be a bit value that is set in {@link VkImageFormatProperties}{@code ::sampleCounts} returned by
+	 * {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties} with {@code format}, {@code type}, {@code tiling}, and {@code usage} equal to those in this command and
+	 * {@code flags} equal to the value that is set in sname::VkImageCreateInfo::pname::flags when the image is created</li>
 	 * </ul>
 	 * 
 	 * <p>If {@link #VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT} is not supported for the given arguments, {@code pPropertyCount} will be set to zero upon return, and no data
@@ -4710,16 +4703,9 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
 	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an
 	 * array of {@code pPropertyCount} {@link VkSparseImageFormatProperties} structures</li>
-	 * <li>If {@code format} is an integer format, samples <b>must</b> be one of the bit flags specified in
-	 * {@link VkPhysicalDeviceLimits}{@code ::sampledImageIntegerSampleCounts}</li>
-	 * <li>If {@code format} is a non-integer color format, samples <b>must</b> be one of the bit flags specified in
-	 * {@link VkPhysicalDeviceLimits}{@code ::sampledImageColorSampleCounts}</li>
-	 * <li>If {@code format} is a depth format, samples <b>must</b> be one of the bit flags specified in
-	 * {@link VkPhysicalDeviceLimits}{@code ::sampledImageDepthSampleCounts}</li>
-	 * <li>If {@code format} is a stencil format, samples <b>must</b> be one of the bit flags specified in
-	 * {@link VkPhysicalDeviceLimits}{@code ::sampledImageStencilSampleCounts}</li>
-	 * <li>If {@code usage} includes {@link #VK_IMAGE_USAGE_STORAGE_BIT IMAGE_USAGE_STORAGE_BIT}, samples <b>must</b> be one of the bit flags specified in
-	 * {@link VkPhysicalDeviceLimits}{@code ::storageImageSampleCounts}</li>
+	 * <li>{@code samples} <b>must</b> be a bit value that is set in {@link VkImageFormatProperties}{@code ::sampleCounts} returned by
+	 * {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties} with {@code format}, {@code type}, {@code tiling}, and {@code usage} equal to those in this command and
+	 * {@code flags} equal to the value that is set in sname::VkImageCreateInfo::pname::flags when the image is created</li>
 	 * </ul>
 	 * 
 	 * <p>If {@link #VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT} is not supported for the given arguments, {@code pPropertyCount} will be set to zero upon return, and no data
@@ -10978,8 +10964,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>Each of {@code commandBuffer}, {@code srcImage} and {@code dstImage} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
 	 * <li>The source region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
 	 * <li>The destination region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
-	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
-	 * memory</li>
+	 * <li>The union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in memory with any texel that <b>may</b> be sampled
+	 * during the blit operation</li>
 	 * <li>{@code srcImage} <b>must</b> use a format that supports {@link #VK_FORMAT_FEATURE_BLIT_SRC_BIT FORMAT_FEATURE_BLIT_SRC_BIT}, which is indicated by
 	 * {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linear tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally
 	 * tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
@@ -11001,6 +10987,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * with an unsigned integer {@code VkFormat}</li>
 	 * <li>If either of {@code srcImage} or {@code dstImage} was created with a depth/stencil format, the other <b>must</b> have exactly the same format</li>
 	 * <li>If {@code srcImage} was created with a depth/stencil format, {@code filter} <b>must</b> be {@link #VK_FILTER_NEAREST FILTER_NEAREST}</li>
+	 * <li>{@code srcImage} <b>must</b> have been created with a {@code samples} value of {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
+	 * <li>{@code dstImage} <b>must</b> have been created with a {@code samples} value of {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
 	 * <li>If {@code filter} is {@link #VK_FILTER_LINEAR FILTER_LINEAR}, {@code srcImage} <b>must</b> be of a format which supports linear filtering, as specified by the
 	 * {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
 	 * {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
@@ -11050,8 +11038,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>Each of {@code commandBuffer}, {@code srcImage} and {@code dstImage} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
 	 * <li>The source region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
 	 * <li>The destination region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
-	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
-	 * memory</li>
+	 * <li>The union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in memory with any texel that <b>may</b> be sampled
+	 * during the blit operation</li>
 	 * <li>{@code srcImage} <b>must</b> use a format that supports {@link #VK_FORMAT_FEATURE_BLIT_SRC_BIT FORMAT_FEATURE_BLIT_SRC_BIT}, which is indicated by
 	 * {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linear tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally
 	 * tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
@@ -11073,6 +11061,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * with an unsigned integer {@code VkFormat}</li>
 	 * <li>If either of {@code srcImage} or {@code dstImage} was created with a depth/stencil format, the other <b>must</b> have exactly the same format</li>
 	 * <li>If {@code srcImage} was created with a depth/stencil format, {@code filter} <b>must</b> be {@link #VK_FILTER_NEAREST FILTER_NEAREST}</li>
+	 * <li>{@code srcImage} <b>must</b> have been created with a {@code samples} value of {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
+	 * <li>{@code dstImage} <b>must</b> have been created with a {@code samples} value of {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
 	 * <li>If {@code filter} is {@link #VK_FILTER_LINEAR FILTER_LINEAR}, {@code srcImage} <b>must</b> be of a format which supports linear filtering, as specified by the
 	 * {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
 	 * {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>

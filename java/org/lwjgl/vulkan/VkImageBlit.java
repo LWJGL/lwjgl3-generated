@@ -31,6 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * {@code baseArrayLayer} and {@code layerCount} members of both {@code srcSubresource} and {@code dstSubresource} <b>must</b> be 0 and 1, respectively</li>
  * <li>The {@code aspectMask} member of {@code srcSubresource} <b>must</b> specify aspects present in the calling command's {@code srcImage}</li>
  * <li>The {@code aspectMask} member of {@code dstSubresource} <b>must</b> specify aspects present in the calling command's {@code dstImage}</li>
+ * <li>The {@code layerCount} member of {@code dstSubresource} <b>must</b> be equal to the {@code layerCount} member of {@code srcSubresource}</li>
  * <li>{@code srcOffset}[0].x and {@code srcOffset}[1].x <b>must</b> both be greater than or equal to 0 and less than or equal to the source image subresource
  * width</li>
  * <li>{@code srcOffset}[0].y and {@code srcOffset}[1].y <b>must</b> both be greater than or equal to 0 and less than or equal to the source image subresource

@@ -756,6 +756,8 @@ public class KHRSwapchain {
 	 * <li>{@code pPresentInfo} <b>must</b> be a pointer to a valid {@link VkPresentInfoKHR} structure</li>
 	 * <li>Any given element of {@code pSwapchains} member of {@code pPresentInfo} <b>must</b> be a swapchain that is created for a surface for which presentation
 	 * is supported from {@code queue} as determined using a call to {@link KHRSurface#vkGetPhysicalDeviceSurfaceSupportKHR GetPhysicalDeviceSurfaceSupportKHR}</li>
+	 * <li>If more than one member of 'pSwapchains' was created from a display surface, all display surfaces referenced that refer to the same display <b>must</b>
+	 * use the same display mode.</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -812,6 +814,8 @@ public class KHRSwapchain {
 	 * <li>{@code pPresentInfo} <b>must</b> be a pointer to a valid {@link VkPresentInfoKHR} structure</li>
 	 * <li>Any given element of {@code pSwapchains} member of {@code pPresentInfo} <b>must</b> be a swapchain that is created for a surface for which presentation
 	 * is supported from {@code queue} as determined using a call to {@link KHRSurface#vkGetPhysicalDeviceSurfaceSupportKHR GetPhysicalDeviceSurfaceSupportKHR}</li>
+	 * <li>If more than one member of 'pSwapchains' was created from a display surface, all display surfaces referenced that refer to the same display <b>must</b>
+	 * use the same display mode.</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
