@@ -7,12 +7,9 @@ package org.lwjgl.nuklear;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -31,7 +28,7 @@ import static org.lwjgl.system.MemoryStack.*;
     bool single_line;
 }</code></pre>
  */
-public class NkEditState extends Struct implements NativeResource {
+public class NkEditState extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -123,122 +120,11 @@ public class NkEditState extends Struct implements NativeResource {
 	/** Returns the value of the {@code single_line} field. */
 	public boolean single_line() { return nsingle_line(address()); }
 
-	/** Sets the specified value to the {@code name} field. */
-	public NkEditState name(int value) { nname(address(), value); return this; }
-	/** Sets the specified value to the {@code seq} field. */
-	public NkEditState seq(int value) { nseq(address(), value); return this; }
-	/** Sets the specified value to the {@code old} field. */
-	public NkEditState old(int value) { nold(address(), value); return this; }
-	/** Sets the specified value to the {@code active} field. */
-	public NkEditState active(int value) { nactive(address(), value); return this; }
-	/** Sets the specified value to the {@code prev} field. */
-	public NkEditState prev(int value) { nprev(address(), value); return this; }
-	/** Sets the specified value to the {@code cursor} field. */
-	public NkEditState cursor(int value) { ncursor(address(), value); return this; }
-	/** Sets the specified value to the {@code sel_start} field. */
-	public NkEditState sel_start(int value) { nsel_start(address(), value); return this; }
-	/** Sets the specified value to the {@code sel_end} field. */
-	public NkEditState sel_end(int value) { nsel_end(address(), value); return this; }
-	/** Copies the specified {@link NkScroll} to the {@code scrollbar} field. */
-	public NkEditState scrollbar(NkScroll value) { nscrollbar(address(), value); return this; }
-	/** Sets the specified value to the {@code mode} field. */
-	public NkEditState mode(byte value) { nmode(address(), value); return this; }
-	/** Sets the specified value to the {@code single_line} field. */
-	public NkEditState single_line(boolean value) { nsingle_line(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public NkEditState set(
-		int name,
-		int seq,
-		int old,
-		int active,
-		int prev,
-		int cursor,
-		int sel_start,
-		int sel_end,
-		NkScroll scrollbar,
-		byte mode,
-		boolean single_line
-	) {
-		name(name);
-		seq(seq);
-		old(old);
-		active(active);
-		prev(prev);
-		cursor(cursor);
-		sel_start(sel_start);
-		sel_end(sel_end);
-		scrollbar(scrollbar);
-		mode(mode);
-		single_line(single_line);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(NkEditState) set}. */
-	public NkEditState nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public NkEditState set(NkEditState src) {
-		return nset(src.address());
-	}
-
 	// -----------------------------------
-
-	/** Returns a new {@link NkEditState} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-	public static NkEditState malloc() {
-		return create(nmemAlloc(SIZEOF));
-	}
-
-	/** Returns a new {@link NkEditState} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-	public static NkEditState calloc() {
-		return create(nmemCalloc(1, SIZEOF));
-	}
-
-	/** Returns a new {@link NkEditState} instance allocated with {@link BufferUtils}. */
-	public static NkEditState create() {
-		return new NkEditState(BufferUtils.createByteBuffer(SIZEOF));
-	}
 
 	/** Returns a new {@link NkEditState} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
 	public static NkEditState create(long address) {
 		return address == NULL ? null : new NkEditState(address, null);
-	}
-
-	/**
-	 * Returns a new {@link NkEditState.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer malloc(int capacity) {
-		return create(nmemAlloc(capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkEditState.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer calloc(int capacity) {
-		return create(nmemCalloc(capacity, SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkEditState.Buffer} instance allocated with {@link BufferUtils}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -249,74 +135,6 @@ public class NkEditState extends Struct implements NativeResource {
 	 */
 	public static Buffer create(long address, int capacity) {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
-	}
-
-	// -----------------------------------
-
-	/** Returns a new {@link NkEditState} instance allocated on the thread-local {@link MemoryStack}. */
-	public static NkEditState mallocStack() {
-		return mallocStack(stackGet());
-	}
-
-	/** Returns a new {@link NkEditState} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-	public static NkEditState callocStack() {
-		return callocStack(stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkEditState} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static NkEditState mallocStack(MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link NkEditState} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static NkEditState callocStack(MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link NkEditState.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity) {
-		return mallocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkEditState.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity) {
-		return callocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkEditState.Buffer} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity, MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkEditState.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity, MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
 	}
 
 	// -----------------------------------
@@ -344,33 +162,10 @@ public class NkEditState extends Struct implements NativeResource {
 	/** Unsafe version of {@link #single_line}. */
 	public static boolean nsingle_line(long struct) { return memGetByte(struct + NkEditState.SINGLE_LINE) != 0; }
 
-	/** Unsafe version of {@link #name(int) name}. */
-	public static void nname(long struct, int value) { memPutInt(struct + NkEditState.NAME, value); }
-	/** Unsafe version of {@link #seq(int) seq}. */
-	public static void nseq(long struct, int value) { memPutInt(struct + NkEditState.SEQ, value); }
-	/** Unsafe version of {@link #old(int) old}. */
-	public static void nold(long struct, int value) { memPutInt(struct + NkEditState.OLD, value); }
-	/** Unsafe version of {@link #active(int) active}. */
-	public static void nactive(long struct, int value) { memPutInt(struct + NkEditState.ACTIVE, value); }
-	/** Unsafe version of {@link #prev(int) prev}. */
-	public static void nprev(long struct, int value) { memPutInt(struct + NkEditState.PREV, value); }
-	/** Unsafe version of {@link #cursor(int) cursor}. */
-	public static void ncursor(long struct, int value) { memPutInt(struct + NkEditState.CURSOR, value); }
-	/** Unsafe version of {@link #sel_start(int) sel_start}. */
-	public static void nsel_start(long struct, int value) { memPutInt(struct + NkEditState.SEL_START, value); }
-	/** Unsafe version of {@link #sel_end(int) sel_end}. */
-	public static void nsel_end(long struct, int value) { memPutInt(struct + NkEditState.SEL_END, value); }
-	/** Unsafe version of {@link #scrollbar(NkScroll) scrollbar}. */
-	public static void nscrollbar(long struct, NkScroll value) { memCopy(value.address(), struct + NkEditState.SCROLLBAR, NkScroll.SIZEOF); }
-	/** Unsafe version of {@link #mode(byte) mode}. */
-	public static void nmode(long struct, byte value) { memPutByte(struct + NkEditState.MODE, value); }
-	/** Unsafe version of {@link #single_line(boolean) single_line}. */
-	public static void nsingle_line(long struct, boolean value) { memPutByte(struct + NkEditState.SINGLE_LINE, value ? (byte)1 : (byte)0); }
-
 	// -----------------------------------
 
 	/** An array of {@link NkEditState} structs. */
-	public static final class Buffer extends StructBuffer<NkEditState, Buffer> implements NativeResource {
+	public static final class Buffer extends StructBuffer<NkEditState, Buffer> {
 
 		/**
 		 * Creates a new {@link NkEditState.Buffer} instance backed by the specified container.
@@ -431,29 +226,6 @@ public class NkEditState extends Struct implements NativeResource {
 		public byte mode() { return NkEditState.nmode(address()); }
 		/** Returns the value of the {@code single_line} field. */
 		public boolean single_line() { return NkEditState.nsingle_line(address()); }
-
-		/** Sets the specified value to the {@code name} field. */
-		public NkEditState.Buffer name(int value) { NkEditState.nname(address(), value); return this; }
-		/** Sets the specified value to the {@code seq} field. */
-		public NkEditState.Buffer seq(int value) { NkEditState.nseq(address(), value); return this; }
-		/** Sets the specified value to the {@code old} field. */
-		public NkEditState.Buffer old(int value) { NkEditState.nold(address(), value); return this; }
-		/** Sets the specified value to the {@code active} field. */
-		public NkEditState.Buffer active(int value) { NkEditState.nactive(address(), value); return this; }
-		/** Sets the specified value to the {@code prev} field. */
-		public NkEditState.Buffer prev(int value) { NkEditState.nprev(address(), value); return this; }
-		/** Sets the specified value to the {@code cursor} field. */
-		public NkEditState.Buffer cursor(int value) { NkEditState.ncursor(address(), value); return this; }
-		/** Sets the specified value to the {@code sel_start} field. */
-		public NkEditState.Buffer sel_start(int value) { NkEditState.nsel_start(address(), value); return this; }
-		/** Sets the specified value to the {@code sel_end} field. */
-		public NkEditState.Buffer sel_end(int value) { NkEditState.nsel_end(address(), value); return this; }
-		/** Copies the specified {@link NkScroll} to the {@code scrollbar} field. */
-		public NkEditState.Buffer scrollbar(NkScroll value) { NkEditState.nscrollbar(address(), value); return this; }
-		/** Sets the specified value to the {@code mode} field. */
-		public NkEditState.Buffer mode(byte value) { NkEditState.nmode(address(), value); return this; }
-		/** Sets the specified value to the {@code single_line} field. */
-		public NkEditState.Buffer single_line(boolean value) { NkEditState.nsingle_line(address(), value); return this; }
 
 	}
 

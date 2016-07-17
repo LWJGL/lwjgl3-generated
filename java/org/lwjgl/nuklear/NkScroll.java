@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -68,39 +67,6 @@ public class NkScroll extends Struct implements NativeResource {
 	public short x() { return nx(address()); }
 	/** Returns the value of the {@code y} field. */
 	public short y() { return ny(address()); }
-
-	/** Sets the specified value to the {@code x} field. */
-	public NkScroll x(short value) { nx(address(), value); return this; }
-	/** Sets the specified value to the {@code y} field. */
-	public NkScroll y(short value) { ny(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public NkScroll set(
-		short x,
-		short y
-	) {
-		x(x);
-		y(y);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(NkScroll) set}. */
-	public NkScroll nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public NkScroll set(NkScroll src) {
-		return nset(src.address());
-	}
 
 	// -----------------------------------
 
@@ -236,11 +202,6 @@ public class NkScroll extends Struct implements NativeResource {
 	/** Unsafe version of {@link #y}. */
 	public static short ny(long struct) { return memGetShort(struct + NkScroll.Y); }
 
-	/** Unsafe version of {@link #x(short) x}. */
-	public static void nx(long struct, short value) { memPutShort(struct + NkScroll.X, value); }
-	/** Unsafe version of {@link #y(short) y}. */
-	public static void ny(long struct, short value) { memPutShort(struct + NkScroll.Y, value); }
-
 	// -----------------------------------
 
 	/** An array of {@link NkScroll} structs. */
@@ -287,11 +248,6 @@ public class NkScroll extends Struct implements NativeResource {
 		public short x() { return NkScroll.nx(address()); }
 		/** Returns the value of the {@code y} field. */
 		public short y() { return NkScroll.ny(address()); }
-
-		/** Sets the specified value to the {@code x} field. */
-		public NkScroll.Buffer x(short value) { NkScroll.nx(address(), value); return this; }
-		/** Sets the specified value to the {@code y} field. */
-		public NkScroll.Buffer y(short value) { NkScroll.ny(address(), value); return this; }
 
 	}
 

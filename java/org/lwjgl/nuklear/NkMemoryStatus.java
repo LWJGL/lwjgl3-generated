@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -92,51 +91,6 @@ public class NkMemoryStatus extends Struct implements NativeResource {
 	public long needed() { return nneeded(address()); }
 	/** Returns the value of the {@code calls} field. */
 	public long calls() { return ncalls(address()); }
-
-	/** Sets the address of the specified {@link ByteBuffer} to the {@code memory} field. */
-	public NkMemoryStatus memory(ByteBuffer value) { nmemory(address(), value); return this; }
-	/** Sets the specified value to the {@code type} field. */
-	public NkMemoryStatus type(int value) { ntype(address(), value); return this; }
-	/** Sets the specified value to the {@code allocated} field. */
-	public NkMemoryStatus allocated(long value) { nallocated(address(), value); return this; }
-	/** Sets the specified value to the {@code needed} field. */
-	public NkMemoryStatus needed(long value) { nneeded(address(), value); return this; }
-	/** Sets the specified value to the {@code calls} field. */
-	public NkMemoryStatus calls(long value) { ncalls(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public NkMemoryStatus set(
-		ByteBuffer memory,
-		int type,
-		long allocated,
-		long needed,
-		long calls
-	) {
-		memory(memory);
-		type(type);
-		allocated(allocated);
-		needed(needed);
-		calls(calls);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(NkMemoryStatus) set}. */
-	public NkMemoryStatus nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public NkMemoryStatus set(NkMemoryStatus src) {
-		return nset(src.address());
-	}
 
 	// -----------------------------------
 
@@ -280,39 +234,6 @@ public class NkMemoryStatus extends Struct implements NativeResource {
 	/** Unsafe version of {@link #calls}. */
 	public static long ncalls(long struct) { return memGetAddress(struct + NkMemoryStatus.CALLS); }
 
-	/** Unsafe version of {@link #memory(ByteBuffer) memory}. */
-	public static void nmemory(long struct, ByteBuffer value) { memPutAddress(struct + NkMemoryStatus.MEMORY, memAddress(value)); nsize(struct, value.remaining()); }
-	/** Unsafe version of {@link #type(int) type}. */
-	public static void ntype(long struct, int value) { memPutInt(struct + NkMemoryStatus.TYPE, value); }
-	/** Sets the specified value to the {@code size} field of the specified {@code struct}. */
-	public static void nsize(long struct, long value) { memPutAddress(struct + NkMemoryStatus.SIZE, value); }
-	/** Unsafe version of {@link #allocated(long) allocated}. */
-	public static void nallocated(long struct, long value) { memPutAddress(struct + NkMemoryStatus.ALLOCATED, value); }
-	/** Unsafe version of {@link #needed(long) needed}. */
-	public static void nneeded(long struct, long value) { memPutAddress(struct + NkMemoryStatus.NEEDED, value); }
-	/** Unsafe version of {@link #calls(long) calls}. */
-	public static void ncalls(long struct, long value) { memPutAddress(struct + NkMemoryStatus.CALLS, value); }
-
-	/**
-	 * Validates pointer members that should not be {@code NULL}.
-	 *
-	 * @param struct the struct to validate
-	 */
-	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + NkMemoryStatus.MEMORY));
-	}
-
-	/**
-	 * Calls {@link #validate(long)} for each struct contained in the specified struct array.
-	 *
-	 * @param array the struct array to validate
-	 * @param count the number of structs in {@code array}
-	 */
-	public static void validate(long array, int count) {
-		for ( int i = 0; i < count; i++ )
-			validate(array + i * SIZEOF);
-	}
-
 	// -----------------------------------
 
 	/** An array of {@link NkMemoryStatus} structs. */
@@ -367,17 +288,6 @@ public class NkMemoryStatus extends Struct implements NativeResource {
 		public long needed() { return NkMemoryStatus.nneeded(address()); }
 		/** Returns the value of the {@code calls} field. */
 		public long calls() { return NkMemoryStatus.ncalls(address()); }
-
-		/** Sets the address of the specified {@link ByteBuffer} to the {@code memory} field. */
-		public NkMemoryStatus.Buffer memory(ByteBuffer value) { NkMemoryStatus.nmemory(address(), value); return this; }
-		/** Sets the specified value to the {@code type} field. */
-		public NkMemoryStatus.Buffer type(int value) { NkMemoryStatus.ntype(address(), value); return this; }
-		/** Sets the specified value to the {@code allocated} field. */
-		public NkMemoryStatus.Buffer allocated(long value) { NkMemoryStatus.nallocated(address(), value); return this; }
-		/** Sets the specified value to the {@code needed} field. */
-		public NkMemoryStatus.Buffer needed(long value) { NkMemoryStatus.nneeded(address(), value); return this; }
-		/** Sets the specified value to the {@code calls} field. */
-		public NkMemoryStatus.Buffer calls(long value) { NkMemoryStatus.ncalls(address(), value); return this; }
 
 	}
 

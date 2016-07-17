@@ -7,12 +7,9 @@ package org.lwjgl.nuklear;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -26,7 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
     short redo_char_point;
 }</code></pre>
  */
-public class NkTextUndoState extends Struct implements NativeResource {
+public class NkTextUndoState extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -97,106 +94,11 @@ public class NkTextUndoState extends Struct implements NativeResource {
 	/** Returns the value of the {@code redo_char_point} field. */
 	public short redo_char_point() { return nredo_char_point(address()); }
 
-	/** Copies the specified {@link NkTextUndoRecord.Buffer} to the {@code undo_rec} field. */
-	public NkTextUndoState undo_rec(NkTextUndoRecord.Buffer value) { nundo_rec(address(), value); return this; }
-	/** Copies the specified {@link NkTextUndoRecord} at the specified index of the {@code undo_rec} field. */
-	public NkTextUndoState undo_rec(int index, NkTextUndoRecord value) { nundo_rec(address(), index, value); return this; }
-	/** Copies the specified {@link IntBuffer} to the {@code undo_char} field. */
-	public NkTextUndoState undo_char(IntBuffer value) { nundo_char(address(), value); return this; }
-	/** Sets the specified value at the specified index of the {@code undo_char} field. */
-	public NkTextUndoState undo_char(int index, int value) { nundo_char(address(), index, value); return this; }
-	/** Sets the specified value to the {@code undo_point} field. */
-	public NkTextUndoState undo_point(short value) { nundo_point(address(), value); return this; }
-	/** Sets the specified value to the {@code redo_point} field. */
-	public NkTextUndoState redo_point(short value) { nredo_point(address(), value); return this; }
-	/** Sets the specified value to the {@code undo_char_point} field. */
-	public NkTextUndoState undo_char_point(short value) { nundo_char_point(address(), value); return this; }
-	/** Sets the specified value to the {@code redo_char_point} field. */
-	public NkTextUndoState redo_char_point(short value) { nredo_char_point(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public NkTextUndoState set(
-		NkTextUndoRecord.Buffer undo_rec,
-		IntBuffer undo_char,
-		short undo_point,
-		short redo_point,
-		short undo_char_point,
-		short redo_char_point
-	) {
-		undo_rec(undo_rec);
-		undo_char(undo_char);
-		undo_point(undo_point);
-		redo_point(redo_point);
-		undo_char_point(undo_char_point);
-		redo_char_point(redo_char_point);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(NkTextUndoState) set}. */
-	public NkTextUndoState nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public NkTextUndoState set(NkTextUndoState src) {
-		return nset(src.address());
-	}
-
 	// -----------------------------------
-
-	/** Returns a new {@link NkTextUndoState} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-	public static NkTextUndoState malloc() {
-		return create(nmemAlloc(SIZEOF));
-	}
-
-	/** Returns a new {@link NkTextUndoState} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-	public static NkTextUndoState calloc() {
-		return create(nmemCalloc(1, SIZEOF));
-	}
-
-	/** Returns a new {@link NkTextUndoState} instance allocated with {@link BufferUtils}. */
-	public static NkTextUndoState create() {
-		return new NkTextUndoState(BufferUtils.createByteBuffer(SIZEOF));
-	}
 
 	/** Returns a new {@link NkTextUndoState} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
 	public static NkTextUndoState create(long address) {
 		return address == NULL ? null : new NkTextUndoState(address, null);
-	}
-
-	/**
-	 * Returns a new {@link NkTextUndoState.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer malloc(int capacity) {
-		return create(nmemAlloc(capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkTextUndoState.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer calloc(int capacity) {
-		return create(nmemCalloc(capacity, SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkTextUndoState.Buffer} instance allocated with {@link BufferUtils}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -207,74 +109,6 @@ public class NkTextUndoState extends Struct implements NativeResource {
 	 */
 	public static Buffer create(long address, int capacity) {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
-	}
-
-	// -----------------------------------
-
-	/** Returns a new {@link NkTextUndoState} instance allocated on the thread-local {@link MemoryStack}. */
-	public static NkTextUndoState mallocStack() {
-		return mallocStack(stackGet());
-	}
-
-	/** Returns a new {@link NkTextUndoState} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-	public static NkTextUndoState callocStack() {
-		return callocStack(stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkTextUndoState} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static NkTextUndoState mallocStack(MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link NkTextUndoState} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static NkTextUndoState callocStack(MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link NkTextUndoState.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity) {
-		return mallocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkTextUndoState.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity) {
-		return callocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkTextUndoState.Buffer} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity, MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkTextUndoState.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity, MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
 	}
 
 	// -----------------------------------
@@ -302,33 +136,10 @@ public class NkTextUndoState extends Struct implements NativeResource {
 	/** Unsafe version of {@link #redo_char_point}. */
 	public static short nredo_char_point(long struct) { return memGetShort(struct + NkTextUndoState.REDO_CHAR_POINT); }
 
-	/** Unsafe version of {@link #undo_rec(NkTextUndoRecord.Buffer) undo_rec}. */
-	public static void nundo_rec(long struct, NkTextUndoRecord.Buffer value) {
-		if ( CHECKS ) checkBufferGT(value, 99);
-		memCopy(value.address(), struct + NkTextUndoState.UNDO_REC, value.remaining() * NkTextUndoRecord.SIZEOF);
-	}
-	/** Unsafe version of {@link #undo_rec(int, NkTextUndoRecord) undo_rec}. */
-	public static void nundo_rec(long struct, int index, NkTextUndoRecord value) { memCopy(value.address(), struct + NkTextUndoState.UNDO_REC + index * NkTextUndoRecord.SIZEOF, NkTextUndoRecord.SIZEOF); }
-	/** Unsafe version of {@link #undo_char(IntBuffer) undo_char}. */
-	public static void nundo_char(long struct, IntBuffer value) {
-		if ( CHECKS ) checkBufferGT(value, 999);
-		memCopy(memAddress(value), struct + NkTextUndoState.UNDO_CHAR, value.remaining() * 4);
-	}
-	/** Unsafe version of {@link #undo_char(int, int) undo_char}. */
-	public static void nundo_char(long struct, int index, int value) { memPutInt(struct + NkTextUndoState.UNDO_CHAR + index * 4, value); }
-	/** Unsafe version of {@link #undo_point(short) undo_point}. */
-	public static void nundo_point(long struct, short value) { memPutShort(struct + NkTextUndoState.UNDO_POINT, value); }
-	/** Unsafe version of {@link #redo_point(short) redo_point}. */
-	public static void nredo_point(long struct, short value) { memPutShort(struct + NkTextUndoState.REDO_POINT, value); }
-	/** Unsafe version of {@link #undo_char_point(short) undo_char_point}. */
-	public static void nundo_char_point(long struct, short value) { memPutShort(struct + NkTextUndoState.UNDO_CHAR_POINT, value); }
-	/** Unsafe version of {@link #redo_char_point(short) redo_char_point}. */
-	public static void nredo_char_point(long struct, short value) { memPutShort(struct + NkTextUndoState.REDO_CHAR_POINT, value); }
-
 	// -----------------------------------
 
 	/** An array of {@link NkTextUndoState} structs. */
-	public static final class Buffer extends StructBuffer<NkTextUndoState, Buffer> implements NativeResource {
+	public static final class Buffer extends StructBuffer<NkTextUndoState, Buffer> {
 
 		/**
 		 * Creates a new {@link NkTextUndoState.Buffer} instance backed by the specified container.
@@ -383,23 +194,6 @@ public class NkTextUndoState extends Struct implements NativeResource {
 		public short undo_char_point() { return NkTextUndoState.nundo_char_point(address()); }
 		/** Returns the value of the {@code redo_char_point} field. */
 		public short redo_char_point() { return NkTextUndoState.nredo_char_point(address()); }
-
-		/** Copies the specified {@link NkTextUndoRecord.Buffer} to the {@code undo_rec} field. */
-		public NkTextUndoState.Buffer undo_rec(NkTextUndoRecord.Buffer value) { NkTextUndoState.nundo_rec(address(), value); return this; }
-		/** Copies the specified {@link NkTextUndoRecord} at the specified index of the {@code undo_rec} field. */
-		public NkTextUndoState.Buffer undo_rec(int index, NkTextUndoRecord value) { NkTextUndoState.nundo_rec(address(), index, value); return this; }
-		/** Copies the specified {@link IntBuffer} to the {@code undo_char} field. */
-		public NkTextUndoState.Buffer undo_char(IntBuffer value) { NkTextUndoState.nundo_char(address(), value); return this; }
-		/** Sets the specified value at the specified index of the {@code undo_char} field. */
-		public NkTextUndoState.Buffer undo_char(int index, int value) { NkTextUndoState.nundo_char(address(), index, value); return this; }
-		/** Sets the specified value to the {@code undo_point} field. */
-		public NkTextUndoState.Buffer undo_point(short value) { NkTextUndoState.nundo_point(address(), value); return this; }
-		/** Sets the specified value to the {@code redo_point} field. */
-		public NkTextUndoState.Buffer redo_point(short value) { NkTextUndoState.nredo_point(address(), value); return this; }
-		/** Sets the specified value to the {@code undo_char_point} field. */
-		public NkTextUndoState.Buffer undo_char_point(short value) { NkTextUndoState.nundo_char_point(address(), value); return this; }
-		/** Sets the specified value to the {@code redo_char_point} field. */
-		public NkTextUndoState.Buffer redo_char_point(short value) { NkTextUndoState.nredo_char_point(address(), value); return this; }
 
 	}
 

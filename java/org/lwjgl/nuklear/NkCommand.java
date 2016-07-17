@@ -7,12 +7,9 @@ package org.lwjgl.nuklear;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -23,7 +20,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkHandle nk_handle} userdata;
 }</code></pre>
  */
-public class NkCommand extends Struct implements NativeResource {
+public class NkCommand extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -75,77 +72,11 @@ public class NkCommand extends Struct implements NativeResource {
 	/** Returns a {@link NkHandle} view of the {@code userdata} field. */
 	public NkHandle userdata() { return nuserdata(address()); }
 
-	/** Sets the specified value to the {@code type} field. */
-	public NkCommand type(int value) { ntype(address(), value); return this; }
-	/** Sets the specified value to the {@code next} field. */
-	public NkCommand next(long value) { nnext(address(), value); return this; }
-	/** Copies the specified {@link NkHandle} to the {@code userdata} field. */
-	public NkCommand userdata(NkHandle value) { nuserdata(address(), value); return this; }
-
-	/** Unsafe version of {@link #set(NkCommand) set}. */
-	public NkCommand nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public NkCommand set(NkCommand src) {
-		return nset(src.address());
-	}
-
 	// -----------------------------------
-
-	/** Returns a new {@link NkCommand} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-	public static NkCommand malloc() {
-		return create(nmemAlloc(SIZEOF));
-	}
-
-	/** Returns a new {@link NkCommand} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-	public static NkCommand calloc() {
-		return create(nmemCalloc(1, SIZEOF));
-	}
-
-	/** Returns a new {@link NkCommand} instance allocated with {@link BufferUtils}. */
-	public static NkCommand create() {
-		return new NkCommand(BufferUtils.createByteBuffer(SIZEOF));
-	}
 
 	/** Returns a new {@link NkCommand} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
 	public static NkCommand create(long address) {
 		return address == NULL ? null : new NkCommand(address, null);
-	}
-
-	/**
-	 * Returns a new {@link NkCommand.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer malloc(int capacity) {
-		return create(nmemAlloc(capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkCommand.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer calloc(int capacity) {
-		return create(nmemCalloc(capacity, SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkCommand.Buffer} instance allocated with {@link BufferUtils}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -160,74 +91,6 @@ public class NkCommand extends Struct implements NativeResource {
 
 	// -----------------------------------
 
-	/** Returns a new {@link NkCommand} instance allocated on the thread-local {@link MemoryStack}. */
-	public static NkCommand mallocStack() {
-		return mallocStack(stackGet());
-	}
-
-	/** Returns a new {@link NkCommand} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-	public static NkCommand callocStack() {
-		return callocStack(stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkCommand} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static NkCommand mallocStack(MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link NkCommand} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static NkCommand callocStack(MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link NkCommand.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity) {
-		return mallocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkCommand.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity) {
-		return callocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkCommand.Buffer} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity, MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkCommand.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity, MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-	}
-
-	// -----------------------------------
-
 	/** Unsafe version of {@link #type}. */
 	public static int ntype(long struct) { return memGetInt(struct + NkCommand.TYPE); }
 	/** Unsafe version of {@link #next}. */
@@ -235,17 +98,10 @@ public class NkCommand extends Struct implements NativeResource {
 	/** Unsafe version of {@link #userdata}. */
 	public static NkHandle nuserdata(long struct) { return NkHandle.create(struct + NkCommand.USERDATA); }
 
-	/** Unsafe version of {@link #type(int) type}. */
-	public static void ntype(long struct, int value) { memPutInt(struct + NkCommand.TYPE, value); }
-	/** Unsafe version of {@link #next(long) next}. */
-	public static void nnext(long struct, long value) { memPutAddress(struct + NkCommand.NEXT, value); }
-	/** Unsafe version of {@link #userdata(NkHandle) userdata}. */
-	public static void nuserdata(long struct, NkHandle value) { memCopy(value.address(), struct + NkCommand.USERDATA, NkHandle.SIZEOF); }
-
 	// -----------------------------------
 
 	/** An array of {@link NkCommand} structs. */
-	public static final class Buffer extends StructBuffer<NkCommand, Buffer> implements NativeResource {
+	public static final class Buffer extends StructBuffer<NkCommand, Buffer> {
 
 		/**
 		 * Creates a new {@link NkCommand.Buffer} instance backed by the specified container.
@@ -290,13 +146,6 @@ public class NkCommand extends Struct implements NativeResource {
 		public long next() { return NkCommand.nnext(address()); }
 		/** Returns a {@link NkHandle} view of the {@code userdata} field. */
 		public NkHandle userdata() { return NkCommand.nuserdata(address()); }
-
-		/** Sets the specified value to the {@code type} field. */
-		public NkCommand.Buffer type(int value) { NkCommand.ntype(address(), value); return this; }
-		/** Sets the specified value to the {@code next} field. */
-		public NkCommand.Buffer next(long value) { NkCommand.nnext(address(), value); return this; }
-		/** Copies the specified {@link NkHandle} to the {@code userdata} field. */
-		public NkCommand.Buffer userdata(NkHandle value) { NkCommand.nuserdata(address(), value); return this; }
 
 	}
 

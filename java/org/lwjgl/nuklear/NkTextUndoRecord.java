@@ -7,12 +7,9 @@ package org.lwjgl.nuklear;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -24,7 +21,7 @@ import static org.lwjgl.system.MemoryStack.*;
     short char_storage;
 }</code></pre>
  */
-public class NkTextUndoRecord extends Struct implements NativeResource {
+public class NkTextUndoRecord extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -81,94 +78,11 @@ public class NkTextUndoRecord extends Struct implements NativeResource {
 	/** Returns the value of the {@code char_storage} field. */
 	public short char_storage() { return nchar_storage(address()); }
 
-	/** Sets the specified value to the {@code where} field. */
-	public NkTextUndoRecord where(int value) { nwhere(address(), value); return this; }
-	/** Sets the specified value to the {@code insert_length} field. */
-	public NkTextUndoRecord insert_length(short value) { ninsert_length(address(), value); return this; }
-	/** Sets the specified value to the {@code delete_length} field. */
-	public NkTextUndoRecord delete_length(short value) { ndelete_length(address(), value); return this; }
-	/** Sets the specified value to the {@code char_storage} field. */
-	public NkTextUndoRecord char_storage(short value) { nchar_storage(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public NkTextUndoRecord set(
-		int where,
-		short insert_length,
-		short delete_length,
-		short char_storage
-	) {
-		where(where);
-		insert_length(insert_length);
-		delete_length(delete_length);
-		char_storage(char_storage);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(NkTextUndoRecord) set}. */
-	public NkTextUndoRecord nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public NkTextUndoRecord set(NkTextUndoRecord src) {
-		return nset(src.address());
-	}
-
 	// -----------------------------------
-
-	/** Returns a new {@link NkTextUndoRecord} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-	public static NkTextUndoRecord malloc() {
-		return create(nmemAlloc(SIZEOF));
-	}
-
-	/** Returns a new {@link NkTextUndoRecord} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-	public static NkTextUndoRecord calloc() {
-		return create(nmemCalloc(1, SIZEOF));
-	}
-
-	/** Returns a new {@link NkTextUndoRecord} instance allocated with {@link BufferUtils}. */
-	public static NkTextUndoRecord create() {
-		return new NkTextUndoRecord(BufferUtils.createByteBuffer(SIZEOF));
-	}
 
 	/** Returns a new {@link NkTextUndoRecord} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
 	public static NkTextUndoRecord create(long address) {
 		return address == NULL ? null : new NkTextUndoRecord(address, null);
-	}
-
-	/**
-	 * Returns a new {@link NkTextUndoRecord.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer malloc(int capacity) {
-		return create(nmemAlloc(capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkTextUndoRecord.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer calloc(int capacity) {
-		return create(nmemCalloc(capacity, SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkTextUndoRecord.Buffer} instance allocated with {@link BufferUtils}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -183,74 +97,6 @@ public class NkTextUndoRecord extends Struct implements NativeResource {
 
 	// -----------------------------------
 
-	/** Returns a new {@link NkTextUndoRecord} instance allocated on the thread-local {@link MemoryStack}. */
-	public static NkTextUndoRecord mallocStack() {
-		return mallocStack(stackGet());
-	}
-
-	/** Returns a new {@link NkTextUndoRecord} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-	public static NkTextUndoRecord callocStack() {
-		return callocStack(stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkTextUndoRecord} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static NkTextUndoRecord mallocStack(MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link NkTextUndoRecord} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static NkTextUndoRecord callocStack(MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link NkTextUndoRecord.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity) {
-		return mallocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkTextUndoRecord.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity) {
-		return callocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkTextUndoRecord.Buffer} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity, MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkTextUndoRecord.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity, MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-	}
-
-	// -----------------------------------
-
 	/** Unsafe version of {@link #where}. */
 	public static int nwhere(long struct) { return memGetInt(struct + NkTextUndoRecord.WHERE); }
 	/** Unsafe version of {@link #insert_length}. */
@@ -260,19 +106,10 @@ public class NkTextUndoRecord extends Struct implements NativeResource {
 	/** Unsafe version of {@link #char_storage}. */
 	public static short nchar_storage(long struct) { return memGetShort(struct + NkTextUndoRecord.CHAR_STORAGE); }
 
-	/** Unsafe version of {@link #where(int) where}. */
-	public static void nwhere(long struct, int value) { memPutInt(struct + NkTextUndoRecord.WHERE, value); }
-	/** Unsafe version of {@link #insert_length(short) insert_length}. */
-	public static void ninsert_length(long struct, short value) { memPutShort(struct + NkTextUndoRecord.INSERT_LENGTH, value); }
-	/** Unsafe version of {@link #delete_length(short) delete_length}. */
-	public static void ndelete_length(long struct, short value) { memPutShort(struct + NkTextUndoRecord.DELETE_LENGTH, value); }
-	/** Unsafe version of {@link #char_storage(short) char_storage}. */
-	public static void nchar_storage(long struct, short value) { memPutShort(struct + NkTextUndoRecord.CHAR_STORAGE, value); }
-
 	// -----------------------------------
 
 	/** An array of {@link NkTextUndoRecord} structs. */
-	public static final class Buffer extends StructBuffer<NkTextUndoRecord, Buffer> implements NativeResource {
+	public static final class Buffer extends StructBuffer<NkTextUndoRecord, Buffer> {
 
 		/**
 		 * Creates a new {@link NkTextUndoRecord.Buffer} instance backed by the specified container.
@@ -319,15 +156,6 @@ public class NkTextUndoRecord extends Struct implements NativeResource {
 		public short delete_length() { return NkTextUndoRecord.ndelete_length(address()); }
 		/** Returns the value of the {@code char_storage} field. */
 		public short char_storage() { return NkTextUndoRecord.nchar_storage(address()); }
-
-		/** Sets the specified value to the {@code where} field. */
-		public NkTextUndoRecord.Buffer where(int value) { NkTextUndoRecord.nwhere(address(), value); return this; }
-		/** Sets the specified value to the {@code insert_length} field. */
-		public NkTextUndoRecord.Buffer insert_length(short value) { NkTextUndoRecord.ninsert_length(address(), value); return this; }
-		/** Sets the specified value to the {@code delete_length} field. */
-		public NkTextUndoRecord.Buffer delete_length(short value) { NkTextUndoRecord.ndelete_length(address(), value); return this; }
-		/** Sets the specified value to the {@code char_storage} field. */
-		public NkTextUndoRecord.Buffer char_storage(short value) { NkTextUndoRecord.nchar_storage(address(), value); return this; }
 
 	}
 

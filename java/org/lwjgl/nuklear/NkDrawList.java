@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -154,58 +153,6 @@ public class NkDrawList extends Struct implements NativeResource {
 	public NkVec2 circle_vtx(int index) { return ncircle_vtx(address(), index); }
 	/** Returns a {@link NkHandle} view of the {@code userdata} field. */
 	public NkHandle userdata() { return nuserdata(address()); }
-
-	/** Sets the specified value to the {@code global_alpha} field. */
-	public NkDrawList global_alpha(float value) { nglobal_alpha(address(), value); return this; }
-	/** Sets the specified value to the {@code shape_AA} field. */
-	public NkDrawList shape_AA(int value) { nshape_AA(address(), value); return this; }
-	/** Sets the specified value to the {@code line_AA} field. */
-	public NkDrawList line_AA(int value) { nline_AA(address(), value); return this; }
-	/** Copies the specified {@link NkDrawNullTexture} to the {@code null_texture} field. */
-	public NkDrawList null_texture(NkDrawNullTexture value) { nnull_texture(address(), value); return this; }
-	/** Copies the specified {@link NkRect} to the {@code clip_rect} field. */
-	public NkDrawList clip_rect(NkRect value) { nclip_rect(address(), value); return this; }
-	/** Sets the address of the specified {@link NkBuffer} to the {@code buffer} field. */
-	public NkDrawList buffer(NkBuffer value) { nbuffer(address(), value); return this; }
-	/** Sets the address of the specified {@link NkBuffer} to the {@code vertices} field. */
-	public NkDrawList vertices(NkBuffer value) { nvertices(address(), value); return this; }
-	/** Sets the address of the specified {@link NkBuffer} to the {@code elements} field. */
-	public NkDrawList elements(NkBuffer value) { nelements(address(), value); return this; }
-	/** Sets the specified value to the {@code element_count} field. */
-	public NkDrawList element_count(int value) { nelement_count(address(), value); return this; }
-	/** Sets the specified value to the {@code vertex_count} field. */
-	public NkDrawList vertex_count(int value) { nvertex_count(address(), value); return this; }
-	/** Sets the specified value to the {@code cmd_offset} field. */
-	public NkDrawList cmd_offset(long value) { ncmd_offset(address(), value); return this; }
-	/** Sets the specified value to the {@code cmd_count} field. */
-	public NkDrawList cmd_count(int value) { ncmd_count(address(), value); return this; }
-	/** Sets the specified value to the {@code path_count} field. */
-	public NkDrawList path_count(int value) { npath_count(address(), value); return this; }
-	/** Sets the specified value to the {@code path_offset} field. */
-	public NkDrawList path_offset(int value) { npath_offset(address(), value); return this; }
-	/** Copies the specified {@link NkVec2.Buffer} to the {@code circle_vtx} field. */
-	public NkDrawList circle_vtx(NkVec2.Buffer value) { ncircle_vtx(address(), value); return this; }
-	/** Copies the specified {@link NkVec2} at the specified index of the {@code circle_vtx} field. */
-	public NkDrawList circle_vtx(int index, NkVec2 value) { ncircle_vtx(address(), index, value); return this; }
-	/** Copies the specified {@link NkHandle} to the {@code userdata} field. */
-	public NkDrawList userdata(NkHandle value) { nuserdata(address(), value); return this; }
-
-	/** Unsafe version of {@link #set(NkDrawList) set}. */
-	public NkDrawList nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public NkDrawList set(NkDrawList src) {
-		return nset(src.address());
-	}
 
 	// -----------------------------------
 
@@ -375,44 +322,6 @@ public class NkDrawList extends Struct implements NativeResource {
 	/** Unsafe version of {@link #userdata}. */
 	public static NkHandle nuserdata(long struct) { return NkHandle.create(struct + NkDrawList.USERDATA); }
 
-	/** Unsafe version of {@link #global_alpha(float) global_alpha}. */
-	public static void nglobal_alpha(long struct, float value) { memPutFloat(struct + NkDrawList.GLOBAL_ALPHA, value); }
-	/** Unsafe version of {@link #shape_AA(int) shape_AA}. */
-	public static void nshape_AA(long struct, int value) { memPutInt(struct + NkDrawList.SHAPE_AA, value); }
-	/** Unsafe version of {@link #line_AA(int) line_AA}. */
-	public static void nline_AA(long struct, int value) { memPutInt(struct + NkDrawList.LINE_AA, value); }
-	/** Unsafe version of {@link #null_texture(NkDrawNullTexture) null_texture}. */
-	public static void nnull_texture(long struct, NkDrawNullTexture value) { memCopy(value.address(), struct + NkDrawList.NULL_TEXTURE, NkDrawNullTexture.SIZEOF); }
-	/** Unsafe version of {@link #clip_rect(NkRect) clip_rect}. */
-	public static void nclip_rect(long struct, NkRect value) { memCopy(value.address(), struct + NkDrawList.CLIP_RECT, NkRect.SIZEOF); }
-	/** Unsafe version of {@link #buffer(NkBuffer) buffer}. */
-	public static void nbuffer(long struct, NkBuffer value) { memPutAddress(struct + NkDrawList.BUFFER, addressSafe(value)); }
-	/** Unsafe version of {@link #vertices(NkBuffer) vertices}. */
-	public static void nvertices(long struct, NkBuffer value) { memPutAddress(struct + NkDrawList.VERTICES, addressSafe(value)); }
-	/** Unsafe version of {@link #elements(NkBuffer) elements}. */
-	public static void nelements(long struct, NkBuffer value) { memPutAddress(struct + NkDrawList.ELEMENTS, addressSafe(value)); }
-	/** Unsafe version of {@link #element_count(int) element_count}. */
-	public static void nelement_count(long struct, int value) { memPutInt(struct + NkDrawList.ELEMENT_COUNT, value); }
-	/** Unsafe version of {@link #vertex_count(int) vertex_count}. */
-	public static void nvertex_count(long struct, int value) { memPutInt(struct + NkDrawList.VERTEX_COUNT, value); }
-	/** Unsafe version of {@link #cmd_offset(long) cmd_offset}. */
-	public static void ncmd_offset(long struct, long value) { memPutAddress(struct + NkDrawList.CMD_OFFSET, value); }
-	/** Unsafe version of {@link #cmd_count(int) cmd_count}. */
-	public static void ncmd_count(long struct, int value) { memPutInt(struct + NkDrawList.CMD_COUNT, value); }
-	/** Unsafe version of {@link #path_count(int) path_count}. */
-	public static void npath_count(long struct, int value) { memPutInt(struct + NkDrawList.PATH_COUNT, value); }
-	/** Unsafe version of {@link #path_offset(int) path_offset}. */
-	public static void npath_offset(long struct, int value) { memPutInt(struct + NkDrawList.PATH_OFFSET, value); }
-	/** Unsafe version of {@link #circle_vtx(NkVec2.Buffer) circle_vtx}. */
-	public static void ncircle_vtx(long struct, NkVec2.Buffer value) {
-		if ( CHECKS ) checkBufferGT(value, 12);
-		memCopy(value.address(), struct + NkDrawList.CIRCLE_VTX, value.remaining() * NkVec2.SIZEOF);
-	}
-	/** Unsafe version of {@link #circle_vtx(int, NkVec2) circle_vtx}. */
-	public static void ncircle_vtx(long struct, int index, NkVec2 value) { memCopy(value.address(), struct + NkDrawList.CIRCLE_VTX + index * NkVec2.SIZEOF, NkVec2.SIZEOF); }
-	/** Unsafe version of {@link #userdata(NkHandle) userdata}. */
-	public static void nuserdata(long struct, NkHandle value) { memCopy(value.address(), struct + NkDrawList.USERDATA, NkHandle.SIZEOF); }
-
 	// -----------------------------------
 
 	/** An array of {@link NkDrawList} structs. */
@@ -489,41 +398,6 @@ public class NkDrawList extends Struct implements NativeResource {
 		public NkVec2 circle_vtx(int index) { return NkDrawList.ncircle_vtx(address(), index); }
 		/** Returns a {@link NkHandle} view of the {@code userdata} field. */
 		public NkHandle userdata() { return NkDrawList.nuserdata(address()); }
-
-		/** Sets the specified value to the {@code global_alpha} field. */
-		public NkDrawList.Buffer global_alpha(float value) { NkDrawList.nglobal_alpha(address(), value); return this; }
-		/** Sets the specified value to the {@code shape_AA} field. */
-		public NkDrawList.Buffer shape_AA(int value) { NkDrawList.nshape_AA(address(), value); return this; }
-		/** Sets the specified value to the {@code line_AA} field. */
-		public NkDrawList.Buffer line_AA(int value) { NkDrawList.nline_AA(address(), value); return this; }
-		/** Copies the specified {@link NkDrawNullTexture} to the {@code null_texture} field. */
-		public NkDrawList.Buffer null_texture(NkDrawNullTexture value) { NkDrawList.nnull_texture(address(), value); return this; }
-		/** Copies the specified {@link NkRect} to the {@code clip_rect} field. */
-		public NkDrawList.Buffer clip_rect(NkRect value) { NkDrawList.nclip_rect(address(), value); return this; }
-		/** Sets the address of the specified {@link NkBuffer} to the {@code buffer} field. */
-		public NkDrawList.Buffer buffer(NkBuffer value) { NkDrawList.nbuffer(address(), value); return this; }
-		/** Sets the address of the specified {@link NkBuffer} to the {@code vertices} field. */
-		public NkDrawList.Buffer vertices(NkBuffer value) { NkDrawList.nvertices(address(), value); return this; }
-		/** Sets the address of the specified {@link NkBuffer} to the {@code elements} field. */
-		public NkDrawList.Buffer elements(NkBuffer value) { NkDrawList.nelements(address(), value); return this; }
-		/** Sets the specified value to the {@code element_count} field. */
-		public NkDrawList.Buffer element_count(int value) { NkDrawList.nelement_count(address(), value); return this; }
-		/** Sets the specified value to the {@code vertex_count} field. */
-		public NkDrawList.Buffer vertex_count(int value) { NkDrawList.nvertex_count(address(), value); return this; }
-		/** Sets the specified value to the {@code cmd_offset} field. */
-		public NkDrawList.Buffer cmd_offset(long value) { NkDrawList.ncmd_offset(address(), value); return this; }
-		/** Sets the specified value to the {@code cmd_count} field. */
-		public NkDrawList.Buffer cmd_count(int value) { NkDrawList.ncmd_count(address(), value); return this; }
-		/** Sets the specified value to the {@code path_count} field. */
-		public NkDrawList.Buffer path_count(int value) { NkDrawList.npath_count(address(), value); return this; }
-		/** Sets the specified value to the {@code path_offset} field. */
-		public NkDrawList.Buffer path_offset(int value) { NkDrawList.npath_offset(address(), value); return this; }
-		/** Copies the specified {@link NkVec2.Buffer} to the {@code circle_vtx} field. */
-		public NkDrawList.Buffer circle_vtx(NkVec2.Buffer value) { NkDrawList.ncircle_vtx(address(), value); return this; }
-		/** Copies the specified {@link NkVec2} at the specified index of the {@code circle_vtx} field. */
-		public NkDrawList.Buffer circle_vtx(int index, NkVec2 value) { NkDrawList.ncircle_vtx(address(), index, value); return this; }
-		/** Copies the specified {@link NkHandle} to the {@code userdata} field. */
-		public NkDrawList.Buffer userdata(NkHandle value) { NkDrawList.nuserdata(address(), value); return this; }
 
 	}
 

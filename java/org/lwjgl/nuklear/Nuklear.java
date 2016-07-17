@@ -234,6 +234,17 @@ public class Nuklear {
 		NK_COLOR_TAB_HEADER              = 27,
 		NK_COLOR_COUNT                   = 28;
 
+	/** nk_style_cursor */
+	public static final int
+		NK_CURSOR_ARROW                      = 0,
+		NK_CURSOR_TEXT                       = 1,
+		NK_CURSOR_MOVE                       = 2,
+		NK_CURSOR_RESIZE_VERTICAL            = 3,
+		NK_CURSOR_RESIZE_HORIZONTAL          = 4,
+		NK_CURSOR_RESIZE_TOP_LEFT_DOWN_RIGHT = 5,
+		NK_CURSOR_RESIZE_TOP_RIGHT_DOWN_LEFT = 6,
+		NK_CURSOR_COUNT                      = 7;
+
 	/** The widget cannot be seen and is completely out of view */
 	public static final int NK_WIDGET_INVALID = 0;
 
@@ -2181,42 +2192,59 @@ public class Nuklear {
 		nnk_image(ctx.address(), img.address());
 	}
 
+	// --- [ nk_button_set_behavior ] ---
+
+	/**
+	 * 
+	 *
+	 * @param ctx      the nuklear context
+	 * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
+	 */
+	public static native void nnk_button_set_behavior(long ctx, int behavior);
+
+	/**
+	 * 
+	 *
+	 * @param ctx      the nuklear context
+	 * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
+	 */
+	public static void nk_button_set_behavior(NkContext ctx, int behavior) {
+		nnk_button_set_behavior(ctx.address(), behavior);
+	}
+
 	// --- [ nk_button_text ] ---
 
 	/**
 	 * 
 	 *
-	 * @param ctx      the nuklear context
-	 * @param title    
-	 * @param len      
-	 * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
+	 * @param ctx   the nuklear context
+	 * @param title 
+	 * @param len   
 	 */
-	public static native int nnk_button_text(long ctx, long title, int len, int behavior);
+	public static native int nnk_button_text(long ctx, long title, int len);
 
 	/**
 	 * 
 	 *
-	 * @param ctx      the nuklear context
-	 * @param title    
-	 * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
+	 * @param ctx   the nuklear context
+	 * @param title 
 	 */
-	public static boolean nk_button_text(NkContext ctx, ByteBuffer title, int behavior) {
-		return nnk_button_text(ctx.address(), memAddress(title), title.remaining(), behavior) != 0;
+	public static boolean nk_button_text(NkContext ctx, ByteBuffer title) {
+		return nnk_button_text(ctx.address(), memAddress(title), title.remaining()) != 0;
 	}
 
 	/**
 	 * 
 	 *
-	 * @param ctx      the nuklear context
-	 * @param title    
-	 * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
+	 * @param ctx   the nuklear context
+	 * @param title 
 	 */
-	public static boolean nk_button_text(NkContext ctx, CharSequence title, int behavior) {
+	public static boolean nk_button_text(NkContext ctx, CharSequence title) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer titleEncoded = stack.UTF8(title, false);
 			int titleEncodedLen = titleEncoded.capacity();
-			return nnk_button_text(ctx.address(), memAddress(titleEncoded), titleEncodedLen, behavior) != 0;
+			return nnk_button_text(ctx.address(), memAddress(titleEncoded), titleEncodedLen) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -2227,37 +2255,34 @@ public class Nuklear {
 	/**
 	 * 
 	 *
-	 * @param ctx      the nuklear context
-	 * @param title    
-	 * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
+	 * @param ctx   the nuklear context
+	 * @param title 
 	 */
-	public static native int nnk_button_label(long ctx, long title, int behavior);
+	public static native int nnk_button_label(long ctx, long title);
 
 	/**
 	 * 
 	 *
-	 * @param ctx      the nuklear context
-	 * @param title    
-	 * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
+	 * @param ctx   the nuklear context
+	 * @param title 
 	 */
-	public static boolean nk_button_label(NkContext ctx, ByteBuffer title, int behavior) {
+	public static boolean nk_button_label(NkContext ctx, ByteBuffer title) {
 		if ( CHECKS )
 			checkNT1(title);
-		return nnk_button_label(ctx.address(), memAddress(title), behavior) != 0;
+		return nnk_button_label(ctx.address(), memAddress(title)) != 0;
 	}
 
 	/**
 	 * 
 	 *
-	 * @param ctx      the nuklear context
-	 * @param title    
-	 * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
+	 * @param ctx   the nuklear context
+	 * @param title 
 	 */
-	public static boolean nk_button_label(NkContext ctx, CharSequence title, int behavior) {
+	public static boolean nk_button_label(NkContext ctx, CharSequence title) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer titleEncoded = stack.UTF8(title);
-			return nnk_button_label(ctx.address(), memAddress(titleEncoded), behavior) != 0;
+			return nnk_button_label(ctx.address(), memAddress(titleEncoded)) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -2268,21 +2293,19 @@ public class Nuklear {
 	/**
 	 * 
 	 *
-	 * @param ctx      the nuklear context
-	 * @param color    
-	 * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
+	 * @param ctx   the nuklear context
+	 * @param color 
 	 */
-	public static native int nnk_button_color(long ctx, long color, int behavior);
+	public static native int nnk_button_color(long ctx, long color);
 
 	/**
 	 * 
 	 *
-	 * @param ctx      the nuklear context
-	 * @param color    
-	 * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
+	 * @param ctx   the nuklear context
+	 * @param color 
 	 */
-	public static boolean nk_button_color(NkContext ctx, NkColor color, int behavior) {
-		return nnk_button_color(ctx.address(), color.address(), behavior) != 0;
+	public static boolean nk_button_color(NkContext ctx, NkColor color) {
+		return nnk_button_color(ctx.address(), color.address()) != 0;
 	}
 
 	// --- [ nk_button_symbol ] ---
@@ -2290,21 +2313,19 @@ public class Nuklear {
 	/**
 	 * 
 	 *
-	 * @param ctx      the nuklear context
-	 * @param symbol   one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
-	 * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
+	 * @param ctx    the nuklear context
+	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 */
-	public static native int nnk_button_symbol(long ctx, int symbol, int behavior);
+	public static native int nnk_button_symbol(long ctx, int symbol);
 
 	/**
 	 * 
 	 *
-	 * @param ctx      the nuklear context
-	 * @param symbol   one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
-	 * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
+	 * @param ctx    the nuklear context
+	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 */
-	public static boolean nk_button_symbol(NkContext ctx, int symbol, int behavior) {
-		return nnk_button_symbol(ctx.address(), symbol, behavior) != 0;
+	public static boolean nk_button_symbol(NkContext ctx, int symbol) {
+		return nnk_button_symbol(ctx.address(), symbol) != 0;
 	}
 
 	// --- [ nk_button_image ] ---
@@ -2312,21 +2333,19 @@ public class Nuklear {
 	/**
 	 * 
 	 *
-	 * @param ctx      the nuklear context
-	 * @param img      
-	 * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
+	 * @param ctx the nuklear context
+	 * @param img 
 	 */
-	public static native int nnk_button_image(long ctx, long img, int behavior);
+	public static native int nnk_button_image(long ctx, long img);
 
 	/**
 	 * 
 	 *
-	 * @param ctx      the nuklear context
-	 * @param img      
-	 * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
+	 * @param ctx the nuklear context
+	 * @param img 
 	 */
-	public static boolean nk_button_image(NkContext ctx, NkImage img, int behavior) {
-		return nnk_button_image(ctx.address(), img.address(), behavior) != 0;
+	public static boolean nk_button_image(NkContext ctx, NkImage img) {
+		return nnk_button_image(ctx.address(), img.address()) != 0;
 	}
 
 	// --- [ nk_button_symbol_label ] ---
@@ -2338,9 +2357,8 @@ public class Nuklear {
 	 * @param symbol         one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text           
 	 * @param text_alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
-	 * @param behavior       one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
 	 */
-	public static native int nnk_button_symbol_label(long ctx, int symbol, long text, int text_alignment, int behavior);
+	public static native int nnk_button_symbol_label(long ctx, int symbol, long text, int text_alignment);
 
 	/**
 	 * 
@@ -2349,12 +2367,11 @@ public class Nuklear {
 	 * @param symbol         one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text           
 	 * @param text_alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
-	 * @param behavior       one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
 	 */
-	public static boolean nk_button_symbol_label(NkContext ctx, int symbol, ByteBuffer text, int text_alignment, int behavior) {
+	public static boolean nk_button_symbol_label(NkContext ctx, int symbol, ByteBuffer text, int text_alignment) {
 		if ( CHECKS )
 			checkNT1(text);
-		return nnk_button_symbol_label(ctx.address(), symbol, memAddress(text), text_alignment, behavior) != 0;
+		return nnk_button_symbol_label(ctx.address(), symbol, memAddress(text), text_alignment) != 0;
 	}
 
 	/**
@@ -2364,13 +2381,12 @@ public class Nuklear {
 	 * @param symbol         one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text           
 	 * @param text_alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
-	 * @param behavior       one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
 	 */
-	public static boolean nk_button_symbol_label(NkContext ctx, int symbol, CharSequence text, int text_alignment, int behavior) {
+	public static boolean nk_button_symbol_label(NkContext ctx, int symbol, CharSequence text, int text_alignment) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text);
-			return nnk_button_symbol_label(ctx.address(), symbol, memAddress(textEncoded), text_alignment, behavior) != 0;
+			return nnk_button_symbol_label(ctx.address(), symbol, memAddress(textEncoded), text_alignment) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -2386,9 +2402,8 @@ public class Nuklear {
 	 * @param text      
 	 * @param len       
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
-	 * @param behavior  one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
 	 */
-	public static native int nnk_button_symbol_text(long ctx, int symbol, long text, int len, int alignment, int behavior);
+	public static native int nnk_button_symbol_text(long ctx, int symbol, long text, int len, int alignment);
 
 	/**
 	 * 
@@ -2397,10 +2412,9 @@ public class Nuklear {
 	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text      
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
-	 * @param behavior  one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
 	 */
-	public static boolean nk_button_symbol_text(NkContext ctx, int symbol, ByteBuffer text, int alignment, int behavior) {
-		return nnk_button_symbol_text(ctx.address(), symbol, memAddress(text), text.remaining(), alignment, behavior) != 0;
+	public static boolean nk_button_symbol_text(NkContext ctx, int symbol, ByteBuffer text, int alignment) {
+		return nnk_button_symbol_text(ctx.address(), symbol, memAddress(text), text.remaining(), alignment) != 0;
 	}
 
 	/**
@@ -2410,14 +2424,13 @@ public class Nuklear {
 	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text      
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
-	 * @param behavior  one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
 	 */
-	public static boolean nk_button_symbol_text(NkContext ctx, int symbol, CharSequence text, int alignment, int behavior) {
+	public static boolean nk_button_symbol_text(NkContext ctx, int symbol, CharSequence text, int alignment) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text, false);
 			int textEncodedLen = textEncoded.capacity();
-			return nnk_button_symbol_text(ctx.address(), symbol, memAddress(textEncoded), textEncodedLen, alignment, behavior) != 0;
+			return nnk_button_symbol_text(ctx.address(), symbol, memAddress(textEncoded), textEncodedLen, alignment) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -2432,9 +2445,8 @@ public class Nuklear {
 	 * @param img            
 	 * @param text           
 	 * @param text_alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
-	 * @param behavior       one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
 	 */
-	public static native int nnk_button_image_label(long ctx, long img, long text, int text_alignment, int behavior);
+	public static native int nnk_button_image_label(long ctx, long img, long text, int text_alignment);
 
 	/**
 	 * 
@@ -2443,12 +2455,11 @@ public class Nuklear {
 	 * @param img            
 	 * @param text           
 	 * @param text_alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
-	 * @param behavior       one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
 	 */
-	public static boolean nk_button_image_label(NkContext ctx, NkImage img, ByteBuffer text, int text_alignment, int behavior) {
+	public static boolean nk_button_image_label(NkContext ctx, NkImage img, ByteBuffer text, int text_alignment) {
 		if ( CHECKS )
 			checkNT1(text);
-		return nnk_button_image_label(ctx.address(), img.address(), memAddress(text), text_alignment, behavior) != 0;
+		return nnk_button_image_label(ctx.address(), img.address(), memAddress(text), text_alignment) != 0;
 	}
 
 	/**
@@ -2458,13 +2469,12 @@ public class Nuklear {
 	 * @param img            
 	 * @param text           
 	 * @param text_alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
-	 * @param behavior       one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
 	 */
-	public static boolean nk_button_image_label(NkContext ctx, NkImage img, CharSequence text, int text_alignment, int behavior) {
+	public static boolean nk_button_image_label(NkContext ctx, NkImage img, CharSequence text, int text_alignment) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text);
-			return nnk_button_image_label(ctx.address(), img.address(), memAddress(textEncoded), text_alignment, behavior) != 0;
+			return nnk_button_image_label(ctx.address(), img.address(), memAddress(textEncoded), text_alignment) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -2480,9 +2490,8 @@ public class Nuklear {
 	 * @param text      
 	 * @param len       
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
-	 * @param behavior  one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
 	 */
-	public static native int nnk_button_image_text(long ctx, long img, long text, int len, int alignment, int behavior);
+	public static native int nnk_button_image_text(long ctx, long img, long text, int len, int alignment);
 
 	/**
 	 * 
@@ -2491,10 +2500,9 @@ public class Nuklear {
 	 * @param img       
 	 * @param text      
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
-	 * @param behavior  one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
 	 */
-	public static boolean nk_button_image_text(NkContext ctx, NkImage img, ByteBuffer text, int alignment, int behavior) {
-		return nnk_button_image_text(ctx.address(), img.address(), memAddress(text), text.remaining(), alignment, behavior) != 0;
+	public static boolean nk_button_image_text(NkContext ctx, NkImage img, ByteBuffer text, int alignment) {
+		return nnk_button_image_text(ctx.address(), img.address(), memAddress(text), text.remaining(), alignment) != 0;
 	}
 
 	/**
@@ -2504,14 +2512,13 @@ public class Nuklear {
 	 * @param img       
 	 * @param text      
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
-	 * @param behavior  one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
 	 */
-	public static boolean nk_button_image_text(NkContext ctx, NkImage img, CharSequence text, int alignment, int behavior) {
+	public static boolean nk_button_image_text(NkContext ctx, NkImage img, CharSequence text, int alignment) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text, false);
 			int textEncodedLen = textEncoded.capacity();
-			return nnk_button_image_text(ctx.address(), img.address(), memAddress(textEncoded), textEncodedLen, alignment, behavior) != 0;
+			return nnk_button_image_text(ctx.address(), img.address(), memAddress(textEncoded), textEncodedLen, alignment) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -6542,6 +6549,50 @@ public class Nuklear {
 		nnk_style_from_table(ctx.address(), table.address());
 	}
 
+	// --- [ nk_style_load_cursor ] ---
+
+	/**
+	 * 
+	 *
+	 * @param ctx    the nuklear context
+	 * @param style  one of:<br><table><tr><td>{@link #NK_CURSOR_ARROW CURSOR_ARROW}</td><td>{@link #NK_CURSOR_TEXT CURSOR_TEXT}</td><td>{@link #NK_CURSOR_MOVE CURSOR_MOVE}</td><td>{@link #NK_CURSOR_RESIZE_VERTICAL CURSOR_RESIZE_VERTICAL}</td></tr><tr><td>{@link #NK_CURSOR_RESIZE_HORIZONTAL CURSOR_RESIZE_HORIZONTAL}</td><td>{@link #NK_CURSOR_RESIZE_TOP_LEFT_DOWN_RIGHT CURSOR_RESIZE_TOP_LEFT_DOWN_RIGHT}</td><td>{@link #NK_CURSOR_RESIZE_TOP_RIGHT_DOWN_LEFT CURSOR_RESIZE_TOP_RIGHT_DOWN_LEFT}</td><td>{@link #NK_CURSOR_COUNT CURSOR_COUNT}</td></tr></table>
+	 * @param cursor 
+	 */
+	public static native void nnk_style_load_cursor(long ctx, int style, long cursor);
+
+	/**
+	 * 
+	 *
+	 * @param ctx    the nuklear context
+	 * @param style  one of:<br><table><tr><td>{@link #NK_CURSOR_ARROW CURSOR_ARROW}</td><td>{@link #NK_CURSOR_TEXT CURSOR_TEXT}</td><td>{@link #NK_CURSOR_MOVE CURSOR_MOVE}</td><td>{@link #NK_CURSOR_RESIZE_VERTICAL CURSOR_RESIZE_VERTICAL}</td></tr><tr><td>{@link #NK_CURSOR_RESIZE_HORIZONTAL CURSOR_RESIZE_HORIZONTAL}</td><td>{@link #NK_CURSOR_RESIZE_TOP_LEFT_DOWN_RIGHT CURSOR_RESIZE_TOP_LEFT_DOWN_RIGHT}</td><td>{@link #NK_CURSOR_RESIZE_TOP_RIGHT_DOWN_LEFT CURSOR_RESIZE_TOP_RIGHT_DOWN_LEFT}</td><td>{@link #NK_CURSOR_COUNT CURSOR_COUNT}</td></tr></table>
+	 * @param cursor 
+	 */
+	public static void nk_style_load_cursor(NkContext ctx, int style, NkCursor cursor) {
+		nnk_style_load_cursor(ctx.address(), style, cursor.address());
+	}
+
+	// --- [ nk_style_load_all_cursors ] ---
+
+	/**
+	 * 
+	 *
+	 * @param ctx    the nuklear context
+	 * @param cursor 
+	 */
+	public static native void nnk_style_load_all_cursors(long ctx, long cursor);
+
+	/**
+	 * 
+	 *
+	 * @param ctx    the nuklear context
+	 * @param cursor 
+	 */
+	public static void nk_style_load_all_cursors(NkContext ctx, NkCursor.Buffer cursor) {
+		if ( CHECKS )
+			checkBuffer(cursor, NK_CURSOR_COUNT);
+		nnk_style_load_all_cursors(ctx.address(), cursor.address());
+	}
+
 	// --- [ nk_style_color_name ] ---
 
 	/**
@@ -6579,6 +6630,26 @@ public class Nuklear {
 	 */
 	public static void nk_style_set_font(NkContext ctx, NkUserFont font) {
 		nnk_style_set_font(ctx.address(), font.address());
+	}
+
+	// --- [ nk_style_set_cursor ] ---
+
+	/**
+	 * 
+	 *
+	 * @param ctx   the nuklear context
+	 * @param style one of:<br><table><tr><td>{@link #NK_CURSOR_ARROW CURSOR_ARROW}</td><td>{@link #NK_CURSOR_TEXT CURSOR_TEXT}</td><td>{@link #NK_CURSOR_MOVE CURSOR_MOVE}</td><td>{@link #NK_CURSOR_RESIZE_VERTICAL CURSOR_RESIZE_VERTICAL}</td></tr><tr><td>{@link #NK_CURSOR_RESIZE_HORIZONTAL CURSOR_RESIZE_HORIZONTAL}</td><td>{@link #NK_CURSOR_RESIZE_TOP_LEFT_DOWN_RIGHT CURSOR_RESIZE_TOP_LEFT_DOWN_RIGHT}</td><td>{@link #NK_CURSOR_RESIZE_TOP_RIGHT_DOWN_LEFT CURSOR_RESIZE_TOP_RIGHT_DOWN_LEFT}</td><td>{@link #NK_CURSOR_COUNT CURSOR_COUNT}</td></tr></table>
+	 */
+	public static native int nnk_style_set_cursor(long ctx, int style);
+
+	/**
+	 * 
+	 *
+	 * @param ctx   the nuklear context
+	 * @param style one of:<br><table><tr><td>{@link #NK_CURSOR_ARROW CURSOR_ARROW}</td><td>{@link #NK_CURSOR_TEXT CURSOR_TEXT}</td><td>{@link #NK_CURSOR_MOVE CURSOR_MOVE}</td><td>{@link #NK_CURSOR_RESIZE_VERTICAL CURSOR_RESIZE_VERTICAL}</td></tr><tr><td>{@link #NK_CURSOR_RESIZE_HORIZONTAL CURSOR_RESIZE_HORIZONTAL}</td><td>{@link #NK_CURSOR_RESIZE_TOP_LEFT_DOWN_RIGHT CURSOR_RESIZE_TOP_LEFT_DOWN_RIGHT}</td><td>{@link #NK_CURSOR_RESIZE_TOP_RIGHT_DOWN_LEFT CURSOR_RESIZE_TOP_RIGHT_DOWN_LEFT}</td><td>{@link #NK_CURSOR_COUNT CURSOR_COUNT}</td></tr></table>
+	 */
+	public static int nk_style_set_cursor(NkContext ctx, int style) {
+		return nnk_style_set_cursor(ctx.address(), style);
 	}
 
 	// --- [ nk_widget_bounds ] ---
@@ -7721,8 +7792,6 @@ public class Nuklear {
 	public static native void nnk_buffer_info(long status, long buffer);
 
 	public static void nk_buffer_info(NkMemoryStatus status, NkBuffer buffer) {
-		if ( CHECKS )
-			NkMemoryStatus.validate(status.address());
 		nnk_buffer_info(status.address(), buffer.address());
 	}
 
@@ -8282,8 +8351,6 @@ public class Nuklear {
 	public static native void nnk_stroke_line(long b, float x0, float y0, float x1, float y1, float line_thickness, long color);
 
 	public static void nk_stroke_line(NkCommandBuffer b, float x0, float y0, float x1, float y1, float line_thickness, NkColor color) {
-		if ( CHECKS )
-			NkCommandBuffer.validate(b.address());
 		nnk_stroke_line(b.address(), x0, y0, x1, y1, line_thickness, color.address());
 	}
 
@@ -8292,8 +8359,6 @@ public class Nuklear {
 	public static native void nnk_stroke_curve(long b, float ax, float ay, float ctrl0x, float ctrl0y, float ctrl1x, float ctrl1y, float bx, float by, float line_thickness, long color);
 
 	public static void nk_stroke_curve(NkCommandBuffer b, float ax, float ay, float ctrl0x, float ctrl0y, float ctrl1x, float ctrl1y, float bx, float by, float line_thickness, NkColor color) {
-		if ( CHECKS )
-			NkCommandBuffer.validate(b.address());
 		nnk_stroke_curve(b.address(), ax, ay, ctrl0x, ctrl0y, ctrl1x, ctrl1y, bx, by, line_thickness, color.address());
 	}
 
@@ -8302,8 +8367,6 @@ public class Nuklear {
 	public static native void nnk_stroke_rect(long b, long rect, float rounding, float line_thickness, long color);
 
 	public static void nk_stroke_rect(NkCommandBuffer b, NkRect rect, float rounding, float line_thickness, NkColor color) {
-		if ( CHECKS )
-			NkCommandBuffer.validate(b.address());
 		nnk_stroke_rect(b.address(), rect.address(), rounding, line_thickness, color.address());
 	}
 
@@ -8312,8 +8375,6 @@ public class Nuklear {
 	public static native void nnk_stroke_circle(long b, long rect, float line_thickness, long color);
 
 	public static void nk_stroke_circle(NkCommandBuffer b, NkRect rect, float line_thickness, NkColor color) {
-		if ( CHECKS )
-			NkCommandBuffer.validate(b.address());
 		nnk_stroke_circle(b.address(), rect.address(), line_thickness, color.address());
 	}
 
@@ -8322,8 +8383,6 @@ public class Nuklear {
 	public static native void nnk_stroke_arc(long b, float cx, float cy, float radius, float a_min, float a_max, float line_thickness, long color);
 
 	public static void nk_stroke_arc(NkCommandBuffer b, float cx, float cy, float radius, float a_min, float a_max, float line_thickness, NkColor color) {
-		if ( CHECKS )
-			NkCommandBuffer.validate(b.address());
 		nnk_stroke_arc(b.address(), cx, cy, radius, a_min, a_max, line_thickness, color.address());
 	}
 
@@ -8332,8 +8391,6 @@ public class Nuklear {
 	public static native void nnk_stroke_triangle(long b, float x0, float y0, float x1, float y1, float x2, float y2, float line_thichness, long color);
 
 	public static void nk_stroke_triangle(NkCommandBuffer b, float x0, float y0, float x1, float y1, float x2, float y2, float line_thichness, NkColor color) {
-		if ( CHECKS )
-			NkCommandBuffer.validate(b.address());
 		nnk_stroke_triangle(b.address(), x0, y0, x1, y1, x2, y2, line_thichness, color.address());
 	}
 
@@ -8342,8 +8399,6 @@ public class Nuklear {
 	public static native void nnk_stroke_polyline(long b, long points, int point_count, float line_thickness, long col);
 
 	public static void nk_stroke_polyline(NkCommandBuffer b, FloatBuffer points, float line_thickness, NkColor col) {
-		if ( CHECKS )
-			NkCommandBuffer.validate(b.address());
 		nnk_stroke_polyline(b.address(), memAddress(points), points.remaining(), line_thickness, col.address());
 	}
 
@@ -8352,8 +8407,6 @@ public class Nuklear {
 	public static native void nnk_stroke_polygon(long b, long points, int point_count, float line_thickness, long color);
 
 	public static void nk_stroke_polygon(NkCommandBuffer b, FloatBuffer points, float line_thickness, NkColor color) {
-		if ( CHECKS )
-			NkCommandBuffer.validate(b.address());
 		nnk_stroke_polygon(b.address(), memAddress(points), points.remaining(), line_thickness, color.address());
 	}
 
@@ -8362,8 +8415,6 @@ public class Nuklear {
 	public static native void nnk_fill_rect(long b, long rect, float rounding, long color);
 
 	public static void nk_fill_rect(NkCommandBuffer b, NkRect rect, float rounding, NkColor color) {
-		if ( CHECKS )
-			NkCommandBuffer.validate(b.address());
 		nnk_fill_rect(b.address(), rect.address(), rounding, color.address());
 	}
 
@@ -8372,8 +8423,6 @@ public class Nuklear {
 	public static native void nnk_fill_rect_multi_color(long b, long rect, long left, long top, long right, long bottom);
 
 	public static void nk_fill_rect_multi_color(NkCommandBuffer b, NkRect rect, NkColor left, NkColor top, NkColor right, NkColor bottom) {
-		if ( CHECKS )
-			NkCommandBuffer.validate(b.address());
 		nnk_fill_rect_multi_color(b.address(), rect.address(), left.address(), top.address(), right.address(), bottom.address());
 	}
 
@@ -8382,8 +8431,6 @@ public class Nuklear {
 	public static native void nnk_fill_circle(long b, long rect, long color);
 
 	public static void nk_fill_circle(NkCommandBuffer b, NkRect rect, NkColor color) {
-		if ( CHECKS )
-			NkCommandBuffer.validate(b.address());
 		nnk_fill_circle(b.address(), rect.address(), color.address());
 	}
 
@@ -8392,8 +8439,6 @@ public class Nuklear {
 	public static native void nnk_fill_arc(long b, float cx, float cy, float radius, float a_min, float a_max, long color);
 
 	public static void nk_fill_arc(NkCommandBuffer b, float cx, float cy, float radius, float a_min, float a_max, NkColor color) {
-		if ( CHECKS )
-			NkCommandBuffer.validate(b.address());
 		nnk_fill_arc(b.address(), cx, cy, radius, a_min, a_max, color.address());
 	}
 
@@ -8402,8 +8447,6 @@ public class Nuklear {
 	public static native void nnk_fill_triangle(long b, float x0, float y0, float x1, float y1, float x2, float y2, long color);
 
 	public static void nk_fill_triangle(NkCommandBuffer b, float x0, float y0, float x1, float y1, float x2, float y2, NkColor color) {
-		if ( CHECKS )
-			NkCommandBuffer.validate(b.address());
 		nnk_fill_triangle(b.address(), x0, y0, x1, y1, x2, y2, color.address());
 	}
 
@@ -8412,8 +8455,6 @@ public class Nuklear {
 	public static native void nnk_fill_polygon(long b, long points, int point_count, long color);
 
 	public static void nk_fill_polygon(NkCommandBuffer b, FloatBuffer points, NkColor color) {
-		if ( CHECKS )
-			NkCommandBuffer.validate(b.address());
 		nnk_fill_polygon(b.address(), memAddress(points), points.remaining(), color.address());
 	}
 
@@ -8422,8 +8463,6 @@ public class Nuklear {
 	public static native void nnk_push_scissor(long b, long rect);
 
 	public static void nk_push_scissor(NkCommandBuffer b, NkRect rect) {
-		if ( CHECKS )
-			NkCommandBuffer.validate(b.address());
 		nnk_push_scissor(b.address(), rect.address());
 	}
 
@@ -8432,8 +8471,6 @@ public class Nuklear {
 	public static native void nnk_draw_image(long b, long rect, long img);
 
 	public static void nk_draw_image(NkCommandBuffer b, NkRect rect, NkImage img) {
-		if ( CHECKS )
-			NkCommandBuffer.validate(b.address());
 		nnk_draw_image(b.address(), rect.address(), img.address());
 	}
 
@@ -8442,14 +8479,10 @@ public class Nuklear {
 	public static native void nnk_draw_text(long b, long rect, long string, int length, long font, long bg, long fg);
 
 	public static void nk_draw_text(NkCommandBuffer b, NkRect rect, ByteBuffer string, NkUserFont font, NkColor bg, NkColor fg) {
-		if ( CHECKS )
-			NkCommandBuffer.validate(b.address());
 		nnk_draw_text(b.address(), rect.address(), memAddress(string), string.remaining(), font.address(), bg.address(), fg.address());
 	}
 
 	public static void nk_draw_text(NkCommandBuffer b, NkRect rect, CharSequence string, NkUserFont font, NkColor bg, NkColor fg) {
-		if ( CHECKS )
-			NkCommandBuffer.validate(b.address());
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer stringEncoded = stack.UTF8(string, false);
@@ -9961,8 +9994,6 @@ public class Nuklear {
 
 	/** Array version of: {@link #nk_stroke_polyline stroke_polyline} */
 	public static void nk_stroke_polyline(NkCommandBuffer b, float[] points, float line_thickness, NkColor col) {
-		if ( CHECKS )
-			NkCommandBuffer.validate(b.address());
 		nnk_stroke_polyline(b.address(), points, points.length, line_thickness, col.address());
 	}
 
@@ -9971,8 +10002,6 @@ public class Nuklear {
 
 	/** Array version of: {@link #nk_stroke_polygon stroke_polygon} */
 	public static void nk_stroke_polygon(NkCommandBuffer b, float[] points, float line_thickness, NkColor color) {
-		if ( CHECKS )
-			NkCommandBuffer.validate(b.address());
 		nnk_stroke_polygon(b.address(), points, points.length, line_thickness, color.address());
 	}
 
@@ -9981,8 +10010,6 @@ public class Nuklear {
 
 	/** Array version of: {@link #nk_fill_polygon fill_polygon} */
 	public static void nk_fill_polygon(NkCommandBuffer b, float[] points, NkColor color) {
-		if ( CHECKS )
-			NkCommandBuffer.validate(b.address());
 		nnk_fill_polygon(b.address(), points, points.length, color.address());
 	}
 

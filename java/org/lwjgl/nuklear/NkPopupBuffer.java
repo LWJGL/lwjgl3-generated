@@ -7,12 +7,9 @@ package org.lwjgl.nuklear;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -25,7 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
     int active;
 }</code></pre>
  */
-public class NkPopupBuffer extends Struct implements NativeResource {
+public class NkPopupBuffer extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -87,98 +84,11 @@ public class NkPopupBuffer extends Struct implements NativeResource {
 	/** Returns the value of the {@code active} field. */
 	public int active() { return nactive(address()); }
 
-	/** Sets the specified value to the {@code begin} field. */
-	public NkPopupBuffer begin(long value) { nbegin(address(), value); return this; }
-	/** Sets the specified value to the {@code parent} field. */
-	public NkPopupBuffer parent(long value) { nparent(address(), value); return this; }
-	/** Sets the specified value to the {@code last} field. */
-	public NkPopupBuffer last(long value) { nlast(address(), value); return this; }
-	/** Sets the specified value to the {@code end} field. */
-	public NkPopupBuffer end(long value) { nend(address(), value); return this; }
-	/** Sets the specified value to the {@code active} field. */
-	public NkPopupBuffer active(int value) { nactive(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public NkPopupBuffer set(
-		long begin,
-		long parent,
-		long last,
-		long end,
-		int active
-	) {
-		begin(begin);
-		parent(parent);
-		last(last);
-		end(end);
-		active(active);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(NkPopupBuffer) set}. */
-	public NkPopupBuffer nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public NkPopupBuffer set(NkPopupBuffer src) {
-		return nset(src.address());
-	}
-
 	// -----------------------------------
-
-	/** Returns a new {@link NkPopupBuffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-	public static NkPopupBuffer malloc() {
-		return create(nmemAlloc(SIZEOF));
-	}
-
-	/** Returns a new {@link NkPopupBuffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-	public static NkPopupBuffer calloc() {
-		return create(nmemCalloc(1, SIZEOF));
-	}
-
-	/** Returns a new {@link NkPopupBuffer} instance allocated with {@link BufferUtils}. */
-	public static NkPopupBuffer create() {
-		return new NkPopupBuffer(BufferUtils.createByteBuffer(SIZEOF));
-	}
 
 	/** Returns a new {@link NkPopupBuffer} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
 	public static NkPopupBuffer create(long address) {
 		return address == NULL ? null : new NkPopupBuffer(address, null);
-	}
-
-	/**
-	 * Returns a new {@link NkPopupBuffer.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer malloc(int capacity) {
-		return create(nmemAlloc(capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkPopupBuffer.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer calloc(int capacity) {
-		return create(nmemCalloc(capacity, SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkPopupBuffer.Buffer} instance allocated with {@link BufferUtils}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -189,74 +99,6 @@ public class NkPopupBuffer extends Struct implements NativeResource {
 	 */
 	public static Buffer create(long address, int capacity) {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
-	}
-
-	// -----------------------------------
-
-	/** Returns a new {@link NkPopupBuffer} instance allocated on the thread-local {@link MemoryStack}. */
-	public static NkPopupBuffer mallocStack() {
-		return mallocStack(stackGet());
-	}
-
-	/** Returns a new {@link NkPopupBuffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-	public static NkPopupBuffer callocStack() {
-		return callocStack(stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkPopupBuffer} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static NkPopupBuffer mallocStack(MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link NkPopupBuffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static NkPopupBuffer callocStack(MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link NkPopupBuffer.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity) {
-		return mallocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkPopupBuffer.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity) {
-		return callocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkPopupBuffer.Buffer} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity, MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkPopupBuffer.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity, MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
 	}
 
 	// -----------------------------------
@@ -272,21 +114,10 @@ public class NkPopupBuffer extends Struct implements NativeResource {
 	/** Unsafe version of {@link #active}. */
 	public static int nactive(long struct) { return memGetInt(struct + NkPopupBuffer.ACTIVE); }
 
-	/** Unsafe version of {@link #begin(long) begin}. */
-	public static void nbegin(long struct, long value) { memPutAddress(struct + NkPopupBuffer.BEGIN, value); }
-	/** Unsafe version of {@link #parent(long) parent}. */
-	public static void nparent(long struct, long value) { memPutAddress(struct + NkPopupBuffer.PARENT, value); }
-	/** Unsafe version of {@link #last(long) last}. */
-	public static void nlast(long struct, long value) { memPutAddress(struct + NkPopupBuffer.LAST, value); }
-	/** Unsafe version of {@link #end(long) end}. */
-	public static void nend(long struct, long value) { memPutAddress(struct + NkPopupBuffer.END, value); }
-	/** Unsafe version of {@link #active(int) active}. */
-	public static void nactive(long struct, int value) { memPutInt(struct + NkPopupBuffer.ACTIVE, value); }
-
 	// -----------------------------------
 
 	/** An array of {@link NkPopupBuffer} structs. */
-	public static final class Buffer extends StructBuffer<NkPopupBuffer, Buffer> implements NativeResource {
+	public static final class Buffer extends StructBuffer<NkPopupBuffer, Buffer> {
 
 		/**
 		 * Creates a new {@link NkPopupBuffer.Buffer} instance backed by the specified container.
@@ -335,17 +166,6 @@ public class NkPopupBuffer extends Struct implements NativeResource {
 		public long end() { return NkPopupBuffer.nend(address()); }
 		/** Returns the value of the {@code active} field. */
 		public int active() { return NkPopupBuffer.nactive(address()); }
-
-		/** Sets the specified value to the {@code begin} field. */
-		public NkPopupBuffer.Buffer begin(long value) { NkPopupBuffer.nbegin(address(), value); return this; }
-		/** Sets the specified value to the {@code parent} field. */
-		public NkPopupBuffer.Buffer parent(long value) { NkPopupBuffer.nparent(address(), value); return this; }
-		/** Sets the specified value to the {@code last} field. */
-		public NkPopupBuffer.Buffer last(long value) { NkPopupBuffer.nlast(address(), value); return this; }
-		/** Sets the specified value to the {@code end} field. */
-		public NkPopupBuffer.Buffer end(long value) { NkPopupBuffer.nend(address(), value); return this; }
-		/** Sets the specified value to the {@code active} field. */
-		public NkPopupBuffer.Buffer active(int value) { NkPopupBuffer.nactive(address(), value); return this; }
 
 	}
 

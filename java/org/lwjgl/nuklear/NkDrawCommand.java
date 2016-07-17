@@ -7,12 +7,9 @@ package org.lwjgl.nuklear;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -24,7 +21,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkHandle nk_handle} userdata;
 }</code></pre>
  */
-public class NkDrawCommand extends Struct implements NativeResource {
+public class NkDrawCommand extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -81,79 +78,11 @@ public class NkDrawCommand extends Struct implements NativeResource {
 	/** Returns a {@link NkHandle} view of the {@code userdata} field. */
 	public NkHandle userdata() { return nuserdata(address()); }
 
-	/** Sets the specified value to the {@code elem_count} field. */
-	public NkDrawCommand elem_count(int value) { nelem_count(address(), value); return this; }
-	/** Copies the specified {@link NkRect} to the {@code clip_rect} field. */
-	public NkDrawCommand clip_rect(NkRect value) { nclip_rect(address(), value); return this; }
-	/** Copies the specified {@link NkHandle} to the {@code texture} field. */
-	public NkDrawCommand texture(NkHandle value) { ntexture(address(), value); return this; }
-	/** Copies the specified {@link NkHandle} to the {@code userdata} field. */
-	public NkDrawCommand userdata(NkHandle value) { nuserdata(address(), value); return this; }
-
-	/** Unsafe version of {@link #set(NkDrawCommand) set}. */
-	public NkDrawCommand nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public NkDrawCommand set(NkDrawCommand src) {
-		return nset(src.address());
-	}
-
 	// -----------------------------------
-
-	/** Returns a new {@link NkDrawCommand} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-	public static NkDrawCommand malloc() {
-		return create(nmemAlloc(SIZEOF));
-	}
-
-	/** Returns a new {@link NkDrawCommand} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-	public static NkDrawCommand calloc() {
-		return create(nmemCalloc(1, SIZEOF));
-	}
-
-	/** Returns a new {@link NkDrawCommand} instance allocated with {@link BufferUtils}. */
-	public static NkDrawCommand create() {
-		return new NkDrawCommand(BufferUtils.createByteBuffer(SIZEOF));
-	}
 
 	/** Returns a new {@link NkDrawCommand} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
 	public static NkDrawCommand create(long address) {
 		return address == NULL ? null : new NkDrawCommand(address, null);
-	}
-
-	/**
-	 * Returns a new {@link NkDrawCommand.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer malloc(int capacity) {
-		return create(nmemAlloc(capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkDrawCommand.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer calloc(int capacity) {
-		return create(nmemCalloc(capacity, SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkDrawCommand.Buffer} instance allocated with {@link BufferUtils}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -168,74 +97,6 @@ public class NkDrawCommand extends Struct implements NativeResource {
 
 	// -----------------------------------
 
-	/** Returns a new {@link NkDrawCommand} instance allocated on the thread-local {@link MemoryStack}. */
-	public static NkDrawCommand mallocStack() {
-		return mallocStack(stackGet());
-	}
-
-	/** Returns a new {@link NkDrawCommand} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-	public static NkDrawCommand callocStack() {
-		return callocStack(stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkDrawCommand} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static NkDrawCommand mallocStack(MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link NkDrawCommand} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static NkDrawCommand callocStack(MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link NkDrawCommand.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity) {
-		return mallocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkDrawCommand.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity) {
-		return callocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkDrawCommand.Buffer} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity, MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkDrawCommand.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity, MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-	}
-
-	// -----------------------------------
-
 	/** Unsafe version of {@link #elem_count}. */
 	public static int nelem_count(long struct) { return memGetInt(struct + NkDrawCommand.ELEM_COUNT); }
 	/** Unsafe version of {@link #clip_rect}. */
@@ -245,19 +106,10 @@ public class NkDrawCommand extends Struct implements NativeResource {
 	/** Unsafe version of {@link #userdata}. */
 	public static NkHandle nuserdata(long struct) { return NkHandle.create(struct + NkDrawCommand.USERDATA); }
 
-	/** Unsafe version of {@link #elem_count(int) elem_count}. */
-	public static void nelem_count(long struct, int value) { memPutInt(struct + NkDrawCommand.ELEM_COUNT, value); }
-	/** Unsafe version of {@link #clip_rect(NkRect) clip_rect}. */
-	public static void nclip_rect(long struct, NkRect value) { memCopy(value.address(), struct + NkDrawCommand.CLIP_RECT, NkRect.SIZEOF); }
-	/** Unsafe version of {@link #texture(NkHandle) texture}. */
-	public static void ntexture(long struct, NkHandle value) { memCopy(value.address(), struct + NkDrawCommand.TEXTURE, NkHandle.SIZEOF); }
-	/** Unsafe version of {@link #userdata(NkHandle) userdata}. */
-	public static void nuserdata(long struct, NkHandle value) { memCopy(value.address(), struct + NkDrawCommand.USERDATA, NkHandle.SIZEOF); }
-
 	// -----------------------------------
 
 	/** An array of {@link NkDrawCommand} structs. */
-	public static final class Buffer extends StructBuffer<NkDrawCommand, Buffer> implements NativeResource {
+	public static final class Buffer extends StructBuffer<NkDrawCommand, Buffer> {
 
 		/**
 		 * Creates a new {@link NkDrawCommand.Buffer} instance backed by the specified container.
@@ -304,15 +156,6 @@ public class NkDrawCommand extends Struct implements NativeResource {
 		public NkHandle texture() { return NkDrawCommand.ntexture(address()); }
 		/** Returns a {@link NkHandle} view of the {@code userdata} field. */
 		public NkHandle userdata() { return NkDrawCommand.nuserdata(address()); }
-
-		/** Sets the specified value to the {@code elem_count} field. */
-		public NkDrawCommand.Buffer elem_count(int value) { NkDrawCommand.nelem_count(address(), value); return this; }
-		/** Copies the specified {@link NkRect} to the {@code clip_rect} field. */
-		public NkDrawCommand.Buffer clip_rect(NkRect value) { NkDrawCommand.nclip_rect(address(), value); return this; }
-		/** Copies the specified {@link NkHandle} to the {@code texture} field. */
-		public NkDrawCommand.Buffer texture(NkHandle value) { NkDrawCommand.ntexture(address(), value); return this; }
-		/** Copies the specified {@link NkHandle} to the {@code userdata} field. */
-		public NkDrawCommand.Buffer userdata(NkHandle value) { NkDrawCommand.nuserdata(address(), value); return this; }
 
 	}
 

@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -126,69 +125,6 @@ public class NkBuffer extends Struct implements NativeResource {
 	public long calls() { return ncalls(address()); }
 	/** Returns the value of the {@code size} field. */
 	public long size() { return nsize(address()); }
-
-	/** Copies the specified {@link NkBufferMarker.Buffer} to the {@code marker} field. */
-	public NkBuffer marker(NkBufferMarker.Buffer value) { nmarker(address(), value); return this; }
-	/** Copies the specified {@link NkBufferMarker} at the specified index of the {@code marker} field. */
-	public NkBuffer marker(int index, NkBufferMarker value) { nmarker(address(), index, value); return this; }
-	/** Copies the specified {@link NkAllocator} to the {@code pool} field. */
-	public NkBuffer pool(NkAllocator value) { npool(address(), value); return this; }
-	/** Sets the specified value to the {@code type} field. */
-	public NkBuffer type(int value) { ntype(address(), value); return this; }
-	/** Copies the specified {@link NkMemory} to the {@code memory} field. */
-	public NkBuffer memory(NkMemory value) { nmemory(address(), value); return this; }
-	/** Sets the specified value to the {@code grow_factor} field. */
-	public NkBuffer grow_factor(float value) { ngrow_factor(address(), value); return this; }
-	/** Sets the specified value to the {@code allocated} field. */
-	public NkBuffer allocated(long value) { nallocated(address(), value); return this; }
-	/** Sets the specified value to the {@code needed} field. */
-	public NkBuffer needed(long value) { nneeded(address(), value); return this; }
-	/** Sets the specified value to the {@code calls} field. */
-	public NkBuffer calls(long value) { ncalls(address(), value); return this; }
-	/** Sets the specified value to the {@code size} field. */
-	public NkBuffer size(long value) { nsize(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public NkBuffer set(
-		NkBufferMarker.Buffer marker,
-		NkAllocator pool,
-		int type,
-		NkMemory memory,
-		float grow_factor,
-		long allocated,
-		long needed,
-		long calls,
-		long size
-	) {
-		marker(marker);
-		pool(pool);
-		type(type);
-		memory(memory);
-		grow_factor(grow_factor);
-		allocated(allocated);
-		needed(needed);
-		calls(calls);
-		size(size);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(NkBuffer) set}. */
-	public NkBuffer nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public NkBuffer set(NkBuffer src) {
-		return nset(src.address());
-	}
 
 	// -----------------------------------
 
@@ -344,30 +280,6 @@ public class NkBuffer extends Struct implements NativeResource {
 	/** Unsafe version of {@link #size}. */
 	public static long nsize(long struct) { return memGetAddress(struct + NkBuffer.SIZE); }
 
-	/** Unsafe version of {@link #marker(NkBufferMarker.Buffer) marker}. */
-	public static void nmarker(long struct, NkBufferMarker.Buffer value) {
-		if ( CHECKS ) checkBufferGT(value, 2);
-		memCopy(value.address(), struct + NkBuffer.MARKER, value.remaining() * NkBufferMarker.SIZEOF);
-	}
-	/** Unsafe version of {@link #marker(int, NkBufferMarker) marker}. */
-	public static void nmarker(long struct, int index, NkBufferMarker value) { memCopy(value.address(), struct + NkBuffer.MARKER + index * NkBufferMarker.SIZEOF, NkBufferMarker.SIZEOF); }
-	/** Unsafe version of {@link #pool(NkAllocator) pool}. */
-	public static void npool(long struct, NkAllocator value) { memCopy(value.address(), struct + NkBuffer.POOL, NkAllocator.SIZEOF); }
-	/** Unsafe version of {@link #type(int) type}. */
-	public static void ntype(long struct, int value) { memPutInt(struct + NkBuffer.TYPE, value); }
-	/** Unsafe version of {@link #memory(NkMemory) memory}. */
-	public static void nmemory(long struct, NkMemory value) { memCopy(value.address(), struct + NkBuffer.MEMORY, NkMemory.SIZEOF); }
-	/** Unsafe version of {@link #grow_factor(float) grow_factor}. */
-	public static void ngrow_factor(long struct, float value) { memPutFloat(struct + NkBuffer.GROW_FACTOR, value); }
-	/** Unsafe version of {@link #allocated(long) allocated}. */
-	public static void nallocated(long struct, long value) { memPutAddress(struct + NkBuffer.ALLOCATED, value); }
-	/** Unsafe version of {@link #needed(long) needed}. */
-	public static void nneeded(long struct, long value) { memPutAddress(struct + NkBuffer.NEEDED, value); }
-	/** Unsafe version of {@link #calls(long) calls}. */
-	public static void ncalls(long struct, long value) { memPutAddress(struct + NkBuffer.CALLS, value); }
-	/** Unsafe version of {@link #size(long) size}. */
-	public static void nsize(long struct, long value) { memPutAddress(struct + NkBuffer.SIZE, value); }
-
 	// -----------------------------------
 
 	/** An array of {@link NkBuffer} structs. */
@@ -430,27 +342,6 @@ public class NkBuffer extends Struct implements NativeResource {
 		public long calls() { return NkBuffer.ncalls(address()); }
 		/** Returns the value of the {@code size} field. */
 		public long size() { return NkBuffer.nsize(address()); }
-
-		/** Copies the specified {@link NkBufferMarker.Buffer} to the {@code marker} field. */
-		public NkBuffer.Buffer marker(NkBufferMarker.Buffer value) { NkBuffer.nmarker(address(), value); return this; }
-		/** Copies the specified {@link NkBufferMarker} at the specified index of the {@code marker} field. */
-		public NkBuffer.Buffer marker(int index, NkBufferMarker value) { NkBuffer.nmarker(address(), index, value); return this; }
-		/** Copies the specified {@link NkAllocator} to the {@code pool} field. */
-		public NkBuffer.Buffer pool(NkAllocator value) { NkBuffer.npool(address(), value); return this; }
-		/** Sets the specified value to the {@code type} field. */
-		public NkBuffer.Buffer type(int value) { NkBuffer.ntype(address(), value); return this; }
-		/** Copies the specified {@link NkMemory} to the {@code memory} field. */
-		public NkBuffer.Buffer memory(NkMemory value) { NkBuffer.nmemory(address(), value); return this; }
-		/** Sets the specified value to the {@code grow_factor} field. */
-		public NkBuffer.Buffer grow_factor(float value) { NkBuffer.ngrow_factor(address(), value); return this; }
-		/** Sets the specified value to the {@code allocated} field. */
-		public NkBuffer.Buffer allocated(long value) { NkBuffer.nallocated(address(), value); return this; }
-		/** Sets the specified value to the {@code needed} field. */
-		public NkBuffer.Buffer needed(long value) { NkBuffer.nneeded(address(), value); return this; }
-		/** Sets the specified value to the {@code calls} field. */
-		public NkBuffer.Buffer calls(long value) { NkBuffer.ncalls(address(), value); return this; }
-		/** Sets the specified value to the {@code size} field. */
-		public NkBuffer.Buffer size(long value) { NkBuffer.nsize(address(), value); return this; }
 
 	}
 

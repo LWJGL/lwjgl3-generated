@@ -7,12 +7,9 @@ package org.lwjgl.nuklear;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -22,7 +19,7 @@ import static org.lwjgl.system.MemoryStack.*;
     nk_size offset;
 }</code></pre>
  */
-public class NkBufferMarker extends Struct implements NativeResource {
+public class NkBufferMarker extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -69,86 +66,11 @@ public class NkBufferMarker extends Struct implements NativeResource {
 	/** Returns the value of the {@code offset} field. */
 	public long offset() { return noffset(address()); }
 
-	/** Sets the specified value to the {@code active} field. */
-	public NkBufferMarker active(int value) { nactive(address(), value); return this; }
-	/** Sets the specified value to the {@code offset} field. */
-	public NkBufferMarker offset(long value) { noffset(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public NkBufferMarker set(
-		int active,
-		long offset
-	) {
-		active(active);
-		offset(offset);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(NkBufferMarker) set}. */
-	public NkBufferMarker nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public NkBufferMarker set(NkBufferMarker src) {
-		return nset(src.address());
-	}
-
 	// -----------------------------------
-
-	/** Returns a new {@link NkBufferMarker} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-	public static NkBufferMarker malloc() {
-		return create(nmemAlloc(SIZEOF));
-	}
-
-	/** Returns a new {@link NkBufferMarker} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-	public static NkBufferMarker calloc() {
-		return create(nmemCalloc(1, SIZEOF));
-	}
-
-	/** Returns a new {@link NkBufferMarker} instance allocated with {@link BufferUtils}. */
-	public static NkBufferMarker create() {
-		return new NkBufferMarker(BufferUtils.createByteBuffer(SIZEOF));
-	}
 
 	/** Returns a new {@link NkBufferMarker} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
 	public static NkBufferMarker create(long address) {
 		return address == NULL ? null : new NkBufferMarker(address, null);
-	}
-
-	/**
-	 * Returns a new {@link NkBufferMarker.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer malloc(int capacity) {
-		return create(nmemAlloc(capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkBufferMarker.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer calloc(int capacity) {
-		return create(nmemCalloc(capacity, SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkBufferMarker.Buffer} instance allocated with {@link BufferUtils}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -163,88 +85,15 @@ public class NkBufferMarker extends Struct implements NativeResource {
 
 	// -----------------------------------
 
-	/** Returns a new {@link NkBufferMarker} instance allocated on the thread-local {@link MemoryStack}. */
-	public static NkBufferMarker mallocStack() {
-		return mallocStack(stackGet());
-	}
-
-	/** Returns a new {@link NkBufferMarker} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-	public static NkBufferMarker callocStack() {
-		return callocStack(stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkBufferMarker} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static NkBufferMarker mallocStack(MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link NkBufferMarker} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static NkBufferMarker callocStack(MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link NkBufferMarker.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity) {
-		return mallocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkBufferMarker.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity) {
-		return callocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkBufferMarker.Buffer} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity, MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkBufferMarker.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity, MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-	}
-
-	// -----------------------------------
-
 	/** Unsafe version of {@link #active}. */
 	public static int nactive(long struct) { return memGetInt(struct + NkBufferMarker.ACTIVE); }
 	/** Unsafe version of {@link #offset}. */
 	public static long noffset(long struct) { return memGetAddress(struct + NkBufferMarker.OFFSET); }
 
-	/** Unsafe version of {@link #active(int) active}. */
-	public static void nactive(long struct, int value) { memPutInt(struct + NkBufferMarker.ACTIVE, value); }
-	/** Unsafe version of {@link #offset(long) offset}. */
-	public static void noffset(long struct, long value) { memPutAddress(struct + NkBufferMarker.OFFSET, value); }
-
 	// -----------------------------------
 
 	/** An array of {@link NkBufferMarker} structs. */
-	public static final class Buffer extends StructBuffer<NkBufferMarker, Buffer> implements NativeResource {
+	public static final class Buffer extends StructBuffer<NkBufferMarker, Buffer> {
 
 		/**
 		 * Creates a new {@link NkBufferMarker.Buffer} instance backed by the specified container.
@@ -287,11 +136,6 @@ public class NkBufferMarker extends Struct implements NativeResource {
 		public int active() { return NkBufferMarker.nactive(address()); }
 		/** Returns the value of the {@code offset} field. */
 		public long offset() { return NkBufferMarker.noffset(address()); }
-
-		/** Sets the specified value to the {@code active} field. */
-		public NkBufferMarker.Buffer active(int value) { NkBufferMarker.nactive(address(), value); return this; }
-		/** Sets the specified value to the {@code offset} field. */
-		public NkBufferMarker.Buffer offset(long value) { NkBufferMarker.noffset(address(), value); return this; }
 
 	}
 

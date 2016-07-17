@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -68,39 +67,6 @@ public class NkInput extends Struct implements NativeResource {
 	public NkKeyboard keyboard() { return nkeyboard(address()); }
 	/** Returns a {@link NkMouse} view of the {@code mouse} field. */
 	public NkMouse mouse() { return nmouse(address()); }
-
-	/** Copies the specified {@link NkKeyboard} to the {@code keyboard} field. */
-	public NkInput keyboard(NkKeyboard value) { nkeyboard(address(), value); return this; }
-	/** Copies the specified {@link NkMouse} to the {@code mouse} field. */
-	public NkInput mouse(NkMouse value) { nmouse(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public NkInput set(
-		NkKeyboard keyboard,
-		NkMouse mouse
-	) {
-		keyboard(keyboard);
-		mouse(mouse);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(NkInput) set}. */
-	public NkInput nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public NkInput set(NkInput src) {
-		return nset(src.address());
-	}
 
 	// -----------------------------------
 
@@ -236,11 +202,6 @@ public class NkInput extends Struct implements NativeResource {
 	/** Unsafe version of {@link #mouse}. */
 	public static NkMouse nmouse(long struct) { return NkMouse.create(struct + NkInput.MOUSE); }
 
-	/** Unsafe version of {@link #keyboard(NkKeyboard) keyboard}. */
-	public static void nkeyboard(long struct, NkKeyboard value) { memCopy(value.address(), struct + NkInput.KEYBOARD, NkKeyboard.SIZEOF); }
-	/** Unsafe version of {@link #mouse(NkMouse) mouse}. */
-	public static void nmouse(long struct, NkMouse value) { memCopy(value.address(), struct + NkInput.MOUSE, NkMouse.SIZEOF); }
-
 	// -----------------------------------
 
 	/** An array of {@link NkInput} structs. */
@@ -287,11 +248,6 @@ public class NkInput extends Struct implements NativeResource {
 		public NkKeyboard keyboard() { return NkInput.nkeyboard(address()); }
 		/** Returns a {@link NkMouse} view of the {@code mouse} field. */
 		public NkMouse mouse() { return NkInput.nmouse(address()); }
-
-		/** Copies the specified {@link NkKeyboard} to the {@code keyboard} field. */
-		public NkInput.Buffer keyboard(NkKeyboard value) { NkInput.nkeyboard(address(), value); return this; }
-		/** Copies the specified {@link NkMouse} to the {@code mouse} field. */
-		public NkInput.Buffer mouse(NkMouse value) { NkInput.nmouse(address(), value); return this; }
 
 	}
 

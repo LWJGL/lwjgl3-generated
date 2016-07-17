@@ -7,12 +7,9 @@ package org.lwjgl.nuklear;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -36,7 +33,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkTextUndoState struct nk_text_undo_state} undo;
 }</code></pre>
  */
-public class NkTextEdit extends Struct implements NativeResource {
+public class NkTextEdit extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -149,138 +146,11 @@ public class NkTextEdit extends Struct implements NativeResource {
 	/** Returns a {@link NkTextUndoState} view of the {@code undo} field. */
 	public NkTextUndoState undo() { return nundo(address()); }
 
-	/** Copies the specified {@link NkClipboard} to the {@code clip} field. */
-	public NkTextEdit clip(NkClipboard value) { nclip(address(), value); return this; }
-	/** Copies the specified {@link NkStr} to the {@code string} field. */
-	public NkTextEdit string(NkStr value) { nstring(address(), value); return this; }
-	/** Sets the address of the specified {@link NkFilterCallbackI} to the {@code filter} field. */
-	public NkTextEdit filter(NkFilterCallbackI value) { nfilter(address(), addressSafe(value)); return this; }
-	/** Copies the specified {@link NkVec2} to the {@code scrollbar} field. */
-	public NkTextEdit scrollbar(NkVec2 value) { nscrollbar(address(), value); return this; }
-	/** Sets the specified value to the {@code cursor} field. */
-	public NkTextEdit cursor(int value) { ncursor(address(), value); return this; }
-	/** Sets the specified value to the {@code select_start} field. */
-	public NkTextEdit select_start(int value) { nselect_start(address(), value); return this; }
-	/** Sets the specified value to the {@code select_end} field. */
-	public NkTextEdit select_end(int value) { nselect_end(address(), value); return this; }
-	/** Sets the specified value to the {@code mode} field. */
-	public NkTextEdit mode(byte value) { nmode(address(), value); return this; }
-	/** Sets the specified value to the {@code cursor_at_end_of_line} field. */
-	public NkTextEdit cursor_at_end_of_line(boolean value) { ncursor_at_end_of_line(address(), value); return this; }
-	/** Sets the specified value to the {@code initialized} field. */
-	public NkTextEdit initialized(boolean value) { ninitialized(address(), value); return this; }
-	/** Sets the specified value to the {@code has_preferred_x} field. */
-	public NkTextEdit has_preferred_x(boolean value) { nhas_preferred_x(address(), value); return this; }
-	/** Sets the specified value to the {@code single_line} field. */
-	public NkTextEdit single_line(boolean value) { nsingle_line(address(), value); return this; }
-	/** Sets the specified value to the {@code active} field. */
-	public NkTextEdit active(boolean value) { nactive(address(), value); return this; }
-	/** Sets the specified value to the {@code preferred_x} field. */
-	public NkTextEdit preferred_x(float value) { npreferred_x(address(), value); return this; }
-	/** Copies the specified {@link NkTextUndoState} to the {@code undo} field. */
-	public NkTextEdit undo(NkTextUndoState value) { nundo(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public NkTextEdit set(
-		NkClipboard clip,
-		NkStr string,
-		NkFilterCallbackI filter,
-		NkVec2 scrollbar,
-		int cursor,
-		int select_start,
-		int select_end,
-		byte mode,
-		boolean cursor_at_end_of_line,
-		boolean initialized,
-		boolean has_preferred_x,
-		boolean single_line,
-		boolean active,
-		float preferred_x,
-		NkTextUndoState undo
-	) {
-		clip(clip);
-		string(string);
-		filter(filter);
-		scrollbar(scrollbar);
-		cursor(cursor);
-		select_start(select_start);
-		select_end(select_end);
-		mode(mode);
-		cursor_at_end_of_line(cursor_at_end_of_line);
-		initialized(initialized);
-		has_preferred_x(has_preferred_x);
-		single_line(single_line);
-		active(active);
-		preferred_x(preferred_x);
-		undo(undo);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(NkTextEdit) set}. */
-	public NkTextEdit nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public NkTextEdit set(NkTextEdit src) {
-		return nset(src.address());
-	}
-
 	// -----------------------------------
-
-	/** Returns a new {@link NkTextEdit} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-	public static NkTextEdit malloc() {
-		return create(nmemAlloc(SIZEOF));
-	}
-
-	/** Returns a new {@link NkTextEdit} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-	public static NkTextEdit calloc() {
-		return create(nmemCalloc(1, SIZEOF));
-	}
-
-	/** Returns a new {@link NkTextEdit} instance allocated with {@link BufferUtils}. */
-	public static NkTextEdit create() {
-		return new NkTextEdit(BufferUtils.createByteBuffer(SIZEOF));
-	}
 
 	/** Returns a new {@link NkTextEdit} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
 	public static NkTextEdit create(long address) {
 		return address == NULL ? null : new NkTextEdit(address, null);
-	}
-
-	/**
-	 * Returns a new {@link NkTextEdit.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer malloc(int capacity) {
-		return create(nmemAlloc(capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkTextEdit.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer calloc(int capacity) {
-		return create(nmemCalloc(capacity, SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkTextEdit.Buffer} instance allocated with {@link BufferUtils}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -291,74 +161,6 @@ public class NkTextEdit extends Struct implements NativeResource {
 	 */
 	public static Buffer create(long address, int capacity) {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
-	}
-
-	// -----------------------------------
-
-	/** Returns a new {@link NkTextEdit} instance allocated on the thread-local {@link MemoryStack}. */
-	public static NkTextEdit mallocStack() {
-		return mallocStack(stackGet());
-	}
-
-	/** Returns a new {@link NkTextEdit} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-	public static NkTextEdit callocStack() {
-		return callocStack(stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkTextEdit} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static NkTextEdit mallocStack(MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link NkTextEdit} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static NkTextEdit callocStack(MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link NkTextEdit.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity) {
-		return mallocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkTextEdit.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity) {
-		return callocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkTextEdit.Buffer} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity, MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkTextEdit.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity, MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
 	}
 
 	// -----------------------------------
@@ -394,41 +196,10 @@ public class NkTextEdit extends Struct implements NativeResource {
 	/** Unsafe version of {@link #undo}. */
 	public static NkTextUndoState nundo(long struct) { return NkTextUndoState.create(struct + NkTextEdit.UNDO); }
 
-	/** Unsafe version of {@link #clip(NkClipboard) clip}. */
-	public static void nclip(long struct, NkClipboard value) { memCopy(value.address(), struct + NkTextEdit.CLIP, NkClipboard.SIZEOF); }
-	/** Unsafe version of {@link #string(NkStr) string}. */
-	public static void nstring(long struct, NkStr value) { memCopy(value.address(), struct + NkTextEdit.STRING, NkStr.SIZEOF); }
-	/** Unsafe version of {@link #filter(NkFilterCallbackI) filter}. */
-	public static void nfilter(long struct, long value) { memPutAddress(struct + NkTextEdit.FILTER, value); }
-	/** Unsafe version of {@link #scrollbar(NkVec2) scrollbar}. */
-	public static void nscrollbar(long struct, NkVec2 value) { memCopy(value.address(), struct + NkTextEdit.SCROLLBAR, NkVec2.SIZEOF); }
-	/** Unsafe version of {@link #cursor(int) cursor}. */
-	public static void ncursor(long struct, int value) { memPutInt(struct + NkTextEdit.CURSOR, value); }
-	/** Unsafe version of {@link #select_start(int) select_start}. */
-	public static void nselect_start(long struct, int value) { memPutInt(struct + NkTextEdit.SELECT_START, value); }
-	/** Unsafe version of {@link #select_end(int) select_end}. */
-	public static void nselect_end(long struct, int value) { memPutInt(struct + NkTextEdit.SELECT_END, value); }
-	/** Unsafe version of {@link #mode(byte) mode}. */
-	public static void nmode(long struct, byte value) { memPutByte(struct + NkTextEdit.MODE, value); }
-	/** Unsafe version of {@link #cursor_at_end_of_line(boolean) cursor_at_end_of_line}. */
-	public static void ncursor_at_end_of_line(long struct, boolean value) { memPutByte(struct + NkTextEdit.CURSOR_AT_END_OF_LINE, value ? (byte)1 : (byte)0); }
-	/** Unsafe version of {@link #initialized(boolean) initialized}. */
-	public static void ninitialized(long struct, boolean value) { memPutByte(struct + NkTextEdit.INITIALIZED, value ? (byte)1 : (byte)0); }
-	/** Unsafe version of {@link #has_preferred_x(boolean) has_preferred_x}. */
-	public static void nhas_preferred_x(long struct, boolean value) { memPutByte(struct + NkTextEdit.HAS_PREFERRED_X, value ? (byte)1 : (byte)0); }
-	/** Unsafe version of {@link #single_line(boolean) single_line}. */
-	public static void nsingle_line(long struct, boolean value) { memPutByte(struct + NkTextEdit.SINGLE_LINE, value ? (byte)1 : (byte)0); }
-	/** Unsafe version of {@link #active(boolean) active}. */
-	public static void nactive(long struct, boolean value) { memPutByte(struct + NkTextEdit.ACTIVE, value ? (byte)1 : (byte)0); }
-	/** Unsafe version of {@link #preferred_x(float) preferred_x}. */
-	public static void npreferred_x(long struct, float value) { memPutFloat(struct + NkTextEdit.PREFERRED_X, value); }
-	/** Unsafe version of {@link #undo(NkTextUndoState) undo}. */
-	public static void nundo(long struct, NkTextUndoState value) { memCopy(value.address(), struct + NkTextEdit.UNDO, NkTextUndoState.SIZEOF); }
-
 	// -----------------------------------
 
 	/** An array of {@link NkTextEdit} structs. */
-	public static final class Buffer extends StructBuffer<NkTextEdit, Buffer> implements NativeResource {
+	public static final class Buffer extends StructBuffer<NkTextEdit, Buffer> {
 
 		/**
 		 * Creates a new {@link NkTextEdit.Buffer} instance backed by the specified container.
@@ -497,37 +268,6 @@ public class NkTextEdit extends Struct implements NativeResource {
 		public float preferred_x() { return NkTextEdit.npreferred_x(address()); }
 		/** Returns a {@link NkTextUndoState} view of the {@code undo} field. */
 		public NkTextUndoState undo() { return NkTextEdit.nundo(address()); }
-
-		/** Copies the specified {@link NkClipboard} to the {@code clip} field. */
-		public NkTextEdit.Buffer clip(NkClipboard value) { NkTextEdit.nclip(address(), value); return this; }
-		/** Copies the specified {@link NkStr} to the {@code string} field. */
-		public NkTextEdit.Buffer string(NkStr value) { NkTextEdit.nstring(address(), value); return this; }
-		/** Sets the address of the specified {@link NkFilterCallbackI} to the {@code filter} field. */
-		public NkTextEdit.Buffer filter(NkFilterCallbackI value) { NkTextEdit.nfilter(address(), addressSafe(value)); return this; }
-		/** Copies the specified {@link NkVec2} to the {@code scrollbar} field. */
-		public NkTextEdit.Buffer scrollbar(NkVec2 value) { NkTextEdit.nscrollbar(address(), value); return this; }
-		/** Sets the specified value to the {@code cursor} field. */
-		public NkTextEdit.Buffer cursor(int value) { NkTextEdit.ncursor(address(), value); return this; }
-		/** Sets the specified value to the {@code select_start} field. */
-		public NkTextEdit.Buffer select_start(int value) { NkTextEdit.nselect_start(address(), value); return this; }
-		/** Sets the specified value to the {@code select_end} field. */
-		public NkTextEdit.Buffer select_end(int value) { NkTextEdit.nselect_end(address(), value); return this; }
-		/** Sets the specified value to the {@code mode} field. */
-		public NkTextEdit.Buffer mode(byte value) { NkTextEdit.nmode(address(), value); return this; }
-		/** Sets the specified value to the {@code cursor_at_end_of_line} field. */
-		public NkTextEdit.Buffer cursor_at_end_of_line(boolean value) { NkTextEdit.ncursor_at_end_of_line(address(), value); return this; }
-		/** Sets the specified value to the {@code initialized} field. */
-		public NkTextEdit.Buffer initialized(boolean value) { NkTextEdit.ninitialized(address(), value); return this; }
-		/** Sets the specified value to the {@code has_preferred_x} field. */
-		public NkTextEdit.Buffer has_preferred_x(boolean value) { NkTextEdit.nhas_preferred_x(address(), value); return this; }
-		/** Sets the specified value to the {@code single_line} field. */
-		public NkTextEdit.Buffer single_line(boolean value) { NkTextEdit.nsingle_line(address(), value); return this; }
-		/** Sets the specified value to the {@code active} field. */
-		public NkTextEdit.Buffer active(boolean value) { NkTextEdit.nactive(address(), value); return this; }
-		/** Sets the specified value to the {@code preferred_x} field. */
-		public NkTextEdit.Buffer preferred_x(float value) { NkTextEdit.npreferred_x(address(), value); return this; }
-		/** Copies the specified {@link NkTextUndoState} to the {@code undo} field. */
-		public NkTextEdit.Buffer undo(NkTextUndoState value) { NkTextEdit.nundo(address(), value); return this; }
 
 	}
 

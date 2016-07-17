@@ -7,12 +7,9 @@ package org.lwjgl.nuklear;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -29,7 +26,7 @@ import static org.lwjgl.system.MemoryStack.*;
     int index;
 }</code></pre>
  */
-public class NkChartSlot extends Struct implements NativeResource {
+public class NkChartSlot extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -111,114 +108,11 @@ public class NkChartSlot extends Struct implements NativeResource {
 	/** Returns the value of the {@code index} field. */
 	public int index() { return nindex(address()); }
 
-	/** Sets the specified value to the {@code type} field. */
-	public NkChartSlot type(int value) { ntype(address(), value); return this; }
-	/** Copies the specified {@link NkColor} to the {@code color} field. */
-	public NkChartSlot color(NkColor value) { ncolor(address(), value); return this; }
-	/** Copies the specified {@link NkColor} to the {@code highlight} field. */
-	public NkChartSlot highlight(NkColor value) { nhighlight(address(), value); return this; }
-	/** Sets the specified value to the {@code min} field. */
-	public NkChartSlot min(float value) { nmin(address(), value); return this; }
-	/** Sets the specified value to the {@code max} field. */
-	public NkChartSlot max(float value) { nmax(address(), value); return this; }
-	/** Sets the specified value to the {@code range} field. */
-	public NkChartSlot range(float value) { nrange(address(), value); return this; }
-	/** Sets the specified value to the {@code count} field. */
-	public NkChartSlot count(int value) { ncount(address(), value); return this; }
-	/** Copies the specified {@link NkVec2} to the {@code last} field. */
-	public NkChartSlot last(NkVec2 value) { nlast(address(), value); return this; }
-	/** Sets the specified value to the {@code index} field. */
-	public NkChartSlot index(int value) { nindex(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public NkChartSlot set(
-		int type,
-		NkColor color,
-		NkColor highlight,
-		float min,
-		float max,
-		float range,
-		int count,
-		NkVec2 last,
-		int index
-	) {
-		type(type);
-		color(color);
-		highlight(highlight);
-		min(min);
-		max(max);
-		range(range);
-		count(count);
-		last(last);
-		index(index);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(NkChartSlot) set}. */
-	public NkChartSlot nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public NkChartSlot set(NkChartSlot src) {
-		return nset(src.address());
-	}
-
 	// -----------------------------------
-
-	/** Returns a new {@link NkChartSlot} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-	public static NkChartSlot malloc() {
-		return create(nmemAlloc(SIZEOF));
-	}
-
-	/** Returns a new {@link NkChartSlot} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-	public static NkChartSlot calloc() {
-		return create(nmemCalloc(1, SIZEOF));
-	}
-
-	/** Returns a new {@link NkChartSlot} instance allocated with {@link BufferUtils}. */
-	public static NkChartSlot create() {
-		return new NkChartSlot(BufferUtils.createByteBuffer(SIZEOF));
-	}
 
 	/** Returns a new {@link NkChartSlot} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
 	public static NkChartSlot create(long address) {
 		return address == NULL ? null : new NkChartSlot(address, null);
-	}
-
-	/**
-	 * Returns a new {@link NkChartSlot.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer malloc(int capacity) {
-		return create(nmemAlloc(capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkChartSlot.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer calloc(int capacity) {
-		return create(nmemCalloc(capacity, SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkChartSlot.Buffer} instance allocated with {@link BufferUtils}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -229,74 +123,6 @@ public class NkChartSlot extends Struct implements NativeResource {
 	 */
 	public static Buffer create(long address, int capacity) {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
-	}
-
-	// -----------------------------------
-
-	/** Returns a new {@link NkChartSlot} instance allocated on the thread-local {@link MemoryStack}. */
-	public static NkChartSlot mallocStack() {
-		return mallocStack(stackGet());
-	}
-
-	/** Returns a new {@link NkChartSlot} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-	public static NkChartSlot callocStack() {
-		return callocStack(stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkChartSlot} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static NkChartSlot mallocStack(MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link NkChartSlot} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static NkChartSlot callocStack(MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link NkChartSlot.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity) {
-		return mallocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkChartSlot.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity) {
-		return callocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkChartSlot.Buffer} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity, MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkChartSlot.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity, MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
 	}
 
 	// -----------------------------------
@@ -320,29 +146,10 @@ public class NkChartSlot extends Struct implements NativeResource {
 	/** Unsafe version of {@link #index}. */
 	public static int nindex(long struct) { return memGetInt(struct + NkChartSlot.INDEX); }
 
-	/** Unsafe version of {@link #type(int) type}. */
-	public static void ntype(long struct, int value) { memPutInt(struct + NkChartSlot.TYPE, value); }
-	/** Unsafe version of {@link #color(NkColor) color}. */
-	public static void ncolor(long struct, NkColor value) { memCopy(value.address(), struct + NkChartSlot.COLOR, NkColor.SIZEOF); }
-	/** Unsafe version of {@link #highlight(NkColor) highlight}. */
-	public static void nhighlight(long struct, NkColor value) { memCopy(value.address(), struct + NkChartSlot.HIGHLIGHT, NkColor.SIZEOF); }
-	/** Unsafe version of {@link #min(float) min}. */
-	public static void nmin(long struct, float value) { memPutFloat(struct + NkChartSlot.MIN, value); }
-	/** Unsafe version of {@link #max(float) max}. */
-	public static void nmax(long struct, float value) { memPutFloat(struct + NkChartSlot.MAX, value); }
-	/** Unsafe version of {@link #range(float) range}. */
-	public static void nrange(long struct, float value) { memPutFloat(struct + NkChartSlot.RANGE, value); }
-	/** Unsafe version of {@link #count(int) count}. */
-	public static void ncount(long struct, int value) { memPutInt(struct + NkChartSlot.COUNT, value); }
-	/** Unsafe version of {@link #last(NkVec2) last}. */
-	public static void nlast(long struct, NkVec2 value) { memCopy(value.address(), struct + NkChartSlot.LAST, NkVec2.SIZEOF); }
-	/** Unsafe version of {@link #index(int) index}. */
-	public static void nindex(long struct, int value) { memPutInt(struct + NkChartSlot.INDEX, value); }
-
 	// -----------------------------------
 
 	/** An array of {@link NkChartSlot} structs. */
-	public static final class Buffer extends StructBuffer<NkChartSlot, Buffer> implements NativeResource {
+	public static final class Buffer extends StructBuffer<NkChartSlot, Buffer> {
 
 		/**
 		 * Creates a new {@link NkChartSlot.Buffer} instance backed by the specified container.
@@ -399,25 +206,6 @@ public class NkChartSlot extends Struct implements NativeResource {
 		public NkVec2 last() { return NkChartSlot.nlast(address()); }
 		/** Returns the value of the {@code index} field. */
 		public int index() { return NkChartSlot.nindex(address()); }
-
-		/** Sets the specified value to the {@code type} field. */
-		public NkChartSlot.Buffer type(int value) { NkChartSlot.ntype(address(), value); return this; }
-		/** Copies the specified {@link NkColor} to the {@code color} field. */
-		public NkChartSlot.Buffer color(NkColor value) { NkChartSlot.ncolor(address(), value); return this; }
-		/** Copies the specified {@link NkColor} to the {@code highlight} field. */
-		public NkChartSlot.Buffer highlight(NkColor value) { NkChartSlot.nhighlight(address(), value); return this; }
-		/** Sets the specified value to the {@code min} field. */
-		public NkChartSlot.Buffer min(float value) { NkChartSlot.nmin(address(), value); return this; }
-		/** Sets the specified value to the {@code max} field. */
-		public NkChartSlot.Buffer max(float value) { NkChartSlot.nmax(address(), value); return this; }
-		/** Sets the specified value to the {@code range} field. */
-		public NkChartSlot.Buffer range(float value) { NkChartSlot.nrange(address(), value); return this; }
-		/** Sets the specified value to the {@code count} field. */
-		public NkChartSlot.Buffer count(int value) { NkChartSlot.ncount(address(), value); return this; }
-		/** Copies the specified {@link NkVec2} to the {@code last} field. */
-		public NkChartSlot.Buffer last(NkVec2 value) { NkChartSlot.nlast(address(), value); return this; }
-		/** Sets the specified value to the {@code index} field. */
-		public NkChartSlot.Buffer index(int value) { NkChartSlot.nindex(address(), value); return this; }
 
 	}
 

@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -74,39 +73,6 @@ public class NkStr extends Struct implements NativeResource {
 	public NkBuffer buffer() { return nbuffer(address()); }
 	/** Returns the value of the {@code len} field. */
 	public int len() { return nlen(address()); }
-
-	/** Copies the specified {@link NkBuffer} to the {@code buffer} field. */
-	public NkStr buffer(NkBuffer value) { nbuffer(address(), value); return this; }
-	/** Sets the specified value to the {@code len} field. */
-	public NkStr len(int value) { nlen(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public NkStr set(
-		NkBuffer buffer,
-		int len
-	) {
-		buffer(buffer);
-		len(len);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(NkStr) set}. */
-	public NkStr nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public NkStr set(NkStr src) {
-		return nset(src.address());
-	}
 
 	// -----------------------------------
 
@@ -242,11 +208,6 @@ public class NkStr extends Struct implements NativeResource {
 	/** Unsafe version of {@link #len}. */
 	public static int nlen(long struct) { return memGetInt(struct + NkStr.LEN); }
 
-	/** Unsafe version of {@link #buffer(NkBuffer) buffer}. */
-	public static void nbuffer(long struct, NkBuffer value) { memCopy(value.address(), struct + NkStr.BUFFER, NkBuffer.SIZEOF); }
-	/** Unsafe version of {@link #len(int) len}. */
-	public static void nlen(long struct, int value) { memPutInt(struct + NkStr.LEN, value); }
-
 	// -----------------------------------
 
 	/** An array of {@link NkStr} structs. */
@@ -293,11 +254,6 @@ public class NkStr extends Struct implements NativeResource {
 		public NkBuffer buffer() { return NkStr.nbuffer(address()); }
 		/** Returns the value of the {@code len} field. */
 		public int len() { return NkStr.nlen(address()); }
-
-		/** Copies the specified {@link NkBuffer} to the {@code buffer} field. */
-		public NkStr.Buffer buffer(NkBuffer value) { NkStr.nbuffer(address(), value); return this; }
-		/** Sets the specified value to the {@code len} field. */
-		public NkStr.Buffer len(int value) { NkStr.nlen(address(), value); return this; }
 
 	}
 

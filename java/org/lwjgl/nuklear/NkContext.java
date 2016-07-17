@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -23,9 +22,11 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkBuffer struct nk_buffer} memory;
     {@link NkClipboard struct nk_clipboard} clip;
     nk_flags last_widget_state;
+    nk_button_behavior button_behavior;
     {@link NkDrawList struct nk_draw_list} draw_list;
     {@link NkHandle nk_handle} userdata;
     {@link NkTextEdit struct nk_text_edit} text_edit;
+    {@link NkCommandBuffer struct nk_command_buffer} overlay;
     int build;
     void * pool;
     struct nk_window * begin;
@@ -51,9 +52,11 @@ public class NkContext extends Struct implements NativeResource {
 		MEMORY,
 		CLIP,
 		LAST_WIDGET_STATE,
+		BUTTON_BEHAVIOR,
 		DRAW_LIST,
 		USERDATA,
 		TEXT_EDIT,
+		OVERLAY,
 		BUILD,
 		POOL,
 		BEGIN,
@@ -71,9 +74,11 @@ public class NkContext extends Struct implements NativeResource {
 			__member(NkBuffer.SIZEOF, NkBuffer.ALIGNOF),
 			__member(NkClipboard.SIZEOF, NkClipboard.ALIGNOF),
 			__member(4),
+			__member(4),
 			__member(NkDrawList.SIZEOF, NkDrawList.ALIGNOF),
 			__member(NkHandle.SIZEOF, NkHandle.ALIGNOF),
 			__member(NkTextEdit.SIZEOF, NkTextEdit.ALIGNOF),
+			__member(NkCommandBuffer.SIZEOF, NkCommandBuffer.ALIGNOF),
 			__member(4),
 			__member(POINTER_SIZE),
 			__member(POINTER_SIZE),
@@ -93,18 +98,20 @@ public class NkContext extends Struct implements NativeResource {
 		MEMORY = layout.offsetof(2);
 		CLIP = layout.offsetof(3);
 		LAST_WIDGET_STATE = layout.offsetof(4);
-		DRAW_LIST = layout.offsetof(5);
-		USERDATA = layout.offsetof(6);
-		TEXT_EDIT = layout.offsetof(7);
-		BUILD = layout.offsetof(8);
-		POOL = layout.offsetof(9);
-		BEGIN = layout.offsetof(10);
-		END = layout.offsetof(11);
-		ACTIVE = layout.offsetof(12);
-		CURRENT = layout.offsetof(13);
-		FREELIST = layout.offsetof(14);
-		COUNT = layout.offsetof(15);
-		SEQ = layout.offsetof(16);
+		BUTTON_BEHAVIOR = layout.offsetof(5);
+		DRAW_LIST = layout.offsetof(6);
+		USERDATA = layout.offsetof(7);
+		TEXT_EDIT = layout.offsetof(8);
+		OVERLAY = layout.offsetof(9);
+		BUILD = layout.offsetof(10);
+		POOL = layout.offsetof(11);
+		BEGIN = layout.offsetof(12);
+		END = layout.offsetof(13);
+		ACTIVE = layout.offsetof(14);
+		CURRENT = layout.offsetof(15);
+		FREELIST = layout.offsetof(16);
+		COUNT = layout.offsetof(17);
+		SEQ = layout.offsetof(18);
 	}
 
 	NkContext(long address, ByteBuffer container) {
@@ -134,12 +141,16 @@ public class NkContext extends Struct implements NativeResource {
 	public NkClipboard clip() { return nclip(address()); }
 	/** Returns the value of the {@code last_widget_state} field. */
 	public int last_widget_state() { return nlast_widget_state(address()); }
+	/** Returns the value of the {@code button_behavior} field. */
+	public int button_behavior() { return nbutton_behavior(address()); }
 	/** Returns a {@link NkDrawList} view of the {@code draw_list} field. */
 	public NkDrawList draw_list() { return ndraw_list(address()); }
 	/** Returns a {@link NkHandle} view of the {@code userdata} field. */
 	public NkHandle userdata() { return nuserdata(address()); }
 	/** Returns a {@link NkTextEdit} view of the {@code text_edit} field. */
 	public NkTextEdit text_edit() { return ntext_edit(address()); }
+	/** Returns a {@link NkCommandBuffer} view of the {@code overlay} field. */
+	public NkCommandBuffer overlay() { return noverlay(address()); }
 	/** Returns the value of the {@code build} field. */
 	public int build() { return nbuild(address()); }
 	/** Returns the value of the {@code pool} field. */
@@ -158,58 +169,6 @@ public class NkContext extends Struct implements NativeResource {
 	public int count() { return ncount(address()); }
 	/** Returns the value of the {@code seq} field. */
 	public int seq() { return nseq(address()); }
-
-	/** Copies the specified {@link NkInput} to the {@code input} field. */
-	public NkContext input(NkInput value) { ninput(address(), value); return this; }
-	/** Copies the specified {@link NkStyle} to the {@code style} field. */
-	public NkContext style(NkStyle value) { nstyle(address(), value); return this; }
-	/** Copies the specified {@link NkBuffer} to the {@code memory} field. */
-	public NkContext memory(NkBuffer value) { nmemory(address(), value); return this; }
-	/** Copies the specified {@link NkClipboard} to the {@code clip} field. */
-	public NkContext clip(NkClipboard value) { nclip(address(), value); return this; }
-	/** Sets the specified value to the {@code last_widget_state} field. */
-	public NkContext last_widget_state(int value) { nlast_widget_state(address(), value); return this; }
-	/** Copies the specified {@link NkDrawList} to the {@code draw_list} field. */
-	public NkContext draw_list(NkDrawList value) { ndraw_list(address(), value); return this; }
-	/** Copies the specified {@link NkHandle} to the {@code userdata} field. */
-	public NkContext userdata(NkHandle value) { nuserdata(address(), value); return this; }
-	/** Copies the specified {@link NkTextEdit} to the {@code text_edit} field. */
-	public NkContext text_edit(NkTextEdit value) { ntext_edit(address(), value); return this; }
-	/** Sets the specified value to the {@code build} field. */
-	public NkContext build(int value) { nbuild(address(), value); return this; }
-	/** Sets the specified value to the {@code pool} field. */
-	public NkContext pool(long value) { npool(address(), value); return this; }
-	/** Sets the address of the specified {@link NkWindow} to the {@code begin} field. */
-	public NkContext begin(NkWindow value) { nbegin(address(), value); return this; }
-	/** Sets the address of the specified {@link NkWindow} to the {@code end} field. */
-	public NkContext end(NkWindow value) { nend(address(), value); return this; }
-	/** Sets the address of the specified {@link NkWindow} to the {@code active} field. */
-	public NkContext active(NkWindow value) { nactive(address(), value); return this; }
-	/** Sets the address of the specified {@link NkWindow} to the {@code current} field. */
-	public NkContext current(NkWindow value) { ncurrent(address(), value); return this; }
-	/** Sets the specified value to the {@code freelist} field. */
-	public NkContext freelist(long value) { nfreelist(address(), value); return this; }
-	/** Sets the specified value to the {@code count} field. */
-	public NkContext count(int value) { ncount(address(), value); return this; }
-	/** Sets the specified value to the {@code seq} field. */
-	public NkContext seq(int value) { nseq(address(), value); return this; }
-
-	/** Unsafe version of {@link #set(NkContext) set}. */
-	public NkContext nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public NkContext set(NkContext src) {
-		return nset(src.address());
-	}
 
 	// -----------------------------------
 
@@ -350,12 +309,16 @@ public class NkContext extends Struct implements NativeResource {
 	public static NkClipboard nclip(long struct) { return NkClipboard.create(struct + NkContext.CLIP); }
 	/** Unsafe version of {@link #last_widget_state}. */
 	public static int nlast_widget_state(long struct) { return memGetInt(struct + NkContext.LAST_WIDGET_STATE); }
+	/** Unsafe version of {@link #button_behavior}. */
+	public static int nbutton_behavior(long struct) { return memGetInt(struct + NkContext.BUTTON_BEHAVIOR); }
 	/** Unsafe version of {@link #draw_list}. */
 	public static NkDrawList ndraw_list(long struct) { return NkDrawList.create(struct + NkContext.DRAW_LIST); }
 	/** Unsafe version of {@link #userdata}. */
 	public static NkHandle nuserdata(long struct) { return NkHandle.create(struct + NkContext.USERDATA); }
 	/** Unsafe version of {@link #text_edit}. */
 	public static NkTextEdit ntext_edit(long struct) { return NkTextEdit.create(struct + NkContext.TEXT_EDIT); }
+	/** Unsafe version of {@link #overlay}. */
+	public static NkCommandBuffer noverlay(long struct) { return NkCommandBuffer.create(struct + NkContext.OVERLAY); }
 	/** Unsafe version of {@link #build}. */
 	public static int nbuild(long struct) { return memGetInt(struct + NkContext.BUILD); }
 	/** Unsafe version of {@link #pool}. */
@@ -374,41 +337,6 @@ public class NkContext extends Struct implements NativeResource {
 	public static int ncount(long struct) { return memGetInt(struct + NkContext.COUNT); }
 	/** Unsafe version of {@link #seq}. */
 	public static int nseq(long struct) { return memGetInt(struct + NkContext.SEQ); }
-
-	/** Unsafe version of {@link #input(NkInput) input}. */
-	public static void ninput(long struct, NkInput value) { memCopy(value.address(), struct + NkContext.INPUT, NkInput.SIZEOF); }
-	/** Unsafe version of {@link #style(NkStyle) style}. */
-	public static void nstyle(long struct, NkStyle value) { memCopy(value.address(), struct + NkContext.STYLE, NkStyle.SIZEOF); }
-	/** Unsafe version of {@link #memory(NkBuffer) memory}. */
-	public static void nmemory(long struct, NkBuffer value) { memCopy(value.address(), struct + NkContext.MEMORY, NkBuffer.SIZEOF); }
-	/** Unsafe version of {@link #clip(NkClipboard) clip}. */
-	public static void nclip(long struct, NkClipboard value) { memCopy(value.address(), struct + NkContext.CLIP, NkClipboard.SIZEOF); }
-	/** Unsafe version of {@link #last_widget_state(int) last_widget_state}. */
-	public static void nlast_widget_state(long struct, int value) { memPutInt(struct + NkContext.LAST_WIDGET_STATE, value); }
-	/** Unsafe version of {@link #draw_list(NkDrawList) draw_list}. */
-	public static void ndraw_list(long struct, NkDrawList value) { memCopy(value.address(), struct + NkContext.DRAW_LIST, NkDrawList.SIZEOF); }
-	/** Unsafe version of {@link #userdata(NkHandle) userdata}. */
-	public static void nuserdata(long struct, NkHandle value) { memCopy(value.address(), struct + NkContext.USERDATA, NkHandle.SIZEOF); }
-	/** Unsafe version of {@link #text_edit(NkTextEdit) text_edit}. */
-	public static void ntext_edit(long struct, NkTextEdit value) { memCopy(value.address(), struct + NkContext.TEXT_EDIT, NkTextEdit.SIZEOF); }
-	/** Unsafe version of {@link #build(int) build}. */
-	public static void nbuild(long struct, int value) { memPutInt(struct + NkContext.BUILD, value); }
-	/** Unsafe version of {@link #pool(long) pool}. */
-	public static void npool(long struct, long value) { memPutAddress(struct + NkContext.POOL, value); }
-	/** Unsafe version of {@link #begin(NkWindow) begin}. */
-	public static void nbegin(long struct, NkWindow value) { memPutAddress(struct + NkContext.BEGIN, addressSafe(value)); }
-	/** Unsafe version of {@link #end(NkWindow) end}. */
-	public static void nend(long struct, NkWindow value) { memPutAddress(struct + NkContext.END, addressSafe(value)); }
-	/** Unsafe version of {@link #active(NkWindow) active}. */
-	public static void nactive(long struct, NkWindow value) { memPutAddress(struct + NkContext.ACTIVE, addressSafe(value)); }
-	/** Unsafe version of {@link #current(NkWindow) current}. */
-	public static void ncurrent(long struct, NkWindow value) { memPutAddress(struct + NkContext.CURRENT, addressSafe(value)); }
-	/** Unsafe version of {@link #freelist(long) freelist}. */
-	public static void nfreelist(long struct, long value) { memPutAddress(struct + NkContext.FREELIST, value); }
-	/** Unsafe version of {@link #count(int) count}. */
-	public static void ncount(long struct, int value) { memPutInt(struct + NkContext.COUNT, value); }
-	/** Unsafe version of {@link #seq(int) seq}. */
-	public static void nseq(long struct, int value) { memPutInt(struct + NkContext.SEQ, value); }
 
 	// -----------------------------------
 
@@ -462,12 +390,16 @@ public class NkContext extends Struct implements NativeResource {
 		public NkClipboard clip() { return NkContext.nclip(address()); }
 		/** Returns the value of the {@code last_widget_state} field. */
 		public int last_widget_state() { return NkContext.nlast_widget_state(address()); }
+		/** Returns the value of the {@code button_behavior} field. */
+		public int button_behavior() { return NkContext.nbutton_behavior(address()); }
 		/** Returns a {@link NkDrawList} view of the {@code draw_list} field. */
 		public NkDrawList draw_list() { return NkContext.ndraw_list(address()); }
 		/** Returns a {@link NkHandle} view of the {@code userdata} field. */
 		public NkHandle userdata() { return NkContext.nuserdata(address()); }
 		/** Returns a {@link NkTextEdit} view of the {@code text_edit} field. */
 		public NkTextEdit text_edit() { return NkContext.ntext_edit(address()); }
+		/** Returns a {@link NkCommandBuffer} view of the {@code overlay} field. */
+		public NkCommandBuffer overlay() { return NkContext.noverlay(address()); }
 		/** Returns the value of the {@code build} field. */
 		public int build() { return NkContext.nbuild(address()); }
 		/** Returns the value of the {@code pool} field. */
@@ -486,41 +418,6 @@ public class NkContext extends Struct implements NativeResource {
 		public int count() { return NkContext.ncount(address()); }
 		/** Returns the value of the {@code seq} field. */
 		public int seq() { return NkContext.nseq(address()); }
-
-		/** Copies the specified {@link NkInput} to the {@code input} field. */
-		public NkContext.Buffer input(NkInput value) { NkContext.ninput(address(), value); return this; }
-		/** Copies the specified {@link NkStyle} to the {@code style} field. */
-		public NkContext.Buffer style(NkStyle value) { NkContext.nstyle(address(), value); return this; }
-		/** Copies the specified {@link NkBuffer} to the {@code memory} field. */
-		public NkContext.Buffer memory(NkBuffer value) { NkContext.nmemory(address(), value); return this; }
-		/** Copies the specified {@link NkClipboard} to the {@code clip} field. */
-		public NkContext.Buffer clip(NkClipboard value) { NkContext.nclip(address(), value); return this; }
-		/** Sets the specified value to the {@code last_widget_state} field. */
-		public NkContext.Buffer last_widget_state(int value) { NkContext.nlast_widget_state(address(), value); return this; }
-		/** Copies the specified {@link NkDrawList} to the {@code draw_list} field. */
-		public NkContext.Buffer draw_list(NkDrawList value) { NkContext.ndraw_list(address(), value); return this; }
-		/** Copies the specified {@link NkHandle} to the {@code userdata} field. */
-		public NkContext.Buffer userdata(NkHandle value) { NkContext.nuserdata(address(), value); return this; }
-		/** Copies the specified {@link NkTextEdit} to the {@code text_edit} field. */
-		public NkContext.Buffer text_edit(NkTextEdit value) { NkContext.ntext_edit(address(), value); return this; }
-		/** Sets the specified value to the {@code build} field. */
-		public NkContext.Buffer build(int value) { NkContext.nbuild(address(), value); return this; }
-		/** Sets the specified value to the {@code pool} field. */
-		public NkContext.Buffer pool(long value) { NkContext.npool(address(), value); return this; }
-		/** Sets the address of the specified {@link NkWindow} to the {@code begin} field. */
-		public NkContext.Buffer begin(NkWindow value) { NkContext.nbegin(address(), value); return this; }
-		/** Sets the address of the specified {@link NkWindow} to the {@code end} field. */
-		public NkContext.Buffer end(NkWindow value) { NkContext.nend(address(), value); return this; }
-		/** Sets the address of the specified {@link NkWindow} to the {@code active} field. */
-		public NkContext.Buffer active(NkWindow value) { NkContext.nactive(address(), value); return this; }
-		/** Sets the address of the specified {@link NkWindow} to the {@code current} field. */
-		public NkContext.Buffer current(NkWindow value) { NkContext.ncurrent(address(), value); return this; }
-		/** Sets the specified value to the {@code freelist} field. */
-		public NkContext.Buffer freelist(long value) { NkContext.nfreelist(address(), value); return this; }
-		/** Sets the specified value to the {@code count} field. */
-		public NkContext.Buffer count(int value) { NkContext.ncount(address(), value); return this; }
-		/** Sets the specified value to the {@code seq} field. */
-		public NkContext.Buffer seq(int value) { NkContext.nseq(address(), value); return this; }
 
 	}
 

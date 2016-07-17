@@ -7,12 +7,9 @@ package org.lwjgl.nuklear;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -25,7 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkScroll struct nk_scroll} offset;
 }</code></pre>
  */
-public class NkMenuState extends Struct implements NativeResource {
+public class NkMenuState extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -87,98 +84,11 @@ public class NkMenuState extends Struct implements NativeResource {
 	/** Returns a {@link NkScroll} view of the {@code offset} field. */
 	public NkScroll offset() { return noffset(address()); }
 
-	/** Sets the specified value to the {@code x} field. */
-	public NkMenuState x(float value) { nx(address(), value); return this; }
-	/** Sets the specified value to the {@code y} field. */
-	public NkMenuState y(float value) { ny(address(), value); return this; }
-	/** Sets the specified value to the {@code w} field. */
-	public NkMenuState w(float value) { nw(address(), value); return this; }
-	/** Sets the specified value to the {@code h} field. */
-	public NkMenuState h(float value) { nh(address(), value); return this; }
-	/** Copies the specified {@link NkScroll} to the {@code offset} field. */
-	public NkMenuState offset(NkScroll value) { noffset(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public NkMenuState set(
-		float x,
-		float y,
-		float w,
-		float h,
-		NkScroll offset
-	) {
-		x(x);
-		y(y);
-		w(w);
-		h(h);
-		offset(offset);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(NkMenuState) set}. */
-	public NkMenuState nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public NkMenuState set(NkMenuState src) {
-		return nset(src.address());
-	}
-
 	// -----------------------------------
-
-	/** Returns a new {@link NkMenuState} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-	public static NkMenuState malloc() {
-		return create(nmemAlloc(SIZEOF));
-	}
-
-	/** Returns a new {@link NkMenuState} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-	public static NkMenuState calloc() {
-		return create(nmemCalloc(1, SIZEOF));
-	}
-
-	/** Returns a new {@link NkMenuState} instance allocated with {@link BufferUtils}. */
-	public static NkMenuState create() {
-		return new NkMenuState(BufferUtils.createByteBuffer(SIZEOF));
-	}
 
 	/** Returns a new {@link NkMenuState} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
 	public static NkMenuState create(long address) {
 		return address == NULL ? null : new NkMenuState(address, null);
-	}
-
-	/**
-	 * Returns a new {@link NkMenuState.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer malloc(int capacity) {
-		return create(nmemAlloc(capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkMenuState.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer calloc(int capacity) {
-		return create(nmemCalloc(capacity, SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkMenuState.Buffer} instance allocated with {@link BufferUtils}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -189,74 +99,6 @@ public class NkMenuState extends Struct implements NativeResource {
 	 */
 	public static Buffer create(long address, int capacity) {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
-	}
-
-	// -----------------------------------
-
-	/** Returns a new {@link NkMenuState} instance allocated on the thread-local {@link MemoryStack}. */
-	public static NkMenuState mallocStack() {
-		return mallocStack(stackGet());
-	}
-
-	/** Returns a new {@link NkMenuState} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-	public static NkMenuState callocStack() {
-		return callocStack(stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkMenuState} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static NkMenuState mallocStack(MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link NkMenuState} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static NkMenuState callocStack(MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link NkMenuState.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity) {
-		return mallocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkMenuState.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity) {
-		return callocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkMenuState.Buffer} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity, MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkMenuState.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity, MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
 	}
 
 	// -----------------------------------
@@ -272,21 +114,10 @@ public class NkMenuState extends Struct implements NativeResource {
 	/** Unsafe version of {@link #offset}. */
 	public static NkScroll noffset(long struct) { return NkScroll.create(struct + NkMenuState.OFFSET); }
 
-	/** Unsafe version of {@link #x(float) x}. */
-	public static void nx(long struct, float value) { memPutFloat(struct + NkMenuState.X, value); }
-	/** Unsafe version of {@link #y(float) y}. */
-	public static void ny(long struct, float value) { memPutFloat(struct + NkMenuState.Y, value); }
-	/** Unsafe version of {@link #w(float) w}. */
-	public static void nw(long struct, float value) { memPutFloat(struct + NkMenuState.W, value); }
-	/** Unsafe version of {@link #h(float) h}. */
-	public static void nh(long struct, float value) { memPutFloat(struct + NkMenuState.H, value); }
-	/** Unsafe version of {@link #offset(NkScroll) offset}. */
-	public static void noffset(long struct, NkScroll value) { memCopy(value.address(), struct + NkMenuState.OFFSET, NkScroll.SIZEOF); }
-
 	// -----------------------------------
 
 	/** An array of {@link NkMenuState} structs. */
-	public static final class Buffer extends StructBuffer<NkMenuState, Buffer> implements NativeResource {
+	public static final class Buffer extends StructBuffer<NkMenuState, Buffer> {
 
 		/**
 		 * Creates a new {@link NkMenuState.Buffer} instance backed by the specified container.
@@ -335,17 +166,6 @@ public class NkMenuState extends Struct implements NativeResource {
 		public float h() { return NkMenuState.nh(address()); }
 		/** Returns a {@link NkScroll} view of the {@code offset} field. */
 		public NkScroll offset() { return NkMenuState.noffset(address()); }
-
-		/** Sets the specified value to the {@code x} field. */
-		public NkMenuState.Buffer x(float value) { NkMenuState.nx(address(), value); return this; }
-		/** Sets the specified value to the {@code y} field. */
-		public NkMenuState.Buffer y(float value) { NkMenuState.ny(address(), value); return this; }
-		/** Sets the specified value to the {@code w} field. */
-		public NkMenuState.Buffer w(float value) { NkMenuState.nw(address(), value); return this; }
-		/** Sets the specified value to the {@code h} field. */
-		public NkMenuState.Buffer h(float value) { NkMenuState.nh(address(), value); return this; }
-		/** Copies the specified {@link NkScroll} to the {@code offset} field. */
-		public NkMenuState.Buffer offset(NkScroll value) { NkMenuState.noffset(address(), value); return this; }
 
 	}
 

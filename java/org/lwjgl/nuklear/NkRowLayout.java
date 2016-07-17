@@ -7,12 +7,9 @@ package org.lwjgl.nuklear;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -31,7 +28,7 @@ import static org.lwjgl.system.MemoryStack.*;
     int tree_depth;
 }</code></pre>
  */
-public class NkRowLayout extends Struct implements NativeResource {
+public class NkRowLayout extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -127,122 +124,11 @@ public class NkRowLayout extends Struct implements NativeResource {
 	/** Returns the value of the {@code tree_depth} field. */
 	public int tree_depth() { return ntree_depth(address()); }
 
-	/** Sets the specified value to the {@code type} field. */
-	public NkRowLayout type(int value) { ntype(address(), value); return this; }
-	/** Sets the specified value to the {@code index} field. */
-	public NkRowLayout index(int value) { nindex(address(), value); return this; }
-	/** Sets the specified value to the {@code height} field. */
-	public NkRowLayout height(float value) { nheight(address(), value); return this; }
-	/** Sets the specified value to the {@code columns} field. */
-	public NkRowLayout columns(int value) { ncolumns(address(), value); return this; }
-	/** Sets the address of the specified {@link FloatBuffer} to the {@code ratio} field. */
-	public NkRowLayout ratio(FloatBuffer value) { nratio(address(), value); return this; }
-	/** Sets the specified value to the {@code item_width} field. */
-	public NkRowLayout item_width(float value) { nitem_width(address(), value); return this; }
-	/** Sets the specified value to the {@code item_height} field. */
-	public NkRowLayout item_height(float value) { nitem_height(address(), value); return this; }
-	/** Sets the specified value to the {@code item_offset} field. */
-	public NkRowLayout item_offset(float value) { nitem_offset(address(), value); return this; }
-	/** Sets the specified value to the {@code filled} field. */
-	public NkRowLayout filled(float value) { nfilled(address(), value); return this; }
-	/** Copies the specified {@link NkRect} to the {@code item} field. */
-	public NkRowLayout item(NkRect value) { nitem(address(), value); return this; }
-	/** Sets the specified value to the {@code tree_depth} field. */
-	public NkRowLayout tree_depth(int value) { ntree_depth(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public NkRowLayout set(
-		int type,
-		int index,
-		float height,
-		int columns,
-		FloatBuffer ratio,
-		float item_width,
-		float item_height,
-		float item_offset,
-		float filled,
-		NkRect item,
-		int tree_depth
-	) {
-		type(type);
-		index(index);
-		height(height);
-		columns(columns);
-		ratio(ratio);
-		item_width(item_width);
-		item_height(item_height);
-		item_offset(item_offset);
-		filled(filled);
-		item(item);
-		tree_depth(tree_depth);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(NkRowLayout) set}. */
-	public NkRowLayout nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public NkRowLayout set(NkRowLayout src) {
-		return nset(src.address());
-	}
-
 	// -----------------------------------
-
-	/** Returns a new {@link NkRowLayout} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-	public static NkRowLayout malloc() {
-		return create(nmemAlloc(SIZEOF));
-	}
-
-	/** Returns a new {@link NkRowLayout} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-	public static NkRowLayout calloc() {
-		return create(nmemCalloc(1, SIZEOF));
-	}
-
-	/** Returns a new {@link NkRowLayout} instance allocated with {@link BufferUtils}. */
-	public static NkRowLayout create() {
-		return new NkRowLayout(BufferUtils.createByteBuffer(SIZEOF));
-	}
 
 	/** Returns a new {@link NkRowLayout} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
 	public static NkRowLayout create(long address) {
 		return address == NULL ? null : new NkRowLayout(address, null);
-	}
-
-	/**
-	 * Returns a new {@link NkRowLayout.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer malloc(int capacity) {
-		return create(nmemAlloc(capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkRowLayout.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer calloc(int capacity) {
-		return create(nmemCalloc(capacity, SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkRowLayout.Buffer} instance allocated with {@link BufferUtils}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -253,74 +139,6 @@ public class NkRowLayout extends Struct implements NativeResource {
 	 */
 	public static Buffer create(long address, int capacity) {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
-	}
-
-	// -----------------------------------
-
-	/** Returns a new {@link NkRowLayout} instance allocated on the thread-local {@link MemoryStack}. */
-	public static NkRowLayout mallocStack() {
-		return mallocStack(stackGet());
-	}
-
-	/** Returns a new {@link NkRowLayout} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-	public static NkRowLayout callocStack() {
-		return callocStack(stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkRowLayout} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static NkRowLayout mallocStack(MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link NkRowLayout} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static NkRowLayout callocStack(MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link NkRowLayout.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity) {
-		return mallocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkRowLayout.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity) {
-		return callocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkRowLayout.Buffer} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity, MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkRowLayout.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity, MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
 	}
 
 	// -----------------------------------
@@ -348,53 +166,10 @@ public class NkRowLayout extends Struct implements NativeResource {
 	/** Unsafe version of {@link #tree_depth}. */
 	public static int ntree_depth(long struct) { return memGetInt(struct + NkRowLayout.TREE_DEPTH); }
 
-	/** Unsafe version of {@link #type(int) type}. */
-	public static void ntype(long struct, int value) { memPutInt(struct + NkRowLayout.TYPE, value); }
-	/** Unsafe version of {@link #index(int) index}. */
-	public static void nindex(long struct, int value) { memPutInt(struct + NkRowLayout.INDEX, value); }
-	/** Unsafe version of {@link #height(float) height}. */
-	public static void nheight(long struct, float value) { memPutFloat(struct + NkRowLayout.HEIGHT, value); }
-	/** Unsafe version of {@link #columns(int) columns}. */
-	public static void ncolumns(long struct, int value) { memPutInt(struct + NkRowLayout.COLUMNS, value); }
-	/** Unsafe version of {@link #ratio(FloatBuffer) ratio}. */
-	public static void nratio(long struct, FloatBuffer value) { memPutAddress(struct + NkRowLayout.RATIO, memAddress(value)); }
-	/** Unsafe version of {@link #item_width(float) item_width}. */
-	public static void nitem_width(long struct, float value) { memPutFloat(struct + NkRowLayout.ITEM_WIDTH, value); }
-	/** Unsafe version of {@link #item_height(float) item_height}. */
-	public static void nitem_height(long struct, float value) { memPutFloat(struct + NkRowLayout.ITEM_HEIGHT, value); }
-	/** Unsafe version of {@link #item_offset(float) item_offset}. */
-	public static void nitem_offset(long struct, float value) { memPutFloat(struct + NkRowLayout.ITEM_OFFSET, value); }
-	/** Unsafe version of {@link #filled(float) filled}. */
-	public static void nfilled(long struct, float value) { memPutFloat(struct + NkRowLayout.FILLED, value); }
-	/** Unsafe version of {@link #item(NkRect) item}. */
-	public static void nitem(long struct, NkRect value) { memCopy(value.address(), struct + NkRowLayout.ITEM, NkRect.SIZEOF); }
-	/** Unsafe version of {@link #tree_depth(int) tree_depth}. */
-	public static void ntree_depth(long struct, int value) { memPutInt(struct + NkRowLayout.TREE_DEPTH, value); }
-
-	/**
-	 * Validates pointer members that should not be {@code NULL}.
-	 *
-	 * @param struct the struct to validate
-	 */
-	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + NkRowLayout.RATIO));
-	}
-
-	/**
-	 * Calls {@link #validate(long)} for each struct contained in the specified struct array.
-	 *
-	 * @param array the struct array to validate
-	 * @param count the number of structs in {@code array}
-	 */
-	public static void validate(long array, int count) {
-		for ( int i = 0; i < count; i++ )
-			validate(array + i * SIZEOF);
-	}
-
 	// -----------------------------------
 
 	/** An array of {@link NkRowLayout} structs. */
-	public static final class Buffer extends StructBuffer<NkRowLayout, Buffer> implements NativeResource {
+	public static final class Buffer extends StructBuffer<NkRowLayout, Buffer> {
 
 		/**
 		 * Creates a new {@link NkRowLayout.Buffer} instance backed by the specified container.
@@ -459,29 +234,6 @@ public class NkRowLayout extends Struct implements NativeResource {
 		public NkRect item() { return NkRowLayout.nitem(address()); }
 		/** Returns the value of the {@code tree_depth} field. */
 		public int tree_depth() { return NkRowLayout.ntree_depth(address()); }
-
-		/** Sets the specified value to the {@code type} field. */
-		public NkRowLayout.Buffer type(int value) { NkRowLayout.ntype(address(), value); return this; }
-		/** Sets the specified value to the {@code index} field. */
-		public NkRowLayout.Buffer index(int value) { NkRowLayout.nindex(address(), value); return this; }
-		/** Sets the specified value to the {@code height} field. */
-		public NkRowLayout.Buffer height(float value) { NkRowLayout.nheight(address(), value); return this; }
-		/** Sets the specified value to the {@code columns} field. */
-		public NkRowLayout.Buffer columns(int value) { NkRowLayout.ncolumns(address(), value); return this; }
-		/** Sets the address of the specified {@link FloatBuffer} to the {@code ratio} field. */
-		public NkRowLayout.Buffer ratio(FloatBuffer value) { NkRowLayout.nratio(address(), value); return this; }
-		/** Sets the specified value to the {@code item_width} field. */
-		public NkRowLayout.Buffer item_width(float value) { NkRowLayout.nitem_width(address(), value); return this; }
-		/** Sets the specified value to the {@code item_height} field. */
-		public NkRowLayout.Buffer item_height(float value) { NkRowLayout.nitem_height(address(), value); return this; }
-		/** Sets the specified value to the {@code item_offset} field. */
-		public NkRowLayout.Buffer item_offset(float value) { NkRowLayout.nitem_offset(address(), value); return this; }
-		/** Sets the specified value to the {@code filled} field. */
-		public NkRowLayout.Buffer filled(float value) { NkRowLayout.nfilled(address(), value); return this; }
-		/** Copies the specified {@link NkRect} to the {@code item} field. */
-		public NkRowLayout.Buffer item(NkRect value) { NkRowLayout.nitem(address(), value); return this; }
-		/** Sets the specified value to the {@code tree_depth} field. */
-		public NkRowLayout.Buffer tree_depth(int value) { NkRowLayout.ntree_depth(address(), value); return this; }
 
 	}
 

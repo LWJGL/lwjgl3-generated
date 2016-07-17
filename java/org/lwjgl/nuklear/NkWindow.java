@@ -7,12 +7,9 @@ package org.lwjgl.nuklear;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -37,7 +34,7 @@ import static org.lwjgl.system.MemoryStack.*;
     struct nk_window * parent;
 }</code></pre>
  */
-public class NkWindow extends Struct implements NativeResource {
+public class NkWindow extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -159,146 +156,11 @@ public class NkWindow extends Struct implements NativeResource {
 	/** Returns a {@link NkWindow} view of the struct pointed to by the {@code parent} field. */
 	public NkWindow parent() { return nparent(address()); }
 
-	/** Sets the specified value to the {@code seq} field. */
-	public NkWindow seq(int value) { nseq(address(), value); return this; }
-	/** Sets the specified value to the {@code name} field. */
-	public NkWindow name(int value) { nname(address(), value); return this; }
-	/** Sets the specified value to the {@code flags} field. */
-	public NkWindow flags(int value) { nflags(address(), value); return this; }
-	/** Copies the specified {@link NkRect} to the {@code bounds} field. */
-	public NkWindow bounds(NkRect value) { nbounds(address(), value); return this; }
-	/** Copies the specified {@link NkScroll} to the {@code scrollbar} field. */
-	public NkWindow scrollbar(NkScroll value) { nscrollbar(address(), value); return this; }
-	/** Copies the specified {@link NkCommandBuffer} to the {@code buffer} field. */
-	public NkWindow buffer(NkCommandBuffer value) { nbuffer(address(), value); return this; }
-	/** Sets the address of the specified {@link NkPanel} to the {@code layout} field. */
-	public NkWindow layout(NkPanel value) { nlayout(address(), value); return this; }
-	/** Copies the specified {@link NkPropertyState} to the {@code property} field. */
-	public NkWindow property(NkPropertyState value) { nproperty(address(), value); return this; }
-	/** Copies the specified {@link NkPopupState} to the {@code popup} field. */
-	public NkWindow popup(NkPopupState value) { npopup(address(), value); return this; }
-	/** Copies the specified {@link NkEditState} to the {@code edit} field. */
-	public NkWindow edit(NkEditState value) { nedit(address(), value); return this; }
-	/** Sets the specified value to the {@code scrolled} field. */
-	public NkWindow scrolled(int value) { nscrolled(address(), value); return this; }
-	/** Sets the specified value to the {@code tables} field. */
-	public NkWindow tables(long value) { ntables(address(), value); return this; }
-	/** Sets the specified value to the {@code table_count} field. */
-	public NkWindow table_count(short value) { ntable_count(address(), value); return this; }
-	/** Sets the specified value to the {@code table_size} field. */
-	public NkWindow table_size(short value) { ntable_size(address(), value); return this; }
-	/** Sets the address of the specified {@link NkWindow} to the {@code next} field. */
-	public NkWindow next(NkWindow value) { nnext(address(), value); return this; }
-	/** Sets the address of the specified {@link NkWindow} to the {@code prev} field. */
-	public NkWindow prev(NkWindow value) { nprev(address(), value); return this; }
-	/** Sets the address of the specified {@link NkWindow} to the {@code parent} field. */
-	public NkWindow parent(NkWindow value) { nparent(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public NkWindow set(
-		int seq,
-		int name,
-		int flags,
-		NkRect bounds,
-		NkScroll scrollbar,
-		NkCommandBuffer buffer,
-		NkPanel layout,
-		NkPropertyState property,
-		NkPopupState popup,
-		NkEditState edit,
-		int scrolled,
-		long tables,
-		short table_count,
-		short table_size,
-		NkWindow next,
-		NkWindow prev,
-		NkWindow parent
-	) {
-		seq(seq);
-		name(name);
-		flags(flags);
-		bounds(bounds);
-		scrollbar(scrollbar);
-		buffer(buffer);
-		layout(layout);
-		property(property);
-		popup(popup);
-		edit(edit);
-		scrolled(scrolled);
-		tables(tables);
-		table_count(table_count);
-		table_size(table_size);
-		next(next);
-		prev(prev);
-		parent(parent);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(NkWindow) set}. */
-	public NkWindow nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public NkWindow set(NkWindow src) {
-		return nset(src.address());
-	}
-
 	// -----------------------------------
-
-	/** Returns a new {@link NkWindow} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-	public static NkWindow malloc() {
-		return create(nmemAlloc(SIZEOF));
-	}
-
-	/** Returns a new {@link NkWindow} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-	public static NkWindow calloc() {
-		return create(nmemCalloc(1, SIZEOF));
-	}
-
-	/** Returns a new {@link NkWindow} instance allocated with {@link BufferUtils}. */
-	public static NkWindow create() {
-		return new NkWindow(BufferUtils.createByteBuffer(SIZEOF));
-	}
 
 	/** Returns a new {@link NkWindow} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
 	public static NkWindow create(long address) {
 		return address == NULL ? null : new NkWindow(address, null);
-	}
-
-	/**
-	 * Returns a new {@link NkWindow.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer malloc(int capacity) {
-		return create(nmemAlloc(capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkWindow.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer calloc(int capacity) {
-		return create(nmemCalloc(capacity, SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkWindow.Buffer} instance allocated with {@link BufferUtils}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer create(int capacity) {
-		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -309,74 +171,6 @@ public class NkWindow extends Struct implements NativeResource {
 	 */
 	public static Buffer create(long address, int capacity) {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
-	}
-
-	// -----------------------------------
-
-	/** Returns a new {@link NkWindow} instance allocated on the thread-local {@link MemoryStack}. */
-	public static NkWindow mallocStack() {
-		return mallocStack(stackGet());
-	}
-
-	/** Returns a new {@link NkWindow} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-	public static NkWindow callocStack() {
-		return callocStack(stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkWindow} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static NkWindow mallocStack(MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link NkWindow} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 */
-	public static NkWindow callocStack(MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-	}
-
-	/**
-	 * Returns a new {@link NkWindow.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity) {
-		return mallocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkWindow.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity) {
-		return callocStack(capacity, stackGet());
-	}
-
-	/**
-	 * Returns a new {@link NkWindow.Buffer} instance allocated on the specified {@link MemoryStack}.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer mallocStack(int capacity, MemoryStack stack) {
-		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-	}
-
-	/**
-	 * Returns a new {@link NkWindow.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-	 *
-	 * @param stack the stack from which to allocate
-	 * @param capacity the buffer capacity
-	 */
-	public static Buffer callocStack(int capacity, MemoryStack stack) {
-		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
 	}
 
 	// -----------------------------------
@@ -416,73 +210,10 @@ public class NkWindow extends Struct implements NativeResource {
 	/** Unsafe version of {@link #parent}. */
 	public static NkWindow nparent(long struct) { return NkWindow.create(memGetAddress(struct + NkWindow.PARENT)); }
 
-	/** Unsafe version of {@link #seq(int) seq}. */
-	public static void nseq(long struct, int value) { memPutInt(struct + NkWindow.SEQ, value); }
-	/** Unsafe version of {@link #name(int) name}. */
-	public static void nname(long struct, int value) { memPutInt(struct + NkWindow.NAME, value); }
-	/** Unsafe version of {@link #flags(int) flags}. */
-	public static void nflags(long struct, int value) { memPutInt(struct + NkWindow.FLAGS, value); }
-	/** Unsafe version of {@link #bounds(NkRect) bounds}. */
-	public static void nbounds(long struct, NkRect value) { memCopy(value.address(), struct + NkWindow.BOUNDS, NkRect.SIZEOF); }
-	/** Unsafe version of {@link #scrollbar(NkScroll) scrollbar}. */
-	public static void nscrollbar(long struct, NkScroll value) { memCopy(value.address(), struct + NkWindow.SCROLLBAR, NkScroll.SIZEOF); }
-	/** Unsafe version of {@link #buffer(NkCommandBuffer) buffer}. */
-	public static void nbuffer(long struct, NkCommandBuffer value) { memCopy(value.address(), struct + NkWindow.BUFFER, NkCommandBuffer.SIZEOF); }
-	/** Unsafe version of {@link #layout(NkPanel) layout}. */
-	public static void nlayout(long struct, NkPanel value) { memPutAddress(struct + NkWindow.LAYOUT, value.address()); }
-	/** Unsafe version of {@link #property(NkPropertyState) property}. */
-	public static void nproperty(long struct, NkPropertyState value) { memCopy(value.address(), struct + NkWindow.PROPERTY, NkPropertyState.SIZEOF); }
-	/** Unsafe version of {@link #popup(NkPopupState) popup}. */
-	public static void npopup(long struct, NkPopupState value) { memCopy(value.address(), struct + NkWindow.POPUP, NkPopupState.SIZEOF); }
-	/** Unsafe version of {@link #edit(NkEditState) edit}. */
-	public static void nedit(long struct, NkEditState value) { memCopy(value.address(), struct + NkWindow.EDIT, NkEditState.SIZEOF); }
-	/** Unsafe version of {@link #scrolled(int) scrolled}. */
-	public static void nscrolled(long struct, int value) { memPutInt(struct + NkWindow.SCROLLED, value); }
-	/** Unsafe version of {@link #tables(long) tables}. */
-	public static void ntables(long struct, long value) { memPutAddress(struct + NkWindow.TABLES, checkPointer(value)); }
-	/** Unsafe version of {@link #table_count(short) table_count}. */
-	public static void ntable_count(long struct, short value) { memPutShort(struct + NkWindow.TABLE_COUNT, value); }
-	/** Unsafe version of {@link #table_size(short) table_size}. */
-	public static void ntable_size(long struct, short value) { memPutShort(struct + NkWindow.TABLE_SIZE, value); }
-	/** Unsafe version of {@link #next(NkWindow) next}. */
-	public static void nnext(long struct, NkWindow value) { memPutAddress(struct + NkWindow.NEXT, value.address()); }
-	/** Unsafe version of {@link #prev(NkWindow) prev}. */
-	public static void nprev(long struct, NkWindow value) { memPutAddress(struct + NkWindow.PREV, value.address()); }
-	/** Unsafe version of {@link #parent(NkWindow) parent}. */
-	public static void nparent(long struct, NkWindow value) { memPutAddress(struct + NkWindow.PARENT, value.address()); }
-
-	/**
-	 * Validates pointer members that should not be {@code NULL}.
-	 *
-	 * @param struct the struct to validate
-	 */
-	public static void validate(long struct) {
-		NkCommandBuffer.validate(struct + NkWindow.BUFFER);
-		long layout = memGetAddress(struct + NkWindow.LAYOUT);
-		checkPointer(layout);
-		NkPanel.validate(layout);
-		NkPopupState.validate(struct + NkWindow.POPUP);
-		checkPointer(memGetAddress(struct + NkWindow.TABLES));
-		checkPointer(memGetAddress(struct + NkWindow.NEXT));
-		checkPointer(memGetAddress(struct + NkWindow.PREV));
-		checkPointer(memGetAddress(struct + NkWindow.PARENT));
-	}
-
-	/**
-	 * Calls {@link #validate(long)} for each struct contained in the specified struct array.
-	 *
-	 * @param array the struct array to validate
-	 * @param count the number of structs in {@code array}
-	 */
-	public static void validate(long array, int count) {
-		for ( int i = 0; i < count; i++ )
-			validate(array + i * SIZEOF);
-	}
-
 	// -----------------------------------
 
 	/** An array of {@link NkWindow} structs. */
-	public static final class Buffer extends StructBuffer<NkWindow, Buffer> implements NativeResource {
+	public static final class Buffer extends StructBuffer<NkWindow, Buffer> {
 
 		/**
 		 * Creates a new {@link NkWindow.Buffer} instance backed by the specified container.
@@ -555,41 +286,6 @@ public class NkWindow extends Struct implements NativeResource {
 		public NkWindow prev() { return NkWindow.nprev(address()); }
 		/** Returns a {@link NkWindow} view of the struct pointed to by the {@code parent} field. */
 		public NkWindow parent() { return NkWindow.nparent(address()); }
-
-		/** Sets the specified value to the {@code seq} field. */
-		public NkWindow.Buffer seq(int value) { NkWindow.nseq(address(), value); return this; }
-		/** Sets the specified value to the {@code name} field. */
-		public NkWindow.Buffer name(int value) { NkWindow.nname(address(), value); return this; }
-		/** Sets the specified value to the {@code flags} field. */
-		public NkWindow.Buffer flags(int value) { NkWindow.nflags(address(), value); return this; }
-		/** Copies the specified {@link NkRect} to the {@code bounds} field. */
-		public NkWindow.Buffer bounds(NkRect value) { NkWindow.nbounds(address(), value); return this; }
-		/** Copies the specified {@link NkScroll} to the {@code scrollbar} field. */
-		public NkWindow.Buffer scrollbar(NkScroll value) { NkWindow.nscrollbar(address(), value); return this; }
-		/** Copies the specified {@link NkCommandBuffer} to the {@code buffer} field. */
-		public NkWindow.Buffer buffer(NkCommandBuffer value) { NkWindow.nbuffer(address(), value); return this; }
-		/** Sets the address of the specified {@link NkPanel} to the {@code layout} field. */
-		public NkWindow.Buffer layout(NkPanel value) { NkWindow.nlayout(address(), value); return this; }
-		/** Copies the specified {@link NkPropertyState} to the {@code property} field. */
-		public NkWindow.Buffer property(NkPropertyState value) { NkWindow.nproperty(address(), value); return this; }
-		/** Copies the specified {@link NkPopupState} to the {@code popup} field. */
-		public NkWindow.Buffer popup(NkPopupState value) { NkWindow.npopup(address(), value); return this; }
-		/** Copies the specified {@link NkEditState} to the {@code edit} field. */
-		public NkWindow.Buffer edit(NkEditState value) { NkWindow.nedit(address(), value); return this; }
-		/** Sets the specified value to the {@code scrolled} field. */
-		public NkWindow.Buffer scrolled(int value) { NkWindow.nscrolled(address(), value); return this; }
-		/** Sets the specified value to the {@code tables} field. */
-		public NkWindow.Buffer tables(long value) { NkWindow.ntables(address(), value); return this; }
-		/** Sets the specified value to the {@code table_count} field. */
-		public NkWindow.Buffer table_count(short value) { NkWindow.ntable_count(address(), value); return this; }
-		/** Sets the specified value to the {@code table_size} field. */
-		public NkWindow.Buffer table_size(short value) { NkWindow.ntable_size(address(), value); return this; }
-		/** Sets the address of the specified {@link NkWindow} to the {@code next} field. */
-		public NkWindow.Buffer next(NkWindow value) { NkWindow.nnext(address(), value); return this; }
-		/** Sets the address of the specified {@link NkWindow} to the {@code prev} field. */
-		public NkWindow.Buffer prev(NkWindow value) { NkWindow.nprev(address(), value); return this; }
-		/** Sets the address of the specified {@link NkWindow} to the {@code parent} field. */
-		public NkWindow.Buffer parent(NkWindow value) { NkWindow.nparent(address(), value); return this; }
 
 	}
 
