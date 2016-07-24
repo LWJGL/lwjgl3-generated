@@ -24,6 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code layout} <b>must</b> be a valid {@code VkImageLayout} value</li>
+ * <li>{@code layout} <b>must not</b> be {@link VK10#VK_IMAGE_LAYOUT_UNDEFINED IMAGE_LAYOUT_UNDEFINED} or {@link VK10#VK_IMAGE_LAYOUT_PREINITIALIZED IMAGE_LAYOUT_PREINITIALIZED}</li>
  * </ul>
  * 
  * <h3>Member documentation</h3>

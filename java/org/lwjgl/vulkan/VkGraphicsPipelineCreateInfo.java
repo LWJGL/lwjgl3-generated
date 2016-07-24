@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code layout} <b>must</b> be a valid {@code VkPipelineLayout} handle</li>
  * <li>{@code renderPass} <b>must</b> be a valid {@code VkRenderPass} handle</li>
  * <li>{@code stageCount} <b>must</b> be greater than 0</li>
- * <li>Each of {@code layout}, {@code renderPass} and {@code basePipelineHandle} that are valid handles <b>must</b> have been created, allocated or retrieved
+ * <li>Each of {@code basePipelineHandle}, {@code layout}, and {@code renderPass} that are valid handles <b>must</b> have been created, allocated, or retrieved
  * from the same {@code VkDevice}</li>
  * <li>If {@code flags} contains the {@link VK10#VK_PIPELINE_CREATE_DERIVATIVE_BIT PIPELINE_CREATE_DERIVATIVE_BIT} flag, and {@code basePipelineIndex} is not {@code -1}, {@code basePipelineHandle}
  * <b>must</b> be {@link VK10#VK_NULL_HANDLE NULL_HANDLE}</li>

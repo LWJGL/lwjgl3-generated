@@ -21,7 +21,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>Each of {@code sampler} and {@code imageView} that are valid handles <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+ * <li>Both of {@code imageView}, and {@code sampler} that are valid handles <b>must</b> have been created, allocated, or retrieved from the same
+ * {@code VkDevice}</li>
  * </ul>
  * 
  * <h3>Member documentation</h3>

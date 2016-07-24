@@ -136,6 +136,9 @@ public class VK10 {
 	/** A requested format is not supported on this device. */
 	public static final int VK_ERROR_FORMAT_NOT_SUPPORTED = -11;
 
+	/** A requested pool allocation has failed due to fragmentation of the pool’s memory. */
+	public static final int VK_ERROR_FRAGMENTED_POOL = -12;
+
 	/** VkStructureType */
 	public static final int
 		VK_STRUCTURE_TYPE_APPLICATION_INFO                          = 0,
@@ -3581,7 +3584,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code queue} <b>must</b> be a valid {@code VkQueue} handle</li>
 	 * <li>If {@code submitCount} is not 0, {@code pSubmits} <b>must</b> be a pointer to an array of {@code submitCount} valid {@link VkSubmitInfo} structures</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
-	 * <li>Each of {@code queue} and {@code fence} that are valid handles <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code fence}, and {@code queue} that are valid handles <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be unsignaled</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on
 	 * that queue</li>
@@ -3628,7 +3631,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code queue} <b>must</b> be a valid {@code VkQueue} handle</li>
 	 * <li>If {@code submitCount} is not 0, {@code pSubmits} <b>must</b> be a pointer to an array of {@code submitCount} valid {@link VkSubmitInfo} structures</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
-	 * <li>Each of {@code queue} and {@code fence} that are valid handles <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code fence}, and {@code queue} that are valid handles <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be unsignaled</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on
 	 * that queue</li>
@@ -3671,7 +3674,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code queue} <b>must</b> be a valid {@code VkQueue} handle</li>
 	 * <li>If {@code submitCount} is not 0, {@code pSubmits} <b>must</b> be a pointer to an array of {@code submitCount} valid {@link VkSubmitInfo} structures</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
-	 * <li>Each of {@code queue} and {@code fence} that are valid handles <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code fence}, and {@code queue} that are valid handles <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be unsignaled</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on
 	 * that queue</li>
@@ -3859,9 +3862,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code memory} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code memory} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code memory} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code memory} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All submitted commands that refer to {@code memory} (via images or buffers) <b>must</b> have completed execution</li>
 	 * </ul>
 	 * 
@@ -3901,9 +3902,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code memory} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code memory} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code memory} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code memory} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All submitted commands that refer to {@code memory} (via images or buffers) <b>must</b> have completed execution</li>
 	 * </ul>
 	 * 
@@ -3958,8 +3957,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
 	 * <li>{@code flags} <b>must</b> be 0</li>
 	 * <li>{@code ppData} <b>must</b> be a pointer to a pointer</li>
-	 * <li>{@code memory} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code memory} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code memory} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>{@code memory} <b>must not</b> currently be mapped</li>
 	 * <li>{@code offset} <b>must</b> be less than the size of {@code memory}</li>
 	 * <li>If {@code size} is not equal to {@link #VK_WHOLE_SIZE WHOLE_SIZE}, {@code size} <b>must</b> be greater than 0</li>
@@ -4021,8 +4019,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
 	 * <li>{@code flags} <b>must</b> be 0</li>
 	 * <li>{@code ppData} <b>must</b> be a pointer to a pointer</li>
-	 * <li>{@code memory} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code memory} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code memory} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>{@code memory} <b>must not</b> currently be mapped</li>
 	 * <li>{@code offset} <b>must</b> be less than the size of {@code memory}</li>
 	 * <li>If {@code size} is not equal to {@link #VK_WHOLE_SIZE WHOLE_SIZE}, {@code size} <b>must</b> be greater than 0</li>
@@ -4062,8 +4059,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <ul>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
-	 * <li>{@code memory} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code memory} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code memory} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>{@code memory} <b>must</b> currently be mapped</li>
 	 * </ul>
 	 * 
@@ -4256,8 +4252,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
 	 * <li>{@code pCommittedMemoryInBytes} <b>must</b> be a pointer to a {@code VkDeviceSize} value</li>
-	 * <li>{@code memory} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code memory} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code memory} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>{@code memory} <b>must</b> have been created with a memory type that reports {@link #VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT}</li>
 	 * </ul>
 	 * 
@@ -4298,8 +4293,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
 	 * <li>{@code pCommittedMemoryInBytes} <b>must</b> be a pointer to a {@code VkDeviceSize} value</li>
-	 * <li>{@code memory} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code memory} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code memory} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>{@code memory} <b>must</b> have been created with a memory type that reports {@link #VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT}</li>
 	 * </ul>
 	 * 
@@ -4331,9 +4325,8 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code buffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
 	 * <li>{@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
-	 * <li>{@code buffer} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>{@code memory} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device}, {@code buffer} and {@code memory} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code buffer} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
+	 * <li>{@code memory} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>{@code buffer} <b>must not</b> already be backed by a memory object</li>
 	 * <li>{@code buffer} <b>must not</b> have been created with any sparse memory binding flags</li>
 	 * <li>{@code memoryOffset} <b>must</b> be less than the size of {@code memory}</li>
@@ -4385,9 +4378,8 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
 	 * <li>{@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
-	 * <li>{@code image} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>{@code memory} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device}, {@code image} and {@code memory} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code image} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
+	 * <li>{@code memory} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>{@code image} <b>must not</b> already be backed by a memory object</li>
 	 * <li>{@code image} <b>must not</b> have been created with any sparse memory binding flags</li>
 	 * <li>{@code memoryOffset} <b>must</b> be less than the size of {@code memory}</li>
@@ -4433,8 +4425,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code buffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
 	 * <li>{@code pMemoryRequirements} <b>must</b> be a pointer to a {@link VkMemoryRequirements} structure</li>
-	 * <li>{@code buffer} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code buffer} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code buffer} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * </ul>
 	 *
 	 * @param device              the logical device that owns the buffer
@@ -4457,8 +4448,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code buffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
 	 * <li>{@code pMemoryRequirements} <b>must</b> be a pointer to a {@link VkMemoryRequirements} structure</li>
-	 * <li>{@code buffer} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code buffer} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code buffer} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * </ul>
 	 *
 	 * @param device              the logical device that owns the buffer
@@ -4482,8 +4472,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
 	 * <li>{@code pMemoryRequirements} <b>must</b> be a pointer to a {@link VkMemoryRequirements} structure</li>
-	 * <li>{@code image} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code image} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * </ul>
 	 *
 	 * @param device              the logical device that owns the image
@@ -4506,8 +4495,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
 	 * <li>{@code pMemoryRequirements} <b>must</b> be a pointer to a {@link VkMemoryRequirements} structure</li>
-	 * <li>{@code image} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code image} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * </ul>
 	 *
 	 * @param device              the logical device that owns the image
@@ -4550,8 +4538,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>If the value referenced by {@code pSparseMemoryRequirementCount} is not 0, and {@code pSparseMemoryRequirements} is not {@code NULL},
 	 * {@code pSparseMemoryRequirements} <b>must</b> be a pointer to an array of {@code pSparseMemoryRequirementCount} {@link VkSparseImageMemoryRequirements}
 	 * structures</li>
-	 * <li>{@code image} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code image} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * </ul>
 	 *
 	 * @param device                        the logical device that owns the image
@@ -4594,8 +4581,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>If the value referenced by {@code pSparseMemoryRequirementCount} is not 0, and {@code pSparseMemoryRequirements} is not {@code NULL},
 	 * {@code pSparseMemoryRequirements} <b>must</b> be a pointer to an array of {@code pSparseMemoryRequirementCount} {@link VkSparseImageMemoryRequirements}
 	 * structures</li>
-	 * <li>{@code image} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code image} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * </ul>
 	 *
 	 * @param device                        the logical device that owns the image
@@ -4755,7 +4741,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>If {@code bindInfoCount} is not 0, {@code pBindInfo} <b>must</b> be a pointer to an array of {@code bindInfoCount} valid {@link VkBindSparseInfo} structures</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
 	 * <li>The {@code queue} <b>must</b> support sparse binding operations</li>
-	 * <li>Each of {@code queue} and {@code fence} that are valid handles <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code fence}, and {@code queue} that are valid handles <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code fence} <b>must</b> be unsignaled</li>
 	 * <li>{@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on that queue</li>
 	 * </ul>
@@ -4806,7 +4792,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>If {@code bindInfoCount} is not 0, {@code pBindInfo} <b>must</b> be a pointer to an array of {@code bindInfoCount} valid {@link VkBindSparseInfo} structures</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
 	 * <li>The {@code queue} <b>must</b> support sparse binding operations</li>
-	 * <li>Each of {@code queue} and {@code fence} that are valid handles <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code fence}, and {@code queue} that are valid handles <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code fence} <b>must</b> be unsignaled</li>
 	 * <li>{@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on that queue</li>
 	 * </ul>
@@ -4853,7 +4839,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>If {@code bindInfoCount} is not 0, {@code pBindInfo} <b>must</b> be a pointer to an array of {@code bindInfoCount} valid {@link VkBindSparseInfo} structures</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
 	 * <li>The {@code queue} <b>must</b> support sparse binding operations</li>
-	 * <li>Each of {@code queue} and {@code fence} that are valid handles <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code fence}, and {@code queue} that are valid handles <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code fence} <b>must</b> be unsignaled</li>
 	 * <li>{@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on that queue</li>
 	 * </ul>
@@ -4957,9 +4943,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code fence} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code fence} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code fence} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>{@code fence} <b>must not</b> be associated with any queue command that has not yet completed execution on that queue</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code fence} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code fence} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -4993,9 +4977,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code fence} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code fence} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code fence} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>{@code fence} <b>must not</b> be associated with any queue command that has not yet completed execution on that queue</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code fence} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code fence} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -5030,8 +5012,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code pFences} <b>must</b> be a pointer to an array of {@code fenceCount} valid {@code VkFence} handles</li>
 	 * <li>{@code fenceCount} <b>must</b> be greater than 0</li>
-	 * <li>Each element of {@code pFences} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and the elements of {@code pFences} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>Each element of {@code pFences} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>Any given element of {@code pFences} <b>must not</b> currently be associated with any queue command that has not yet completed execution on that queue</li>
 	 * </ul>
 	 * 
@@ -5063,8 +5044,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code pFences} <b>must</b> be a pointer to an array of {@code fenceCount} valid {@code VkFence} handles</li>
 	 * <li>{@code fenceCount} <b>must</b> be greater than 0</li>
-	 * <li>Each element of {@code pFences} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and the elements of {@code pFences} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>Each element of {@code pFences} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>Any given element of {@code pFences} <b>must not</b> currently be associated with any queue command that has not yet completed execution on that queue</li>
 	 * </ul>
 	 * 
@@ -5094,8 +5074,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code pFences} <b>must</b> be a pointer to an array of {@code fenceCount} valid {@code VkFence} handles</li>
 	 * <li>{@code fenceCount} <b>must</b> be greater than 0</li>
-	 * <li>Each element of {@code pFences} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and the elements of {@code pFences} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>Each element of {@code pFences} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>Any given element of {@code pFences} <b>must not</b> currently be associated with any queue command that has not yet completed execution on that queue</li>
 	 * </ul>
 	 * 
@@ -5136,8 +5115,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <ul>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
-	 * <li>{@code fence} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code fence} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code fence} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * </ul>
 	 *
 	 * @param device the logical device that owns the fence
@@ -5178,8 +5156,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code pFences} <b>must</b> be a pointer to an array of {@code fenceCount} valid {@code VkFence} handles</li>
 	 * <li>{@code fenceCount} <b>must</b> be greater than 0</li>
-	 * <li>Each element of {@code pFences} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and the elements of {@code pFences} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>Each element of {@code pFences} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * </ul>
 	 *
 	 * @param device     the logical device that owns the fences
@@ -5223,8 +5200,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code pFences} <b>must</b> be a pointer to an array of {@code fenceCount} valid {@code VkFence} handles</li>
 	 * <li>{@code fenceCount} <b>must</b> be greater than 0</li>
-	 * <li>Each element of {@code pFences} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and the elements of {@code pFences} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>Each element of {@code pFences} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * </ul>
 	 *
 	 * @param device  the logical device that owns the fences
@@ -5266,8 +5242,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code pFences} <b>must</b> be a pointer to an array of {@code fenceCount} valid {@code VkFence} handles</li>
 	 * <li>{@code fenceCount} <b>must</b> be greater than 0</li>
-	 * <li>Each element of {@code pFences} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and the elements of {@code pFences} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>Each element of {@code pFences} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * </ul>
 	 *
 	 * @param device  the logical device that owns the fences
@@ -5462,9 +5437,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code semaphore} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code semaphore} <b>must</b> be a valid {@code VkSemaphore} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code semaphore} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code semaphore} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code semaphore} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>{@code semaphore} <b>must not</b> be associated with any queue command that has not yet completed execution on that queue</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code semaphore} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code semaphore} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -5498,9 +5471,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code semaphore} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code semaphore} <b>must</b> be a valid {@code VkSemaphore} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code semaphore} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code semaphore} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code semaphore} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>{@code semaphore} <b>must not</b> be associated with any queue command that has not yet completed execution on that queue</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code semaphore} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code semaphore} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -5596,9 +5567,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code event} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code event} <b>must</b> be a valid {@code VkEvent} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code event} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code event} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code event} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All submitted commands that refer to {@code event} <b>must</b> have completed execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code event} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code event} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -5632,9 +5601,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code event} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code event} <b>must</b> be a valid {@code VkEvent} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code event} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code event} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code event} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All submitted commands that refer to {@code event} <b>must</b> have completed execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code event} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code event} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -5676,8 +5643,7 @@ or _unsignaled_.</p>
 	 * <ul>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code event} <b>must</b> be a valid {@code VkEvent} handle</li>
-	 * <li>{@code event} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code event} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code event} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * </ul>
 	 *
 	 * @param device the logical device that owns the event
@@ -5700,8 +5666,7 @@ or _unsignaled_.</p>
 	 * <ul>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code event} <b>must</b> be a valid {@code VkEvent} handle</li>
-	 * <li>{@code event} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code event} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code event} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -5730,8 +5695,7 @@ or _unsignaled_.</p>
 	 * <ul>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code event} <b>must</b> be a valid {@code VkEvent} handle</li>
-	 * <li>{@code event} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code event} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code event} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>{@code event} <b>must not</b> be waited on by a {@link #vkCmdWaitEvents CmdWaitEvents} command that is currently executing</li>
 	 * </ul>
 	 * 
@@ -5819,9 +5783,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code queryPool} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code queryPool} <b>must</b> be a valid {@code VkQueryPool} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code queryPool} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code queryPool} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code queryPool} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All submitted commands that refer to {@code queryPool} <b>must</b> have completed execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code queryPool} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code queryPool} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -5855,9 +5817,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code queryPool} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code queryPool} <b>must</b> be a valid {@code VkQueryPool} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code queryPool} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code queryPool} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code queryPool} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All submitted commands that refer to {@code queryPool} <b>must</b> have completed execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code queryPool} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code queryPool} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -5940,8 +5900,7 @@ or _unsignaled_.</p>
 	 * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
 	 * <li>{@code flags} <b>must</b> be a valid combination of {@code VkQueryResultFlagBits} values</li>
 	 * <li>{@code dataSize} <b>must</b> be greater than 0</li>
-	 * <li>{@code queryPool} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code queryPool} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code queryPool} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>{@code firstQuery} <b>must</b> be less than the number of queries in {@code queryPool}</li>
 	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is not set in {@code flags} then {@code pData} and {@code stride} <b>must</b> be multiples of 4</li>
 	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is set in {@code flags} then {@code pData} and {@code stride} <b>must</b> be multiples of 8</li>
@@ -6025,8 +5984,7 @@ or _unsignaled_.</p>
 	 * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
 	 * <li>{@code flags} <b>must</b> be a valid combination of {@code VkQueryResultFlagBits} values</li>
 	 * <li>{@code dataSize} <b>must</b> be greater than 0</li>
-	 * <li>{@code queryPool} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code queryPool} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code queryPool} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>{@code firstQuery} <b>must</b> be less than the number of queries in {@code queryPool}</li>
 	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is not set in {@code flags} then {@code pData} and {@code stride} <b>must</b> be multiples of 4</li>
 	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is set in {@code flags} then {@code pData} and {@code stride} <b>must</b> be multiples of 8</li>
@@ -6145,9 +6103,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code buffer} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code buffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code buffer} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code buffer} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code buffer} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All submitted commands that refer to {@code buffer}, either directly or via a {@code VkBufferView}, <b>must</b> have completed execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code buffer} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code buffer} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -6181,9 +6137,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code buffer} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code buffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code buffer} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code buffer} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code buffer} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All submitted commands that refer to {@code buffer}, either directly or via a {@code VkBufferView}, <b>must</b> have completed execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code buffer} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code buffer} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -6287,9 +6241,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code bufferView} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code bufferView} <b>must</b> be a valid {@code VkBufferView} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code bufferView} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code bufferView} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code bufferView} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All submitted commands that refer to {@code bufferView} <b>must</b> have completed execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code bufferView} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code bufferView} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -6323,9 +6275,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code bufferView} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code bufferView} <b>must</b> be a valid {@code VkBufferView} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code bufferView} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code bufferView} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code bufferView} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All submitted commands that refer to {@code bufferView} <b>must</b> have completed execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code bufferView} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code bufferView} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -6425,9 +6375,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code image} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code image} <b>must</b> be a valid {@code VkImage} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code image} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code image} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code image} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All submitted commands that refer to {@code image}, either directly or via a {@code VkImageView}, <b>must</b> have completed execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code image} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code image} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -6461,9 +6409,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code image} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code image} <b>must</b> be a valid {@code VkImage} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code image} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code image} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code image} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All submitted commands that refer to {@code image}, either directly or via a {@code VkImageView}, <b>must</b> have completed execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code image} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code image} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -6497,8 +6443,7 @@ or _unsignaled_.</p>
 	 * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
 	 * <li>{@code pSubresource} <b>must</b> be a pointer to a valid {@link VkImageSubresource} structure</li>
 	 * <li>{@code pLayout} <b>must</b> be a pointer to a {@link VkSubresourceLayout} structure</li>
-	 * <li>{@code image} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code image} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>{@code image} <b>must</b> have been created with {@code tiling} equal to {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR}</li>
 	 * <li>The {@code aspectMask} member of {@code pSubresource} <b>must</b> only have a single bit set</li>
 	 * </ul>
@@ -6527,8 +6472,7 @@ or _unsignaled_.</p>
 	 * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
 	 * <li>{@code pSubresource} <b>must</b> be a pointer to a valid {@link VkImageSubresource} structure</li>
 	 * <li>{@code pLayout} <b>must</b> be a pointer to a {@link VkSubresourceLayout} structure</li>
-	 * <li>{@code image} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code image} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>{@code image} <b>must</b> have been created with {@code tiling} equal to {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR}</li>
 	 * <li>The {@code aspectMask} member of {@code pSubresource} <b>must</b> only have a single bit set</li>
 	 * </ul>
@@ -6610,9 +6554,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code imageView} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code imageView} <b>must</b> be a valid {@code VkImageView} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code imageView} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code imageView} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code imageView} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All submitted commands that refer to {@code imageView} <b>must</b> have completed execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code imageView} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code imageView} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -6646,9 +6588,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code imageView} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code imageView} <b>must</b> be a valid {@code VkImageView} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code imageView} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code imageView} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code imageView} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All submitted commands that refer to {@code imageView} <b>must</b> have completed execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code imageView} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code imageView} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -6744,9 +6684,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code shaderModule} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code shaderModule} <b>must</b> be a valid {@code VkShaderModule} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code shaderModule} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code shaderModule} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code shaderModule} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code shaderModule} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code shaderModule} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
 	 * </ul>
@@ -6779,9 +6717,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code shaderModule} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code shaderModule} <b>must</b> be a valid {@code VkShaderModule} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code shaderModule} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code shaderModule} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code shaderModule} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code shaderModule} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code shaderModule} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
 	 * </ul>
@@ -6916,9 +6852,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code pipelineCache} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code pipelineCache} <b>must</b> be a valid {@code VkPipelineCache} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code pipelineCache} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code pipelineCache} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code pipelineCache} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code pipelineCache} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code pipelineCache} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
 	 * </ul>
@@ -6951,9 +6885,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code pipelineCache} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code pipelineCache} <b>must</b> be a valid {@code VkPipelineCache} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code pipelineCache} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code pipelineCache} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code pipelineCache} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code pipelineCache} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code pipelineCache} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
 	 * </ul>
@@ -6995,8 +6927,7 @@ or _unsignaled_.</p>
 	 * <li>{@code pDataSize} <b>must</b> be a pointer to a {@code size_t} value</li>
 	 * <li>If the value referenced by {@code pDataSize} is not 0, and {@code pData} is not {@code NULL}, {@code pData} <b>must</b> be a pointer to an array of
 	 * {@code pDataSize} bytes</li>
-	 * <li>{@code pipelineCache} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code pipelineCache} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code pipelineCache} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * </ul>
 	 * 
 	 * <p>Applications <b>can</b> store the data retrieved from the pipeline cache, and use these data, possibly in a future run of the application, to populate new
@@ -7059,8 +6990,7 @@ or _unsignaled_.</p>
 	 * <li>{@code pDataSize} <b>must</b> be a pointer to a {@code size_t} value</li>
 	 * <li>If the value referenced by {@code pDataSize} is not 0, and {@code pData} is not {@code NULL}, {@code pData} <b>must</b> be a pointer to an array of
 	 * {@code pDataSize} bytes</li>
-	 * <li>{@code pipelineCache} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code pipelineCache} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code pipelineCache} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * </ul>
 	 * 
 	 * <p>Applications <b>can</b> store the data retrieved from the pipeline cache, and use these data, possibly in a future run of the application, to populate new
@@ -7125,10 +7055,8 @@ or _unsignaled_.</p>
 	 * <li>{@code dstCache} <b>must</b> be a valid {@code VkPipelineCache} handle</li>
 	 * <li>{@code pSrcCaches} <b>must</b> be a pointer to an array of {@code srcCacheCount} valid {@code VkPipelineCache} handles</li>
 	 * <li>{@code srcCacheCount} <b>must</b> be greater than 0</li>
-	 * <li>{@code dstCache} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each element of {@code pSrcCaches} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device}, {@code dstCache} and the elements of {@code pSrcCaches} <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>{@code dstCache} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
+	 * <li>Each element of {@code pSrcCaches} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>{@code dstCache} <b>must not</b> appear in the list of source caches</li>
 	 * </ul>
 	 * 
@@ -7167,10 +7095,8 @@ or _unsignaled_.</p>
 	 * <li>{@code dstCache} <b>must</b> be a valid {@code VkPipelineCache} handle</li>
 	 * <li>{@code pSrcCaches} <b>must</b> be a pointer to an array of {@code srcCacheCount} valid {@code VkPipelineCache} handles</li>
 	 * <li>{@code srcCacheCount} <b>must</b> be greater than 0</li>
-	 * <li>{@code dstCache} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each element of {@code pSrcCaches} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device}, {@code dstCache} and the elements of {@code pSrcCaches} <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>{@code dstCache} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
+	 * <li>Each element of {@code pSrcCaches} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>{@code dstCache} <b>must not</b> appear in the list of source caches</li>
 	 * </ul>
 	 * 
@@ -7207,9 +7133,7 @@ or _unsignaled_.</p>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
 	 * <li>{@code pPipelines} <b>must</b> be a pointer to an array of {@code createInfoCount} {@code VkPipeline} handles</li>
 	 * <li>{@code createInfoCount} <b>must</b> be greater than 0</li>
-	 * <li>If {@code pipelineCache} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code pipelineCache} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code pipelineCache} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>If the {@code flags} member of any given element of {@code pCreateInfos} contains the {@link #VK_PIPELINE_CREATE_DERIVATIVE_BIT PIPELINE_CREATE_DERIVATIVE_BIT} flag, and the
 	 * {@code basePipelineIndex} member of that same element is not {@code -1}, {@code basePipelineIndex} <b>must</b> be less than the index into
 	 * {@code pCreateInfos} that corresponds to that element</li>
@@ -7248,9 +7172,7 @@ or _unsignaled_.</p>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
 	 * <li>{@code pPipelines} <b>must</b> be a pointer to an array of {@code createInfoCount} {@code VkPipeline} handles</li>
 	 * <li>{@code createInfoCount} <b>must</b> be greater than 0</li>
-	 * <li>If {@code pipelineCache} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code pipelineCache} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code pipelineCache} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>If the {@code flags} member of any given element of {@code pCreateInfos} contains the {@link #VK_PIPELINE_CREATE_DERIVATIVE_BIT PIPELINE_CREATE_DERIVATIVE_BIT} flag, and the
 	 * {@code basePipelineIndex} member of that same element is not {@code -1}, {@code basePipelineIndex} <b>must</b> be less than the index into
 	 * {@code pCreateInfos} that corresponds to that element</li>
@@ -7291,9 +7213,7 @@ or _unsignaled_.</p>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
 	 * <li>{@code pPipelines} <b>must</b> be a pointer to an array of {@code createInfoCount} {@code VkPipeline} handles</li>
 	 * <li>{@code createInfoCount} <b>must</b> be greater than 0</li>
-	 * <li>If {@code pipelineCache} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code pipelineCache} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code pipelineCache} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>If the {@code flags} member of any given element of {@code pCreateInfos} contains the {@link #VK_PIPELINE_CREATE_DERIVATIVE_BIT PIPELINE_CREATE_DERIVATIVE_BIT} flag, and the
 	 * {@code basePipelineIndex} member of that same element is not {@code -1}, {@code basePipelineIndex} <b>must</b> be less than the index into
 	 * {@code pCreateInfos} that corresponds to that element</li>
@@ -7336,9 +7256,7 @@ or _unsignaled_.</p>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
 	 * <li>{@code pPipelines} <b>must</b> be a pointer to an array of {@code createInfoCount} {@code VkPipeline} handles</li>
 	 * <li>{@code createInfoCount} <b>must</b> be greater than 0</li>
-	 * <li>If {@code pipelineCache} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code pipelineCache} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code pipelineCache} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>If the {@code flags} member of any given element of {@code pCreateInfos} contains the {@link #VK_PIPELINE_CREATE_DERIVATIVE_BIT PIPELINE_CREATE_DERIVATIVE_BIT} flag, and the
 	 * {@code basePipelineIndex} member of that same element is not {@code -1}, {@code basePipelineIndex} <b>must</b> be less than the index into
 	 * {@code pCreateInfos} that corresponds to that element</li>
@@ -7370,9 +7288,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code pipeline} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code pipeline} <b>must</b> be a valid {@code VkPipeline} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code pipeline} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code pipeline} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code pipeline} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All submitted commands that refer to {@code pipeline} <b>must</b> have completed execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code pipeline} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code pipeline} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -7406,9 +7322,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code pipeline} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code pipeline} <b>must</b> be a valid {@code VkPipeline} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code pipeline} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code pipeline} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code pipeline} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All submitted commands that refer to {@code pipeline} <b>must</b> have completed execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code pipeline} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code pipeline} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -7648,9 +7562,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code pipelineLayout} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code pipelineLayout} <b>must</b> be a valid {@code VkPipelineLayout} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code pipelineLayout} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code pipelineLayout} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code pipelineLayout} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code pipelineLayout} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code pipelineLayout} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
 	 * </ul>
@@ -7683,9 +7595,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code pipelineLayout} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code pipelineLayout} <b>must</b> be a valid {@code VkPipelineLayout} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code pipelineLayout} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code pipelineLayout} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code pipelineLayout} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code pipelineLayout} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code pipelineLayout} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
 	 * </ul>
@@ -7776,9 +7686,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code sampler} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code sampler} <b>must</b> be a valid {@code VkSampler} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code sampler} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code sampler} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code sampler} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All submitted commands that refer to {@code sampler} <b>must</b> have completed execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code sampler} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code sampler} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -7812,9 +7720,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code sampler} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code sampler} <b>must</b> be a valid {@code VkSampler} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code sampler} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code sampler} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code sampler} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All submitted commands that refer to {@code sampler} <b>must</b> have completed execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code sampler} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code sampler} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -7910,9 +7816,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code descriptorSetLayout} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code descriptorSetLayout} <b>must</b> be a valid {@code VkDescriptorSetLayout} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code descriptorSetLayout} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code descriptorSetLayout} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code descriptorSetLayout} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code descriptorSetLayout} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code descriptorSetLayout} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
 	 * </ul>
@@ -7945,9 +7849,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code descriptorSetLayout} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code descriptorSetLayout} <b>must</b> be a valid {@code VkDescriptorSetLayout} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code descriptorSetLayout} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code descriptorSetLayout} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code descriptorSetLayout} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code descriptorSetLayout} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code descriptorSetLayout} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
 	 * </ul>
@@ -8045,9 +7947,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code descriptorPool} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code descriptorPool} <b>must</b> be a valid {@code VkDescriptorPool} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code descriptorPool} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code descriptorPool} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code descriptorPool} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All submitted commands that refer to {@code descriptorPool} (via any allocated descriptor sets) <b>must</b> have completed execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code descriptorPool} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code descriptorPool} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -8084,9 +7984,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code descriptorPool} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code descriptorPool} <b>must</b> be a valid {@code VkDescriptorPool} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code descriptorPool} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code descriptorPool} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code descriptorPool} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All submitted commands that refer to {@code descriptorPool} (via any allocated descriptor sets) <b>must</b> have completed execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code descriptorPool} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code descriptorPool} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -8124,8 +8022,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code descriptorPool} <b>must</b> be a valid {@code VkDescriptorPool} handle</li>
 	 * <li>{@code flags} <b>must</b> be 0</li>
-	 * <li>{@code descriptorPool} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code descriptorPool} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code descriptorPool} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All uses of {@code descriptorPool} (via any allocated descriptor sets) <b>must</b> have completed execution</li>
 	 * </ul>
 	 * 
@@ -8233,10 +8130,8 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code descriptorPool} <b>must</b> be a valid {@code VkDescriptorPool} handle</li>
 	 * <li>{@code descriptorSetCount} <b>must</b> be greater than 0</li>
-	 * <li>{@code descriptorPool} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each element of {@code pDescriptorSets} that is a valid handle <b>must</b> have been created, allocated or retrieved from {@code descriptorPool}</li>
-	 * <li>Each of {@code device}, {@code descriptorPool} and the elements of {@code pDescriptorSets} that are valid handles <b>must</b> have been created,
-	 * allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code descriptorPool} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
+	 * <li>Each element of {@code pDescriptorSets} that is a valid handle <b>must</b> have been created, allocated, or retrieved from {@code descriptorPool}</li>
 	 * <li>All submitted commands that refer to any element of {@code pDescriptorSets} <b>must</b> have completed execution</li>
 	 * <li>{@code pDescriptorSets} <b>must</b> be a pointer to an array of {@code descriptorSetCount} {@code VkDescriptorSet} handles, each element of which <b>must</b>
 	 * either be a valid handle or {@link #VK_NULL_HANDLE NULL_HANDLE}</li>
@@ -8273,10 +8168,8 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code descriptorPool} <b>must</b> be a valid {@code VkDescriptorPool} handle</li>
 	 * <li>{@code descriptorSetCount} <b>must</b> be greater than 0</li>
-	 * <li>{@code descriptorPool} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each element of {@code pDescriptorSets} that is a valid handle <b>must</b> have been created, allocated or retrieved from {@code descriptorPool}</li>
-	 * <li>Each of {@code device}, {@code descriptorPool} and the elements of {@code pDescriptorSets} that are valid handles <b>must</b> have been created,
-	 * allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code descriptorPool} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
+	 * <li>Each element of {@code pDescriptorSets} that is a valid handle <b>must</b> have been created, allocated, or retrieved from {@code descriptorPool}</li>
 	 * <li>All submitted commands that refer to any element of {@code pDescriptorSets} <b>must</b> have completed execution</li>
 	 * <li>{@code pDescriptorSets} <b>must</b> be a pointer to an array of {@code descriptorSetCount} {@code VkDescriptorSet} handles, each element of which <b>must</b>
 	 * either be a valid handle or {@link #VK_NULL_HANDLE NULL_HANDLE}</li>
@@ -8311,10 +8204,8 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code descriptorPool} <b>must</b> be a valid {@code VkDescriptorPool} handle</li>
 	 * <li>{@code descriptorSetCount} <b>must</b> be greater than 0</li>
-	 * <li>{@code descriptorPool} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each element of {@code pDescriptorSets} that is a valid handle <b>must</b> have been created, allocated or retrieved from {@code descriptorPool}</li>
-	 * <li>Each of {@code device}, {@code descriptorPool} and the elements of {@code pDescriptorSets} that are valid handles <b>must</b> have been created,
-	 * allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code descriptorPool} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
+	 * <li>Each element of {@code pDescriptorSets} that is a valid handle <b>must</b> have been created, allocated, or retrieved from {@code descriptorPool}</li>
 	 * <li>All submitted commands that refer to any element of {@code pDescriptorSets} <b>must</b> have completed execution</li>
 	 * <li>{@code pDescriptorSets} <b>must</b> be a pointer to an array of {@code descriptorSetCount} {@code VkDescriptorSet} handles, each element of which <b>must</b>
 	 * either be a valid handle or {@link #VK_NULL_HANDLE NULL_HANDLE}</li>
@@ -8485,9 +8376,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code framebuffer} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code framebuffer} <b>must</b> be a valid {@code VkFramebuffer} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code framebuffer} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code framebuffer} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code framebuffer} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All submitted commands that refer to {@code framebuffer} <b>must</b> have completed execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code framebuffer} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code framebuffer} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -8521,9 +8410,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code framebuffer} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code framebuffer} <b>must</b> be a valid {@code VkFramebuffer} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code framebuffer} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code framebuffer} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code framebuffer} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All submitted commands that refer to {@code framebuffer} <b>must</b> have completed execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code framebuffer} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code framebuffer} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -8611,9 +8498,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code renderPass} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code renderPass} <b>must</b> be a valid {@code VkRenderPass} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code renderPass} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code renderPass} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code renderPass} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All submitted commands that refer to {@code renderPass} <b>must</b> have completed execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code renderPass} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code renderPass} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -8647,9 +8532,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code renderPass} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code renderPass} <b>must</b> be a valid {@code VkRenderPass} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code renderPass} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code renderPass} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code renderPass} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All submitted commands that refer to {@code renderPass} <b>must</b> have completed execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code renderPass} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code renderPass} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -8693,8 +8576,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code renderPass} <b>must</b> be a valid {@code VkRenderPass} handle</li>
 	 * <li>{@code pGranularity} <b>must</b> be a pointer to a {@link VkExtent2D} structure</li>
-	 * <li>{@code renderPass} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code renderPass} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code renderPass} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * </ul>
 	 *
 	 * @param device       the logical device that owns the render pass
@@ -8728,8 +8610,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code renderPass} <b>must</b> be a valid {@code VkRenderPass} handle</li>
 	 * <li>{@code pGranularity} <b>must</b> be a pointer to a {@link VkExtent2D} structure</li>
-	 * <li>{@code renderPass} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code renderPass} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code renderPass} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * </ul>
 	 *
 	 * @param device       the logical device that owns the render pass
@@ -8819,9 +8700,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code commandPool} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code commandPool} <b>must</b> be a valid {@code VkCommandPool} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code commandPool} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code commandPool} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code commandPool} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All {@code VkCommandBuffer} objects allocated from {@code commandPool} <b>must not</b> be pending execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code commandPool} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code commandPool} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -8858,9 +8737,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>If {@code commandPool} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code commandPool} <b>must</b> be a valid {@code VkCommandPool} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code commandPool} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code commandPool} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
-	 * {@code VkPhysicalDevice}</li>
+	 * <li>If {@code commandPool} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All {@code VkCommandBuffer} objects allocated from {@code commandPool} <b>must not</b> be pending execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code commandPool} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code commandPool} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -8893,8 +8770,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code commandPool} <b>must</b> be a valid {@code VkCommandPool} handle</li>
 	 * <li>{@code flags} <b>must</b> be a valid combination of {@code VkCommandPoolResetFlagBits} values</li>
-	 * <li>{@code commandPool} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each of {@code device} and {@code commandPool} <b>must</b> have been created, allocated or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code commandPool} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>All {@code VkCommandBuffer} objects allocated from {@code commandPool} <b>must not</b> currently be pending execution</li>
 	 * </ul>
 	 * 
@@ -8985,10 +8861,8 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code commandPool} <b>must</b> be a valid {@code VkCommandPool} handle</li>
 	 * <li>{@code commandBufferCount} <b>must</b> be greater than 0</li>
-	 * <li>{@code commandPool} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each element of {@code pCommandBuffers} that is a valid handle <b>must</b> have been created, allocated or retrieved from {@code commandPool}</li>
-	 * <li>Each of {@code device}, {@code commandPool} and the elements of {@code pCommandBuffers} that are valid handles <b>must</b> have been created, allocated
-	 * or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code commandPool} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
+	 * <li>Each element of {@code pCommandBuffers} that is a valid handle <b>must</b> have been created, allocated, or retrieved from {@code commandPool}</li>
 	 * <li>All elements of {@code pCommandBuffers} <b>must not</b> be pending execution</li>
 	 * <li>{@code pCommandBuffers} <b>must</b> be a pointer to an array of {@code commandBufferCount} {@code VkCommandBuffer} handles, each element of which <b>must</b>
 	 * either be a valid handle or {@link #VK_NULL_HANDLE NULL_HANDLE}</li>
@@ -9022,10 +8896,8 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code commandPool} <b>must</b> be a valid {@code VkCommandPool} handle</li>
 	 * <li>{@code commandBufferCount} <b>must</b> be greater than 0</li>
-	 * <li>{@code commandPool} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each element of {@code pCommandBuffers} that is a valid handle <b>must</b> have been created, allocated or retrieved from {@code commandPool}</li>
-	 * <li>Each of {@code device}, {@code commandPool} and the elements of {@code pCommandBuffers} that are valid handles <b>must</b> have been created, allocated
-	 * or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code commandPool} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
+	 * <li>Each element of {@code pCommandBuffers} that is a valid handle <b>must</b> have been created, allocated, or retrieved from {@code commandPool}</li>
 	 * <li>All elements of {@code pCommandBuffers} <b>must not</b> be pending execution</li>
 	 * <li>{@code pCommandBuffers} <b>must</b> be a pointer to an array of {@code commandBufferCount} {@code VkCommandBuffer} handles, each element of which <b>must</b>
 	 * either be a valid handle or {@link #VK_NULL_HANDLE NULL_HANDLE}</li>
@@ -9057,10 +8929,8 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code commandPool} <b>must</b> be a valid {@code VkCommandPool} handle</li>
 	 * <li>{@code commandBufferCount} <b>must</b> be greater than 0</li>
-	 * <li>{@code commandPool} <b>must</b> have been created, allocated or retrieved from {@code device}</li>
-	 * <li>Each element of {@code pCommandBuffers} that is a valid handle <b>must</b> have been created, allocated or retrieved from {@code commandPool}</li>
-	 * <li>Each of {@code device}, {@code commandPool} and the elements of {@code pCommandBuffers} that are valid handles <b>must</b> have been created, allocated
-	 * or retrieved from the same {@code VkPhysicalDevice}</li>
+	 * <li>{@code commandPool} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
+	 * <li>Each element of {@code pCommandBuffers} that is a valid handle <b>must</b> have been created, allocated, or retrieved from {@code commandPool}</li>
 	 * <li>All elements of {@code pCommandBuffers} <b>must not</b> be pending execution</li>
 	 * <li>{@code pCommandBuffers} <b>must</b> be a pointer to an array of {@code commandBufferCount} {@code VkCommandBuffer} handles, each element of which <b>must</b>
 	 * either be a valid handle or {@link #VK_NULL_HANDLE NULL_HANDLE}</li>
@@ -9294,8 +9164,8 @@ or _unsignaled_.</p>
 	 * <li>{@code pipelineBindPoint} <b>must</b> be a valid {@code VkPipelineBindPoint} value</li>
 	 * <li>{@code pipeline} <b>must</b> be a valid {@code VkPipeline} handle</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
-	 * <li>Each of {@code commandBuffer} and {@code pipeline} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
+	 * <li>Both of {@code commandBuffer}, and {@code pipeline} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>If {@code pipelineBindPoint} is {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE}, the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support
 	 * compute operations</li>
 	 * <li>If {@code pipelineBindPoint} is {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS}, the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b>
@@ -9916,10 +9786,10 @@ or _unsignaled_.</p>
 	 * <li>If {@code dynamicOffsetCount} is not 0, {@code pDynamicOffsets} <b>must</b> be a pointer to an array of {@code dynamicOffsetCount} {@code uint32_t}
 	 * values</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * <li>{@code descriptorSetCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer}, {@code layout} and the elements of {@code pDescriptorSets} <b>must</b> have been created, allocated or retrieved from the
-	 * same {@code VkDevice}</li>
+	 * <li>Each of {@code commandBuffer}, {@code layout}, and the elements of {@code pDescriptorSets} <b>must</b> have been created, allocated, or retrieved from
+	 * the same {@code VkDevice}</li>
 	 * <li>Any given element of {@code pDescriptorSets} <b>must</b> have been created with a {@code VkDescriptorSetLayout} that matches (is the same as, or defined
 	 * identically to) the {@code VkDescriptorSetLayout} at set {@code n} in {@code layout}, where {@code n} is the sum of {@code firstSet} and the index
 	 * into {@code pDescriptorSets}</li>
@@ -9995,10 +9865,10 @@ or _unsignaled_.</p>
 	 * <li>If {@code dynamicOffsetCount} is not 0, {@code pDynamicOffsets} <b>must</b> be a pointer to an array of {@code dynamicOffsetCount} {@code uint32_t}
 	 * values</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * <li>{@code descriptorSetCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer}, {@code layout} and the elements of {@code pDescriptorSets} <b>must</b> have been created, allocated or retrieved from the
-	 * same {@code VkDevice}</li>
+	 * <li>Each of {@code commandBuffer}, {@code layout}, and the elements of {@code pDescriptorSets} <b>must</b> have been created, allocated, or retrieved from
+	 * the same {@code VkDevice}</li>
 	 * <li>Any given element of {@code pDescriptorSets} <b>must</b> have been created with a {@code VkDescriptorSetLayout} that matches (is the same as, or defined
 	 * identically to) the {@code VkDescriptorSetLayout} at set {@code n} in {@code layout}, where {@code n} is the sum of {@code firstSet} and the index
 	 * into {@code pDescriptorSets}</li>
@@ -10040,7 +9910,7 @@ or _unsignaled_.</p>
 	 * <li>{@code indexType} <b>must</b> be a valid {@code VkIndexType} value</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
-	 * <li>Each of {@code commandBuffer} and {@code buffer} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code buffer}, and {@code commandBuffer} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code offset} <b>must</b> be less than the size of {@code buffer}</li>
 	 * <li>The sum of {@code offset} and the address of the range of {@code VkDeviceMemory} object that is backing {@code buffer}, <b>must</b> be a multiple of the
 	 * type indicated by {@code indexType}</li>
@@ -10113,7 +9983,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
 	 * <li>{@code bindingCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer} and the elements of {@code pBuffers} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code commandBuffer}, and the elements of {@code pBuffers} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code firstBinding} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxVertexInputBindings}</li>
 	 * <li>The sum of {@code firstBinding} and {@code bindingCount} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxVertexInputBindings}</li>
 	 * <li>All elements of {@code pOffsets} <b>must</b> be less than the size of the corresponding element in {@code pBuffers}</li>
@@ -10185,7 +10055,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
 	 * <li>{@code bindingCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer} and the elements of {@code pBuffers} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code commandBuffer}, and the elements of {@code pBuffers} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code firstBinding} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxVertexInputBindings}</li>
 	 * <li>The sum of {@code firstBinding} and {@code bindingCount} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxVertexInputBindings}</li>
 	 * <li>All elements of {@code pOffsets} <b>must</b> be less than the size of the corresponding element in {@code pBuffers}</li>
@@ -10379,7 +10249,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
 	 * <li>This command <b>must</b> only be called inside of a render pass instance</li>
-	 * <li>Each of {@code commandBuffer} and {@code buffer} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code buffer}, and {@code commandBuffer} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code offset} <b>must</b> be a multiple of 4</li>
 	 * <li>If {@code drawCount} is greater than 1, {@code stride} <b>must</b> be a multiple of 4 and <b>must</b> be greater than or equal to
 	 * sizeof({@code VkDrawIndirectCommand})</li>
@@ -10461,7 +10331,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
 	 * <li>This command <b>must</b> only be called inside of a render pass instance</li>
-	 * <li>Each of {@code commandBuffer} and {@code buffer} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code buffer}, and {@code commandBuffer} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code offset} <b>must</b> be a multiple of 4</li>
 	 * <li>If {@code drawCount} is greater than 1, {@code stride} <b>must</b> be a multiple of 4 and <b>must</b> be greater than or equal to
 	 * sizeof({@code VkDrawIndexedIndirectCommand})</li>
@@ -10606,7 +10476,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support compute operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
-	 * <li>Each of {@code commandBuffer} and {@code buffer} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code buffer}, and {@code commandBuffer} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>For each set {@code n} that is statically used by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE}, a descriptor set <b>must</b>
 	 * have been bound to {@code n} at {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE}, with a {@code VkPipelineLayout} that is compatible for set {@code n}, with the
 	 * {@code VkPipelineLayout} used to create the current {@code VkPipeline}</li>
@@ -10672,10 +10542,10 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
 	 * <li>{@code pRegions} <b>must</b> be a pointer to an array of {@code regionCount} {@link VkBufferCopy} structures</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
 	 * <li>{@code regionCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer}, {@code srcBuffer} and {@code dstBuffer} <b>must</b> have been created, allocated or retrieved from the same
+	 * <li>Each of {@code commandBuffer}, {@code dstBuffer}, and {@code srcBuffer} <b>must</b> have been created, allocated, or retrieved from the same
 	 * {@code VkDevice}</li>
 	 * <li>The {@code size} member of a given element of {@code pRegions} <b>must</b> be greater than 0</li>
 	 * <li>The {@code srcOffset} member of a given element of {@code pRegions} <b>must</b> be less than the size of {@code srcBuffer}</li>
@@ -10721,10 +10591,10 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
 	 * <li>{@code pRegions} <b>must</b> be a pointer to an array of {@code regionCount} {@link VkBufferCopy} structures</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
 	 * <li>{@code regionCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer}, {@code srcBuffer} and {@code dstBuffer} <b>must</b> have been created, allocated or retrieved from the same
+	 * <li>Each of {@code commandBuffer}, {@code dstBuffer}, and {@code srcBuffer} <b>must</b> have been created, allocated, or retrieved from the same
 	 * {@code VkDevice}</li>
 	 * <li>The {@code size} member of a given element of {@code pRegions} <b>must</b> be greater than 0</li>
 	 * <li>The {@code srcOffset} member of a given element of {@code pRegions} <b>must</b> be less than the size of {@code srcBuffer}</li>
@@ -10808,10 +10678,11 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code dstImageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
 	 * <li>{@code pRegions} <b>must</b> be a pointer to an array of {@code regionCount} valid {@link VkImageCopy} structures</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
 	 * <li>{@code regionCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer}, {@code srcImage} and {@code dstImage} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Each of {@code commandBuffer}, {@code dstImage}, and {@code srcImage} <b>must</b> have been created, allocated, or retrieved from the same
+	 * {@code VkDevice}</li>
 	 * <li>The source region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
 	 * <li>The destination region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
 	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
@@ -10901,10 +10772,11 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code dstImageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
 	 * <li>{@code pRegions} <b>must</b> be a pointer to an array of {@code regionCount} valid {@link VkImageCopy} structures</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
 	 * <li>{@code regionCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer}, {@code srcImage} and {@code dstImage} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Each of {@code commandBuffer}, {@code dstImage}, and {@code srcImage} <b>must</b> have been created, allocated, or retrieved from the same
+	 * {@code VkDevice}</li>
 	 * <li>The source region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
 	 * <li>The destination region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
 	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
@@ -10961,7 +10833,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
 	 * <li>{@code regionCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer}, {@code srcImage} and {@code dstImage} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Each of {@code commandBuffer}, {@code dstImage}, and {@code srcImage} <b>must</b> have been created, allocated, or retrieved from the same
+	 * {@code VkDevice}</li>
 	 * <li>The source region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
 	 * <li>The destination region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
 	 * <li>The union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in memory with any texel that <b>may</b> be sampled
@@ -11035,7 +10908,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
 	 * <li>{@code regionCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer}, {@code srcImage} and {@code dstImage} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Each of {@code commandBuffer}, {@code dstImage}, and {@code srcImage} <b>must</b> have been created, allocated, or retrieved from the same
+	 * {@code VkDevice}</li>
 	 * <li>The source region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
 	 * <li>The destination region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
 	 * <li>The union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in memory with any texel that <b>may</b> be sampled
@@ -11104,10 +10978,10 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code dstImageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
 	 * <li>{@code pRegions} <b>must</b> be a pointer to an array of {@code regionCount} valid {@link VkBufferImageCopy} structures</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
 	 * <li>{@code regionCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer}, {@code srcBuffer} and {@code dstImage} <b>must</b> have been created, allocated or retrieved from the same
+	 * <li>Each of {@code commandBuffer}, {@code dstImage}, and {@code srcBuffer} <b>must</b> have been created, allocated, or retrieved from the same
 	 * {@code VkDevice}</li>
 	 * <li>The buffer region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcBuffer}</li>
 	 * <li>The image region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
@@ -11155,10 +11029,10 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code dstImageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
 	 * <li>{@code pRegions} <b>must</b> be a pointer to an array of {@code regionCount} valid {@link VkBufferImageCopy} structures</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
 	 * <li>{@code regionCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer}, {@code srcBuffer} and {@code dstImage} <b>must</b> have been created, allocated or retrieved from the same
+	 * <li>Each of {@code commandBuffer}, {@code dstImage}, and {@code srcBuffer} <b>must</b> have been created, allocated, or retrieved from the same
 	 * {@code VkDevice}</li>
 	 * <li>The buffer region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcBuffer}</li>
 	 * <li>The image region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
@@ -11206,10 +11080,10 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
 	 * <li>{@code pRegions} <b>must</b> be a pointer to an array of {@code regionCount} valid {@link VkBufferImageCopy} structures</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
 	 * <li>{@code regionCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer}, {@code srcImage} and {@code dstBuffer} <b>must</b> have been created, allocated or retrieved from the same
+	 * <li>Each of {@code commandBuffer}, {@code dstBuffer}, and {@code srcImage} <b>must</b> have been created, allocated, or retrieved from the same
 	 * {@code VkDevice}</li>
 	 * <li>The image region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
 	 * <li>The buffer region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstBuffer}</li>
@@ -11257,10 +11131,10 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
 	 * <li>{@code pRegions} <b>must</b> be a pointer to an array of {@code regionCount} valid {@link VkBufferImageCopy} structures</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
 	 * <li>{@code regionCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer}, {@code srcImage} and {@code dstBuffer} <b>must</b> have been created, allocated or retrieved from the same
+	 * <li>Each of {@code commandBuffer}, {@code dstBuffer}, and {@code srcImage} <b>must</b> have been created, allocated, or retrieved from the same
 	 * {@code VkDevice}</li>
 	 * <li>The image region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
 	 * <li>The buffer region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstBuffer}</li>
@@ -11310,10 +11184,10 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
 	 * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
 	 * <li>{@code dataSize} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer} and {@code dstBuffer} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code commandBuffer}, and {@code dstBuffer} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code dstOffset} <b>must</b> be less than the size of {@code dstBuffer}</li>
 	 * <li>{@code dataSize} <b>must</b> be less than or equal to the size of {@code dstBuffer} minus {@code dstOffset}</li>
 	 * <li>{@code dstBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} usage flag</li>
@@ -11357,10 +11231,10 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
 	 * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
 	 * <li>{@code dataSize} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer} and {@code dstBuffer} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code commandBuffer}, and {@code dstBuffer} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code dstOffset} <b>must</b> be less than the size of {@code dstBuffer}</li>
 	 * <li>{@code dataSize} <b>must</b> be less than or equal to the size of {@code dstBuffer} minus {@code dstOffset}</li>
 	 * <li>{@code dstBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} usage flag</li>
@@ -11445,9 +11319,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
-	 * <li>Each of {@code commandBuffer} and {@code dstBuffer} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code commandBuffer}, and {@code dstBuffer} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code dstOffset} <b>must</b> be less than the size of {@code dstBuffer}</li>
 	 * <li>{@code dstOffset} <b>must</b> be a multiple of 4</li>
 	 * <li>If {@code size} is not equal to {@link #VK_WHOLE_SIZE WHOLE_SIZE}, {@code size} <b>must</b> be greater than 0</li>
@@ -11492,10 +11366,10 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code pColor} <b>must</b> be a pointer to a valid {@code VkClearColorValue} union</li>
 	 * <li>{@code pRanges} <b>must</b> be a pointer to an array of {@code rangeCount} valid {@link VkImageSubresourceRange} structures</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
 	 * <li>{@code rangeCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code commandBuffer}, and {@code image} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code image} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
 	 * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command
 	 * is executed on a {@code VkDevice}</li>
@@ -11539,10 +11413,10 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code pColor} <b>must</b> be a pointer to a valid {@code VkClearColorValue} union</li>
 	 * <li>{@code pRanges} <b>must</b> be a pointer to an array of {@code rangeCount} valid {@link VkImageSubresourceRange} structures</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
 	 * <li>{@code rangeCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code commandBuffer}, and {@code image} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code image} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
 	 * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command
 	 * is executed on a {@code VkDevice}</li>
@@ -11584,10 +11458,10 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code pColor} <b>must</b> be a pointer to a valid {@code VkClearColorValue} union</li>
 	 * <li>{@code pRanges} <b>must</b> be a pointer to an array of {@code rangeCount} valid {@link VkImageSubresourceRange} structures</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
 	 * <li>{@code rangeCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code commandBuffer}, and {@code image} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code image} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
 	 * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command
 	 * is executed on a {@code VkDevice}</li>
@@ -11630,7 +11504,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
 	 * <li>{@code rangeCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code commandBuffer}, and {@code image} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code image} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
 	 * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command
 	 * is executed on a {@code VkDevice}</li>
@@ -11677,7 +11551,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
 	 * <li>{@code rangeCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code commandBuffer}, and {@code image} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code image} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
 	 * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command
 	 * is executed on a {@code VkDevice}</li>
@@ -11722,7 +11596,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
 	 * <li>{@code rangeCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer} and {@code image} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code commandBuffer}, and {@code image} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code image} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
 	 * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command
 	 * is executed on a {@code VkDevice}</li>
@@ -11865,7 +11739,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
 	 * <li>{@code regionCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer}, {@code srcImage} and {@code dstImage} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Each of {@code commandBuffer}, {@code dstImage}, and {@code srcImage} <b>must</b> have been created, allocated, or retrieved from the same
+	 * {@code VkDevice}</li>
 	 * <li>The source region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
 	 * <li>The destination region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
 	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
@@ -11923,7 +11798,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
 	 * <li>{@code regionCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer}, {@code srcImage} and {@code dstImage} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Each of {@code commandBuffer}, {@code dstImage}, and {@code srcImage} <b>must</b> have been created, allocated, or retrieved from the same
+	 * {@code VkDevice}</li>
 	 * <li>The source region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
 	 * <li>The destination region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
 	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
@@ -11979,7 +11855,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
 	 * <li>{@code regionCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer}, {@code srcImage} and {@code dstImage} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Each of {@code commandBuffer}, {@code dstImage}, and {@code srcImage} <b>must</b> have been created, allocated, or retrieved from the same
+	 * {@code VkDevice}</li>
 	 * <li>The source region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
 	 * <li>The destination region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
 	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
@@ -12034,9 +11911,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code stageMask} <b>must</b> be a valid combination of {@code VkPipelineStageFlagBits} values</li>
 	 * <li>{@code stageMask} <b>must not</b> be 0</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
-	 * <li>Each of {@code commandBuffer} and {@code event} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code commandBuffer}, and {@code event} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>If the geometry shaders feature is not enabled, {@code stageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
 	 * <li>If the tessellation shaders feature is not enabled, {@code stageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
 	 * {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
@@ -12075,9 +11952,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code stageMask} <b>must</b> be a valid combination of {@code VkPipelineStageFlagBits} values</li>
 	 * <li>{@code stageMask} <b>must not</b> be 0</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
-	 * <li>Each of {@code commandBuffer} and {@code event} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code commandBuffer}, and {@code event} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>If the geometry shaders feature is not enabled, {@code stageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
 	 * <li>If the tessellation shaders feature is not enabled, {@code stageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
 	 * {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
@@ -12122,9 +11999,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If {@code imageMemoryBarrierCount} is not 0, {@code pImageMemoryBarriers} <b>must</b> be a pointer to an array of {@code imageMemoryBarrierCount} valid
 	 * {@link VkImageMemoryBarrier} structures</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * <li>{@code eventCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer} and the elements of {@code pEvents} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code commandBuffer}, and the elements of {@code pEvents} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code srcStageMask} <b>must</b> be the bitwise OR of the {@code stageMask} parameter used in previous calls to {@link #vkCmdSetEvent CmdSetEvent} with any of the members of
 	 * {@code pEvents} and {@link #VK_PIPELINE_STAGE_HOST_BIT PIPELINE_STAGE_HOST_BIT} if any of the members of {@code pEvents} was set using {@link #vkSetEvent SetEvent}</li>
 	 * <li>If the geometry shaders feature is not enabled, {@code srcStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
@@ -12206,9 +12083,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If {@code imageMemoryBarrierCount} is not 0, {@code pImageMemoryBarriers} <b>must</b> be a pointer to an array of {@code imageMemoryBarrierCount} valid
 	 * {@link VkImageMemoryBarrier} structures</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * <li>{@code eventCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer} and the elements of {@code pEvents} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code commandBuffer}, and the elements of {@code pEvents} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code srcStageMask} <b>must</b> be the bitwise OR of the {@code stageMask} parameter used in previous calls to {@link #vkCmdSetEvent CmdSetEvent} with any of the members of
 	 * {@code pEvents} and {@link #VK_PIPELINE_STAGE_HOST_BIT PIPELINE_STAGE_HOST_BIT} if any of the members of {@code pEvents} was set using {@link #vkSetEvent SetEvent}</li>
 	 * <li>If the geometry shaders feature is not enabled, {@code srcStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
@@ -12298,15 +12175,28 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If {@code imageMemoryBarrierCount} is not 0, {@code pImageMemoryBarriers} <b>must</b> be a pointer to an array of {@code imageMemoryBarrierCount} valid
 	 * {@link VkImageMemoryBarrier} structures</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
 	 * <li>If the geometry shaders feature is not enabled, {@code srcStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
 	 * <li>If the geometry shaders feature is not enabled, {@code dstStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
 	 * <li>If the tessellation shaders feature is not enabled, {@code srcStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
 	 * {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
 	 * <li>If the tessellation shaders feature is not enabled, {@code dstStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
 	 * {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
-	 * <li>If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} is called within a render pass instance, the render pass <b>must</b> declare at least one self-dependency from the current
-	 * subpass to itself - see Subpass Self-dependency</li>
+	 * <li>If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} is called within a render pass instance, the render pass <b>must</b> have been created with a {@code VkSubpassDependency}
+	 * instance in {@code pDependencies} that expresses a dependency from the current subpass to itself. Additionally:</li>
+	 * <li>If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} is called within a render pass instance, {@code bufferMemoryBarrierCount} <b>must</b> be 0</li>
+	 * <li>If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} is called within a render pass instance, the {@code image} member of any element of {@code pImageMemoryBarriers} <b>must</b> be
+	 * equal to one of the elements of {@code pAttachments} that the current {@code framebuffer} was created with, that is also referred to by one of the
+	 * elements of the {@code pColorAttachments}, {@code pResolveAttachments} or {@code pDepthStencilAttachment} members of the
+	 * {@code VkSubpassDescription} instance that the current subpass was created with</li>
+	 * <li>If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} is called within a render pass instance, the {@code oldLayout} and {@code newLayout} members of any element of
+	 * {@code pImageMemoryBarriers} <b>must</b> be equal to the {@code layout} member of an element of the {@code pColorAttachments},
+	 * {@code pResolveAttachments} or {@code pDepthStencilAttachment} members of the {@code VkSubpassDescription} instance that the current subpass was
+	 * created with, that refers to the same {@code image}</li>
+	 * <li>If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} is called within a render pass instance, the {@code oldLayout} and {@code newLayout} members of an element of
+	 * {@code pImageMemoryBarriers} <b>must</b> be equal</li>
+	 * <li>If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} is called within a render pass instance, the {@code srcQueueFamilyIndex} and {@code dstQueueFamilyIndex} members of any
+	 * element of {@code pImageMemoryBarriers} <b>must</b> be {@link #VK_QUEUE_FAMILY_IGNORED QUEUE_FAMILY_IGNORED}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -12367,15 +12257,28 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If {@code imageMemoryBarrierCount} is not 0, {@code pImageMemoryBarriers} <b>must</b> be a pointer to an array of {@code imageMemoryBarrierCount} valid
 	 * {@link VkImageMemoryBarrier} structures</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
 	 * <li>If the geometry shaders feature is not enabled, {@code srcStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
 	 * <li>If the geometry shaders feature is not enabled, {@code dstStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
 	 * <li>If the tessellation shaders feature is not enabled, {@code srcStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
 	 * {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
 	 * <li>If the tessellation shaders feature is not enabled, {@code dstStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
 	 * {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
-	 * <li>If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} is called within a render pass instance, the render pass <b>must</b> declare at least one self-dependency from the current
-	 * subpass to itself - see Subpass Self-dependency</li>
+	 * <li>If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} is called within a render pass instance, the render pass <b>must</b> have been created with a {@code VkSubpassDependency}
+	 * instance in {@code pDependencies} that expresses a dependency from the current subpass to itself. Additionally:</li>
+	 * <li>If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} is called within a render pass instance, {@code bufferMemoryBarrierCount} <b>must</b> be 0</li>
+	 * <li>If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} is called within a render pass instance, the {@code image} member of any element of {@code pImageMemoryBarriers} <b>must</b> be
+	 * equal to one of the elements of {@code pAttachments} that the current {@code framebuffer} was created with, that is also referred to by one of the
+	 * elements of the {@code pColorAttachments}, {@code pResolveAttachments} or {@code pDepthStencilAttachment} members of the
+	 * {@code VkSubpassDescription} instance that the current subpass was created with</li>
+	 * <li>If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} is called within a render pass instance, the {@code oldLayout} and {@code newLayout} members of any element of
+	 * {@code pImageMemoryBarriers} <b>must</b> be equal to the {@code layout} member of an element of the {@code pColorAttachments},
+	 * {@code pResolveAttachments} or {@code pDepthStencilAttachment} members of the {@code VkSubpassDescription} instance that the current subpass was
+	 * created with, that refers to the same {@code image}</li>
+	 * <li>If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} is called within a render pass instance, the {@code oldLayout} and {@code newLayout} members of an element of
+	 * {@code pImageMemoryBarriers} <b>must</b> be equal</li>
+	 * <li>If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} is called within a render pass instance, the {@code srcQueueFamilyIndex} and {@code dstQueueFamilyIndex} members of any
+	 * element of {@code pImageMemoryBarriers} <b>must</b> be {@link #VK_QUEUE_FAMILY_IGNORED QUEUE_FAMILY_IGNORED}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -12428,8 +12331,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code queryPool} <b>must</b> be a valid {@code VkQueryPool} handle</li>
 	 * <li>{@code flags} <b>must</b> be a valid combination of {@code VkQueryControlFlagBits} values</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
-	 * <li>Each of {@code commandBuffer} and {@code queryPool} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
+	 * <li>Both of {@code commandBuffer}, and {@code queryPool} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>The query identified by {@code queryPool} and {@code query} <b>must</b> currently not be active</li>
 	 * <li>The query identified by {@code queryPool} and {@code query} <b>must</b> be unavailable</li>
 	 * <li>If the precise occlusion queries feature is not enabled, or the {@code queryType} used to create {@code queryPool} was not {@link #VK_QUERY_TYPE_OCCLUSION QUERY_TYPE_OCCLUSION},
@@ -12477,8 +12380,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code queryPool} <b>must</b> be a valid {@code VkQueryPool} handle</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
-	 * <li>Each of {@code commandBuffer} and {@code queryPool} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
+	 * <li>Both of {@code commandBuffer}, and {@code queryPool} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>The query identified by {@code queryPool} and {@code query} <b>must</b> currently be active</li>
 	 * <li>{@code query} <b>must</b> be less than the number of queries in {@code queryPool}</li>
 	 * </ul>
@@ -12537,9 +12440,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code queryPool} <b>must</b> be a valid {@code VkQueryPool} handle</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
-	 * <li>Each of {@code commandBuffer} and {@code queryPool} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code commandBuffer}, and {@code queryPool} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code firstQuery} <b>must</b> be less than the number of queries in {@code queryPool}</li>
 	 * <li>The sum of {@code firstQuery} and {@code queryCount} <b>must</b> be less than or equal to the number of queries in {@code queryPool}</li>
 	 * </ul>
@@ -12604,8 +12507,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code pipelineStage} <b>must</b> be a valid {@code VkPipelineStageFlagBits} value</li>
 	 * <li>{@code queryPool} <b>must</b> be a valid {@code VkQueryPool} handle</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
-	 * <li>Each of {@code commandBuffer} and {@code queryPool} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
+	 * <li>Both of {@code commandBuffer}, and {@code queryPool} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>The query identified by {@code queryPool} and {@code query} <b>must</b> be {@code unavailable}</li>
 	 * <li>The command pool's queue family <b>must</b> support a non-zero {@code timestampValidBits}</li>
 	 * </ul>
@@ -12670,9 +12573,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
 	 * <li>{@code flags} <b>must</b> be a valid combination of {@code VkQueryResultFlagBits} values</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
-	 * <li>Each of {@code commandBuffer}, {@code queryPool} and {@code dstBuffer} <b>must</b> have been created, allocated or retrieved from the same
+	 * <li>Each of {@code commandBuffer}, {@code dstBuffer}, and {@code queryPool} <b>must</b> have been created, allocated, or retrieved from the same
 	 * {@code VkDevice}</li>
 	 * <li>{@code dstOffset} <b>must</b> be less than the size of {@code dstBuffer}</li>
 	 * <li>{@code firstQuery} <b>must</b> be less than the number of queries in {@code queryPool}</li>
@@ -12731,9 +12634,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code stageFlags} <b>must not</b> be 0</li>
 	 * <li>{@code pValues} <b>must</b> be a pointer to an array of {@code size} bytes</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * <li>{@code size} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer} and {@code layout} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code commandBuffer}, and {@code layout} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code stageFlags} <b>must</b> match exactly the shader stages used in {@code layout} for the range specified by {@code offset} and {@code size}</li>
 	 * <li>{@code offset} <b>must</b> be a multiple of 4</li>
 	 * <li>{@code size} <b>must</b> be a multiple of 4</li>
@@ -12780,9 +12683,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code stageFlags} <b>must not</b> be 0</li>
 	 * <li>{@code pValues} <b>must</b> be a pointer to an array of {@code size} bytes</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * <li>{@code size} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer} and {@code layout} <b>must</b> have been created, allocated or retrieved from the same {@code VkDevice}</li>
+	 * <li>Both of {@code commandBuffer}, and {@code layout} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code stageFlags} <b>must</b> match exactly the shader stages used in {@code layout} for the range specified by {@code offset} and {@code size}</li>
 	 * <li>{@code offset} <b>must</b> be a multiple of 4</li>
 	 * <li>{@code size} <b>must</b> be a multiple of 4</li>
@@ -13069,10 +12972,10 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code pCommandBuffers} <b>must</b> be a pointer to an array of {@code commandBufferCount} valid {@code VkCommandBuffer} handles</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
 	 * <li>{@code commandBuffer} <b>must</b> be a primary {@code VkCommandBuffer}</li>
 	 * <li>{@code commandBufferCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer} and the elements of {@code pCommandBuffers} <b>must</b> have been created, allocated or retrieved from the same
+	 * <li>Both of {@code commandBuffer}, and the elements of {@code pCommandBuffers} <b>must</b> have been created, allocated, or retrieved from the same
 	 * {@code VkDevice}</li>
 	 * <li>{@code commandBuffer} <b>must</b> have been created with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_PRIMARY COMMAND_BUFFER_LEVEL_PRIMARY}</li>
 	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> have been created with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_SECONDARY COMMAND_BUFFER_LEVEL_SECONDARY}</li>
@@ -13135,10 +13038,10 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code pCommandBuffers} <b>must</b> be a pointer to an array of {@code commandBufferCount} valid {@code VkCommandBuffer} handles</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
 	 * <li>{@code commandBuffer} <b>must</b> be a primary {@code VkCommandBuffer}</li>
 	 * <li>{@code commandBufferCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer} and the elements of {@code pCommandBuffers} <b>must</b> have been created, allocated or retrieved from the same
+	 * <li>Both of {@code commandBuffer}, and the elements of {@code pCommandBuffers} <b>must</b> have been created, allocated, or retrieved from the same
 	 * {@code VkDevice}</li>
 	 * <li>{@code commandBuffer} <b>must</b> have been created with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_PRIMARY COMMAND_BUFFER_LEVEL_PRIMARY}</li>
 	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> have been created with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_SECONDARY COMMAND_BUFFER_LEVEL_SECONDARY}</li>
@@ -13199,10 +13102,10 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code pCommandBuffers} <b>must</b> be a pointer to an array of {@code commandBufferCount} valid {@code VkCommandBuffer} handles</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
 	 * <li>{@code commandBuffer} <b>must</b> be a primary {@code VkCommandBuffer}</li>
 	 * <li>{@code commandBufferCount} <b>must</b> be greater than 0</li>
-	 * <li>Each of {@code commandBuffer} and the elements of {@code pCommandBuffers} <b>must</b> have been created, allocated or retrieved from the same
+	 * <li>Both of {@code commandBuffer}, and the elements of {@code pCommandBuffers} <b>must</b> have been created, allocated, or retrieved from the same
 	 * {@code VkDevice}</li>
 	 * <li>{@code commandBuffer} <b>must</b> have been created with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_PRIMARY COMMAND_BUFFER_LEVEL_PRIMARY}</li>
 	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> have been created with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_SECONDARY COMMAND_BUFFER_LEVEL_SECONDARY}</li>

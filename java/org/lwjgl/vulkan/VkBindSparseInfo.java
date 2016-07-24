@@ -35,8 +35,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * {@link VkSparseImageMemoryBindInfo} structures</li>
  * <li>If {@code signalSemaphoreCount} is not 0, {@code pSignalSemaphores} <b>must</b> be a pointer to an array of {@code signalSemaphoreCount} valid
  * {@code VkSemaphore} handles</li>
- * <li>Each of the elements of {@code pWaitSemaphores} and the elements of {@code pSignalSemaphores} that are valid handles <b>must</b> have been created,
- * allocated or retrieved from the same {@code VkDevice}</li>
+ * <li>Both of the elements of {@code pSignalSemaphores}, and the elements of {@code pWaitSemaphores} that are valid handles <b>must</b> have been created,
+ * allocated, or retrieved from the same {@code VkDevice}</li>
  * </ul>
  * 
  * <h3>Member documentation</h3>

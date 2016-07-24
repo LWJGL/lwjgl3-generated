@@ -29,8 +29,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code renderPass} <b>must</b> be a valid {@code VkRenderPass} handle</li>
  * <li>If {@code attachmentCount} is not 0, {@code pAttachments} <b>must</b> be a pointer to an array of {@code attachmentCount} valid {@code VkImageView}
  * handles</li>
- * <li>Each of {@code renderPass} and the elements of {@code pAttachments} that are valid handles <b>must</b> have been created, allocated or retrieved from the
- * same {@code VkDevice}</li>
+ * <li>Both of {@code renderPass}, and the elements of {@code pAttachments} that are valid handles <b>must</b> have been created, allocated, or retrieved from
+ * the same {@code VkDevice}</li>
  * <li>{@code attachmentCount} <b>must</b> be equal to the attachment count specified in {@code renderPass}</li>
  * <li>Any given element of {@code pAttachments} that is used as a color attachment or resolve attachment by {@code renderPass} <b>must</b> have been created
  * with a {@code usage} value including {@link VK10#VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT}</li>

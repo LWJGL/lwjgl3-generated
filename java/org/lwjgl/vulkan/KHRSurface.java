@@ -152,7 +152,7 @@ public class KHRSurface {
 	 * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
 	 * <li>If {@code surface} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code surface} <b>must</b> be a valid {@code VkSurfaceKHR} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code surface} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code instance}</li>
+	 * <li>If {@code surface} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code instance}</li>
 	 * <li>All {@code VkSwapchainKHR} objects created for {@code surface} <b>must</b> have been destroyed prior to destroying {@code surface}</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code surface} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code surface} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -194,7 +194,7 @@ public class KHRSurface {
 	 * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
 	 * <li>If {@code surface} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code surface} <b>must</b> be a valid {@code VkSurfaceKHR} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>If {@code surface} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code instance}</li>
+	 * <li>If {@code surface} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code instance}</li>
 	 * <li>All {@code VkSwapchainKHR} objects created for {@code surface} <b>must</b> have been destroyed prior to destroying {@code surface}</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code surface} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code surface} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
@@ -225,7 +225,6 @@ public class KHRSurface {
 	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
 	 * <li>{@code surface} <b>must</b> be a valid {@code VkSurfaceKHR} handle</li>
 	 * <li>{@code pSupported} <b>must</b> be a pointer to a {@code VkBool32} value</li>
-	 * <li>Each of {@code physicalDevice} and {@code surface} <b>must</b> have been created, allocated or retrieved from the same {@code VkInstance}</li>
 	 * <li>{@code queueFamilyIndex} <b>must</b> be less than {@code pQueueFamilyPropertyCount} returned by {@link VK10#vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties} for the given
 	 * {@code physicalDevice}</li>
 	 * </ul>
@@ -251,7 +250,6 @@ public class KHRSurface {
 	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
 	 * <li>{@code surface} <b>must</b> be a valid {@code VkSurfaceKHR} handle</li>
 	 * <li>{@code pSupported} <b>must</b> be a pointer to a {@code VkBool32} value</li>
-	 * <li>Each of {@code physicalDevice} and {@code surface} <b>must</b> have been created, allocated or retrieved from the same {@code VkInstance}</li>
 	 * <li>{@code queueFamilyIndex} <b>must</b> be less than {@code pQueueFamilyPropertyCount} returned by {@link VK10#vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties} for the given
 	 * {@code physicalDevice}</li>
 	 * </ul>
@@ -278,7 +276,6 @@ public class KHRSurface {
 	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
 	 * <li>{@code surface} <b>must</b> be a valid {@code VkSurfaceKHR} handle</li>
 	 * <li>{@code pSurfaceCapabilities} <b>must</b> be a pointer to a {@link VkSurfaceCapabilitiesKHR} structure</li>
-	 * <li>Each of {@code physicalDevice} and {@code surface} <b>must</b> have been created, allocated or retrieved from the same {@code VkInstance}</li>
 	 * </ul>
 	 *
 	 * @param physicalDevice       the physical device that will be associated with the swapchain to be created
@@ -301,7 +298,6 @@ public class KHRSurface {
 	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
 	 * <li>{@code surface} <b>must</b> be a valid {@code VkSurfaceKHR} handle</li>
 	 * <li>{@code pSurfaceCapabilities} <b>must</b> be a pointer to a {@link VkSurfaceCapabilitiesKHR} structure</li>
-	 * <li>Each of {@code physicalDevice} and {@code surface} <b>must</b> have been created, allocated or retrieved from the same {@code VkInstance}</li>
 	 * </ul>
 	 *
 	 * @param physicalDevice       the physical device that will be associated with the swapchain to be created
@@ -332,7 +328,6 @@ public class KHRSurface {
 	 * <li>{@code pSurfaceFormatCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
 	 * <li>If the value referenced by {@code pSurfaceFormatCount} is not 0, and {@code pSurfaceFormats} is not {@code NULL}, {@code pSurfaceFormats} <b>must</b> be a
 	 * pointer to an array of {@code pSurfaceFormatCount} {@link VkSurfaceFormatKHR} structures</li>
-	 * <li>Each of {@code physicalDevice} and {@code surface} <b>must</b> have been created, allocated or retrieved from the same {@code VkInstance}</li>
 	 * </ul>
 	 *
 	 * @param physicalDevice      the physical device that will be associated with the swapchain to be created
@@ -365,7 +360,6 @@ public class KHRSurface {
 	 * <li>{@code pSurfaceFormatCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
 	 * <li>If the value referenced by {@code pSurfaceFormatCount} is not 0, and {@code pSurfaceFormats} is not {@code NULL}, {@code pSurfaceFormats} <b>must</b> be a
 	 * pointer to an array of {@code pSurfaceFormatCount} {@link VkSurfaceFormatKHR} structures</li>
-	 * <li>Each of {@code physicalDevice} and {@code surface} <b>must</b> have been created, allocated or retrieved from the same {@code VkInstance}</li>
 	 * </ul>
 	 *
 	 * @param physicalDevice      the physical device that will be associated with the swapchain to be created
@@ -399,7 +393,6 @@ public class KHRSurface {
 	 * <li>{@code pPresentModeCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
 	 * <li>If the value referenced by {@code pPresentModeCount} is not 0, and {@code pPresentModes} is not {@code NULL}, {@code pPresentModes} <b>must</b> be a pointer to
 	 * an array of {@code pPresentModeCount} {@code VkPresentModeKHR} values</li>
-	 * <li>Each of {@code physicalDevice} and {@code surface} <b>must</b> have been created, allocated or retrieved from the same {@code VkInstance}</li>
 	 * </ul>
 	 *
 	 * @param physicalDevice    the physical device that will be associated with the swapchain to be created
@@ -432,7 +425,6 @@ public class KHRSurface {
 	 * <li>{@code pPresentModeCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
 	 * <li>If the value referenced by {@code pPresentModeCount} is not 0, and {@code pPresentModes} is not {@code NULL}, {@code pPresentModes} <b>must</b> be a pointer to
 	 * an array of {@code pPresentModeCount} {@code VkPresentModeKHR} values</li>
-	 * <li>Each of {@code physicalDevice} and {@code surface} <b>must</b> have been created, allocated or retrieved from the same {@code VkInstance}</li>
 	 * </ul>
 	 *
 	 * @param physicalDevice    the physical device that will be associated with the swapchain to be created

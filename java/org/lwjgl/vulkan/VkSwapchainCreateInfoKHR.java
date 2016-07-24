@@ -36,9 +36,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code compositeAlpha} <b>must</b> be a valid {@code VkCompositeAlphaFlagBitsKHR} value</li>
  * <li>{@code presentMode} <b>must</b> be a valid {@code VkPresentModeKHR} value</li>
  * <li>If {@code oldSwapchain} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code oldSwapchain} <b>must</b> be a valid {@code VkSwapchainKHR} handle</li>
- * <li>If {@code oldSwapchain} is a valid handle, it <b>must</b> have been created, allocated or retrieved from {@code surface}</li>
- * <li>Each of {@code surface} and {@code oldSwapchain} that are valid handles <b>must</b> have been created, allocated or retrieved from the same
- * {@code VkInstance}</li>
+ * <li>If {@code oldSwapchain} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code surface}</li>
  * <li>{@code surface} <b>must</b> be a surface that is supported by the device as determined using {@link KHRSurface#vkGetPhysicalDeviceSurfaceSupportKHR GetPhysicalDeviceSurfaceSupportKHR}</li>
  * <li>The native window referred to by {@code surface} <b>must not</b> already be associated with a swapchain other than {@code oldSwapchain}, or with a
  * non-Vulkan graphics API surface</li>

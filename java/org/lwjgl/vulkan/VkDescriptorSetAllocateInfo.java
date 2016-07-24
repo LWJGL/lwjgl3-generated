@@ -28,7 +28,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code descriptorPool} <b>must</b> be a valid {@code VkDescriptorPool} handle</li>
  * <li>{@code pSetLayouts} <b>must</b> be a pointer to an array of {@code descriptorSetCount} valid {@code VkDescriptorSetLayout} handles</li>
  * <li>{@code descriptorSetCount} <b>must</b> be greater than 0</li>
- * <li>Each of {@code descriptorPool} and the elements of {@code pSetLayouts} <b>must</b> have been created, allocated or retrieved from the same
+ * <li>Both of {@code descriptorPool}, and the elements of {@code pSetLayouts} <b>must</b> have been created, allocated, or retrieved from the same
  * {@code VkDevice}</li>
  * <li>{@code descriptorSetCount} <b>must not</b> be greater than the number of sets that are currently available for allocation in {@code descriptorPool}</li>
  * <li>{@code descriptorPool} <b>must</b> have enough free descriptor capacity remaining to allocate the descriptor sets of the specified layouts</li>
