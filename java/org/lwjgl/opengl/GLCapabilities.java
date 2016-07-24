@@ -1120,6 +1120,17 @@ public final class GLCapabilities {
 		glMultiTexSubImage1DEXT,
 		glMultiTexSubImage2DEXT,
 		glMultiTexSubImage3DEXT,
+		glMulticastBarrierNV,
+		glMulticastBlitFramebufferNV,
+		glMulticastBufferSubDataNV,
+		glMulticastCopyBufferSubDataNV,
+		glMulticastCopyImageSubDataNV,
+		glMulticastFramebufferSampleLocationsfvNV,
+		glMulticastGetQueryObjecti64vNV,
+		glMulticastGetQueryObjectivNV,
+		glMulticastGetQueryObjectui64vNV,
+		glMulticastGetQueryObjectuivNV,
+		glMulticastWaitSyncNV,
 		glNamedBufferData,
 		glNamedBufferDataEXT,
 		glNamedBufferPageCommitmentARB,
@@ -1449,6 +1460,7 @@ public final class GLCapabilities {
 		glRects,
 		glRectsv,
 		glReleaseShaderCompiler,
+		glRenderGpuMaskNV,
 		glRenderMode,
 		glRenderbufferStorage,
 		glRenderbufferStorageEXT,
@@ -1529,6 +1541,7 @@ public final class GLCapabilities {
 		glShaderStorageBlockBinding,
 		glSignalVkFenceNV,
 		glSignalVkSemaphoreNV,
+		glSpecializeShaderARB,
 		glStateCaptureNV,
 		glStencilClearTagEXT,
 		glStencilFillPathInstancedNV,
@@ -2569,6 +2582,8 @@ fwidth(p)</code></pre>
 	public final boolean GL_ARB_get_program_binary;
 	/** When true, {@link ARBGetTextureSubImage} is supported. */
 	public final boolean GL_ARB_get_texture_sub_image;
+	/** When true, {@link ARBGLSPIRV} is supported. */
+	public final boolean GL_ARB_gl_spirv;
 	/** When true, {@link ARBGPUShader5} is supported. */
 	public final boolean GL_ARB_gpu_shader5;
 	/** When true, {@link ARBGPUShaderFP64} is supported. */
@@ -3298,7 +3313,7 @@ shadow2DRectProjGradARB(
 	/** When true, {@link EXTShaderImageLoadStore} is supported. */
 	public final boolean GL_EXT_shader_image_load_store;
 	/**
-	 * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/shader_integer_mix.txt">EXT_shader_integer_mix</a> extension.
+	 * When true, the <a href="http://www.opengl.org/registry/specs/EXT/shader_integer_mix.txt">EXT_shader_integer_mix</a> extension is supported.
 	 * 
 	 * <p>GLSL 1.30 (and GLSL ES 3.00) expanded the mix() built-in function to operate on a boolean third argument that does not interpolate but selects. This
 	 * extension extends mix() to select between int, uint, and bool components.</p>
@@ -3382,7 +3397,7 @@ shadow2DRectProjGradARB(
 	/** When true, {@link EXTTransformFeedback} is supported. */
 	public final boolean GL_EXT_transform_feedback;
 	/**
-	 * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/vertex_array_bgra.txt">EXT_vertex_array_bgra</a> extension.
+	 * When true, the <a href="http://www.opengl.org/registry/specs/EXT/vertex_array_bgra.txt">EXT_vertex_array_bgra</a> extension is supported.
 	 * 
 	 * <p>This extension provides a single new component format for vertex arrays to read 4-component unsigned byte vertex attributes with a BGRA component
 	 * ordering.</p>
@@ -3427,6 +3442,8 @@ shadow2DRectProjGradARB(
 	public final boolean GL_EXT_window_rectangles;
 	/** When true, {@link EXTX11SyncObject} is supported. */
 	public final boolean GL_EXT_x11_sync_object;
+	/** When true, {@link INTELConservativeRasterization} is supported. */
+	public final boolean GL_INTEL_conservative_rasterization;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/INTEL/fragment_shader_ordering.txt">INTEL_fragment_shader_ordering</a> extension is supported.
 	 * 
@@ -3478,7 +3495,7 @@ shadow2DRectProjGradARB(
 	/** When true, {@link KHRTextureCompressionASTCLDR} is supported. */
 	public final boolean GL_KHR_texture_compression_astc_ldr;
 	/**
-	 * Native bindings to the <a href="http://www.opengl.org/registry/specs/KHR/texture_compression_astc_sliced_3d.txt">KHR_texture_compression_astc_sliced_3d</a> extension.
+	 * When true, the <a href="http://www.opengl.org/registry/specs/KHR/texture_compression_astc_sliced_3d.txt">KHR_texture_compression_astc_sliced_3d</a> extension is supported.
 	 * 
 	 * <p>Adaptive Scalable Texture Compression (ASTC) is a new texture compression technology that offers unprecendented flexibility, while producing better or
 	 * comparable results than existing texture compressions at all bit rates. It includes support for 2D and slice-based 3D textures, with low and high
@@ -3610,6 +3627,8 @@ shadow2DRectProjGradARB(
 	 * vertices to output vertices.</p>
 	 */
 	public final boolean GL_NV_geometry_shader_passthrough;
+	/** When true, {@link NVGPUMulticast} is supported. */
+	public final boolean GL_NV_gpu_multicast;
 	/** When true, {@link NVGPUShader5} is supported. */
 	public final boolean GL_NV_gpu_shader5;
 	/** When true, {@link NVHalfFloat} is supported. */
@@ -3752,10 +3771,12 @@ shadow2DRectProjGradARB(
 	/** When true, {@link NVVertexBufferUnifiedMemory} is supported. */
 	public final boolean GL_NV_vertex_buffer_unified_memory;
 	/**
-	 * This extension provides new support allowing a single primitive to be broadcast to multiple viewports and/or multiple layers. A shader output
+	 * When true, the <a href="http://www.opengl.org/registry/specs/NV/viewport_array2.txt">NV_viewport_array2</a> extension is supported.
+	 * 
+	 * <p>This extension provides new support allowing a single primitive to be broadcast to multiple viewports and/or multiple layers. A shader output
 	 * gl_ViewportMask[] is provided, allowing a single primitive to be output to multiple viewports simultaneously. Also, a new shader option is provided to
 	 * control whether the effective viewport index is added into gl_Layer. These capabilities allow a single primitive to be output to multiple layers
-	 * simultaneously.
+	 * simultaneously.</p>
 	 * 
 	 * <p>The gl_ViewportMask[] output is available in vertex, tessellation control, tessellation evaluation, and geometry shaders. gl_ViewportIndex and gl_Layer
 	 * are also made available in all these shader stages. The actual viewport index or mask and render target layer values are taken from the last active
@@ -3767,6 +3788,17 @@ shadow2DRectProjGradARB(
 	public final boolean GL_NV_viewport_array2;
 	/** When true, {@link NVViewportSwizzle} is supported. */
 	public final boolean GL_NV_viewport_swizzle;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/NVX/nvx_blend_equation_advanced_multi_draw_buffers.txt">NVX_blend_equation_advanced_multi_draw_buffers</a> extension is supported.
+	 * 
+	 * <p>This extension adds support for using advanced blend equations introduced with {@link NVBlendEquationAdvanced NV_blend_equation_advanced} (and standardized by
+	 * {@link KHRBlendEquationAdvanced KHR_blend_equation_advanced}) in conjunction with multiple draw buffers. The NV_blend_equation_advanced extension supports advanced blending
+	 * equations only when rending to a single color buffer using fragment color zero and throws and {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} error when multiple draw buffers are
+	 * used. This extension removes this restriction.</p>
+	 * 
+	 * <p>Requires either {@link NVBlendEquationAdvanced NV_blend_equation_advanced} or {@link KHRBlendEquationAdvanced KHR_blend_equation_advanced}.</p>
+	 */
+	public final boolean GL_NVX_blend_equation_advanced_multi_draw_buffers;
 	/** When true, {@link NVXConditionalRender} is supported. */
 	public final boolean GL_NVX_conditional_render;
 	/** When true, {@link NVXGPUMemoryInfo} is supported. */
@@ -3774,7 +3806,7 @@ shadow2DRectProjGradARB(
 	/** When true, {@link OVRMultiview} is supported. */
 	public final boolean GL_OVR_multiview;
 	/**
-	 * Native bindings to the <a href="http://www.opengl.org/registry/specs/OVR/multiview2.txt">OVR_multiview2</a> extension.
+	 * When true, the <a href="http://www.opengl.org/registry/specs/OVR/multiview2.txt">OVR_multiview2</a> extension is supported.
 	 * 
 	 * <p>This extension relaxes the restriction in OVR_multiview that only {@code gl_Position} can depend on {@code ViewID} in the vertex shader.  With this
 	 * change, view-dependent outputs like reflection vectors and similar are allowed.</p>
@@ -4894,6 +4926,17 @@ shadow2DRectProjGradARB(
 		glMultiTexSubImage1DEXT = provider.getFunctionAddress("glMultiTexSubImage1DEXT");
 		glMultiTexSubImage2DEXT = provider.getFunctionAddress("glMultiTexSubImage2DEXT");
 		glMultiTexSubImage3DEXT = provider.getFunctionAddress("glMultiTexSubImage3DEXT");
+		glMulticastBarrierNV = provider.getFunctionAddress("glMulticastBarrierNV");
+		glMulticastBlitFramebufferNV = provider.getFunctionAddress("glMulticastBlitFramebufferNV");
+		glMulticastBufferSubDataNV = provider.getFunctionAddress("glMulticastBufferSubDataNV");
+		glMulticastCopyBufferSubDataNV = provider.getFunctionAddress("glMulticastCopyBufferSubDataNV");
+		glMulticastCopyImageSubDataNV = provider.getFunctionAddress("glMulticastCopyImageSubDataNV");
+		glMulticastFramebufferSampleLocationsfvNV = provider.getFunctionAddress("glMulticastFramebufferSampleLocationsfvNV");
+		glMulticastGetQueryObjecti64vNV = provider.getFunctionAddress("glMulticastGetQueryObjecti64vNV");
+		glMulticastGetQueryObjectivNV = provider.getFunctionAddress("glMulticastGetQueryObjectivNV");
+		glMulticastGetQueryObjectui64vNV = provider.getFunctionAddress("glMulticastGetQueryObjectui64vNV");
+		glMulticastGetQueryObjectuivNV = provider.getFunctionAddress("glMulticastGetQueryObjectuivNV");
+		glMulticastWaitSyncNV = provider.getFunctionAddress("glMulticastWaitSyncNV");
 		glNamedBufferData = provider.getFunctionAddress("glNamedBufferData");
 		glNamedBufferDataEXT = provider.getFunctionAddress("glNamedBufferDataEXT");
 		glNamedBufferPageCommitmentARB = provider.getFunctionAddress("glNamedBufferPageCommitmentARB");
@@ -5223,6 +5266,7 @@ shadow2DRectProjGradARB(
 		glRects = getFunctionAddress(fc, provider, "glRects");
 		glRectsv = getFunctionAddress(fc, provider, "glRectsv");
 		glReleaseShaderCompiler = provider.getFunctionAddress("glReleaseShaderCompiler");
+		glRenderGpuMaskNV = provider.getFunctionAddress("glRenderGpuMaskNV");
 		glRenderMode = getFunctionAddress(fc, provider, "glRenderMode");
 		glRenderbufferStorage = provider.getFunctionAddress("glRenderbufferStorage");
 		glRenderbufferStorageEXT = provider.getFunctionAddress("glRenderbufferStorageEXT");
@@ -5303,6 +5347,7 @@ shadow2DRectProjGradARB(
 		glShaderStorageBlockBinding = provider.getFunctionAddress("glShaderStorageBlockBinding");
 		glSignalVkFenceNV = provider.getFunctionAddress("glSignalVkFenceNV");
 		glSignalVkSemaphoreNV = provider.getFunctionAddress("glSignalVkSemaphoreNV");
+		glSpecializeShaderARB = provider.getFunctionAddress("glSpecializeShaderARB");
 		glStateCaptureNV = provider.getFunctionAddress("glStateCaptureNV");
 		glStencilClearTagEXT = provider.getFunctionAddress("glStencilClearTagEXT");
 		glStencilFillPathInstancedNV = provider.getFunctionAddress("glStencilFillPathInstancedNV");
@@ -5997,6 +6042,7 @@ shadow2DRectProjGradARB(
 		GL_ARB_geometry_shader4 = ext.contains("GL_ARB_geometry_shader4") && checkExtension("GL_ARB_geometry_shader4", ARBGeometryShader4.isAvailable(this));
 		GL_ARB_get_program_binary = ext.contains("GL_ARB_get_program_binary") && checkExtension("GL_ARB_get_program_binary", ARBGetProgramBinary.isAvailable(this));
 		GL_ARB_get_texture_sub_image = ext.contains("GL_ARB_get_texture_sub_image") && checkExtension("GL_ARB_get_texture_sub_image", ARBGetTextureSubImage.isAvailable(this));
+		GL_ARB_gl_spirv = ext.contains("GL_ARB_gl_spirv") && checkExtension("GL_ARB_gl_spirv", ARBGLSPIRV.isAvailable(this));
 		GL_ARB_gpu_shader5 = ext.contains("GL_ARB_gpu_shader5");
 		GL_ARB_gpu_shader_fp64 = ext.contains("GL_ARB_gpu_shader_fp64") && checkExtension("GL_ARB_gpu_shader_fp64", ARBGPUShaderFP64.isAvailable(this, ext));
 		GL_ARB_gpu_shader_int64 = ext.contains("GL_ARB_gpu_shader_int64") && checkExtension("GL_ARB_gpu_shader_int64", ARBGPUShaderInt64.isAvailable(this));
@@ -6182,6 +6228,7 @@ shadow2DRectProjGradARB(
 		GL_EXT_vertex_attrib_64bit = ext.contains("GL_EXT_vertex_attrib_64bit") && checkExtension("GL_EXT_vertex_attrib_64bit", EXTVertexAttrib64bit.isAvailable(this, ext));
 		GL_EXT_window_rectangles = ext.contains("GL_EXT_window_rectangles") && checkExtension("GL_EXT_window_rectangles", EXTWindowRectangles.isAvailable(this));
 		GL_EXT_x11_sync_object = ext.contains("GL_EXT_x11_sync_object") && checkExtension("GL_EXT_x11_sync_object", EXTX11SyncObject.isAvailable(this));
+		GL_INTEL_conservative_rasterization = ext.contains("GL_INTEL_conservative_rasterization");
 		GL_INTEL_fragment_shader_ordering = ext.contains("GL_INTEL_fragment_shader_ordering");
 		GL_INTEL_framebuffer_CMAA = ext.contains("GL_INTEL_framebuffer_CMAA") && checkExtension("GL_INTEL_framebuffer_CMAA", INTELFramebufferCMAA.isAvailable(this));
 		GL_INTEL_map_texture = ext.contains("GL_INTEL_map_texture") && checkExtension("GL_INTEL_map_texture", INTELMapTexture.isAvailable(this));
@@ -6229,6 +6276,7 @@ shadow2DRectProjGradARB(
 		GL_NV_framebuffer_multisample_coverage = ext.contains("GL_NV_framebuffer_multisample_coverage") && checkExtension("GL_NV_framebuffer_multisample_coverage", NVFramebufferMultisampleCoverage.isAvailable(this));
 		GL_NV_geometry_shader4 = ext.contains("GL_NV_geometry_shader4");
 		GL_NV_geometry_shader_passthrough = ext.contains("GL_NV_geometry_shader_passthrough");
+		GL_NV_gpu_multicast = ext.contains("GL_NV_gpu_multicast") && checkExtension("GL_NV_gpu_multicast", NVGPUMulticast.isAvailable(this));
 		GL_NV_gpu_shader5 = ext.contains("GL_NV_gpu_shader5") && checkExtension("GL_NV_gpu_shader5", NVGPUShader5.isAvailable(this, ext));
 		GL_NV_half_float = ext.contains("GL_NV_half_float") && checkExtension("GL_NV_half_float", NVHalfFloat.isAvailable(this, ext));
 		GL_NV_internalformat_sample_query = ext.contains("GL_NV_internalformat_sample_query") && checkExtension("GL_NV_internalformat_sample_query", NVInternalformatSampleQuery.isAvailable(this));
@@ -6266,6 +6314,7 @@ shadow2DRectProjGradARB(
 		GL_NV_vertex_buffer_unified_memory = ext.contains("GL_NV_vertex_buffer_unified_memory") && checkExtension("GL_NV_vertex_buffer_unified_memory", NVVertexBufferUnifiedMemory.isAvailable(this));
 		GL_NV_viewport_array2 = ext.contains("GL_NV_viewport_array2");
 		GL_NV_viewport_swizzle = ext.contains("GL_NV_viewport_swizzle") && checkExtension("GL_NV_viewport_swizzle", NVViewportSwizzle.isAvailable(this));
+		GL_NVX_blend_equation_advanced_multi_draw_buffers = ext.contains("GL_NVX_blend_equation_advanced_multi_draw_buffers");
 		GL_NVX_conditional_render = ext.contains("GL_NVX_conditional_render") && checkExtension("GL_NVX_conditional_render", NVXConditionalRender.isAvailable(this));
 		GL_NVX_gpu_memory_info = ext.contains("GL_NVX_gpu_memory_info");
 		GL_OVR_multiview = ext.contains("GL_OVR_multiview") && checkExtension("GL_OVR_multiview", OVRMultiview.isAvailable(this));

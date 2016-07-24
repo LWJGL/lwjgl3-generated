@@ -1105,6 +1105,13 @@ public final class GLESCapabilities {
 	 * <p>Requires {@link GLES31 GLES 3.1}.</p>
 	 */
 	public final boolean GL_EXT_shader_io_blocks;
+	/**
+	 * When true, the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_shader_non_constant_global_initializers.txt">EXT_shader_non_constant_global_initializers</a> extension is supported.
+	 * 
+	 * <p>This extension adds the ability to use non-constant initializers for global variables in the OpenGL ES Shading Language specifications. This
+	 * functionality is already present in the OpenGL Shading language specification.</p>
+	 */
+	public final boolean GL_EXT_shader_non_constant_global_initializers;
 	/** When true, {@link EXTShaderPixelLocalStorage} is supported. */
 	public final boolean GL_EXT_shader_pixel_local_storage;
 	/** When true, {@link EXTShaderPixelLocalStorage2} is supported. */
@@ -1255,6 +1262,8 @@ public final class GLESCapabilities {
 	public final boolean GL_IMG_texture_compression_pvrtc2;
 	/** When true, {@link IMGTextureFilterCubic} is supported. */
 	public final boolean GL_IMG_texture_filter_cubic;
+	/** When true, {@link INTELConservativeRasterization} is supported. */
+	public final boolean GL_INTEL_conservative_rasterization;
 	/** When true, {@link INTELFramebufferCMAA} is supported. */
 	public final boolean GL_INTEL_framebuffer_CMAA;
 	/** When true, {@link INTELPerformanceQuery} is supported. */
@@ -1291,7 +1300,7 @@ public final class GLESCapabilities {
 	/** When true, {@link KHRTextureCompressionASTCLDR} is supported. */
 	public final boolean GL_KHR_texture_compression_astc_ldr;
 	/**
-	 * Native bindings to the <a href="https://www.khronos.org/registry/gles/extensions/KHR/texture_compression_astc_sliced_3d.txt">KHR_texture_compression_astc_sliced_3d</a> extension.
+	 * When true, the <a href="https://www.khronos.org/registry/gles/extensions/KHR/texture_compression_astc_sliced_3d.txt">KHR_texture_compression_astc_sliced_3d</a> extension is supported.
 	 * 
 	 * <p>Adaptive Scalable Texture Compression (ASTC) is a new texture compression technology that offers unprecendented flexibility, while producing better or
 	 * comparable results than existing texture compressions at all bit rates. It includes support for 2D and slice-based 3D textures, with low and high
@@ -1625,6 +1634,17 @@ public final class GLESCapabilities {
 	public final boolean GL_NV_viewport_array2;
 	/** When true, {@link NVViewportSwizzle} is supported. */
 	public final boolean GL_NV_viewport_swizzle;
+	/**
+	 * When true, the <a href="https://www.khronos.org/registry/gles/extensions/NVX/nvx_blend_equation_advanced_multi_draw_buffers.txt">NVX_blend_equation_advanced_multi_draw_buffers</a> extension is supported.
+	 * 
+	 * <p>This extension adds support for using advanced blend equations introduced with {@link NVBlendEquationAdvanced NV_blend_equation_advanced} (and standardized by
+	 * {@link KHRBlendEquationAdvanced KHR_blend_equation_advanced}) in conjunction with multiple draw buffers. The NV_blend_equation_advanced extension supports advanced blending
+	 * equations only when rending to a single color buffer using fragment color zero and throws and {@link GLES20#GL_INVALID_OPERATION INVALID_OPERATION} error when multiple draw buffers are
+	 * used. This extension removes this restriction.</p>
+	 * 
+	 * <p>Requires either {@link NVBlendEquationAdvanced NV_blend_equation_advanced} or {@link KHRBlendEquationAdvanced KHR_blend_equation_advanced}.</p>
+	 */
+	public final boolean GL_NVX_blend_equation_advanced_multi_draw_buffers;
 	/** When true, the <a href="https://www.khronos.org/registry/gles/extensions/OES/OES_compressed_ETC1_RGB8_sub_texture.txt">OES_compressed_ETC1_RGB8_sub_texture</a> extension is supported. */
 	public final boolean GL_OES_compressed_ETC1_RGB8_sub_texture;
 	/** When true, {@link OESCompressedETC1RGB8Texture} is supported. */
@@ -2762,6 +2782,7 @@ public final class GLESCapabilities {
 		GL_EXT_shader_implicit_conversions = ext.contains("GL_EXT_shader_implicit_conversions");
 		GL_EXT_shader_integer_mix = ext.contains("GL_EXT_shader_integer_mix");
 		GL_EXT_shader_io_blocks = ext.contains("GL_EXT_shader_io_blocks");
+		GL_EXT_shader_non_constant_global_initializers = ext.contains("GL_EXT_shader_non_constant_global_initializers");
 		GL_EXT_shader_pixel_local_storage = ext.contains("GL_EXT_shader_pixel_local_storage");
 		GL_EXT_shader_pixel_local_storage2 = ext.contains("GL_EXT_shader_pixel_local_storage2") && GLES.checkExtension("GL_EXT_shader_pixel_local_storage2", EXTShaderPixelLocalStorage2.isAvailable(this));
 		GL_EXT_shader_texture_lod = ext.contains("GL_EXT_shader_texture_lod");
@@ -2800,6 +2821,7 @@ public final class GLESCapabilities {
 		GL_IMG_texture_compression_pvrtc = ext.contains("GL_IMG_texture_compression_pvrtc");
 		GL_IMG_texture_compression_pvrtc2 = ext.contains("GL_IMG_texture_compression_pvrtc2");
 		GL_IMG_texture_filter_cubic = ext.contains("GL_IMG_texture_filter_cubic");
+		GL_INTEL_conservative_rasterization = ext.contains("GL_INTEL_conservative_rasterization");
 		GL_INTEL_framebuffer_CMAA = ext.contains("GL_INTEL_framebuffer_CMAA") && GLES.checkExtension("GL_INTEL_framebuffer_CMAA", INTELFramebufferCMAA.isAvailable(this));
 		GL_INTEL_performance_query = ext.contains("GL_INTEL_performance_query") && GLES.checkExtension("GL_INTEL_performance_query", INTELPerformanceQuery.isAvailable(this));
 		GL_KHR_blend_equation_advanced = ext.contains("GL_KHR_blend_equation_advanced") && GLES.checkExtension("GL_KHR_blend_equation_advanced", KHRBlendEquationAdvanced.isAvailable(this));
@@ -2862,6 +2884,7 @@ public final class GLESCapabilities {
 		GL_NV_viewport_array = ext.contains("GL_NV_viewport_array") && GLES.checkExtension("GL_NV_viewport_array", NVViewportArray.isAvailable(this));
 		GL_NV_viewport_array2 = ext.contains("GL_NV_viewport_array2");
 		GL_NV_viewport_swizzle = ext.contains("GL_NV_viewport_swizzle") && GLES.checkExtension("GL_NV_viewport_swizzle", NVViewportSwizzle.isAvailable(this));
+		GL_NVX_blend_equation_advanced_multi_draw_buffers = ext.contains("GL_NVX_blend_equation_advanced_multi_draw_buffers");
 		GL_OES_compressed_ETC1_RGB8_sub_texture = ext.contains("GL_OES_compressed_ETC1_RGB8_sub_texture");
 		GL_OES_compressed_ETC1_RGB8_texture = ext.contains("GL_OES_compressed_ETC1_RGB8_texture");
 		GL_OES_compressed_paletted_texture = ext.contains("GL_OES_compressed_paletted_texture");
