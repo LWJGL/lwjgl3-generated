@@ -1,6 +1,6 @@
 /*
  * Copyright LWJGL. All rights reserved.
- * License terms: http://lwjgl.org/license.php
+ * License terms: https://www.lwjgl.org/license
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 package org.lwjgl.nanovg;
@@ -149,6 +149,34 @@ public class NanoVG {
 	/** Default, align text vertically to baseline. */
 	public static final int NVG_ALIGN_BASELINE = 1<<6;
 
+	/** Blend factors. */
+	public static final int
+		NVG_ZERO                = 1<<0,
+		NVG_ONE                 = 1<<1,
+		NVG_SRC_COLOR           = 1<<2,
+		NVG_ONE_MINUS_SRC_COLOR = 1<<3,
+		NVG_DST_COLOR           = 1<<4,
+		NVG_ONE_MINUS_DST_COLOR = 1<<5,
+		NVG_SRC_ALPHA           = 1<<6,
+		NVG_ONE_MINUS_SRC_ALPHA = 1<<7,
+		NVG_DST_ALPHA           = 1<<8,
+		NVG_ONE_MINUS_DST_ALPHA = 1<<9,
+		NVG_SRC_ALPHA_SATURATE  = 1<<10;
+
+	/** Composite operations. */
+	public static final int
+		NVG_SOURCE_OVER      = 0,
+		NVG_SOURCE_IN        = 1,
+		NVG_SOURCE_OUT       = 2,
+		NVG_ATOP             = 3,
+		NVG_DESTINATION_OVER = 4,
+		NVG_DESTINATION_IN   = 5,
+		NVG_DESTINATION_OUT  = 6,
+		NVG_DESTINATION_ATOP = 7,
+		NVG_LIGHTER          = 8,
+		NVG_COPY             = 9,
+		NVG_XOR              = 10;
+
 	/** Generate mipmaps during creation of the image. */
 	public static final int NVG_IMAGE_GENERATE_MIPMAPS = 1<<0;
 
@@ -244,6 +272,80 @@ public class NanoVG {
 		if ( CHECKS )
 			checkPointer(ctx);
 		nnvgEndFrame(ctx);
+	}
+
+	// --- [ nvgGlobalCompositeOperation ] ---
+
+	/**
+	 * Sets the composite operation.
+	 *
+	 * @param ctx the NanoVG context
+	 * @param op  the composite operation. One of:<br><table><tr><td>{@link #NVG_SOURCE_OVER SOURCE_OVER}</td><td>{@link #NVG_SOURCE_IN SOURCE_IN}</td><td>{@link #NVG_SOURCE_OUT SOURCE_OUT}</td><td>{@link #NVG_ATOP ATOP}</td><td>{@link #NVG_DESTINATION_OVER DESTINATION_OVER}</td><td>{@link #NVG_DESTINATION_IN DESTINATION_IN}</td><td>{@link #NVG_DESTINATION_OUT DESTINATION_OUT}</td><td>{@link #NVG_DESTINATION_ATOP DESTINATION_ATOP}</td></tr><tr><td>{@link #NVG_LIGHTER LIGHTER}</td><td>{@link #NVG_COPY COPY}</td><td>{@link #NVG_XOR XOR}</td></tr></table>
+	 */
+	public static native void nnvgGlobalCompositeOperation(long ctx, int op);
+
+	/**
+	 * Sets the composite operation.
+	 *
+	 * @param ctx the NanoVG context
+	 * @param op  the composite operation. One of:<br><table><tr><td>{@link #NVG_SOURCE_OVER SOURCE_OVER}</td><td>{@link #NVG_SOURCE_IN SOURCE_IN}</td><td>{@link #NVG_SOURCE_OUT SOURCE_OUT}</td><td>{@link #NVG_ATOP ATOP}</td><td>{@link #NVG_DESTINATION_OVER DESTINATION_OVER}</td><td>{@link #NVG_DESTINATION_IN DESTINATION_IN}</td><td>{@link #NVG_DESTINATION_OUT DESTINATION_OUT}</td><td>{@link #NVG_DESTINATION_ATOP DESTINATION_ATOP}</td></tr><tr><td>{@link #NVG_LIGHTER LIGHTER}</td><td>{@link #NVG_COPY COPY}</td><td>{@link #NVG_XOR XOR}</td></tr></table>
+	 */
+	public static void nvgGlobalCompositeOperation(long ctx, int op) {
+		if ( CHECKS )
+			checkPointer(ctx);
+		nnvgGlobalCompositeOperation(ctx, op);
+	}
+
+	// --- [ nvgGlobalCompositeBlendFunc ] ---
+
+	/**
+	 * Sets the composite operation with custom pixel arithmetic.
+	 *
+	 * @param ctx     the NanoVG context
+	 * @param sfactor the source blend factor. One of:<br><table><tr><td>{@link #NVG_ZERO ZERO}</td><td>{@link #NVG_ONE ONE}</td><td>{@link #NVG_SRC_COLOR SRC_COLOR}</td><td>{@link #NVG_ONE_MINUS_SRC_COLOR ONE_MINUS_SRC_COLOR}</td><td>{@link #NVG_DST_COLOR DST_COLOR}</td><td>{@link #NVG_ONE_MINUS_DST_COLOR ONE_MINUS_DST_COLOR}</td></tr><tr><td>{@link #NVG_SRC_ALPHA SRC_ALPHA}</td><td>{@link #NVG_ONE_MINUS_SRC_ALPHA ONE_MINUS_SRC_ALPHA}</td><td>{@link #NVG_DST_ALPHA DST_ALPHA}</td><td>{@link #NVG_ONE_MINUS_DST_ALPHA ONE_MINUS_DST_ALPHA}</td><td>{@link #NVG_SRC_ALPHA_SATURATE SRC_ALPHA_SATURATE}</td></tr></table>
+	 * @param dfactor the destination blend factor. One of:<br><table><tr><td>{@link #NVG_ZERO ZERO}</td><td>{@link #NVG_ONE ONE}</td><td>{@link #NVG_SRC_COLOR SRC_COLOR}</td><td>{@link #NVG_ONE_MINUS_SRC_COLOR ONE_MINUS_SRC_COLOR}</td><td>{@link #NVG_DST_COLOR DST_COLOR}</td><td>{@link #NVG_ONE_MINUS_DST_COLOR ONE_MINUS_DST_COLOR}</td></tr><tr><td>{@link #NVG_SRC_ALPHA SRC_ALPHA}</td><td>{@link #NVG_ONE_MINUS_SRC_ALPHA ONE_MINUS_SRC_ALPHA}</td><td>{@link #NVG_DST_ALPHA DST_ALPHA}</td><td>{@link #NVG_ONE_MINUS_DST_ALPHA ONE_MINUS_DST_ALPHA}</td><td>{@link #NVG_SRC_ALPHA_SATURATE SRC_ALPHA_SATURATE}</td></tr></table>
+	 */
+	public static native void nnvgGlobalCompositeBlendFunc(long ctx, int sfactor, int dfactor);
+
+	/**
+	 * Sets the composite operation with custom pixel arithmetic.
+	 *
+	 * @param ctx     the NanoVG context
+	 * @param sfactor the source blend factor. One of:<br><table><tr><td>{@link #NVG_ZERO ZERO}</td><td>{@link #NVG_ONE ONE}</td><td>{@link #NVG_SRC_COLOR SRC_COLOR}</td><td>{@link #NVG_ONE_MINUS_SRC_COLOR ONE_MINUS_SRC_COLOR}</td><td>{@link #NVG_DST_COLOR DST_COLOR}</td><td>{@link #NVG_ONE_MINUS_DST_COLOR ONE_MINUS_DST_COLOR}</td></tr><tr><td>{@link #NVG_SRC_ALPHA SRC_ALPHA}</td><td>{@link #NVG_ONE_MINUS_SRC_ALPHA ONE_MINUS_SRC_ALPHA}</td><td>{@link #NVG_DST_ALPHA DST_ALPHA}</td><td>{@link #NVG_ONE_MINUS_DST_ALPHA ONE_MINUS_DST_ALPHA}</td><td>{@link #NVG_SRC_ALPHA_SATURATE SRC_ALPHA_SATURATE}</td></tr></table>
+	 * @param dfactor the destination blend factor. One of:<br><table><tr><td>{@link #NVG_ZERO ZERO}</td><td>{@link #NVG_ONE ONE}</td><td>{@link #NVG_SRC_COLOR SRC_COLOR}</td><td>{@link #NVG_ONE_MINUS_SRC_COLOR ONE_MINUS_SRC_COLOR}</td><td>{@link #NVG_DST_COLOR DST_COLOR}</td><td>{@link #NVG_ONE_MINUS_DST_COLOR ONE_MINUS_DST_COLOR}</td></tr><tr><td>{@link #NVG_SRC_ALPHA SRC_ALPHA}</td><td>{@link #NVG_ONE_MINUS_SRC_ALPHA ONE_MINUS_SRC_ALPHA}</td><td>{@link #NVG_DST_ALPHA DST_ALPHA}</td><td>{@link #NVG_ONE_MINUS_DST_ALPHA ONE_MINUS_DST_ALPHA}</td><td>{@link #NVG_SRC_ALPHA_SATURATE SRC_ALPHA_SATURATE}</td></tr></table>
+	 */
+	public static void nvgGlobalCompositeBlendFunc(long ctx, int sfactor, int dfactor) {
+		if ( CHECKS )
+			checkPointer(ctx);
+		nnvgGlobalCompositeBlendFunc(ctx, sfactor, dfactor);
+	}
+
+	// --- [ nvgGlobalCompositeBlendFuncSeparate ] ---
+
+	/**
+	 * Sets the composite operation with custom pixel arithmetic for RGB and alpha components separately.
+	 *
+	 * @param ctx      the NanoVG context
+	 * @param srcRGB   the source RGB blend factor. One of:<br><table><tr><td>{@link #NVG_ZERO ZERO}</td><td>{@link #NVG_ONE ONE}</td><td>{@link #NVG_SRC_COLOR SRC_COLOR}</td><td>{@link #NVG_ONE_MINUS_SRC_COLOR ONE_MINUS_SRC_COLOR}</td><td>{@link #NVG_DST_COLOR DST_COLOR}</td><td>{@link #NVG_ONE_MINUS_DST_COLOR ONE_MINUS_DST_COLOR}</td></tr><tr><td>{@link #NVG_SRC_ALPHA SRC_ALPHA}</td><td>{@link #NVG_ONE_MINUS_SRC_ALPHA ONE_MINUS_SRC_ALPHA}</td><td>{@link #NVG_DST_ALPHA DST_ALPHA}</td><td>{@link #NVG_ONE_MINUS_DST_ALPHA ONE_MINUS_DST_ALPHA}</td><td>{@link #NVG_SRC_ALPHA_SATURATE SRC_ALPHA_SATURATE}</td></tr></table>
+	 * @param dstRGB   the destination RGB blend factor. One of:<br><table><tr><td>{@link #NVG_ZERO ZERO}</td><td>{@link #NVG_ONE ONE}</td><td>{@link #NVG_SRC_COLOR SRC_COLOR}</td><td>{@link #NVG_ONE_MINUS_SRC_COLOR ONE_MINUS_SRC_COLOR}</td><td>{@link #NVG_DST_COLOR DST_COLOR}</td><td>{@link #NVG_ONE_MINUS_DST_COLOR ONE_MINUS_DST_COLOR}</td></tr><tr><td>{@link #NVG_SRC_ALPHA SRC_ALPHA}</td><td>{@link #NVG_ONE_MINUS_SRC_ALPHA ONE_MINUS_SRC_ALPHA}</td><td>{@link #NVG_DST_ALPHA DST_ALPHA}</td><td>{@link #NVG_ONE_MINUS_DST_ALPHA ONE_MINUS_DST_ALPHA}</td><td>{@link #NVG_SRC_ALPHA_SATURATE SRC_ALPHA_SATURATE}</td></tr></table>
+	 * @param srcAlpha the source alpha blend factor. One of:<br><table><tr><td>{@link #NVG_ZERO ZERO}</td><td>{@link #NVG_ONE ONE}</td><td>{@link #NVG_SRC_COLOR SRC_COLOR}</td><td>{@link #NVG_ONE_MINUS_SRC_COLOR ONE_MINUS_SRC_COLOR}</td><td>{@link #NVG_DST_COLOR DST_COLOR}</td><td>{@link #NVG_ONE_MINUS_DST_COLOR ONE_MINUS_DST_COLOR}</td></tr><tr><td>{@link #NVG_SRC_ALPHA SRC_ALPHA}</td><td>{@link #NVG_ONE_MINUS_SRC_ALPHA ONE_MINUS_SRC_ALPHA}</td><td>{@link #NVG_DST_ALPHA DST_ALPHA}</td><td>{@link #NVG_ONE_MINUS_DST_ALPHA ONE_MINUS_DST_ALPHA}</td><td>{@link #NVG_SRC_ALPHA_SATURATE SRC_ALPHA_SATURATE}</td></tr></table>
+	 * @param dstAlpha the destination alpha blend factor. One of:<br><table><tr><td>{@link #NVG_ZERO ZERO}</td><td>{@link #NVG_ONE ONE}</td><td>{@link #NVG_SRC_COLOR SRC_COLOR}</td><td>{@link #NVG_ONE_MINUS_SRC_COLOR ONE_MINUS_SRC_COLOR}</td><td>{@link #NVG_DST_COLOR DST_COLOR}</td><td>{@link #NVG_ONE_MINUS_DST_COLOR ONE_MINUS_DST_COLOR}</td></tr><tr><td>{@link #NVG_SRC_ALPHA SRC_ALPHA}</td><td>{@link #NVG_ONE_MINUS_SRC_ALPHA ONE_MINUS_SRC_ALPHA}</td><td>{@link #NVG_DST_ALPHA DST_ALPHA}</td><td>{@link #NVG_ONE_MINUS_DST_ALPHA ONE_MINUS_DST_ALPHA}</td><td>{@link #NVG_SRC_ALPHA_SATURATE SRC_ALPHA_SATURATE}</td></tr></table>
+	 */
+	public static native void nnvgGlobalCompositeBlendFuncSeparate(long ctx, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
+
+	/**
+	 * Sets the composite operation with custom pixel arithmetic for RGB and alpha components separately.
+	 *
+	 * @param ctx      the NanoVG context
+	 * @param srcRGB   the source RGB blend factor. One of:<br><table><tr><td>{@link #NVG_ZERO ZERO}</td><td>{@link #NVG_ONE ONE}</td><td>{@link #NVG_SRC_COLOR SRC_COLOR}</td><td>{@link #NVG_ONE_MINUS_SRC_COLOR ONE_MINUS_SRC_COLOR}</td><td>{@link #NVG_DST_COLOR DST_COLOR}</td><td>{@link #NVG_ONE_MINUS_DST_COLOR ONE_MINUS_DST_COLOR}</td></tr><tr><td>{@link #NVG_SRC_ALPHA SRC_ALPHA}</td><td>{@link #NVG_ONE_MINUS_SRC_ALPHA ONE_MINUS_SRC_ALPHA}</td><td>{@link #NVG_DST_ALPHA DST_ALPHA}</td><td>{@link #NVG_ONE_MINUS_DST_ALPHA ONE_MINUS_DST_ALPHA}</td><td>{@link #NVG_SRC_ALPHA_SATURATE SRC_ALPHA_SATURATE}</td></tr></table>
+	 * @param dstRGB   the destination RGB blend factor. One of:<br><table><tr><td>{@link #NVG_ZERO ZERO}</td><td>{@link #NVG_ONE ONE}</td><td>{@link #NVG_SRC_COLOR SRC_COLOR}</td><td>{@link #NVG_ONE_MINUS_SRC_COLOR ONE_MINUS_SRC_COLOR}</td><td>{@link #NVG_DST_COLOR DST_COLOR}</td><td>{@link #NVG_ONE_MINUS_DST_COLOR ONE_MINUS_DST_COLOR}</td></tr><tr><td>{@link #NVG_SRC_ALPHA SRC_ALPHA}</td><td>{@link #NVG_ONE_MINUS_SRC_ALPHA ONE_MINUS_SRC_ALPHA}</td><td>{@link #NVG_DST_ALPHA DST_ALPHA}</td><td>{@link #NVG_ONE_MINUS_DST_ALPHA ONE_MINUS_DST_ALPHA}</td><td>{@link #NVG_SRC_ALPHA_SATURATE SRC_ALPHA_SATURATE}</td></tr></table>
+	 * @param srcAlpha the source alpha blend factor. One of:<br><table><tr><td>{@link #NVG_ZERO ZERO}</td><td>{@link #NVG_ONE ONE}</td><td>{@link #NVG_SRC_COLOR SRC_COLOR}</td><td>{@link #NVG_ONE_MINUS_SRC_COLOR ONE_MINUS_SRC_COLOR}</td><td>{@link #NVG_DST_COLOR DST_COLOR}</td><td>{@link #NVG_ONE_MINUS_DST_COLOR ONE_MINUS_DST_COLOR}</td></tr><tr><td>{@link #NVG_SRC_ALPHA SRC_ALPHA}</td><td>{@link #NVG_ONE_MINUS_SRC_ALPHA ONE_MINUS_SRC_ALPHA}</td><td>{@link #NVG_DST_ALPHA DST_ALPHA}</td><td>{@link #NVG_ONE_MINUS_DST_ALPHA ONE_MINUS_DST_ALPHA}</td><td>{@link #NVG_SRC_ALPHA_SATURATE SRC_ALPHA_SATURATE}</td></tr></table>
+	 * @param dstAlpha the destination alpha blend factor. One of:<br><table><tr><td>{@link #NVG_ZERO ZERO}</td><td>{@link #NVG_ONE ONE}</td><td>{@link #NVG_SRC_COLOR SRC_COLOR}</td><td>{@link #NVG_ONE_MINUS_SRC_COLOR ONE_MINUS_SRC_COLOR}</td><td>{@link #NVG_DST_COLOR DST_COLOR}</td><td>{@link #NVG_ONE_MINUS_DST_COLOR ONE_MINUS_DST_COLOR}</td></tr><tr><td>{@link #NVG_SRC_ALPHA SRC_ALPHA}</td><td>{@link #NVG_ONE_MINUS_SRC_ALPHA ONE_MINUS_SRC_ALPHA}</td><td>{@link #NVG_DST_ALPHA DST_ALPHA}</td><td>{@link #NVG_ONE_MINUS_DST_ALPHA ONE_MINUS_DST_ALPHA}</td><td>{@link #NVG_SRC_ALPHA_SATURATE SRC_ALPHA_SATURATE}</td></tr></table>
+	 */
+	public static void nvgGlobalCompositeBlendFuncSeparate(long ctx, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
+		if ( CHECKS )
+			checkPointer(ctx);
+		nnvgGlobalCompositeBlendFuncSeparate(ctx, srcRGB, dstRGB, srcAlpha, dstAlpha);
 	}
 
 	// --- [ nvgRGB ] ---

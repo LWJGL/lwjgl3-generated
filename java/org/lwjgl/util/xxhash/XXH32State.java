@@ -1,6 +1,6 @@
 /*
  * Copyright LWJGL. All rights reserved.
- * License terms: http://lwjgl.org/license.php
+ * License terms: https://www.lwjgl.org/license
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 package org.lwjgl.util.xxhash;
@@ -20,14 +20,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct XXH32_state_t {
-    long long total_len;
-    unsigned seed;
+    unsigned total_len_32;
+    unsigned large_len;
     unsigned v1;
     unsigned v2;
     unsigned v3;
     unsigned v4;
     unsigned[4] mem32;
     unsigned memsize;
+    unsigned reserved;
 }</code></pre>
  */
 public class XXH32State extends Struct implements NativeResource {
@@ -39,38 +40,41 @@ public class XXH32State extends Struct implements NativeResource {
 
 	/** The struct member offsets. */
 	public static final int
-		TOTAL_LEN,
-		SEED,
+		TOTAL_LEN_32,
+		LARGE_LEN,
 		V1,
 		V2,
 		V3,
 		V4,
 		MEM32,
-		MEMSIZE;
+		MEMSIZE,
+		RESERVED;
 
 	static {
 		Layout layout = __struct(
-			__member(8),
+			__member(4),
 			__member(4),
 			__member(4),
 			__member(4),
 			__member(4),
 			__member(4),
 			__array(4, 4),
+			__member(4),
 			__member(4)
 		);
 
 		SIZEOF = layout.getSize();
 		ALIGNOF = layout.getAlignment();
 
-		TOTAL_LEN = layout.offsetof(0);
-		SEED = layout.offsetof(1);
+		TOTAL_LEN_32 = layout.offsetof(0);
+		LARGE_LEN = layout.offsetof(1);
 		V1 = layout.offsetof(2);
 		V2 = layout.offsetof(3);
 		V3 = layout.offsetof(4);
 		V4 = layout.offsetof(5);
 		MEM32 = layout.offsetof(6);
 		MEMSIZE = layout.offsetof(7);
+		RESERVED = layout.offsetof(8);
 	}
 
 	XXH32State(long address, ByteBuffer container) {
@@ -90,10 +94,10 @@ public class XXH32State extends Struct implements NativeResource {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	/** Returns the value of the {@code total_len} field. */
-	public long total_len() { return ntotal_len(address()); }
-	/** Returns the value of the {@code seed} field. */
-	public int seed() { return nseed(address()); }
+	/** Returns the value of the {@code total_len_32} field. */
+	public int total_len_32() { return ntotal_len_32(address()); }
+	/** Returns the value of the {@code large_len} field. */
+	public int large_len() { return nlarge_len(address()); }
 	/** Returns the value of the {@code v1} field. */
 	public int v1() { return nv1(address()); }
 	/** Returns the value of the {@code v2} field. */
@@ -108,11 +112,13 @@ public class XXH32State extends Struct implements NativeResource {
 	public int mem32(int index) { return nmem32(address(), index); }
 	/** Returns the value of the {@code memsize} field. */
 	public int memsize() { return nmemsize(address()); }
+	/** Returns the value of the {@code reserved} field. */
+	public int reserved() { return nreserved(address()); }
 
-	/** Sets the specified value to the {@code total_len} field. */
-	public XXH32State total_len(long value) { ntotal_len(address(), value); return this; }
-	/** Sets the specified value to the {@code seed} field. */
-	public XXH32State seed(int value) { nseed(address(), value); return this; }
+	/** Sets the specified value to the {@code total_len_32} field. */
+	public XXH32State total_len_32(int value) { ntotal_len_32(address(), value); return this; }
+	/** Sets the specified value to the {@code large_len} field. */
+	public XXH32State large_len(int value) { nlarge_len(address(), value); return this; }
 	/** Sets the specified value to the {@code v1} field. */
 	public XXH32State v1(int value) { nv1(address(), value); return this; }
 	/** Sets the specified value to the {@code v2} field. */
@@ -127,26 +133,30 @@ public class XXH32State extends Struct implements NativeResource {
 	public XXH32State mem32(int index, int value) { nmem32(address(), index, value); return this; }
 	/** Sets the specified value to the {@code memsize} field. */
 	public XXH32State memsize(int value) { nmemsize(address(), value); return this; }
+	/** Sets the specified value to the {@code reserved} field. */
+	public XXH32State reserved(int value) { nreserved(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public XXH32State set(
-		long total_len,
-		int seed,
+		int total_len_32,
+		int large_len,
 		int v1,
 		int v2,
 		int v3,
 		int v4,
 		IntBuffer mem32,
-		int memsize
+		int memsize,
+		int reserved
 	) {
-		total_len(total_len);
-		seed(seed);
+		total_len_32(total_len_32);
+		large_len(large_len);
 		v1(v1);
 		v2(v2);
 		v3(v3);
 		v4(v4);
 		mem32(mem32);
 		memsize(memsize);
+		reserved(reserved);
 
 		return this;
 	}
@@ -297,10 +307,10 @@ public class XXH32State extends Struct implements NativeResource {
 
 	// -----------------------------------
 
-	/** Unsafe version of {@link #total_len}. */
-	public static long ntotal_len(long struct) { return memGetLong(struct + XXH32State.TOTAL_LEN); }
-	/** Unsafe version of {@link #seed}. */
-	public static int nseed(long struct) { return memGetInt(struct + XXH32State.SEED); }
+	/** Unsafe version of {@link #total_len_32}. */
+	public static int ntotal_len_32(long struct) { return memGetInt(struct + XXH32State.TOTAL_LEN_32); }
+	/** Unsafe version of {@link #large_len}. */
+	public static int nlarge_len(long struct) { return memGetInt(struct + XXH32State.LARGE_LEN); }
 	/** Unsafe version of {@link #v1}. */
 	public static int nv1(long struct) { return memGetInt(struct + XXH32State.V1); }
 	/** Unsafe version of {@link #v2}. */
@@ -317,11 +327,13 @@ public class XXH32State extends Struct implements NativeResource {
 	public static int nmem32(long struct, int index) { return memGetInt(struct + XXH32State.MEM32 + index * 4); }
 	/** Unsafe version of {@link #memsize}. */
 	public static int nmemsize(long struct) { return memGetInt(struct + XXH32State.MEMSIZE); }
+	/** Unsafe version of {@link #reserved}. */
+	public static int nreserved(long struct) { return memGetInt(struct + XXH32State.RESERVED); }
 
-	/** Unsafe version of {@link #total_len(long) total_len}. */
-	public static void ntotal_len(long struct, long value) { memPutLong(struct + XXH32State.TOTAL_LEN, value); }
-	/** Unsafe version of {@link #seed(int) seed}. */
-	public static void nseed(long struct, int value) { memPutInt(struct + XXH32State.SEED, value); }
+	/** Unsafe version of {@link #total_len_32(int) total_len_32}. */
+	public static void ntotal_len_32(long struct, int value) { memPutInt(struct + XXH32State.TOTAL_LEN_32, value); }
+	/** Unsafe version of {@link #large_len(int) large_len}. */
+	public static void nlarge_len(long struct, int value) { memPutInt(struct + XXH32State.LARGE_LEN, value); }
 	/** Unsafe version of {@link #v1(int) v1}. */
 	public static void nv1(long struct, int value) { memPutInt(struct + XXH32State.V1, value); }
 	/** Unsafe version of {@link #v2(int) v2}. */
@@ -339,6 +351,8 @@ public class XXH32State extends Struct implements NativeResource {
 	public static void nmem32(long struct, int index, int value) { memPutInt(struct + XXH32State.MEM32 + index * 4, value); }
 	/** Unsafe version of {@link #memsize(int) memsize}. */
 	public static void nmemsize(long struct, int value) { memPutInt(struct + XXH32State.MEMSIZE, value); }
+	/** Unsafe version of {@link #reserved(int) reserved}. */
+	public static void nreserved(long struct, int value) { memPutInt(struct + XXH32State.RESERVED, value); }
 
 	// -----------------------------------
 
@@ -382,10 +396,10 @@ public class XXH32State extends Struct implements NativeResource {
 			return SIZEOF;
 		}
 
-		/** Returns the value of the {@code total_len} field. */
-		public long total_len() { return XXH32State.ntotal_len(address()); }
-		/** Returns the value of the {@code seed} field. */
-		public int seed() { return XXH32State.nseed(address()); }
+		/** Returns the value of the {@code total_len_32} field. */
+		public int total_len_32() { return XXH32State.ntotal_len_32(address()); }
+		/** Returns the value of the {@code large_len} field. */
+		public int large_len() { return XXH32State.nlarge_len(address()); }
 		/** Returns the value of the {@code v1} field. */
 		public int v1() { return XXH32State.nv1(address()); }
 		/** Returns the value of the {@code v2} field. */
@@ -400,11 +414,13 @@ public class XXH32State extends Struct implements NativeResource {
 		public int mem32(int index) { return XXH32State.nmem32(address(), index); }
 		/** Returns the value of the {@code memsize} field. */
 		public int memsize() { return XXH32State.nmemsize(address()); }
+		/** Returns the value of the {@code reserved} field. */
+		public int reserved() { return XXH32State.nreserved(address()); }
 
-		/** Sets the specified value to the {@code total_len} field. */
-		public XXH32State.Buffer total_len(long value) { XXH32State.ntotal_len(address(), value); return this; }
-		/** Sets the specified value to the {@code seed} field. */
-		public XXH32State.Buffer seed(int value) { XXH32State.nseed(address(), value); return this; }
+		/** Sets the specified value to the {@code total_len_32} field. */
+		public XXH32State.Buffer total_len_32(int value) { XXH32State.ntotal_len_32(address(), value); return this; }
+		/** Sets the specified value to the {@code large_len} field. */
+		public XXH32State.Buffer large_len(int value) { XXH32State.nlarge_len(address(), value); return this; }
 		/** Sets the specified value to the {@code v1} field. */
 		public XXH32State.Buffer v1(int value) { XXH32State.nv1(address(), value); return this; }
 		/** Sets the specified value to the {@code v2} field. */
@@ -419,6 +435,8 @@ public class XXH32State extends Struct implements NativeResource {
 		public XXH32State.Buffer mem32(int index, int value) { XXH32State.nmem32(address(), index, value); return this; }
 		/** Sets the specified value to the {@code memsize} field. */
 		public XXH32State.Buffer memsize(int value) { XXH32State.nmemsize(address(), value); return this; }
+		/** Sets the specified value to the {@code reserved} field. */
+		public XXH32State.Buffer reserved(int value) { XXH32State.nreserved(address(), value); return this; }
 
 	}
 

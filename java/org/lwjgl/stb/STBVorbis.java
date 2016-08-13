@@ -1,6 +1,6 @@
 /*
  * Copyright LWJGL. All rights reserved.
- * License terms: http://lwjgl.org/license.php
+ * License terms: https://www.lwjgl.org/license
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 package org.lwjgl.stb;
@@ -285,11 +285,11 @@ public class STBVorbis {
 	public static int stb_vorbis_decode_frame_pushdata(long f, ByteBuffer datablock, IntBuffer channels, PointerBuffer output, IntBuffer samples) {
 		if ( CHECKS ) {
 			checkPointer(f);
-			checkBuffer(channels, 1);
+			if ( channels != null ) checkBuffer(channels, 1);
 			checkBuffer(output, 1);
 			checkBuffer(samples, 1);
 		}
-		return nstb_vorbis_decode_frame_pushdata(f, memAddress(datablock), datablock.remaining(), memAddress(channels), memAddress(output), memAddress(samples));
+		return nstb_vorbis_decode_frame_pushdata(f, memAddress(datablock), datablock.remaining(), memAddressSafe(channels), memAddress(output), memAddress(samples));
 	}
 
 	// --- [ stb_vorbis_flush_pushdata ] ---
@@ -928,7 +928,7 @@ k    l      k <= l, the first k channels</code></pre>
 	public static int stb_vorbis_decode_frame_pushdata(long f, ByteBuffer datablock, int[] channels, PointerBuffer output, int[] samples) {
 		if ( CHECKS ) {
 			checkPointer(f);
-			checkBuffer(channels, 1);
+			if ( channels != null ) checkBuffer(channels, 1);
 			checkBuffer(output, 1);
 			checkBuffer(samples, 1);
 		}

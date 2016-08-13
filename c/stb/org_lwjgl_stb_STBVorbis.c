@@ -1,6 +1,6 @@
 /*
  * Copyright LWJGL. All rights reserved.
- * License terms: http://lwjgl.org/license.php
+ * License terms: https://www.lwjgl.org/license
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 #include "common_tools.h"
@@ -210,12 +210,12 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode_1frame_
 	const unsigned char *datablock = (const unsigned char *)(intptr_t)datablockAddress;
 	float ***output = (float ***)(intptr_t)outputAddress;
 	jint __result;
-	jint *channels = (*__env)->GetPrimitiveArrayCritical(__env, channelsAddress, 0);
+	jint *channels = channelsAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, channelsAddress, 0);
 	jint *samples = (*__env)->GetPrimitiveArrayCritical(__env, samplesAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
 	__result = (jint)stb_vorbis_decode_frame_pushdata(f, datablock, datablock_length_in_bytes, (int*)channels, output, (int*)samples);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, samplesAddress, samples, 0);
-	(*__env)->ReleasePrimitiveArrayCritical(__env, channelsAddress, channels, 0);
+	if ( channels != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, channelsAddress, channels, 0);
 	return __result;
 }
 JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode_1frame_1pushdata__JJI_3IJ_3I(jlong fAddress, jlong datablockAddress, jint datablock_length_in_bytes, jint channels__length, jint* channels, jlong outputAddress, jint samples__length, jint* samples) {

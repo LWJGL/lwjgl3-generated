@@ -1,6 +1,6 @@
 /*
  * Copyright LWJGL. All rights reserved.
- * License terms: http://lwjgl.org/license.php
+ * License terms: https://www.lwjgl.org/license
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 package org.lwjgl.nuklear;
@@ -23,12 +23,14 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkClipboard struct nk_clipboard} clip;
     nk_flags last_widget_state;
     nk_button_behavior button_behavior;
+    float delta_time_seconds;
     {@link NkDrawList struct nk_draw_list} draw_list;
     {@link NkHandle nk_handle} userdata;
     {@link NkTextEdit struct nk_text_edit} text_edit;
     {@link NkCommandBuffer struct nk_command_buffer} overlay;
     int build;
-    void * pool;
+    int use_pool;
+    {@link NkPool struct nk_pool} pool;
     struct nk_window * begin;
     struct nk_window * end;
     struct nk_window * active;
@@ -53,11 +55,13 @@ public class NkContext extends Struct implements NativeResource {
 		CLIP,
 		LAST_WIDGET_STATE,
 		BUTTON_BEHAVIOR,
+		DELTA_TIME_SECONDS,
 		DRAW_LIST,
 		USERDATA,
 		TEXT_EDIT,
 		OVERLAY,
 		BUILD,
+		USE_POOL,
 		POOL,
 		BEGIN,
 		END,
@@ -75,12 +79,14 @@ public class NkContext extends Struct implements NativeResource {
 			__member(NkClipboard.SIZEOF, NkClipboard.ALIGNOF),
 			__member(4),
 			__member(4),
+			__member(4),
 			__member(NkDrawList.SIZEOF, NkDrawList.ALIGNOF),
 			__member(NkHandle.SIZEOF, NkHandle.ALIGNOF),
 			__member(NkTextEdit.SIZEOF, NkTextEdit.ALIGNOF),
 			__member(NkCommandBuffer.SIZEOF, NkCommandBuffer.ALIGNOF),
 			__member(4),
-			__member(POINTER_SIZE),
+			__member(4),
+			__member(NkPool.SIZEOF, NkPool.ALIGNOF),
 			__member(POINTER_SIZE),
 			__member(POINTER_SIZE),
 			__member(POINTER_SIZE),
@@ -99,19 +105,21 @@ public class NkContext extends Struct implements NativeResource {
 		CLIP = layout.offsetof(3);
 		LAST_WIDGET_STATE = layout.offsetof(4);
 		BUTTON_BEHAVIOR = layout.offsetof(5);
-		DRAW_LIST = layout.offsetof(6);
-		USERDATA = layout.offsetof(7);
-		TEXT_EDIT = layout.offsetof(8);
-		OVERLAY = layout.offsetof(9);
-		BUILD = layout.offsetof(10);
-		POOL = layout.offsetof(11);
-		BEGIN = layout.offsetof(12);
-		END = layout.offsetof(13);
-		ACTIVE = layout.offsetof(14);
-		CURRENT = layout.offsetof(15);
-		FREELIST = layout.offsetof(16);
-		COUNT = layout.offsetof(17);
-		SEQ = layout.offsetof(18);
+		DELTA_TIME_SECONDS = layout.offsetof(6);
+		DRAW_LIST = layout.offsetof(7);
+		USERDATA = layout.offsetof(8);
+		TEXT_EDIT = layout.offsetof(9);
+		OVERLAY = layout.offsetof(10);
+		BUILD = layout.offsetof(11);
+		USE_POOL = layout.offsetof(12);
+		POOL = layout.offsetof(13);
+		BEGIN = layout.offsetof(14);
+		END = layout.offsetof(15);
+		ACTIVE = layout.offsetof(16);
+		CURRENT = layout.offsetof(17);
+		FREELIST = layout.offsetof(18);
+		COUNT = layout.offsetof(19);
+		SEQ = layout.offsetof(20);
 	}
 
 	NkContext(long address, ByteBuffer container) {
@@ -143,6 +151,8 @@ public class NkContext extends Struct implements NativeResource {
 	public int last_widget_state() { return nlast_widget_state(address()); }
 	/** Returns the value of the {@code button_behavior} field. */
 	public int button_behavior() { return nbutton_behavior(address()); }
+	/** Returns the value of the {@code delta_time_seconds} field. */
+	public float delta_time_seconds() { return ndelta_time_seconds(address()); }
 	/** Returns a {@link NkDrawList} view of the {@code draw_list} field. */
 	public NkDrawList draw_list() { return ndraw_list(address()); }
 	/** Returns a {@link NkHandle} view of the {@code userdata} field. */
@@ -153,8 +163,10 @@ public class NkContext extends Struct implements NativeResource {
 	public NkCommandBuffer overlay() { return noverlay(address()); }
 	/** Returns the value of the {@code build} field. */
 	public int build() { return nbuild(address()); }
-	/** Returns the value of the {@code pool} field. */
-	public long pool() { return npool(address()); }
+	/** Returns the value of the {@code use_pool} field. */
+	public boolean use_pool() { return nuse_pool(address()) != 0; }
+	/** Returns a {@link NkPool} view of the {@code pool} field. */
+	public NkPool pool() { return npool(address()); }
 	/** Returns a {@link NkWindow} view of the struct pointed to by the {@code begin} field. */
 	public NkWindow begin() { return nbegin(address()); }
 	/** Returns a {@link NkWindow} view of the struct pointed to by the {@code end} field. */
@@ -311,6 +323,8 @@ public class NkContext extends Struct implements NativeResource {
 	public static int nlast_widget_state(long struct) { return memGetInt(struct + NkContext.LAST_WIDGET_STATE); }
 	/** Unsafe version of {@link #button_behavior}. */
 	public static int nbutton_behavior(long struct) { return memGetInt(struct + NkContext.BUTTON_BEHAVIOR); }
+	/** Unsafe version of {@link #delta_time_seconds}. */
+	public static float ndelta_time_seconds(long struct) { return memGetFloat(struct + NkContext.DELTA_TIME_SECONDS); }
 	/** Unsafe version of {@link #draw_list}. */
 	public static NkDrawList ndraw_list(long struct) { return NkDrawList.create(struct + NkContext.DRAW_LIST); }
 	/** Unsafe version of {@link #userdata}. */
@@ -321,8 +335,10 @@ public class NkContext extends Struct implements NativeResource {
 	public static NkCommandBuffer noverlay(long struct) { return NkCommandBuffer.create(struct + NkContext.OVERLAY); }
 	/** Unsafe version of {@link #build}. */
 	public static int nbuild(long struct) { return memGetInt(struct + NkContext.BUILD); }
+	/** Unsafe version of {@link #use_pool}. */
+	public static int nuse_pool(long struct) { return memGetInt(struct + NkContext.USE_POOL); }
 	/** Unsafe version of {@link #pool}. */
-	public static long npool(long struct) { return memGetAddress(struct + NkContext.POOL); }
+	public static NkPool npool(long struct) { return NkPool.create(struct + NkContext.POOL); }
 	/** Unsafe version of {@link #begin}. */
 	public static NkWindow nbegin(long struct) { return NkWindow.create(memGetAddress(struct + NkContext.BEGIN)); }
 	/** Unsafe version of {@link #end}. */
@@ -392,6 +408,8 @@ public class NkContext extends Struct implements NativeResource {
 		public int last_widget_state() { return NkContext.nlast_widget_state(address()); }
 		/** Returns the value of the {@code button_behavior} field. */
 		public int button_behavior() { return NkContext.nbutton_behavior(address()); }
+		/** Returns the value of the {@code delta_time_seconds} field. */
+		public float delta_time_seconds() { return NkContext.ndelta_time_seconds(address()); }
 		/** Returns a {@link NkDrawList} view of the {@code draw_list} field. */
 		public NkDrawList draw_list() { return NkContext.ndraw_list(address()); }
 		/** Returns a {@link NkHandle} view of the {@code userdata} field. */
@@ -402,8 +420,10 @@ public class NkContext extends Struct implements NativeResource {
 		public NkCommandBuffer overlay() { return NkContext.noverlay(address()); }
 		/** Returns the value of the {@code build} field. */
 		public int build() { return NkContext.nbuild(address()); }
-		/** Returns the value of the {@code pool} field. */
-		public long pool() { return NkContext.npool(address()); }
+		/** Returns the value of the {@code use_pool} field. */
+		public boolean use_pool() { return NkContext.nuse_pool(address()) != 0; }
+		/** Returns a {@link NkPool} view of the {@code pool} field. */
+		public NkPool pool() { return NkContext.npool(address()); }
 		/** Returns a {@link NkWindow} view of the struct pointed to by the {@code begin} field. */
 		public NkWindow begin() { return NkContext.nbegin(address()); }
 		/** Returns a {@link NkWindow} view of the struct pointed to by the {@code end} field. */

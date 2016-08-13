@@ -1,6 +1,6 @@
 /*
  * Copyright LWJGL. All rights reserved.
- * License terms: http://lwjgl.org/license.php
+ * License terms: https://www.lwjgl.org/license
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 package org.lwjgl.util.lmdb;
@@ -327,8 +327,11 @@ public class LMDB {
 	/** The specified DBI was changed unexpectedly. */
 	public static final int MDB_BAD_DBI = -30780;
 
+	/** Unexpected problem - txn should abort. */
+	public static final int MDB_PROBLEM = -30779;
+
 	/** The last defined error code. */
-	public static final int MDB_LAST_ERRCODE = MDB_BAD_DBI;
+	public static final int MDB_LAST_ERRCODE = MDB_PROBLEM;
 
 	static { Library.loadSystem("lwjgl_lmdb"); }
 
@@ -1662,7 +1665,7 @@ public class LMDB {
 	 *              default keys must be unique and may have only a single data item.</p></li>
 	 *              <li>{@link #MDB_INTEGERKEY INTEGERKEY}
 	 *              
-	 *              <p>Keys are binary integers in native byte order, either {@code unsigned int} or {@code size_t}, and will be sorted as such. The keys must all be
+	 *              <p>Keys are binary integers in native byte order, either {@code unsigned int} or {@code mdb_size_t}, and will be sorted as such. The keys must all be
 	 *              of the same size.</p></li>
 	 *              <li>{@link #MDB_DUPFIXED DUPFIXED}
 	 *              
@@ -1720,7 +1723,7 @@ public class LMDB {
 	 *              default keys must be unique and may have only a single data item.</p></li>
 	 *              <li>{@link #MDB_INTEGERKEY INTEGERKEY}
 	 *              
-	 *              <p>Keys are binary integers in native byte order, either {@code unsigned int} or {@code size_t}, and will be sorted as such. The keys must all be
+	 *              <p>Keys are binary integers in native byte order, either {@code unsigned int} or {@code mdb_size_t}, and will be sorted as such. The keys must all be
 	 *              of the same size.</p></li>
 	 *              <li>{@link #MDB_DUPFIXED DUPFIXED}
 	 *              
@@ -1784,7 +1787,7 @@ public class LMDB {
 	 *              default keys must be unique and may have only a single data item.</p></li>
 	 *              <li>{@link #MDB_INTEGERKEY INTEGERKEY}
 	 *              
-	 *              <p>Keys are binary integers in native byte order, either {@code unsigned int} or {@code size_t}, and will be sorted as such. The keys must all be
+	 *              <p>Keys are binary integers in native byte order, either {@code unsigned int} or {@code mdb_size_t}, and will be sorted as such. The keys must all be
 	 *              of the same size.</p></li>
 	 *              <li>{@link #MDB_DUPFIXED DUPFIXED}
 	 *              

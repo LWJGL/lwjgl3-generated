@@ -1,6 +1,6 @@
 /*
  * Copyright LWJGL. All rights reserved.
- * License terms: http://lwjgl.org/license.php
+ * License terms: https://www.lwjgl.org/license
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 package org.lwjgl.util.xxhash;
@@ -31,7 +31,7 @@ public class XXHash {
 	public static final int XXH_VERSION_MINOR = 6;
 
 	/** The release version number. */
-	public static final int XXH_VERSION_RELEASE = 1;
+	public static final int XXH_VERSION_RELEASE = 2;
 
 	/** The version number */
 	public static final int XXH_VERSION_NUMBER = (XXH_VERSION_MAJOR *100*100 + XXH_VERSION_MINOR *100 + XXH_VERSION_RELEASE);
@@ -63,31 +63,6 @@ public class XXHash {
 	 */
 	public static int XXH32(ByteBuffer input, int seed) {
 		return nXXH32(memAddress(input), (long)input.remaining(), seed);
-	}
-
-	// --- [ XXH64 ] ---
-
-	/**
-	 * 64-bit version of {@link #XXH32 32}.
-	 * 
-	 * <p>This function runs 2x faster on 64-bits systems, but slower on 32-bits systems.</p>
-	 *
-	 * @param input  the bytes to hash. The memory between {@code input} &amp; {@code input+length} must be valid (allocated and read-accessible).
-	 * @param length the number of bytes stored at memory address {@code input}
-	 * @param seed   the seed that can be used to alter the result predictably
-	 */
-	public static native long nXXH64(long input, long length, long seed);
-
-	/**
-	 * 64-bit version of {@link #XXH32 32}.
-	 * 
-	 * <p>This function runs 2x faster on 64-bits systems, but slower on 32-bits systems.</p>
-	 *
-	 * @param input the bytes to hash. The memory between {@code input} &amp; {@code input+length} must be valid (allocated and read-accessible).
-	 * @param seed  the seed that can be used to alter the result predictably
-	 */
-	public static long XXH64(ByteBuffer input, long seed) {
-		return nXXH64(memAddress(input), (long)input.remaining(), seed);
 	}
 
 	// --- [ XXH32_createState ] ---
@@ -127,33 +102,12 @@ public class XXHash {
 		return nXXH32_freeState(statePtr.address());
 	}
 
-	// --- [ XXH64_createState ] ---
+	// --- [ XXH32_copyState ] ---
 
-	/** 64-bit version of {@link #XXH32_createState 32_createState}. */
-	public static native long nXXH64_createState();
+	public static native void nXXH32_copyState(long dst_state, long src_state);
 
-	/** 64-bit version of {@link #XXH32_createState 32_createState}. */
-	public static XXH64State XXH64_createState() {
-		long __result = nXXH64_createState();
-		return XXH64State.create(__result);
-	}
-
-	// --- [ XXH64_freeState ] ---
-
-	/**
-	 * 64-bit version of {@link #XXH32_freeState 32_freeState}.
-	 *
-	 * @param statePtr the state to free
-	 */
-	public static native int nXXH64_freeState(long statePtr);
-
-	/**
-	 * 64-bit version of {@link #XXH32_freeState 32_freeState}.
-	 *
-	 * @param statePtr the state to free
-	 */
-	public static int XXH64_freeState(XXH64State statePtr) {
-		return nXXH64_freeState(statePtr.address());
+	public static void XXH32_copyState(XXH32State dst_state, XXH32State src_state) {
+		nXXH32_copyState(dst_state.address(), src_state.address());
 	}
 
 	// --- [ XXH32_reset ] ---
@@ -245,6 +199,114 @@ public class XXHash {
 		return nXXH32_digest(statePtr.address());
 	}
 
+	// --- [ XXH32_canonicalFromHash ] ---
+
+	/**
+	 * Default result type for XXH functions are primitive unsigned 32 and 64 bits.
+	 * 
+	 * <p>The canonical representation uses human-readable write convention, aka big-endian (large digits first). These functions allow transformation of hash
+	 * result into and from its canonical format. This way, hash values can be written into a file / memory, and remain comparable on different systems and
+	 * programs.</p>
+	 *
+	 * @param dst  the destination canonical representation
+	 * @param hash the source hash
+	 */
+	public static native void nXXH32_canonicalFromHash(long dst, int hash);
+
+	/**
+	 * Default result type for XXH functions are primitive unsigned 32 and 64 bits.
+	 * 
+	 * <p>The canonical representation uses human-readable write convention, aka big-endian (large digits first). These functions allow transformation of hash
+	 * result into and from its canonical format. This way, hash values can be written into a file / memory, and remain comparable on different systems and
+	 * programs.</p>
+	 *
+	 * @param dst  the destination canonical representation
+	 * @param hash the source hash
+	 */
+	public static void XXH32_canonicalFromHash(XXH32Canonical dst, int hash) {
+		nXXH32_canonicalFromHash(dst.address(), hash);
+	}
+
+	// --- [ XXH32_hashFromCanonical ] ---
+
+	/**
+	 * Transforms the specified canonical representation to a primitive value.
+	 *
+	 * @param src the source canonical representation
+	 */
+	public static native int nXXH32_hashFromCanonical(long src);
+
+	/**
+	 * Transforms the specified canonical representation to a primitive value.
+	 *
+	 * @param src the source canonical representation
+	 */
+	public static int XXH32_hashFromCanonical(XXH32Canonical src) {
+		return nXXH32_hashFromCanonical(src.address());
+	}
+
+	// --- [ XXH64 ] ---
+
+	/**
+	 * 64-bit version of {@link #XXH32 32}.
+	 * 
+	 * <p>This function runs 2x faster on 64-bits systems, but slower on 32-bits systems.</p>
+	 *
+	 * @param input  the bytes to hash. The memory between {@code input} &amp; {@code input+length} must be valid (allocated and read-accessible).
+	 * @param length the number of bytes stored at memory address {@code input}
+	 * @param seed   the seed that can be used to alter the result predictably
+	 */
+	public static native long nXXH64(long input, long length, long seed);
+
+	/**
+	 * 64-bit version of {@link #XXH32 32}.
+	 * 
+	 * <p>This function runs 2x faster on 64-bits systems, but slower on 32-bits systems.</p>
+	 *
+	 * @param input the bytes to hash. The memory between {@code input} &amp; {@code input+length} must be valid (allocated and read-accessible).
+	 * @param seed  the seed that can be used to alter the result predictably
+	 */
+	public static long XXH64(ByteBuffer input, long seed) {
+		return nXXH64(memAddress(input), (long)input.remaining(), seed);
+	}
+
+	// --- [ XXH64_createState ] ---
+
+	/** 64-bit version of {@link #XXH32_createState 32_createState}. */
+	public static native long nXXH64_createState();
+
+	/** 64-bit version of {@link #XXH32_createState 32_createState}. */
+	public static XXH64State XXH64_createState() {
+		long __result = nXXH64_createState();
+		return XXH64State.create(__result);
+	}
+
+	// --- [ XXH64_freeState ] ---
+
+	/**
+	 * 64-bit version of {@link #XXH32_freeState 32_freeState}.
+	 *
+	 * @param statePtr the state to free
+	 */
+	public static native int nXXH64_freeState(long statePtr);
+
+	/**
+	 * 64-bit version of {@link #XXH32_freeState 32_freeState}.
+	 *
+	 * @param statePtr the state to free
+	 */
+	public static int XXH64_freeState(XXH64State statePtr) {
+		return nXXH64_freeState(statePtr.address());
+	}
+
+	// --- [ XXH64_copyState ] ---
+
+	public static native void nXXH64_copyState(long dst_state, long src_state);
+
+	public static void XXH64_copyState(XXH64State dst_state, XXH64State src_state) {
+		nXXH64_copyState(dst_state.address(), src_state.address());
+	}
+
 	// --- [ XXH64_reset ] ---
 
 	/**
@@ -304,50 +366,6 @@ public class XXHash {
 		return nXXH64_digest(statePtr.address());
 	}
 
-	// --- [ XXH32_copyState ] ---
-
-	public static native void nXXH32_copyState(long dst_state, long src_state);
-
-	public static void XXH32_copyState(XXH32State dst_state, XXH32State src_state) {
-		nXXH32_copyState(dst_state.address(), src_state.address());
-	}
-
-	// --- [ XXH64_copyState ] ---
-
-	public static native void nXXH64_copyState(long dst_state, long src_state);
-
-	public static void XXH64_copyState(XXH64State dst_state, XXH64State src_state) {
-		nXXH64_copyState(dst_state.address(), src_state.address());
-	}
-
-	// --- [ XXH32_canonicalFromHash ] ---
-
-	/**
-	 * Default result type for XXH functions are primitive unsigned 32 and 64 bits.
-	 * 
-	 * <p>The canonical representation uses human-readable write convention, aka big-endian (large digits first). These functions allow transformation of hash
-	 * result into and from its canonical format. This way, hash values can be written into a file / memory, and remain comparable on different systems and
-	 * programs.</p>
-	 *
-	 * @param dst  the destination canonical representation
-	 * @param hash the source hash
-	 */
-	public static native void nXXH32_canonicalFromHash(long dst, int hash);
-
-	/**
-	 * Default result type for XXH functions are primitive unsigned 32 and 64 bits.
-	 * 
-	 * <p>The canonical representation uses human-readable write convention, aka big-endian (large digits first). These functions allow transformation of hash
-	 * result into and from its canonical format. This way, hash values can be written into a file / memory, and remain comparable on different systems and
-	 * programs.</p>
-	 *
-	 * @param dst  the destination canonical representation
-	 * @param hash the source hash
-	 */
-	public static void XXH32_canonicalFromHash(XXH32Canonical dst, int hash) {
-		nXXH32_canonicalFromHash(dst.address(), hash);
-	}
-
 	// --- [ XXH64_canonicalFromHash ] ---
 
 	/**
@@ -366,24 +384,6 @@ public class XXHash {
 	 */
 	public static void XXH64_canonicalFromHash(XXH64Canonical dst, long hash) {
 		nXXH64_canonicalFromHash(dst.address(), hash);
-	}
-
-	// --- [ XXH32_hashFromCanonical ] ---
-
-	/**
-	 * Transforms the specified canonical representation to a primitive value.
-	 *
-	 * @param src the source canonical representation
-	 */
-	public static native int nXXH32_hashFromCanonical(long src);
-
-	/**
-	 * Transforms the specified canonical representation to a primitive value.
-	 *
-	 * @param src the source canonical representation
-	 */
-	public static int XXH32_hashFromCanonical(XXH32Canonical src) {
-		return nXXH32_hashFromCanonical(src.address());
 	}
 
 	// --- [ XXH64_hashFromCanonical ] ---

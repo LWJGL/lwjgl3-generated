@@ -1,6 +1,6 @@
 /*
  * Copyright LWJGL. All rights reserved.
- * License terms: http://lwjgl.org/license.php
+ * License terms: https://www.lwjgl.org/license
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 #ifdef LWJGL_WINDOWS
@@ -24,12 +24,6 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH32(JNIEnv *__env, j
 	return (jint)XXH32(input, (size_t)length, seed);
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH64(JNIEnv *__env, jclass clazz, jlong inputAddress, jlong length, jlong seed) {
-	const void *input = (const void *)(intptr_t)inputAddress;
-	UNUSED_PARAMS(__env, clazz)
-	return (jlong)XXH64(input, (size_t)length, seed);
-}
-
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH32_1createState(JNIEnv *__env, jclass clazz) {
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)XXH32_createState();
@@ -41,15 +35,11 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH32_1freeState(JNIEn
 	return (jint)XXH32_freeState(statePtr);
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH64_1createState(JNIEnv *__env, jclass clazz) {
+JNIEXPORT void JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH32_1copyState(JNIEnv *__env, jclass clazz, jlong dst_stateAddress, jlong src_stateAddress) {
+	XXH32_state_t *dst_state = (XXH32_state_t *)(intptr_t)dst_stateAddress;
+	const XXH32_state_t *src_state = (const XXH32_state_t *)(intptr_t)src_stateAddress;
 	UNUSED_PARAMS(__env, clazz)
-	return (jlong)(intptr_t)XXH64_createState();
-}
-
-JNIEXPORT jint JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH64_1freeState(JNIEnv *__env, jclass clazz, jlong statePtrAddress) {
-	XXH64_state_t *statePtr = (XXH64_state_t *)(intptr_t)statePtrAddress;
-	UNUSED_PARAMS(__env, clazz)
-	return (jint)XXH64_freeState(statePtr);
+	XXH32_copyState(dst_state, src_state);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH32_1reset(JNIEnv *__env, jclass clazz, jlong statePtrAddress, jint seed) {
@@ -71,6 +61,42 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH32_1digest(JNIEnv *
 	return (jint)XXH32_digest(statePtr);
 }
 
+JNIEXPORT void JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH32_1canonicalFromHash(JNIEnv *__env, jclass clazz, jlong dstAddress, jint hash) {
+	XXH32_canonical_t *dst = (XXH32_canonical_t *)(intptr_t)dstAddress;
+	UNUSED_PARAMS(__env, clazz)
+	XXH32_canonicalFromHash(dst, hash);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH32_1hashFromCanonical(JNIEnv *__env, jclass clazz, jlong srcAddress) {
+	const XXH32_canonical_t *src = (const XXH32_canonical_t *)(intptr_t)srcAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)XXH32_hashFromCanonical(src);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH64(JNIEnv *__env, jclass clazz, jlong inputAddress, jlong length, jlong seed) {
+	const void *input = (const void *)(intptr_t)inputAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)XXH64(input, (size_t)length, seed);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH64_1createState(JNIEnv *__env, jclass clazz) {
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)(intptr_t)XXH64_createState();
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH64_1freeState(JNIEnv *__env, jclass clazz, jlong statePtrAddress) {
+	XXH64_state_t *statePtr = (XXH64_state_t *)(intptr_t)statePtrAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)XXH64_freeState(statePtr);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH64_1copyState(JNIEnv *__env, jclass clazz, jlong dst_stateAddress, jlong src_stateAddress) {
+	XXH64_state_t *dst_state = (XXH64_state_t *)(intptr_t)dst_stateAddress;
+	const XXH64_state_t *src_state = (const XXH64_state_t *)(intptr_t)src_stateAddress;
+	UNUSED_PARAMS(__env, clazz)
+	XXH64_copyState(dst_state, src_state);
+}
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH64_1reset(JNIEnv *__env, jclass clazz, jlong statePtrAddress, jlong seed) {
 	XXH64_state_t *statePtr = (XXH64_state_t *)(intptr_t)statePtrAddress;
 	UNUSED_PARAMS(__env, clazz)
@@ -90,36 +116,10 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH64_1digest(JNIEnv 
 	return (jlong)XXH64_digest(statePtr);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH32_1copyState(JNIEnv *__env, jclass clazz, jlong dst_stateAddress, jlong src_stateAddress) {
-	XXH32_state_t *dst_state = (XXH32_state_t *)(intptr_t)dst_stateAddress;
-	const XXH32_state_t *src_state = (const XXH32_state_t *)(intptr_t)src_stateAddress;
-	UNUSED_PARAMS(__env, clazz)
-	XXH32_copyState(dst_state, src_state);
-}
-
-JNIEXPORT void JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH64_1copyState(JNIEnv *__env, jclass clazz, jlong dst_stateAddress, jlong src_stateAddress) {
-	XXH64_state_t *dst_state = (XXH64_state_t *)(intptr_t)dst_stateAddress;
-	const XXH64_state_t *src_state = (const XXH64_state_t *)(intptr_t)src_stateAddress;
-	UNUSED_PARAMS(__env, clazz)
-	XXH64_copyState(dst_state, src_state);
-}
-
-JNIEXPORT void JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH32_1canonicalFromHash(JNIEnv *__env, jclass clazz, jlong dstAddress, jint hash) {
-	XXH32_canonical_t *dst = (XXH32_canonical_t *)(intptr_t)dstAddress;
-	UNUSED_PARAMS(__env, clazz)
-	XXH32_canonicalFromHash(dst, hash);
-}
-
 JNIEXPORT void JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH64_1canonicalFromHash(JNIEnv *__env, jclass clazz, jlong dstAddress, jlong hash) {
 	XXH64_canonical_t *dst = (XXH64_canonical_t *)(intptr_t)dstAddress;
 	UNUSED_PARAMS(__env, clazz)
 	XXH64_canonicalFromHash(dst, hash);
-}
-
-JNIEXPORT jint JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH32_1hashFromCanonical(JNIEnv *__env, jclass clazz, jlong srcAddress) {
-	const XXH32_canonical_t *src = (const XXH32_canonical_t *)(intptr_t)srcAddress;
-	UNUSED_PARAMS(__env, clazz)
-	return (jint)XXH32_hashFromCanonical(src);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_xxhash_XXHash_nXXH64_1hashFromCanonical(JNIEnv *__env, jclass clazz, jlong srcAddress) {

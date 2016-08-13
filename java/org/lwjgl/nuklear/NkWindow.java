@@ -1,6 +1,6 @@
 /*
  * Copyright LWJGL. All rights reserved.
- * License terms: http://lwjgl.org/license.php
+ * License terms: https://www.lwjgl.org/license
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 package org.lwjgl.nuklear;
@@ -22,6 +22,7 @@ import static org.lwjgl.system.MemoryUtil.*;
     {@link NkScroll struct nk_scroll} scrollbar;
     {@link NkCommandBuffer struct nk_command_buffer} buffer;
     struct nk_panel * layout;
+    float scrollbar_hiding_timer;
     {@link NkPropertyState struct nk_property_state} property;
     {@link NkPopupState struct nk_popup_state} popup;
     {@link NkEditState struct nk_edit_state} edit;
@@ -50,6 +51,7 @@ public class NkWindow extends Struct {
 		SCROLLBAR,
 		BUFFER,
 		LAYOUT,
+		SCROLLBAR_HIDING_TIMER,
 		PROPERTY,
 		POPUP,
 		EDIT,
@@ -70,6 +72,7 @@ public class NkWindow extends Struct {
 			__member(NkScroll.SIZEOF, NkScroll.ALIGNOF),
 			__member(NkCommandBuffer.SIZEOF, NkCommandBuffer.ALIGNOF),
 			__member(POINTER_SIZE),
+			__member(4),
 			__member(NkPropertyState.SIZEOF, NkPropertyState.ALIGNOF),
 			__member(NkPopupState.SIZEOF, NkPopupState.ALIGNOF),
 			__member(NkEditState.SIZEOF, NkEditState.ALIGNOF),
@@ -92,16 +95,17 @@ public class NkWindow extends Struct {
 		SCROLLBAR = layout.offsetof(4);
 		BUFFER = layout.offsetof(5);
 		LAYOUT = layout.offsetof(6);
-		PROPERTY = layout.offsetof(7);
-		POPUP = layout.offsetof(8);
-		EDIT = layout.offsetof(9);
-		SCROLLED = layout.offsetof(10);
-		TABLES = layout.offsetof(11);
-		TABLE_COUNT = layout.offsetof(12);
-		TABLE_SIZE = layout.offsetof(13);
-		NEXT = layout.offsetof(14);
-		PREV = layout.offsetof(15);
-		PARENT = layout.offsetof(16);
+		SCROLLBAR_HIDING_TIMER = layout.offsetof(7);
+		PROPERTY = layout.offsetof(8);
+		POPUP = layout.offsetof(9);
+		EDIT = layout.offsetof(10);
+		SCROLLED = layout.offsetof(11);
+		TABLES = layout.offsetof(12);
+		TABLE_COUNT = layout.offsetof(13);
+		TABLE_SIZE = layout.offsetof(14);
+		NEXT = layout.offsetof(15);
+		PREV = layout.offsetof(16);
+		PARENT = layout.offsetof(17);
 	}
 
 	NkWindow(long address, ByteBuffer container) {
@@ -135,6 +139,8 @@ public class NkWindow extends Struct {
 	public NkCommandBuffer buffer() { return nbuffer(address()); }
 	/** Returns a {@link NkPanel} view of the struct pointed to by the {@code layout} field. */
 	public NkPanel layout() { return nlayout(address()); }
+	/** Returns the value of the {@code scrollbar_hiding_timer} field. */
+	public float scrollbar_hiding_timer() { return nscrollbar_hiding_timer(address()); }
 	/** Returns a {@link NkPropertyState} view of the {@code property} field. */
 	public NkPropertyState property() { return nproperty(address()); }
 	/** Returns a {@link NkPopupState} view of the {@code popup} field. */
@@ -189,6 +195,8 @@ public class NkWindow extends Struct {
 	public static NkCommandBuffer nbuffer(long struct) { return NkCommandBuffer.create(struct + NkWindow.BUFFER); }
 	/** Unsafe version of {@link #layout}. */
 	public static NkPanel nlayout(long struct) { return NkPanel.create(memGetAddress(struct + NkWindow.LAYOUT)); }
+	/** Unsafe version of {@link #scrollbar_hiding_timer}. */
+	public static float nscrollbar_hiding_timer(long struct) { return memGetFloat(struct + NkWindow.SCROLLBAR_HIDING_TIMER); }
 	/** Unsafe version of {@link #property}. */
 	public static NkPropertyState nproperty(long struct) { return NkPropertyState.create(struct + NkWindow.PROPERTY); }
 	/** Unsafe version of {@link #popup}. */
@@ -266,6 +274,8 @@ public class NkWindow extends Struct {
 		public NkCommandBuffer buffer() { return NkWindow.nbuffer(address()); }
 		/** Returns a {@link NkPanel} view of the struct pointed to by the {@code layout} field. */
 		public NkPanel layout() { return NkWindow.nlayout(address()); }
+		/** Returns the value of the {@code scrollbar_hiding_timer} field. */
+		public float scrollbar_hiding_timer() { return NkWindow.nscrollbar_hiding_timer(address()); }
 		/** Returns a {@link NkPropertyState} view of the {@code property} field. */
 		public NkPropertyState property() { return NkWindow.nproperty(address()); }
 		/** Returns a {@link NkPopupState} view of the {@code popup} field. */

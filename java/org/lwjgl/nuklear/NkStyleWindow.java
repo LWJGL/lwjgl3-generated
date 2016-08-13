@@ -1,6 +1,6 @@
 /*
  * Copyright LWJGL. All rights reserved.
- * License terms: http://lwjgl.org/license.php
+ * License terms: https://www.lwjgl.org/license
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 package org.lwjgl.nuklear;
@@ -37,10 +37,16 @@ import static org.lwjgl.system.MemoryStack.*;
     float tooltip_border;
     float rounding;
     {@link NkVec2 struct nk_vec2} scaler_size;
-    {@link NkVec2 struct nk_vec2} padding;
     {@link NkVec2 struct nk_vec2} spacing;
     {@link NkVec2 struct nk_vec2} scrollbar_size;
     {@link NkVec2 struct nk_vec2} min_size;
+    {@link NkVec2 struct nk_vec2} padding;
+    {@link NkVec2 struct nk_vec2} group_padding;
+    {@link NkVec2 struct nk_vec2} popup_padding;
+    {@link NkVec2 struct nk_vec2} combo_padding;
+    {@link NkVec2 struct nk_vec2} contextual_padding;
+    {@link NkVec2 struct nk_vec2} menu_padding;
+    {@link NkVec2 struct nk_vec2} tooltip_padding;
 }</code></pre>
  */
 public class NkStyleWindow extends Struct implements NativeResource {
@@ -71,10 +77,16 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		TOOLTIP_BORDER,
 		ROUNDING,
 		SCALER_SIZE,
-		PADDING,
 		SPACING,
 		SCROLLBAR_SIZE,
-		MIN_SIZE;
+		MIN_SIZE,
+		PADDING,
+		GROUP_PADDING,
+		POPUP_PADDING,
+		COMBO_PADDING,
+		CONTEXTUAL_PADDING,
+		MENU_PADDING,
+		TOOLTIP_PADDING;
 
 	static {
 		Layout layout = __struct(
@@ -96,6 +108,12 @@ public class NkStyleWindow extends Struct implements NativeResource {
 			__member(4),
 			__member(4),
 			__member(4),
+			__member(NkVec2.SIZEOF, NkVec2.ALIGNOF),
+			__member(NkVec2.SIZEOF, NkVec2.ALIGNOF),
+			__member(NkVec2.SIZEOF, NkVec2.ALIGNOF),
+			__member(NkVec2.SIZEOF, NkVec2.ALIGNOF),
+			__member(NkVec2.SIZEOF, NkVec2.ALIGNOF),
+			__member(NkVec2.SIZEOF, NkVec2.ALIGNOF),
 			__member(NkVec2.SIZEOF, NkVec2.ALIGNOF),
 			__member(NkVec2.SIZEOF, NkVec2.ALIGNOF),
 			__member(NkVec2.SIZEOF, NkVec2.ALIGNOF),
@@ -125,10 +143,16 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		TOOLTIP_BORDER = layout.offsetof(16);
 		ROUNDING = layout.offsetof(17);
 		SCALER_SIZE = layout.offsetof(18);
-		PADDING = layout.offsetof(19);
-		SPACING = layout.offsetof(20);
-		SCROLLBAR_SIZE = layout.offsetof(21);
-		MIN_SIZE = layout.offsetof(22);
+		SPACING = layout.offsetof(19);
+		SCROLLBAR_SIZE = layout.offsetof(20);
+		MIN_SIZE = layout.offsetof(21);
+		PADDING = layout.offsetof(22);
+		GROUP_PADDING = layout.offsetof(23);
+		POPUP_PADDING = layout.offsetof(24);
+		COMBO_PADDING = layout.offsetof(25);
+		CONTEXTUAL_PADDING = layout.offsetof(26);
+		MENU_PADDING = layout.offsetof(27);
+		TOOLTIP_PADDING = layout.offsetof(28);
 	}
 
 	NkStyleWindow(long address, ByteBuffer container) {
@@ -186,14 +210,26 @@ public class NkStyleWindow extends Struct implements NativeResource {
 	public float rounding() { return nrounding(address()); }
 	/** Returns a {@link NkVec2} view of the {@code scaler_size} field. */
 	public NkVec2 scaler_size() { return nscaler_size(address()); }
-	/** Returns a {@link NkVec2} view of the {@code padding} field. */
-	public NkVec2 padding() { return npadding(address()); }
 	/** Returns a {@link NkVec2} view of the {@code spacing} field. */
 	public NkVec2 spacing() { return nspacing(address()); }
 	/** Returns a {@link NkVec2} view of the {@code scrollbar_size} field. */
 	public NkVec2 scrollbar_size() { return nscrollbar_size(address()); }
 	/** Returns a {@link NkVec2} view of the {@code min_size} field. */
 	public NkVec2 min_size() { return nmin_size(address()); }
+	/** Returns a {@link NkVec2} view of the {@code padding} field. */
+	public NkVec2 padding() { return npadding(address()); }
+	/** Returns a {@link NkVec2} view of the {@code group_padding} field. */
+	public NkVec2 group_padding() { return ngroup_padding(address()); }
+	/** Returns a {@link NkVec2} view of the {@code popup_padding} field. */
+	public NkVec2 popup_padding() { return npopup_padding(address()); }
+	/** Returns a {@link NkVec2} view of the {@code combo_padding} field. */
+	public NkVec2 combo_padding() { return ncombo_padding(address()); }
+	/** Returns a {@link NkVec2} view of the {@code contextual_padding} field. */
+	public NkVec2 contextual_padding() { return ncontextual_padding(address()); }
+	/** Returns a {@link NkVec2} view of the {@code menu_padding} field. */
+	public NkVec2 menu_padding() { return nmenu_padding(address()); }
+	/** Returns a {@link NkVec2} view of the {@code tooltip_padding} field. */
+	public NkVec2 tooltip_padding() { return ntooltip_padding(address()); }
 
 	/** Copies the specified {@link NkStyleWindowHeader} to the {@code header} field. */
 	public NkStyleWindow header(NkStyleWindowHeader value) { nheader(address(), value); return this; }
@@ -233,14 +269,26 @@ public class NkStyleWindow extends Struct implements NativeResource {
 	public NkStyleWindow rounding(float value) { nrounding(address(), value); return this; }
 	/** Copies the specified {@link NkVec2} to the {@code scaler_size} field. */
 	public NkStyleWindow scaler_size(NkVec2 value) { nscaler_size(address(), value); return this; }
-	/** Copies the specified {@link NkVec2} to the {@code padding} field. */
-	public NkStyleWindow padding(NkVec2 value) { npadding(address(), value); return this; }
 	/** Copies the specified {@link NkVec2} to the {@code spacing} field. */
 	public NkStyleWindow spacing(NkVec2 value) { nspacing(address(), value); return this; }
 	/** Copies the specified {@link NkVec2} to the {@code scrollbar_size} field. */
 	public NkStyleWindow scrollbar_size(NkVec2 value) { nscrollbar_size(address(), value); return this; }
 	/** Copies the specified {@link NkVec2} to the {@code min_size} field. */
 	public NkStyleWindow min_size(NkVec2 value) { nmin_size(address(), value); return this; }
+	/** Copies the specified {@link NkVec2} to the {@code padding} field. */
+	public NkStyleWindow padding(NkVec2 value) { npadding(address(), value); return this; }
+	/** Copies the specified {@link NkVec2} to the {@code group_padding} field. */
+	public NkStyleWindow group_padding(NkVec2 value) { ngroup_padding(address(), value); return this; }
+	/** Copies the specified {@link NkVec2} to the {@code popup_padding} field. */
+	public NkStyleWindow popup_padding(NkVec2 value) { npopup_padding(address(), value); return this; }
+	/** Copies the specified {@link NkVec2} to the {@code combo_padding} field. */
+	public NkStyleWindow combo_padding(NkVec2 value) { ncombo_padding(address(), value); return this; }
+	/** Copies the specified {@link NkVec2} to the {@code contextual_padding} field. */
+	public NkStyleWindow contextual_padding(NkVec2 value) { ncontextual_padding(address(), value); return this; }
+	/** Copies the specified {@link NkVec2} to the {@code menu_padding} field. */
+	public NkStyleWindow menu_padding(NkVec2 value) { nmenu_padding(address(), value); return this; }
+	/** Copies the specified {@link NkVec2} to the {@code tooltip_padding} field. */
+	public NkStyleWindow tooltip_padding(NkVec2 value) { ntooltip_padding(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public NkStyleWindow set(
@@ -263,10 +311,16 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		float tooltip_border,
 		float rounding,
 		NkVec2 scaler_size,
-		NkVec2 padding,
 		NkVec2 spacing,
 		NkVec2 scrollbar_size,
-		NkVec2 min_size
+		NkVec2 min_size,
+		NkVec2 padding,
+		NkVec2 group_padding,
+		NkVec2 popup_padding,
+		NkVec2 combo_padding,
+		NkVec2 contextual_padding,
+		NkVec2 menu_padding,
+		NkVec2 tooltip_padding
 	) {
 		header(header);
 		fixed_background(fixed_background);
@@ -287,10 +341,16 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		tooltip_border(tooltip_border);
 		rounding(rounding);
 		scaler_size(scaler_size);
-		padding(padding);
 		spacing(spacing);
 		scrollbar_size(scrollbar_size);
 		min_size(min_size);
+		padding(padding);
+		group_padding(group_padding);
+		popup_padding(popup_padding);
+		combo_padding(combo_padding);
+		contextual_padding(contextual_padding);
+		menu_padding(menu_padding);
+		tooltip_padding(tooltip_padding);
 
 		return this;
 	}
@@ -479,14 +539,26 @@ public class NkStyleWindow extends Struct implements NativeResource {
 	public static float nrounding(long struct) { return memGetFloat(struct + NkStyleWindow.ROUNDING); }
 	/** Unsafe version of {@link #scaler_size}. */
 	public static NkVec2 nscaler_size(long struct) { return NkVec2.create(struct + NkStyleWindow.SCALER_SIZE); }
-	/** Unsafe version of {@link #padding}. */
-	public static NkVec2 npadding(long struct) { return NkVec2.create(struct + NkStyleWindow.PADDING); }
 	/** Unsafe version of {@link #spacing}. */
 	public static NkVec2 nspacing(long struct) { return NkVec2.create(struct + NkStyleWindow.SPACING); }
 	/** Unsafe version of {@link #scrollbar_size}. */
 	public static NkVec2 nscrollbar_size(long struct) { return NkVec2.create(struct + NkStyleWindow.SCROLLBAR_SIZE); }
 	/** Unsafe version of {@link #min_size}. */
 	public static NkVec2 nmin_size(long struct) { return NkVec2.create(struct + NkStyleWindow.MIN_SIZE); }
+	/** Unsafe version of {@link #padding}. */
+	public static NkVec2 npadding(long struct) { return NkVec2.create(struct + NkStyleWindow.PADDING); }
+	/** Unsafe version of {@link #group_padding}. */
+	public static NkVec2 ngroup_padding(long struct) { return NkVec2.create(struct + NkStyleWindow.GROUP_PADDING); }
+	/** Unsafe version of {@link #popup_padding}. */
+	public static NkVec2 npopup_padding(long struct) { return NkVec2.create(struct + NkStyleWindow.POPUP_PADDING); }
+	/** Unsafe version of {@link #combo_padding}. */
+	public static NkVec2 ncombo_padding(long struct) { return NkVec2.create(struct + NkStyleWindow.COMBO_PADDING); }
+	/** Unsafe version of {@link #contextual_padding}. */
+	public static NkVec2 ncontextual_padding(long struct) { return NkVec2.create(struct + NkStyleWindow.CONTEXTUAL_PADDING); }
+	/** Unsafe version of {@link #menu_padding}. */
+	public static NkVec2 nmenu_padding(long struct) { return NkVec2.create(struct + NkStyleWindow.MENU_PADDING); }
+	/** Unsafe version of {@link #tooltip_padding}. */
+	public static NkVec2 ntooltip_padding(long struct) { return NkVec2.create(struct + NkStyleWindow.TOOLTIP_PADDING); }
 
 	/** Unsafe version of {@link #header(NkStyleWindowHeader) header}. */
 	public static void nheader(long struct, NkStyleWindowHeader value) { memCopy(value.address(), struct + NkStyleWindow.HEADER, NkStyleWindowHeader.SIZEOF); }
@@ -526,14 +598,26 @@ public class NkStyleWindow extends Struct implements NativeResource {
 	public static void nrounding(long struct, float value) { memPutFloat(struct + NkStyleWindow.ROUNDING, value); }
 	/** Unsafe version of {@link #scaler_size(NkVec2) scaler_size}. */
 	public static void nscaler_size(long struct, NkVec2 value) { memCopy(value.address(), struct + NkStyleWindow.SCALER_SIZE, NkVec2.SIZEOF); }
-	/** Unsafe version of {@link #padding(NkVec2) padding}. */
-	public static void npadding(long struct, NkVec2 value) { memCopy(value.address(), struct + NkStyleWindow.PADDING, NkVec2.SIZEOF); }
 	/** Unsafe version of {@link #spacing(NkVec2) spacing}. */
 	public static void nspacing(long struct, NkVec2 value) { memCopy(value.address(), struct + NkStyleWindow.SPACING, NkVec2.SIZEOF); }
 	/** Unsafe version of {@link #scrollbar_size(NkVec2) scrollbar_size}. */
 	public static void nscrollbar_size(long struct, NkVec2 value) { memCopy(value.address(), struct + NkStyleWindow.SCROLLBAR_SIZE, NkVec2.SIZEOF); }
 	/** Unsafe version of {@link #min_size(NkVec2) min_size}. */
 	public static void nmin_size(long struct, NkVec2 value) { memCopy(value.address(), struct + NkStyleWindow.MIN_SIZE, NkVec2.SIZEOF); }
+	/** Unsafe version of {@link #padding(NkVec2) padding}. */
+	public static void npadding(long struct, NkVec2 value) { memCopy(value.address(), struct + NkStyleWindow.PADDING, NkVec2.SIZEOF); }
+	/** Unsafe version of {@link #group_padding(NkVec2) group_padding}. */
+	public static void ngroup_padding(long struct, NkVec2 value) { memCopy(value.address(), struct + NkStyleWindow.GROUP_PADDING, NkVec2.SIZEOF); }
+	/** Unsafe version of {@link #popup_padding(NkVec2) popup_padding}. */
+	public static void npopup_padding(long struct, NkVec2 value) { memCopy(value.address(), struct + NkStyleWindow.POPUP_PADDING, NkVec2.SIZEOF); }
+	/** Unsafe version of {@link #combo_padding(NkVec2) combo_padding}. */
+	public static void ncombo_padding(long struct, NkVec2 value) { memCopy(value.address(), struct + NkStyleWindow.COMBO_PADDING, NkVec2.SIZEOF); }
+	/** Unsafe version of {@link #contextual_padding(NkVec2) contextual_padding}. */
+	public static void ncontextual_padding(long struct, NkVec2 value) { memCopy(value.address(), struct + NkStyleWindow.CONTEXTUAL_PADDING, NkVec2.SIZEOF); }
+	/** Unsafe version of {@link #menu_padding(NkVec2) menu_padding}. */
+	public static void nmenu_padding(long struct, NkVec2 value) { memCopy(value.address(), struct + NkStyleWindow.MENU_PADDING, NkVec2.SIZEOF); }
+	/** Unsafe version of {@link #tooltip_padding(NkVec2) tooltip_padding}. */
+	public static void ntooltip_padding(long struct, NkVec2 value) { memCopy(value.address(), struct + NkStyleWindow.TOOLTIP_PADDING, NkVec2.SIZEOF); }
 
 	// -----------------------------------
 
@@ -615,14 +699,26 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		public float rounding() { return NkStyleWindow.nrounding(address()); }
 		/** Returns a {@link NkVec2} view of the {@code scaler_size} field. */
 		public NkVec2 scaler_size() { return NkStyleWindow.nscaler_size(address()); }
-		/** Returns a {@link NkVec2} view of the {@code padding} field. */
-		public NkVec2 padding() { return NkStyleWindow.npadding(address()); }
 		/** Returns a {@link NkVec2} view of the {@code spacing} field. */
 		public NkVec2 spacing() { return NkStyleWindow.nspacing(address()); }
 		/** Returns a {@link NkVec2} view of the {@code scrollbar_size} field. */
 		public NkVec2 scrollbar_size() { return NkStyleWindow.nscrollbar_size(address()); }
 		/** Returns a {@link NkVec2} view of the {@code min_size} field. */
 		public NkVec2 min_size() { return NkStyleWindow.nmin_size(address()); }
+		/** Returns a {@link NkVec2} view of the {@code padding} field. */
+		public NkVec2 padding() { return NkStyleWindow.npadding(address()); }
+		/** Returns a {@link NkVec2} view of the {@code group_padding} field. */
+		public NkVec2 group_padding() { return NkStyleWindow.ngroup_padding(address()); }
+		/** Returns a {@link NkVec2} view of the {@code popup_padding} field. */
+		public NkVec2 popup_padding() { return NkStyleWindow.npopup_padding(address()); }
+		/** Returns a {@link NkVec2} view of the {@code combo_padding} field. */
+		public NkVec2 combo_padding() { return NkStyleWindow.ncombo_padding(address()); }
+		/** Returns a {@link NkVec2} view of the {@code contextual_padding} field. */
+		public NkVec2 contextual_padding() { return NkStyleWindow.ncontextual_padding(address()); }
+		/** Returns a {@link NkVec2} view of the {@code menu_padding} field. */
+		public NkVec2 menu_padding() { return NkStyleWindow.nmenu_padding(address()); }
+		/** Returns a {@link NkVec2} view of the {@code tooltip_padding} field. */
+		public NkVec2 tooltip_padding() { return NkStyleWindow.ntooltip_padding(address()); }
 
 		/** Copies the specified {@link NkStyleWindowHeader} to the {@code header} field. */
 		public NkStyleWindow.Buffer header(NkStyleWindowHeader value) { NkStyleWindow.nheader(address(), value); return this; }
@@ -662,14 +758,26 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		public NkStyleWindow.Buffer rounding(float value) { NkStyleWindow.nrounding(address(), value); return this; }
 		/** Copies the specified {@link NkVec2} to the {@code scaler_size} field. */
 		public NkStyleWindow.Buffer scaler_size(NkVec2 value) { NkStyleWindow.nscaler_size(address(), value); return this; }
-		/** Copies the specified {@link NkVec2} to the {@code padding} field. */
-		public NkStyleWindow.Buffer padding(NkVec2 value) { NkStyleWindow.npadding(address(), value); return this; }
 		/** Copies the specified {@link NkVec2} to the {@code spacing} field. */
 		public NkStyleWindow.Buffer spacing(NkVec2 value) { NkStyleWindow.nspacing(address(), value); return this; }
 		/** Copies the specified {@link NkVec2} to the {@code scrollbar_size} field. */
 		public NkStyleWindow.Buffer scrollbar_size(NkVec2 value) { NkStyleWindow.nscrollbar_size(address(), value); return this; }
 		/** Copies the specified {@link NkVec2} to the {@code min_size} field. */
 		public NkStyleWindow.Buffer min_size(NkVec2 value) { NkStyleWindow.nmin_size(address(), value); return this; }
+		/** Copies the specified {@link NkVec2} to the {@code padding} field. */
+		public NkStyleWindow.Buffer padding(NkVec2 value) { NkStyleWindow.npadding(address(), value); return this; }
+		/** Copies the specified {@link NkVec2} to the {@code group_padding} field. */
+		public NkStyleWindow.Buffer group_padding(NkVec2 value) { NkStyleWindow.ngroup_padding(address(), value); return this; }
+		/** Copies the specified {@link NkVec2} to the {@code popup_padding} field. */
+		public NkStyleWindow.Buffer popup_padding(NkVec2 value) { NkStyleWindow.npopup_padding(address(), value); return this; }
+		/** Copies the specified {@link NkVec2} to the {@code combo_padding} field. */
+		public NkStyleWindow.Buffer combo_padding(NkVec2 value) { NkStyleWindow.ncombo_padding(address(), value); return this; }
+		/** Copies the specified {@link NkVec2} to the {@code contextual_padding} field. */
+		public NkStyleWindow.Buffer contextual_padding(NkVec2 value) { NkStyleWindow.ncontextual_padding(address(), value); return this; }
+		/** Copies the specified {@link NkVec2} to the {@code menu_padding} field. */
+		public NkStyleWindow.Buffer menu_padding(NkVec2 value) { NkStyleWindow.nmenu_padding(address(), value); return this; }
+		/** Copies the specified {@link NkVec2} to the {@code tooltip_padding} field. */
+		public NkStyleWindow.Buffer tooltip_padding(NkVec2 value) { NkStyleWindow.ntooltip_padding(address(), value); return this; }
 
 	}
 

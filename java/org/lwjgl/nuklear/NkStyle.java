@@ -1,6 +1,6 @@
 /*
  * Copyright LWJGL. All rights reserved.
- * License terms: http://lwjgl.org/license.php
+ * License terms: https://www.lwjgl.org/license
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 package org.lwjgl.nuklear;
@@ -18,10 +18,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_style {
-    {@link NkUserFont struct nk_user_font} font;
+    struct nk_user_font * font;
     struct nk_cursor *[7] cursors;
     struct nk_cursor * cursor_active;
     struct nk_cursor * cursor_last;
+    int cursor_visible;
     {@link NkStyleText struct nk_style_text} text;
     {@link NkStyleButton struct nk_style_button} button;
     {@link NkStyleButton struct nk_style_button} contextual_button;
@@ -54,6 +55,7 @@ public class NkStyle extends Struct implements NativeResource {
 		CURSORS,
 		CURSOR_ACTIVE,
 		CURSOR_LAST,
+		CURSOR_VISIBLE,
 		TEXT,
 		BUTTON,
 		CONTEXTUAL_BUTTON,
@@ -74,10 +76,11 @@ public class NkStyle extends Struct implements NativeResource {
 
 	static {
 		Layout layout = __struct(
-			__member(NkUserFont.SIZEOF, NkUserFont.ALIGNOF),
+			__member(POINTER_SIZE),
 			__array(POINTER_SIZE, 7),
 			__member(POINTER_SIZE),
 			__member(POINTER_SIZE),
+			__member(4),
 			__member(NkStyleText.SIZEOF, NkStyleText.ALIGNOF),
 			__member(NkStyleButton.SIZEOF, NkStyleButton.ALIGNOF),
 			__member(NkStyleButton.SIZEOF, NkStyleButton.ALIGNOF),
@@ -104,23 +107,24 @@ public class NkStyle extends Struct implements NativeResource {
 		CURSORS = layout.offsetof(1);
 		CURSOR_ACTIVE = layout.offsetof(2);
 		CURSOR_LAST = layout.offsetof(3);
-		TEXT = layout.offsetof(4);
-		BUTTON = layout.offsetof(5);
-		CONTEXTUAL_BUTTON = layout.offsetof(6);
-		MENU_BUTTON = layout.offsetof(7);
-		OPTION = layout.offsetof(8);
-		CHECKBOX = layout.offsetof(9);
-		SELECTABLE = layout.offsetof(10);
-		SLIDER = layout.offsetof(11);
-		PROGRESS = layout.offsetof(12);
-		PROPERTY = layout.offsetof(13);
-		EDIT = layout.offsetof(14);
-		CHART = layout.offsetof(15);
-		SCROLLH = layout.offsetof(16);
-		SCROLLV = layout.offsetof(17);
-		TAB = layout.offsetof(18);
-		COMBO = layout.offsetof(19);
-		WINDOW = layout.offsetof(20);
+		CURSOR_VISIBLE = layout.offsetof(4);
+		TEXT = layout.offsetof(5);
+		BUTTON = layout.offsetof(6);
+		CONTEXTUAL_BUTTON = layout.offsetof(7);
+		MENU_BUTTON = layout.offsetof(8);
+		OPTION = layout.offsetof(9);
+		CHECKBOX = layout.offsetof(10);
+		SELECTABLE = layout.offsetof(11);
+		SLIDER = layout.offsetof(12);
+		PROGRESS = layout.offsetof(13);
+		PROPERTY = layout.offsetof(14);
+		EDIT = layout.offsetof(15);
+		CHART = layout.offsetof(16);
+		SCROLLH = layout.offsetof(17);
+		SCROLLV = layout.offsetof(18);
+		TAB = layout.offsetof(19);
+		COMBO = layout.offsetof(20);
+		WINDOW = layout.offsetof(21);
 	}
 
 	NkStyle(long address, ByteBuffer container) {
@@ -140,7 +144,7 @@ public class NkStyle extends Struct implements NativeResource {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	/** Returns a {@link NkUserFont} view of the {@code font} field. */
+	/** Returns a {@link NkUserFont} view of the struct pointed to by the {@code font} field. */
 	public NkUserFont font() { return nfont(address()); }
 	/** Returns a {@link PointerBuffer} view of the {@code cursors} field. */
 	public PointerBuffer cursors() { return ncursors(address()); }
@@ -150,6 +154,8 @@ public class NkStyle extends Struct implements NativeResource {
 	public NkCursor cursor_active() { return ncursor_active(address()); }
 	/** Returns a {@link NkCursor} view of the struct pointed to by the {@code cursor_last} field. */
 	public NkCursor cursor_last() { return ncursor_last(address()); }
+	/** Returns the value of the {@code cursor_visible} field. */
+	public boolean cursor_visible() { return ncursor_visible(address()) != 0; }
 	/** Returns a {@link NkStyleText} view of the {@code text} field. */
 	public NkStyleText text() { return ntext(address()); }
 	/** Returns a {@link NkStyleButton} view of the {@code button} field. */
@@ -185,7 +191,7 @@ public class NkStyle extends Struct implements NativeResource {
 	/** Returns a {@link NkStyleWindow} view of the {@code window} field. */
 	public NkStyleWindow window() { return nwindow(address()); }
 
-	/** Copies the specified {@link NkUserFont} to the {@code font} field. */
+	/** Sets the address of the specified {@link NkUserFont} to the {@code font} field. */
 	public NkStyle font(NkUserFont value) { nfont(address(), value); return this; }
 	/** Copies the specified {@link PointerBuffer} to the {@code cursors} field. */
 	public NkStyle cursors(PointerBuffer value) { ncursors(address(), value); return this; }
@@ -195,6 +201,8 @@ public class NkStyle extends Struct implements NativeResource {
 	public NkStyle cursor_active(NkCursor value) { ncursor_active(address(), value); return this; }
 	/** Sets the address of the specified {@link NkCursor} to the {@code cursor_last} field. */
 	public NkStyle cursor_last(NkCursor value) { ncursor_last(address(), value); return this; }
+	/** Sets the specified value to the {@code cursor_visible} field. */
+	public NkStyle cursor_visible(boolean value) { ncursor_visible(address(), value ? 1 : 0); return this; }
 	/** Copies the specified {@link NkStyleText} to the {@code text} field. */
 	public NkStyle text(NkStyleText value) { ntext(address(), value); return this; }
 	/** Copies the specified {@link NkStyleButton} to the {@code button} field. */
@@ -236,6 +244,7 @@ public class NkStyle extends Struct implements NativeResource {
 		PointerBuffer cursors,
 		NkCursor cursor_active,
 		NkCursor cursor_last,
+		boolean cursor_visible,
 		NkStyleText text,
 		NkStyleButton button,
 		NkStyleButton contextual_button,
@@ -258,6 +267,7 @@ public class NkStyle extends Struct implements NativeResource {
 		cursors(cursors);
 		cursor_active(cursor_active);
 		cursor_last(cursor_last);
+		cursor_visible(cursor_visible);
 		text(text);
 		button(button);
 		contextual_button(contextual_button);
@@ -426,7 +436,7 @@ public class NkStyle extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** Unsafe version of {@link #font}. */
-	public static NkUserFont nfont(long struct) { return NkUserFont.create(struct + NkStyle.FONT); }
+	public static NkUserFont nfont(long struct) { return NkUserFont.create(memGetAddress(struct + NkStyle.FONT)); }
 	/** Unsafe version of {@link #cursors}. */
 	public static PointerBuffer ncursors(long struct) {
 		return memPointerBuffer(struct + NkStyle.CURSORS, 7);
@@ -439,6 +449,8 @@ public class NkStyle extends Struct implements NativeResource {
 	public static NkCursor ncursor_active(long struct) { return NkCursor.create(memGetAddress(struct + NkStyle.CURSOR_ACTIVE)); }
 	/** Unsafe version of {@link #cursor_last}. */
 	public static NkCursor ncursor_last(long struct) { return NkCursor.create(memGetAddress(struct + NkStyle.CURSOR_LAST)); }
+	/** Unsafe version of {@link #cursor_visible}. */
+	public static int ncursor_visible(long struct) { return memGetInt(struct + NkStyle.CURSOR_VISIBLE); }
 	/** Unsafe version of {@link #text}. */
 	public static NkStyleText ntext(long struct) { return NkStyleText.create(struct + NkStyle.TEXT); }
 	/** Unsafe version of {@link #button}. */
@@ -475,7 +487,7 @@ public class NkStyle extends Struct implements NativeResource {
 	public static NkStyleWindow nwindow(long struct) { return NkStyleWindow.create(struct + NkStyle.WINDOW); }
 
 	/** Unsafe version of {@link #font(NkUserFont) font}. */
-	public static void nfont(long struct, NkUserFont value) { memCopy(value.address(), struct + NkStyle.FONT, NkUserFont.SIZEOF); }
+	public static void nfont(long struct, NkUserFont value) { memPutAddress(struct + NkStyle.FONT, value.address()); }
 	/** Unsafe version of {@link #cursors(PointerBuffer) cursors}. */
 	public static void ncursors(long struct, PointerBuffer value) {
 		if ( CHECKS ) checkBufferGT(value, 7);
@@ -487,6 +499,8 @@ public class NkStyle extends Struct implements NativeResource {
 	public static void ncursor_active(long struct, NkCursor value) { memPutAddress(struct + NkStyle.CURSOR_ACTIVE, addressSafe(value)); }
 	/** Unsafe version of {@link #cursor_last(NkCursor) cursor_last}. */
 	public static void ncursor_last(long struct, NkCursor value) { memPutAddress(struct + NkStyle.CURSOR_LAST, addressSafe(value)); }
+	/** Unsafe version of {@link #cursor_visible(int) cursor_visible}. */
+	public static void ncursor_visible(long struct, int value) { memPutInt(struct + NkStyle.CURSOR_VISIBLE, value); }
 	/** Unsafe version of {@link #text(NkStyleText) text}. */
 	public static void ntext(long struct, NkStyleText value) { memCopy(value.address(), struct + NkStyle.TEXT, NkStyleText.SIZEOF); }
 	/** Unsafe version of {@link #button(NkStyleButton) button}. */
@@ -521,6 +535,26 @@ public class NkStyle extends Struct implements NativeResource {
 	public static void ncombo(long struct, NkStyleCombo value) { memCopy(value.address(), struct + NkStyle.COMBO, NkStyleCombo.SIZEOF); }
 	/** Unsafe version of {@link #window(NkStyleWindow) window}. */
 	public static void nwindow(long struct, NkStyleWindow value) { memCopy(value.address(), struct + NkStyle.WINDOW, NkStyleWindow.SIZEOF); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + NkStyle.FONT));
+	}
+
+	/**
+	 * Calls {@link #validate(long)} for each struct contained in the specified struct array.
+	 *
+	 * @param array the struct array to validate
+	 * @param count the number of structs in {@code array}
+	 */
+	public static void validate(long array, int count) {
+		for ( int i = 0; i < count; i++ )
+			validate(array + i * SIZEOF);
+	}
 
 	// -----------------------------------
 
@@ -564,7 +598,7 @@ public class NkStyle extends Struct implements NativeResource {
 			return SIZEOF;
 		}
 
-		/** Returns a {@link NkUserFont} view of the {@code font} field. */
+		/** Returns a {@link NkUserFont} view of the struct pointed to by the {@code font} field. */
 		public NkUserFont font() { return NkStyle.nfont(address()); }
 		/** Returns a {@link PointerBuffer} view of the {@code cursors} field. */
 		public PointerBuffer cursors() { return NkStyle.ncursors(address()); }
@@ -574,6 +608,8 @@ public class NkStyle extends Struct implements NativeResource {
 		public NkCursor cursor_active() { return NkStyle.ncursor_active(address()); }
 		/** Returns a {@link NkCursor} view of the struct pointed to by the {@code cursor_last} field. */
 		public NkCursor cursor_last() { return NkStyle.ncursor_last(address()); }
+		/** Returns the value of the {@code cursor_visible} field. */
+		public boolean cursor_visible() { return NkStyle.ncursor_visible(address()) != 0; }
 		/** Returns a {@link NkStyleText} view of the {@code text} field. */
 		public NkStyleText text() { return NkStyle.ntext(address()); }
 		/** Returns a {@link NkStyleButton} view of the {@code button} field. */
@@ -609,7 +645,7 @@ public class NkStyle extends Struct implements NativeResource {
 		/** Returns a {@link NkStyleWindow} view of the {@code window} field. */
 		public NkStyleWindow window() { return NkStyle.nwindow(address()); }
 
-		/** Copies the specified {@link NkUserFont} to the {@code font} field. */
+		/** Sets the address of the specified {@link NkUserFont} to the {@code font} field. */
 		public NkStyle.Buffer font(NkUserFont value) { NkStyle.nfont(address(), value); return this; }
 		/** Copies the specified {@link PointerBuffer} to the {@code cursors} field. */
 		public NkStyle.Buffer cursors(PointerBuffer value) { NkStyle.ncursors(address(), value); return this; }
@@ -619,6 +655,8 @@ public class NkStyle extends Struct implements NativeResource {
 		public NkStyle.Buffer cursor_active(NkCursor value) { NkStyle.ncursor_active(address(), value); return this; }
 		/** Sets the address of the specified {@link NkCursor} to the {@code cursor_last} field. */
 		public NkStyle.Buffer cursor_last(NkCursor value) { NkStyle.ncursor_last(address(), value); return this; }
+		/** Sets the specified value to the {@code cursor_visible} field. */
+		public NkStyle.Buffer cursor_visible(boolean value) { NkStyle.ncursor_visible(address(), value ? 1 : 0); return this; }
 		/** Copies the specified {@link NkStyleText} to the {@code text} field. */
 		public NkStyle.Buffer text(NkStyleText value) { NkStyle.ntext(address(), value); return this; }
 		/** Copies the specified {@link NkStyleButton} to the {@code button} field. */

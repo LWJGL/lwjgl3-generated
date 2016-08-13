@@ -1,6 +1,6 @@
 /*
  * Copyright LWJGL. All rights reserved.
- * License terms: http://lwjgl.org/license.php
+ * License terms: https://www.lwjgl.org/license
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 package org.lwjgl.system;
@@ -41,16 +41,12 @@ public final class JNI {
 	public static native float invokeF(long __functionAddress, int param0);
 	public static native int invokeI(long __functionAddress);
 	public static native int invokeI(long __functionAddress, int param0);
-	public static native int invokeI(long __functionAddress, int param0, int param1);
 	public static native int invokePI(long __functionAddress, long param0);
 	public static native int invokePI(long __functionAddress, long param0, int param1);
-	public static native int invokePPPI(long __functionAddress, long param0, int param1, int param2, long param3, long param4);
 	public static native int invokePPI(long __functionAddress, long param0, long param1);
 	public static native int invokePPI(long __functionAddress, long param0, long param1, int param2);
 	public static native int invokePPPI(long __functionAddress, long param0, long param1, long param2);
-	public static native int invokePPPI(long __functionAddress, long param0, long param1, long param2, int param3);
 	public static native int invokePPPPI(long __functionAddress, long param0, long param1, long param2, long param3);
-	public static native int invokePPPPI(long __functionAddress, long param0, long param1, long param2, long param3, int param4);
 	public static native int invokePPPPPI(long __functionAddress, long param0, long param1, long param2, long param3, long param4);
 	public static native int invokePPPPPPI(long __functionAddress, long param0, long param1, long param2, long param3, long param4, long param5);
 	public static native long invokeJ(long __functionAddress);
@@ -478,9 +474,7 @@ public final class JNI {
 
 	// Array API
 
-	public static native int invokePPPI(long __functionAddress, long param0, int param1, int param2, int[] param3, float[] param4);
 	public static native int invokePPPPI(long __functionAddress, long param0, long param1, long param2, long[] param3);
-	public static native int invokePPPPI(long __functionAddress, long param0, int[] param1, long param2, long param3);
 	public static native long invokePPP(long __functionAddress, long param0, int[] param1);
 	public static native void invokePV(long __functionAddress, int param0, int param1, double[] param2);
 	public static native void invokePPPV(long __functionAddress, int param0, int param1, double[] param2, double[] param3, double[] param4);
@@ -503,20 +497,15 @@ public final class JNI {
 	public static native void invokePPPV(long __functionAddress, long param0, int[] param1, int[] param2);
 	public static native void invokePPPPPV(long __functionAddress, long param0, int[] param1, int[] param2, int[] param3, int[] param4);
 	public static native void invokePPV(long __functionAddress, long param0, short[] param1, int param2);
-	public static native void invokePV(long __functionAddress, double[] param0);
 	public static native void invokePV(long __functionAddress, double[] param0, int param1);
 	public static native void invokePPV(long __functionAddress, double[] param0, long param1, int param2);
-	public static native void invokePV(long __functionAddress, float[] param0);
 	public static native void invokePV(long __functionAddress, float[] param0, int param1);
 	public static native void invokePPV(long __functionAddress, float[] param0, long param1, int param2);
-	public static native void invokePV(long __functionAddress, int[] param0);
 	public static native void invokePV(long __functionAddress, int[] param0, int param1);
 	public static native void invokePPV(long __functionAddress, int[] param0, long param1, int param2);
 	public static native void invokePPPV(long __functionAddress, int[] param0, int[] param1, int[] param2);
-	public static native void invokePV(long __functionAddress, long[] param0);
 	public static native void invokePV(long __functionAddress, long[] param0, int param1);
 	public static native void invokePPV(long __functionAddress, long[] param0, long param1, int param2);
-	public static native void invokePV(long __functionAddress, short[] param0);
 	public static native void invokePV(long __functionAddress, short[] param0, int param1);
 	public static native void invokePPV(long __functionAddress, short[] param0, long param1, int param2);
 	public static native boolean invokePPZ(long __functionAddress, long param0, int[] param1);

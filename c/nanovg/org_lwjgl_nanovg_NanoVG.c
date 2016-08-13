@@ -1,6 +1,6 @@
 /*
  * Copyright LWJGL. All rights reserved.
- * License terms: http://lwjgl.org/license.php
+ * License terms: https://www.lwjgl.org/license
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 #ifdef LWJGL_WINDOWS
@@ -48,6 +48,24 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgEndFrame(JNIEnv *__env, 
 	NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
 	UNUSED_PARAMS(__env, clazz)
 	nvgEndFrame(ctx);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgGlobalCompositeOperation(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint op) {
+	NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
+	UNUSED_PARAMS(__env, clazz)
+	nvgGlobalCompositeOperation(ctx, op);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgGlobalCompositeBlendFunc(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint sfactor, jint dfactor) {
+	NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
+	UNUSED_PARAMS(__env, clazz)
+	nvgGlobalCompositeBlendFunc(ctx, sfactor, dfactor);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgGlobalCompositeBlendFuncSeparate(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint srcRGB, jint dstRGB, jint srcAlpha, jint dstAlpha) {
+	NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
+	UNUSED_PARAMS(__env, clazz)
+	nvgGlobalCompositeBlendFuncSeparate(ctx, srcRGB, dstRGB, srcAlpha, dstAlpha);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgRGB(JNIEnv *__env, jclass clazz, jbyte r, jbyte g, jbyte b, jlong __result) {

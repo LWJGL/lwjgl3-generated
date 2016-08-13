@@ -1,6 +1,6 @@
 /*
  * Copyright LWJGL. All rights reserved.
- * License terms: http://lwjgl.org/license.php
+ * License terms: https://www.lwjgl.org/license
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 package org.lwjgl.glfw;
@@ -32,7 +32,7 @@ public class GLFW {
 	public static final int GLFW_VERSION_MINOR = 2;
 
 	/** The revision number of the GLFW library. This is incremented when a bug fix release is made that does not contain any API changes. */
-	public static final int GLFW_VERSION_REVISION = 0;
+	public static final int GLFW_VERSION_REVISION = 1;
 
 	/** Boolean values. */
 	public static final int
@@ -2790,7 +2790,7 @@ public class GLFW {
 	// --- [ glfwPostEmptyEvent ] ---
 
 	/**
-	 * Posts an empty event from the current thread to the main thread event queue, causing {@link #glfwWaitEvents WaitEvents} to return.
+	 * Posts an empty event from the current thread to the main thread event queue, causing {@link #glfwWaitEvents WaitEvents} or {@link #glfwWaitEventsTimeout WaitEventsTimeout} to return.
 	 * 
 	 * <p>If no windows exist, this function returns immediately. For synchronization of threads in applications that do not create windows, use your threading
 	 * library of choice.</p>
