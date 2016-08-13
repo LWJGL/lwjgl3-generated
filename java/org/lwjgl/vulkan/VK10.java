@@ -2674,10 +2674,6 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 * <ul>
 	 * <li>If {@code instance} is not {@code NULL}, {@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
 	 * <li>{@code pName} <b>must</b> be a null-terminated string</li>
-	 * <li>If {@code instance} is {@code NULL}, {@code pName} <b>must</b> be "vkEnumerateInstanceExtensionProperties", "vkEnumerateInstanceLayerProperties", or
-	 * "vkCreateInstance"</li>
-	 * <li>If {@code instance} is not {@code NULL}, {@code pName} <b>must not</b> be "vkEnumerateInstanceExtensionProperties", "vkEnumerateInstanceLayerProperties", or
-	 * "vkCreateInstance"</li>
 	 * </ul>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>LWJGL Note</h5>
@@ -2688,7 +2684,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * </div>
 	 *
-	 * @param instance the instance that the function pointer will be compatible with
+	 * @param instance the instance that the function pointer will be compatible with, or {@code NULL} for commands not dependent on any instance
 	 * @param pName    the name of the command to obtain
 	 */
 	public static long nvkGetInstanceProcAddr(VkInstance instance, long pName) {
@@ -2706,10 +2702,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <ul>
 	 * <li>If {@code instance} is not {@code NULL}, {@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
 	 * <li>{@code pName} <b>must</b> be a null-terminated string</li>
-	 * <li>If {@code instance} is {@code NULL}, {@code pName} <b>must</b> be "vkEnumerateInstanceExtensionProperties", "vkEnumerateInstanceLayerProperties", or
-	 * "vkCreateInstance"</li>
-	 * <li>If {@code instance} is not {@code NULL}, {@code pName} <b>must not</b> be "vkEnumerateInstanceExtensionProperties", "vkEnumerateInstanceLayerProperties", or
-	 * "vkCreateInstance"</li>
 	 * </ul>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>LWJGL Note</h5>
@@ -2720,7 +2712,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * </div>
 	 *
-	 * @param instance the instance that the function pointer will be compatible with
+	 * @param instance the instance that the function pointer will be compatible with, or {@code NULL} for commands not dependent on any instance
 	 * @param pName    the name of the command to obtain
 	 */
 	public static long vkGetInstanceProcAddr(VkInstance instance, ByteBuffer pName) {
@@ -2739,10 +2731,6 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <ul>
 	 * <li>If {@code instance} is not {@code NULL}, {@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
 	 * <li>{@code pName} <b>must</b> be a null-terminated string</li>
-	 * <li>If {@code instance} is {@code NULL}, {@code pName} <b>must</b> be "vkEnumerateInstanceExtensionProperties", "vkEnumerateInstanceLayerProperties", or
-	 * "vkCreateInstance"</li>
-	 * <li>If {@code instance} is not {@code NULL}, {@code pName} <b>must not</b> be "vkEnumerateInstanceExtensionProperties", "vkEnumerateInstanceLayerProperties", or
-	 * "vkCreateInstance"</li>
 	 * </ul>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>LWJGL Note</h5>
@@ -2753,7 +2741,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * </div>
 	 *
-	 * @param instance the instance that the function pointer will be compatible with
+	 * @param instance the instance that the function pointer will be compatible with, or {@code NULL} for commands not dependent on any instance
 	 * @param pName    the name of the command to obtain
 	 */
 	public static long vkGetInstanceProcAddr(VkInstance instance, CharSequence pName) {
@@ -9790,10 +9778,12 @@ or _unsignaled_.</p>
 	 * <li>{@code descriptorSetCount} <b>must</b> be greater than 0</li>
 	 * <li>Each of {@code commandBuffer}, {@code layout}, and the elements of {@code pDescriptorSets} <b>must</b> have been created, allocated, or retrieved from
 	 * the same {@code VkDevice}</li>
-	 * <li>Any given element of {@code pDescriptorSets} <b>must</b> have been created with a {@code VkDescriptorSetLayout} that matches (is the same as, or defined
-	 * identically to) the {@code VkDescriptorSetLayout} at set {@code n} in {@code layout}, where {@code n} is the sum of {@code firstSet} and the index
-	 * into {@code pDescriptorSets}</li>
+	 * <li>Any given element of {@code pDescriptorSets} <b>must</b> have been allocated with a {@code VkDescriptorSetLayout} that matches (is the same as, or
+	 * defined identically to) the {@code VkDescriptorSetLayout} at set {@code n} in {@code layout}, where {@code n} is the sum of {@code firstSet} and
+	 * the index into {@code pDescriptorSets}</li>
 	 * <li>{@code dynamicOffsetCount} <b>must</b> be equal to the total number of dynamic descriptors in {@code pDescriptorSets}</li>
+	 * <li>The sum of {@code firstSet} and {@code descriptorSetCount} <b>must</b> be less than or equal to {@link VkPipelineLayoutCreateInfo}{@code ::setLayoutCount}
+	 * provided when {@code layout} was created</li>
 	 * <li>{@code pipelineBindPoint} <b>must</b> be supported by the {@code commandBuffer}'s parent {@code VkCommandPool}'s queue family</li>
 	 * <li>Any given element of {@code pDynamicOffsets} <b>must</b> satisfy the required alignment for the corresponding descriptor binding's descriptor type</li>
 	 * </ul>
@@ -9869,10 +9859,12 @@ or _unsignaled_.</p>
 	 * <li>{@code descriptorSetCount} <b>must</b> be greater than 0</li>
 	 * <li>Each of {@code commandBuffer}, {@code layout}, and the elements of {@code pDescriptorSets} <b>must</b> have been created, allocated, or retrieved from
 	 * the same {@code VkDevice}</li>
-	 * <li>Any given element of {@code pDescriptorSets} <b>must</b> have been created with a {@code VkDescriptorSetLayout} that matches (is the same as, or defined
-	 * identically to) the {@code VkDescriptorSetLayout} at set {@code n} in {@code layout}, where {@code n} is the sum of {@code firstSet} and the index
-	 * into {@code pDescriptorSets}</li>
+	 * <li>Any given element of {@code pDescriptorSets} <b>must</b> have been allocated with a {@code VkDescriptorSetLayout} that matches (is the same as, or
+	 * defined identically to) the {@code VkDescriptorSetLayout} at set {@code n} in {@code layout}, where {@code n} is the sum of {@code firstSet} and
+	 * the index into {@code pDescriptorSets}</li>
 	 * <li>{@code dynamicOffsetCount} <b>must</b> be equal to the total number of dynamic descriptors in {@code pDescriptorSets}</li>
+	 * <li>The sum of {@code firstSet} and {@code descriptorSetCount} <b>must</b> be less than or equal to {@link VkPipelineLayoutCreateInfo}{@code ::setLayoutCount}
+	 * provided when {@code layout} was created</li>
 	 * <li>{@code pipelineBindPoint} <b>must</b> be supported by the {@code commandBuffer}'s parent {@code VkCommandPool}'s queue family</li>
 	 * <li>Any given element of {@code pDynamicOffsets} <b>must</b> satisfy the required alignment for the corresponding descriptor binding's descriptor type</li>
 	 * </ul>
@@ -12341,11 +12333,11 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * currently still active within {@code commandBuffer}</li>
 	 * <li>{@code query} <b>must</b> be less than the number of queries in {@code queryPool}</li>
 	 * <li>If the {@code queryType} used to create {@code queryPool} was {@link #VK_QUERY_TYPE_OCCLUSION QUERY_TYPE_OCCLUSION}, the {@code VkCommandPool} that {@code commandBuffer} was
-	 * created from <b>must</b> support graphics operations</li>
+	 * allocated from <b>must</b> support graphics operations</li>
 	 * <li>If the {@code queryType} used to create {@code queryPool} was {@link #VK_QUERY_TYPE_PIPELINE_STATISTICS QUERY_TYPE_PIPELINE_STATISTICS} and any of the {@code pipelineStatistics} indicate
-	 * graphics operations, the {@code VkCommandPool} that {@code commandBuffer} was created from <b>must</b> support graphics operations</li>
+	 * graphics operations, the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
 	 * <li>If the {@code queryType} used to create {@code queryPool} was {@link #VK_QUERY_TYPE_PIPELINE_STATISTICS QUERY_TYPE_PIPELINE_STATISTICS} and any of the {@code pipelineStatistics} indicate
-	 * compute operations, the {@code VkCommandPool} that {@code commandBuffer} was created from <b>must</b> support compute operations</li>
+	 * compute operations, the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support compute operations</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -12977,13 +12969,15 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code commandBufferCount} <b>must</b> be greater than 0</li>
 	 * <li>Both of {@code commandBuffer}, and the elements of {@code pCommandBuffers} <b>must</b> have been created, allocated, or retrieved from the same
 	 * {@code VkDevice}</li>
-	 * <li>{@code commandBuffer} <b>must</b> have been created with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_PRIMARY COMMAND_BUFFER_LEVEL_PRIMARY}</li>
-	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> have been created with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_SECONDARY COMMAND_BUFFER_LEVEL_SECONDARY}</li>
+	 * <li>{@code commandBuffer} <b>must</b> have been allocated with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_PRIMARY COMMAND_BUFFER_LEVEL_PRIMARY}</li>
+	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> have been allocated with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_SECONDARY COMMAND_BUFFER_LEVEL_SECONDARY}</li>
 	 * <li>Any given element of {@code pCommandBuffers} <b>must not</b> be already pending execution in {@code commandBuffer}, or appear twice in
-	 * {@code pCommandBuffers}, unless it was created with the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag</li>
-	 * <li>Any given element of {@code pCommandBuffers} <b>must not</b> be already pending execution in any other {@code VkCommandBuffer}, unless it was created with
-	 * the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag</li>
+	 * {@code pCommandBuffers}, unless it was recorded with the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag</li>
+	 * <li>Any given element of {@code pCommandBuffers} <b>must not</b> be already pending execution in any other {@code VkCommandBuffer}, unless it was recorded
+	 * with the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag</li>
 	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> be in the executable state</li>
+	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> have been allocated from a {@code VkCommandPool} that was created for the same queue family as
+	 * the {@code VkCommandPool} from which {@code commandBuffer} was allocated</li>
 	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, that render pass instance <b>must</b> have been begun with the {@code contents}
 	 * parameter of {@link #vkCmdBeginRenderPass CmdBeginRenderPass} set to {@link #VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS}</li>
 	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, any given element of {@code pCommandBuffers} <b>must</b> have been recorded with
@@ -12995,6 +12989,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, and any given element of {@code pCommandBuffers} was recorded with
 	 * {@link VkCommandBufferInheritanceInfo}{@code ::framebuffer} not equal to {@link #VK_NULL_HANDLE NULL_HANDLE}, that {@code VkFramebuffer} <b>must</b> match the {@code VkFramebuffer}
 	 * used in the current render pass instance</li>
+	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is not being called within a render pass instance, any given element of {@code pCommandBuffers} <b>must not</b> have been
+	 * recorded with the {@link #VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT}</li>
 	 * <li>If the inherited queries feature is not enabled, {@code commandBuffer} <b>must not</b> have any queries active</li>
 	 * <li>If {@code commandBuffer} has a {@link #VK_QUERY_TYPE_OCCLUSION QUERY_TYPE_OCCLUSION} query active, then each element of {@code pCommandBuffers} <b>must</b> have been recorded with
 	 * {@link VkCommandBufferInheritanceInfo}{@code ::occlusionQueryEnable} set to {@link #VK_TRUE TRUE}</li>
@@ -13014,7 +13010,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <p>Once {@code vkCmdExecuteCommands} has been called, any prior executions of the secondary command buffers specified by {@code pCommandBuffers} in any
 	 * other primary command buffer become invalidated, unless those secondary command buffers were recorded with {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT}.</p>
 	 *
-	 * @param commandBuffer      a handle to a primary command buffer that the secondary command buffers are submitted to, and <b>must</b> be in the recording state
+	 * @param commandBuffer      a handle to a primary command buffer that the secondary command buffers are executed in
 	 * @param commandBufferCount the length of the {@code pCommandBuffers} array
 	 * @param pCommandBuffers    an array of secondary command buffer handles, which are recorded to execute in the primary command buffer in the order they are listed in the
 	 *                           array
@@ -13043,13 +13039,15 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code commandBufferCount} <b>must</b> be greater than 0</li>
 	 * <li>Both of {@code commandBuffer}, and the elements of {@code pCommandBuffers} <b>must</b> have been created, allocated, or retrieved from the same
 	 * {@code VkDevice}</li>
-	 * <li>{@code commandBuffer} <b>must</b> have been created with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_PRIMARY COMMAND_BUFFER_LEVEL_PRIMARY}</li>
-	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> have been created with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_SECONDARY COMMAND_BUFFER_LEVEL_SECONDARY}</li>
+	 * <li>{@code commandBuffer} <b>must</b> have been allocated with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_PRIMARY COMMAND_BUFFER_LEVEL_PRIMARY}</li>
+	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> have been allocated with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_SECONDARY COMMAND_BUFFER_LEVEL_SECONDARY}</li>
 	 * <li>Any given element of {@code pCommandBuffers} <b>must not</b> be already pending execution in {@code commandBuffer}, or appear twice in
-	 * {@code pCommandBuffers}, unless it was created with the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag</li>
-	 * <li>Any given element of {@code pCommandBuffers} <b>must not</b> be already pending execution in any other {@code VkCommandBuffer}, unless it was created with
-	 * the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag</li>
+	 * {@code pCommandBuffers}, unless it was recorded with the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag</li>
+	 * <li>Any given element of {@code pCommandBuffers} <b>must not</b> be already pending execution in any other {@code VkCommandBuffer}, unless it was recorded
+	 * with the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag</li>
 	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> be in the executable state</li>
+	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> have been allocated from a {@code VkCommandPool} that was created for the same queue family as
+	 * the {@code VkCommandPool} from which {@code commandBuffer} was allocated</li>
 	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, that render pass instance <b>must</b> have been begun with the {@code contents}
 	 * parameter of {@link #vkCmdBeginRenderPass CmdBeginRenderPass} set to {@link #VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS}</li>
 	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, any given element of {@code pCommandBuffers} <b>must</b> have been recorded with
@@ -13061,6 +13059,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, and any given element of {@code pCommandBuffers} was recorded with
 	 * {@link VkCommandBufferInheritanceInfo}{@code ::framebuffer} not equal to {@link #VK_NULL_HANDLE NULL_HANDLE}, that {@code VkFramebuffer} <b>must</b> match the {@code VkFramebuffer}
 	 * used in the current render pass instance</li>
+	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is not being called within a render pass instance, any given element of {@code pCommandBuffers} <b>must not</b> have been
+	 * recorded with the {@link #VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT}</li>
 	 * <li>If the inherited queries feature is not enabled, {@code commandBuffer} <b>must not</b> have any queries active</li>
 	 * <li>If {@code commandBuffer} has a {@link #VK_QUERY_TYPE_OCCLUSION QUERY_TYPE_OCCLUSION} query active, then each element of {@code pCommandBuffers} <b>must</b> have been recorded with
 	 * {@link VkCommandBufferInheritanceInfo}{@code ::occlusionQueryEnable} set to {@link #VK_TRUE TRUE}</li>
@@ -13080,7 +13080,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <p>Once {@code vkCmdExecuteCommands} has been called, any prior executions of the secondary command buffers specified by {@code pCommandBuffers} in any
 	 * other primary command buffer become invalidated, unless those secondary command buffers were recorded with {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT}.</p>
 	 *
-	 * @param commandBuffer   a handle to a primary command buffer that the secondary command buffers are submitted to, and <b>must</b> be in the recording state
+	 * @param commandBuffer   a handle to a primary command buffer that the secondary command buffers are executed in
 	 * @param pCommandBuffers an array of secondary command buffer handles, which are recorded to execute in the primary command buffer in the order they are listed in the
 	 *                        array
 	 */
@@ -13107,13 +13107,15 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code commandBufferCount} <b>must</b> be greater than 0</li>
 	 * <li>Both of {@code commandBuffer}, and the elements of {@code pCommandBuffers} <b>must</b> have been created, allocated, or retrieved from the same
 	 * {@code VkDevice}</li>
-	 * <li>{@code commandBuffer} <b>must</b> have been created with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_PRIMARY COMMAND_BUFFER_LEVEL_PRIMARY}</li>
-	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> have been created with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_SECONDARY COMMAND_BUFFER_LEVEL_SECONDARY}</li>
+	 * <li>{@code commandBuffer} <b>must</b> have been allocated with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_PRIMARY COMMAND_BUFFER_LEVEL_PRIMARY}</li>
+	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> have been allocated with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_SECONDARY COMMAND_BUFFER_LEVEL_SECONDARY}</li>
 	 * <li>Any given element of {@code pCommandBuffers} <b>must not</b> be already pending execution in {@code commandBuffer}, or appear twice in
-	 * {@code pCommandBuffers}, unless it was created with the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag</li>
-	 * <li>Any given element of {@code pCommandBuffers} <b>must not</b> be already pending execution in any other {@code VkCommandBuffer}, unless it was created with
-	 * the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag</li>
+	 * {@code pCommandBuffers}, unless it was recorded with the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag</li>
+	 * <li>Any given element of {@code pCommandBuffers} <b>must not</b> be already pending execution in any other {@code VkCommandBuffer}, unless it was recorded
+	 * with the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag</li>
 	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> be in the executable state</li>
+	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> have been allocated from a {@code VkCommandPool} that was created for the same queue family as
+	 * the {@code VkCommandPool} from which {@code commandBuffer} was allocated</li>
 	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, that render pass instance <b>must</b> have been begun with the {@code contents}
 	 * parameter of {@link #vkCmdBeginRenderPass CmdBeginRenderPass} set to {@link #VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS}</li>
 	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, any given element of {@code pCommandBuffers} <b>must</b> have been recorded with
@@ -13125,6 +13127,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, and any given element of {@code pCommandBuffers} was recorded with
 	 * {@link VkCommandBufferInheritanceInfo}{@code ::framebuffer} not equal to {@link #VK_NULL_HANDLE NULL_HANDLE}, that {@code VkFramebuffer} <b>must</b> match the {@code VkFramebuffer}
 	 * used in the current render pass instance</li>
+	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is not being called within a render pass instance, any given element of {@code pCommandBuffers} <b>must not</b> have been
+	 * recorded with the {@link #VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT}</li>
 	 * <li>If the inherited queries feature is not enabled, {@code commandBuffer} <b>must not</b> have any queries active</li>
 	 * <li>If {@code commandBuffer} has a {@link #VK_QUERY_TYPE_OCCLUSION QUERY_TYPE_OCCLUSION} query active, then each element of {@code pCommandBuffers} <b>must</b> have been recorded with
 	 * {@link VkCommandBufferInheritanceInfo}{@code ::occlusionQueryEnable} set to {@link #VK_TRUE TRUE}</li>
@@ -13144,7 +13148,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <p>Once {@code vkCmdExecuteCommands} has been called, any prior executions of the secondary command buffers specified by {@code pCommandBuffers} in any
 	 * other primary command buffer become invalidated, unless those secondary command buffers were recorded with {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT}.</p>
 	 *
-	 * @param commandBuffer a handle to a primary command buffer that the secondary command buffers are submitted to, and <b>must</b> be in the recording state
+	 * @param commandBuffer a handle to a primary command buffer that the secondary command buffers are executed in
 	 */
 	public static void vkCmdExecuteCommands(VkCommandBuffer commandBuffer, VkCommandBuffer pCommandBuffer) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();

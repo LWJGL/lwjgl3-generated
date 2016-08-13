@@ -79,7 +79,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * create {@code image}, as defined in Format Compatibility Classes</li>
  * <li>If {@code image} was not created with the {@link VK10#VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT IMAGE_CREATE_MUTABLE_FORMAT_BIT} flag, {@code format} <b>must</b> be identical to the {@code format} used to
  * create {@code image}</li>
- * <li>{@code subResourceRange} and {@code viewType} <b>must</b> be compatible with the image, as described in the table below</li>
+ * <li>{@code subResourceRange} and {@code viewType} <b>must</b> be compatible with the image, as described in the compatibility table</li>
  * </ul>
  * 
  * <h3>Member documentation</h3>
@@ -92,7 +92,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code viewType} &ndash; the type of the image view. One of:<br><table><tr><td>{@link VK10#VK_IMAGE_VIEW_TYPE_1D IMAGE_VIEW_TYPE_1D}</td><td>{@link VK10#VK_IMAGE_VIEW_TYPE_1D_ARRAY IMAGE_VIEW_TYPE_1D_ARRAY}</td><td>{@link VK10#VK_IMAGE_VIEW_TYPE_2D IMAGE_VIEW_TYPE_2D}</td></tr><tr><td>{@link VK10#VK_IMAGE_VIEW_TYPE_2D_ARRAY IMAGE_VIEW_TYPE_2D_ARRAY}</td><td>{@link VK10#VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}</td><td>{@link VK10#VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}</td></tr><tr><td>{@link VK10#VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}</td></tr></table></li>
  * <li>{@code format} &ndash; a {@code VkFormat} describing the format and type used to interpret data elements in the image</li>
  * <li>{@code components} &ndash; a remapping of color components (or of depth or stencil components after they have been converted into color components)</li>
- * <li>{@code subresourceRange} &ndash; selects the set of mipmap levels and array layers to be accessible to the view</li>
+ * <li>{@code subresourceRange} &ndash; a {@link VkImageSubresourceRange} selecting the set of mipmap levels and array layers</li>
  * </ul>
  * 
  * <h3>Layout</h3>

@@ -38,14 +38,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_INFO STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_INFO}</li>
  * <li>{@code pNext} &ndash; reserved for use by extensions</li>
  * <li>{@code renderPass} &ndash; 
- * a {@code VkRenderPass} object that must be compatible with the one that is bound when the {@code VkCommandBuffer} is executed if the command buffer was
- * allocated with the {@link VK10#VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT} set</li>
+ * a {@code VkRenderPass} object defining which render passes the {@code VkCommandBuffer} will be compatible with and <b>can</b> be executed within. If the
+ * {@code VkCommandBuffer} will not be executed within a render pass instance, {@code renderPass} is ignored.</li>
  * <li>{@code subpass} &ndash; 
- * the index of the subpass within {@code renderPass} that the {@code VkCommandBuffer} will be rendering against if it was allocated with the
- * {@link VK10#VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT} set</li>
+ * the index of the subpass within {@code renderPass} that the {@code VkCommandBuffer} will be executed within. If the {@code VkCommandBuffer} will not be
+ * executed within a render pass instance, {@code subpass} is ignored.</li>
  * <li>{@code framebuffer} &ndash; 
- * refers to the {@code VkFramebuffer} object that the {@code VkCommandBuffer} will be rendering to if it was allocated with the
- * {@link VK10#VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT} set. It can be {@link VK10#VK_NULL_HANDLE NULL_HANDLE} if the framebuffer is not known.</li>
+ * optionally refers to the {@code VkFramebuffer} object that the {@code VkCommandBuffer} will be rendering to if it is executed within a render pass
+ * instance. It <b>can</b> be {@link VK10#VK_NULL_HANDLE NULL_HANDLE} if the framebuffer is not known, or if the {@code VkCommandBuffer} will not be executed within a render pass
+ * instance.</li>
  * <li>{@code occlusionQueryEnable} &ndash; indicates whether the command buffer can be executed while an occlusion query is active in the primary command buffer</li>
  * <li>{@code queryFlags} &ndash; indicates the query flags that can be used by an active occlusion query in the primary command buffer when this secondary command buffer is executed. One or more of:<br><table><tr><td>{@link VK10#VK_QUERY_CONTROL_PRECISE_BIT QUERY_CONTROL_PRECISE_BIT}</td></tr></table></li>
  * <li>{@code pipelineStatistics} &ndash; indicates the set of pipeline statistics that can be counted by an active query in the primary command buffer when this secondary command buffer is

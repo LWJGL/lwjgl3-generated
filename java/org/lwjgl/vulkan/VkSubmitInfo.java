@@ -42,16 +42,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>Any given element of {@code pCommandBuffers} <b>must</b> be in the executable state</li>
  * <li>If any given element of {@code pCommandBuffers} contains commands that execute secondary command buffers, those secondary command buffers <b>must</b>
  * have been recorded with the {@link VK10#VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT}, or not currently be executing on the device</li>
- * <li>If any given element of {@code pCommandBuffers} was created with {@link VK10#VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT}, it <b>must not</b> have been previously
+ * <li>If any given element of {@code pCommandBuffers} was recorded with {@link VK10#VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT}, it <b>must not</b> have been previously
  * submitted without re-recording that command buffer</li>
- * <li>If any given element of {@code pCommandBuffers} contains commands that execute secondary command buffers created with
+ * <li>If any given element of {@code pCommandBuffers} contains commands that execute secondary command buffers recorded with
  * {@link VK10#VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT}, each such secondary command buffer <b>must not</b> have been previously submitted without re-recording that
  * command buffer</li>
  * <li>Any given element of {@code pCommandBuffers} <b>must not</b> contain commands that execute a secondary command buffer, if that secondary command buffer
  * has been recorded in another primary command buffer after it was recorded into this {@code VkCommandBuffer}</li>
- * <li>Any given element of {@code pCommandBuffers} <b>must</b> have been created on a {@code VkCommandPool} that was created for the same queue family that the
- * calling command's {@code queue} belongs to</li>
- * <li>Any given element of {@code pCommandBuffers} <b>must not</b> have been created with {@link VK10#VK_COMMAND_BUFFER_LEVEL_SECONDARY COMMAND_BUFFER_LEVEL_SECONDARY}</li>
+ * <li>Any given element of {@code pCommandBuffers} <b>must</b> have been allocated from a {@code VkCommandPool} that was created for the same queue family that
+ * the calling command's {@code queue} belongs to</li>
+ * <li>Any given element of {@code pCommandBuffers} <b>must not</b> have been allocated with {@link VK10#VK_COMMAND_BUFFER_LEVEL_SECONDARY COMMAND_BUFFER_LEVEL_SECONDARY}</li>
  * <li>Any given element of {@code VkSemaphore} in {@code pWaitSemaphores} <b>must</b> refer to a prior signal of that {@code VkSemaphore} that will not be
  * consumed by any other wait on that semaphore</li>
  * <li>If the geometry shaders feature is not enabled, any given element of {@code pWaitDstStageMask} <b>must not</b> contain {@link VK10#VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
