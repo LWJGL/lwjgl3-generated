@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -86,43 +85,6 @@ public class OVRTimewarpProjectionDesc extends Struct implements NativeResource 
 	public float Projection23() { return nProjection23(address()); }
 	/** Returns the value of the {@code Projection32} field. */
 	public float Projection32() { return nProjection32(address()); }
-
-	/** Sets the specified value to the {@code Projection22} field. */
-	public OVRTimewarpProjectionDesc Projection22(float value) { nProjection22(address(), value); return this; }
-	/** Sets the specified value to the {@code Projection23} field. */
-	public OVRTimewarpProjectionDesc Projection23(float value) { nProjection23(address(), value); return this; }
-	/** Sets the specified value to the {@code Projection32} field. */
-	public OVRTimewarpProjectionDesc Projection32(float value) { nProjection32(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public OVRTimewarpProjectionDesc set(
-		float Projection22,
-		float Projection23,
-		float Projection32
-	) {
-		Projection22(Projection22);
-		Projection23(Projection23);
-		Projection32(Projection32);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(OVRTimewarpProjectionDesc) set}. */
-	public OVRTimewarpProjectionDesc nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public OVRTimewarpProjectionDesc set(OVRTimewarpProjectionDesc src) {
-		return nset(src.address());
-	}
 
 	// -----------------------------------
 
@@ -260,13 +222,6 @@ public class OVRTimewarpProjectionDesc extends Struct implements NativeResource 
 	/** Unsafe version of {@link #Projection32}. */
 	public static float nProjection32(long struct) { return memGetFloat(struct + OVRTimewarpProjectionDesc.PROJECTION32); }
 
-	/** Unsafe version of {@link #Projection22(float) Projection22}. */
-	public static void nProjection22(long struct, float value) { memPutFloat(struct + OVRTimewarpProjectionDesc.PROJECTION22, value); }
-	/** Unsafe version of {@link #Projection23(float) Projection23}. */
-	public static void nProjection23(long struct, float value) { memPutFloat(struct + OVRTimewarpProjectionDesc.PROJECTION23, value); }
-	/** Unsafe version of {@link #Projection32(float) Projection32}. */
-	public static void nProjection32(long struct, float value) { memPutFloat(struct + OVRTimewarpProjectionDesc.PROJECTION32, value); }
-
 	// -----------------------------------
 
 	/** An array of {@link OVRTimewarpProjectionDesc} structs. */
@@ -315,13 +270,6 @@ public class OVRTimewarpProjectionDesc extends Struct implements NativeResource 
 		public float Projection23() { return OVRTimewarpProjectionDesc.nProjection23(address()); }
 		/** Returns the value of the {@code Projection32} field. */
 		public float Projection32() { return OVRTimewarpProjectionDesc.nProjection32(address()); }
-
-		/** Sets the specified value to the {@code Projection22} field. */
-		public OVRTimewarpProjectionDesc.Buffer Projection22(float value) { OVRTimewarpProjectionDesc.nProjection22(address(), value); return this; }
-		/** Sets the specified value to the {@code Projection23} field. */
-		public OVRTimewarpProjectionDesc.Buffer Projection23(float value) { OVRTimewarpProjectionDesc.nProjection23(address(), value); return this; }
-		/** Sets the specified value to the {@code Projection32} field. */
-		public OVRTimewarpProjectionDesc.Buffer Projection32(float value) { OVRTimewarpProjectionDesc.nProjection32(address(), value); return this; }
 
 	}
 

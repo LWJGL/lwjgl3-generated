@@ -207,9 +207,6 @@ public class OVR {
 	/** Button RShoulder */
 	public static final int ovrButton_RShoulder = 0x8;
 
-	/** Bit mask of all buttons on the right Touch controller */
-	public static final int ovrButton_RMask = ovrButton_A | ovrButton_B | ovrButton_RThumb | ovrButton_RShoulder;
-
 	/** Button X */
 	public static final int ovrButton_X = 0x100;
 
@@ -221,9 +218,6 @@ public class OVR {
 
 	/** Button LShoulder */
 	public static final int ovrButton_LShoulder = 0x800;
-
-	/** Bit mask of all buttons on the left Touch controller */
-	public static final int ovrButton_LMask = ovrButton_X | ovrButton_Y | ovrButton_LThumb | ovrButton_LShoulder;
 
 	/** Button Up */
 	public static final int ovrButton_Up = 0x10000;
@@ -251,6 +245,12 @@ public class OVR {
 
 	/** Button Home */
 	public static final int ovrButton_Home = 0x1000000;
+
+	/** Bit mask of all buttons on the right Touch controller */
+	public static final int ovrButton_RMask = ovrButton_A | ovrButton_B | ovrButton_RThumb | ovrButton_RShoulder;
+
+	/** Bit mask of all buttons on the left Touch controller */
+	public static final int ovrButton_LMask = ovrButton_X | ovrButton_Y | ovrButton_LThumb | ovrButton_LShoulder | ovrButton_Enter;
 
 	/** Button input types. ({@code ovrTouch}) */
 	public static final int ovrButton_Private = ovrButton_VolUp | ovrButton_VolDown | ovrButton_Home;
@@ -320,6 +320,17 @@ public class OVR {
 
 	/** Operate on or query whichever controller is active. */
 	public static final int ovrControllerType_Active = 0xFF;
+
+	/** Enqueue buffer for later playback */
+	public static final int ovrHapticsBufferSubmit_Enqueue = 0;
+
+	/** Position tracked devices. ({@code ovrTrackedDeviceType}) */
+	public static final int
+		ovrTrackedDevice_HMD    = 0x1,
+		ovrTrackedDevice_LTouch = 0x2,
+		ovrTrackedDevice_RTouch = 0x4,
+		ovrTrackedDevice_Touch  = 0x6,
+		ovrTrackedDevice_All    = 0xFFFF;
 
 	/** Names for the left and right hand array indexes. ({@code ovrHandType}) */
 	public static final int
@@ -750,7 +761,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	/**
 	 * Returns a given sensor description.
 	 * 
-	 * <p>It's possible that sensor {@code desc [0]} may indicate a unconnnected or non-pose tracked sensor, but sensor {@code desc [1]} may be connected.</p>
+	 * <p>It's possible that sensor {@code desc [0]} may indicate a unconnected or non-pose tracked sensor, but sensor {@code desc [1]} may be connected.</p>
 	 * 
 	 * <p>{@link #ovr_Initialize Initialize} must have first been called in order for this to succeed, otherwise the returned {@code trackerDescArray} will be zero-initialized. The
 	 * data returned by this function can change at runtime.</p>
@@ -764,7 +775,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	/**
 	 * Returns a given sensor description.
 	 * 
-	 * <p>It's possible that sensor {@code desc [0]} may indicate a unconnnected or non-pose tracked sensor, but sensor {@code desc [1]} may be connected.</p>
+	 * <p>It's possible that sensor {@code desc [0]} may indicate a unconnected or non-pose tracked sensor, but sensor {@code desc [1]} may be connected.</p>
 	 * 
 	 * <p>{@link #ovr_Initialize Initialize} must have first been called in order for this to succeed, otherwise the returned {@code trackerDescArray} will be zero-initialized. The
 	 * data returned by this function can change at runtime.</p>
@@ -1086,35 +1097,62 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 		return novr_GetConnectedControllerTypes(session);
 	}
 
+	// --- [ ovr_GetTouchHapticsDesc ] ---
+
+	/**
+	 * Gets information about Haptics engine for the specified Touch controller.
+	 *
+	 * @param session        an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param controllerType the controller to retrieve the information from
+	 * @param __result       an {@link OVRTouchHapticsDesc}
+	 */
+	public static native void novr_GetTouchHapticsDesc(long session, int controllerType, long __result);
+
+	/**
+	 * Gets information about Haptics engine for the specified Touch controller.
+	 *
+	 * @param session        an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param controllerType the controller to retrieve the information from
+	 * @param __result       an {@link OVRTouchHapticsDesc}
+	 */
+	public static OVRTouchHapticsDesc ovr_GetTouchHapticsDesc(long session, int controllerType, OVRTouchHapticsDesc __result) {
+		if ( CHECKS )
+			checkPointer(session);
+		novr_GetTouchHapticsDesc(session, controllerType, __result.address());
+		return __result;
+	}
+
 	// --- [ ovr_SetControllerVibration ] ---
 
 	/**
-	 * Turns on vibration of the given controller.
+	 * Sets constant vibration (with specified frequency and amplitude) to a controller.
 	 * 
-	 * <p>To disable vibration, call {@link #ovr_SetControllerVibration SetControllerVibration} with an amplitude of 0. Vibration automatically stops after a nominal amount of time, so if you
-	 * want vibration to be continuous over multiple seconds then you need to call this function periodically.</p>
+	 * <p>Note: {@code ovr_SetControllerVibration} cannot be used interchangeably with {@link #ovr_SubmitControllerVibration SubmitControllerVibration}.</p>
+	 * 
+	 * <p>This method should be called periodically, vibration lasts for a maximum of 2.5 seconds. It's recommended to call this method once a second, calls will
+	 * be rejected if called too frequently (over 30hz).</p>
 	 *
 	 * @param session        an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param controllerType the controller to apply the vibration to
-	 * @param frequency      a vibration frequency in the range of 0.0 to 1.0. Currently the only valid values are 0.0, 0.5, and 1.0 and other values will be clamped to one of
-	 *                       these.
-	 * @param amplitude      a vibration amplitude in the range of 0.0 to 1.0.
+	 * @param controllerType the controller to set the vibration to
+	 * @param frequency      the vibration frequency. Supported values are: 0.0 (disabled), 0.5 and 1.0. Non valid values will be clamped.
+	 * @param amplitude      the vibration amplitude in the {@code [0.0, 1.0]} range
 	 *
 	 * @return {@link OVRErrorCode#ovrSuccess Success} upon success
 	 */
 	public static native int novr_SetControllerVibration(long session, int controllerType, float frequency, float amplitude);
 
 	/**
-	 * Turns on vibration of the given controller.
+	 * Sets constant vibration (with specified frequency and amplitude) to a controller.
 	 * 
-	 * <p>To disable vibration, call {@link #ovr_SetControllerVibration SetControllerVibration} with an amplitude of 0. Vibration automatically stops after a nominal amount of time, so if you
-	 * want vibration to be continuous over multiple seconds then you need to call this function periodically.</p>
+	 * <p>Note: {@code ovr_SetControllerVibration} cannot be used interchangeably with {@link #ovr_SubmitControllerVibration SubmitControllerVibration}.</p>
+	 * 
+	 * <p>This method should be called periodically, vibration lasts for a maximum of 2.5 seconds. It's recommended to call this method once a second, calls will
+	 * be rejected if called too frequently (over 30hz).</p>
 	 *
 	 * @param session        an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param controllerType the controller to apply the vibration to
-	 * @param frequency      a vibration frequency in the range of 0.0 to 1.0. Currently the only valid values are 0.0, 0.5, and 1.0 and other values will be clamped to one of
-	 *                       these.
-	 * @param amplitude      a vibration amplitude in the range of 0.0 to 1.0.
+	 * @param controllerType the controller to set the vibration to
+	 * @param frequency      the vibration frequency. Supported values are: 0.0 (disabled), 0.5 and 1.0. Non valid values will be clamped.
+	 * @param amplitude      the vibration amplitude in the {@code [0.0, 1.0]} range
 	 *
 	 * @return {@link OVRErrorCode#ovrSuccess Success} upon success
 	 */
@@ -1122,6 +1160,68 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 		if ( CHECKS )
 			checkPointer(session);
 		return novr_SetControllerVibration(session, controllerType, frequency, amplitude);
+	}
+
+	// --- [ ovr_SubmitControllerVibration ] ---
+
+	/**
+	 * Submits a Haptics buffer (used for vibration) to Touch (only) controllers.
+	 * 
+	 * <p>Note: {@code ovr_SubmitControllerVibration} cannot be used interchangeably with {@link #ovr_SetControllerVibration SetControllerVibration}.</p>
+	 *
+	 * @param session        an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param controllerType the controller where the Haptics buffer will be played
+	 * @param buffer         the Haptics buffer containing amplitude samples to be played
+	 *
+	 * @return {@link OVRErrorCode#ovrSuccess Success} upon success
+	 */
+	public static native int novr_SubmitControllerVibration(long session, int controllerType, long buffer);
+
+	/**
+	 * Submits a Haptics buffer (used for vibration) to Touch (only) controllers.
+	 * 
+	 * <p>Note: {@code ovr_SubmitControllerVibration} cannot be used interchangeably with {@link #ovr_SetControllerVibration SetControllerVibration}.</p>
+	 *
+	 * @param session        an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param controllerType the controller where the Haptics buffer will be played
+	 * @param buffer         the Haptics buffer containing amplitude samples to be played
+	 *
+	 * @return {@link OVRErrorCode#ovrSuccess Success} upon success
+	 */
+	public static int ovr_SubmitControllerVibration(long session, int controllerType, OVRHapticsBuffer buffer) {
+		if ( CHECKS ) {
+			checkPointer(session);
+			OVRHapticsBuffer.validate(buffer.address());
+		}
+		return novr_SubmitControllerVibration(session, controllerType, buffer.address());
+	}
+
+	// --- [ ovr_GetControllerVibrationState ] ---
+
+	/**
+	 * Gets the Haptics engine playback state of a specific Touch controller.
+	 *
+	 * @param session        an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param controllerType the controller where the Haptics buffer will be played
+	 * @param outState       the state of the haptics engine
+	 *
+	 * @return {@link OVRErrorCode#ovrSuccess Success} upon success
+	 */
+	public static native int novr_GetControllerVibrationState(long session, int controllerType, long outState);
+
+	/**
+	 * Gets the Haptics engine playback state of a specific Touch controller.
+	 *
+	 * @param session        an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param controllerType the controller where the Haptics buffer will be played
+	 * @param outState       the state of the haptics engine
+	 *
+	 * @return {@link OVRErrorCode#ovrSuccess Success} upon success
+	 */
+	public static int ovr_GetControllerVibrationState(long session, int controllerType, ovrHapticsPlaybackState outState) {
+		if ( CHECKS )
+			checkPointer(session);
+		return novr_GetControllerVibrationState(session, controllerType, outState.address());
 	}
 
 	// --- [ ovr_GetTextureSwapChainLength ] ---
@@ -1470,7 +1570,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 * <p>Predicts the time at which the given frame will be displayed. The predicted time is the middle of the time period during which the corresponding eye
 	 * images will be displayed.</p>
 	 * 
-	 * <p>The application should increment frameIndex for each successively targeted frame, and pass that index to any relevent OVR functions that need to apply
+	 * <p>The application should increment frameIndex for each successively targeted frame, and pass that index to any relevant OVR functions that need to apply
 	 * to the frame identified by that index.</p>
 	 * 
 	 * <p>This function is thread-safe and allows for multiple application threads to target their processing to the same displayed frame.</p>
@@ -1491,7 +1591,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 * <p>Predicts the time at which the given frame will be displayed. The predicted time is the middle of the time period during which the corresponding eye
 	 * images will be displayed.</p>
 	 * 
-	 * <p>The application should increment frameIndex for each successively targeted frame, and pass that index to any relevent OVR functions that need to apply
+	 * <p>The application should increment frameIndex for each successively targeted frame, and pass that index to any relevant OVR functions that need to apply
 	 * to the frame identified by that index.</p>
 	 * 
 	 * <p>This function is thread-safe and allows for multiple application threads to target their processing to the same displayed frame.</p>

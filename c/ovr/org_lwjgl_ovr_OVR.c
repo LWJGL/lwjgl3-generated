@@ -137,10 +137,30 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetConnectedControllerTypes(
 	return (jint)ovr_GetConnectedControllerTypes(session);
 }
 
+JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetTouchHapticsDesc(JNIEnv *__env, jclass clazz, jlong sessionAddress, jint controllerType, jlong __result) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	*((ovrTouchHapticsDesc*)(intptr_t)__result) = ovr_GetTouchHapticsDesc(session, controllerType);
+}
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1SetControllerVibration(JNIEnv *__env, jclass clazz, jlong sessionAddress, jint controllerType, jfloat frequency, jfloat amplitude) {
 	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)ovr_SetControllerVibration(session, controllerType, frequency, amplitude);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1SubmitControllerVibration(JNIEnv *__env, jclass clazz, jlong sessionAddress, jint controllerType, jlong bufferAddress) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	const ovrHapticsBuffer *buffer = (const ovrHapticsBuffer *)(intptr_t)bufferAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)ovr_SubmitControllerVibration(session, controllerType, buffer);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetControllerVibrationState(JNIEnv *__env, jclass clazz, jlong sessionAddress, jint controllerType, jlong outStateAddress) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	ovrHapticsPlaybackState *outState = (ovrHapticsPlaybackState *)(intptr_t)outStateAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)ovr_GetControllerVibrationState(session, controllerType, outState);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetTextureSwapChainLength__JJJ(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong chainAddress, jlong out_LengthAddress) {

@@ -12,7 +12,7 @@ public final class OVRVersion {
 	public static final int
 		OVR_PRODUCT_VERSION = 1,
 		OVR_MAJOR_VERSION   = 1,
-		OVR_MINOR_VERSION   = 5,
+		OVR_MINOR_VERSION   = 7,
 		OVR_PATCH_VERSION   = 0,
 		OVR_BUILD_NUMBER    = 0;
 

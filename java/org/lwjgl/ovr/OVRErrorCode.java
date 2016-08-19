@@ -60,6 +60,9 @@ public class OVRErrorCode {
 	/** The service watchdog discovered a deadlock. */
 	public static final int ovrError_ServiceDeadlockDetected = -1014;
 
+	/** Function call is invalid for object's current state. */
+	public static final int ovrError_InvalidOperation = -1015;
+
 	/** Failure to find the specified audio device. */
 	public static final int ovrError_AudioDeviceNotFound = -2001;
 
@@ -129,6 +132,15 @@ public class OVRErrorCode {
 	/** Failed to get the interface for an attached tracker */
 	public static final int ovrError_TrackerDriverInit = -3020;
 
+	/** LibOVRRT signature check failure. */
+	public static final int ovrError_LibSignCheck = -3021;
+
+	/** LibOVRRT path failure. */
+	public static final int ovrError_LibPath = -3022;
+
+	/** LibOVRRT symbol resolution failure. */
+	public static final int ovrError_LibSymbols = -3023;
+
 	/** Requested async work not yet complete. */
 	public static final int ovrError_Incomplete = -5000;
 
@@ -164,6 +176,15 @@ public class OVRErrorCode {
 
 	/** A runtime exception occurred. The application is required to shutdown LibOVR and re-initialize it before this error state will be cleared. */
 	public static final int ovrError_RuntimeException = -7000;
+
+	/** Result of a missing calibration block. */
+	public static final int ovrError_NoCalibration = -9000;
+
+	/** Result of an old calibration block. */
+	public static final int ovrError_OldVersion = -9001;
+
+	/** Result of a bad calibration block due to lengths. */
+	public static final int ovrError_MisformattedBlock = -9002;
 
 	static { LibOVR.initialize(); }
 

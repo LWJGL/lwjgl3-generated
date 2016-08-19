@@ -1661,8 +1661,6 @@ public class GLFW {
 	 */
 	public static void glfwDestroyWindow(long window) {
 		long __functionAddress = Functions.DestroyWindow;
-		if ( CHECKS )
-			checkPointer(window);
 		invokePV(__functionAddress, window);
 	}
 

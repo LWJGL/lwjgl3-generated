@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -88,43 +87,6 @@ public class OVRTrackerPose extends Struct implements NativeResource {
 	public OVRPosef Pose() { return nPose(address()); }
 	/** Returns a {@link OVRPosef} view of the {@code LeveledPose} field. */
 	public OVRPosef LeveledPose() { return nLeveledPose(address()); }
-
-	/** Sets the specified value to the {@code TrackerFlags} field. */
-	public OVRTrackerPose TrackerFlags(int value) { nTrackerFlags(address(), value); return this; }
-	/** Copies the specified {@link OVRPosef} to the {@code Pose} field. */
-	public OVRTrackerPose Pose(OVRPosef value) { nPose(address(), value); return this; }
-	/** Copies the specified {@link OVRPosef} to the {@code LeveledPose} field. */
-	public OVRTrackerPose LeveledPose(OVRPosef value) { nLeveledPose(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public OVRTrackerPose set(
-		int TrackerFlags,
-		OVRPosef Pose,
-		OVRPosef LeveledPose
-	) {
-		TrackerFlags(TrackerFlags);
-		Pose(Pose);
-		LeveledPose(LeveledPose);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(OVRTrackerPose) set}. */
-	public OVRTrackerPose nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public OVRTrackerPose set(OVRTrackerPose src) {
-		return nset(src.address());
-	}
 
 	// -----------------------------------
 
@@ -262,13 +224,6 @@ public class OVRTrackerPose extends Struct implements NativeResource {
 	/** Unsafe version of {@link #LeveledPose}. */
 	public static OVRPosef nLeveledPose(long struct) { return OVRPosef.create(struct + OVRTrackerPose.LEVELEDPOSE); }
 
-	/** Unsafe version of {@link #TrackerFlags(int) TrackerFlags}. */
-	public static void nTrackerFlags(long struct, int value) { memPutInt(struct + OVRTrackerPose.TRACKERFLAGS, value); }
-	/** Unsafe version of {@link #Pose(OVRPosef) Pose}. */
-	public static void nPose(long struct, OVRPosef value) { memCopy(value.address(), struct + OVRTrackerPose.POSE, OVRPosef.SIZEOF); }
-	/** Unsafe version of {@link #LeveledPose(OVRPosef) LeveledPose}. */
-	public static void nLeveledPose(long struct, OVRPosef value) { memCopy(value.address(), struct + OVRTrackerPose.LEVELEDPOSE, OVRPosef.SIZEOF); }
-
 	// -----------------------------------
 
 	/** An array of {@link OVRTrackerPose} structs. */
@@ -317,13 +272,6 @@ public class OVRTrackerPose extends Struct implements NativeResource {
 		public OVRPosef Pose() { return OVRTrackerPose.nPose(address()); }
 		/** Returns a {@link OVRPosef} view of the {@code LeveledPose} field. */
 		public OVRPosef LeveledPose() { return OVRTrackerPose.nLeveledPose(address()); }
-
-		/** Sets the specified value to the {@code TrackerFlags} field. */
-		public OVRTrackerPose.Buffer TrackerFlags(int value) { OVRTrackerPose.nTrackerFlags(address(), value); return this; }
-		/** Copies the specified {@link OVRPosef} to the {@code Pose} field. */
-		public OVRTrackerPose.Buffer Pose(OVRPosef value) { OVRTrackerPose.nPose(address(), value); return this; }
-		/** Copies the specified {@link OVRPosef} to the {@code LeveledPose} field. */
-		public OVRTrackerPose.Buffer LeveledPose(OVRPosef value) { OVRTrackerPose.nLeveledPose(address(), value); return this; }
 
 	}
 

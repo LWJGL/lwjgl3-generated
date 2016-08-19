@@ -22,9 +22,9 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>Usage</h3>
  * 
  * <ul>
- * <li><a href="https://github.com/LWJGL/lwjgl3/blob/master/modules/core/src/test/java/org/lwjgl/demo/nfd/HelloNFD.java#L104">Single file open dialog</a></li>
- * <li><a href="https://github.com/LWJGL/lwjgl3/blob/master/modules/core/src/test/java/org/lwjgl/demo/nfd/HelloNFD.java#L126">Multiple file open dialog</a></li>
- * <li><a href="https://github.com/LWJGL/lwjgl3/blob/master/modules/core/src/test/java/org/lwjgl/demo/nfd/HelloNFD.java#L151">Save dialog</a></li>
+ * <li><a href="https://github.com/LWJGL/lwjgl3/blob/master/modules/core/src/test/java/org/lwjgl/demo/util/nfd/HelloNFD.java#L97">Single file open dialog</a></li>
+ * <li><a href="https://github.com/LWJGL/lwjgl3/blob/master/modules/core/src/test/java/org/lwjgl/demo/util/nfd/HelloNFD.java#L119">Multiple file open dialog</a></li>
+ * <li><a href="https://github.com/LWJGL/lwjgl3/blob/master/modules/core/src/test/java/org/lwjgl/demo/util/nfd/HelloNFD.java#L140">Save dialog</a></li>
  * </ul>
  * 
  * <h3>File Filter Syntax</h3>

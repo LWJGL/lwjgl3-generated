@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -91,47 +90,6 @@ public class OVRTrackerDesc extends Struct implements NativeResource {
 	public float FrustumNearZInMeters() { return nFrustumNearZInMeters(address()); }
 	/** Returns the value of the {@code FrustumFarZInMeters} field. */
 	public float FrustumFarZInMeters() { return nFrustumFarZInMeters(address()); }
-
-	/** Sets the specified value to the {@code FrustumHFovInRadians} field. */
-	public OVRTrackerDesc FrustumHFovInRadians(float value) { nFrustumHFovInRadians(address(), value); return this; }
-	/** Sets the specified value to the {@code FrustumVFovInRadians} field. */
-	public OVRTrackerDesc FrustumVFovInRadians(float value) { nFrustumVFovInRadians(address(), value); return this; }
-	/** Sets the specified value to the {@code FrustumNearZInMeters} field. */
-	public OVRTrackerDesc FrustumNearZInMeters(float value) { nFrustumNearZInMeters(address(), value); return this; }
-	/** Sets the specified value to the {@code FrustumFarZInMeters} field. */
-	public OVRTrackerDesc FrustumFarZInMeters(float value) { nFrustumFarZInMeters(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public OVRTrackerDesc set(
-		float FrustumHFovInRadians,
-		float FrustumVFovInRadians,
-		float FrustumNearZInMeters,
-		float FrustumFarZInMeters
-	) {
-		FrustumHFovInRadians(FrustumHFovInRadians);
-		FrustumVFovInRadians(FrustumVFovInRadians);
-		FrustumNearZInMeters(FrustumNearZInMeters);
-		FrustumFarZInMeters(FrustumFarZInMeters);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(OVRTrackerDesc) set}. */
-	public OVRTrackerDesc nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public OVRTrackerDesc set(OVRTrackerDesc src) {
-		return nset(src.address());
-	}
 
 	// -----------------------------------
 
@@ -271,15 +229,6 @@ public class OVRTrackerDesc extends Struct implements NativeResource {
 	/** Unsafe version of {@link #FrustumFarZInMeters}. */
 	public static float nFrustumFarZInMeters(long struct) { return memGetFloat(struct + OVRTrackerDesc.FRUSTUMFARZINMETERS); }
 
-	/** Unsafe version of {@link #FrustumHFovInRadians(float) FrustumHFovInRadians}. */
-	public static void nFrustumHFovInRadians(long struct, float value) { memPutFloat(struct + OVRTrackerDesc.FRUSTUMHFOVINRADIANS, value); }
-	/** Unsafe version of {@link #FrustumVFovInRadians(float) FrustumVFovInRadians}. */
-	public static void nFrustumVFovInRadians(long struct, float value) { memPutFloat(struct + OVRTrackerDesc.FRUSTUMVFOVINRADIANS, value); }
-	/** Unsafe version of {@link #FrustumNearZInMeters(float) FrustumNearZInMeters}. */
-	public static void nFrustumNearZInMeters(long struct, float value) { memPutFloat(struct + OVRTrackerDesc.FRUSTUMNEARZINMETERS, value); }
-	/** Unsafe version of {@link #FrustumFarZInMeters(float) FrustumFarZInMeters}. */
-	public static void nFrustumFarZInMeters(long struct, float value) { memPutFloat(struct + OVRTrackerDesc.FRUSTUMFARZINMETERS, value); }
-
 	// -----------------------------------
 
 	/** An array of {@link OVRTrackerDesc} structs. */
@@ -330,15 +279,6 @@ public class OVRTrackerDesc extends Struct implements NativeResource {
 		public float FrustumNearZInMeters() { return OVRTrackerDesc.nFrustumNearZInMeters(address()); }
 		/** Returns the value of the {@code FrustumFarZInMeters} field. */
 		public float FrustumFarZInMeters() { return OVRTrackerDesc.nFrustumFarZInMeters(address()); }
-
-		/** Sets the specified value to the {@code FrustumHFovInRadians} field. */
-		public OVRTrackerDesc.Buffer FrustumHFovInRadians(float value) { OVRTrackerDesc.nFrustumHFovInRadians(address(), value); return this; }
-		/** Sets the specified value to the {@code FrustumVFovInRadians} field. */
-		public OVRTrackerDesc.Buffer FrustumVFovInRadians(float value) { OVRTrackerDesc.nFrustumVFovInRadians(address(), value); return this; }
-		/** Sets the specified value to the {@code FrustumNearZInMeters} field. */
-		public OVRTrackerDesc.Buffer FrustumNearZInMeters(float value) { OVRTrackerDesc.nFrustumNearZInMeters(address(), value); return this; }
-		/** Sets the specified value to the {@code FrustumFarZInMeters} field. */
-		public OVRTrackerDesc.Buffer FrustumFarZInMeters(float value) { OVRTrackerDesc.nFrustumFarZInMeters(address(), value); return this; }
 
 	}
 

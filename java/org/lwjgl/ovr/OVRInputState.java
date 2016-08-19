@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -29,6 +28,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code HandTrigger} &ndash; left and right hand trigger values ({@link OVR#ovrHand_Left} and {@link OVR#ovrHand_Right}), in the range 0.0 to 1.0f.</li>
  * <li>{@code Thumbstick} &ndash; horizontal and vertical thumbstick axis values ({@link OVR#ovrHand_Left} and {@link OVR#ovrHand_Right}), in the range -1.0f to 1.0f.</li>
  * <li>{@code ControllerType} &ndash; The type of the controller this state is for. One of:<br><table><tr><td>{@link OVR#ovrControllerType_Active ControllerType_Active}</td><td>{@link OVR#ovrControllerType_LTouch ControllerType_LTouch}</td><td>{@link OVR#ovrControllerType_None ControllerType_None}</td><td>{@link OVR#ovrControllerType_RTouch ControllerType_RTouch}</td></tr><tr><td>{@link OVR#ovrControllerType_Remote ControllerType_Remote}</td><td>{@link OVR#ovrControllerType_Touch ControllerType_Touch}</td><td>{@link OVR#ovrControllerType_XBox ControllerType_XBox}</td></tr></table></li>
+ * <li>{@code IndexTriggerNoDeadzone} &ndash; Left and right finger trigger values ({@link OVR#ovrHand_Left Hand_Left} and {@link OVR#ovrHand_Right Hand_Right}), in the range 0.0 to 1.0f. Does not apply a deadzone</li>
+ * <li>{@code HandTriggerNoDeadzone} &ndash; Left and right hand trigger values ({@link OVR#ovrHand_Left Hand_Left} and {@link OVR#ovrHand_Right Hand_Right}), in the range 0.0 to 1.0f. Does not apply a deadzone.</li>
+ * <li>{@code ThumbstickNoDeadzone} &ndash; Horizontal and vertical thumbstick axis values ({@link OVR#ovrHand_Left Hand_Left} and {@link OVR#ovrHand_Right Hand_Right}), in the range -1.0f to 1.0f. Does not apply a deadzone.</li>
  * </ul>
  * 
  * <h3>Layout</h3>
@@ -42,6 +44,9 @@ import static org.lwjgl.system.MemoryStack.*;
     float[2] HandTrigger;
     {@link OVRVector2f ovrVector2f}[2] Thumbstick;
     ovrControllerType ControllerType;
+    float[2] IndexTriggerNoDeadzone;
+    float[2] HandTriggerNoDeadzone;
+    float[2] ThumbstickNoDeadzone;
 }</code></pre>
  */
 public class OVRInputState extends Struct implements NativeResource {
@@ -60,7 +65,10 @@ public class OVRInputState extends Struct implements NativeResource {
 		INDEXTRIGGER,
 		HANDTRIGGER,
 		THUMBSTICK,
-		CONTROLLERTYPE;
+		CONTROLLERTYPE,
+		INDEXTRIGGERNODEADZONE,
+		HANDTRIGGERNODEADZONE,
+		THUMBSTICKNODEADZONE;
 
 	static {
 		Layout layout = __struct(
@@ -71,7 +79,10 @@ public class OVRInputState extends Struct implements NativeResource {
 			__array(4, 2),
 			__array(4, 2),
 			__array(OVRVector2f.SIZEOF, OVRVector2f.ALIGNOF, 2),
-			__member(4)
+			__member(4),
+			__array(4, 2),
+			__array(4, 2),
+			__array(4, 2)
 		);
 
 		SIZEOF = layout.getSize();
@@ -85,6 +96,9 @@ public class OVRInputState extends Struct implements NativeResource {
 		HANDTRIGGER = layout.offsetof(5);
 		THUMBSTICK = layout.offsetof(6);
 		CONTROLLERTYPE = layout.offsetof(7);
+		INDEXTRIGGERNODEADZONE = layout.offsetof(8);
+		HANDTRIGGERNODEADZONE = layout.offsetof(9);
+		THUMBSTICKNODEADZONE = layout.offsetof(10);
 	}
 
 	OVRInputState(long address, ByteBuffer container) {
@@ -126,69 +140,18 @@ public class OVRInputState extends Struct implements NativeResource {
 	public OVRVector2f Thumbstick(int index) { return nThumbstick(address(), index); }
 	/** Returns the value of the {@code ControllerType} field. */
 	public int ControllerType() { return nControllerType(address()); }
-
-	/** Sets the specified value to the {@code TimeInSeconds} field. */
-	public OVRInputState TimeInSeconds(double value) { nTimeInSeconds(address(), value); return this; }
-	/** Sets the specified value to the {@code ConnectedControllerTypes} field. */
-	public OVRInputState ConnectedControllerTypes(int value) { nConnectedControllerTypes(address(), value); return this; }
-	/** Sets the specified value to the {@code Buttons} field. */
-	public OVRInputState Buttons(int value) { nButtons(address(), value); return this; }
-	/** Sets the specified value to the {@code Touches} field. */
-	public OVRInputState Touches(int value) { nTouches(address(), value); return this; }
-	/** Copies the specified {@link FloatBuffer} to the {@code IndexTrigger} field. */
-	public OVRInputState IndexTrigger(FloatBuffer value) { nIndexTrigger(address(), value); return this; }
-	/** Sets the specified value at the specified index of the {@code IndexTrigger} field. */
-	public OVRInputState IndexTrigger(int index, float value) { nIndexTrigger(address(), index, value); return this; }
-	/** Copies the specified {@link FloatBuffer} to the {@code HandTrigger} field. */
-	public OVRInputState HandTrigger(FloatBuffer value) { nHandTrigger(address(), value); return this; }
-	/** Sets the specified value at the specified index of the {@code HandTrigger} field. */
-	public OVRInputState HandTrigger(int index, float value) { nHandTrigger(address(), index, value); return this; }
-	/** Copies the specified {@link OVRVector2f.Buffer} to the {@code Thumbstick} field. */
-	public OVRInputState Thumbstick(OVRVector2f.Buffer value) { nThumbstick(address(), value); return this; }
-	/** Copies the specified {@link OVRVector2f} at the specified index of the {@code Thumbstick} field. */
-	public OVRInputState Thumbstick(int index, OVRVector2f value) { nThumbstick(address(), index, value); return this; }
-	/** Sets the specified value to the {@code ControllerType} field. */
-	public OVRInputState ControllerType(int value) { nControllerType(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public OVRInputState set(
-		double TimeInSeconds,
-		int ConnectedControllerTypes,
-		int Buttons,
-		int Touches,
-		FloatBuffer IndexTrigger,
-		FloatBuffer HandTrigger,
-		OVRVector2f.Buffer Thumbstick,
-		int ControllerType
-	) {
-		TimeInSeconds(TimeInSeconds);
-		ConnectedControllerTypes(ConnectedControllerTypes);
-		Buttons(Buttons);
-		Touches(Touches);
-		IndexTrigger(IndexTrigger);
-		HandTrigger(HandTrigger);
-		Thumbstick(Thumbstick);
-		ControllerType(ControllerType);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(OVRInputState) set}. */
-	public OVRInputState nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public OVRInputState set(OVRInputState src) {
-		return nset(src.address());
-	}
+	/** Returns a {@link FloatBuffer} view of the {@code IndexTriggerNoDeadzone} field. */
+	public FloatBuffer IndexTriggerNoDeadzone() { return nIndexTriggerNoDeadzone(address()); }
+	/** Returns the value at the specified index of the {@code IndexTriggerNoDeadzone} field. */
+	public float IndexTriggerNoDeadzone(int index) { return nIndexTriggerNoDeadzone(address(), index); }
+	/** Returns a {@link FloatBuffer} view of the {@code HandTriggerNoDeadzone} field. */
+	public FloatBuffer HandTriggerNoDeadzone() { return nHandTriggerNoDeadzone(address()); }
+	/** Returns the value at the specified index of the {@code HandTriggerNoDeadzone} field. */
+	public float HandTriggerNoDeadzone(int index) { return nHandTriggerNoDeadzone(address(), index); }
+	/** Returns a {@link FloatBuffer} view of the {@code ThumbstickNoDeadzone} field. */
+	public FloatBuffer ThumbstickNoDeadzone() { return nThumbstickNoDeadzone(address()); }
+	/** Returns the value at the specified index of the {@code ThumbstickNoDeadzone} field. */
+	public float ThumbstickNoDeadzone(int index) { return nThumbstickNoDeadzone(address(), index); }
 
 	// -----------------------------------
 
@@ -349,38 +312,24 @@ public class OVRInputState extends Struct implements NativeResource {
 	}
 	/** Unsafe version of {@link #ControllerType}. */
 	public static int nControllerType(long struct) { return memGetInt(struct + OVRInputState.CONTROLLERTYPE); }
-
-	/** Unsafe version of {@link #TimeInSeconds(double) TimeInSeconds}. */
-	public static void nTimeInSeconds(long struct, double value) { memPutDouble(struct + OVRInputState.TIMEINSECONDS, value); }
-	/** Unsafe version of {@link #ConnectedControllerTypes(int) ConnectedControllerTypes}. */
-	public static void nConnectedControllerTypes(long struct, int value) { memPutInt(struct + OVRInputState.CONNECTEDCONTROLLERTYPES, value); }
-	/** Unsafe version of {@link #Buttons(int) Buttons}. */
-	public static void nButtons(long struct, int value) { memPutInt(struct + OVRInputState.BUTTONS, value); }
-	/** Unsafe version of {@link #Touches(int) Touches}. */
-	public static void nTouches(long struct, int value) { memPutInt(struct + OVRInputState.TOUCHES, value); }
-	/** Unsafe version of {@link #IndexTrigger(FloatBuffer) IndexTrigger}. */
-	public static void nIndexTrigger(long struct, FloatBuffer value) {
-		if ( CHECKS ) checkBufferGT(value, 2);
-		memCopy(memAddress(value), struct + OVRInputState.INDEXTRIGGER, value.remaining() * 4);
+	/** Unsafe version of {@link #IndexTriggerNoDeadzone}. */
+	public static FloatBuffer nIndexTriggerNoDeadzone(long struct) {
+		return memFloatBuffer(struct + OVRInputState.INDEXTRIGGERNODEADZONE, 2);
 	}
-	/** Unsafe version of {@link #IndexTrigger(int, float) IndexTrigger}. */
-	public static void nIndexTrigger(long struct, int index, float value) { memPutFloat(struct + OVRInputState.INDEXTRIGGER + index * 4, value); }
-	/** Unsafe version of {@link #HandTrigger(FloatBuffer) HandTrigger}. */
-	public static void nHandTrigger(long struct, FloatBuffer value) {
-		if ( CHECKS ) checkBufferGT(value, 2);
-		memCopy(memAddress(value), struct + OVRInputState.HANDTRIGGER, value.remaining() * 4);
+	/** Unsafe version of {@link #IndexTriggerNoDeadzone(int) IndexTriggerNoDeadzone}. */
+	public static float nIndexTriggerNoDeadzone(long struct, int index) { return memGetFloat(struct + OVRInputState.INDEXTRIGGERNODEADZONE + index * 4); }
+	/** Unsafe version of {@link #HandTriggerNoDeadzone}. */
+	public static FloatBuffer nHandTriggerNoDeadzone(long struct) {
+		return memFloatBuffer(struct + OVRInputState.HANDTRIGGERNODEADZONE, 2);
 	}
-	/** Unsafe version of {@link #HandTrigger(int, float) HandTrigger}. */
-	public static void nHandTrigger(long struct, int index, float value) { memPutFloat(struct + OVRInputState.HANDTRIGGER + index * 4, value); }
-	/** Unsafe version of {@link #Thumbstick(OVRVector2f.Buffer) Thumbstick}. */
-	public static void nThumbstick(long struct, OVRVector2f.Buffer value) {
-		if ( CHECKS ) checkBufferGT(value, 2);
-		memCopy(value.address(), struct + OVRInputState.THUMBSTICK, value.remaining() * OVRVector2f.SIZEOF);
+	/** Unsafe version of {@link #HandTriggerNoDeadzone(int) HandTriggerNoDeadzone}. */
+	public static float nHandTriggerNoDeadzone(long struct, int index) { return memGetFloat(struct + OVRInputState.HANDTRIGGERNODEADZONE + index * 4); }
+	/** Unsafe version of {@link #ThumbstickNoDeadzone}. */
+	public static FloatBuffer nThumbstickNoDeadzone(long struct) {
+		return memFloatBuffer(struct + OVRInputState.THUMBSTICKNODEADZONE, 2);
 	}
-	/** Unsafe version of {@link #Thumbstick(int, OVRVector2f) Thumbstick}. */
-	public static void nThumbstick(long struct, int index, OVRVector2f value) { memCopy(value.address(), struct + OVRInputState.THUMBSTICK + index * OVRVector2f.SIZEOF, OVRVector2f.SIZEOF); }
-	/** Unsafe version of {@link #ControllerType(int) ControllerType}. */
-	public static void nControllerType(long struct, int value) { memPutInt(struct + OVRInputState.CONTROLLERTYPE, value); }
+	/** Unsafe version of {@link #ThumbstickNoDeadzone(int) ThumbstickNoDeadzone}. */
+	public static float nThumbstickNoDeadzone(long struct, int index) { return memGetFloat(struct + OVRInputState.THUMBSTICKNODEADZONE + index * 4); }
 
 	// -----------------------------------
 
@@ -446,29 +395,18 @@ public class OVRInputState extends Struct implements NativeResource {
 		public OVRVector2f Thumbstick(int index) { return OVRInputState.nThumbstick(address(), index); }
 		/** Returns the value of the {@code ControllerType} field. */
 		public int ControllerType() { return OVRInputState.nControllerType(address()); }
-
-		/** Sets the specified value to the {@code TimeInSeconds} field. */
-		public OVRInputState.Buffer TimeInSeconds(double value) { OVRInputState.nTimeInSeconds(address(), value); return this; }
-		/** Sets the specified value to the {@code ConnectedControllerTypes} field. */
-		public OVRInputState.Buffer ConnectedControllerTypes(int value) { OVRInputState.nConnectedControllerTypes(address(), value); return this; }
-		/** Sets the specified value to the {@code Buttons} field. */
-		public OVRInputState.Buffer Buttons(int value) { OVRInputState.nButtons(address(), value); return this; }
-		/** Sets the specified value to the {@code Touches} field. */
-		public OVRInputState.Buffer Touches(int value) { OVRInputState.nTouches(address(), value); return this; }
-		/** Copies the specified {@link FloatBuffer} to the {@code IndexTrigger} field. */
-		public OVRInputState.Buffer IndexTrigger(FloatBuffer value) { OVRInputState.nIndexTrigger(address(), value); return this; }
-		/** Sets the specified value at the specified index of the {@code IndexTrigger} field. */
-		public OVRInputState.Buffer IndexTrigger(int index, float value) { OVRInputState.nIndexTrigger(address(), index, value); return this; }
-		/** Copies the specified {@link FloatBuffer} to the {@code HandTrigger} field. */
-		public OVRInputState.Buffer HandTrigger(FloatBuffer value) { OVRInputState.nHandTrigger(address(), value); return this; }
-		/** Sets the specified value at the specified index of the {@code HandTrigger} field. */
-		public OVRInputState.Buffer HandTrigger(int index, float value) { OVRInputState.nHandTrigger(address(), index, value); return this; }
-		/** Copies the specified {@link OVRVector2f.Buffer} to the {@code Thumbstick} field. */
-		public OVRInputState.Buffer Thumbstick(OVRVector2f.Buffer value) { OVRInputState.nThumbstick(address(), value); return this; }
-		/** Copies the specified {@link OVRVector2f} at the specified index of the {@code Thumbstick} field. */
-		public OVRInputState.Buffer Thumbstick(int index, OVRVector2f value) { OVRInputState.nThumbstick(address(), index, value); return this; }
-		/** Sets the specified value to the {@code ControllerType} field. */
-		public OVRInputState.Buffer ControllerType(int value) { OVRInputState.nControllerType(address(), value); return this; }
+		/** Returns a {@link FloatBuffer} view of the {@code IndexTriggerNoDeadzone} field. */
+		public FloatBuffer IndexTriggerNoDeadzone() { return OVRInputState.nIndexTriggerNoDeadzone(address()); }
+		/** Returns the value at the specified index of the {@code IndexTriggerNoDeadzone} field. */
+		public float IndexTriggerNoDeadzone(int index) { return OVRInputState.nIndexTriggerNoDeadzone(address(), index); }
+		/** Returns a {@link FloatBuffer} view of the {@code HandTriggerNoDeadzone} field. */
+		public FloatBuffer HandTriggerNoDeadzone() { return OVRInputState.nHandTriggerNoDeadzone(address()); }
+		/** Returns the value at the specified index of the {@code HandTriggerNoDeadzone} field. */
+		public float HandTriggerNoDeadzone(int index) { return OVRInputState.nHandTriggerNoDeadzone(address(), index); }
+		/** Returns a {@link FloatBuffer} view of the {@code ThumbstickNoDeadzone} field. */
+		public FloatBuffer ThumbstickNoDeadzone() { return OVRInputState.nThumbstickNoDeadzone(address()); }
+		/** Returns the value at the specified index of the {@code ThumbstickNoDeadzone} field. */
+		public float ThumbstickNoDeadzone(int index) { return OVRInputState.nThumbstickNoDeadzone(address(), index); }
 
 	}
 
