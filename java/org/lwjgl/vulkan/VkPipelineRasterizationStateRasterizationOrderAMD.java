@@ -19,6 +19,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * {@code VkPipelineRasterizationStateRasterizationOrderAMD} structure to the {@link VkPipelineRasterizationStateCreateInfo} structure through its {@code pNext}
  * member. This structure enables selecting the rasterization order to use when rendering with the corresponding graphics pipeline.
  * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link AMDRasterizationOrder#VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER_AMD STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER_AMD}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>{@code rasterizationOrder} <b>must</b> be a valid {@code VkRasterizationOrderAMD} value</li>
+ * </ul>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>

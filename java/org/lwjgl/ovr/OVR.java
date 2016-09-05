@@ -1218,7 +1218,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 *
 	 * @return {@link OVRErrorCode#ovrSuccess Success} upon success
 	 */
-	public static int ovr_GetControllerVibrationState(long session, int controllerType, ovrHapticsPlaybackState outState) {
+	public static int ovr_GetControllerVibrationState(long session, int controllerType, OVRHapticsPlaybackState outState) {
 		if ( CHECKS )
 			checkPointer(session);
 		return novr_GetControllerVibrationState(session, controllerType, outState.address());

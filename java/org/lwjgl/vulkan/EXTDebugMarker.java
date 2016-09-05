@@ -198,7 +198,7 @@ public class EXTDebugMarker {
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code pMarkerInfo} <b>must</b> be a pointer to a {@link VkDebugMarkerMarkerInfoEXT} structure</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * </ul>
 	 *
 	 * @param commandBuffer the command buffer into which the command is recorded
@@ -233,7 +233,7 @@ public class EXTDebugMarker {
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code pMarkerInfo} <b>must</b> be a pointer to a {@link VkDebugMarkerMarkerInfoEXT} structure</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * </ul>
 	 *
 	 * @param commandBuffer the command buffer into which the command is recorded
@@ -253,7 +253,7 @@ public class EXTDebugMarker {
 	 * <ul>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * <li>There <b>must</b> be an outstanding {@link #vkCmdDebugMarkerBeginEXT CmdDebugMarkerBeginEXT} command prior to the {@link #vkCmdDebugMarkerEndEXT CmdDebugMarkerEndEXT} on the queue that {@code commandBuffer} is
 	 * submitted to.</li>
 	 * <li>If the matching {@link #vkCmdDebugMarkerBeginEXT CmdDebugMarkerBeginEXT} command was in a secondary command buffer, the {@link #vkCmdDebugMarkerEndEXT CmdDebugMarkerEndEXT} must be in the same
@@ -280,7 +280,7 @@ public class EXTDebugMarker {
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code pMarkerInfo} <b>must</b> be a pointer to a {@link VkDebugMarkerMarkerInfoEXT} structure</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * </ul>
 	 *
 	 * @param commandBuffer the command buffer into which the command is recorded
@@ -304,7 +304,7 @@ public class EXTDebugMarker {
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code pMarkerInfo} <b>must</b> be a pointer to a {@link VkDebugMarkerMarkerInfoEXT} structure</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics or compute operations</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * </ul>
 	 *
 	 * @param commandBuffer the command buffer into which the command is recorded

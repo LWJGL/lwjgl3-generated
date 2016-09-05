@@ -40,6 +40,13 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_nfd_NativeFileDialog_nNFD_1SaveDialog
 	return (jint)NFD_SaveDialog(filterList, defaultPath, outPath);
 }
 
+JNIEXPORT jint JNICALL Java_org_lwjgl_util_nfd_NativeFileDialog_nNFD_1PickFolder(JNIEnv *__env, jclass clazz, jlong defaultPathAddress, jlong outPathAddress) {
+	const nfdchar_t *defaultPath = (const nfdchar_t *)(intptr_t)defaultPathAddress;
+	nfdchar_t **outPath = (nfdchar_t **)(intptr_t)outPathAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)NFD_PickFolder(defaultPath, outPath);
+}
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_nfd_NativeFileDialog_nNFD_1GetError(JNIEnv *__env, jclass clazz) {
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)NFD_GetError();

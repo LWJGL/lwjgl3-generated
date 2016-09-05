@@ -151,7 +151,9 @@ public final class GLESCapabilities {
 		glDepthFunc,
 		glDepthMask,
 		glDepthRangeArrayfvNV,
+		glDepthRangeArrayfvOES,
 		glDepthRangeIndexedfNV,
+		glDepthRangeIndexedfOES,
 		glDepthRangef,
 		glDetachShader,
 		glDisable,
@@ -285,6 +287,7 @@ public final class GLESCapabilities {
 		glGetFenceivNV,
 		glGetFirstPerfQueryIdINTEL,
 		glGetFloati_vNV,
+		glGetFloati_vOES,
 		glGetFloatv,
 		glGetFragDataIndexEXT,
 		glGetFragDataLocation,
@@ -627,8 +630,11 @@ public final class GLESCapabilities {
 		glSamplerParameteriv,
 		glScissor,
 		glScissorArrayvNV,
+		glScissorArrayvOES,
 		glScissorIndexedNV,
+		glScissorIndexedOES,
 		glScissorIndexedvNV,
+		glScissorIndexedvOES,
 		glSelectPerfMonitorCountersAMD,
 		glSetFenceNV,
 		glShaderBinary,
@@ -780,8 +786,11 @@ public final class GLESCapabilities {
 		glVertexBindingDivisor,
 		glViewport,
 		glViewportArrayvNV,
+		glViewportArrayvOES,
 		glViewportIndexedfNV,
+		glViewportIndexedfOES,
 		glViewportIndexedfvNV,
+		glViewportIndexedfvOES,
 		glViewportSwizzleNV,
 		glWaitSync,
 		glWaitSyncAPPLE,
@@ -1896,6 +1905,8 @@ public final class GLESCapabilities {
 	public final boolean GL_OES_vertex_half_float;
 	/** When true, {@link OESVertexType1010102} is supported. */
 	public final boolean GL_OES_vertex_type_10_10_10_2;
+	/** When true, {@link OESViewportArray} is supported. */
+	public final boolean GL_OES_viewport_array;
 	/** When true, {@link OVRMultiview} is supported. */
 	public final boolean GL_OVR_multiview;
 	/**
@@ -2066,7 +2077,9 @@ public final class GLESCapabilities {
 		glDepthFunc = provider.getFunctionAddress("glDepthFunc");
 		glDepthMask = provider.getFunctionAddress("glDepthMask");
 		glDepthRangeArrayfvNV = provider.getFunctionAddress("glDepthRangeArrayfvNV");
+		glDepthRangeArrayfvOES = provider.getFunctionAddress("glDepthRangeArrayfvOES");
 		glDepthRangeIndexedfNV = provider.getFunctionAddress("glDepthRangeIndexedfNV");
+		glDepthRangeIndexedfOES = provider.getFunctionAddress("glDepthRangeIndexedfOES");
 		glDepthRangef = provider.getFunctionAddress("glDepthRangef");
 		glDetachShader = provider.getFunctionAddress("glDetachShader");
 		glDisable = provider.getFunctionAddress("glDisable");
@@ -2200,6 +2213,7 @@ public final class GLESCapabilities {
 		glGetFenceivNV = provider.getFunctionAddress("glGetFenceivNV");
 		glGetFirstPerfQueryIdINTEL = provider.getFunctionAddress("glGetFirstPerfQueryIdINTEL");
 		glGetFloati_vNV = provider.getFunctionAddress("glGetFloati_vNV");
+		glGetFloati_vOES = provider.getFunctionAddress("glGetFloati_vOES");
 		glGetFloatv = provider.getFunctionAddress("glGetFloatv");
 		glGetFragDataIndexEXT = provider.getFunctionAddress("glGetFragDataIndexEXT");
 		glGetFragDataLocation = provider.getFunctionAddress("glGetFragDataLocation");
@@ -2542,8 +2556,11 @@ public final class GLESCapabilities {
 		glSamplerParameteriv = provider.getFunctionAddress("glSamplerParameteriv");
 		glScissor = provider.getFunctionAddress("glScissor");
 		glScissorArrayvNV = provider.getFunctionAddress("glScissorArrayvNV");
+		glScissorArrayvOES = provider.getFunctionAddress("glScissorArrayvOES");
 		glScissorIndexedNV = provider.getFunctionAddress("glScissorIndexedNV");
+		glScissorIndexedOES = provider.getFunctionAddress("glScissorIndexedOES");
 		glScissorIndexedvNV = provider.getFunctionAddress("glScissorIndexedvNV");
+		glScissorIndexedvOES = provider.getFunctionAddress("glScissorIndexedvOES");
 		glSelectPerfMonitorCountersAMD = provider.getFunctionAddress("glSelectPerfMonitorCountersAMD");
 		glSetFenceNV = provider.getFunctionAddress("glSetFenceNV");
 		glShaderBinary = provider.getFunctionAddress("glShaderBinary");
@@ -2695,8 +2712,11 @@ public final class GLESCapabilities {
 		glVertexBindingDivisor = provider.getFunctionAddress("glVertexBindingDivisor");
 		glViewport = provider.getFunctionAddress("glViewport");
 		glViewportArrayvNV = provider.getFunctionAddress("glViewportArrayvNV");
+		glViewportArrayvOES = provider.getFunctionAddress("glViewportArrayvOES");
 		glViewportIndexedfNV = provider.getFunctionAddress("glViewportIndexedfNV");
+		glViewportIndexedfOES = provider.getFunctionAddress("glViewportIndexedfOES");
 		glViewportIndexedfvNV = provider.getFunctionAddress("glViewportIndexedfvNV");
+		glViewportIndexedfvOES = provider.getFunctionAddress("glViewportIndexedfvOES");
 		glViewportSwizzleNV = provider.getFunctionAddress("glViewportSwizzleNV");
 		glWaitSync = provider.getFunctionAddress("glWaitSync");
 		glWaitSyncAPPLE = provider.getFunctionAddress("glWaitSyncAPPLE");
@@ -2937,6 +2957,7 @@ public final class GLESCapabilities {
 		GL_OES_vertex_array_object = ext.contains("GL_OES_vertex_array_object") && GLES.checkExtension("GL_OES_vertex_array_object", OESVertexArrayObject.isAvailable(this));
 		GL_OES_vertex_half_float = ext.contains("GL_OES_vertex_half_float");
 		GL_OES_vertex_type_10_10_10_2 = ext.contains("GL_OES_vertex_type_10_10_10_2");
+		GL_OES_viewport_array = ext.contains("GL_OES_viewport_array") && GLES.checkExtension("GL_OES_viewport_array", OESViewportArray.isAvailable(this));
 		GL_OVR_multiview = ext.contains("GL_OVR_multiview") && GLES.checkExtension("GL_OVR_multiview", OVRMultiview.isAvailable(this));
 		GL_OVR_multiview2 = ext.contains("GL_OVR_multiview2");
 		GL_OVR_multiview_multisampled_render_to_texture = ext.contains("GL_OVR_multiview_multisampled_render_to_texture") && GLES.checkExtension("GL_OVR_multiview_multisampled_render_to_texture", OVRMultiviewMultisampledRenderToTexture.isAvailable(this));

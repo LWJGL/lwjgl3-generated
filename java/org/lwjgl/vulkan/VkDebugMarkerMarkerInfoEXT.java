@@ -17,6 +17,14 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Passed to {@link EXTDebugMarker#vkCmdDebugMarkerBeginEXT CmdDebugMarkerBeginEXT} and {@link EXTDebugMarker#vkCmdDebugMarkerInsertEXT CmdDebugMarkerInsertEXT}.
  * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link EXTDebugMarker#VK_STRUCTURE_TYPE_DEBUG_MARKER_MARKER_INFO_EXT STRUCTURE_TYPE_DEBUG_MARKER_MARKER_INFO_EXT}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>{@code pMarkerName} <b>must</b> be a null-terminated string</li>
+ * </ul>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>

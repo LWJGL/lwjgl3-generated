@@ -612,8 +612,12 @@ Description
 	public final boolean cl_intel_egl_image_yuv;
 	/** When true, {@link INTELMotionEstimation} is supported. */
 	public final boolean cl_intel_motion_estimation;
+	/** When true, {@link INTELPackedYUV} is supported. */
+	public final boolean cl_intel_packed_yuv;
 	/** When true, {@code intel_printf} is supported. */
 	public final boolean cl_intel_printf;
+	/** When true, {@link INTELRequiredSubgroupSize} is supported. */
+	public final boolean cl_intel_required_subgroup_size;
 	/** When true, {@link INTELSimultaneousSharing} is supported. */
 	public final boolean cl_intel_simultaneous_sharing;
 	/** When true, {@link INTELSubgroups} is supported. */
@@ -1317,7 +1321,9 @@ Description
 		cl_intel_device_partition_by_names = ext.contains("cl_intel_device_partition_by_names");
 		cl_intel_egl_image_yuv = ext.contains("cl_intel_egl_image_yuv");
 		cl_intel_motion_estimation = ext.contains("cl_intel_motion_estimation");
+		cl_intel_packed_yuv = ext.contains("cl_intel_packed_yuv");
 		cl_intel_printf = ext.contains("cl_intel_printf");
+		cl_intel_required_subgroup_size = ext.contains("cl_intel_required_subgroup_size");
 		cl_intel_simultaneous_sharing = ext.contains("cl_intel_simultaneous_sharing");
 		cl_intel_subgroups = ext.contains("cl_intel_subgroups") && CL.checkExtension("cl_intel_subgroups", INTELSubgroups.isAvailable(this));
 		cl_intel_thread_local_exec = ext.contains("cl_intel_thread_local_exec");

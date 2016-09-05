@@ -17,6 +17,15 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Passed to {@link EXTDebugMarker#vkDebugMarkerSetObjectNameEXT DebugMarkerSetObjectNameEXT} to give a user-friendly name to a Vulkan object.
  * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link EXTDebugMarker#VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_NAME_INFO_EXT STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_NAME_INFO_EXT}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>{@code objectType} <b>must</b> be a valid {@code VkDebugReportObjectTypeEXT} value</li>
+ * <li>{@code pObjectName} <b>must</b> be a null-terminated string</li>
+ * </ul>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>

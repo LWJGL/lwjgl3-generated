@@ -242,6 +242,57 @@ public class NativeFileDialog {
 		}
 	}
 
+	// --- [ NFD_PickFolder ] ---
+
+	/**
+	 * Launches a select folder dialog.
+	 * 
+	 * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPath} will contain a pointer to a UTF-8 encoded string. The user must free the string with {@link #NFD_Free Free} when it is no longer
+	 * needed.</p>
+	 *
+	 * @param defaultPath an optional default path
+	 * @param outPath     returns the selected file path
+	 */
+	public static native int nNFD_PickFolder(long defaultPath, long outPath);
+
+	/**
+	 * Launches a select folder dialog.
+	 * 
+	 * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPath} will contain a pointer to a UTF-8 encoded string. The user must free the string with {@link #NFD_Free Free} when it is no longer
+	 * needed.</p>
+	 *
+	 * @param defaultPath an optional default path
+	 * @param outPath     returns the selected file path
+	 */
+	public static int NFD_PickFolder(ByteBuffer defaultPath, PointerBuffer outPath) {
+		if ( CHECKS ) {
+			if ( defaultPath != null ) checkNT1(defaultPath);
+			checkBuffer(outPath, 1);
+		}
+		return nNFD_PickFolder(memAddressSafe(defaultPath), memAddress(outPath));
+	}
+
+	/**
+	 * Launches a select folder dialog.
+	 * 
+	 * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPath} will contain a pointer to a UTF-8 encoded string. The user must free the string with {@link #NFD_Free Free} when it is no longer
+	 * needed.</p>
+	 *
+	 * @param defaultPath an optional default path
+	 * @param outPath     returns the selected file path
+	 */
+	public static int NFD_PickFolder(CharSequence defaultPath, PointerBuffer outPath) {
+		if ( CHECKS )
+			checkBuffer(outPath, 1);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer defaultPathEncoded = stack.UTF8(defaultPath);
+			return nNFD_PickFolder(memAddressSafe(defaultPathEncoded), memAddress(outPath));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
 	// --- [ NFD_GetError ] ---
 
 	/** Returns the last error. */

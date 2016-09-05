@@ -10121,6 +10121,11 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>Any {@code VkImageView} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as
 	 * specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
 	 * {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> be of a format which supports cubic filtering, as
+	 * specified by the {@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image)
+	 * or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must not</b> have a {@code VkImageViewType} of
+	 * {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}, {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -10201,6 +10206,11 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>Any {@code VkImageView} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as
 	 * specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
 	 * {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> be of a format which supports cubic filtering, as
+	 * specified by the {@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image)
+	 * or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must not</b> have a {@code VkImageViewType} of
+	 * {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}, {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -10284,6 +10294,11 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>Any {@code VkImageView} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as
 	 * specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
 	 * {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> be of a format which supports cubic filtering, as
+	 * specified by the {@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image)
+	 * or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must not</b> have a {@code VkImageViewType} of
+	 * {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}, {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -10366,6 +10381,11 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>Any {@code VkImageView} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as
 	 * specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
 	 * {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> be of a format which supports cubic filtering, as
+	 * specified by the {@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image)
+	 * or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must not</b> have a {@code VkImageViewType} of
+	 * {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}, {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -10435,6 +10455,11 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>Any {@code VkImageView} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as
 	 * specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
 	 * {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> be of a format which supports cubic filtering, as
+	 * specified by the {@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image)
+	 * or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must not</b> have a {@code VkImageViewType} of
+	 * {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}, {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -10499,6 +10524,11 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>Any {@code VkImageView} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as
 	 * specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
 	 * {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> be of a format which supports cubic filtering, as
+	 * specified by the {@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image)
+	 * or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must not</b> have a {@code VkImageViewType} of
+	 * {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}, {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -10857,6 +10887,10 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If {@code filter} is {@link #VK_FILTER_LINEAR FILTER_LINEAR}, {@code srcImage} <b>must</b> be of a format which supports linear filtering, as specified by the
 	 * {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
 	 * {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>If {@code filter} is {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG}, {@code srcImage} <b>must</b> be of a format which supports cubic filtering, as specified by the
+	 * {@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
+	 * {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>If {@code filter} is {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG}, {@code srcImage} <b>must</b> have a {@code VkImageType} of {@link #VK_IMAGE_TYPE_3D IMAGE_TYPE_3D}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -10932,6 +10966,10 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If {@code filter} is {@link #VK_FILTER_LINEAR FILTER_LINEAR}, {@code srcImage} <b>must</b> be of a format which supports linear filtering, as specified by the
 	 * {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
 	 * {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>If {@code filter} is {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG}, {@code srcImage} <b>must</b> be of a format which supports cubic filtering, as specified by the
+	 * {@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
+	 * {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+	 * <li>If {@code filter} is {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG}, {@code srcImage} <b>must</b> have a {@code VkImageType} of {@link #VK_IMAGE_TYPE_3D IMAGE_TYPE_3D}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>

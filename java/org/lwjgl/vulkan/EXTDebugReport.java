@@ -195,7 +195,7 @@ public class EXTDebugReport {
 	 * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
 	 * <li>{@code callback} <b>must</b> be a valid {@code VkDebugReportCallbackEXT} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>{@code callback} <b>must</b> have been created, allocated or retrieved from {@code instance}</li>
+	 * <li>{@code callback} <b>must</b> have been created, allocated, or retrieved from {@code instance}</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code instance} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code instance} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
 	 * </ul>
@@ -228,7 +228,7 @@ public class EXTDebugReport {
 	 * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
 	 * <li>{@code callback} <b>must</b> be a valid {@code VkDebugReportCallbackEXT} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>{@code callback} <b>must</b> have been created, allocated or retrieved from {@code instance}</li>
+	 * <li>{@code callback} <b>must</b> have been created, allocated, or retrieved from {@code instance}</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code instance} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code instance} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
 	 * </ul>
@@ -262,9 +262,9 @@ public class EXTDebugReport {
 	 * <li>{@code pLayerPrefix} <b>must</b> be a pointer to a valid</li>
 	 * <li>{@code pMessage} <b>must</b> be a pointer to a valid</li>
 	 * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
-	 * <li>{@code flags} must be a combination of one or more of {@code VkDebugReportFlagBitsEXT}</li>
-	 * <li>{@code objType} must be one of {@code VkDebugReportObjectTypeEXT}, {@link #VK_DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT} if {@code object} is {@code NULL}</li>
-	 * <li>{@code object} may be a {apiname} object</li>
+	 * <li>{@code flags} <b>must</b> be a combination of one or more of {@code VkDebugReportFlagBitsEXT}</li>
+	 * <li>{@code objType} <b>must</b> be one of {@code VkDebugReportObjectTypeEXT}, {@link #VK_DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT} if {@code object} is {@code NULL}</li>
+	 * <li>{@code object} <b>may</b> be a Vulkan object</li>
 	 * <li>{@code pLayerPrefix} <b>must</b> be a {@code NULL} terminated string.</li>
 	 * <li>{@code pMsg} <b>must</b> be a {@code NULL} terminated string.</li>
 	 * </ul>
@@ -301,9 +301,9 @@ public class EXTDebugReport {
 	 * <li>{@code pLayerPrefix} <b>must</b> be a pointer to a valid</li>
 	 * <li>{@code pMessage} <b>must</b> be a pointer to a valid</li>
 	 * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
-	 * <li>{@code flags} must be a combination of one or more of {@code VkDebugReportFlagBitsEXT}</li>
-	 * <li>{@code objType} must be one of {@code VkDebugReportObjectTypeEXT}, {@link #VK_DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT} if {@code object} is {@code NULL}</li>
-	 * <li>{@code object} may be a {apiname} object</li>
+	 * <li>{@code flags} <b>must</b> be a combination of one or more of {@code VkDebugReportFlagBitsEXT}</li>
+	 * <li>{@code objType} <b>must</b> be one of {@code VkDebugReportObjectTypeEXT}, {@link #VK_DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT} if {@code object} is {@code NULL}</li>
+	 * <li>{@code object} <b>may</b> be a Vulkan object</li>
 	 * <li>{@code pLayerPrefix} <b>must</b> be a {@code NULL} terminated string.</li>
 	 * <li>{@code pMsg} <b>must</b> be a {@code NULL} terminated string.</li>
 	 * </ul>
@@ -341,9 +341,9 @@ public class EXTDebugReport {
 	 * <li>{@code pLayerPrefix} <b>must</b> be a pointer to a valid</li>
 	 * <li>{@code pMessage} <b>must</b> be a pointer to a valid</li>
 	 * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
-	 * <li>{@code flags} must be a combination of one or more of {@code VkDebugReportFlagBitsEXT}</li>
-	 * <li>{@code objType} must be one of {@code VkDebugReportObjectTypeEXT}, {@link #VK_DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT} if {@code object} is {@code NULL}</li>
-	 * <li>{@code object} may be a {apiname} object</li>
+	 * <li>{@code flags} <b>must</b> be a combination of one or more of {@code VkDebugReportFlagBitsEXT}</li>
+	 * <li>{@code objType} <b>must</b> be one of {@code VkDebugReportObjectTypeEXT}, {@link #VK_DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT} if {@code object} is {@code NULL}</li>
+	 * <li>{@code object} <b>may</b> be a Vulkan object</li>
 	 * <li>{@code pLayerPrefix} <b>must</b> be a {@code NULL} terminated string.</li>
 	 * <li>{@code pMsg} <b>must</b> be a {@code NULL} terminated string.</li>
 	 * </ul>

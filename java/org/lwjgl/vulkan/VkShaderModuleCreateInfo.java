@@ -28,11 +28,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code flags} <b>must</b> be 0</li>
  * <li>{@code pCode} <b>must</b> be a pointer to an array of {@code codeSize / 4} {@code uint32_t} values</li>
  * <li>{@code codeSize} <b>must</b> be greater than 0</li>
- * <li>{@code codeSize} <b>must</b> be a multiple of 4</li>
- * <li>{@code pCode} <b>must</b> point to valid SPIR-V code, formatted and packed as described by
- * https://www.khronos.org/registry/spir-v/specs/1.0/SPIRV.html[the SPIR-V Specification v1.0]</li>
- * <li>{@code pCode} <b>must</b> adhere to the validation rules described by the Validation Rules within a Module section of the SPIR-V Environment appendix</li>
- * <li>{@code pCode} <b>must</b> declare the {@code Shader} capability</li>
+ * <li>{@code codeSize} <b>must</b> be a multiple of 4. If the +VK_NV_glsl_shader extension+ is enabled and {@code pCode} references GLSL code {@code codeSize}
+ * can be a multiple of 1</li>
+ * <li>{@code pCode} <b>must</b> point to valid SPIR-V code, formatted and packed. If the {@code VK_NV_glsl_shader} extension is enabled {@code pCode} can
+ * instead reference valid GLSL code and <b>must</b> be written to the {@code GL_KHR_vulkan_glsl} extension specification</li>
+ * <li>{@code pCode} <b>must</b> adhere to the validation rules described by the Validation Rules within a Module section of the SPIR-V Environment appendix. If
+ * the {@code VK_NV_glsl_shader} extension is enabled {@code pCode} can be valid GLSL code with respect to the {@code GL_KHR_vulkan_glsl} GLSL
+ * extension specification</li>
+ * <li>{@code pCode} <b>must</b> declare the {@code Shader} capability for SPIR-V code</li>
  * <li>{@code pCode} <b>must not</b> declare any capability that is not supported by the API, as described by the Capabilities section of the SPIR-V Environment
  * appendix</li>
  * <li>If {@code pCode} declares any of the capabilities that are listed as not required by the implementation, the relevant feature <b>must</b> be enabled, as

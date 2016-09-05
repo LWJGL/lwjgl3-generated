@@ -202,6 +202,8 @@ public class VKCapabilities {
 	public final boolean VK_EXT_debug_report;
 	/** When true, {@link IMGFilterCubic} is supported. */
 	public final boolean VK_IMG_filter_cubic;
+	/** When true, {@link IMGFormatPVRTC} is supported. */
+	public final boolean VK_IMG_format_pvrtc;
 	/** When true, {@link KHRDisplay} is supported. */
 	public final boolean VK_KHR_display;
 	/** When true, {@link KHRDisplaySwapchain} is supported. */
@@ -401,6 +403,7 @@ public class VKCapabilities {
 		VK_EXT_debug_marker = ext.contains("VK_EXT_debug_marker") && VK.checkExtension("VK_EXT_debug_marker", EXTDebugMarker.isAvailable(this));
 		VK_EXT_debug_report = ext.contains("VK_EXT_debug_report") && VK.checkExtension("VK_EXT_debug_report", EXTDebugReport.isAvailable(this));
 		VK_IMG_filter_cubic = ext.contains("VK_IMG_filter_cubic");
+		VK_IMG_format_pvrtc = ext.contains("VK_IMG_format_pvrtc");
 		VK_KHR_display = ext.contains("VK_KHR_display") && VK.checkExtension("VK_KHR_display", KHRDisplay.isAvailable(this));
 		VK_KHR_display_swapchain = ext.contains("VK_KHR_display_swapchain") && VK.checkExtension("VK_KHR_display_swapchain", KHRDisplaySwapchain.isAvailable(this));
 		VK_KHR_sampler_mirror_clamp_to_edge = ext.contains("VK_KHR_sampler_mirror_clamp_to_edge");
