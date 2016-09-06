@@ -23,10 +23,8 @@ import static org.lwjgl.system.MemoryStack.*;
     float at_x;
     float at_y;
     float max_x;
-    float width;
-    float height;
-    float footer_h;
-    float header_h;
+    float footer_height;
+    float header_height;
     float border;
     unsigned int has_scrolling;
     {@link NkRect struct nk_rect} clip;
@@ -53,10 +51,8 @@ public class NkPanel extends Struct implements NativeResource {
 		AT_X,
 		AT_Y,
 		MAX_X,
-		WIDTH,
-		HEIGHT,
-		FOOTER_H,
-		HEADER_H,
+		FOOTER_HEIGHT,
+		HEADER_HEIGHT,
 		BORDER,
 		HAS_SCROLLING,
 		CLIP,
@@ -72,8 +68,6 @@ public class NkPanel extends Struct implements NativeResource {
 			__member(4),
 			__member(NkRect.SIZEOF, NkRect.ALIGNOF),
 			__member(POINTER_SIZE),
-			__member(4),
-			__member(4),
 			__member(4),
 			__member(4),
 			__member(4),
@@ -99,19 +93,17 @@ public class NkPanel extends Struct implements NativeResource {
 		AT_X = layout.offsetof(3);
 		AT_Y = layout.offsetof(4);
 		MAX_X = layout.offsetof(5);
-		WIDTH = layout.offsetof(6);
-		HEIGHT = layout.offsetof(7);
-		FOOTER_H = layout.offsetof(8);
-		HEADER_H = layout.offsetof(9);
-		BORDER = layout.offsetof(10);
-		HAS_SCROLLING = layout.offsetof(11);
-		CLIP = layout.offsetof(12);
-		MENU = layout.offsetof(13);
-		ROW = layout.offsetof(14);
-		CHART = layout.offsetof(15);
-		POPUP_BUFFER = layout.offsetof(16);
-		BUFFER = layout.offsetof(17);
-		PARENT = layout.offsetof(18);
+		FOOTER_HEIGHT = layout.offsetof(6);
+		HEADER_HEIGHT = layout.offsetof(7);
+		BORDER = layout.offsetof(8);
+		HAS_SCROLLING = layout.offsetof(9);
+		CLIP = layout.offsetof(10);
+		MENU = layout.offsetof(11);
+		ROW = layout.offsetof(12);
+		CHART = layout.offsetof(13);
+		POPUP_BUFFER = layout.offsetof(14);
+		BUFFER = layout.offsetof(15);
+		PARENT = layout.offsetof(16);
 	}
 
 	NkPanel(long address, ByteBuffer container) {
@@ -143,14 +135,10 @@ public class NkPanel extends Struct implements NativeResource {
 	public float at_y() { return nat_y(address()); }
 	/** Returns the value of the {@code max_x} field. */
 	public float max_x() { return nmax_x(address()); }
-	/** Returns the value of the {@code width} field. */
-	public float width() { return nwidth(address()); }
-	/** Returns the value of the {@code height} field. */
-	public float height() { return nheight(address()); }
-	/** Returns the value of the {@code footer_h} field. */
-	public float footer_h() { return nfooter_h(address()); }
-	/** Returns the value of the {@code header_h} field. */
-	public float header_h() { return nheader_h(address()); }
+	/** Returns the value of the {@code footer_height} field. */
+	public float footer_height() { return nfooter_height(address()); }
+	/** Returns the value of the {@code header_height} field. */
+	public float header_height() { return nheader_height(address()); }
 	/** Returns the value of the {@code border} field. */
 	public float border() { return nborder(address()); }
 	/** Returns the value of the {@code has_scrolling} field. */
@@ -311,14 +299,10 @@ public class NkPanel extends Struct implements NativeResource {
 	public static float nat_y(long struct) { return memGetFloat(struct + NkPanel.AT_Y); }
 	/** Unsafe version of {@link #max_x}. */
 	public static float nmax_x(long struct) { return memGetFloat(struct + NkPanel.MAX_X); }
-	/** Unsafe version of {@link #width}. */
-	public static float nwidth(long struct) { return memGetFloat(struct + NkPanel.WIDTH); }
-	/** Unsafe version of {@link #height}. */
-	public static float nheight(long struct) { return memGetFloat(struct + NkPanel.HEIGHT); }
-	/** Unsafe version of {@link #footer_h}. */
-	public static float nfooter_h(long struct) { return memGetFloat(struct + NkPanel.FOOTER_H); }
-	/** Unsafe version of {@link #header_h}. */
-	public static float nheader_h(long struct) { return memGetFloat(struct + NkPanel.HEADER_H); }
+	/** Unsafe version of {@link #footer_height}. */
+	public static float nfooter_height(long struct) { return memGetFloat(struct + NkPanel.FOOTER_HEIGHT); }
+	/** Unsafe version of {@link #header_height}. */
+	public static float nheader_height(long struct) { return memGetFloat(struct + NkPanel.HEADER_HEIGHT); }
 	/** Unsafe version of {@link #border}. */
 	public static float nborder(long struct) { return memGetFloat(struct + NkPanel.BORDER); }
 	/** Unsafe version of {@link #has_scrolling}. */
@@ -392,14 +376,10 @@ public class NkPanel extends Struct implements NativeResource {
 		public float at_y() { return NkPanel.nat_y(address()); }
 		/** Returns the value of the {@code max_x} field. */
 		public float max_x() { return NkPanel.nmax_x(address()); }
-		/** Returns the value of the {@code width} field. */
-		public float width() { return NkPanel.nwidth(address()); }
-		/** Returns the value of the {@code height} field. */
-		public float height() { return NkPanel.nheight(address()); }
-		/** Returns the value of the {@code footer_h} field. */
-		public float footer_h() { return NkPanel.nfooter_h(address()); }
-		/** Returns the value of the {@code header_h} field. */
-		public float header_h() { return NkPanel.nheader_h(address()); }
+		/** Returns the value of the {@code footer_height} field. */
+		public float footer_height() { return NkPanel.nfooter_height(address()); }
+		/** Returns the value of the {@code header_height} field. */
+		public float header_height() { return NkPanel.nheader_height(address()); }
 		/** Returns the value of the {@code border} field. */
 		public float border() { return NkPanel.nborder(address()); }
 		/** Returns the value of the {@code has_scrolling} field. */

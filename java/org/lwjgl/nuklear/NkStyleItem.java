@@ -15,6 +15,13 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code type} &ndash; the style type. One of:<br><table><tr><td>{@link Nuklear#NK_STYLE_ITEM_COLOR STYLE_ITEM_COLOR}</td><td>{@link Nuklear#NK_STYLE_ITEM_IMAGE STYLE_ITEM_IMAGE}</td></tr></table></li>
+ * <li>{@code data} &ndash; the style data</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_style_item {

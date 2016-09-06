@@ -19,8 +19,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <pre><code>struct nk_clipboard {
     {@link NkHandle nk_handle} userdata;
-    nk_paste_f paste;
-    nk_copy_f copy;
+    nk_plugin_paste paste;
+    nk_plugin_copy copy;
 }</code></pre>
  */
 public class NkClipboard extends Struct implements NativeResource {
@@ -70,17 +70,17 @@ public class NkClipboard extends Struct implements NativeResource {
 
 	/** Returns a {@link NkHandle} view of the {@code userdata} field. */
 	public NkHandle userdata() { return nuserdata(address()); }
-	/** Returns the {@code NkPasteCallback} instance at the {@code paste} field. */
-	public NkPasteCallback paste() { return NkPasteCallback.create(npaste(address())); }
-	/** Returns the {@code NkCopyCallback} instance at the {@code copy} field. */
-	public NkCopyCallback copy() { return NkCopyCallback.create(ncopy(address())); }
+	/** Returns the {@code NkPluginPaste} instance at the {@code paste} field. */
+	public NkPluginPaste paste() { return NkPluginPaste.create(npaste(address())); }
+	/** Returns the {@code NkPluginCopy} instance at the {@code copy} field. */
+	public NkPluginCopy copy() { return NkPluginCopy.create(ncopy(address())); }
 
 	/** Copies the specified {@link NkHandle} to the {@code userdata} field. */
 	public NkClipboard userdata(NkHandle value) { nuserdata(address(), value); return this; }
-	/** Sets the address of the specified {@link NkPasteCallbackI} to the {@code paste} field. */
-	public NkClipboard paste(NkPasteCallbackI value) { npaste(address(), addressSafe(value)); return this; }
-	/** Sets the address of the specified {@link NkCopyCallbackI} to the {@code copy} field. */
-	public NkClipboard copy(NkCopyCallbackI value) { ncopy(address(), addressSafe(value)); return this; }
+	/** Sets the address of the specified {@link NkPluginPasteI} to the {@code paste} field. */
+	public NkClipboard paste(NkPluginPasteI value) { npaste(address(), addressSafe(value)); return this; }
+	/** Sets the address of the specified {@link NkPluginCopyI} to the {@code copy} field. */
+	public NkClipboard copy(NkPluginCopyI value) { ncopy(address(), addressSafe(value)); return this; }
 
 	/** Unsafe version of {@link #set(NkClipboard) set}. */
 	public NkClipboard nset(long struct) {
@@ -237,9 +237,9 @@ public class NkClipboard extends Struct implements NativeResource {
 
 	/** Unsafe version of {@link #userdata(NkHandle) userdata}. */
 	public static void nuserdata(long struct, NkHandle value) { memCopy(value.address(), struct + NkClipboard.USERDATA, NkHandle.SIZEOF); }
-	/** Unsafe version of {@link #paste(NkPasteCallbackI) paste}. */
+	/** Unsafe version of {@link #paste(NkPluginPasteI) paste}. */
 	public static void npaste(long struct, long value) { memPutAddress(struct + NkClipboard.PASTE, value); }
-	/** Unsafe version of {@link #copy(NkCopyCallbackI) copy}. */
+	/** Unsafe version of {@link #copy(NkPluginCopyI) copy}. */
 	public static void ncopy(long struct, long value) { memPutAddress(struct + NkClipboard.COPY, value); }
 
 	// -----------------------------------
@@ -286,17 +286,17 @@ public class NkClipboard extends Struct implements NativeResource {
 
 		/** Returns a {@link NkHandle} view of the {@code userdata} field. */
 		public NkHandle userdata() { return NkClipboard.nuserdata(address()); }
-		/** Returns the {@code NkPasteCallback} instance at the {@code paste} field. */
-		public NkPasteCallback paste() { return NkPasteCallback.create(NkClipboard.npaste(address())); }
-		/** Returns the {@code NkCopyCallback} instance at the {@code copy} field. */
-		public NkCopyCallback copy() { return NkCopyCallback.create(NkClipboard.ncopy(address())); }
+		/** Returns the {@code NkPluginPaste} instance at the {@code paste} field. */
+		public NkPluginPaste paste() { return NkPluginPaste.create(NkClipboard.npaste(address())); }
+		/** Returns the {@code NkPluginCopy} instance at the {@code copy} field. */
+		public NkPluginCopy copy() { return NkPluginCopy.create(NkClipboard.ncopy(address())); }
 
 		/** Copies the specified {@link NkHandle} to the {@code userdata} field. */
 		public NkClipboard.Buffer userdata(NkHandle value) { NkClipboard.nuserdata(address(), value); return this; }
-		/** Sets the address of the specified {@link NkPasteCallbackI} to the {@code paste} field. */
-		public NkClipboard.Buffer paste(NkPasteCallbackI value) { NkClipboard.npaste(address(), addressSafe(value)); return this; }
-		/** Sets the address of the specified {@link NkCopyCallbackI} to the {@code copy} field. */
-		public NkClipboard.Buffer copy(NkCopyCallbackI value) { NkClipboard.ncopy(address(), addressSafe(value)); return this; }
+		/** Sets the address of the specified {@link NkPluginPasteI} to the {@code paste} field. */
+		public NkClipboard.Buffer paste(NkPluginPasteI value) { NkClipboard.npaste(address(), addressSafe(value)); return this; }
+		/** Sets the address of the specified {@link NkPluginCopyI} to the {@code copy} field. */
+		public NkClipboard.Buffer copy(NkPluginCopyI value) { NkClipboard.ncopy(address(), addressSafe(value)); return this; }
 
 	}
 

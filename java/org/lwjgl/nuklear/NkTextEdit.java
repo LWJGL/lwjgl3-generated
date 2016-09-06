@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <pre><code>struct nk_text_edit {
     {@link NkClipboard struct nk_clipboard} clip;
     {@link NkStr struct nk_str} string;
-    nk_filter filter;
+    nk_plugin_filter filter;
     {@link NkVec2 struct nk_vec2} scrollbar;
     int cursor;
     int select_start;
@@ -33,7 +33,7 @@ import static org.lwjgl.system.MemoryUtil.*;
     {@link NkTextUndoState struct nk_text_undo_state} undo;
 }</code></pre>
  */
-public class NkTextEdit extends Struct {
+class NkTextEdit extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -108,7 +108,7 @@ public class NkTextEdit extends Struct {
 	 *
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
-	public NkTextEdit(ByteBuffer container) {
+	NkTextEdit(ByteBuffer container) {
 		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
@@ -119,8 +119,8 @@ public class NkTextEdit extends Struct {
 	public NkClipboard clip() { return nclip(address()); }
 	/** Returns a {@link NkStr} view of the {@code string} field. */
 	public NkStr string() { return nstring(address()); }
-	/** Returns the {@code NkFilterCallback} instance at the {@code filter} field. */
-	public NkFilterCallback filter() { return NkFilterCallback.create(nfilter(address())); }
+	/** Returns the {@code NkPluginFilter} instance at the {@code filter} field. */
+	public NkPluginFilter filter() { return NkPluginFilter.create(nfilter(address())); }
 	/** Returns a {@link NkVec2} view of the {@code scrollbar} field. */
 	public NkVec2 scrollbar() { return nscrollbar(address()); }
 	/** Returns the value of the {@code cursor} field. */
@@ -242,8 +242,8 @@ public class NkTextEdit extends Struct {
 		public NkClipboard clip() { return NkTextEdit.nclip(address()); }
 		/** Returns a {@link NkStr} view of the {@code string} field. */
 		public NkStr string() { return NkTextEdit.nstring(address()); }
-		/** Returns the {@code NkFilterCallback} instance at the {@code filter} field. */
-		public NkFilterCallback filter() { return NkFilterCallback.create(NkTextEdit.nfilter(address())); }
+		/** Returns the {@code NkPluginFilter} instance at the {@code filter} field. */
+		public NkPluginFilter filter() { return NkPluginFilter.create(NkTextEdit.nfilter(address())); }
 		/** Returns a {@link NkVec2} view of the {@code scrollbar} field. */
 		public NkVec2 scrollbar() { return NkTextEdit.nscrollbar(address()); }
 		/** Returns the value of the {@code cursor} field. */

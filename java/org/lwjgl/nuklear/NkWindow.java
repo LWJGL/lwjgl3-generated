@@ -17,6 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <pre><code>struct nk_window {
     unsigned int seq;
     nk_hash name;
+    char[64] name_string;
     nk_flags flags;
     {@link NkRect struct nk_rect} bounds;
     {@link NkScroll struct nk_scroll} scrollbar;
@@ -46,6 +47,7 @@ public class NkWindow extends Struct {
 	public static final int
 		SEQ,
 		NAME,
+		NAME_STRING,
 		FLAGS,
 		BOUNDS,
 		SCROLLBAR,
@@ -67,6 +69,7 @@ public class NkWindow extends Struct {
 		Layout layout = __struct(
 			__member(4),
 			__member(4),
+			__array(1, 64),
 			__member(4),
 			__member(NkRect.SIZEOF, NkRect.ALIGNOF),
 			__member(NkScroll.SIZEOF, NkScroll.ALIGNOF),
@@ -90,22 +93,23 @@ public class NkWindow extends Struct {
 
 		SEQ = layout.offsetof(0);
 		NAME = layout.offsetof(1);
-		FLAGS = layout.offsetof(2);
-		BOUNDS = layout.offsetof(3);
-		SCROLLBAR = layout.offsetof(4);
-		BUFFER = layout.offsetof(5);
-		LAYOUT = layout.offsetof(6);
-		SCROLLBAR_HIDING_TIMER = layout.offsetof(7);
-		PROPERTY = layout.offsetof(8);
-		POPUP = layout.offsetof(9);
-		EDIT = layout.offsetof(10);
-		SCROLLED = layout.offsetof(11);
-		TABLES = layout.offsetof(12);
-		TABLE_COUNT = layout.offsetof(13);
-		TABLE_SIZE = layout.offsetof(14);
-		NEXT = layout.offsetof(15);
-		PREV = layout.offsetof(16);
-		PARENT = layout.offsetof(17);
+		NAME_STRING = layout.offsetof(2);
+		FLAGS = layout.offsetof(3);
+		BOUNDS = layout.offsetof(4);
+		SCROLLBAR = layout.offsetof(5);
+		BUFFER = layout.offsetof(6);
+		LAYOUT = layout.offsetof(7);
+		SCROLLBAR_HIDING_TIMER = layout.offsetof(8);
+		PROPERTY = layout.offsetof(9);
+		POPUP = layout.offsetof(10);
+		EDIT = layout.offsetof(11);
+		SCROLLED = layout.offsetof(12);
+		TABLES = layout.offsetof(13);
+		TABLE_COUNT = layout.offsetof(14);
+		TABLE_SIZE = layout.offsetof(15);
+		NEXT = layout.offsetof(16);
+		PREV = layout.offsetof(17);
+		PARENT = layout.offsetof(18);
 	}
 
 	NkWindow(long address, ByteBuffer container) {
@@ -129,6 +133,10 @@ public class NkWindow extends Struct {
 	public int seq() { return nseq(address()); }
 	/** Returns the value of the {@code name} field. */
 	public int name() { return nname(address()); }
+	/** Returns a {@link ByteBuffer} view of the {@code name_string} field. */
+	public ByteBuffer name_string() { return nname_string(address()); }
+	/** Decodes the null-terminated string stored in the {@code name_string} field. */
+	public String name_stringString() { return nname_stringString(address()); }
 	/** Returns the value of the {@code flags} field. */
 	public int flags() { return nflags(address()); }
 	/** Returns a {@link NkRect} view of the {@code bounds} field. */
@@ -185,6 +193,10 @@ public class NkWindow extends Struct {
 	public static int nseq(long struct) { return memGetInt(struct + NkWindow.SEQ); }
 	/** Unsafe version of {@link #name}. */
 	public static int nname(long struct) { return memGetInt(struct + NkWindow.NAME); }
+	/** Unsafe version of {@link #name_string}. */
+	public static ByteBuffer nname_string(long struct) { return memByteBuffer(struct + NkWindow.NAME_STRING, 64); }
+	/** Unsafe version of {@link #name_stringString}. */
+	public static String nname_stringString(long struct) { return memUTF8(struct + NkWindow.NAME_STRING); }
 	/** Unsafe version of {@link #flags}. */
 	public static int nflags(long struct) { return memGetInt(struct + NkWindow.FLAGS); }
 	/** Unsafe version of {@link #bounds}. */
@@ -264,6 +276,10 @@ public class NkWindow extends Struct {
 		public int seq() { return NkWindow.nseq(address()); }
 		/** Returns the value of the {@code name} field. */
 		public int name() { return NkWindow.nname(address()); }
+		/** Returns a {@link ByteBuffer} view of the {@code name_string} field. */
+		public ByteBuffer name_string() { return NkWindow.nname_string(address()); }
+		/** Decodes the null-terminated string stored in the {@code name_string} field. */
+		public String name_stringString() { return NkWindow.nname_stringString(address()); }
 		/** Returns the value of the {@code flags} field. */
 		public int flags() { return NkWindow.nflags(address()); }
 		/** Returns a {@link NkRect} view of the {@code bounds} field. */

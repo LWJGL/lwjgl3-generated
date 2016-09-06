@@ -9,24 +9,24 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be set to the {@link NkClipboard} struct. */
+/** Instances of this interface may be set to the {@link NkTextEdit} struct. */
 @FunctionalInterface
-public interface NkPasteCallbackI extends CallbackI.V {
+public interface NkPluginFilterI extends CallbackI.I {
 
-	String SIGNATURE = "(pp)v";
+	String SIGNATURE = "(pi)i";
 
 	@Override
 	default String getSignature() { return SIGNATURE; }
 
 	@Override
-	default void callback(long args) {
-		invoke(
+	default int callback(long args) {
+		return invoke(
 			dcbArgPointer(args),
-			dcbArgPointer(args)
+			dcbArgInt(args)
 		);
 	}
 
 
-	void invoke(long handle, long edit);
+	int invoke(long edit, int unicode);
 
 }

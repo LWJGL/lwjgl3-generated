@@ -9,25 +9,25 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be set to the {@link NkAllocator} struct. */
+/** Instances of this interface may be set to the {@link NkClipboard} struct. */
 @FunctionalInterface
-public interface NkMallocI extends CallbackI.P {
+public interface NkPluginCopyI extends CallbackI.V {
 
-	String SIGNATURE = "(ppp)p";
+	String SIGNATURE = "(ppi)v";
 
 	@Override
 	default String getSignature() { return SIGNATURE; }
 
 	@Override
-	default long callback(long args) {
-		return invoke(
+	default void callback(long args) {
+		invoke(
 			dcbArgPointer(args),
 			dcbArgPointer(args),
-			dcbArgPointer(args)
+			dcbArgInt(args)
 		);
 	}
 
 
-	long invoke(long handle, long old, long size);
+	void invoke(long handle, long text, int len);
 
 }

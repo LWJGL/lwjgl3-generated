@@ -25,6 +25,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code arc_segment_count} &ndash; number of segments used for arcs: default to 22</li>
  * <li>{@code curve_segment_count} &ndash; number of segments used for curves: default to 22</li>
  * <li>{@code null_texture} &ndash; handle to texture with a white pixel for shape drawing</li>
+ * <li>{@code vertex_layout} &ndash; describes the vertex output format and packing</li>
+ * <li>{@code vertex_size} &ndash; sizeof one vertex for vertex packing</li>
+ * <li>{@code vertex_alignment} &ndash; vertex alignment: Can be optained by NK_ALIGNOF</li>
  * </ul>
  * 
  * <h3>Layout</h3>
@@ -37,6 +40,9 @@ import static org.lwjgl.system.MemoryStack.*;
     unsigned int arc_segment_count;
     unsigned int curve_segment_count;
     {@link NkDrawNullTexture struct nk_draw_null_texture} null_texture;
+    struct nk_draw_vertex_layout_element * vertex_layout;
+    nk_size vertex_size;
+    nk_size vertex_alignment;
 }</code></pre>
  */
 public class NkConvertConfig extends Struct implements NativeResource {
@@ -54,7 +60,10 @@ public class NkConvertConfig extends Struct implements NativeResource {
 		CIRCLE_SEGMENT_COUNT,
 		ARC_SEGMENT_COUNT,
 		CURVE_SEGMENT_COUNT,
-		NULL_TEXTURE;
+		NULL_TEXTURE,
+		VERTEX_LAYOUT,
+		VERTEX_SIZE,
+		VERTEX_ALIGNMENT;
 
 	static {
 		Layout layout = __struct(
@@ -64,7 +73,10 @@ public class NkConvertConfig extends Struct implements NativeResource {
 			__member(4),
 			__member(4),
 			__member(4),
-			__member(NkDrawNullTexture.SIZEOF, NkDrawNullTexture.ALIGNOF)
+			__member(NkDrawNullTexture.SIZEOF, NkDrawNullTexture.ALIGNOF),
+			__member(POINTER_SIZE),
+			__member(POINTER_SIZE),
+			__member(POINTER_SIZE)
 		);
 
 		SIZEOF = layout.getSize();
@@ -77,6 +89,9 @@ public class NkConvertConfig extends Struct implements NativeResource {
 		ARC_SEGMENT_COUNT = layout.offsetof(4);
 		CURVE_SEGMENT_COUNT = layout.offsetof(5);
 		NULL_TEXTURE = layout.offsetof(6);
+		VERTEX_LAYOUT = layout.offsetof(7);
+		VERTEX_SIZE = layout.offsetof(8);
+		VERTEX_ALIGNMENT = layout.offsetof(9);
 	}
 
 	NkConvertConfig(long address, ByteBuffer container) {
@@ -110,6 +125,16 @@ public class NkConvertConfig extends Struct implements NativeResource {
 	public int curve_segment_count() { return ncurve_segment_count(address()); }
 	/** Returns a {@link NkDrawNullTexture} view of the {@code null_texture} field. */
 	public NkDrawNullTexture null_texture() { return nnull_texture(address()); }
+	/**
+	 * Returns a {@link NkDrawVertexLayoutElement.Buffer} view of the struct array pointed to by the {@code vertex_layout} field.
+	 *
+	 * @param capacity the number of elements in the returned buffer
+	 */
+	public NkDrawVertexLayoutElement.Buffer vertex_layout(int capacity) { return nvertex_layout(address(), capacity); }
+	/** Returns the value of the {@code vertex_size} field. */
+	public long vertex_size() { return nvertex_size(address()); }
+	/** Returns the value of the {@code vertex_alignment} field. */
+	public long vertex_alignment() { return nvertex_alignment(address()); }
 
 	/** Sets the specified value to the {@code global_alpha} field. */
 	public NkConvertConfig global_alpha(float value) { nglobal_alpha(address(), value); return this; }
@@ -125,6 +150,12 @@ public class NkConvertConfig extends Struct implements NativeResource {
 	public NkConvertConfig curve_segment_count(int value) { ncurve_segment_count(address(), value); return this; }
 	/** Copies the specified {@link NkDrawNullTexture} to the {@code null_texture} field. */
 	public NkConvertConfig null_texture(NkDrawNullTexture value) { nnull_texture(address(), value); return this; }
+	/** Sets the address of the specified {@link NkDrawVertexLayoutElement.Buffer} to the {@code vertex_layout} field. */
+	public NkConvertConfig vertex_layout(NkDrawVertexLayoutElement.Buffer value) { nvertex_layout(address(), value); return this; }
+	/** Sets the specified value to the {@code vertex_size} field. */
+	public NkConvertConfig vertex_size(long value) { nvertex_size(address(), value); return this; }
+	/** Sets the specified value to the {@code vertex_alignment} field. */
+	public NkConvertConfig vertex_alignment(long value) { nvertex_alignment(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public NkConvertConfig set(
@@ -134,7 +165,10 @@ public class NkConvertConfig extends Struct implements NativeResource {
 		int circle_segment_count,
 		int arc_segment_count,
 		int curve_segment_count,
-		NkDrawNullTexture null_texture
+		NkDrawNullTexture null_texture,
+		NkDrawVertexLayoutElement.Buffer vertex_layout,
+		long vertex_size,
+		long vertex_alignment
 	) {
 		global_alpha(global_alpha);
 		line_AA(line_AA);
@@ -143,6 +177,9 @@ public class NkConvertConfig extends Struct implements NativeResource {
 		arc_segment_count(arc_segment_count);
 		curve_segment_count(curve_segment_count);
 		null_texture(null_texture);
+		vertex_layout(vertex_layout);
+		vertex_size(vertex_size);
+		vertex_alignment(vertex_alignment);
 
 		return this;
 	}
@@ -307,6 +344,12 @@ public class NkConvertConfig extends Struct implements NativeResource {
 	public static int ncurve_segment_count(long struct) { return memGetInt(struct + NkConvertConfig.CURVE_SEGMENT_COUNT); }
 	/** Unsafe version of {@link #null_texture}. */
 	public static NkDrawNullTexture nnull_texture(long struct) { return NkDrawNullTexture.create(struct + NkConvertConfig.NULL_TEXTURE); }
+	/** Unsafe version of {@link #vertex_layout}. */
+	public static NkDrawVertexLayoutElement.Buffer nvertex_layout(long struct, int capacity) { return NkDrawVertexLayoutElement.create(memGetAddress(struct + NkConvertConfig.VERTEX_LAYOUT), capacity); }
+	/** Unsafe version of {@link #vertex_size}. */
+	public static long nvertex_size(long struct) { return memGetAddress(struct + NkConvertConfig.VERTEX_SIZE); }
+	/** Unsafe version of {@link #vertex_alignment}. */
+	public static long nvertex_alignment(long struct) { return memGetAddress(struct + NkConvertConfig.VERTEX_ALIGNMENT); }
 
 	/** Unsafe version of {@link #global_alpha(float) global_alpha}. */
 	public static void nglobal_alpha(long struct, float value) { memPutFloat(struct + NkConvertConfig.GLOBAL_ALPHA, value); }
@@ -322,6 +365,32 @@ public class NkConvertConfig extends Struct implements NativeResource {
 	public static void ncurve_segment_count(long struct, int value) { memPutInt(struct + NkConvertConfig.CURVE_SEGMENT_COUNT, value); }
 	/** Unsafe version of {@link #null_texture(NkDrawNullTexture) null_texture}. */
 	public static void nnull_texture(long struct, NkDrawNullTexture value) { memCopy(value.address(), struct + NkConvertConfig.NULL_TEXTURE, NkDrawNullTexture.SIZEOF); }
+	/** Unsafe version of {@link #vertex_layout(NkDrawVertexLayoutElement.Buffer) vertex_layout}. */
+	public static void nvertex_layout(long struct, NkDrawVertexLayoutElement.Buffer value) { memPutAddress(struct + NkConvertConfig.VERTEX_LAYOUT, value.address()); }
+	/** Unsafe version of {@link #vertex_size(long) vertex_size}. */
+	public static void nvertex_size(long struct, long value) { memPutAddress(struct + NkConvertConfig.VERTEX_SIZE, value); }
+	/** Unsafe version of {@link #vertex_alignment(long) vertex_alignment}. */
+	public static void nvertex_alignment(long struct, long value) { memPutAddress(struct + NkConvertConfig.VERTEX_ALIGNMENT, value); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		checkPointer(memGetAddress(struct + NkConvertConfig.VERTEX_LAYOUT));
+	}
+
+	/**
+	 * Calls {@link #validate(long)} for each struct contained in the specified struct array.
+	 *
+	 * @param array the struct array to validate
+	 * @param count the number of structs in {@code array}
+	 */
+	public static void validate(long array, int count) {
+		for ( int i = 0; i < count; i++ )
+			validate(array + i * SIZEOF);
+	}
 
 	// -----------------------------------
 
@@ -379,6 +448,16 @@ public class NkConvertConfig extends Struct implements NativeResource {
 		public int curve_segment_count() { return NkConvertConfig.ncurve_segment_count(address()); }
 		/** Returns a {@link NkDrawNullTexture} view of the {@code null_texture} field. */
 		public NkDrawNullTexture null_texture() { return NkConvertConfig.nnull_texture(address()); }
+		/**
+		 * Returns a {@link NkDrawVertexLayoutElement.Buffer} view of the struct array pointed to by the {@code vertex_layout} field.
+		 *
+		 * @param capacity the number of elements in the returned buffer
+		 */
+		public NkDrawVertexLayoutElement.Buffer vertex_layout(int capacity) { return NkConvertConfig.nvertex_layout(address(), capacity); }
+		/** Returns the value of the {@code vertex_size} field. */
+		public long vertex_size() { return NkConvertConfig.nvertex_size(address()); }
+		/** Returns the value of the {@code vertex_alignment} field. */
+		public long vertex_alignment() { return NkConvertConfig.nvertex_alignment(address()); }
 
 		/** Sets the specified value to the {@code global_alpha} field. */
 		public NkConvertConfig.Buffer global_alpha(float value) { NkConvertConfig.nglobal_alpha(address(), value); return this; }
@@ -394,6 +473,12 @@ public class NkConvertConfig extends Struct implements NativeResource {
 		public NkConvertConfig.Buffer curve_segment_count(int value) { NkConvertConfig.ncurve_segment_count(address(), value); return this; }
 		/** Copies the specified {@link NkDrawNullTexture} to the {@code null_texture} field. */
 		public NkConvertConfig.Buffer null_texture(NkDrawNullTexture value) { NkConvertConfig.nnull_texture(address(), value); return this; }
+		/** Sets the address of the specified {@link NkDrawVertexLayoutElement.Buffer} to the {@code vertex_layout} field. */
+		public NkConvertConfig.Buffer vertex_layout(NkDrawVertexLayoutElement.Buffer value) { NkConvertConfig.nvertex_layout(address(), value); return this; }
+		/** Sets the specified value to the {@code vertex_size} field. */
+		public NkConvertConfig.Buffer vertex_size(long value) { NkConvertConfig.nvertex_size(address(), value); return this; }
+		/** Sets the specified value to the {@code vertex_alignment} field. */
+		public NkConvertConfig.Buffer vertex_alignment(long value) { NkConvertConfig.nvertex_alignment(address(), value); return this; }
 
 	}
 

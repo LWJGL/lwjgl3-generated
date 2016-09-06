@@ -22,8 +22,9 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkBuffer struct nk_buffer} memory;
     {@link NkClipboard struct nk_clipboard} clip;
     nk_flags last_widget_state;
-    nk_button_behavior button_behavior;
     float delta_time_seconds;
+    nk_button_behavior button_behavior;
+    {@link NkConfigurationStacks struct nk_configuration_stacks} stacks;
     {@link NkDrawList struct nk_draw_list} draw_list;
     {@link NkHandle nk_handle} userdata;
     {@link NkTextEdit struct nk_text_edit} text_edit;
@@ -54,8 +55,9 @@ public class NkContext extends Struct implements NativeResource {
 		MEMORY,
 		CLIP,
 		LAST_WIDGET_STATE,
-		BUTTON_BEHAVIOR,
 		DELTA_TIME_SECONDS,
+		BUTTON_BEHAVIOR,
+		STACKS,
 		DRAW_LIST,
 		USERDATA,
 		TEXT_EDIT,
@@ -80,6 +82,7 @@ public class NkContext extends Struct implements NativeResource {
 			__member(4),
 			__member(4),
 			__member(4),
+			__member(NkConfigurationStacks.SIZEOF, NkConfigurationStacks.ALIGNOF),
 			__member(NkDrawList.SIZEOF, NkDrawList.ALIGNOF),
 			__member(NkHandle.SIZEOF, NkHandle.ALIGNOF),
 			__member(NkTextEdit.SIZEOF, NkTextEdit.ALIGNOF),
@@ -104,22 +107,23 @@ public class NkContext extends Struct implements NativeResource {
 		MEMORY = layout.offsetof(2);
 		CLIP = layout.offsetof(3);
 		LAST_WIDGET_STATE = layout.offsetof(4);
-		BUTTON_BEHAVIOR = layout.offsetof(5);
-		DELTA_TIME_SECONDS = layout.offsetof(6);
-		DRAW_LIST = layout.offsetof(7);
-		USERDATA = layout.offsetof(8);
-		TEXT_EDIT = layout.offsetof(9);
-		OVERLAY = layout.offsetof(10);
-		BUILD = layout.offsetof(11);
-		USE_POOL = layout.offsetof(12);
-		POOL = layout.offsetof(13);
-		BEGIN = layout.offsetof(14);
-		END = layout.offsetof(15);
-		ACTIVE = layout.offsetof(16);
-		CURRENT = layout.offsetof(17);
-		FREELIST = layout.offsetof(18);
-		COUNT = layout.offsetof(19);
-		SEQ = layout.offsetof(20);
+		DELTA_TIME_SECONDS = layout.offsetof(5);
+		BUTTON_BEHAVIOR = layout.offsetof(6);
+		STACKS = layout.offsetof(7);
+		DRAW_LIST = layout.offsetof(8);
+		USERDATA = layout.offsetof(9);
+		TEXT_EDIT = layout.offsetof(10);
+		OVERLAY = layout.offsetof(11);
+		BUILD = layout.offsetof(12);
+		USE_POOL = layout.offsetof(13);
+		POOL = layout.offsetof(14);
+		BEGIN = layout.offsetof(15);
+		END = layout.offsetof(16);
+		ACTIVE = layout.offsetof(17);
+		CURRENT = layout.offsetof(18);
+		FREELIST = layout.offsetof(19);
+		COUNT = layout.offsetof(20);
+		SEQ = layout.offsetof(21);
 	}
 
 	NkContext(long address, ByteBuffer container) {
@@ -149,10 +153,12 @@ public class NkContext extends Struct implements NativeResource {
 	public NkClipboard clip() { return nclip(address()); }
 	/** Returns the value of the {@code last_widget_state} field. */
 	public int last_widget_state() { return nlast_widget_state(address()); }
-	/** Returns the value of the {@code button_behavior} field. */
-	public int button_behavior() { return nbutton_behavior(address()); }
 	/** Returns the value of the {@code delta_time_seconds} field. */
 	public float delta_time_seconds() { return ndelta_time_seconds(address()); }
+	/** Returns the value of the {@code button_behavior} field. */
+	public int button_behavior() { return nbutton_behavior(address()); }
+	/** Returns a {@link NkConfigurationStacks} view of the {@code stacks} field. */
+	public NkConfigurationStacks stacks() { return nstacks(address()); }
 	/** Returns a {@link NkDrawList} view of the {@code draw_list} field. */
 	public NkDrawList draw_list() { return ndraw_list(address()); }
 	/** Returns a {@link NkHandle} view of the {@code userdata} field. */
@@ -321,10 +327,12 @@ public class NkContext extends Struct implements NativeResource {
 	public static NkClipboard nclip(long struct) { return NkClipboard.create(struct + NkContext.CLIP); }
 	/** Unsafe version of {@link #last_widget_state}. */
 	public static int nlast_widget_state(long struct) { return memGetInt(struct + NkContext.LAST_WIDGET_STATE); }
-	/** Unsafe version of {@link #button_behavior}. */
-	public static int nbutton_behavior(long struct) { return memGetInt(struct + NkContext.BUTTON_BEHAVIOR); }
 	/** Unsafe version of {@link #delta_time_seconds}. */
 	public static float ndelta_time_seconds(long struct) { return memGetFloat(struct + NkContext.DELTA_TIME_SECONDS); }
+	/** Unsafe version of {@link #button_behavior}. */
+	public static int nbutton_behavior(long struct) { return memGetInt(struct + NkContext.BUTTON_BEHAVIOR); }
+	/** Unsafe version of {@link #stacks}. */
+	public static NkConfigurationStacks nstacks(long struct) { return NkConfigurationStacks.create(struct + NkContext.STACKS); }
 	/** Unsafe version of {@link #draw_list}. */
 	public static NkDrawList ndraw_list(long struct) { return NkDrawList.create(struct + NkContext.DRAW_LIST); }
 	/** Unsafe version of {@link #userdata}. */
@@ -406,10 +414,12 @@ public class NkContext extends Struct implements NativeResource {
 		public NkClipboard clip() { return NkContext.nclip(address()); }
 		/** Returns the value of the {@code last_widget_state} field. */
 		public int last_widget_state() { return NkContext.nlast_widget_state(address()); }
-		/** Returns the value of the {@code button_behavior} field. */
-		public int button_behavior() { return NkContext.nbutton_behavior(address()); }
 		/** Returns the value of the {@code delta_time_seconds} field. */
 		public float delta_time_seconds() { return NkContext.ndelta_time_seconds(address()); }
+		/** Returns the value of the {@code button_behavior} field. */
+		public int button_behavior() { return NkContext.nbutton_behavior(address()); }
+		/** Returns a {@link NkConfigurationStacks} view of the {@code stacks} field. */
+		public NkConfigurationStacks stacks() { return NkContext.nstacks(address()); }
 		/** Returns a {@link NkDrawList} view of the {@code draw_list} field. */
 		public NkDrawList draw_list() { return NkContext.ndraw_list(address()); }
 		/** Returns a {@link NkHandle} view of the {@code userdata} field. */

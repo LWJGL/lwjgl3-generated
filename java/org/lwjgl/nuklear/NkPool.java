@@ -25,7 +25,7 @@ import static org.lwjgl.system.MemoryUtil.*;
     nk_size cap;
 }</code></pre>
  */
-public class NkPool extends Struct {
+class NkPool extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -78,7 +78,7 @@ public class NkPool extends Struct {
 	 *
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
-	public NkPool(ByteBuffer container) {
+	NkPool(ByteBuffer container) {
 		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 

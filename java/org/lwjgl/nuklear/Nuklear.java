@@ -309,7 +309,8 @@ public class Nuklear {
 		NK_EDIT_CTRL_ENTER_NEWLINE   = 1 << 7,
 		NK_EDIT_NO_HORIZONTAL_SCROLL = 1 << 8,
 		NK_EDIT_ALWAYS_INSERT_MODE   = 1 << 9,
-		NK_EDIT_MULTILINE            = 1 << 11;
+		NK_EDIT_MULTILINE            = 1 << 11,
+		NK_EDIT_GOTO_END_ON_ACTIVATE = 1 << 12;
 
 	/** nk_edit_types */
 	public static final int
@@ -336,35 +337,29 @@ public class Nuklear {
 	/** Draws a border around the window to visually separate the window * from the background */
 	public static final int NK_WINDOW_BORDER = 1 << 0;
 
-	/** Draws a border between window header and body */
-	public static final int NK_WINDOW_BORDER_HEADER = 1 << 1;
-
 	/** The movable flag indicates that a window can be moved by user input or * by dragging the window header */
-	public static final int NK_WINDOW_MOVABLE = 1 << 2;
+	public static final int NK_WINDOW_MOVABLE = 1 << 1;
 
 	/** The scalable flag indicates that a window can be scaled by user input * by dragging a scaler icon at the button of the window */
-	public static final int NK_WINDOW_SCALABLE = 1 << 3;
+	public static final int NK_WINDOW_SCALABLE = 1 << 2;
 
 	/** adds a closable icon into the header */
-	public static final int NK_WINDOW_CLOSABLE = 1 << 4;
+	public static final int NK_WINDOW_CLOSABLE = 1 << 3;
 
 	/** adds a minimize icon into the header */
-	public static final int NK_WINDOW_MINIMIZABLE = 1 << 5;
-
-	/** special window type growing up in height while being filled to a * certain maximum height */
-	public static final int NK_WINDOW_DYNAMIC = 1 << 6;
+	public static final int NK_WINDOW_MINIMIZABLE = 1 << 4;
 
 	/** Removes the scrollbar from the window */
-	public static final int NK_WINDOW_NO_SCROLLBAR = 1 << 7;
+	public static final int NK_WINDOW_NO_SCROLLBAR = 1 << 5;
 
 	/** Forces a header at the top at the window showing the title */
-	public static final int NK_WINDOW_TITLE = 1 << 8;
+	public static final int NK_WINDOW_TITLE = 1 << 6;
 
 	/** Automatically hides the window scrollbar if no user interaction */
-	public static final int NK_WINDOW_SCROLL_AUTO_HIDE = 1 << 9;
+	public static final int NK_WINDOW_SCROLL_AUTO_HIDE = 1 << 7;
 
 	/** Keep window always in the background */
-	public static final int NK_WINDOW_BACKGROUND = 1 << 10;
+	public static final int NK_WINDOW_BACKGROUND = 1 << 8;
 
 	/** nk_allocation_type */
 	public static final int
@@ -431,6 +426,35 @@ public class Nuklear {
 	/** build up path has a connection back to the beginning */
 	public static final int NK_STROKE_CLOSED = nk_true;
 
+	/** nk_draw_vertex_layout_attribute */
+	public static final int
+		NK_VERTEX_POSITION        = 0,
+		NK_VERTEX_COLOR           = 1,
+		NK_VERTEX_TEXCOORD        = 2,
+		NK_VERTEX_ATTRIBUTE_COUNT = 3;
+
+	/** nk_draw_vertex_layout_format */
+	public static final int
+		NK_FORMAT_SCHAR               = 0,
+		NK_FORMAT_SSHORT              = 1,
+		NK_FORMAT_SINT                = 2,
+		NK_FORMAT_UCHAR               = 3,
+		NK_FORMAT_USHORT              = 4,
+		NK_FORMAT_UINT                = 5,
+		NK_FORMAT_FLOAT               = 6,
+		NK_FORMAT_DOUBLE              = 7,
+		NK_FORMAT_R8G8B8              = 8,
+		NK_FORMAT_R16G15B16           = 9,
+		NK_FORMAT_R32G32B32           = 10,
+		NK_FORMAT_R8G8B8A8            = 11,
+		NK_FORMAT_R16G15B16A16        = 12,
+		NK_FORMAT_R32G32B32A32        = 13,
+		NK_FORMAT_R32G32B32A32_FLOAT  = 14,
+		NK_FORMAT_R32G32B32A32_DOUBLE = 15,
+		NK_FORMAT_RGB32               = 16,
+		NK_FORMAT_RGBA32              = 17,
+		NK_FORMAT_COUNT               = 18;
+
 	/** nk_style_item_type */
 	public static final int
 		NK_STYLE_ITEM_COLOR = 0,
@@ -442,46 +466,46 @@ public class Nuklear {
 		NK_HEADER_RIGHT = 1;
 
 	/** dummy flag which mark the beginning of the private window flag part */
-	public static final int NK_WINDOW_PRIVATE = 1 << 11;
+	public static final int NK_WINDOW_PRIVATE = 1 << 9;
 
 	/** sets the window into a read only mode and does not allow input changes */
-	public static final int NK_WINDOW_ROM = 1 << 12;
+	public static final int NK_WINDOW_ROM = 1 << 10;
 
 	/** Hides the window and stops any window interaction and drawing can be set by user input or by closing the window */
-	public static final int NK_WINDOW_HIDDEN = 1 << 13;
+	public static final int NK_WINDOW_HIDDEN = 1 << 11;
 
 	/** Directly closes and frees the window at the end of the frame */
-	public static final int NK_WINDOW_CLOSED = 1 << 14;
+	public static final int NK_WINDOW_CLOSED = 1 << 12;
 
 	/** marks the window as minimized */
-	public static final int NK_WINDOW_MINIMIZED = 1 << 15;
+	public static final int NK_WINDOW_MINIMIZED = 1 << 13;
 
 	/** Marks the window as subwindow of another window */
-	public static final int NK_WINDOW_SUB = 1 << 16;
+	public static final int NK_WINDOW_SUB = 1 << 14;
 
 	/** Marks the window as window widget group */
-	public static final int NK_WINDOW_GROUP = 1 << 17;
+	public static final int NK_WINDOW_GROUP = 1 << 15;
 
 	/** Marks the window as a popup window */
-	public static final int NK_WINDOW_POPUP = 1 << 18;
+	public static final int NK_WINDOW_POPUP = 1 << 16;
 
 	/** Marks the window as a nonblock popup window */
-	public static final int NK_WINDOW_NONBLOCK = 1 << 19;
+	public static final int NK_WINDOW_NONBLOCK = 1 << 17;
 
 	/** Marks the window as a combo box or menu */
-	public static final int NK_WINDOW_CONTEXTUAL = 1 << 20;
+	public static final int NK_WINDOW_CONTEXTUAL = 1 << 18;
 
 	/** Marks the window as a combo box */
-	public static final int NK_WINDOW_COMBO = 1 << 21;
+	public static final int NK_WINDOW_COMBO = 1 << 19;
 
 	/** Marks the window as a menu */
-	public static final int NK_WINDOW_MENU = 1 << 22;
+	public static final int NK_WINDOW_MENU = 1 << 20;
 
 	/** Marks the window as a menu */
-	public static final int NK_WINDOW_TOOLTIP = 1 << 23;
+	public static final int NK_WINDOW_TOOLTIP = 1 << 21;
 
 	/** Removes the read only mode at the end of the window */
-	public static final int NK_WINDOW_REMOVE_ROM = 1 << 24;
+	public static final int NK_WINDOW_REMOVE_ROM = 1 << 22;
 
 	static { Library.loadSystem("lwjgl_nuklear"); }
 
@@ -671,11 +695,11 @@ public class Nuklear {
 	 * @param ctx    the nuklear context
 	 * @param panel  
 	 * @param name   
-	 * @param id     
+	 * @param title  
 	 * @param bounds 
 	 * @param flags  one or more of:<br><table><tr><td>{@link #NK_WINDOW_PRIVATE WINDOW_PRIVATE}</td><td>{@link #NK_WINDOW_ROM WINDOW_ROM}</td><td>{@link #NK_WINDOW_HIDDEN WINDOW_HIDDEN}</td><td>{@link #NK_WINDOW_CLOSED WINDOW_CLOSED}</td><td>{@link #NK_WINDOW_MINIMIZED WINDOW_MINIMIZED}</td><td>{@link #NK_WINDOW_SUB WINDOW_SUB}</td></tr><tr><td>{@link #NK_WINDOW_GROUP WINDOW_GROUP}</td><td>{@link #NK_WINDOW_POPUP WINDOW_POPUP}</td><td>{@link #NK_WINDOW_NONBLOCK WINDOW_NONBLOCK}</td><td>{@link #NK_WINDOW_CONTEXTUAL WINDOW_CONTEXTUAL}</td><td>{@link #NK_WINDOW_COMBO WINDOW_COMBO}</td><td>{@link #NK_WINDOW_MENU WINDOW_MENU}</td></tr><tr><td>{@link #NK_WINDOW_TOOLTIP WINDOW_TOOLTIP}</td><td>{@link #NK_WINDOW_REMOVE_ROM WINDOW_REMOVE_ROM}</td></tr></table>
 	 */
-	public static native int nnk_begin_titled(long ctx, long panel, long name, long id, long bounds, int flags);
+	public static native int nnk_begin_titled(long ctx, long panel, long name, long title, long bounds, int flags);
 
 	/**
 	 * 
@@ -683,16 +707,16 @@ public class Nuklear {
 	 * @param ctx    the nuklear context
 	 * @param panel  
 	 * @param name   
-	 * @param id     
+	 * @param title  
 	 * @param bounds 
 	 * @param flags  one or more of:<br><table><tr><td>{@link #NK_WINDOW_PRIVATE WINDOW_PRIVATE}</td><td>{@link #NK_WINDOW_ROM WINDOW_ROM}</td><td>{@link #NK_WINDOW_HIDDEN WINDOW_HIDDEN}</td><td>{@link #NK_WINDOW_CLOSED WINDOW_CLOSED}</td><td>{@link #NK_WINDOW_MINIMIZED WINDOW_MINIMIZED}</td><td>{@link #NK_WINDOW_SUB WINDOW_SUB}</td></tr><tr><td>{@link #NK_WINDOW_GROUP WINDOW_GROUP}</td><td>{@link #NK_WINDOW_POPUP WINDOW_POPUP}</td><td>{@link #NK_WINDOW_NONBLOCK WINDOW_NONBLOCK}</td><td>{@link #NK_WINDOW_CONTEXTUAL WINDOW_CONTEXTUAL}</td><td>{@link #NK_WINDOW_COMBO WINDOW_COMBO}</td><td>{@link #NK_WINDOW_MENU WINDOW_MENU}</td></tr><tr><td>{@link #NK_WINDOW_TOOLTIP WINDOW_TOOLTIP}</td><td>{@link #NK_WINDOW_REMOVE_ROM WINDOW_REMOVE_ROM}</td></tr></table>
 	 */
-	public static boolean nk_begin_titled(NkContext ctx, NkPanel panel, ByteBuffer name, ByteBuffer id, NkRect bounds, int flags) {
+	public static boolean nk_begin_titled(NkContext ctx, NkPanel panel, ByteBuffer name, ByteBuffer title, NkRect bounds, int flags) {
 		if ( CHECKS ) {
 			checkNT1(name);
-			checkNT1(id);
+			checkNT1(title);
 		}
-		return nnk_begin_titled(ctx.address(), panel.address(), memAddress(name), memAddress(id), bounds.address(), flags) != 0;
+		return nnk_begin_titled(ctx.address(), panel.address(), memAddress(name), memAddress(title), bounds.address(), flags) != 0;
 	}
 
 	/**
@@ -701,16 +725,16 @@ public class Nuklear {
 	 * @param ctx    the nuklear context
 	 * @param panel  
 	 * @param name   
-	 * @param id     
+	 * @param title  
 	 * @param bounds 
 	 * @param flags  one or more of:<br><table><tr><td>{@link #NK_WINDOW_PRIVATE WINDOW_PRIVATE}</td><td>{@link #NK_WINDOW_ROM WINDOW_ROM}</td><td>{@link #NK_WINDOW_HIDDEN WINDOW_HIDDEN}</td><td>{@link #NK_WINDOW_CLOSED WINDOW_CLOSED}</td><td>{@link #NK_WINDOW_MINIMIZED WINDOW_MINIMIZED}</td><td>{@link #NK_WINDOW_SUB WINDOW_SUB}</td></tr><tr><td>{@link #NK_WINDOW_GROUP WINDOW_GROUP}</td><td>{@link #NK_WINDOW_POPUP WINDOW_POPUP}</td><td>{@link #NK_WINDOW_NONBLOCK WINDOW_NONBLOCK}</td><td>{@link #NK_WINDOW_CONTEXTUAL WINDOW_CONTEXTUAL}</td><td>{@link #NK_WINDOW_COMBO WINDOW_COMBO}</td><td>{@link #NK_WINDOW_MENU WINDOW_MENU}</td></tr><tr><td>{@link #NK_WINDOW_TOOLTIP WINDOW_TOOLTIP}</td><td>{@link #NK_WINDOW_REMOVE_ROM WINDOW_REMOVE_ROM}</td></tr></table>
 	 */
-	public static boolean nk_begin_titled(NkContext ctx, NkPanel panel, CharSequence name, CharSequence id, NkRect bounds, int flags) {
+	public static boolean nk_begin_titled(NkContext ctx, NkPanel panel, CharSequence name, CharSequence title, NkRect bounds, int flags) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.UTF8(name);
-			ByteBuffer idEncoded = stack.UTF8(id);
-			return nnk_begin_titled(ctx.address(), panel.address(), memAddress(nameEncoded), memAddress(idEncoded), bounds.address(), flags) != 0;
+			ByteBuffer titleEncoded = stack.UTF8(title);
+			return nnk_begin_titled(ctx.address(), panel.address(), memAddress(nameEncoded), memAddress(titleEncoded), bounds.address(), flags) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -1265,44 +1289,6 @@ public class Nuklear {
 		nnk_window_set_size(ctx.address(), size.address());
 	}
 
-	// --- [ nk_window_set_title ] ---
-
-	/**
-	 * 
-	 *
-	 * @param ctx          the nuklear context
-	 * @param title_to_set 
-	 */
-	public static native void nnk_window_set_title(long ctx, long title_to_set);
-
-	/**
-	 * 
-	 *
-	 * @param ctx          the nuklear context
-	 * @param title_to_set 
-	 */
-	public static void nk_window_set_title(NkContext ctx, ByteBuffer title_to_set) {
-		if ( CHECKS )
-			checkNT1(title_to_set);
-		nnk_window_set_title(ctx.address(), memAddress(title_to_set));
-	}
-
-	/**
-	 * 
-	 *
-	 * @param ctx          the nuklear context
-	 * @param title_to_set 
-	 */
-	public static void nk_window_set_title(NkContext ctx, CharSequence title_to_set) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			ByteBuffer title_to_setEncoded = stack.UTF8(title_to_set);
-			nnk_window_set_title(ctx.address(), memAddress(title_to_setEncoded));
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
-
 	// --- [ nk_window_set_focus ] ---
 
 	/**
@@ -1758,6 +1744,26 @@ public class Nuklear {
 	public static NkRect nk_layout_space_rect_to_local(NkContext ctx, NkRect ret) {
 		nnk_layout_space_rect_to_local(ctx.address(), ret.address());
 		return ret;
+	}
+
+	// --- [ nk_layout_ratio_from_pixel ] ---
+
+	/**
+	 * 
+	 *
+	 * @param ctx         the nuklear context
+	 * @param pixel_width 
+	 */
+	public static native float nnk_layout_ratio_from_pixel(long ctx, float pixel_width);
+
+	/**
+	 * 
+	 *
+	 * @param ctx         the nuklear context
+	 * @param pixel_width 
+	 */
+	public static float nk_layout_ratio_from_pixel(NkContext ctx, float pixel_width) {
+		return nnk_layout_ratio_from_pixel(ctx.address(), pixel_width);
 	}
 
 	// --- [ nk_group_begin ] ---
@@ -2295,26 +2301,6 @@ public class Nuklear {
 		nnk_image(ctx.address(), img.address());
 	}
 
-	// --- [ nk_button_set_behavior ] ---
-
-	/**
-	 * 
-	 *
-	 * @param ctx      the nuklear context
-	 * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
-	 */
-	public static native void nnk_button_set_behavior(long ctx, int behavior);
-
-	/**
-	 * 
-	 *
-	 * @param ctx      the nuklear context
-	 * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
-	 */
-	public static void nk_button_set_behavior(NkContext ctx, int behavior) {
-		nnk_button_set_behavior(ctx.address(), behavior);
-	}
-
 	// --- [ nk_button_text ] ---
 
 	/**
@@ -2625,6 +2611,64 @@ public class Nuklear {
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	// --- [ nk_button_set_behavior ] ---
+
+	/**
+	 * 
+	 *
+	 * @param ctx      the nuklear context
+	 * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
+	 */
+	public static native void nnk_button_set_behavior(long ctx, int behavior);
+
+	/**
+	 * 
+	 *
+	 * @param ctx      the nuklear context
+	 * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
+	 */
+	public static void nk_button_set_behavior(NkContext ctx, int behavior) {
+		nnk_button_set_behavior(ctx.address(), behavior);
+	}
+
+	// --- [ nk_button_push_behavior ] ---
+
+	/**
+	 * 
+	 *
+	 * @param ctx      the nuklear context
+	 * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
+	 */
+	public static native int nnk_button_push_behavior(long ctx, int behavior);
+
+	/**
+	 * 
+	 *
+	 * @param ctx      the nuklear context
+	 * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
+	 */
+	public static int nk_button_push_behavior(NkContext ctx, int behavior) {
+		return nnk_button_push_behavior(ctx.address(), behavior);
+	}
+
+	// --- [ nk_button_pop_behavior ] ---
+
+	/**
+	 * 
+	 *
+	 * @param ctx the nuklear context
+	 */
+	public static native int nnk_button_pop_behavior(long ctx);
+
+	/**
+	 * 
+	 *
+	 * @param ctx the nuklear context
+	 */
+	public static int nk_button_pop_behavior(NkContext ctx) {
+		return nnk_button_pop_behavior(ctx.address());
 	}
 
 	// --- [ nk_check_label ] ---
@@ -4068,7 +4112,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx    the nuklear context
-	 * @param flags  one of:<br><table><tr><td>{@link #NK_EDIT_DEFAULT EDIT_DEFAULT}</td><td>{@link #NK_EDIT_READ_ONLY EDIT_READ_ONLY}</td><td>{@link #NK_EDIT_AUTO_SELECT EDIT_AUTO_SELECT}</td><td>{@link #NK_EDIT_SIG_ENTER EDIT_SIG_ENTER}</td></tr><tr><td>{@link #NK_EDIT_ALLOW_TAB EDIT_ALLOW_TAB}</td><td>{@link #NK_EDIT_NO_CURSOR EDIT_NO_CURSOR}</td><td>{@link #NK_EDIT_SELECTABLE EDIT_SELECTABLE}</td><td>{@link #NK_EDIT_CLIPBOARD EDIT_CLIPBOARD}</td></tr><tr><td>{@link #NK_EDIT_CTRL_ENTER_NEWLINE EDIT_CTRL_ENTER_NEWLINE}</td><td>{@link #NK_EDIT_NO_HORIZONTAL_SCROLL EDIT_NO_HORIZONTAL_SCROLL}</td><td>{@link #NK_EDIT_ALWAYS_INSERT_MODE EDIT_ALWAYS_INSERT_MODE}</td><td>{@link #NK_EDIT_MULTILINE EDIT_MULTILINE}</td></tr></table>
+	 * @param flags  one of:<br><table><tr><td>{@link #NK_EDIT_DEFAULT EDIT_DEFAULT}</td><td>{@link #NK_EDIT_READ_ONLY EDIT_READ_ONLY}</td><td>{@link #NK_EDIT_AUTO_SELECT EDIT_AUTO_SELECT}</td><td>{@link #NK_EDIT_SIG_ENTER EDIT_SIG_ENTER}</td></tr><tr><td>{@link #NK_EDIT_ALLOW_TAB EDIT_ALLOW_TAB}</td><td>{@link #NK_EDIT_NO_CURSOR EDIT_NO_CURSOR}</td><td>{@link #NK_EDIT_SELECTABLE EDIT_SELECTABLE}</td><td>{@link #NK_EDIT_CLIPBOARD EDIT_CLIPBOARD}</td></tr><tr><td>{@link #NK_EDIT_CTRL_ENTER_NEWLINE EDIT_CTRL_ENTER_NEWLINE}</td><td>{@link #NK_EDIT_NO_HORIZONTAL_SCROLL EDIT_NO_HORIZONTAL_SCROLL}</td><td>{@link #NK_EDIT_ALWAYS_INSERT_MODE EDIT_ALWAYS_INSERT_MODE}</td><td>{@link #NK_EDIT_MULTILINE EDIT_MULTILINE}</td></tr><tr><td>{@link #NK_EDIT_GOTO_END_ON_ACTIVATE EDIT_GOTO_END_ON_ACTIVATE}</td></tr></table>
 	 * @param memory 
 	 * @param len    
 	 * @param max    
@@ -4080,13 +4124,13 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx    the nuklear context
-	 * @param flags  one of:<br><table><tr><td>{@link #NK_EDIT_DEFAULT EDIT_DEFAULT}</td><td>{@link #NK_EDIT_READ_ONLY EDIT_READ_ONLY}</td><td>{@link #NK_EDIT_AUTO_SELECT EDIT_AUTO_SELECT}</td><td>{@link #NK_EDIT_SIG_ENTER EDIT_SIG_ENTER}</td></tr><tr><td>{@link #NK_EDIT_ALLOW_TAB EDIT_ALLOW_TAB}</td><td>{@link #NK_EDIT_NO_CURSOR EDIT_NO_CURSOR}</td><td>{@link #NK_EDIT_SELECTABLE EDIT_SELECTABLE}</td><td>{@link #NK_EDIT_CLIPBOARD EDIT_CLIPBOARD}</td></tr><tr><td>{@link #NK_EDIT_CTRL_ENTER_NEWLINE EDIT_CTRL_ENTER_NEWLINE}</td><td>{@link #NK_EDIT_NO_HORIZONTAL_SCROLL EDIT_NO_HORIZONTAL_SCROLL}</td><td>{@link #NK_EDIT_ALWAYS_INSERT_MODE EDIT_ALWAYS_INSERT_MODE}</td><td>{@link #NK_EDIT_MULTILINE EDIT_MULTILINE}</td></tr></table>
+	 * @param flags  one of:<br><table><tr><td>{@link #NK_EDIT_DEFAULT EDIT_DEFAULT}</td><td>{@link #NK_EDIT_READ_ONLY EDIT_READ_ONLY}</td><td>{@link #NK_EDIT_AUTO_SELECT EDIT_AUTO_SELECT}</td><td>{@link #NK_EDIT_SIG_ENTER EDIT_SIG_ENTER}</td></tr><tr><td>{@link #NK_EDIT_ALLOW_TAB EDIT_ALLOW_TAB}</td><td>{@link #NK_EDIT_NO_CURSOR EDIT_NO_CURSOR}</td><td>{@link #NK_EDIT_SELECTABLE EDIT_SELECTABLE}</td><td>{@link #NK_EDIT_CLIPBOARD EDIT_CLIPBOARD}</td></tr><tr><td>{@link #NK_EDIT_CTRL_ENTER_NEWLINE EDIT_CTRL_ENTER_NEWLINE}</td><td>{@link #NK_EDIT_NO_HORIZONTAL_SCROLL EDIT_NO_HORIZONTAL_SCROLL}</td><td>{@link #NK_EDIT_ALWAYS_INSERT_MODE EDIT_ALWAYS_INSERT_MODE}</td><td>{@link #NK_EDIT_MULTILINE EDIT_MULTILINE}</td></tr><tr><td>{@link #NK_EDIT_GOTO_END_ON_ACTIVATE EDIT_GOTO_END_ON_ACTIVATE}</td></tr></table>
 	 * @param memory 
 	 * @param len    
 	 * @param max    
 	 * @param filter 
 	 */
-	public static int nk_edit_string(NkContext ctx, int flags, ByteBuffer memory, IntBuffer len, int max, NkFilterCallbackI filter) {
+	public static int nk_edit_string(NkContext ctx, int flags, ByteBuffer memory, IntBuffer len, int max, NkPluginFilterI filter) {
 		if ( CHECKS ) {
 			checkNT1(memory);
 			checkBuffer(len, 1);
@@ -4098,13 +4142,13 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx    the nuklear context
-	 * @param flags  one of:<br><table><tr><td>{@link #NK_EDIT_DEFAULT EDIT_DEFAULT}</td><td>{@link #NK_EDIT_READ_ONLY EDIT_READ_ONLY}</td><td>{@link #NK_EDIT_AUTO_SELECT EDIT_AUTO_SELECT}</td><td>{@link #NK_EDIT_SIG_ENTER EDIT_SIG_ENTER}</td></tr><tr><td>{@link #NK_EDIT_ALLOW_TAB EDIT_ALLOW_TAB}</td><td>{@link #NK_EDIT_NO_CURSOR EDIT_NO_CURSOR}</td><td>{@link #NK_EDIT_SELECTABLE EDIT_SELECTABLE}</td><td>{@link #NK_EDIT_CLIPBOARD EDIT_CLIPBOARD}</td></tr><tr><td>{@link #NK_EDIT_CTRL_ENTER_NEWLINE EDIT_CTRL_ENTER_NEWLINE}</td><td>{@link #NK_EDIT_NO_HORIZONTAL_SCROLL EDIT_NO_HORIZONTAL_SCROLL}</td><td>{@link #NK_EDIT_ALWAYS_INSERT_MODE EDIT_ALWAYS_INSERT_MODE}</td><td>{@link #NK_EDIT_MULTILINE EDIT_MULTILINE}</td></tr></table>
+	 * @param flags  one of:<br><table><tr><td>{@link #NK_EDIT_DEFAULT EDIT_DEFAULT}</td><td>{@link #NK_EDIT_READ_ONLY EDIT_READ_ONLY}</td><td>{@link #NK_EDIT_AUTO_SELECT EDIT_AUTO_SELECT}</td><td>{@link #NK_EDIT_SIG_ENTER EDIT_SIG_ENTER}</td></tr><tr><td>{@link #NK_EDIT_ALLOW_TAB EDIT_ALLOW_TAB}</td><td>{@link #NK_EDIT_NO_CURSOR EDIT_NO_CURSOR}</td><td>{@link #NK_EDIT_SELECTABLE EDIT_SELECTABLE}</td><td>{@link #NK_EDIT_CLIPBOARD EDIT_CLIPBOARD}</td></tr><tr><td>{@link #NK_EDIT_CTRL_ENTER_NEWLINE EDIT_CTRL_ENTER_NEWLINE}</td><td>{@link #NK_EDIT_NO_HORIZONTAL_SCROLL EDIT_NO_HORIZONTAL_SCROLL}</td><td>{@link #NK_EDIT_ALWAYS_INSERT_MODE EDIT_ALWAYS_INSERT_MODE}</td><td>{@link #NK_EDIT_MULTILINE EDIT_MULTILINE}</td></tr><tr><td>{@link #NK_EDIT_GOTO_END_ON_ACTIVATE EDIT_GOTO_END_ON_ACTIVATE}</td></tr></table>
 	 * @param memory 
 	 * @param len    
 	 * @param max    
 	 * @param filter 
 	 */
-	public static int nk_edit_string(NkContext ctx, int flags, CharSequence memory, IntBuffer len, int max, NkFilterCallbackI filter) {
+	public static int nk_edit_string(NkContext ctx, int flags, CharSequence memory, IntBuffer len, int max, NkPluginFilterI filter) {
 		if ( CHECKS )
 			checkBuffer(len, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -4122,7 +4166,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx    the nuklear context
-	 * @param flags  one of:<br><table><tr><td>{@link #NK_EDIT_DEFAULT EDIT_DEFAULT}</td><td>{@link #NK_EDIT_READ_ONLY EDIT_READ_ONLY}</td><td>{@link #NK_EDIT_AUTO_SELECT EDIT_AUTO_SELECT}</td><td>{@link #NK_EDIT_SIG_ENTER EDIT_SIG_ENTER}</td></tr><tr><td>{@link #NK_EDIT_ALLOW_TAB EDIT_ALLOW_TAB}</td><td>{@link #NK_EDIT_NO_CURSOR EDIT_NO_CURSOR}</td><td>{@link #NK_EDIT_SELECTABLE EDIT_SELECTABLE}</td><td>{@link #NK_EDIT_CLIPBOARD EDIT_CLIPBOARD}</td></tr><tr><td>{@link #NK_EDIT_CTRL_ENTER_NEWLINE EDIT_CTRL_ENTER_NEWLINE}</td><td>{@link #NK_EDIT_NO_HORIZONTAL_SCROLL EDIT_NO_HORIZONTAL_SCROLL}</td><td>{@link #NK_EDIT_ALWAYS_INSERT_MODE EDIT_ALWAYS_INSERT_MODE}</td><td>{@link #NK_EDIT_MULTILINE EDIT_MULTILINE}</td></tr></table>
+	 * @param flags  one of:<br><table><tr><td>{@link #NK_EDIT_DEFAULT EDIT_DEFAULT}</td><td>{@link #NK_EDIT_READ_ONLY EDIT_READ_ONLY}</td><td>{@link #NK_EDIT_AUTO_SELECT EDIT_AUTO_SELECT}</td><td>{@link #NK_EDIT_SIG_ENTER EDIT_SIG_ENTER}</td></tr><tr><td>{@link #NK_EDIT_ALLOW_TAB EDIT_ALLOW_TAB}</td><td>{@link #NK_EDIT_NO_CURSOR EDIT_NO_CURSOR}</td><td>{@link #NK_EDIT_SELECTABLE EDIT_SELECTABLE}</td><td>{@link #NK_EDIT_CLIPBOARD EDIT_CLIPBOARD}</td></tr><tr><td>{@link #NK_EDIT_CTRL_ENTER_NEWLINE EDIT_CTRL_ENTER_NEWLINE}</td><td>{@link #NK_EDIT_NO_HORIZONTAL_SCROLL EDIT_NO_HORIZONTAL_SCROLL}</td><td>{@link #NK_EDIT_ALWAYS_INSERT_MODE EDIT_ALWAYS_INSERT_MODE}</td><td>{@link #NK_EDIT_MULTILINE EDIT_MULTILINE}</td></tr><tr><td>{@link #NK_EDIT_GOTO_END_ON_ACTIVATE EDIT_GOTO_END_ON_ACTIVATE}</td></tr></table>
 	 * @param edit   
 	 * @param filter 
 	 */
@@ -4132,11 +4176,11 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx    the nuklear context
-	 * @param flags  one of:<br><table><tr><td>{@link #NK_EDIT_DEFAULT EDIT_DEFAULT}</td><td>{@link #NK_EDIT_READ_ONLY EDIT_READ_ONLY}</td><td>{@link #NK_EDIT_AUTO_SELECT EDIT_AUTO_SELECT}</td><td>{@link #NK_EDIT_SIG_ENTER EDIT_SIG_ENTER}</td></tr><tr><td>{@link #NK_EDIT_ALLOW_TAB EDIT_ALLOW_TAB}</td><td>{@link #NK_EDIT_NO_CURSOR EDIT_NO_CURSOR}</td><td>{@link #NK_EDIT_SELECTABLE EDIT_SELECTABLE}</td><td>{@link #NK_EDIT_CLIPBOARD EDIT_CLIPBOARD}</td></tr><tr><td>{@link #NK_EDIT_CTRL_ENTER_NEWLINE EDIT_CTRL_ENTER_NEWLINE}</td><td>{@link #NK_EDIT_NO_HORIZONTAL_SCROLL EDIT_NO_HORIZONTAL_SCROLL}</td><td>{@link #NK_EDIT_ALWAYS_INSERT_MODE EDIT_ALWAYS_INSERT_MODE}</td><td>{@link #NK_EDIT_MULTILINE EDIT_MULTILINE}</td></tr></table>
+	 * @param flags  one of:<br><table><tr><td>{@link #NK_EDIT_DEFAULT EDIT_DEFAULT}</td><td>{@link #NK_EDIT_READ_ONLY EDIT_READ_ONLY}</td><td>{@link #NK_EDIT_AUTO_SELECT EDIT_AUTO_SELECT}</td><td>{@link #NK_EDIT_SIG_ENTER EDIT_SIG_ENTER}</td></tr><tr><td>{@link #NK_EDIT_ALLOW_TAB EDIT_ALLOW_TAB}</td><td>{@link #NK_EDIT_NO_CURSOR EDIT_NO_CURSOR}</td><td>{@link #NK_EDIT_SELECTABLE EDIT_SELECTABLE}</td><td>{@link #NK_EDIT_CLIPBOARD EDIT_CLIPBOARD}</td></tr><tr><td>{@link #NK_EDIT_CTRL_ENTER_NEWLINE EDIT_CTRL_ENTER_NEWLINE}</td><td>{@link #NK_EDIT_NO_HORIZONTAL_SCROLL EDIT_NO_HORIZONTAL_SCROLL}</td><td>{@link #NK_EDIT_ALWAYS_INSERT_MODE EDIT_ALWAYS_INSERT_MODE}</td><td>{@link #NK_EDIT_MULTILINE EDIT_MULTILINE}</td></tr><tr><td>{@link #NK_EDIT_GOTO_END_ON_ACTIVATE EDIT_GOTO_END_ON_ACTIVATE}</td></tr></table>
 	 * @param edit   
 	 * @param filter 
 	 */
-	public static int nk_edit_buffer(NkContext ctx, int flags, NkTextEdit edit, NkFilterCallbackI filter) {
+	public static int nk_edit_buffer(NkContext ctx, int flags, NkTextEdit edit, NkPluginFilterI filter) {
 		return nnk_edit_buffer(ctx.address(), flags, edit.address(), filter == null ? NULL : filter.address());
 	}
 
@@ -4146,7 +4190,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx    the nuklear context
-	 * @param flags  one of:<br><table><tr><td>{@link #NK_EDIT_DEFAULT EDIT_DEFAULT}</td><td>{@link #NK_EDIT_READ_ONLY EDIT_READ_ONLY}</td><td>{@link #NK_EDIT_AUTO_SELECT EDIT_AUTO_SELECT}</td><td>{@link #NK_EDIT_SIG_ENTER EDIT_SIG_ENTER}</td></tr><tr><td>{@link #NK_EDIT_ALLOW_TAB EDIT_ALLOW_TAB}</td><td>{@link #NK_EDIT_NO_CURSOR EDIT_NO_CURSOR}</td><td>{@link #NK_EDIT_SELECTABLE EDIT_SELECTABLE}</td><td>{@link #NK_EDIT_CLIPBOARD EDIT_CLIPBOARD}</td></tr><tr><td>{@link #NK_EDIT_CTRL_ENTER_NEWLINE EDIT_CTRL_ENTER_NEWLINE}</td><td>{@link #NK_EDIT_NO_HORIZONTAL_SCROLL EDIT_NO_HORIZONTAL_SCROLL}</td><td>{@link #NK_EDIT_ALWAYS_INSERT_MODE EDIT_ALWAYS_INSERT_MODE}</td><td>{@link #NK_EDIT_MULTILINE EDIT_MULTILINE}</td></tr></table>
+	 * @param flags  one of:<br><table><tr><td>{@link #NK_EDIT_DEFAULT EDIT_DEFAULT}</td><td>{@link #NK_EDIT_READ_ONLY EDIT_READ_ONLY}</td><td>{@link #NK_EDIT_AUTO_SELECT EDIT_AUTO_SELECT}</td><td>{@link #NK_EDIT_SIG_ENTER EDIT_SIG_ENTER}</td></tr><tr><td>{@link #NK_EDIT_ALLOW_TAB EDIT_ALLOW_TAB}</td><td>{@link #NK_EDIT_NO_CURSOR EDIT_NO_CURSOR}</td><td>{@link #NK_EDIT_SELECTABLE EDIT_SELECTABLE}</td><td>{@link #NK_EDIT_CLIPBOARD EDIT_CLIPBOARD}</td></tr><tr><td>{@link #NK_EDIT_CTRL_ENTER_NEWLINE EDIT_CTRL_ENTER_NEWLINE}</td><td>{@link #NK_EDIT_NO_HORIZONTAL_SCROLL EDIT_NO_HORIZONTAL_SCROLL}</td><td>{@link #NK_EDIT_ALWAYS_INSERT_MODE EDIT_ALWAYS_INSERT_MODE}</td><td>{@link #NK_EDIT_MULTILINE EDIT_MULTILINE}</td></tr><tr><td>{@link #NK_EDIT_GOTO_END_ON_ACTIVATE EDIT_GOTO_END_ON_ACTIVATE}</td></tr></table>
 	 * @param buffer 
 	 * @param max    
 	 * @param filter 
@@ -4157,12 +4201,12 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx    the nuklear context
-	 * @param flags  one of:<br><table><tr><td>{@link #NK_EDIT_DEFAULT EDIT_DEFAULT}</td><td>{@link #NK_EDIT_READ_ONLY EDIT_READ_ONLY}</td><td>{@link #NK_EDIT_AUTO_SELECT EDIT_AUTO_SELECT}</td><td>{@link #NK_EDIT_SIG_ENTER EDIT_SIG_ENTER}</td></tr><tr><td>{@link #NK_EDIT_ALLOW_TAB EDIT_ALLOW_TAB}</td><td>{@link #NK_EDIT_NO_CURSOR EDIT_NO_CURSOR}</td><td>{@link #NK_EDIT_SELECTABLE EDIT_SELECTABLE}</td><td>{@link #NK_EDIT_CLIPBOARD EDIT_CLIPBOARD}</td></tr><tr><td>{@link #NK_EDIT_CTRL_ENTER_NEWLINE EDIT_CTRL_ENTER_NEWLINE}</td><td>{@link #NK_EDIT_NO_HORIZONTAL_SCROLL EDIT_NO_HORIZONTAL_SCROLL}</td><td>{@link #NK_EDIT_ALWAYS_INSERT_MODE EDIT_ALWAYS_INSERT_MODE}</td><td>{@link #NK_EDIT_MULTILINE EDIT_MULTILINE}</td></tr></table>
+	 * @param flags  one of:<br><table><tr><td>{@link #NK_EDIT_DEFAULT EDIT_DEFAULT}</td><td>{@link #NK_EDIT_READ_ONLY EDIT_READ_ONLY}</td><td>{@link #NK_EDIT_AUTO_SELECT EDIT_AUTO_SELECT}</td><td>{@link #NK_EDIT_SIG_ENTER EDIT_SIG_ENTER}</td></tr><tr><td>{@link #NK_EDIT_ALLOW_TAB EDIT_ALLOW_TAB}</td><td>{@link #NK_EDIT_NO_CURSOR EDIT_NO_CURSOR}</td><td>{@link #NK_EDIT_SELECTABLE EDIT_SELECTABLE}</td><td>{@link #NK_EDIT_CLIPBOARD EDIT_CLIPBOARD}</td></tr><tr><td>{@link #NK_EDIT_CTRL_ENTER_NEWLINE EDIT_CTRL_ENTER_NEWLINE}</td><td>{@link #NK_EDIT_NO_HORIZONTAL_SCROLL EDIT_NO_HORIZONTAL_SCROLL}</td><td>{@link #NK_EDIT_ALWAYS_INSERT_MODE EDIT_ALWAYS_INSERT_MODE}</td><td>{@link #NK_EDIT_MULTILINE EDIT_MULTILINE}</td></tr><tr><td>{@link #NK_EDIT_GOTO_END_ON_ACTIVATE EDIT_GOTO_END_ON_ACTIVATE}</td></tr></table>
 	 * @param buffer 
 	 * @param max    
 	 * @param filter 
 	 */
-	public static int nk_edit_string_zero_terminated(NkContext ctx, int flags, ByteBuffer buffer, int max, NkFilterCallbackI filter) {
+	public static int nk_edit_string_zero_terminated(NkContext ctx, int flags, ByteBuffer buffer, int max, NkPluginFilterI filter) {
 		if ( CHECKS )
 			checkNT1(buffer);
 		return nnk_edit_string_zero_terminated(ctx.address(), flags, memAddress(buffer), max, filter == null ? NULL : filter.address());
@@ -4172,12 +4216,12 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx    the nuklear context
-	 * @param flags  one of:<br><table><tr><td>{@link #NK_EDIT_DEFAULT EDIT_DEFAULT}</td><td>{@link #NK_EDIT_READ_ONLY EDIT_READ_ONLY}</td><td>{@link #NK_EDIT_AUTO_SELECT EDIT_AUTO_SELECT}</td><td>{@link #NK_EDIT_SIG_ENTER EDIT_SIG_ENTER}</td></tr><tr><td>{@link #NK_EDIT_ALLOW_TAB EDIT_ALLOW_TAB}</td><td>{@link #NK_EDIT_NO_CURSOR EDIT_NO_CURSOR}</td><td>{@link #NK_EDIT_SELECTABLE EDIT_SELECTABLE}</td><td>{@link #NK_EDIT_CLIPBOARD EDIT_CLIPBOARD}</td></tr><tr><td>{@link #NK_EDIT_CTRL_ENTER_NEWLINE EDIT_CTRL_ENTER_NEWLINE}</td><td>{@link #NK_EDIT_NO_HORIZONTAL_SCROLL EDIT_NO_HORIZONTAL_SCROLL}</td><td>{@link #NK_EDIT_ALWAYS_INSERT_MODE EDIT_ALWAYS_INSERT_MODE}</td><td>{@link #NK_EDIT_MULTILINE EDIT_MULTILINE}</td></tr></table>
+	 * @param flags  one of:<br><table><tr><td>{@link #NK_EDIT_DEFAULT EDIT_DEFAULT}</td><td>{@link #NK_EDIT_READ_ONLY EDIT_READ_ONLY}</td><td>{@link #NK_EDIT_AUTO_SELECT EDIT_AUTO_SELECT}</td><td>{@link #NK_EDIT_SIG_ENTER EDIT_SIG_ENTER}</td></tr><tr><td>{@link #NK_EDIT_ALLOW_TAB EDIT_ALLOW_TAB}</td><td>{@link #NK_EDIT_NO_CURSOR EDIT_NO_CURSOR}</td><td>{@link #NK_EDIT_SELECTABLE EDIT_SELECTABLE}</td><td>{@link #NK_EDIT_CLIPBOARD EDIT_CLIPBOARD}</td></tr><tr><td>{@link #NK_EDIT_CTRL_ENTER_NEWLINE EDIT_CTRL_ENTER_NEWLINE}</td><td>{@link #NK_EDIT_NO_HORIZONTAL_SCROLL EDIT_NO_HORIZONTAL_SCROLL}</td><td>{@link #NK_EDIT_ALWAYS_INSERT_MODE EDIT_ALWAYS_INSERT_MODE}</td><td>{@link #NK_EDIT_MULTILINE EDIT_MULTILINE}</td></tr><tr><td>{@link #NK_EDIT_GOTO_END_ON_ACTIVATE EDIT_GOTO_END_ON_ACTIVATE}</td></tr></table>
 	 * @param buffer 
 	 * @param max    
 	 * @param filter 
 	 */
-	public static int nk_edit_string_zero_terminated(NkContext ctx, int flags, CharSequence buffer, int max, NkFilterCallbackI filter) {
+	public static int nk_edit_string_zero_terminated(NkContext ctx, int flags, CharSequence buffer, int max, NkPluginFilterI filter) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer bufferEncoded = stack.UTF8(buffer);
@@ -4426,7 +4470,7 @@ public class Nuklear {
 	 * @param layout 
 	 * @param type   one of:<br><table><tr><td>{@link #NK_POPUP_STATIC POPUP_STATIC}</td><td>{@link #NK_POPUP_DYNAMIC POPUP_DYNAMIC}</td></tr></table>
 	 * @param title  
-	 * @param flags  one of:<br><table><tr><td>{@link #NK_WINDOW_BORDER WINDOW_BORDER}</td><td>{@link #NK_WINDOW_BORDER_HEADER WINDOW_BORDER_HEADER}</td><td>{@link #NK_WINDOW_MOVABLE WINDOW_MOVABLE}</td><td>{@link #NK_WINDOW_SCALABLE WINDOW_SCALABLE}</td><td>{@link #NK_WINDOW_CLOSABLE WINDOW_CLOSABLE}</td></tr><tr><td>{@link #NK_WINDOW_MINIMIZABLE WINDOW_MINIMIZABLE}</td><td>{@link #NK_WINDOW_DYNAMIC WINDOW_DYNAMIC}</td><td>{@link #NK_WINDOW_NO_SCROLLBAR WINDOW_NO_SCROLLBAR}</td><td>{@link #NK_WINDOW_TITLE WINDOW_TITLE}</td><td>{@link #NK_WINDOW_SCROLL_AUTO_HIDE WINDOW_SCROLL_AUTO_HIDE}</td></tr><tr><td>{@link #NK_WINDOW_BACKGROUND WINDOW_BACKGROUND}</td></tr></table>
+	 * @param flags  one of:<br><table><tr><td>{@link #NK_WINDOW_BORDER WINDOW_BORDER}</td><td>{@link #NK_WINDOW_MOVABLE WINDOW_MOVABLE}</td><td>{@link #NK_WINDOW_SCALABLE WINDOW_SCALABLE}</td><td>{@link #NK_WINDOW_CLOSABLE WINDOW_CLOSABLE}</td><td>{@link #NK_WINDOW_MINIMIZABLE WINDOW_MINIMIZABLE}</td></tr><tr><td>{@link #NK_WINDOW_NO_SCROLLBAR WINDOW_NO_SCROLLBAR}</td><td>{@link #NK_WINDOW_TITLE WINDOW_TITLE}</td><td>{@link #NK_WINDOW_SCROLL_AUTO_HIDE WINDOW_SCROLL_AUTO_HIDE}</td><td>{@link #NK_WINDOW_BACKGROUND WINDOW_BACKGROUND}</td></tr></table>
 	 * @param rect   
 	 */
 	public static native int nnk_popup_begin(long ctx, long layout, int type, long title, int flags, long rect);
@@ -4438,7 +4482,7 @@ public class Nuklear {
 	 * @param layout 
 	 * @param type   one of:<br><table><tr><td>{@link #NK_POPUP_STATIC POPUP_STATIC}</td><td>{@link #NK_POPUP_DYNAMIC POPUP_DYNAMIC}</td></tr></table>
 	 * @param title  
-	 * @param flags  one of:<br><table><tr><td>{@link #NK_WINDOW_BORDER WINDOW_BORDER}</td><td>{@link #NK_WINDOW_BORDER_HEADER WINDOW_BORDER_HEADER}</td><td>{@link #NK_WINDOW_MOVABLE WINDOW_MOVABLE}</td><td>{@link #NK_WINDOW_SCALABLE WINDOW_SCALABLE}</td><td>{@link #NK_WINDOW_CLOSABLE WINDOW_CLOSABLE}</td></tr><tr><td>{@link #NK_WINDOW_MINIMIZABLE WINDOW_MINIMIZABLE}</td><td>{@link #NK_WINDOW_DYNAMIC WINDOW_DYNAMIC}</td><td>{@link #NK_WINDOW_NO_SCROLLBAR WINDOW_NO_SCROLLBAR}</td><td>{@link #NK_WINDOW_TITLE WINDOW_TITLE}</td><td>{@link #NK_WINDOW_SCROLL_AUTO_HIDE WINDOW_SCROLL_AUTO_HIDE}</td></tr><tr><td>{@link #NK_WINDOW_BACKGROUND WINDOW_BACKGROUND}</td></tr></table>
+	 * @param flags  one of:<br><table><tr><td>{@link #NK_WINDOW_BORDER WINDOW_BORDER}</td><td>{@link #NK_WINDOW_MOVABLE WINDOW_MOVABLE}</td><td>{@link #NK_WINDOW_SCALABLE WINDOW_SCALABLE}</td><td>{@link #NK_WINDOW_CLOSABLE WINDOW_CLOSABLE}</td><td>{@link #NK_WINDOW_MINIMIZABLE WINDOW_MINIMIZABLE}</td></tr><tr><td>{@link #NK_WINDOW_NO_SCROLLBAR WINDOW_NO_SCROLLBAR}</td><td>{@link #NK_WINDOW_TITLE WINDOW_TITLE}</td><td>{@link #NK_WINDOW_SCROLL_AUTO_HIDE WINDOW_SCROLL_AUTO_HIDE}</td><td>{@link #NK_WINDOW_BACKGROUND WINDOW_BACKGROUND}</td></tr></table>
 	 * @param rect   
 	 */
 	public static boolean nk_popup_begin(NkContext ctx, NkPanel layout, int type, ByteBuffer title, int flags, NkRect rect) {
@@ -4454,7 +4498,7 @@ public class Nuklear {
 	 * @param layout 
 	 * @param type   one of:<br><table><tr><td>{@link #NK_POPUP_STATIC POPUP_STATIC}</td><td>{@link #NK_POPUP_DYNAMIC POPUP_DYNAMIC}</td></tr></table>
 	 * @param title  
-	 * @param flags  one of:<br><table><tr><td>{@link #NK_WINDOW_BORDER WINDOW_BORDER}</td><td>{@link #NK_WINDOW_BORDER_HEADER WINDOW_BORDER_HEADER}</td><td>{@link #NK_WINDOW_MOVABLE WINDOW_MOVABLE}</td><td>{@link #NK_WINDOW_SCALABLE WINDOW_SCALABLE}</td><td>{@link #NK_WINDOW_CLOSABLE WINDOW_CLOSABLE}</td></tr><tr><td>{@link #NK_WINDOW_MINIMIZABLE WINDOW_MINIMIZABLE}</td><td>{@link #NK_WINDOW_DYNAMIC WINDOW_DYNAMIC}</td><td>{@link #NK_WINDOW_NO_SCROLLBAR WINDOW_NO_SCROLLBAR}</td><td>{@link #NK_WINDOW_TITLE WINDOW_TITLE}</td><td>{@link #NK_WINDOW_SCROLL_AUTO_HIDE WINDOW_SCROLL_AUTO_HIDE}</td></tr><tr><td>{@link #NK_WINDOW_BACKGROUND WINDOW_BACKGROUND}</td></tr></table>
+	 * @param flags  one of:<br><table><tr><td>{@link #NK_WINDOW_BORDER WINDOW_BORDER}</td><td>{@link #NK_WINDOW_MOVABLE WINDOW_MOVABLE}</td><td>{@link #NK_WINDOW_SCALABLE WINDOW_SCALABLE}</td><td>{@link #NK_WINDOW_CLOSABLE WINDOW_CLOSABLE}</td><td>{@link #NK_WINDOW_MINIMIZABLE WINDOW_MINIMIZABLE}</td></tr><tr><td>{@link #NK_WINDOW_NO_SCROLLBAR WINDOW_NO_SCROLLBAR}</td><td>{@link #NK_WINDOW_TITLE WINDOW_TITLE}</td><td>{@link #NK_WINDOW_SCROLL_AUTO_HIDE WINDOW_SCROLL_AUTO_HIDE}</td><td>{@link #NK_WINDOW_BACKGROUND WINDOW_BACKGROUND}</td></tr></table>
 	 * @param rect   
 	 */
 	public static boolean nk_popup_begin(NkContext ctx, NkPanel layout, int type, CharSequence title, int flags, NkRect rect) {
@@ -4513,8 +4557,9 @@ public class Nuklear {
 	 * @param count       
 	 * @param selected    
 	 * @param item_height 
+	 * @param max_height  
 	 */
-	public static native int nnk_combo(long ctx, long items, int count, int selected, int item_height);
+	public static native int nnk_combo(long ctx, long items, int count, int selected, int item_height, int max_height);
 
 	/**
 	 * 
@@ -4523,9 +4568,10 @@ public class Nuklear {
 	 * @param items       
 	 * @param selected    
 	 * @param item_height 
+	 * @param max_height  
 	 */
-	public static boolean nk_combo(NkContext ctx, PointerBuffer items, boolean selected, int item_height) {
-		return nnk_combo(ctx.address(), memAddress(items), items.remaining(), selected ? 1 : 0, item_height) != 0;
+	public static boolean nk_combo(NkContext ctx, PointerBuffer items, boolean selected, int item_height, int max_height) {
+		return nnk_combo(ctx.address(), memAddress(items), items.remaining(), selected ? 1 : 0, item_height, max_height) != 0;
 	}
 
 	// --- [ nk_combo_separator ] ---
@@ -4539,8 +4585,9 @@ public class Nuklear {
 	 * @param selected                     
 	 * @param count                        
 	 * @param item_height                  
+	 * @param max_height                   
 	 */
-	public static native int nnk_combo_separator(long ctx, long items_separated_by_separator, int separator, int selected, int count, int item_height);
+	public static native int nnk_combo_separator(long ctx, long items_separated_by_separator, int separator, int selected, int count, int item_height, int max_height);
 
 	/**
 	 * 
@@ -4551,11 +4598,12 @@ public class Nuklear {
 	 * @param selected                     
 	 * @param count                        
 	 * @param item_height                  
+	 * @param max_height                   
 	 */
-	public static boolean nk_combo_separator(NkContext ctx, ByteBuffer items_separated_by_separator, int separator, boolean selected, int count, int item_height) {
+	public static boolean nk_combo_separator(NkContext ctx, ByteBuffer items_separated_by_separator, int separator, boolean selected, int count, int item_height, int max_height) {
 		if ( CHECKS )
 			checkNT1(items_separated_by_separator);
-		return nnk_combo_separator(ctx.address(), memAddress(items_separated_by_separator), separator, selected ? 1 : 0, count, item_height) != 0;
+		return nnk_combo_separator(ctx.address(), memAddress(items_separated_by_separator), separator, selected ? 1 : 0, count, item_height, max_height) != 0;
 	}
 
 	/**
@@ -4567,12 +4615,13 @@ public class Nuklear {
 	 * @param selected                     
 	 * @param count                        
 	 * @param item_height                  
+	 * @param max_height                   
 	 */
-	public static boolean nk_combo_separator(NkContext ctx, CharSequence items_separated_by_separator, int separator, boolean selected, int count, int item_height) {
+	public static boolean nk_combo_separator(NkContext ctx, CharSequence items_separated_by_separator, int separator, boolean selected, int count, int item_height, int max_height) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer items_separated_by_separatorEncoded = stack.UTF8(items_separated_by_separator);
-			return nnk_combo_separator(ctx.address(), memAddress(items_separated_by_separatorEncoded), separator, selected ? 1 : 0, count, item_height) != 0;
+			return nnk_combo_separator(ctx.address(), memAddress(items_separated_by_separatorEncoded), separator, selected ? 1 : 0, count, item_height, max_height) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -4588,8 +4637,9 @@ public class Nuklear {
 	 * @param selected                 
 	 * @param count                    
 	 * @param item_height              
+	 * @param max_height               
 	 */
-	public static native int nnk_combo_string(long ctx, long items_separated_by_zeros, int selected, int count, int item_height);
+	public static native int nnk_combo_string(long ctx, long items_separated_by_zeros, int selected, int count, int item_height, int max_height);
 
 	/**
 	 * 
@@ -4599,11 +4649,12 @@ public class Nuklear {
 	 * @param selected                 
 	 * @param count                    
 	 * @param item_height              
+	 * @param max_height               
 	 */
-	public static boolean nk_combo_string(NkContext ctx, ByteBuffer items_separated_by_zeros, boolean selected, int count, int item_height) {
+	public static boolean nk_combo_string(NkContext ctx, ByteBuffer items_separated_by_zeros, boolean selected, int count, int item_height, int max_height) {
 		if ( CHECKS )
 			checkNT1(items_separated_by_zeros);
-		return nnk_combo_string(ctx.address(), memAddress(items_separated_by_zeros), selected ? 1 : 0, count, item_height) != 0;
+		return nnk_combo_string(ctx.address(), memAddress(items_separated_by_zeros), selected ? 1 : 0, count, item_height, max_height) != 0;
 	}
 
 	/**
@@ -4614,12 +4665,13 @@ public class Nuklear {
 	 * @param selected                 
 	 * @param count                    
 	 * @param item_height              
+	 * @param max_height               
 	 */
-	public static boolean nk_combo_string(NkContext ctx, CharSequence items_separated_by_zeros, boolean selected, int count, int item_height) {
+	public static boolean nk_combo_string(NkContext ctx, CharSequence items_separated_by_zeros, boolean selected, int count, int item_height, int max_height) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer items_separated_by_zerosEncoded = stack.UTF8(items_separated_by_zeros);
-			return nnk_combo_string(ctx.address(), memAddress(items_separated_by_zerosEncoded), selected ? 1 : 0, count, item_height) != 0;
+			return nnk_combo_string(ctx.address(), memAddress(items_separated_by_zerosEncoded), selected ? 1 : 0, count, item_height, max_height) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -4636,8 +4688,9 @@ public class Nuklear {
 	 * @param selected    
 	 * @param count       
 	 * @param item_height 
+	 * @param max_height  
 	 */
-	public static native int nnk_combo_callback(long ctx, long item_getter, long userdata, int selected, int count, int item_height);
+	public static native int nnk_combo_callback(long ctx, long item_getter, long userdata, int selected, int count, int item_height, int max_height);
 
 	/**
 	 * 
@@ -4648,11 +4701,12 @@ public class Nuklear {
 	 * @param selected    
 	 * @param count       
 	 * @param item_height 
+	 * @param max_height  
 	 */
-	public static boolean nk_combo_callback(NkContext ctx, NkItemGetterI item_getter, long userdata, boolean selected, int count, int item_height) {
+	public static boolean nk_combo_callback(NkContext ctx, NkItemGetterI item_getter, long userdata, boolean selected, int count, int item_height, int max_height) {
 		if ( CHECKS )
 			checkPointer(userdata);
-		return nnk_combo_callback(ctx.address(), item_getter.address(), userdata, selected ? 1 : 0, count, item_height) != 0;
+		return nnk_combo_callback(ctx.address(), item_getter.address(), userdata, selected ? 1 : 0, count, item_height, max_height) != 0;
 	}
 
 	// --- [ nk_combobox ] ---
@@ -4665,8 +4719,9 @@ public class Nuklear {
 	 * @param count       
 	 * @param selected    
 	 * @param item_height 
+	 * @param max_height  
 	 */
-	public static native void nnk_combobox(long ctx, long items, int count, long selected, int item_height);
+	public static native void nnk_combobox(long ctx, long items, int count, long selected, int item_height, int max_height);
 
 	/**
 	 * 
@@ -4675,11 +4730,12 @@ public class Nuklear {
 	 * @param items       
 	 * @param selected    
 	 * @param item_height 
+	 * @param max_height  
 	 */
-	public static void nk_combobox(NkContext ctx, PointerBuffer items, IntBuffer selected, int item_height) {
+	public static void nk_combobox(NkContext ctx, PointerBuffer items, IntBuffer selected, int item_height, int max_height) {
 		if ( CHECKS )
 			checkBuffer(selected, 1);
-		nnk_combobox(ctx.address(), memAddress(items), items.remaining(), memAddress(selected), item_height);
+		nnk_combobox(ctx.address(), memAddress(items), items.remaining(), memAddress(selected), item_height, max_height);
 	}
 
 	// --- [ nk_combobox_string ] ---
@@ -4692,8 +4748,9 @@ public class Nuklear {
 	 * @param selected                 
 	 * @param count                    
 	 * @param item_height              
+	 * @param max_height               
 	 */
-	public static native void nnk_combobox_string(long ctx, long items_separated_by_zeros, long selected, int count, int item_height);
+	public static native void nnk_combobox_string(long ctx, long items_separated_by_zeros, long selected, int count, int item_height, int max_height);
 
 	/**
 	 * 
@@ -4703,13 +4760,14 @@ public class Nuklear {
 	 * @param selected                 
 	 * @param count                    
 	 * @param item_height              
+	 * @param max_height               
 	 */
-	public static void nk_combobox_string(NkContext ctx, ByteBuffer items_separated_by_zeros, IntBuffer selected, int count, int item_height) {
+	public static void nk_combobox_string(NkContext ctx, ByteBuffer items_separated_by_zeros, IntBuffer selected, int count, int item_height, int max_height) {
 		if ( CHECKS ) {
 			checkNT1(items_separated_by_zeros);
 			checkBuffer(selected, 1);
 		}
-		nnk_combobox_string(ctx.address(), memAddress(items_separated_by_zeros), memAddress(selected), count, item_height);
+		nnk_combobox_string(ctx.address(), memAddress(items_separated_by_zeros), memAddress(selected), count, item_height, max_height);
 	}
 
 	/**
@@ -4720,14 +4778,15 @@ public class Nuklear {
 	 * @param selected                 
 	 * @param count                    
 	 * @param item_height              
+	 * @param max_height               
 	 */
-	public static void nk_combobox_string(NkContext ctx, CharSequence items_separated_by_zeros, IntBuffer selected, int count, int item_height) {
+	public static void nk_combobox_string(NkContext ctx, CharSequence items_separated_by_zeros, IntBuffer selected, int count, int item_height, int max_height) {
 		if ( CHECKS )
 			checkBuffer(selected, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer items_separated_by_zerosEncoded = stack.UTF8(items_separated_by_zeros);
-			nnk_combobox_string(ctx.address(), memAddress(items_separated_by_zerosEncoded), memAddress(selected), count, item_height);
+			nnk_combobox_string(ctx.address(), memAddress(items_separated_by_zerosEncoded), memAddress(selected), count, item_height, max_height);
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -4744,8 +4803,9 @@ public class Nuklear {
 	 * @param selected                     
 	 * @param count                        
 	 * @param item_height                  
+	 * @param max_height                   
 	 */
-	public static native void nnk_combobox_separator(long ctx, long items_separated_by_separator, int separator, long selected, int count, int item_height);
+	public static native void nnk_combobox_separator(long ctx, long items_separated_by_separator, int separator, long selected, int count, int item_height, int max_height);
 
 	/**
 	 * 
@@ -4756,13 +4816,14 @@ public class Nuklear {
 	 * @param selected                     
 	 * @param count                        
 	 * @param item_height                  
+	 * @param max_height                   
 	 */
-	public static void nk_combobox_separator(NkContext ctx, ByteBuffer items_separated_by_separator, int separator, IntBuffer selected, int count, int item_height) {
+	public static void nk_combobox_separator(NkContext ctx, ByteBuffer items_separated_by_separator, int separator, IntBuffer selected, int count, int item_height, int max_height) {
 		if ( CHECKS ) {
 			checkNT1(items_separated_by_separator);
 			checkBuffer(selected, 1);
 		}
-		nnk_combobox_separator(ctx.address(), memAddress(items_separated_by_separator), separator, memAddress(selected), count, item_height);
+		nnk_combobox_separator(ctx.address(), memAddress(items_separated_by_separator), separator, memAddress(selected), count, item_height, max_height);
 	}
 
 	/**
@@ -4774,14 +4835,15 @@ public class Nuklear {
 	 * @param selected                     
 	 * @param count                        
 	 * @param item_height                  
+	 * @param max_height                   
 	 */
-	public static void nk_combobox_separator(NkContext ctx, CharSequence items_separated_by_separator, int separator, IntBuffer selected, int count, int item_height) {
+	public static void nk_combobox_separator(NkContext ctx, CharSequence items_separated_by_separator, int separator, IntBuffer selected, int count, int item_height, int max_height) {
 		if ( CHECKS )
 			checkBuffer(selected, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer items_separated_by_separatorEncoded = stack.UTF8(items_separated_by_separator);
-			nnk_combobox_separator(ctx.address(), memAddress(items_separated_by_separatorEncoded), separator, memAddress(selected), count, item_height);
+			nnk_combobox_separator(ctx.address(), memAddress(items_separated_by_separatorEncoded), separator, memAddress(selected), count, item_height, max_height);
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -4798,8 +4860,9 @@ public class Nuklear {
 	 * @param selected    
 	 * @param count       
 	 * @param item_height 
+	 * @param max_height  
 	 */
-	public static native void nnk_combobox_callback(long ctx, long item_getter, long userdata, long selected, int count, int item_height);
+	public static native void nnk_combobox_callback(long ctx, long item_getter, long userdata, long selected, int count, int item_height, int max_height);
 
 	/**
 	 * 
@@ -4810,13 +4873,14 @@ public class Nuklear {
 	 * @param selected    
 	 * @param count       
 	 * @param item_height 
+	 * @param max_height  
 	 */
-	public static void nk_combobox_callback(NkContext ctx, NkItemGetterI item_getter, long userdata, IntBuffer selected, int count, int item_height) {
+	public static void nk_combobox_callback(NkContext ctx, NkItemGetterI item_getter, long userdata, IntBuffer selected, int count, int item_height, int max_height) {
 		if ( CHECKS ) {
 			checkPointer(userdata);
 			checkBuffer(selected, 1);
 		}
-		nnk_combobox_callback(ctx.address(), item_getter.address(), userdata, memAddress(selected), count, item_height);
+		nnk_combobox_callback(ctx.address(), item_getter.address(), userdata, memAddress(selected), count, item_height, max_height);
 	}
 
 	// --- [ nk_combo_begin_text ] ---
@@ -6600,6 +6664,8 @@ public class Nuklear {
 	 * @param config   
 	 */
 	public static void nk_convert(NkContext ctx, NkBuffer cmds, NkBuffer vertices, NkBuffer elements, NkConvertConfig config) {
+		if ( CHECKS )
+			NkConvertConfig.validate(config.address());
 		nnk_convert(ctx.address(), cmds.address(), vertices.address(), elements.address(), config.address());
 	}
 
@@ -6853,22 +6919,22 @@ public class Nuklear {
 		nnk_style_load_all_cursors(ctx.address(), cursor.address());
 	}
 
-	// --- [ nk_style_color_name ] ---
+	// --- [ nk_style_get_color_by_name ] ---
 
 	/**
 	 * 
 	 *
 	 * @param c one of:<br><table><tr><td>{@link #NK_COLOR_TEXT COLOR_TEXT}</td><td>{@link #NK_COLOR_WINDOW COLOR_WINDOW}</td><td>{@link #NK_COLOR_HEADER COLOR_HEADER}</td><td>{@link #NK_COLOR_BORDER COLOR_BORDER}</td></tr><tr><td>{@link #NK_COLOR_BUTTON COLOR_BUTTON}</td><td>{@link #NK_COLOR_BUTTON_HOVER COLOR_BUTTON_HOVER}</td><td>{@link #NK_COLOR_BUTTON_ACTIVE COLOR_BUTTON_ACTIVE}</td><td>{@link #NK_COLOR_TOGGLE COLOR_TOGGLE}</td></tr><tr><td>{@link #NK_COLOR_TOGGLE_HOVER COLOR_TOGGLE_HOVER}</td><td>{@link #NK_COLOR_TOGGLE_CURSOR COLOR_TOGGLE_CURSOR}</td><td>{@link #NK_COLOR_SELECT COLOR_SELECT}</td><td>{@link #NK_COLOR_SELECT_ACTIVE COLOR_SELECT_ACTIVE}</td></tr><tr><td>{@link #NK_COLOR_SLIDER COLOR_SLIDER}</td><td>{@link #NK_COLOR_SLIDER_CURSOR COLOR_SLIDER_CURSOR}</td><td>{@link #NK_COLOR_SLIDER_CURSOR_HOVER COLOR_SLIDER_CURSOR_HOVER}</td><td>{@link #NK_COLOR_SLIDER_CURSOR_ACTIVE COLOR_SLIDER_CURSOR_ACTIVE}</td></tr><tr><td>{@link #NK_COLOR_PROPERTY COLOR_PROPERTY}</td><td>{@link #NK_COLOR_EDIT COLOR_EDIT}</td><td>{@link #NK_COLOR_EDIT_CURSOR COLOR_EDIT_CURSOR}</td><td>{@link #NK_COLOR_COMBO COLOR_COMBO}</td></tr><tr><td>{@link #NK_COLOR_CHART COLOR_CHART}</td><td>{@link #NK_COLOR_CHART_COLOR COLOR_CHART_COLOR}</td><td>{@link #NK_COLOR_CHART_COLOR_HIGHLIGHT COLOR_CHART_COLOR_HIGHLIGHT}</td><td>{@link #NK_COLOR_SCROLLBAR COLOR_SCROLLBAR}</td></tr><tr><td>{@link #NK_COLOR_SCROLLBAR_CURSOR COLOR_SCROLLBAR_CURSOR}</td><td>{@link #NK_COLOR_SCROLLBAR_CURSOR_HOVER COLOR_SCROLLBAR_CURSOR_HOVER}</td><td>{@link #NK_COLOR_SCROLLBAR_CURSOR_ACTIVE COLOR_SCROLLBAR_CURSOR_ACTIVE}</td><td>{@link #NK_COLOR_TAB_HEADER COLOR_TAB_HEADER}</td></tr><tr><td>{@link #NK_COLOR_COUNT COLOR_COUNT}</td></tr></table>
 	 */
-	public static native long nnk_style_color_name(int c);
+	public static native long nnk_style_get_color_by_name(int c);
 
 	/**
 	 * 
 	 *
 	 * @param c one of:<br><table><tr><td>{@link #NK_COLOR_TEXT COLOR_TEXT}</td><td>{@link #NK_COLOR_WINDOW COLOR_WINDOW}</td><td>{@link #NK_COLOR_HEADER COLOR_HEADER}</td><td>{@link #NK_COLOR_BORDER COLOR_BORDER}</td></tr><tr><td>{@link #NK_COLOR_BUTTON COLOR_BUTTON}</td><td>{@link #NK_COLOR_BUTTON_HOVER COLOR_BUTTON_HOVER}</td><td>{@link #NK_COLOR_BUTTON_ACTIVE COLOR_BUTTON_ACTIVE}</td><td>{@link #NK_COLOR_TOGGLE COLOR_TOGGLE}</td></tr><tr><td>{@link #NK_COLOR_TOGGLE_HOVER COLOR_TOGGLE_HOVER}</td><td>{@link #NK_COLOR_TOGGLE_CURSOR COLOR_TOGGLE_CURSOR}</td><td>{@link #NK_COLOR_SELECT COLOR_SELECT}</td><td>{@link #NK_COLOR_SELECT_ACTIVE COLOR_SELECT_ACTIVE}</td></tr><tr><td>{@link #NK_COLOR_SLIDER COLOR_SLIDER}</td><td>{@link #NK_COLOR_SLIDER_CURSOR COLOR_SLIDER_CURSOR}</td><td>{@link #NK_COLOR_SLIDER_CURSOR_HOVER COLOR_SLIDER_CURSOR_HOVER}</td><td>{@link #NK_COLOR_SLIDER_CURSOR_ACTIVE COLOR_SLIDER_CURSOR_ACTIVE}</td></tr><tr><td>{@link #NK_COLOR_PROPERTY COLOR_PROPERTY}</td><td>{@link #NK_COLOR_EDIT COLOR_EDIT}</td><td>{@link #NK_COLOR_EDIT_CURSOR COLOR_EDIT_CURSOR}</td><td>{@link #NK_COLOR_COMBO COLOR_COMBO}</td></tr><tr><td>{@link #NK_COLOR_CHART COLOR_CHART}</td><td>{@link #NK_COLOR_CHART_COLOR COLOR_CHART_COLOR}</td><td>{@link #NK_COLOR_CHART_COLOR_HIGHLIGHT COLOR_CHART_COLOR_HIGHLIGHT}</td><td>{@link #NK_COLOR_SCROLLBAR COLOR_SCROLLBAR}</td></tr><tr><td>{@link #NK_COLOR_SCROLLBAR_CURSOR COLOR_SCROLLBAR_CURSOR}</td><td>{@link #NK_COLOR_SCROLLBAR_CURSOR_HOVER COLOR_SCROLLBAR_CURSOR_HOVER}</td><td>{@link #NK_COLOR_SCROLLBAR_CURSOR_ACTIVE COLOR_SCROLLBAR_CURSOR_ACTIVE}</td><td>{@link #NK_COLOR_TAB_HEADER COLOR_TAB_HEADER}</td></tr><tr><td>{@link #NK_COLOR_COUNT COLOR_COUNT}</td></tr></table>
 	 */
-	public static String nk_style_color_name(int c) {
-		long __result = nnk_style_color_name(c);
+	public static String nk_style_get_color_by_name(int c) {
+		long __result = nnk_style_get_color_by_name(c);
 		return memUTF8(__result);
 	}
 
@@ -6946,6 +7012,244 @@ public class Nuklear {
 	 */
 	public static void nk_style_hide_cursor(NkContext ctx) {
 		nnk_style_hide_cursor(ctx.address());
+	}
+
+	// --- [ nk_style_push_font ] ---
+
+	/**
+	 * 
+	 *
+	 * @param ctx  the nuklear context
+	 * @param font 
+	 */
+	public static native int nnk_style_push_font(long ctx, long font);
+
+	/**
+	 * 
+	 *
+	 * @param ctx  the nuklear context
+	 * @param font 
+	 */
+	public static int nk_style_push_font(NkContext ctx, NkUserFont font) {
+		return nnk_style_push_font(ctx.address(), font.address());
+	}
+
+	// --- [ nk_style_push_float ] ---
+
+	/**
+	 * 
+	 *
+	 * @param ctx     the nuklear context
+	 * @param address 
+	 * @param value   
+	 */
+	public static native int nnk_style_push_float(long ctx, long address, float value);
+
+	/**
+	 * 
+	 *
+	 * @param ctx     the nuklear context
+	 * @param address 
+	 * @param value   
+	 */
+	public static int nk_style_push_float(NkContext ctx, FloatBuffer address, float value) {
+		return nnk_style_push_float(ctx.address(), memAddress(address), value);
+	}
+
+	// --- [ nk_style_push_vec2 ] ---
+
+	/**
+	 * 
+	 *
+	 * @param ctx     the nuklear context
+	 * @param address 
+	 * @param value   
+	 */
+	public static native int nnk_style_push_vec2(long ctx, long address, long value);
+
+	/**
+	 * 
+	 *
+	 * @param ctx     the nuklear context
+	 * @param address 
+	 * @param value   
+	 */
+	public static int nk_style_push_vec2(NkContext ctx, NkVec2 address, NkVec2 value) {
+		return nnk_style_push_vec2(ctx.address(), address.address(), value.address());
+	}
+
+	// --- [ nk_style_push_style_item ] ---
+
+	/**
+	 * 
+	 *
+	 * @param ctx     the nuklear context
+	 * @param address 
+	 * @param value   
+	 */
+	public static native int nnk_style_push_style_item(long ctx, long address, long value);
+
+	/**
+	 * 
+	 *
+	 * @param ctx     the nuklear context
+	 * @param address 
+	 * @param value   
+	 */
+	public static int nk_style_push_style_item(NkContext ctx, NkStyleItem address, NkStyleItem value) {
+		return nnk_style_push_style_item(ctx.address(), address.address(), value.address());
+	}
+
+	// --- [ nk_style_push_flags ] ---
+
+	/**
+	 * 
+	 *
+	 * @param ctx     the nuklear context
+	 * @param address 
+	 * @param value   
+	 */
+	public static native int nnk_style_push_flags(long ctx, long address, int value);
+
+	/**
+	 * 
+	 *
+	 * @param ctx     the nuklear context
+	 * @param address 
+	 * @param value   
+	 */
+	public static int nk_style_push_flags(NkContext ctx, IntBuffer address, int value) {
+		return nnk_style_push_flags(ctx.address(), memAddress(address), value);
+	}
+
+	// --- [ nk_style_push_color ] ---
+
+	/**
+	 * 
+	 *
+	 * @param ctx     the nuklear context
+	 * @param address 
+	 * @param value   
+	 */
+	public static native int nnk_style_push_color(long ctx, long address, long value);
+
+	/**
+	 * 
+	 *
+	 * @param ctx     the nuklear context
+	 * @param address 
+	 * @param value   
+	 */
+	public static int nk_style_push_color(NkContext ctx, NkColor address, NkColor value) {
+		return nnk_style_push_color(ctx.address(), address.address(), value.address());
+	}
+
+	// --- [ nk_style_pop_font ] ---
+
+	/**
+	 * 
+	 *
+	 * @param ctx the nuklear context
+	 */
+	public static native int nnk_style_pop_font(long ctx);
+
+	/**
+	 * 
+	 *
+	 * @param ctx the nuklear context
+	 */
+	public static int nk_style_pop_font(NkContext ctx) {
+		return nnk_style_pop_font(ctx.address());
+	}
+
+	// --- [ nk_style_pop_float ] ---
+
+	/**
+	 * 
+	 *
+	 * @param ctx the nuklear context
+	 */
+	public static native int nnk_style_pop_float(long ctx);
+
+	/**
+	 * 
+	 *
+	 * @param ctx the nuklear context
+	 */
+	public static int nk_style_pop_float(NkContext ctx) {
+		return nnk_style_pop_float(ctx.address());
+	}
+
+	// --- [ nk_style_pop_vec2 ] ---
+
+	/**
+	 * 
+	 *
+	 * @param ctx the nuklear context
+	 */
+	public static native int nnk_style_pop_vec2(long ctx);
+
+	/**
+	 * 
+	 *
+	 * @param ctx the nuklear context
+	 */
+	public static int nk_style_pop_vec2(NkContext ctx) {
+		return nnk_style_pop_vec2(ctx.address());
+	}
+
+	// --- [ nk_style_pop_style_item ] ---
+
+	/**
+	 * 
+	 *
+	 * @param ctx the nuklear context
+	 */
+	public static native int nnk_style_pop_style_item(long ctx);
+
+	/**
+	 * 
+	 *
+	 * @param ctx the nuklear context
+	 */
+	public static int nk_style_pop_style_item(NkContext ctx) {
+		return nnk_style_pop_style_item(ctx.address());
+	}
+
+	// --- [ nk_style_pop_flags ] ---
+
+	/**
+	 * 
+	 *
+	 * @param ctx the nuklear context
+	 */
+	public static native int nnk_style_pop_flags(long ctx);
+
+	/**
+	 * 
+	 *
+	 * @param ctx the nuklear context
+	 */
+	public static int nk_style_pop_flags(NkContext ctx) {
+		return nnk_style_pop_flags(ctx.address());
+	}
+
+	// --- [ nk_style_pop_color ] ---
+
+	/**
+	 * 
+	 *
+	 * @param ctx the nuklear context
+	 */
+	public static native int nnk_style_pop_color(long ctx);
+
+	/**
+	 * 
+	 *
+	 * @param ctx the nuklear context
+	 */
+	public static int nk_style_pop_color(NkContext ctx) {
+		return nnk_style_pop_color(ctx.address());
 	}
 
 	// --- [ nk_widget_bounds ] ---
@@ -7598,6 +7902,15 @@ public class Nuklear {
 
 	public static NkHandle nk_handle_id(int id, NkHandle __result) {
 		nnk_handle_id(id, __result.address());
+		return __result;
+	}
+
+	// --- [ nk_image_handle ] ---
+
+	public static native void nnk_image_handle(long handle, long __result);
+
+	public static NkImage nk_image_handle(NkHandle handle, NkImage __result) {
+		nnk_image_handle(handle.address(), __result.address());
 		return __result;
 	}
 
@@ -9162,34 +9475,12 @@ public class Nuklear {
 
 	// --- [ nk_draw_list_setup ] ---
 
-	/**
-	 * 
-	 *
-	 * @param list         
-	 * @param global_alpha 
-	 * @param line_AA      one of:<br><table><tr><td>{@link #NK_ANTI_ALIASING_OFF ANTI_ALIASING_OFF}</td><td>{@link #NK_ANTI_ALIASING_ON ANTI_ALIASING_ON}</td></tr></table>
-	 * @param shape_AA     one of:<br><table><tr><td>{@link #NK_ANTI_ALIASING_OFF ANTI_ALIASING_OFF}</td><td>{@link #NK_ANTI_ALIASING_ON ANTI_ALIASING_ON}</td></tr></table>
-	 * @param null_texture 
-	 * @param cmds         
-	 * @param vert         
-	 * @param elem         
-	 */
-	public static native void nnk_draw_list_setup(long list, float global_alpha, int line_AA, int shape_AA, long null_texture, long cmds, long vert, long elem);
+	public static native void nnk_draw_list_setup(long canvas, long config, long cmds, long vertices, long elements);
 
-	/**
-	 * 
-	 *
-	 * @param list         
-	 * @param global_alpha 
-	 * @param line_AA      one of:<br><table><tr><td>{@link #NK_ANTI_ALIASING_OFF ANTI_ALIASING_OFF}</td><td>{@link #NK_ANTI_ALIASING_ON ANTI_ALIASING_ON}</td></tr></table>
-	 * @param shape_AA     one of:<br><table><tr><td>{@link #NK_ANTI_ALIASING_OFF ANTI_ALIASING_OFF}</td><td>{@link #NK_ANTI_ALIASING_ON ANTI_ALIASING_ON}</td></tr></table>
-	 * @param null_texture 
-	 * @param cmds         
-	 * @param vert         
-	 * @param elem         
-	 */
-	public static void nk_draw_list_setup(NkDrawList list, float global_alpha, int line_AA, int shape_AA, NkDrawNullTexture null_texture, NkBuffer cmds, NkBuffer vert, NkBuffer elem) {
-		nnk_draw_list_setup(list.address(), global_alpha, line_AA, shape_AA, null_texture.address(), cmds.address(), vert.address(), elem.address());
+	public static void nk_draw_list_setup(NkDrawList canvas, NkConvertConfig config, NkBuffer cmds, NkBuffer vertices, NkBuffer elements) {
+		if ( CHECKS )
+			NkConvertConfig.validate(config.address());
+		nnk_draw_list_setup(canvas.address(), config.address(), cmds.address(), vertices.address(), elements.address());
 	}
 
 	// --- [ nk_draw_list_clear ] ---
@@ -9879,7 +10170,7 @@ public class Nuklear {
 	public static native int nnk_edit_string(long ctx, int flags, long memory, int[] len, int max, long filter);
 
 	/** Array version of: {@link #nk_edit_string edit_string} */
-	public static int nk_edit_string(NkContext ctx, int flags, ByteBuffer memory, int[] len, int max, NkFilterCallbackI filter) {
+	public static int nk_edit_string(NkContext ctx, int flags, ByteBuffer memory, int[] len, int max, NkPluginFilterI filter) {
 		if ( CHECKS ) {
 			checkNT1(memory);
 			checkBuffer(len, 1);
@@ -9888,7 +10179,7 @@ public class Nuklear {
 	}
 
 	/** Array version of: {@link #nk_edit_string edit_string} */
-	public static int nk_edit_string(NkContext ctx, int flags, CharSequence memory, int[] len, int max, NkFilterCallbackI filter) {
+	public static int nk_edit_string(NkContext ctx, int flags, CharSequence memory, int[] len, int max, NkPluginFilterI filter) {
 		if ( CHECKS )
 			checkBuffer(len, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -9911,75 +10202,91 @@ public class Nuklear {
 	}
 
 	/** Array version of: {@link #nk_combobox combobox} */
-	public static native void nnk_combobox(long ctx, long items, int count, int[] selected, int item_height);
+	public static native void nnk_combobox(long ctx, long items, int count, int[] selected, int item_height, int max_height);
 
 	/** Array version of: {@link #nk_combobox combobox} */
-	public static void nk_combobox(NkContext ctx, PointerBuffer items, int[] selected, int item_height) {
+	public static void nk_combobox(NkContext ctx, PointerBuffer items, int[] selected, int item_height, int max_height) {
 		if ( CHECKS )
 			checkBuffer(selected, 1);
-		nnk_combobox(ctx.address(), memAddress(items), items.remaining(), selected, item_height);
+		nnk_combobox(ctx.address(), memAddress(items), items.remaining(), selected, item_height, max_height);
 	}
 
 	/** Array version of: {@link #nk_combobox_string combobox_string} */
-	public static native void nnk_combobox_string(long ctx, long items_separated_by_zeros, int[] selected, int count, int item_height);
+	public static native void nnk_combobox_string(long ctx, long items_separated_by_zeros, int[] selected, int count, int item_height, int max_height);
 
 	/** Array version of: {@link #nk_combobox_string combobox_string} */
-	public static void nk_combobox_string(NkContext ctx, ByteBuffer items_separated_by_zeros, int[] selected, int count, int item_height) {
+	public static void nk_combobox_string(NkContext ctx, ByteBuffer items_separated_by_zeros, int[] selected, int count, int item_height, int max_height) {
 		if ( CHECKS ) {
 			checkNT1(items_separated_by_zeros);
 			checkBuffer(selected, 1);
 		}
-		nnk_combobox_string(ctx.address(), memAddress(items_separated_by_zeros), selected, count, item_height);
+		nnk_combobox_string(ctx.address(), memAddress(items_separated_by_zeros), selected, count, item_height, max_height);
 	}
 
 	/** Array version of: {@link #nk_combobox_string combobox_string} */
-	public static void nk_combobox_string(NkContext ctx, CharSequence items_separated_by_zeros, int[] selected, int count, int item_height) {
+	public static void nk_combobox_string(NkContext ctx, CharSequence items_separated_by_zeros, int[] selected, int count, int item_height, int max_height) {
 		if ( CHECKS )
 			checkBuffer(selected, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer items_separated_by_zerosEncoded = stack.UTF8(items_separated_by_zeros);
-			nnk_combobox_string(ctx.address(), memAddress(items_separated_by_zerosEncoded), selected, count, item_height);
+			nnk_combobox_string(ctx.address(), memAddress(items_separated_by_zerosEncoded), selected, count, item_height, max_height);
 		} finally {
 			stack.setPointer(stackPointer);
 		}
 	}
 
 	/** Array version of: {@link #nk_combobox_separator combobox_separator} */
-	public static native void nnk_combobox_separator(long ctx, long items_separated_by_separator, int separator, int[] selected, int count, int item_height);
+	public static native void nnk_combobox_separator(long ctx, long items_separated_by_separator, int separator, int[] selected, int count, int item_height, int max_height);
 
 	/** Array version of: {@link #nk_combobox_separator combobox_separator} */
-	public static void nk_combobox_separator(NkContext ctx, ByteBuffer items_separated_by_separator, int separator, int[] selected, int count, int item_height) {
+	public static void nk_combobox_separator(NkContext ctx, ByteBuffer items_separated_by_separator, int separator, int[] selected, int count, int item_height, int max_height) {
 		if ( CHECKS ) {
 			checkNT1(items_separated_by_separator);
 			checkBuffer(selected, 1);
 		}
-		nnk_combobox_separator(ctx.address(), memAddress(items_separated_by_separator), separator, selected, count, item_height);
+		nnk_combobox_separator(ctx.address(), memAddress(items_separated_by_separator), separator, selected, count, item_height, max_height);
 	}
 
 	/** Array version of: {@link #nk_combobox_separator combobox_separator} */
-	public static void nk_combobox_separator(NkContext ctx, CharSequence items_separated_by_separator, int separator, int[] selected, int count, int item_height) {
+	public static void nk_combobox_separator(NkContext ctx, CharSequence items_separated_by_separator, int separator, int[] selected, int count, int item_height, int max_height) {
 		if ( CHECKS )
 			checkBuffer(selected, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer items_separated_by_separatorEncoded = stack.UTF8(items_separated_by_separator);
-			nnk_combobox_separator(ctx.address(), memAddress(items_separated_by_separatorEncoded), separator, selected, count, item_height);
+			nnk_combobox_separator(ctx.address(), memAddress(items_separated_by_separatorEncoded), separator, selected, count, item_height, max_height);
 		} finally {
 			stack.setPointer(stackPointer);
 		}
 	}
 
 	/** Array version of: {@link #nk_combobox_callback combobox_callback} */
-	public static native void nnk_combobox_callback(long ctx, long item_getter, long userdata, int[] selected, int count, int item_height);
+	public static native void nnk_combobox_callback(long ctx, long item_getter, long userdata, int[] selected, int count, int item_height, int max_height);
 
 	/** Array version of: {@link #nk_combobox_callback combobox_callback} */
-	public static void nk_combobox_callback(NkContext ctx, NkItemGetterI item_getter, long userdata, int[] selected, int count, int item_height) {
+	public static void nk_combobox_callback(NkContext ctx, NkItemGetterI item_getter, long userdata, int[] selected, int count, int item_height, int max_height) {
 		if ( CHECKS ) {
 			checkPointer(userdata);
 			checkBuffer(selected, 1);
 		}
-		nnk_combobox_callback(ctx.address(), item_getter.address(), userdata, selected, count, item_height);
+		nnk_combobox_callback(ctx.address(), item_getter.address(), userdata, selected, count, item_height, max_height);
+	}
+
+	/** Array version of: {@link #nk_style_push_float style_push_float} */
+	public static native int nnk_style_push_float(long ctx, float[] address, float value);
+
+	/** Array version of: {@link #nk_style_push_float style_push_float} */
+	public static int nk_style_push_float(NkContext ctx, float[] address, float value) {
+		return nnk_style_push_float(ctx.address(), address, value);
+	}
+
+	/** Array version of: {@link #nk_style_push_flags style_push_flags} */
+	public static native int nnk_style_push_flags(long ctx, int[] address, int value);
+
+	/** Array version of: {@link #nk_style_push_flags style_push_flags} */
+	public static int nk_style_push_flags(NkContext ctx, int[] address, int value) {
+		return nnk_style_push_flags(ctx.address(), address, value);
 	}
 
 	/** Array version of: {@link #nk_rgb_iv rgb_iv} */

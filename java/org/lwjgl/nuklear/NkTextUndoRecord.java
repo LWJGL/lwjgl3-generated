@@ -21,7 +21,7 @@ import static org.lwjgl.system.MemoryUtil.*;
     short char_storage;
 }</code></pre>
  */
-public class NkTextUndoRecord extends Struct {
+class NkTextUndoRecord extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -62,7 +62,7 @@ public class NkTextUndoRecord extends Struct {
 	 *
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
-	public NkTextUndoRecord(ByteBuffer container) {
+	NkTextUndoRecord(ByteBuffer container) {
 		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 

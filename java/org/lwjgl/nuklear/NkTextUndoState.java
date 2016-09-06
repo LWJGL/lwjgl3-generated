@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryUtil.*;
     short redo_char_point;
 }</code></pre>
  */
-public class NkTextUndoState extends Struct {
+class NkTextUndoState extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -70,7 +70,7 @@ public class NkTextUndoState extends Struct {
 	 *
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
-	public NkTextUndoState(ByteBuffer container) {
+	NkTextUndoState(ByteBuffer container) {
 		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 

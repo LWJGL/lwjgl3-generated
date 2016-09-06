@@ -17,10 +17,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_draw_list {
-    float global_alpha;
-    nk_anti_aliasing shape_AA;
-    nk_anti_aliasing line_AA;
-    {@link NkDrawNullTexture struct nk_draw_null_texture} null_texture;
+    {@link NkConvertConfig struct nk_convert_config} config;
     {@link NkRect struct nk_rect} clip_rect;
     struct nk_buffer * buffer;
     struct nk_buffer * vertices;
@@ -44,10 +41,7 @@ public class NkDrawList extends Struct implements NativeResource {
 
 	/** The struct member offsets. */
 	public static final int
-		GLOBAL_ALPHA,
-		SHAPE_AA,
-		LINE_AA,
-		NULL_TEXTURE,
+		CONFIG,
 		CLIP_RECT,
 		BUFFER,
 		VERTICES,
@@ -63,10 +57,7 @@ public class NkDrawList extends Struct implements NativeResource {
 
 	static {
 		Layout layout = __struct(
-			__member(4),
-			__member(4),
-			__member(4),
-			__member(NkDrawNullTexture.SIZEOF, NkDrawNullTexture.ALIGNOF),
+			__member(NkConvertConfig.SIZEOF, NkConvertConfig.ALIGNOF),
 			__member(NkRect.SIZEOF, NkRect.ALIGNOF),
 			__member(POINTER_SIZE),
 			__member(POINTER_SIZE),
@@ -84,22 +75,19 @@ public class NkDrawList extends Struct implements NativeResource {
 		SIZEOF = layout.getSize();
 		ALIGNOF = layout.getAlignment();
 
-		GLOBAL_ALPHA = layout.offsetof(0);
-		SHAPE_AA = layout.offsetof(1);
-		LINE_AA = layout.offsetof(2);
-		NULL_TEXTURE = layout.offsetof(3);
-		CLIP_RECT = layout.offsetof(4);
-		BUFFER = layout.offsetof(5);
-		VERTICES = layout.offsetof(6);
-		ELEMENTS = layout.offsetof(7);
-		ELEMENT_COUNT = layout.offsetof(8);
-		VERTEX_COUNT = layout.offsetof(9);
-		CMD_OFFSET = layout.offsetof(10);
-		CMD_COUNT = layout.offsetof(11);
-		PATH_COUNT = layout.offsetof(12);
-		PATH_OFFSET = layout.offsetof(13);
-		CIRCLE_VTX = layout.offsetof(14);
-		USERDATA = layout.offsetof(15);
+		CONFIG = layout.offsetof(0);
+		CLIP_RECT = layout.offsetof(1);
+		BUFFER = layout.offsetof(2);
+		VERTICES = layout.offsetof(3);
+		ELEMENTS = layout.offsetof(4);
+		ELEMENT_COUNT = layout.offsetof(5);
+		VERTEX_COUNT = layout.offsetof(6);
+		CMD_OFFSET = layout.offsetof(7);
+		CMD_COUNT = layout.offsetof(8);
+		PATH_COUNT = layout.offsetof(9);
+		PATH_OFFSET = layout.offsetof(10);
+		CIRCLE_VTX = layout.offsetof(11);
+		USERDATA = layout.offsetof(12);
 	}
 
 	NkDrawList(long address, ByteBuffer container) {
@@ -119,14 +107,8 @@ public class NkDrawList extends Struct implements NativeResource {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	/** Returns the value of the {@code global_alpha} field. */
-	public float global_alpha() { return nglobal_alpha(address()); }
-	/** Returns the value of the {@code shape_AA} field. */
-	public int shape_AA() { return nshape_AA(address()); }
-	/** Returns the value of the {@code line_AA} field. */
-	public int line_AA() { return nline_AA(address()); }
-	/** Returns a {@link NkDrawNullTexture} view of the {@code null_texture} field. */
-	public NkDrawNullTexture null_texture() { return nnull_texture(address()); }
+	/** Returns a {@link NkConvertConfig} view of the {@code config} field. */
+	public NkConvertConfig config() { return nconfig(address()); }
 	/** Returns a {@link NkRect} view of the {@code clip_rect} field. */
 	public NkRect clip_rect() { return nclip_rect(address()); }
 	/** Returns a {@link NkBuffer} view of the struct pointed to by the {@code buffer} field. */
@@ -283,14 +265,8 @@ public class NkDrawList extends Struct implements NativeResource {
 
 	// -----------------------------------
 
-	/** Unsafe version of {@link #global_alpha}. */
-	public static float nglobal_alpha(long struct) { return memGetFloat(struct + NkDrawList.GLOBAL_ALPHA); }
-	/** Unsafe version of {@link #shape_AA}. */
-	public static int nshape_AA(long struct) { return memGetInt(struct + NkDrawList.SHAPE_AA); }
-	/** Unsafe version of {@link #line_AA}. */
-	public static int nline_AA(long struct) { return memGetInt(struct + NkDrawList.LINE_AA); }
-	/** Unsafe version of {@link #null_texture}. */
-	public static NkDrawNullTexture nnull_texture(long struct) { return NkDrawNullTexture.create(struct + NkDrawList.NULL_TEXTURE); }
+	/** Unsafe version of {@link #config}. */
+	public static NkConvertConfig nconfig(long struct) { return NkConvertConfig.create(struct + NkDrawList.CONFIG); }
 	/** Unsafe version of {@link #clip_rect}. */
 	public static NkRect nclip_rect(long struct) { return NkRect.create(struct + NkDrawList.CLIP_RECT); }
 	/** Unsafe version of {@link #buffer}. */
@@ -364,14 +340,8 @@ public class NkDrawList extends Struct implements NativeResource {
 			return SIZEOF;
 		}
 
-		/** Returns the value of the {@code global_alpha} field. */
-		public float global_alpha() { return NkDrawList.nglobal_alpha(address()); }
-		/** Returns the value of the {@code shape_AA} field. */
-		public int shape_AA() { return NkDrawList.nshape_AA(address()); }
-		/** Returns the value of the {@code line_AA} field. */
-		public int line_AA() { return NkDrawList.nline_AA(address()); }
-		/** Returns a {@link NkDrawNullTexture} view of the {@code null_texture} field. */
-		public NkDrawNullTexture null_texture() { return NkDrawList.nnull_texture(address()); }
+		/** Returns a {@link NkConvertConfig} view of the {@code config} field. */
+		public NkConvertConfig config() { return NkDrawList.nconfig(address()); }
 		/** Returns a {@link NkRect} view of the {@code clip_rect} field. */
 		public NkRect clip_rect() { return NkDrawList.nclip_rect(address()); }
 		/** Returns a {@link NkBuffer} view of the struct pointed to by the {@code buffer} field. */

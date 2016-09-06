@@ -28,7 +28,6 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkColor struct nk_color} group_border_color;
     {@link NkColor struct nk_color} tooltip_border_color;
     {@link NkStyleItem struct nk_style_item} scaler;
-    {@link NkVec2 struct nk_vec2} footer_padding;
     float border;
     float combo_border;
     float contextual_border;
@@ -36,7 +35,6 @@ import static org.lwjgl.system.MemoryStack.*;
     float group_border;
     float tooltip_border;
     float rounding;
-    {@link NkVec2 struct nk_vec2} scaler_size;
     {@link NkVec2 struct nk_vec2} spacing;
     {@link NkVec2 struct nk_vec2} scrollbar_size;
     {@link NkVec2 struct nk_vec2} min_size;
@@ -68,7 +66,6 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		GROUP_BORDER_COLOR,
 		TOOLTIP_BORDER_COLOR,
 		SCALER,
-		FOOTER_PADDING,
 		BORDER,
 		COMBO_BORDER,
 		CONTEXTUAL_BORDER,
@@ -76,7 +73,6 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		GROUP_BORDER,
 		TOOLTIP_BORDER,
 		ROUNDING,
-		SCALER_SIZE,
 		SPACING,
 		SCROLLBAR_SIZE,
 		MIN_SIZE,
@@ -100,7 +96,6 @@ public class NkStyleWindow extends Struct implements NativeResource {
 			__member(NkColor.SIZEOF, NkColor.ALIGNOF),
 			__member(NkColor.SIZEOF, NkColor.ALIGNOF),
 			__member(NkStyleItem.SIZEOF, NkStyleItem.ALIGNOF),
-			__member(NkVec2.SIZEOF, NkVec2.ALIGNOF),
 			__member(4),
 			__member(4),
 			__member(4),
@@ -108,7 +103,6 @@ public class NkStyleWindow extends Struct implements NativeResource {
 			__member(4),
 			__member(4),
 			__member(4),
-			__member(NkVec2.SIZEOF, NkVec2.ALIGNOF),
 			__member(NkVec2.SIZEOF, NkVec2.ALIGNOF),
 			__member(NkVec2.SIZEOF, NkVec2.ALIGNOF),
 			__member(NkVec2.SIZEOF, NkVec2.ALIGNOF),
@@ -134,25 +128,23 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		GROUP_BORDER_COLOR = layout.offsetof(7);
 		TOOLTIP_BORDER_COLOR = layout.offsetof(8);
 		SCALER = layout.offsetof(9);
-		FOOTER_PADDING = layout.offsetof(10);
-		BORDER = layout.offsetof(11);
-		COMBO_BORDER = layout.offsetof(12);
-		CONTEXTUAL_BORDER = layout.offsetof(13);
-		MENU_BORDER = layout.offsetof(14);
-		GROUP_BORDER = layout.offsetof(15);
-		TOOLTIP_BORDER = layout.offsetof(16);
-		ROUNDING = layout.offsetof(17);
-		SCALER_SIZE = layout.offsetof(18);
-		SPACING = layout.offsetof(19);
-		SCROLLBAR_SIZE = layout.offsetof(20);
-		MIN_SIZE = layout.offsetof(21);
-		PADDING = layout.offsetof(22);
-		GROUP_PADDING = layout.offsetof(23);
-		POPUP_PADDING = layout.offsetof(24);
-		COMBO_PADDING = layout.offsetof(25);
-		CONTEXTUAL_PADDING = layout.offsetof(26);
-		MENU_PADDING = layout.offsetof(27);
-		TOOLTIP_PADDING = layout.offsetof(28);
+		BORDER = layout.offsetof(10);
+		COMBO_BORDER = layout.offsetof(11);
+		CONTEXTUAL_BORDER = layout.offsetof(12);
+		MENU_BORDER = layout.offsetof(13);
+		GROUP_BORDER = layout.offsetof(14);
+		TOOLTIP_BORDER = layout.offsetof(15);
+		ROUNDING = layout.offsetof(16);
+		SPACING = layout.offsetof(17);
+		SCROLLBAR_SIZE = layout.offsetof(18);
+		MIN_SIZE = layout.offsetof(19);
+		PADDING = layout.offsetof(20);
+		GROUP_PADDING = layout.offsetof(21);
+		POPUP_PADDING = layout.offsetof(22);
+		COMBO_PADDING = layout.offsetof(23);
+		CONTEXTUAL_PADDING = layout.offsetof(24);
+		MENU_PADDING = layout.offsetof(25);
+		TOOLTIP_PADDING = layout.offsetof(26);
 	}
 
 	NkStyleWindow(long address, ByteBuffer container) {
@@ -192,8 +184,6 @@ public class NkStyleWindow extends Struct implements NativeResource {
 	public NkColor tooltip_border_color() { return ntooltip_border_color(address()); }
 	/** Returns a {@link NkStyleItem} view of the {@code scaler} field. */
 	public NkStyleItem scaler() { return nscaler(address()); }
-	/** Returns a {@link NkVec2} view of the {@code footer_padding} field. */
-	public NkVec2 footer_padding() { return nfooter_padding(address()); }
 	/** Returns the value of the {@code border} field. */
 	public float border() { return nborder(address()); }
 	/** Returns the value of the {@code combo_border} field. */
@@ -208,8 +198,6 @@ public class NkStyleWindow extends Struct implements NativeResource {
 	public float tooltip_border() { return ntooltip_border(address()); }
 	/** Returns the value of the {@code rounding} field. */
 	public float rounding() { return nrounding(address()); }
-	/** Returns a {@link NkVec2} view of the {@code scaler_size} field. */
-	public NkVec2 scaler_size() { return nscaler_size(address()); }
 	/** Returns a {@link NkVec2} view of the {@code spacing} field. */
 	public NkVec2 spacing() { return nspacing(address()); }
 	/** Returns a {@link NkVec2} view of the {@code scrollbar_size} field. */
@@ -251,8 +239,6 @@ public class NkStyleWindow extends Struct implements NativeResource {
 	public NkStyleWindow tooltip_border_color(NkColor value) { ntooltip_border_color(address(), value); return this; }
 	/** Copies the specified {@link NkStyleItem} to the {@code scaler} field. */
 	public NkStyleWindow scaler(NkStyleItem value) { nscaler(address(), value); return this; }
-	/** Copies the specified {@link NkVec2} to the {@code footer_padding} field. */
-	public NkStyleWindow footer_padding(NkVec2 value) { nfooter_padding(address(), value); return this; }
 	/** Sets the specified value to the {@code border} field. */
 	public NkStyleWindow border(float value) { nborder(address(), value); return this; }
 	/** Sets the specified value to the {@code combo_border} field. */
@@ -267,8 +253,6 @@ public class NkStyleWindow extends Struct implements NativeResource {
 	public NkStyleWindow tooltip_border(float value) { ntooltip_border(address(), value); return this; }
 	/** Sets the specified value to the {@code rounding} field. */
 	public NkStyleWindow rounding(float value) { nrounding(address(), value); return this; }
-	/** Copies the specified {@link NkVec2} to the {@code scaler_size} field. */
-	public NkStyleWindow scaler_size(NkVec2 value) { nscaler_size(address(), value); return this; }
 	/** Copies the specified {@link NkVec2} to the {@code spacing} field. */
 	public NkStyleWindow spacing(NkVec2 value) { nspacing(address(), value); return this; }
 	/** Copies the specified {@link NkVec2} to the {@code scrollbar_size} field. */
@@ -302,7 +286,6 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		NkColor group_border_color,
 		NkColor tooltip_border_color,
 		NkStyleItem scaler,
-		NkVec2 footer_padding,
 		float border,
 		float combo_border,
 		float contextual_border,
@@ -310,7 +293,6 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		float group_border,
 		float tooltip_border,
 		float rounding,
-		NkVec2 scaler_size,
 		NkVec2 spacing,
 		NkVec2 scrollbar_size,
 		NkVec2 min_size,
@@ -332,7 +314,6 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		group_border_color(group_border_color);
 		tooltip_border_color(tooltip_border_color);
 		scaler(scaler);
-		footer_padding(footer_padding);
 		border(border);
 		combo_border(combo_border);
 		contextual_border(contextual_border);
@@ -340,7 +321,6 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		group_border(group_border);
 		tooltip_border(tooltip_border);
 		rounding(rounding);
-		scaler_size(scaler_size);
 		spacing(spacing);
 		scrollbar_size(scrollbar_size);
 		min_size(min_size);
@@ -521,8 +501,6 @@ public class NkStyleWindow extends Struct implements NativeResource {
 	public static NkColor ntooltip_border_color(long struct) { return NkColor.create(struct + NkStyleWindow.TOOLTIP_BORDER_COLOR); }
 	/** Unsafe version of {@link #scaler}. */
 	public static NkStyleItem nscaler(long struct) { return NkStyleItem.create(struct + NkStyleWindow.SCALER); }
-	/** Unsafe version of {@link #footer_padding}. */
-	public static NkVec2 nfooter_padding(long struct) { return NkVec2.create(struct + NkStyleWindow.FOOTER_PADDING); }
 	/** Unsafe version of {@link #border}. */
 	public static float nborder(long struct) { return memGetFloat(struct + NkStyleWindow.BORDER); }
 	/** Unsafe version of {@link #combo_border}. */
@@ -537,8 +515,6 @@ public class NkStyleWindow extends Struct implements NativeResource {
 	public static float ntooltip_border(long struct) { return memGetFloat(struct + NkStyleWindow.TOOLTIP_BORDER); }
 	/** Unsafe version of {@link #rounding}. */
 	public static float nrounding(long struct) { return memGetFloat(struct + NkStyleWindow.ROUNDING); }
-	/** Unsafe version of {@link #scaler_size}. */
-	public static NkVec2 nscaler_size(long struct) { return NkVec2.create(struct + NkStyleWindow.SCALER_SIZE); }
 	/** Unsafe version of {@link #spacing}. */
 	public static NkVec2 nspacing(long struct) { return NkVec2.create(struct + NkStyleWindow.SPACING); }
 	/** Unsafe version of {@link #scrollbar_size}. */
@@ -580,8 +556,6 @@ public class NkStyleWindow extends Struct implements NativeResource {
 	public static void ntooltip_border_color(long struct, NkColor value) { memCopy(value.address(), struct + NkStyleWindow.TOOLTIP_BORDER_COLOR, NkColor.SIZEOF); }
 	/** Unsafe version of {@link #scaler(NkStyleItem) scaler}. */
 	public static void nscaler(long struct, NkStyleItem value) { memCopy(value.address(), struct + NkStyleWindow.SCALER, NkStyleItem.SIZEOF); }
-	/** Unsafe version of {@link #footer_padding(NkVec2) footer_padding}. */
-	public static void nfooter_padding(long struct, NkVec2 value) { memCopy(value.address(), struct + NkStyleWindow.FOOTER_PADDING, NkVec2.SIZEOF); }
 	/** Unsafe version of {@link #border(float) border}. */
 	public static void nborder(long struct, float value) { memPutFloat(struct + NkStyleWindow.BORDER, value); }
 	/** Unsafe version of {@link #combo_border(float) combo_border}. */
@@ -596,8 +570,6 @@ public class NkStyleWindow extends Struct implements NativeResource {
 	public static void ntooltip_border(long struct, float value) { memPutFloat(struct + NkStyleWindow.TOOLTIP_BORDER, value); }
 	/** Unsafe version of {@link #rounding(float) rounding}. */
 	public static void nrounding(long struct, float value) { memPutFloat(struct + NkStyleWindow.ROUNDING, value); }
-	/** Unsafe version of {@link #scaler_size(NkVec2) scaler_size}. */
-	public static void nscaler_size(long struct, NkVec2 value) { memCopy(value.address(), struct + NkStyleWindow.SCALER_SIZE, NkVec2.SIZEOF); }
 	/** Unsafe version of {@link #spacing(NkVec2) spacing}. */
 	public static void nspacing(long struct, NkVec2 value) { memCopy(value.address(), struct + NkStyleWindow.SPACING, NkVec2.SIZEOF); }
 	/** Unsafe version of {@link #scrollbar_size(NkVec2) scrollbar_size}. */
@@ -681,8 +653,6 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		public NkColor tooltip_border_color() { return NkStyleWindow.ntooltip_border_color(address()); }
 		/** Returns a {@link NkStyleItem} view of the {@code scaler} field. */
 		public NkStyleItem scaler() { return NkStyleWindow.nscaler(address()); }
-		/** Returns a {@link NkVec2} view of the {@code footer_padding} field. */
-		public NkVec2 footer_padding() { return NkStyleWindow.nfooter_padding(address()); }
 		/** Returns the value of the {@code border} field. */
 		public float border() { return NkStyleWindow.nborder(address()); }
 		/** Returns the value of the {@code combo_border} field. */
@@ -697,8 +667,6 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		public float tooltip_border() { return NkStyleWindow.ntooltip_border(address()); }
 		/** Returns the value of the {@code rounding} field. */
 		public float rounding() { return NkStyleWindow.nrounding(address()); }
-		/** Returns a {@link NkVec2} view of the {@code scaler_size} field. */
-		public NkVec2 scaler_size() { return NkStyleWindow.nscaler_size(address()); }
 		/** Returns a {@link NkVec2} view of the {@code spacing} field. */
 		public NkVec2 spacing() { return NkStyleWindow.nspacing(address()); }
 		/** Returns a {@link NkVec2} view of the {@code scrollbar_size} field. */
@@ -740,8 +708,6 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		public NkStyleWindow.Buffer tooltip_border_color(NkColor value) { NkStyleWindow.ntooltip_border_color(address(), value); return this; }
 		/** Copies the specified {@link NkStyleItem} to the {@code scaler} field. */
 		public NkStyleWindow.Buffer scaler(NkStyleItem value) { NkStyleWindow.nscaler(address(), value); return this; }
-		/** Copies the specified {@link NkVec2} to the {@code footer_padding} field. */
-		public NkStyleWindow.Buffer footer_padding(NkVec2 value) { NkStyleWindow.nfooter_padding(address(), value); return this; }
 		/** Sets the specified value to the {@code border} field. */
 		public NkStyleWindow.Buffer border(float value) { NkStyleWindow.nborder(address(), value); return this; }
 		/** Sets the specified value to the {@code combo_border} field. */
@@ -756,8 +722,6 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		public NkStyleWindow.Buffer tooltip_border(float value) { NkStyleWindow.ntooltip_border(address(), value); return this; }
 		/** Sets the specified value to the {@code rounding} field. */
 		public NkStyleWindow.Buffer rounding(float value) { NkStyleWindow.nrounding(address(), value); return this; }
-		/** Copies the specified {@link NkVec2} to the {@code scaler_size} field. */
-		public NkStyleWindow.Buffer scaler_size(NkVec2 value) { NkStyleWindow.nscaler_size(address(), value); return this; }
 		/** Copies the specified {@link NkVec2} to the {@code spacing} field. */
 		public NkStyleWindow.Buffer spacing(NkVec2 value) { NkStyleWindow.nspacing(address(), value); return this; }
 		/** Copies the specified {@link NkVec2} to the {@code scrollbar_size} field. */
