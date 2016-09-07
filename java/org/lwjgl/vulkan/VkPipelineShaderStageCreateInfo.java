@@ -30,21 +30,21 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code module} <b>must</b> be a valid {@code VkShaderModule} handle</li>
  * <li>{@code pName} <b>must</b> be a null-terminated string</li>
  * <li>If {@code pSpecializationInfo} is not {@code NULL}, {@code pSpecializationInfo} <b>must</b> be a pointer to a valid {@link VkSpecializationInfo} structure</li>
- * <li>If the geometry shaders feature is not enabled, {@code stage} <b>must not</b> be {@link VK10#VK_SHADER_STAGE_GEOMETRY_BIT SHADER_STAGE_GEOMETRY_BIT}</li>
- * <li>If the tessellation shaders feature is not enabled, {@code stage} <b>must not</b> be {@link VK10#VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT SHADER_STAGE_TESSELLATION_CONTROL_BIT} or
+ * <li>If the geometry shaders feature is not enabled, {@code stage} <b>must</b> not be {@link VK10#VK_SHADER_STAGE_GEOMETRY_BIT SHADER_STAGE_GEOMETRY_BIT}</li>
+ * <li>If the tessellation shaders feature is not enabled, {@code stage} <b>must</b> not be {@link VK10#VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT SHADER_STAGE_TESSELLATION_CONTROL_BIT} or
  * {@link VK10#VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT SHADER_STAGE_TESSELLATION_EVALUATION_BIT}</li>
- * <li>{@code stage} <b>must not</b> be {@link VK10#VK_SHADER_STAGE_ALL_GRAPHICS SHADER_STAGE_ALL_GRAPHICS}, or {@link VK10#VK_SHADER_STAGE_ALL SHADER_STAGE_ALL}</li>
+ * <li>{@code stage} <b>must</b> not be {@link VK10#VK_SHADER_STAGE_ALL_GRAPHICS SHADER_STAGE_ALL_GRAPHICS}, or {@link VK10#VK_SHADER_STAGE_ALL SHADER_STAGE_ALL}</li>
  * <li>{@code pName} <b>must</b> be the name of an {@code OpEntryPoint} in {@code module} with an execution model that matches {@code stage}</li>
  * <li>If the identified entry point includes any variable in its interface that is declared with the {@code ClipDistance} {@code BuiltIn} decoration,
- * that variable <b>must not</b> have an array size greater than {@link VkPhysicalDeviceLimits}{@code ::maxClipDistances}</li>
+ * that variable <b>must</b> not have an array size greater than {@link VkPhysicalDeviceLimits}{@code ::maxClipDistances}</li>
  * <li>If the identified entry point includes any variable in its interface that is declared with the {@code CullDistance} {@code BuiltIn} decoration,
- * that variable <b>must not</b> have an array size greater than {@link VkPhysicalDeviceLimits}{@code ::maxCullDistances}</li>
+ * that variable <b>must</b> not have an array size greater than {@link VkPhysicalDeviceLimits}{@code ::maxCullDistances}</li>
  * <li>If the identified entry point includes any variables in its interface that are declared with the {@code ClipDistance} or {@code CullDistance}
- * {@code BuiltIn} decoration, those variables <b>must not</b> have array sizes which sum to more than
+ * {@code BuiltIn} decoration, those variables <b>must</b> not have array sizes which sum to more than
  * {@link VkPhysicalDeviceLimits}{@code ::maxCombinedClipAndCullDistances}</li>
  * <li>If the identified entry point includes any variable in its interface that is declared with the {@code SampleMask} {@code BuiltIn} decoration, that
- * variable <b>must not</b> have an array size greater than {@link VkPhysicalDeviceLimits}{@code ::maxSampleMaskWords}</li>
- * <li>If {@code stage} is {@link VK10#VK_SHADER_STAGE_VERTEX_BIT SHADER_STAGE_VERTEX_BIT}, the identified entry point <b>must not</b> include any input variable in its interface that is decorated
+ * variable <b>must</b> not have an array size greater than {@link VkPhysicalDeviceLimits}{@code ::maxSampleMaskWords}</li>
+ * <li>If {@code stage} is {@link VK10#VK_SHADER_STAGE_VERTEX_BIT SHADER_STAGE_VERTEX_BIT}, the identified entry point <b>must</b> not include any input variable in its interface that is decorated
  * with {@code CullDistance}</li>
  * <li>If {@code stage} is {@link VK10#VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT SHADER_STAGE_TESSELLATION_CONTROL_BIT} or {@link VK10#VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT SHADER_STAGE_TESSELLATION_EVALUATION_BIT}, and the identified entry point has an
  * {@code OpExecutionMode} instruction that specifies a patch size with {@code OutputVertices}, the patch size <b>must</b> be greater than 0 and less than
@@ -57,7 +57,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * value to {@code Layer} for all vertices of a given primitive</li>
  * <li>If {@code stage} is {@link VK10#VK_SHADER_STAGE_GEOMETRY_BIT SHADER_STAGE_GEOMETRY_BIT}, and the identified entry point writes to {@code ViewportIndex} for any primitive, it <b>must</b> write
  * the same value to {@code ViewportIndex} for all vertices of a given primitive</li>
- * <li>If {@code stage} is {@link VK10#VK_SHADER_STAGE_FRAGMENT_BIT SHADER_STAGE_FRAGMENT_BIT}, the identified entry point <b>must not</b> include any output variables in its interface decorated with
+ * <li>If {@code stage} is {@link VK10#VK_SHADER_STAGE_FRAGMENT_BIT SHADER_STAGE_FRAGMENT_BIT}, the identified entry point <b>must</b> not include any output variables in its interface decorated with
  * {@code CullDistance}</li>
  * <li>If {@code stage} is {@link VK10#VK_SHADER_STAGE_FRAGMENT_BIT SHADER_STAGE_FRAGMENT_BIT}, and the identified entry point writes to {@code FragDepth} in any execution path, it <b>must</b> write to
  * {@code FragDepth} in all execution paths</li>

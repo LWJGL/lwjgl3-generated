@@ -24,7 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code aspectMask} <b>must</b> be a valid combination of {@code VkImageAspectFlagBits} values</li>
- * <li>{@code aspectMask} <b>must not</b> be 0</li>
+ * <li>{@code aspectMask} <b>must</b> not be 0</li>
  * <li>{@code mipLevel} <b>must</b> be less than the {@code mipLevels} specified in {@code VkImageCreateInfo} when the image was created</li>
  * <li>{@code arrayLayer} <b>must</b> be less than the {@code arrayLayers} specified in {@code VkImageCreateInfo} when the image was created</li>
  * </ul>

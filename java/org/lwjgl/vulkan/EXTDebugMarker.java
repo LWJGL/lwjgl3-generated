@@ -123,7 +123,7 @@ public class EXTDebugMarker {
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code pTagInfo} <b>must</b> be a pointer to a {@link VkDebugMarkerObjectTagInfoEXT} structure</li>
 	 * <li>{@code pTagInfo.object} <b>must</b> be a Vulkan object</li>
-	 * <li>{@code pTagInfo.tagName} <b>must not</b> be 0</li>
+	 * <li>{@code pTagInfo.tagName} <b>must</b> not be 0</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -160,7 +160,7 @@ public class EXTDebugMarker {
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code pTagInfo} <b>must</b> be a pointer to a {@link VkDebugMarkerObjectTagInfoEXT} structure</li>
 	 * <li>{@code pTagInfo.object} <b>must</b> be a Vulkan object</li>
-	 * <li>{@code pTagInfo.tagName} <b>must not</b> be 0</li>
+	 * <li>{@code pTagInfo.tagName} <b>must</b> not be 0</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -255,9 +255,9 @@ public class EXTDebugMarker {
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * <li>There <b>must</b> be an outstanding {@link #vkCmdDebugMarkerBeginEXT CmdDebugMarkerBeginEXT} command prior to the {@link #vkCmdDebugMarkerEndEXT CmdDebugMarkerEndEXT} on the queue that {@code commandBuffer} is
-	 * submitted to.</li>
+	 * submitted to</li>
 	 * <li>If the matching {@link #vkCmdDebugMarkerBeginEXT CmdDebugMarkerBeginEXT} command was in a secondary command buffer, the {@link #vkCmdDebugMarkerEndEXT CmdDebugMarkerEndEXT} must be in the same
-	 * {@code commandBuffer}.</li>
+	 * {@code commandBuffer}</li>
 	 * </ul>
 	 *
 	 * @param commandBuffer the command buffer handle

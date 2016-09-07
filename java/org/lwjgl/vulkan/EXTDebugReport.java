@@ -257,7 +257,7 @@ public class EXTDebugReport {
 	 * <ul>
 	 * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
 	 * <li>{@code flags} <b>must</b> be a valid combination of {@code VkDebugReportFlagBitsEXT} values</li>
-	 * <li>{@code flags} <b>must not</b> be 0</li>
+	 * <li>{@code flags} <b>must</b> not be 0</li>
 	 * <li>{@code objectType} <b>must</b> be a valid {@code VkDebugReportObjectTypeEXT} value</li>
 	 * <li>{@code pLayerPrefix} <b>must</b> be a pointer to a valid</li>
 	 * <li>{@code pMessage} <b>must</b> be a pointer to a valid</li>
@@ -265,8 +265,8 @@ public class EXTDebugReport {
 	 * <li>{@code flags} <b>must</b> be a combination of one or more of {@code VkDebugReportFlagBitsEXT}</li>
 	 * <li>{@code objType} <b>must</b> be one of {@code VkDebugReportObjectTypeEXT}, {@link #VK_DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT} if {@code object} is {@code NULL}</li>
 	 * <li>{@code object} <b>may</b> be a Vulkan object</li>
-	 * <li>{@code pLayerPrefix} <b>must</b> be a {@code NULL} terminated string.</li>
-	 * <li>{@code pMsg} <b>must</b> be a {@code NULL} terminated string.</li>
+	 * <li>{@code pLayerPrefix} <b>must</b> be a {@code NULL} terminated string</li>
+	 * <li>{@code pMsg} <b>must</b> be a {@code NULL} terminated string</li>
 	 * </ul>
 	 * 
 	 * <p>The call will propagate through the layers and cause a callback to the application. The parameters are passed on to the callback in addition to the
@@ -296,7 +296,7 @@ public class EXTDebugReport {
 	 * <ul>
 	 * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
 	 * <li>{@code flags} <b>must</b> be a valid combination of {@code VkDebugReportFlagBitsEXT} values</li>
-	 * <li>{@code flags} <b>must not</b> be 0</li>
+	 * <li>{@code flags} <b>must</b> not be 0</li>
 	 * <li>{@code objectType} <b>must</b> be a valid {@code VkDebugReportObjectTypeEXT} value</li>
 	 * <li>{@code pLayerPrefix} <b>must</b> be a pointer to a valid</li>
 	 * <li>{@code pMessage} <b>must</b> be a pointer to a valid</li>
@@ -304,8 +304,8 @@ public class EXTDebugReport {
 	 * <li>{@code flags} <b>must</b> be a combination of one or more of {@code VkDebugReportFlagBitsEXT}</li>
 	 * <li>{@code objType} <b>must</b> be one of {@code VkDebugReportObjectTypeEXT}, {@link #VK_DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT} if {@code object} is {@code NULL}</li>
 	 * <li>{@code object} <b>may</b> be a Vulkan object</li>
-	 * <li>{@code pLayerPrefix} <b>must</b> be a {@code NULL} terminated string.</li>
-	 * <li>{@code pMsg} <b>must</b> be a {@code NULL} terminated string.</li>
+	 * <li>{@code pLayerPrefix} <b>must</b> be a {@code NULL} terminated string</li>
+	 * <li>{@code pMsg} <b>must</b> be a {@code NULL} terminated string</li>
 	 * </ul>
 	 * 
 	 * <p>The call will propagate through the layers and cause a callback to the application. The parameters are passed on to the callback in addition to the
@@ -336,7 +336,7 @@ public class EXTDebugReport {
 	 * <ul>
 	 * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
 	 * <li>{@code flags} <b>must</b> be a valid combination of {@code VkDebugReportFlagBitsEXT} values</li>
-	 * <li>{@code flags} <b>must not</b> be 0</li>
+	 * <li>{@code flags} <b>must</b> not be 0</li>
 	 * <li>{@code objectType} <b>must</b> be a valid {@code VkDebugReportObjectTypeEXT} value</li>
 	 * <li>{@code pLayerPrefix} <b>must</b> be a pointer to a valid</li>
 	 * <li>{@code pMessage} <b>must</b> be a pointer to a valid</li>
@@ -344,8 +344,8 @@ public class EXTDebugReport {
 	 * <li>{@code flags} <b>must</b> be a combination of one or more of {@code VkDebugReportFlagBitsEXT}</li>
 	 * <li>{@code objType} <b>must</b> be one of {@code VkDebugReportObjectTypeEXT}, {@link #VK_DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT} if {@code object} is {@code NULL}</li>
 	 * <li>{@code object} <b>may</b> be a Vulkan object</li>
-	 * <li>{@code pLayerPrefix} <b>must</b> be a {@code NULL} terminated string.</li>
-	 * <li>{@code pMsg} <b>must</b> be a {@code NULL} terminated string.</li>
+	 * <li>{@code pLayerPrefix} <b>must</b> be a {@code NULL} terminated string</li>
+	 * <li>{@code pMsg} <b>must</b> be a {@code NULL} terminated string</li>
 	 * </ul>
 	 * 
 	 * <p>The call will propagate through the layers and cause a callback to the application. The parameters are passed on to the callback in addition to the

@@ -49,10 +49,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * to a graphics {@code VkPipeline}</li>
  * <li>The {@code stage} member of each element of {@code pStages} <b>must</b> be unique</li>
  * <li>The {@code stage} member of one element of {@code pStages} <b>must</b> be {@link VK10#VK_SHADER_STAGE_VERTEX_BIT SHADER_STAGE_VERTEX_BIT}</li>
- * <li>The {@code stage} member of any given element of {@code pStages} <b>must not</b> be {@link VK10#VK_SHADER_STAGE_COMPUTE_BIT SHADER_STAGE_COMPUTE_BIT}</li>
+ * <li>The {@code stage} member of any given element of {@code pStages} <b>must</b> not be {@link VK10#VK_SHADER_STAGE_COMPUTE_BIT SHADER_STAGE_COMPUTE_BIT}</li>
  * <li>If {@code pStages} includes a tessellation control shader stage, it <b>must</b> include a tessellation evaluation shader stage</li>
  * <li>If {@code pStages} includes a tessellation evaluation shader stage, it <b>must</b> include a tessellation control shader stage</li>
- * <li>If {@code pStages} includes a tessellation control shader stage and a tessellation evaluation shader stage, {@code pTessellationState} <b>must not</b> be
+ * <li>If {@code pStages} includes a tessellation control shader stage and a tessellation evaluation shader stage, {@code pTessellationState} <b>must</b> not be
  * {@code NULL}</li>
  * <li>If {@code pStages} includes tessellation shader stages, the shader code of at least one stage <b>must</b> contain an {@code OpExecutionMode} instruction
  * that specifies the type of subdivision in the pipeline</li>
@@ -75,7 +75,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If {@code pStages} includes a fragment shader stage and a geometry shader stage, and the fragment shader code reads from an input variable that is
  * decorated with {@code PrimitiveID}, then the geometry shader code <b>must</b> write to a matching output variable, decorated with {@code PrimitiveID}, in
  * all execution paths</li>
- * <li>If {@code pStages} includes a fragment shader stage, its shader code <b>must not</b> read from any input attachment that is defined as {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED}
+ * <li>If {@code pStages} includes a fragment shader stage, its shader code <b>must</b> not read from any input attachment that is defined as {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED}
  * in {@code subpass}</li>
  * <li>The shader code for the entry points identified by {@code pStages}, and the rest of the state identified by this structure <b>must</b> adhere to the
  * pipeline linking rules described in the Shader Interfaces chapter</li>

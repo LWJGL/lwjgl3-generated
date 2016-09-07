@@ -33,13 +33,13 @@ public class VK10 {
 	 * scope of changes.</p>
 	 * 
 	 * <p>A difference in patch version numbers indicates that some usually small aspect of the specification or header has been modified, typically to fix a
-	 * bug, and <b>may</b> have an impact on the behavior of existing functionality. Differences in this version number <b>should not</b> affect either full compatibility
+	 * bug, and <b>may</b> have an impact on the behavior of existing functionality. Differences in this version number <b>should</b> not affect either full compatibility
 	 * or backwards compatibility between two versions, or add additional interfaces to the API.</p>
 	 * 
 	 * <p>A difference in minor version numbers indicates that some amount of new functionality has been added. This will usually include new interfaces in the
 	 * header, and <b>may</b> also include behavior changes and bug fixes. Functionality <b>may</b> be deprecated in a minor revision, but will not be removed. When a new
 	 * minor version is introduced, the patch version is reset to 0, and each minor revision maintains its own set of patch versions. Differences in this
-	 * version <b>should not</b> affect backwards compatibility, but will affect full compatibility.</p>
+	 * version <b>should</b> not affect backwards compatibility, but will affect full compatibility.</p>
 	 * 
 	 * <p>A difference in major version numbers indicates a large set of changes to the API, potentially including new functionality and header interfaces,
 	 * behavioral changes, removal of deprecated features, modification or outright replacement of any feature, and is thus very likely to break any and all
@@ -49,7 +49,7 @@ public class VK10 {
 
 	/**
 	 * The reserved handle {@code VK_NULL_HANDLE} <b>can</b> be passed in place of valid object handles when explicitly called out in the specification. Any command
-	 * that creates an object successfully <b>must not</b> return {@code VK_NULL_HANDLE}. It is valid to pass {@code VK_NULL_HANDLE} to any {@code vkDestroy*} or
+	 * that creates an object successfully <b>must</b> not return {@code VK_NULL_HANDLE}. It is valid to pass {@code VK_NULL_HANDLE} to any {@code vkDestroy*} or
 	 * {@code vkFree*} command, which will silently ignore these values.
 	 */
 	public static final long VK_NULL_HANDLE = 0x0L;
@@ -1442,7 +1442,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 		VK_INDEX_TYPE_UINT32 = 1;
 
 	/**
-	 * The contents of the subpass will be recorded inline in the primary command buffer, and secondary command buffers <b>must not</b> be executed within the
+	 * The contents of the subpass will be recorded inline in the primary command buffer, and secondary command buffers <b>must</b> not be executed within the
 	 * subpass.
 	 */
 	public static final int VK_SUBPASS_CONTENTS_INLINE = 0;
@@ -1529,7 +1529,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 
 	/**
 	 * Indicates that the memory bound to this image will have been allocated with the {@link #VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT}. If this is set, then bits
-	 * other than {@link #VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT}, {@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT}, and {@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT} <b>must not</b> be set.
+	 * other than {@link #VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT}, {@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT}, and {@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT} <b>must</b> not be set.
 	 */
 	public static final int VK_IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT = 0x40;
 
@@ -1976,17 +1976,17 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 * 
 	 * <p>Render passes <b>must</b> include subpass dependencies (either directly or via a subpass dependency chain) between any two subpasses that operate on the
 	 * same attachment or aliasing attachments and those subpass dependencies <b>must</b> include execution and memory dependencies separating uses of the
-	 * aliases, if at least one of those subpasses writes to one of the aliases. Those dependencies <b>must not</b> include the {@link #VK_DEPENDENCY_BY_REGION_BIT DEPENDENCY_BY_REGION_BIT} if the
+	 * aliases, if at least one of those subpasses writes to one of the aliases. Those dependencies <b>must</b> not include the {@link #VK_DEPENDENCY_BY_REGION_BIT DEPENDENCY_BY_REGION_BIT} if the
 	 * aliases are views of distinct image subresources which overlap in memory.</p>
 	 * 
-	 * <p>Multiple attachments that alias the same memory <b>must not</b> be used in a single subpass. A given attachment index <b>must not</b> be used multiple times in
+	 * <p>Multiple attachments that alias the same memory <b>must</b> not be used in a single subpass. A given attachment index <b>must</b> not be used multiple times in
 	 * a single subpass, with one exception: two subpass attachments <b>can</b> use the same attachment index if at least one use is as an input attachment and
 	 * neither use is as a resolve or preserve attachment. In other words, the same view <b>can</b> be used simultaneously as an input and color or
-	 * depth/stencil attachment, but <b>must not</b> be used as multiple color or depth/stencil attachments nor as resolve or preserve attachments.</p>
+	 * depth/stencil attachment, but <b>must</b> not be used as multiple color or depth/stencil attachments nor as resolve or preserve attachments.</p>
 	 * 
 	 * <p>If a set of attachments alias each other, then all except the first to be used in the render pass <b>must</b> use an initialLayout of
 	 * {@link #VK_IMAGE_LAYOUT_UNDEFINED IMAGE_LAYOUT_UNDEFINED}, since the earlier uses of the other aliases make their contents undefined. Once an alias has been used and a different
-	 * alias has been used after it, the first alias <b>must not</b> be used in any later subpasses. However, an application <b>can</b> assign the same image view to
+	 * alias has been used after it, the first alias <b>must</b> not be used in any later subpasses. However, an application <b>can</b> assign the same image view to
 	 * multiple aliasing attachment indices, which allows that image view to be used multiple times even if other aliases are used in between. Once an
 	 * attachment needs the {@code ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT} bit, there <b>should</b> be no additional cost of introducing additional aliases, and
 	 * using these additional aliases <b>may</b> allow more efficient clearing of the attachments on multiple uses via {@link #VK_ATTACHMENT_LOAD_OP_CLEAR ATTACHMENT_LOAD_OP_CLEAR}.</p>
@@ -2225,7 +2225,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 * 
 	 * Destroys an instance of Vulkan.
 	 * 
-	 * <p>After destruction of the instance, all devices (logical and physical) and any objects created by those devices become invalid and <b>should not</b> be
+	 * <p>After destruction of the instance, all devices (logical and physical) and any objects created by those devices become invalid and <b>should</b> not be
 	 * accessed. However, objects allocated directly or indirectly through the instance are not destroyed automatically and so <b>may</b> be leaked. Applications
 	 * <b>should</b> destroy all objects created through instance before destroying the instance itself.</p>
 	 * 
@@ -2260,7 +2260,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 * 
 	 * Destroys an instance of Vulkan.
 	 * 
-	 * <p>After destruction of the instance, all devices (logical and physical) and any objects created by those devices become invalid and <b>should not</b> be
+	 * <p>After destruction of the instance, all devices (logical and physical) and any objects created by those devices become invalid and <b>should</b> not be
 	 * accessed. However, objects allocated directly or indirectly through the instance are not destroyed automatically and so <b>may</b> be leaked. Applications
 	 * <b>should</b> destroy all objects created through instance before destroying the instance itself.</p>
 	 * 
@@ -2463,7 +2463,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 * <li>{@code type} <b>must</b> be a valid {@code VkImageType} value</li>
 	 * <li>{@code tiling} <b>must</b> be a valid {@code VkImageTiling} value</li>
 	 * <li>{@code usage} <b>must</b> be a valid combination of {@code VkImageUsageFlagBits} values</li>
-	 * <li>{@code usage} <b>must not</b> be 0</li>
+	 * <li>{@code usage} <b>must</b> not be 0</li>
 	 * <li>{@code flags} <b>must</b> be a valid combination of {@code VkImageCreateFlagBits} values</li>
 	 * <li>{@code pImageFormatProperties} <b>must</b> be a pointer to a {@link VkImageFormatProperties} structure</li>
 	 * </ul>
@@ -2500,7 +2500,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 * <li>{@code type} <b>must</b> be a valid {@code VkImageType} value</li>
 	 * <li>{@code tiling} <b>must</b> be a valid {@code VkImageTiling} value</li>
 	 * <li>{@code usage} <b>must</b> be a valid combination of {@code VkImageUsageFlagBits} values</li>
-	 * <li>{@code usage} <b>must not</b> be 0</li>
+	 * <li>{@code usage} <b>must</b> not be 0</li>
 	 * <li>{@code flags} <b>must</b> be a valid combination of {@code VkImageCreateFlagBits} values</li>
 	 * <li>{@code pImageFormatProperties} <b>must</b> be a pointer to a {@link VkImageFormatProperties} structure</li>
 	 * </ul>
@@ -3469,7 +3469,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * primitives. The implementation make no guarantees with regards to queues across different devices.</p>
 	 * 
 	 * <p>An implementation <b>may</b> allow a higher-priority queue to starve a lower-priority queue on the same {@code VkDevice} until the higher-priority queue has
-	 * no further commands to execute. The relationship of queue priorities <b>must not</b> cause queues on one {@code VkDevice} to starve queues on another
+	 * no further commands to execute. The relationship of queue priorities <b>must</b> not cause queues on one {@code VkDevice} to starve queues on another
 	 * {@code VkDevice}.</p>
 	 * 
 	 * <p>No specific guarantees are made about higher priority queues receiving more processing time or better quality of service than lower priority queues.</p>
@@ -3523,7 +3523,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * primitives. The implementation make no guarantees with regards to queues across different devices.</p>
 	 * 
 	 * <p>An implementation <b>may</b> allow a higher-priority queue to starve a lower-priority queue on the same {@code VkDevice} until the higher-priority queue has
-	 * no further commands to execute. The relationship of queue priorities <b>must not</b> cause queues on one {@code VkDevice} to starve queues on another
+	 * no further commands to execute. The relationship of queue priorities <b>must</b> not cause queues on one {@code VkDevice} to starve queues on another
 	 * {@code VkDevice}.</p>
 	 * 
 	 * <p>No specific guarantees are made about higher priority queues receiving more processing time or better quality of service than lower priority queues.</p>
@@ -3574,7 +3574,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
 	 * <li>Both of {@code fence}, and {@code queue} that are valid handles <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be unsignaled</li>
-	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on
+	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> not be associated with any other queue command that has not yet completed execution on
 	 * that queue</li>
 	 * </ul>
 	 * 
@@ -3621,7 +3621,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
 	 * <li>Both of {@code fence}, and {@code queue} that are valid handles <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be unsignaled</li>
-	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on
+	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> not be associated with any other queue command that has not yet completed execution on
 	 * that queue</li>
 	 * </ul>
 	 * 
@@ -3664,7 +3664,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
 	 * <li>Both of {@code fence}, and {@code queue} that are valid handles <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be unsignaled</li>
-	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on
+	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> not be associated with any other queue command that has not yet completed execution on
 	 * that queue</li>
 	 * </ul>
 	 * 
@@ -3946,7 +3946,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code flags} <b>must</b> be 0</li>
 	 * <li>{@code ppData} <b>must</b> be a pointer to a pointer</li>
 	 * <li>{@code memory} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
-	 * <li>{@code memory} <b>must not</b> currently be mapped</li>
+	 * <li>{@code memory} <b>must</b> not currently be mapped</li>
 	 * <li>{@code offset} <b>must</b> be less than the size of {@code memory}</li>
 	 * <li>If {@code size} is not equal to {@link #VK_WHOLE_SIZE WHOLE_SIZE}, {@code size} <b>must</b> be greater than 0</li>
 	 * <li>If {@code size} is not equal to {@link #VK_WHOLE_SIZE WHOLE_SIZE}, {@code size} <b>must</b> be less than or equal to the size of the {@code memory} minus {@code offset}</li>
@@ -4008,7 +4008,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code flags} <b>must</b> be 0</li>
 	 * <li>{@code ppData} <b>must</b> be a pointer to a pointer</li>
 	 * <li>{@code memory} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
-	 * <li>{@code memory} <b>must not</b> currently be mapped</li>
+	 * <li>{@code memory} <b>must</b> not currently be mapped</li>
 	 * <li>{@code offset} <b>must</b> be less than the size of {@code memory}</li>
 	 * <li>If {@code size} is not equal to {@link #VK_WHOLE_SIZE WHOLE_SIZE}, {@code size} <b>must</b> be greater than 0</li>
 	 * <li>If {@code size} is not equal to {@link #VK_WHOLE_SIZE WHOLE_SIZE}, {@code size} <b>must</b> be less than or equal to the size of the {@code memory} minus {@code offset}</li>
@@ -4315,8 +4315,8 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
 	 * <li>{@code buffer} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>{@code memory} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
-	 * <li>{@code buffer} <b>must not</b> already be backed by a memory object</li>
-	 * <li>{@code buffer} <b>must not</b> have been created with any sparse memory binding flags</li>
+	 * <li>{@code buffer} <b>must</b> not already be backed by a memory object</li>
+	 * <li>{@code buffer} <b>must</b> not have been created with any sparse memory binding flags</li>
 	 * <li>{@code memoryOffset} <b>must</b> be less than the size of {@code memory}</li>
 	 * <li>If {@code buffer} was created with the {@link #VK_BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT} or {@link #VK_BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT}, {@code memoryOffset} <b>must</b>
 	 * be a multiple of {@link VkPhysicalDeviceLimits}{@code ::minTexelBufferOffsetAlignment}</li>
@@ -4331,7 +4331,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>The {@code size} member of the {@link VkMemoryRequirements} structure returned from a call to {@link #vkGetBufferMemoryRequirements GetBufferMemoryRequirements} with {@code buffer} <b>must</b> be
 	 * less than or equal to the size of {@code memory} minus {@code memoryOffset}</li>
 	 * <li>If {@code buffer} was created with {@link VkDedicatedAllocationBufferCreateInfoNV}{@code ::dedicatedAllocation} equal to {@link #VK_TRUE TRUE}, {@code memory} <b>must</b> have
-	 * been created with {@link VkDedicatedAllocationMemoryAllocateInfoNV}{@code ::buffer} equal to {@code buffer} and {@code memoryOffset} <b>must</b> be zero.</li>
+	 * been created with {@link VkDedicatedAllocationMemoryAllocateInfoNV}{@code ::buffer} equal to {@code buffer} and {@code memoryOffset} <b>must</b> be zero</li>
 	 * <li>If {@code buffer} was not created with {@link VkDedicatedAllocationBufferCreateInfoNV}{@code ::dedicatedAllocation} equal to {@link #VK_TRUE TRUE}, {@code memory} <b>must</b>
 	 * not have been allocated dedicated for a specific buffer or image</li>
 	 * </ul>
@@ -4368,8 +4368,8 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
 	 * <li>{@code image} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>{@code memory} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
-	 * <li>{@code image} <b>must not</b> already be backed by a memory object</li>
-	 * <li>{@code image} <b>must not</b> have been created with any sparse memory binding flags</li>
+	 * <li>{@code image} <b>must</b> not already be backed by a memory object</li>
+	 * <li>{@code image} <b>must</b> not have been created with any sparse memory binding flags</li>
 	 * <li>{@code memoryOffset} <b>must</b> be less than the size of {@code memory}</li>
 	 * <li>{@code memory} <b>must</b> have been allocated using one of the memory types allowed in the {@code memoryTypeBits} member of the {@link VkMemoryRequirements}
 	 * structure returned from a call to {@link #vkGetImageMemoryRequirements GetImageMemoryRequirements} with {@code image}</li>
@@ -4378,7 +4378,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>The {@code size} member of the {@link VkMemoryRequirements} structure returned from a call to {@link #vkGetImageMemoryRequirements GetImageMemoryRequirements} with {@code image} <b>must</b> be
 	 * less than or equal to the size of {@code memory} minus {@code memoryOffset}</li>
 	 * <li>If {@code image} was created with {@link VkDedicatedAllocationImageCreateInfoNV}{@code ::dedicatedAllocation} equal to {@link #VK_TRUE TRUE}, {@code memory} <b>must</b> have
-	 * been created with {@link VkDedicatedAllocationMemoryAllocateInfoNV}{@code ::image} equal to {@code image} and {@code memoryOffset} <b>must</b> be zero.</li>
+	 * been created with {@link VkDedicatedAllocationMemoryAllocateInfoNV}{@code ::image} equal to {@code image} and {@code memoryOffset} <b>must</b> be zero</li>
 	 * <li>If {@code image} was not created with {@link VkDedicatedAllocationImageCreateInfoNV}{@code ::dedicatedAllocation} equal to {@link #VK_TRUE TRUE}, {@code memory} <b>must</b>
 	 * not have been allocated dedicated for a specific buffer or image</li>
 	 * </ul>
@@ -4613,7 +4613,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code type} <b>must</b> be a valid {@code VkImageType} value</li>
 	 * <li>{@code samples} <b>must</b> be a valid {@code VkSampleCountFlagBits} value</li>
 	 * <li>{@code usage} <b>must</b> be a valid combination of {@code VkImageUsageFlagBits} values</li>
-	 * <li>{@code usage} <b>must not</b> be 0</li>
+	 * <li>{@code usage} <b>must</b> not be 0</li>
 	 * <li>{@code tiling} <b>must</b> be a valid {@code VkImageTiling} value</li>
 	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
 	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an
@@ -4672,7 +4672,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code type} <b>must</b> be a valid {@code VkImageType} value</li>
 	 * <li>{@code samples} <b>must</b> be a valid {@code VkSampleCountFlagBits} value</li>
 	 * <li>{@code usage} <b>must</b> be a valid combination of {@code VkImageUsageFlagBits} values</li>
-	 * <li>{@code usage} <b>must not</b> be 0</li>
+	 * <li>{@code usage} <b>must</b> not be 0</li>
 	 * <li>{@code tiling} <b>must</b> be a valid {@code VkImageTiling} value</li>
 	 * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
 	 * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an
@@ -4718,7 +4718,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <p>{@code vkQueueBindSparse} is a queue submission command, with each batch defined by an element of {@code pBindInfo} as an instance of the
 	 * {@link VkBindSparseInfo} structure.</p>
 	 * 
-	 * <p>Within a batch, a given range of a resource <b>must not</b> be bound more than once. Across batches, if a range is to be bound to one allocation and offset
+	 * <p>Within a batch, a given range of a resource <b>must</b> not be bound more than once. Across batches, if a range is to be bound to one allocation and offset
 	 * and then to another allocation and offset, then the application <b>must</b> guarantee (usually using semaphores) that the binding operations are executed in
 	 * the correct order, as well as to order binding operations against the execution of command buffer submissions.</p>
 	 * 
@@ -4731,7 +4731,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>The {@code queue} <b>must</b> support sparse binding operations</li>
 	 * <li>Both of {@code fence}, and {@code queue} that are valid handles <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code fence} <b>must</b> be unsignaled</li>
-	 * <li>{@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on that queue</li>
+	 * <li>{@code fence} <b>must</b> not be associated with any other queue command that has not yet completed execution on that queue</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -4769,7 +4769,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <p>{@code vkQueueBindSparse} is a queue submission command, with each batch defined by an element of {@code pBindInfo} as an instance of the
 	 * {@link VkBindSparseInfo} structure.</p>
 	 * 
-	 * <p>Within a batch, a given range of a resource <b>must not</b> be bound more than once. Across batches, if a range is to be bound to one allocation and offset
+	 * <p>Within a batch, a given range of a resource <b>must</b> not be bound more than once. Across batches, if a range is to be bound to one allocation and offset
 	 * and then to another allocation and offset, then the application <b>must</b> guarantee (usually using semaphores) that the binding operations are executed in
 	 * the correct order, as well as to order binding operations against the execution of command buffer submissions.</p>
 	 * 
@@ -4782,7 +4782,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>The {@code queue} <b>must</b> support sparse binding operations</li>
 	 * <li>Both of {@code fence}, and {@code queue} that are valid handles <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code fence} <b>must</b> be unsignaled</li>
-	 * <li>{@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on that queue</li>
+	 * <li>{@code fence} <b>must</b> not be associated with any other queue command that has not yet completed execution on that queue</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -4816,7 +4816,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <p>{@code vkQueueBindSparse} is a queue submission command, with each batch defined by an element of {@code pBindInfo} as an instance of the
 	 * {@link VkBindSparseInfo} structure.</p>
 	 * 
-	 * <p>Within a batch, a given range of a resource <b>must not</b> be bound more than once. Across batches, if a range is to be bound to one allocation and offset
+	 * <p>Within a batch, a given range of a resource <b>must</b> not be bound more than once. Across batches, if a range is to be bound to one allocation and offset
 	 * and then to another allocation and offset, then the application <b>must</b> guarantee (usually using semaphores) that the binding operations are executed in
 	 * the correct order, as well as to order binding operations against the execution of command buffer submissions.</p>
 	 * 
@@ -4829,7 +4829,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>The {@code queue} <b>must</b> support sparse binding operations</li>
 	 * <li>Both of {@code fence}, and {@code queue} that are valid handles <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code fence} <b>must</b> be unsignaled</li>
-	 * <li>{@code fence} <b>must not</b> be associated with any other queue command that has not yet completed execution on that queue</li>
+	 * <li>{@code fence} <b>must</b> not be associated with any other queue command that has not yet completed execution on that queue</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -4932,7 +4932,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
 	 * <li>If {@code fence} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
-	 * <li>{@code fence} <b>must not</b> be associated with any queue command that has not yet completed execution on that queue</li>
+	 * <li>{@code fence} <b>must</b> not be associated with any queue command that has not yet completed execution on that queue</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code fence} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code fence} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
 	 * </ul>
@@ -4966,7 +4966,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
 	 * <li>If {@code fence} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
-	 * <li>{@code fence} <b>must not</b> be associated with any queue command that has not yet completed execution on that queue</li>
+	 * <li>{@code fence} <b>must</b> not be associated with any queue command that has not yet completed execution on that queue</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code fence} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code fence} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
 	 * </ul>
@@ -5001,7 +5001,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pFences} <b>must</b> be a pointer to an array of {@code fenceCount} valid {@code VkFence} handles</li>
 	 * <li>{@code fenceCount} <b>must</b> be greater than 0</li>
 	 * <li>Each element of {@code pFences} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
-	 * <li>Any given element of {@code pFences} <b>must not</b> currently be associated with any queue command that has not yet completed execution on that queue</li>
+	 * <li>Any given element of {@code pFences} <b>must</b> not currently be associated with any queue command that has not yet completed execution on that queue</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -5033,7 +5033,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pFences} <b>must</b> be a pointer to an array of {@code fenceCount} valid {@code VkFence} handles</li>
 	 * <li>{@code fenceCount} <b>must</b> be greater than 0</li>
 	 * <li>Each element of {@code pFences} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
-	 * <li>Any given element of {@code pFences} <b>must not</b> currently be associated with any queue command that has not yet completed execution on that queue</li>
+	 * <li>Any given element of {@code pFences} <b>must</b> not currently be associated with any queue command that has not yet completed execution on that queue</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -5063,7 +5063,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * <li>{@code pFences} <b>must</b> be a pointer to an array of {@code fenceCount} valid {@code VkFence} handles</li>
 	 * <li>{@code fenceCount} <b>must</b> be greater than 0</li>
 	 * <li>Each element of {@code pFences} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
-	 * <li>Any given element of {@code pFences} <b>must not</b> currently be associated with any queue command that has not yet completed execution on that queue</li>
+	 * <li>Any given element of {@code pFences} <b>must</b> not currently be associated with any queue command that has not yet completed execution on that queue</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -5294,13 +5294,13 @@ or _unsignaled_.</p>
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
 	 * 
 	 * <p>A common scenario for using {@code pWaitDstStageMask} with values other than {@link #VK_PIPELINE_STAGE_ALL_COMMANDS_BIT PIPELINE_STAGE_ALL_COMMANDS_BIT} is when synchronizing a window system
-	 * presentation operation against subsequent command buffers which render the next frame. In this case, a presentation image <b>must not</b> be overwritten
+	 * presentation operation against subsequent command buffers which render the next frame. In this case, a presentation image <b>must</b> not be overwritten
 	 * until the presentation operation completes, but other pipeline stages <b>can</b> execute without waiting. A mask of
 	 * {@link #VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT} prevents subsequent color attachment writes from executing until the semaphore signals. Some
 	 * implementations <b>may</b> be able to execute transfer operations and/or vertex processing work before the semaphore is signaled.</p>
 	 * 
 	 * <p>If an image layout transition needs to be performed on a swapchain image before it is used in a framebuffer, that can: be performed as the first
-	 * operation submitted to the queue after acquiring the image, and <b>should not</b> prevent other work from overlapping with the presentation operation. For
+	 * operation submitted to the queue after acquiring the image, and <b>should</b> not prevent other work from overlapping with the presentation operation. For
 	 * example, a {@link VkImageMemoryBarrier} could use:</p>
 	 * 
 	 * <ul>
@@ -5375,13 +5375,13 @@ or _unsignaled_.</p>
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
 	 * 
 	 * <p>A common scenario for using {@code pWaitDstStageMask} with values other than {@link #VK_PIPELINE_STAGE_ALL_COMMANDS_BIT PIPELINE_STAGE_ALL_COMMANDS_BIT} is when synchronizing a window system
-	 * presentation operation against subsequent command buffers which render the next frame. In this case, a presentation image <b>must not</b> be overwritten
+	 * presentation operation against subsequent command buffers which render the next frame. In this case, a presentation image <b>must</b> not be overwritten
 	 * until the presentation operation completes, but other pipeline stages <b>can</b> execute without waiting. A mask of
 	 * {@link #VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT} prevents subsequent color attachment writes from executing until the semaphore signals. Some
 	 * implementations <b>may</b> be able to execute transfer operations and/or vertex processing work before the semaphore is signaled.</p>
 	 * 
 	 * <p>If an image layout transition needs to be performed on a swapchain image before it is used in a framebuffer, that can: be performed as the first
-	 * operation submitted to the queue after acquiring the image, and <b>should not</b> prevent other work from overlapping with the presentation operation. For
+	 * operation submitted to the queue after acquiring the image, and <b>should</b> not prevent other work from overlapping with the presentation operation. For
 	 * example, a {@link VkImageMemoryBarrier} could use:</p>
 	 * 
 	 * <ul>
@@ -5426,7 +5426,7 @@ or _unsignaled_.</p>
 	 * <li>If {@code semaphore} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code semaphore} <b>must</b> be a valid {@code VkSemaphore} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
 	 * <li>If {@code semaphore} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
-	 * <li>{@code semaphore} <b>must not</b> be associated with any queue command that has not yet completed execution on that queue</li>
+	 * <li>{@code semaphore} <b>must</b> not be associated with any queue command that has not yet completed execution on that queue</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code semaphore} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code semaphore} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
 	 * </ul>
@@ -5460,7 +5460,7 @@ or _unsignaled_.</p>
 	 * <li>If {@code semaphore} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code semaphore} <b>must</b> be a valid {@code VkSemaphore} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
 	 * <li>If {@code semaphore} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
-	 * <li>{@code semaphore} <b>must not</b> be associated with any queue command that has not yet completed execution on that queue</li>
+	 * <li>{@code semaphore} <b>must</b> not be associated with any queue command that has not yet completed execution on that queue</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code semaphore} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code semaphore} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
 	 * </ul>
@@ -5684,7 +5684,7 @@ or _unsignaled_.</p>
 	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
 	 * <li>{@code event} <b>must</b> be a valid {@code VkEvent} handle</li>
 	 * <li>{@code event} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
-	 * <li>{@code event} <b>must not</b> be waited on by a {@link #vkCmdWaitEvents CmdWaitEvents} command that is currently executing</li>
+	 * <li>{@code event} <b>must</b> not be waited on by a {@link #vkCmdWaitEvents CmdWaitEvents} command that is currently executing</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -5869,7 +5869,7 @@ or _unsignaled_.</p>
 	 * <p>If {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} is set, {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} is not set, and the query’s status is unavailable, an intermediate result value between
 	 * zero and the final result value is written to {@code pData} for that query.</p>
 	 * 
-	 * <p>{@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} <b>must not</b> be used if the pool’s {@code queryType} is {@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}.</p>
+	 * <p>{@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} <b>must</b> not be used if the pool’s {@code queryType} is {@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}.</p>
 	 * 
 	 * <p>If {@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT} is set, the final integer value written for each query is non-zero if the query’s status was available or zero
 	 * if the status was unavailable. When {@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT} is used, implementations <b>must</b> guarantee that if they return a non-zero
@@ -5894,7 +5894,7 @@ or _unsignaled_.</p>
 	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is set in {@code flags} then {@code pData} and {@code stride} <b>must</b> be multiples of 8</li>
 	 * <li>The sum of {@code firstQuery} and {@code queryCount} <b>must</b> be less than or equal to the number of queries in {@code queryPool}</li>
 	 * <li>{@code dataSize} <b>must</b> be large enough to contain the result of each query, as described here</li>
-	 * <li>If the {@code queryType} used to create {@code queryPool} was {@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}, {@code flags} <b>must not</b> contain {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT}</li>
+	 * <li>If the {@code queryType} used to create {@code queryPool} was {@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}, {@code flags} <b>must</b> not contain {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT}</li>
 	 * </ul>
 	 *
 	 * @param device     the logical device that owns the query pool
@@ -5953,7 +5953,7 @@ or _unsignaled_.</p>
 	 * <p>If {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} is set, {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} is not set, and the query’s status is unavailable, an intermediate result value between
 	 * zero and the final result value is written to {@code pData} for that query.</p>
 	 * 
-	 * <p>{@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} <b>must not</b> be used if the pool’s {@code queryType} is {@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}.</p>
+	 * <p>{@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} <b>must</b> not be used if the pool’s {@code queryType} is {@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}.</p>
 	 * 
 	 * <p>If {@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT} is set, the final integer value written for each query is non-zero if the query’s status was available or zero
 	 * if the status was unavailable. When {@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT} is used, implementations <b>must</b> guarantee that if they return a non-zero
@@ -5978,7 +5978,7 @@ or _unsignaled_.</p>
 	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is set in {@code flags} then {@code pData} and {@code stride} <b>must</b> be multiples of 8</li>
 	 * <li>The sum of {@code firstQuery} and {@code queryCount} <b>must</b> be less than or equal to the number of queries in {@code queryPool}</li>
 	 * <li>{@code dataSize} <b>must</b> be large enough to contain the result of each query, as described here</li>
-	 * <li>If the {@code queryType} used to create {@code queryPool} was {@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}, {@code flags} <b>must not</b> contain {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT}</li>
+	 * <li>If the {@code queryType} used to create {@code queryPool} was {@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}, {@code flags} <b>must</b> not contain {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT}</li>
 	 * </ul>
 	 *
 	 * @param device     the logical device that owns the query pool
@@ -6028,7 +6028,7 @@ or _unsignaled_.</p>
 	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkBufferCreateInfo} structure</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
 	 * <li>{@code pBuffer} <b>must</b> be a pointer to a {@code VkBuffer} handle</li>
-	 * <li>If the {@code flags} member of {@code pCreateInfo} includes {@link #VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT}, creating this {@code VkBuffer} <b>must not</b> cause the
+	 * <li>If the {@code flags} member of {@code pCreateInfo} includes {@link #VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT}, creating this {@code VkBuffer} <b>must</b> not cause the
 	 * total required sparse memory for all currently valid sparse resources on the device to exceed
 	 * {@link VkPhysicalDeviceLimits}{@code ::sparseAddressSpaceSize}</li>
 	 * </ul>
@@ -6062,7 +6062,7 @@ or _unsignaled_.</p>
 	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkBufferCreateInfo} structure</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
 	 * <li>{@code pBuffer} <b>must</b> be a pointer to a {@code VkBuffer} handle</li>
-	 * <li>If the {@code flags} member of {@code pCreateInfo} includes {@link #VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT}, creating this {@code VkBuffer} <b>must not</b> cause the
+	 * <li>If the {@code flags} member of {@code pCreateInfo} includes {@link #VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT}, creating this {@code VkBuffer} <b>must</b> not cause the
 	 * total required sparse memory for all currently valid sparse resources on the device to exceed
 	 * {@link VkPhysicalDeviceLimits}{@code ::sparseAddressSpaceSize}</li>
 	 * </ul>
@@ -6300,7 +6300,7 @@ or _unsignaled_.</p>
 	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkImageCreateInfo} structure</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
 	 * <li>{@code pImage} <b>must</b> be a pointer to a {@code VkImage} handle</li>
-	 * <li>If the {@code flags} member of {@code pCreateInfo} includes {@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT}, creating this {@code VkImage} <b>must not</b> cause the
+	 * <li>If the {@code flags} member of {@code pCreateInfo} includes {@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT}, creating this {@code VkImage} <b>must</b> not cause the
 	 * total required sparse memory for all currently valid sparse resources on the device to exceed
 	 * {@link VkPhysicalDeviceLimits}{@code ::sparseAddressSpaceSize}</li>
 	 * </ul>
@@ -6334,7 +6334,7 @@ or _unsignaled_.</p>
 	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkImageCreateInfo} structure</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
 	 * <li>{@code pImage} <b>must</b> be a pointer to a {@code VkImage} handle</li>
-	 * <li>If the {@code flags} member of {@code pCreateInfo} includes {@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT}, creating this {@code VkImage} <b>must not</b> cause the
+	 * <li>If the {@code flags} member of {@code pCreateInfo} includes {@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT}, creating this {@code VkImage} <b>must</b> not cause the
 	 * total required sparse memory for all currently valid sparse resources on the device to exceed
 	 * {@link VkPhysicalDeviceLimits}{@code ::sparseAddressSpaceSize}</li>
 	 * </ul>
@@ -6740,7 +6740,7 @@ or _unsignaled_.</p>
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
 	 * 
 	 * <p>Applications <b>can</b> track and manage the total host memory size of a pipeline cache object using the {@code pAllocator}. Applications <b>can</b> limit the
-	 * amount of data retrieved from a pipeline cache object in {@link #vkGetPipelineCacheData GetPipelineCacheData}. Implementations <b>should not</b> internally limit the total number of
+	 * amount of data retrieved from a pipeline cache object in {@link #vkGetPipelineCacheData GetPipelineCacheData}. Implementations <b>should</b> not internally limit the total number of
 	 * entries added to a pipeline cache object or the total host memory consumed.</p>
 	 * </div>
 	 * 
@@ -6792,7 +6792,7 @@ or _unsignaled_.</p>
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
 	 * 
 	 * <p>Applications <b>can</b> track and manage the total host memory size of a pipeline cache object using the {@code pAllocator}. Applications <b>can</b> limit the
-	 * amount of data retrieved from a pipeline cache object in {@link #vkGetPipelineCacheData GetPipelineCacheData}. Implementations <b>should not</b> internally limit the total number of
+	 * amount of data retrieved from a pipeline cache object in {@link #vkGetPipelineCacheData GetPipelineCacheData}. Implementations <b>should</b> not internally limit the total number of
 	 * entries added to a pipeline cache object or the total host memory consumed.</p>
 	 * </div>
 	 * 
@@ -7045,7 +7045,7 @@ or _unsignaled_.</p>
 	 * <li>{@code srcCacheCount} <b>must</b> be greater than 0</li>
 	 * <li>{@code dstCache} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>Each element of {@code pSrcCaches} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
-	 * <li>{@code dstCache} <b>must not</b> appear in the list of source caches</li>
+	 * <li>{@code dstCache} <b>must</b> not appear in the list of source caches</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -7085,7 +7085,7 @@ or _unsignaled_.</p>
 	 * <li>{@code srcCacheCount} <b>must</b> be greater than 0</li>
 	 * <li>{@code dstCache} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>Each element of {@code pSrcCaches} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
-	 * <li>{@code dstCache} <b>must not</b> appear in the list of source caches</li>
+	 * <li>{@code dstCache} <b>must</b> not appear in the list of source caches</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -7864,7 +7864,7 @@ or _unsignaled_.</p>
 	 * Creates a descriptor pool object.
 	 * 
 	 * <p>Descriptor sets are allocated from descriptor pool objects. A descriptor pool maintains a pool of descriptors, from which sets are allocated.
-	 * Descriptor pools are externally synchronized, meaning that the application <b>must not</b> allocate and/or free descriptor sets from the same pool in multiple
+	 * Descriptor pools are externally synchronized, meaning that the application <b>must</b> not allocate and/or free descriptor sets from the same pool in multiple
 	 * threads simultaneously.</p>
 	 * 
 	 * <h5>Valid Usage</h5>
@@ -7896,7 +7896,7 @@ or _unsignaled_.</p>
 	 * Creates a descriptor pool object.
 	 * 
 	 * <p>Descriptor sets are allocated from descriptor pool objects. A descriptor pool maintains a pool of descriptors, from which sets are allocated.
-	 * Descriptor pools are externally synchronized, meaning that the application <b>must not</b> allocate and/or free descriptor sets from the same pool in multiple
+	 * Descriptor pools are externally synchronized, meaning that the application <b>must</b> not allocate and/or free descriptor sets from the same pool in multiple
 	 * threads simultaneously.</p>
 	 * 
 	 * <h5>Valid Usage</h5>
@@ -8617,7 +8617,7 @@ or _unsignaled_.</p>
 	 * Creates a new command pool object.
 	 * 
 	 * <p>Command pools are opaque objects that command buffer memory is allocated from, and which allow the implementation to amortize the cost of resource
-	 * creation across multiple command buffers. Command pools are application-synchronized, meaning that a command pool <b>must not</b> be used concurrently in
+	 * creation across multiple command buffers. Command pools are application-synchronized, meaning that a command pool <b>must</b> not be used concurrently in
 	 * multiple threads. That includes use via recording commands on any command buffers allocated from the pool, as well as operations that allocate, free,
 	 * and reset command buffers or the pool itself.</p>
 	 * 
@@ -8648,7 +8648,7 @@ or _unsignaled_.</p>
 	 * Creates a new command pool object.
 	 * 
 	 * <p>Command pools are opaque objects that command buffer memory is allocated from, and which allow the implementation to amortize the cost of resource
-	 * creation across multiple command buffers. Command pools are application-synchronized, meaning that a command pool <b>must not</b> be used concurrently in
+	 * creation across multiple command buffers. Command pools are application-synchronized, meaning that a command pool <b>must</b> not be used concurrently in
 	 * multiple threads. That includes use via recording commands on any command buffers allocated from the pool, as well as operations that allocate, free,
 	 * and reset command buffers or the pool itself.</p>
 	 * 
@@ -8689,7 +8689,7 @@ or _unsignaled_.</p>
 	 * <li>If {@code commandPool} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code commandPool} <b>must</b> be a valid {@code VkCommandPool} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
 	 * <li>If {@code commandPool} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
-	 * <li>All {@code VkCommandBuffer} objects allocated from {@code commandPool} <b>must not</b> be pending execution</li>
+	 * <li>All {@code VkCommandBuffer} objects allocated from {@code commandPool} <b>must</b> not be pending execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code commandPool} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code commandPool} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
 	 * </ul>
@@ -8726,7 +8726,7 @@ or _unsignaled_.</p>
 	 * <li>If {@code commandPool} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code commandPool} <b>must</b> be a valid {@code VkCommandPool} handle</li>
 	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
 	 * <li>If {@code commandPool} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
-	 * <li>All {@code VkCommandBuffer} objects allocated from {@code commandPool} <b>must not</b> be pending execution</li>
+	 * <li>All {@code VkCommandBuffer} objects allocated from {@code commandPool} <b>must</b> not be pending execution</li>
 	 * <li>If {@code VkAllocationCallbacks} were provided when {@code commandPool} was created, a compatible set of callbacks <b>must</b> be provided here</li>
 	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code commandPool} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
 	 * </ul>
@@ -8759,7 +8759,7 @@ or _unsignaled_.</p>
 	 * <li>{@code commandPool} <b>must</b> be a valid {@code VkCommandPool} handle</li>
 	 * <li>{@code flags} <b>must</b> be a valid combination of {@code VkCommandPoolResetFlagBits} values</li>
 	 * <li>{@code commandPool} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
-	 * <li>All {@code VkCommandBuffer} objects allocated from {@code commandPool} <b>must not</b> currently be pending execution</li>
+	 * <li>All {@code VkCommandBuffer} objects allocated from {@code commandPool} <b>must</b> not currently be pending execution</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -8851,7 +8851,7 @@ or _unsignaled_.</p>
 	 * <li>{@code commandBufferCount} <b>must</b> be greater than 0</li>
 	 * <li>{@code commandPool} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>Each element of {@code pCommandBuffers} that is a valid handle <b>must</b> have been created, allocated, or retrieved from {@code commandPool}</li>
-	 * <li>All elements of {@code pCommandBuffers} <b>must not</b> be pending execution</li>
+	 * <li>All elements of {@code pCommandBuffers} <b>must</b> not be pending execution</li>
 	 * <li>{@code pCommandBuffers} <b>must</b> be a pointer to an array of {@code commandBufferCount} {@code VkCommandBuffer} handles, each element of which <b>must</b>
 	 * either be a valid handle or {@link #VK_NULL_HANDLE NULL_HANDLE}</li>
 	 * </ul>
@@ -8886,7 +8886,7 @@ or _unsignaled_.</p>
 	 * <li>{@code commandBufferCount} <b>must</b> be greater than 0</li>
 	 * <li>{@code commandPool} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>Each element of {@code pCommandBuffers} that is a valid handle <b>must</b> have been created, allocated, or retrieved from {@code commandPool}</li>
-	 * <li>All elements of {@code pCommandBuffers} <b>must not</b> be pending execution</li>
+	 * <li>All elements of {@code pCommandBuffers} <b>must</b> not be pending execution</li>
 	 * <li>{@code pCommandBuffers} <b>must</b> be a pointer to an array of {@code commandBufferCount} {@code VkCommandBuffer} handles, each element of which <b>must</b>
 	 * either be a valid handle or {@link #VK_NULL_HANDLE NULL_HANDLE}</li>
 	 * </ul>
@@ -8919,7 +8919,7 @@ or _unsignaled_.</p>
 	 * <li>{@code commandBufferCount} <b>must</b> be greater than 0</li>
 	 * <li>{@code commandPool} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>Each element of {@code pCommandBuffers} that is a valid handle <b>must</b> have been created, allocated, or retrieved from {@code commandPool}</li>
-	 * <li>All elements of {@code pCommandBuffers} <b>must not</b> be pending execution</li>
+	 * <li>All elements of {@code pCommandBuffers} <b>must</b> not be pending execution</li>
 	 * <li>{@code pCommandBuffers} <b>must</b> be a pointer to an array of {@code commandBufferCount} {@code VkCommandBuffer} handles, each element of which <b>must</b>
 	 * either be a valid handle or {@link #VK_NULL_HANDLE NULL_HANDLE}</li>
 	 * </ul>
@@ -8956,15 +8956,15 @@ or _unsignaled_.</p>
 	 * <ul>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code pBeginInfo} <b>must</b> be a pointer to a valid {@link VkCommandBufferBeginInfo} structure</li>
-	 * <li>{@code commandBuffer} <b>must not</b> be in the recording state</li>
-	 * <li>{@code commandBuffer} <b>must not</b> currently be pending execution</li>
+	 * <li>{@code commandBuffer} <b>must</b> not be in the recording state</li>
+	 * <li>{@code commandBuffer} <b>must</b> not currently be pending execution</li>
 	 * <li>If {@code commandBuffer} was allocated from a {@code VkCommandPool} which did not have the {@link #VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT} flag set,
-	 * {@code commandBuffer} <b>must</b> be in the initial state.</li>
+	 * {@code commandBuffer} <b>must</b> be in the initial state</li>
 	 * <li>If {@code commandBuffer} is a secondary command buffer, the {@code pInheritanceInfo} member of {@code pBeginInfo} <b>must</b> be a valid
 	 * {@link VkCommandBufferInheritanceInfo} structure</li>
 	 * <li>If {@code commandBuffer} is a secondary command buffer and either the {@code occlusionQueryEnable} member of the {@code pInheritanceInfo} member of
 	 * {@code pBeginInfo} is {@link #VK_FALSE FALSE}, or the precise occlusion queries feature is not enabled, the {@code queryFlags} member of the
-	 * {@code pInheritanceInfo} member {@code pBeginInfo} <b>must not</b> contain {@link #VK_QUERY_CONTROL_PRECISE_BIT QUERY_CONTROL_PRECISE_BIT}</li>
+	 * {@code pInheritanceInfo} member {@code pBeginInfo} <b>must</b> not contain {@link #VK_QUERY_CONTROL_PRECISE_BIT QUERY_CONTROL_PRECISE_BIT}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -8977,12 +8977,12 @@ or _unsignaled_.</p>
 	 * 
 	 * <p>A secondary command buffer is considered to be pending execution from the time its execution is recorded into a primary buffer (via
 	 * {@link #vkCmdExecuteCommands CmdExecuteCommands}) until the final time that primary buffer’s submission to a queue completes. If, after the primary buffer completes, the
-	 * secondary command buffer is recorded to execute on a different primary buffer, the first primary buffer <b>must not</b> be resubmitted until after it is reset
+	 * secondary command buffer is recorded to execute on a different primary buffer, the first primary buffer <b>must</b> not be resubmitted until after it is reset
 	 * with {@link #vkResetCommandBuffer ResetCommandBuffer} unless the secondary command buffer was recorded with {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT}.</p>
 	 * 
-	 * <p>If {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} is not set on a secondary command buffer, that command buffer <b>must not</b> be used more than once in a given
+	 * <p>If {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} is not set on a secondary command buffer, that command buffer <b>must</b> not be used more than once in a given
 	 * primary command buffer. Furthermore, if a secondary command buffer without {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} set is recorded to execute in a
-	 * primary command buffer with {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} set, the primary command buffer <b>must not</b> be pending execution more than once at
+	 * primary command buffer with {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} set, the primary command buffer <b>must</b> not be pending execution more than once at
 	 * a time.</p>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
@@ -9016,15 +9016,15 @@ or _unsignaled_.</p>
 	 * <ul>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code pBeginInfo} <b>must</b> be a pointer to a valid {@link VkCommandBufferBeginInfo} structure</li>
-	 * <li>{@code commandBuffer} <b>must not</b> be in the recording state</li>
-	 * <li>{@code commandBuffer} <b>must not</b> currently be pending execution</li>
+	 * <li>{@code commandBuffer} <b>must</b> not be in the recording state</li>
+	 * <li>{@code commandBuffer} <b>must</b> not currently be pending execution</li>
 	 * <li>If {@code commandBuffer} was allocated from a {@code VkCommandPool} which did not have the {@link #VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT} flag set,
-	 * {@code commandBuffer} <b>must</b> be in the initial state.</li>
+	 * {@code commandBuffer} <b>must</b> be in the initial state</li>
 	 * <li>If {@code commandBuffer} is a secondary command buffer, the {@code pInheritanceInfo} member of {@code pBeginInfo} <b>must</b> be a valid
 	 * {@link VkCommandBufferInheritanceInfo} structure</li>
 	 * <li>If {@code commandBuffer} is a secondary command buffer and either the {@code occlusionQueryEnable} member of the {@code pInheritanceInfo} member of
 	 * {@code pBeginInfo} is {@link #VK_FALSE FALSE}, or the precise occlusion queries feature is not enabled, the {@code queryFlags} member of the
-	 * {@code pInheritanceInfo} member {@code pBeginInfo} <b>must not</b> contain {@link #VK_QUERY_CONTROL_PRECISE_BIT QUERY_CONTROL_PRECISE_BIT}</li>
+	 * {@code pInheritanceInfo} member {@code pBeginInfo} <b>must</b> not contain {@link #VK_QUERY_CONTROL_PRECISE_BIT QUERY_CONTROL_PRECISE_BIT}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -9037,12 +9037,12 @@ or _unsignaled_.</p>
 	 * 
 	 * <p>A secondary command buffer is considered to be pending execution from the time its execution is recorded into a primary buffer (via
 	 * {@link #vkCmdExecuteCommands CmdExecuteCommands}) until the final time that primary buffer’s submission to a queue completes. If, after the primary buffer completes, the
-	 * secondary command buffer is recorded to execute on a different primary buffer, the first primary buffer <b>must not</b> be resubmitted until after it is reset
+	 * secondary command buffer is recorded to execute on a different primary buffer, the first primary buffer <b>must</b> not be resubmitted until after it is reset
 	 * with {@link #vkResetCommandBuffer ResetCommandBuffer} unless the secondary command buffer was recorded with {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT}.</p>
 	 * 
-	 * <p>If {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} is not set on a secondary command buffer, that command buffer <b>must not</b> be used more than once in a given
+	 * <p>If {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} is not set on a secondary command buffer, that command buffer <b>must</b> not be used more than once in a given
 	 * primary command buffer. Furthermore, if a secondary command buffer without {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} set is recorded to execute in a
-	 * primary command buffer with {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} set, the primary command buffer <b>must not</b> be pending execution more than once at
+	 * primary command buffer with {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} set, the primary command buffer <b>must</b> not be pending execution more than once at
 	 * a time.</p>
 	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
@@ -9082,7 +9082,7 @@ or _unsignaled_.</p>
 	 * <ul>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
-	 * <li>If {@code commandBuffer} is a primary command buffer, there <b>must not</b> be an active render pass instance</li>
+	 * <li>If {@code commandBuffer} is a primary command buffer, there <b>must</b> not be an active render pass instance</li>
 	 * <li>All queries made active during the recording of {@code commandBuffer} <b>must</b> have been made inactive</li>
 	 * </ul>
 	 * 
@@ -9115,7 +9115,7 @@ or _unsignaled_.</p>
 	 * <ul>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code flags} <b>must</b> be a valid combination of {@code VkCommandBufferResetFlagBits} values</li>
-	 * <li>{@code commandBuffer} <b>must not</b> currently be pending execution</li>
+	 * <li>{@code commandBuffer} <b>must</b> not currently be pending execution</li>
 	 * <li>{@code commandBuffer} <b>must</b> have been allocated from a pool that was created with the {@link #VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT}</li>
 	 * </ul>
 	 * 
@@ -9306,8 +9306,8 @@ or _unsignaled_.</p>
 	 * <li>{@code firstScissor} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxViewports}</li>
 	 * <li>The sum of {@code firstScissor} and {@code scissorCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceLimits}{@code ::maxViewports}, inclusive</li>
 	 * <li>The {@code x} and {@code y} members of {@code offset} <b>must</b> be greater than or equal to 0</li>
-	 * <li>Evaluation of ({@code offset.x} + {@code extent.width}) <b>must not</b> cause a signed integer addition overflow</li>
-	 * <li>Evaluation of ({@code offset.y} + {@code extent.height}) <b>must not</b> cause a signed integer addition overflow</li>
+	 * <li>Evaluation of ({@code offset.x} + {@code extent.width}) <b>must</b> not cause a signed integer addition overflow</li>
+	 * <li>Evaluation of ({@code offset.y} + {@code extent.height}) <b>must</b> not cause a signed integer addition overflow</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -9366,8 +9366,8 @@ or _unsignaled_.</p>
 	 * <li>{@code firstScissor} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxViewports}</li>
 	 * <li>The sum of {@code firstScissor} and {@code scissorCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceLimits}{@code ::maxViewports}, inclusive</li>
 	 * <li>The {@code x} and {@code y} members of {@code offset} <b>must</b> be greater than or equal to 0</li>
-	 * <li>Evaluation of ({@code offset.x} + {@code extent.width}) <b>must not</b> cause a signed integer addition overflow</li>
-	 * <li>Evaluation of ({@code offset.y} + {@code extent.height}) <b>must not</b> cause a signed integer addition overflow</li>
+	 * <li>Evaluation of ({@code offset.x} + {@code extent.width}) <b>must</b> not cause a signed integer addition overflow</li>
+	 * <li>Evaluation of ({@code offset.y} + {@code extent.height}) <b>must</b> not cause a signed integer addition overflow</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -9633,7 +9633,7 @@ or _unsignaled_.</p>
 	 * <ul>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code faceMask} <b>must</b> be a valid combination of {@code VkStencilFaceFlagBits} values</li>
-	 * <li>{@code faceMask} <b>must not</b> be 0</li>
+	 * <li>{@code faceMask} <b>must</b> not be 0</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
 	 * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_STENCIL_COMPARE_MASK DYNAMIC_STATE_STENCIL_COMPARE_MASK} dynamic state enabled</li>
@@ -9669,7 +9669,7 @@ or _unsignaled_.</p>
 	 * <ul>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code faceMask} <b>must</b> be a valid combination of {@code VkStencilFaceFlagBits} values</li>
-	 * <li>{@code faceMask} <b>must not</b> be 0</li>
+	 * <li>{@code faceMask} <b>must</b> not be 0</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
 	 * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_STENCIL_WRITE_MASK DYNAMIC_STATE_STENCIL_WRITE_MASK} dynamic state enabled</li>
@@ -9705,7 +9705,7 @@ or _unsignaled_.</p>
 	 * <ul>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code faceMask} <b>must</b> be a valid combination of {@code VkStencilFaceFlagBits} values</li>
-	 * <li>{@code faceMask} <b>must not</b> be 0</li>
+	 * <li>{@code faceMask} <b>must</b> not be 0</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
 	 * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_STENCIL_REFERENCE DYNAMIC_STATE_STENCIL_REFERENCE} dynamic state enabled</li>
@@ -9760,7 +9760,7 @@ or _unsignaled_.</p>
 	 * <b>must</b> also be compatible with the pipeline used in subsequent graphics or compute commands.</p>
 	 * 
 	 * <p>The descriptor set contents bound by a call to {@code vkCmdBindDescriptorSets} <b>may</b> be consumed during host execution of the command, or during shader
-	 * execution of the resulting draws, or any time in between. Thus, the contents <b>must not</b> be altered (overwritten by an update command, or freed) between
+	 * execution of the resulting draws, or any time in between. Thus, the contents <b>must</b> not be altered (overwritten by an update command, or freed) between
 	 * when the command is recorded and when the command completes executing on the queue. The contents of {@code pDynamicOffsets} are consumed immediately
 	 * during execution of {@code vkCmdBindDescriptorSets}. Once all pending uses have completed, it is legal to update and reuse a descriptor set.</p>
 	 * 
@@ -9841,7 +9841,7 @@ or _unsignaled_.</p>
 	 * <b>must</b> also be compatible with the pipeline used in subsequent graphics or compute commands.</p>
 	 * 
 	 * <p>The descriptor set contents bound by a call to {@code vkCmdBindDescriptorSets} <b>may</b> be consumed during host execution of the command, or during shader
-	 * execution of the resulting draws, or any time in between. Thus, the contents <b>must not</b> be altered (overwritten by an update command, or freed) between
+	 * execution of the resulting draws, or any time in between. Thus, the contents <b>must</b> not be altered (overwritten by an update command, or freed) between
 	 * when the command is recorded and when the command completes executing on the queue. The contents of {@code pDynamicOffsets} are consumed immediately
 	 * during execution of {@code vkCmdBindDescriptorSets}. Once all pending uses have completed, it is legal to update and reuse a descriptor set.</p>
 	 * 
@@ -10104,19 +10104,19 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * current command buffer</li>
 	 * <li>Every input attachment used by the current subpass <b>must</b> be bound to the pipeline via a descriptor set</li>
 	 * <li>If any {@code VkSampler} object that is accessed from a shader by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} uses
-	 * unnormalized coordinates, it <b>must not</b> be used to sample from any {@code VkImage} with a {@code VkImageView} of the type {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D},
+	 * unnormalized coordinates, it <b>must</b> not be used to sample from any {@code VkImage} with a {@code VkImageView} of the type {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D},
 	 * {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, {@link #VK_IMAGE_VIEW_TYPE_1D_ARRAY IMAGE_VIEW_TYPE_1D_ARRAY}, {@link #VK_IMAGE_VIEW_TYPE_2D_ARRAY IMAGE_VIEW_TYPE_2D_ARRAY} or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}, in any shader stage</li>
 	 * <li>If any {@code VkSampler} object that is accessed from a shader by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} uses
-	 * unnormalized coordinates, it <b>must not</b> be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions with
+	 * unnormalized coordinates, it <b>must</b> not be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions with
 	 * {@code ImplicitLod}, {@code Dref} or {@code Proj} in their name, in any shader stage</li>
 	 * <li>If any {@code VkSampler} object that is accessed from a shader by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} uses
-	 * unnormalized coordinates, it <b>must not</b> be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions that
-	 * includes a lod bias or any offset values, in any shader stage</li>
+	 * unnormalized coordinates, it <b>must</b> not be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions that
+	 * includes a LOD bias or any offset values, in any shader stage</li>
 	 * <li>If the robust buffer access feature is not enabled, and any shader stage in the {@code VkPipeline} object currently bound to
-	 * {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} accesses a uniform buffer, it <b>must not</b> access values outside of the range of that buffer specified in the currently
+	 * {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} accesses a uniform buffer, it <b>must</b> not access values outside of the range of that buffer specified in the currently
 	 * bound descriptor set</li>
 	 * <li>If the robust buffer access feature is not enabled, and any shader stage in the {@code VkPipeline} object currently bound to
-	 * {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} accesses a storage buffer, it <b>must not</b> access values outside of the range of that buffer specified in the currently
+	 * {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} accesses a storage buffer, it <b>must</b> not access values outside of the range of that buffer specified in the currently
 	 * bound descriptor set</li>
 	 * <li>Any {@code VkImageView} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as
 	 * specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
@@ -10124,7 +10124,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> be of a format which supports cubic filtering, as
 	 * specified by the {@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image)
 	 * or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
-	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must not</b> have a {@code VkImageViewType} of
+	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> not have a {@code VkImageViewType} of
 	 * {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}, {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}</li>
 	 * </ul>
 	 * 
@@ -10189,19 +10189,19 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * are specified via {@link #vkCmdBindIndexBuffer CmdBindIndexBuffer}</li>
 	 * <li>Every input attachment used by the current subpass <b>must</b> be bound to the pipeline via a descriptor set</li>
 	 * <li>If any {@code VkSampler} object that is accessed from a shader by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} uses
-	 * unnormalized coordinates, it <b>must not</b> be used to sample from any {@code VkImage} with a {@code VkImageView} of the type {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D},
+	 * unnormalized coordinates, it <b>must</b> not be used to sample from any {@code VkImage} with a {@code VkImageView} of the type {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D},
 	 * {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, {@link #VK_IMAGE_VIEW_TYPE_1D_ARRAY IMAGE_VIEW_TYPE_1D_ARRAY}, {@link #VK_IMAGE_VIEW_TYPE_2D_ARRAY IMAGE_VIEW_TYPE_2D_ARRAY} or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}, in any shader stage</li>
 	 * <li>If any {@code VkSampler} object that is accessed from a shader by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} uses
-	 * unnormalized coordinates, it <b>must not</b> be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions with
+	 * unnormalized coordinates, it <b>must</b> not be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions with
 	 * {@code ImplicitLod}, {@code Dref} or {@code Proj} in their name, in any shader stage</li>
 	 * <li>If any {@code VkSampler} object that is accessed from a shader by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} uses
-	 * unnormalized coordinates, it <b>must not</b> be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions that
-	 * includes a lod bias or any offset values, in any shader stage</li>
+	 * unnormalized coordinates, it <b>must</b> not be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions that
+	 * includes a LOD bias or any offset values, in any shader stage</li>
 	 * <li>If the robust buffer access feature is not enabled, and any shader stage in the {@code VkPipeline} object currently bound to
-	 * {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} accesses a uniform buffer, it <b>must not</b> access values outside of the range of that buffer specified in the currently
+	 * {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} accesses a uniform buffer, it <b>must</b> not access values outside of the range of that buffer specified in the currently
 	 * bound descriptor set</li>
 	 * <li>If the robust buffer access feature is not enabled, and any shader stage in the {@code VkPipeline} object currently bound to
-	 * {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} accesses a storage buffer, it <b>must not</b> access values outside of the range of that buffer specified in the currently
+	 * {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} accesses a storage buffer, it <b>must</b> not access values outside of the range of that buffer specified in the currently
 	 * bound descriptor set</li>
 	 * <li>Any {@code VkImageView} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as
 	 * specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
@@ -10209,7 +10209,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> be of a format which supports cubic filtering, as
 	 * specified by the {@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image)
 	 * or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
-	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must not</b> have a {@code VkImageViewType} of
+	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> not have a {@code VkImageViewType} of
 	 * {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}, {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}</li>
 	 * </ul>
 	 * 
@@ -10277,19 +10277,19 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code drawCount} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxDrawIndirectCount}</li>
 	 * <li>Every input attachment used by the current subpass <b>must</b> be bound to the pipeline via a descriptor set</li>
 	 * <li>If any {@code VkSampler} object that is accessed from a shader by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} uses
-	 * unnormalized coordinates, it <b>must not</b> be used to sample from any {@code VkImage} with a {@code VkImageView} of the type {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D},
+	 * unnormalized coordinates, it <b>must</b> not be used to sample from any {@code VkImage} with a {@code VkImageView} of the type {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D},
 	 * {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, {@link #VK_IMAGE_VIEW_TYPE_1D_ARRAY IMAGE_VIEW_TYPE_1D_ARRAY}, {@link #VK_IMAGE_VIEW_TYPE_2D_ARRAY IMAGE_VIEW_TYPE_2D_ARRAY} or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}, in any shader stage</li>
 	 * <li>If any {@code VkSampler} object that is accessed from a shader by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} uses
-	 * unnormalized coordinates, it <b>must not</b> be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions with
+	 * unnormalized coordinates, it <b>must</b> not be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions with
 	 * {@code ImplicitLod}, {@code Dref} or {@code Proj} in their name, in any shader stage</li>
 	 * <li>If any {@code VkSampler} object that is accessed from a shader by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} uses
-	 * unnormalized coordinates, it <b>must not</b> be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions that
-	 * includes a lod bias or any offset values, in any shader stage</li>
+	 * unnormalized coordinates, it <b>must</b> not be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions that
+	 * includes a LOD bias or any offset values, in any shader stage</li>
 	 * <li>If the robust buffer access feature is not enabled, and any shader stage in the {@code VkPipeline} object currently bound to
-	 * {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} accesses a uniform buffer, it <b>must not</b> access values outside of the range of that buffer specified in the currently
+	 * {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} accesses a uniform buffer, it <b>must</b> not access values outside of the range of that buffer specified in the currently
 	 * bound descriptor set</li>
 	 * <li>If the robust buffer access feature is not enabled, and any shader stage in the {@code VkPipeline} object currently bound to
-	 * {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} accesses a storage buffer, it <b>must not</b> access values outside of the range of that buffer specified in the currently
+	 * {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} accesses a storage buffer, it <b>must</b> not access values outside of the range of that buffer specified in the currently
 	 * bound descriptor set</li>
 	 * <li>Any {@code VkImageView} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as
 	 * specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
@@ -10297,7 +10297,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> be of a format which supports cubic filtering, as
 	 * specified by the {@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image)
 	 * or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
-	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must not</b> have a {@code VkImageViewType} of
+	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> not have a {@code VkImageViewType} of
 	 * {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}, {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}</li>
 	 * </ul>
 	 * 
@@ -10364,19 +10364,19 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code drawCount} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxDrawIndirectCount}</li>
 	 * <li>Every input attachment used by the current subpass <b>must</b> be bound to the pipeline via a descriptor set</li>
 	 * <li>If any {@code VkSampler} object that is accessed from a shader by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} uses
-	 * unnormalized coordinates, it <b>must not</b> be used to sample from any {@code VkImage} with a {@code VkImageView} of the type {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D},
+	 * unnormalized coordinates, it <b>must</b> not be used to sample from any {@code VkImage} with a {@code VkImageView} of the type {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D},
 	 * {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, {@link #VK_IMAGE_VIEW_TYPE_1D_ARRAY IMAGE_VIEW_TYPE_1D_ARRAY}, {@link #VK_IMAGE_VIEW_TYPE_2D_ARRAY IMAGE_VIEW_TYPE_2D_ARRAY} or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}, in any shader stage</li>
 	 * <li>If any {@code VkSampler} object that is accessed from a shader by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} uses
-	 * unnormalized coordinates, it <b>must not</b> be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions with
+	 * unnormalized coordinates, it <b>must</b> not be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions with
 	 * {@code ImplicitLod}, {@code Dref} or {@code Proj} in their name, in any shader stage</li>
 	 * <li>If any {@code VkSampler} object that is accessed from a shader by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} uses
-	 * unnormalized coordinates, it <b>must not</b> be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions that
-	 * includes a lod bias or any offset values, in any shader stage</li>
+	 * unnormalized coordinates, it <b>must</b> not be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions that
+	 * includes a LOD bias or any offset values, in any shader stage</li>
 	 * <li>If the robust buffer access feature is not enabled, and any shader stage in the {@code VkPipeline} object currently bound to
-	 * {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} accesses a uniform buffer, it <b>must not</b> access values outside of the range of that buffer specified in the currently
+	 * {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} accesses a uniform buffer, it <b>must</b> not access values outside of the range of that buffer specified in the currently
 	 * bound descriptor set</li>
 	 * <li>If the robust buffer access feature is not enabled, and any shader stage in the {@code VkPipeline} object currently bound to
-	 * {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} accesses a storage buffer, it <b>must not</b> access values outside of the range of that buffer specified in the currently
+	 * {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} accesses a storage buffer, it <b>must</b> not access values outside of the range of that buffer specified in the currently
 	 * bound descriptor set</li>
 	 * <li>Any {@code VkImageView} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as
 	 * specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
@@ -10384,7 +10384,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> be of a format which supports cubic filtering, as
 	 * specified by the {@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image)
 	 * or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
-	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must not</b> have a {@code VkImageViewType} of
+	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> not have a {@code VkImageViewType} of
 	 * {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}, {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}</li>
 	 * </ul>
 	 * 
@@ -10438,19 +10438,19 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <b>must</b> have been set for {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE}, with a {@code VkPipelineLayout} that is compatible for push constants with the one used to
 	 * create the current {@code VkPipeline}</li>
 	 * <li>If any {@code VkSampler} object that is accessed from a shader by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE} uses
-	 * unnormalized coordinates, it <b>must not</b> be used to sample from any {@code VkImage} with a {@code VkImageView} of the type {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D},
+	 * unnormalized coordinates, it <b>must</b> not be used to sample from any {@code VkImage} with a {@code VkImageView} of the type {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D},
 	 * {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, {@link #VK_IMAGE_VIEW_TYPE_1D_ARRAY IMAGE_VIEW_TYPE_1D_ARRAY}, {@link #VK_IMAGE_VIEW_TYPE_2D_ARRAY IMAGE_VIEW_TYPE_2D_ARRAY} or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}, in any shader stage</li>
 	 * <li>If any {@code VkSampler} object that is accessed from a shader by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE} uses
-	 * unnormalized coordinates, it <b>must not</b> be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions with
+	 * unnormalized coordinates, it <b>must</b> not be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions with
 	 * {@code ImplicitLod}, {@code Dref} or {@code Proj} in their name, in any shader stage</li>
 	 * <li>If any {@code VkSampler} object that is accessed from a shader by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE} uses
-	 * unnormalized coordinates, it <b>must not</b> be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions that
-	 * includes a lod bias or any offset values, in any shader stage</li>
+	 * unnormalized coordinates, it <b>must</b> not be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions that
+	 * includes a LOD bias or any offset values, in any shader stage</li>
 	 * <li>If the robust buffer access feature is not enabled, and any shader stage in the {@code VkPipeline} object currently bound to
-	 * {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE} accesses a uniform buffer, it <b>must not</b> access values outside of the range of that buffer specified in the currently
+	 * {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE} accesses a uniform buffer, it <b>must</b> not access values outside of the range of that buffer specified in the currently
 	 * bound descriptor set</li>
 	 * <li>If the robust buffer access feature is not enabled, and any shader stage in the {@code VkPipeline} object currently bound to
-	 * {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE} accesses a storage buffer, it <b>must not</b> access values outside of the range of that buffer specified in the currently
+	 * {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE} accesses a storage buffer, it <b>must</b> not access values outside of the range of that buffer specified in the currently
 	 * bound descriptor set</li>
 	 * <li>Any {@code VkImageView} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as
 	 * specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
@@ -10458,7 +10458,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> be of a format which supports cubic filtering, as
 	 * specified by the {@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image)
 	 * or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
-	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must not</b> have a {@code VkImageViewType} of
+	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> not have a {@code VkImageViewType} of
 	 * {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}, {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}</li>
 	 * </ul>
 	 * 
@@ -10507,19 +10507,19 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <b>must</b> have been set for {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE}, with a {@code VkPipelineLayout} that is compatible for push constants with the one used to
 	 * create the current {@code VkPipeline}</li>
 	 * <li>If any {@code VkSampler} object that is accessed from a shader by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE} uses
-	 * unnormalized coordinates, it <b>must not</b> be used to sample from any {@code VkImage} with a {@code VkImageView} of the type {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D},
+	 * unnormalized coordinates, it <b>must</b> not be used to sample from any {@code VkImage} with a {@code VkImageView} of the type {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D},
 	 * {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, {@link #VK_IMAGE_VIEW_TYPE_1D_ARRAY IMAGE_VIEW_TYPE_1D_ARRAY}, {@link #VK_IMAGE_VIEW_TYPE_2D_ARRAY IMAGE_VIEW_TYPE_2D_ARRAY} or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}, in any shader stage</li>
 	 * <li>If any {@code VkSampler} object that is accessed from a shader by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE} uses
-	 * unnormalized coordinates, it <b>must not</b> be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions with
+	 * unnormalized coordinates, it <b>must</b> not be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions with
 	 * {@code ImplicitLod}, {@code Dref} or {@code Proj} in their name, in any shader stage</li>
 	 * <li>If any {@code VkSampler} object that is accessed from a shader by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE} uses
-	 * unnormalized coordinates, it <b>must not</b> be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions that
-	 * includes a lod bias or any offset values, in any shader stage</li>
+	 * unnormalized coordinates, it <b>must</b> not be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions that
+	 * includes a LOD bias or any offset values, in any shader stage</li>
 	 * <li>If the robust buffer access feature is not enabled, and any shader stage in the {@code VkPipeline} object currently bound to
-	 * {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE} accesses a uniform buffer, it <b>must not</b> access values outside of the range of that buffer specified in the currently
+	 * {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE} accesses a uniform buffer, it <b>must</b> not access values outside of the range of that buffer specified in the currently
 	 * bound descriptor set</li>
 	 * <li>If the robust buffer access feature is not enabled, and any shader stage in the {@code VkPipeline} object currently bound to
-	 * {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE} accesses a storage buffer, it <b>must not</b> access values outside of the range of that buffer specified in the currently
+	 * {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE} accesses a storage buffer, it <b>must</b> not access values outside of the range of that buffer specified in the currently
 	 * bound descriptor set</li>
 	 * <li>Any {@code VkImageView} being sampled with {@link #VK_FILTER_LINEAR FILTER_LINEAR} as a result of this command <b>must</b> be of a format which supports linear filtering, as
 	 * specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or
@@ -10527,7 +10527,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> be of a format which supports cubic filtering, as
 	 * specified by the {@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image)
 	 * or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
-	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must not</b> have a {@code VkImageViewType} of
+	 * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> not have a {@code VkImageViewType} of
 	 * {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}, {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}</li>
 	 * </ul>
 	 * 
@@ -10574,7 +10574,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>The {@code dstOffset} member of a given element of {@code pRegions} <b>must</b> be less than the size of {@code dstBuffer}</li>
 	 * <li>The {@code size} member of a given element of {@code pRegions} <b>must</b> be less than or equal to the size of {@code srcBuffer} minus {@code srcOffset}</li>
 	 * <li>The {@code size} member of a given element of {@code pRegions} <b>must</b> be less than or equal to the size of {@code dstBuffer} minus {@code dstOffset}</li>
-	 * <li>The union of the source regions, and the union of the destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
+	 * <li>The union of the source regions, and the union of the destination regions, specified by the elements of {@code pRegions}, <b>must</b> not overlap in
 	 * memory</li>
 	 * <li>{@code srcBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_SRC_BIT BUFFER_USAGE_TRANSFER_SRC_BIT} usage flag</li>
 	 * <li>{@code dstBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} usage flag</li>
@@ -10623,7 +10623,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>The {@code dstOffset} member of a given element of {@code pRegions} <b>must</b> be less than the size of {@code dstBuffer}</li>
 	 * <li>The {@code size} member of a given element of {@code pRegions} <b>must</b> be less than or equal to the size of {@code srcBuffer} minus {@code srcOffset}</li>
 	 * <li>The {@code size} member of a given element of {@code pRegions} <b>must</b> be less than or equal to the size of {@code dstBuffer} minus {@code dstOffset}</li>
-	 * <li>The union of the source regions, and the union of the destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
+	 * <li>The union of the source regions, and the union of the destination regions, specified by the elements of {@code pRegions}, <b>must</b> not overlap in
 	 * memory</li>
 	 * <li>{@code srcBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_SRC_BIT BUFFER_USAGE_TRANSFER_SRC_BIT} usage flag</li>
 	 * <li>{@code dstBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} usage flag</li>
@@ -10707,7 +10707,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * {@code VkDevice}</li>
 	 * <li>The source region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
 	 * <li>The destination region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
-	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
+	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must</b> not overlap in
 	 * memory</li>
 	 * <li>{@code srcImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage flag</li>
 	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the image subresources of {@code srcImage} specified in {@code pRegions} at the time this
@@ -10801,7 +10801,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * {@code VkDevice}</li>
 	 * <li>The source region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
 	 * <li>The destination region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
-	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
+	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must</b> not overlap in
 	 * memory</li>
 	 * <li>{@code srcImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage flag</li>
 	 * <li>{@code srcImageLayout} <b>must</b> specify the layout of the image subresources of {@code srcImage} specified in {@code pRegions} at the time this
@@ -10839,7 +10839,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * 
 	 * Copies regions of a source image into a destination image, potentially performing format conversion, arbitrary scaling, and filtering.
 	 * 
-	 * <p>{@code vkCmdBlitImage} <b>must not</b> be used for multisampled source or destination images. Use {@link #vkCmdResolveImage CmdResolveImage} for this purpose.</p>
+	 * <p>{@code vkCmdBlitImage} <b>must</b> not be used for multisampled source or destination images. Use {@link #vkCmdResolveImage CmdResolveImage} for this purpose.</p>
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
@@ -10859,8 +10859,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * {@code VkDevice}</li>
 	 * <li>The source region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
 	 * <li>The destination region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
-	 * <li>The union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in memory with any texel that <b>may</b> be sampled
-	 * during the blit operation</li>
+	 * <li>The union of all destination regions, specified by the elements of {@code pRegions}, <b>must</b> not overlap in memory with any texel that <b>may</b> be
+	 * sampled during the blit operation</li>
 	 * <li>{@code srcImage} <b>must</b> use a format that supports {@link #VK_FORMAT_FEATURE_BLIT_SRC_BIT FORMAT_FEATURE_BLIT_SRC_BIT}, which is indicated by
 	 * {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linear tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally
 	 * tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
@@ -10918,7 +10918,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * 
 	 * Copies regions of a source image into a destination image, potentially performing format conversion, arbitrary scaling, and filtering.
 	 * 
-	 * <p>{@code vkCmdBlitImage} <b>must not</b> be used for multisampled source or destination images. Use {@link #vkCmdResolveImage CmdResolveImage} for this purpose.</p>
+	 * <p>{@code vkCmdBlitImage} <b>must</b> not be used for multisampled source or destination images. Use {@link #vkCmdResolveImage CmdResolveImage} for this purpose.</p>
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
@@ -10938,8 +10938,8 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * {@code VkDevice}</li>
 	 * <li>The source region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
 	 * <li>The destination region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
-	 * <li>The union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in memory with any texel that <b>may</b> be sampled
-	 * during the blit operation</li>
+	 * <li>The union of all destination regions, specified by the elements of {@code pRegions}, <b>must</b> not overlap in memory with any texel that <b>may</b> be
+	 * sampled during the blit operation</li>
 	 * <li>{@code srcImage} <b>must</b> use a format that supports {@link #VK_FORMAT_FEATURE_BLIT_SRC_BIT FORMAT_FEATURE_BLIT_SRC_BIT}, which is indicated by
 	 * {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linear tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally
 	 * tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
@@ -11015,7 +11015,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * {@code VkDevice}</li>
 	 * <li>The buffer region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcBuffer}</li>
 	 * <li>The image region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
-	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
+	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must</b> not overlap in
 	 * memory</li>
 	 * <li>{@code srcBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_SRC_BIT BUFFER_USAGE_TRANSFER_SRC_BIT} usage flag</li>
 	 * <li>{@code dstImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
@@ -11066,7 +11066,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * {@code VkDevice}</li>
 	 * <li>The buffer region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcBuffer}</li>
 	 * <li>The image region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
-	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
+	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must</b> not overlap in
 	 * memory</li>
 	 * <li>{@code srcBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_SRC_BIT BUFFER_USAGE_TRANSFER_SRC_BIT} usage flag</li>
 	 * <li>{@code dstImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
@@ -11117,7 +11117,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * {@code VkDevice}</li>
 	 * <li>The image region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
 	 * <li>The buffer region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstBuffer}</li>
-	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
+	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must</b> not overlap in
 	 * memory</li>
 	 * <li>{@code srcImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage flag</li>
 	 * <li>{@code srcImage} <b>must</b> have a sample count equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
@@ -11168,7 +11168,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * {@code VkDevice}</li>
 	 * <li>The image region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
 	 * <li>The buffer region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstBuffer}</li>
-	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
+	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must</b> not overlap in
 	 * memory</li>
 	 * <li>{@code srcImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage flag</li>
 	 * <li>{@code srcImage} <b>must</b> have a sample count equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
@@ -11405,7 +11405,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * is executed on a {@code VkDevice}</li>
 	 * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
 	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be an image subresource range that is contained within {@code image}</li>
-	 * <li>{@code image} <b>must not</b> have a compressed or depth/stencil format</li>
+	 * <li>{@code image} <b>must</b> not have a compressed or depth/stencil format</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -11452,7 +11452,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * is executed on a {@code VkDevice}</li>
 	 * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
 	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be an image subresource range that is contained within {@code image}</li>
-	 * <li>{@code image} <b>must not</b> have a compressed or depth/stencil format</li>
+	 * <li>{@code image} <b>must</b> not have a compressed or depth/stencil format</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -11497,7 +11497,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * is executed on a {@code VkDevice}</li>
 	 * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
 	 * <li>The image range of any given element of {@code pRanges} <b>must</b> be an image subresource range that is contained within {@code image}</li>
-	 * <li>{@code image} <b>must not</b> have a compressed or depth/stencil format</li>
+	 * <li>{@code image} <b>must</b> not have a compressed or depth/stencil format</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -11773,7 +11773,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * {@code VkDevice}</li>
 	 * <li>The source region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
 	 * <li>The destination region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
-	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
+	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must</b> not overlap in
 	 * memory</li>
 	 * <li>{@code srcImage} <b>must</b> have a sample count equal to any valid sample count value other than {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
 	 * <li>{@code dstImage} <b>must</b> have a sample count equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
@@ -11832,7 +11832,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * {@code VkDevice}</li>
 	 * <li>The source region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
 	 * <li>The destination region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
-	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
+	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must</b> not overlap in
 	 * memory</li>
 	 * <li>{@code srcImage} <b>must</b> have a sample count equal to any valid sample count value other than {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
 	 * <li>{@code dstImage} <b>must</b> have a sample count equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
@@ -11889,7 +11889,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * {@code VkDevice}</li>
 	 * <li>The source region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
 	 * <li>The destination region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
-	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must not</b> overlap in
+	 * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must</b> not overlap in
 	 * memory</li>
 	 * <li>{@code srcImage} <b>must</b> have a sample count equal to any valid sample count value other than {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
 	 * <li>{@code dstImage} <b>must</b> have a sample count equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
@@ -11939,13 +11939,13 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code event} <b>must</b> be a valid {@code VkEvent} handle</li>
 	 * <li>{@code stageMask} <b>must</b> be a valid combination of {@code VkPipelineStageFlagBits} values</li>
-	 * <li>{@code stageMask} <b>must not</b> be 0</li>
+	 * <li>{@code stageMask} <b>must</b> not be 0</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
 	 * <li>Both of {@code commandBuffer}, and {@code event} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
-	 * <li>If the geometry shaders feature is not enabled, {@code stageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
-	 * <li>If the tessellation shaders feature is not enabled, {@code stageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
+	 * <li>If the geometry shaders feature is not enabled, {@code stageMask} <b>must</b> not contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
+	 * <li>If the tessellation shaders feature is not enabled, {@code stageMask} <b>must</b> not contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
 	 * {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
 	 * </ul>
 	 * 
@@ -11980,15 +11980,15 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code event} <b>must</b> be a valid {@code VkEvent} handle</li>
 	 * <li>{@code stageMask} <b>must</b> be a valid combination of {@code VkPipelineStageFlagBits} values</li>
-	 * <li>{@code stageMask} <b>must not</b> be 0</li>
+	 * <li>{@code stageMask} <b>must</b> not be 0</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
 	 * <li>Both of {@code commandBuffer}, and {@code event} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
-	 * <li>If the geometry shaders feature is not enabled, {@code stageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
-	 * <li>If the tessellation shaders feature is not enabled, {@code stageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
+	 * <li>If the geometry shaders feature is not enabled, {@code stageMask} <b>must</b> not contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
+	 * <li>If the tessellation shaders feature is not enabled, {@code stageMask} <b>must</b> not contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
 	 * {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
-	 * <li>When this command executes, {@code event} <b>must not</b> be waited on by a {@link #vkCmdWaitEvents CmdWaitEvents} command that is currently executing</li>
+	 * <li>When this command executes, {@code event} <b>must</b> not be waited on by a {@link #vkCmdWaitEvents CmdWaitEvents} command that is currently executing</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -12019,9 +12019,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code pEvents} <b>must</b> be a pointer to an array of {@code eventCount} valid {@code VkEvent} handles</li>
 	 * <li>{@code srcStageMask} <b>must</b> be a valid combination of {@code VkPipelineStageFlagBits} values</li>
-	 * <li>{@code srcStageMask} <b>must not</b> be 0</li>
+	 * <li>{@code srcStageMask} <b>must</b> not be 0</li>
 	 * <li>{@code dstStageMask} <b>must</b> be a valid combination of {@code VkPipelineStageFlagBits} values</li>
-	 * <li>{@code dstStageMask} <b>must not</b> be 0</li>
+	 * <li>{@code dstStageMask} <b>must</b> not be 0</li>
 	 * <li>If {@code memoryBarrierCount} is not 0, {@code pMemoryBarriers} <b>must</b> be a pointer to an array of {@code memoryBarrierCount} valid
 	 * {@link VkMemoryBarrier} structures</li>
 	 * <li>If {@code bufferMemoryBarrierCount} is not 0, {@code pBufferMemoryBarriers} <b>must</b> be a pointer to an array of {@code bufferMemoryBarrierCount}
@@ -12034,14 +12034,14 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>Both of {@code commandBuffer}, and the elements of {@code pEvents} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code srcStageMask} <b>must</b> be the bitwise OR of the {@code stageMask} parameter used in previous calls to {@link #vkCmdSetEvent CmdSetEvent} with any of the members of
 	 * {@code pEvents} and {@link #VK_PIPELINE_STAGE_HOST_BIT PIPELINE_STAGE_HOST_BIT} if any of the members of {@code pEvents} was set using {@link #vkSetEvent SetEvent}</li>
-	 * <li>If the geometry shaders feature is not enabled, {@code srcStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
-	 * <li>If the geometry shaders feature is not enabled, {@code dstStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
-	 * <li>If the tessellation shaders feature is not enabled, {@code srcStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
+	 * <li>If the geometry shaders feature is not enabled, {@code srcStageMask} <b>must</b> not contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
+	 * <li>If the geometry shaders feature is not enabled, {@code dstStageMask} <b>must</b> not contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
+	 * <li>If the tessellation shaders feature is not enabled, {@code srcStageMask} <b>must</b> not contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
 	 * {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
-	 * <li>If the tessellation shaders feature is not enabled, {@code dstStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
+	 * <li>If the tessellation shaders feature is not enabled, {@code dstStageMask} <b>must</b> not contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
 	 * {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
 	 * <li>If {@code pEvents} includes one or more events that will be signaled by {@link #vkSetEvent SetEvent} after {@code commandBuffer} has been submitted to a queue, then
-	 * {@link #vkCmdWaitEvents CmdWaitEvents} <b>must not</b> be called inside a render pass instance</li>
+	 * {@link #vkCmdWaitEvents CmdWaitEvents} <b>must</b> not be called inside a render pass instance</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -12103,9 +12103,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code pEvents} <b>must</b> be a pointer to an array of {@code eventCount} valid {@code VkEvent} handles</li>
 	 * <li>{@code srcStageMask} <b>must</b> be a valid combination of {@code VkPipelineStageFlagBits} values</li>
-	 * <li>{@code srcStageMask} <b>must not</b> be 0</li>
+	 * <li>{@code srcStageMask} <b>must</b> not be 0</li>
 	 * <li>{@code dstStageMask} <b>must</b> be a valid combination of {@code VkPipelineStageFlagBits} values</li>
-	 * <li>{@code dstStageMask} <b>must not</b> be 0</li>
+	 * <li>{@code dstStageMask} <b>must</b> not be 0</li>
 	 * <li>If {@code memoryBarrierCount} is not 0, {@code pMemoryBarriers} <b>must</b> be a pointer to an array of {@code memoryBarrierCount} valid
 	 * {@link VkMemoryBarrier} structures</li>
 	 * <li>If {@code bufferMemoryBarrierCount} is not 0, {@code pBufferMemoryBarriers} <b>must</b> be a pointer to an array of {@code bufferMemoryBarrierCount}
@@ -12118,14 +12118,14 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>Both of {@code commandBuffer}, and the elements of {@code pEvents} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
 	 * <li>{@code srcStageMask} <b>must</b> be the bitwise OR of the {@code stageMask} parameter used in previous calls to {@link #vkCmdSetEvent CmdSetEvent} with any of the members of
 	 * {@code pEvents} and {@link #VK_PIPELINE_STAGE_HOST_BIT PIPELINE_STAGE_HOST_BIT} if any of the members of {@code pEvents} was set using {@link #vkSetEvent SetEvent}</li>
-	 * <li>If the geometry shaders feature is not enabled, {@code srcStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
-	 * <li>If the geometry shaders feature is not enabled, {@code dstStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
-	 * <li>If the tessellation shaders feature is not enabled, {@code srcStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
+	 * <li>If the geometry shaders feature is not enabled, {@code srcStageMask} <b>must</b> not contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
+	 * <li>If the geometry shaders feature is not enabled, {@code dstStageMask} <b>must</b> not contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
+	 * <li>If the tessellation shaders feature is not enabled, {@code srcStageMask} <b>must</b> not contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
 	 * {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
-	 * <li>If the tessellation shaders feature is not enabled, {@code dstStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
+	 * <li>If the tessellation shaders feature is not enabled, {@code dstStageMask} <b>must</b> not contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
 	 * {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
 	 * <li>If {@code pEvents} includes one or more events that will be signaled by {@link #vkSetEvent SetEvent} after {@code commandBuffer} has been submitted to a queue, then
-	 * {@link #vkCmdWaitEvents CmdWaitEvents} <b>must not</b> be called inside a render pass instance</li>
+	 * {@link #vkCmdWaitEvents CmdWaitEvents} <b>must</b> not be called inside a render pass instance</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -12194,9 +12194,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <ul>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code srcStageMask} <b>must</b> be a valid combination of {@code VkPipelineStageFlagBits} values</li>
-	 * <li>{@code srcStageMask} <b>must not</b> be 0</li>
+	 * <li>{@code srcStageMask} <b>must</b> not be 0</li>
 	 * <li>{@code dstStageMask} <b>must</b> be a valid combination of {@code VkPipelineStageFlagBits} values</li>
-	 * <li>{@code dstStageMask} <b>must not</b> be 0</li>
+	 * <li>{@code dstStageMask} <b>must</b> not be 0</li>
 	 * <li>{@code dependencyFlags} <b>must</b> be a valid combination of {@code VkDependencyFlagBits} values</li>
 	 * <li>If {@code memoryBarrierCount} is not 0, {@code pMemoryBarriers} <b>must</b> be a pointer to an array of {@code memoryBarrierCount} valid
 	 * {@link VkMemoryBarrier} structures</li>
@@ -12206,11 +12206,11 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * {@link VkImageMemoryBarrier} structures</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
-	 * <li>If the geometry shaders feature is not enabled, {@code srcStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
-	 * <li>If the geometry shaders feature is not enabled, {@code dstStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
-	 * <li>If the tessellation shaders feature is not enabled, {@code srcStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
+	 * <li>If the geometry shaders feature is not enabled, {@code srcStageMask} <b>must</b> not contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
+	 * <li>If the geometry shaders feature is not enabled, {@code dstStageMask} <b>must</b> not contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
+	 * <li>If the tessellation shaders feature is not enabled, {@code srcStageMask} <b>must</b> not contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
 	 * {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
-	 * <li>If the tessellation shaders feature is not enabled, {@code dstStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
+	 * <li>If the tessellation shaders feature is not enabled, {@code dstStageMask} <b>must</b> not contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
 	 * {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
 	 * <li>If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} is called within a render pass instance, the render pass <b>must</b> have been created with a {@code VkSubpassDependency}
 	 * instance in {@code pDependencies} that expresses a dependency from the current subpass to itself. Additionally:</li>
@@ -12276,9 +12276,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <ul>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code srcStageMask} <b>must</b> be a valid combination of {@code VkPipelineStageFlagBits} values</li>
-	 * <li>{@code srcStageMask} <b>must not</b> be 0</li>
+	 * <li>{@code srcStageMask} <b>must</b> not be 0</li>
 	 * <li>{@code dstStageMask} <b>must</b> be a valid combination of {@code VkPipelineStageFlagBits} values</li>
-	 * <li>{@code dstStageMask} <b>must not</b> be 0</li>
+	 * <li>{@code dstStageMask} <b>must</b> not be 0</li>
 	 * <li>{@code dependencyFlags} <b>must</b> be a valid combination of {@code VkDependencyFlagBits} values</li>
 	 * <li>If {@code memoryBarrierCount} is not 0, {@code pMemoryBarriers} <b>must</b> be a pointer to an array of {@code memoryBarrierCount} valid
 	 * {@link VkMemoryBarrier} structures</li>
@@ -12288,11 +12288,11 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * {@link VkImageMemoryBarrier} structures</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
-	 * <li>If the geometry shaders feature is not enabled, {@code srcStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
-	 * <li>If the geometry shaders feature is not enabled, {@code dstStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
-	 * <li>If the tessellation shaders feature is not enabled, {@code srcStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
+	 * <li>If the geometry shaders feature is not enabled, {@code srcStageMask} <b>must</b> not contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
+	 * <li>If the geometry shaders feature is not enabled, {@code dstStageMask} <b>must</b> not contain {@link #VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}</li>
+	 * <li>If the tessellation shaders feature is not enabled, {@code srcStageMask} <b>must</b> not contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
 	 * {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
-	 * <li>If the tessellation shaders feature is not enabled, {@code dstStageMask} <b>must not</b> contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
+	 * <li>If the tessellation shaders feature is not enabled, {@code dstStageMask} <b>must</b> not contain {@link #VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT} or
 	 * {@link #VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}</li>
 	 * <li>If {@link #vkCmdPipelineBarrier CmdPipelineBarrier} is called within a render pass instance, the render pass <b>must</b> have been created with a {@code VkSubpassDependency}
 	 * instance in {@code pDependencies} that expresses a dependency from the current subpass to itself. Additionally:</li>
@@ -12366,7 +12366,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>The query identified by {@code queryPool} and {@code query} <b>must</b> currently not be active</li>
 	 * <li>The query identified by {@code queryPool} and {@code query} <b>must</b> be unavailable</li>
 	 * <li>If the precise occlusion queries feature is not enabled, or the {@code queryType} used to create {@code queryPool} was not {@link #VK_QUERY_TYPE_OCCLUSION QUERY_TYPE_OCCLUSION},
-	 * {@code flags} <b>must not</b> contain {@link #VK_QUERY_CONTROL_PRECISE_BIT QUERY_CONTROL_PRECISE_BIT}</li>
+	 * {@code flags} <b>must</b> not contain {@link #VK_QUERY_CONTROL_PRECISE_BIT QUERY_CONTROL_PRECISE_BIT}</li>
 	 * <li>{@code queryPool} <b>must</b> have been created with a {@code queryType} that differs from that of any other queries that have been made active, and are
 	 * currently still active within {@code commandBuffer}</li>
 	 * <li>{@code query} <b>must</b> be less than the number of queries in {@code queryPool}</li>
@@ -12590,7 +12590,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <p>If {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} is set, {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} is not set, and the query’s status is unavailable, an intermediate result value between
 	 * zero and the final result value is written for that query.</p>
 	 * 
-	 * <p>{@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} <b>must not</b> be used if the pool’s {@code queryType} is {@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}.</p>
+	 * <p>{@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} <b>must</b> not be used if the pool’s {@code queryType} is {@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}.</p>
 	 * 
 	 * <p>{@code vkCmdCopyQueryPoolResults} is considered to be a transfer operation, and its writes to buffer memory <b>must</b> be synchronized using
 	 * {@link #VK_PIPELINE_STAGE_TRANSFER_BIT PIPELINE_STAGE_TRANSFER_BIT} and {@link #VK_ACCESS_TRANSFER_WRITE_BIT ACCESS_TRANSFER_WRITE_BIT} before using the results.</p>
@@ -12614,7 +12614,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is set in {@code flags} then {@code dstOffset} and {@code stride} <b>must</b> be multiples of 8</li>
 	 * <li>{@code dstBuffer} <b>must</b> have enough storage, from {@code dstOffset}, to contain the result of each query, as described here</li>
 	 * <li>{@code dstBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} usage flag</li>
-	 * <li>If the {@code queryType} used to create {@code queryPool} was {@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}, {@code flags} <b>must not</b> contain {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT}</li>
+	 * <li>If the {@code queryType} used to create {@code queryPool} was {@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}, {@code flags} <b>must</b> not contain {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -12661,7 +12661,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code layout} <b>must</b> be a valid {@code VkPipelineLayout} handle</li>
 	 * <li>{@code stageFlags} <b>must</b> be a valid combination of {@code VkShaderStageFlagBits} values</li>
-	 * <li>{@code stageFlags} <b>must not</b> be 0</li>
+	 * <li>{@code stageFlags} <b>must</b> not be 0</li>
 	 * <li>{@code pValues} <b>must</b> be a pointer to an array of {@code size} bytes</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
@@ -12710,7 +12710,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code layout} <b>must</b> be a valid {@code VkPipelineLayout} handle</li>
 	 * <li>{@code stageFlags} <b>must</b> be a valid combination of {@code VkShaderStageFlagBits} values</li>
-	 * <li>{@code stageFlags} <b>must not</b> be 0</li>
+	 * <li>{@code stageFlags} <b>must</b> not be 0</li>
 	 * <li>{@code pValues} <b>must</b> be a pointer to an array of {@code size} bytes</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
@@ -12829,7 +12829,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If any of the {@code initialLayout} members of the {@link VkAttachmentDescription} structures specified when creating the render pass specified in the
 	 * {@code renderPass} member of {@code pRenderPassBegin} is not {@link #VK_IMAGE_LAYOUT_UNDEFINED IMAGE_LAYOUT_UNDEFINED}, then each such {@code initialLayout} <b>must</b> be equal to the
 	 * current layout of the corresponding attachment image subresource of the framebuffer specified in the {@code framebuffer} member of
-	 * {@code pRenderPassBegin}.</li>
+	 * {@code pRenderPassBegin}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -12892,7 +12892,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If any of the {@code initialLayout} members of the {@link VkAttachmentDescription} structures specified when creating the render pass specified in the
 	 * {@code renderPass} member of {@code pRenderPassBegin} is not {@link #VK_IMAGE_LAYOUT_UNDEFINED IMAGE_LAYOUT_UNDEFINED}, then each such {@code initialLayout} <b>must</b> be equal to the
 	 * current layout of the corresponding attachment image subresource of the framebuffer specified in the {@code framebuffer} member of
-	 * {@code pRenderPassBegin}.</li>
+	 * {@code pRenderPassBegin}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -12993,7 +12993,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * 
 	 * Executes a secondary command buffer from a primary command buffer.
 	 * 
-	 * <p>A secondary command buffer <b>must not</b> be directly submitted to a queue. Instead, secondary command buffers are recorded to execute as part of a primary
+	 * <p>A secondary command buffer <b>must</b> not be directly submitted to a queue. Instead, secondary command buffers are recorded to execute as part of a primary
 	 * command buffer with this command.</p>
 	 * 
 	 * <h5>Valid Usage</h5>
@@ -13009,9 +13009,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * {@code VkDevice}</li>
 	 * <li>{@code commandBuffer} <b>must</b> have been allocated with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_PRIMARY COMMAND_BUFFER_LEVEL_PRIMARY}</li>
 	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> have been allocated with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_SECONDARY COMMAND_BUFFER_LEVEL_SECONDARY}</li>
-	 * <li>Any given element of {@code pCommandBuffers} <b>must not</b> be already pending execution in {@code commandBuffer}, or appear twice in
+	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> not be already pending execution in {@code commandBuffer}, or appear twice in
 	 * {@code pCommandBuffers}, unless it was recorded with the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag</li>
-	 * <li>Any given element of {@code pCommandBuffers} <b>must not</b> be already pending execution in any other {@code VkCommandBuffer}, unless it was recorded
+	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> not be already pending execution in any other {@code VkCommandBuffer}, unless it was recorded
 	 * with the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag</li>
 	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> be in the executable state</li>
 	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> have been allocated from a {@code VkCommandPool} that was created for the same queue family as
@@ -13027,16 +13027,16 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, and any given element of {@code pCommandBuffers} was recorded with
 	 * {@link VkCommandBufferInheritanceInfo}{@code ::framebuffer} not equal to {@link #VK_NULL_HANDLE NULL_HANDLE}, that {@code VkFramebuffer} <b>must</b> match the {@code VkFramebuffer}
 	 * used in the current render pass instance</li>
-	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is not being called within a render pass instance, any given element of {@code pCommandBuffers} <b>must not</b> have been
+	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is not being called within a render pass instance, any given element of {@code pCommandBuffers} <b>must</b> not have been
 	 * recorded with the {@link #VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT}</li>
-	 * <li>If the inherited queries feature is not enabled, {@code commandBuffer} <b>must not</b> have any queries active</li>
+	 * <li>If the inherited queries feature is not enabled, {@code commandBuffer} <b>must</b> not have any queries active</li>
 	 * <li>If {@code commandBuffer} has a {@link #VK_QUERY_TYPE_OCCLUSION QUERY_TYPE_OCCLUSION} query active, then each element of {@code pCommandBuffers} <b>must</b> have been recorded with
 	 * {@link VkCommandBufferInheritanceInfo}{@code ::occlusionQueryEnable} set to {@link #VK_TRUE TRUE}</li>
 	 * <li>If {@code commandBuffer} has a {@link #VK_QUERY_TYPE_OCCLUSION QUERY_TYPE_OCCLUSION} query active, then each element of {@code pCommandBuffers} <b>must</b> have been recorded with
 	 * {@link VkCommandBufferInheritanceInfo}{@code ::queryFlags} having all bits set that are set for the query</li>
 	 * <li>If {@code commandBuffer} has a {@link #VK_QUERY_TYPE_PIPELINE_STATISTICS QUERY_TYPE_PIPELINE_STATISTICS} query active, then each element of {@code pCommandBuffers} <b>must</b> have been recorded
 	 * with {@link VkCommandBufferInheritanceInfo}{@code ::pipelineStatistics} having all bits set that are set in the {@code VkQueryPool} the query uses</li>
-	 * <li>Any given element of {@code pCommandBuffers} <b>must not</b> begin any query types that are active in {@code commandBuffer}</li>
+	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> not begin any query types that are active in {@code commandBuffer}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -13063,7 +13063,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * 
 	 * Executes a secondary command buffer from a primary command buffer.
 	 * 
-	 * <p>A secondary command buffer <b>must not</b> be directly submitted to a queue. Instead, secondary command buffers are recorded to execute as part of a primary
+	 * <p>A secondary command buffer <b>must</b> not be directly submitted to a queue. Instead, secondary command buffers are recorded to execute as part of a primary
 	 * command buffer with this command.</p>
 	 * 
 	 * <h5>Valid Usage</h5>
@@ -13079,9 +13079,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * {@code VkDevice}</li>
 	 * <li>{@code commandBuffer} <b>must</b> have been allocated with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_PRIMARY COMMAND_BUFFER_LEVEL_PRIMARY}</li>
 	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> have been allocated with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_SECONDARY COMMAND_BUFFER_LEVEL_SECONDARY}</li>
-	 * <li>Any given element of {@code pCommandBuffers} <b>must not</b> be already pending execution in {@code commandBuffer}, or appear twice in
+	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> not be already pending execution in {@code commandBuffer}, or appear twice in
 	 * {@code pCommandBuffers}, unless it was recorded with the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag</li>
-	 * <li>Any given element of {@code pCommandBuffers} <b>must not</b> be already pending execution in any other {@code VkCommandBuffer}, unless it was recorded
+	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> not be already pending execution in any other {@code VkCommandBuffer}, unless it was recorded
 	 * with the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag</li>
 	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> be in the executable state</li>
 	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> have been allocated from a {@code VkCommandPool} that was created for the same queue family as
@@ -13097,16 +13097,16 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, and any given element of {@code pCommandBuffers} was recorded with
 	 * {@link VkCommandBufferInheritanceInfo}{@code ::framebuffer} not equal to {@link #VK_NULL_HANDLE NULL_HANDLE}, that {@code VkFramebuffer} <b>must</b> match the {@code VkFramebuffer}
 	 * used in the current render pass instance</li>
-	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is not being called within a render pass instance, any given element of {@code pCommandBuffers} <b>must not</b> have been
+	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is not being called within a render pass instance, any given element of {@code pCommandBuffers} <b>must</b> not have been
 	 * recorded with the {@link #VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT}</li>
-	 * <li>If the inherited queries feature is not enabled, {@code commandBuffer} <b>must not</b> have any queries active</li>
+	 * <li>If the inherited queries feature is not enabled, {@code commandBuffer} <b>must</b> not have any queries active</li>
 	 * <li>If {@code commandBuffer} has a {@link #VK_QUERY_TYPE_OCCLUSION QUERY_TYPE_OCCLUSION} query active, then each element of {@code pCommandBuffers} <b>must</b> have been recorded with
 	 * {@link VkCommandBufferInheritanceInfo}{@code ::occlusionQueryEnable} set to {@link #VK_TRUE TRUE}</li>
 	 * <li>If {@code commandBuffer} has a {@link #VK_QUERY_TYPE_OCCLUSION QUERY_TYPE_OCCLUSION} query active, then each element of {@code pCommandBuffers} <b>must</b> have been recorded with
 	 * {@link VkCommandBufferInheritanceInfo}{@code ::queryFlags} having all bits set that are set for the query</li>
 	 * <li>If {@code commandBuffer} has a {@link #VK_QUERY_TYPE_PIPELINE_STATISTICS QUERY_TYPE_PIPELINE_STATISTICS} query active, then each element of {@code pCommandBuffers} <b>must</b> have been recorded
 	 * with {@link VkCommandBufferInheritanceInfo}{@code ::pipelineStatistics} having all bits set that are set in the {@code VkQueryPool} the query uses</li>
-	 * <li>Any given element of {@code pCommandBuffers} <b>must not</b> begin any query types that are active in {@code commandBuffer}</li>
+	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> not begin any query types that are active in {@code commandBuffer}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -13131,7 +13131,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * 
 	 * Executes a secondary command buffer from a primary command buffer.
 	 * 
-	 * <p>A secondary command buffer <b>must not</b> be directly submitted to a queue. Instead, secondary command buffers are recorded to execute as part of a primary
+	 * <p>A secondary command buffer <b>must</b> not be directly submitted to a queue. Instead, secondary command buffers are recorded to execute as part of a primary
 	 * command buffer with this command.</p>
 	 * 
 	 * <h5>Valid Usage</h5>
@@ -13147,9 +13147,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * {@code VkDevice}</li>
 	 * <li>{@code commandBuffer} <b>must</b> have been allocated with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_PRIMARY COMMAND_BUFFER_LEVEL_PRIMARY}</li>
 	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> have been allocated with a {@code level} of {@link #VK_COMMAND_BUFFER_LEVEL_SECONDARY COMMAND_BUFFER_LEVEL_SECONDARY}</li>
-	 * <li>Any given element of {@code pCommandBuffers} <b>must not</b> be already pending execution in {@code commandBuffer}, or appear twice in
+	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> not be already pending execution in {@code commandBuffer}, or appear twice in
 	 * {@code pCommandBuffers}, unless it was recorded with the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag</li>
-	 * <li>Any given element of {@code pCommandBuffers} <b>must not</b> be already pending execution in any other {@code VkCommandBuffer}, unless it was recorded
+	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> not be already pending execution in any other {@code VkCommandBuffer}, unless it was recorded
 	 * with the {@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT} flag</li>
 	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> be in the executable state</li>
 	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> have been allocated from a {@code VkCommandPool} that was created for the same queue family as
@@ -13165,16 +13165,16 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is being called within a render pass instance, and any given element of {@code pCommandBuffers} was recorded with
 	 * {@link VkCommandBufferInheritanceInfo}{@code ::framebuffer} not equal to {@link #VK_NULL_HANDLE NULL_HANDLE}, that {@code VkFramebuffer} <b>must</b> match the {@code VkFramebuffer}
 	 * used in the current render pass instance</li>
-	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is not being called within a render pass instance, any given element of {@code pCommandBuffers} <b>must not</b> have been
+	 * <li>If {@link #vkCmdExecuteCommands CmdExecuteCommands} is not being called within a render pass instance, any given element of {@code pCommandBuffers} <b>must</b> not have been
 	 * recorded with the {@link #VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT}</li>
-	 * <li>If the inherited queries feature is not enabled, {@code commandBuffer} <b>must not</b> have any queries active</li>
+	 * <li>If the inherited queries feature is not enabled, {@code commandBuffer} <b>must</b> not have any queries active</li>
 	 * <li>If {@code commandBuffer} has a {@link #VK_QUERY_TYPE_OCCLUSION QUERY_TYPE_OCCLUSION} query active, then each element of {@code pCommandBuffers} <b>must</b> have been recorded with
 	 * {@link VkCommandBufferInheritanceInfo}{@code ::occlusionQueryEnable} set to {@link #VK_TRUE TRUE}</li>
 	 * <li>If {@code commandBuffer} has a {@link #VK_QUERY_TYPE_OCCLUSION QUERY_TYPE_OCCLUSION} query active, then each element of {@code pCommandBuffers} <b>must</b> have been recorded with
 	 * {@link VkCommandBufferInheritanceInfo}{@code ::queryFlags} having all bits set that are set for the query</li>
 	 * <li>If {@code commandBuffer} has a {@link #VK_QUERY_TYPE_PIPELINE_STATISTICS QUERY_TYPE_PIPELINE_STATISTICS} query active, then each element of {@code pCommandBuffers} <b>must</b> have been recorded
 	 * with {@link VkCommandBufferInheritanceInfo}{@code ::pipelineStatistics} having all bits set that are set in the {@code VkQueryPool} the query uses</li>
-	 * <li>Any given element of {@code pCommandBuffers} <b>must not</b> begin any query types that are active in {@code commandBuffer}</li>
+	 * <li>Any given element of {@code pCommandBuffers} <b>must</b> not begin any query types that are active in {@code commandBuffer}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>

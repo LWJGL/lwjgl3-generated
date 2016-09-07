@@ -24,7 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code stageFlags} <b>must</b> be a valid combination of {@code VkShaderStageFlagBits} values</li>
- * <li>{@code stageFlags} <b>must not</b> be 0</li>
+ * <li>{@code stageFlags} <b>must</b> not be 0</li>
  * <li>{@code offset} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxPushConstantsSize}</li>
  * <li>{@code size} <b>must</b> be greater than 0</li>
  * <li>{@code size} <b>must</b> be a multiple of 4</li>

@@ -26,7 +26,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link NVDedicatedAllocation#VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_BUFFER_CREATE_INFO_NV STRUCTURE_TYPE_DEDICATED_ALLOCATION_BUFFER_CREATE_INFO_NV}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
- * <li>If {@code dedicatedAllocation} is {@link VK10#VK_TRUE TRUE}, {@link VkBufferCreateInfo}{@code ::flags} <b>must not</b> include {@link VK10#VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT},
+ * <li>If {@code dedicatedAllocation} is {@link VK10#VK_TRUE TRUE}, {@link VkBufferCreateInfo}{@code ::flags} <b>must</b> not include {@link VK10#VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT},
  * {@link VK10#VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT BUFFER_CREATE_SPARSE_RESIDENCY_BIT}, or {@link VK10#VK_BUFFER_CREATE_SPARSE_ALIASED_BIT BUFFER_CREATE_SPARSE_ALIASED_BIT}</li>
  * </ul>
  * 

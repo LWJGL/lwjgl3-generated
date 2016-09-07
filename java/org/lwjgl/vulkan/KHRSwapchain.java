@@ -110,7 +110,7 @@ public class KHRSwapchain {
 	 * <p>If {@code vkCreateSwapchainKHR} succeeds, it will return a handle to a swapchain that contains an array of at least {@code minImageCount} presentable
 	 * images.</p>
 	 * 
-	 * <p>The {@code VkSurfaceKHR} associated with a swapchain <b>must not</b> be destroyed until after the swapchain is destroyed.</p>
+	 * <p>The {@code VkSurfaceKHR} associated with a swapchain <b>must</b> not be destroyed until after the swapchain is destroyed.</p>
 	 * 
 	 * <p>Like core functions, several WSI fuctions, including {@code vkCreateSwapchainKHR} return {@link VK10#VK_ERROR_DEVICE_LOST ERROR_DEVICE_LOST} if the logical device was lost. As with
 	 * most core objects, {@code VkSwapchainKHR} is a child of the device and is affected by the lost state; it <b>must</b> be destroyed before destroying the
@@ -195,7 +195,7 @@ public class KHRSwapchain {
 	 * <p>If {@code vkCreateSwapchainKHR} succeeds, it will return a handle to a swapchain that contains an array of at least {@code minImageCount} presentable
 	 * images.</p>
 	 * 
-	 * <p>The {@code VkSurfaceKHR} associated with a swapchain <b>must not</b> be destroyed until after the swapchain is destroyed.</p>
+	 * <p>The {@code VkSurfaceKHR} associated with a swapchain <b>must</b> not be destroyed until after the swapchain is destroyed.</p>
 	 * 
 	 * <p>Like core functions, several WSI fuctions, including {@code vkCreateSwapchainKHR} return {@link VK10#VK_ERROR_DEVICE_LOST ERROR_DEVICE_LOST} if the logical device was lost. As with
 	 * most core objects, {@code VkSwapchainKHR} is a child of the device and is affected by the lost state; it <b>must</b> be destroyed before destroying the
@@ -405,7 +405,7 @@ public class KHRSwapchain {
 	 * <li>If {@code semaphore} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>If {@code fence} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>If {@code semaphore} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> be unsignaled</li>
-	 * <li>If {@code fence} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> be unsignaled and <b>must not</b> be associated with any other queue command that has not yet completed
+	 * <li>If {@code fence} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> be unsignaled and <b>must</b> not be associated with any other queue command that has not yet completed
 	 * execution on that queue</li>
 	 * </ul>
 	 * 
@@ -577,7 +577,7 @@ public class KHRSwapchain {
 	 * <li>If {@code semaphore} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>If {@code fence} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
 	 * <li>If {@code semaphore} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> be unsignaled</li>
-	 * <li>If {@code fence} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> be unsignaled and <b>must not</b> be associated with any other queue command that has not yet completed
+	 * <li>If {@code fence} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> be unsignaled and <b>must</b> not be associated with any other queue command that has not yet completed
 	 * execution on that queue</li>
 	 * </ul>
 	 * 
@@ -747,7 +747,7 @@ public class KHRSwapchain {
 	 * <li>Any given element of {@code pSwapchains} member of {@code pPresentInfo} <b>must</b> be a swapchain that is created for a surface for which presentation
 	 * is supported from {@code queue} as determined using a call to {@link KHRSurface#vkGetPhysicalDeviceSurfaceSupportKHR GetPhysicalDeviceSurfaceSupportKHR}</li>
 	 * <li>If more than one member of 'pSwapchains' was created from a display surface, all display surfaces referenced that refer to the same display <b>must</b>
-	 * use the same display mode.</li>
+	 * use the same display mode</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -805,7 +805,7 @@ public class KHRSwapchain {
 	 * <li>Any given element of {@code pSwapchains} member of {@code pPresentInfo} <b>must</b> be a swapchain that is created for a surface for which presentation
 	 * is supported from {@code queue} as determined using a call to {@link KHRSurface#vkGetPhysicalDeviceSurfaceSupportKHR GetPhysicalDeviceSurfaceSupportKHR}</li>
 	 * <li>If more than one member of 'pSwapchains' was created from a display surface, all display surfaces referenced that refer to the same display <b>must</b>
-	 * use the same display mode.</li>
+	 * use the same display mode</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>

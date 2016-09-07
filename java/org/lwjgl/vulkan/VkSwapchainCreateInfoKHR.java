@@ -30,7 +30,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code imageFormat} <b>must</b> be a valid {@code VkFormat} value</li>
  * <li>{@code imageColorSpace} <b>must</b> be a valid {@code VkColorSpaceKHR} value</li>
  * <li>{@code imageUsage} <b>must</b> be a valid combination of {@code VkImageUsageFlagBits} values</li>
- * <li>{@code imageUsage} <b>must not</b> be 0</li>
+ * <li>{@code imageUsage} <b>must</b> not be 0</li>
  * <li>{@code imageSharingMode} <b>must</b> be a valid {@code VkSharingMode} value</li>
  * <li>{@code preTransform} <b>must</b> be a valid {@code VkSurfaceTransformFlagBitsKHR} value</li>
  * <li>{@code compositeAlpha} <b>must</b> be a valid {@code VkCompositeAlphaFlagBitsKHR} value</li>
@@ -38,7 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If {@code oldSwapchain} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code oldSwapchain} <b>must</b> be a valid {@code VkSwapchainKHR} handle</li>
  * <li>If {@code oldSwapchain} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code surface}</li>
  * <li>{@code surface} <b>must</b> be a surface that is supported by the device as determined using {@link KHRSurface#vkGetPhysicalDeviceSurfaceSupportKHR GetPhysicalDeviceSurfaceSupportKHR}</li>
- * <li>The native window referred to by {@code surface} <b>must not</b> already be associated with a swapchain other than {@code oldSwapchain}, or with a
+ * <li>The native window referred to by {@code surface} <b>must</b> not already be associated with a swapchain other than {@code oldSwapchain}, or with a
  * non-Vulkan graphics API surface</li>
  * <li>{@code minImageCount} <b>must</b> be greater than or equal to the value returned in the {@code minImageCount} member of the {@link VkSurfaceCapabilitiesKHR}
  * structure returned by {@link KHRSurface#vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR} for the surface</li>

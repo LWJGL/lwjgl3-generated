@@ -27,7 +27,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If {@code memory} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
  * <li>{@code flags} <b>must</b> be a valid combination of {@code VkSparseMemoryBindFlagBits} values</li>
  * <li>If the sparse aliased residency feature is not enabled, and if any other resources are bound to ranges of {@code memory}, the range of
- * {@code memory} being bound <b>must not</b> overlap with those bound ranges</li>
+ * {@code memory} being bound <b>must</b> not overlap with those bound ranges</li>
  * <li>{@code memory} and {@code memoryOffset} <b>must</b> match the memory requirements of the calling command's {@code image}</li>
  * <li>{@code subresource} <b>must</b> be a valid image subresource for {@code image}</li>
  * <li>{@code offset.x} <b>must</b> be a multiple of the sparse image block width ({@link VkSparseImageFormatProperties}{@code ::imageGranularity}.width) of the image</li>

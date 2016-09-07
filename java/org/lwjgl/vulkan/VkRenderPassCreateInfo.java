@@ -41,7 +41,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If the {@code attachment} member of any element of {@code pInputAttachments}, {@code pColorAttachments}, {@code pResolveAttachments} or
  * {@code pDepthStencilAttachment}, or any element of {@code pPreserveAttachments} in any given element of {@code pSubpasses} is not
  * {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED}, it <b>must</b> be less than {@code attachmentCount}</li>
- * <li>The value of any element of the {@code pPreserveAttachments} member in any given element of {@code pSubpasses} <b>must not</b> be {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED}</li>
+ * <li>The value of any element of the {@code pPreserveAttachments} member in any given element of {@code pSubpasses} <b>must</b> not be {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED}</li>
  * </ul>
  * 
  * <h3>Member documentation</h3>

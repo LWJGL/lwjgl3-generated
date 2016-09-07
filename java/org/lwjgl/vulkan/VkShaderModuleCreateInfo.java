@@ -36,7 +36,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * the {@code VK_NV_glsl_shader} extension is enabled {@code pCode} can be valid GLSL code with respect to the {@code GL_KHR_vulkan_glsl} GLSL
  * extension specification</li>
  * <li>{@code pCode} <b>must</b> declare the {@code Shader} capability for SPIR-V code</li>
- * <li>{@code pCode} <b>must not</b> declare any capability that is not supported by the API, as described by the Capabilities section of the SPIR-V Environment
+ * <li>{@code pCode} <b>must</b> not declare any capability that is not supported by the API, as described by the Capabilities section of the SPIR-V Environment
  * appendix</li>
  * <li>If {@code pCode} declares any of the capabilities that are listed as not required by the implementation, the relevant feature <b>must</b> be enabled, as
  * listed in the SPIR-V Environment appendix</li>

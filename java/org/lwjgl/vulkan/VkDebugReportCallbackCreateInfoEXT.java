@@ -25,7 +25,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} <b>must</b> be {@link EXTDebugReport#VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code flags} <b>must</b> be a valid combination of {@code VkDebugReportFlagBitsEXT} values</li>
- * <li>{@code flags} <b>must not</b> be 0</li>
+ * <li>{@code flags} <b>must</b> not be 0</li>
  * </ul>
  * 
  * <h3>Member documentation</h3>

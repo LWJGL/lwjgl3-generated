@@ -34,8 +34,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code dstBinding} <b>must</b> be a valid binding within {@code dstSet}</li>
  * <li>The sum of {@code dstArrayElement} and {@code descriptorCount} <b>must</b> be less than or equal to the number of array elements in the descriptor set
  * binding specified by {@code dstBinding}, and all applicable consecutive bindings</li>
- * <li>If {@code srcSet} is equal to {@code dstSet}, then the source and destination ranges of descriptors <b>must not</b> overlap, where the ranges <b>may</b> include
- * array elements from consecutive bindings</li>
+ * <li>If {@code srcSet} is equal to {@code dstSet}, then the source and destination ranges of descriptors <b>must</b> not overlap, where the ranges <b>may</b>
+ * include array elements from consecutive bindings</li>
  * </ul>
  * 
  * <h3>Member documentation</h3>

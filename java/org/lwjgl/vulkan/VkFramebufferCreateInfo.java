@@ -43,7 +43,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>Any given element of {@code pAttachments} <b>must</b> have been created with a {@code samples} value that matches the {@code samples} value specified by
  * the corresponding {@code VkAttachmentDescription} in {@code renderPass}</li>
  * <li>Any given element of {@code pAttachments} <b>must</b> have dimensions at least as large as the corresponding framebuffer dimension</li>
- * <li>Any given element of {@code pAttachments} <b>must</b> only specify a single mip-level</li>
+ * <li>Any given element of {@code pAttachments} <b>must</b> only specify a single mip level</li>
  * <li>Any given element of {@code pAttachments} <b>must</b> have been created with the identity swizzle</li>
  * <li>{@code width} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxFramebufferWidth}</li>
  * <li>{@code height} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxFramebufferHeight}</li>

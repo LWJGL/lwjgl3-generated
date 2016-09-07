@@ -27,7 +27,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code flags} <b>must</b> be 0</li>
  * <li>{@code queryType} <b>must</b> be a valid {@code VkQueryType} value</li>
- * <li>If the pipeline statistics queries feature is not enabled, {@code queryType} <b>must not</b> be {@link VK10#VK_QUERY_TYPE_PIPELINE_STATISTICS QUERY_TYPE_PIPELINE_STATISTICS}</li>
+ * <li>If the pipeline statistics queries feature is not enabled, {@code queryType} <b>must</b> not be {@link VK10#VK_QUERY_TYPE_PIPELINE_STATISTICS QUERY_TYPE_PIPELINE_STATISTICS}</li>
  * <li>If {@code queryType} is {@link VK10#VK_QUERY_TYPE_PIPELINE_STATISTICS QUERY_TYPE_PIPELINE_STATISTICS}, {@code pipelineStatistics} <b>must</b> be a valid combination of
  * {@code VkQueryPipelineStatisticFlagBits} values</li>
  * </ul>
