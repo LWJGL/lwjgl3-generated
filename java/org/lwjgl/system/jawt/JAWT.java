@@ -32,6 +32,9 @@ import static org.lwjgl.system.MemoryStack.*;
     void * Lock;
     void * Unlock;
     void * GetComponent;
+    void * CreateEmbeddedFrame;
+    void * SetBounds;
+    void * SynthesizeWindowActivation;
 }</code></pre>
  */
 public class JAWT extends Struct implements NativeResource {
@@ -48,11 +51,17 @@ public class JAWT extends Struct implements NativeResource {
 		FREEDRAWINGSURFACE,
 		LOCK,
 		UNLOCK,
-		GETCOMPONENT;
+		GETCOMPONENT,
+		CREATEEMBEDDEDFRAME,
+		SETBOUNDS,
+		SYNTHESIZEWINDOWACTIVATION;
 
 	static {
 		Layout layout = __struct(
 			__member(4),
+			__member(POINTER_SIZE),
+			__member(POINTER_SIZE),
+			__member(POINTER_SIZE),
 			__member(POINTER_SIZE),
 			__member(POINTER_SIZE),
 			__member(POINTER_SIZE),
@@ -69,6 +78,9 @@ public class JAWT extends Struct implements NativeResource {
 		LOCK = layout.offsetof(3);
 		UNLOCK = layout.offsetof(4);
 		GETCOMPONENT = layout.offsetof(5);
+		CREATEEMBEDDEDFRAME = layout.offsetof(6);
+		SETBOUNDS = layout.offsetof(7);
+		SYNTHESIZEWINDOWACTIVATION = layout.offsetof(8);
 	}
 
 	JAWT(long address, ByteBuffer container) {
@@ -100,6 +112,12 @@ public class JAWT extends Struct implements NativeResource {
 	public long Unlock() { return nUnlock(address()); }
 	/** Returns the value of the {@code GetComponent} field. */
 	public long GetComponent() { return nGetComponent(address()); }
+	/** Returns the value of the {@code CreateEmbeddedFrame} field. */
+	public long CreateEmbeddedFrame() { return nCreateEmbeddedFrame(address()); }
+	/** Returns the value of the {@code SetBounds} field. */
+	public long SetBounds() { return nSetBounds(address()); }
+	/** Returns the value of the {@code SynthesizeWindowActivation} field. */
+	public long SynthesizeWindowActivation() { return nSynthesizeWindowActivation(address()); }
 
 	/** Sets the specified value to the {@code version} field. */
 	public JAWT version(int value) { nversion(address(), value); return this; }
@@ -113,6 +131,12 @@ public class JAWT extends Struct implements NativeResource {
 	public JAWT Unlock(long value) { nUnlock(address(), value); return this; }
 	/** Sets the specified value to the {@code GetComponent} field. */
 	public JAWT GetComponent(long value) { nGetComponent(address(), value); return this; }
+	/** Sets the specified value to the {@code CreateEmbeddedFrame} field. */
+	public JAWT CreateEmbeddedFrame(long value) { nCreateEmbeddedFrame(address(), value); return this; }
+	/** Sets the specified value to the {@code SetBounds} field. */
+	public JAWT SetBounds(long value) { nSetBounds(address(), value); return this; }
+	/** Sets the specified value to the {@code SynthesizeWindowActivation} field. */
+	public JAWT SynthesizeWindowActivation(long value) { nSynthesizeWindowActivation(address(), value); return this; }
 
 	/** Initializes this struct with the specified values. */
 	public JAWT set(
@@ -121,7 +145,10 @@ public class JAWT extends Struct implements NativeResource {
 		long FreeDrawingSurface,
 		long Lock,
 		long Unlock,
-		long GetComponent
+		long GetComponent,
+		long CreateEmbeddedFrame,
+		long SetBounds,
+		long SynthesizeWindowActivation
 	) {
 		version(version);
 		GetDrawingSurface(GetDrawingSurface);
@@ -129,6 +156,9 @@ public class JAWT extends Struct implements NativeResource {
 		Lock(Lock);
 		Unlock(Unlock);
 		GetComponent(GetComponent);
+		CreateEmbeddedFrame(CreateEmbeddedFrame);
+		SetBounds(SetBounds);
+		SynthesizeWindowActivation(SynthesizeWindowActivation);
 
 		return this;
 	}
@@ -291,6 +321,12 @@ public class JAWT extends Struct implements NativeResource {
 	public static long nUnlock(long struct) { return memGetAddress(struct + JAWT.UNLOCK); }
 	/** Unsafe version of {@link #GetComponent}. */
 	public static long nGetComponent(long struct) { return memGetAddress(struct + JAWT.GETCOMPONENT); }
+	/** Unsafe version of {@link #CreateEmbeddedFrame}. */
+	public static long nCreateEmbeddedFrame(long struct) { return memGetAddress(struct + JAWT.CREATEEMBEDDEDFRAME); }
+	/** Unsafe version of {@link #SetBounds}. */
+	public static long nSetBounds(long struct) { return memGetAddress(struct + JAWT.SETBOUNDS); }
+	/** Unsafe version of {@link #SynthesizeWindowActivation}. */
+	public static long nSynthesizeWindowActivation(long struct) { return memGetAddress(struct + JAWT.SYNTHESIZEWINDOWACTIVATION); }
 
 	/** Unsafe version of {@link #version(int) version}. */
 	public static void nversion(long struct, int value) { memPutInt(struct + JAWT.VERSION, value); }
@@ -304,6 +340,12 @@ public class JAWT extends Struct implements NativeResource {
 	public static void nUnlock(long struct, long value) { memPutAddress(struct + JAWT.UNLOCK, value); }
 	/** Unsafe version of {@link #GetComponent(long) GetComponent}. */
 	public static void nGetComponent(long struct, long value) { memPutAddress(struct + JAWT.GETCOMPONENT, value); }
+	/** Unsafe version of {@link #CreateEmbeddedFrame(long) CreateEmbeddedFrame}. */
+	public static void nCreateEmbeddedFrame(long struct, long value) { memPutAddress(struct + JAWT.CREATEEMBEDDEDFRAME, value); }
+	/** Unsafe version of {@link #SetBounds(long) SetBounds}. */
+	public static void nSetBounds(long struct, long value) { memPutAddress(struct + JAWT.SETBOUNDS, value); }
+	/** Unsafe version of {@link #SynthesizeWindowActivation(long) SynthesizeWindowActivation}. */
+	public static void nSynthesizeWindowActivation(long struct, long value) { memPutAddress(struct + JAWT.SYNTHESIZEWINDOWACTIVATION, value); }
 
 	// -----------------------------------
 
@@ -359,6 +401,12 @@ public class JAWT extends Struct implements NativeResource {
 		public long Unlock() { return JAWT.nUnlock(address()); }
 		/** Returns the value of the {@code GetComponent} field. */
 		public long GetComponent() { return JAWT.nGetComponent(address()); }
+		/** Returns the value of the {@code CreateEmbeddedFrame} field. */
+		public long CreateEmbeddedFrame() { return JAWT.nCreateEmbeddedFrame(address()); }
+		/** Returns the value of the {@code SetBounds} field. */
+		public long SetBounds() { return JAWT.nSetBounds(address()); }
+		/** Returns the value of the {@code SynthesizeWindowActivation} field. */
+		public long SynthesizeWindowActivation() { return JAWT.nSynthesizeWindowActivation(address()); }
 
 		/** Sets the specified value to the {@code version} field. */
 		public JAWT.Buffer version(int value) { JAWT.nversion(address(), value); return this; }
@@ -372,6 +420,12 @@ public class JAWT extends Struct implements NativeResource {
 		public JAWT.Buffer Unlock(long value) { JAWT.nUnlock(address(), value); return this; }
 		/** Sets the specified value to the {@code GetComponent} field. */
 		public JAWT.Buffer GetComponent(long value) { JAWT.nGetComponent(address(), value); return this; }
+		/** Sets the specified value to the {@code CreateEmbeddedFrame} field. */
+		public JAWT.Buffer CreateEmbeddedFrame(long value) { JAWT.nCreateEmbeddedFrame(address(), value); return this; }
+		/** Sets the specified value to the {@code SetBounds} field. */
+		public JAWT.Buffer SetBounds(long value) { JAWT.nSetBounds(address(), value); return this; }
+		/** Sets the specified value to the {@code SynthesizeWindowActivation} field. */
+		public JAWT.Buffer SynthesizeWindowActivation(long value) { JAWT.nSynthesizeWindowActivation(address(), value); return this; }
 
 	}
 

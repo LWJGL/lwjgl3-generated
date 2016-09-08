@@ -14,6 +14,9 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
+import java.awt.Component;
+import java.awt.Frame;
+
 /**
  * Bindings to the AWT native interface (jawt.h).
  * 
@@ -33,7 +36,8 @@ public class JAWTFunctions {
 	public static final int
 		JAWT_VERSION_1_3 = 0x10003,
 		JAWT_VERSION_1_4 = 0x10004,
-		JAWT_VERSION_1_7 = 0x10007;
+		JAWT_VERSION_1_7 = 0x10007,
+		JAWT_VERSION_9   = 0x90000;
 
 	/**
 	 * When calling {@link #JAWT_GetAWT GetAWT} with a JAWT version less than 1.7, you must pass this flag or you will not be able to get a valid drawing surface and {@link #JAWT_GetAWT GetAWT}
@@ -59,7 +63,7 @@ public class JAWTFunctions {
 		JAWT_LOCK_BOUNDS_CHANGED  = 0x4,
 		JAWT_LOCK_SURFACE_CHANGED = 0x8;
 
-	static { Library.loadSystem("lwjgl_jawt"); }
+	static { Library.initialize(); }
 
 	protected JAWTFunctions() {
 		throw new UnsupportedOperationException();
@@ -344,29 +348,145 @@ public class JAWTFunctions {
 	// --- [ JAWT_GetComponent ] ---
 
 	/**
-	 * Returns a reference to a {@code java.awt.Component Component} from a native platform handle. On Windows, this corresponds to an {@code HWND}; on
-	 * Solaris and Linux, this is a {@code Drawable}. For other platforms, see the appropriate machine-dependent header file for a description. The reference
-	 * returned by this function is a local reference that is only valid in this environment. This function returns a {@code NULL} reference if no component could be
-	 * found with matching platform information.
+	 * Returns a reference to a {@link Component} from a native platform handle. On Windows, this corresponds to an {@code HWND}; on Solaris and Linux, this is a
+	 * {@code Drawable}. For other platforms, see the appropriate machine-dependent header file for a description. The reference returned by this function is
+	 * a local reference that is only valid in this environment. This function returns a {@code NULL} reference if no component could be found with matching platform
+	 * information.
 	 *
 	 * @param __functionAddress the function address
 	 * @param platformInfo      the native platform handle
 	 */
-	public static native Object nJAWT_GetComponent(long __functionAddress, long platformInfo);
+	public static native Component nJAWT_GetComponent(long __functionAddress, long platformInfo);
 
 	/**
-	 * Returns a reference to a {@code java.awt.Component Component} from a native platform handle. On Windows, this corresponds to an {@code HWND}; on
-	 * Solaris and Linux, this is a {@code Drawable}. For other platforms, see the appropriate machine-dependent header file for a description. The reference
-	 * returned by this function is a local reference that is only valid in this environment. This function returns a {@code NULL} reference if no component could be
-	 * found with matching platform information.
+	 * Returns a reference to a {@link Component} from a native platform handle. On Windows, this corresponds to an {@code HWND}; on Solaris and Linux, this is a
+	 * {@code Drawable}. For other platforms, see the appropriate machine-dependent header file for a description. The reference returned by this function is
+	 * a local reference that is only valid in this environment. This function returns a {@code NULL} reference if no component could be found with matching platform
+	 * information.
 	 *
 	 * @param __functionAddress the function address
 	 * @param platformInfo      the native platform handle
 	 */
-	public static Object JAWT_GetComponent(long __functionAddress, ByteBuffer platformInfo) {
+	public static Component JAWT_GetComponent(long __functionAddress, ByteBuffer platformInfo) {
 		if ( CHECKS )
 			checkPointer(__functionAddress);
 		return nJAWT_GetComponent(__functionAddress, memAddress(platformInfo));
+	}
+
+	// --- [ JAWT_CreateEmbeddedFrame ] ---
+
+	/**
+	 * Creates a {@link Frame} placed in a native container. Container is referenced by the native platform handle. For example on Windows this corresponds to an
+	 * {@code HWND}. For other platforms, see the appropriate machine-dependent header file for a description. The reference returned by this function is a
+	 * local reference that is only valid in this environment. This function returns a {@code NULL} reference if no frame could be created with matching platform
+	 * information.
+	 *
+	 * @param __functionAddress the function address
+	 * @param platformInfo      the native platform handle
+	 *
+	 * @since Java 9
+	 */
+	public static native Frame nJAWT_CreateEmbeddedFrame(long __functionAddress, long platformInfo);
+
+	/**
+	 * Creates a {@link Frame} placed in a native container. Container is referenced by the native platform handle. For example on Windows this corresponds to an
+	 * {@code HWND}. For other platforms, see the appropriate machine-dependent header file for a description. The reference returned by this function is a
+	 * local reference that is only valid in this environment. This function returns a {@code NULL} reference if no frame could be created with matching platform
+	 * information.
+	 *
+	 * @param __functionAddress the function address
+	 * @param platformInfo      the native platform handle
+	 *
+	 * @since Java 9
+	 */
+	public static Frame JAWT_CreateEmbeddedFrame(long __functionAddress, ByteBuffer platformInfo) {
+		if ( CHECKS )
+			checkPointer(__functionAddress);
+		return nJAWT_CreateEmbeddedFrame(__functionAddress, memAddress(platformInfo));
+	}
+
+	// --- [ JAWT_SetBounds ] ---
+
+	/**
+	 * Moves and resizes the embedded frame. The new location of the top-left corner is specified by x and y parameters relative to the native parent
+	 * component. The new size is specified by width and height.
+	 * 
+	 * <p>The embedded frame should be created by {@link #JAWT_CreateEmbeddedFrame CreateEmbeddedFrame} method, or this function will not have any effect.</p>
+	 * 
+	 * <p>{@link Component#setLocation} and {@link Component#setBounds} for {@code EmbeddedFrame} really don't move it within the native parent. These methods always locate
+	 * the embedded frame at (0, 0) for backward compatibility. To allow moving embedded frames this method was introduced, and it works just the same way as
+	 * {@code setLocation()} and {@code setBounds()} for usual, non-embedded components.</p>
+	 * 
+	 * <p>Using usual {@code get/setLocation()} and {@code get/setBounds()} together with this new method is not recommended.</p>
+	 *
+	 * @param __functionAddress the function address
+	 * @param embeddedFrame     the embedded frame
+	 * @param x                 the x coordinate
+	 * @param y                 the y coordinate
+	 * @param w                 the width
+	 * @param h                 the height
+	 *
+	 * @since Java 9
+	 */
+	public static native void nJAWT_SetBounds(long __functionAddress, Frame embeddedFrame, int x, int y, int w, int h);
+
+	/**
+	 * Moves and resizes the embedded frame. The new location of the top-left corner is specified by x and y parameters relative to the native parent
+	 * component. The new size is specified by width and height.
+	 * 
+	 * <p>The embedded frame should be created by {@link #JAWT_CreateEmbeddedFrame CreateEmbeddedFrame} method, or this function will not have any effect.</p>
+	 * 
+	 * <p>{@link Component#setLocation} and {@link Component#setBounds} for {@code EmbeddedFrame} really don't move it within the native parent. These methods always locate
+	 * the embedded frame at (0, 0) for backward compatibility. To allow moving embedded frames this method was introduced, and it works just the same way as
+	 * {@code setLocation()} and {@code setBounds()} for usual, non-embedded components.</p>
+	 * 
+	 * <p>Using usual {@code get/setLocation()} and {@code get/setBounds()} together with this new method is not recommended.</p>
+	 *
+	 * @param __functionAddress the function address
+	 * @param embeddedFrame     the embedded frame
+	 * @param x                 the x coordinate
+	 * @param y                 the y coordinate
+	 * @param w                 the width
+	 * @param h                 the height
+	 *
+	 * @since Java 9
+	 */
+	public static void JAWT_SetBounds(long __functionAddress, Frame embeddedFrame, int x, int y, int w, int h) {
+		if ( CHECKS )
+			checkPointer(__functionAddress);
+		nJAWT_SetBounds(__functionAddress, embeddedFrame, x, y, w, h);
+	}
+
+	// --- [ JAWT_SynthesizeWindowActivation ] ---
+
+	/**
+	 * Synthesizes a native message to activate or deactivate an {@code EmbeddedFrame} window depending on the value of parameter {@code doActivate}.
+	 * 
+	 * <p>The embedded frame should be created by {@link #JAWT_CreateEmbeddedFrame CreateEmbeddedFrame} method, or this function will not have any effect.</p>
+	 *
+	 * @param __functionAddress the function address
+	 * @param embeddedFrame     the embedded frame
+	 * @param doActivate        if true activates the window; otherwise, deactivates the window
+	 *
+	 * @since Java 9
+	 */
+	public static native void nJAWT_SynthesizeWindowActivation(long __functionAddress, Frame embeddedFrame, boolean doActivate);
+
+	/**
+	 * Synthesizes a native message to activate or deactivate an {@code EmbeddedFrame} window depending on the value of parameter {@code doActivate}.
+	 * 
+	 * <p>The embedded frame should be created by {@link #JAWT_CreateEmbeddedFrame CreateEmbeddedFrame} method, or this function will not have any effect.</p>
+	 *
+	 * @param __functionAddress the function address
+	 * @param embeddedFrame     the embedded frame
+	 * @param doActivate        if true activates the window; otherwise, deactivates the window
+	 *
+	 * @since Java 9
+	 */
+	public static void JAWT_SynthesizeWindowActivation(long __functionAddress, Frame embeddedFrame, boolean doActivate) {
+		if ( CHECKS )
+			checkPointer(__functionAddress);
+		nJAWT_SynthesizeWindowActivation(__functionAddress, embeddedFrame, doActivate);
 	}
 
 }
