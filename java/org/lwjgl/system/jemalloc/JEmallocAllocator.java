@@ -12,6 +12,11 @@ import static org.lwjgl.system.jemalloc.JEmalloc.*;
 /** A {@link MemoryAllocator} implementation using the jemalloc library. */
 public class JEmallocAllocator implements MemoryAllocator {
 
+	static {
+		// initialize jemalloc
+		JEmalloc.getLibrary();
+	}
+
 	@Override
 	public long getMalloc() { return JEmalloc.Functions.malloc; }
 
