@@ -532,6 +532,24 @@ public class GLX13 {
 		nglXGetSelectedEvent(display, draw, memAddress(event_mask));
 	}
 
+	/** Array version of: {@link #glXChooseFBConfig ChooseFBConfig} */
+	public static PointerBuffer glXChooseFBConfig(long display, int screen, int[] attrib_list) {
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXChooseFBConfig;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(display);
+			if ( attrib_list != null ) checkNT(attrib_list);
+		}
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer nelements = stack.callocInt(1);
+		try {
+			long __result = callPPPP(__functionAddress, display, screen, attrib_list, memAddress(nelements));
+			return memPointerBuffer(__result, nelements.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
 	/** Array version of: {@link #glXGetFBConfigAttrib GetFBConfigAttrib} */
 	public static int glXGetFBConfigAttrib(long display, long config, int attribute, int[] value) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetFBConfigAttrib;

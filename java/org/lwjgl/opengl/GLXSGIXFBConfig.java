@@ -256,4 +256,21 @@ public class GLXSGIXFBConfig {
 		return callPPPI(__functionAddress, display, config, attribute, value);
 	}
 
+	/** Array version of: {@link #glXChooseFBConfigSGIX ChooseFBConfigSGIX} */
+	public static PointerBuffer glXChooseFBConfigSGIX(long display, int screen, int[] attrib_list) {
+		long __functionAddress = GL.getCapabilitiesGLXClient().glXChooseFBConfigSGIX;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			checkPointer(display);
+		}
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer nelements = stack.callocInt(1);
+		try {
+			long __result = callPPPP(__functionAddress, display, screen, attrib_list, memAddress(nelements));
+			return memPointerBuffer(__result, nelements.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
 }

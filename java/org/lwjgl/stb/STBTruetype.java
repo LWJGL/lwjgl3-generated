@@ -1993,6 +1993,36 @@ public class STBTruetype {
 		return nstbtt_GetGlyphBox(info.address(), glyph_index, x0, y0, x1, y1) != 0;
 	}
 
+	/** Array version of: {@link #stbtt_GetCodepointBitmap GetCodepointBitmap} */
+	public static native long nstbtt_GetCodepointBitmap(long info, float scale_x, float scale_y, int codepoint, int[] width, int[] height, int[] xoff, int[] yoff);
+
+	/** Array version of: {@link #stbtt_GetCodepointBitmap GetCodepointBitmap} */
+	public static ByteBuffer stbtt_GetCodepointBitmap(STBTTFontinfo info, float scale_x, float scale_y, int codepoint, int[] width, int[] height, int[] xoff, int[] yoff) {
+		if ( CHECKS ) {
+			checkBuffer(width, 1);
+			checkBuffer(height, 1);
+			if ( xoff != null ) checkBuffer(xoff, 1);
+			if ( yoff != null ) checkBuffer(yoff, 1);
+		}
+		long __result = nstbtt_GetCodepointBitmap(info.address(), scale_x, scale_y, codepoint, width, height, xoff, yoff);
+		return memByteBuffer(__result, width[0] * height[0]);
+	}
+
+	/** Array version of: {@link #stbtt_GetCodepointBitmapSubpixel GetCodepointBitmapSubpixel} */
+	public static native long nstbtt_GetCodepointBitmapSubpixel(long info, float scale_x, float scale_y, float shift_x, float shift_y, int codepoint, int[] width, int[] height, int[] xoff, int[] yoff);
+
+	/** Array version of: {@link #stbtt_GetCodepointBitmapSubpixel GetCodepointBitmapSubpixel} */
+	public static ByteBuffer stbtt_GetCodepointBitmapSubpixel(STBTTFontinfo info, float scale_x, float scale_y, float shift_x, float shift_y, int codepoint, int[] width, int[] height, int[] xoff, int[] yoff) {
+		if ( CHECKS ) {
+			checkBuffer(width, 1);
+			checkBuffer(height, 1);
+			if ( xoff != null ) checkBuffer(xoff, 1);
+			if ( yoff != null ) checkBuffer(yoff, 1);
+		}
+		long __result = nstbtt_GetCodepointBitmapSubpixel(info.address(), scale_x, scale_y, shift_x, shift_y, codepoint, width, height, xoff, yoff);
+		return memByteBuffer(__result, width[0] * height[0]);
+	}
+
 	/** Array version of: {@link #stbtt_GetCodepointBitmapBox GetCodepointBitmapBox} */
 	public static native void nstbtt_GetCodepointBitmapBox(long font, int codepoint, float scale_x, float scale_y, int[] ix0, int[] iy0, int[] ix1, int[] iy1);
 
@@ -2019,6 +2049,36 @@ public class STBTruetype {
 			if ( iy1 != null ) checkBuffer(iy1, 1);
 		}
 		nstbtt_GetCodepointBitmapBoxSubpixel(font.address(), codepoint, scale_x, scale_y, shift_x, shift_y, ix0, iy0, ix1, iy1);
+	}
+
+	/** Array version of: {@link #stbtt_GetGlyphBitmap GetGlyphBitmap} */
+	public static native long nstbtt_GetGlyphBitmap(long info, float scale_x, float scale_y, int glyph, int[] width, int[] height, int[] xoff, int[] yoff);
+
+	/** Array version of: {@link #stbtt_GetGlyphBitmap GetGlyphBitmap} */
+	public static ByteBuffer stbtt_GetGlyphBitmap(STBTTFontinfo info, float scale_x, float scale_y, int glyph, int[] width, int[] height, int[] xoff, int[] yoff) {
+		if ( CHECKS ) {
+			checkBuffer(width, 1);
+			checkBuffer(height, 1);
+			if ( xoff != null ) checkBuffer(xoff, 1);
+			if ( yoff != null ) checkBuffer(yoff, 1);
+		}
+		long __result = nstbtt_GetGlyphBitmap(info.address(), scale_x, scale_y, glyph, width, height, xoff, yoff);
+		return memByteBuffer(__result, width[0] * height[0]);
+	}
+
+	/** Array version of: {@link #stbtt_GetGlyphBitmapSubpixel GetGlyphBitmapSubpixel} */
+	public static native long nstbtt_GetGlyphBitmapSubpixel(long info, float scale_x, float scale_y, float shift_x, float shift_y, int glyph, int[] width, int[] height, int[] xoff, int[] yoff);
+
+	/** Array version of: {@link #stbtt_GetGlyphBitmapSubpixel GetGlyphBitmapSubpixel} */
+	public static ByteBuffer stbtt_GetGlyphBitmapSubpixel(STBTTFontinfo info, float scale_x, float scale_y, float shift_x, float shift_y, int glyph, int[] width, int[] height, int[] xoff, int[] yoff) {
+		if ( CHECKS ) {
+			checkBuffer(width, 1);
+			checkBuffer(height, 1);
+			if ( xoff != null ) checkBuffer(xoff, 1);
+			if ( yoff != null ) checkBuffer(yoff, 1);
+		}
+		long __result = nstbtt_GetGlyphBitmapSubpixel(info.address(), scale_x, scale_y, shift_x, shift_y, glyph, width, height, xoff, yoff);
+		return memByteBuffer(__result, width[0] * height[0]);
 	}
 
 	/** Array version of: {@link #stbtt_GetGlyphBitmapBox GetGlyphBitmapBox} */

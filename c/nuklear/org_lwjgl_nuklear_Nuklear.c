@@ -2068,7 +2068,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1utf_1len(JNIEnv *__en
 	return (jint)nk_utf_len(str, byte_len);
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1utf_1at(JNIEnv *__env, jclass clazz, jlong bufferAddress, jint length, jint index, jlong unicodeAddress, jlong lenAddress) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1utf_1at__JIIJJ(JNIEnv *__env, jclass clazz, jlong bufferAddress, jint length, jint index, jlong unicodeAddress, jlong lenAddress) {
 	const char *buffer = (const char *)(intptr_t)bufferAddress;
 	nk_rune *unicode = (nk_rune *)(intptr_t)unicodeAddress;
 	int *len = (int *)(intptr_t)lenAddress;
@@ -2300,7 +2300,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1str_1at_1char(JNIEnv
 	return (jlong)(intptr_t)nk_str_at_char(s, pos);
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1str_1at_1rune(JNIEnv *__env, jclass clazz, jlong sAddress, jint pos, jlong unicodeAddress, jlong lenAddress) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1str_1at_1rune__JIJJ(JNIEnv *__env, jclass clazz, jlong sAddress, jint pos, jlong unicodeAddress, jlong lenAddress) {
 	struct nk_str *s = (struct nk_str *)(intptr_t)sAddress;
 	nk_rune *unicode = (nk_rune *)(intptr_t)unicodeAddress;
 	int *len = (int *)(intptr_t)lenAddress;
@@ -2320,7 +2320,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1str_1at_1char_1const
 	return (jlong)(intptr_t)nk_str_at_char_const(s, pos);
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1str_1at_1const(JNIEnv *__env, jclass clazz, jlong sAddress, jint pos, jlong unicodeAddress, jlong lenAddress) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1str_1at_1const__JIJJ(JNIEnv *__env, jclass clazz, jlong sAddress, jint pos, jlong unicodeAddress, jlong lenAddress) {
 	const struct nk_str *s = (const struct nk_str *)(intptr_t)sAddress;
 	nk_rune *unicode = (nk_rune *)(intptr_t)unicodeAddress;
 	int *len = (int *)(intptr_t)lenAddress;
@@ -3699,6 +3699,23 @@ JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1utf_1decode__
 	return (jint)nk_utf_decode(c, (nk_rune*)u, clen);
 }
 
+JNIEXPORT jlong JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1utf_1at__JII_3IJ(JNIEnv *__env, jclass clazz, jlong bufferAddress, jint length, jint index, jintArray unicodeAddress, jlong lenAddress) {
+	const char *buffer = (const char *)(intptr_t)bufferAddress;
+	int *len = (int *)(intptr_t)lenAddress;
+	jlong __result;
+	jint *unicode = (*__env)->GetPrimitiveArrayCritical(__env, unicodeAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	__result = (jlong)(intptr_t)nk_utf_at(buffer, length, index, (nk_rune*)unicode, len);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, unicodeAddress, unicode, 0);
+	return __result;
+}
+JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1utf_1at__JII_3IJ(jlong bufferAddress, jint length, jint index, jint unicode__length, jint* unicode, jlong lenAddress) {
+	const char *buffer = (const char *)(intptr_t)bufferAddress;
+	int *len = (int *)(intptr_t)lenAddress;
+	UNUSED_PARAM(unicode__length)
+	return (jlong)(intptr_t)nk_utf_at(buffer, length, index, (nk_rune*)unicode, len);
+}
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1str_1append_1text_1runes__J_3II(JNIEnv *__env, jclass clazz, jlong sAddress, jintArray runesAddress, jint len) {
 	struct nk_str *s = (struct nk_str *)(intptr_t)sAddress;
 	jint __result;
@@ -3757,6 +3774,40 @@ JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1str_1insert_1
 	struct nk_str *s = (struct nk_str *)(intptr_t)sAddress;
 	UNUSED_PARAM(runes__length)
 	return (jint)nk_str_insert_str_runes(s, pos, (nk_rune*)runes);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1str_1at_1rune__JI_3IJ(JNIEnv *__env, jclass clazz, jlong sAddress, jint pos, jintArray unicodeAddress, jlong lenAddress) {
+	struct nk_str *s = (struct nk_str *)(intptr_t)sAddress;
+	int *len = (int *)(intptr_t)lenAddress;
+	jlong __result;
+	jint *unicode = (*__env)->GetPrimitiveArrayCritical(__env, unicodeAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	__result = (jlong)(intptr_t)nk_str_at_rune(s, pos, (nk_rune*)unicode, len);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, unicodeAddress, unicode, 0);
+	return __result;
+}
+JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1str_1at_1rune__JI_3IJ(jlong sAddress, jint pos, jint unicode__length, jint* unicode, jlong lenAddress) {
+	struct nk_str *s = (struct nk_str *)(intptr_t)sAddress;
+	int *len = (int *)(intptr_t)lenAddress;
+	UNUSED_PARAM(unicode__length)
+	return (jlong)(intptr_t)nk_str_at_rune(s, pos, (nk_rune*)unicode, len);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1str_1at_1const__JI_3IJ(JNIEnv *__env, jclass clazz, jlong sAddress, jint pos, jintArray unicodeAddress, jlong lenAddress) {
+	const struct nk_str *s = (const struct nk_str *)(intptr_t)sAddress;
+	int *len = (int *)(intptr_t)lenAddress;
+	jlong __result;
+	jint *unicode = (*__env)->GetPrimitiveArrayCritical(__env, unicodeAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	__result = (jlong)(intptr_t)nk_str_at_const(s, pos, (nk_rune*)unicode, len);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, unicodeAddress, unicode, 0);
+	return __result;
+}
+JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1str_1at_1const__JI_3IJ(jlong sAddress, jint pos, jint unicode__length, jint* unicode, jlong lenAddress) {
+	const struct nk_str *s = (const struct nk_str *)(intptr_t)sAddress;
+	int *len = (int *)(intptr_t)lenAddress;
+	UNUSED_PARAM(unicode__length)
+	return (jlong)(intptr_t)nk_str_at_const(s, pos, (nk_rune*)unicode, len);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1stroke_1polyline__J_3FIFJ(JNIEnv *__env, jclass clazz, jlong bAddress, jfloatArray pointsAddress, jint point_count, jfloat line_thickness, jlong colAddress) {

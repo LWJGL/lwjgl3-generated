@@ -10603,6 +10603,23 @@ public class Nuklear {
 		return nnk_utf_decode(memAddress(c), u, c.remaining());
 	}
 
+	/** Array version of: {@link #nk_utf_at utf_at} */
+	public static native long nnk_utf_at(long buffer, int length, int index, int[] unicode, long len);
+
+	/** Array version of: {@link #nk_utf_at utf_at} */
+	public static ByteBuffer nk_utf_at(ByteBuffer buffer, int index, int[] unicode) {
+		if ( CHECKS )
+			checkBuffer(unicode, 1);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			IntBuffer len = stack.callocInt(1);
+			long __result = nnk_utf_at(memAddress(buffer), buffer.remaining(), index, unicode, memAddress(len));
+			return memByteBuffer(__result, len.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
 	/** Array version of: {@link #nk_str_append_text_runes str_append_text_runes} */
 	public static native int nnk_str_append_text_runes(long s, int[] runes, int len);
 
@@ -10635,6 +10652,40 @@ public class Nuklear {
 	/** Array version of: {@link #nk_str_insert_str_runes str_insert_str_runes} */
 	public static int nk_str_insert_str_runes(NkStr s, int pos, int[] runes) {
 		return nnk_str_insert_str_runes(s.address(), pos, runes);
+	}
+
+	/** Array version of: {@link #nk_str_at_rune str_at_rune} */
+	public static native long nnk_str_at_rune(long s, int pos, int[] unicode, long len);
+
+	/** Array version of: {@link #nk_str_at_rune str_at_rune} */
+	public static ByteBuffer nk_str_at_rune(NkStr s, int pos, int[] unicode) {
+		if ( CHECKS )
+			checkBuffer(unicode, 1);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer len = stack.callocInt(1);
+		try {
+			long __result = nnk_str_at_rune(s.address(), pos, unicode, memAddress(len));
+			return memByteBuffer(__result, len.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
+	/** Array version of: {@link #nk_str_at_const str_at_const} */
+	public static native long nnk_str_at_const(long s, int pos, int[] unicode, long len);
+
+	/** Array version of: {@link #nk_str_at_const str_at_const} */
+	public static ByteBuffer nk_str_at_const(NkStr s, int pos, int[] unicode) {
+		if ( CHECKS )
+			checkBuffer(unicode, 1);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		IntBuffer len = stack.callocInt(1);
+		try {
+			long __result = nnk_str_at_const(s.address(), pos, unicode, memAddress(len));
+			return memByteBuffer(__result, len.get(0));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** Array version of: {@link #nk_stroke_polyline stroke_polyline} */
