@@ -1410,11 +1410,11 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1style_1load_1cursor(J
 	nk_style_load_cursor(ctx, style, cursor);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1style_1load_1all_1cursors(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong cursorAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1style_1load_1all_1cursors(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong cursorsAddress) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
-	struct nk_cursor *cursor = (struct nk_cursor *)(intptr_t)cursorAddress;
+	struct nk_cursor *cursors = (struct nk_cursor *)(intptr_t)cursorsAddress;
 	UNUSED_PARAMS(__env, clazz)
-	nk_style_load_all_cursors(ctx, cursor);
+	nk_style_load_all_cursors(ctx, cursors);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1style_1get_1color_1by_1name(JNIEnv *__env, jclass clazz, jint c) {

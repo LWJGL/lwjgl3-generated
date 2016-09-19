@@ -6871,7 +6871,9 @@ public class Nuklear {
 	 * @param ctx   the nuklear context
 	 * @param table 
 	 */
-	public static void nk_style_from_table(NkContext ctx, NkColor table) {
+	public static void nk_style_from_table(NkContext ctx, NkColor.Buffer table) {
+		if ( CHECKS )
+			checkBuffer(table, NK_COLOR_COUNT);
 		nnk_style_from_table(ctx.address(), table.address());
 	}
 
@@ -6902,21 +6904,21 @@ public class Nuklear {
 	/**
 	 * 
 	 *
-	 * @param ctx    the nuklear context
-	 * @param cursor 
+	 * @param ctx     the nuklear context
+	 * @param cursors 
 	 */
-	public static native void nnk_style_load_all_cursors(long ctx, long cursor);
+	public static native void nnk_style_load_all_cursors(long ctx, long cursors);
 
 	/**
 	 * 
 	 *
-	 * @param ctx    the nuklear context
-	 * @param cursor 
+	 * @param ctx     the nuklear context
+	 * @param cursors 
 	 */
-	public static void nk_style_load_all_cursors(NkContext ctx, NkCursor.Buffer cursor) {
+	public static void nk_style_load_all_cursors(NkContext ctx, NkCursor.Buffer cursors) {
 		if ( CHECKS )
-			checkBuffer(cursor, NK_CURSOR_COUNT);
-		nnk_style_load_all_cursors(ctx.address(), cursor.address());
+			checkBuffer(cursors, NK_CURSOR_COUNT);
+		nnk_style_load_all_cursors(ctx.address(), cursors.address());
 	}
 
 	// --- [ nk_style_get_color_by_name ] ---
