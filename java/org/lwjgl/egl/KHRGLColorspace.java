@@ -11,7 +11,7 @@ package org.lwjgl.egl;
  * <p>Applications may wish to use sRGB format default framebuffers to more easily achieve sRGB rendering to display devices. This extension allows creating
  * EGLSurfaces which will be rendered to in sRGB by OpenGL contexts supporting that capability.</p>
  * 
- * <p>Requires {@link EGL14 EGL L.1}.</p>
+ * <p>Requires {@link EGL14 EGL 1.4}.</p>
  */
 public final class KHRGLColorspace {
 

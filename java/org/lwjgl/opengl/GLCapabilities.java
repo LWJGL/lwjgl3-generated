@@ -2211,6 +2211,8 @@ public final class GLCapabilities {
 	 * <p>Requires {@link #GL_AMD_gpu_shader_int64 AMD_gpu_shader_int64} or {@link #GL_NV_gpu_shader5 NV_gpu_shader5}.</p>
 	 */
 	public final boolean GL_AMD_gcn_shader;
+	/** When true, {@link AMDGPUShaderHalfFloat} is supported. */
+	public final boolean GL_AMD_gpu_shader_half_float;
 	/** When true, {@link AMDGPUShaderInt64} is supported. */
 	public final boolean GL_AMD_gpu_shader_int64;
 	/** When true, {@link AMDInterleavedElements} is supported. */
@@ -2235,6 +2237,17 @@ public final class GLCapabilities {
 	 * <p>Requires {@link GL42 OpenGL 4.2} or {@link #GL_ARB_shader_atomic_counters ARB_shader_atomic_counters}.</p>
 	 */
 	public final boolean GL_AMD_shader_atomic_counter_ops;
+	/**
+	 * When true, the <a href="http://www.opengl.org/registry/specs/AMD/shader_ballot.txt">AMD_shader_ballot</a> extension is supported.
+	 * 
+	 * <p>The extensions {@code ARB_shader_group_vote} and {@code ARB_shader_ballot} introduced the concept of sub-groups and a set of operations that allow data
+	 * exchange across shader invocations within a sub-group.</p>
+	 * 
+	 * <p>This extension further extends the capabilities of these extensions with additional sub-group operations.</p>
+	 * 
+	 * <p>Requires {@link  ARB_shader_group_vote}, {@link  ARB_shader_ballot} and {@link ARBGPUShaderInt64 ARB_gpu_shader_int64} or {@link AMDGPUShaderInt64 AMD_gpu_shader_int64}.</p>
+	 */
+	public final boolean GL_AMD_shader_ballot;
 	/**
 	 * When true, the <a href="http://www.opengl.org/registry/specs/AMD/shader_explicit_vertex_parameter.txt">AMD_shader_explicit_vertex_parameter</a> extension is supported.
 	 * 
@@ -5973,6 +5986,7 @@ shadow2DRectProjGradARB(
 		GL_AMD_depth_clamp_separate = ext.contains("GL_AMD_depth_clamp_separate");
 		GL_AMD_draw_buffers_blend = ext.contains("GL_AMD_draw_buffers_blend") && checkExtension("GL_AMD_draw_buffers_blend", AMDDrawBuffersBlend.isAvailable(this));
 		GL_AMD_gcn_shader = ext.contains("GL_AMD_gcn_shader");
+		GL_AMD_gpu_shader_half_float = ext.contains("GL_AMD_gpu_shader_half_float");
 		GL_AMD_gpu_shader_int64 = ext.contains("GL_AMD_gpu_shader_int64") && checkExtension("GL_AMD_gpu_shader_int64", AMDGPUShaderInt64.isAvailable(this, ext));
 		GL_AMD_interleaved_elements = ext.contains("GL_AMD_interleaved_elements") && checkExtension("GL_AMD_interleaved_elements", AMDInterleavedElements.isAvailable(this));
 		GL_AMD_occlusion_query_event = ext.contains("GL_AMD_occlusion_query_event") && checkExtension("GL_AMD_occlusion_query_event", AMDOcclusionQueryEvent.isAvailable(this));
@@ -5982,6 +5996,7 @@ shadow2DRectProjGradARB(
 		GL_AMD_sample_positions = ext.contains("GL_AMD_sample_positions") && checkExtension("GL_AMD_sample_positions", AMDSamplePositions.isAvailable(this));
 		GL_AMD_seamless_cubemap_per_texture = ext.contains("GL_AMD_seamless_cubemap_per_texture");
 		GL_AMD_shader_atomic_counter_ops = ext.contains("GL_AMD_shader_atomic_counter_ops");
+		GL_AMD_shader_ballot = ext.contains("GL_AMD_shader_ballot");
 		GL_AMD_shader_explicit_vertex_parameter = ext.contains("GL_AMD_shader_explicit_vertex_parameter");
 		GL_AMD_shader_stencil_export = ext.contains("GL_AMD_shader_stencil_export");
 		GL_AMD_shader_trinary_minmax = ext.contains("GL_AMD_shader_trinary_minmax");

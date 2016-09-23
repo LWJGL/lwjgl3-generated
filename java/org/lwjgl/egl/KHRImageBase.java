@@ -18,7 +18,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * intended purpose is sharing 2D image data, the underlying interface makes no assumptions about the format or purpose of the resource being shared,
  * leaving those decisions to the application and associated client APIs.</p>
  * 
- * <p>Requires {@link EGL12 EGL L.1}.</p>
+ * <p>Requires {@link EGL12 EGL 1.2}.</p>
  */
 public class KHRImageBase {
 

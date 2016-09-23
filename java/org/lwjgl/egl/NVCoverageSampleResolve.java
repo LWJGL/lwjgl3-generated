@@ -14,7 +14,7 @@ package org.lwjgl.egl;
  * these memory reads. To that end, this extension exposes a surface attribute that allows applications to specify when no coverage sample resolve is
  * desired.</p>
  * 
- * <p>Requires {@link EGL12 EGL L.1}.</p>
+ * <p>Requires {@link EGL12 EGL 1.2}.</p>
  */
 public final class NVCoverageSampleResolve {
 

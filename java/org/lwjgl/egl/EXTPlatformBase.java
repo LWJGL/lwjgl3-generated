@@ -34,7 +34,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>This extension does not specify behavior specific to any platform, nor does it specify the set of platforms that an EGL implementation may support.
  * Platform-specific details lie outside this extension's scope and are instead described by extensions layered atop this one.</p>
  * 
- * <p>Requires {@link EGL14 EGL L.1} and <a href="https://www.khronos.org/registry/egl/extensions/EXT/EGL_EXT_client_extensions.txt">EXT_platform_base</a> to query its existence without a display.</p>
+ * <p>Requires {@link EGL14 EGL 1.4} and <a href="https://www.khronos.org/registry/egl/extensions/EXT/EGL_EXT_client_extensions.txt">EXT_platform_base</a> to query its existence without a display.</p>
  */
 public class EXTPlatformBase {
 

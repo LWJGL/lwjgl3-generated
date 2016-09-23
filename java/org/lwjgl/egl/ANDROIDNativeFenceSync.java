@@ -19,7 +19,7 @@ import static org.lwjgl.system.JNI.*;
  * must have a signal status like that of an EGLSyncKHR object that indicates whether the fence has ever been signaled. Once signaled the native object's
  * signal status may not change again.</p>
  * 
- * <p>Requires {@link EGL11 EGL L.1} and {@link KHRFenceSync KHR_fence_sync}.</p>
+ * <p>Requires {@link EGL11 EGL 1.1} and {@link KHRFenceSync KHR_fence_sync}.</p>
  */
 public class ANDROIDNativeFenceSync {
 

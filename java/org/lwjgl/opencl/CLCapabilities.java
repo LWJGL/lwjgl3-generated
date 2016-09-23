@@ -608,6 +608,8 @@ Description
 	public final boolean cl_intel_advanced_motion_estimation;
 	/** When true, {@link INTELDevicePartitionByNames} is supported. */
 	public final boolean cl_intel_device_partition_by_names;
+	/** When true, {@link INTELDriverDiagnostics} is supported. */
+	public final boolean cl_intel_driver_diagnostics;
 	/** When true, {@link INTELEGLImageYUV} is supported. */
 	public final boolean cl_intel_egl_image_yuv;
 	/** When true, {@link INTELMotionEstimation} is supported. */
@@ -1319,6 +1321,7 @@ Description
 		cl_intel_accelerator = ext.contains("cl_intel_accelerator") && CL.checkExtension("cl_intel_accelerator", INTELAccelerator.isAvailable(this));
 		cl_intel_advanced_motion_estimation = ext.contains("cl_intel_advanced_motion_estimation");
 		cl_intel_device_partition_by_names = ext.contains("cl_intel_device_partition_by_names");
+		cl_intel_driver_diagnostics = ext.contains("cl_intel_driver_diagnostics");
 		cl_intel_egl_image_yuv = ext.contains("cl_intel_egl_image_yuv");
 		cl_intel_motion_estimation = ext.contains("cl_intel_motion_estimation");
 		cl_intel_packed_yuv = ext.contains("cl_intel_packed_yuv");

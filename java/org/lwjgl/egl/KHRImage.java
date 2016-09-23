@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>This extension defines a new EGL resource type that is suitable for sharing 2D arrays of image data between client APIs, the EGLImage, and allows
  * creating EGLImages from EGL native pixmaps.</p>
  * 
- * <p>Requires {@link EGL12 EGL L.1}.</p>
+ * <p>Requires {@link EGL12 EGL 1.2}.</p>
  */
 public class KHRImage {
 

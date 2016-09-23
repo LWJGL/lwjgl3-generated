@@ -10,7 +10,7 @@ package org.lwjgl.egl;
  * 
  * <p>This extension defines how to create EGL resources from native Android resources using the EGL 1.5 platform functionality.</p>
  * 
- * <p>Requires {@link EGL15 EGL L.1}.</p>
+ * <p>Requires {@link EGL15 EGL 1.5}.</p>
  */
 public final class KHRPlatformAndroid {
 

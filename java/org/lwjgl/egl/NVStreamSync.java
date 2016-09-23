@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>This extension defines a new type of reusable sync object. This sync object will be signaled each time a new image frame becomes available in an
  * EGLStream for the consumer to consume.</p>
  * 
- * <p>Requires {@link EGL12 EGL L.1}, {@link KHRStream KHR_stream} and {@link KHRReusableSync KHR_reusable_sync}.</p>
+ * <p>Requires {@link EGL12 EGL 1.2}, {@link KHRStream KHR_stream} and {@link KHRReusableSync KHR_reusable_sync}.</p>
  */
 public class NVStreamSync {
 

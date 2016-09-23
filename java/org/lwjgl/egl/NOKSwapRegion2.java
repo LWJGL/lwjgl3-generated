@@ -25,7 +25,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>This functional change is aimed at further reducing the processing and bandwidth requirements of optimizations of applications whose graphics are
  * commonly subjected to region-based changes. Specifically, this extension enables partial surface updates without requiring the use of preserved swaps.</p>
  * 
- * <p>Requires {@link EGL14 EGL L.1}.</p>
+ * <p>Requires {@link EGL14 EGL 1.4}.</p>
  */
 public class NOKSwapRegion2 {
 

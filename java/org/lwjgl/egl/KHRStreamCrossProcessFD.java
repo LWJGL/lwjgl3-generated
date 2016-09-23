@@ -33,7 +33,7 @@ import static org.lwjgl.system.JNI.*;
  * <p>Once the EGLStreamKHR object handle is created in the second process, it refers to the same EGLStream as the EGLStreamKHR object handle in the original
  * process. A consumer can be associated with the EGLStream from either process. A producer can be associated with the EGLStream from either process.</p>
  * 
- * <p>Requires {@link EGL12 EGL L.1} and {@link KHRStream KHR_stream}.</p>
+ * <p>Requires {@link EGL12 EGL 1.2} and {@link KHRStream KHR_stream}.</p>
  */
 public class KHRStreamCrossProcessFD {
 

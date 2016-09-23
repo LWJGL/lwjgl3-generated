@@ -19,7 +19,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>This extension allows mapping color buffers of EGL surfaces into the client address space. This is useful primarily for software rendering on low-end
  * devices which do not support EGL client rendering APIs, although it may be implemented efficiently on more capable devices as well.</p>
  * 
- * <p>Requires {@link EGL14 EGL L.1}.</p>
+ * <p>Requires {@link EGL14 EGL 1.4}.</p>
  */
 public class KHRLockSurface3 {
 

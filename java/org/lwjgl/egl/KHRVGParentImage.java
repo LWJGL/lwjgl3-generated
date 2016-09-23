@@ -11,7 +11,7 @@ package org.lwjgl.egl;
  * <p>This extension provides a mechanism for creating EGLImage objects from OpenVG VGImage API resources. For an overview of EGLImage operation, please see
  * the EGL_KHR_image specification.</p>
  * 
- * <p>Requires {@link EGL12 EGL L.1} and {@link KHRImage KHR_image}.</p>
+ * <p>Requires {@link EGL12 EGL 1.2} and {@link KHRImage KHR_image}.</p>
  */
 public final class KHRVGParentImage {
 

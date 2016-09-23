@@ -21,7 +21,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>This extension defines the method for an application to query native device objects from an EGL Display.</p>
  * 
- * <p>Requires {@link EGL15 EGL L.1} or an earlier verison of EGL with the <a href="https://www.khronos.org/registry/egl/extensions/EXT/EGL_EXT_client_extensions.txt">EXT_device_query</a> extension.</p>
+ * <p>Requires {@link EGL15 EGL 1.5} or an earlier verison of EGL with the <a href="https://www.khronos.org/registry/egl/extensions/EXT/EGL_EXT_client_extensions.txt">EXT_device_query</a> extension.</p>
  */
 public class EXTDeviceQuery {
 

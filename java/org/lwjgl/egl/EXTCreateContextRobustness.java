@@ -11,7 +11,7 @@ package org.lwjgl.egl;
  * <p>This extension allows creating an OpenGL or OpenGL ES context supporting robust buffer access behavior and a specified graphics reset notification
  * behavior.</p>
  * 
- * <p>Requires {@link EGL14 EGL L.1}.</p>
+ * <p>Requires {@link EGL14 EGL 1.4}.</p>
  */
 public final class EXTCreateContextRobustness {
 

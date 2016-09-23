@@ -27,7 +27,7 @@ package org.lwjgl.egl;
  * <li>A client can create a complete set of mipmap images.</li>
  * </ul>
  * 
- * <p>Requires {@link EGL11 EGL L.1}.</p>
+ * <p>Requires {@link EGL11 EGL 1.1}.</p>
  */
 public final class NOKTextureFromPixmap {
 

@@ -26,7 +26,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * and enumerating devices from scratch. It was later identified that the former is useful even in EGL implementations that have no need or ability to
  * allow enumerating all the devices available on a system. To accommodate this, the extension was split in two.</p>
  * 
- * <p>Requires {@link EGL15 EGL L.1} or an earlier verison of EGL with the <a href="https://www.khronos.org/registry/egl/extensions/EXT/EGL_EXT_client_extensions.txt">EXT_device_enumeration</a> extension.</p>
+ * <p>Requires {@link EGL15 EGL 1.5} or an earlier verison of EGL with the <a href="https://www.khronos.org/registry/egl/extensions/EXT/EGL_EXT_client_extensions.txt">EXT_device_enumeration</a> extension.</p>
  */
 public class EXTDeviceEnumeration {
 

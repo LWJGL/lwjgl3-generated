@@ -11,7 +11,7 @@ package org.lwjgl.egl;
  * <p>This extension allows the creation of an OpenGL or OpenGL ES context that doesn't generate errors if the context supports a no error mode. The
  * implications of this feature are discussed in the {@link org.lwjgl.opengl.KHRNoError GL_KHR_no_error} extension.</p>
  * 
- * <p>Requires {@link EGL14 EGL L.1}.</p>
+ * <p>Requires {@link EGL14 EGL 1.4}.</p>
  */
 public final class KHRCreateContextNoError {
 

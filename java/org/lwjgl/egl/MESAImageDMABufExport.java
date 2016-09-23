@@ -19,7 +19,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>It is designed to provide the complementary functionality to EGL_EXT_image_dma_buf_import.</p>
  * 
- * <p>Requires {@link EGL14 EGL L.1} and {@link KHRImageBase KHR_image_base}. The EGL implementation must be running on a Linux kernel supporting the dma_buf buffer sharing
+ * <p>Requires {@link EGL14 EGL 1.4} and {@link KHRImageBase KHR_image_base}. The EGL implementation must be running on a Linux kernel supporting the dma_buf buffer sharing
  * mechanism.</p>
  */
 public class MESAImageDMABufExport {

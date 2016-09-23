@@ -13,7 +13,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>This extension exposes an alternative method of querying the system time from the driver instead of the operating system.</p>
  * 
- * <p>Requires {@link EGL12 EGL L.1}.</p>
+ * <p>Requires {@link EGL12 EGL 1.2}.</p>
  */
 public class NVSystemTime {
 

@@ -13,7 +13,7 @@ package org.lwjgl.egl;
  * buffer content non-securely will fail and result in undefined behavior up to and including program termination. Also, any copy operations from the
  * protected surface to any non-protected surface by GPU are considered illegal.</p>
  * 
- * <p>Requires {@link EGL14 EGL L.1} and {@link KHRImageBase KHR_image_base}.</p>
+ * <p>Requires {@link EGL14 EGL 1.4} and {@link KHRImageBase KHR_image_base}.</p>
  */
 public final class EXTProtectedSurface {
 

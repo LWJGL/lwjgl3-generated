@@ -32,7 +32,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>In contrast, timing of an EGLStream in fifo mode is the responsibility of the consumer. Each image frame in the fifo has an associated timestamp set by
  * the producer. The consumer can use this timestamp to determine when the image frame is intended to be displayed to the user.</p>
  * 
- * <p>Requires {@link EGL12 EGL L.1} and {@link KHRStream KHR_stream}.</p>
+ * <p>Requires {@link EGL12 EGL 1.2} and {@link KHRStream KHR_stream}.</p>
  */
 public class KHRStreamFIFO {
 

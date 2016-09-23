@@ -31,7 +31,7 @@ package org.lwjgl.egl;
  * or extruded volume rendering for stencil shadow volumes), coverage buffer updates may be masked by the application, analagous to masking the depth
  * buffer.</p>
  * 
- * <p>Requires {@link EGL11 EGL L.1}.</p>
+ * <p>Requires {@link EGL11 EGL 1.1}.</p>
  */
 public final class NVCoverageSample {
 

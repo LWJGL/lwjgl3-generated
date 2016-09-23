@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Reusable sync objects may be used to synchronize activity between threads or between client APIs. Synchronization is accomplished by explicitly
  * changing the status of a reusable object using EGL API commands.</p>
  * 
- * <p>Requires {@link EGL11 EGL L.1}.</p>
+ * <p>Requires {@link EGL11 EGL 1.1}.</p>
  */
 public class KHRReusableSync {
 

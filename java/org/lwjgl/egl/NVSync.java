@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * such as completion of the corresponding fence. Fence completion allows applications to request a partial Finish of an API command stream, wherein all
  * commands issued in a particular client API context will be forced to complete before control is returned to the calling thread.</p>
  * 
- * <p>Requires {@link EGL11 EGL L.1}.</p>
+ * <p>Requires {@link EGL11 EGL 1.1}.</p>
  */
 public class NVSync {
 

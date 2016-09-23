@@ -229,6 +229,8 @@ public class EGLCapabilities {
 	public final boolean EGL_EXT_platform_wayland;
 	/** When true, {@link EXTPlatformX11} is supported. */
 	public final boolean EGL_EXT_platform_x11;
+	/** When true, {@link EXTProtectedContent} is supported. */
+	public final boolean EGL_EXT_protected_content;
 	/** When true, {@link EXTProtectedSurface} is supported. */
 	public final boolean EGL_EXT_protected_surface;
 	/** When true, {@link EXTStreamConsumerEGLOutput} is supported. */
@@ -268,7 +270,7 @@ public class EGLCapabilities {
 	 * calling eglQueryString(dpy, EGL_EXTENSIONS) on an initialized display. To query EGL_KHR_client_get_all_proc_addresses, users must use a different
 	 * method which is described below in the section concerning EGL_EXT_client_extensions.</p>
 	 * 
-	 * <p>Requires {@link EGL12 EGL L.1}.</p>
+	 * <p>Requires {@link EGL12 EGL 1.2}.</p>
 	 */
 	public final boolean EGL_KHR_client_get_all_proc_addresses;
 	/** When true, {@link KHRConfigAttribs} is supported. */
@@ -302,7 +304,7 @@ public class EGLCapabilities {
 	 * calling eglQueryString(dpy, EGL_EXTENSIONS) on an initialized display. To query EGL_KHR_client_get_all_proc_addresses, users must use a different
 	 * method which is described below in the section concerning EGL_EXT_client_extensions.</p>
 	 * 
-	 * <p>Requires {@link EGL12 EGL L.1}.</p>
+	 * <p>Requires {@link EGL12 EGL 1.2}.</p>
 	 */
 	public final boolean EGL_KHR_get_all_proc_addresses;
 	/** When true, {@link KHRGLColorspace} is supported. */
@@ -325,6 +327,8 @@ public class EGLCapabilities {
 	public final boolean EGL_KHR_lock_surface3;
 	/** When true, {@link KHRMutableRenderBuffer} is supported. */
 	public final boolean EGL_KHR_mutable_render_buffer;
+	/** When true, {@link KHRNoConfigContext} is supported. */
+	public final boolean EGL_KHR_no_config_context;
 	/** When true, {@link KHRPartialUpdate} is supported. */
 	public final boolean EGL_KHR_partial_update;
 	/** When true, {@link KHRPlatformAndroid} is supported. */
@@ -358,7 +362,7 @@ public class EGLCapabilities {
 	 * 
 	 * <p>Once connected the MediaPlayer inserts image frames into the EGLStream.</p>
 	 * 
-	 * <p>Requires {@link EGL12 EGL L.1} and {@link KHRStream KHR_stream}. Requires OpenMAX AL 1.1 and OpenMAX_AL_EGLStream_DataLocator.</p>
+	 * <p>Requires {@link EGL12 EGL 1.2} and {@link KHRStream KHR_stream}. Requires OpenMAX AL 1.1 and OpenMAX_AL_EGLStream_DataLocator.</p>
 	 */
 	public final boolean EGL_KHR_stream_producer_aldatalocator;
 	/** When true, {@link KHRStreamProducerEGLSurface} is supported. */
@@ -833,6 +837,7 @@ public class EGLCapabilities {
 		EGL_EXT_platform_device = ext.contains("EGL_EXT_platform_device");
 		EGL_EXT_platform_wayland = ext.contains("EGL_EXT_platform_wayland");
 		EGL_EXT_platform_x11 = ext.contains("EGL_EXT_platform_x11");
+		EGL_EXT_protected_content = ext.contains("EGL_EXT_protected_content");
 		EGL_EXT_protected_surface = ext.contains("EGL_EXT_protected_surface");
 		EGL_EXT_stream_consumer_egloutput = ext.contains("EGL_EXT_stream_consumer_egloutput") && EGL.checkExtension("EGL_EXT_stream_consumer_egloutput", EXTStreamConsumerEGLOutput.isAvailable(this));
 		EGL_EXT_swap_buffers_with_damage = ext.contains("EGL_EXT_swap_buffers_with_damage") && EGL.checkExtension("EGL_EXT_swap_buffers_with_damage", EXTSwapBuffersWithDamage.isAvailable(this));
@@ -859,6 +864,7 @@ public class EGLCapabilities {
 		EGL_KHR_image_pixmap = ext.contains("EGL_KHR_image_pixmap");
 		EGL_KHR_lock_surface3 = ext.contains("EGL_KHR_lock_surface3") && EGL.checkExtension("EGL_KHR_lock_surface3", KHRLockSurface3.isAvailable(this));
 		EGL_KHR_mutable_render_buffer = ext.contains("EGL_KHR_mutable_render_buffer");
+		EGL_KHR_no_config_context = ext.contains("EGL_KHR_no_config_context");
 		EGL_KHR_partial_update = ext.contains("EGL_KHR_partial_update") && EGL.checkExtension("EGL_KHR_partial_update", KHRPartialUpdate.isAvailable(this));
 		EGL_KHR_platform_android = ext.contains("EGL_KHR_platform_android");
 		EGL_KHR_platform_gbm = ext.contains("EGL_KHR_platform_gbm");

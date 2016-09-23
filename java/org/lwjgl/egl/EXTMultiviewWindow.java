@@ -12,7 +12,7 @@ package org.lwjgl.egl;
  * 
  * <p>EXT_multi_draw_buffers can be used with this extension to render and display multiple color buffers to a supported device.</p>
  * 
- * <p>Requires {@link EGL14 EGL L.1}.</p>
+ * <p>Requires {@link EGL14 EGL 1.4}.</p>
  */
 public final class EXTMultiviewWindow {
 

@@ -80,6 +80,8 @@ public final class GLESCapabilities {
 		glClearDepthf,
 		glClearPixelLocalStorageuiEXT,
 		glClearStencil,
+		glClearTexImageEXT,
+		glClearTexSubImage,
 		glClientWaitSync,
 		glClientWaitSyncAPPLE,
 		glColorMask,
@@ -914,6 +916,8 @@ public final class GLESCapabilities {
 	public final boolean GL_EXT_blend_minmax;
 	/** When true, {@link EXTBufferStorage} is supported. */
 	public final boolean GL_EXT_buffer_storage;
+	/** When true, {@link EXTClearTexture} is supported. */
+	public final boolean GL_EXT_clear_texture;
 	/** When true, {@link EXTClipCullDistance} is supported. */
 	public final boolean GL_EXT_clip_cull_distance;
 	/**
@@ -926,6 +930,21 @@ public final class GLESCapabilities {
 	public final boolean GL_EXT_color_buffer_float;
 	/** When true, {@link EXTColorBufferHalfFloat} is supported. */
 	public final boolean GL_EXT_color_buffer_half_float;
+	/**
+	 * When true, the <a href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_conservative_depth.txt">EXT_conservative_depth</a> extension is supported.
+	 * 
+	 * <p>There is a common optimization for hardware accelerated implementation of OpenGL ES which relies on an early depth test to be run before the fragment
+	 * shader so that the shader evaluation can be skipped if the fragment ends up being discarded because it is occluded.</p>
+	 * 
+	 * <p>This optimization does not affect the final rendering, and is typically possible when the fragment does not change the depth programmatically. (i.e.:
+	 * it does not write to the built-in {@code gl_FragDepth} output). There are, however a class of operations on the depth in the shader which could still
+	 * be performed while allowing the early depth test to operate.</p>
+	 * 
+	 * <p>This extension allows the application to pass enough information to the GL implementation to activate such optimizations safely.</p>
+	 * 
+	 * <p>Requires {@link GLES30 GLES 3.0}.</p>
+	 */
+	public final boolean GL_EXT_conservative_depth;
 	/** When true, {@link EXTCopyImage} is supported. */
 	public final boolean GL_EXT_copy_image;
 	/** When true, {@link EXTDebugLabel} is supported. */
@@ -2006,6 +2025,8 @@ public final class GLESCapabilities {
 		glClearDepthf = provider.getFunctionAddress("glClearDepthf");
 		glClearPixelLocalStorageuiEXT = provider.getFunctionAddress("glClearPixelLocalStorageuiEXT");
 		glClearStencil = provider.getFunctionAddress("glClearStencil");
+		glClearTexImageEXT = provider.getFunctionAddress("glClearTexImageEXT");
+		glClearTexSubImage = provider.getFunctionAddress("glClearTexSubImage");
 		glClientWaitSync = provider.getFunctionAddress("glClientWaitSync");
 		glClientWaitSyncAPPLE = provider.getFunctionAddress("glClientWaitSyncAPPLE");
 		glColorMask = provider.getFunctionAddress("glColorMask");
@@ -2763,9 +2784,11 @@ public final class GLESCapabilities {
 		GL_EXT_blend_func_extended = ext.contains("GL_EXT_blend_func_extended") && GLES.checkExtension("GL_EXT_blend_func_extended", EXTBlendFuncExtended.isAvailable(this));
 		GL_EXT_blend_minmax = ext.contains("GL_EXT_blend_minmax");
 		GL_EXT_buffer_storage = ext.contains("GL_EXT_buffer_storage") && GLES.checkExtension("GL_EXT_buffer_storage", EXTBufferStorage.isAvailable(this));
+		GL_EXT_clear_texture = ext.contains("GL_EXT_clear_texture") && GLES.checkExtension("GL_EXT_clear_texture", EXTClearTexture.isAvailable(this));
 		GL_EXT_clip_cull_distance = ext.contains("GL_EXT_clip_cull_distance");
 		GL_EXT_color_buffer_float = ext.contains("GL_EXT_color_buffer_float");
 		GL_EXT_color_buffer_half_float = ext.contains("GL_EXT_color_buffer_half_float");
+		GL_EXT_conservative_depth = ext.contains("GL_EXT_conservative_depth");
 		GL_EXT_copy_image = ext.contains("GL_EXT_copy_image") && GLES.checkExtension("GL_EXT_copy_image", EXTCopyImage.isAvailable(this));
 		GL_EXT_debug_label = ext.contains("GL_EXT_debug_label") && GLES.checkExtension("GL_EXT_debug_label", EXTDebugLabel.isAvailable(this));
 		GL_EXT_debug_marker = ext.contains("GL_EXT_debug_marker") && GLES.checkExtension("GL_EXT_debug_marker", EXTDebugMarker.isAvailable(this));

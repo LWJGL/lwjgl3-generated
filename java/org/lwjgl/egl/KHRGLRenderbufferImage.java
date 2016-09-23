@@ -11,7 +11,7 @@ package org.lwjgl.egl;
  * <p>This extension provides a mechanism for creating EGLImage objects from OpenGL and OpenGL ES (henceforth referred to collectively as 'GL') render
  * buffers.</p>
  * 
- * <p>Requires {@link EGL12 EGL L.1} and {@link KHRImage KHR_image}.</p>
+ * <p>Requires {@link EGL12 EGL 1.2} and {@link KHRImage KHR_image}.</p>
  */
 public final class KHRGLRenderbufferImage {
 

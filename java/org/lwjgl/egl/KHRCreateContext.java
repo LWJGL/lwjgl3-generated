@@ -14,7 +14,7 @@ package org.lwjgl.egl;
  * supporting the ability) current without providing a default framebuffer. The new context creation attributes are also defined to work for OpenGL ES
  * context creation when that makes sense, and the extension has been augmented to allow configs to advertise support for creating OpenGL ES 3.0 contexts.</p>
  * 
- * <p>Requires {@link EGL14 EGL L.1}.</p>
+ * <p>Requires {@link EGL14 EGL 1.4}.</p>
  */
 public final class KHRCreateContext {
 

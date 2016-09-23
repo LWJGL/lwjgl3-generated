@@ -15,7 +15,7 @@ import static org.lwjgl.system.JNI.*;
  * texture as the contents of the texture. This is equivalent to copying the image into the texture, but on most implementations a copy is not needed so
  * this is faster.</p>
  * 
- * <p>Requires {@link EGL12 EGL L.1}.</p>
+ * <p>Requires {@link EGL12 EGL 1.2}.</p>
  */
 public class KHRStreamConsumerGLTexture {
 

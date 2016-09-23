@@ -16,7 +16,7 @@ import static org.lwjgl.system.JNI.*;
  * application may continue to issue commands to the client API context or perform other work in parallel, leading to increased performance. The best
  * performance is likely to be achieved by implementations which can perform this new wait operation in GPU hardware, although this is not required.</p>
  * 
- * <p>Requires {@link EGL11 EGL L.1} and {@link KHRFenceSync KHR_fence_sync}.</p>
+ * <p>Requires {@link EGL11 EGL 1.1} and {@link KHRFenceSync KHR_fence_sync}.</p>
  */
 public class KHRWaitSync {
 

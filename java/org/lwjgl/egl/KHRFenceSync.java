@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * association with a fence command placed in the command stream of a bound OpenGL ES context. The "VG_KHR_EGL_sync" string indicates the same thing for a
  * bound OpenVG context.</p>
  * 
- * <p>Requires {@link EGL11 EGL L.1}.</p>
+ * <p>Requires {@link EGL11 EGL 1.1}.</p>
  */
 public class KHRFenceSync {
 

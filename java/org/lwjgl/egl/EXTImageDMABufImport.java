@@ -10,7 +10,7 @@ package org.lwjgl.egl;
  * 
  * <p>This extension allows creating an EGLImage from a Linux dma_buf file descriptor or multiple file descriptors in the case of multi-plane YUV images.</p>
  * 
- * <p>Requires {@link EGL12 EGL L.1} and {@link KHRImageBase KHR_image_base}. The EGL implementation must be running on a Linux kernel supporting the dma_buf buffer sharing
+ * <p>Requires {@link EGL12 EGL 1.2} and {@link KHRImageBase KHR_image_base}. The EGL implementation must be running on a Linux kernel supporting the dma_buf buffer sharing
  * mechanism.</p>
  */
 public final class EXTImageDMABufImport {

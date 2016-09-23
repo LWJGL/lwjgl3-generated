@@ -16,7 +16,7 @@ package org.lwjgl.egl;
  * 
  * <p>This extension defines a method to create an EGLDisplay from an EGLDeviceEXT by treating the EGLDeviceEXT as an EGLNativeDisplay object.</p>
  * 
- * <p>Requires {@link EXTDeviceBase EXT_device_base} and {@link EXTPlatformBase EXT_platform_base} or {@link EGL15 EGL L.1}.</p>
+ * <p>Requires {@link EXTDeviceBase EXT_device_base} and {@link EXTPlatformBase EXT_platform_base} or {@link EGL15 EGL 1.5}.</p>
  */
 public final class EXTPlatformDevice {
 

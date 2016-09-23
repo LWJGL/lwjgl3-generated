@@ -28,7 +28,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * full-frame copy at the beginning of the frame, as well as a dependency on the previous frame. Usage of this extension avoids both and requires only the
  * necessary updates to a back buffer to be made.</p>
  * 
- * <p>Requires {@link EGL14 EGL L.1}.</p>
+ * <p>Requires {@link EGL14 EGL 1.4}.</p>
  */
 public class KHRPartialUpdate {
 

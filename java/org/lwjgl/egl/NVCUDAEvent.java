@@ -11,7 +11,7 @@ package org.lwjgl.egl;
  * <p>This extension allows creating an EGL sync object linked to a CUDA event object, potentially improving efficiency of sharing images and compute results
  * between the two APIs.</p>
  * 
- * <p>Requires {@link EGL15 EGL L.1} or {@link KHRFenceSync KHR_fence_sync}.</p>
+ * <p>Requires {@link EGL15 EGL 1.5} or {@link KHRFenceSync KHR_fence_sync}.</p>
  */
 public final class NVCUDAEvent {
 

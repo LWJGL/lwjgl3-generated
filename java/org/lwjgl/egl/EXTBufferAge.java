@@ -34,7 +34,7 @@ package org.lwjgl.egl;
  * track of all the regions that have changed over the last n frames and by knowing the age of the buffer they know how to efficiently repair buffers that
  * are re-cycled instead of redrawing the entire scene.</p>
  * 
- * <p>Requires {@link EGL14 EGL L.1}.</p>
+ * <p>Requires {@link EGL14 EGL 1.4}.</p>
  */
 public final class EXTBufferAge {
 

@@ -17,7 +17,7 @@ package org.lwjgl.egl;
  * included in this extension to synchronize rendering with the display. This functionality is not covered by this extension, and vendors are encouraged
  * to provide guidelines on how this is achieved on their implementation.</p>
  * 
- * <p>Requires {@link EGL12 EGL L.1}.</p>
+ * <p>Requires {@link EGL12 EGL 1.2}.</p>
  */
 public final class KHRMutableRenderBuffer {
 

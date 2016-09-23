@@ -16,7 +16,7 @@ package org.lwjgl.egl;
  * <p>This extension describes how EGL will handle YUV surfaces, but requires that the client API describe how to fill such a surface. An example of such an
  * extension would be GL_EXT_yuv_target.</p>
  * 
- * <p>Requires {@link EGL14 EGL L.1}.</p>
+ * <p>Requires {@link EGL14 EGL 1.4}.</p>
  */
 public final class EXTYUVSurface {
 

@@ -11,7 +11,7 @@ package org.lwjgl.egl;
  * <p>Tizen Buffer Manager (TBM) is a user space, generic memory management framework to create and share memory buffers between different system components.
  * This extension enables using a Tizen Buffer Manager (TBM) surface object (struct tbm_surface_h) as an EGLImage source.</p>
  * 
- * <p>Requires {@link EGL12 EGL L.1} and {@link KHRImageBase KHR_image_base}.</p>
+ * <p>Requires {@link EGL12 EGL 1.2} and {@link KHRImageBase KHR_image_base}.</p>
  */
 public final class TIZENImageNativeSurface {
 

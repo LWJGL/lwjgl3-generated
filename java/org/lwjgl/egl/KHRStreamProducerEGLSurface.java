@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>This extension allows an EGLSurface to be created as a producer of images to an EGLStream. Each call to eglSwapBuffers posts a new image frame into the
  * EGLStream.</p>
  * 
- * <p>Requires {@link EGL12 EGL L.1}.</p>
+ * <p>Requires {@link EGL12 EGL 1.2}.</p>
  */
 public class KHRStreamProducerEGLSurface {
 

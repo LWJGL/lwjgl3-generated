@@ -20,7 +20,7 @@ package org.lwjgl.egl;
  * <p>This extension adds a non-linear encoded Z buffer to OpenGL, which can improve the practically useful range of, e.g. 16-bit depth buffers by up to a
  * factor of 16, greatly improving depth test quality in applications where the ratio between the near and far planes can not be as tightly controlled.</p>
  * 
- * <p>Requires {@link EGL11 EGL L.1}.</p>
+ * <p>Requires {@link EGL11 EGL 1.1}.</p>
  */
 public final class NVDepthNonlinear {
 

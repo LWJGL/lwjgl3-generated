@@ -12,7 +12,7 @@ package org.lwjgl.egl;
  * created with respect to a config are expected to pass conformance, and which optional OpenVG color space and alpha mask format attributes are valid at
  * surface creation time.</p>
  * 
- * <p>Requires {@link EGL12 EGL L.1}.</p>
+ * <p>Requires {@link EGL12 EGL 1.2}.</p>
  */
 public final class KHRConfigAttribs {
 

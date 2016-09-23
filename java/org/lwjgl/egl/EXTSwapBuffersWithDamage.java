@@ -20,7 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>This should be used in situations where an application is only animating a small portion of a surface since it enables the compositor to avoid wasting
  * time recomposing parts of the surface that haven't changed.</p>
  * 
- * <p>Requires {@link EGL14 EGL L.1}.</p>
+ * <p>Requires {@link EGL14 EGL 1.4}.</p>
  */
 public class EXTSwapBuffersWithDamage {
 

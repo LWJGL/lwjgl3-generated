@@ -16,7 +16,7 @@ import static org.lwjgl.system.JNI.*;
  * back surface, or redraw the entire back buffer on every update and hope eglSwapBuffers is implemented using buffer-flipping. This extension provides a
  * 3rd alternative: a function which posts a sub-rectangle of a window surface and preserves the back-buffer contents.</p>
  * 
- * <p>Requires {@link EGL11 EGL L.1}.</p>
+ * <p>Requires {@link EGL11 EGL 1.1}.</p>
  */
 public class NVPostSubBuffer {
 

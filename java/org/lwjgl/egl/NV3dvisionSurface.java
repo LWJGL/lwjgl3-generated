@@ -15,7 +15,7 @@ package org.lwjgl.egl;
  * 
  * <p>This extension provides the ability to explicitly create a surface with 3D Vision support regardless of application detection.</p>
  * 
- * <p>Requires {@link EGL14 EGL L.1}.</p>
+ * <p>Requires {@link EGL14 EGL 1.4}.</p>
  */
 public final class NV3dvisionSurface {
 

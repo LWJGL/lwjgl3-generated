@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>This extension provides entry points for integrating EGLImage with the Linux DRM mode setting and memory management drivers. The extension lets
  * applications create EGLImages without a client API resource and lets the application get the DRM buffer handles.</p>
  * 
- * <p>Requires {@link EGL14 EGL L.1} and {@link KHRImageBase KHR_image_base}.</p>
+ * <p>Requires {@link EGL14 EGL 1.4} and {@link KHRImageBase KHR_image_base}.</p>
  */
 public class MESADRMImage {
 

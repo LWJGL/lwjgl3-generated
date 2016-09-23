@@ -10,7 +10,7 @@ package org.lwjgl.egl;
  * 
  * <p>This extension enables using a Tizen native buffer (struct native_buffer) as an EGLImage source.</p>
  * 
- * <p>Requires {@link EGL12 EGL L.1}.</p>
+ * <p>Requires {@link EGL12 EGL 1.2}.</p>
  */
 public final class TIZENImageNativeBuffer {
 

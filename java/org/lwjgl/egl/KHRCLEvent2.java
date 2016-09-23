@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>This extension also incorporates some required functionality from the EGL_KHR_fence_sync extension, similarly modified for 64-bit platforms.</p>
  * 
- * <p>Requires {@link EGL14 EGL L.1} and {@link KHRFenceSync KHR_fence_sync}.</p>
+ * <p>Requires {@link EGL14 EGL 1.4} and {@link KHRFenceSync KHR_fence_sync}.</p>
  */
 public class KHRCLEvent2 {
 

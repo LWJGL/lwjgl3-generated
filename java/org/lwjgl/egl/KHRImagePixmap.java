@@ -10,7 +10,7 @@ package org.lwjgl.egl;
  * 
  * <p>This extension allows creating an EGLImage from a native pixmap image.</p>
  * 
- * <p>Requires {@link EGL12 EGL L.1} and {@link KHRImageBase KHR_image_base}.</p>
+ * <p>Requires {@link EGL12 EGL 1.2} and {@link KHRImageBase KHR_image_base}.</p>
  */
 public final class KHRImagePixmap {
 

@@ -11,7 +11,7 @@ package org.lwjgl.egl;
  * <p>This extension defines how to create EGL resources from native GBM resources using the EGL 1.5 platform functionality (GBM is a Generic Buffer Manager
  * for Linux).</p>
  * 
- * <p>Requires {@link EGL15 EGL L.1}.</p>
+ * <p>Requires {@link EGL15 EGL 1.5}.</p>
  */
 public final class KHRPlatformGBM {
 
