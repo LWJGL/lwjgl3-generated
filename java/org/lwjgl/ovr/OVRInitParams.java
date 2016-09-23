@@ -22,8 +22,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code Flags} &ndash; flags from {@code ovrInitFlags} to override default behavior. Use 0 for the defaults.</li>
  * <li>{@code RequestedMinorVersion} &ndash; 
- * requests a specific minimum minor version of the LibOVR runtime. Flags must include {@link OVR#ovrInit_RequestVersion} or this will be ignored and
- * {@link OVRVersion#OVR_MINOR_VERSION} will be used.</li>
+ * requests a specific minor version of the LibOVR runtime. Flags must include {@link OVR#ovrInit_RequestVersion Init_RequestVersion} or this will be ignored and {@link OVRVersion#OVR_MINOR_VERSION MINOR_VERSION} will
+ * be used. If you are directly calling the LibOVRRT version of {@link OVR#ovr_Initialize Initialize} in the LibOVRRT DLL then this must be valid and include
+ * {@link OVR#ovrInit_RequestVersion Init_RequestVersion}.</li>
  * <li>{@code LogCallback} &ndash; 
  * user-supplied log callback function, which may be called at any time asynchronously from multiple threads until {@link OVR#ovr_Shutdown} completes. Use {@code NULL}
  * to specify no log callback.</li>

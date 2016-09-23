@@ -21,6 +21,12 @@ public class OVRErrorCode {
 	 */
 	public static final int ovrSuccess_NotVisible = 1000;
 
+	/** Boundary is invalid due to sensor change or was not setup. */
+	public static final int ovrSuccess_BoundaryInvalid = 1001;
+
+	/** Device is not available for the requested operation. */
+	public static final int ovrSuccess_DeviceUnavailable = 1001;
+
 	/** Failure to allocate memory. */
 	public static final int ovrError_MemoryAllocationFailure = -1000;
 

@@ -32,6 +32,10 @@ public class OVR {
 	/**
 	 * When a version is requested, the LibOVR runtime respects the {@code RequestedMinorVersion} field and verifies that the
 	 * {@code RequestedMinorVersion} is supported.
+	 * 
+	 * <p>When a version is requested, the LibOVR runtime respects the {@code RequestedMinorVersion} field and verifies that the
+	 * {@code RequestedMinorVersion} is supported. Normally when you specify this flag you simply use {@link OVRVersion#OVR_MINOR_VERSION MINOR_VERSION} for
+	 * {@link OVRInitParams}{@code ::RequestedMinorVersion}, though you could use a lower version than {@link OVRVersion#OVR_MINOR_VERSION MINOR_VERSION} to specify previous version behavior.</p>
 	 */
 	public static final int ovrInit_RequestVersion = 0x4;
 
@@ -332,10 +336,18 @@ public class OVR {
 		ovrTrackedDevice_Touch  = 0x6,
 		ovrTrackedDevice_All    = 0xFFFF;
 
+	/** Boundary types that specified while using the boundary system. ({@code ovrBoundaryType}) */
+	public static final int
+		ovrBoundary_Outer    = 0x1,
+		ovrBoundary_PlayArea = 0x100;
+
 	/** Names for the left and right hand array indexes. ({@code ovrHandType}) */
 	public static final int
 		ovrHand_Left  = 0x0,
 		ovrHand_Right = 0x1;
+
+	/** Maximum number of frames of performance stats provided back to the caller of {@link #ovr_GetPerfStats GetPerfStats}. */
+	public static final int ovrMaxProvidedFrameStats = 0x5;
 
 	/** Specifies the maximum number of layers supported by {@link #ovr_SubmitFrame SubmitFrame}. */
 	public static final int ovrMaxLayerCount = 16;
@@ -430,7 +442,8 @@ public class OVR {
 	 * <li>Standard OS shared library search location(s) (OS-specific).</li>
 	 * </ol>
 	 *
-	 * @param params an {@link OVRInitParams} struct that cpecifies custom initialization options. May be {@code NULL} to indicate default options.
+	 * @param params specifies custom initialization options. May be {@code NULL} to indicate default options when using the CAPI shim. If you are directly calling the
+	 *               LibOVRRT version of {@code ovr_Initialize} in the LibOVRRT DLL then this must be valid and include {@link #ovrInit_RequestVersion Init_RequestVersion}.
 	 *
 	 * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link #ovr_GetLastErrorInfo GetLastErrorInfo} to get more information. Example failed results
 	 *         include:
@@ -465,7 +478,8 @@ public class OVR {
 	 * <li>Standard OS shared library search location(s) (OS-specific).</li>
 	 * </ol>
 	 *
-	 * @param params an {@link OVRInitParams} struct that cpecifies custom initialization options. May be {@code NULL} to indicate default options.
+	 * @param params specifies custom initialization options. May be {@code NULL} to indicate default options when using the CAPI shim. If you are directly calling the
+	 *               LibOVRRT version of {@code ovr_Initialize} in the LibOVRRT DLL then this must be valid and include {@link #ovrInit_RequestVersion Init_RequestVersion}.
 	 *
 	 * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link #ovr_GetLastErrorInfo GetLastErrorInfo} to get more information. Example failed results
 	 *         include:
@@ -735,18 +749,18 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	// --- [ ovr_GetTrackerCount ] ---
 
 	/**
-	 * Returns the number of sensors.
+	 * Returns the number of attached trackers.
 	 * 
-	 * <p>The number of sensors may change at any time, so this function should be called before use as opposed to once on startup.</p>
+	 * <p>The number of trackers may change at any time, so this function should be called before use as opposed to once on startup.</p>
 	 *
 	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
 	 */
 	public static native int novr_GetTrackerCount(long session);
 
 	/**
-	 * Returns the number of sensors.
+	 * Returns the number of attached trackers.
 	 * 
-	 * <p>The number of sensors may change at any time, so this function should be called before use as opposed to once on startup.</p>
+	 * <p>The number of trackers may change at any time, so this function should be called before use as opposed to once on startup.</p>
 	 *
 	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
 	 */
@@ -759,29 +773,25 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	// --- [ ovr_GetTrackerDesc ] ---
 
 	/**
-	 * Returns a given sensor description.
-	 * 
-	 * <p>It's possible that sensor {@code desc [0]} may indicate a unconnected or non-pose tracked sensor, but sensor {@code desc [1]} may be connected.</p>
+	 * Returns a given attached tracker description.
 	 * 
 	 * <p>{@link #ovr_Initialize Initialize} must have first been called in order for this to succeed, otherwise the returned {@code trackerDescArray} will be zero-initialized. The
 	 * data returned by this function can change at runtime.</p>
 	 *
 	 * @param session          an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param trackerDescIndex a sensor index. The valid indexes are in the range of 0 to the sensor count returned by {@link #ovr_GetTrackerCount GetTrackerCount}.
+	 * @param trackerDescIndex a tracker index. The valid indexes are in the range of 0 to the tracker count returned by {@link #ovr_GetTrackerCount GetTrackerCount}.
 	 * @param __result         an {@link OVRTrackerDesc}. An empty {@code OVRTrackerDesc} will be returned if {@code trackerDescIndex} is out of range.
 	 */
 	public static native void novr_GetTrackerDesc(long session, int trackerDescIndex, long __result);
 
 	/**
-	 * Returns a given sensor description.
-	 * 
-	 * <p>It's possible that sensor {@code desc [0]} may indicate a unconnected or non-pose tracked sensor, but sensor {@code desc [1]} may be connected.</p>
+	 * Returns a given attached tracker description.
 	 * 
 	 * <p>{@link #ovr_Initialize Initialize} must have first been called in order for this to succeed, otherwise the returned {@code trackerDescArray} will be zero-initialized. The
 	 * data returned by this function can change at runtime.</p>
 	 *
 	 * @param session          an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param trackerDescIndex a sensor index. The valid indexes are in the range of 0 to the sensor count returned by {@link #ovr_GetTrackerCount GetTrackerCount}.
+	 * @param trackerDescIndex a tracker index. The valid indexes are in the range of 0 to the tracker count returned by {@link #ovr_GetTrackerCount GetTrackerCount}.
 	 * @param __result         an {@link OVRTrackerDesc}. An empty {@code OVRTrackerDesc} will be returned if {@code trackerDescIndex} is out of range.
 	 */
 	public static OVRTrackerDesc ovr_GetTrackerDesc(long session, int trackerDescIndex, OVRTrackerDesc __result) {
@@ -1027,18 +1037,18 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	// --- [ ovr_GetTrackerPose ] ---
 
 	/**
-	 * Returns the {@link OVRTrackerPose} for the given sensor.
+	 * Returns the {@link OVRTrackerPose} for the given attached tracker.
 	 *
 	 * @param session          an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param trackerPoseIndex index of the sensor being requested.
+	 * @param trackerPoseIndex index of the tracker being requested.
 	 */
 	public static native void novr_GetTrackerPose(long session, int trackerPoseIndex, long __result);
 
 	/**
-	 * Returns the {@link OVRTrackerPose} for the given sensor.
+	 * Returns the {@link OVRTrackerPose} for the given attached tracker.
 	 *
 	 * @param session          an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param trackerPoseIndex index of the sensor being requested.
+	 * @param trackerPoseIndex index of the tracker being requested.
 	 */
 	public static OVRTrackerPose ovr_GetTrackerPose(long session, int trackerPoseIndex, OVRTrackerPose __result) {
 		if ( CHECKS )
@@ -1137,7 +1147,12 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 * @param frequency      the vibration frequency. Supported values are: 0.0 (disabled), 0.5 and 1.0. Non valid values will be clamped.
 	 * @param amplitude      the vibration amplitude in the {@code [0.0, 1.0]} range
 	 *
-	 * @return {@link OVRErrorCode#ovrSuccess Success} upon success
+	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
+	 *         
+	 *         <ul>
+	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: The call succeeded and a result was returned.</li>
+	 *         <li>{@link OVRErrorCode#ovrSuccess_DeviceUnavailable Success_DeviceUnavailable}: The call succeeded but the device referred to by {@code controllerType} is not available.</li>
+	 *         </ul>
 	 */
 	public static native int novr_SetControllerVibration(long session, int controllerType, float frequency, float amplitude);
 
@@ -1154,7 +1169,12 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 * @param frequency      the vibration frequency. Supported values are: 0.0 (disabled), 0.5 and 1.0. Non valid values will be clamped.
 	 * @param amplitude      the vibration amplitude in the {@code [0.0, 1.0]} range
 	 *
-	 * @return {@link OVRErrorCode#ovrSuccess Success} upon success
+	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
+	 *         
+	 *         <ul>
+	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: The call succeeded and a result was returned.</li>
+	 *         <li>{@link OVRErrorCode#ovrSuccess_DeviceUnavailable Success_DeviceUnavailable}: The call succeeded but the device referred to by {@code controllerType} is not available.</li>
+	 *         </ul>
 	 */
 	public static int ovr_SetControllerVibration(long session, int controllerType, float frequency, float amplitude) {
 		if ( CHECKS )
@@ -1173,7 +1193,12 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 * @param controllerType the controller where the Haptics buffer will be played
 	 * @param buffer         the Haptics buffer containing amplitude samples to be played
 	 *
-	 * @return {@link OVRErrorCode#ovrSuccess Success} upon success
+	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
+	 *         
+	 *         <ul>
+	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: The call succeeded and a result was returned.</li>
+	 *         <li>{@link OVRErrorCode#ovrSuccess_DeviceUnavailable Success_DeviceUnavailable}: The call succeeded but the device referred to by {@code controllerType} is not available.</li>
+	 *         </ul>
 	 */
 	public static native int novr_SubmitControllerVibration(long session, int controllerType, long buffer);
 
@@ -1186,7 +1211,12 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 * @param controllerType the controller where the Haptics buffer will be played
 	 * @param buffer         the Haptics buffer containing amplitude samples to be played
 	 *
-	 * @return {@link OVRErrorCode#ovrSuccess Success} upon success
+	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
+	 *         
+	 *         <ul>
+	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: The call succeeded and a result was returned.</li>
+	 *         <li>{@link OVRErrorCode#ovrSuccess_DeviceUnavailable Success_DeviceUnavailable}: The call succeeded but the device referred to by {@code controllerType} is not available.</li>
+	 *         </ul>
 	 */
 	public static int ovr_SubmitControllerVibration(long session, int controllerType, OVRHapticsBuffer buffer) {
 		if ( CHECKS ) {
@@ -1205,7 +1235,12 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 * @param controllerType the controller where the Haptics buffer will be played
 	 * @param outState       the state of the haptics engine
 	 *
-	 * @return {@link OVRErrorCode#ovrSuccess Success} upon success
+	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
+	 *         
+	 *         <ul>
+	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: The call succeeded and a result was returned.</li>
+	 *         <li>{@link OVRErrorCode#ovrSuccess_DeviceUnavailable Success_DeviceUnavailable}: The call succeeded but the device referred to by {@code controllerType} is not available.</li>
+	 *         </ul>
 	 */
 	public static native int novr_GetControllerVibrationState(long session, int controllerType, long outState);
 
@@ -1216,12 +1251,299 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 * @param controllerType the controller where the Haptics buffer will be played
 	 * @param outState       the state of the haptics engine
 	 *
-	 * @return {@link OVRErrorCode#ovrSuccess Success} upon success
+	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
+	 *         
+	 *         <ul>
+	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: The call succeeded and a result was returned.</li>
+	 *         <li>{@link OVRErrorCode#ovrSuccess_DeviceUnavailable Success_DeviceUnavailable}: The call succeeded but the device referred to by {@code controllerType} is not available.</li>
+	 *         </ul>
 	 */
 	public static int ovr_GetControllerVibrationState(long session, int controllerType, OVRHapticsPlaybackState outState) {
 		if ( CHECKS )
 			checkPointer(session);
 		return novr_GetControllerVibrationState(session, controllerType, outState.address());
+	}
+
+	// --- [ ovr_TestBoundary ] ---
+
+	/**
+	 * Tests collision/proximity of position tracked devices (e.g. HMD and/or Touch) against the Boundary System.
+	 * 
+	 * <p>Note: this method is similar to {@link #ovr_BoundaryTestPoint BoundaryTestPoint} but can be more precise as it may take into account device acceleration/momentum.</p>
+	 *
+	 * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param deviceBitmask bitmask of one or more tracked devices to test. One or more of:<br><table><tr><td>{@link #ovrTrackedDevice_HMD TrackedDevice_HMD}</td><td>{@link #ovrTrackedDevice_LTouch TrackedDevice_LTouch}</td><td>{@link #ovrTrackedDevice_RTouch TrackedDevice_RTouch}</td><td>{@link #ovrTrackedDevice_Touch TrackedDevice_Touch}</td></tr><tr><td>{@link #ovrTrackedDevice_All TrackedDevice_All}</td></tr></table>
+	 * @param boundaryType  the boundary type. One of:<br><table><tr><td>{@link #ovrBoundary_Outer Boundary_Outer}</td><td>{@link #ovrBoundary_PlayArea Boundary_PlayArea}</td></tr></table>
+	 * @param outTestResult result of collision/proximity test, contains information such as distance and closest point
+	 *
+	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
+	 *         
+	 *         <ul>
+	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: The call succeeded and a result was returned.</li>
+	 *         <li>{@link OVRErrorCode#ovrSuccess_BoundaryInvalid Success_BoundaryInvalid}: The call succeeded but the result is not a valid boundary due to not being set up.</li>
+	 *         <li>{@link OVRErrorCode#ovrSuccess_DeviceUnavailable Success_DeviceUnavailable}: The call succeeded but the device referred to by {@code deviceBitmask} is not available.</li>
+	 *         </ul>
+	 */
+	public static native int novr_TestBoundary(long session, int deviceBitmask, int boundaryType, long outTestResult);
+
+	/**
+	 * Tests collision/proximity of position tracked devices (e.g. HMD and/or Touch) against the Boundary System.
+	 * 
+	 * <p>Note: this method is similar to {@link #ovr_BoundaryTestPoint BoundaryTestPoint} but can be more precise as it may take into account device acceleration/momentum.</p>
+	 *
+	 * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param deviceBitmask bitmask of one or more tracked devices to test. One or more of:<br><table><tr><td>{@link #ovrTrackedDevice_HMD TrackedDevice_HMD}</td><td>{@link #ovrTrackedDevice_LTouch TrackedDevice_LTouch}</td><td>{@link #ovrTrackedDevice_RTouch TrackedDevice_RTouch}</td><td>{@link #ovrTrackedDevice_Touch TrackedDevice_Touch}</td></tr><tr><td>{@link #ovrTrackedDevice_All TrackedDevice_All}</td></tr></table>
+	 * @param boundaryType  the boundary type. One of:<br><table><tr><td>{@link #ovrBoundary_Outer Boundary_Outer}</td><td>{@link #ovrBoundary_PlayArea Boundary_PlayArea}</td></tr></table>
+	 * @param outTestResult result of collision/proximity test, contains information such as distance and closest point
+	 *
+	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
+	 *         
+	 *         <ul>
+	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: The call succeeded and a result was returned.</li>
+	 *         <li>{@link OVRErrorCode#ovrSuccess_BoundaryInvalid Success_BoundaryInvalid}: The call succeeded but the result is not a valid boundary due to not being set up.</li>
+	 *         <li>{@link OVRErrorCode#ovrSuccess_DeviceUnavailable Success_DeviceUnavailable}: The call succeeded but the device referred to by {@code deviceBitmask} is not available.</li>
+	 *         </ul>
+	 */
+	public static int ovr_TestBoundary(long session, int deviceBitmask, int boundaryType, OVRBoundaryTestResult outTestResult) {
+		if ( CHECKS )
+			checkPointer(session);
+		return novr_TestBoundary(session, deviceBitmask, boundaryType, outTestResult.address());
+	}
+
+	// --- [ ovr_TestBoundaryPoint ] ---
+
+	/**
+	 * Tests collision/proximity of a 3D point against the Boundary System.
+	 *
+	 * @param session            an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param point              the 3D point to test
+	 * @param singleBoundaryType the boundary type. One of:<br><table><tr><td>{@link #ovrBoundary_Outer Boundary_Outer}</td><td>{@link #ovrBoundary_PlayArea Boundary_PlayArea}</td></tr></table>
+	 * @param outTestResult      result of collision/proximity test, contains information such as distance and closest point
+	 *
+	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
+	 *         
+	 *         <ul>
+	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: The call succeeded and a result was returned.</li>
+	 *         <li>{@link OVRErrorCode#ovrSuccess_BoundaryInvalid Success_BoundaryInvalid}: The call succeeded but the result is not a valid boundary due to not being set up.</li>
+	 *         </ul>
+	 */
+	public static native int novr_TestBoundaryPoint(long session, long point, int singleBoundaryType, long outTestResult);
+
+	/**
+	 * Tests collision/proximity of a 3D point against the Boundary System.
+	 *
+	 * @param session            an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param point              the 3D point to test
+	 * @param singleBoundaryType the boundary type. One of:<br><table><tr><td>{@link #ovrBoundary_Outer Boundary_Outer}</td><td>{@link #ovrBoundary_PlayArea Boundary_PlayArea}</td></tr></table>
+	 * @param outTestResult      result of collision/proximity test, contains information such as distance and closest point
+	 *
+	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
+	 *         
+	 *         <ul>
+	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: The call succeeded and a result was returned.</li>
+	 *         <li>{@link OVRErrorCode#ovrSuccess_BoundaryInvalid Success_BoundaryInvalid}: The call succeeded but the result is not a valid boundary due to not being set up.</li>
+	 *         </ul>
+	 */
+	public static int ovr_TestBoundaryPoint(long session, OVRVector3f point, int singleBoundaryType, OVRBoundaryTestResult outTestResult) {
+		if ( CHECKS )
+			checkPointer(session);
+		return novr_TestBoundaryPoint(session, point.address(), singleBoundaryType, outTestResult.address());
+	}
+
+	// --- [ ovr_SetBoundaryLookAndFeel ] ---
+
+	/**
+	 * Sets the look and feel of the Boundary System.
+	 *
+	 * @param session     an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param lookAndFeel the look and feel parameters
+	 *
+	 * @return {@link OVRErrorCode#ovrSuccess Success} upon success
+	 */
+	public static native int novr_SetBoundaryLookAndFeel(long session, long lookAndFeel);
+
+	/**
+	 * Sets the look and feel of the Boundary System.
+	 *
+	 * @param session     an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param lookAndFeel the look and feel parameters
+	 *
+	 * @return {@link OVRErrorCode#ovrSuccess Success} upon success
+	 */
+	public static int ovr_SetBoundaryLookAndFeel(long session, OVRBoundaryLookAndFeel lookAndFeel) {
+		if ( CHECKS )
+			checkPointer(session);
+		return novr_SetBoundaryLookAndFeel(session, lookAndFeel.address());
+	}
+
+	// --- [ ovr_ResetBoundaryLookAndFeel ] ---
+
+	/**
+	 * Resets the look and feel of the Boundary System to its default state.
+	 *
+	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 *
+	 * @return {@link OVRErrorCode#ovrSuccess Success} upon success
+	 */
+	public static native int novr_ResetBoundaryLookAndFeel(long session);
+
+	/**
+	 * Resets the look and feel of the Boundary System to its default state.
+	 *
+	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 *
+	 * @return {@link OVRErrorCode#ovrSuccess Success} upon success
+	 */
+	public static int ovr_ResetBoundaryLookAndFeel(long session) {
+		if ( CHECKS )
+			checkPointer(session);
+		return novr_ResetBoundaryLookAndFeel(session);
+	}
+
+	// --- [ ovr_GetBoundaryGeometry ] ---
+
+	/**
+	 * Gets the geometry of the Boundary System's "play area" or "outer boundary" as 3D floor points.
+	 *
+	 * @param session             an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param boundaryType        the boundary type. One of:<br><table><tr><td>{@link #ovrBoundary_Outer Boundary_Outer}</td><td>{@link #ovrBoundary_PlayArea Boundary_PlayArea}</td></tr></table>
+	 * @param outFloorPoints      an array of 3D points (in clockwise order) defining the boundary at floor height (up to 256)
+	 * @param outFloorPointsCount the number of 3D points returned in the array
+	 *
+	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
+	 *         
+	 *         <ul>
+	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: The call succeeded and a result was returned.</li>
+	 *         <li>{@link OVRErrorCode#ovrSuccess_BoundaryInvalid Success_BoundaryInvalid}: The call succeeded but the result is not a valid boundary due to not being set up.</li>
+	 *         </ul>
+	 */
+	public static native int novr_GetBoundaryGeometry(long session, int boundaryType, long outFloorPoints, long outFloorPointsCount);
+
+	/**
+	 * Gets the geometry of the Boundary System's "play area" or "outer boundary" as 3D floor points.
+	 *
+	 * @param session             an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param boundaryType        the boundary type. One of:<br><table><tr><td>{@link #ovrBoundary_Outer Boundary_Outer}</td><td>{@link #ovrBoundary_PlayArea Boundary_PlayArea}</td></tr></table>
+	 * @param outFloorPoints      an array of 3D points (in clockwise order) defining the boundary at floor height (up to 256)
+	 * @param outFloorPointsCount the number of 3D points returned in the array
+	 *
+	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
+	 *         
+	 *         <ul>
+	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: The call succeeded and a result was returned.</li>
+	 *         <li>{@link OVRErrorCode#ovrSuccess_BoundaryInvalid Success_BoundaryInvalid}: The call succeeded but the result is not a valid boundary due to not being set up.</li>
+	 *         </ul>
+	 */
+	public static int ovr_GetBoundaryGeometry(long session, int boundaryType, OVRVector3f outFloorPoints, IntBuffer outFloorPointsCount) {
+		if ( CHECKS )
+			checkPointer(session);
+		return novr_GetBoundaryGeometry(session, boundaryType, outFloorPoints == null ? NULL : outFloorPoints.address(), memAddressSafe(outFloorPointsCount));
+	}
+
+	// --- [ ovr_GetBoundaryDimensions ] ---
+
+	/**
+	 * Gets the dimension of the Boundary System's "play area" or "outer boundary".
+	 *
+	 * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param boundaryType  the boundary type. One of:<br><table><tr><td>{@link #ovrBoundary_Outer Boundary_Outer}</td><td>{@link #ovrBoundary_PlayArea Boundary_PlayArea}</td></tr></table>
+	 * @param outDimensions dimensions of the axis aligned bounding box that encloses the area in meters (width, height and length)
+	 *
+	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
+	 *         
+	 *         <ul>
+	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: The call succeeded and a result was returned.</li>
+	 *         <li>{@link OVRErrorCode#ovrSuccess_BoundaryInvalid Success_BoundaryInvalid}: The call succeeded but the result is not a valid boundary due to not being set up.</li>
+	 *         </ul>
+	 */
+	public static native int novr_GetBoundaryDimensions(long session, int boundaryType, long outDimensions);
+
+	/**
+	 * Gets the dimension of the Boundary System's "play area" or "outer boundary".
+	 *
+	 * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param boundaryType  the boundary type. One of:<br><table><tr><td>{@link #ovrBoundary_Outer Boundary_Outer}</td><td>{@link #ovrBoundary_PlayArea Boundary_PlayArea}</td></tr></table>
+	 * @param outDimensions dimensions of the axis aligned bounding box that encloses the area in meters (width, height and length)
+	 *
+	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
+	 *         
+	 *         <ul>
+	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: The call succeeded and a result was returned.</li>
+	 *         <li>{@link OVRErrorCode#ovrSuccess_BoundaryInvalid Success_BoundaryInvalid}: The call succeeded but the result is not a valid boundary due to not being set up.</li>
+	 *         </ul>
+	 */
+	public static int ovr_GetBoundaryDimensions(long session, int boundaryType, OVRVector3f outDimensions) {
+		if ( CHECKS )
+			checkPointer(session);
+		return novr_GetBoundaryDimensions(session, boundaryType, outDimensions.address());
+	}
+
+	// --- [ ovr_GetBoundaryVisible ] ---
+
+	/**
+	 * Returns if the boundary is currently visible.
+	 * 
+	 * <p>Note: visibility is false if the user has turned off boundaries, otherwise, it's true if the app has requested boundaries to be visible or if any
+	 * tracked device is currently triggering it. This may not exactly match rendering due to fade-in and fade-out effects.</p>
+	 *
+	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param outIsVisible {@link #ovrTrue True}, if the boundary is visible
+	 *
+	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
+	 *         
+	 *         <ul>
+	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: The call succeeded and a result was returned.</li>
+	 *         <li>{@link OVRErrorCode#ovrSuccess_BoundaryInvalid Success_BoundaryInvalid}: The call succeeded but the result is not a valid boundary due to not being set up.</li>
+	 *         </ul>
+	 */
+	public static native int novr_GetBoundaryVisible(long session, long outIsVisible);
+
+	/**
+	 * Returns if the boundary is currently visible.
+	 * 
+	 * <p>Note: visibility is false if the user has turned off boundaries, otherwise, it's true if the app has requested boundaries to be visible or if any
+	 * tracked device is currently triggering it. This may not exactly match rendering due to fade-in and fade-out effects.</p>
+	 *
+	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param outIsVisible {@link #ovrTrue True}, if the boundary is visible
+	 *
+	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
+	 *         
+	 *         <ul>
+	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: The call succeeded and a result was returned.</li>
+	 *         <li>{@link OVRErrorCode#ovrSuccess_BoundaryInvalid Success_BoundaryInvalid}: The call succeeded but the result is not a valid boundary due to not being set up.</li>
+	 *         </ul>
+	 */
+	public static int ovr_GetBoundaryVisible(long session, ByteBuffer outIsVisible) {
+		if ( CHECKS )
+			checkPointer(session);
+		return novr_GetBoundaryVisible(session, memAddress(outIsVisible));
+	}
+
+	// --- [ ovr_RequestBoundaryVisible ] ---
+
+	/**
+	 * Requests boundary to be visible.
+	 *
+	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param visible forces the outer boundary to be visible. An application can't force it to be invisible, but can cancel its request by passing false.
+	 *
+	 * @return {@link OVRErrorCode#ovrSuccess Success} upon success
+	 */
+	public static native int novr_RequestBoundaryVisible(long session, boolean visible);
+
+	/**
+	 * Requests boundary to be visible.
+	 *
+	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param visible forces the outer boundary to be visible. An application can't force it to be invisible, but can cancel its request by passing false.
+	 *
+	 * @return {@link OVRErrorCode#ovrSuccess Success} upon success
+	 */
+	public static int ovr_RequestBoundaryVisible(long session, boolean visible) {
+		if ( CHECKS )
+			checkPointer(session);
+		return novr_RequestBoundaryVisible(session, visible);
 	}
 
 	// --- [ ovr_GetTextureSwapChainLength ] ---
@@ -1560,6 +1882,70 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 		if ( CHECKS )
 			checkPointer(session);
 		return novr_SubmitFrame(session, frameIndex, viewScaleDesc == null ? NULL : viewScaleDesc.address(), memAddress(layerPtrList), layerPtrList.remaining());
+	}
+
+	// --- [ ovr_GetPerfStats ] ---
+
+	/**
+	 * Retrieves performance stats for the VR app as well as the SDK compositor.
+	 * 
+	 * <p>If the app calling this function is not the one in focus (i.e. not visible in the HMD), then {@code outStats} will be zero'd out. New stats are
+	 * populated after each successive call to {@link #ovr_SubmitFrame SubmitFrame}. So the app should call this function on the same thread it calls {@link #ovr_SubmitFrame SubmitFrame}, preferably
+	 * immediately afterwards.</p>
+	 *
+	 * @param session  an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param outStats contains the performance stats for the application and SDK compositor
+	 *
+	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success
+	 */
+	public static native int novr_GetPerfStats(long session, long outStats);
+
+	/**
+	 * Retrieves performance stats for the VR app as well as the SDK compositor.
+	 * 
+	 * <p>If the app calling this function is not the one in focus (i.e. not visible in the HMD), then {@code outStats} will be zero'd out. New stats are
+	 * populated after each successive call to {@link #ovr_SubmitFrame SubmitFrame}. So the app should call this function on the same thread it calls {@link #ovr_SubmitFrame SubmitFrame}, preferably
+	 * immediately afterwards.</p>
+	 *
+	 * @param session  an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 * @param outStats contains the performance stats for the application and SDK compositor
+	 *
+	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success
+	 */
+	public static int ovr_GetPerfStats(long session, OVRPerfStats outStats) {
+		if ( CHECKS )
+			checkPointer(session);
+		return novr_GetPerfStats(session, outStats.address());
+	}
+
+	// --- [ ovr_ResetPerfStats ] ---
+
+	/**
+	 * Resets the accumulated stats reported in each {@link OVRPerfStatsPerCompositorFrame} back to zero.
+	 * 
+	 * <p>Only the integer values such as {@code HmdVsyncIndex}, {@code AppDroppedFrameCount} etc. will be reset as the other fields such as
+	 * {@code AppMotionToPhotonLatency} are independent timing values updated per-frame.</p>
+	 *
+	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 *
+	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success
+	 */
+	public static native int novr_ResetPerfStats(long session);
+
+	/**
+	 * Resets the accumulated stats reported in each {@link OVRPerfStatsPerCompositorFrame} back to zero.
+	 * 
+	 * <p>Only the integer values such as {@code HmdVsyncIndex}, {@code AppDroppedFrameCount} etc. will be reset as the other fields such as
+	 * {@code AppMotionToPhotonLatency} are independent timing values updated per-frame.</p>
+	 *
+	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+	 *
+	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success
+	 */
+	public static int ovr_ResetPerfStats(long session) {
+		if ( CHECKS )
+			checkPointer(session);
+		return novr_ResetPerfStats(session);
 	}
 
 	// --- [ ovr_GetPredictedDisplayTime ] ---
@@ -2170,6 +2556,16 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 		} finally {
 			stack.setPointer(stackPointer);
 		}
+	}
+
+	/** Array version of: {@link #ovr_GetBoundaryGeometry GetBoundaryGeometry} */
+	public static native int novr_GetBoundaryGeometry(long session, int boundaryType, long outFloorPoints, int[] outFloorPointsCount);
+
+	/** Array version of: {@link #ovr_GetBoundaryGeometry GetBoundaryGeometry} */
+	public static int ovr_GetBoundaryGeometry(long session, int boundaryType, OVRVector3f outFloorPoints, int[] outFloorPointsCount) {
+		if ( CHECKS )
+			checkPointer(session);
+		return novr_GetBoundaryGeometry(session, boundaryType, outFloorPoints == null ? NULL : outFloorPoints.address(), outFloorPointsCount);
 	}
 
 	/** Array version of: {@link #ovr_GetTextureSwapChainLength GetTextureSwapChainLength} */

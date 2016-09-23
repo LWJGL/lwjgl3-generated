@@ -163,6 +163,62 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetControllerVibrationState(
 	return (jint)ovr_GetControllerVibrationState(session, controllerType, outState);
 }
 
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1TestBoundary(JNIEnv *__env, jclass clazz, jlong sessionAddress, jint deviceBitmask, jint boundaryType, jlong outTestResultAddress) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	ovrBoundaryTestResult *outTestResult = (ovrBoundaryTestResult *)(intptr_t)outTestResultAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)ovr_TestBoundary(session, deviceBitmask, boundaryType, outTestResult);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1TestBoundaryPoint(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong pointAddress, jint singleBoundaryType, jlong outTestResultAddress) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	const ovrVector3f *point = (const ovrVector3f *)(intptr_t)pointAddress;
+	ovrBoundaryTestResult *outTestResult = (ovrBoundaryTestResult *)(intptr_t)outTestResultAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)ovr_TestBoundaryPoint(session, point, singleBoundaryType, outTestResult);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1SetBoundaryLookAndFeel(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong lookAndFeelAddress) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	const ovrBoundaryLookAndFeel *lookAndFeel = (const ovrBoundaryLookAndFeel *)(intptr_t)lookAndFeelAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)ovr_SetBoundaryLookAndFeel(session, lookAndFeel);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1ResetBoundaryLookAndFeel(JNIEnv *__env, jclass clazz, jlong sessionAddress) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)ovr_ResetBoundaryLookAndFeel(session);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetBoundaryGeometry__JIJJ(JNIEnv *__env, jclass clazz, jlong sessionAddress, jint boundaryType, jlong outFloorPointsAddress, jlong outFloorPointsCountAddress) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	ovrVector3f *outFloorPoints = (ovrVector3f *)(intptr_t)outFloorPointsAddress;
+	int *outFloorPointsCount = (int *)(intptr_t)outFloorPointsCountAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)ovr_GetBoundaryGeometry(session, boundaryType, outFloorPoints, outFloorPointsCount);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetBoundaryDimensions(JNIEnv *__env, jclass clazz, jlong sessionAddress, jint boundaryType, jlong outDimensionsAddress) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	ovrVector3f *outDimensions = (ovrVector3f *)(intptr_t)outDimensionsAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)ovr_GetBoundaryDimensions(session, boundaryType, outDimensions);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetBoundaryVisible(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong outIsVisibleAddress) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	ovrBool *outIsVisible = (ovrBool *)(intptr_t)outIsVisibleAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)ovr_GetBoundaryVisible(session, outIsVisible);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1RequestBoundaryVisible(JNIEnv *__env, jclass clazz, jlong sessionAddress, jboolean visible) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)ovr_RequestBoundaryVisible(session, visible);
+}
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetTextureSwapChainLength__JJJ(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong chainAddress, jlong out_LengthAddress) {
 	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
 	ovrTextureSwapChain chain = (ovrTextureSwapChain)(intptr_t)chainAddress;
@@ -228,6 +284,19 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1SubmitFrame(JNIEnv *__env, j
 	const ovrLayerHeader * const *layerPtrList = (const ovrLayerHeader * const *)(intptr_t)layerPtrListAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)ovr_SubmitFrame(session, frameIndex, viewScaleDesc, layerPtrList, layerCount);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetPerfStats(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong outStatsAddress) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	ovrPerfStats *outStats = (ovrPerfStats *)(intptr_t)outStatsAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)ovr_GetPerfStats(session, outStats);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1ResetPerfStats(JNIEnv *__env, jclass clazz, jlong sessionAddress) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)ovr_ResetPerfStats(session);
 }
 
 JNIEXPORT jdouble JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetPredictedDisplayTime(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong frameIndex) {
@@ -313,6 +382,23 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_ovr_OVR_novr_1SetString(JNIEnv *__env,
 	const char *value = (const char *)(intptr_t)valueAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jboolean)ovr_SetString(hmddesc, propertyName, value);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetBoundaryGeometry__JIJ_3I(JNIEnv *__env, jclass clazz, jlong sessionAddress, jint boundaryType, jlong outFloorPointsAddress, jintArray outFloorPointsCountAddress) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	ovrVector3f *outFloorPoints = (ovrVector3f *)(intptr_t)outFloorPointsAddress;
+	jint __result;
+	jint *outFloorPointsCount = outFloorPointsCountAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, outFloorPointsCountAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	__result = (jint)ovr_GetBoundaryGeometry(session, boundaryType, outFloorPoints, (int*)outFloorPointsCount);
+	if ( outFloorPointsCount != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, outFloorPointsCountAddress, outFloorPointsCount, 0);
+	return __result;
+}
+JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_ovr_OVR_novr_1GetBoundaryGeometry__JIJ_3I(jlong sessionAddress, jint boundaryType, jlong outFloorPointsAddress, jint outFloorPointsCount__length, jint* outFloorPointsCount) {
+	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+	ovrVector3f *outFloorPoints = (ovrVector3f *)(intptr_t)outFloorPointsAddress;
+	UNUSED_PARAM(outFloorPointsCount__length)
+	return (jint)ovr_GetBoundaryGeometry(session, boundaryType, outFloorPoints, (int*)outFloorPointsCount);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetTextureSwapChainLength__JJ_3I(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong chainAddress, jintArray out_LengthAddress) {
