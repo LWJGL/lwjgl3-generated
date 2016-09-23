@@ -22,6 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkStyleItem struct nk_style_item} fixed_background;
     {@link NkColor struct nk_color} background;
     {@link NkColor struct nk_color} border_color;
+    {@link NkColor struct nk_color} popup_border_color;
     {@link NkColor struct nk_color} combo_border_color;
     {@link NkColor struct nk_color} contextual_border_color;
     {@link NkColor struct nk_color} menu_border_color;
@@ -34,6 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
     float menu_border;
     float group_border;
     float tooltip_border;
+    float popup_border;
     float rounding;
     {@link NkVec2 struct nk_vec2} spacing;
     {@link NkVec2 struct nk_vec2} scrollbar_size;
@@ -60,6 +62,7 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		FIXED_BACKGROUND,
 		BACKGROUND,
 		BORDER_COLOR,
+		POPUP_BORDER_COLOR,
 		COMBO_BORDER_COLOR,
 		CONTEXTUAL_BORDER_COLOR,
 		MENU_BORDER_COLOR,
@@ -72,6 +75,7 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		MENU_BORDER,
 		GROUP_BORDER,
 		TOOLTIP_BORDER,
+		POPUP_BORDER,
 		ROUNDING,
 		SPACING,
 		SCROLLBAR_SIZE,
@@ -95,7 +99,9 @@ public class NkStyleWindow extends Struct implements NativeResource {
 			__member(NkColor.SIZEOF, NkColor.ALIGNOF),
 			__member(NkColor.SIZEOF, NkColor.ALIGNOF),
 			__member(NkColor.SIZEOF, NkColor.ALIGNOF),
+			__member(NkColor.SIZEOF, NkColor.ALIGNOF),
 			__member(NkStyleItem.SIZEOF, NkStyleItem.ALIGNOF),
+			__member(4),
 			__member(4),
 			__member(4),
 			__member(4),
@@ -122,29 +128,31 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		FIXED_BACKGROUND = layout.offsetof(1);
 		BACKGROUND = layout.offsetof(2);
 		BORDER_COLOR = layout.offsetof(3);
-		COMBO_BORDER_COLOR = layout.offsetof(4);
-		CONTEXTUAL_BORDER_COLOR = layout.offsetof(5);
-		MENU_BORDER_COLOR = layout.offsetof(6);
-		GROUP_BORDER_COLOR = layout.offsetof(7);
-		TOOLTIP_BORDER_COLOR = layout.offsetof(8);
-		SCALER = layout.offsetof(9);
-		BORDER = layout.offsetof(10);
-		COMBO_BORDER = layout.offsetof(11);
-		CONTEXTUAL_BORDER = layout.offsetof(12);
-		MENU_BORDER = layout.offsetof(13);
-		GROUP_BORDER = layout.offsetof(14);
-		TOOLTIP_BORDER = layout.offsetof(15);
-		ROUNDING = layout.offsetof(16);
-		SPACING = layout.offsetof(17);
-		SCROLLBAR_SIZE = layout.offsetof(18);
-		MIN_SIZE = layout.offsetof(19);
-		PADDING = layout.offsetof(20);
-		GROUP_PADDING = layout.offsetof(21);
-		POPUP_PADDING = layout.offsetof(22);
-		COMBO_PADDING = layout.offsetof(23);
-		CONTEXTUAL_PADDING = layout.offsetof(24);
-		MENU_PADDING = layout.offsetof(25);
-		TOOLTIP_PADDING = layout.offsetof(26);
+		POPUP_BORDER_COLOR = layout.offsetof(4);
+		COMBO_BORDER_COLOR = layout.offsetof(5);
+		CONTEXTUAL_BORDER_COLOR = layout.offsetof(6);
+		MENU_BORDER_COLOR = layout.offsetof(7);
+		GROUP_BORDER_COLOR = layout.offsetof(8);
+		TOOLTIP_BORDER_COLOR = layout.offsetof(9);
+		SCALER = layout.offsetof(10);
+		BORDER = layout.offsetof(11);
+		COMBO_BORDER = layout.offsetof(12);
+		CONTEXTUAL_BORDER = layout.offsetof(13);
+		MENU_BORDER = layout.offsetof(14);
+		GROUP_BORDER = layout.offsetof(15);
+		TOOLTIP_BORDER = layout.offsetof(16);
+		POPUP_BORDER = layout.offsetof(17);
+		ROUNDING = layout.offsetof(18);
+		SPACING = layout.offsetof(19);
+		SCROLLBAR_SIZE = layout.offsetof(20);
+		MIN_SIZE = layout.offsetof(21);
+		PADDING = layout.offsetof(22);
+		GROUP_PADDING = layout.offsetof(23);
+		POPUP_PADDING = layout.offsetof(24);
+		COMBO_PADDING = layout.offsetof(25);
+		CONTEXTUAL_PADDING = layout.offsetof(26);
+		MENU_PADDING = layout.offsetof(27);
+		TOOLTIP_PADDING = layout.offsetof(28);
 	}
 
 	NkStyleWindow(long address, ByteBuffer container) {
@@ -172,6 +180,8 @@ public class NkStyleWindow extends Struct implements NativeResource {
 	public NkColor background() { return nbackground(address()); }
 	/** Returns a {@link NkColor} view of the {@code border_color} field. */
 	public NkColor border_color() { return nborder_color(address()); }
+	/** Returns a {@link NkColor} view of the {@code popup_border_color} field. */
+	public NkColor popup_border_color() { return npopup_border_color(address()); }
 	/** Returns a {@link NkColor} view of the {@code combo_border_color} field. */
 	public NkColor combo_border_color() { return ncombo_border_color(address()); }
 	/** Returns a {@link NkColor} view of the {@code contextual_border_color} field. */
@@ -196,6 +206,8 @@ public class NkStyleWindow extends Struct implements NativeResource {
 	public float group_border() { return ngroup_border(address()); }
 	/** Returns the value of the {@code tooltip_border} field. */
 	public float tooltip_border() { return ntooltip_border(address()); }
+	/** Returns the value of the {@code popup_border} field. */
+	public float popup_border() { return npopup_border(address()); }
 	/** Returns the value of the {@code rounding} field. */
 	public float rounding() { return nrounding(address()); }
 	/** Returns a {@link NkVec2} view of the {@code spacing} field. */
@@ -227,6 +239,8 @@ public class NkStyleWindow extends Struct implements NativeResource {
 	public NkStyleWindow background(NkColor value) { nbackground(address(), value); return this; }
 	/** Copies the specified {@link NkColor} to the {@code border_color} field. */
 	public NkStyleWindow border_color(NkColor value) { nborder_color(address(), value); return this; }
+	/** Copies the specified {@link NkColor} to the {@code popup_border_color} field. */
+	public NkStyleWindow popup_border_color(NkColor value) { npopup_border_color(address(), value); return this; }
 	/** Copies the specified {@link NkColor} to the {@code combo_border_color} field. */
 	public NkStyleWindow combo_border_color(NkColor value) { ncombo_border_color(address(), value); return this; }
 	/** Copies the specified {@link NkColor} to the {@code contextual_border_color} field. */
@@ -251,6 +265,8 @@ public class NkStyleWindow extends Struct implements NativeResource {
 	public NkStyleWindow group_border(float value) { ngroup_border(address(), value); return this; }
 	/** Sets the specified value to the {@code tooltip_border} field. */
 	public NkStyleWindow tooltip_border(float value) { ntooltip_border(address(), value); return this; }
+	/** Sets the specified value to the {@code popup_border} field. */
+	public NkStyleWindow popup_border(float value) { npopup_border(address(), value); return this; }
 	/** Sets the specified value to the {@code rounding} field. */
 	public NkStyleWindow rounding(float value) { nrounding(address(), value); return this; }
 	/** Copies the specified {@link NkVec2} to the {@code spacing} field. */
@@ -280,6 +296,7 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		NkStyleItem fixed_background,
 		NkColor background,
 		NkColor border_color,
+		NkColor popup_border_color,
 		NkColor combo_border_color,
 		NkColor contextual_border_color,
 		NkColor menu_border_color,
@@ -292,6 +309,7 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		float menu_border,
 		float group_border,
 		float tooltip_border,
+		float popup_border,
 		float rounding,
 		NkVec2 spacing,
 		NkVec2 scrollbar_size,
@@ -308,6 +326,7 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		fixed_background(fixed_background);
 		background(background);
 		border_color(border_color);
+		popup_border_color(popup_border_color);
 		combo_border_color(combo_border_color);
 		contextual_border_color(contextual_border_color);
 		menu_border_color(menu_border_color);
@@ -320,6 +339,7 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		menu_border(menu_border);
 		group_border(group_border);
 		tooltip_border(tooltip_border);
+		popup_border(popup_border);
 		rounding(rounding);
 		spacing(spacing);
 		scrollbar_size(scrollbar_size);
@@ -489,6 +509,8 @@ public class NkStyleWindow extends Struct implements NativeResource {
 	public static NkColor nbackground(long struct) { return NkColor.create(struct + NkStyleWindow.BACKGROUND); }
 	/** Unsafe version of {@link #border_color}. */
 	public static NkColor nborder_color(long struct) { return NkColor.create(struct + NkStyleWindow.BORDER_COLOR); }
+	/** Unsafe version of {@link #popup_border_color}. */
+	public static NkColor npopup_border_color(long struct) { return NkColor.create(struct + NkStyleWindow.POPUP_BORDER_COLOR); }
 	/** Unsafe version of {@link #combo_border_color}. */
 	public static NkColor ncombo_border_color(long struct) { return NkColor.create(struct + NkStyleWindow.COMBO_BORDER_COLOR); }
 	/** Unsafe version of {@link #contextual_border_color}. */
@@ -513,6 +535,8 @@ public class NkStyleWindow extends Struct implements NativeResource {
 	public static float ngroup_border(long struct) { return memGetFloat(struct + NkStyleWindow.GROUP_BORDER); }
 	/** Unsafe version of {@link #tooltip_border}. */
 	public static float ntooltip_border(long struct) { return memGetFloat(struct + NkStyleWindow.TOOLTIP_BORDER); }
+	/** Unsafe version of {@link #popup_border}. */
+	public static float npopup_border(long struct) { return memGetFloat(struct + NkStyleWindow.POPUP_BORDER); }
 	/** Unsafe version of {@link #rounding}. */
 	public static float nrounding(long struct) { return memGetFloat(struct + NkStyleWindow.ROUNDING); }
 	/** Unsafe version of {@link #spacing}. */
@@ -544,6 +568,8 @@ public class NkStyleWindow extends Struct implements NativeResource {
 	public static void nbackground(long struct, NkColor value) { memCopy(value.address(), struct + NkStyleWindow.BACKGROUND, NkColor.SIZEOF); }
 	/** Unsafe version of {@link #border_color(NkColor) border_color}. */
 	public static void nborder_color(long struct, NkColor value) { memCopy(value.address(), struct + NkStyleWindow.BORDER_COLOR, NkColor.SIZEOF); }
+	/** Unsafe version of {@link #popup_border_color(NkColor) popup_border_color}. */
+	public static void npopup_border_color(long struct, NkColor value) { memCopy(value.address(), struct + NkStyleWindow.POPUP_BORDER_COLOR, NkColor.SIZEOF); }
 	/** Unsafe version of {@link #combo_border_color(NkColor) combo_border_color}. */
 	public static void ncombo_border_color(long struct, NkColor value) { memCopy(value.address(), struct + NkStyleWindow.COMBO_BORDER_COLOR, NkColor.SIZEOF); }
 	/** Unsafe version of {@link #contextual_border_color(NkColor) contextual_border_color}. */
@@ -568,6 +594,8 @@ public class NkStyleWindow extends Struct implements NativeResource {
 	public static void ngroup_border(long struct, float value) { memPutFloat(struct + NkStyleWindow.GROUP_BORDER, value); }
 	/** Unsafe version of {@link #tooltip_border(float) tooltip_border}. */
 	public static void ntooltip_border(long struct, float value) { memPutFloat(struct + NkStyleWindow.TOOLTIP_BORDER, value); }
+	/** Unsafe version of {@link #popup_border(float) popup_border}. */
+	public static void npopup_border(long struct, float value) { memPutFloat(struct + NkStyleWindow.POPUP_BORDER, value); }
 	/** Unsafe version of {@link #rounding(float) rounding}. */
 	public static void nrounding(long struct, float value) { memPutFloat(struct + NkStyleWindow.ROUNDING, value); }
 	/** Unsafe version of {@link #spacing(NkVec2) spacing}. */
@@ -641,6 +669,8 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		public NkColor background() { return NkStyleWindow.nbackground(address()); }
 		/** Returns a {@link NkColor} view of the {@code border_color} field. */
 		public NkColor border_color() { return NkStyleWindow.nborder_color(address()); }
+		/** Returns a {@link NkColor} view of the {@code popup_border_color} field. */
+		public NkColor popup_border_color() { return NkStyleWindow.npopup_border_color(address()); }
 		/** Returns a {@link NkColor} view of the {@code combo_border_color} field. */
 		public NkColor combo_border_color() { return NkStyleWindow.ncombo_border_color(address()); }
 		/** Returns a {@link NkColor} view of the {@code contextual_border_color} field. */
@@ -665,6 +695,8 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		public float group_border() { return NkStyleWindow.ngroup_border(address()); }
 		/** Returns the value of the {@code tooltip_border} field. */
 		public float tooltip_border() { return NkStyleWindow.ntooltip_border(address()); }
+		/** Returns the value of the {@code popup_border} field. */
+		public float popup_border() { return NkStyleWindow.npopup_border(address()); }
 		/** Returns the value of the {@code rounding} field. */
 		public float rounding() { return NkStyleWindow.nrounding(address()); }
 		/** Returns a {@link NkVec2} view of the {@code spacing} field. */
@@ -696,6 +728,8 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		public NkStyleWindow.Buffer background(NkColor value) { NkStyleWindow.nbackground(address(), value); return this; }
 		/** Copies the specified {@link NkColor} to the {@code border_color} field. */
 		public NkStyleWindow.Buffer border_color(NkColor value) { NkStyleWindow.nborder_color(address(), value); return this; }
+		/** Copies the specified {@link NkColor} to the {@code popup_border_color} field. */
+		public NkStyleWindow.Buffer popup_border_color(NkColor value) { NkStyleWindow.npopup_border_color(address(), value); return this; }
 		/** Copies the specified {@link NkColor} to the {@code combo_border_color} field. */
 		public NkStyleWindow.Buffer combo_border_color(NkColor value) { NkStyleWindow.ncombo_border_color(address(), value); return this; }
 		/** Copies the specified {@link NkColor} to the {@code contextual_border_color} field. */
@@ -720,6 +754,8 @@ public class NkStyleWindow extends Struct implements NativeResource {
 		public NkStyleWindow.Buffer group_border(float value) { NkStyleWindow.ngroup_border(address(), value); return this; }
 		/** Sets the specified value to the {@code tooltip_border} field. */
 		public NkStyleWindow.Buffer tooltip_border(float value) { NkStyleWindow.ntooltip_border(address(), value); return this; }
+		/** Sets the specified value to the {@code popup_border} field. */
+		public NkStyleWindow.Buffer popup_border(float value) { NkStyleWindow.npopup_border(address(), value); return this; }
 		/** Sets the specified value to the {@code rounding} field. */
 		public NkStyleWindow.Buffer rounding(float value) { NkStyleWindow.nrounding(address(), value); return this; }
 		/** Copies the specified {@link NkVec2} to the {@code spacing} field. */

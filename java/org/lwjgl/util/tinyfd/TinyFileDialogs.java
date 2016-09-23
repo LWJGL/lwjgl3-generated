@@ -31,7 +31,10 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class TinyFileDialogs {
 
-	static { LibTinyFD.initialize(); }
+	static {
+		LibTinyFD.initialize();
+		tinyfd_winUtf8().put(0, 1);
+	}
 
 	protected TinyFileDialogs() {
 		throw new UnsupportedOperationException();
@@ -48,6 +51,15 @@ public class TinyFileDialogs {
 
 	/** The library version. */
 	public static final String tinyfd_version = tinyfd_version();
+
+	// --- [ tinyfd_winUtf8 ] ---
+
+	private static native long ntinyfd_winUtf8();
+
+	private static IntBuffer tinyfd_winUtf8() {
+		long __result = ntinyfd_winUtf8();
+		return memIntBuffer(__result, 1);
+	}
 
 	// --- [ tinyfd_forceConsole ] ---
 

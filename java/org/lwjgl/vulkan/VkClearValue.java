@@ -20,6 +20,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Specifies the color or depth/stencil value to clear an attachment to.</p>
  * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code depthStencil} <b>must</b> be a valid {@link VkClearDepthStencilValue} structure</li>
+ * </ul>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>

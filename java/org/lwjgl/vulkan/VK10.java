@@ -8853,7 +8853,7 @@ or _unsignaled_.</p>
 	 * <li>Each element of {@code pCommandBuffers} that is a valid handle <b>must</b> have been created, allocated, or retrieved from {@code commandPool}</li>
 	 * <li>All elements of {@code pCommandBuffers} <b>must</b> not be pending execution</li>
 	 * <li>{@code pCommandBuffers} <b>must</b> be a pointer to an array of {@code commandBufferCount} {@code VkCommandBuffer} handles, each element of which <b>must</b>
-	 * either be a valid handle or {@link #VK_NULL_HANDLE NULL_HANDLE}</li>
+	 * either be a valid handle or {@code NULL}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -8888,7 +8888,7 @@ or _unsignaled_.</p>
 	 * <li>Each element of {@code pCommandBuffers} that is a valid handle <b>must</b> have been created, allocated, or retrieved from {@code commandPool}</li>
 	 * <li>All elements of {@code pCommandBuffers} <b>must</b> not be pending execution</li>
 	 * <li>{@code pCommandBuffers} <b>must</b> be a pointer to an array of {@code commandBufferCount} {@code VkCommandBuffer} handles, each element of which <b>must</b>
-	 * either be a valid handle or {@link #VK_NULL_HANDLE NULL_HANDLE}</li>
+	 * either be a valid handle or {@code NULL}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -8921,7 +8921,7 @@ or _unsignaled_.</p>
 	 * <li>Each element of {@code pCommandBuffers} that is a valid handle <b>must</b> have been created, allocated, or retrieved from {@code commandPool}</li>
 	 * <li>All elements of {@code pCommandBuffers} <b>must</b> not be pending execution</li>
 	 * <li>{@code pCommandBuffers} <b>must</b> be a pointer to an array of {@code commandBufferCount} {@code VkCommandBuffer} handles, each element of which <b>must</b>
-	 * either be a valid handle or {@link #VK_NULL_HANDLE NULL_HANDLE}</li>
+	 * either be a valid handle or {@code NULL}</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>

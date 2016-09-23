@@ -16,13 +16,14 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <pre><code>struct nk_popup_state {
     struct nk_window * win;
-    nk_window_flags type;
+    nk_panel_type type;
     nk_hash name;
     int active;
     unsigned combo_count;
     unsigned con_count;
     unsigned con_old;
     unsigned active_con;
+    {@link NkRect struct nk_rect} header;
 }</code></pre>
  */
 public class NkPopupState extends Struct {
@@ -41,7 +42,8 @@ public class NkPopupState extends Struct {
 		COMBO_COUNT,
 		CON_COUNT,
 		CON_OLD,
-		ACTIVE_CON;
+		ACTIVE_CON,
+		HEADER;
 
 	static {
 		Layout layout = __struct(
@@ -52,7 +54,8 @@ public class NkPopupState extends Struct {
 			__member(4),
 			__member(4),
 			__member(4),
-			__member(4)
+			__member(4),
+			__member(NkRect.SIZEOF, NkRect.ALIGNOF)
 		);
 
 		SIZEOF = layout.getSize();
@@ -66,6 +69,7 @@ public class NkPopupState extends Struct {
 		CON_COUNT = layout.offsetof(5);
 		CON_OLD = layout.offsetof(6);
 		ACTIVE_CON = layout.offsetof(7);
+		HEADER = layout.offsetof(8);
 	}
 
 	NkPopupState(long address, ByteBuffer container) {
@@ -101,6 +105,8 @@ public class NkPopupState extends Struct {
 	public int con_old() { return ncon_old(address()); }
 	/** Returns the value of the {@code active_con} field. */
 	public int active_con() { return nactive_con(address()); }
+	/** Returns a {@link NkRect} view of the {@code header} field. */
+	public NkRect header() { return nheader(address()); }
 
 	// -----------------------------------
 
@@ -137,6 +143,8 @@ public class NkPopupState extends Struct {
 	public static int ncon_old(long struct) { return memGetInt(struct + NkPopupState.CON_OLD); }
 	/** Unsafe version of {@link #active_con}. */
 	public static int nactive_con(long struct) { return memGetInt(struct + NkPopupState.ACTIVE_CON); }
+	/** Unsafe version of {@link #header}. */
+	public static NkRect nheader(long struct) { return NkRect.create(struct + NkPopupState.HEADER); }
 
 	// -----------------------------------
 
@@ -196,6 +204,8 @@ public class NkPopupState extends Struct {
 		public int con_old() { return NkPopupState.ncon_old(address()); }
 		/** Returns the value of the {@code active_con} field. */
 		public int active_con() { return NkPopupState.nactive_con(address()); }
+		/** Returns a {@link NkRect} view of the {@code header} field. */
+		public NkRect header() { return NkPopupState.nheader(address()); }
 
 	}
 

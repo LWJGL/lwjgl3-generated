@@ -20,6 +20,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Specifies the depth and stencil clear values to use when clearing a depth/stencil image or attachment.</p>
  * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code depth} <b>must</b> be between {@code 0.0} and {@code 1.0}, inclusive</li>
+ * </ul>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>

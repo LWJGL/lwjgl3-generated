@@ -188,6 +188,8 @@ public class VKCapabilities {
 	public final boolean Vulkan10;
 	/** When true, {@link AMDGCNShader} is supported. */
 	public final boolean VK_AMD_gcn_shader;
+	/** When true, {@link AMDNegativeViewportHeight} is supported. */
+	public final boolean VK_AMD_negative_viewport_height;
 	/** When true, {@link AMDRasterizationOrder} is supported. */
 	public final boolean VK_AMD_rasterization_order;
 	/** When true, {@link AMDShaderBallot} is supported. */
@@ -200,6 +202,8 @@ public class VKCapabilities {
 	public final boolean VK_EXT_debug_marker;
 	/** When true, {@link EXTDebugReport} is supported. */
 	public final boolean VK_EXT_debug_report;
+	/** When true, {@link EXTValidationFlags} is supported. */
+	public final boolean VK_EXT_validation_flags;
 	/** When true, {@link IMGFilterCubic} is supported. */
 	public final boolean VK_IMG_filter_cubic;
 	/** When true, {@link IMGFormatPVRTC} is supported. */
@@ -396,12 +400,14 @@ public class VKCapabilities {
 
 		Vulkan10 = ext.contains("Vulkan10") && VK.checkExtension("Vulkan10", VK10.isAvailable(this));
 		VK_AMD_gcn_shader = ext.contains("VK_AMD_gcn_shader");
+		VK_AMD_negative_viewport_height = ext.contains("VK_AMD_negative_viewport_height");
 		VK_AMD_rasterization_order = ext.contains("VK_AMD_rasterization_order");
 		VK_AMD_shader_ballot = ext.contains("VK_AMD_shader_ballot");
 		VK_AMD_shader_explicit_vertex_parameter = ext.contains("VK_AMD_shader_explicit_vertex_parameter");
 		VK_AMD_shader_trinary_minmax = ext.contains("VK_AMD_shader_trinary_minmax");
 		VK_EXT_debug_marker = ext.contains("VK_EXT_debug_marker") && VK.checkExtension("VK_EXT_debug_marker", EXTDebugMarker.isAvailable(this));
 		VK_EXT_debug_report = ext.contains("VK_EXT_debug_report") && VK.checkExtension("VK_EXT_debug_report", EXTDebugReport.isAvailable(this));
+		VK_EXT_validation_flags = ext.contains("VK_EXT_validation_flags");
 		VK_IMG_filter_cubic = ext.contains("VK_IMG_filter_cubic");
 		VK_IMG_format_pvrtc = ext.contains("VK_IMG_format_pvrtc");
 		VK_KHR_display = ext.contains("VK_KHR_display") && VK.checkExtension("VK_KHR_display", KHRDisplay.isAvailable(this));

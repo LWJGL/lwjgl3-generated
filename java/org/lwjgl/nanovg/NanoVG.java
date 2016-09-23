@@ -2027,6 +2027,42 @@ public class NanoVG {
 		nnvgRoundedRect(ctx, x, y, w, h, r);
 	}
 
+	// --- [ nvgRoundedRectVarying ] ---
+
+	/**
+	 * Creates new rounded rectangle shaped sub-path with varying radii for each corner.
+	 *
+	 * @param ctx            the NanoVG context
+	 * @param x              the rectangle X axis coordinate
+	 * @param y              the rectangle Y axis coordinate
+	 * @param w              the rectangle width
+	 * @param h              the rectangle height
+	 * @param radTopLeft     the top-left corner radius
+	 * @param radTopRight    the top-right corner radius
+	 * @param radBottomRight the bottom-right corner radius
+	 * @param radBottomLeft  the bottom-left corner radius
+	 */
+	public static native void nnvgRoundedRectVarying(long ctx, float x, float y, float w, float h, float radTopLeft, float radTopRight, float radBottomRight, float radBottomLeft);
+
+	/**
+	 * Creates new rounded rectangle shaped sub-path with varying radii for each corner.
+	 *
+	 * @param ctx            the NanoVG context
+	 * @param x              the rectangle X axis coordinate
+	 * @param y              the rectangle Y axis coordinate
+	 * @param w              the rectangle width
+	 * @param h              the rectangle height
+	 * @param radTopLeft     the top-left corner radius
+	 * @param radTopRight    the top-right corner radius
+	 * @param radBottomRight the bottom-right corner radius
+	 * @param radBottomLeft  the bottom-left corner radius
+	 */
+	public static void nvgRoundedRectVarying(long ctx, float x, float y, float w, float h, float radTopLeft, float radTopRight, float radBottomRight, float radBottomLeft) {
+		if ( CHECKS )
+			checkPointer(ctx);
+		nnvgRoundedRectVarying(ctx, x, y, w, h, radTopLeft, radTopRight, radBottomRight, radBottomLeft);
+	}
+
 	// --- [ nvgEllipse ] ---
 
 	/**

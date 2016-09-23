@@ -42,6 +42,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>The {@code aspectMask} member of {@code imageSubresource} <b>must</b> only have a single bit set</li>
  * <li>If the calling command's {@code VkImage} parameter is of {@code VkImageType} {@link VK10#VK_IMAGE_TYPE_3D IMAGE_TYPE_3D}, the {@code baseArrayLayer} and {@code layerCount}
  * members of {@code imageSubresource} <b>must</b> be 0 and 1, respectively</li>
+ * <li>When copying to the depth aspect of an image subresource, the data in the source buffer <b>must</b> be in the range latexmath:[$[0,1\]$]</li>
  * </ul>
  * 
  * <h3>Member documentation</h3>

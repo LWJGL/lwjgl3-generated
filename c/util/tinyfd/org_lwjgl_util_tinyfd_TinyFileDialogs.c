@@ -5,12 +5,20 @@
  */
 #include "common_tools.h"
 #include "tinyfiledialogs.h"
+#ifndef LWJGL_WINDOWS
+	static int tinyfd_winUtf8;
+#endif
 
 EXTERN_C_ENTER
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_tinyfd_TinyFileDialogs_ntinyfd_1version(JNIEnv *__env, jclass clazz) {
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)tinyfd_version;
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_tinyfd_TinyFileDialogs_ntinyfd_1winUtf8(JNIEnv *__env, jclass clazz) {
+	UNUSED_PARAMS(__env, clazz)
+	return (jlong)(intptr_t)&tinyfd_winUtf8;
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_tinyfd_TinyFileDialogs_ntinyfd_1forceConsole(JNIEnv *__env, jclass clazz) {

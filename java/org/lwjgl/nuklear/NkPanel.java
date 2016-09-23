@@ -17,6 +17,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_panel {
+    nk_panel_type type;
     nk_flags flags;
     {@link NkRect struct nk_rect} bounds;
     struct nk_scroll * offset;
@@ -45,6 +46,7 @@ public class NkPanel extends Struct implements NativeResource {
 
 	/** The struct member offsets. */
 	public static final int
+		TYPE,
 		FLAGS,
 		BOUNDS,
 		OFFSET,
@@ -65,6 +67,7 @@ public class NkPanel extends Struct implements NativeResource {
 
 	static {
 		Layout layout = __struct(
+			__member(4),
 			__member(4),
 			__member(NkRect.SIZEOF, NkRect.ALIGNOF),
 			__member(POINTER_SIZE),
@@ -87,23 +90,24 @@ public class NkPanel extends Struct implements NativeResource {
 		SIZEOF = layout.getSize();
 		ALIGNOF = layout.getAlignment();
 
-		FLAGS = layout.offsetof(0);
-		BOUNDS = layout.offsetof(1);
-		OFFSET = layout.offsetof(2);
-		AT_X = layout.offsetof(3);
-		AT_Y = layout.offsetof(4);
-		MAX_X = layout.offsetof(5);
-		FOOTER_HEIGHT = layout.offsetof(6);
-		HEADER_HEIGHT = layout.offsetof(7);
-		BORDER = layout.offsetof(8);
-		HAS_SCROLLING = layout.offsetof(9);
-		CLIP = layout.offsetof(10);
-		MENU = layout.offsetof(11);
-		ROW = layout.offsetof(12);
-		CHART = layout.offsetof(13);
-		POPUP_BUFFER = layout.offsetof(14);
-		BUFFER = layout.offsetof(15);
-		PARENT = layout.offsetof(16);
+		TYPE = layout.offsetof(0);
+		FLAGS = layout.offsetof(1);
+		BOUNDS = layout.offsetof(2);
+		OFFSET = layout.offsetof(3);
+		AT_X = layout.offsetof(4);
+		AT_Y = layout.offsetof(5);
+		MAX_X = layout.offsetof(6);
+		FOOTER_HEIGHT = layout.offsetof(7);
+		HEADER_HEIGHT = layout.offsetof(8);
+		BORDER = layout.offsetof(9);
+		HAS_SCROLLING = layout.offsetof(10);
+		CLIP = layout.offsetof(11);
+		MENU = layout.offsetof(12);
+		ROW = layout.offsetof(13);
+		CHART = layout.offsetof(14);
+		POPUP_BUFFER = layout.offsetof(15);
+		BUFFER = layout.offsetof(16);
+		PARENT = layout.offsetof(17);
 	}
 
 	NkPanel(long address, ByteBuffer container) {
@@ -123,6 +127,8 @@ public class NkPanel extends Struct implements NativeResource {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
+	/** Returns the value of the {@code type} field. */
+	public int type() { return ntype(address()); }
 	/** Returns the value of the {@code flags} field. */
 	public int flags() { return nflags(address()); }
 	/** Returns a {@link NkRect} view of the {@code bounds} field. */
@@ -287,6 +293,8 @@ public class NkPanel extends Struct implements NativeResource {
 
 	// -----------------------------------
 
+	/** Unsafe version of {@link #type}. */
+	public static int ntype(long struct) { return memGetInt(struct + NkPanel.TYPE); }
 	/** Unsafe version of {@link #flags}. */
 	public static int nflags(long struct) { return memGetInt(struct + NkPanel.FLAGS); }
 	/** Unsafe version of {@link #bounds}. */
@@ -364,6 +372,8 @@ public class NkPanel extends Struct implements NativeResource {
 			return SIZEOF;
 		}
 
+		/** Returns the value of the {@code type} field. */
+		public int type() { return NkPanel.ntype(address()); }
 		/** Returns the value of the {@code flags} field. */
 		public int flags() { return NkPanel.nflags(address()); }
 		/** Returns a {@link NkRect} view of the {@code bounds} field. */

@@ -30,6 +30,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code y} + {@code height} <b>must</b> be less than or equal to {@code viewportBoundsRange}[1]</li>
  * <li>{@code minDepth} <b>must</b> be between {@code 0.0} and {@code 1.0}, inclusive</li>
  * <li>{@code maxDepth} <b>must</b> be between {@code 0.0} and {@code 1.0}, inclusive</li>
+ * <li>If the {@code VK_AMD_negative_viewport_height} extension is enabled, {@code height} <b>can</b> also be negative</li>
  * </ul>
  * 
  * <h3>Member documentation</h3>

@@ -473,6 +473,12 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgRoundedRect(JNIEnv *__en
 	nvgRoundedRect(ctx, x, y, w, h, r);
 }
 
+JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgRoundedRectVarying(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloat x, jfloat y, jfloat w, jfloat h, jfloat radTopLeft, jfloat radTopRight, jfloat radBottomRight, jfloat radBottomLeft) {
+	NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
+	UNUSED_PARAMS(__env, clazz)
+	nvgRoundedRectVarying(ctx, x, y, w, h, radTopLeft, radTopRight, radBottomRight, radBottomLeft);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgEllipse(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloat cx, jfloat cy, jfloat rx, jfloat ry) {
 	NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
 	UNUSED_PARAMS(__env, clazz)

@@ -30,8 +30,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code codeSize} <b>must</b> be greater than 0</li>
  * <li>{@code codeSize} <b>must</b> be a multiple of 4. If the +VK_NV_glsl_shader extension+ is enabled and {@code pCode} references GLSL code {@code codeSize}
  * can be a multiple of 1</li>
- * <li>{@code pCode} <b>must</b> point to valid SPIR-V code, formatted and packed. If the {@code VK_NV_glsl_shader} extension is enabled {@code pCode} can
- * instead reference valid GLSL code and <b>must</b> be written to the {@code GL_KHR_vulkan_glsl} extension specification</li>
+ * <li>{@code pCode} <b>must</b> point to valid SPIR-V code, formatted and packed as described by the Khronos SPIR-V Specification. If the
+ * {@code VK_NV_glsl_shader} extension is enabled {@code pCode} can instead reference valid GLSL code and <b>must</b> be written to the
+ * {@code GL_KHR_vulkan_glsl} extension specification</li>
  * <li>{@code pCode} <b>must</b> adhere to the validation rules described by the Validation Rules within a Module section of the SPIR-V Environment appendix. If
  * the {@code VK_NV_glsl_shader} extension is enabled {@code pCode} can be valid GLSL code with respect to the {@code GL_KHR_vulkan_glsl} GLSL
  * extension specification</li>

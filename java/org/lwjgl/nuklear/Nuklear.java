@@ -73,7 +73,9 @@ public class Nuklear {
 		NK_MAX_NUMBER_BUFFER = 64;
 
 	/** Constants. */
-	public static final float NK_SCROLLBAR_HIDING_TIMEOUT = 4.0f;
+	public static final float
+		NK_UNDEFINED                = -1.0f,
+		NK_SCROLLBAR_HIDING_TIMEOUT = 4.0f;
 
 	/** Boolean values. */
 	public static final int
@@ -153,10 +155,10 @@ public class Nuklear {
 		NK_SYMBOL_NONE           = 0,
 		NK_SYMBOL_X              = 1,
 		NK_SYMBOL_UNDERSCORE     = 2,
-		NK_SYMBOL_CIRCLE         = 3,
-		NK_SYMBOL_CIRCLE_FILLED  = 4,
-		NK_SYMBOL_RECT           = 5,
-		NK_SYMBOL_RECT_FILLED    = 6,
+		NK_SYMBOL_CIRCLE_SOLID   = 3,
+		NK_SYMBOL_CIRCLE_OUTLINE = 4,
+		NK_SYMBOL_RECT_SOLID     = 5,
+		NK_SYMBOL_RECT_OUTLINE   = 6,
 		NK_SYMBOL_TRIANGLE_UP    = 7,
 		NK_SYMBOL_TRIANGLE_DOWN  = 8,
 		NK_SYMBOL_TRIANGLE_LEFT  = 9,
@@ -465,47 +467,42 @@ public class Nuklear {
 		NK_HEADER_LEFT  = 0,
 		NK_HEADER_RIGHT = 1;
 
-	/** dummy flag which mark the beginning of the private window flag part */
-	public static final int NK_WINDOW_PRIVATE = 1 << 9;
+	/** nk_panel_type */
+	public static final int
+		NK_PANEL_WINDOW     = 1 << 0,
+		NK_PANEL_GROUP      = 1 << 1,
+		NK_PANEL_POPUP      = 1 << 2,
+		NK_PANEL_CONTEXTUAL = 1 << 4,
+		NK_PANEL_COMBO      = 1 << 5,
+		NK_PANEL_MENU       = 1 << 6,
+		NK_PANEL_TOOLTIP    = 1 << 7;
+
+	/** nk_panel_set */
+	public static final int
+		NK_PANEL_SET_NONBLOCK = NK_PANEL_CONTEXTUAL|NK_PANEL_COMBO|NK_PANEL_MENU|NK_PANEL_TOOLTIP,
+		NK_PANEL_SET_POPUP    = NK_PANEL_SET_NONBLOCK|NK_PANEL_POPUP,
+		NK_PANEL_SET_SUB      = NK_PANEL_SET_POPUP|NK_PANEL_GROUP;
+
+	/** nk_window_flags */
+	public static final int NK_WINDOW_PRIVATE = 1 << 10;
+
+	/** special window type growing up in height while being filled to a certain maximum height */
+	public static final int NK_WINDOW_DYNAMIC = NK_WINDOW_PRIVATE;
 
 	/** sets the window into a read only mode and does not allow input changes */
-	public static final int NK_WINDOW_ROM = 1 << 10;
+	public static final int NK_WINDOW_ROM = 1 << 11;
 
 	/** Hides the window and stops any window interaction and drawing can be set by user input or by closing the window */
-	public static final int NK_WINDOW_HIDDEN = 1 << 11;
+	public static final int NK_WINDOW_HIDDEN = 1 << 12;
 
 	/** Directly closes and frees the window at the end of the frame */
-	public static final int NK_WINDOW_CLOSED = 1 << 12;
+	public static final int NK_WINDOW_CLOSED = 1 << 13;
 
 	/** marks the window as minimized */
-	public static final int NK_WINDOW_MINIMIZED = 1 << 13;
-
-	/** Marks the window as subwindow of another window */
-	public static final int NK_WINDOW_SUB = 1 << 14;
-
-	/** Marks the window as window widget group */
-	public static final int NK_WINDOW_GROUP = 1 << 15;
-
-	/** Marks the window as a popup window */
-	public static final int NK_WINDOW_POPUP = 1 << 16;
-
-	/** Marks the window as a nonblock popup window */
-	public static final int NK_WINDOW_NONBLOCK = 1 << 17;
-
-	/** Marks the window as a combo box or menu */
-	public static final int NK_WINDOW_CONTEXTUAL = 1 << 18;
-
-	/** Marks the window as a combo box */
-	public static final int NK_WINDOW_COMBO = 1 << 19;
-
-	/** Marks the window as a menu */
-	public static final int NK_WINDOW_MENU = 1 << 20;
-
-	/** Marks the window as a menu */
-	public static final int NK_WINDOW_TOOLTIP = 1 << 21;
+	public static final int NK_WINDOW_MINIMIZED = 1 << 14;
 
 	/** Removes the read only mode at the end of the window */
-	public static final int NK_WINDOW_REMOVE_ROM = 1 << 22;
+	public static final int NK_WINDOW_REMOVE_ROM = 1 << 15;
 
 	static { Library.loadSystem("lwjgl_nuklear"); }
 
@@ -649,7 +646,7 @@ public class Nuklear {
 	 * @param panel  
 	 * @param title  
 	 * @param bounds 
-	 * @param flags  one or more of:<br><table><tr><td>{@link #NK_WINDOW_PRIVATE WINDOW_PRIVATE}</td><td>{@link #NK_WINDOW_ROM WINDOW_ROM}</td><td>{@link #NK_WINDOW_HIDDEN WINDOW_HIDDEN}</td><td>{@link #NK_WINDOW_CLOSED WINDOW_CLOSED}</td><td>{@link #NK_WINDOW_MINIMIZED WINDOW_MINIMIZED}</td><td>{@link #NK_WINDOW_SUB WINDOW_SUB}</td></tr><tr><td>{@link #NK_WINDOW_GROUP WINDOW_GROUP}</td><td>{@link #NK_WINDOW_POPUP WINDOW_POPUP}</td><td>{@link #NK_WINDOW_NONBLOCK WINDOW_NONBLOCK}</td><td>{@link #NK_WINDOW_CONTEXTUAL WINDOW_CONTEXTUAL}</td><td>{@link #NK_WINDOW_COMBO WINDOW_COMBO}</td><td>{@link #NK_WINDOW_MENU WINDOW_MENU}</td></tr><tr><td>{@link #NK_WINDOW_TOOLTIP WINDOW_TOOLTIP}</td><td>{@link #NK_WINDOW_REMOVE_ROM WINDOW_REMOVE_ROM}</td></tr></table>
+	 * @param flags  one or more of:<br><table><tr><td>{@link #NK_WINDOW_PRIVATE WINDOW_PRIVATE}</td><td>{@link #NK_WINDOW_DYNAMIC WINDOW_DYNAMIC}</td><td>{@link #NK_WINDOW_ROM WINDOW_ROM}</td><td>{@link #NK_WINDOW_HIDDEN WINDOW_HIDDEN}</td><td>{@link #NK_WINDOW_CLOSED WINDOW_CLOSED}</td></tr><tr><td>{@link #NK_WINDOW_MINIMIZED WINDOW_MINIMIZED}</td><td>{@link #NK_WINDOW_REMOVE_ROM WINDOW_REMOVE_ROM}</td></tr></table>
 	 */
 	public static native int nnk_begin(long ctx, long panel, long title, long bounds, int flags);
 
@@ -660,7 +657,7 @@ public class Nuklear {
 	 * @param panel  
 	 * @param title  
 	 * @param bounds 
-	 * @param flags  one or more of:<br><table><tr><td>{@link #NK_WINDOW_PRIVATE WINDOW_PRIVATE}</td><td>{@link #NK_WINDOW_ROM WINDOW_ROM}</td><td>{@link #NK_WINDOW_HIDDEN WINDOW_HIDDEN}</td><td>{@link #NK_WINDOW_CLOSED WINDOW_CLOSED}</td><td>{@link #NK_WINDOW_MINIMIZED WINDOW_MINIMIZED}</td><td>{@link #NK_WINDOW_SUB WINDOW_SUB}</td></tr><tr><td>{@link #NK_WINDOW_GROUP WINDOW_GROUP}</td><td>{@link #NK_WINDOW_POPUP WINDOW_POPUP}</td><td>{@link #NK_WINDOW_NONBLOCK WINDOW_NONBLOCK}</td><td>{@link #NK_WINDOW_CONTEXTUAL WINDOW_CONTEXTUAL}</td><td>{@link #NK_WINDOW_COMBO WINDOW_COMBO}</td><td>{@link #NK_WINDOW_MENU WINDOW_MENU}</td></tr><tr><td>{@link #NK_WINDOW_TOOLTIP WINDOW_TOOLTIP}</td><td>{@link #NK_WINDOW_REMOVE_ROM WINDOW_REMOVE_ROM}</td></tr></table>
+	 * @param flags  one or more of:<br><table><tr><td>{@link #NK_WINDOW_PRIVATE WINDOW_PRIVATE}</td><td>{@link #NK_WINDOW_DYNAMIC WINDOW_DYNAMIC}</td><td>{@link #NK_WINDOW_ROM WINDOW_ROM}</td><td>{@link #NK_WINDOW_HIDDEN WINDOW_HIDDEN}</td><td>{@link #NK_WINDOW_CLOSED WINDOW_CLOSED}</td></tr><tr><td>{@link #NK_WINDOW_MINIMIZED WINDOW_MINIMIZED}</td><td>{@link #NK_WINDOW_REMOVE_ROM WINDOW_REMOVE_ROM}</td></tr></table>
 	 */
 	public static boolean nk_begin(NkContext ctx, NkPanel panel, ByteBuffer title, NkRect bounds, int flags) {
 		if ( CHECKS )
@@ -675,7 +672,7 @@ public class Nuklear {
 	 * @param panel  
 	 * @param title  
 	 * @param bounds 
-	 * @param flags  one or more of:<br><table><tr><td>{@link #NK_WINDOW_PRIVATE WINDOW_PRIVATE}</td><td>{@link #NK_WINDOW_ROM WINDOW_ROM}</td><td>{@link #NK_WINDOW_HIDDEN WINDOW_HIDDEN}</td><td>{@link #NK_WINDOW_CLOSED WINDOW_CLOSED}</td><td>{@link #NK_WINDOW_MINIMIZED WINDOW_MINIMIZED}</td><td>{@link #NK_WINDOW_SUB WINDOW_SUB}</td></tr><tr><td>{@link #NK_WINDOW_GROUP WINDOW_GROUP}</td><td>{@link #NK_WINDOW_POPUP WINDOW_POPUP}</td><td>{@link #NK_WINDOW_NONBLOCK WINDOW_NONBLOCK}</td><td>{@link #NK_WINDOW_CONTEXTUAL WINDOW_CONTEXTUAL}</td><td>{@link #NK_WINDOW_COMBO WINDOW_COMBO}</td><td>{@link #NK_WINDOW_MENU WINDOW_MENU}</td></tr><tr><td>{@link #NK_WINDOW_TOOLTIP WINDOW_TOOLTIP}</td><td>{@link #NK_WINDOW_REMOVE_ROM WINDOW_REMOVE_ROM}</td></tr></table>
+	 * @param flags  one or more of:<br><table><tr><td>{@link #NK_WINDOW_PRIVATE WINDOW_PRIVATE}</td><td>{@link #NK_WINDOW_DYNAMIC WINDOW_DYNAMIC}</td><td>{@link #NK_WINDOW_ROM WINDOW_ROM}</td><td>{@link #NK_WINDOW_HIDDEN WINDOW_HIDDEN}</td><td>{@link #NK_WINDOW_CLOSED WINDOW_CLOSED}</td></tr><tr><td>{@link #NK_WINDOW_MINIMIZED WINDOW_MINIMIZED}</td><td>{@link #NK_WINDOW_REMOVE_ROM WINDOW_REMOVE_ROM}</td></tr></table>
 	 */
 	public static boolean nk_begin(NkContext ctx, NkPanel panel, CharSequence title, NkRect bounds, int flags) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -697,7 +694,7 @@ public class Nuklear {
 	 * @param name   
 	 * @param title  
 	 * @param bounds 
-	 * @param flags  one or more of:<br><table><tr><td>{@link #NK_WINDOW_PRIVATE WINDOW_PRIVATE}</td><td>{@link #NK_WINDOW_ROM WINDOW_ROM}</td><td>{@link #NK_WINDOW_HIDDEN WINDOW_HIDDEN}</td><td>{@link #NK_WINDOW_CLOSED WINDOW_CLOSED}</td><td>{@link #NK_WINDOW_MINIMIZED WINDOW_MINIMIZED}</td><td>{@link #NK_WINDOW_SUB WINDOW_SUB}</td></tr><tr><td>{@link #NK_WINDOW_GROUP WINDOW_GROUP}</td><td>{@link #NK_WINDOW_POPUP WINDOW_POPUP}</td><td>{@link #NK_WINDOW_NONBLOCK WINDOW_NONBLOCK}</td><td>{@link #NK_WINDOW_CONTEXTUAL WINDOW_CONTEXTUAL}</td><td>{@link #NK_WINDOW_COMBO WINDOW_COMBO}</td><td>{@link #NK_WINDOW_MENU WINDOW_MENU}</td></tr><tr><td>{@link #NK_WINDOW_TOOLTIP WINDOW_TOOLTIP}</td><td>{@link #NK_WINDOW_REMOVE_ROM WINDOW_REMOVE_ROM}</td></tr></table>
+	 * @param flags  one or more of:<br><table><tr><td>{@link #NK_WINDOW_PRIVATE WINDOW_PRIVATE}</td><td>{@link #NK_WINDOW_DYNAMIC WINDOW_DYNAMIC}</td><td>{@link #NK_WINDOW_ROM WINDOW_ROM}</td><td>{@link #NK_WINDOW_HIDDEN WINDOW_HIDDEN}</td><td>{@link #NK_WINDOW_CLOSED WINDOW_CLOSED}</td></tr><tr><td>{@link #NK_WINDOW_MINIMIZED WINDOW_MINIMIZED}</td><td>{@link #NK_WINDOW_REMOVE_ROM WINDOW_REMOVE_ROM}</td></tr></table>
 	 */
 	public static native int nnk_begin_titled(long ctx, long panel, long name, long title, long bounds, int flags);
 
@@ -709,7 +706,7 @@ public class Nuklear {
 	 * @param name   
 	 * @param title  
 	 * @param bounds 
-	 * @param flags  one or more of:<br><table><tr><td>{@link #NK_WINDOW_PRIVATE WINDOW_PRIVATE}</td><td>{@link #NK_WINDOW_ROM WINDOW_ROM}</td><td>{@link #NK_WINDOW_HIDDEN WINDOW_HIDDEN}</td><td>{@link #NK_WINDOW_CLOSED WINDOW_CLOSED}</td><td>{@link #NK_WINDOW_MINIMIZED WINDOW_MINIMIZED}</td><td>{@link #NK_WINDOW_SUB WINDOW_SUB}</td></tr><tr><td>{@link #NK_WINDOW_GROUP WINDOW_GROUP}</td><td>{@link #NK_WINDOW_POPUP WINDOW_POPUP}</td><td>{@link #NK_WINDOW_NONBLOCK WINDOW_NONBLOCK}</td><td>{@link #NK_WINDOW_CONTEXTUAL WINDOW_CONTEXTUAL}</td><td>{@link #NK_WINDOW_COMBO WINDOW_COMBO}</td><td>{@link #NK_WINDOW_MENU WINDOW_MENU}</td></tr><tr><td>{@link #NK_WINDOW_TOOLTIP WINDOW_TOOLTIP}</td><td>{@link #NK_WINDOW_REMOVE_ROM WINDOW_REMOVE_ROM}</td></tr></table>
+	 * @param flags  one or more of:<br><table><tr><td>{@link #NK_WINDOW_PRIVATE WINDOW_PRIVATE}</td><td>{@link #NK_WINDOW_DYNAMIC WINDOW_DYNAMIC}</td><td>{@link #NK_WINDOW_ROM WINDOW_ROM}</td><td>{@link #NK_WINDOW_HIDDEN WINDOW_HIDDEN}</td><td>{@link #NK_WINDOW_CLOSED WINDOW_CLOSED}</td></tr><tr><td>{@link #NK_WINDOW_MINIMIZED WINDOW_MINIMIZED}</td><td>{@link #NK_WINDOW_REMOVE_ROM WINDOW_REMOVE_ROM}</td></tr></table>
 	 */
 	public static boolean nk_begin_titled(NkContext ctx, NkPanel panel, ByteBuffer name, ByteBuffer title, NkRect bounds, int flags) {
 		if ( CHECKS ) {
@@ -727,7 +724,7 @@ public class Nuklear {
 	 * @param name   
 	 * @param title  
 	 * @param bounds 
-	 * @param flags  one or more of:<br><table><tr><td>{@link #NK_WINDOW_PRIVATE WINDOW_PRIVATE}</td><td>{@link #NK_WINDOW_ROM WINDOW_ROM}</td><td>{@link #NK_WINDOW_HIDDEN WINDOW_HIDDEN}</td><td>{@link #NK_WINDOW_CLOSED WINDOW_CLOSED}</td><td>{@link #NK_WINDOW_MINIMIZED WINDOW_MINIMIZED}</td><td>{@link #NK_WINDOW_SUB WINDOW_SUB}</td></tr><tr><td>{@link #NK_WINDOW_GROUP WINDOW_GROUP}</td><td>{@link #NK_WINDOW_POPUP WINDOW_POPUP}</td><td>{@link #NK_WINDOW_NONBLOCK WINDOW_NONBLOCK}</td><td>{@link #NK_WINDOW_CONTEXTUAL WINDOW_CONTEXTUAL}</td><td>{@link #NK_WINDOW_COMBO WINDOW_COMBO}</td><td>{@link #NK_WINDOW_MENU WINDOW_MENU}</td></tr><tr><td>{@link #NK_WINDOW_TOOLTIP WINDOW_TOOLTIP}</td><td>{@link #NK_WINDOW_REMOVE_ROM WINDOW_REMOVE_ROM}</td></tr></table>
+	 * @param flags  one or more of:<br><table><tr><td>{@link #NK_WINDOW_PRIVATE WINDOW_PRIVATE}</td><td>{@link #NK_WINDOW_DYNAMIC WINDOW_DYNAMIC}</td><td>{@link #NK_WINDOW_ROM WINDOW_ROM}</td><td>{@link #NK_WINDOW_HIDDEN WINDOW_HIDDEN}</td><td>{@link #NK_WINDOW_CLOSED WINDOW_CLOSED}</td></tr><tr><td>{@link #NK_WINDOW_MINIMIZED WINDOW_MINIMIZED}</td><td>{@link #NK_WINDOW_REMOVE_ROM WINDOW_REMOVE_ROM}</td></tr></table>
 	 */
 	public static boolean nk_begin_titled(NkContext ctx, NkPanel panel, CharSequence name, CharSequence title, NkRect bounds, int flags) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -2403,7 +2400,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx    the nuklear context
-	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 */
 	public static native int nnk_button_symbol(long ctx, int symbol);
 
@@ -2411,7 +2408,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx    the nuklear context
-	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 */
 	public static boolean nk_button_symbol(NkContext ctx, int symbol) {
 		return nnk_button_symbol(ctx.address(), symbol) != 0;
@@ -2443,7 +2440,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx            the nuklear context
-	 * @param symbol         one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol         one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text           
 	 * @param text_alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 */
@@ -2453,7 +2450,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx            the nuklear context
-	 * @param symbol         one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol         one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text           
 	 * @param text_alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 */
@@ -2467,7 +2464,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx            the nuklear context
-	 * @param symbol         one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol         one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text           
 	 * @param text_alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 */
@@ -2487,7 +2484,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx       the nuklear context
-	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text      
 	 * @param len       
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -2498,7 +2495,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx       the nuklear context
-	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text      
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 */
@@ -2510,7 +2507,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx       the nuklear context
-	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text      
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 */
@@ -4557,9 +4554,9 @@ public class Nuklear {
 	 * @param count       
 	 * @param selected    
 	 * @param item_height 
-	 * @param max_height  
+	 * @param size        
 	 */
-	public static native int nnk_combo(long ctx, long items, int count, int selected, int item_height, int max_height);
+	public static native int nnk_combo(long ctx, long items, int count, int selected, int item_height, long size);
 
 	/**
 	 * 
@@ -4568,10 +4565,10 @@ public class Nuklear {
 	 * @param items       
 	 * @param selected    
 	 * @param item_height 
-	 * @param max_height  
+	 * @param size        
 	 */
-	public static boolean nk_combo(NkContext ctx, PointerBuffer items, boolean selected, int item_height, int max_height) {
-		return nnk_combo(ctx.address(), memAddress(items), items.remaining(), selected ? 1 : 0, item_height, max_height) != 0;
+	public static boolean nk_combo(NkContext ctx, PointerBuffer items, boolean selected, int item_height, NkVec2 size) {
+		return nnk_combo(ctx.address(), memAddress(items), items.remaining(), selected ? 1 : 0, item_height, size.address()) != 0;
 	}
 
 	// --- [ nk_combo_separator ] ---
@@ -4585,9 +4582,9 @@ public class Nuklear {
 	 * @param selected                     
 	 * @param count                        
 	 * @param item_height                  
-	 * @param max_height                   
+	 * @param size                         
 	 */
-	public static native int nnk_combo_separator(long ctx, long items_separated_by_separator, int separator, int selected, int count, int item_height, int max_height);
+	public static native int nnk_combo_separator(long ctx, long items_separated_by_separator, int separator, int selected, int count, int item_height, long size);
 
 	/**
 	 * 
@@ -4598,12 +4595,12 @@ public class Nuklear {
 	 * @param selected                     
 	 * @param count                        
 	 * @param item_height                  
-	 * @param max_height                   
+	 * @param size                         
 	 */
-	public static boolean nk_combo_separator(NkContext ctx, ByteBuffer items_separated_by_separator, int separator, boolean selected, int count, int item_height, int max_height) {
+	public static boolean nk_combo_separator(NkContext ctx, ByteBuffer items_separated_by_separator, int separator, boolean selected, int count, int item_height, NkVec2 size) {
 		if ( CHECKS )
 			checkNT1(items_separated_by_separator);
-		return nnk_combo_separator(ctx.address(), memAddress(items_separated_by_separator), separator, selected ? 1 : 0, count, item_height, max_height) != 0;
+		return nnk_combo_separator(ctx.address(), memAddress(items_separated_by_separator), separator, selected ? 1 : 0, count, item_height, size.address()) != 0;
 	}
 
 	/**
@@ -4615,13 +4612,13 @@ public class Nuklear {
 	 * @param selected                     
 	 * @param count                        
 	 * @param item_height                  
-	 * @param max_height                   
+	 * @param size                         
 	 */
-	public static boolean nk_combo_separator(NkContext ctx, CharSequence items_separated_by_separator, int separator, boolean selected, int count, int item_height, int max_height) {
+	public static boolean nk_combo_separator(NkContext ctx, CharSequence items_separated_by_separator, int separator, boolean selected, int count, int item_height, NkVec2 size) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer items_separated_by_separatorEncoded = stack.UTF8(items_separated_by_separator);
-			return nnk_combo_separator(ctx.address(), memAddress(items_separated_by_separatorEncoded), separator, selected ? 1 : 0, count, item_height, max_height) != 0;
+			return nnk_combo_separator(ctx.address(), memAddress(items_separated_by_separatorEncoded), separator, selected ? 1 : 0, count, item_height, size.address()) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -4637,9 +4634,9 @@ public class Nuklear {
 	 * @param selected                 
 	 * @param count                    
 	 * @param item_height              
-	 * @param max_height               
+	 * @param size                     
 	 */
-	public static native int nnk_combo_string(long ctx, long items_separated_by_zeros, int selected, int count, int item_height, int max_height);
+	public static native int nnk_combo_string(long ctx, long items_separated_by_zeros, int selected, int count, int item_height, long size);
 
 	/**
 	 * 
@@ -4649,12 +4646,12 @@ public class Nuklear {
 	 * @param selected                 
 	 * @param count                    
 	 * @param item_height              
-	 * @param max_height               
+	 * @param size                     
 	 */
-	public static boolean nk_combo_string(NkContext ctx, ByteBuffer items_separated_by_zeros, boolean selected, int count, int item_height, int max_height) {
+	public static boolean nk_combo_string(NkContext ctx, ByteBuffer items_separated_by_zeros, boolean selected, int count, int item_height, NkVec2 size) {
 		if ( CHECKS )
 			checkNT1(items_separated_by_zeros);
-		return nnk_combo_string(ctx.address(), memAddress(items_separated_by_zeros), selected ? 1 : 0, count, item_height, max_height) != 0;
+		return nnk_combo_string(ctx.address(), memAddress(items_separated_by_zeros), selected ? 1 : 0, count, item_height, size.address()) != 0;
 	}
 
 	/**
@@ -4665,13 +4662,13 @@ public class Nuklear {
 	 * @param selected                 
 	 * @param count                    
 	 * @param item_height              
-	 * @param max_height               
+	 * @param size                     
 	 */
-	public static boolean nk_combo_string(NkContext ctx, CharSequence items_separated_by_zeros, boolean selected, int count, int item_height, int max_height) {
+	public static boolean nk_combo_string(NkContext ctx, CharSequence items_separated_by_zeros, boolean selected, int count, int item_height, NkVec2 size) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer items_separated_by_zerosEncoded = stack.UTF8(items_separated_by_zeros);
-			return nnk_combo_string(ctx.address(), memAddress(items_separated_by_zerosEncoded), selected ? 1 : 0, count, item_height, max_height) != 0;
+			return nnk_combo_string(ctx.address(), memAddress(items_separated_by_zerosEncoded), selected ? 1 : 0, count, item_height, size.address()) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -4688,9 +4685,9 @@ public class Nuklear {
 	 * @param selected    
 	 * @param count       
 	 * @param item_height 
-	 * @param max_height  
+	 * @param size        
 	 */
-	public static native int nnk_combo_callback(long ctx, long item_getter, long userdata, int selected, int count, int item_height, int max_height);
+	public static native int nnk_combo_callback(long ctx, long item_getter, long userdata, int selected, int count, int item_height, long size);
 
 	/**
 	 * 
@@ -4701,12 +4698,12 @@ public class Nuklear {
 	 * @param selected    
 	 * @param count       
 	 * @param item_height 
-	 * @param max_height  
+	 * @param size        
 	 */
-	public static boolean nk_combo_callback(NkContext ctx, NkItemGetterI item_getter, long userdata, boolean selected, int count, int item_height, int max_height) {
+	public static boolean nk_combo_callback(NkContext ctx, NkItemGetterI item_getter, long userdata, boolean selected, int count, int item_height, NkVec2 size) {
 		if ( CHECKS )
 			checkPointer(userdata);
-		return nnk_combo_callback(ctx.address(), item_getter.address(), userdata, selected ? 1 : 0, count, item_height, max_height) != 0;
+		return nnk_combo_callback(ctx.address(), item_getter.address(), userdata, selected ? 1 : 0, count, item_height, size.address()) != 0;
 	}
 
 	// --- [ nk_combobox ] ---
@@ -4719,9 +4716,9 @@ public class Nuklear {
 	 * @param count       
 	 * @param selected    
 	 * @param item_height 
-	 * @param max_height  
+	 * @param size        
 	 */
-	public static native void nnk_combobox(long ctx, long items, int count, long selected, int item_height, int max_height);
+	public static native void nnk_combobox(long ctx, long items, int count, long selected, int item_height, long size);
 
 	/**
 	 * 
@@ -4730,12 +4727,12 @@ public class Nuklear {
 	 * @param items       
 	 * @param selected    
 	 * @param item_height 
-	 * @param max_height  
+	 * @param size        
 	 */
-	public static void nk_combobox(NkContext ctx, PointerBuffer items, IntBuffer selected, int item_height, int max_height) {
+	public static void nk_combobox(NkContext ctx, PointerBuffer items, IntBuffer selected, int item_height, NkVec2 size) {
 		if ( CHECKS )
 			checkBuffer(selected, 1);
-		nnk_combobox(ctx.address(), memAddress(items), items.remaining(), memAddress(selected), item_height, max_height);
+		nnk_combobox(ctx.address(), memAddress(items), items.remaining(), memAddress(selected), item_height, size.address());
 	}
 
 	// --- [ nk_combobox_string ] ---
@@ -4748,9 +4745,9 @@ public class Nuklear {
 	 * @param selected                 
 	 * @param count                    
 	 * @param item_height              
-	 * @param max_height               
+	 * @param size                     
 	 */
-	public static native void nnk_combobox_string(long ctx, long items_separated_by_zeros, long selected, int count, int item_height, int max_height);
+	public static native void nnk_combobox_string(long ctx, long items_separated_by_zeros, long selected, int count, int item_height, long size);
 
 	/**
 	 * 
@@ -4760,14 +4757,14 @@ public class Nuklear {
 	 * @param selected                 
 	 * @param count                    
 	 * @param item_height              
-	 * @param max_height               
+	 * @param size                     
 	 */
-	public static void nk_combobox_string(NkContext ctx, ByteBuffer items_separated_by_zeros, IntBuffer selected, int count, int item_height, int max_height) {
+	public static void nk_combobox_string(NkContext ctx, ByteBuffer items_separated_by_zeros, IntBuffer selected, int count, int item_height, NkVec2 size) {
 		if ( CHECKS ) {
 			checkNT1(items_separated_by_zeros);
 			checkBuffer(selected, 1);
 		}
-		nnk_combobox_string(ctx.address(), memAddress(items_separated_by_zeros), memAddress(selected), count, item_height, max_height);
+		nnk_combobox_string(ctx.address(), memAddress(items_separated_by_zeros), memAddress(selected), count, item_height, size.address());
 	}
 
 	/**
@@ -4778,15 +4775,15 @@ public class Nuklear {
 	 * @param selected                 
 	 * @param count                    
 	 * @param item_height              
-	 * @param max_height               
+	 * @param size                     
 	 */
-	public static void nk_combobox_string(NkContext ctx, CharSequence items_separated_by_zeros, IntBuffer selected, int count, int item_height, int max_height) {
+	public static void nk_combobox_string(NkContext ctx, CharSequence items_separated_by_zeros, IntBuffer selected, int count, int item_height, NkVec2 size) {
 		if ( CHECKS )
 			checkBuffer(selected, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer items_separated_by_zerosEncoded = stack.UTF8(items_separated_by_zeros);
-			nnk_combobox_string(ctx.address(), memAddress(items_separated_by_zerosEncoded), memAddress(selected), count, item_height, max_height);
+			nnk_combobox_string(ctx.address(), memAddress(items_separated_by_zerosEncoded), memAddress(selected), count, item_height, size.address());
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -4803,9 +4800,9 @@ public class Nuklear {
 	 * @param selected                     
 	 * @param count                        
 	 * @param item_height                  
-	 * @param max_height                   
+	 * @param size                         
 	 */
-	public static native void nnk_combobox_separator(long ctx, long items_separated_by_separator, int separator, long selected, int count, int item_height, int max_height);
+	public static native void nnk_combobox_separator(long ctx, long items_separated_by_separator, int separator, long selected, int count, int item_height, long size);
 
 	/**
 	 * 
@@ -4816,14 +4813,14 @@ public class Nuklear {
 	 * @param selected                     
 	 * @param count                        
 	 * @param item_height                  
-	 * @param max_height                   
+	 * @param size                         
 	 */
-	public static void nk_combobox_separator(NkContext ctx, ByteBuffer items_separated_by_separator, int separator, IntBuffer selected, int count, int item_height, int max_height) {
+	public static void nk_combobox_separator(NkContext ctx, ByteBuffer items_separated_by_separator, int separator, IntBuffer selected, int count, int item_height, NkVec2 size) {
 		if ( CHECKS ) {
 			checkNT1(items_separated_by_separator);
 			checkBuffer(selected, 1);
 		}
-		nnk_combobox_separator(ctx.address(), memAddress(items_separated_by_separator), separator, memAddress(selected), count, item_height, max_height);
+		nnk_combobox_separator(ctx.address(), memAddress(items_separated_by_separator), separator, memAddress(selected), count, item_height, size.address());
 	}
 
 	/**
@@ -4835,15 +4832,15 @@ public class Nuklear {
 	 * @param selected                     
 	 * @param count                        
 	 * @param item_height                  
-	 * @param max_height                   
+	 * @param size                         
 	 */
-	public static void nk_combobox_separator(NkContext ctx, CharSequence items_separated_by_separator, int separator, IntBuffer selected, int count, int item_height, int max_height) {
+	public static void nk_combobox_separator(NkContext ctx, CharSequence items_separated_by_separator, int separator, IntBuffer selected, int count, int item_height, NkVec2 size) {
 		if ( CHECKS )
 			checkBuffer(selected, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer items_separated_by_separatorEncoded = stack.UTF8(items_separated_by_separator);
-			nnk_combobox_separator(ctx.address(), memAddress(items_separated_by_separatorEncoded), separator, memAddress(selected), count, item_height, max_height);
+			nnk_combobox_separator(ctx.address(), memAddress(items_separated_by_separatorEncoded), separator, memAddress(selected), count, item_height, size.address());
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -4860,9 +4857,9 @@ public class Nuklear {
 	 * @param selected    
 	 * @param count       
 	 * @param item_height 
-	 * @param max_height  
+	 * @param size        
 	 */
-	public static native void nnk_combobox_callback(long ctx, long item_getter, long userdata, long selected, int count, int item_height, int max_height);
+	public static native void nnk_combobox_callback(long ctx, long item_getter, long userdata, long selected, int count, int item_height, long size);
 
 	/**
 	 * 
@@ -4873,14 +4870,14 @@ public class Nuklear {
 	 * @param selected    
 	 * @param count       
 	 * @param item_height 
-	 * @param max_height  
+	 * @param size        
 	 */
-	public static void nk_combobox_callback(NkContext ctx, NkItemGetterI item_getter, long userdata, IntBuffer selected, int count, int item_height, int max_height) {
+	public static void nk_combobox_callback(NkContext ctx, NkItemGetterI item_getter, long userdata, IntBuffer selected, int count, int item_height, NkVec2 size) {
 		if ( CHECKS ) {
 			checkPointer(userdata);
 			checkBuffer(selected, 1);
 		}
-		nnk_combobox_callback(ctx.address(), item_getter.address(), userdata, memAddress(selected), count, item_height, max_height);
+		nnk_combobox_callback(ctx.address(), item_getter.address(), userdata, memAddress(selected), count, item_height, size.address());
 	}
 
 	// --- [ nk_combo_begin_text ] ---
@@ -4888,40 +4885,40 @@ public class Nuklear {
 	/**
 	 * 
 	 *
-	 * @param ctx        the nuklear context
-	 * @param layout     
-	 * @param selected   
-	 * @param len        
-	 * @param max_height 
+	 * @param ctx      the nuklear context
+	 * @param layout   
+	 * @param selected 
+	 * @param len      
+	 * @param size     
 	 */
-	public static native int nnk_combo_begin_text(long ctx, long layout, long selected, int len, int max_height);
+	public static native int nnk_combo_begin_text(long ctx, long layout, long selected, int len, long size);
 
 	/**
 	 * 
 	 *
-	 * @param ctx        the nuklear context
-	 * @param layout     
-	 * @param selected   
-	 * @param max_height 
+	 * @param ctx      the nuklear context
+	 * @param layout   
+	 * @param selected 
+	 * @param size     
 	 */
-	public static boolean nk_combo_begin_text(NkContext ctx, NkPanel layout, ByteBuffer selected, int max_height) {
-		return nnk_combo_begin_text(ctx.address(), layout.address(), memAddress(selected), selected.remaining(), max_height) != 0;
+	public static boolean nk_combo_begin_text(NkContext ctx, NkPanel layout, ByteBuffer selected, NkVec2 size) {
+		return nnk_combo_begin_text(ctx.address(), layout.address(), memAddress(selected), selected.remaining(), size.address()) != 0;
 	}
 
 	/**
 	 * 
 	 *
-	 * @param ctx        the nuklear context
-	 * @param layout     
-	 * @param selected   
-	 * @param max_height 
+	 * @param ctx      the nuklear context
+	 * @param layout   
+	 * @param selected 
+	 * @param size     
 	 */
-	public static boolean nk_combo_begin_text(NkContext ctx, NkPanel layout, CharSequence selected, int max_height) {
+	public static boolean nk_combo_begin_text(NkContext ctx, NkPanel layout, CharSequence selected, NkVec2 size) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer selectedEncoded = stack.UTF8(selected, false);
 			int selectedEncodedLen = selectedEncoded.capacity();
-			return nnk_combo_begin_text(ctx.address(), layout.address(), memAddress(selectedEncoded), selectedEncodedLen, max_height) != 0;
+			return nnk_combo_begin_text(ctx.address(), layout.address(), memAddress(selectedEncoded), selectedEncodedLen, size.address()) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -4932,40 +4929,40 @@ public class Nuklear {
 	/**
 	 * 
 	 *
-	 * @param ctx        the nuklear context
-	 * @param layout     
-	 * @param selected   
-	 * @param max_height 
+	 * @param ctx      the nuklear context
+	 * @param layout   
+	 * @param selected 
+	 * @param size     
 	 */
-	public static native int nnk_combo_begin_label(long ctx, long layout, long selected, int max_height);
+	public static native int nnk_combo_begin_label(long ctx, long layout, long selected, long size);
 
 	/**
 	 * 
 	 *
-	 * @param ctx        the nuklear context
-	 * @param layout     
-	 * @param selected   
-	 * @param max_height 
+	 * @param ctx      the nuklear context
+	 * @param layout   
+	 * @param selected 
+	 * @param size     
 	 */
-	public static boolean nk_combo_begin_label(NkContext ctx, NkPanel layout, ByteBuffer selected, int max_height) {
+	public static boolean nk_combo_begin_label(NkContext ctx, NkPanel layout, ByteBuffer selected, NkVec2 size) {
 		if ( CHECKS )
 			checkNT1(selected);
-		return nnk_combo_begin_label(ctx.address(), layout.address(), memAddress(selected), max_height) != 0;
+		return nnk_combo_begin_label(ctx.address(), layout.address(), memAddress(selected), size.address()) != 0;
 	}
 
 	/**
 	 * 
 	 *
-	 * @param ctx        the nuklear context
-	 * @param layout     
-	 * @param selected   
-	 * @param max_height 
+	 * @param ctx      the nuklear context
+	 * @param layout   
+	 * @param selected 
+	 * @param size     
 	 */
-	public static boolean nk_combo_begin_label(NkContext ctx, NkPanel layout, CharSequence selected, int max_height) {
+	public static boolean nk_combo_begin_label(NkContext ctx, NkPanel layout, CharSequence selected, NkVec2 size) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer selectedEncoded = stack.UTF8(selected);
-			return nnk_combo_begin_label(ctx.address(), layout.address(), memAddress(selectedEncoded), max_height) != 0;
+			return nnk_combo_begin_label(ctx.address(), layout.address(), memAddress(selectedEncoded), size.address()) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -4976,23 +4973,23 @@ public class Nuklear {
 	/**
 	 * 
 	 *
-	 * @param ctx        the nuklear context
-	 * @param layout     
-	 * @param color      
-	 * @param max_height 
+	 * @param ctx    the nuklear context
+	 * @param layout 
+	 * @param color  
+	 * @param size   
 	 */
-	public static native int nnk_combo_begin_color(long ctx, long layout, long color, int max_height);
+	public static native int nnk_combo_begin_color(long ctx, long layout, long color, long size);
 
 	/**
 	 * 
 	 *
-	 * @param ctx        the nuklear context
-	 * @param layout     
-	 * @param color      
-	 * @param max_height 
+	 * @param ctx    the nuklear context
+	 * @param layout 
+	 * @param color  
+	 * @param size   
 	 */
-	public static boolean nk_combo_begin_color(NkContext ctx, NkPanel layout, NkColor color, int max_height) {
-		return nnk_combo_begin_color(ctx.address(), layout.address(), color.address(), max_height) != 0;
+	public static boolean nk_combo_begin_color(NkContext ctx, NkPanel layout, NkColor color, NkVec2 size) {
+		return nnk_combo_begin_color(ctx.address(), layout.address(), color.address(), size.address()) != 0;
 	}
 
 	// --- [ nk_combo_begin_symbol ] ---
@@ -5000,23 +4997,23 @@ public class Nuklear {
 	/**
 	 * 
 	 *
-	 * @param ctx        the nuklear context
-	 * @param layout     
-	 * @param symbol     one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
-	 * @param max_height 
+	 * @param ctx    the nuklear context
+	 * @param layout 
+	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param size   
 	 */
-	public static native int nnk_combo_begin_symbol(long ctx, long layout, int symbol, int max_height);
+	public static native int nnk_combo_begin_symbol(long ctx, long layout, int symbol, long size);
 
 	/**
 	 * 
 	 *
-	 * @param ctx        the nuklear context
-	 * @param layout     
-	 * @param symbol     one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
-	 * @param max_height 
+	 * @param ctx    the nuklear context
+	 * @param layout 
+	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param size   
 	 */
-	public static boolean nk_combo_begin_symbol(NkContext ctx, NkPanel layout, int symbol, int max_height) {
-		return nnk_combo_begin_symbol(ctx.address(), layout.address(), symbol, max_height) != 0;
+	public static boolean nk_combo_begin_symbol(NkContext ctx, NkPanel layout, int symbol, NkVec2 size) {
+		return nnk_combo_begin_symbol(ctx.address(), layout.address(), symbol, size.address()) != 0;
 	}
 
 	// --- [ nk_combo_begin_symbol_label ] ---
@@ -5027,10 +5024,10 @@ public class Nuklear {
 	 * @param ctx      the nuklear context
 	 * @param layout   
 	 * @param selected 
-	 * @param symbol   one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
-	 * @param height   
+	 * @param symbol   one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param size     
 	 */
-	public static native int nnk_combo_begin_symbol_label(long ctx, long layout, long selected, int symbol, int height);
+	public static native int nnk_combo_begin_symbol_label(long ctx, long layout, long selected, int symbol, long size);
 
 	/**
 	 * 
@@ -5038,13 +5035,13 @@ public class Nuklear {
 	 * @param ctx      the nuklear context
 	 * @param layout   
 	 * @param selected 
-	 * @param symbol   one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
-	 * @param height   
+	 * @param symbol   one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param size     
 	 */
-	public static boolean nk_combo_begin_symbol_label(NkContext ctx, NkPanel layout, ByteBuffer selected, int symbol, int height) {
+	public static boolean nk_combo_begin_symbol_label(NkContext ctx, NkPanel layout, ByteBuffer selected, int symbol, NkVec2 size) {
 		if ( CHECKS )
 			checkNT1(selected);
-		return nnk_combo_begin_symbol_label(ctx.address(), layout.address(), memAddress(selected), symbol, height) != 0;
+		return nnk_combo_begin_symbol_label(ctx.address(), layout.address(), memAddress(selected), symbol, size.address()) != 0;
 	}
 
 	/**
@@ -5053,14 +5050,14 @@ public class Nuklear {
 	 * @param ctx      the nuklear context
 	 * @param layout   
 	 * @param selected 
-	 * @param symbol   one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
-	 * @param height   
+	 * @param symbol   one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param size     
 	 */
-	public static boolean nk_combo_begin_symbol_label(NkContext ctx, NkPanel layout, CharSequence selected, int symbol, int height) {
+	public static boolean nk_combo_begin_symbol_label(NkContext ctx, NkPanel layout, CharSequence selected, int symbol, NkVec2 size) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer selectedEncoded = stack.UTF8(selected);
-			return nnk_combo_begin_symbol_label(ctx.address(), layout.address(), memAddress(selectedEncoded), symbol, height) != 0;
+			return nnk_combo_begin_symbol_label(ctx.address(), layout.address(), memAddress(selectedEncoded), symbol, size.address()) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -5075,10 +5072,10 @@ public class Nuklear {
 	 * @param layout   
 	 * @param selected 
 	 * @param len      
-	 * @param symbol   one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
-	 * @param height   
+	 * @param symbol   one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param size     
 	 */
-	public static native int nnk_combo_begin_symbol_text(long ctx, long layout, long selected, int len, int symbol, int height);
+	public static native int nnk_combo_begin_symbol_text(long ctx, long layout, long selected, int len, int symbol, long size);
 
 	/**
 	 * 
@@ -5086,11 +5083,11 @@ public class Nuklear {
 	 * @param ctx      the nuklear context
 	 * @param layout   
 	 * @param selected 
-	 * @param symbol   one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
-	 * @param height   
+	 * @param symbol   one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param size     
 	 */
-	public static boolean nk_combo_begin_symbol_text(NkContext ctx, NkPanel layout, ByteBuffer selected, int symbol, int height) {
-		return nnk_combo_begin_symbol_text(ctx.address(), layout.address(), memAddress(selected), selected.remaining(), symbol, height) != 0;
+	public static boolean nk_combo_begin_symbol_text(NkContext ctx, NkPanel layout, ByteBuffer selected, int symbol, NkVec2 size) {
+		return nnk_combo_begin_symbol_text(ctx.address(), layout.address(), memAddress(selected), selected.remaining(), symbol, size.address()) != 0;
 	}
 
 	/**
@@ -5099,15 +5096,15 @@ public class Nuklear {
 	 * @param ctx      the nuklear context
 	 * @param layout   
 	 * @param selected 
-	 * @param symbol   one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
-	 * @param height   
+	 * @param symbol   one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param size     
 	 */
-	public static boolean nk_combo_begin_symbol_text(NkContext ctx, NkPanel layout, CharSequence selected, int symbol, int height) {
+	public static boolean nk_combo_begin_symbol_text(NkContext ctx, NkPanel layout, CharSequence selected, int symbol, NkVec2 size) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer selectedEncoded = stack.UTF8(selected, false);
 			int selectedEncodedLen = selectedEncoded.capacity();
-			return nnk_combo_begin_symbol_text(ctx.address(), layout.address(), memAddress(selectedEncoded), selectedEncodedLen, symbol, height) != 0;
+			return nnk_combo_begin_symbol_text(ctx.address(), layout.address(), memAddress(selectedEncoded), selectedEncodedLen, symbol, size.address()) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -5118,23 +5115,23 @@ public class Nuklear {
 	/**
 	 * 
 	 *
-	 * @param ctx        the nuklear context
-	 * @param layout     
-	 * @param img        
-	 * @param max_height 
+	 * @param ctx    the nuklear context
+	 * @param layout 
+	 * @param img    
+	 * @param size   
 	 */
-	public static native int nnk_combo_begin_image(long ctx, long layout, long img, int max_height);
+	public static native int nnk_combo_begin_image(long ctx, long layout, long img, long size);
 
 	/**
 	 * 
 	 *
-	 * @param ctx        the nuklear context
-	 * @param layout     
-	 * @param img        
-	 * @param max_height 
+	 * @param ctx    the nuklear context
+	 * @param layout 
+	 * @param img    
+	 * @param size   
 	 */
-	public static boolean nk_combo_begin_image(NkContext ctx, NkPanel layout, NkImage img, int max_height) {
-		return nnk_combo_begin_image(ctx.address(), layout.address(), img.address(), max_height) != 0;
+	public static boolean nk_combo_begin_image(NkContext ctx, NkPanel layout, NkImage img, NkVec2 size) {
+		return nnk_combo_begin_image(ctx.address(), layout.address(), img.address(), size.address()) != 0;
 	}
 
 	// --- [ nk_combo_begin_image_label ] ---
@@ -5146,9 +5143,9 @@ public class Nuklear {
 	 * @param layout   
 	 * @param selected 
 	 * @param img      
-	 * @param height   
+	 * @param size     
 	 */
-	public static native int nnk_combo_begin_image_label(long ctx, long layout, long selected, long img, int height);
+	public static native int nnk_combo_begin_image_label(long ctx, long layout, long selected, long img, long size);
 
 	/**
 	 * 
@@ -5157,12 +5154,12 @@ public class Nuklear {
 	 * @param layout   
 	 * @param selected 
 	 * @param img      
-	 * @param height   
+	 * @param size     
 	 */
-	public static boolean nk_combo_begin_image_label(NkContext ctx, NkPanel layout, ByteBuffer selected, NkImage img, int height) {
+	public static boolean nk_combo_begin_image_label(NkContext ctx, NkPanel layout, ByteBuffer selected, NkImage img, NkVec2 size) {
 		if ( CHECKS )
 			checkNT1(selected);
-		return nnk_combo_begin_image_label(ctx.address(), layout.address(), memAddress(selected), img.address(), height) != 0;
+		return nnk_combo_begin_image_label(ctx.address(), layout.address(), memAddress(selected), img.address(), size.address()) != 0;
 	}
 
 	/**
@@ -5172,13 +5169,13 @@ public class Nuklear {
 	 * @param layout   
 	 * @param selected 
 	 * @param img      
-	 * @param height   
+	 * @param size     
 	 */
-	public static boolean nk_combo_begin_image_label(NkContext ctx, NkPanel layout, CharSequence selected, NkImage img, int height) {
+	public static boolean nk_combo_begin_image_label(NkContext ctx, NkPanel layout, CharSequence selected, NkImage img, NkVec2 size) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer selectedEncoded = stack.UTF8(selected);
-			return nnk_combo_begin_image_label(ctx.address(), layout.address(), memAddress(selectedEncoded), img.address(), height) != 0;
+			return nnk_combo_begin_image_label(ctx.address(), layout.address(), memAddress(selectedEncoded), img.address(), size.address()) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -5194,9 +5191,9 @@ public class Nuklear {
 	 * @param selected 
 	 * @param len      
 	 * @param img      
-	 * @param height   
+	 * @param size     
 	 */
-	public static native int nnk_combo_begin_image_text(long ctx, long layout, long selected, int len, long img, int height);
+	public static native int nnk_combo_begin_image_text(long ctx, long layout, long selected, int len, long img, long size);
 
 	/**
 	 * 
@@ -5205,10 +5202,10 @@ public class Nuklear {
 	 * @param layout   
 	 * @param selected 
 	 * @param img      
-	 * @param height   
+	 * @param size     
 	 */
-	public static boolean nk_combo_begin_image_text(NkContext ctx, NkPanel layout, ByteBuffer selected, NkImage img, int height) {
-		return nnk_combo_begin_image_text(ctx.address(), layout.address(), memAddress(selected), selected.remaining(), img.address(), height) != 0;
+	public static boolean nk_combo_begin_image_text(NkContext ctx, NkPanel layout, ByteBuffer selected, NkImage img, NkVec2 size) {
+		return nnk_combo_begin_image_text(ctx.address(), layout.address(), memAddress(selected), selected.remaining(), img.address(), size.address()) != 0;
 	}
 
 	/**
@@ -5218,14 +5215,14 @@ public class Nuklear {
 	 * @param layout   
 	 * @param selected 
 	 * @param img      
-	 * @param height   
+	 * @param size     
 	 */
-	public static boolean nk_combo_begin_image_text(NkContext ctx, NkPanel layout, CharSequence selected, NkImage img, int height) {
+	public static boolean nk_combo_begin_image_text(NkContext ctx, NkPanel layout, CharSequence selected, NkImage img, NkVec2 size) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer selectedEncoded = stack.UTF8(selected, false);
 			int selectedEncodedLen = selectedEncoded.capacity();
-			return nnk_combo_begin_image_text(ctx.address(), layout.address(), memAddress(selectedEncoded), selectedEncodedLen, img.address(), height) != 0;
+			return nnk_combo_begin_image_text(ctx.address(), layout.address(), memAddress(selectedEncoded), selectedEncodedLen, img.address(), size.address()) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -5407,7 +5404,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx       the nuklear context
-	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text      
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 */
@@ -5417,7 +5414,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx       the nuklear context
-	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text      
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 */
@@ -5431,7 +5428,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx       the nuklear context
-	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text      
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 */
@@ -5451,7 +5448,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx       the nuklear context
-	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text      
 	 * @param len       
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -5462,7 +5459,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx       the nuklear context
-	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text      
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 */
@@ -5474,7 +5471,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx       the nuklear context
-	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text      
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 */
@@ -5532,7 +5529,7 @@ public class Nuklear {
 	 *
 	 * @param ctx            the nuklear context
 	 * @param layout         
-	 * @param flags          one of:<br><table><tr><td>{@link #NK_WINDOW_PRIVATE WINDOW_PRIVATE}</td><td>{@link #NK_WINDOW_ROM WINDOW_ROM}</td><td>{@link #NK_WINDOW_HIDDEN WINDOW_HIDDEN}</td><td>{@link #NK_WINDOW_CLOSED WINDOW_CLOSED}</td><td>{@link #NK_WINDOW_MINIMIZED WINDOW_MINIMIZED}</td><td>{@link #NK_WINDOW_SUB WINDOW_SUB}</td></tr><tr><td>{@link #NK_WINDOW_GROUP WINDOW_GROUP}</td><td>{@link #NK_WINDOW_POPUP WINDOW_POPUP}</td><td>{@link #NK_WINDOW_NONBLOCK WINDOW_NONBLOCK}</td><td>{@link #NK_WINDOW_CONTEXTUAL WINDOW_CONTEXTUAL}</td><td>{@link #NK_WINDOW_COMBO WINDOW_COMBO}</td><td>{@link #NK_WINDOW_MENU WINDOW_MENU}</td></tr><tr><td>{@link #NK_WINDOW_TOOLTIP WINDOW_TOOLTIP}</td><td>{@link #NK_WINDOW_REMOVE_ROM WINDOW_REMOVE_ROM}</td></tr></table>
+	 * @param flags          one of:<br><table><tr><td>{@link #NK_WINDOW_PRIVATE WINDOW_PRIVATE}</td><td>{@link #NK_WINDOW_DYNAMIC WINDOW_DYNAMIC}</td><td>{@link #NK_WINDOW_ROM WINDOW_ROM}</td><td>{@link #NK_WINDOW_HIDDEN WINDOW_HIDDEN}</td><td>{@link #NK_WINDOW_CLOSED WINDOW_CLOSED}</td></tr><tr><td>{@link #NK_WINDOW_MINIMIZED WINDOW_MINIMIZED}</td><td>{@link #NK_WINDOW_REMOVE_ROM WINDOW_REMOVE_ROM}</td></tr></table>
 	 * @param size           
 	 * @param trigger_bounds 
 	 */
@@ -5543,7 +5540,7 @@ public class Nuklear {
 	 *
 	 * @param ctx            the nuklear context
 	 * @param layout         
-	 * @param flags          one of:<br><table><tr><td>{@link #NK_WINDOW_PRIVATE WINDOW_PRIVATE}</td><td>{@link #NK_WINDOW_ROM WINDOW_ROM}</td><td>{@link #NK_WINDOW_HIDDEN WINDOW_HIDDEN}</td><td>{@link #NK_WINDOW_CLOSED WINDOW_CLOSED}</td><td>{@link #NK_WINDOW_MINIMIZED WINDOW_MINIMIZED}</td><td>{@link #NK_WINDOW_SUB WINDOW_SUB}</td></tr><tr><td>{@link #NK_WINDOW_GROUP WINDOW_GROUP}</td><td>{@link #NK_WINDOW_POPUP WINDOW_POPUP}</td><td>{@link #NK_WINDOW_NONBLOCK WINDOW_NONBLOCK}</td><td>{@link #NK_WINDOW_CONTEXTUAL WINDOW_CONTEXTUAL}</td><td>{@link #NK_WINDOW_COMBO WINDOW_COMBO}</td><td>{@link #NK_WINDOW_MENU WINDOW_MENU}</td></tr><tr><td>{@link #NK_WINDOW_TOOLTIP WINDOW_TOOLTIP}</td><td>{@link #NK_WINDOW_REMOVE_ROM WINDOW_REMOVE_ROM}</td></tr></table>
+	 * @param flags          one of:<br><table><tr><td>{@link #NK_WINDOW_PRIVATE WINDOW_PRIVATE}</td><td>{@link #NK_WINDOW_DYNAMIC WINDOW_DYNAMIC}</td><td>{@link #NK_WINDOW_ROM WINDOW_ROM}</td><td>{@link #NK_WINDOW_HIDDEN WINDOW_HIDDEN}</td><td>{@link #NK_WINDOW_CLOSED WINDOW_CLOSED}</td></tr><tr><td>{@link #NK_WINDOW_MINIMIZED WINDOW_MINIMIZED}</td><td>{@link #NK_WINDOW_REMOVE_ROM WINDOW_REMOVE_ROM}</td></tr></table>
 	 * @param size           
 	 * @param trigger_bounds 
 	 */
@@ -5727,7 +5724,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx       the nuklear context
-	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text      
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 */
@@ -5737,7 +5734,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx       the nuklear context
-	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text      
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 */
@@ -5751,7 +5748,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx       the nuklear context
-	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text      
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 */
@@ -5771,7 +5768,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx       the nuklear context
-	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text      
 	 * @param len       
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -5782,7 +5779,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx       the nuklear context
-	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text      
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 */
@@ -5794,7 +5791,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx       the nuklear context
-	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text      
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 */
@@ -5969,9 +5966,9 @@ public class Nuklear {
 	 * @param text   
 	 * @param len    
 	 * @param align  one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
-	 * @param width  
+	 * @param size   
 	 */
-	public static native int nnk_menu_begin_text(long ctx, long layout, long text, int len, int align, float width);
+	public static native int nnk_menu_begin_text(long ctx, long layout, long text, int len, int align, long size);
 
 	/**
 	 * 
@@ -5980,10 +5977,10 @@ public class Nuklear {
 	 * @param layout 
 	 * @param text   
 	 * @param align  one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
-	 * @param width  
+	 * @param size   
 	 */
-	public static boolean nk_menu_begin_text(NkContext ctx, NkPanel layout, ByteBuffer text, int align, float width) {
-		return nnk_menu_begin_text(ctx.address(), layout.address(), memAddress(text), text.remaining(), align, width) != 0;
+	public static boolean nk_menu_begin_text(NkContext ctx, NkPanel layout, ByteBuffer text, int align, NkVec2 size) {
+		return nnk_menu_begin_text(ctx.address(), layout.address(), memAddress(text), text.remaining(), align, size.address()) != 0;
 	}
 
 	/**
@@ -5993,14 +5990,14 @@ public class Nuklear {
 	 * @param layout 
 	 * @param text   
 	 * @param align  one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
-	 * @param width  
+	 * @param size   
 	 */
-	public static boolean nk_menu_begin_text(NkContext ctx, NkPanel layout, CharSequence text, int align, float width) {
+	public static boolean nk_menu_begin_text(NkContext ctx, NkPanel layout, CharSequence text, int align, NkVec2 size) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text, false);
 			int textEncodedLen = textEncoded.capacity();
-			return nnk_menu_begin_text(ctx.address(), layout.address(), memAddress(textEncoded), textEncodedLen, align, width) != 0;
+			return nnk_menu_begin_text(ctx.address(), layout.address(), memAddress(textEncoded), textEncodedLen, align, size.address()) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -6015,9 +6012,9 @@ public class Nuklear {
 	 * @param layout 
 	 * @param text   
 	 * @param align  one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
-	 * @param width  
+	 * @param size   
 	 */
-	public static native int nnk_menu_begin_label(long ctx, long layout, long text, int align, float width);
+	public static native int nnk_menu_begin_label(long ctx, long layout, long text, int align, long size);
 
 	/**
 	 * 
@@ -6026,12 +6023,12 @@ public class Nuklear {
 	 * @param layout 
 	 * @param text   
 	 * @param align  one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
-	 * @param width  
+	 * @param size   
 	 */
-	public static boolean nk_menu_begin_label(NkContext ctx, NkPanel layout, ByteBuffer text, int align, float width) {
+	public static boolean nk_menu_begin_label(NkContext ctx, NkPanel layout, ByteBuffer text, int align, NkVec2 size) {
 		if ( CHECKS )
 			checkNT1(text);
-		return nnk_menu_begin_label(ctx.address(), layout.address(), memAddress(text), align, width) != 0;
+		return nnk_menu_begin_label(ctx.address(), layout.address(), memAddress(text), align, size.address()) != 0;
 	}
 
 	/**
@@ -6041,13 +6038,13 @@ public class Nuklear {
 	 * @param layout 
 	 * @param text   
 	 * @param align  one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
-	 * @param width  
+	 * @param size   
 	 */
-	public static boolean nk_menu_begin_label(NkContext ctx, NkPanel layout, CharSequence text, int align, float width) {
+	public static boolean nk_menu_begin_label(NkContext ctx, NkPanel layout, CharSequence text, int align, NkVec2 size) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text);
-			return nnk_menu_begin_label(ctx.address(), layout.address(), memAddress(textEncoded), align, width) != 0;
+			return nnk_menu_begin_label(ctx.address(), layout.address(), memAddress(textEncoded), align, size.address()) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -6062,9 +6059,9 @@ public class Nuklear {
 	 * @param layout 
 	 * @param text   
 	 * @param img    
-	 * @param width  
+	 * @param size   
 	 */
-	public static native int nnk_menu_begin_image(long ctx, long layout, long text, long img, float width);
+	public static native int nnk_menu_begin_image(long ctx, long layout, long text, long img, long size);
 
 	/**
 	 * 
@@ -6073,12 +6070,12 @@ public class Nuklear {
 	 * @param layout 
 	 * @param text   
 	 * @param img    
-	 * @param width  
+	 * @param size   
 	 */
-	public static boolean nk_menu_begin_image(NkContext ctx, NkPanel layout, ByteBuffer text, NkImage img, float width) {
+	public static boolean nk_menu_begin_image(NkContext ctx, NkPanel layout, ByteBuffer text, NkImage img, NkVec2 size) {
 		if ( CHECKS )
 			checkNT1(text);
-		return nnk_menu_begin_image(ctx.address(), layout.address(), memAddress(text), img.address(), width) != 0;
+		return nnk_menu_begin_image(ctx.address(), layout.address(), memAddress(text), img.address(), size.address()) != 0;
 	}
 
 	/**
@@ -6088,13 +6085,13 @@ public class Nuklear {
 	 * @param layout 
 	 * @param text   
 	 * @param img    
-	 * @param width  
+	 * @param size   
 	 */
-	public static boolean nk_menu_begin_image(NkContext ctx, NkPanel layout, CharSequence text, NkImage img, float width) {
+	public static boolean nk_menu_begin_image(NkContext ctx, NkPanel layout, CharSequence text, NkImage img, NkVec2 size) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text);
-			return nnk_menu_begin_image(ctx.address(), layout.address(), memAddress(textEncoded), img.address(), width) != 0;
+			return nnk_menu_begin_image(ctx.address(), layout.address(), memAddress(textEncoded), img.address(), size.address()) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -6111,9 +6108,9 @@ public class Nuklear {
 	 * @param len    
 	 * @param align  one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 * @param img    
-	 * @param width  
+	 * @param size   
 	 */
-	public static native int nnk_menu_begin_image_text(long ctx, long layout, long text, int len, int align, long img, float width);
+	public static native int nnk_menu_begin_image_text(long ctx, long layout, long text, int len, int align, long img, long size);
 
 	/**
 	 * 
@@ -6123,10 +6120,10 @@ public class Nuklear {
 	 * @param text   
 	 * @param align  one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 * @param img    
-	 * @param width  
+	 * @param size   
 	 */
-	public static boolean nk_menu_begin_image_text(NkContext ctx, NkPanel layout, ByteBuffer text, int align, NkImage img, float width) {
-		return nnk_menu_begin_image_text(ctx.address(), layout.address(), memAddress(text), text.remaining(), align, img.address(), width) != 0;
+	public static boolean nk_menu_begin_image_text(NkContext ctx, NkPanel layout, ByteBuffer text, int align, NkImage img, NkVec2 size) {
+		return nnk_menu_begin_image_text(ctx.address(), layout.address(), memAddress(text), text.remaining(), align, img.address(), size.address()) != 0;
 	}
 
 	/**
@@ -6137,14 +6134,14 @@ public class Nuklear {
 	 * @param text   
 	 * @param align  one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 * @param img    
-	 * @param width  
+	 * @param size   
 	 */
-	public static boolean nk_menu_begin_image_text(NkContext ctx, NkPanel layout, CharSequence text, int align, NkImage img, float width) {
+	public static boolean nk_menu_begin_image_text(NkContext ctx, NkPanel layout, CharSequence text, int align, NkImage img, NkVec2 size) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text, false);
 			int textEncodedLen = textEncoded.capacity();
-			return nnk_menu_begin_image_text(ctx.address(), layout.address(), memAddress(textEncoded), textEncodedLen, align, img.address(), width) != 0;
+			return nnk_menu_begin_image_text(ctx.address(), layout.address(), memAddress(textEncoded), textEncodedLen, align, img.address(), size.address()) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -6160,9 +6157,9 @@ public class Nuklear {
 	 * @param text   
 	 * @param align  one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 * @param img    
-	 * @param width  
+	 * @param size   
 	 */
-	public static native int nnk_menu_begin_image_label(long ctx, long layout, long text, int align, long img, float width);
+	public static native int nnk_menu_begin_image_label(long ctx, long layout, long text, int align, long img, long size);
 
 	/**
 	 * 
@@ -6172,12 +6169,12 @@ public class Nuklear {
 	 * @param text   
 	 * @param align  one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 * @param img    
-	 * @param width  
+	 * @param size   
 	 */
-	public static boolean nk_menu_begin_image_label(NkContext ctx, NkPanel layout, ByteBuffer text, int align, NkImage img, float width) {
+	public static boolean nk_menu_begin_image_label(NkContext ctx, NkPanel layout, ByteBuffer text, int align, NkImage img, NkVec2 size) {
 		if ( CHECKS )
 			checkNT1(text);
-		return nnk_menu_begin_image_label(ctx.address(), layout.address(), memAddress(text), align, img.address(), width) != 0;
+		return nnk_menu_begin_image_label(ctx.address(), layout.address(), memAddress(text), align, img.address(), size.address()) != 0;
 	}
 
 	/**
@@ -6188,13 +6185,13 @@ public class Nuklear {
 	 * @param text   
 	 * @param align  one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 * @param img    
-	 * @param width  
+	 * @param size   
 	 */
-	public static boolean nk_menu_begin_image_label(NkContext ctx, NkPanel layout, CharSequence text, int align, NkImage img, float width) {
+	public static boolean nk_menu_begin_image_label(NkContext ctx, NkPanel layout, CharSequence text, int align, NkImage img, NkVec2 size) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text);
-			return nnk_menu_begin_image_label(ctx.address(), layout.address(), memAddress(textEncoded), align, img.address(), width) != 0;
+			return nnk_menu_begin_image_label(ctx.address(), layout.address(), memAddress(textEncoded), align, img.address(), size.address()) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -6208,10 +6205,10 @@ public class Nuklear {
 	 * @param ctx    the nuklear context
 	 * @param layout 
 	 * @param text   
-	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
-	 * @param width  
+	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param size   
 	 */
-	public static native int nnk_menu_begin_symbol(long ctx, long layout, long text, int symbol, float width);
+	public static native int nnk_menu_begin_symbol(long ctx, long layout, long text, int symbol, long size);
 
 	/**
 	 * 
@@ -6219,13 +6216,13 @@ public class Nuklear {
 	 * @param ctx    the nuklear context
 	 * @param layout 
 	 * @param text   
-	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
-	 * @param width  
+	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param size   
 	 */
-	public static boolean nk_menu_begin_symbol(NkContext ctx, NkPanel layout, ByteBuffer text, int symbol, float width) {
+	public static boolean nk_menu_begin_symbol(NkContext ctx, NkPanel layout, ByteBuffer text, int symbol, NkVec2 size) {
 		if ( CHECKS )
 			checkNT1(text);
-		return nnk_menu_begin_symbol(ctx.address(), layout.address(), memAddress(text), symbol, width) != 0;
+		return nnk_menu_begin_symbol(ctx.address(), layout.address(), memAddress(text), symbol, size.address()) != 0;
 	}
 
 	/**
@@ -6234,14 +6231,14 @@ public class Nuklear {
 	 * @param ctx    the nuklear context
 	 * @param layout 
 	 * @param text   
-	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
-	 * @param width  
+	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param size   
 	 */
-	public static boolean nk_menu_begin_symbol(NkContext ctx, NkPanel layout, CharSequence text, int symbol, float width) {
+	public static boolean nk_menu_begin_symbol(NkContext ctx, NkPanel layout, CharSequence text, int symbol, NkVec2 size) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text);
-			return nnk_menu_begin_symbol(ctx.address(), layout.address(), memAddress(textEncoded), symbol, width) != 0;
+			return nnk_menu_begin_symbol(ctx.address(), layout.address(), memAddress(textEncoded), symbol, size.address()) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -6257,10 +6254,10 @@ public class Nuklear {
 	 * @param text   
 	 * @param len    
 	 * @param align  one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
-	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
-	 * @param width  
+	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param size   
 	 */
-	public static native int nnk_menu_begin_symbol_text(long ctx, long layout, long text, int len, int align, int symbol, float width);
+	public static native int nnk_menu_begin_symbol_text(long ctx, long layout, long text, int len, int align, int symbol, long size);
 
 	/**
 	 * 
@@ -6269,11 +6266,11 @@ public class Nuklear {
 	 * @param layout 
 	 * @param text   
 	 * @param align  one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
-	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
-	 * @param width  
+	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param size   
 	 */
-	public static boolean nk_menu_begin_symbol_text(NkContext ctx, NkPanel layout, ByteBuffer text, int align, int symbol, float width) {
-		return nnk_menu_begin_symbol_text(ctx.address(), layout.address(), memAddress(text), text.remaining(), align, symbol, width) != 0;
+	public static boolean nk_menu_begin_symbol_text(NkContext ctx, NkPanel layout, ByteBuffer text, int align, int symbol, NkVec2 size) {
+		return nnk_menu_begin_symbol_text(ctx.address(), layout.address(), memAddress(text), text.remaining(), align, symbol, size.address()) != 0;
 	}
 
 	/**
@@ -6283,15 +6280,15 @@ public class Nuklear {
 	 * @param layout 
 	 * @param text   
 	 * @param align  one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
-	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
-	 * @param width  
+	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param size   
 	 */
-	public static boolean nk_menu_begin_symbol_text(NkContext ctx, NkPanel layout, CharSequence text, int align, int symbol, float width) {
+	public static boolean nk_menu_begin_symbol_text(NkContext ctx, NkPanel layout, CharSequence text, int align, int symbol, NkVec2 size) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text, false);
 			int textEncodedLen = textEncoded.capacity();
-			return nnk_menu_begin_symbol_text(ctx.address(), layout.address(), memAddress(textEncoded), textEncodedLen, align, symbol, width) != 0;
+			return nnk_menu_begin_symbol_text(ctx.address(), layout.address(), memAddress(textEncoded), textEncodedLen, align, symbol, size.address()) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -6306,10 +6303,10 @@ public class Nuklear {
 	 * @param layout 
 	 * @param text   
 	 * @param align  one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
-	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
-	 * @param width  
+	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param size   
 	 */
-	public static native int nnk_menu_begin_symbol_label(long ctx, long layout, long text, int align, int symbol, float width);
+	public static native int nnk_menu_begin_symbol_label(long ctx, long layout, long text, int align, int symbol, long size);
 
 	/**
 	 * 
@@ -6318,13 +6315,13 @@ public class Nuklear {
 	 * @param layout 
 	 * @param text   
 	 * @param align  one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
-	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
-	 * @param width  
+	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param size   
 	 */
-	public static boolean nk_menu_begin_symbol_label(NkContext ctx, NkPanel layout, ByteBuffer text, int align, int symbol, float width) {
+	public static boolean nk_menu_begin_symbol_label(NkContext ctx, NkPanel layout, ByteBuffer text, int align, int symbol, NkVec2 size) {
 		if ( CHECKS )
 			checkNT1(text);
-		return nnk_menu_begin_symbol_label(ctx.address(), layout.address(), memAddress(text), align, symbol, width) != 0;
+		return nnk_menu_begin_symbol_label(ctx.address(), layout.address(), memAddress(text), align, symbol, size.address()) != 0;
 	}
 
 	/**
@@ -6334,14 +6331,14 @@ public class Nuklear {
 	 * @param layout 
 	 * @param text   
 	 * @param align  one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
-	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
-	 * @param width  
+	 * @param symbol one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param size   
 	 */
-	public static boolean nk_menu_begin_symbol_label(NkContext ctx, NkPanel layout, CharSequence text, int align, int symbol, float width) {
+	public static boolean nk_menu_begin_symbol_label(NkContext ctx, NkPanel layout, CharSequence text, int align, int symbol, NkVec2 size) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.UTF8(text);
-			return nnk_menu_begin_symbol_label(ctx.address(), layout.address(), memAddress(textEncoded), align, symbol, width) != 0;
+			return nnk_menu_begin_symbol_label(ctx.address(), layout.address(), memAddress(textEncoded), align, symbol, size.address()) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -6523,7 +6520,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx       the nuklear context
-	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text      
 	 * @param len       
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
@@ -6534,7 +6531,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx       the nuklear context
-	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text      
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 */
@@ -6546,7 +6543,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx       the nuklear context
-	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text      
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 */
@@ -6567,7 +6564,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx       the nuklear context
-	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text      
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 */
@@ -6577,7 +6574,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx       the nuklear context
-	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text      
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 */
@@ -6591,7 +6588,7 @@ public class Nuklear {
 	 * 
 	 *
 	 * @param ctx       the nuklear context
-	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE SYMBOL_CIRCLE}</td><td>{@link #NK_SYMBOL_CIRCLE_FILLED SYMBOL_CIRCLE_FILLED}</td></tr><tr><td>{@link #NK_SYMBOL_RECT SYMBOL_RECT}</td><td>{@link #NK_SYMBOL_RECT_FILLED SYMBOL_RECT_FILLED}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
+	 * @param symbol    one of:<br><table><tr><td>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</td><td>{@link #NK_SYMBOL_X SYMBOL_X}</td><td>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</td><td>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</td><td>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</td></tr><tr><td>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</td><td>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</td><td>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</td><td>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</td><td>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</td></tr><tr><td>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</td><td>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</td><td>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</td><td>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</td></tr></table>
 	 * @param text      
 	 * @param alignment one of:<br><table><tr><td>{@link #NK_TEXT_LEFT TEXT_LEFT}</td><td>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</td><td>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</td></tr></table>
 	 */
@@ -7311,6 +7308,42 @@ public class Nuklear {
 		return __result;
 	}
 
+	// --- [ nk_widget_width ] ---
+
+	/**
+	 * 
+	 *
+	 * @param ctx the nuklear context
+	 */
+	public static native float nnk_widget_width(long ctx);
+
+	/**
+	 * 
+	 *
+	 * @param ctx the nuklear context
+	 */
+	public static float nk_widget_width(NkContext ctx) {
+		return nnk_widget_width(ctx.address());
+	}
+
+	// --- [ nk_widget_height ] ---
+
+	/**
+	 * 
+	 *
+	 * @param ctx the nuklear context
+	 */
+	public static native float nnk_widget_height(long ctx);
+
+	/**
+	 * 
+	 *
+	 * @param ctx the nuklear context
+	 */
+	public static float nk_widget_height(NkContext ctx) {
+		return nnk_widget_height(ctx.address());
+	}
+
 	// --- [ nk_widget_is_hovered ] ---
 
 	/**
@@ -7716,6 +7749,30 @@ public class Nuklear {
 		if ( CHECKS )
 			checkBuffer(rgba_out, 4);
 		nnk_color_fv(memAddress(rgba_out), color.address());
+	}
+
+	// --- [ nk_color_d ] ---
+
+	public static native void nnk_color_d(long r, long g, long b, long a, long color);
+
+	public static void nk_color_d(DoubleBuffer r, DoubleBuffer g, DoubleBuffer b, DoubleBuffer a, NkColor color) {
+		if ( CHECKS ) {
+			checkBuffer(r, 1);
+			checkBuffer(g, 1);
+			checkBuffer(b, 1);
+			checkBuffer(a, 1);
+		}
+		nnk_color_d(memAddress(r), memAddress(g), memAddress(b), memAddress(a), color.address());
+	}
+
+	// --- [ nk_color_dv ] ---
+
+	public static native void nnk_color_dv(long rgba_out, long color);
+
+	public static void nk_color_dv(DoubleBuffer rgba_out, NkColor color) {
+		if ( CHECKS )
+			checkBuffer(rgba_out, 4);
+		nnk_color_dv(memAddress(rgba_out), color.address());
 	}
 
 	// --- [ nk_color_u32 ] ---
@@ -9532,6 +9589,27 @@ public class Nuklear {
 		return NkDrawCommand.create(__result);
 	}
 
+	// --- [ nk__draw_end ] ---
+
+	/**
+	 * 
+	 *
+	 * @param ctx    the nuklear context
+	 * @param buffer 
+	 */
+	public static native long nnk__draw_end(long ctx, long buffer);
+
+	/**
+	 * 
+	 *
+	 * @param ctx    the nuklear context
+	 * @param buffer 
+	 */
+	public static NkDrawCommand nk__draw_end(NkContext ctx, NkBuffer buffer) {
+		long __result = nnk__draw_end(ctx.address(), buffer.address());
+		return NkDrawCommand.create(__result);
+	}
+
 	// --- [ nk__draw_next ] ---
 
 	/**
@@ -10204,75 +10282,75 @@ public class Nuklear {
 	}
 
 	/** Array version of: {@link #nk_combobox combobox} */
-	public static native void nnk_combobox(long ctx, long items, int count, int[] selected, int item_height, int max_height);
+	public static native void nnk_combobox(long ctx, long items, int count, int[] selected, int item_height, long size);
 
 	/** Array version of: {@link #nk_combobox combobox} */
-	public static void nk_combobox(NkContext ctx, PointerBuffer items, int[] selected, int item_height, int max_height) {
+	public static void nk_combobox(NkContext ctx, PointerBuffer items, int[] selected, int item_height, NkVec2 size) {
 		if ( CHECKS )
 			checkBuffer(selected, 1);
-		nnk_combobox(ctx.address(), memAddress(items), items.remaining(), selected, item_height, max_height);
+		nnk_combobox(ctx.address(), memAddress(items), items.remaining(), selected, item_height, size.address());
 	}
 
 	/** Array version of: {@link #nk_combobox_string combobox_string} */
-	public static native void nnk_combobox_string(long ctx, long items_separated_by_zeros, int[] selected, int count, int item_height, int max_height);
+	public static native void nnk_combobox_string(long ctx, long items_separated_by_zeros, int[] selected, int count, int item_height, long size);
 
 	/** Array version of: {@link #nk_combobox_string combobox_string} */
-	public static void nk_combobox_string(NkContext ctx, ByteBuffer items_separated_by_zeros, int[] selected, int count, int item_height, int max_height) {
+	public static void nk_combobox_string(NkContext ctx, ByteBuffer items_separated_by_zeros, int[] selected, int count, int item_height, NkVec2 size) {
 		if ( CHECKS ) {
 			checkNT1(items_separated_by_zeros);
 			checkBuffer(selected, 1);
 		}
-		nnk_combobox_string(ctx.address(), memAddress(items_separated_by_zeros), selected, count, item_height, max_height);
+		nnk_combobox_string(ctx.address(), memAddress(items_separated_by_zeros), selected, count, item_height, size.address());
 	}
 
 	/** Array version of: {@link #nk_combobox_string combobox_string} */
-	public static void nk_combobox_string(NkContext ctx, CharSequence items_separated_by_zeros, int[] selected, int count, int item_height, int max_height) {
+	public static void nk_combobox_string(NkContext ctx, CharSequence items_separated_by_zeros, int[] selected, int count, int item_height, NkVec2 size) {
 		if ( CHECKS )
 			checkBuffer(selected, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer items_separated_by_zerosEncoded = stack.UTF8(items_separated_by_zeros);
-			nnk_combobox_string(ctx.address(), memAddress(items_separated_by_zerosEncoded), selected, count, item_height, max_height);
+			nnk_combobox_string(ctx.address(), memAddress(items_separated_by_zerosEncoded), selected, count, item_height, size.address());
 		} finally {
 			stack.setPointer(stackPointer);
 		}
 	}
 
 	/** Array version of: {@link #nk_combobox_separator combobox_separator} */
-	public static native void nnk_combobox_separator(long ctx, long items_separated_by_separator, int separator, int[] selected, int count, int item_height, int max_height);
+	public static native void nnk_combobox_separator(long ctx, long items_separated_by_separator, int separator, int[] selected, int count, int item_height, long size);
 
 	/** Array version of: {@link #nk_combobox_separator combobox_separator} */
-	public static void nk_combobox_separator(NkContext ctx, ByteBuffer items_separated_by_separator, int separator, int[] selected, int count, int item_height, int max_height) {
+	public static void nk_combobox_separator(NkContext ctx, ByteBuffer items_separated_by_separator, int separator, int[] selected, int count, int item_height, NkVec2 size) {
 		if ( CHECKS ) {
 			checkNT1(items_separated_by_separator);
 			checkBuffer(selected, 1);
 		}
-		nnk_combobox_separator(ctx.address(), memAddress(items_separated_by_separator), separator, selected, count, item_height, max_height);
+		nnk_combobox_separator(ctx.address(), memAddress(items_separated_by_separator), separator, selected, count, item_height, size.address());
 	}
 
 	/** Array version of: {@link #nk_combobox_separator combobox_separator} */
-	public static void nk_combobox_separator(NkContext ctx, CharSequence items_separated_by_separator, int separator, int[] selected, int count, int item_height, int max_height) {
+	public static void nk_combobox_separator(NkContext ctx, CharSequence items_separated_by_separator, int separator, int[] selected, int count, int item_height, NkVec2 size) {
 		if ( CHECKS )
 			checkBuffer(selected, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer items_separated_by_separatorEncoded = stack.UTF8(items_separated_by_separator);
-			nnk_combobox_separator(ctx.address(), memAddress(items_separated_by_separatorEncoded), separator, selected, count, item_height, max_height);
+			nnk_combobox_separator(ctx.address(), memAddress(items_separated_by_separatorEncoded), separator, selected, count, item_height, size.address());
 		} finally {
 			stack.setPointer(stackPointer);
 		}
 	}
 
 	/** Array version of: {@link #nk_combobox_callback combobox_callback} */
-	public static native void nnk_combobox_callback(long ctx, long item_getter, long userdata, int[] selected, int count, int item_height, int max_height);
+	public static native void nnk_combobox_callback(long ctx, long item_getter, long userdata, int[] selected, int count, int item_height, long size);
 
 	/** Array version of: {@link #nk_combobox_callback combobox_callback} */
-	public static void nk_combobox_callback(NkContext ctx, NkItemGetterI item_getter, long userdata, int[] selected, int count, int item_height, int max_height) {
+	public static void nk_combobox_callback(NkContext ctx, NkItemGetterI item_getter, long userdata, int[] selected, int count, int item_height, NkVec2 size) {
 		if ( CHECKS ) {
 			checkPointer(userdata);
 			checkBuffer(selected, 1);
 		}
-		nnk_combobox_callback(ctx.address(), item_getter.address(), userdata, selected, count, item_height, max_height);
+		nnk_combobox_callback(ctx.address(), item_getter.address(), userdata, selected, count, item_height, size.address());
 	}
 
 	/** Array version of: {@link #nk_style_push_float style_push_float} */
@@ -10401,6 +10479,30 @@ public class Nuklear {
 		if ( CHECKS )
 			checkBuffer(rgba_out, 4);
 		nnk_color_fv(rgba_out, color.address());
+	}
+
+	/** Array version of: {@link #nk_color_d color_d} */
+	public static native void nnk_color_d(double[] r, double[] g, double[] b, double[] a, long color);
+
+	/** Array version of: {@link #nk_color_d color_d} */
+	public static void nk_color_d(double[] r, double[] g, double[] b, double[] a, NkColor color) {
+		if ( CHECKS ) {
+			checkBuffer(r, 1);
+			checkBuffer(g, 1);
+			checkBuffer(b, 1);
+			checkBuffer(a, 1);
+		}
+		nnk_color_d(r, g, b, a, color.address());
+	}
+
+	/** Array version of: {@link #nk_color_dv color_dv} */
+	public static native void nnk_color_dv(double[] rgba_out, long color);
+
+	/** Array version of: {@link #nk_color_dv color_dv} */
+	public static void nk_color_dv(double[] rgba_out, NkColor color) {
+		if ( CHECKS )
+			checkBuffer(rgba_out, 4);
+		nnk_color_dv(rgba_out, color.address());
 	}
 
 	/** Array version of: {@link #nk_color_hsv_i color_hsv_i} */
