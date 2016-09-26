@@ -534,7 +534,7 @@ public class DEVMODE extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** Unsafe version of {@link #dmDeviceName}. */
-	public static ByteBuffer ndmDeviceName(long struct) { return memByteBuffer(struct + DEVMODE.DMDEVICENAME, 64); }
+	public static ByteBuffer ndmDeviceName(long struct) { return memByteBuffer(struct + DEVMODE.DMDEVICENAME, 32 * 2); }
 	/** Unsafe version of {@link #dmDeviceNameString}. */
 	public static String ndmDeviceNameString(long struct) { return memUTF16(struct + DEVMODE.DMDEVICENAME); }
 	/** Unsafe version of {@link #dmSpecVersion}. */
@@ -580,7 +580,7 @@ public class DEVMODE extends Struct implements NativeResource {
 	/** Unsafe version of {@link #dmCollate}. */
 	public static short ndmCollate(long struct) { return memGetShort(struct + DEVMODE.DMCOLLATE); }
 	/** Unsafe version of {@link #dmFormName}. */
-	public static ByteBuffer ndmFormName(long struct) { return memByteBuffer(struct + DEVMODE.DMFORMNAME, 64); }
+	public static ByteBuffer ndmFormName(long struct) { return memByteBuffer(struct + DEVMODE.DMFORMNAME, 32 * 2); }
 	/** Unsafe version of {@link #dmFormNameString}. */
 	public static String ndmFormNameString(long struct) { return memUTF16(struct + DEVMODE.DMFORMNAME); }
 	/** Unsafe version of {@link #dmLogPixels}. */

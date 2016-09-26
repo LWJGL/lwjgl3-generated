@@ -13,6 +13,8 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
+import static org.lwjgl.vulkan.VK10.*;
+
 /**
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPhysicalDeviceMemoryProperties.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPhysicalDeviceMemoryProperties">Vulkan Specification</a>
@@ -32,9 +34,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <pre><code>struct VkPhysicalDeviceMemoryProperties {
     uint32_t memoryTypeCount;
-    {@link VkMemoryType VkMemoryType}[32] memoryTypes;
+    {@link VkMemoryType VkMemoryType}[VK_MAX_MEMORY_TYPES] memoryTypes;
     uint32_t memoryHeapCount;
-    {@link VkMemoryHeap VkMemoryHeap}[16] memoryHeaps;
+    {@link VkMemoryHeap VkMemoryHeap}[VK_MAX_MEMORY_HEAPS] memoryHeaps;
 }</code></pre>
  */
 public class VkPhysicalDeviceMemoryProperties extends Struct implements NativeResource {
@@ -54,9 +56,9 @@ public class VkPhysicalDeviceMemoryProperties extends Struct implements NativeRe
 	static {
 		Layout layout = __struct(
 			__member(4),
-			__array(VkMemoryType.SIZEOF, VkMemoryType.ALIGNOF, 32),
+			__array(VkMemoryType.SIZEOF, VkMemoryType.ALIGNOF, VK_MAX_MEMORY_TYPES),
 			__member(4),
-			__array(VkMemoryHeap.SIZEOF, VkMemoryHeap.ALIGNOF, 16)
+			__array(VkMemoryHeap.SIZEOF, VkMemoryHeap.ALIGNOF, VK_MAX_MEMORY_HEAPS)
 		);
 
 		SIZEOF = layout.getSize();

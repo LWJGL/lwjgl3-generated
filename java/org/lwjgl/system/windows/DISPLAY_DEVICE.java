@@ -270,21 +270,21 @@ public class DISPLAY_DEVICE extends Struct implements NativeResource {
 	/** Unsafe version of {@link #cb}. */
 	public static int ncb(long struct) { return memGetInt(struct + DISPLAY_DEVICE.CB); }
 	/** Unsafe version of {@link #DeviceName}. */
-	public static ByteBuffer nDeviceName(long struct) { return memByteBuffer(struct + DISPLAY_DEVICE.DEVICENAME, 64); }
+	public static ByteBuffer nDeviceName(long struct) { return memByteBuffer(struct + DISPLAY_DEVICE.DEVICENAME, 32 * 2); }
 	/** Unsafe version of {@link #DeviceNameString}. */
 	public static String nDeviceNameString(long struct) { return memUTF16(struct + DISPLAY_DEVICE.DEVICENAME); }
 	/** Unsafe version of {@link #DeviceString}. */
-	public static ByteBuffer nDeviceString(long struct) { return memByteBuffer(struct + DISPLAY_DEVICE.DEVICESTRING, 256); }
+	public static ByteBuffer nDeviceString(long struct) { return memByteBuffer(struct + DISPLAY_DEVICE.DEVICESTRING, 128 * 2); }
 	/** Unsafe version of {@link #DeviceStringString}. */
 	public static String nDeviceStringString(long struct) { return memUTF16(struct + DISPLAY_DEVICE.DEVICESTRING); }
 	/** Unsafe version of {@link #StateFlags}. */
 	public static int nStateFlags(long struct) { return memGetInt(struct + DISPLAY_DEVICE.STATEFLAGS); }
 	/** Unsafe version of {@link #DeviceID}. */
-	public static ByteBuffer nDeviceID(long struct) { return memByteBuffer(struct + DISPLAY_DEVICE.DEVICEID, 256); }
+	public static ByteBuffer nDeviceID(long struct) { return memByteBuffer(struct + DISPLAY_DEVICE.DEVICEID, 128 * 2); }
 	/** Unsafe version of {@link #DeviceIDString}. */
 	public static String nDeviceIDString(long struct) { return memUTF16(struct + DISPLAY_DEVICE.DEVICEID); }
 	/** Unsafe version of {@link #DeviceKey}. */
-	public static ByteBuffer nDeviceKey(long struct) { return memByteBuffer(struct + DISPLAY_DEVICE.DEVICEKEY, 256); }
+	public static ByteBuffer nDeviceKey(long struct) { return memByteBuffer(struct + DISPLAY_DEVICE.DEVICEKEY, 128 * 2); }
 	/** Unsafe version of {@link #DeviceKeyString}. */
 	public static String nDeviceKeyString(long struct) { return memUTF16(struct + DISPLAY_DEVICE.DEVICEKEY); }
 

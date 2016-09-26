@@ -269,7 +269,7 @@ public class MONITORINFOEX extends Struct implements NativeResource {
 	/** Unsafe version of {@link #dwFlags}. */
 	public static int ndwFlags(long struct) { return memGetInt(struct + MONITORINFOEX.DWFLAGS); }
 	/** Unsafe version of {@link #szDevice}. */
-	public static ByteBuffer nszDevice(long struct) { return memByteBuffer(struct + MONITORINFOEX.SZDEVICE, 64); }
+	public static ByteBuffer nszDevice(long struct) { return memByteBuffer(struct + MONITORINFOEX.SZDEVICE, 32 * 2); }
 	/** Unsafe version of {@link #szDeviceString}. */
 	public static String nszDeviceString(long struct) { return memUTF16(struct + MONITORINFOEX.SZDEVICE); }
 

@@ -83,6 +83,9 @@ public class OVR {
 	/** The right eye, from the viewer's perspective. */
 	public static final int ovrEye_Right = 1;
 
+	/** Count of enumerated elements. */
+	public static final int ovrEye_Count = 2;
+
 	/**
 	 * Tracking system origin reported at eye (HMD) height.
 	 * 
@@ -344,7 +347,8 @@ public class OVR {
 	/** Names for the left and right hand array indexes. ({@code ovrHandType}) */
 	public static final int
 		ovrHand_Left  = 0x0,
-		ovrHand_Right = 0x1;
+		ovrHand_Right = 0x1,
+		ovrHand_Count = 0x2;
 
 	/** Maximum number of frames of performance stats provided back to the caller of {@link #ovr_GetPerfStats GetPerfStats}. */
 	public static final int ovrMaxProvidedFrameStats = 0x5;

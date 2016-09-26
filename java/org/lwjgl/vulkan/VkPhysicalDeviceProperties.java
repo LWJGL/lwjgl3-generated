@@ -13,6 +13,8 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
+import static org.lwjgl.vulkan.VK10.*;
+
 /**
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPhysicalDeviceProperties.html">Khronos Reference Page</a><br>
  * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPhysicalDeviceProperties">Vulkan Specification</a>
@@ -41,8 +43,8 @@ import static org.lwjgl.system.MemoryStack.*;
     uint32_t vendorID;
     uint32_t deviceID;
     VkPhysicalDeviceType deviceType;
-    char[256] deviceName;
-    uint8_t[16] pipelineCacheUUID;
+    char[VK_MAX_PHYSICAL_DEVICE_NAME_SIZE] deviceName;
+    uint8_t[VK_UUID_SIZE] pipelineCacheUUID;
     {@link VkPhysicalDeviceLimits VkPhysicalDeviceLimits} limits;
     {@link VkPhysicalDeviceSparseProperties VkPhysicalDeviceSparseProperties} sparseProperties;
 }</code></pre>
@@ -73,8 +75,8 @@ public class VkPhysicalDeviceProperties extends Struct implements NativeResource
 			__member(4),
 			__member(4),
 			__member(4),
-			__array(1, 256),
-			__array(1, 16),
+			__array(1, VK_MAX_PHYSICAL_DEVICE_NAME_SIZE),
+			__array(1, VK_UUID_SIZE),
 			__member(VkPhysicalDeviceLimits.SIZEOF, VkPhysicalDeviceLimits.ALIGNOF),
 			__member(VkPhysicalDeviceSparseProperties.SIZEOF, VkPhysicalDeviceSparseProperties.ALIGNOF)
 		);
@@ -273,12 +275,12 @@ public class VkPhysicalDeviceProperties extends Struct implements NativeResource
 	/** Unsafe version of {@link #deviceType}. */
 	public static int ndeviceType(long struct) { return memGetInt(struct + VkPhysicalDeviceProperties.DEVICETYPE); }
 	/** Unsafe version of {@link #deviceName}. */
-	public static ByteBuffer ndeviceName(long struct) { return memByteBuffer(struct + VkPhysicalDeviceProperties.DEVICENAME, 256); }
+	public static ByteBuffer ndeviceName(long struct) { return memByteBuffer(struct + VkPhysicalDeviceProperties.DEVICENAME, VK_MAX_PHYSICAL_DEVICE_NAME_SIZE); }
 	/** Unsafe version of {@link #deviceNameString}. */
 	public static String ndeviceNameString(long struct) { return memUTF8(struct + VkPhysicalDeviceProperties.DEVICENAME); }
 	/** Unsafe version of {@link #pipelineCacheUUID}. */
 	public static ByteBuffer npipelineCacheUUID(long struct) {
-		return memByteBuffer(struct + VkPhysicalDeviceProperties.PIPELINECACHEUUID, 16);
+		return memByteBuffer(struct + VkPhysicalDeviceProperties.PIPELINECACHEUUID, VK_UUID_SIZE);
 	}
 	/** Unsafe version of {@link #pipelineCacheUUID(int) pipelineCacheUUID}. */
 	public static byte npipelineCacheUUID(long struct, int index) { return memGetByte(struct + VkPhysicalDeviceProperties.PIPELINECACHEUUID + index * 1); }

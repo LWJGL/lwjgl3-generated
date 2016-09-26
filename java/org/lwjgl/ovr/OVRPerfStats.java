@@ -13,6 +13,8 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
+import static org.lwjgl.ovr.OVR.ovrMaxProvidedFrameStats;
+
 /**
  * This is a complete descriptor of the performance stats provided by the SDK.
  * 
@@ -50,7 +52,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrPerfStats {
-    {@link OVRPerfStatsPerCompositorFrame ovrPerfStatsPerCompositorFrame}[5] FrameStats;
+    {@link OVRPerfStatsPerCompositorFrame ovrPerfStatsPerCompositorFrame}[ovrMaxProvidedFrameStats] FrameStats;
     int FrameStatsCount;
     ovrBool AnyFrameStatsDropped;
     float AdaptiveGpuPerformanceScale;
@@ -72,7 +74,7 @@ public class OVRPerfStats extends Struct implements NativeResource {
 
 	static {
 		Layout layout = __struct(
-			__array(OVRPerfStatsPerCompositorFrame.SIZEOF, OVRPerfStatsPerCompositorFrame.ALIGNOF, 5),
+			__array(OVRPerfStatsPerCompositorFrame.SIZEOF, OVRPerfStatsPerCompositorFrame.ALIGNOF, ovrMaxProvidedFrameStats),
 			__member(4),
 			__member(1),
 			__member(4)

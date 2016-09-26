@@ -11,11 +11,13 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
+import static org.lwjgl.nuklear.Nuklear.NK_BUTTON_MAX;
+
 /**
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_mouse {
-    {@link NkMouseButton struct nk_mouse_button}[3] buttons;
+    {@link NkMouseButton struct nk_mouse_button}[NK_BUTTON_MAX] buttons;
     {@link NkVec2 struct nk_vec2} pos;
     {@link NkVec2 struct nk_vec2} prev;
     {@link NkVec2 struct nk_vec2} delta;
@@ -45,7 +47,7 @@ public class NkMouse extends Struct {
 
 	static {
 		Layout layout = __struct(
-			__array(NkMouseButton.SIZEOF, NkMouseButton.ALIGNOF, 3),
+			__array(NkMouseButton.SIZEOF, NkMouseButton.ALIGNOF, NK_BUTTON_MAX),
 			__member(NkVec2.SIZEOF, NkVec2.ALIGNOF),
 			__member(NkVec2.SIZEOF, NkVec2.ALIGNOF),
 			__member(NkVec2.SIZEOF, NkVec2.ALIGNOF),
@@ -125,7 +127,7 @@ public class NkMouse extends Struct {
 
 	/** Unsafe version of {@link #buttons}. */
 	public static NkMouseButton.Buffer nbuttons(long struct) {
-		return NkMouseButton.create(struct + NkMouse.BUTTONS, 3);
+		return NkMouseButton.create(struct + NkMouse.BUTTONS, NK_BUTTON_MAX);
 	}
 	/** Unsafe version of {@link #buttons(int) buttons}. */
 	public static NkMouseButton nbuttons(long struct, int index) {

@@ -14,6 +14,8 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
+import static org.lwjgl.ovr.OVR.ovrEye_Count;
+
 /**
  * Contains the data necessary to properly calculate position info for various layer types.
  * 
@@ -36,7 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrViewScaleDesc {
-    {@link OVRVector3f ovrVector3f}[2] HmdToEyeOffset;
+    {@link OVRVector3f ovrVector3f}[ovrEye_Count] HmdToEyeOffset;
     float HmdSpaceToWorldScaleInMeters;
 }</code></pre>
  */
@@ -54,7 +56,7 @@ public class OVRViewScaleDesc extends Struct implements NativeResource {
 
 	static {
 		Layout layout = __struct(
-			__array(OVRVector3f.SIZEOF, OVRVector3f.ALIGNOF, 2),
+			__array(OVRVector3f.SIZEOF, OVRVector3f.ALIGNOF, ovrEye_Count),
 			__member(4)
 		);
 
@@ -255,7 +257,7 @@ public class OVRViewScaleDesc extends Struct implements NativeResource {
 
 	/** Unsafe version of {@link #HmdToEyeOffset}. */
 	public static OVRVector3f.Buffer nHmdToEyeOffset(long struct) {
-		return OVRVector3f.create(struct + OVRViewScaleDesc.HMDTOEYEOFFSET, 2);
+		return OVRVector3f.create(struct + OVRViewScaleDesc.HMDTOEYEOFFSET, ovrEye_Count);
 	}
 	/** Unsafe version of {@link #HmdToEyeOffset(int) HmdToEyeOffset}. */
 	public static OVRVector3f nHmdToEyeOffset(long struct, int index) {
@@ -266,7 +268,7 @@ public class OVRViewScaleDesc extends Struct implements NativeResource {
 
 	/** Unsafe version of {@link #HmdToEyeOffset(OVRVector3f.Buffer) HmdToEyeOffset}. */
 	public static void nHmdToEyeOffset(long struct, OVRVector3f.Buffer value) {
-		if ( CHECKS ) checkBufferGT(value, 2);
+		if ( CHECKS ) checkBufferGT(value, ovrEye_Count);
 		memCopy(value.address(), struct + OVRViewScaleDesc.HMDTOEYEOFFSET, value.remaining() * OVRVector3f.SIZEOF);
 	}
 	/** Unsafe version of {@link #HmdToEyeOffset(int, OVRVector3f) HmdToEyeOffset}. */

@@ -11,12 +11,14 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
+import static org.lwjgl.nuklear.Nuklear.*;
+
 /**
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_keyboard {
-    {@link NkKey struct nk_key}[29] keys;
-    char[16] text;
+    {@link NkKey struct nk_key}[NK_KEY_MAX] keys;
+    char[NK_INPUT_MAX] text;
     int text_len;
 }</code></pre>
  */
@@ -35,8 +37,8 @@ public class NkKeyboard extends Struct {
 
 	static {
 		Layout layout = __struct(
-			__array(NkKey.SIZEOF, NkKey.ALIGNOF, 29),
-			__array(1, 16),
+			__array(NkKey.SIZEOF, NkKey.ALIGNOF, NK_KEY_MAX),
+			__array(1, NK_INPUT_MAX),
 			__member(4)
 		);
 
@@ -97,7 +99,7 @@ public class NkKeyboard extends Struct {
 
 	/** Unsafe version of {@link #keys}. */
 	public static NkKey.Buffer nkeys(long struct) {
-		return NkKey.create(struct + NkKeyboard.KEYS, 29);
+		return NkKey.create(struct + NkKeyboard.KEYS, NK_KEY_MAX);
 	}
 	/** Unsafe version of {@link #keys(int) keys}. */
 	public static NkKey nkeys(long struct, int index) {
@@ -105,7 +107,7 @@ public class NkKeyboard extends Struct {
 	}
 	/** Unsafe version of {@link #text}. */
 	public static ByteBuffer ntext(long struct) {
-		return memByteBuffer(struct + NkKeyboard.TEXT, 16);
+		return memByteBuffer(struct + NkKeyboard.TEXT, NK_INPUT_MAX);
 	}
 	/** Unsafe version of {@link #text(int) text}. */
 	public static byte ntext(long struct, int index) { return memGetByte(struct + NkKeyboard.TEXT + index * 1); }

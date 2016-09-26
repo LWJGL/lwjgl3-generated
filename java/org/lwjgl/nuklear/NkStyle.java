@@ -14,12 +14,14 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
+import static org.lwjgl.nuklear.Nuklear.NK_CURSOR_COUNT;
+
 /**
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_style {
     struct nk_user_font * font;
-    struct nk_cursor *[7] cursors;
+    struct nk_cursor *[NK_CURSOR_COUNT] cursors;
     struct nk_cursor * cursor_active;
     struct nk_cursor * cursor_last;
     int cursor_visible;
@@ -77,7 +79,7 @@ public class NkStyle extends Struct implements NativeResource {
 	static {
 		Layout layout = __struct(
 			__member(POINTER_SIZE),
-			__array(POINTER_SIZE, 7),
+			__array(POINTER_SIZE, NK_CURSOR_COUNT),
 			__member(POINTER_SIZE),
 			__member(POINTER_SIZE),
 			__member(4),
@@ -439,7 +441,7 @@ public class NkStyle extends Struct implements NativeResource {
 	public static NkUserFont nfont(long struct) { return NkUserFont.create(memGetAddress(struct + NkStyle.FONT)); }
 	/** Unsafe version of {@link #cursors}. */
 	public static PointerBuffer ncursors(long struct) {
-		return memPointerBuffer(struct + NkStyle.CURSORS, 7);
+		return memPointerBuffer(struct + NkStyle.CURSORS, NK_CURSOR_COUNT);
 	}
 	/** Unsafe version of {@link #cursors(int) cursors}. */
 	public static NkCursor ncursors(long struct, int index) {
@@ -490,7 +492,7 @@ public class NkStyle extends Struct implements NativeResource {
 	public static void nfont(long struct, NkUserFont value) { memPutAddress(struct + NkStyle.FONT, value.address()); }
 	/** Unsafe version of {@link #cursors(PointerBuffer) cursors}. */
 	public static void ncursors(long struct, PointerBuffer value) {
-		if ( CHECKS ) checkBufferGT(value, 7);
+		if ( CHECKS ) checkBufferGT(value, NK_CURSOR_COUNT);
 		memCopy(memAddress(value), struct + NkStyle.CURSORS, value.remaining() * POINTER_SIZE);
 	}
 	/** Unsafe version of {@link #cursors(int, NkCursor) cursors}. */

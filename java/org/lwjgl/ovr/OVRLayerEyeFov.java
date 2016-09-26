@@ -14,6 +14,8 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
+import static org.lwjgl.ovr.OVR.ovrEye_Count;
+
 /**
  * Describes a layer that specifies a monoscopic or stereoscopic view. This is the kind of layer that's typically used as layer 0 to
  * {@link OVR#ovr_SubmitFrame}, as it is the kind of layer used to render a 3D stereoscopic view.
@@ -38,10 +40,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <pre><code>struct ovrLayerEyeFov {
     {@link OVRLayerHeader ovrLayerHeader} Header;
-    ovrTextureSwapChain[2] ColorTexture;
-    {@link OVRRecti ovrRecti}[2] Viewport;
-    {@link OVRFovPort ovrFovPort}[2] Fov;
-    {@link OVRPosef ovrPosef}[2] RenderPose;
+    ovrTextureSwapChain[ovrEye_Count] ColorTexture;
+    {@link OVRRecti ovrRecti}[ovrEye_Count] Viewport;
+    {@link OVRFovPort ovrFovPort}[ovrEye_Count] Fov;
+    {@link OVRPosef ovrPosef}[ovrEye_Count] RenderPose;
     double SensorSampleTime;
 }</code></pre>
  */
@@ -64,10 +66,10 @@ public class OVRLayerEyeFov extends Struct implements NativeResource {
 	static {
 		Layout layout = __struct(
 			__member(OVRLayerHeader.SIZEOF, OVRLayerHeader.ALIGNOF),
-			__array(POINTER_SIZE, 2),
-			__array(OVRRecti.SIZEOF, OVRRecti.ALIGNOF, 2),
-			__array(OVRFovPort.SIZEOF, OVRFovPort.ALIGNOF, 2),
-			__array(OVRPosef.SIZEOF, OVRPosef.ALIGNOF, 2),
+			__array(POINTER_SIZE, ovrEye_Count),
+			__array(OVRRecti.SIZEOF, OVRRecti.ALIGNOF, ovrEye_Count),
+			__array(OVRFovPort.SIZEOF, OVRFovPort.ALIGNOF, ovrEye_Count),
+			__array(OVRPosef.SIZEOF, OVRPosef.ALIGNOF, ovrEye_Count),
 			__member(8)
 		);
 
@@ -310,13 +312,13 @@ public class OVRLayerEyeFov extends Struct implements NativeResource {
 	public static OVRLayerHeader nHeader(long struct) { return OVRLayerHeader.create(struct + OVRLayerEyeFov.HEADER); }
 	/** Unsafe version of {@link #ColorTexture}. */
 	public static PointerBuffer nColorTexture(long struct) {
-		return memPointerBuffer(struct + OVRLayerEyeFov.COLORTEXTURE, 2);
+		return memPointerBuffer(struct + OVRLayerEyeFov.COLORTEXTURE, ovrEye_Count);
 	}
 	/** Unsafe version of {@link #ColorTexture(int) ColorTexture}. */
 	public static long nColorTexture(long struct, int index) { return memGetAddress(struct + OVRLayerEyeFov.COLORTEXTURE + index * 2147483647); }
 	/** Unsafe version of {@link #Viewport}. */
 	public static OVRRecti.Buffer nViewport(long struct) {
-		return OVRRecti.create(struct + OVRLayerEyeFov.VIEWPORT, 2);
+		return OVRRecti.create(struct + OVRLayerEyeFov.VIEWPORT, ovrEye_Count);
 	}
 	/** Unsafe version of {@link #Viewport(int) Viewport}. */
 	public static OVRRecti nViewport(long struct, int index) {
@@ -324,7 +326,7 @@ public class OVRLayerEyeFov extends Struct implements NativeResource {
 	}
 	/** Unsafe version of {@link #Fov}. */
 	public static OVRFovPort.Buffer nFov(long struct) {
-		return OVRFovPort.create(struct + OVRLayerEyeFov.FOV, 2);
+		return OVRFovPort.create(struct + OVRLayerEyeFov.FOV, ovrEye_Count);
 	}
 	/** Unsafe version of {@link #Fov(int) Fov}. */
 	public static OVRFovPort nFov(long struct, int index) {
@@ -332,7 +334,7 @@ public class OVRLayerEyeFov extends Struct implements NativeResource {
 	}
 	/** Unsafe version of {@link #RenderPose}. */
 	public static OVRPosef.Buffer nRenderPose(long struct) {
-		return OVRPosef.create(struct + OVRLayerEyeFov.RENDERPOSE, 2);
+		return OVRPosef.create(struct + OVRLayerEyeFov.RENDERPOSE, ovrEye_Count);
 	}
 	/** Unsafe version of {@link #RenderPose(int) RenderPose}. */
 	public static OVRPosef nRenderPose(long struct, int index) {
@@ -345,28 +347,28 @@ public class OVRLayerEyeFov extends Struct implements NativeResource {
 	public static void nHeader(long struct, OVRLayerHeader value) { memCopy(value.address(), struct + OVRLayerEyeFov.HEADER, OVRLayerHeader.SIZEOF); }
 	/** Unsafe version of {@link #ColorTexture(PointerBuffer) ColorTexture}. */
 	public static void nColorTexture(long struct, PointerBuffer value) {
-		if ( CHECKS ) checkBufferGT(value, 2);
+		if ( CHECKS ) checkBufferGT(value, ovrEye_Count);
 		memCopy(memAddress(value), struct + OVRLayerEyeFov.COLORTEXTURE, value.remaining() * POINTER_SIZE);
 	}
 	/** Unsafe version of {@link #ColorTexture(int, long) ColorTexture}. */
 	public static void nColorTexture(long struct, int index, long value) { memPutAddress(struct + OVRLayerEyeFov.COLORTEXTURE + index * POINTER_SIZE, value); }
 	/** Unsafe version of {@link #Viewport(OVRRecti.Buffer) Viewport}. */
 	public static void nViewport(long struct, OVRRecti.Buffer value) {
-		if ( CHECKS ) checkBufferGT(value, 2);
+		if ( CHECKS ) checkBufferGT(value, ovrEye_Count);
 		memCopy(value.address(), struct + OVRLayerEyeFov.VIEWPORT, value.remaining() * OVRRecti.SIZEOF);
 	}
 	/** Unsafe version of {@link #Viewport(int, OVRRecti) Viewport}. */
 	public static void nViewport(long struct, int index, OVRRecti value) { memCopy(value.address(), struct + OVRLayerEyeFov.VIEWPORT + index * OVRRecti.SIZEOF, OVRRecti.SIZEOF); }
 	/** Unsafe version of {@link #Fov(OVRFovPort.Buffer) Fov}. */
 	public static void nFov(long struct, OVRFovPort.Buffer value) {
-		if ( CHECKS ) checkBufferGT(value, 2);
+		if ( CHECKS ) checkBufferGT(value, ovrEye_Count);
 		memCopy(value.address(), struct + OVRLayerEyeFov.FOV, value.remaining() * OVRFovPort.SIZEOF);
 	}
 	/** Unsafe version of {@link #Fov(int, OVRFovPort) Fov}. */
 	public static void nFov(long struct, int index, OVRFovPort value) { memCopy(value.address(), struct + OVRLayerEyeFov.FOV + index * OVRFovPort.SIZEOF, OVRFovPort.SIZEOF); }
 	/** Unsafe version of {@link #RenderPose(OVRPosef.Buffer) RenderPose}. */
 	public static void nRenderPose(long struct, OVRPosef.Buffer value) {
-		if ( CHECKS ) checkBufferGT(value, 2);
+		if ( CHECKS ) checkBufferGT(value, ovrEye_Count);
 		memCopy(value.address(), struct + OVRLayerEyeFov.RENDERPOSE, value.remaining() * OVRPosef.SIZEOF);
 	}
 	/** Unsafe version of {@link #RenderPose(int, OVRPosef) RenderPose}. */

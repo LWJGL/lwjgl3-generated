@@ -11,13 +11,15 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
+import static org.lwjgl.nuklear.Nuklear.NK_MAX_NUMBER_BUFFER;
+
 /**
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_property_state {
     int active;
     int prev;
-    char[64] buffer;
+    char[NK_MAX_NUMBER_BUFFER] buffer;
     int length;
     int cursor;
     nk_hash name;
@@ -49,7 +51,7 @@ public class NkPropertyState extends Struct {
 		Layout layout = __struct(
 			__member(4),
 			__member(4),
-			__array(1, 64),
+			__array(1, NK_MAX_NUMBER_BUFFER),
 			__member(4),
 			__member(4),
 			__member(4),
@@ -135,7 +137,7 @@ public class NkPropertyState extends Struct {
 	public static int nprev(long struct) { return memGetInt(struct + NkPropertyState.PREV); }
 	/** Unsafe version of {@link #buffer}. */
 	public static ByteBuffer nbuffer(long struct) {
-		return memByteBuffer(struct + NkPropertyState.BUFFER, 64);
+		return memByteBuffer(struct + NkPropertyState.BUFFER, NK_MAX_NUMBER_BUFFER);
 	}
 	/** Unsafe version of {@link #buffer(int) buffer}. */
 	public static byte nbuffer(long struct, int index) { return memGetByte(struct + NkPropertyState.BUFFER + index * 1); }

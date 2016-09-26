@@ -13,6 +13,8 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
+import static org.lwjgl.ovr.OVR.ovrEye_Count;
+
 /**
  * A complete descriptor of the HMD.
  * 
@@ -53,8 +55,8 @@ import static org.lwjgl.system.MemoryStack.*;
     unsigned int DefaultHmdCaps;
     unsigned int AvailableTrackingCaps;
     unsigned int DefaultTrackingCaps;
-    {@link OVRFovPort ovrFovPort}[2] DefaultEyeFov;
-    {@link OVRFovPort ovrFovPort}[2] MaxEyeFov;
+    {@link OVRFovPort ovrFovPort}[ovrEye_Count] DefaultEyeFov;
+    {@link OVRFovPort ovrFovPort}[ovrEye_Count] MaxEyeFov;
     {@link OVRSizei ovrSizei} Resolution;
     float DisplayRefreshRate;
     char[4];
@@ -101,8 +103,8 @@ public class OVRHmdDesc extends Struct implements NativeResource {
 			__member(4),
 			__member(4),
 			__member(4),
-			__array(OVRFovPort.SIZEOF, OVRFovPort.ALIGNOF, 2),
-			__array(OVRFovPort.SIZEOF, OVRFovPort.ALIGNOF, 2),
+			__array(OVRFovPort.SIZEOF, OVRFovPort.ALIGNOF, ovrEye_Count),
+			__array(OVRFovPort.SIZEOF, OVRFovPort.ALIGNOF, ovrEye_Count),
 			__member(OVRSizei.SIZEOF, OVRSizei.ALIGNOF),
 			__member(4),
 			__padding(4, Pointer.BITS64)
@@ -350,7 +352,7 @@ public class OVRHmdDesc extends Struct implements NativeResource {
 	public static int nDefaultTrackingCaps(long struct) { return memGetInt(struct + OVRHmdDesc.DEFAULTTRACKINGCAPS); }
 	/** Unsafe version of {@link #DefaultEyeFov}. */
 	public static OVRFovPort.Buffer nDefaultEyeFov(long struct) {
-		return OVRFovPort.create(struct + OVRHmdDesc.DEFAULTEYEFOV, 2);
+		return OVRFovPort.create(struct + OVRHmdDesc.DEFAULTEYEFOV, ovrEye_Count);
 	}
 	/** Unsafe version of {@link #DefaultEyeFov(int) DefaultEyeFov}. */
 	public static OVRFovPort nDefaultEyeFov(long struct, int index) {
@@ -358,7 +360,7 @@ public class OVRHmdDesc extends Struct implements NativeResource {
 	}
 	/** Unsafe version of {@link #MaxEyeFov}. */
 	public static OVRFovPort.Buffer nMaxEyeFov(long struct) {
-		return OVRFovPort.create(struct + OVRHmdDesc.MAXEYEFOV, 2);
+		return OVRFovPort.create(struct + OVRHmdDesc.MAXEYEFOV, ovrEye_Count);
 	}
 	/** Unsafe version of {@link #MaxEyeFov(int) MaxEyeFov}. */
 	public static OVRFovPort nMaxEyeFov(long struct, int index) {

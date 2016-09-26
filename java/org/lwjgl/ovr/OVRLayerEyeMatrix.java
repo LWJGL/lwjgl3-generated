@@ -14,6 +14,8 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
+import static org.lwjgl.ovr.OVR.ovrEye_Count;
+
 /**
  * Describes a layer that specifies a monoscopic or stereoscopic view. This uses a direct 3x4 matrix to map from view space to the UV coordinates. It
  * is essentially the same thing as {@link OVRLayerEyeFov} but using a much lower level. This is mainly to provide compatibility with specific apps. Unless
@@ -54,10 +56,10 @@ TexV  = P.y/P.z</code></pre></li>
  * 
  * <pre><code>struct ovrLayerEyeMatrix {
     {@link OVRLayerHeader ovrLayerHeader} Header;
-    ovrTextureSwapChain[2] ColorTexture;
-    {@link OVRRecti ovrRecti}[2] Viewport;
-    {@link OVRPosef ovrPosef}[2] RenderPose;
-    {@link OVRMatrix4f ovrMatrix4f}[2] Matrix;
+    ovrTextureSwapChain[ovrEye_Count] ColorTexture;
+    {@link OVRRecti ovrRecti}[ovrEye_Count] Viewport;
+    {@link OVRPosef ovrPosef}[ovrEye_Count] RenderPose;
+    {@link OVRMatrix4f ovrMatrix4f}[ovrEye_Count] Matrix;
     double SensorSampleTime;
 }</code></pre>
  */
@@ -80,10 +82,10 @@ public class OVRLayerEyeMatrix extends Struct implements NativeResource {
 	static {
 		Layout layout = __struct(
 			__member(OVRLayerHeader.SIZEOF, OVRLayerHeader.ALIGNOF),
-			__array(POINTER_SIZE, 2),
-			__array(OVRRecti.SIZEOF, OVRRecti.ALIGNOF, 2),
-			__array(OVRPosef.SIZEOF, OVRPosef.ALIGNOF, 2),
-			__array(OVRMatrix4f.SIZEOF, OVRMatrix4f.ALIGNOF, 2),
+			__array(POINTER_SIZE, ovrEye_Count),
+			__array(OVRRecti.SIZEOF, OVRRecti.ALIGNOF, ovrEye_Count),
+			__array(OVRPosef.SIZEOF, OVRPosef.ALIGNOF, ovrEye_Count),
+			__array(OVRMatrix4f.SIZEOF, OVRMatrix4f.ALIGNOF, ovrEye_Count),
 			__member(8)
 		);
 
@@ -326,13 +328,13 @@ public class OVRLayerEyeMatrix extends Struct implements NativeResource {
 	public static OVRLayerHeader nHeader(long struct) { return OVRLayerHeader.create(struct + OVRLayerEyeMatrix.HEADER); }
 	/** Unsafe version of {@link #ColorTexture}. */
 	public static PointerBuffer nColorTexture(long struct) {
-		return memPointerBuffer(struct + OVRLayerEyeMatrix.COLORTEXTURE, 2);
+		return memPointerBuffer(struct + OVRLayerEyeMatrix.COLORTEXTURE, ovrEye_Count);
 	}
 	/** Unsafe version of {@link #ColorTexture(int) ColorTexture}. */
 	public static long nColorTexture(long struct, int index) { return memGetAddress(struct + OVRLayerEyeMatrix.COLORTEXTURE + index * 2147483647); }
 	/** Unsafe version of {@link #Viewport}. */
 	public static OVRRecti.Buffer nViewport(long struct) {
-		return OVRRecti.create(struct + OVRLayerEyeMatrix.VIEWPORT, 2);
+		return OVRRecti.create(struct + OVRLayerEyeMatrix.VIEWPORT, ovrEye_Count);
 	}
 	/** Unsafe version of {@link #Viewport(int) Viewport}. */
 	public static OVRRecti nViewport(long struct, int index) {
@@ -340,7 +342,7 @@ public class OVRLayerEyeMatrix extends Struct implements NativeResource {
 	}
 	/** Unsafe version of {@link #RenderPose}. */
 	public static OVRPosef.Buffer nRenderPose(long struct) {
-		return OVRPosef.create(struct + OVRLayerEyeMatrix.RENDERPOSE, 2);
+		return OVRPosef.create(struct + OVRLayerEyeMatrix.RENDERPOSE, ovrEye_Count);
 	}
 	/** Unsafe version of {@link #RenderPose(int) RenderPose}. */
 	public static OVRPosef nRenderPose(long struct, int index) {
@@ -348,7 +350,7 @@ public class OVRLayerEyeMatrix extends Struct implements NativeResource {
 	}
 	/** Unsafe version of {@link #Matrix}. */
 	public static OVRMatrix4f.Buffer nMatrix(long struct) {
-		return OVRMatrix4f.create(struct + OVRLayerEyeMatrix.MATRIX, 2);
+		return OVRMatrix4f.create(struct + OVRLayerEyeMatrix.MATRIX, ovrEye_Count);
 	}
 	/** Unsafe version of {@link #Matrix(int) Matrix}. */
 	public static OVRMatrix4f nMatrix(long struct, int index) {
@@ -361,28 +363,28 @@ public class OVRLayerEyeMatrix extends Struct implements NativeResource {
 	public static void nHeader(long struct, OVRLayerHeader value) { memCopy(value.address(), struct + OVRLayerEyeMatrix.HEADER, OVRLayerHeader.SIZEOF); }
 	/** Unsafe version of {@link #ColorTexture(PointerBuffer) ColorTexture}. */
 	public static void nColorTexture(long struct, PointerBuffer value) {
-		if ( CHECKS ) checkBufferGT(value, 2);
+		if ( CHECKS ) checkBufferGT(value, ovrEye_Count);
 		memCopy(memAddress(value), struct + OVRLayerEyeMatrix.COLORTEXTURE, value.remaining() * POINTER_SIZE);
 	}
 	/** Unsafe version of {@link #ColorTexture(int, long) ColorTexture}. */
 	public static void nColorTexture(long struct, int index, long value) { memPutAddress(struct + OVRLayerEyeMatrix.COLORTEXTURE + index * POINTER_SIZE, value); }
 	/** Unsafe version of {@link #Viewport(OVRRecti.Buffer) Viewport}. */
 	public static void nViewport(long struct, OVRRecti.Buffer value) {
-		if ( CHECKS ) checkBufferGT(value, 2);
+		if ( CHECKS ) checkBufferGT(value, ovrEye_Count);
 		memCopy(value.address(), struct + OVRLayerEyeMatrix.VIEWPORT, value.remaining() * OVRRecti.SIZEOF);
 	}
 	/** Unsafe version of {@link #Viewport(int, OVRRecti) Viewport}. */
 	public static void nViewport(long struct, int index, OVRRecti value) { memCopy(value.address(), struct + OVRLayerEyeMatrix.VIEWPORT + index * OVRRecti.SIZEOF, OVRRecti.SIZEOF); }
 	/** Unsafe version of {@link #RenderPose(OVRPosef.Buffer) RenderPose}. */
 	public static void nRenderPose(long struct, OVRPosef.Buffer value) {
-		if ( CHECKS ) checkBufferGT(value, 2);
+		if ( CHECKS ) checkBufferGT(value, ovrEye_Count);
 		memCopy(value.address(), struct + OVRLayerEyeMatrix.RENDERPOSE, value.remaining() * OVRPosef.SIZEOF);
 	}
 	/** Unsafe version of {@link #RenderPose(int, OVRPosef) RenderPose}. */
 	public static void nRenderPose(long struct, int index, OVRPosef value) { memCopy(value.address(), struct + OVRLayerEyeMatrix.RENDERPOSE + index * OVRPosef.SIZEOF, OVRPosef.SIZEOF); }
 	/** Unsafe version of {@link #Matrix(OVRMatrix4f.Buffer) Matrix}. */
 	public static void nMatrix(long struct, OVRMatrix4f.Buffer value) {
-		if ( CHECKS ) checkBufferGT(value, 2);
+		if ( CHECKS ) checkBufferGT(value, ovrEye_Count);
 		memCopy(value.address(), struct + OVRLayerEyeMatrix.MATRIX, value.remaining() * OVRMatrix4f.SIZEOF);
 	}
 	/** Unsafe version of {@link #Matrix(int, OVRMatrix4f) Matrix}. */
