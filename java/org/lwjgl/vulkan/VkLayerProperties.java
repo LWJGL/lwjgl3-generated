@@ -33,10 +33,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkLayerProperties {
-    char[256] layerName;
+    char layerName[256];
     uint32_t specVersion;
     uint32_t implementationVersion;
-    char[256] description;
+    char description[256];
 }</code></pre>
  */
 public class VkLayerProperties extends Struct implements NativeResource {

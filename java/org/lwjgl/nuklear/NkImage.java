@@ -21,7 +21,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkHandle nk_handle} handle;
     unsigned short w;
     unsigned short h;
-    unsigned short[4] region;
+    unsigned short region[4];
 }</code></pre>
  */
 public class NkImage extends Struct implements NativeResource {

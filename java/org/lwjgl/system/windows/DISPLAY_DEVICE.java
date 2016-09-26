@@ -36,11 +36,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <pre><code>struct DISPLAY_DEVICE {
     DWORD cb;
-    TCHAR[32] DeviceName;
-    TCHAR[128] DeviceString;
+    TCHAR DeviceName[32];
+    TCHAR DeviceString[128];
     DWORD StateFlags;
-    TCHAR[128] DeviceID;
-    TCHAR[128] DeviceKey;
+    TCHAR DeviceID[128];
+    TCHAR DeviceKey[128];
 }</code></pre>
  */
 public class DISPLAY_DEVICE extends Struct implements NativeResource {

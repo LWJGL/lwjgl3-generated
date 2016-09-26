@@ -40,10 +40,10 @@ import static org.lwjgl.ovr.OVR.ovrEye_Count;
  * 
  * <pre><code>struct ovrLayerEyeFov {
     {@link OVRLayerHeader ovrLayerHeader} Header;
-    ovrTextureSwapChain[ovrEye_Count] ColorTexture;
-    {@link OVRRecti ovrRecti}[ovrEye_Count] Viewport;
-    {@link OVRFovPort ovrFovPort}[ovrEye_Count] Fov;
-    {@link OVRPosef ovrPosef}[ovrEye_Count] RenderPose;
+    ovrTextureSwapChain ColorTexture[ovrEye_Count];
+    {@link OVRRecti ovrRecti} Viewport[ovrEye_Count];
+    {@link OVRFovPort ovrFovPort} Fov[ovrEye_Count];
+    {@link OVRPosef ovrPosef} RenderPose[ovrEye_Count];
     double SensorSampleTime;
 }</code></pre>
  */

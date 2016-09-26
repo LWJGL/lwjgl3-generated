@@ -21,7 +21,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <pre><code>union cl_device_topology_amd {
     struct {
         cl_uint type;
-        cl_uint[5] data;
+        cl_uint data[5];
     } raw;
     struct {
         cl_uint type;

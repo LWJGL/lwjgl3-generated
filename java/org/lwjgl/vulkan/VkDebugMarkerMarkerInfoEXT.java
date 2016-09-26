@@ -42,7 +42,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkStructureType sType;
     const void * pNext;
     const char * pMarkerName;
-    float[4] color;
+    float color[4];
 }</code></pre>
  */
 public class VkDebugMarkerMarkerInfoEXT extends Struct implements NativeResource {

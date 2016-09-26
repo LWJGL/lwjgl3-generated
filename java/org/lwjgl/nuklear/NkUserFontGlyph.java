@@ -28,7 +28,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_user_font_glyph {
-    {@link NkVec2 struct nk_vec2}[2] uv;
+    {@link NkVec2 struct nk_vec2} uv[2];
     {@link NkVec2 struct nk_vec2} offset;
     float width;
     float height;

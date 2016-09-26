@@ -26,7 +26,7 @@ import static org.lwjgl.system.MemoryStack.*;
     unsigned v2;
     unsigned v3;
     unsigned v4;
-    unsigned[4] mem32;
+    unsigned mem32[4];
     unsigned memsize;
     unsigned reserved;
 }</code></pre>

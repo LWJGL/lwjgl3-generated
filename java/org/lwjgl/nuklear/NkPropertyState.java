@@ -19,7 +19,7 @@ import static org.lwjgl.nuklear.Nuklear.NK_MAX_NUMBER_BUFFER;
  * <pre><code>struct nk_property_state {
     int active;
     int prev;
-    char[NK_MAX_NUMBER_BUFFER] buffer;
+    char buffer[NK_MAX_NUMBER_BUFFER];
     int length;
     int cursor;
     nk_hash name;

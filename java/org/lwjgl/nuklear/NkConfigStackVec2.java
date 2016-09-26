@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <pre><code>struct nk_config_stack_vec2 {
     int head;
-    {@link NkConfigStackVec2Element struct nk_config_stack_vec2_element}[16] elements;
+    {@link NkConfigStackVec2Element struct nk_config_stack_vec2_element} elements[16];
 }</code></pre>
  */
 class NkConfigStackVec2 extends Struct {

@@ -21,7 +21,7 @@ import static org.lwjgl.nuklear.Nuklear.NK_CURSOR_COUNT;
  * 
  * <pre><code>struct nk_style {
     struct nk_user_font * font;
-    struct nk_cursor *[NK_CURSOR_COUNT] cursors;
+    struct nk_cursor * cursors[NK_CURSOR_COUNT];
     struct nk_cursor * cursor_active;
     struct nk_cursor * cursor_last;
     int cursor_visible;

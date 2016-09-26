@@ -42,13 +42,13 @@ import static org.lwjgl.ovr.OVR.ovrHand_Count;
     unsigned int ConnectedControllerTypes;
     unsigned int Buttons;
     unsigned int Touches;
-    float[ovrHand_Count] IndexTrigger;
-    float[ovrHand_Count] HandTrigger;
-    {@link OVRVector2f ovrVector2f}[ovrHand_Count] Thumbstick;
+    float IndexTrigger[ovrHand_Count];
+    float HandTrigger[ovrHand_Count];
+    {@link OVRVector2f ovrVector2f} Thumbstick[ovrHand_Count];
     ovrControllerType ControllerType;
-    float[ovrHand_Count] IndexTriggerNoDeadzone;
-    float[ovrHand_Count] HandTriggerNoDeadzone;
-    float[ovrHand_Count] ThumbstickNoDeadzone;
+    float IndexTriggerNoDeadzone[ovrHand_Count];
+    float HandTriggerNoDeadzone[ovrHand_Count];
+    float ThumbstickNoDeadzone[ovrHand_Count];
 }</code></pre>
  */
 public class OVRInputState extends Struct implements NativeResource {

@@ -56,7 +56,7 @@ import static org.lwjgl.system.MemoryStack.*;
     VkLogicOp logicOp;
     uint32_t attachmentCount;
     const VkPipelineColorBlendAttachmentState * pAttachments;
-    float[4] blendConstants;
+    float blendConstants[4];
 }</code></pre>
  */
 public class VkPipelineColorBlendStateCreateInfo extends Struct implements NativeResource {

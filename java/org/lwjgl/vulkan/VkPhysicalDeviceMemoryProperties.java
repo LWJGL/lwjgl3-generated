@@ -34,9 +34,9 @@ import static org.lwjgl.vulkan.VK10.*;
  * 
  * <pre><code>struct VkPhysicalDeviceMemoryProperties {
     uint32_t memoryTypeCount;
-    {@link VkMemoryType VkMemoryType}[VK_MAX_MEMORY_TYPES] memoryTypes;
+    {@link VkMemoryType VkMemoryType} memoryTypes[VK_MAX_MEMORY_TYPES];
     uint32_t memoryHeapCount;
-    {@link VkMemoryHeap VkMemoryHeap}[VK_MAX_MEMORY_HEAPS] memoryHeaps;
+    {@link VkMemoryHeap VkMemoryHeap} memoryHeaps[VK_MAX_MEMORY_HEAPS];
 }</code></pre>
  */
 public class VkPhysicalDeviceMemoryProperties extends Struct implements NativeResource {

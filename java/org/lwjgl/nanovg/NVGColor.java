@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <pre><code>struct NVGcolor {
     union {
-        float[4] rgba;
+        float rgba[4];
         struct {
             float r;
             float g;

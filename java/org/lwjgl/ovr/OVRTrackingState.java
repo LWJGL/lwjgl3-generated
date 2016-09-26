@@ -41,8 +41,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <pre><code>struct ovrTrackingState {
     {@link OVRPoseStatef ovrPoseStatef} HeadPose;
     unsigned int StatusFlags;
-    {@link OVRPoseStatef ovrPoseStatef}[2] HandPoses;
-    unsigned int[2] HandStatusFlags;
+    {@link OVRPoseStatef ovrPoseStatef} HandPoses[2];
+    unsigned int HandStatusFlags[2];
     {@link OVRPosef ovrPosef} CalibratedOrigin;
 }</code></pre>
  */

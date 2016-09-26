@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <pre><code>struct nk_config_stack_color {
     int head;
-    {@link NkConfigStackColorElement struct nk_config_stack_color_element}[32] elements;
+    {@link NkConfigStackColorElement struct nk_config_stack_color_element} elements[32];
 }</code></pre>
  */
 class NkConfigStackColor extends Struct {

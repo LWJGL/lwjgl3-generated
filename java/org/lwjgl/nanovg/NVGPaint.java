@@ -32,8 +32,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct NVGpaint {
-    float[6] xform;
-    float[2] extent;
+    float xform[6];
+    float extent[2];
     float radius;
     float feather;
     {@link NVGColor NVGcolor} innerColor;

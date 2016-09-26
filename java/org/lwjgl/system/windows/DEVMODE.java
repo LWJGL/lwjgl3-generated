@@ -93,7 +93,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct DEVMODE {
-    TCHAR[32] dmDeviceName;
+    TCHAR dmDeviceName[32];
     WORD dmSpecVersion;
     WORD dmDriverVersion;
     WORD dmSize;
@@ -121,7 +121,7 @@ import static org.lwjgl.system.MemoryStack.*;
     short dmYResolution;
     short dmTTOption;
     short dmCollate;
-    TCHAR[32] dmFormName;
+    TCHAR dmFormName[32];
     WORD dmLogPixels;
     DWORD dmBitsPerPel;
     DWORD dmPelsWidth;

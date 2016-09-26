@@ -26,7 +26,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrMatrix4f {
-    float[16] M;
+    float M[16];
 }</code></pre>
  */
 public class OVRMatrix4f extends Struct implements NativeResource {

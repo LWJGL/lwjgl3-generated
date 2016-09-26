@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <pre><code>struct nk_config_stack_user_font {
     int head;
-    {@link NkConfigStackUserFontElement struct nk_config_stack_user_font_element}[8] elements;
+    {@link NkConfigStackUserFontElement struct nk_config_stack_user_font_element} elements[8];
 }</code></pre>
  */
 class NkConfigStackUserFont extends Struct {

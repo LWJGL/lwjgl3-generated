@@ -28,7 +28,7 @@ import static org.lwjgl.system.MemoryStack.*;
     unsigned int cmd_count;
     unsigned int path_count;
     unsigned int path_offset;
-    {@link NkVec2 struct nk_vec2}[12] circle_vtx;
+    {@link NkVec2 struct nk_vec2} circle_vtx[12];
     {@link NkHandle nk_handle} userdata;
 }</code></pre>
  */

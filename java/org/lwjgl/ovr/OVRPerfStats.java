@@ -52,7 +52,7 @@ import static org.lwjgl.ovr.OVR.ovrMaxProvidedFrameStats;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrPerfStats {
-    {@link OVRPerfStatsPerCompositorFrame ovrPerfStatsPerCompositorFrame}[ovrMaxProvidedFrameStats] FrameStats;
+    {@link OVRPerfStatsPerCompositorFrame ovrPerfStatsPerCompositorFrame} FrameStats[ovrMaxProvidedFrameStats];
     int FrameStatsCount;
     ovrBool AnyFrameStatsDropped;
     float AdaptiveGpuPerformanceScale;

@@ -15,8 +15,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_text_undo_state {
-    {@link NkTextUndoRecord struct nk_text_undo_record}[99] undo_rec;
-    nk_rune[999] undo_char;
+    {@link NkTextUndoRecord struct nk_text_undo_record} undo_rec[99];
+    nk_rune undo_char[999];
     short undo_point;
     short redo_point;
     short undo_char_point;

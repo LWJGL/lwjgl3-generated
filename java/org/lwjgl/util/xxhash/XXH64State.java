@@ -25,9 +25,9 @@ import static org.lwjgl.system.MemoryStack.*;
     long long v2;
     long long v3;
     long long v4;
-    long long[4] mem64;
+    long long mem64[4];
     unsigned memsize;
-    unsigned[2] reserved;
+    unsigned reserved[2];
 }</code></pre>
  */
 public class XXH64State extends Struct implements NativeResource {

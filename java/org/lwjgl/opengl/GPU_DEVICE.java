@@ -39,8 +39,8 @@ import org.lwjgl.system.windows.*;
  * 
  * <pre><code>struct GPU_DEVICE {
     DWORD cb;
-    CHAR[32] DeviceName;
-    CHAR[128] DeviceString;
+    CHAR DeviceName[32];
+    CHAR DeviceString[128];
     DWORD Flags;
     {@link RECT RECT} rcVirtualScreen;
 }</code></pre>

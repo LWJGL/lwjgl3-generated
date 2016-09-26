@@ -59,9 +59,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <pre><code>struct VkImageBlit {
     {@link VkImageSubresourceLayers VkImageSubresourceLayers} srcSubresource;
-    {@link VkOffset3D VkOffset3D}[2] srcOffsets;
+    {@link VkOffset3D VkOffset3D} srcOffsets[2];
     {@link VkImageSubresourceLayers VkImageSubresourceLayers} dstSubresource;
-    {@link VkOffset3D VkOffset3D}[2] dstOffsets;
+    {@link VkOffset3D VkOffset3D} dstOffsets[2];
 }</code></pre>
  */
 public class VkImageBlit extends Struct implements NativeResource {

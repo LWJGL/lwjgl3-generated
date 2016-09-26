@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <pre><code>struct nk_window {
     unsigned int seq;
     nk_hash name;
-    char[64] name_string;
+    char name_string[64];
     nk_flags flags;
     {@link NkRect struct nk_rect} bounds;
     {@link NkScroll struct nk_scroll} scrollbar;

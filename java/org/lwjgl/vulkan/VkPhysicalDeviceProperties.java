@@ -43,8 +43,8 @@ import static org.lwjgl.vulkan.VK10.*;
     uint32_t vendorID;
     uint32_t deviceID;
     VkPhysicalDeviceType deviceType;
-    char[VK_MAX_PHYSICAL_DEVICE_NAME_SIZE] deviceName;
-    uint8_t[VK_UUID_SIZE] pipelineCacheUUID;
+    char deviceName[VK_MAX_PHYSICAL_DEVICE_NAME_SIZE];
+    uint8_t pipelineCacheUUID[VK_UUID_SIZE];
     {@link VkPhysicalDeviceLimits VkPhysicalDeviceLimits} limits;
     {@link VkPhysicalDeviceSparseProperties VkPhysicalDeviceSparseProperties} sparseProperties;
 }</code></pre>

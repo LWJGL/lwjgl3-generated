@@ -29,7 +29,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkExtensionProperties {
-    char[256] extensionName;
+    char extensionName[256];
     uint32_t specVersion;
 }</code></pre>
  */

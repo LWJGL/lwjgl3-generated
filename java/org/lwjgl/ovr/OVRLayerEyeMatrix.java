@@ -56,10 +56,10 @@ TexV  = P.y/P.z</code></pre></li>
  * 
  * <pre><code>struct ovrLayerEyeMatrix {
     {@link OVRLayerHeader ovrLayerHeader} Header;
-    ovrTextureSwapChain[ovrEye_Count] ColorTexture;
-    {@link OVRRecti ovrRecti}[ovrEye_Count] Viewport;
-    {@link OVRPosef ovrPosef}[ovrEye_Count] RenderPose;
-    {@link OVRMatrix4f ovrMatrix4f}[ovrEye_Count] Matrix;
+    ovrTextureSwapChain ColorTexture[ovrEye_Count];
+    {@link OVRRecti ovrRecti} Viewport[ovrEye_Count];
+    {@link OVRPosef ovrPosef} RenderPose[ovrEye_Count];
+    {@link OVRMatrix4f ovrMatrix4f} Matrix[ovrEye_Count];
     double SensorSampleTime;
 }</code></pre>
  */

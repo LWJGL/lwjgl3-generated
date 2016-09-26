@@ -44,7 +44,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link RECT RECT} rcMonitor;
     {@link RECT RECT} rcWork;
     DWORD dwFlags;
-    TCHAR[32] szDevice;
+    TCHAR szDevice[32];
 }</code></pre>
  */
 public class MONITORINFOEX extends Struct implements NativeResource {
