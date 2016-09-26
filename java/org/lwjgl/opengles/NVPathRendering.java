@@ -1772,7 +1772,7 @@ public class NVPathRendering {
 		long __functionAddress = GLES.getCapabilities().glPathCommandsNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPPV(__functionAddress, path, commands.remaining(), memAddress(commands), coords.length << 1, coordType, coords);
+		callPPV(__functionAddress, path, commands.remaining(), memAddress(commands), coords.length, coordType, coords);
 	}
 
 	/** float[] version of: {@link #glPathCommandsNV PathCommandsNV} */
@@ -1780,7 +1780,7 @@ public class NVPathRendering {
 		long __functionAddress = GLES.getCapabilities().glPathCommandsNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPPV(__functionAddress, path, commands.remaining(), memAddress(commands), coords.length << 2, coordType, coords);
+		callPPV(__functionAddress, path, commands.remaining(), memAddress(commands), coords.length, coordType, coords);
 	}
 
 	/** short[] version of: {@link #glPathCoordsNV PathCoordsNV} */
@@ -1788,7 +1788,7 @@ public class NVPathRendering {
 		long __functionAddress = GLES.getCapabilities().glPathCoordsNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPV(__functionAddress, path, coords.length << 1, coordType, coords);
+		callPV(__functionAddress, path, coords.length, coordType, coords);
 	}
 
 	/** float[] version of: {@link #glPathCoordsNV PathCoordsNV} */
@@ -1796,7 +1796,7 @@ public class NVPathRendering {
 		long __functionAddress = GLES.getCapabilities().glPathCoordsNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPV(__functionAddress, path, coords.length << 2, coordType, coords);
+		callPV(__functionAddress, path, coords.length, coordType, coords);
 	}
 
 	/** short[] version of: {@link #glPathSubCommandsNV PathSubCommandsNV} */
@@ -1804,7 +1804,7 @@ public class NVPathRendering {
 		long __functionAddress = GLES.getCapabilities().glPathSubCommandsNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPPV(__functionAddress, path, commandStart, commandsToDelete, commands.remaining(), memAddress(commands), coords.length << 1, coordType, coords);
+		callPPV(__functionAddress, path, commandStart, commandsToDelete, commands.remaining(), memAddress(commands), coords.length, coordType, coords);
 	}
 
 	/** float[] version of: {@link #glPathSubCommandsNV PathSubCommandsNV} */
@@ -1812,7 +1812,7 @@ public class NVPathRendering {
 		long __functionAddress = GLES.getCapabilities().glPathSubCommandsNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPPV(__functionAddress, path, commandStart, commandsToDelete, commands.remaining(), memAddress(commands), coords.length << 2, coordType, coords);
+		callPPV(__functionAddress, path, commandStart, commandsToDelete, commands.remaining(), memAddress(commands), coords.length, coordType, coords);
 	}
 
 	/** short[] version of: {@link #glPathSubCoordsNV PathSubCoordsNV} */
@@ -1820,7 +1820,7 @@ public class NVPathRendering {
 		long __functionAddress = GLES.getCapabilities().glPathSubCoordsNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPV(__functionAddress, path, coordStart, coords.length << 1, coordType, coords);
+		callPV(__functionAddress, path, coordStart, coords.length, coordType, coords);
 	}
 
 	/** float[] version of: {@link #glPathSubCoordsNV PathSubCoordsNV} */
@@ -1828,7 +1828,7 @@ public class NVPathRendering {
 		long __functionAddress = GLES.getCapabilities().glPathSubCoordsNV;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPV(__functionAddress, path, coordStart, coords.length << 2, coordType, coords);
+		callPV(__functionAddress, path, coordStart, coords.length, coordType, coords);
 	}
 
 	/** Array version of: {@link #glWeightPathsNV WeightPathsNV} */

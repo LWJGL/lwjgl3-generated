@@ -282,7 +282,7 @@ public class WGLAMDGPUAssociation {
 		long __functionAddress = GL.getCapabilitiesWGL().wglGetGPUInfoAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callPI(__functionAddress, id, property, dataType, data.length << 2, data);
+		return callPI(__functionAddress, id, property, dataType, data.length, data);
 	}
 
 	/** float[] version of: {@link #wglGetGPUInfoAMD GetGPUInfoAMD} */
@@ -290,7 +290,7 @@ public class WGLAMDGPUAssociation {
 		long __functionAddress = GL.getCapabilitiesWGL().wglGetGPUInfoAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callPI(__functionAddress, id, property, dataType, data.length << 2, data);
+		return callPI(__functionAddress, id, property, dataType, data.length, data);
 	}
 
 	/** Array version of: {@link #wglCreateAssociatedContextAttribsAMD CreateAssociatedContextAttribsAMD} */
