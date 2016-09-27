@@ -32,7 +32,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class TinyFileDialogs {
 
 	static {
-		LibTinyFD.initialize();
+		Library.loadSystem(Platform.mapLibraryNameBundled("lwjgl_tinyfd"));
 		tinyfd_winUtf8().put(0, 1);
 	}
 

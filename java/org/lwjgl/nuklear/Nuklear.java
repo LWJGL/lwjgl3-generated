@@ -504,7 +504,7 @@ public class Nuklear {
 	/** Removes the read only mode at the end of the window */
 	public static final int NK_WINDOW_REMOVE_ROM = 1 << 15;
 
-	static { Library.loadSystem("lwjgl_nuklear"); }
+	static { Library.loadSystem(Platform.mapLibraryNameBundled("lwjgl_nuklear")); }
 
 	static { MemoryUtil.getAllocator(); }
 
