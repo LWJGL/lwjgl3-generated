@@ -1838,10 +1838,10 @@ public class NVPathRendering {
 
 	public static boolean glPointAlongPathNV(int path, int startSegment, int numSegments, float distance, FloatBuffer x, FloatBuffer y, FloatBuffer tangentX, FloatBuffer tangentY) {
 		if ( CHECKS ) {
-			if ( x != null ) checkBuffer(x, 1);
-			if ( y != null ) checkBuffer(y, 1);
-			if ( tangentX != null ) checkBuffer(tangentX, 1);
-			if ( tangentY != null ) checkBuffer(tangentY, 1);
+			checkBufferSafe(x, 1);
+			checkBufferSafe(y, 1);
+			checkBufferSafe(tangentX, 1);
+			checkBufferSafe(tangentY, 1);
 		}
 		return nglPointAlongPathNV(path, startSegment, numSegments, distance, memAddressSafe(x), memAddressSafe(y), memAddressSafe(tangentX), memAddressSafe(tangentY));
 	}
@@ -2019,7 +2019,7 @@ public class NVPathRendering {
 
 	public static void glGetProgramResourcefvNV(int program, int programInterface, int index, IntBuffer props, IntBuffer length, FloatBuffer params) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		nglGetProgramResourcefvNV(program, programInterface, index, props.remaining(), memAddress(props), params.remaining(), memAddressSafe(length), memAddress(params));
 	}
 
@@ -2350,10 +2350,10 @@ public class NVPathRendering {
 		long __functionAddress = GL.getCapabilities().glPointAlongPathNV;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( x != null ) checkBuffer(x, 1);
-			if ( y != null ) checkBuffer(y, 1);
-			if ( tangentX != null ) checkBuffer(tangentX, 1);
-			if ( tangentY != null ) checkBuffer(tangentY, 1);
+			checkBufferSafe(x, 1);
+			checkBufferSafe(y, 1);
+			checkBufferSafe(tangentX, 1);
+			checkBufferSafe(tangentY, 1);
 		}
 		return callPPPPZ(__functionAddress, path, startSegment, numSegments, distance, x, y, tangentX, tangentY);
 	}
@@ -2423,7 +2423,7 @@ public class NVPathRendering {
 		long __functionAddress = GL.getCapabilities().glGetProgramResourcefvNV;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		}
 		callPPPV(__functionAddress, program, programInterface, index, props.length, props, params.length, length, params);
 	}

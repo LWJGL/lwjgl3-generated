@@ -60,7 +60,7 @@ public class OESGetProgramBinary {
 
 	public static void glGetProgramBinaryOES(int program, IntBuffer length, IntBuffer binaryFormat, ByteBuffer binary) {
 		if ( CHECKS ) {
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 			checkBuffer(binaryFormat, 1);
 		}
 		nglGetProgramBinaryOES(program, binary.remaining(), memAddressSafe(length), memAddress(binaryFormat), memAddress(binary));
@@ -84,7 +84,7 @@ public class OESGetProgramBinary {
 		long __functionAddress = GLES.getCapabilities().glGetProgramBinaryOES;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 			checkBuffer(binaryFormat, 1);
 		}
 		callPPPV(__functionAddress, program, binary.remaining(), length, binaryFormat, memAddress(binary));

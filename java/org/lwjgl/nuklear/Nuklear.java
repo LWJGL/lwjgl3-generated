@@ -532,7 +532,7 @@ public class Nuklear {
 	 * @param font   
 	 */
 	public static boolean nk_init_fixed(NkContext ctx, ByteBuffer memory, NkUserFont font) {
-		return nnk_init_fixed(ctx.address(), memAddress(memory), (long)memory.remaining(), font == null ? NULL : font.address()) != 0;
+		return nnk_init_fixed(ctx.address(), memAddress(memory), (long)memory.remaining(), memAddressSafe(font)) != 0;
 	}
 
 	// --- [ nk_init_custom ] ---
@@ -556,7 +556,7 @@ public class Nuklear {
 	 * @param font 
 	 */
 	public static boolean nk_init_custom(NkContext ctx, NkBuffer cmds, NkBuffer pool, NkUserFont font) {
-		return nnk_init_custom(ctx.address(), cmds.address(), pool.address(), font == null ? NULL : font.address()) != 0;
+		return nnk_init_custom(ctx.address(), cmds.address(), pool.address(), memAddressSafe(font)) != 0;
 	}
 
 	// --- [ nk_init ] ---
@@ -578,7 +578,7 @@ public class Nuklear {
 	 * @param font      
 	 */
 	public static boolean nk_init(NkContext ctx, NkAllocator allocator, NkUserFont font) {
-		return nnk_init(ctx.address(), allocator.address(), font == null ? NULL : font.address()) != 0;
+		return nnk_init(ctx.address(), allocator.address(), memAddressSafe(font)) != 0;
 	}
 
 	// --- [ nk_clear ] ---
@@ -634,7 +634,7 @@ public class Nuklear {
 	 * @param handle 
 	 */
 	public static void nk_set_user_data(NkContext ctx, NkHandle handle) {
-		nnk_set_user_data(ctx.address(), handle == null ? NULL : handle.address());
+		nnk_set_user_data(ctx.address(), memAddressSafe(handle));
 	}
 
 	// --- [ nk_begin ] ---
@@ -3319,7 +3319,7 @@ public class Nuklear {
 			checkNT1(str);
 			checkBuffer(value, 1);
 		}
-		return nnk_selectable_image_label(ctx.address(), img == null ? NULL : img.address(), memAddress(str), align, memAddress(value)) != 0;
+		return nnk_selectable_image_label(ctx.address(), memAddressSafe(img), memAddress(str), align, memAddress(value)) != 0;
 	}
 
 	/**
@@ -3337,7 +3337,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str);
-			return nnk_selectable_image_label(ctx.address(), img == null ? NULL : img.address(), memAddress(strEncoded), align, memAddress(value)) != 0;
+			return nnk_selectable_image_label(ctx.address(), memAddressSafe(img), memAddress(strEncoded), align, memAddress(value)) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -3369,7 +3369,7 @@ public class Nuklear {
 	public static boolean nk_selectable_image_text(NkContext ctx, NkImage img, ByteBuffer str, int align, IntBuffer value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
-		return nnk_selectable_image_text(ctx.address(), img == null ? NULL : img.address(), memAddress(str), str.remaining(), align, memAddress(value)) != 0;
+		return nnk_selectable_image_text(ctx.address(), memAddressSafe(img), memAddress(str), str.remaining(), align, memAddress(value)) != 0;
 	}
 
 	/**
@@ -3388,7 +3388,7 @@ public class Nuklear {
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
 			int strEncodedLen = strEncoded.capacity();
-			return nnk_selectable_image_text(ctx.address(), img == null ? NULL : img.address(), memAddress(strEncoded), strEncodedLen, align, memAddress(value)) != 0;
+			return nnk_selectable_image_text(ctx.address(), memAddressSafe(img), memAddress(strEncoded), strEncodedLen, align, memAddress(value)) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -3507,7 +3507,7 @@ public class Nuklear {
 	public static boolean nk_select_image_label(NkContext ctx, NkImage img, ByteBuffer str, int align, boolean value) {
 		if ( CHECKS )
 			checkNT1(str);
-		return nnk_select_image_label(ctx.address(), img == null ? NULL : img.address(), memAddress(str), align, value ? 1 : 0) != 0;
+		return nnk_select_image_label(ctx.address(), memAddressSafe(img), memAddress(str), align, value ? 1 : 0) != 0;
 	}
 
 	/**
@@ -3523,7 +3523,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str);
-			return nnk_select_image_label(ctx.address(), img == null ? NULL : img.address(), memAddress(strEncoded), align, value ? 1 : 0) != 0;
+			return nnk_select_image_label(ctx.address(), memAddressSafe(img), memAddress(strEncoded), align, value ? 1 : 0) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -3553,7 +3553,7 @@ public class Nuklear {
 	 * @param value 
 	 */
 	public static boolean nk_select_image_text(NkContext ctx, NkImage img, ByteBuffer str, int align, boolean value) {
-		return nnk_select_image_text(ctx.address(), img == null ? NULL : img.address(), memAddress(str), str.remaining(), align, value ? 1 : 0) != 0;
+		return nnk_select_image_text(ctx.address(), memAddressSafe(img), memAddress(str), str.remaining(), align, value ? 1 : 0) != 0;
 	}
 
 	/**
@@ -3570,7 +3570,7 @@ public class Nuklear {
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
 			int strEncodedLen = strEncoded.capacity();
-			return nnk_select_image_text(ctx.address(), img == null ? NULL : img.address(), memAddress(strEncoded), strEncodedLen, align, value ? 1 : 0) != 0;
+			return nnk_select_image_text(ctx.address(), memAddressSafe(img), memAddress(strEncoded), strEncodedLen, align, value ? 1 : 0) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -4132,7 +4132,7 @@ public class Nuklear {
 			checkNT1(memory);
 			checkBuffer(len, 1);
 		}
-		return nnk_edit_string(ctx.address(), flags, memAddress(memory), memAddress(len), max, filter == null ? NULL : filter.address());
+		return nnk_edit_string(ctx.address(), flags, memAddress(memory), memAddress(len), max, memAddressSafe(filter));
 	}
 
 	/**
@@ -4151,7 +4151,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer memoryEncoded = stack.UTF8(memory);
-			return nnk_edit_string(ctx.address(), flags, memAddress(memoryEncoded), memAddress(len), max, filter == null ? NULL : filter.address());
+			return nnk_edit_string(ctx.address(), flags, memAddress(memoryEncoded), memAddress(len), max, memAddressSafe(filter));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -4178,7 +4178,7 @@ public class Nuklear {
 	 * @param filter 
 	 */
 	public static int nk_edit_buffer(NkContext ctx, int flags, NkTextEdit edit, NkPluginFilterI filter) {
-		return nnk_edit_buffer(ctx.address(), flags, edit.address(), filter == null ? NULL : filter.address());
+		return nnk_edit_buffer(ctx.address(), flags, edit.address(), memAddressSafe(filter));
 	}
 
 	// --- [ nk_edit_string_zero_terminated ] ---
@@ -4206,7 +4206,7 @@ public class Nuklear {
 	public static int nk_edit_string_zero_terminated(NkContext ctx, int flags, ByteBuffer buffer, int max, NkPluginFilterI filter) {
 		if ( CHECKS )
 			checkNT1(buffer);
-		return nnk_edit_string_zero_terminated(ctx.address(), flags, memAddress(buffer), max, filter == null ? NULL : filter.address());
+		return nnk_edit_string_zero_terminated(ctx.address(), flags, memAddress(buffer), max, memAddressSafe(filter));
 	}
 
 	/**
@@ -4222,7 +4222,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer bufferEncoded = stack.UTF8(buffer);
-			return nnk_edit_string_zero_terminated(ctx.address(), flags, memAddress(bufferEncoded), max, filter == null ? NULL : filter.address());
+			return nnk_edit_string_zero_terminated(ctx.address(), flags, memAddress(bufferEncoded), max, memAddressSafe(filter));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -10115,7 +10115,7 @@ public class Nuklear {
 			checkNT1(str);
 			checkBuffer(value, 1);
 		}
-		return nnk_selectable_image_label(ctx.address(), img == null ? NULL : img.address(), memAddress(str), align, value) != 0;
+		return nnk_selectable_image_label(ctx.address(), memAddressSafe(img), memAddress(str), align, value) != 0;
 	}
 
 	/** Array version of: {@link #nk_selectable_image_label selectable_image_label} */
@@ -10125,7 +10125,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str);
-			return nnk_selectable_image_label(ctx.address(), img == null ? NULL : img.address(), memAddress(strEncoded), align, value) != 0;
+			return nnk_selectable_image_label(ctx.address(), memAddressSafe(img), memAddress(strEncoded), align, value) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -10138,7 +10138,7 @@ public class Nuklear {
 	public static boolean nk_selectable_image_text(NkContext ctx, NkImage img, ByteBuffer str, int align, int[] value) {
 		if ( CHECKS )
 			checkBuffer(value, 1);
-		return nnk_selectable_image_text(ctx.address(), img == null ? NULL : img.address(), memAddress(str), str.remaining(), align, value) != 0;
+		return nnk_selectable_image_text(ctx.address(), memAddressSafe(img), memAddress(str), str.remaining(), align, value) != 0;
 	}
 
 	/** Array version of: {@link #nk_selectable_image_text selectable_image_text} */
@@ -10149,7 +10149,7 @@ public class Nuklear {
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
 			int strEncodedLen = strEncoded.capacity();
-			return nnk_selectable_image_text(ctx.address(), img == null ? NULL : img.address(), memAddress(strEncoded), strEncodedLen, align, value) != 0;
+			return nnk_selectable_image_text(ctx.address(), memAddressSafe(img), memAddress(strEncoded), strEncodedLen, align, value) != 0;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -10255,7 +10255,7 @@ public class Nuklear {
 			checkNT1(memory);
 			checkBuffer(len, 1);
 		}
-		return nnk_edit_string(ctx.address(), flags, memAddress(memory), len, max, filter == null ? NULL : filter.address());
+		return nnk_edit_string(ctx.address(), flags, memAddress(memory), len, max, memAddressSafe(filter));
 	}
 
 	/** Array version of: {@link #nk_edit_string edit_string} */
@@ -10265,7 +10265,7 @@ public class Nuklear {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer memoryEncoded = stack.UTF8(memory);
-			return nnk_edit_string(ctx.address(), flags, memAddress(memoryEncoded), len, max, filter == null ? NULL : filter.address());
+			return nnk_edit_string(ctx.address(), flags, memAddress(memoryEncoded), len, max, memAddressSafe(filter));
 		} finally {
 			stack.setPointer(stackPointer);
 		}

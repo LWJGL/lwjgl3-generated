@@ -110,7 +110,7 @@ public class EGL10 {
 
 	public static boolean eglChooseConfig(long dpy, IntBuffer attrib_list, PointerBuffer configs, IntBuffer num_config) {
 		if ( CHECKS ) {
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 			checkBuffer(num_config, 1);
 		}
 		return neglChooseConfig(dpy, memAddressSafe(attrib_list), memAddressSafe(configs), configs == null ? 0 : configs.remaining(), memAddress(num_config)) != 0;
@@ -143,7 +143,7 @@ public class EGL10 {
 
 	public static long eglCreateContext(long dpy, long config, long share_context, IntBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		return neglCreateContext(dpy, config, share_context, memAddressSafe(attrib_list));
 	}
 
@@ -161,7 +161,7 @@ public class EGL10 {
 
 	public static long eglCreatePbufferSurface(long dpy, long config, IntBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		return neglCreatePbufferSurface(dpy, config, memAddressSafe(attrib_list));
 	}
 
@@ -180,7 +180,7 @@ public class EGL10 {
 
 	public static long eglCreatePixmapSurface(long dpy, long config, long pixmap, IntBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		return neglCreatePixmapSurface(dpy, config, pixmap, memAddressSafe(attrib_list));
 	}
 
@@ -199,7 +199,7 @@ public class EGL10 {
 
 	public static long eglCreateWindowSurface(long dpy, long config, long win, IntBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		return neglCreateWindowSurface(dpy, config, win, memAddressSafe(attrib_list));
 	}
 
@@ -453,7 +453,7 @@ public class EGL10 {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 			checkBuffer(num_config, 1);
 		}
 		return callPPPPI(__functionAddress, dpy, attrib_list, memAddressSafe(configs), configs == null ? 0 : configs.remaining(), num_config) != 0;
@@ -466,7 +466,7 @@ public class EGL10 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(config);
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		}
 		return callPPPPP(__functionAddress, dpy, config, share_context, attrib_list);
 	}
@@ -478,7 +478,7 @@ public class EGL10 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(config);
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		}
 		return callPPPP(__functionAddress, dpy, config, attrib_list);
 	}
@@ -491,7 +491,7 @@ public class EGL10 {
 			checkPointer(dpy);
 			checkPointer(config);
 			checkPointer(pixmap);
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		}
 		return callPPPPP(__functionAddress, dpy, config, pixmap, attrib_list);
 	}
@@ -504,7 +504,7 @@ public class EGL10 {
 			checkPointer(dpy);
 			checkPointer(config);
 			checkPointer(win);
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		}
 		return callPPPPP(__functionAddress, dpy, config, win, attrib_list);
 	}

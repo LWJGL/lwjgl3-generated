@@ -54,7 +54,7 @@ public class MESADRMImage {
 
 	public static long eglCreateDRMImageMESA(long dpy, IntBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		return neglCreateDRMImageMESA(dpy, memAddressSafe(attrib_list));
 	}
 
@@ -72,9 +72,9 @@ public class MESADRMImage {
 
 	public static boolean eglExportDRMImageMESA(long dpy, long image, IntBuffer name, IntBuffer handle, IntBuffer stride) {
 		if ( CHECKS ) {
-			if ( name != null ) checkBuffer(name, 1);
-			if ( handle != null ) checkBuffer(handle, 1);
-			if ( stride != null ) checkBuffer(stride, 1);
+			checkBufferSafe(name, 1);
+			checkBufferSafe(handle, 1);
+			checkBufferSafe(stride, 1);
 		}
 		return neglExportDRMImageMESA(dpy, image, memAddressSafe(name), memAddressSafe(handle), memAddressSafe(stride)) != 0;
 	}
@@ -85,7 +85,7 @@ public class MESADRMImage {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		}
 		return callPPP(__functionAddress, dpy, attrib_list);
 	}
@@ -97,9 +97,9 @@ public class MESADRMImage {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(image);
-			if ( name != null ) checkBuffer(name, 1);
-			if ( handle != null ) checkBuffer(handle, 1);
-			if ( stride != null ) checkBuffer(stride, 1);
+			checkBufferSafe(name, 1);
+			checkBufferSafe(handle, 1);
+			checkBufferSafe(stride, 1);
 		}
 		return callPPPPPI(__functionAddress, dpy, image, name, handle, stride) != 0;
 	}

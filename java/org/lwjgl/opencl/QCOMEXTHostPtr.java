@@ -92,14 +92,14 @@ public class QCOMEXTHostPtr {
 	 */
 	public static int clGetDeviceImageInfoQCOM(long device, long image_width, long image_height, CLImageFormat image_format, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+			checkBufferSafe(param_value_size_ret, 1);
 		return nclGetDeviceImageInfoQCOM(device, image_width, image_height, image_format.address(), param_name, (long)(param_value == null ? 0 : param_value.remaining()), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetDeviceImageInfoQCOM GetDeviceImageInfoQCOM} */
 	public static int clGetDeviceImageInfoQCOM(long device, long image_width, long image_height, CLImageFormat image_format, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+			checkBufferSafe(param_value_size_ret, 1);
 		return nclGetDeviceImageInfoQCOM(device, image_width, image_height, image_format.address(), param_name, (param_value == null ? 0 : param_value.remaining() << 2), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -109,7 +109,7 @@ public class QCOMEXTHostPtr {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(device);
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+			checkBufferSafe(param_value_size_ret, 1);
 		}
 		return callPPPPPPPI(__functionAddress, device, image_width, image_height, image_format.address(), param_name, (long)(param_value == null ? 0 : param_value.length << 2), param_value, memAddressSafe(param_value_size_ret));
 	}

@@ -75,7 +75,7 @@ public class WinBase {
 	 */
 	public static long GetModuleHandle(ByteBuffer moduleName) {
 		if ( CHECKS )
-			if ( moduleName != null ) checkNT2(moduleName);
+			checkNT2Safe(moduleName);
 		return nGetModuleHandle(memAddressSafe(moduleName));
 	}
 

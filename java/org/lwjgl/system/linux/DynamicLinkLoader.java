@@ -65,7 +65,7 @@ public class DynamicLinkLoader {
 	 */
 	public static long dlopen(ByteBuffer filename, int mode) {
 		if ( CHECKS )
-			if ( filename != null ) checkNT1(filename);
+			checkNT1Safe(filename);
 		return ndlopen(memAddressSafe(filename), mode);
 	}
 

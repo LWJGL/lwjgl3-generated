@@ -114,7 +114,7 @@ public class GLXSGIXPbuffer {
 	 */
 	public static long glXCreateGLXPbufferSGIX(long display, long config, int width, int height, IntBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list);
+			checkNTSafe(attrib_list);
 		return nglXCreateGLXPbufferSGIX(display, config, width, height, memAddressSafe(attrib_list));
 	}
 
@@ -228,7 +228,7 @@ public class GLXSGIXPbuffer {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
-			if ( attrib_list != null ) checkNT(attrib_list);
+			checkNTSafe(attrib_list);
 		}
 		return callPPPP(__functionAddress, display, config, width, height, attrib_list);
 	}

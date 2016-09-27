@@ -71,7 +71,7 @@ public class ANDROIDCreateNativeClientBuffer {
 	 */
 	public static long eglCreateNativeClientBufferANDROID(IntBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		return neglCreateNativeClientBufferANDROID(memAddressSafe(attrib_list));
 	}
 
@@ -80,7 +80,7 @@ public class ANDROIDCreateNativeClientBuffer {
 		long __functionAddress = EGL.getCapabilities().eglCreateNativeClientBufferANDROID;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		}
 		return callPP(__functionAddress, attrib_list);
 	}

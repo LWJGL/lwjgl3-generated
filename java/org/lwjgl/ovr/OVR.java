@@ -501,7 +501,7 @@ public class OVR {
 	 *         </ul>
 	 */
 	public static int ovr_Initialize(OVRInitParams params) {
-		return novr_Initialize(params == null ? NULL : params.address());
+		return novr_Initialize(memAddressSafe(params));
 	}
 
 	// --- [ ovr_Shutdown ] ---
@@ -1441,7 +1441,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	public static int ovr_GetBoundaryGeometry(long session, int boundaryType, OVRVector3f outFloorPoints, IntBuffer outFloorPointsCount) {
 		if ( CHECKS )
 			checkPointer(session);
-		return novr_GetBoundaryGeometry(session, boundaryType, outFloorPoints == null ? NULL : outFloorPoints.address(), memAddressSafe(outFloorPointsCount));
+		return novr_GetBoundaryGeometry(session, boundaryType, memAddressSafe(outFloorPoints), memAddressSafe(outFloorPointsCount));
 	}
 
 	// --- [ ovr_GetBoundaryDimensions ] ---
@@ -1885,7 +1885,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	public static int ovr_SubmitFrame(long session, long frameIndex, OVRViewScaleDesc viewScaleDesc, PointerBuffer layerPtrList) {
 		if ( CHECKS )
 			checkPointer(session);
-		return novr_SubmitFrame(session, frameIndex, viewScaleDesc == null ? NULL : viewScaleDesc.address(), memAddress(layerPtrList), layerPtrList.remaining());
+		return novr_SubmitFrame(session, frameIndex, memAddressSafe(viewScaleDesc), memAddress(layerPtrList), layerPtrList.remaining());
 	}
 
 	// --- [ ovr_GetPerfStats ] ---
@@ -2471,7 +2471,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 		if ( CHECKS ) {
 			checkPointer(session);
 			checkNT1(propertyName);
-			if ( defaultVal != null ) checkNT1(defaultVal);
+			checkNT1Safe(defaultVal);
 		}
 		long __result = novr_GetString(session, memAddress(propertyName), memAddressSafe(defaultVal));
 		return memUTF8(__result);
@@ -2569,7 +2569,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	public static int ovr_GetBoundaryGeometry(long session, int boundaryType, OVRVector3f outFloorPoints, int[] outFloorPointsCount) {
 		if ( CHECKS )
 			checkPointer(session);
-		return novr_GetBoundaryGeometry(session, boundaryType, outFloorPoints == null ? NULL : outFloorPoints.address(), outFloorPointsCount);
+		return novr_GetBoundaryGeometry(session, boundaryType, memAddressSafe(outFloorPoints), outFloorPointsCount);
 	}
 
 	/** Array version of: {@link #ovr_GetTextureSwapChainLength GetTextureSwapChainLength} */

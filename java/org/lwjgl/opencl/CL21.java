@@ -260,7 +260,7 @@ public class CL21 {
 	 */
 	public static long clCreateProgramWithIL(long context, ByteBuffer il, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		return nclCreateProgramWithIL(context, memAddress(il), (long)il.remaining(), memAddressSafe(errcode_ret));
 	}
 
@@ -335,7 +335,7 @@ public class CL21 {
 	 */
 	public static long clCloneKernel(long source_kernel, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		return nclCloneKernel(source_kernel, memAddressSafe(errcode_ret));
 	}
 
@@ -404,14 +404,14 @@ public class CL21 {
 	 */
 	public static int clGetKernelSubGroupInfo(long kernel, long device, int param_name, ByteBuffer input_value, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+			checkBufferSafe(param_value_size_ret, 1);
 		return nclGetKernelSubGroupInfo(kernel, device, param_name, (long)(input_value == null ? 0 : input_value.remaining()), memAddressSafe(input_value), (long)(param_value == null ? 0 : param_value.remaining()), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** PointerBuffer version of: {@link #clGetKernelSubGroupInfo GetKernelSubGroupInfo} */
 	public static int clGetKernelSubGroupInfo(long kernel, long device, int param_name, ByteBuffer input_value, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+			checkBufferSafe(param_value_size_ret, 1);
 		return nclGetKernelSubGroupInfo(kernel, device, param_name, (long)(input_value == null ? 0 : input_value.remaining()), memAddressSafe(input_value), (param_value == null ? 0 : param_value.remaining() << POINTER_SHIFT), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -503,8 +503,8 @@ public class CL21 {
 	 */
 	public static int clEnqueueSVMMigrateMem(long command_queue, PointerBuffer svm_pointers, PointerBuffer sizes, long flags, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
-			if ( sizes != null ) checkBuffer(sizes, svm_pointers.remaining());
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(sizes, svm_pointers.remaining());
+			checkBufferSafe(event, 1);
 		}
 		return nclEnqueueSVMMigrateMem(command_queue, svm_pointers.remaining(), memAddress(svm_pointers), memAddressSafe(sizes), flags, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -537,7 +537,7 @@ public class CL21 {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		}
 		return callPPPPP(__functionAddress, context, memAddress(il), (long)il.remaining(), errcode_ret);
 	}
@@ -548,7 +548,7 @@ public class CL21 {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(source_kernel);
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		}
 		return callPPP(__functionAddress, source_kernel, errcode_ret);
 	}

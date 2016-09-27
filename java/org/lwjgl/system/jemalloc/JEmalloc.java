@@ -548,7 +548,7 @@ public class JEmalloc {
 	public static int je_mallctl(ByteBuffer name, ByteBuffer oldp, PointerBuffer oldlenp, ByteBuffer newp) {
 		if ( CHECKS ) {
 			checkNT1(name);
-			if ( oldlenp != null ) checkBuffer(oldlenp, 1);
+			checkBufferSafe(oldlenp, 1);
 		}
 		return nje_mallctl(memAddress(name), memAddressSafe(oldp), memAddressSafe(oldlenp), memAddressSafe(newp), (long)(newp == null ? 0 : newp.remaining()));
 	}
@@ -568,7 +568,7 @@ public class JEmalloc {
 	 */
 	public static int je_mallctl(CharSequence name, ByteBuffer oldp, PointerBuffer oldlenp, ByteBuffer newp) {
 		if ( CHECKS )
-			if ( oldlenp != null ) checkBuffer(oldlenp, 1);
+			checkBufferSafe(oldlenp, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.ASCII(name);
@@ -725,7 +725,7 @@ for (i = 0; i < nbins; i++) {
 	 */
 	public static int je_mallctlbymib(PointerBuffer mib, ByteBuffer oldp, PointerBuffer oldlenp, ByteBuffer newp) {
 		if ( CHECKS )
-			if ( oldlenp != null ) checkBuffer(oldlenp, 1);
+			checkBufferSafe(oldlenp, 1);
 		return nje_mallctlbymib(memAddress(mib), (long)mib.remaining(), memAddressSafe(oldp), memAddressSafe(oldlenp), memAddressSafe(newp), (long)(newp == null ? 0 : newp.remaining()));
 	}
 
@@ -764,8 +764,8 @@ for (i = 0; i < nbins; i++) {
 	 */
 	public static void je_malloc_stats_print(MallocMessageCallbackI write_cb, ByteBuffer je_cbopaque, ByteBuffer opts) {
 		if ( CHECKS )
-			if ( opts != null ) checkNT1(opts);
-		nje_malloc_stats_print(write_cb == null ? NULL : write_cb.address(), memAddressSafe(je_cbopaque), memAddressSafe(opts));
+			checkNT1Safe(opts);
+		nje_malloc_stats_print(memAddressSafe(write_cb), memAddressSafe(je_cbopaque), memAddressSafe(opts));
 	}
 
 	/**
@@ -785,7 +785,7 @@ for (i = 0; i < nbins; i++) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer optsEncoded = stack.ASCII(opts);
-			nje_malloc_stats_print(write_cb == null ? NULL : write_cb.address(), memAddressSafe(je_cbopaque), memAddressSafe(optsEncoded));
+			nje_malloc_stats_print(memAddressSafe(write_cb), memAddressSafe(je_cbopaque), memAddressSafe(optsEncoded));
 		} finally {
 			stack.setPointer(stackPointer);
 		}

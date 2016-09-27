@@ -411,12 +411,12 @@ public class WNDCLASSEX extends Struct implements NativeResource {
 	public static void nhbrBackground(long struct, long value) { memPutAddress(struct + WNDCLASSEX.HBRBACKGROUND, value); }
 	/** Unsafe version of {@link #lpszMenuName(ByteBuffer) lpszMenuName}. */
 	public static void nlpszMenuName(long struct, ByteBuffer value) { 
-		if ( CHECKS && value != null ) checkNT2(value); 
+		if ( CHECKS ) checkNT2Safe(value); 
 		memPutAddress(struct + WNDCLASSEX.LPSZMENUNAME, memAddressSafe(value));
 	}
 	/** Unsafe version of {@link #lpszClassName(ByteBuffer) lpszClassName}. */
 	public static void nlpszClassName(long struct, ByteBuffer value) { 
-		if ( CHECKS && value != null ) checkNT2(value); 
+		if ( CHECKS ) checkNT2Safe(value); 
 		memPutAddress(struct + WNDCLASSEX.LPSZCLASSNAME, memAddress(value));
 	}
 	/** Unsafe version of {@link #hIconSm(long) hIconSm}. */

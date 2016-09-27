@@ -49,7 +49,7 @@ public class KHRStreamProducerEGLSurface {
 
 	public static long eglCreateStreamProducerSurfaceKHR(long dpy, long config, long stream, IntBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		return neglCreateStreamProducerSurfaceKHR(dpy, config, stream, memAddressSafe(attrib_list));
 	}
 
@@ -61,7 +61,7 @@ public class KHRStreamProducerEGLSurface {
 			checkPointer(dpy);
 			checkPointer(config);
 			checkPointer(stream);
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		}
 		return callPPPPP(__functionAddress, dpy, config, stream, attrib_list);
 	}

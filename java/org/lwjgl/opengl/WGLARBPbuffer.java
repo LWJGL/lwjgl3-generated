@@ -104,7 +104,7 @@ public class WGLARBPbuffer {
 	 */
 	public static long wglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, IntBuffer attribList) {
 		if ( CHECKS )
-			if ( attribList != null ) checkNT(attribList);
+			checkNTSafe(attribList);
 		return nwglCreatePbufferARB(hdc, pixelFormat, width, height, memAddressSafe(attribList));
 	}
 
@@ -198,7 +198,7 @@ public class WGLARBPbuffer {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hdc);
-			if ( attribList != null ) checkNT(attribList);
+			checkNTSafe(attribList);
 		}
 		return callPPP(__functionAddress, hdc, pixelFormat, width, height, attribList);
 	}

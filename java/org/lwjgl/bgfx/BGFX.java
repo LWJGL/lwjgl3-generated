@@ -1228,7 +1228,7 @@ public class BGFX {
 	 * @return `true` if initialization was successful
 	 */
 	public static boolean bgfx_init(int _type, int _vendorId, int _deviceId, BGFXCallbackInterface _callback, BGFXAllocatorInterface _allocator) {
-		return nbgfx_init(_type, (short)(_vendorId & 0xFFFF), (short)(_deviceId & 0xFFFF), _callback == null ? NULL : _callback.address(), _allocator == null ? NULL : _allocator.address());
+		return nbgfx_init(_type, (short)(_vendorId & 0xFFFF), (short)(_deviceId & 0xFFFF), memAddressSafe(_callback), memAddressSafe(_allocator));
 	}
 
 	// --- [ bgfx_shutdown ] ---
@@ -1422,7 +1422,7 @@ public class BGFX {
 	 * @param _userData  user data to pass to {@code _releaseFn}
 	 */
 	public static BGFXMemory bgfx_make_ref_release(ByteBuffer _data, BGFXReleaseFunctionCallbackI _releaseFn, long _userData) {
-		long __result = nbgfx_make_ref_release(memAddress(_data), _data.remaining(), _releaseFn == null ? NULL : _releaseFn.address(), _userData);
+		long __result = nbgfx_make_ref_release(memAddress(_data), _data.remaining(), memAddressSafe(_releaseFn), _userData);
 		return BGFXMemory.create(__result);
 	}
 
@@ -2248,7 +2248,7 @@ public class BGFX {
 	 * @param _info  when non-{@code NULL} is specified it returns parsed texture information
 	 */
 	public static short bgfx_create_texture(BGFXMemory _mem, int _flags, int _skip, BGFXTextureInfo _info) {
-		return nbgfx_create_texture(_mem.address(), _flags, (byte)(_skip & 0xFF), _info == null ? NULL : _info.address());
+		return nbgfx_create_texture(_mem.address(), _flags, (byte)(_skip & 0xFF), memAddressSafe(_info));
 	}
 
 	// --- [ bgfx_create_texture_2d ] ---

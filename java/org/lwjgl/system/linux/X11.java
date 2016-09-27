@@ -457,7 +457,7 @@ public class X11 {
 	 */
 	public static long XOpenDisplay(ByteBuffer display_name) {
 		if ( CHECKS )
-			if ( display_name != null ) checkNT1(display_name);
+			checkNT1Safe(display_name);
 		return nXOpenDisplay(memAddressSafe(display_name));
 	}
 

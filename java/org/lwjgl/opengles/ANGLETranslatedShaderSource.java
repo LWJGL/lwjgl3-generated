@@ -53,7 +53,7 @@ public class ANGLETranslatedShaderSource {
 
 	public static void glGetTranslatedShaderSourceANGLE(int shader, IntBuffer length, ByteBuffer source) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		nglGetTranslatedShaderSourceANGLE(shader, source.remaining(), memAddressSafe(length), memAddress(source));
 	}
 
@@ -89,7 +89,7 @@ public class ANGLETranslatedShaderSource {
 		long __functionAddress = GLES.getCapabilities().glGetTranslatedShaderSourceANGLE;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		}
 		callPPV(__functionAddress, shader, source.remaining(), length, memAddress(source));
 	}

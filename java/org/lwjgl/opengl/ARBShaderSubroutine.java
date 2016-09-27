@@ -230,7 +230,7 @@ public class ARBShaderSubroutine {
 	 */
 	public static void glGetActiveSubroutineUniformName(int program, int shadertype, int index, IntBuffer length, ByteBuffer name) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		nglGetActiveSubroutineUniformName(program, shadertype, index, name.remaining(), memAddressSafe(length), memAddress(name));
 	}
 
@@ -304,7 +304,7 @@ public class ARBShaderSubroutine {
 	 */
 	public static void glGetActiveSubroutineName(int program, int shadertype, int index, IntBuffer length, ByteBuffer name) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		nglGetActiveSubroutineName(program, shadertype, index, name.remaining(), memAddressSafe(length), memAddress(name));
 	}
 
@@ -499,7 +499,7 @@ public class ARBShaderSubroutine {
 		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineUniformName;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		}
 		callPPV(__functionAddress, program, shadertype, index, name.remaining(), length, memAddress(name));
 	}
@@ -509,7 +509,7 @@ public class ARBShaderSubroutine {
 		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineName;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		}
 		callPPV(__functionAddress, program, shadertype, index, name.remaining(), length, memAddress(name));
 	}

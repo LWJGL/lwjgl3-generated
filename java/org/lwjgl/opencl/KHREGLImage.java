@@ -75,8 +75,8 @@ public class KHREGLImage {
 	 */
 	public static long clCreateFromEGLImageKHR(long context, long display, long image, long flags, PointerBuffer properties, IntBuffer errcode_ret) {
 		if ( CHECKS ) {
-			if ( properties != null ) checkNT(properties);
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkNTSafe(properties);
+			checkBufferSafe(errcode_ret, 1);
 		}
 		return nclCreateFromEGLImageKHR(context, display, image, flags, memAddressSafe(properties), memAddressSafe(errcode_ret));
 	}
@@ -124,7 +124,7 @@ public class KHREGLImage {
 	 */
 	public static int clEnqueueAcquireEGLObjectsKHR(long command_queue, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		return nclEnqueueAcquireEGLObjectsKHR(command_queue, mem_objects.remaining(), memAddress(mem_objects), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -172,7 +172,7 @@ public class KHREGLImage {
 	 */
 	public static int clEnqueueReleaseEGLObjectsKHR(long command_queue, int num_objects, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		return nclEnqueueReleaseEGLObjectsKHR(command_queue, num_objects, memAddress(mem_objects), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -184,8 +184,8 @@ public class KHREGLImage {
 			checkPointer(context);
 			checkPointer(display);
 			checkPointer(image);
-			if ( properties != null ) checkNT(properties);
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkNTSafe(properties);
+			checkBufferSafe(errcode_ret, 1);
 		}
 		return callPPPJPPP(__functionAddress, context, display, image, flags, memAddressSafe(properties), errcode_ret);
 	}

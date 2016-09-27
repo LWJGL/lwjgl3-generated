@@ -445,7 +445,7 @@ public class KHRDebug {
 	 * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
 	 */
 	public static void glDebugMessageCallbackKHR(GLDebugMessageKHRCallbackI callback, long userParam) {
-		nglDebugMessageCallbackKHR(callback == null ? NULL : callback.address(), userParam);
+		nglDebugMessageCallbackKHR(memAddressSafe(callback), userParam);
 	}
 
 	// --- [ glGetDebugMessageLogKHR ] ---
@@ -524,11 +524,11 @@ public class KHRDebug {
 	 */
 	public static int glGetDebugMessageLogKHR(int count, IntBuffer sources, IntBuffer types, IntBuffer ids, IntBuffer severities, IntBuffer lengths, ByteBuffer messageLog) {
 		if ( CHECKS ) {
-			if ( sources != null ) checkBuffer(sources, count);
-			if ( types != null ) checkBuffer(types, count);
-			if ( ids != null ) checkBuffer(ids, count);
-			if ( severities != null ) checkBuffer(severities, count);
-			if ( lengths != null ) checkBuffer(lengths, count);
+			checkBufferSafe(sources, count);
+			checkBufferSafe(types, count);
+			checkBufferSafe(ids, count);
+			checkBufferSafe(severities, count);
+			checkBufferSafe(lengths, count);
 		}
 		return nglGetDebugMessageLogKHR(count, messageLog == null ? 0 : messageLog.remaining(), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
 	}
@@ -728,7 +728,7 @@ public class KHRDebug {
 	 */
 	public static void glGetObjectLabelKHR(int identifier, int name, IntBuffer length, ByteBuffer label) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		nglGetObjectLabelKHR(identifier, name, label.remaining(), memAddressSafe(length), memAddress(label));
 	}
 
@@ -843,7 +843,7 @@ public class KHRDebug {
 	 */
 	public static void glGetObjectPtrLabelKHR(long ptr, IntBuffer length, ByteBuffer label) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		nglGetObjectPtrLabelKHR(ptr, label.remaining(), memAddressSafe(length), memAddress(label));
 	}
 
@@ -896,11 +896,11 @@ public class KHRDebug {
 		long __functionAddress = GLES.getCapabilities().glGetDebugMessageLogKHR;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( sources != null ) checkBuffer(sources, count);
-			if ( types != null ) checkBuffer(types, count);
-			if ( ids != null ) checkBuffer(ids, count);
-			if ( severities != null ) checkBuffer(severities, count);
-			if ( lengths != null ) checkBuffer(lengths, count);
+			checkBufferSafe(sources, count);
+			checkBufferSafe(types, count);
+			checkBufferSafe(ids, count);
+			checkBufferSafe(severities, count);
+			checkBufferSafe(lengths, count);
 		}
 		return callPPPPPPI(__functionAddress, count, messageLog == null ? 0 : messageLog.remaining(), sources, types, ids, severities, lengths, memAddressSafe(messageLog));
 	}
@@ -910,7 +910,7 @@ public class KHRDebug {
 		long __functionAddress = GLES.getCapabilities().glGetObjectLabelKHR;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		}
 		callPPV(__functionAddress, identifier, name, label.remaining(), length, memAddress(label));
 	}
@@ -921,7 +921,7 @@ public class KHRDebug {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(ptr);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		}
 		callPPPV(__functionAddress, ptr, label.remaining(), length, memAddress(label));
 	}

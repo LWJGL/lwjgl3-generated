@@ -357,7 +357,7 @@ public class CGL {
 	 */
 	public static int CGLChoosePixelFormat(IntBuffer attribs, PointerBuffer pix, IntBuffer npix) {
 		if ( CHECKS ) {
-			if ( pix != null ) checkBuffer(pix, 1);
+			checkBufferSafe(pix, 1);
 			checkBuffer(npix, 1);
 		}
 		return nCGLChoosePixelFormat(memAddress(attribs), memAddressSafe(pix), memAddress(npix));
@@ -1579,7 +1579,7 @@ public class CGL {
 	public static int CGLChoosePixelFormat(int[] attribs, PointerBuffer pix, int[] npix) {
 		long __functionAddress = Functions.ChoosePixelFormat;
 		if ( CHECKS ) {
-			if ( pix != null ) checkBuffer(pix, 1);
+			checkBufferSafe(pix, 1);
 			checkBuffer(npix, 1);
 		}
 		return callPPPI(__functionAddress, attribs, memAddressSafe(pix), npix);

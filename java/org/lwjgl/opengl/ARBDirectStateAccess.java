@@ -2976,8 +2976,8 @@ public class ARBDirectStateAccess {
 	 */
 	public static void glVertexArrayVertexBuffers(int vaobj, int first, IntBuffer buffers, PointerBuffer offsets, IntBuffer strides) {
 		if ( CHECKS ) {
-			if ( offsets != null ) checkBuffer(offsets, buffers.remaining());
-			if ( strides != null ) checkBuffer(strides, buffers.remaining());
+			checkBufferSafe(offsets, buffers.remaining());
+			checkBufferSafe(strides, buffers.remaining());
 		}
 		nglVertexArrayVertexBuffers(vaobj, first, buffers == null ? 0 : buffers.remaining(), memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(strides));
 	}
@@ -3987,8 +3987,8 @@ public class ARBDirectStateAccess {
 		long __functionAddress = GL.getCapabilities().glVertexArrayVertexBuffers;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( offsets != null ) checkBuffer(offsets, buffers.length);
-			if ( strides != null ) checkBuffer(strides, buffers.length);
+			checkBufferSafe(offsets, buffers.length);
+			checkBufferSafe(strides, buffers.length);
 		}
 		callPPPV(__functionAddress, vaobj, first, buffers == null ? 0 : buffers.length, buffers, memAddressSafe(offsets), strides);
 	}

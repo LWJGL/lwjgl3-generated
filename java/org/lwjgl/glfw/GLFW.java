@@ -763,9 +763,9 @@ public class GLFW {
 	 */
 	public static void glfwGetVersion(IntBuffer major, IntBuffer minor, IntBuffer rev) {
 		if ( CHECKS ) {
-			if ( major != null ) checkBuffer(major, 1);
-			if ( minor != null ) checkBuffer(minor, 1);
-			if ( rev != null ) checkBuffer(rev, 1);
+			checkBufferSafe(major, 1);
+			checkBufferSafe(minor, 1);
+			checkBufferSafe(rev, 1);
 		}
 		nglfwGetVersion(memAddressSafe(major), memAddressSafe(minor), memAddressSafe(rev));
 	}
@@ -878,7 +878,7 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static GLFWErrorCallback glfwSetErrorCallback(GLFWErrorCallbackI cbfun) {
-		return GLFWErrorCallback.create(nglfwSetErrorCallback(cbfun == null ? NULL : cbfun.address()));
+		return GLFWErrorCallback.create(nglfwSetErrorCallback(memAddressSafe(cbfun)));
 	}
 
 	// --- [ glfwGetMonitors ] ---
@@ -982,8 +982,8 @@ public class GLFW {
 	 */
 	public static void glfwGetMonitorPos(long monitor, IntBuffer xpos, IntBuffer ypos) {
 		if ( CHECKS ) {
-			if ( xpos != null ) checkBuffer(xpos, 1);
-			if ( ypos != null ) checkBuffer(ypos, 1);
+			checkBufferSafe(xpos, 1);
+			checkBufferSafe(ypos, 1);
 		}
 		nglfwGetMonitorPos(monitor, memAddressSafe(xpos), memAddressSafe(ypos));
 	}
@@ -1043,8 +1043,8 @@ public class GLFW {
 	 */
 	public static void glfwGetMonitorPhysicalSize(long monitor, IntBuffer widthMM, IntBuffer heightMM) {
 		if ( CHECKS ) {
-			if ( widthMM != null ) checkBuffer(widthMM, 1);
-			if ( heightMM != null ) checkBuffer(heightMM, 1);
+			checkBufferSafe(widthMM, 1);
+			checkBufferSafe(heightMM, 1);
 		}
 		nglfwGetMonitorPhysicalSize(monitor, memAddressSafe(widthMM), memAddressSafe(heightMM));
 	}
@@ -1125,7 +1125,7 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static GLFWMonitorCallback glfwSetMonitorCallback(GLFWMonitorCallbackI cbfun) {
-		return GLFWMonitorCallback.create(nglfwSetMonitorCallback(cbfun == null ? NULL : cbfun.address()));
+		return GLFWMonitorCallback.create(nglfwSetMonitorCallback(memAddressSafe(cbfun)));
 	}
 
 	// --- [ glfwGetVideoModes ] ---
@@ -1824,7 +1824,7 @@ public class GLFW {
 	 * @since version 3.2
 	 */
 	public static void glfwSetWindowIcon(long window, GLFWImage.Buffer images) {
-		nglfwSetWindowIcon(window, images == null ? 0 : images.remaining(), images == null ? NULL : images.address());
+		nglfwSetWindowIcon(window, images == null ? 0 : images.remaining(), memAddressSafe(images));
 	}
 
 	// --- [ glfwGetWindowPos ] ---
@@ -1864,8 +1864,8 @@ public class GLFW {
 	 */
 	public static void glfwGetWindowPos(long window, IntBuffer xpos, IntBuffer ypos) {
 		if ( CHECKS ) {
-			if ( xpos != null ) checkBuffer(xpos, 1);
-			if ( ypos != null ) checkBuffer(ypos, 1);
+			checkBufferSafe(xpos, 1);
+			checkBufferSafe(ypos, 1);
 		}
 		nglfwGetWindowPos(window, memAddressSafe(xpos), memAddressSafe(ypos));
 	}
@@ -1935,8 +1935,8 @@ public class GLFW {
 	 */
 	public static void glfwGetWindowSize(long window, IntBuffer width, IntBuffer height) {
 		if ( CHECKS ) {
-			if ( width != null ) checkBuffer(width, 1);
-			if ( height != null ) checkBuffer(height, 1);
+			checkBufferSafe(width, 1);
+			checkBufferSafe(height, 1);
 		}
 		nglfwGetWindowSize(window, memAddressSafe(width), memAddressSafe(height));
 	}
@@ -2062,8 +2062,8 @@ public class GLFW {
 	 */
 	public static void glfwGetFramebufferSize(long window, IntBuffer width, IntBuffer height) {
 		if ( CHECKS ) {
-			if ( width != null ) checkBuffer(width, 1);
-			if ( height != null ) checkBuffer(height, 1);
+			checkBufferSafe(width, 1);
+			checkBufferSafe(height, 1);
 		}
 		nglfwGetFramebufferSize(window, memAddressSafe(width), memAddressSafe(height));
 	}
@@ -2119,10 +2119,10 @@ public class GLFW {
 	 */
 	public static void glfwGetWindowFrameSize(long window, IntBuffer left, IntBuffer top, IntBuffer right, IntBuffer bottom) {
 		if ( CHECKS ) {
-			if ( left != null ) checkBuffer(left, 1);
-			if ( top != null ) checkBuffer(top, 1);
-			if ( right != null ) checkBuffer(right, 1);
-			if ( bottom != null ) checkBuffer(bottom, 1);
+			checkBufferSafe(left, 1);
+			checkBufferSafe(top, 1);
+			checkBufferSafe(right, 1);
+			checkBufferSafe(bottom, 1);
 		}
 		nglfwGetWindowFrameSize(window, memAddressSafe(left), memAddressSafe(top), memAddressSafe(right), memAddressSafe(bottom));
 	}
@@ -2405,7 +2405,7 @@ public class GLFW {
 	 * @since version 1.0
 	 */
 	public static GLFWWindowPosCallback glfwSetWindowPosCallback(long window, GLFWWindowPosCallbackI cbfun) {
-		return GLFWWindowPosCallback.create(nglfwSetWindowPosCallback(window, cbfun == null ? NULL : cbfun.address()));
+		return GLFWWindowPosCallback.create(nglfwSetWindowPosCallback(window, memAddressSafe(cbfun)));
 	}
 
 	// --- [ glfwSetWindowSizeCallback ] ---
@@ -2446,7 +2446,7 @@ public class GLFW {
 	 * @since version 1.0
 	 */
 	public static GLFWWindowSizeCallback glfwSetWindowSizeCallback(long window, GLFWWindowSizeCallbackI cbfun) {
-		return GLFWWindowSizeCallback.create(nglfwSetWindowSizeCallback(window, cbfun == null ? NULL : cbfun.address()));
+		return GLFWWindowSizeCallback.create(nglfwSetWindowSizeCallback(window, memAddressSafe(cbfun)));
 	}
 
 	// --- [ glfwSetWindowCloseCallback ] ---
@@ -2505,7 +2505,7 @@ public class GLFW {
 	 * @since version 2.5
 	 */
 	public static GLFWWindowCloseCallback glfwSetWindowCloseCallback(long window, GLFWWindowCloseCallbackI cbfun) {
-		return GLFWWindowCloseCallback.create(nglfwSetWindowCloseCallback(window, cbfun == null ? NULL : cbfun.address()));
+		return GLFWWindowCloseCallback.create(nglfwSetWindowCloseCallback(window, memAddressSafe(cbfun)));
 	}
 
 	// --- [ glfwSetWindowRefreshCallback ] ---
@@ -2552,7 +2552,7 @@ public class GLFW {
 	 * @since version 2.5
 	 */
 	public static GLFWWindowRefreshCallback glfwSetWindowRefreshCallback(long window, GLFWWindowRefreshCallbackI cbfun) {
-		return GLFWWindowRefreshCallback.create(nglfwSetWindowRefreshCallback(window, cbfun == null ? NULL : cbfun.address()));
+		return GLFWWindowRefreshCallback.create(nglfwSetWindowRefreshCallback(window, memAddressSafe(cbfun)));
 	}
 
 	// --- [ glfwSetWindowFocusCallback ] ---
@@ -2597,7 +2597,7 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static GLFWWindowFocusCallback glfwSetWindowFocusCallback(long window, GLFWWindowFocusCallbackI cbfun) {
-		return GLFWWindowFocusCallback.create(nglfwSetWindowFocusCallback(window, cbfun == null ? NULL : cbfun.address()));
+		return GLFWWindowFocusCallback.create(nglfwSetWindowFocusCallback(window, memAddressSafe(cbfun)));
 	}
 
 	// --- [ glfwSetWindowIconifyCallback ] ---
@@ -2636,7 +2636,7 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static GLFWWindowIconifyCallback glfwSetWindowIconifyCallback(long window, GLFWWindowIconifyCallbackI cbfun) {
-		return GLFWWindowIconifyCallback.create(nglfwSetWindowIconifyCallback(window, cbfun == null ? NULL : cbfun.address()));
+		return GLFWWindowIconifyCallback.create(nglfwSetWindowIconifyCallback(window, memAddressSafe(cbfun)));
 	}
 
 	// --- [ glfwSetFramebufferSizeCallback ] ---
@@ -2675,7 +2675,7 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static GLFWFramebufferSizeCallback glfwSetFramebufferSizeCallback(long window, GLFWFramebufferSizeCallbackI cbfun) {
-		return GLFWFramebufferSizeCallback.create(nglfwSetFramebufferSizeCallback(window, cbfun == null ? NULL : cbfun.address()));
+		return GLFWFramebufferSizeCallback.create(nglfwSetFramebufferSizeCallback(window, memAddressSafe(cbfun)));
 	}
 
 	// --- [ glfwPollEvents ] ---
@@ -3070,8 +3070,8 @@ public class GLFW {
 	 */
 	public static void glfwGetCursorPos(long window, DoubleBuffer xpos, DoubleBuffer ypos) {
 		if ( CHECKS ) {
-			if ( xpos != null ) checkBuffer(xpos, 1);
-			if ( ypos != null ) checkBuffer(ypos, 1);
+			checkBufferSafe(xpos, 1);
+			checkBufferSafe(ypos, 1);
 		}
 		nglfwGetCursorPos(window, memAddressSafe(xpos), memAddressSafe(ypos));
 	}
@@ -3294,7 +3294,7 @@ public class GLFW {
 	 * @since version 1.0
 	 */
 	public static GLFWKeyCallback glfwSetKeyCallback(long window, GLFWKeyCallbackI cbfun) {
-		return GLFWKeyCallback.create(nglfwSetKeyCallback(window, cbfun == null ? NULL : cbfun.address()));
+		return GLFWKeyCallback.create(nglfwSetKeyCallback(window, memAddressSafe(cbfun)));
 	}
 
 	// --- [ glfwSetCharCallback ] ---
@@ -3345,7 +3345,7 @@ public class GLFW {
 	 * @since version 2.4
 	 */
 	public static GLFWCharCallback glfwSetCharCallback(long window, GLFWCharCallbackI cbfun) {
-		return GLFWCharCallback.create(nglfwSetCharCallback(window, cbfun == null ? NULL : cbfun.address()));
+		return GLFWCharCallback.create(nglfwSetCharCallback(window, memAddressSafe(cbfun)));
 	}
 
 	// --- [ glfwSetCharModsCallback ] ---
@@ -3394,7 +3394,7 @@ public class GLFW {
 	 * @since version 3.1
 	 */
 	public static GLFWCharModsCallback glfwSetCharModsCallback(long window, GLFWCharModsCallbackI cbfun) {
-		return GLFWCharModsCallback.create(nglfwSetCharModsCallback(window, cbfun == null ? NULL : cbfun.address()));
+		return GLFWCharModsCallback.create(nglfwSetCharModsCallback(window, memAddressSafe(cbfun)));
 	}
 
 	// --- [ glfwSetMouseButtonCallback ] ---
@@ -3439,7 +3439,7 @@ public class GLFW {
 	 * @since version 1.0
 	 */
 	public static GLFWMouseButtonCallback glfwSetMouseButtonCallback(long window, GLFWMouseButtonCallbackI cbfun) {
-		return GLFWMouseButtonCallback.create(nglfwSetMouseButtonCallback(window, cbfun == null ? NULL : cbfun.address()));
+		return GLFWMouseButtonCallback.create(nglfwSetMouseButtonCallback(window, memAddressSafe(cbfun)));
 	}
 
 	// --- [ glfwSetCursorPosCallback ] ---
@@ -3478,7 +3478,7 @@ public class GLFW {
 	 * @since version 1.0
 	 */
 	public static GLFWCursorPosCallback glfwSetCursorPosCallback(long window, GLFWCursorPosCallbackI cbfun) {
-		return GLFWCursorPosCallback.create(nglfwSetCursorPosCallback(window, cbfun == null ? NULL : cbfun.address()));
+		return GLFWCursorPosCallback.create(nglfwSetCursorPosCallback(window, memAddressSafe(cbfun)));
 	}
 
 	// --- [ glfwSetCursorEnterCallback ] ---
@@ -3515,7 +3515,7 @@ public class GLFW {
 	 * @since version 3.0
 	 */
 	public static GLFWCursorEnterCallback glfwSetCursorEnterCallback(long window, GLFWCursorEnterCallbackI cbfun) {
-		return GLFWCursorEnterCallback.create(nglfwSetCursorEnterCallback(window, cbfun == null ? NULL : cbfun.address()));
+		return GLFWCursorEnterCallback.create(nglfwSetCursorEnterCallback(window, memAddressSafe(cbfun)));
 	}
 
 	// --- [ glfwSetScrollCallback ] ---
@@ -3556,7 +3556,7 @@ public class GLFW {
 	 * @since version 2.1
 	 */
 	public static GLFWScrollCallback glfwSetScrollCallback(long window, GLFWScrollCallbackI cbfun) {
-		return GLFWScrollCallback.create(nglfwSetScrollCallback(window, cbfun == null ? NULL : cbfun.address()));
+		return GLFWScrollCallback.create(nglfwSetScrollCallback(window, memAddressSafe(cbfun)));
 	}
 
 	// --- [ glfwSetDropCallback ] ---
@@ -3599,7 +3599,7 @@ public class GLFW {
 	 * @since version 3.1
 	 */
 	public static GLFWDropCallback glfwSetDropCallback(long window, GLFWDropCallbackI cbfun) {
-		return GLFWDropCallback.create(nglfwSetDropCallback(window, cbfun == null ? NULL : cbfun.address()));
+		return GLFWDropCallback.create(nglfwSetDropCallback(window, memAddressSafe(cbfun)));
 	}
 
 	// --- [ glfwJoystickPresent ] ---
@@ -3806,7 +3806,7 @@ public class GLFW {
 	 * @since version 3.2
 	 */
 	public static GLFWJoystickCallback glfwSetJoystickCallback(GLFWJoystickCallbackI cbfun) {
-		return GLFWJoystickCallback.create(nglfwSetJoystickCallback(cbfun == null ? NULL : cbfun.address()));
+		return GLFWJoystickCallback.create(nglfwSetJoystickCallback(memAddressSafe(cbfun)));
 	}
 
 	// --- [ glfwSetClipboardString ] ---
@@ -4285,9 +4285,9 @@ public class GLFW {
 	public static void glfwGetVersion(int[] major, int[] minor, int[] rev) {
 		long __functionAddress = Functions.GetVersion;
 		if ( CHECKS ) {
-			if ( major != null ) checkBuffer(major, 1);
-			if ( minor != null ) checkBuffer(minor, 1);
-			if ( rev != null ) checkBuffer(rev, 1);
+			checkBufferSafe(major, 1);
+			checkBufferSafe(minor, 1);
+			checkBufferSafe(rev, 1);
 		}
 		invokePPPV(__functionAddress, major, minor, rev);
 	}
@@ -4297,8 +4297,8 @@ public class GLFW {
 		long __functionAddress = Functions.GetMonitorPos;
 		if ( CHECKS ) {
 			checkPointer(monitor);
-			if ( xpos != null ) checkBuffer(xpos, 1);
-			if ( ypos != null ) checkBuffer(ypos, 1);
+			checkBufferSafe(xpos, 1);
+			checkBufferSafe(ypos, 1);
 		}
 		invokePPPV(__functionAddress, monitor, xpos, ypos);
 	}
@@ -4308,8 +4308,8 @@ public class GLFW {
 		long __functionAddress = Functions.GetMonitorPhysicalSize;
 		if ( CHECKS ) {
 			checkPointer(monitor);
-			if ( widthMM != null ) checkBuffer(widthMM, 1);
-			if ( heightMM != null ) checkBuffer(heightMM, 1);
+			checkBufferSafe(widthMM, 1);
+			checkBufferSafe(heightMM, 1);
 		}
 		invokePPPV(__functionAddress, monitor, widthMM, heightMM);
 	}
@@ -4319,8 +4319,8 @@ public class GLFW {
 		long __functionAddress = Functions.GetWindowPos;
 		if ( CHECKS ) {
 			checkPointer(window);
-			if ( xpos != null ) checkBuffer(xpos, 1);
-			if ( ypos != null ) checkBuffer(ypos, 1);
+			checkBufferSafe(xpos, 1);
+			checkBufferSafe(ypos, 1);
 		}
 		invokePPPV(__functionAddress, window, xpos, ypos);
 	}
@@ -4330,8 +4330,8 @@ public class GLFW {
 		long __functionAddress = Functions.GetWindowSize;
 		if ( CHECKS ) {
 			checkPointer(window);
-			if ( width != null ) checkBuffer(width, 1);
-			if ( height != null ) checkBuffer(height, 1);
+			checkBufferSafe(width, 1);
+			checkBufferSafe(height, 1);
 		}
 		invokePPPV(__functionAddress, window, width, height);
 	}
@@ -4341,8 +4341,8 @@ public class GLFW {
 		long __functionAddress = Functions.GetFramebufferSize;
 		if ( CHECKS ) {
 			checkPointer(window);
-			if ( width != null ) checkBuffer(width, 1);
-			if ( height != null ) checkBuffer(height, 1);
+			checkBufferSafe(width, 1);
+			checkBufferSafe(height, 1);
 		}
 		invokePPPV(__functionAddress, window, width, height);
 	}
@@ -4352,10 +4352,10 @@ public class GLFW {
 		long __functionAddress = Functions.GetWindowFrameSize;
 		if ( CHECKS ) {
 			checkPointer(window);
-			if ( left != null ) checkBuffer(left, 1);
-			if ( top != null ) checkBuffer(top, 1);
-			if ( right != null ) checkBuffer(right, 1);
-			if ( bottom != null ) checkBuffer(bottom, 1);
+			checkBufferSafe(left, 1);
+			checkBufferSafe(top, 1);
+			checkBufferSafe(right, 1);
+			checkBufferSafe(bottom, 1);
 		}
 		invokePPPPPV(__functionAddress, window, left, top, right, bottom);
 	}
@@ -4365,8 +4365,8 @@ public class GLFW {
 		long __functionAddress = Functions.GetCursorPos;
 		if ( CHECKS ) {
 			checkPointer(window);
-			if ( xpos != null ) checkBuffer(xpos, 1);
-			if ( ypos != null ) checkBuffer(ypos, 1);
+			checkBufferSafe(xpos, 1);
+			checkBufferSafe(ypos, 1);
 		}
 		invokePPPV(__functionAddress, window, xpos, ypos);
 	}

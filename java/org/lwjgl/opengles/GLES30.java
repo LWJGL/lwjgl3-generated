@@ -1008,7 +1008,7 @@ public class GLES30 {
 
 	public static void glGetTransformFeedbackVarying(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
 		if ( CHECKS ) {
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
@@ -1483,7 +1483,7 @@ public class GLES30 {
 
 	public static void glGetActiveUniformBlockName(int program, int uniformBlockIndex, IntBuffer length, ByteBuffer uniformBlockName) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		nglGetActiveUniformBlockName(program, uniformBlockIndex, uniformBlockName.remaining(), memAddressSafe(length), memAddress(uniformBlockName));
 	}
 
@@ -1651,13 +1651,13 @@ public class GLES30 {
 
 	public static void glGetSynciv(long sync, int pname, IntBuffer length, IntBuffer values) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		nglGetSynciv(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
 	}
 
 	public static int glGetSynci(long sync, int pname, IntBuffer length) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			IntBuffer values = stack.callocInt(1);
@@ -1984,7 +1984,7 @@ public class GLES30 {
 
 	public static void glGetProgramBinary(int program, IntBuffer length, IntBuffer binaryFormat, ByteBuffer binary) {
 		if ( CHECKS ) {
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 			checkBuffer(binaryFormat, 1);
 		}
 		nglGetProgramBinary(program, binary.remaining(), memAddressSafe(length), memAddress(binaryFormat), memAddress(binary));
@@ -2271,7 +2271,7 @@ public class GLES30 {
 		long __functionAddress = GLES.getCapabilities().glGetTransformFeedbackVarying;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
@@ -2441,7 +2441,7 @@ public class GLES30 {
 		long __functionAddress = GLES.getCapabilities().glGetActiveUniformBlockName;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		}
 		callPPV(__functionAddress, program, uniformBlockIndex, uniformBlockName.remaining(), length, memAddress(uniformBlockName));
 	}
@@ -2462,7 +2462,7 @@ public class GLES30 {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		}
 		callPPPV(__functionAddress, sync, pname, values.length, length, values);
 	}
@@ -2560,7 +2560,7 @@ public class GLES30 {
 		long __functionAddress = GLES.getCapabilities().glGetProgramBinary;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 			checkBuffer(binaryFormat, 1);
 		}
 		callPPPV(__functionAddress, program, binary.remaining(), length, binaryFormat, memAddress(binary));

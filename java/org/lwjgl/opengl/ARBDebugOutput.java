@@ -399,7 +399,7 @@ public class ARBDebugOutput {
 	 * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
 	 */
 	public static void glDebugMessageCallbackARB(GLDebugMessageARBCallbackI callback, long userParam) {
-		nglDebugMessageCallbackARB(callback == null ? NULL : callback.address(), userParam);
+		nglDebugMessageCallbackARB(memAddressSafe(callback), userParam);
 	}
 
 	// --- [ glGetDebugMessageLogARB ] ---
@@ -472,11 +472,11 @@ public class ARBDebugOutput {
 	 */
 	public static int glGetDebugMessageLogARB(int count, IntBuffer sources, IntBuffer types, IntBuffer ids, IntBuffer severities, IntBuffer lengths, ByteBuffer messageLog) {
 		if ( CHECKS ) {
-			if ( sources != null ) checkBuffer(sources, count);
-			if ( types != null ) checkBuffer(types, count);
-			if ( ids != null ) checkBuffer(ids, count);
-			if ( severities != null ) checkBuffer(severities, count);
-			if ( lengths != null ) checkBuffer(lengths, count);
+			checkBufferSafe(sources, count);
+			checkBufferSafe(types, count);
+			checkBufferSafe(ids, count);
+			checkBufferSafe(severities, count);
+			checkBufferSafe(lengths, count);
 		}
 		return nglGetDebugMessageLogARB(count, messageLog == null ? 0 : messageLog.remaining(), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
 	}
@@ -494,11 +494,11 @@ public class ARBDebugOutput {
 		long __functionAddress = GL.getCapabilities().glGetDebugMessageLogARB;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( sources != null ) checkBuffer(sources, count);
-			if ( types != null ) checkBuffer(types, count);
-			if ( ids != null ) checkBuffer(ids, count);
-			if ( severities != null ) checkBuffer(severities, count);
-			if ( lengths != null ) checkBuffer(lengths, count);
+			checkBufferSafe(sources, count);
+			checkBufferSafe(types, count);
+			checkBufferSafe(ids, count);
+			checkBufferSafe(severities, count);
+			checkBufferSafe(lengths, count);
 		}
 		return callPPPPPPI(__functionAddress, count, messageLog == null ? 0 : messageLog.remaining(), sources, types, ids, severities, lengths, memAddressSafe(messageLog));
 	}

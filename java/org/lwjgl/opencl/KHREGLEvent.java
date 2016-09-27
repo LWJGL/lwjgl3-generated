@@ -67,7 +67,7 @@ public class KHREGLEvent {
 	 */
 	public static long clCreateEventFromEGLSyncKHR(long context, long sync, long display, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		return nclCreateEventFromEGLSyncKHR(context, sync, display, memAddressSafe(errcode_ret));
 	}
 
@@ -79,7 +79,7 @@ public class KHREGLEvent {
 			checkPointer(context);
 			checkPointer(sync);
 			checkPointer(display);
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		}
 		return callPPPPP(__functionAddress, context, sync, display, errcode_ret);
 	}

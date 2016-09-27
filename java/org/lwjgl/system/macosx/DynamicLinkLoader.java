@@ -158,7 +158,7 @@ public class DynamicLinkLoader {
 	 */
 	public static long dlopen(ByteBuffer path, int mode) {
 		if ( CHECKS )
-			if ( path != null ) checkNT1(path);
+			checkNT1Safe(path);
 		return ndlopen(memAddressSafe(path), mode);
 	}
 

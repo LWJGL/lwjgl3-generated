@@ -372,7 +372,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
 	public static void nmodule(long struct, long value) { memPutLong(struct + VkPipelineShaderStageCreateInfo.MODULE, value); }
 	/** Unsafe version of {@link #pName(ByteBuffer) pName}. */
 	public static void npName(long struct, ByteBuffer value) { 
-		if ( CHECKS && value != null ) checkNT1(value); 
+		if ( CHECKS ) checkNT1Safe(value); 
 		memPutAddress(struct + VkPipelineShaderStageCreateInfo.PNAME, memAddress(value));
 	}
 	/** Unsafe version of {@link #pSpecializationInfo(VkSpecializationInfo) pSpecializationInfo}. */

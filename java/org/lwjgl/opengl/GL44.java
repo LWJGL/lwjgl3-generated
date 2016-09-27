@@ -582,8 +582,8 @@ public class GL44 {
 	 */
 	public static void glBindBuffersRange(int target, int first, IntBuffer buffers, PointerBuffer offsets, PointerBuffer sizes) {
 		if ( CHECKS ) {
-			if ( offsets != null ) checkBuffer(offsets, buffers.remaining());
-			if ( sizes != null ) checkBuffer(sizes, buffers.remaining());
+			checkBufferSafe(offsets, buffers.remaining());
+			checkBufferSafe(sizes, buffers.remaining());
 		}
 		nglBindBuffersRange(target, first, buffers == null ? 0 : buffers.remaining(), memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(sizes));
 	}
@@ -902,8 +902,8 @@ public class GL44 {
 	 */
 	public static void glBindVertexBuffers(int first, IntBuffer buffers, PointerBuffer offsets, IntBuffer strides) {
 		if ( CHECKS ) {
-			if ( offsets != null ) checkBuffer(offsets, buffers.remaining());
-			if ( strides != null ) checkBuffer(strides, buffers.remaining());
+			checkBufferSafe(offsets, buffers.remaining());
+			checkBufferSafe(strides, buffers.remaining());
 		}
 		nglBindVertexBuffers(first, buffers == null ? 0 : buffers.remaining(), memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(strides));
 	}
@@ -1073,8 +1073,8 @@ public class GL44 {
 		long __functionAddress = GL.getCapabilities().glBindBuffersRange;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( offsets != null ) checkBuffer(offsets, buffers.length);
-			if ( sizes != null ) checkBuffer(sizes, buffers.length);
+			checkBufferSafe(offsets, buffers.length);
+			checkBufferSafe(sizes, buffers.length);
 		}
 		callPPPV(__functionAddress, target, first, buffers == null ? 0 : buffers.length, buffers, memAddressSafe(offsets), memAddressSafe(sizes));
 	}
@@ -1124,8 +1124,8 @@ public class GL44 {
 		long __functionAddress = GL.getCapabilities().glBindVertexBuffers;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( offsets != null ) checkBuffer(offsets, buffers.length);
-			if ( strides != null ) checkBuffer(strides, buffers.length);
+			checkBufferSafe(offsets, buffers.length);
+			checkBufferSafe(strides, buffers.length);
 		}
 		callPPPV(__functionAddress, first, buffers == null ? 0 : buffers.length, buffers, memAddressSafe(offsets), strides);
 	}

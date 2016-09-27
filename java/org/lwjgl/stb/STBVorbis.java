@@ -222,7 +222,7 @@ public class STBVorbis {
 	public static long stb_vorbis_open_pushdata(ByteBuffer datablock, IntBuffer datablock_memory_consumed_in_bytes, IntBuffer error, STBVorbisAlloc alloc_buffer) {
 		if ( CHECKS )
 			if ( alloc_buffer != null ) STBVorbisAlloc.validate(alloc_buffer.address());
-		return nstb_vorbis_open_pushdata(memAddress(datablock), datablock.remaining(), memAddress(datablock_memory_consumed_in_bytes), memAddress(error), alloc_buffer == null ? NULL : alloc_buffer.address());
+		return nstb_vorbis_open_pushdata(memAddress(datablock), datablock.remaining(), memAddress(datablock_memory_consumed_in_bytes), memAddress(error), memAddressSafe(alloc_buffer));
 	}
 
 	// --- [ stb_vorbis_decode_frame_pushdata ] ---
@@ -285,7 +285,7 @@ public class STBVorbis {
 	public static int stb_vorbis_decode_frame_pushdata(long f, ByteBuffer datablock, IntBuffer channels, PointerBuffer output, IntBuffer samples) {
 		if ( CHECKS ) {
 			checkPointer(f);
-			if ( channels != null ) checkBuffer(channels, 1);
+			checkBufferSafe(channels, 1);
 			checkBuffer(output, 1);
 			checkBuffer(samples, 1);
 		}
@@ -490,7 +490,7 @@ public class STBVorbis {
 			checkBuffer(error, 1);
 			if ( alloc_buffer != null ) STBVorbisAlloc.validate(alloc_buffer.address());
 		}
-		return nstb_vorbis_open_memory(memAddress(mem), mem.remaining(), memAddress(error), alloc_buffer == null ? NULL : alloc_buffer.address());
+		return nstb_vorbis_open_memory(memAddress(mem), mem.remaining(), memAddress(error), memAddressSafe(alloc_buffer));
 	}
 
 	// --- [ stb_vorbis_open_filename ] ---
@@ -521,7 +521,7 @@ public class STBVorbis {
 			checkBuffer(error, 1);
 			if ( alloc_buffer != null ) STBVorbisAlloc.validate(alloc_buffer.address());
 		}
-		return nstb_vorbis_open_filename(memAddress(filename), memAddress(error), alloc_buffer == null ? NULL : alloc_buffer.address());
+		return nstb_vorbis_open_filename(memAddress(filename), memAddress(error), memAddressSafe(alloc_buffer));
 	}
 
 	/**
@@ -541,7 +541,7 @@ public class STBVorbis {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer filenameEncoded = stack.ASCII(filename);
-			return nstb_vorbis_open_filename(memAddress(filenameEncoded), memAddress(error), alloc_buffer == null ? NULL : alloc_buffer.address());
+			return nstb_vorbis_open_filename(memAddress(filenameEncoded), memAddress(error), memAddressSafe(alloc_buffer));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -686,7 +686,7 @@ public class STBVorbis {
 	public static int stb_vorbis_get_frame_float(long f, IntBuffer channels, PointerBuffer output) {
 		if ( CHECKS ) {
 			checkPointer(f);
-			if ( channels != null ) checkBuffer(channels, 1);
+			checkBufferSafe(channels, 1);
 		}
 		return nstb_vorbis_get_frame_float(f, memAddressSafe(channels), memAddress(output));
 	}
@@ -918,7 +918,7 @@ k    l      k <= l, the first k channels</code></pre>
 	public static long stb_vorbis_open_pushdata(ByteBuffer datablock, int[] datablock_memory_consumed_in_bytes, int[] error, STBVorbisAlloc alloc_buffer) {
 		if ( CHECKS )
 			if ( alloc_buffer != null ) STBVorbisAlloc.validate(alloc_buffer.address());
-		return nstb_vorbis_open_pushdata(memAddress(datablock), datablock.remaining(), datablock_memory_consumed_in_bytes, error, alloc_buffer == null ? NULL : alloc_buffer.address());
+		return nstb_vorbis_open_pushdata(memAddress(datablock), datablock.remaining(), datablock_memory_consumed_in_bytes, error, memAddressSafe(alloc_buffer));
 	}
 
 	/** Array version of: {@link #stb_vorbis_decode_frame_pushdata decode_frame_pushdata} */
@@ -928,7 +928,7 @@ k    l      k <= l, the first k channels</code></pre>
 	public static int stb_vorbis_decode_frame_pushdata(long f, ByteBuffer datablock, int[] channels, PointerBuffer output, int[] samples) {
 		if ( CHECKS ) {
 			checkPointer(f);
-			if ( channels != null ) checkBuffer(channels, 1);
+			checkBufferSafe(channels, 1);
 			checkBuffer(output, 1);
 			checkBuffer(samples, 1);
 		}
@@ -987,7 +987,7 @@ k    l      k <= l, the first k channels</code></pre>
 			checkBuffer(error, 1);
 			if ( alloc_buffer != null ) STBVorbisAlloc.validate(alloc_buffer.address());
 		}
-		return nstb_vorbis_open_memory(memAddress(mem), mem.remaining(), error, alloc_buffer == null ? NULL : alloc_buffer.address());
+		return nstb_vorbis_open_memory(memAddress(mem), mem.remaining(), error, memAddressSafe(alloc_buffer));
 	}
 
 	/** Array version of: {@link #stb_vorbis_open_filename open_filename} */
@@ -1000,7 +1000,7 @@ k    l      k <= l, the first k channels</code></pre>
 			checkBuffer(error, 1);
 			if ( alloc_buffer != null ) STBVorbisAlloc.validate(alloc_buffer.address());
 		}
-		return nstb_vorbis_open_filename(memAddress(filename), error, alloc_buffer == null ? NULL : alloc_buffer.address());
+		return nstb_vorbis_open_filename(memAddress(filename), error, memAddressSafe(alloc_buffer));
 	}
 
 	/** Array version of: {@link #stb_vorbis_open_filename open_filename} */
@@ -1012,7 +1012,7 @@ k    l      k <= l, the first k channels</code></pre>
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer filenameEncoded = stack.ASCII(filename);
-			return nstb_vorbis_open_filename(memAddress(filenameEncoded), error, alloc_buffer == null ? NULL : alloc_buffer.address());
+			return nstb_vorbis_open_filename(memAddress(filenameEncoded), error, memAddressSafe(alloc_buffer));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -1025,7 +1025,7 @@ k    l      k <= l, the first k channels</code></pre>
 	public static int stb_vorbis_get_frame_float(long f, int[] channels, PointerBuffer output) {
 		if ( CHECKS ) {
 			checkPointer(f);
-			if ( channels != null ) checkBuffer(channels, 1);
+			checkBufferSafe(channels, 1);
 		}
 		return nstb_vorbis_get_frame_float(f, channels, memAddress(output));
 	}

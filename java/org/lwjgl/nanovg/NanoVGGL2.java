@@ -166,7 +166,7 @@ public class NanoVGGL2 {
 	public static void nvgluBindFramebuffer(long ctx, NVGLUFramebuffer fb) {
 		if ( CHECKS )
 			checkPointer(ctx);
-		nnvgluBindFramebuffer(ctx, fb == null ? NULL : fb.address());
+		nnvgluBindFramebuffer(ctx, memAddressSafe(fb));
 	}
 
 	// --- [ nvgluDeleteFramebuffer ] ---

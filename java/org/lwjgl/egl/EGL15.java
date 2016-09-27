@@ -148,7 +148,7 @@ public class EGL15 {
 
 	public static long eglCreateImage(long dpy, long ctx, int target, long buffer, PointerBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		return neglCreateImage(dpy, ctx, target, buffer, memAddressSafe(attrib_list));
 	}
 
@@ -177,7 +177,7 @@ public class EGL15 {
 
 	public static long eglGetPlatformDisplay(int platform, long native_display, PointerBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		return neglGetPlatformDisplay(platform, native_display, memAddressSafe(attrib_list));
 	}
 
@@ -196,7 +196,7 @@ public class EGL15 {
 
 	public static long eglCreatePlatformWindowSurface(long dpy, long config, long native_window, PointerBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		return neglCreatePlatformWindowSurface(dpy, config, native_window, memAddressSafe(attrib_list));
 	}
 
@@ -215,7 +215,7 @@ public class EGL15 {
 
 	public static long eglCreatePlatformPixmapSurface(long dpy, long config, long native_pixmap, PointerBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		return neglCreatePlatformPixmapSurface(dpy, config, native_pixmap, memAddressSafe(attrib_list));
 	}
 

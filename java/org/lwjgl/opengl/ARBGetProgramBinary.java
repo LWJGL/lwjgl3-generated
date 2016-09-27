@@ -79,7 +79,7 @@ public class ARBGetProgramBinary {
 	 */
 	public static void glGetProgramBinary(int program, IntBuffer length, IntBuffer binaryFormat, ByteBuffer binary) {
 		if ( CHECKS ) {
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 			checkBuffer(binaryFormat, 1);
 		}
 		nglGetProgramBinary(program, binary.remaining(), memAddressSafe(length), memAddress(binaryFormat), memAddress(binary));
@@ -134,7 +134,7 @@ public class ARBGetProgramBinary {
 		long __functionAddress = GL.getCapabilities().glGetProgramBinary;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 			checkBuffer(binaryFormat, 1);
 		}
 		callPPPV(__functionAddress, program, binary.remaining(), length, binaryFormat, memAddress(binary));

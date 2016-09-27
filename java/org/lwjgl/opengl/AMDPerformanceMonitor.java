@@ -63,7 +63,7 @@ public class AMDPerformanceMonitor {
 
 	public static void glGetPerfMonitorGroupsAMD(IntBuffer numGroups, IntBuffer groups) {
 		if ( CHECKS )
-			if ( numGroups != null ) checkBuffer(numGroups, 1);
+			checkBufferSafe(numGroups, 1);
 		nglGetPerfMonitorGroupsAMD(memAddressSafe(numGroups), groups == null ? 0 : groups.remaining(), memAddressSafe(groups));
 	}
 
@@ -110,7 +110,7 @@ public class AMDPerformanceMonitor {
 
 	public static void glGetPerfMonitorCounterStringAMD(int group, int counter, IntBuffer length, ByteBuffer counterString) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		nglGetPerfMonitorCounterStringAMD(group, counter, counterString == null ? 0 : counterString.remaining(), memAddressSafe(length), memAddressSafe(counterString));
 	}
 
@@ -232,7 +232,7 @@ public class AMDPerformanceMonitor {
 
 	public static void glGetPerfMonitorCounterDataAMD(int monitor, int pname, IntBuffer data, IntBuffer bytesWritten) {
 		if ( CHECKS )
-			if ( bytesWritten != null ) checkBuffer(bytesWritten, 1);
+			checkBufferSafe(bytesWritten, 1);
 		nglGetPerfMonitorCounterDataAMD(monitor, pname, data.remaining(), memAddress(data), memAddressSafe(bytesWritten));
 	}
 
@@ -241,7 +241,7 @@ public class AMDPerformanceMonitor {
 		long __functionAddress = GL.getCapabilities().glGetPerfMonitorGroupsAMD;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( numGroups != null ) checkBuffer(numGroups, 1);
+			checkBufferSafe(numGroups, 1);
 		}
 		callPPV(__functionAddress, numGroups, groups == null ? 0 : groups.length, groups);
 	}
@@ -272,7 +272,7 @@ public class AMDPerformanceMonitor {
 		long __functionAddress = GL.getCapabilities().glGetPerfMonitorCounterStringAMD;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		}
 		callPPV(__functionAddress, group, counter, counterString == null ? 0 : counterString.remaining(), length, memAddressSafe(counterString));
 	}
@@ -326,7 +326,7 @@ public class AMDPerformanceMonitor {
 		long __functionAddress = GL.getCapabilities().glGetPerfMonitorCounterDataAMD;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( bytesWritten != null ) checkBuffer(bytesWritten, 1);
+			checkBufferSafe(bytesWritten, 1);
 		}
 		callPPV(__functionAddress, monitor, pname, data.length, data, bytesWritten);
 	}

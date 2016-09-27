@@ -119,7 +119,7 @@ public class GLXEXTTextureFromPixmap {
 	 */
 	public static void glXBindTexImageEXT(long display, long drawable, int buffer, IntBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list);
+			checkNTSafe(attrib_list);
 		nglXBindTexImageEXT(display, drawable, buffer, memAddressSafe(attrib_list));
 	}
 
@@ -149,7 +149,7 @@ public class GLXEXTTextureFromPixmap {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(drawable);
-			if ( attrib_list != null ) checkNT(attrib_list);
+			checkNTSafe(attrib_list);
 		}
 		callPPPV(__functionAddress, display, drawable, buffer, attrib_list);
 	}

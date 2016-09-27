@@ -155,7 +155,7 @@ public class GLX13 {
 	 */
 	public static PointerBuffer glXChooseFBConfig(long display, int screen, IntBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list);
+			checkNTSafe(attrib_list);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		IntBuffer nelements = stack.callocInt(1);
 		try {
@@ -259,7 +259,7 @@ public class GLX13 {
 	 */
 	public static long glXCreateWindow(long display, long config, long win, IntBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list);
+			checkNTSafe(attrib_list);
 		return nglXCreateWindow(display, config, win, memAddressSafe(attrib_list));
 	}
 
@@ -293,7 +293,7 @@ public class GLX13 {
 	 */
 	public static long glXCreatePixmap(long display, long config, long pixmap, IntBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list);
+			checkNTSafe(attrib_list);
 		return nglXCreatePixmap(display, config, pixmap, memAddressSafe(attrib_list));
 	}
 
@@ -343,7 +343,7 @@ public class GLX13 {
 	 */
 	public static long glXCreatePbuffer(long display, long config, IntBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list);
+			checkNTSafe(attrib_list);
 		return nglXCreatePbuffer(display, config, memAddressSafe(attrib_list));
 	}
 
@@ -538,7 +538,7 @@ public class GLX13 {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
-			if ( attrib_list != null ) checkNT(attrib_list);
+			checkNTSafe(attrib_list);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		IntBuffer nelements = stack.callocInt(1);
@@ -569,7 +569,7 @@ public class GLX13 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
-			if ( attrib_list != null ) checkNT(attrib_list);
+			checkNTSafe(attrib_list);
 		}
 		return callPPPPP(__functionAddress, display, config, win, attrib_list);
 	}
@@ -581,7 +581,7 @@ public class GLX13 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
-			if ( attrib_list != null ) checkNT(attrib_list);
+			checkNTSafe(attrib_list);
 		}
 		return callPPPPP(__functionAddress, display, config, pixmap, attrib_list);
 	}
@@ -593,7 +593,7 @@ public class GLX13 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
-			if ( attrib_list != null ) checkNT(attrib_list);
+			checkNTSafe(attrib_list);
 		}
 		return callPPPP(__functionAddress, display, config, attrib_list);
 	}

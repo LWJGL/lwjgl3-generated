@@ -42,7 +42,7 @@ public class QCOMExtendedGet2 {
 
 	public static void glExtGetShadersQCOM(IntBuffer shaders, IntBuffer numShaders) {
 		if ( CHECKS )
-			if ( numShaders != null ) checkBuffer(numShaders, 1);
+			checkBufferSafe(numShaders, 1);
 		nglExtGetShadersQCOM(memAddressSafe(shaders), shaders == null ? 0 : shaders.remaining(), memAddressSafe(numShaders));
 	}
 
@@ -57,7 +57,7 @@ public class QCOMExtendedGet2 {
 
 	public static void glExtGetProgramsQCOM(IntBuffer programs, IntBuffer numPrograms) {
 		if ( CHECKS )
-			if ( numPrograms != null ) checkBuffer(numPrograms, 1);
+			checkBufferSafe(numPrograms, 1);
 		nglExtGetProgramsQCOM(memAddressSafe(programs), programs == null ? 0 : programs.remaining(), memAddressSafe(numPrograms));
 	}
 
@@ -81,7 +81,7 @@ public class QCOMExtendedGet2 {
 
 	public static void glExtGetProgramBinarySourceQCOM(int program, int shadertype, ByteBuffer source, IntBuffer length) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		nglExtGetProgramBinarySourceQCOM(program, shadertype, memAddressSafe(source), memAddressSafe(length));
 	}
 
@@ -90,7 +90,7 @@ public class QCOMExtendedGet2 {
 		long __functionAddress = GLES.getCapabilities().glExtGetShadersQCOM;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( numShaders != null ) checkBuffer(numShaders, 1);
+			checkBufferSafe(numShaders, 1);
 		}
 		callPPV(__functionAddress, shaders, shaders == null ? 0 : shaders.length, numShaders);
 	}
@@ -100,7 +100,7 @@ public class QCOMExtendedGet2 {
 		long __functionAddress = GLES.getCapabilities().glExtGetProgramsQCOM;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( numPrograms != null ) checkBuffer(numPrograms, 1);
+			checkBufferSafe(numPrograms, 1);
 		}
 		callPPV(__functionAddress, programs, programs == null ? 0 : programs.length, numPrograms);
 	}
@@ -110,7 +110,7 @@ public class QCOMExtendedGet2 {
 		long __functionAddress = GLES.getCapabilities().glExtGetProgramBinarySourceQCOM;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		}
 		callPPV(__functionAddress, program, shadertype, memAddressSafe(source), length);
 	}

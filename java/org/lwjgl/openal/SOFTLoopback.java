@@ -99,7 +99,7 @@ public class SOFTLoopback {
 	 */
 	public static long alcLoopbackOpenDeviceSOFT(ByteBuffer deviceName) {
 		if ( CHECKS )
-			if ( deviceName != null ) checkNT1(deviceName);
+			checkNT1Safe(deviceName);
 		return nalcLoopbackOpenDeviceSOFT(memAddressSafe(deviceName));
 	}
 

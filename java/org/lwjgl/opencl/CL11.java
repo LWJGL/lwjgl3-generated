@@ -188,7 +188,7 @@ public class CL11 {
 	 */
 	public static long clCreateSubBuffer(long buffer, long flags, int buffer_create_type, ByteBuffer buffer_create_info, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		return nclCreateSubBuffer(buffer, flags, buffer_create_type, memAddress(buffer_create_info), memAddressSafe(errcode_ret));
 	}
 
@@ -415,7 +415,7 @@ public class CL11 {
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		}
 		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -426,7 +426,7 @@ public class CL11 {
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		}
 		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -437,7 +437,7 @@ public class CL11 {
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		}
 		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -448,7 +448,7 @@ public class CL11 {
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		}
 		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -459,7 +459,7 @@ public class CL11 {
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		}
 		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -630,7 +630,7 @@ public class CL11 {
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		}
 		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -641,7 +641,7 @@ public class CL11 {
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		}
 		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -652,7 +652,7 @@ public class CL11 {
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		}
 		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -663,7 +663,7 @@ public class CL11 {
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		}
 		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -674,7 +674,7 @@ public class CL11 {
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		}
 		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -832,7 +832,7 @@ public class CL11 {
 			checkBuffer(src_origin, 3);
 			checkBuffer(dst_origin, 3);
 			checkBuffer(region, 3);
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		}
 		return nclEnqueueCopyBufferRect(command_queue, src_buffer, dst_buffer, memAddress(src_origin), memAddress(dst_origin), memAddress(region), src_row_pitch, src_slice_pitch, dst_row_pitch, dst_slice_pitch, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -886,7 +886,7 @@ public class CL11 {
 	 */
 	public static long clCreateUserEvent(long context, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		return nclCreateUserEvent(context, memAddressSafe(errcode_ret));
 	}
 
@@ -1054,7 +1054,7 @@ clReleaseMemObject(buf2);</code></pre>
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(buffer);
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		}
 		return callPJPPP(__functionAddress, buffer, flags, buffer_create_type, memAddress(buffer_create_info), errcode_ret);
 	}
@@ -1069,7 +1069,7 @@ clReleaseMemObject(buf2);</code></pre>
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		}
 		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -1084,7 +1084,7 @@ clReleaseMemObject(buf2);</code></pre>
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		}
 		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -1099,7 +1099,7 @@ clReleaseMemObject(buf2);</code></pre>
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		}
 		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -1114,7 +1114,7 @@ clReleaseMemObject(buf2);</code></pre>
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		}
 		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -1129,7 +1129,7 @@ clReleaseMemObject(buf2);</code></pre>
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		}
 		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -1144,7 +1144,7 @@ clReleaseMemObject(buf2);</code></pre>
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		}
 		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -1159,7 +1159,7 @@ clReleaseMemObject(buf2);</code></pre>
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		}
 		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -1174,7 +1174,7 @@ clReleaseMemObject(buf2);</code></pre>
 			checkBuffer(buffer_offset, 3);
 			checkBuffer(host_offset, 3);
 			checkBuffer(region, 3);
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		}
 		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -1185,7 +1185,7 @@ clReleaseMemObject(buf2);</code></pre>
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		}
 		return callPPP(__functionAddress, context, errcode_ret);
 	}

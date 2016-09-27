@@ -476,7 +476,7 @@ public class ParShapes {
 	 * @param target the target mesh
 	 */
 	public static ParShapesMesh par_shapes_clone(ParShapesMesh mesh, ParShapesMesh target) {
-		long __result = npar_shapes_clone(mesh.address(), target == null ? NULL : target.address());
+		long __result = npar_shapes_clone(mesh.address(), memAddressSafe(target));
 		return ParShapesMesh.create(__result);
 	}
 

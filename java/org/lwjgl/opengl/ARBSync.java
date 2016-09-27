@@ -250,7 +250,7 @@ public class ARBSync {
 	 */
 	public static void glGetSynciv(long sync, int pname, IntBuffer length, IntBuffer values) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		nglGetSynciv(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
 	}
 
@@ -263,7 +263,7 @@ public class ARBSync {
 	 */
 	public static int glGetSynci(long sync, int pname, IntBuffer length) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			IntBuffer values = stack.callocInt(1);
@@ -290,7 +290,7 @@ public class ARBSync {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		}
 		callPPPV(__functionAddress, sync, pname, values.length, length, values);
 	}

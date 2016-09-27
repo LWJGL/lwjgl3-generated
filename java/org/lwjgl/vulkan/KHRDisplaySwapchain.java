@@ -120,7 +120,7 @@ public class KHRDisplaySwapchain {
 	public static int vkCreateSharedSwapchainsKHR(VkDevice device, VkSwapchainCreateInfoKHR.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, LongBuffer pSwapchains) {
 		if ( CHECKS )
 			checkBuffer(pSwapchains, pCreateInfos.remaining());
-		return nvkCreateSharedSwapchainsKHR(device, pCreateInfos.remaining(), pCreateInfos.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSwapchains));
+		return nvkCreateSharedSwapchainsKHR(device, pCreateInfos.remaining(), pCreateInfos.address(), memAddressSafe(pAllocator), memAddress(pSwapchains));
 	}
 
 	/** Array version of: {@link #vkCreateSharedSwapchainsKHR CreateSharedSwapchainsKHR} */
@@ -132,7 +132,7 @@ public class KHRDisplaySwapchain {
 			VkSwapchainCreateInfoKHR.validate(pCreateInfos.address(), pCreateInfos.remaining());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPPPPI(__functionAddress, device.address(), pCreateInfos.remaining(), pCreateInfos.address(), pAllocator == null ? NULL : pAllocator.address(), pSwapchains);
+		return callPPPPI(__functionAddress, device.address(), pCreateInfos.remaining(), pCreateInfos.address(), memAddressSafe(pAllocator), pSwapchains);
 	}
 
 }

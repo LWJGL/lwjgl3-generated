@@ -173,13 +173,13 @@ public class APPLESync {
 
 	public static void glGetSyncivAPPLE(long sync, int pname, IntBuffer length, IntBuffer values) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		nglGetSyncivAPPLE(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
 	}
 
 	public static int glGetSynciAPPLE(long sync, int pname, IntBuffer length) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			IntBuffer values = stack.callocInt(1);
@@ -206,7 +206,7 @@ public class APPLESync {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(sync);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		}
 		callPPPV(__functionAddress, sync, pname, values.length, length, values);
 	}

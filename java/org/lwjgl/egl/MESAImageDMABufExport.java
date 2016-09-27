@@ -48,9 +48,9 @@ public class MESAImageDMABufExport {
 
 	public static boolean eglExportDMABUFImageQueryMESA(long dpy, long image, IntBuffer fourcc, IntBuffer num_planes, LongBuffer modifiers) {
 		if ( CHECKS ) {
-			if ( fourcc != null ) checkBuffer(fourcc, 1);
-			if ( num_planes != null ) checkBuffer(num_planes, 1);
-			if ( modifiers != null ) checkBuffer(modifiers, 1);
+			checkBufferSafe(fourcc, 1);
+			checkBufferSafe(num_planes, 1);
+			checkBufferSafe(modifiers, 1);
 		}
 		return neglExportDMABUFImageQueryMESA(dpy, image, memAddressSafe(fourcc), memAddressSafe(num_planes), memAddressSafe(modifiers)) != 0;
 	}
@@ -69,9 +69,9 @@ public class MESAImageDMABufExport {
 
 	public static boolean eglExportDMABUFImageMESA(long dpy, long image, IntBuffer fds, IntBuffer strides, IntBuffer offsets) {
 		if ( CHECKS ) {
-			if ( fds != null ) checkBuffer(fds, 1);
-			if ( strides != null ) checkBuffer(strides, 1);
-			if ( offsets != null ) checkBuffer(offsets, 1);
+			checkBufferSafe(fds, 1);
+			checkBufferSafe(strides, 1);
+			checkBufferSafe(offsets, 1);
 		}
 		return neglExportDMABUFImageMESA(dpy, image, memAddressSafe(fds), memAddressSafe(strides), memAddressSafe(offsets)) != 0;
 	}
@@ -83,9 +83,9 @@ public class MESAImageDMABufExport {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(image);
-			if ( fourcc != null ) checkBuffer(fourcc, 1);
-			if ( num_planes != null ) checkBuffer(num_planes, 1);
-			if ( modifiers != null ) checkBuffer(modifiers, 1);
+			checkBufferSafe(fourcc, 1);
+			checkBufferSafe(num_planes, 1);
+			checkBufferSafe(modifiers, 1);
 		}
 		return callPPPPPI(__functionAddress, dpy, image, fourcc, num_planes, modifiers) != 0;
 	}
@@ -97,9 +97,9 @@ public class MESAImageDMABufExport {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(image);
-			if ( fds != null ) checkBuffer(fds, 1);
-			if ( strides != null ) checkBuffer(strides, 1);
-			if ( offsets != null ) checkBuffer(offsets, 1);
+			checkBufferSafe(fds, 1);
+			checkBufferSafe(strides, 1);
+			checkBufferSafe(offsets, 1);
 		}
 		return callPPPPPI(__functionAddress, dpy, image, fds, strides, offsets) != 0;
 	}

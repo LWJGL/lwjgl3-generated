@@ -2215,7 +2215,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	public static int vkCreateInstance(VkInstanceCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pInstance) {
 		if ( CHECKS )
 			checkBuffer(pInstance, 1);
-		return nvkCreateInstance(pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pInstance));
+		return nvkCreateInstance(pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pInstance));
 	}
 
 	// --- [ vkDestroyInstance ] ---
@@ -2284,7 +2284,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroyInstance(VkInstance instance, VkAllocationCallbacks pAllocator) {
-		nvkDestroyInstance(instance, pAllocator == null ? NULL : pAllocator.address());
+		nvkDestroyInstance(instance, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkEnumeratePhysicalDevices ] ---
@@ -2351,7 +2351,7 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	public static int vkEnumeratePhysicalDevices(VkInstance instance, IntBuffer pPhysicalDeviceCount, PointerBuffer pPhysicalDevices) {
 		if ( CHECKS ) {
 			checkBuffer(pPhysicalDeviceCount, 1);
-			if ( pPhysicalDevices != null ) checkBuffer(pPhysicalDevices, pPhysicalDeviceCount.get(pPhysicalDeviceCount.position()));
+			checkBufferSafe(pPhysicalDevices, pPhysicalDeviceCount.get(pPhysicalDeviceCount.position()));
 		}
 		return nvkEnumeratePhysicalDevices(instance, memAddress(pPhysicalDeviceCount), memAddressSafe(pPhysicalDevices));
 	}
@@ -2616,9 +2616,9 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 	public static void vkGetPhysicalDeviceQueueFamilyProperties(VkPhysicalDevice physicalDevice, IntBuffer pQueueFamilyPropertyCount, VkQueueFamilyProperties.Buffer pQueueFamilyProperties) {
 		if ( CHECKS ) {
 			checkBuffer(pQueueFamilyPropertyCount, 1);
-			if ( pQueueFamilyProperties != null ) checkBuffer(pQueueFamilyProperties, pQueueFamilyPropertyCount.get(pQueueFamilyPropertyCount.position()));
+			checkBufferSafe(pQueueFamilyProperties, pQueueFamilyPropertyCount.get(pQueueFamilyPropertyCount.position()));
 		}
-		nvkGetPhysicalDeviceQueueFamilyProperties(physicalDevice, memAddress(pQueueFamilyPropertyCount), pQueueFamilyProperties == null ? NULL : pQueueFamilyProperties.address());
+		nvkGetPhysicalDeviceQueueFamilyProperties(physicalDevice, memAddress(pQueueFamilyPropertyCount), memAddressSafe(pQueueFamilyProperties));
 	}
 
 	// --- [ vkGetPhysicalDeviceMemoryProperties ] ---
@@ -2934,7 +2934,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	public static int vkCreateDevice(VkPhysicalDevice physicalDevice, VkDeviceCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pDevice) {
 		if ( CHECKS )
 			checkBuffer(pDevice, 1);
-		return nvkCreateDevice(physicalDevice, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pDevice));
+		return nvkCreateDevice(physicalDevice, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pDevice));
 	}
 
 	// --- [ vkDestroyDevice ] ---
@@ -3015,7 +3015,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroyDevice(VkDevice device, VkAllocationCallbacks pAllocator) {
-		nvkDestroyDevice(device, pAllocator == null ? NULL : pAllocator.address());
+		nvkDestroyDevice(device, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkEnumerateInstanceExtensionProperties ] ---
@@ -3099,11 +3099,11 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static int vkEnumerateInstanceExtensionProperties(ByteBuffer pLayerName, IntBuffer pPropertyCount, VkExtensionProperties.Buffer pProperties) {
 		if ( CHECKS ) {
-			if ( pLayerName != null ) checkNT1(pLayerName);
+			checkNT1Safe(pLayerName);
 			checkBuffer(pPropertyCount, 1);
-			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.get(pPropertyCount.position()));
+			checkBufferSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
 		}
-		return nvkEnumerateInstanceExtensionProperties(memAddressSafe(pLayerName), memAddress(pPropertyCount), pProperties == null ? NULL : pProperties.address());
+		return nvkEnumerateInstanceExtensionProperties(memAddressSafe(pLayerName), memAddress(pPropertyCount), memAddressSafe(pProperties));
 	}
 
 	/**
@@ -3145,12 +3145,12 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	public static int vkEnumerateInstanceExtensionProperties(CharSequence pLayerName, IntBuffer pPropertyCount, VkExtensionProperties.Buffer pProperties) {
 		if ( CHECKS ) {
 			checkBuffer(pPropertyCount, 1);
-			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.get(pPropertyCount.position()));
+			checkBufferSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer pLayerNameEncoded = stack.UTF8(pLayerName);
-			return nvkEnumerateInstanceExtensionProperties(memAddressSafe(pLayerNameEncoded), memAddress(pPropertyCount), pProperties == null ? NULL : pProperties.address());
+			return nvkEnumerateInstanceExtensionProperties(memAddressSafe(pLayerNameEncoded), memAddress(pPropertyCount), memAddressSafe(pProperties));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -3231,11 +3231,11 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 */
 	public static int vkEnumerateDeviceExtensionProperties(VkPhysicalDevice physicalDevice, ByteBuffer pLayerName, IntBuffer pPropertyCount, VkExtensionProperties.Buffer pProperties) {
 		if ( CHECKS ) {
-			if ( pLayerName != null ) checkNT1(pLayerName);
+			checkNT1Safe(pLayerName);
 			checkBuffer(pPropertyCount, 1);
-			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.get(pPropertyCount.position()));
+			checkBufferSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
 		}
-		return nvkEnumerateDeviceExtensionProperties(physicalDevice, memAddressSafe(pLayerName), memAddress(pPropertyCount), pProperties == null ? NULL : pProperties.address());
+		return nvkEnumerateDeviceExtensionProperties(physicalDevice, memAddressSafe(pLayerName), memAddress(pPropertyCount), memAddressSafe(pProperties));
 	}
 
 	/**
@@ -3274,12 +3274,12 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	public static int vkEnumerateDeviceExtensionProperties(VkPhysicalDevice physicalDevice, CharSequence pLayerName, IntBuffer pPropertyCount, VkExtensionProperties.Buffer pProperties) {
 		if ( CHECKS ) {
 			checkBuffer(pPropertyCount, 1);
-			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.get(pPropertyCount.position()));
+			checkBufferSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer pLayerNameEncoded = stack.UTF8(pLayerName);
-			return nvkEnumerateDeviceExtensionProperties(physicalDevice, memAddressSafe(pLayerNameEncoded), memAddress(pPropertyCount), pProperties == null ? NULL : pProperties.address());
+			return nvkEnumerateDeviceExtensionProperties(physicalDevice, memAddressSafe(pLayerNameEncoded), memAddress(pPropertyCount), memAddressSafe(pProperties));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -3355,9 +3355,9 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	public static int vkEnumerateInstanceLayerProperties(IntBuffer pPropertyCount, VkLayerProperties.Buffer pProperties) {
 		if ( CHECKS ) {
 			checkBuffer(pPropertyCount, 1);
-			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.get(pPropertyCount.position()));
+			checkBufferSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
 		}
-		return nvkEnumerateInstanceLayerProperties(memAddress(pPropertyCount), pProperties == null ? NULL : pProperties.address());
+		return nvkEnumerateInstanceLayerProperties(memAddress(pPropertyCount), memAddressSafe(pProperties));
 	}
 
 	// --- [ vkEnumerateDeviceLayerProperties ] ---
@@ -3434,9 +3434,9 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	public static int vkEnumerateDeviceLayerProperties(VkPhysicalDevice physicalDevice, IntBuffer pPropertyCount, VkLayerProperties.Buffer pProperties) {
 		if ( CHECKS ) {
 			checkBuffer(pPropertyCount, 1);
-			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.get(pPropertyCount.position()));
+			checkBufferSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
 		}
-		return nvkEnumerateDeviceLayerProperties(physicalDevice, memAddress(pPropertyCount), pProperties == null ? NULL : pProperties.address());
+		return nvkEnumerateDeviceLayerProperties(physicalDevice, memAddress(pPropertyCount), memAddressSafe(pProperties));
 	}
 
 	// --- [ vkGetDeviceQueue ] ---
@@ -3639,7 +3639,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param fence    an optional handle to a fence to be signaled. If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, it defines a fence signal operation.
 	 */
 	public static int vkQueueSubmit(VkQueue queue, VkSubmitInfo.Buffer pSubmits, long fence) {
-		return nvkQueueSubmit(queue, pSubmits == null ? 0 : pSubmits.remaining(), pSubmits == null ? NULL : pSubmits.address(), fence);
+		return nvkQueueSubmit(queue, pSubmits == null ? 0 : pSubmits.remaining(), memAddressSafe(pSubmits), fence);
 	}
 
 	/**
@@ -3826,7 +3826,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	public static int vkAllocateMemory(VkDevice device, VkMemoryAllocateInfo pAllocateInfo, VkAllocationCallbacks pAllocator, LongBuffer pMemory) {
 		if ( CHECKS )
 			checkBuffer(pMemory, 1);
-		return nvkAllocateMemory(device, pAllocateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pMemory));
+		return nvkAllocateMemory(device, pAllocateInfo.address(), memAddressSafe(pAllocator), memAddress(pMemory));
 	}
 
 	// --- [ vkFreeMemory ] ---
@@ -3905,7 +3905,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkFreeMemory(VkDevice device, long memory, VkAllocationCallbacks pAllocator) {
-		nvkFreeMemory(device, memory, pAllocator == null ? NULL : pAllocator.address());
+		nvkFreeMemory(device, memory, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkMapMemory ] ---
@@ -4580,9 +4580,9 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	public static void vkGetImageSparseMemoryRequirements(VkDevice device, long image, IntBuffer pSparseMemoryRequirementCount, VkSparseImageMemoryRequirements.Buffer pSparseMemoryRequirements) {
 		if ( CHECKS ) {
 			checkBuffer(pSparseMemoryRequirementCount, 1);
-			if ( pSparseMemoryRequirements != null ) checkBuffer(pSparseMemoryRequirements, pSparseMemoryRequirementCount.get(pSparseMemoryRequirementCount.position()));
+			checkBufferSafe(pSparseMemoryRequirements, pSparseMemoryRequirementCount.get(pSparseMemoryRequirementCount.position()));
 		}
-		nvkGetImageSparseMemoryRequirements(device, image, memAddress(pSparseMemoryRequirementCount), pSparseMemoryRequirements == null ? NULL : pSparseMemoryRequirements.address());
+		nvkGetImageSparseMemoryRequirements(device, image, memAddress(pSparseMemoryRequirementCount), memAddressSafe(pSparseMemoryRequirements));
 	}
 
 	// --- [ vkGetPhysicalDeviceSparseImageFormatProperties ] ---
@@ -4703,9 +4703,9 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	public static void vkGetPhysicalDeviceSparseImageFormatProperties(VkPhysicalDevice physicalDevice, int format, int type, int samples, int usage, int tiling, IntBuffer pPropertyCount, VkSparseImageFormatProperties.Buffer pProperties) {
 		if ( CHECKS ) {
 			checkBuffer(pPropertyCount, 1);
-			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.get(pPropertyCount.position()));
+			checkBufferSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
 		}
-		nvkGetPhysicalDeviceSparseImageFormatProperties(physicalDevice, format, type, samples, usage, tiling, memAddress(pPropertyCount), pProperties == null ? NULL : pProperties.address());
+		nvkGetPhysicalDeviceSparseImageFormatProperties(physicalDevice, format, type, samples, usage, tiling, memAddress(pPropertyCount), memAddressSafe(pProperties));
 	}
 
 	// --- [ vkQueueBindSparse ] ---
@@ -4915,7 +4915,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	public static int vkCreateFence(VkDevice device, VkFenceCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pFence) {
 		if ( CHECKS )
 			checkBuffer(pFence, 1);
-		return nvkCreateFence(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pFence));
+		return nvkCreateFence(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pFence));
 	}
 
 	// --- [ vkDestroyFence ] ---
@@ -4982,7 +4982,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroyFence(VkDevice device, long fence, VkAllocationCallbacks pAllocator) {
-		nvkDestroyFence(device, fence, pAllocator == null ? NULL : pAllocator.address());
+		nvkDestroyFence(device, fence, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkResetFences ] ---
@@ -5409,7 +5409,7 @@ or _unsignaled_.</p>
 	public static int vkCreateSemaphore(VkDevice device, VkSemaphoreCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSemaphore) {
 		if ( CHECKS )
 			checkBuffer(pSemaphore, 1);
-		return nvkCreateSemaphore(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSemaphore));
+		return nvkCreateSemaphore(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pSemaphore));
 	}
 
 	// --- [ vkDestroySemaphore ] ---
@@ -5476,7 +5476,7 @@ or _unsignaled_.</p>
 	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroySemaphore(VkDevice device, long semaphore, VkAllocationCallbacks pAllocator) {
-		nvkDestroySemaphore(device, semaphore, pAllocator == null ? NULL : pAllocator.address());
+		nvkDestroySemaphore(device, semaphore, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkCreateEvent ] ---
@@ -5539,7 +5539,7 @@ or _unsignaled_.</p>
 	public static int vkCreateEvent(VkDevice device, VkEventCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pEvent) {
 		if ( CHECKS )
 			checkBuffer(pEvent, 1);
-		return nvkCreateEvent(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pEvent));
+		return nvkCreateEvent(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pEvent));
 	}
 
 	// --- [ vkDestroyEvent ] ---
@@ -5606,7 +5606,7 @@ or _unsignaled_.</p>
 	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroyEvent(VkDevice device, long event, VkAllocationCallbacks pAllocator) {
-		nvkDestroyEvent(device, event, pAllocator == null ? NULL : pAllocator.address());
+		nvkDestroyEvent(device, event, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkGetEventStatus ] ---
@@ -5755,7 +5755,7 @@ or _unsignaled_.</p>
 	public static int vkCreateQueryPool(VkDevice device, VkQueryPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pQueryPool) {
 		if ( CHECKS )
 			checkBuffer(pQueryPool, 1);
-		return nvkCreateQueryPool(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pQueryPool));
+		return nvkCreateQueryPool(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pQueryPool));
 	}
 
 	// --- [ vkDestroyQueryPool ] ---
@@ -5822,7 +5822,7 @@ or _unsignaled_.</p>
 	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroyQueryPool(VkDevice device, long queryPool, VkAllocationCallbacks pAllocator) {
-		nvkDestroyQueryPool(device, queryPool, pAllocator == null ? NULL : pAllocator.address());
+		nvkDestroyQueryPool(device, queryPool, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkGetQueryPoolResults ] ---
@@ -6075,7 +6075,7 @@ or _unsignaled_.</p>
 	public static int vkCreateBuffer(VkDevice device, VkBufferCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pBuffer) {
 		if ( CHECKS )
 			checkBuffer(pBuffer, 1);
-		return nvkCreateBuffer(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pBuffer));
+		return nvkCreateBuffer(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pBuffer));
 	}
 
 	// --- [ vkDestroyBuffer ] ---
@@ -6142,7 +6142,7 @@ or _unsignaled_.</p>
 	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroyBuffer(VkDevice device, long buffer, VkAllocationCallbacks pAllocator) {
-		nvkDestroyBuffer(device, buffer, pAllocator == null ? NULL : pAllocator.address());
+		nvkDestroyBuffer(device, buffer, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkCreateBufferView ] ---
@@ -6213,7 +6213,7 @@ or _unsignaled_.</p>
 	public static int vkCreateBufferView(VkDevice device, VkBufferViewCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pView) {
 		if ( CHECKS )
 			checkBuffer(pView, 1);
-		return nvkCreateBufferView(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pView));
+		return nvkCreateBufferView(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pView));
 	}
 
 	// --- [ vkDestroyBufferView ] ---
@@ -6280,7 +6280,7 @@ or _unsignaled_.</p>
 	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroyBufferView(VkDevice device, long bufferView, VkAllocationCallbacks pAllocator) {
-		nvkDestroyBufferView(device, bufferView, pAllocator == null ? NULL : pAllocator.address());
+		nvkDestroyBufferView(device, bufferView, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkCreateImage ] ---
@@ -6347,7 +6347,7 @@ or _unsignaled_.</p>
 	public static int vkCreateImage(VkDevice device, VkImageCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pImage) {
 		if ( CHECKS )
 			checkBuffer(pImage, 1);
-		return nvkCreateImage(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pImage));
+		return nvkCreateImage(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pImage));
 	}
 
 	// --- [ vkDestroyImage ] ---
@@ -6414,7 +6414,7 @@ or _unsignaled_.</p>
 	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroyImage(VkDevice device, long image, VkAllocationCallbacks pAllocator) {
-		nvkDestroyImage(device, image, pAllocator == null ? NULL : pAllocator.address());
+		nvkDestroyImage(device, image, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkGetImageSubresourceLayout ] ---
@@ -6526,7 +6526,7 @@ or _unsignaled_.</p>
 	public static int vkCreateImageView(VkDevice device, VkImageViewCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pView) {
 		if ( CHECKS )
 			checkBuffer(pView, 1);
-		return nvkCreateImageView(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pView));
+		return nvkCreateImageView(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pView));
 	}
 
 	// --- [ vkDestroyImageView ] ---
@@ -6593,7 +6593,7 @@ or _unsignaled_.</p>
 	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroyImageView(VkDevice device, long imageView, VkAllocationCallbacks pAllocator) {
-		nvkDestroyImageView(device, imageView, pAllocator == null ? NULL : pAllocator.address());
+		nvkDestroyImageView(device, imageView, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkCreateShaderModule ] ---
@@ -6656,7 +6656,7 @@ or _unsignaled_.</p>
 	public static int vkCreateShaderModule(VkDevice device, VkShaderModuleCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pShaderModule) {
 		if ( CHECKS )
 			checkBuffer(pShaderModule, 1);
-		return nvkCreateShaderModule(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pShaderModule));
+		return nvkCreateShaderModule(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pShaderModule));
 	}
 
 	// --- [ vkDestroyShaderModule ] ---
@@ -6721,7 +6721,7 @@ or _unsignaled_.</p>
 	 * @param pAllocator   controls host memory allocation
 	 */
 	public static void vkDestroyShaderModule(VkDevice device, long shaderModule, VkAllocationCallbacks pAllocator) {
-		nvkDestroyShaderModule(device, shaderModule, pAllocator == null ? NULL : pAllocator.address());
+		nvkDestroyShaderModule(device, shaderModule, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkCreatePipelineCache ] ---
@@ -6824,7 +6824,7 @@ or _unsignaled_.</p>
 	public static int vkCreatePipelineCache(VkDevice device, VkPipelineCacheCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pPipelineCache) {
 		if ( CHECKS )
 			checkBuffer(pPipelineCache, 1);
-		return nvkCreatePipelineCache(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pPipelineCache));
+		return nvkCreatePipelineCache(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pPipelineCache));
 	}
 
 	// --- [ vkDestroyPipelineCache ] ---
@@ -6889,7 +6889,7 @@ or _unsignaled_.</p>
 	 * @param pAllocator    controls host memory allocation
 	 */
 	public static void vkDestroyPipelineCache(VkDevice device, long pipelineCache, VkAllocationCallbacks pAllocator) {
-		nvkDestroyPipelineCache(device, pipelineCache, pAllocator == null ? NULL : pAllocator.address());
+		nvkDestroyPipelineCache(device, pipelineCache, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkGetPipelineCacheData ] ---
@@ -7018,7 +7018,7 @@ or _unsignaled_.</p>
 	public static int vkGetPipelineCacheData(VkDevice device, long pipelineCache, PointerBuffer pDataSize, ByteBuffer pData) {
 		if ( CHECKS ) {
 			checkBuffer(pDataSize, 1);
-			if ( pData != null ) checkBuffer(pData, pDataSize.get(pDataSize.position()));
+			checkBufferSafe(pData, pDataSize.get(pDataSize.position()));
 		}
 		return nvkGetPipelineCacheData(device, pipelineCache, memAddress(pDataSize), memAddressSafe(pData));
 	}
@@ -7176,7 +7176,7 @@ or _unsignaled_.</p>
 	public static int vkCreateGraphicsPipelines(VkDevice device, long pipelineCache, VkGraphicsPipelineCreateInfo.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, LongBuffer pPipelines) {
 		if ( CHECKS )
 			checkBuffer(pPipelines, pCreateInfos.remaining());
-		return nvkCreateGraphicsPipelines(device, pipelineCache, pCreateInfos.remaining(), pCreateInfos.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pPipelines));
+		return nvkCreateGraphicsPipelines(device, pipelineCache, pCreateInfos.remaining(), pCreateInfos.address(), memAddressSafe(pAllocator), memAddress(pPipelines));
 	}
 
 	// --- [ vkCreateComputePipelines ] ---
@@ -7260,7 +7260,7 @@ or _unsignaled_.</p>
 	public static int vkCreateComputePipelines(VkDevice device, long pipelineCache, VkComputePipelineCreateInfo.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, LongBuffer pPipelines) {
 		if ( CHECKS )
 			checkBuffer(pPipelines, pCreateInfos.remaining());
-		return nvkCreateComputePipelines(device, pipelineCache, pCreateInfos.remaining(), pCreateInfos.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pPipelines));
+		return nvkCreateComputePipelines(device, pipelineCache, pCreateInfos.remaining(), pCreateInfos.address(), memAddressSafe(pAllocator), memAddress(pPipelines));
 	}
 
 	// --- [ vkDestroyPipeline ] ---
@@ -7327,7 +7327,7 @@ or _unsignaled_.</p>
 	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroyPipeline(VkDevice device, long pipeline, VkAllocationCallbacks pAllocator) {
-		nvkDestroyPipeline(device, pipeline, pAllocator == null ? NULL : pAllocator.address());
+		nvkDestroyPipeline(device, pipeline, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkCreatePipelineLayout ] ---
@@ -7534,7 +7534,7 @@ or _unsignaled_.</p>
 	public static int vkCreatePipelineLayout(VkDevice device, VkPipelineLayoutCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pPipelineLayout) {
 		if ( CHECKS )
 			checkBuffer(pPipelineLayout, 1);
-		return nvkCreatePipelineLayout(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pPipelineLayout));
+		return nvkCreatePipelineLayout(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pPipelineLayout));
 	}
 
 	// --- [ vkDestroyPipelineLayout ] ---
@@ -7599,7 +7599,7 @@ or _unsignaled_.</p>
 	 * @param pAllocator     controls host memory allocation
 	 */
 	public static void vkDestroyPipelineLayout(VkDevice device, long pipelineLayout, VkAllocationCallbacks pAllocator) {
-		nvkDestroyPipelineLayout(device, pipelineLayout, pAllocator == null ? NULL : pAllocator.address());
+		nvkDestroyPipelineLayout(device, pipelineLayout, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkCreateSampler ] ---
@@ -7658,7 +7658,7 @@ or _unsignaled_.</p>
 	public static int vkCreateSampler(VkDevice device, VkSamplerCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSampler) {
 		if ( CHECKS )
 			checkBuffer(pSampler, 1);
-		return nvkCreateSampler(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSampler));
+		return nvkCreateSampler(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pSampler));
 	}
 
 	// --- [ vkDestroySampler ] ---
@@ -7725,7 +7725,7 @@ or _unsignaled_.</p>
 	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroySampler(VkDevice device, long sampler, VkAllocationCallbacks pAllocator) {
-		nvkDestroySampler(device, sampler, pAllocator == null ? NULL : pAllocator.address());
+		nvkDestroySampler(device, sampler, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkCreateDescriptorSetLayout ] ---
@@ -7788,7 +7788,7 @@ or _unsignaled_.</p>
 	public static int vkCreateDescriptorSetLayout(VkDevice device, VkDescriptorSetLayoutCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSetLayout) {
 		if ( CHECKS )
 			checkBuffer(pSetLayout, 1);
-		return nvkCreateDescriptorSetLayout(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSetLayout));
+		return nvkCreateDescriptorSetLayout(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pSetLayout));
 	}
 
 	// --- [ vkDestroyDescriptorSetLayout ] ---
@@ -7853,7 +7853,7 @@ or _unsignaled_.</p>
 	 * @param pAllocator          controls host memory allocation
 	 */
 	public static void vkDestroyDescriptorSetLayout(VkDevice device, long descriptorSetLayout, VkAllocationCallbacks pAllocator) {
-		nvkDestroyDescriptorSetLayout(device, descriptorSetLayout, pAllocator == null ? NULL : pAllocator.address());
+		nvkDestroyDescriptorSetLayout(device, descriptorSetLayout, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkCreateDescriptorPool ] ---
@@ -7916,7 +7916,7 @@ or _unsignaled_.</p>
 	public static int vkCreateDescriptorPool(VkDevice device, VkDescriptorPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pDescriptorPool) {
 		if ( CHECKS )
 			checkBuffer(pDescriptorPool, 1);
-		return nvkCreateDescriptorPool(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pDescriptorPool));
+		return nvkCreateDescriptorPool(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pDescriptorPool));
 	}
 
 	// --- [ vkDestroyDescriptorPool ] ---
@@ -7989,7 +7989,7 @@ or _unsignaled_.</p>
 	 * @param pAllocator     controls host memory allocation
 	 */
 	public static void vkDestroyDescriptorPool(VkDevice device, long descriptorPool, VkAllocationCallbacks pAllocator) {
-		nvkDestroyDescriptorPool(device, descriptorPool, pAllocator == null ? NULL : pAllocator.address());
+		nvkDestroyDescriptorPool(device, descriptorPool, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkResetDescriptorPool ] ---
@@ -8289,7 +8289,7 @@ or _unsignaled_.</p>
 	 * @param pDescriptorCopies a pointer to an array of {@link VkCopyDescriptorSet} structures describing the descriptor sets to copy between
 	 */
 	public static void vkUpdateDescriptorSets(VkDevice device, VkWriteDescriptorSet.Buffer pDescriptorWrites, VkCopyDescriptorSet.Buffer pDescriptorCopies) {
-		nvkUpdateDescriptorSets(device, pDescriptorWrites == null ? 0 : pDescriptorWrites.remaining(), pDescriptorWrites == null ? NULL : pDescriptorWrites.address(), pDescriptorCopies == null ? 0 : pDescriptorCopies.remaining(), pDescriptorCopies == null ? NULL : pDescriptorCopies.address());
+		nvkUpdateDescriptorSets(device, pDescriptorWrites == null ? 0 : pDescriptorWrites.remaining(), memAddressSafe(pDescriptorWrites), pDescriptorCopies == null ? 0 : pDescriptorCopies.remaining(), memAddressSafe(pDescriptorCopies));
 	}
 
 	// --- [ vkCreateFramebuffer ] ---
@@ -8348,7 +8348,7 @@ or _unsignaled_.</p>
 	public static int vkCreateFramebuffer(VkDevice device, VkFramebufferCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pFramebuffer) {
 		if ( CHECKS )
 			checkBuffer(pFramebuffer, 1);
-		return nvkCreateFramebuffer(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pFramebuffer));
+		return nvkCreateFramebuffer(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pFramebuffer));
 	}
 
 	// --- [ vkDestroyFramebuffer ] ---
@@ -8415,7 +8415,7 @@ or _unsignaled_.</p>
 	 * @param pAllocator  controls host memory allocation
 	 */
 	public static void vkDestroyFramebuffer(VkDevice device, long framebuffer, VkAllocationCallbacks pAllocator) {
-		nvkDestroyFramebuffer(device, framebuffer, pAllocator == null ? NULL : pAllocator.address());
+		nvkDestroyFramebuffer(device, framebuffer, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkCreateRenderPass ] ---
@@ -8470,7 +8470,7 @@ or _unsignaled_.</p>
 	public static int vkCreateRenderPass(VkDevice device, VkRenderPassCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pRenderPass) {
 		if ( CHECKS )
 			checkBuffer(pRenderPass, 1);
-		return nvkCreateRenderPass(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pRenderPass));
+		return nvkCreateRenderPass(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pRenderPass));
 	}
 
 	// --- [ vkDestroyRenderPass ] ---
@@ -8537,7 +8537,7 @@ or _unsignaled_.</p>
 	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroyRenderPass(VkDevice device, long renderPass, VkAllocationCallbacks pAllocator) {
-		nvkDestroyRenderPass(device, renderPass, pAllocator == null ? NULL : pAllocator.address());
+		nvkDestroyRenderPass(device, renderPass, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkGetRenderAreaGranularity ] ---
@@ -8669,7 +8669,7 @@ or _unsignaled_.</p>
 	public static int vkCreateCommandPool(VkDevice device, VkCommandPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pCommandPool) {
 		if ( CHECKS )
 			checkBuffer(pCommandPool, 1);
-		return nvkCreateCommandPool(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pCommandPool));
+		return nvkCreateCommandPool(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pCommandPool));
 	}
 
 	// --- [ vkDestroyCommandPool ] ---
@@ -8742,7 +8742,7 @@ or _unsignaled_.</p>
 	 * @param pAllocator  controls host memory allocation
 	 */
 	public static void vkDestroyCommandPool(VkDevice device, long commandPool, VkAllocationCallbacks pAllocator) {
-		nvkDestroyCommandPool(device, commandPool, pAllocator == null ? NULL : pAllocator.address());
+		nvkDestroyCommandPool(device, commandPool, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkResetCommandPool ] ---
@@ -12168,7 +12168,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param pImageMemoryBarriers  a pointer to an array of {@code imageMemoryBarrierCount} {@link VkImageMemoryBarrier} structures
 	 */
 	public static void vkCmdWaitEvents(VkCommandBuffer commandBuffer, LongBuffer pEvents, int srcStageMask, int dstStageMask, VkMemoryBarrier.Buffer pMemoryBarriers, VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
-		nvkCmdWaitEvents(commandBuffer, pEvents.remaining(), memAddress(pEvents), srcStageMask, dstStageMask, pMemoryBarriers == null ? 0 : pMemoryBarriers.remaining(), pMemoryBarriers == null ? NULL : pMemoryBarriers.address(), pBufferMemoryBarriers == null ? 0 : pBufferMemoryBarriers.remaining(), pBufferMemoryBarriers == null ? NULL : pBufferMemoryBarriers.address(), pImageMemoryBarriers == null ? 0 : pImageMemoryBarriers.remaining(), pImageMemoryBarriers == null ? NULL : pImageMemoryBarriers.address());
+		nvkCmdWaitEvents(commandBuffer, pEvents.remaining(), memAddress(pEvents), srcStageMask, dstStageMask, pMemoryBarriers == null ? 0 : pMemoryBarriers.remaining(), memAddressSafe(pMemoryBarriers), pBufferMemoryBarriers == null ? 0 : pBufferMemoryBarriers.remaining(), memAddressSafe(pBufferMemoryBarriers), pImageMemoryBarriers == null ? 0 : pImageMemoryBarriers.remaining(), memAddressSafe(pImageMemoryBarriers));
 	}
 
 	// --- [ vkCmdPipelineBarrier ] ---
@@ -12330,7 +12330,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param pImageMemoryBarriers  a pointer to an array of {@link VkImageMemoryBarrier} structures
 	 */
 	public static void vkCmdPipelineBarrier(VkCommandBuffer commandBuffer, int srcStageMask, int dstStageMask, int dependencyFlags, VkMemoryBarrier.Buffer pMemoryBarriers, VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
-		nvkCmdPipelineBarrier(commandBuffer, srcStageMask, dstStageMask, dependencyFlags, pMemoryBarriers == null ? 0 : pMemoryBarriers.remaining(), pMemoryBarriers == null ? NULL : pMemoryBarriers.address(), pBufferMemoryBarriers == null ? 0 : pBufferMemoryBarriers.remaining(), pBufferMemoryBarriers == null ? NULL : pBufferMemoryBarriers.address(), pImageMemoryBarriers == null ? 0 : pImageMemoryBarriers.remaining(), pImageMemoryBarriers == null ? NULL : pImageMemoryBarriers.address());
+		nvkCmdPipelineBarrier(commandBuffer, srcStageMask, dstStageMask, dependencyFlags, pMemoryBarriers == null ? 0 : pMemoryBarriers.remaining(), memAddressSafe(pMemoryBarriers), pBufferMemoryBarriers == null ? 0 : pBufferMemoryBarriers.remaining(), memAddressSafe(pBufferMemoryBarriers), pImageMemoryBarriers == null ? 0 : pImageMemoryBarriers.remaining(), memAddressSafe(pImageMemoryBarriers));
 	}
 
 	// --- [ vkCmdBeginQuery ] ---
@@ -13207,7 +13207,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 		long __functionAddress = instance.getCapabilities().vkEnumeratePhysicalDevices;
 		if ( CHECKS ) {
 			checkBuffer(pPhysicalDeviceCount, 1);
-			if ( pPhysicalDevices != null ) checkBuffer(pPhysicalDevices, pPhysicalDeviceCount[0]);
+			checkBufferSafe(pPhysicalDevices, pPhysicalDeviceCount[0]);
 		}
 		return callPPPI(__functionAddress, instance.address(), pPhysicalDeviceCount, memAddressSafe(pPhysicalDevices));
 	}
@@ -13221,9 +13221,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceQueueFamilyProperties;
 		if ( CHECKS ) {
 			checkBuffer(pQueueFamilyPropertyCount, 1);
-			if ( pQueueFamilyProperties != null ) checkBuffer(pQueueFamilyProperties, pQueueFamilyPropertyCount[0]);
+			checkBufferSafe(pQueueFamilyProperties, pQueueFamilyPropertyCount[0]);
 		}
-		callPPPV(__functionAddress, physicalDevice.address(), pQueueFamilyPropertyCount, pQueueFamilyProperties == null ? NULL : pQueueFamilyProperties.address());
+		callPPPV(__functionAddress, physicalDevice.address(), pQueueFamilyPropertyCount, memAddressSafe(pQueueFamilyProperties));
 	}
 
 	/**
@@ -13234,11 +13234,11 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	public static int vkEnumerateInstanceExtensionProperties(ByteBuffer pLayerName, int[] pPropertyCount, VkExtensionProperties.Buffer pProperties) {
 		long __functionAddress = VK.getGlobalCommands().vkEnumerateInstanceExtensionProperties;
 		if ( CHECKS ) {
-			if ( pLayerName != null ) checkNT1(pLayerName);
+			checkNT1Safe(pLayerName);
 			checkBuffer(pPropertyCount, 1);
-			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount[0]);
+			checkBufferSafe(pProperties, pPropertyCount[0]);
 		}
-		return callPPPI(__functionAddress, memAddressSafe(pLayerName), pPropertyCount, pProperties == null ? NULL : pProperties.address());
+		return callPPPI(__functionAddress, memAddressSafe(pLayerName), pPropertyCount, memAddressSafe(pProperties));
 	}
 
 	/**
@@ -13250,12 +13250,12 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 		long __functionAddress = VK.getGlobalCommands().vkEnumerateInstanceExtensionProperties;
 		if ( CHECKS ) {
 			checkBuffer(pPropertyCount, 1);
-			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount[0]);
+			checkBufferSafe(pProperties, pPropertyCount[0]);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer pLayerNameEncoded = stack.UTF8(pLayerName);
-			return callPPPI(__functionAddress, memAddressSafe(pLayerNameEncoded), pPropertyCount, pProperties == null ? NULL : pProperties.address());
+			return callPPPI(__functionAddress, memAddressSafe(pLayerNameEncoded), pPropertyCount, memAddressSafe(pProperties));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -13269,11 +13269,11 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	public static int vkEnumerateDeviceExtensionProperties(VkPhysicalDevice physicalDevice, ByteBuffer pLayerName, int[] pPropertyCount, VkExtensionProperties.Buffer pProperties) {
 		long __functionAddress = physicalDevice.getCapabilities().vkEnumerateDeviceExtensionProperties;
 		if ( CHECKS ) {
-			if ( pLayerName != null ) checkNT1(pLayerName);
+			checkNT1Safe(pLayerName);
 			checkBuffer(pPropertyCount, 1);
-			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount[0]);
+			checkBufferSafe(pProperties, pPropertyCount[0]);
 		}
-		return callPPPPI(__functionAddress, physicalDevice.address(), memAddressSafe(pLayerName), pPropertyCount, pProperties == null ? NULL : pProperties.address());
+		return callPPPPI(__functionAddress, physicalDevice.address(), memAddressSafe(pLayerName), pPropertyCount, memAddressSafe(pProperties));
 	}
 
 	/**
@@ -13285,12 +13285,12 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 		long __functionAddress = physicalDevice.getCapabilities().vkEnumerateDeviceExtensionProperties;
 		if ( CHECKS ) {
 			checkBuffer(pPropertyCount, 1);
-			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount[0]);
+			checkBufferSafe(pProperties, pPropertyCount[0]);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer pLayerNameEncoded = stack.UTF8(pLayerName);
-			return callPPPPI(__functionAddress, physicalDevice.address(), memAddressSafe(pLayerNameEncoded), pPropertyCount, pProperties == null ? NULL : pProperties.address());
+			return callPPPPI(__functionAddress, physicalDevice.address(), memAddressSafe(pLayerNameEncoded), pPropertyCount, memAddressSafe(pProperties));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -13305,9 +13305,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 		long __functionAddress = VK.getGlobalCommands().vkEnumerateInstanceLayerProperties;
 		if ( CHECKS ) {
 			checkBuffer(pPropertyCount, 1);
-			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount[0]);
+			checkBufferSafe(pProperties, pPropertyCount[0]);
 		}
-		return callPPI(__functionAddress, pPropertyCount, pProperties == null ? NULL : pProperties.address());
+		return callPPI(__functionAddress, pPropertyCount, memAddressSafe(pProperties));
 	}
 
 	/**
@@ -13319,9 +13319,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 		long __functionAddress = physicalDevice.getCapabilities().vkEnumerateDeviceLayerProperties;
 		if ( CHECKS ) {
 			checkBuffer(pPropertyCount, 1);
-			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount[0]);
+			checkBufferSafe(pProperties, pPropertyCount[0]);
 		}
-		return callPPPI(__functionAddress, physicalDevice.address(), pPropertyCount, pProperties == null ? NULL : pProperties.address());
+		return callPPPI(__functionAddress, physicalDevice.address(), pPropertyCount, memAddressSafe(pProperties));
 	}
 
 	/**
@@ -13335,7 +13335,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 			checkBuffer(pMemory, 1);
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPPPPI(__functionAddress, device.address(), pAllocateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pMemory);
+		return callPPPPI(__functionAddress, device.address(), pAllocateInfo.address(), memAddressSafe(pAllocator), pMemory);
 	}
 
 	/**
@@ -13359,9 +13359,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 		long __functionAddress = device.getCapabilities().vkGetImageSparseMemoryRequirements;
 		if ( CHECKS ) {
 			checkBuffer(pSparseMemoryRequirementCount, 1);
-			if ( pSparseMemoryRequirements != null ) checkBuffer(pSparseMemoryRequirements, pSparseMemoryRequirementCount[0]);
+			checkBufferSafe(pSparseMemoryRequirements, pSparseMemoryRequirementCount[0]);
 		}
-		callPJPPV(__functionAddress, device.address(), image, pSparseMemoryRequirementCount, pSparseMemoryRequirements == null ? NULL : pSparseMemoryRequirements.address());
+		callPJPPV(__functionAddress, device.address(), image, pSparseMemoryRequirementCount, memAddressSafe(pSparseMemoryRequirements));
 	}
 
 	/**
@@ -13373,9 +13373,9 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceSparseImageFormatProperties;
 		if ( CHECKS ) {
 			checkBuffer(pPropertyCount, 1);
-			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount[0]);
+			checkBufferSafe(pProperties, pPropertyCount[0]);
 		}
-		callPPPV(__functionAddress, physicalDevice.address(), format, type, samples, usage, tiling, pPropertyCount, pProperties == null ? NULL : pProperties.address());
+		callPPPV(__functionAddress, physicalDevice.address(), format, type, samples, usage, tiling, pPropertyCount, memAddressSafe(pProperties));
 	}
 
 	/**
@@ -13389,7 +13389,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 			checkBuffer(pFence, 1);
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pFence);
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pFence);
 	}
 
 	/**
@@ -13423,7 +13423,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 			checkBuffer(pSemaphore, 1);
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pSemaphore);
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pSemaphore);
 	}
 
 	/**
@@ -13437,7 +13437,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 			checkBuffer(pEvent, 1);
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pEvent);
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pEvent);
 	}
 
 	/**
@@ -13451,7 +13451,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 			checkBuffer(pQueryPool, 1);
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pQueryPool);
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pQueryPool);
 	}
 
 	/**
@@ -13486,7 +13486,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 			VkBufferCreateInfo.validate(pCreateInfo.address());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pBuffer);
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pBuffer);
 	}
 
 	/**
@@ -13500,7 +13500,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 			checkBuffer(pView, 1);
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pView);
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pView);
 	}
 
 	/**
@@ -13515,7 +13515,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 			VkImageCreateInfo.validate(pCreateInfo.address());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pImage);
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pImage);
 	}
 
 	/**
@@ -13529,7 +13529,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 			checkBuffer(pView, 1);
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pView);
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pView);
 	}
 
 	/**
@@ -13544,7 +13544,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 			VkShaderModuleCreateInfo.validate(pCreateInfo.address());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pShaderModule);
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pShaderModule);
 	}
 
 	/**
@@ -13559,7 +13559,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 			VkPipelineCacheCreateInfo.validate(pCreateInfo.address());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pPipelineCache);
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pPipelineCache);
 	}
 
 	/**
@@ -13584,7 +13584,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 			VkGraphicsPipelineCreateInfo.validate(pCreateInfos.address(), pCreateInfos.remaining());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPJPPPI(__functionAddress, device.address(), pipelineCache, pCreateInfos.remaining(), pCreateInfos.address(), pAllocator == null ? NULL : pAllocator.address(), pPipelines);
+		return callPJPPPI(__functionAddress, device.address(), pipelineCache, pCreateInfos.remaining(), pCreateInfos.address(), memAddressSafe(pAllocator), pPipelines);
 	}
 
 	/**
@@ -13599,7 +13599,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 			VkComputePipelineCreateInfo.validate(pCreateInfos.address(), pCreateInfos.remaining());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPJPPPI(__functionAddress, device.address(), pipelineCache, pCreateInfos.remaining(), pCreateInfos.address(), pAllocator == null ? NULL : pAllocator.address(), pPipelines);
+		return callPJPPPI(__functionAddress, device.address(), pipelineCache, pCreateInfos.remaining(), pCreateInfos.address(), memAddressSafe(pAllocator), pPipelines);
 	}
 
 	/**
@@ -13614,7 +13614,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 			VkPipelineLayoutCreateInfo.validate(pCreateInfo.address());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pPipelineLayout);
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pPipelineLayout);
 	}
 
 	/**
@@ -13628,7 +13628,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 			checkBuffer(pSampler, 1);
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pSampler);
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pSampler);
 	}
 
 	/**
@@ -13643,7 +13643,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 			VkDescriptorSetLayoutCreateInfo.validate(pCreateInfo.address());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pSetLayout);
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pSetLayout);
 	}
 
 	/**
@@ -13658,7 +13658,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 			VkDescriptorPoolCreateInfo.validate(pCreateInfo.address());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pDescriptorPool);
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pDescriptorPool);
 	}
 
 	/**
@@ -13697,7 +13697,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 			VkFramebufferCreateInfo.validate(pCreateInfo.address());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pFramebuffer);
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pFramebuffer);
 	}
 
 	/**
@@ -13712,7 +13712,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 			VkRenderPassCreateInfo.validate(pCreateInfo.address());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pRenderPass);
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pRenderPass);
 	}
 
 	/**
@@ -13726,7 +13726,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 			checkBuffer(pCommandPool, 1);
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pCommandPool);
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pCommandPool);
 	}
 
 	/**
@@ -13820,7 +13820,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void vkCmdWaitEvents(VkCommandBuffer commandBuffer, long[] pEvents, int srcStageMask, int dstStageMask, VkMemoryBarrier.Buffer pMemoryBarriers, VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdWaitEvents;
-		callPPPPPV(__functionAddress, commandBuffer.address(), pEvents.length, pEvents, srcStageMask, dstStageMask, pMemoryBarriers == null ? 0 : pMemoryBarriers.remaining(), pMemoryBarriers == null ? NULL : pMemoryBarriers.address(), pBufferMemoryBarriers == null ? 0 : pBufferMemoryBarriers.remaining(), pBufferMemoryBarriers == null ? NULL : pBufferMemoryBarriers.address(), pImageMemoryBarriers == null ? 0 : pImageMemoryBarriers.remaining(), pImageMemoryBarriers == null ? NULL : pImageMemoryBarriers.address());
+		callPPPPPV(__functionAddress, commandBuffer.address(), pEvents.length, pEvents, srcStageMask, dstStageMask, pMemoryBarriers == null ? 0 : pMemoryBarriers.remaining(), memAddressSafe(pMemoryBarriers), pBufferMemoryBarriers == null ? 0 : pBufferMemoryBarriers.remaining(), memAddressSafe(pBufferMemoryBarriers), pImageMemoryBarriers == null ? 0 : pImageMemoryBarriers.remaining(), memAddressSafe(pImageMemoryBarriers));
 	}
 
 	/**

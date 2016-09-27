@@ -176,7 +176,7 @@ public class WGLARBRenderTexture {
 	 */
 	public static boolean wglSetPbufferAttribARB(long pbuffer, IntBuffer attribList) {
 		if ( CHECKS )
-			if ( attribList != null ) checkNT(attribList);
+			checkNTSafe(attribList);
 		return nwglSetPbufferAttribARB(pbuffer, memAddressSafe(attribList)) != 0;
 	}
 
@@ -186,7 +186,7 @@ public class WGLARBRenderTexture {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(pbuffer);
-			if ( attribList != null ) checkNT(attribList);
+			checkNTSafe(attribList);
 		}
 		return callPPI(__functionAddress, pbuffer, attribList) != 0;
 	}

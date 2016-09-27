@@ -363,9 +363,9 @@ public class LMDB {
 	 */
 	public static String mdb_version(IntBuffer major, IntBuffer minor, IntBuffer patch) {
 		if ( CHECKS ) {
-			if ( major != null ) checkBuffer(major, 1);
-			if ( minor != null ) checkBuffer(minor, 1);
-			if ( patch != null ) checkBuffer(patch, 1);
+			checkBufferSafe(major, 1);
+			checkBufferSafe(minor, 1);
+			checkBufferSafe(patch, 1);
 		}
 		long __result = nmdb_version(memAddressSafe(major), memAddressSafe(minor), memAddressSafe(patch));
 		return memASCII(__result);
@@ -1752,7 +1752,7 @@ public class LMDB {
 	public static int mdb_dbi_open(long txn, ByteBuffer name, int flags, IntBuffer dbi) {
 		if ( CHECKS ) {
 			checkPointer(txn);
-			if ( name != null ) checkNT1(name);
+			checkNT1Safe(name);
 		}
 		return nmdb_dbi_open(txn, memAddressSafe(name), flags, memAddress(dbi));
 	}
@@ -2244,7 +2244,7 @@ public class LMDB {
 	public static int mdb_del(long txn, int dbi, MDBVal key, MDBVal data) {
 		if ( CHECKS )
 			checkPointer(txn);
-		return nmdb_del(txn, dbi, key.address(), data == null ? NULL : data.address());
+		return nmdb_del(txn, dbi, key.address(), memAddressSafe(data));
 	}
 
 	// --- [ mdb_cursor_open ] ---
@@ -2687,9 +2687,9 @@ public class LMDB {
 	/** Array version of: {@link #mdb_version version} */
 	public static String mdb_version(int[] major, int[] minor, int[] patch) {
 		if ( CHECKS ) {
-			if ( major != null ) checkBuffer(major, 1);
-			if ( minor != null ) checkBuffer(minor, 1);
-			if ( patch != null ) checkBuffer(patch, 1);
+			checkBufferSafe(major, 1);
+			checkBufferSafe(minor, 1);
+			checkBufferSafe(patch, 1);
 		}
 		long __result = nmdb_version(major, minor, patch);
 		return memASCII(__result);
@@ -2722,7 +2722,7 @@ public class LMDB {
 	public static int mdb_dbi_open(long txn, ByteBuffer name, int flags, int[] dbi) {
 		if ( CHECKS ) {
 			checkPointer(txn);
-			if ( name != null ) checkNT1(name);
+			checkNT1Safe(name);
 		}
 		return nmdb_dbi_open(txn, memAddressSafe(name), flags, dbi);
 	}

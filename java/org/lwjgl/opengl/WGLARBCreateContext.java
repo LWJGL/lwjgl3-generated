@@ -84,7 +84,7 @@ public class WGLARBCreateContext {
 	 */
 	public static long wglCreateContextAttribsARB(long hdc, long shareContext, IntBuffer attribList) {
 		if ( CHECKS )
-			if ( attribList != null ) checkNT(attribList);
+			checkNTSafe(attribList);
 		return nwglCreateContextAttribsARB(hdc, shareContext, memAddressSafe(attribList));
 	}
 
@@ -94,7 +94,7 @@ public class WGLARBCreateContext {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hdc);
-			if ( attribList != null ) checkNT(attribList);
+			checkNTSafe(attribList);
 		}
 		return callPPPP(__functionAddress, hdc, shareContext, attribList);
 	}

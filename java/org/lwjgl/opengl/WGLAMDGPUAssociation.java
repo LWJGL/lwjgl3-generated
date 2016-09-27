@@ -197,7 +197,7 @@ public class WGLAMDGPUAssociation {
 	 */
 	public static long wglCreateAssociatedContextAttribsAMD(int id, long shareContext, IntBuffer attribList) {
 		if ( CHECKS )
-			if ( attribList != null ) checkNT(attribList);
+			checkNTSafe(attribList);
 		return nwglCreateAssociatedContextAttribsAMD(id, shareContext, memAddressSafe(attribList));
 	}
 
@@ -298,7 +298,7 @@ public class WGLAMDGPUAssociation {
 		long __functionAddress = GL.getCapabilitiesWGL().wglCreateAssociatedContextAttribsAMD;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( attribList != null ) checkNT(attribList);
+			checkNTSafe(attribList);
 		}
 		return callPPP(__functionAddress, id, shareContext, attribList);
 	}

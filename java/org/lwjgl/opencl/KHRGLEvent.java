@@ -64,7 +64,7 @@ public class KHRGLEvent {
 	 */
 	public static long clCreateEventFromGLsyncKHR(long context, long sync, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		return nclCreateEventFromGLsyncKHR(context, sync, memAddressSafe(errcode_ret));
 	}
 
@@ -75,7 +75,7 @@ public class KHRGLEvent {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
 			checkPointer(sync);
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		}
 		return callPPPP(__functionAddress, context, sync, errcode_ret);
 	}

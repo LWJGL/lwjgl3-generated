@@ -72,7 +72,7 @@ public class KHRLockSurface3 {
 
 	public static boolean eglLockSurfaceKHR(long dpy, long surface, IntBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		return neglLockSurfaceKHR(dpy, surface, memAddressSafe(attrib_list)) != 0;
 	}
 
@@ -113,7 +113,7 @@ public class KHRLockSurface3 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
 			checkPointer(surface);
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		}
 		return callPPPI(__functionAddress, dpy, surface, attrib_list) != 0;
 	}

@@ -953,7 +953,7 @@ public class GLES20 {
 
 	public static void glGetActiveAttrib(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
 		if ( CHECKS ) {
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
@@ -1002,7 +1002,7 @@ public class GLES20 {
 
 	public static void glGetActiveUniform(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
 		if ( CHECKS ) {
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
@@ -1051,7 +1051,7 @@ public class GLES20 {
 
 	public static void glGetAttachedShaders(int program, IntBuffer count, IntBuffer shaders) {
 		if ( CHECKS )
-			if ( count != null ) checkBuffer(count, 1);
+			checkBufferSafe(count, 1);
 		nglGetAttachedShaders(program, shaders.remaining(), memAddressSafe(count), memAddress(shaders));
 	}
 
@@ -1238,7 +1238,7 @@ public class GLES20 {
 
 	public static void glGetProgramInfoLog(int program, IntBuffer length, ByteBuffer infoLog) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		nglGetProgramInfoLog(program, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog));
 	}
 
@@ -1326,7 +1326,7 @@ public class GLES20 {
 
 	public static void glGetShaderInfoLog(int shader, IntBuffer length, ByteBuffer infoLog) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		nglGetShaderInfoLog(shader, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog));
 	}
 
@@ -1381,7 +1381,7 @@ public class GLES20 {
 
 	public static void glGetShaderSource(int shader, IntBuffer length, ByteBuffer source) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		nglGetShaderSource(shader, source.remaining(), memAddressSafe(length), memAddress(source));
 	}
 
@@ -1755,7 +1755,7 @@ public class GLES20 {
 
 	public static void glShaderSource(int shader, PointerBuffer string, IntBuffer length) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, string.remaining());
+			checkBufferSafe(length, string.remaining());
 		nglShaderSource(shader, string.remaining(), memAddress(string), memAddressSafe(length));
 	}
 
@@ -2319,7 +2319,7 @@ public class GLES20 {
 	public static void glGetActiveAttrib(int program, int index, int[] length, int[] size, int[] type, ByteBuffer name) {
 		long __functionAddress = GLES.getCapabilities().glGetActiveAttrib;
 		if ( CHECKS ) {
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
@@ -2330,7 +2330,7 @@ public class GLES20 {
 	public static void glGetActiveUniform(int program, int index, int[] length, int[] size, int[] type, ByteBuffer name) {
 		long __functionAddress = GLES.getCapabilities().glGetActiveUniform;
 		if ( CHECKS ) {
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
@@ -2341,7 +2341,7 @@ public class GLES20 {
 	public static void glGetAttachedShaders(int program, int[] count, int[] shaders) {
 		long __functionAddress = GLES.getCapabilities().glGetAttachedShaders;
 		if ( CHECKS )
-			if ( count != null ) checkBuffer(count, 1);
+			checkBufferSafe(count, 1);
 		callPPV(__functionAddress, program, shaders.length, count, shaders);
 	}
 
@@ -2389,7 +2389,7 @@ public class GLES20 {
 	public static void glGetProgramInfoLog(int program, int[] length, ByteBuffer infoLog) {
 		long __functionAddress = GLES.getCapabilities().glGetProgramInfoLog;
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		callPPV(__functionAddress, program, infoLog.remaining(), length, memAddress(infoLog));
 	}
 
@@ -2413,7 +2413,7 @@ public class GLES20 {
 	public static void glGetShaderInfoLog(int shader, int[] length, ByteBuffer infoLog) {
 		long __functionAddress = GLES.getCapabilities().glGetShaderInfoLog;
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		callPPV(__functionAddress, shader, infoLog.remaining(), length, memAddress(infoLog));
 	}
 
@@ -2431,7 +2431,7 @@ public class GLES20 {
 	public static void glGetShaderSource(int shader, int[] length, ByteBuffer source) {
 		long __functionAddress = GLES.getCapabilities().glGetShaderSource;
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		callPPV(__functionAddress, shader, source.remaining(), length, memAddress(source));
 	}
 
@@ -2511,7 +2511,7 @@ public class GLES20 {
 	public static void glShaderSource(int shader, PointerBuffer string, int[] length) {
 		long __functionAddress = GLES.getCapabilities().glShaderSource;
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, string.remaining());
+			checkBufferSafe(length, string.remaining());
 		callPPV(__functionAddress, shader, string.remaining(), memAddress(string), length);
 	}
 

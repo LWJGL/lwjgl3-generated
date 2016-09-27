@@ -237,7 +237,7 @@ public class ARBProgramInterfaceQuery {
 	 */
 	public static void glGetProgramResourceName(int program, int programInterface, int index, IntBuffer length, ByteBuffer name) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		nglGetProgramResourceName(program, programInterface, index, name.remaining(), memAddressSafe(length), memAddress(name));
 	}
 
@@ -314,7 +314,7 @@ public class ARBProgramInterfaceQuery {
 	 */
 	public static void glGetProgramResourceiv(int program, int programInterface, int index, IntBuffer props, IntBuffer length, IntBuffer params) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), params.remaining(), memAddressSafe(length), memAddress(params));
 	}
 
@@ -425,7 +425,7 @@ public class ARBProgramInterfaceQuery {
 		long __functionAddress = GL.getCapabilities().glGetProgramResourceName;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		}
 		callPPV(__functionAddress, program, programInterface, index, name.remaining(), length, memAddress(name));
 	}
@@ -435,7 +435,7 @@ public class ARBProgramInterfaceQuery {
 		long __functionAddress = GL.getCapabilities().glGetProgramResourceiv;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		}
 		callPPPV(__functionAddress, program, programInterface, index, props.length, props, params.length, length, params);
 	}

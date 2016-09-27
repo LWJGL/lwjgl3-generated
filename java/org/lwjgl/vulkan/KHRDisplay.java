@@ -112,9 +112,9 @@ public class KHRDisplay {
 	public static int vkGetPhysicalDeviceDisplayPropertiesKHR(VkPhysicalDevice physicalDevice, IntBuffer pPropertyCount, VkDisplayPropertiesKHR.Buffer pProperties) {
 		if ( CHECKS ) {
 			checkBuffer(pPropertyCount, 1);
-			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.get(pPropertyCount.position()));
+			checkBufferSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
 		}
-		return nvkGetPhysicalDeviceDisplayPropertiesKHR(physicalDevice, memAddress(pPropertyCount), pProperties == null ? NULL : pProperties.address());
+		return nvkGetPhysicalDeviceDisplayPropertiesKHR(physicalDevice, memAddress(pPropertyCount), memAddressSafe(pProperties));
 	}
 
 	// --- [ vkGetPhysicalDeviceDisplayPlanePropertiesKHR ] ---
@@ -179,9 +179,9 @@ public class KHRDisplay {
 	public static int vkGetPhysicalDeviceDisplayPlanePropertiesKHR(VkPhysicalDevice physicalDevice, IntBuffer pPropertyCount, VkDisplayPlanePropertiesKHR.Buffer pProperties) {
 		if ( CHECKS ) {
 			checkBuffer(pPropertyCount, 1);
-			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.get(pPropertyCount.position()));
+			checkBufferSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
 		}
-		return nvkGetPhysicalDeviceDisplayPlanePropertiesKHR(physicalDevice, memAddress(pPropertyCount), pProperties == null ? NULL : pProperties.address());
+		return nvkGetPhysicalDeviceDisplayPlanePropertiesKHR(physicalDevice, memAddress(pPropertyCount), memAddressSafe(pProperties));
 	}
 
 	// --- [ vkGetDisplayPlaneSupportedDisplaysKHR ] ---
@@ -248,7 +248,7 @@ public class KHRDisplay {
 	public static int vkGetDisplayPlaneSupportedDisplaysKHR(VkPhysicalDevice physicalDevice, int planeIndex, IntBuffer pDisplayCount, LongBuffer pDisplays) {
 		if ( CHECKS ) {
 			checkBuffer(pDisplayCount, 1);
-			if ( pDisplays != null ) checkBuffer(pDisplays, pDisplayCount.get(pDisplayCount.position()));
+			checkBufferSafe(pDisplays, pDisplayCount.get(pDisplayCount.position()));
 		}
 		return nvkGetDisplayPlaneSupportedDisplaysKHR(physicalDevice, planeIndex, memAddress(pDisplayCount), memAddressSafe(pDisplays));
 	}
@@ -315,9 +315,9 @@ public class KHRDisplay {
 	public static int vkGetDisplayModePropertiesKHR(VkPhysicalDevice physicalDevice, long display, IntBuffer pPropertyCount, VkDisplayModePropertiesKHR.Buffer pProperties) {
 		if ( CHECKS ) {
 			checkBuffer(pPropertyCount, 1);
-			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount.get(pPropertyCount.position()));
+			checkBufferSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
 		}
-		return nvkGetDisplayModePropertiesKHR(physicalDevice, display, memAddress(pPropertyCount), pProperties == null ? NULL : pProperties.address());
+		return nvkGetDisplayModePropertiesKHR(physicalDevice, display, memAddress(pPropertyCount), memAddressSafe(pProperties));
 	}
 
 	// --- [ vkCreateDisplayModeKHR ] ---
@@ -384,7 +384,7 @@ public class KHRDisplay {
 	public static int vkCreateDisplayModeKHR(VkPhysicalDevice physicalDevice, long display, VkDisplayModeCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pMode) {
 		if ( CHECKS )
 			checkBuffer(pMode, 1);
-		return nvkCreateDisplayModeKHR(physicalDevice, display, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pMode));
+		return nvkCreateDisplayModeKHR(physicalDevice, display, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pMode));
 	}
 
 	// --- [ vkGetDisplayPlaneCapabilitiesKHR ] ---
@@ -498,7 +498,7 @@ public class KHRDisplay {
 	public static int vkCreateDisplayPlaneSurfaceKHR(VkInstance instance, VkDisplaySurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSurface) {
 		if ( CHECKS )
 			checkBuffer(pSurface, 1);
-		return nvkCreateDisplayPlaneSurfaceKHR(instance, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSurface));
+		return nvkCreateDisplayPlaneSurfaceKHR(instance, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pSurface));
 	}
 
 	/** Array version of: {@link #vkGetPhysicalDeviceDisplayPropertiesKHR GetPhysicalDeviceDisplayPropertiesKHR} */
@@ -507,9 +507,9 @@ public class KHRDisplay {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(pPropertyCount, 1);
-			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount[0]);
+			checkBufferSafe(pProperties, pPropertyCount[0]);
 		}
-		return callPPPI(__functionAddress, physicalDevice.address(), pPropertyCount, pProperties == null ? NULL : pProperties.address());
+		return callPPPI(__functionAddress, physicalDevice.address(), pPropertyCount, memAddressSafe(pProperties));
 	}
 
 	/** Array version of: {@link #vkGetPhysicalDeviceDisplayPlanePropertiesKHR GetPhysicalDeviceDisplayPlanePropertiesKHR} */
@@ -518,9 +518,9 @@ public class KHRDisplay {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(pPropertyCount, 1);
-			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount[0]);
+			checkBufferSafe(pProperties, pPropertyCount[0]);
 		}
-		return callPPPI(__functionAddress, physicalDevice.address(), pPropertyCount, pProperties == null ? NULL : pProperties.address());
+		return callPPPI(__functionAddress, physicalDevice.address(), pPropertyCount, memAddressSafe(pProperties));
 	}
 
 	/** Array version of: {@link #vkGetDisplayPlaneSupportedDisplaysKHR GetDisplayPlaneSupportedDisplaysKHR} */
@@ -529,7 +529,7 @@ public class KHRDisplay {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(pDisplayCount, 1);
-			if ( pDisplays != null ) checkBuffer(pDisplays, pDisplayCount[0]);
+			checkBufferSafe(pDisplays, pDisplayCount[0]);
 		}
 		return callPPPI(__functionAddress, physicalDevice.address(), planeIndex, pDisplayCount, pDisplays);
 	}
@@ -540,9 +540,9 @@ public class KHRDisplay {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(pPropertyCount, 1);
-			if ( pProperties != null ) checkBuffer(pProperties, pPropertyCount[0]);
+			checkBufferSafe(pProperties, pPropertyCount[0]);
 		}
-		return callPJPPI(__functionAddress, physicalDevice.address(), display, pPropertyCount, pProperties == null ? NULL : pProperties.address());
+		return callPJPPI(__functionAddress, physicalDevice.address(), display, pPropertyCount, memAddressSafe(pProperties));
 	}
 
 	/** Array version of: {@link #vkCreateDisplayModeKHR CreateDisplayModeKHR} */
@@ -553,7 +553,7 @@ public class KHRDisplay {
 			checkBuffer(pMode, 1);
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPJPPPI(__functionAddress, physicalDevice.address(), display, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pMode);
+		return callPJPPPI(__functionAddress, physicalDevice.address(), display, pCreateInfo.address(), memAddressSafe(pAllocator), pMode);
 	}
 
 	/** Array version of: {@link #vkCreateDisplayPlaneSurfaceKHR CreateDisplayPlaneSurfaceKHR} */
@@ -564,7 +564,7 @@ public class KHRDisplay {
 			checkBuffer(pSurface, 1);
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPPPPI(__functionAddress, instance.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pSurface);
+		return callPPPPI(__functionAddress, instance.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pSurface);
 	}
 
 }

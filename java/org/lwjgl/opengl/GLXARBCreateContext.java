@@ -116,7 +116,7 @@ public class GLXARBCreateContext {
 	 */
 	public static long glXCreateContextAttribsARB(long display, long config, long share_context, int direct, IntBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list);
+			checkNTSafe(attrib_list);
 		return nglXCreateContextAttribsARB(display, config, share_context, direct, memAddressSafe(attrib_list));
 	}
 
@@ -127,7 +127,7 @@ public class GLXARBCreateContext {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(display);
 			checkPointer(config);
-			if ( attrib_list != null ) checkNT(attrib_list);
+			checkNTSafe(attrib_list);
 		}
 		return callPPPPP(__functionAddress, display, config, share_context, direct, attrib_list);
 	}

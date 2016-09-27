@@ -65,7 +65,7 @@ public class KHRReusableSync {
 
 	public static long eglCreateSyncKHR(long dpy, int type, IntBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		return neglCreateSyncKHR(dpy, type, memAddressSafe(attrib_list));
 	}
 
@@ -129,7 +129,7 @@ public class KHRReusableSync {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		}
 		return callPPP(__functionAddress, dpy, type, attrib_list);
 	}

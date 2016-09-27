@@ -138,7 +138,7 @@ public class INTELAccelerator {
 	 */
 	public static long clCreateAcceleratorINTEL(long context, int accelerator_type, ByteBuffer descriptor, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		return nclCreateAcceleratorINTEL(context, accelerator_type, (long)descriptor.remaining(), memAddress(descriptor), memAddressSafe(errcode_ret));
 	}
 
@@ -241,21 +241,21 @@ public class INTELAccelerator {
 	 */
 	public static int clGetAcceleratorInfoINTEL(long accelerator, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+			checkBufferSafe(param_value_size_ret, 1);
 		return nclGetAcceleratorInfoINTEL(accelerator, param_name, (long)(param_value == null ? 0 : param_value.remaining()), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetAcceleratorInfoINTEL GetAcceleratorInfoINTEL} */
 	public static int clGetAcceleratorInfoINTEL(long accelerator, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+			checkBufferSafe(param_value_size_ret, 1);
 		return nclGetAcceleratorInfoINTEL(accelerator, param_name, (param_value == null ? 0 : param_value.remaining() << 2), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** PointerBuffer version of: {@link #clGetAcceleratorInfoINTEL GetAcceleratorInfoINTEL} */
 	public static int clGetAcceleratorInfoINTEL(long accelerator, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+			checkBufferSafe(param_value_size_ret, 1);
 		return nclGetAcceleratorInfoINTEL(accelerator, param_name, (param_value == null ? 0 : param_value.remaining() << POINTER_SHIFT), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -265,7 +265,7 @@ public class INTELAccelerator {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		}
 		return callPPPPP(__functionAddress, context, accelerator_type, (long)descriptor.remaining(), memAddress(descriptor), errcode_ret);
 	}
@@ -276,7 +276,7 @@ public class INTELAccelerator {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(accelerator);
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+			checkBufferSafe(param_value_size_ret, 1);
 		}
 		return callPPPPI(__functionAddress, accelerator, param_name, (long)(param_value == null ? 0 : param_value.length << 2), param_value, memAddressSafe(param_value_size_ret));
 	}

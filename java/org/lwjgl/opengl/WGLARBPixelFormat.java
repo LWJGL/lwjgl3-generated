@@ -247,8 +247,8 @@ public class WGLARBPixelFormat {
 	 */
 	public static boolean wglChoosePixelFormatARB(long hdc, IntBuffer attribIList, FloatBuffer attribFList, IntBuffer formats, IntBuffer numFormats) {
 		if ( CHECKS ) {
-			if ( attribIList != null ) checkNT(attribIList);
-			if ( attribFList != null ) checkNT(attribFList);
+			checkNTSafe(attribIList);
+			checkNTSafe(attribFList);
 			checkBuffer(numFormats, 1);
 		}
 		return nwglChoosePixelFormatARB(hdc, memAddressSafe(attribIList), memAddressSafe(attribFList), formats.remaining(), memAddress(formats), memAddress(numFormats)) != 0;
@@ -282,8 +282,8 @@ public class WGLARBPixelFormat {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(hdc);
-			if ( attribIList != null ) checkNT(attribIList);
-			if ( attribFList != null ) checkNT(attribFList);
+			checkNTSafe(attribIList);
+			checkNTSafe(attribFList);
 			checkBuffer(numFormats, 1);
 		}
 		return callPPPPPI(__functionAddress, hdc, attribIList, attribFList, formats.length, formats, numFormats) != 0;

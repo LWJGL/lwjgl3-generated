@@ -88,7 +88,7 @@ public class KHRStream {
 
 	public static long eglCreateStreamKHR(long dpy, IntBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		return neglCreateStreamKHR(dpy, memAddressSafe(attrib_list));
 	}
 
@@ -158,7 +158,7 @@ public class KHRStream {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(dpy);
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		}
 		return callPPP(__functionAddress, dpy, attrib_list);
 	}

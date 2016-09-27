@@ -116,7 +116,7 @@ public class KHRXlibSurface {
 	public static int vkCreateXlibSurfaceKHR(VkInstance instance, VkXlibSurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSurface) {
 		if ( CHECKS )
 			checkBuffer(pSurface, 1);
-		return nvkCreateXlibSurfaceKHR(instance, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSurface));
+		return nvkCreateXlibSurfaceKHR(instance, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pSurface));
 	}
 
 	// --- [ vkGetPhysicalDeviceXlibPresentationSupportKHR ] ---
@@ -158,7 +158,7 @@ public class KHRXlibSurface {
 			VkXlibSurfaceCreateInfoKHR.validate(pCreateInfo.address());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPPPPI(__functionAddress, instance.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pSurface);
+		return callPPPPI(__functionAddress, instance.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pSurface);
 	}
 
 }

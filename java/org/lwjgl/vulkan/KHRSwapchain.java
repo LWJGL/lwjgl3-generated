@@ -218,7 +218,7 @@ public class KHRSwapchain {
 	public static int vkCreateSwapchainKHR(VkDevice device, VkSwapchainCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSwapchain) {
 		if ( CHECKS )
 			checkBuffer(pSwapchain, 1);
-		return nvkCreateSwapchainKHR(device, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pSwapchain));
+		return nvkCreateSwapchainKHR(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pSwapchain));
 	}
 
 	// --- [ vkDestroySwapchainKHR ] ---
@@ -291,7 +291,7 @@ public class KHRSwapchain {
 	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroySwapchainKHR(VkDevice device, long swapchain, VkAllocationCallbacks pAllocator) {
-		nvkDestroySwapchainKHR(device, swapchain, pAllocator == null ? NULL : pAllocator.address());
+		nvkDestroySwapchainKHR(device, swapchain, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkGetSwapchainImagesKHR ] ---
@@ -384,7 +384,7 @@ public class KHRSwapchain {
 	public static int vkGetSwapchainImagesKHR(VkDevice device, long swapchain, IntBuffer pSwapchainImageCount, LongBuffer pSwapchainImages) {
 		if ( CHECKS ) {
 			checkBuffer(pSwapchainImageCount, 1);
-			if ( pSwapchainImages != null ) checkBuffer(pSwapchainImages, pSwapchainImageCount.get(pSwapchainImageCount.position()));
+			checkBufferSafe(pSwapchainImages, pSwapchainImageCount.get(pSwapchainImageCount.position()));
 		}
 		return nvkGetSwapchainImagesKHR(device, swapchain, memAddress(pSwapchainImageCount), memAddressSafe(pSwapchainImages));
 	}
@@ -856,7 +856,7 @@ public class KHRSwapchain {
 			VkSwapchainCreateInfoKHR.validate(pCreateInfo.address());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pSwapchain);
+		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pSwapchain);
 	}
 
 	/** Array version of: {@link #vkGetSwapchainImagesKHR GetSwapchainImagesKHR} */
@@ -865,7 +865,7 @@ public class KHRSwapchain {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(pSwapchainImageCount, 1);
-			if ( pSwapchainImages != null ) checkBuffer(pSwapchainImages, pSwapchainImageCount[0]);
+			checkBufferSafe(pSwapchainImages, pSwapchainImageCount[0]);
 		}
 		return callPJPPI(__functionAddress, device.address(), swapchain, pSwapchainImageCount, pSwapchainImages);
 	}

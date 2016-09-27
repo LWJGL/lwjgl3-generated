@@ -187,7 +187,7 @@ public class EXTTransformFeedback {
 
 	public static void glGetTransformFeedbackVaryingEXT(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
 		if ( CHECKS ) {
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
@@ -286,7 +286,7 @@ public class EXTTransformFeedback {
 		long __functionAddress = GL.getCapabilities().glGetTransformFeedbackVaryingEXT;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}

@@ -116,7 +116,7 @@ public class INTELVAAPIMediaSharing {
 	 */
 	public static int clGetDeviceIDsFromVA_APIMediaAdapterINTEL(long platform, int media_adapter_type, long media_adapter, int media_adapter_set, PointerBuffer devices, IntBuffer num_devices) {
 		if ( CHECKS )
-			if ( num_devices != null ) checkBuffer(num_devices, 1);
+			checkBufferSafe(num_devices, 1);
 		return nclGetDeviceIDsFromVA_APIMediaAdapterINTEL(platform, media_adapter_type, media_adapter, media_adapter_set, devices == null ? 0 : devices.remaining(), memAddressSafe(devices), memAddressSafe(num_devices));
 	}
 
@@ -151,7 +151,7 @@ public class INTELVAAPIMediaSharing {
 	 */
 	public static long clCreateFromVA_APIMediaSurfaceINTEL(long context, long flags, IntBuffer surface, int plane, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		return nclCreateFromVA_APIMediaSurfaceINTEL(context, flags, memAddress(surface), plane, memAddressSafe(errcode_ret));
 	}
 
@@ -220,7 +220,7 @@ public class INTELVAAPIMediaSharing {
 	 */
 	public static int clEnqueueAcquireVA_APIMediaSurfacesINTEL(long command_queue, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		return nclEnqueueAcquireVA_APIMediaSurfacesINTEL(command_queue, mem_objects.remaining(), memAddress(mem_objects), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -289,7 +289,7 @@ public class INTELVAAPIMediaSharing {
 	 */
 	public static int clEnqueueReleaseVA_APIMediaSurfacesINTEL(long command_queue, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		return nclEnqueueReleaseVA_APIMediaSurfacesINTEL(command_queue, mem_objects.remaining(), memAddress(mem_objects), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -300,7 +300,7 @@ public class INTELVAAPIMediaSharing {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(platform);
 			checkPointer(media_adapter);
-			if ( num_devices != null ) checkBuffer(num_devices, 1);
+			checkBufferSafe(num_devices, 1);
 		}
 		return callPPPPI(__functionAddress, platform, media_adapter_type, media_adapter, media_adapter_set, devices == null ? 0 : devices.remaining(), memAddressSafe(devices), num_devices);
 	}
@@ -311,7 +311,7 @@ public class INTELVAAPIMediaSharing {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		}
 		return callPJPPP(__functionAddress, context, flags, surface, plane, errcode_ret);
 	}

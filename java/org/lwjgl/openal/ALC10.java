@@ -88,7 +88,7 @@ public class ALC10 {
 	 */
 	public static long alcOpenDevice(ByteBuffer deviceSpecifier) {
 		if ( CHECKS )
-			if ( deviceSpecifier != null ) checkNT1(deviceSpecifier);
+			checkNT1Safe(deviceSpecifier);
 		return nalcOpenDevice(memAddressSafe(deviceSpecifier));
 	}
 
@@ -150,7 +150,7 @@ public class ALC10 {
 	 */
 	public static long alcCreateContext(long deviceHandle, IntBuffer attrList) {
 		if ( CHECKS )
-			if ( attrList != null ) checkNT(attrList);
+			checkNTSafe(attrList);
 		return nalcCreateContext(deviceHandle, memAddressSafe(attrList));
 	}
 
@@ -500,7 +500,7 @@ public class ALC10 {
 		long __functionAddress = ALC.getICD().alcCreateContext;
 		if ( CHECKS ) {
 			checkPointer(deviceHandle);
-			if ( attrList != null ) checkNT(attrList);
+			checkNTSafe(attrList);
 		}
 		return invokePPP(__functionAddress, deviceHandle, attrList);
 	}

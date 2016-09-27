@@ -220,7 +220,7 @@ public class GLX {
 	 */
 	public static XVisualInfo glXChooseVisual(long display, int screen, IntBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list);
+			checkNTSafe(attrib_list);
 		long __result = nglXChooseVisual(display, screen, memAddressSafe(attrib_list));
 		return XVisualInfo.create(__result);
 	}
@@ -491,7 +491,7 @@ public class GLX {
 		long __functionAddress = Functions.ChooseVisual;
 		if ( CHECKS ) {
 			checkPointer(display);
-			if ( attrib_list != null ) checkNT(attrib_list);
+			checkNTSafe(attrib_list);
 		}
 		long __result = callPPP(__functionAddress, display, screen, attrib_list);
 		return XVisualInfo.create(__result);

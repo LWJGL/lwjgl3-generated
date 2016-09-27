@@ -223,7 +223,7 @@ public class ARBShadingLanguageInclude {
 	 */
 	public static void glCompileShaderIncludeARB(int shader, PointerBuffer path, IntBuffer length) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, path.remaining());
+			checkBufferSafe(length, path.remaining());
 		nglCompileShaderIncludeARB(shader, path.remaining(), memAddress(path), memAddressSafe(length));
 	}
 
@@ -299,7 +299,7 @@ public class ARBShadingLanguageInclude {
 	 */
 	public static void glGetNamedStringARB(ByteBuffer name, IntBuffer stringlen, ByteBuffer string) {
 		if ( CHECKS )
-			if ( stringlen != null ) checkBuffer(stringlen, 1);
+			checkBufferSafe(stringlen, 1);
 		nglGetNamedStringARB(name.remaining(), memAddress(name), string.remaining(), memAddressSafe(stringlen), memAddress(string));
 	}
 
@@ -313,7 +313,7 @@ public class ARBShadingLanguageInclude {
 	 */
 	public static void glGetNamedStringARB(CharSequence name, IntBuffer stringlen, ByteBuffer string) {
 		if ( CHECKS )
-			if ( stringlen != null ) checkBuffer(stringlen, 1);
+			checkBufferSafe(stringlen, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.ASCII(name, false);
@@ -438,7 +438,7 @@ public class ARBShadingLanguageInclude {
 		long __functionAddress = GL.getCapabilities().glCompileShaderIncludeARB;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, path.remaining());
+			checkBufferSafe(length, path.remaining());
 		}
 		callPPV(__functionAddress, shader, path.remaining(), memAddress(path), length);
 	}
@@ -448,7 +448,7 @@ public class ARBShadingLanguageInclude {
 		long __functionAddress = GL.getCapabilities().glGetNamedStringARB;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( stringlen != null ) checkBuffer(stringlen, 1);
+			checkBufferSafe(stringlen, 1);
 		}
 		callPPPV(__functionAddress, name.remaining(), memAddress(name), string.remaining(), stringlen, memAddress(string));
 	}
@@ -458,7 +458,7 @@ public class ARBShadingLanguageInclude {
 		long __functionAddress = GL.getCapabilities().glGetNamedStringARB;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( stringlen != null ) checkBuffer(stringlen, 1);
+			checkBufferSafe(stringlen, 1);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

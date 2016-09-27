@@ -341,14 +341,14 @@ public class VkApplicationInfo extends Struct implements NativeResource {
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkApplicationInfo.PNEXT, value); }
 	/** Unsafe version of {@link #pApplicationName(ByteBuffer) pApplicationName}. */
 	public static void npApplicationName(long struct, ByteBuffer value) { 
-		if ( CHECKS && value != null ) checkNT1(value); 
+		if ( CHECKS ) checkNT1Safe(value); 
 		memPutAddress(struct + VkApplicationInfo.PAPPLICATIONNAME, memAddressSafe(value));
 	}
 	/** Unsafe version of {@link #applicationVersion(int) applicationVersion}. */
 	public static void napplicationVersion(long struct, int value) { memPutInt(struct + VkApplicationInfo.APPLICATIONVERSION, value); }
 	/** Unsafe version of {@link #pEngineName(ByteBuffer) pEngineName}. */
 	public static void npEngineName(long struct, ByteBuffer value) { 
-		if ( CHECKS && value != null ) checkNT1(value); 
+		if ( CHECKS ) checkNT1Safe(value); 
 		memPutAddress(struct + VkApplicationInfo.PENGINENAME, memAddressSafe(value));
 	}
 	/** Unsafe version of {@link #engineVersion(int) engineVersion}. */

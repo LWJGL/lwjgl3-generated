@@ -255,12 +255,12 @@ public class ObjCPropertyAttribute extends Struct implements NativeResource {
 
 	/** Unsafe version of {@link #name(ByteBuffer) name}. */
 	public static void nname(long struct, ByteBuffer value) { 
-		if ( CHECKS && value != null ) checkNT1(value); 
+		if ( CHECKS ) checkNT1Safe(value); 
 		memPutAddress(struct + ObjCPropertyAttribute.NAME, memAddress(value));
 	}
 	/** Unsafe version of {@link #value(ByteBuffer) value}. */
 	public static void nvalue(long struct, ByteBuffer value) { 
-		if ( CHECKS && value != null ) checkNT1(value); 
+		if ( CHECKS ) checkNT1Safe(value); 
 		memPutAddress(struct + ObjCPropertyAttribute.VALUE, memAddress(value));
 	}
 

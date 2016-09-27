@@ -75,7 +75,7 @@ public class ALC11 {
 	 */
 	public static long alcCaptureOpenDevice(ByteBuffer devicename, int frequency, int format, int buffersize) {
 		if ( CHECKS )
-			if ( devicename != null ) checkNT1(devicename);
+			checkNT1Safe(devicename);
 		return nalcCaptureOpenDevice(memAddressSafe(devicename), frequency, format, buffersize);
 	}
 

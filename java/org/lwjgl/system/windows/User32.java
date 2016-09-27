@@ -1131,8 +1131,8 @@ public class User32 {
 	 */
 	public static long CreateWindowEx(int dwExStyle, ByteBuffer lpClassName, ByteBuffer lpWindowName, int dwStyle, int x, int y, int nWidth, int nHeight, long hWndParent, long hMenu, long hInstance, long lpParam) {
 		if ( CHECKS ) {
-			if ( lpClassName != null ) checkNT2(lpClassName);
-			if ( lpWindowName != null ) checkNT2(lpWindowName);
+			checkNT2Safe(lpClassName);
+			checkNT2Safe(lpWindowName);
 		}
 		return nCreateWindowEx(dwExStyle, memAddressSafe(lpClassName), memAddressSafe(lpWindowName), dwStyle, x, y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam);
 	}
@@ -2424,7 +2424,7 @@ public class User32 {
 	 */
 	public static boolean EnumDisplayDevices(ByteBuffer lpDevice, int iDevNum, DISPLAY_DEVICE lpDisplayDevice, int dwFlags) {
 		if ( CHECKS )
-			if ( lpDevice != null ) checkNT2(lpDevice);
+			checkNT2Safe(lpDevice);
 		return nEnumDisplayDevices(memAddressSafe(lpDevice), iDevNum, lpDisplayDevice.address(), dwFlags) != 0;
 	}
 
@@ -2518,7 +2518,7 @@ public class User32 {
 	 */
 	public static boolean EnumDisplaySettingsEx(ByteBuffer lpszDeviceName, int iModeNum, DEVMODE lpDevMode, int dwFlags) {
 		if ( CHECKS )
-			if ( lpszDeviceName != null ) checkNT2(lpszDeviceName);
+			checkNT2Safe(lpszDeviceName);
 		return nEnumDisplaySettingsEx(memAddressSafe(lpszDeviceName), iModeNum, lpDevMode.address(), dwFlags) != 0;
 	}
 
@@ -2608,8 +2608,8 @@ public class User32 {
 	 */
 	public static int ChangeDisplaySettingsEx(ByteBuffer lpszDeviceName, DEVMODE lpDevMode, long hwnd, int dwflags, long lParam) {
 		if ( CHECKS )
-			if ( lpszDeviceName != null ) checkNT2(lpszDeviceName);
-		return nChangeDisplaySettingsEx(memAddressSafe(lpszDeviceName), lpDevMode == null ? NULL : lpDevMode.address(), hwnd, dwflags, lParam);
+			checkNT2Safe(lpszDeviceName);
+		return nChangeDisplaySettingsEx(memAddressSafe(lpszDeviceName), memAddressSafe(lpDevMode), hwnd, dwflags, lParam);
 	}
 
 	/**
@@ -2636,7 +2636,7 @@ public class User32 {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer lpszDeviceNameEncoded = stack.UTF16(lpszDeviceName);
-			return nChangeDisplaySettingsEx(memAddressSafe(lpszDeviceNameEncoded), lpDevMode == null ? NULL : lpDevMode.address(), hwnd, dwflags, lParam);
+			return nChangeDisplaySettingsEx(memAddressSafe(lpszDeviceNameEncoded), memAddressSafe(lpDevMode), hwnd, dwflags, lParam);
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -2699,7 +2699,7 @@ public class User32 {
 	 *             parameter is {@code NULL}, the cursor is free to move anywhere on the screen.
 	 */
 	public static boolean ClipCursor(RECT rect) {
-		return nClipCursor(rect == null ? NULL : rect.address()) != 0;
+		return nClipCursor(memAddressSafe(rect)) != 0;
 	}
 
 	// --- [ ShowCursor ] ---

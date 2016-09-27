@@ -2646,7 +2646,7 @@ public class NanoVG {
 		if ( CHECKS ) {
 			checkPointer(ctx);
 			checkNT1(string);
-			if ( bounds != null ) checkBuffer(bounds, 4);
+			checkBufferSafe(bounds, 4);
 		}
 		return nnvgTextBounds(ctx, x, y, memAddress(string), end, memAddressSafe(bounds));
 	}
@@ -2671,7 +2671,7 @@ public class NanoVG {
 	public static float nvgTextBounds(long ctx, float x, float y, CharSequence string, long end, FloatBuffer bounds) {
 		if ( CHECKS ) {
 			checkPointer(ctx);
-			if ( bounds != null ) checkBuffer(bounds, 4);
+			checkBufferSafe(bounds, 4);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2722,7 +2722,7 @@ public class NanoVG {
 		if ( CHECKS ) {
 			checkPointer(ctx);
 			checkNT1(string);
-			if ( bounds != null ) checkBuffer(bounds, 4);
+			checkBufferSafe(bounds, 4);
 		}
 		nnvgTextBoxBounds(ctx, x, y, breakRowWidth, memAddress(string), end, memAddressSafe(bounds));
 	}
@@ -2746,7 +2746,7 @@ public class NanoVG {
 	public static void nvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, CharSequence string, long end, FloatBuffer bounds) {
 		if ( CHECKS ) {
 			checkPointer(ctx);
-			if ( bounds != null ) checkBuffer(bounds, 4);
+			checkBufferSafe(bounds, 4);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2848,9 +2848,9 @@ public class NanoVG {
 	public static void nvgTextMetrics(long ctx, FloatBuffer ascender, FloatBuffer descender, FloatBuffer lineh) {
 		if ( CHECKS ) {
 			checkPointer(ctx);
-			if ( ascender != null ) checkBuffer(ascender, 1);
-			if ( descender != null ) checkBuffer(descender, 1);
-			if ( lineh != null ) checkBuffer(lineh, 1);
+			checkBufferSafe(ascender, 1);
+			checkBufferSafe(descender, 1);
+			checkBufferSafe(lineh, 1);
 		}
 		nnvgTextMetrics(ctx, memAddressSafe(ascender), memAddressSafe(descender), memAddressSafe(lineh));
 	}
@@ -3061,7 +3061,7 @@ public class NanoVG {
 		if ( CHECKS ) {
 			checkPointer(ctx);
 			checkNT1(string);
-			if ( bounds != null ) checkBuffer(bounds, 4);
+			checkBufferSafe(bounds, 4);
 		}
 		return nnvgTextBounds(ctx, x, y, memAddress(string), end, bounds);
 	}
@@ -3070,7 +3070,7 @@ public class NanoVG {
 	public static float nvgTextBounds(long ctx, float x, float y, CharSequence string, long end, float[] bounds) {
 		if ( CHECKS ) {
 			checkPointer(ctx);
-			if ( bounds != null ) checkBuffer(bounds, 4);
+			checkBufferSafe(bounds, 4);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -3089,7 +3089,7 @@ public class NanoVG {
 		if ( CHECKS ) {
 			checkPointer(ctx);
 			checkNT1(string);
-			if ( bounds != null ) checkBuffer(bounds, 4);
+			checkBufferSafe(bounds, 4);
 		}
 		nnvgTextBoxBounds(ctx, x, y, breakRowWidth, memAddress(string), end, bounds);
 	}
@@ -3098,7 +3098,7 @@ public class NanoVG {
 	public static void nvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, CharSequence string, long end, float[] bounds) {
 		if ( CHECKS ) {
 			checkPointer(ctx);
-			if ( bounds != null ) checkBuffer(bounds, 4);
+			checkBufferSafe(bounds, 4);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -3116,9 +3116,9 @@ public class NanoVG {
 	public static void nvgTextMetrics(long ctx, float[] ascender, float[] descender, float[] lineh) {
 		if ( CHECKS ) {
 			checkPointer(ctx);
-			if ( ascender != null ) checkBuffer(ascender, 1);
-			if ( descender != null ) checkBuffer(descender, 1);
-			if ( lineh != null ) checkBuffer(lineh, 1);
+			checkBufferSafe(ascender, 1);
+			checkBufferSafe(descender, 1);
+			checkBufferSafe(lineh, 1);
 		}
 		nnvgTextMetrics(ctx, ascender, descender, lineh);
 	}

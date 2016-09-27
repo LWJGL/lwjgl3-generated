@@ -201,7 +201,7 @@ public class GLFWVulkan {
 	public static long glfwGetInstanceProcAddress(VkInstance instance, ByteBuffer procname) {
 		if ( CHECKS )
 			checkNT1(procname);
-		return nglfwGetInstanceProcAddress(instance == null ? NULL : instance.address(), memAddress(procname));
+		return nglfwGetInstanceProcAddress(memAddressSafe(instance), memAddress(procname));
 	}
 
 	/**
@@ -237,7 +237,7 @@ public class GLFWVulkan {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer procnameEncoded = stack.ASCII(procname);
-			return nglfwGetInstanceProcAddress(instance == null ? NULL : instance.address(), memAddress(procnameEncoded));
+			return nglfwGetInstanceProcAddress(memAddressSafe(instance), memAddress(procnameEncoded));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -341,7 +341,7 @@ public class GLFWVulkan {
 	public static int glfwCreateWindowSurface(VkInstance instance, long window, VkAllocationCallbacks allocator, LongBuffer surface) {
 		if ( CHECKS )
 			checkBuffer(surface, 1);
-		return nglfwCreateWindowSurface(instance.address(), window, allocator == null ? NULL : allocator.address(), memAddress(surface));
+		return nglfwCreateWindowSurface(instance.address(), window, memAddressSafe(allocator), memAddress(surface));
 	}
 
 	/** Array version of: {@link #glfwCreateWindowSurface CreateWindowSurface} */
@@ -352,7 +352,7 @@ public class GLFWVulkan {
 			checkBuffer(surface, 1);
 			if ( allocator != null ) VkAllocationCallbacks.validate(allocator.address());
 		}
-		return invokePPPPI(__functionAddress, instance.address(), window, allocator == null ? NULL : allocator.address(), surface);
+		return invokePPPPI(__functionAddress, instance.address(), window, memAddressSafe(allocator), surface);
 	}
 
 }

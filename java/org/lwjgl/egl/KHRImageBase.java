@@ -53,7 +53,7 @@ public class KHRImageBase {
 
 	public static long eglCreateImageKHR(long dpy, long ctx, int target, long buffer, IntBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		return neglCreateImageKHR(dpy, ctx, target, buffer, memAddressSafe(attrib_list));
 	}
 
@@ -77,7 +77,7 @@ public class KHRImageBase {
 			checkPointer(dpy);
 			checkPointer(ctx);
 			checkPointer(buffer);
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		}
 		return callPPPPP(__functionAddress, dpy, ctx, target, buffer, attrib_list);
 	}

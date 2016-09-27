@@ -345,7 +345,7 @@ public class AMDDebugOutput {
 	 * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
 	 */
 	public static void glDebugMessageCallbackAMD(GLDebugMessageAMDCallbackI callback, long userParam) {
-		nglDebugMessageCallbackAMD(callback == null ? NULL : callback.address(), userParam);
+		nglDebugMessageCallbackAMD(memAddressSafe(callback), userParam);
 	}
 
 	// --- [ glGetDebugMessageLogAMD ] ---
@@ -408,10 +408,10 @@ public class AMDDebugOutput {
 	 */
 	public static int glGetDebugMessageLogAMD(int count, IntBuffer categories, IntBuffer severities, IntBuffer ids, IntBuffer lengths, ByteBuffer messageLog) {
 		if ( CHECKS ) {
-			if ( categories != null ) checkBuffer(categories, count);
-			if ( severities != null ) checkBuffer(severities, count);
-			if ( ids != null ) checkBuffer(ids, count);
-			if ( lengths != null ) checkBuffer(lengths, count);
+			checkBufferSafe(categories, count);
+			checkBufferSafe(severities, count);
+			checkBufferSafe(ids, count);
+			checkBufferSafe(lengths, count);
 		}
 		return nglGetDebugMessageLogAMD(count, messageLog == null ? 0 : messageLog.remaining(), memAddressSafe(categories), memAddressSafe(severities), memAddressSafe(ids), memAddressSafe(lengths), memAddressSafe(messageLog));
 	}
@@ -429,10 +429,10 @@ public class AMDDebugOutput {
 		long __functionAddress = GL.getCapabilities().glGetDebugMessageLogAMD;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( categories != null ) checkBuffer(categories, count);
-			if ( severities != null ) checkBuffer(severities, count);
-			if ( ids != null ) checkBuffer(ids, count);
-			if ( lengths != null ) checkBuffer(lengths, count);
+			checkBufferSafe(categories, count);
+			checkBufferSafe(severities, count);
+			checkBufferSafe(ids, count);
+			checkBufferSafe(lengths, count);
 		}
 		return callPPPPPI(__functionAddress, count, messageLog == null ? 0 : messageLog.remaining(), categories, severities, ids, lengths, memAddressSafe(messageLog));
 	}

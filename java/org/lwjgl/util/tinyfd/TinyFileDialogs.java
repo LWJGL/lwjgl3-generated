@@ -194,7 +194,7 @@ public class TinyFileDialogs {
 		if ( CHECKS ) {
 			checkNT1(aTitle);
 			checkNT1(aMessage);
-			if ( aDefaultInput != null ) checkNT1(aDefaultInput);
+			checkNT1Safe(aDefaultInput);
 		}
 		long __result = ntinyfd_inputBox(memAddress(aTitle), memAddress(aMessage), memAddressSafe(aDefaultInput));
 		return memUTF8(__result);
@@ -251,7 +251,7 @@ public class TinyFileDialogs {
 		if ( CHECKS ) {
 			checkNT1(aTitle);
 			checkNT1(aDefaultPathAndFile);
-			if ( aSingleFilterDescription != null ) checkNT1(aSingleFilterDescription);
+			checkNT1Safe(aSingleFilterDescription);
 		}
 		long __result = ntinyfd_saveFileDialog(memAddress(aTitle), memAddress(aDefaultPathAndFile), aFilterPatterns == null ? 0 : aFilterPatterns.remaining(), memAddressSafe(aFilterPatterns), memAddressSafe(aSingleFilterDescription));
 		return memUTF8(__result);
@@ -311,7 +311,7 @@ public class TinyFileDialogs {
 		if ( CHECKS ) {
 			checkNT1(aTitle);
 			checkNT1(aDefaultPathAndFile);
-			if ( aSingleFilterDescription != null ) checkNT1(aSingleFilterDescription);
+			checkNT1Safe(aSingleFilterDescription);
 		}
 		long __result = ntinyfd_openFileDialog(memAddress(aTitle), memAddress(aDefaultPathAndFile), aFilterPatterns == null ? 0 : aFilterPatterns.remaining(), memAddressSafe(aFilterPatterns), memAddressSafe(aSingleFilterDescription), aAllowMultipleSelects ? 1 : 0);
 		return memUTF8(__result);
@@ -411,8 +411,8 @@ public class TinyFileDialogs {
 	public static String tinyfd_colorChooser(ByteBuffer aTitle, ByteBuffer aDefaultHexRGB, ByteBuffer aDefaultRGB, ByteBuffer aoResultRGB) {
 		if ( CHECKS ) {
 			checkNT1(aTitle);
-			if ( aDefaultHexRGB != null ) checkNT1(aDefaultHexRGB);
-			if ( aDefaultRGB != null ) checkBuffer(aDefaultRGB, 3);
+			checkNT1Safe(aDefaultHexRGB);
+			checkBufferSafe(aDefaultRGB, 3);
 			checkBuffer(aoResultRGB, 3);
 		}
 		long __result = ntinyfd_colorChooser(memAddress(aTitle), memAddressSafe(aDefaultHexRGB), memAddressSafe(aDefaultRGB), memAddress(aoResultRGB));
@@ -431,7 +431,7 @@ public class TinyFileDialogs {
 	 */
 	public static String tinyfd_colorChooser(CharSequence aTitle, CharSequence aDefaultHexRGB, ByteBuffer aDefaultRGB, ByteBuffer aoResultRGB) {
 		if ( CHECKS ) {
-			if ( aDefaultRGB != null ) checkBuffer(aDefaultRGB, 3);
+			checkBufferSafe(aDefaultRGB, 3);
 			checkBuffer(aoResultRGB, 3);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();

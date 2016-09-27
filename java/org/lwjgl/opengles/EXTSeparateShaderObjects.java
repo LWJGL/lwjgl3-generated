@@ -203,7 +203,7 @@ public class EXTSeparateShaderObjects {
 
 	public static void glGetProgramPipelineInfoLogEXT(int pipeline, IntBuffer length, ByteBuffer infoLog) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		nglGetProgramPipelineInfoLogEXT(pipeline, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog));
 	}
 
@@ -698,7 +698,7 @@ public class EXTSeparateShaderObjects {
 		long __functionAddress = GLES.getCapabilities().glGetProgramPipelineInfoLogEXT;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		}
 		callPPV(__functionAddress, pipeline, infoLog.remaining(), length, memAddress(infoLog));
 	}

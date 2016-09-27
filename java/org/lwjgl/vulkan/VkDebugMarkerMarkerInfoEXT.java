@@ -299,7 +299,7 @@ public class VkDebugMarkerMarkerInfoEXT extends Struct implements NativeResource
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkDebugMarkerMarkerInfoEXT.PNEXT, value); }
 	/** Unsafe version of {@link #pMarkerName(ByteBuffer) pMarkerName}. */
 	public static void npMarkerName(long struct, ByteBuffer value) { 
-		if ( CHECKS && value != null ) checkNT1(value); 
+		if ( CHECKS ) checkNT1Safe(value); 
 		memPutAddress(struct + VkDebugMarkerMarkerInfoEXT.PMARKERNAME, memAddress(value));
 	}
 	/** Unsafe version of {@link #color(FloatBuffer) color}. */

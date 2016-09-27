@@ -174,7 +174,7 @@ public class KHRGLSharing {
 	public static int clGetGLContextInfoKHR(PointerBuffer properties, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS ) {
 			checkNT(properties);
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+			checkBufferSafe(param_value_size_ret, 1);
 		}
 		return nclGetGLContextInfoKHR(memAddress(properties), param_name, (long)(param_value == null ? 0 : param_value.remaining()), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
@@ -183,7 +183,7 @@ public class KHRGLSharing {
 	public static int clGetGLContextInfoKHR(PointerBuffer properties, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS ) {
 			checkNT(properties);
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+			checkBufferSafe(param_value_size_ret, 1);
 		}
 		return nclGetGLContextInfoKHR(memAddress(properties), param_name, (param_value == null ? 0 : param_value.remaining() << POINTER_SHIFT), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}

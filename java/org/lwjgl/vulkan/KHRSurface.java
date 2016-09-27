@@ -211,7 +211,7 @@ public class KHRSurface {
 	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroySurfaceKHR(VkInstance instance, long surface, VkAllocationCallbacks pAllocator) {
-		nvkDestroySurfaceKHR(instance, surface, pAllocator == null ? NULL : pAllocator.address());
+		nvkDestroySurfaceKHR(instance, surface, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkGetPhysicalDeviceSurfaceSupportKHR ] ---
@@ -369,8 +369,8 @@ public class KHRSurface {
 	 */
 	public static int vkGetPhysicalDeviceSurfaceFormatsKHR(VkPhysicalDevice physicalDevice, long surface, IntBuffer pSurfaceFormatCount, VkSurfaceFormatKHR.Buffer pSurfaceFormats) {
 		if ( CHECKS )
-			if ( pSurfaceFormats != null ) checkBuffer(pSurfaceFormats, pSurfaceFormatCount.get(pSurfaceFormatCount.position()));
-		return nvkGetPhysicalDeviceSurfaceFormatsKHR(physicalDevice, surface, memAddress(pSurfaceFormatCount), pSurfaceFormats == null ? NULL : pSurfaceFormats.address());
+			checkBufferSafe(pSurfaceFormats, pSurfaceFormatCount.get(pSurfaceFormatCount.position()));
+		return nvkGetPhysicalDeviceSurfaceFormatsKHR(physicalDevice, surface, memAddress(pSurfaceFormatCount), memAddressSafe(pSurfaceFormats));
 	}
 
 	// --- [ vkGetPhysicalDeviceSurfacePresentModesKHR ] ---
@@ -434,7 +434,7 @@ public class KHRSurface {
 	 */
 	public static int vkGetPhysicalDeviceSurfacePresentModesKHR(VkPhysicalDevice physicalDevice, long surface, IntBuffer pPresentModeCount, IntBuffer pPresentModes) {
 		if ( CHECKS )
-			if ( pPresentModes != null ) checkBuffer(pPresentModes, pPresentModeCount.get(pPresentModeCount.position()));
+			checkBufferSafe(pPresentModes, pPresentModeCount.get(pPresentModeCount.position()));
 		return nvkGetPhysicalDeviceSurfacePresentModesKHR(physicalDevice, surface, memAddress(pPresentModeCount), memAddressSafe(pPresentModes));
 	}
 
@@ -453,9 +453,9 @@ public class KHRSurface {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceSurfaceFormatsKHR;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( pSurfaceFormats != null ) checkBuffer(pSurfaceFormats, pSurfaceFormatCount[0]);
+			checkBufferSafe(pSurfaceFormats, pSurfaceFormatCount[0]);
 		}
-		return callPJPPI(__functionAddress, physicalDevice.address(), surface, pSurfaceFormatCount, pSurfaceFormats == null ? NULL : pSurfaceFormats.address());
+		return callPJPPI(__functionAddress, physicalDevice.address(), surface, pSurfaceFormatCount, memAddressSafe(pSurfaceFormats));
 	}
 
 	/** Array version of: {@link #vkGetPhysicalDeviceSurfacePresentModesKHR GetPhysicalDeviceSurfacePresentModesKHR} */
@@ -463,7 +463,7 @@ public class KHRSurface {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceSurfacePresentModesKHR;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( pPresentModes != null ) checkBuffer(pPresentModes, pPresentModeCount[0]);
+			checkBufferSafe(pPresentModes, pPresentModeCount[0]);
 		}
 		return callPJPPI(__functionAddress, physicalDevice.address(), surface, pPresentModeCount, pPresentModes);
 	}

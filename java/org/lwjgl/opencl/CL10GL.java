@@ -157,7 +157,7 @@ public class CL10GL {
 	 */
 	public static long clCreateFromGLBuffer(long context, long flags, int bufobj, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		return nclCreateFromGLBuffer(context, flags, bufobj, memAddressSafe(errcode_ret));
 	}
 
@@ -250,7 +250,7 @@ public class CL10GL {
 	 */
 	public static long clCreateFromGLTexture2D(long context, long flags, int texture_target, int miplevel, int texture, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		return nclCreateFromGLTexture2D(context, flags, texture_target, miplevel, texture, memAddressSafe(errcode_ret));
 	}
 
@@ -341,7 +341,7 @@ public class CL10GL {
 	 */
 	public static long clCreateFromGLTexture3D(long context, long flags, int texture_target, int miplevel, int texture, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		return nclCreateFromGLTexture3D(context, flags, texture_target, miplevel, texture, memAddressSafe(errcode_ret));
 	}
 
@@ -416,7 +416,7 @@ public class CL10GL {
 	 */
 	public static long clCreateFromGLRenderbuffer(long context, long flags, int renderbuffer, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		return nclCreateFromGLRenderbuffer(context, flags, renderbuffer, memAddressSafe(errcode_ret));
 	}
 
@@ -521,14 +521,14 @@ public class CL10GL {
 	 */
 	public static int clGetGLTextureInfo(long memobj, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+			checkBufferSafe(param_value_size_ret, 1);
 		return nclGetGLTextureInfo(memobj, param_name, (long)(param_value == null ? 0 : param_value.remaining()), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetGLTextureInfo GetGLTextureInfo} */
 	public static int clGetGLTextureInfo(long memobj, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+			checkBufferSafe(param_value_size_ret, 1);
 		return nclGetGLTextureInfo(memobj, param_name, (param_value == null ? 0 : param_value.remaining() << 2), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -625,7 +625,7 @@ public class CL10GL {
 	 */
 	public static int clEnqueueAcquireGLObjects(long command_queue, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		return nclEnqueueAcquireGLObjects(command_queue, mem_objects.remaining(), memAddress(mem_objects), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -669,7 +669,7 @@ public class CL10GL {
 	 */
 	public static int clEnqueueAcquireGLObjects(long command_queue, long mem_object, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			PointerBuffer mem_objects = stack.pointers(mem_object);
@@ -764,7 +764,7 @@ public class CL10GL {
 	 */
 	public static int clEnqueueReleaseGLObjects(long command_queue, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		return nclEnqueueReleaseGLObjects(command_queue, mem_objects.remaining(), memAddress(mem_objects), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -804,7 +804,7 @@ public class CL10GL {
 	 */
 	public static int clEnqueueReleaseGLObjects(long command_queue, long mem_object, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			PointerBuffer mem_objects = stack.pointers(mem_object);
@@ -820,7 +820,7 @@ public class CL10GL {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		}
 		return callPJPP(__functionAddress, context, flags, bufobj, errcode_ret);
 	}
@@ -831,7 +831,7 @@ public class CL10GL {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		}
 		return callPJPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
 	}
@@ -842,7 +842,7 @@ public class CL10GL {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		}
 		return callPJPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
 	}
@@ -853,7 +853,7 @@ public class CL10GL {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		}
 		return callPJPP(__functionAddress, context, flags, renderbuffer, errcode_ret);
 	}
@@ -874,7 +874,7 @@ public class CL10GL {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(memobj);
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+			checkBufferSafe(param_value_size_ret, 1);
 		}
 		return callPPPPI(__functionAddress, memobj, param_name, (long)(param_value == null ? 0 : param_value.length << 2), param_value, memAddressSafe(param_value_size_ret));
 	}

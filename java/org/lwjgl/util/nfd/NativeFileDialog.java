@@ -103,8 +103,8 @@ public class NativeFileDialog {
 	 */
 	public static int NFD_OpenDialog(ByteBuffer filterList, ByteBuffer defaultPath, PointerBuffer outPath) {
 		if ( CHECKS ) {
-			if ( filterList != null ) checkNT1(filterList);
-			if ( defaultPath != null ) checkNT1(defaultPath);
+			checkNT1Safe(filterList);
+			checkNT1Safe(defaultPath);
 			checkBuffer(outPath, 1);
 		}
 		return nNFD_OpenDialog(memAddressSafe(filterList), memAddressSafe(defaultPath), memAddress(outPath));
@@ -159,8 +159,8 @@ public class NativeFileDialog {
 	 */
 	public static int NFD_OpenDialogMultiple(ByteBuffer filterList, ByteBuffer defaultPath, NFDPathSet outPaths) {
 		if ( CHECKS ) {
-			if ( filterList != null ) checkNT1(filterList);
-			if ( defaultPath != null ) checkNT1(defaultPath);
+			checkNT1Safe(filterList);
+			checkNT1Safe(defaultPath);
 		}
 		return nNFD_OpenDialogMultiple(memAddressSafe(filterList), memAddressSafe(defaultPath), outPaths.address());
 	}
@@ -212,8 +212,8 @@ public class NativeFileDialog {
 	 */
 	public static int NFD_SaveDialog(ByteBuffer filterList, ByteBuffer defaultPath, PointerBuffer outPath) {
 		if ( CHECKS ) {
-			if ( filterList != null ) checkNT1(filterList);
-			if ( defaultPath != null ) checkNT1(defaultPath);
+			checkNT1Safe(filterList);
+			checkNT1Safe(defaultPath);
 			checkBuffer(outPath, 1);
 		}
 		return nNFD_SaveDialog(memAddressSafe(filterList), memAddressSafe(defaultPath), memAddress(outPath));
@@ -266,7 +266,7 @@ public class NativeFileDialog {
 	 */
 	public static int NFD_PickFolder(ByteBuffer defaultPath, PointerBuffer outPath) {
 		if ( CHECKS ) {
-			if ( defaultPath != null ) checkNT1(defaultPath);
+			checkNT1Safe(defaultPath);
 			checkBuffer(outPath, 1);
 		}
 		return nNFD_PickFolder(memAddressSafe(defaultPath), memAddress(outPath));

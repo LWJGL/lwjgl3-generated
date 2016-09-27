@@ -964,7 +964,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
 	 */
 	public static void glDebugMessageCallback(GLDebugMessageCallbackI callback, long userParam) {
-		nglDebugMessageCallback(callback == null ? NULL : callback.address(), userParam);
+		nglDebugMessageCallback(memAddressSafe(callback), userParam);
 	}
 
 	// --- [ glGetDebugMessageLog ] ---
@@ -1049,11 +1049,11 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 */
 	public static int glGetDebugMessageLog(int count, IntBuffer sources, IntBuffer types, IntBuffer ids, IntBuffer severities, IntBuffer lengths, ByteBuffer messageLog) {
 		if ( CHECKS ) {
-			if ( sources != null ) checkBuffer(sources, count);
-			if ( types != null ) checkBuffer(types, count);
-			if ( ids != null ) checkBuffer(ids, count);
-			if ( severities != null ) checkBuffer(severities, count);
-			if ( lengths != null ) checkBuffer(lengths, count);
+			checkBufferSafe(sources, count);
+			checkBufferSafe(types, count);
+			checkBufferSafe(ids, count);
+			checkBufferSafe(severities, count);
+			checkBufferSafe(lengths, count);
 		}
 		return nglGetDebugMessageLog(count, messageLog == null ? 0 : messageLog.remaining(), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
 	}
@@ -1241,7 +1241,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 */
 	public static void glGetObjectLabel(int identifier, int name, IntBuffer length, ByteBuffer label) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		nglGetObjectLabel(identifier, name, label.remaining(), memAddressSafe(length), memAddress(label));
 	}
 
@@ -1370,7 +1370,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 */
 	public static void glGetObjectPtrLabel(long ptr, IntBuffer length, ByteBuffer label) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		nglGetObjectPtrLabel(ptr, label.remaining(), memAddressSafe(length), memAddress(label));
 	}
 
@@ -2105,7 +2105,7 @@ for ( i = 0; i < primcount; i++ ) {
 	 */
 	public static void glGetProgramResourceName(int program, int programInterface, int index, IntBuffer length, ByteBuffer name) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		nglGetProgramResourceName(program, programInterface, index, name.remaining(), memAddressSafe(length), memAddress(name));
 	}
 
@@ -2190,7 +2190,7 @@ for ( i = 0; i < primcount; i++ ) {
 	 */
 	public static void glGetProgramResourceiv(int program, int programInterface, int index, IntBuffer props, IntBuffer length, IntBuffer params) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		nglGetProgramResourceiv(program, programInterface, index, props.remaining(), memAddress(props), params.remaining(), memAddressSafe(length), memAddress(params));
 	}
 
@@ -2609,11 +2609,11 @@ for ( i = 0; i < primcount; i++ ) {
 		long __functionAddress = GL.getCapabilities().glGetDebugMessageLog;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( sources != null ) checkBuffer(sources, count);
-			if ( types != null ) checkBuffer(types, count);
-			if ( ids != null ) checkBuffer(ids, count);
-			if ( severities != null ) checkBuffer(severities, count);
-			if ( lengths != null ) checkBuffer(lengths, count);
+			checkBufferSafe(sources, count);
+			checkBufferSafe(types, count);
+			checkBufferSafe(ids, count);
+			checkBufferSafe(severities, count);
+			checkBufferSafe(lengths, count);
 		}
 		return callPPPPPPI(__functionAddress, count, messageLog == null ? 0 : messageLog.remaining(), sources, types, ids, severities, lengths, memAddressSafe(messageLog));
 	}
@@ -2627,7 +2627,7 @@ for ( i = 0; i < primcount; i++ ) {
 		long __functionAddress = GL.getCapabilities().glGetObjectLabel;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		}
 		callPPV(__functionAddress, identifier, name, label.remaining(), length, memAddress(label));
 	}
@@ -2642,7 +2642,7 @@ for ( i = 0; i < primcount; i++ ) {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(ptr);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		}
 		callPPPV(__functionAddress, ptr, label.remaining(), length, memAddress(label));
 	}
@@ -2748,7 +2748,7 @@ for ( i = 0; i < primcount; i++ ) {
 		long __functionAddress = GL.getCapabilities().glGetProgramResourceName;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		}
 		callPPV(__functionAddress, program, programInterface, index, name.remaining(), length, memAddress(name));
 	}
@@ -2762,7 +2762,7 @@ for ( i = 0; i < primcount; i++ ) {
 		long __functionAddress = GL.getCapabilities().glGetProgramResourceiv;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		}
 		callPPPV(__functionAddress, program, programInterface, index, props.length, props, params.length, length, params);
 	}

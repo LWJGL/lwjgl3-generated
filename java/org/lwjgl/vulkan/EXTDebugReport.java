@@ -181,7 +181,7 @@ public class EXTDebugReport {
 	public static int vkCreateDebugReportCallbackEXT(VkInstance instance, VkDebugReportCallbackCreateInfoEXT pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pCallback) {
 		if ( CHECKS )
 			checkBuffer(pCallback, 1);
-		return nvkCreateDebugReportCallbackEXT(instance, pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), memAddress(pCallback));
+		return nvkCreateDebugReportCallbackEXT(instance, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pCallback));
 	}
 
 	// --- [ vkDestroyDebugReportCallbackEXT ] ---
@@ -244,7 +244,7 @@ public class EXTDebugReport {
 	 * @param pAllocator controls host memory allocation
 	 */
 	public static void vkDestroyDebugReportCallbackEXT(VkInstance instance, long callback, VkAllocationCallbacks pAllocator) {
-		nvkDestroyDebugReportCallbackEXT(instance, callback, pAllocator == null ? NULL : pAllocator.address());
+		nvkDestroyDebugReportCallbackEXT(instance, callback, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkDebugReportMessageEXT ] ---
@@ -380,7 +380,7 @@ public class EXTDebugReport {
 			VkDebugReportCallbackCreateInfoEXT.validate(pCreateInfo.address());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
-		return callPPPPI(__functionAddress, instance.address(), pCreateInfo.address(), pAllocator == null ? NULL : pAllocator.address(), pCallback);
+		return callPPPPI(__functionAddress, instance.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pCallback);
 	}
 
 }

@@ -60,7 +60,7 @@ public class QCOMExtendedGet {
 
 	public static void glExtGetTexturesQCOM(IntBuffer textures, IntBuffer numTextures) {
 		if ( CHECKS )
-			if ( numTextures != null ) checkBuffer(numTextures, 1);
+			checkBufferSafe(numTextures, 1);
 		nglExtGetTexturesQCOM(memAddressSafe(textures), textures == null ? 0 : textures.remaining(), memAddressSafe(numTextures));
 	}
 
@@ -75,7 +75,7 @@ public class QCOMExtendedGet {
 
 	public static void glExtGetBuffersQCOM(IntBuffer buffers, IntBuffer numBuffers) {
 		if ( CHECKS )
-			if ( numBuffers != null ) checkBuffer(numBuffers, 1);
+			checkBufferSafe(numBuffers, 1);
 		nglExtGetBuffersQCOM(memAddressSafe(buffers), buffers == null ? 0 : buffers.remaining(), memAddressSafe(numBuffers));
 	}
 
@@ -90,7 +90,7 @@ public class QCOMExtendedGet {
 
 	public static void glExtGetRenderbuffersQCOM(IntBuffer renderbuffers, IntBuffer numRenderbuffers) {
 		if ( CHECKS )
-			if ( numRenderbuffers != null ) checkBuffer(numRenderbuffers, 1);
+			checkBufferSafe(numRenderbuffers, 1);
 		nglExtGetRenderbuffersQCOM(memAddressSafe(renderbuffers), renderbuffers == null ? 0 : renderbuffers.remaining(), memAddressSafe(numRenderbuffers));
 	}
 
@@ -105,7 +105,7 @@ public class QCOMExtendedGet {
 
 	public static void glExtGetFramebuffersQCOM(IntBuffer framebuffers, IntBuffer numFramebuffers) {
 		if ( CHECKS )
-			if ( numFramebuffers != null ) checkBuffer(numFramebuffers, 1);
+			checkBufferSafe(numFramebuffers, 1);
 		nglExtGetFramebuffersQCOM(memAddressSafe(framebuffers), framebuffers == null ? 0 : framebuffers.remaining(), memAddressSafe(numFramebuffers));
 	}
 
@@ -188,7 +188,7 @@ public class QCOMExtendedGet {
 		long __functionAddress = GLES.getCapabilities().glExtGetTexturesQCOM;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( numTextures != null ) checkBuffer(numTextures, 1);
+			checkBufferSafe(numTextures, 1);
 		}
 		callPPV(__functionAddress, textures, textures == null ? 0 : textures.length, numTextures);
 	}
@@ -198,7 +198,7 @@ public class QCOMExtendedGet {
 		long __functionAddress = GLES.getCapabilities().glExtGetBuffersQCOM;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( numBuffers != null ) checkBuffer(numBuffers, 1);
+			checkBufferSafe(numBuffers, 1);
 		}
 		callPPV(__functionAddress, buffers, buffers == null ? 0 : buffers.length, numBuffers);
 	}
@@ -208,7 +208,7 @@ public class QCOMExtendedGet {
 		long __functionAddress = GLES.getCapabilities().glExtGetRenderbuffersQCOM;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( numRenderbuffers != null ) checkBuffer(numRenderbuffers, 1);
+			checkBufferSafe(numRenderbuffers, 1);
 		}
 		callPPV(__functionAddress, renderbuffers, renderbuffers == null ? 0 : renderbuffers.length, numRenderbuffers);
 	}
@@ -218,7 +218,7 @@ public class QCOMExtendedGet {
 		long __functionAddress = GLES.getCapabilities().glExtGetFramebuffersQCOM;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( numFramebuffers != null ) checkBuffer(numFramebuffers, 1);
+			checkBufferSafe(numFramebuffers, 1);
 		}
 		callPPV(__functionAddress, framebuffers, framebuffers == null ? 0 : framebuffers.length, numFramebuffers);
 	}

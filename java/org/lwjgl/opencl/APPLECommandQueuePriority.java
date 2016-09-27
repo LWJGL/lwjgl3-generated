@@ -62,7 +62,7 @@ public class APPLECommandQueuePriority {
 	 */
 	public static long clCreateCommandQueueWithPropertiesAPPLE(long context, long device, PointerBuffer properties, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		return nclCreateCommandQueueWithPropertiesAPPLE(context, device, memAddress(properties), memAddressSafe(errcode_ret));
 	}
 
@@ -73,7 +73,7 @@ public class APPLECommandQueuePriority {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
 			checkPointer(device);
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		}
 		return callPPPPP(__functionAddress, context, device, memAddress(properties), errcode_ret);
 	}

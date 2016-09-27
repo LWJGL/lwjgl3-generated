@@ -122,7 +122,7 @@ public class AMDBusAddressableMemory {
 	 */
 	public static int clEnqueueWaitSignalAMD(long command_queue, long mem_object, int value, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		return nclEnqueueWaitSignalAMD(command_queue, mem_object, value, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -199,7 +199,7 @@ public class AMDBusAddressableMemory {
 	 */
 	public static int clEnqueueWriteSignalAMD(long command_queue, long mem_object, int value, long offset, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		return nclEnqueueWriteSignalAMD(command_queue, mem_object, value, offset, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -275,7 +275,7 @@ public class AMDBusAddressableMemory {
 	public static int clEnqueueMakeBuffersResidentAMD(long command_queue, PointerBuffer mem_objects, int blocking_make_resident, CLBusAddressAMD.Buffer bus_addresses, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
 			checkBuffer(bus_addresses, mem_objects.remaining());
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		}
 		return nclEnqueueMakeBuffersResidentAMD(command_queue, mem_objects.remaining(), memAddress(mem_objects), blocking_make_resident, bus_addresses.address(), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}

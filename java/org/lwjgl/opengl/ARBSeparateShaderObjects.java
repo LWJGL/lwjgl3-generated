@@ -1772,7 +1772,7 @@ if (shader) {
 	 */
 	public static void glGetProgramPipelineInfoLog(int pipeline, IntBuffer length, ByteBuffer infoLog) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		nglGetProgramPipelineInfoLog(pipeline, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog));
 	}
 
@@ -2117,7 +2117,7 @@ if (shader) {
 		long __functionAddress = GL.getCapabilities().glGetProgramPipelineInfoLog;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		}
 		callPPV(__functionAddress, pipeline, infoLog.remaining(), length, memAddress(infoLog));
 	}

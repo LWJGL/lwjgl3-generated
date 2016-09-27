@@ -307,7 +307,7 @@ public class VkDebugMarkerObjectNameInfoEXT extends Struct implements NativeReso
 	public static void nobject(long struct, long value) { memPutLong(struct + VkDebugMarkerObjectNameInfoEXT.OBJECT, value); }
 	/** Unsafe version of {@link #pObjectName(ByteBuffer) pObjectName}. */
 	public static void npObjectName(long struct, ByteBuffer value) { 
-		if ( CHECKS && value != null ) checkNT1(value); 
+		if ( CHECKS ) checkNT1Safe(value); 
 		memPutAddress(struct + VkDebugMarkerObjectNameInfoEXT.POBJECTNAME, memAddressSafe(value));
 	}
 

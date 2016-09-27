@@ -438,7 +438,7 @@ public class CL12 {
 	public static int clCreateSubDevices(long in_device, PointerBuffer properties, PointerBuffer out_devices, IntBuffer num_devices_ret) {
 		if ( CHECKS ) {
 			checkNT(properties);
-			if ( num_devices_ret != null ) checkBuffer(num_devices_ret, 1);
+			checkBufferSafe(num_devices_ret, 1);
 		}
 		return nclCreateSubDevices(in_device, memAddress(properties), out_devices == null ? 0 : out_devices.remaining(), memAddressSafe(out_devices), memAddressSafe(num_devices_ret));
 	}
@@ -594,28 +594,28 @@ public class CL12 {
 	 */
 	public static long clCreateImage(long context, long flags, CLImageFormat image_format, CLImageDesc image_desc, ByteBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		return nclCreateImage(context, flags, image_format.address(), image_desc.address(), memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
 	}
 
 	/** ShortBuffer version of: {@link #clCreateImage CreateImage} */
 	public static long clCreateImage(long context, long flags, CLImageFormat image_format, CLImageDesc image_desc, ShortBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		return nclCreateImage(context, flags, image_format.address(), image_desc.address(), memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
 	}
 
 	/** IntBuffer version of: {@link #clCreateImage CreateImage} */
 	public static long clCreateImage(long context, long flags, CLImageFormat image_format, CLImageDesc image_desc, IntBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		return nclCreateImage(context, flags, image_format.address(), image_desc.address(), memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
 	}
 
 	/** FloatBuffer version of: {@link #clCreateImage CreateImage} */
 	public static long clCreateImage(long context, long flags, CLImageFormat image_format, CLImageDesc image_desc, FloatBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		return nclCreateImage(context, flags, image_format.address(), image_desc.address(), memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
 	}
 
@@ -685,7 +685,7 @@ public class CL12 {
 	public static long clCreateProgramWithBuiltInKernels(long context, int num_devices, PointerBuffer device_list, ByteBuffer kernel_names, IntBuffer errcode_ret) {
 		if ( CHECKS ) {
 			checkNT1(kernel_names);
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		}
 		return nclCreateProgramWithBuiltInKernels(context, num_devices, memAddress(device_list), memAddress(kernel_names), memAddressSafe(errcode_ret));
 	}
@@ -718,7 +718,7 @@ public class CL12 {
 	 */
 	public static long clCreateProgramWithBuiltInKernels(long context, int num_devices, PointerBuffer device_list, CharSequence kernel_names, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer kernel_namesEncoded = stack.ASCII(kernel_names);
@@ -751,7 +751,7 @@ public class CL12 {
 	 */
 	public static long clCreateProgramWithBuiltInKernels(long context, int num_devices, long device, CharSequence kernel_names, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer kernel_namesEncoded = stack.ASCII(kernel_names);
@@ -876,9 +876,9 @@ public class CL12 {
 	public static int clCompileProgram(long program, PointerBuffer device_list, ByteBuffer options, PointerBuffer input_headers, PointerBuffer header_include_names, CLProgramCallbackI pfn_notify, long user_data) {
 		if ( CHECKS ) {
 			checkNT1(options);
-			if ( header_include_names != null ) checkBuffer(header_include_names, input_headers.remaining());
+			checkBufferSafe(header_include_names, input_headers.remaining());
 		}
-		return nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(options), input_headers == null ? 0 : input_headers.remaining(), memAddressSafe(input_headers), memAddressSafe(header_include_names), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
+		return nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(options), input_headers == null ? 0 : input_headers.remaining(), memAddressSafe(input_headers), memAddressSafe(header_include_names), memAddressSafe(pfn_notify), user_data);
 	}
 
 	/**
@@ -932,11 +932,11 @@ public class CL12 {
 	 */
 	public static int clCompileProgram(long program, PointerBuffer device_list, CharSequence options, PointerBuffer input_headers, PointerBuffer header_include_names, CLProgramCallbackI pfn_notify, long user_data) {
 		if ( CHECKS )
-			if ( header_include_names != null ) checkBuffer(header_include_names, input_headers.remaining());
+			checkBufferSafe(header_include_names, input_headers.remaining());
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer optionsEncoded = stack.ASCII(options);
-			return nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), input_headers == null ? 0 : input_headers.remaining(), memAddressSafe(input_headers), memAddressSafe(header_include_names), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
+			return nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), input_headers == null ? 0 : input_headers.remaining(), memAddressSafe(input_headers), memAddressSafe(header_include_names), memAddressSafe(pfn_notify), user_data);
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -999,7 +999,7 @@ public class CL12 {
 			ByteBuffer optionsEncoded = stack.ASCII(options);
 			long input_headersAddress = org.lwjgl.system.APIUtil.apiArray(stack, input_headers);
 			long header_include_namesAddress = org.lwjgl.system.APIUtil.apiArray(stack, MemoryUtil::memASCII, header_include_names);
-			int __result = nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), input_headers.length, input_headersAddress, header_include_namesAddress, pfn_notify == null ? NULL : pfn_notify.address(), user_data);
+			int __result = nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), input_headers.length, input_headersAddress, header_include_namesAddress, memAddressSafe(pfn_notify), user_data);
 			org.lwjgl.system.APIUtil.apiArrayFree(header_include_namesAddress, header_include_names.length);
 			return __result;
 		} finally {
@@ -1057,7 +1057,7 @@ public class CL12 {
 			ByteBuffer optionsEncoded = stack.ASCII(options);
 			long input_headersAddress = org.lwjgl.system.APIUtil.apiArray(stack, input_header);
 			long header_include_namesAddress = org.lwjgl.system.APIUtil.apiArray(stack, MemoryUtil::memASCII, header_include_name);
-			int __result = nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), 1, input_headersAddress, header_include_namesAddress, pfn_notify == null ? NULL : pfn_notify.address(), user_data);
+			int __result = nclCompileProgram(program, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), 1, input_headersAddress, header_include_namesAddress, memAddressSafe(pfn_notify), user_data);
 			org.lwjgl.system.APIUtil.apiArrayFree(header_include_namesAddress, 1);
 			return __result;
 		} finally {
@@ -1217,7 +1217,7 @@ public class CL12 {
 	public static long clLinkProgram(long context, PointerBuffer device_list, ByteBuffer options, PointerBuffer input_programs, CLProgramCallbackI pfn_notify, long user_data) {
 		if ( CHECKS )
 			checkNT1(options);
-		return nclLinkProgram(context, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(options), input_programs == null ? 0 : input_programs.remaining(), memAddressSafe(input_programs), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
+		return nclLinkProgram(context, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(options), input_programs == null ? 0 : input_programs.remaining(), memAddressSafe(input_programs), memAddressSafe(pfn_notify), user_data);
 	}
 
 	/**
@@ -1292,7 +1292,7 @@ public class CL12 {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer optionsEncoded = stack.ASCII(options);
-			return nclLinkProgram(context, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), input_programs == null ? 0 : input_programs.remaining(), memAddressSafe(input_programs), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
+			return nclLinkProgram(context, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), input_programs == null ? 0 : input_programs.remaining(), memAddressSafe(input_programs), memAddressSafe(pfn_notify), user_data);
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -1361,7 +1361,7 @@ public class CL12 {
 		try {
 			ByteBuffer optionsEncoded = stack.ASCII(options);
 			PointerBuffer input_programs = stack.pointers(input_program);
-			return nclLinkProgram(context, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), 1, memAddress(input_programs), pfn_notify == null ? NULL : pfn_notify.address(), user_data);
+			return nclLinkProgram(context, device_list == null ? 0 : device_list.remaining(), memAddressSafe(device_list), memAddress(optionsEncoded), 1, memAddress(input_programs), memAddressSafe(pfn_notify), user_data);
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -1450,21 +1450,21 @@ public class CL12 {
 	 */
 	public static int clGetKernelArgInfo(long kernel, int arg_indx, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+			checkBufferSafe(param_value_size_ret, 1);
 		return nclGetKernelArgInfo(kernel, arg_indx, param_name, (long)(param_value == null ? 0 : param_value.remaining()), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetKernelArgInfo GetKernelArgInfo} */
 	public static int clGetKernelArgInfo(long kernel, int arg_indx, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+			checkBufferSafe(param_value_size_ret, 1);
 		return nclGetKernelArgInfo(kernel, arg_indx, param_name, (param_value == null ? 0 : param_value.remaining() << 2), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** LongBuffer version of: {@link #clGetKernelArgInfo GetKernelArgInfo} */
 	public static int clGetKernelArgInfo(long kernel, int arg_indx, int param_name, LongBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+			checkBufferSafe(param_value_size_ret, 1);
 		return nclGetKernelArgInfo(kernel, arg_indx, param_name, (param_value == null ? 0 : param_value.remaining() << 3), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -1568,7 +1568,7 @@ public class CL12 {
 	 */
 	public static int clEnqueueFillBuffer(long command_queue, long buffer, ByteBuffer pattern, long offset, long size, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		return nclEnqueueFillBuffer(command_queue, buffer, memAddress(pattern), (long)pattern.remaining(), offset, size, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -1681,7 +1681,7 @@ public class CL12 {
 	 */
 	public static int clEnqueueFillImage(long command_queue, long image, ByteBuffer fill_color, PointerBuffer origin, PointerBuffer region, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		return nclEnqueueFillImage(command_queue, image, memAddress(fill_color), memAddress(origin), memAddress(region), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -1788,7 +1788,7 @@ public class CL12 {
 	 */
 	public static int clEnqueueMigrateMemObjects(long command_queue, PointerBuffer mem_objects, long flags, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		return nclEnqueueMigrateMemObjects(command_queue, mem_objects.remaining(), memAddress(mem_objects), flags, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -1858,7 +1858,7 @@ public class CL12 {
 	 */
 	public static int clEnqueueMarkerWithWaitList(long command_queue, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		return nclEnqueueMarkerWithWaitList(command_queue, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -1928,7 +1928,7 @@ public class CL12 {
 	 */
 	public static int clEnqueueBarrierWithWaitList(long command_queue, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			if ( event != null ) checkBuffer(event, 1);
+			checkBufferSafe(event, 1);
 		return nclEnqueueBarrierWithWaitList(command_queue, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -1939,7 +1939,7 @@ public class CL12 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(in_device);
 			checkNT(properties);
-			if ( num_devices_ret != null ) checkBuffer(num_devices_ret, 1);
+			checkBufferSafe(num_devices_ret, 1);
 		}
 		return callPPPPI(__functionAddress, in_device, memAddress(properties), out_devices == null ? 0 : out_devices.remaining(), memAddressSafe(out_devices), num_devices_ret);
 	}
@@ -1950,7 +1950,7 @@ public class CL12 {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		}
 		return callPJPPPPP(__functionAddress, context, flags, image_format.address(), image_desc.address(), memAddressSafe(host_ptr), errcode_ret);
 	}
@@ -1961,7 +1961,7 @@ public class CL12 {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		}
 		return callPJPPPPP(__functionAddress, context, flags, image_format.address(), image_desc.address(), host_ptr, errcode_ret);
 	}
@@ -1972,7 +1972,7 @@ public class CL12 {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		}
 		return callPJPPPPP(__functionAddress, context, flags, image_format.address(), image_desc.address(), host_ptr, errcode_ret);
 	}
@@ -1983,7 +1983,7 @@ public class CL12 {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		}
 		return callPJPPPPP(__functionAddress, context, flags, image_format.address(), image_desc.address(), host_ptr, errcode_ret);
 	}
@@ -1995,7 +1995,7 @@ public class CL12 {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
 			checkNT1(kernel_names);
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		}
 		return callPPPPP(__functionAddress, context, num_devices, memAddress(device_list), memAddress(kernel_names), errcode_ret);
 	}
@@ -2006,7 +2006,7 @@ public class CL12 {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(context);
-			if ( errcode_ret != null ) checkBuffer(errcode_ret, 1);
+			checkBufferSafe(errcode_ret, 1);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2023,7 +2023,7 @@ public class CL12 {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(kernel);
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+			checkBufferSafe(param_value_size_ret, 1);
 		}
 		return callPPPPI(__functionAddress, kernel, arg_indx, param_name, (long)(param_value == null ? 0 : param_value.length << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
@@ -2034,7 +2034,7 @@ public class CL12 {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(kernel);
-			if ( param_value_size_ret != null ) checkBuffer(param_value_size_ret, 1);
+			checkBufferSafe(param_value_size_ret, 1);
 		}
 		return callPPPPI(__functionAddress, kernel, arg_indx, param_name, (long)(param_value == null ? 0 : param_value.length << 3), param_value, memAddressSafe(param_value_size_ret));
 	}

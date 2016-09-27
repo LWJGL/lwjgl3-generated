@@ -232,7 +232,7 @@ public class GDI32 {
 	 *                              structure. This is useful when you only want to obtain the maximum pixel format index of a device context.
 	 */
 	public static int DescribePixelFormat(long hdc, int pixelFormat, int bytes, PIXELFORMATDESCRIPTOR pixelFormatDescriptor) {
-		return nDescribePixelFormat(hdc, pixelFormat, bytes, pixelFormatDescriptor == null ? NULL : pixelFormatDescriptor.address());
+		return nDescribePixelFormat(hdc, pixelFormat, bytes, memAddressSafe(pixelFormatDescriptor));
 	}
 
 	/**
@@ -247,7 +247,7 @@ public class GDI32 {
 	 *                              structure. This is useful when you only want to obtain the maximum pixel format index of a device context.
 	 */
 	public static int DescribePixelFormat(long hdc, int pixelFormat, PIXELFORMATDESCRIPTOR pixelFormatDescriptor) {
-		return nDescribePixelFormat(hdc, pixelFormat, PIXELFORMATDESCRIPTOR.SIZEOF, pixelFormatDescriptor == null ? NULL : pixelFormatDescriptor.address());
+		return nDescribePixelFormat(hdc, pixelFormat, PIXELFORMATDESCRIPTOR.SIZEOF, memAddressSafe(pixelFormatDescriptor));
 	}
 
 	// --- [ GetPixelFormat ] ---
@@ -307,7 +307,7 @@ public class GDI32 {
 	 *                              to record the logical pixel format specification. The structure has no other effect upon the behavior of the SetPixelFormat function.
 	 */
 	public static boolean SetPixelFormat(long hdc, int pixelFormat, PIXELFORMATDESCRIPTOR pixelFormatDescriptor) {
-		return nSetPixelFormat(hdc, pixelFormat, pixelFormatDescriptor == null ? NULL : pixelFormatDescriptor.address()) != 0;
+		return nSetPixelFormat(hdc, pixelFormat, memAddressSafe(pixelFormatDescriptor)) != 0;
 	}
 
 	// --- [ SwapBuffers ] ---

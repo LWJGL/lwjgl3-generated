@@ -61,7 +61,7 @@ public class EXTPlatformBase {
 
 	public static long eglGetPlatformDisplayEXT(int platform, long native_display, IntBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		return neglGetPlatformDisplayEXT(platform, native_display, memAddressSafe(attrib_list));
 	}
 
@@ -80,7 +80,7 @@ public class EXTPlatformBase {
 
 	public static long eglCreatePlatformWindowSurfaceEXT(long dpy, long config, long native_window, IntBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		return neglCreatePlatformWindowSurfaceEXT(dpy, config, native_window, memAddressSafe(attrib_list));
 	}
 
@@ -99,7 +99,7 @@ public class EXTPlatformBase {
 
 	public static long eglCreatePlatformPixmapSurfaceEXT(long dpy, long config, long native_pixmap, IntBuffer attrib_list) {
 		if ( CHECKS )
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		return neglCreatePlatformPixmapSurfaceEXT(dpy, config, native_pixmap, memAddressSafe(attrib_list));
 	}
 
@@ -109,7 +109,7 @@ public class EXTPlatformBase {
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
 			checkPointer(native_display);
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		}
 		return callPPP(__functionAddress, platform, native_display, attrib_list);
 	}
@@ -122,7 +122,7 @@ public class EXTPlatformBase {
 			checkPointer(dpy);
 			checkPointer(config);
 			checkPointer(native_window);
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		}
 		return callPPPPP(__functionAddress, dpy, config, native_window, attrib_list);
 	}
@@ -135,7 +135,7 @@ public class EXTPlatformBase {
 			checkPointer(dpy);
 			checkPointer(config);
 			checkPointer(native_pixmap);
-			if ( attrib_list != null ) checkNT(attrib_list, EGL10.EGL_NONE);
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		}
 		return callPPPPP(__functionAddress, dpy, config, native_pixmap, attrib_list);
 	}

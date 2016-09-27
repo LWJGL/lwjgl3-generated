@@ -205,7 +205,7 @@ public class ARBShaderObjects {
 	 */
 	public static void glShaderSourceARB(int shaderObj, PointerBuffer string, IntBuffer length) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, string.remaining());
+			checkBufferSafe(length, string.remaining());
 		nglShaderSourceARB(shaderObj, string.remaining(), memAddress(string), memAddressSafe(length));
 	}
 
@@ -930,7 +930,7 @@ public class ARBShaderObjects {
 	 */
 	public static void glGetInfoLogARB(int obj, IntBuffer length, ByteBuffer infoLog) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		nglGetInfoLogARB(obj, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog));
 	}
 
@@ -1024,7 +1024,7 @@ public class ARBShaderObjects {
 	 */
 	public static void glGetAttachedObjectsARB(int containerObj, IntBuffer count, IntBuffer obj) {
 		if ( CHECKS )
-			if ( count != null ) checkBuffer(count, 1);
+			checkBufferSafe(count, 1);
 		nglGetAttachedObjectsARB(containerObj, obj.remaining(), memAddressSafe(count), memAddress(obj));
 	}
 
@@ -1177,7 +1177,7 @@ public class ARBShaderObjects {
 	 */
 	public static void glGetActiveUniformARB(int programObj, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
 		if ( CHECKS ) {
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
@@ -1404,7 +1404,7 @@ public class ARBShaderObjects {
 	 */
 	public static void glGetShaderSourceARB(int obj, IntBuffer length, ByteBuffer source) {
 		if ( CHECKS )
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		nglGetShaderSourceARB(obj, source.remaining(), memAddressSafe(length), memAddress(source));
 	}
 
@@ -1459,7 +1459,7 @@ public class ARBShaderObjects {
 		long __functionAddress = GL.getCapabilities().glShaderSourceARB;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, string.remaining());
+			checkBufferSafe(length, string.remaining());
 		}
 		callPPV(__functionAddress, shaderObj, string.remaining(), memAddress(string), length);
 	}
@@ -1577,7 +1577,7 @@ public class ARBShaderObjects {
 		long __functionAddress = GL.getCapabilities().glGetInfoLogARB;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		}
 		callPPV(__functionAddress, obj, infoLog.remaining(), length, memAddress(infoLog));
 	}
@@ -1587,7 +1587,7 @@ public class ARBShaderObjects {
 		long __functionAddress = GL.getCapabilities().glGetAttachedObjectsARB;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( count != null ) checkBuffer(count, 1);
+			checkBufferSafe(count, 1);
 		}
 		callPPV(__functionAddress, containerObj, obj.length, count, obj);
 	}
@@ -1597,7 +1597,7 @@ public class ARBShaderObjects {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniformARB;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 			checkBuffer(size, 1);
 			checkBuffer(type, 1);
 		}
@@ -1629,7 +1629,7 @@ public class ARBShaderObjects {
 		long __functionAddress = GL.getCapabilities().glGetShaderSourceARB;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			if ( length != null ) checkBuffer(length, 1);
+			checkBufferSafe(length, 1);
 		}
 		callPPV(__functionAddress, obj, source.remaining(), length, memAddress(source));
 	}
