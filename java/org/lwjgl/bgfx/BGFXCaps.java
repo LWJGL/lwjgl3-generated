@@ -172,7 +172,7 @@ public class BGFXCaps extends Struct {
 	public static byte nnumGPUs(long struct) { return memGetByte(struct + BGFXCaps.NUMGPUS); }
 	/** Unsafe version of {@link #gpu}. */
 	public static BGFXCapsGPU.Buffer ngpu(long struct) {
-		return BGFXCapsGPU.create(struct + BGFXCaps.GPU, (int)nnumGPUs(struct));
+		return BGFXCapsGPU.create(struct + BGFXCaps.GPU, Byte.toUnsignedInt(nnumGPUs(struct)));
 	}
 	/** Unsafe version of {@link #gpu(int) gpu}. */
 	public static BGFXCapsGPU ngpu(long struct, int index) {

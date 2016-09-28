@@ -72,12 +72,8 @@ public class BGFXTransform extends Struct implements NativeResource {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	/**
-	 * Returns a {@link FloatBuffer} view of the data pointed to by the {@code data} field.
-	 *
-	 * @param capacity the number of elements in the returned buffer
-	 */
-	public FloatBuffer data(int capacity) { return ndata(address(), capacity); }
+	/** Returns a {@link FloatBuffer} view of the data pointed to by the {@code data} field. */
+	public FloatBuffer data() { return ndata(address()); }
 	/** Returns the value of the {@code num} field. */
 	public short num() { return nnum(address()); }
 
@@ -210,8 +206,8 @@ public class BGFXTransform extends Struct implements NativeResource {
 
 	// -----------------------------------
 
-	/** Unsafe version of {@link #data(int) data}. */
-	public static FloatBuffer ndata(long struct, int capacity) { return memFloatBuffer(memGetAddress(struct + BGFXTransform.DATA), capacity); }
+	/** Unsafe version of {@link #data() data}. */
+	public static FloatBuffer ndata(long struct) { return memFloatBuffer(memGetAddress(struct + BGFXTransform.DATA), (Short.toUnsignedInt(nnum(struct)) << 4)); }
 	/** Unsafe version of {@link #num}. */
 	public static short nnum(long struct) { return memGetShort(struct + BGFXTransform.NUM); }
 
@@ -257,12 +253,8 @@ public class BGFXTransform extends Struct implements NativeResource {
 			return SIZEOF;
 		}
 
-		/**
-		 * Returns a {@link FloatBuffer} view of the data pointed to by the {@code data} field.
-		 *
-		 * @param capacity the number of elements in the returned buffer
-		 */
-		public FloatBuffer data(int capacity) { return BGFXTransform.ndata(address(), capacity); }
+		/** Returns a {@link FloatBuffer} view of the data pointed to by the {@code data} field. */
+		public FloatBuffer data() { return BGFXTransform.ndata(address()); }
 		/** Returns the value of the {@code num} field. */
 		public short num() { return BGFXTransform.nnum(address()); }
 
