@@ -617,6 +617,7 @@ public class GLFW {
 			SetWindowRefreshCallback   = apiGetFunctionAddress(GLFW, "glfwSetWindowRefreshCallback"),
 			SetWindowFocusCallback     = apiGetFunctionAddress(GLFW, "glfwSetWindowFocusCallback"),
 			SetWindowIconifyCallback   = apiGetFunctionAddress(GLFW, "glfwSetWindowIconifyCallback"),
+			SetWindowMaximizeCallback  = apiGetFunctionAddress(GLFW, "glfwSetWindowMaximizeCallback"),
 			SetFramebufferSizeCallback = apiGetFunctionAddress(GLFW, "glfwSetFramebufferSizeCallback"),
 			PollEvents                 = apiGetFunctionAddress(GLFW, "glfwPollEvents"),
 			WaitEvents                 = apiGetFunctionAddress(GLFW, "glfwWaitEvents"),
@@ -2637,6 +2638,45 @@ public class GLFW {
 	 */
 	public static GLFWWindowIconifyCallback glfwSetWindowIconifyCallback(long window, GLFWWindowIconifyCallbackI cbfun) {
 		return GLFWWindowIconifyCallback.create(nglfwSetWindowIconifyCallback(window, memAddressSafe(cbfun)));
+	}
+
+	// --- [ glfwSetWindowMaximizeCallback ] ---
+
+	/**
+	 * Sets the maximization callback of the specified window, which is called when the window is maximized or restored.
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window whose callback to set
+	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
+	 *
+	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
+	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
+	 *
+	 * @since version 3.3
+	 */
+	public static long nglfwSetWindowMaximizeCallback(long window, long cbfun) {
+		long __functionAddress = Functions.SetWindowMaximizeCallback;
+		if ( CHECKS )
+			checkPointer(window);
+		return invokePPP(__functionAddress, window, cbfun);
+	}
+
+	/**
+	 * Sets the maximization callback of the specified window, which is called when the window is maximized or restored.
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window whose callback to set
+	 * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
+	 *
+	 * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
+	 *         <a href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
+	 *
+	 * @since version 3.3
+	 */
+	public static GLFWWindowMaximizeCallback glfwSetWindowMaximizeCallback(long window, GLFWWindowMaximizeCallbackI cbfun) {
+		return GLFWWindowMaximizeCallback.create(nglfwSetWindowMaximizeCallback(window, memAddressSafe(cbfun)));
 	}
 
 	// --- [ glfwSetFramebufferSizeCallback ] ---
