@@ -2079,8 +2079,6 @@ public class BGFX {
 	 */
 	public static void nbgfx_alloc_transient_index_buffer(long _tib, int _num) {
 		long __functionAddress = Functions.alloc_transient_index_buffer;
-		if ( CHECKS )
-			BGFXTransientIndexBuffer.validate(_tib);
 		invokePV(__functionAddress, _tib, _num);
 	}
 
@@ -2109,8 +2107,6 @@ public class BGFX {
 	 */
 	public static void nbgfx_alloc_transient_vertex_buffer(long _tvb, int _num, long _decl) {
 		long __functionAddress = Functions.alloc_transient_vertex_buffer;
-		if ( CHECKS )
-			BGFXTransientVertexBuffer.validate(_tvb);
 		invokePPV(__functionAddress, _tvb, _num, _decl);
 	}
 
@@ -2140,10 +2136,6 @@ public class BGFX {
 	 */
 	public static boolean nbgfx_alloc_transient_buffers(long _tvb, long _decl, int _numVertices, long _tib, int _numIndices) {
 		long __functionAddress = Functions.alloc_transient_buffers;
-		if ( CHECKS ) {
-			BGFXTransientVertexBuffer.validate(_tvb);
-			BGFXTransientIndexBuffer.validate(_tib);
-		}
 		return invokePPPZ(__functionAddress, _tvb, _decl, _numVertices, _tib, _numIndices);
 	}
 

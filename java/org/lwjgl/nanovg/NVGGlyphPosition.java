@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -91,47 +90,6 @@ public class NVGGlyphPosition extends Struct implements NativeResource {
 	public float minx() { return nminx(address()); }
 	/** Returns the value of the {@code maxx} field. */
 	public float maxx() { return nmaxx(address()); }
-
-	/** Sets the specified value to the {@code str} field. */
-	public NVGGlyphPosition str(long value) { nstr(address(), value); return this; }
-	/** Sets the specified value to the {@code x} field. */
-	public NVGGlyphPosition x(float value) { nx(address(), value); return this; }
-	/** Sets the specified value to the {@code minx} field. */
-	public NVGGlyphPosition minx(float value) { nminx(address(), value); return this; }
-	/** Sets the specified value to the {@code maxx} field. */
-	public NVGGlyphPosition maxx(float value) { nmaxx(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public NVGGlyphPosition set(
-		long str,
-		float x,
-		float minx,
-		float maxx
-	) {
-		str(str);
-		x(x);
-		minx(minx);
-		maxx(maxx);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(NVGGlyphPosition) set}. */
-	public NVGGlyphPosition nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public NVGGlyphPosition set(NVGGlyphPosition src) {
-		return nset(src.address());
-	}
 
 	// -----------------------------------
 
@@ -271,35 +229,6 @@ public class NVGGlyphPosition extends Struct implements NativeResource {
 	/** Unsafe version of {@link #maxx}. */
 	public static float nmaxx(long struct) { return memGetFloat(struct + NVGGlyphPosition.MAXX); }
 
-	/** Unsafe version of {@link #str(long) str}. */
-	public static void nstr(long struct, long value) { memPutAddress(struct + NVGGlyphPosition.STR, checkPointer(value)); }
-	/** Unsafe version of {@link #x(float) x}. */
-	public static void nx(long struct, float value) { memPutFloat(struct + NVGGlyphPosition.X, value); }
-	/** Unsafe version of {@link #minx(float) minx}. */
-	public static void nminx(long struct, float value) { memPutFloat(struct + NVGGlyphPosition.MINX, value); }
-	/** Unsafe version of {@link #maxx(float) maxx}. */
-	public static void nmaxx(long struct, float value) { memPutFloat(struct + NVGGlyphPosition.MAXX, value); }
-
-	/**
-	 * Validates pointer members that should not be {@code NULL}.
-	 *
-	 * @param struct the struct to validate
-	 */
-	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + NVGGlyphPosition.STR));
-	}
-
-	/**
-	 * Calls {@link #validate(long)} for each struct contained in the specified struct array.
-	 *
-	 * @param array the struct array to validate
-	 * @param count the number of structs in {@code array}
-	 */
-	public static void validate(long array, int count) {
-		for ( int i = 0; i < count; i++ )
-			validate(array + i * SIZEOF);
-	}
-
 	// -----------------------------------
 
 	/** An array of {@link NVGGlyphPosition} structs. */
@@ -350,15 +279,6 @@ public class NVGGlyphPosition extends Struct implements NativeResource {
 		public float minx() { return NVGGlyphPosition.nminx(address()); }
 		/** Returns the value of the {@code maxx} field. */
 		public float maxx() { return NVGGlyphPosition.nmaxx(address()); }
-
-		/** Sets the specified value to the {@code str} field. */
-		public NVGGlyphPosition.Buffer str(long value) { NVGGlyphPosition.nstr(address(), value); return this; }
-		/** Sets the specified value to the {@code x} field. */
-		public NVGGlyphPosition.Buffer x(float value) { NVGGlyphPosition.nx(address(), value); return this; }
-		/** Sets the specified value to the {@code minx} field. */
-		public NVGGlyphPosition.Buffer minx(float value) { NVGGlyphPosition.nminx(address(), value); return this; }
-		/** Sets the specified value to the {@code maxx} field. */
-		public NVGGlyphPosition.Buffer maxx(float value) { NVGGlyphPosition.nmaxx(address(), value); return this; }
 
 	}
 

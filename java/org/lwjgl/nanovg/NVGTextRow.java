@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -105,55 +104,6 @@ public class NVGTextRow extends Struct implements NativeResource {
 	public float minx() { return nminx(address()); }
 	/** Returns the value of the {@code maxx} field. */
 	public float maxx() { return nmaxx(address()); }
-
-	/** Sets the specified value to the {@code start} field. */
-	public NVGTextRow start(long value) { nstart(address(), value); return this; }
-	/** Sets the specified value to the {@code end} field. */
-	public NVGTextRow end(long value) { nend(address(), value); return this; }
-	/** Sets the specified value to the {@code next} field. */
-	public NVGTextRow next(long value) { nnext(address(), value); return this; }
-	/** Sets the specified value to the {@code width} field. */
-	public NVGTextRow width(float value) { nwidth(address(), value); return this; }
-	/** Sets the specified value to the {@code minx} field. */
-	public NVGTextRow minx(float value) { nminx(address(), value); return this; }
-	/** Sets the specified value to the {@code maxx} field. */
-	public NVGTextRow maxx(float value) { nmaxx(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public NVGTextRow set(
-		long start,
-		long end,
-		long next,
-		float width,
-		float minx,
-		float maxx
-	) {
-		start(start);
-		end(end);
-		next(next);
-		width(width);
-		minx(minx);
-		maxx(maxx);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(NVGTextRow) set}. */
-	public NVGTextRow nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public NVGTextRow set(NVGTextRow src) {
-		return nset(src.address());
-	}
 
 	// -----------------------------------
 
@@ -297,41 +247,6 @@ public class NVGTextRow extends Struct implements NativeResource {
 	/** Unsafe version of {@link #maxx}. */
 	public static float nmaxx(long struct) { return memGetFloat(struct + NVGTextRow.MAXX); }
 
-	/** Unsafe version of {@link #start(long) start}. */
-	public static void nstart(long struct, long value) { memPutAddress(struct + NVGTextRow.START, checkPointer(value)); }
-	/** Unsafe version of {@link #end(long) end}. */
-	public static void nend(long struct, long value) { memPutAddress(struct + NVGTextRow.END, checkPointer(value)); }
-	/** Unsafe version of {@link #next(long) next}. */
-	public static void nnext(long struct, long value) { memPutAddress(struct + NVGTextRow.NEXT, checkPointer(value)); }
-	/** Unsafe version of {@link #width(float) width}. */
-	public static void nwidth(long struct, float value) { memPutFloat(struct + NVGTextRow.WIDTH, value); }
-	/** Unsafe version of {@link #minx(float) minx}. */
-	public static void nminx(long struct, float value) { memPutFloat(struct + NVGTextRow.MINX, value); }
-	/** Unsafe version of {@link #maxx(float) maxx}. */
-	public static void nmaxx(long struct, float value) { memPutFloat(struct + NVGTextRow.MAXX, value); }
-
-	/**
-	 * Validates pointer members that should not be {@code NULL}.
-	 *
-	 * @param struct the struct to validate
-	 */
-	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + NVGTextRow.START));
-		checkPointer(memGetAddress(struct + NVGTextRow.END));
-		checkPointer(memGetAddress(struct + NVGTextRow.NEXT));
-	}
-
-	/**
-	 * Calls {@link #validate(long)} for each struct contained in the specified struct array.
-	 *
-	 * @param array the struct array to validate
-	 * @param count the number of structs in {@code array}
-	 */
-	public static void validate(long array, int count) {
-		for ( int i = 0; i < count; i++ )
-			validate(array + i * SIZEOF);
-	}
-
 	// -----------------------------------
 
 	/** An array of {@link NVGTextRow} structs. */
@@ -386,19 +301,6 @@ public class NVGTextRow extends Struct implements NativeResource {
 		public float minx() { return NVGTextRow.nminx(address()); }
 		/** Returns the value of the {@code maxx} field. */
 		public float maxx() { return NVGTextRow.nmaxx(address()); }
-
-		/** Sets the specified value to the {@code start} field. */
-		public NVGTextRow.Buffer start(long value) { NVGTextRow.nstart(address(), value); return this; }
-		/** Sets the specified value to the {@code end} field. */
-		public NVGTextRow.Buffer end(long value) { NVGTextRow.nend(address(), value); return this; }
-		/** Sets the specified value to the {@code next} field. */
-		public NVGTextRow.Buffer next(long value) { NVGTextRow.nnext(address(), value); return this; }
-		/** Sets the specified value to the {@code width} field. */
-		public NVGTextRow.Buffer width(float value) { NVGTextRow.nwidth(address(), value); return this; }
-		/** Sets the specified value to the {@code minx} field. */
-		public NVGTextRow.Buffer minx(float value) { NVGTextRow.nminx(address(), value); return this; }
-		/** Sets the specified value to the {@code maxx} field. */
-		public NVGTextRow.Buffer maxx(float value) { NVGTextRow.nmaxx(address(), value); return this; }
 
 	}
 

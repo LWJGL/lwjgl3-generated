@@ -2790,7 +2790,6 @@ public class NanoVG {
 		if ( CHECKS ) {
 			checkPointer(ctx);
 			checkNT1(string);
-			NVGGlyphPosition.validate(positions.address(), positions.remaining());
 		}
 		return nnvgTextGlyphPositions(ctx, x, y, memAddress(string), end, positions.address(), positions.remaining());
 	}
@@ -2808,10 +2807,8 @@ public class NanoVG {
 	 * @param positions returns the glyph x positions
 	 */
 	public static int nvgTextGlyphPositions(long ctx, float x, float y, CharSequence string, long end, NVGGlyphPosition.Buffer positions) {
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(ctx);
-			NVGGlyphPosition.validate(positions.address(), positions.remaining());
-		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer stringEncoded = stack.UTF8(string);
@@ -2888,7 +2885,6 @@ public class NanoVG {
 		if ( CHECKS ) {
 			checkPointer(ctx);
 			checkNT1(string);
-			NVGTextRow.validate(rows.address(), rows.remaining());
 		}
 		return nnvgTextBreakLines(ctx, memAddress(string), end, breakRowWidth, rows.address(), rows.remaining());
 	}
@@ -2906,10 +2902,8 @@ public class NanoVG {
 	 * @param rows          returns the text rows
 	 */
 	public static int nvgTextBreakLines(long ctx, CharSequence string, long end, float breakRowWidth, NVGTextRow.Buffer rows) {
-		if ( CHECKS ) {
+		if ( CHECKS )
 			checkPointer(ctx);
-			NVGTextRow.validate(rows.address(), rows.remaining());
-		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer stringEncoded = stack.UTF8(string);

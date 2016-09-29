@@ -46,6 +46,8 @@ public class BGFXPlatform {
 	 * 
 	 * <p>This call should be only used on platforms that don't allow creating separate rendering thread. If it is called before to {@link BGFX#bgfx_init init}, render thread won't
 	 * be created by {@link BGFX#bgfx_init init} call.</p>
+	 *
+	 * @return current renderer state
 	 */
 	public static int bgfx_render_frame() {
 		long __functionAddress = Functions.render_frame;
