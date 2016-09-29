@@ -5,75 +5,29 @@
  */
 package org.lwjgl.system.jemalloc;
 
-import java.nio.*;
-
-import org.lwjgl.system.*;
-
-import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.MemoryUtil.*;
-
 /** Macros for jemalloc. */
-public class JEmacros {
+public final class JEmacros {
 
-	static { Library.initialize(); }
+	private JEmacros() {}
 
-	protected JEmacros() {
-		throw new UnsupportedOperationException();
-	}
+	/** The major version. */
+	public static final int JEMALLOC_VERSION_MAJOR = 4;
 
-	// --- [ JEMALLOC_VERSION ] ---
+	/** The minor version. */
+	public static final int JEMALLOC_VERSION_MINOR = 2;
 
-	private static native long nJEMALLOC_VERSION();
+	/** The bugfix version. */
+	public static final int JEMALLOC_VERSION_BUGFIX = 1;
 
-	private static String JEMALLOC_VERSION() {
-		long __result = nJEMALLOC_VERSION();
-		return memASCII(__result);
-	}
+	/** Tthe revision number. */
+	public static final int JEMALLOC_VERSION_NREV = 0;
+
+	/** The globally unique identifier (git commit hash). */
+	public static final String JEMALLOC_VERSION_GID = "3de035335255d553bdb344c32ffdb603816195d8";
 
 	/** Returns the version string. */
-	public static final String JEMALLOC_VERSION = JEMALLOC_VERSION();
-
-	// --- [ JEMALLOC_VERSION_MAJOR ] ---
-
-	private static native int JEMALLOC_VERSION_MAJOR();
-
-	/** Returns the major version. */
-	public static final int JEMALLOC_VERSION_MAJOR = JEMALLOC_VERSION_MAJOR();
-
-	// --- [ JEMALLOC_VERSION_MINOR ] ---
-
-	private static native int JEMALLOC_VERSION_MINOR();
-
-	/** Returns the minor version. */
-	public static final int JEMALLOC_VERSION_MINOR = JEMALLOC_VERSION_MINOR();
-
-	// --- [ JEMALLOC_VERSION_BUGFIX ] ---
-
-	private static native int JEMALLOC_VERSION_BUGFIX();
-
-	/** Returns the bugfix version. */
-	public static final int JEMALLOC_VERSION_BUGFIX = JEMALLOC_VERSION_BUGFIX();
-
-	// --- [ JEMALLOC_VERSION_NREV ] ---
-
-	private static native int JEMALLOC_VERSION_NREV();
-
-	/** Returns the revision number. */
-	public static final int JEMALLOC_VERSION_NREV = JEMALLOC_VERSION_NREV();
-
-	// --- [ JEMALLOC_VERSION_GID ] ---
-
-	private static native long nJEMALLOC_VERSION_GID();
-
-	private static String JEMALLOC_VERSION_GID() {
-		long __result = nJEMALLOC_VERSION_GID();
-		return memASCII(__result);
-	}
-
-	/** Returns the globally unique identifier (git commit hash). */
-	public static final String JEMALLOC_VERSION_GID = JEMALLOC_VERSION_GID();
-
-	// --- [ MALLOCX_LG_ALIGN ] ---
+	public static final String JEMALLOC_VERSION =
+		JEMALLOC_VERSION_MAJOR + "." + JEMALLOC_VERSION_MINOR + "." + JEMALLOC_VERSION_BUGFIX + "-" + JEMALLOC_VERSION_NREV + "-g" + JEMALLOC_VERSION_GID;
 
 	/**
 	 * Align the memory allocation to start at an address that is a multiple of {@code (1 << la)}. This macro does not validate that {@code la} is within the
@@ -81,9 +35,9 @@ public class JEmacros {
 	 *
 	 * @param la the alignment shift
 	 */
-	public static native int MALLOCX_LG_ALIGN(int la);
-
-	// --- [ MALLOCX_ALIGN ] ---
+	public static int MALLOCX_LG_ALIGN(int la) {
+		return la;
+	}
 
 	/**
 	 * Align the memory allocation to start at an address that is a multiple of {@code a}, where {@code a} is a power of two. This macro does not validate
@@ -91,19 +45,15 @@ public class JEmacros {
 	 *
 	 * @param a the alignment
 	 */
-	public static native int MALLOCX_ALIGN(long a);
-
-	// --- [ MALLOCX_ZERO ] ---
-
-	private static native int MALLOCX_ZERO();
+	public static int MALLOCX_ALIGN(int a) {
+		return Integer.numberOfTrailingZeros(a);
+	}
 
 	/**
 	 * Initialize newly allocated memory to contain zero bytes. In the growing reallocation case, the real size prior to reallocation defines the boundary
 	 * between untouched bytes and those that are initialized to contain zero bytes. If this macro is absent, newly allocated memory is uninitialized.
 	 */
-	public static final int MALLOCX_ZERO = MALLOCX_ZERO();
-
-	// --- [ MALLOCX_TCACHE ] ---
+	public static final int MALLOCX_ZERO = 0x40;
 
 	/**
 	 * Use the thread-specific cache (tcache) specified by the identifier {@code tc}, which must have been acquired via the {@code tcache.create} mallctl.
@@ -111,19 +61,16 @@ public class JEmacros {
 	 *
 	 * @param tc the thread-specific cache
 	 */
-	public static native int MALLOCX_TCACHE(int tc);
-
-	// --- [ MALLOCX_TCACHE_NONE ] ---
-
-	private static native int MALLOCX_TCACHE_NONE();
+	public static int MALLOCX_TCACHE(int tc) {
+		return (tc + 2) << 8;
+	}
 
 	/**
-	 * Do not use a thread-specific cache (tcache).  Unless {@link #MALLOCX_TCACHE} or {@code MALLOCX_TCACHE_NONE} is specified, an automatically managed tcache
+	 * Do not use a thread-specific cache (tcache).  Unless {@link #MALLOCX_TCACHE} or {@code MALLOCX_TCACHE_NONE} is specified, an automatically managed
+	 * tcache
 	 * will be used under many circumstances. This macro cannot be used in the same {@code flags} argument as {@code MALLOCX_TCACHE(tc)}.
 	 */
-	public static final int MALLOCX_TCACHE_NONE = MALLOCX_TCACHE_NONE();
-
-	// --- [ MALLOCX_ARENA ] ---
+	public static final int MALLOCX_TCACHE_NONE = MALLOCX_TCACHE(-1);
 
 	/**
 	 * Use the arena specified by the index {@code a} (and by necessity bypass the thread cache). This macro has no effect for huge regions, nor for regions
@@ -131,6 +78,8 @@ public class JEmacros {
 	 *
 	 * @param a the arena index
 	 */
-	public static native int MALLOCX_ARENA(int a);
+	public static int MALLOCX_ARENA(int a) {
+		return (a + 1) << 20;
+	}
 
 }
