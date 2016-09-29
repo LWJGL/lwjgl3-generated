@@ -15,6 +15,18 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * Platform data.
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code ndt} &ndash; native display type</li>
+ * <li>{@code nwh} &ndash; native window handle</li>
+ * <li>{@code context} &ndash; GL context, or D3D device</li>
+ * <li>{@code backBuffer} &ndash; GL backbuffer, or D3D render target view</li>
+ * <li>{@code backBufferDS} &ndash; Backbuffer depth/stencil</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct bgfx_platform_data_t {

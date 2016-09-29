@@ -9,7 +9,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/**  */
+/** Called when capture ends. */
 @FunctionalInterface
 public interface BGFXCaptureEndCallbackI extends CallbackI.V {
 
@@ -25,7 +25,11 @@ public interface BGFXCaptureEndCallbackI extends CallbackI.V {
 		);
 	}
 
-
+	/**
+	 * Will be called when capture ends.
+	 *
+	 * @param _this the callback interface
+	 */
 	void invoke(long _this);
 
 }

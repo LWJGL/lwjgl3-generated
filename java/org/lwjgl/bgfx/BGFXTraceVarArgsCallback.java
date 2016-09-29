@@ -9,7 +9,11 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/**  */
+/**
+ * Prints a debug message.
+ * 
+ * <p>Not thread safe and it can be called from any thread.</p>
+ */
 public abstract class BGFXTraceVarArgsCallback extends Callback implements BGFXTraceVarArgsCallbackI {
 
 	/** Creates a {@code BGFXTraceVarArgsCallback} instance from the specified function pointer. */

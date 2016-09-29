@@ -9,7 +9,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/**  */
+/** Called when capture ends. */
 public abstract class BGFXCaptureEndCallback extends Callback implements BGFXCaptureEndCallbackI {
 
 	/** Creates a {@code BGFXCaptureEndCallback} instance from the specified function pointer. */

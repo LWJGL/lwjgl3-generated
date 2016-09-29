@@ -12,23 +12,21 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * GPU info.
+ * Internal data.
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code vendorId} &ndash; vendor id</li>
- * <li>{@code deviceId} &ndash; device id</li>
+ * <li>{@code caps} &ndash; renderer capabilities</li>
  * </ul>
  * 
  * <h3>Layout</h3>
  * 
- * <pre><code>struct bgfx_caps_gpu_t {
-    uint16_t vendorId;
-    uint16_t deviceId;
+ * <pre><code>struct bgfx_internal_data_t {
+    bgfx_caps_t * caps;
 }</code></pre>
  */
-public class BGFXCapsGPU extends Struct {
+public class BGFXInternalData extends Struct {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -37,53 +35,48 @@ public class BGFXCapsGPU extends Struct {
 
 	/** The struct member offsets. */
 	public static final int
-		VENDORID,
-		DEVICEID;
+		CAPS;
 
 	static {
 		Layout layout = __struct(
-			__member(2),
-			__member(2)
+			__member(POINTER_SIZE)
 		);
 
 		SIZEOF = layout.getSize();
 		ALIGNOF = layout.getAlignment();
 
-		VENDORID = layout.offsetof(0);
-		DEVICEID = layout.offsetof(1);
+		CAPS = layout.offsetof(0);
 	}
 
-	BGFXCapsGPU(long address, ByteBuffer container) {
+	BGFXInternalData(long address, ByteBuffer container) {
 		super(address, container);
 	}
 
 	/**
-	 * Creates a {@link BGFXCapsGPU} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
+	 * Creates a {@link BGFXInternalData} instance at the current position of the specified {@link ByteBuffer} container. Changes to the buffer's content will be
 	 * visible to the struct instance and vice versa.
 	 *
 	 * <p>The created instance holds a strong reference to the container object.</p>
 	 */
-	public BGFXCapsGPU(ByteBuffer container) {
+	public BGFXInternalData(ByteBuffer container) {
 		this(memAddress(container), checkContainer(container, SIZEOF));
 	}
 
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	/** Returns the value of the {@code vendorId} field. */
-	public short vendorId() { return nvendorId(address()); }
-	/** Returns the value of the {@code deviceId} field. */
-	public short deviceId() { return ndeviceId(address()); }
+	/** Returns a {@link BGFXCaps} view of the struct pointed to by the {@code caps} field. */
+	public BGFXCaps caps() { return ncaps(address()); }
 
 	// -----------------------------------
 
-	/** Returns a new {@link BGFXCapsGPU} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
-	public static BGFXCapsGPU create(long address) {
-		return address == NULL ? null : new BGFXCapsGPU(address, null);
+	/** Returns a new {@link BGFXInternalData} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+	public static BGFXInternalData create(long address) {
+		return address == NULL ? null : new BGFXInternalData(address, null);
 	}
 
 	/**
-	 * Create a {@link BGFXCapsGPU.Buffer} instance at the specified memory.
+	 * Create a {@link BGFXInternalData.Buffer} instance at the specified memory.
 	 *
 	 * @param address  the memory address
 	 * @param capacity the buffer capacity
@@ -94,22 +87,20 @@ public class BGFXCapsGPU extends Struct {
 
 	// -----------------------------------
 
-	/** Unsafe version of {@link #vendorId}. */
-	public static short nvendorId(long struct) { return memGetShort(struct + BGFXCapsGPU.VENDORID); }
-	/** Unsafe version of {@link #deviceId}. */
-	public static short ndeviceId(long struct) { return memGetShort(struct + BGFXCapsGPU.DEVICEID); }
+	/** Unsafe version of {@link #caps}. */
+	public static BGFXCaps ncaps(long struct) { return BGFXCaps.create(memGetAddress(struct + BGFXInternalData.CAPS)); }
 
 	// -----------------------------------
 
-	/** An array of {@link BGFXCapsGPU} structs. */
-	public static final class Buffer extends StructBuffer<BGFXCapsGPU, Buffer> {
+	/** An array of {@link BGFXInternalData} structs. */
+	public static final class Buffer extends StructBuffer<BGFXInternalData, Buffer> {
 
 		/**
-		 * Creates a new {@link BGFXCapsGPU.Buffer} instance backed by the specified container.
+		 * Creates a new {@link BGFXInternalData.Buffer} instance backed by the specified container.
 		 *
 		 * Changes to the container's content will be visible to the struct buffer instance and vice versa. The two buffers' position, limit, and mark values
 		 * will be independent. The new buffer's position will be zero, its capacity and its limit will be the number of bytes remaining in this buffer divided
-		 * by {@link BGFXCapsGPU#SIZEOF}, and its mark will be undefined.
+		 * by {@link BGFXInternalData#SIZEOF}, and its mark will be undefined.
 		 *
 		 * <p>The created buffer instance holds a strong reference to the container object.</p>
 		 */
@@ -132,8 +123,8 @@ public class BGFXCapsGPU extends Struct {
 		}
 
 		@Override
-		protected BGFXCapsGPU newInstance(long address) {
-			return new BGFXCapsGPU(address, getContainer());
+		protected BGFXInternalData newInstance(long address) {
+			return new BGFXInternalData(address, getContainer());
 		}
 
 		@Override
@@ -141,10 +132,8 @@ public class BGFXCapsGPU extends Struct {
 			return SIZEOF;
 		}
 
-		/** Returns the value of the {@code vendorId} field. */
-		public short vendorId() { return BGFXCapsGPU.nvendorId(address()); }
-		/** Returns the value of the {@code deviceId} field. */
-		public short deviceId() { return BGFXCapsGPU.ndeviceId(address()); }
+		/** Returns a {@link BGFXCaps} view of the struct pointed to by the {@code caps} field. */
+		public BGFXCaps caps() { return BGFXInternalData.ncaps(address()); }
 
 	}
 

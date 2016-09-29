@@ -9,7 +9,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/**  */
+/** Captured frame. */
 @FunctionalInterface
 public interface BGFXCaptureFrameCallbackI extends CallbackI.V {
 
@@ -27,7 +27,13 @@ public interface BGFXCaptureFrameCallbackI extends CallbackI.V {
 		);
 	}
 
-
+	/**
+	 * Will be called when a frame is captured.
+	 *
+	 * @param _this the callback interface
+	 * @param _data image data
+	 * @param _size image size
+	 */
 	void invoke(long _this, long _data, int _size);
 
 }

@@ -9,7 +9,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/**  */
+/** Reads cached item. */
 public abstract class BGFXCacheReadCallback extends Callback implements BGFXCacheReadCallbackI {
 
 	/** Creates a {@code BGFXCacheReadCallback} instance from the specified function pointer. */
@@ -48,8 +48,8 @@ public abstract class BGFXCacheReadCallback extends Callback implements BGFXCach
 		}
 
 		@Override
-		public void invoke(long _this, long _id, long _data, int _size) {
-			delegate.invoke(_this, _id, _data, _size);
+		public boolean invoke(long _this, long _id, long _data, int _size) {
+			return delegate.invoke(_this, _id, _data, _size);
 		}
 
 	}

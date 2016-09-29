@@ -9,18 +9,18 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/**  */
+/** Reads cached item. */
 @FunctionalInterface
-public interface BGFXCacheReadCallbackI extends CallbackI.V {
+public interface BGFXCacheReadCallbackI extends CallbackI.Z {
 
-	String SIGNATURE = "(plpi)v";
+	String SIGNATURE = "(plpi)B";
 
 	@Override
 	default String getSignature() { return SIGNATURE; }
 
 	@Override
-	default void callback(long args) {
-		invoke(
+	default boolean callback(long args) {
+		return invoke(
 			dcbArgPointer(args),
 			dcbArgLong(args),
 			dcbArgPointer(args),
@@ -28,7 +28,16 @@ public interface BGFXCacheReadCallbackI extends CallbackI.V {
 		);
 	}
 
-
-	void invoke(long _this, long _id, long _data, int _size);
+	/**
+	 * Will be called to read a cached item.
+	 *
+	 * @param _this the callback interface
+	 * @param _id   cache id
+	 * @param _data buffer where to read data
+	 * @param _size size of data to read
+	 *
+	 * @return true if data is read
+	 */
+	boolean invoke(long _this, long _id, long _data, int _size);
 
 }

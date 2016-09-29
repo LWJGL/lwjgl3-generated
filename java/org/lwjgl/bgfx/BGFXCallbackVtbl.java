@@ -15,6 +15,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * Callback virtual table.
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code fatal} &ndash; the fatal error callback</li>
+ * <li>{@code trace_vargs} &ndash; the debug message callback</li>
+ * <li>{@code cache_read_size} &ndash; the cache read size callback</li>
+ * <li>{@code cache_read} &ndash; the cache read callback</li>
+ * <li>{@code cache_write} &ndash; the cache write callback</li>
+ * <li>{@code screen_shot} &ndash; the screenshot callback</li>
+ * <li>{@code capture_begin} &ndash; the capture begin callback</li>
+ * <li>{@code capture_end} &ndash; the capture end callback</li>
+ * <li>{@code capture_frame} &ndash; the capture framecallback</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct bgfx_callback_vtbl_t {

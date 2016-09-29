@@ -9,7 +9,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/**  */
+/** Allocates memory. */
 public abstract class BGFXReallocCallback extends Callback implements BGFXReallocCallbackI {
 
 	/** Creates a {@code BGFXReallocCallback} instance from the specified function pointer. */

@@ -9,7 +9,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/**  */
+/** Writes cached item. */
 @FunctionalInterface
 public interface BGFXCacheWriteCallbackI extends CallbackI.V {
 
@@ -28,7 +28,14 @@ public interface BGFXCacheWriteCallbackI extends CallbackI.V {
 		);
 	}
 
-
+	/**
+	 * Will be called to writes a cached item.
+	 *
+	 * @param _this the callback interface
+	 * @param _id   cache id
+	 * @param _data data to write
+	 * @param _size size of data to write
+	 */
 	void invoke(long _this, long _id, long _data, int _size);
 
 }

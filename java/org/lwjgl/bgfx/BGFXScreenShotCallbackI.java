@@ -9,7 +9,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/**  */
+/** Screenshot captured. Screenshot format is always 4-byte BGRA. */
 @FunctionalInterface
 public interface BGFXScreenShotCallbackI extends CallbackI.V {
 
@@ -32,7 +32,18 @@ public interface BGFXScreenShotCallbackI extends CallbackI.V {
 		);
 	}
 
-
+	/**
+	 * 
+	 *
+	 * @param _this     the callback interface
+	 * @param _filePath file path
+	 * @param _width    image width
+	 * @param _height   image height
+	 * @param _pitch    number of bytes to skip to next line
+	 * @param _data     image data
+	 * @param _size     image size
+	 * @param _yflip    if true image origin is bottom left
+	 */
 	void invoke(long _this, long _filePath, int _width, int _height, int _pitch, long _data, int _size, boolean _yflip);
 
 }

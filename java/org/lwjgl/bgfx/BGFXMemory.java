@@ -15,6 +15,15 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * Memory obtained by calling {@link BGFX#bgfx_alloc alloc}, {@link BGFX#bgfx_copy copy}, or {@link BGFX#bgfx_make_ref make_ref}.
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code data} &ndash; pointer to allocated memory</li>
+ * <li>{@code size} &ndash; size of {@code data}, in bytes</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct bgfx_memory_t {
@@ -64,30 +73,13 @@ public class BGFXMemory extends Struct implements NativeResource {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	/**
-	 * Returns a {@link ByteBuffer} view of the data pointed to by the {@code data} field.
-	 *
-	 * @param capacity the number of elements in the returned buffer
-	 */
-	public ByteBuffer data(int capacity) { return ndata(address(), capacity); }
+	/** Returns a {@link ByteBuffer} view of the data pointed to by the {@code data} field. */
+	public ByteBuffer data() { return ndata(address()); }
 	/** Returns the value of the {@code size} field. */
 	public int size() { return nsize(address()); }
 
 	/** Sets the address of the specified {@link ByteBuffer} to the {@code data} field. */
 	public BGFXMemory data(ByteBuffer value) { ndata(address(), value); return this; }
-	/** Sets the specified value to the {@code size} field. */
-	public BGFXMemory size(int value) { nsize(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public BGFXMemory set(
-		ByteBuffer data,
-		int size
-	) {
-		data(data);
-		size(size);
-
-		return this;
-	}
 
 	/** Unsafe version of {@link #set(BGFXMemory) set}. */
 	public BGFXMemory nset(long struct) {
@@ -235,14 +227,14 @@ public class BGFXMemory extends Struct implements NativeResource {
 
 	// -----------------------------------
 
-	/** Unsafe version of {@link #data(int) data}. */
-	public static ByteBuffer ndata(long struct, int capacity) { return memByteBuffer(memGetAddress(struct + BGFXMemory.DATA), capacity); }
+	/** Unsafe version of {@link #data() data}. */
+	public static ByteBuffer ndata(long struct) { return memByteBuffer(memGetAddress(struct + BGFXMemory.DATA), nsize(struct)); }
 	/** Unsafe version of {@link #size}. */
 	public static int nsize(long struct) { return memGetInt(struct + BGFXMemory.SIZE); }
 
 	/** Unsafe version of {@link #data(ByteBuffer) data}. */
-	public static void ndata(long struct, ByteBuffer value) { memPutAddress(struct + BGFXMemory.DATA, memAddress(value)); }
-	/** Unsafe version of {@link #size(int) size}. */
+	public static void ndata(long struct, ByteBuffer value) { memPutAddress(struct + BGFXMemory.DATA, memAddress(value)); nsize(struct, value.remaining()); }
+	/** Sets the specified value to the {@code size} field of the specified {@code struct}. */
 	public static void nsize(long struct, int value) { memPutInt(struct + BGFXMemory.SIZE, value); }
 
 	/**
@@ -307,19 +299,13 @@ public class BGFXMemory extends Struct implements NativeResource {
 			return SIZEOF;
 		}
 
-		/**
-		 * Returns a {@link ByteBuffer} view of the data pointed to by the {@code data} field.
-		 *
-		 * @param capacity the number of elements in the returned buffer
-		 */
-		public ByteBuffer data(int capacity) { return BGFXMemory.ndata(address(), capacity); }
+		/** Returns a {@link ByteBuffer} view of the data pointed to by the {@code data} field. */
+		public ByteBuffer data() { return BGFXMemory.ndata(address()); }
 		/** Returns the value of the {@code size} field. */
 		public int size() { return BGFXMemory.nsize(address()); }
 
 		/** Sets the address of the specified {@link ByteBuffer} to the {@code data} field. */
 		public BGFXMemory.Buffer data(ByteBuffer value) { BGFXMemory.ndata(address(), value); return this; }
-		/** Sets the specified value to the {@code size} field. */
-		public BGFXMemory.Buffer size(int value) { BGFXMemory.nsize(address(), value); return this; }
 
 	}
 

@@ -250,7 +250,7 @@ public class EGLCapabilities {
 	/** When true, {@link KHRCLEvent2} is supported. */
 	public final boolean EGL_KHR_cl_event2;
 	/**
-	 * When true, the <a href="https://www.khronos.org/registry/egl/extensions/EXT/EGL_KHR_get_all_proc_addresses.txt">KHR_client_get_all_proc_addresses</a> extension is supported.
+	 * When true, the <a href="https://www.khronos.org/registry/egl/extensions/KHR/EGL_KHR_get_all_proc_addresses.txt">KHR_client_get_all_proc_addresses</a> extension is supported.
 	 * 
 	 * <p>eglGetProcAddress is currently defined to not support the querying of non-extension EGL or client API functions. Non-extension functions are expected
 	 * to be exposed as library symbols that can be resolved statically at link time, or dynamically at run time using OS-specific runtime linking mechanisms.</p>

@@ -9,7 +9,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/**  */
+/** Instances of this interface may be passed to the {@link BGFX#bgfx_make_ref_release make_ref_release} method. */
 @FunctionalInterface
 public interface BGFXReleaseFunctionCallbackI extends CallbackI.V {
 
@@ -26,7 +26,12 @@ public interface BGFXReleaseFunctionCallbackI extends CallbackI.V {
 		);
 	}
 
-
+	/**
+	 * Memory release callback.
+	 *
+	 * @param _ptr      
+	 * @param _userData 
+	 */
 	void invoke(long _ptr, long _userData);
 
 }

@@ -15,6 +15,18 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * Callback interface to implement application specific behavior.
+ * 
+ * <p>Cached items are currently used for OpenGL and Direct3D 12 binary shaders.</p>
+ * 
+ * <p>{@code fatal} and {@code trace_vargs} callbacks can be called from any thread. Other callbacks are called from the render thread.</p>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code vtbl} &ndash; the callback virtual table</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct bgfx_callback_interface_t {

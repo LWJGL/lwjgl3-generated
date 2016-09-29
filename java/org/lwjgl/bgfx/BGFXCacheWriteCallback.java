@@ -9,7 +9,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/**  */
+/** Writes cached item. */
 public abstract class BGFXCacheWriteCallback extends Callback implements BGFXCacheWriteCallbackI {
 
 	/** Creates a {@code BGFXCacheWriteCallback} instance from the specified function pointer. */

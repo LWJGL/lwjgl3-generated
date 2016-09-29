@@ -9,7 +9,12 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/**  */
+/**
+ * If fatal code is not {@link BGFX#BGFX_FATAL_DEBUG_CHECK FATAL_DEBUG_CHECK} this callback is called on unrecoverable error. It's not safe to continue, inform user and terminate application
+ * from this call.
+ * 
+ * <p>Not thread safe and it can be called from any thread.</p>
+ */
 public abstract class BGFXFatalCallback extends Callback implements BGFXFatalCallbackI {
 
 	/** Creates a {@code BGFXFatalCallback} instance from the specified function pointer. */

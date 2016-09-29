@@ -9,7 +9,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/**  */
+/** Called when capture begins. */
 public abstract class BGFXCaptureBeginCallback extends Callback implements BGFXCaptureBeginCallbackI {
 
 	/** Creates a {@code BGFXCaptureBeginCallback} instance from the specified function pointer. */
