@@ -91,14 +91,14 @@ public class APPLEGLSharing {
 	public static int clGetGLContextInfoAPPLE(long context, long platform_gl_ctx, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			checkBufferSafe(param_value_size_ret, 1);
-		return nclGetGLContextInfoAPPLE(context, platform_gl_ctx, param_name, (long)(param_value == null ? 0 : param_value.remaining()), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetGLContextInfoAPPLE(context, platform_gl_ctx, param_name, (long)remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** PointerBuffer version of: {@link #clGetGLContextInfoAPPLE GetGLContextInfoAPPLE} */
 	public static int clGetGLContextInfoAPPLE(long context, long platform_gl_ctx, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			checkBufferSafe(param_value_size_ret, 1);
-		return nclGetGLContextInfoAPPLE(context, platform_gl_ctx, param_name, (param_value == null ? 0 : param_value.remaining() << POINTER_SHIFT), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetGLContextInfoAPPLE(context, platform_gl_ctx, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 }

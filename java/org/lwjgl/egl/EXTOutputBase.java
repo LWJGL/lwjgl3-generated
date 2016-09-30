@@ -69,7 +69,7 @@ public class EXTOutputBase {
 			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 			checkBuffer(num_layers, 1);
 		}
-		return neglGetOutputLayersEXT(dpy, memAddressSafe(attrib_list), memAddressSafe(layers), layers == null ? 0 : layers.remaining(), memAddress(num_layers)) != 0;
+		return neglGetOutputLayersEXT(dpy, memAddressSafe(attrib_list), memAddressSafe(layers), remainingSafe(layers), memAddress(num_layers)) != 0;
 	}
 
 	// --- [ eglGetOutputPortsEXT ] ---
@@ -88,7 +88,7 @@ public class EXTOutputBase {
 			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 			checkBuffer(num_ports, 1);
 		}
-		return neglGetOutputPortsEXT(dpy, memAddressSafe(attrib_list), memAddressSafe(ports), ports == null ? 0 : ports.remaining(), memAddress(num_ports)) != 0;
+		return neglGetOutputPortsEXT(dpy, memAddressSafe(attrib_list), memAddressSafe(ports), remainingSafe(ports), memAddress(num_ports)) != 0;
 	}
 
 	// --- [ eglOutputLayerAttribEXT ] ---
@@ -194,7 +194,7 @@ public class EXTOutputBase {
 			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 			checkBuffer(num_layers, 1);
 		}
-		return callPPPPI(__functionAddress, dpy, memAddressSafe(attrib_list), memAddressSafe(layers), layers == null ? 0 : layers.remaining(), num_layers) != 0;
+		return callPPPPI(__functionAddress, dpy, memAddressSafe(attrib_list), memAddressSafe(layers), remainingSafe(layers), num_layers) != 0;
 	}
 
 	/** Array version of: {@link #eglGetOutputPortsEXT GetOutputPortsEXT} */
@@ -206,7 +206,7 @@ public class EXTOutputBase {
 			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 			checkBuffer(num_ports, 1);
 		}
-		return callPPPPI(__functionAddress, dpy, memAddressSafe(attrib_list), memAddressSafe(ports), ports == null ? 0 : ports.remaining(), num_ports) != 0;
+		return callPPPPI(__functionAddress, dpy, memAddressSafe(attrib_list), memAddressSafe(ports), remainingSafe(ports), num_ports) != 0;
 	}
 
 }

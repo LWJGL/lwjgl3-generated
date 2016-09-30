@@ -131,7 +131,7 @@ y_i <= yw < y_i+h_i</code></pre>
 	 * @param box  an array of {@code 4*count} window rectangle coordinates
 	 */
 	public static void glWindowRectanglesEXT(int mode, IntBuffer box) {
-		nglWindowRectanglesEXT(mode, box == null ? 0 : box.remaining() >> 2, memAddressSafe(box));
+		nglWindowRectanglesEXT(mode, remainingSafe(box) >> 2, memAddressSafe(box));
 	}
 
 	/** Array version of: {@link #glWindowRectanglesEXT WindowRectanglesEXT} */
@@ -139,7 +139,7 @@ y_i <= yw < y_i+h_i</code></pre>
 		long __functionAddress = GLES.getCapabilities().glWindowRectanglesEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPV(__functionAddress, mode, box == null ? 0 : box.length >> 2, box);
+		callPV(__functionAddress, mode, lengthSafe(box) >> 2, box);
 	}
 
 }

@@ -210,7 +210,7 @@ public class ARBDebugOutput {
 	 * @param enabled  whether to enable or disable the references subset of messages
 	 */
 	public static void glDebugMessageControlARB(int source, int type, int severity, IntBuffer ids, boolean enabled) {
-		nglDebugMessageControlARB(source, type, severity, ids == null ? 0 : ids.remaining(), memAddressSafe(ids), enabled);
+		nglDebugMessageControlARB(source, type, severity, remainingSafe(ids), memAddressSafe(ids), enabled);
 	}
 
 	/**
@@ -478,7 +478,7 @@ public class ARBDebugOutput {
 			checkBufferSafe(severities, count);
 			checkBufferSafe(lengths, count);
 		}
-		return nglGetDebugMessageLogARB(count, messageLog == null ? 0 : messageLog.remaining(), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
+		return nglGetDebugMessageLogARB(count, remainingSafe(messageLog), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
 	}
 
 	/** Array version of: {@link #glDebugMessageControlARB DebugMessageControlARB} */
@@ -486,7 +486,7 @@ public class ARBDebugOutput {
 		long __functionAddress = GL.getCapabilities().glDebugMessageControlARB;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPV(__functionAddress, source, type, severity, ids == null ? 0 : ids.length, ids, enabled);
+		callPV(__functionAddress, source, type, severity, lengthSafe(ids), ids, enabled);
 	}
 
 	/** Array version of: {@link #glGetDebugMessageLogARB GetDebugMessageLogARB} */
@@ -500,7 +500,7 @@ public class ARBDebugOutput {
 			checkBufferSafe(severities, count);
 			checkBufferSafe(lengths, count);
 		}
-		return callPPPPPPI(__functionAddress, count, messageLog == null ? 0 : messageLog.remaining(), sources, types, ids, severities, lengths, memAddressSafe(messageLog));
+		return callPPPPPPI(__functionAddress, count, remainingSafe(messageLog), sources, types, ids, severities, lengths, memAddressSafe(messageLog));
 	}
 
 }

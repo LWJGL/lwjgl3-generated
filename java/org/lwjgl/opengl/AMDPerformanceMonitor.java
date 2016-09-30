@@ -64,7 +64,7 @@ public class AMDPerformanceMonitor {
 	public static void glGetPerfMonitorGroupsAMD(IntBuffer numGroups, IntBuffer groups) {
 		if ( CHECKS )
 			checkBufferSafe(numGroups, 1);
-		nglGetPerfMonitorGroupsAMD(memAddressSafe(numGroups), groups == null ? 0 : groups.remaining(), memAddressSafe(groups));
+		nglGetPerfMonitorGroupsAMD(memAddressSafe(numGroups), remainingSafe(groups), memAddressSafe(groups));
 	}
 
 	// --- [ glGetPerfMonitorCountersAMD ] ---
@@ -111,7 +111,7 @@ public class AMDPerformanceMonitor {
 	public static void glGetPerfMonitorCounterStringAMD(int group, int counter, IntBuffer length, ByteBuffer counterString) {
 		if ( CHECKS )
 			checkBufferSafe(length, 1);
-		nglGetPerfMonitorCounterStringAMD(group, counter, counterString == null ? 0 : counterString.remaining(), memAddressSafe(length), memAddressSafe(counterString));
+		nglGetPerfMonitorCounterStringAMD(group, counter, remainingSafe(counterString), memAddressSafe(length), memAddressSafe(counterString));
 	}
 
 	// --- [ glGetPerfMonitorCounterInfoAMD ] ---
@@ -243,7 +243,7 @@ public class AMDPerformanceMonitor {
 			checkFunctionAddress(__functionAddress);
 			checkBufferSafe(numGroups, 1);
 		}
-		callPPV(__functionAddress, numGroups, groups == null ? 0 : groups.length, groups);
+		callPPV(__functionAddress, numGroups, lengthSafe(groups), groups);
 	}
 
 	/** Array version of: {@link #glGetPerfMonitorCountersAMD GetPerfMonitorCountersAMD} */
@@ -274,7 +274,7 @@ public class AMDPerformanceMonitor {
 			checkFunctionAddress(__functionAddress);
 			checkBufferSafe(length, 1);
 		}
-		callPPV(__functionAddress, group, counter, counterString == null ? 0 : counterString.remaining(), length, memAddressSafe(counterString));
+		callPPV(__functionAddress, group, counter, remainingSafe(counterString), length, memAddressSafe(counterString));
 	}
 
 	/** int[] version of: {@link #glGetPerfMonitorCounterInfoAMD GetPerfMonitorCounterInfoAMD} */

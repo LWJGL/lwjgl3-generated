@@ -131,7 +131,7 @@ public class Stdio {
 			checkNT1(format);
 			checkPointer(vlist);
 		}
-		return nvsnprintf(memAddressSafe(buffer), (long)(buffer == null ? 0 : buffer.remaining()), memAddress(format), vlist);
+		return nvsnprintf(memAddressSafe(buffer), (long)remainingSafe(buffer), memAddress(format), vlist);
 	}
 
 	/**
@@ -152,7 +152,7 @@ public class Stdio {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer formatEncoded = stack.ASCII(format);
-			return nvsnprintf(memAddressSafe(buffer), (long)(buffer == null ? 0 : buffer.remaining()), memAddress(formatEncoded), vlist);
+			return nvsnprintf(memAddressSafe(buffer), (long)remainingSafe(buffer), memAddress(formatEncoded), vlist);
 		} finally {
 			stack.setPointer(stackPointer);
 		}

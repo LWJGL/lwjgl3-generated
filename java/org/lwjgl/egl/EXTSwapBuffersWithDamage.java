@@ -47,7 +47,7 @@ public class EXTSwapBuffersWithDamage {
 	}
 
 	public static boolean eglSwapBuffersWithDamageEXT(long dpy, long surface, IntBuffer rects) {
-		return neglSwapBuffersWithDamageEXT(dpy, surface, memAddressSafe(rects), rects == null ? 0 : rects.remaining()) != 0;
+		return neglSwapBuffersWithDamageEXT(dpy, surface, memAddressSafe(rects), remainingSafe(rects)) != 0;
 	}
 
 	/** Array version of: {@link #eglSwapBuffersWithDamageEXT SwapBuffersWithDamageEXT} */
@@ -58,7 +58,7 @@ public class EXTSwapBuffersWithDamage {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPPI(__functionAddress, dpy, surface, rects, rects == null ? 0 : rects.length) != 0;
+		return callPPPI(__functionAddress, dpy, surface, rects, lengthSafe(rects)) != 0;
 	}
 
 }

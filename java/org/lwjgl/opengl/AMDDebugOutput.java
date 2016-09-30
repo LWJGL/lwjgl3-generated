@@ -161,7 +161,7 @@ public class AMDDebugOutput {
 	 * @param enabled  whether to enable or disable the referenced subset of messages
 	 */
 	public static void glDebugMessageEnableAMD(int category, int severity, IntBuffer ids, boolean enabled) {
-		nglDebugMessageEnableAMD(category, severity, ids == null ? 0 : ids.remaining(), memAddressSafe(ids), enabled);
+		nglDebugMessageEnableAMD(category, severity, remainingSafe(ids), memAddressSafe(ids), enabled);
 	}
 
 	/**
@@ -413,7 +413,7 @@ public class AMDDebugOutput {
 			checkBufferSafe(ids, count);
 			checkBufferSafe(lengths, count);
 		}
-		return nglGetDebugMessageLogAMD(count, messageLog == null ? 0 : messageLog.remaining(), memAddressSafe(categories), memAddressSafe(severities), memAddressSafe(ids), memAddressSafe(lengths), memAddressSafe(messageLog));
+		return nglGetDebugMessageLogAMD(count, remainingSafe(messageLog), memAddressSafe(categories), memAddressSafe(severities), memAddressSafe(ids), memAddressSafe(lengths), memAddressSafe(messageLog));
 	}
 
 	/** Array version of: {@link #glDebugMessageEnableAMD DebugMessageEnableAMD} */
@@ -421,7 +421,7 @@ public class AMDDebugOutput {
 		long __functionAddress = GL.getCapabilities().glDebugMessageEnableAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPV(__functionAddress, category, severity, ids == null ? 0 : ids.length, ids, enabled);
+		callPV(__functionAddress, category, severity, lengthSafe(ids), ids, enabled);
 	}
 
 	/** Array version of: {@link #glGetDebugMessageLogAMD GetDebugMessageLogAMD} */
@@ -434,7 +434,7 @@ public class AMDDebugOutput {
 			checkBufferSafe(ids, count);
 			checkBufferSafe(lengths, count);
 		}
-		return callPPPPPI(__functionAddress, count, messageLog == null ? 0 : messageLog.remaining(), categories, severities, ids, lengths, memAddressSafe(messageLog));
+		return callPPPPPI(__functionAddress, count, remainingSafe(messageLog), categories, severities, ids, lengths, memAddressSafe(messageLog));
 	}
 
 }

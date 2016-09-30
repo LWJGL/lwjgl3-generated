@@ -2088,7 +2088,7 @@ public class EXTDirectStateAccess {
 	}
 
 	public static void glCompressedTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, ByteBuffer data) {
-		nglCompressedTextureImage3DEXT(texture, target, level, internalformat, width, height, depth, border, data == null ? 0 : data.remaining(), memAddressSafe(data));
+		nglCompressedTextureImage3DEXT(texture, target, level, internalformat, width, height, depth, border, remainingSafe(data), memAddressSafe(data));
 	}
 
 	// --- [ glCompressedTextureImage2DEXT ] ---
@@ -2105,7 +2105,7 @@ public class EXTDirectStateAccess {
 	}
 
 	public static void glCompressedTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, ByteBuffer data) {
-		nglCompressedTextureImage2DEXT(texture, target, level, internalformat, width, height, border, data == null ? 0 : data.remaining(), memAddressSafe(data));
+		nglCompressedTextureImage2DEXT(texture, target, level, internalformat, width, height, border, remainingSafe(data), memAddressSafe(data));
 	}
 
 	// --- [ glCompressedTextureImage1DEXT ] ---
@@ -2122,7 +2122,7 @@ public class EXTDirectStateAccess {
 	}
 
 	public static void glCompressedTextureImage1DEXT(int texture, int target, int level, int internalformat, int width, int border, ByteBuffer data) {
-		nglCompressedTextureImage1DEXT(texture, target, level, internalformat, width, border, data == null ? 0 : data.remaining(), memAddressSafe(data));
+		nglCompressedTextureImage1DEXT(texture, target, level, internalformat, width, border, remainingSafe(data), memAddressSafe(data));
 	}
 
 	// --- [ glCompressedTextureSubImage3DEXT ] ---
@@ -2210,7 +2210,7 @@ public class EXTDirectStateAccess {
 	}
 
 	public static void glCompressedMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, ByteBuffer data) {
-		nglCompressedMultiTexImage3DEXT(texunit, target, level, internalformat, width, height, depth, border, data == null ? 0 : data.remaining(), memAddressSafe(data));
+		nglCompressedMultiTexImage3DEXT(texunit, target, level, internalformat, width, height, depth, border, remainingSafe(data), memAddressSafe(data));
 	}
 
 	// --- [ glCompressedMultiTexImage2DEXT ] ---
@@ -2227,7 +2227,7 @@ public class EXTDirectStateAccess {
 	}
 
 	public static void glCompressedMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, ByteBuffer data) {
-		nglCompressedMultiTexImage2DEXT(texunit, target, level, internalformat, width, height, border, data == null ? 0 : data.remaining(), memAddressSafe(data));
+		nglCompressedMultiTexImage2DEXT(texunit, target, level, internalformat, width, height, border, remainingSafe(data), memAddressSafe(data));
 	}
 
 	// --- [ glCompressedMultiTexImage1DEXT ] ---
@@ -2244,7 +2244,7 @@ public class EXTDirectStateAccess {
 	}
 
 	public static void glCompressedMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int width, int border, ByteBuffer data) {
-		nglCompressedMultiTexImage1DEXT(texunit, target, level, internalformat, width, border, data == null ? 0 : data.remaining(), memAddressSafe(data));
+		nglCompressedMultiTexImage1DEXT(texunit, target, level, internalformat, width, border, remainingSafe(data), memAddressSafe(data));
 	}
 
 	// --- [ glCompressedMultiTexSubImage3DEXT ] ---

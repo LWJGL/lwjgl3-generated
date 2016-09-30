@@ -1825,7 +1825,7 @@ public class GLFW {
 	 * @since version 3.2
 	 */
 	public static void glfwSetWindowIcon(long window, GLFWImage.Buffer images) {
-		nglfwSetWindowIcon(window, images == null ? 0 : images.remaining(), memAddressSafe(images));
+		nglfwSetWindowIcon(window, remainingSafe(images), memAddressSafe(images));
 	}
 
 	// --- [ glfwGetWindowPos ] ---

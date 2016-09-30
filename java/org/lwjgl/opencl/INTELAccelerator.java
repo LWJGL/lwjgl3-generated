@@ -242,21 +242,21 @@ public class INTELAccelerator {
 	public static int clGetAcceleratorInfoINTEL(long accelerator, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			checkBufferSafe(param_value_size_ret, 1);
-		return nclGetAcceleratorInfoINTEL(accelerator, param_name, (long)(param_value == null ? 0 : param_value.remaining()), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetAcceleratorInfoINTEL(accelerator, param_name, (long)remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetAcceleratorInfoINTEL GetAcceleratorInfoINTEL} */
 	public static int clGetAcceleratorInfoINTEL(long accelerator, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			checkBufferSafe(param_value_size_ret, 1);
-		return nclGetAcceleratorInfoINTEL(accelerator, param_name, (param_value == null ? 0 : param_value.remaining() << 2), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetAcceleratorInfoINTEL(accelerator, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** PointerBuffer version of: {@link #clGetAcceleratorInfoINTEL GetAcceleratorInfoINTEL} */
 	public static int clGetAcceleratorInfoINTEL(long accelerator, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			checkBufferSafe(param_value_size_ret, 1);
-		return nclGetAcceleratorInfoINTEL(accelerator, param_name, (param_value == null ? 0 : param_value.remaining() << POINTER_SHIFT), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetAcceleratorInfoINTEL(accelerator, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** Array version of: {@link #clCreateAcceleratorINTEL CreateAcceleratorINTEL} */
@@ -278,7 +278,7 @@ public class INTELAccelerator {
 			checkPointer(accelerator);
 			checkBufferSafe(param_value_size_ret, 1);
 		}
-		return callPPPPI(__functionAddress, accelerator, param_name, (long)(param_value == null ? 0 : param_value.length << 2), param_value, memAddressSafe(param_value_size_ret));
+		return callPPPPI(__functionAddress, accelerator, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
 
 }

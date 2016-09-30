@@ -757,7 +757,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	 * @param enabled  whether the selected messages should be enabled or disabled
 	 */
 	public static void glDebugMessageControl(int source, int type, int severity, IntBuffer ids, boolean enabled) {
-		nglDebugMessageControl(source, type, severity, ids == null ? 0 : ids.remaining(), memAddressSafe(ids), enabled);
+		nglDebugMessageControl(source, type, severity, remainingSafe(ids), memAddressSafe(ids), enabled);
 	}
 
 	/**
@@ -1055,7 +1055,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 			checkBufferSafe(severities, count);
 			checkBufferSafe(lengths, count);
 		}
-		return nglGetDebugMessageLog(count, messageLog == null ? 0 : messageLog.remaining(), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
+		return nglGetDebugMessageLog(count, remainingSafe(messageLog), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
 	}
 
 	// --- [ glPushDebugGroup ] ---
@@ -2597,7 +2597,7 @@ for ( i = 0; i < primcount; i++ ) {
 		long __functionAddress = GL.getCapabilities().glDebugMessageControl;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPV(__functionAddress, source, type, severity, ids == null ? 0 : ids.length, ids, enabled);
+		callPV(__functionAddress, source, type, severity, lengthSafe(ids), ids, enabled);
 	}
 
 	/**
@@ -2615,7 +2615,7 @@ for ( i = 0; i < primcount; i++ ) {
 			checkBufferSafe(severities, count);
 			checkBufferSafe(lengths, count);
 		}
-		return callPPPPPPI(__functionAddress, count, messageLog == null ? 0 : messageLog.remaining(), sources, types, ids, severities, lengths, memAddressSafe(messageLog));
+		return callPPPPPPI(__functionAddress, count, remainingSafe(messageLog), sources, types, ids, severities, lengths, memAddressSafe(messageLog));
 	}
 
 	/**

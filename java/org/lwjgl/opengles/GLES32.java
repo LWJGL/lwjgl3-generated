@@ -809,7 +809,7 @@ public class GLES32 {
 			checkBufferSafe(severities, count);
 			checkBufferSafe(lengths, count);
 		}
-		return nglGetDebugMessageLog(count, messageLog == null ? 0 : messageLog.remaining(), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
+		return nglGetDebugMessageLog(count, remainingSafe(messageLog), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
 	}
 
 	// --- [ glGetPointerv ] ---
@@ -1861,7 +1861,7 @@ public class GLES32 {
 			checkBufferSafe(severities, count);
 			checkBufferSafe(lengths, count);
 		}
-		return callPPPPPPI(__functionAddress, count, messageLog == null ? 0 : messageLog.remaining(), sources, types, ids, severities, lengths, memAddressSafe(messageLog));
+		return callPPPPPPI(__functionAddress, count, remainingSafe(messageLog), sources, types, ids, severities, lengths, memAddressSafe(messageLog));
 	}
 
 	/** Array version of: {@link #glGetObjectLabel GetObjectLabel} */

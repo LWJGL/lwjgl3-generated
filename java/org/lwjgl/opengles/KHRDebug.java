@@ -249,7 +249,7 @@ public class KHRDebug {
 	 * @param enabled  whether the selected messages should be enabled or disabled
 	 */
 	public static void glDebugMessageControlKHR(int source, int type, int severity, IntBuffer ids, boolean enabled) {
-		nglDebugMessageControlKHR(source, type, severity, ids == null ? 0 : ids.remaining(), memAddressSafe(ids), enabled);
+		nglDebugMessageControlKHR(source, type, severity, remainingSafe(ids), memAddressSafe(ids), enabled);
 	}
 
 	/**
@@ -530,7 +530,7 @@ public class KHRDebug {
 			checkBufferSafe(severities, count);
 			checkBufferSafe(lengths, count);
 		}
-		return nglGetDebugMessageLogKHR(count, messageLog == null ? 0 : messageLog.remaining(), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
+		return nglGetDebugMessageLogKHR(count, remainingSafe(messageLog), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
 	}
 
 	// --- [ glGetPointervKHR ] ---
@@ -888,7 +888,7 @@ public class KHRDebug {
 		long __functionAddress = GLES.getCapabilities().glDebugMessageControlKHR;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPV(__functionAddress, source, type, severity, ids == null ? 0 : ids.length, ids, enabled);
+		callPV(__functionAddress, source, type, severity, lengthSafe(ids), ids, enabled);
 	}
 
 	/** Array version of: {@link #glGetDebugMessageLogKHR GetDebugMessageLogKHR} */
@@ -902,7 +902,7 @@ public class KHRDebug {
 			checkBufferSafe(severities, count);
 			checkBufferSafe(lengths, count);
 		}
-		return callPPPPPPI(__functionAddress, count, messageLog == null ? 0 : messageLog.remaining(), sources, types, ids, severities, lengths, memAddressSafe(messageLog));
+		return callPPPPPPI(__functionAddress, count, remainingSafe(messageLog), sources, types, ids, severities, lengths, memAddressSafe(messageLog));
 	}
 
 	/** Array version of: {@link #glGetObjectLabelKHR GetObjectLabelKHR} */

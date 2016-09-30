@@ -3555,10 +3555,10 @@ public class GL45 {
 	 */
 	public static void glVertexArrayVertexBuffers(int vaobj, int first, IntBuffer buffers, PointerBuffer offsets, IntBuffer strides) {
 		if ( CHECKS ) {
-			checkBufferSafe(offsets, buffers.remaining());
-			checkBufferSafe(strides, buffers.remaining());
+			checkBufferSafe(offsets, remainingSafe(buffers));
+			checkBufferSafe(strides, remainingSafe(buffers));
 		}
-		nglVertexArrayVertexBuffers(vaobj, first, buffers == null ? 0 : buffers.remaining(), memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(strides));
+		nglVertexArrayVertexBuffers(vaobj, first, remainingSafe(buffers), memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(strides));
 	}
 
 	// --- [ glVertexArrayAttribFormat ] ---
@@ -6192,10 +6192,10 @@ public class GL45 {
 		long __functionAddress = GL.getCapabilities().glVertexArrayVertexBuffers;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(offsets, buffers.length);
-			checkBufferSafe(strides, buffers.length);
+			checkBufferSafe(offsets, lengthSafe(buffers));
+			checkBufferSafe(strides, lengthSafe(buffers));
 		}
-		callPPPV(__functionAddress, vaobj, first, buffers == null ? 0 : buffers.length, buffers, memAddressSafe(offsets), strides);
+		callPPPV(__functionAddress, vaobj, first, lengthSafe(buffers), buffers, memAddressSafe(offsets), strides);
 	}
 
 	/**

@@ -98,7 +98,7 @@ public class EXTMigrateMemobject {
 	public static int clEnqueueMigrateMemObjectEXT(long command_queue, PointerBuffer mem_objects, long flags, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			checkBufferSafe(event, 1);
-		return nclEnqueueMigrateMemObjectEXT(command_queue, mem_objects.remaining(), memAddress(mem_objects), flags, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueMigrateMemObjectEXT(command_queue, mem_objects.remaining(), memAddress(mem_objects), flags, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 }

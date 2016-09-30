@@ -3639,7 +3639,7 @@ long command = JNI.callPPP(GetInstanceProcAddr, NULL, pName);</code></pre>
 	 * @param fence    an optional handle to a fence to be signaled. If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, it defines a fence signal operation.
 	 */
 	public static int vkQueueSubmit(VkQueue queue, VkSubmitInfo.Buffer pSubmits, long fence) {
-		return nvkQueueSubmit(queue, pSubmits == null ? 0 : pSubmits.remaining(), memAddressSafe(pSubmits), fence);
+		return nvkQueueSubmit(queue, remainingSafe(pSubmits), memAddressSafe(pSubmits), fence);
 	}
 
 	/**
@@ -8289,7 +8289,7 @@ or _unsignaled_.</p>
 	 * @param pDescriptorCopies a pointer to an array of {@link VkCopyDescriptorSet} structures describing the descriptor sets to copy between
 	 */
 	public static void vkUpdateDescriptorSets(VkDevice device, VkWriteDescriptorSet.Buffer pDescriptorWrites, VkCopyDescriptorSet.Buffer pDescriptorCopies) {
-		nvkUpdateDescriptorSets(device, pDescriptorWrites == null ? 0 : pDescriptorWrites.remaining(), memAddressSafe(pDescriptorWrites), pDescriptorCopies == null ? 0 : pDescriptorCopies.remaining(), memAddressSafe(pDescriptorCopies));
+		nvkUpdateDescriptorSets(device, remainingSafe(pDescriptorWrites), memAddressSafe(pDescriptorWrites), remainingSafe(pDescriptorCopies), memAddressSafe(pDescriptorCopies));
 	}
 
 	// --- [ vkCreateFramebuffer ] ---
@@ -9884,7 +9884,7 @@ or _unsignaled_.</p>
 	 * @param pDynamicOffsets   a pointer to an array of {@code uint32_t} values specifying dynamic offsets
 	 */
 	public static void vkCmdBindDescriptorSets(VkCommandBuffer commandBuffer, int pipelineBindPoint, long layout, int firstSet, LongBuffer pDescriptorSets, IntBuffer pDynamicOffsets) {
-		nvkCmdBindDescriptorSets(commandBuffer, pipelineBindPoint, layout, firstSet, pDescriptorSets.remaining(), memAddress(pDescriptorSets), pDynamicOffsets == null ? 0 : pDynamicOffsets.remaining(), memAddressSafe(pDynamicOffsets));
+		nvkCmdBindDescriptorSets(commandBuffer, pipelineBindPoint, layout, firstSet, pDescriptorSets.remaining(), memAddress(pDescriptorSets), remainingSafe(pDynamicOffsets), memAddressSafe(pDynamicOffsets));
 	}
 
 	// --- [ vkCmdBindIndexBuffer ] ---
@@ -12168,7 +12168,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param pImageMemoryBarriers  a pointer to an array of {@code imageMemoryBarrierCount} {@link VkImageMemoryBarrier} structures
 	 */
 	public static void vkCmdWaitEvents(VkCommandBuffer commandBuffer, LongBuffer pEvents, int srcStageMask, int dstStageMask, VkMemoryBarrier.Buffer pMemoryBarriers, VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
-		nvkCmdWaitEvents(commandBuffer, pEvents.remaining(), memAddress(pEvents), srcStageMask, dstStageMask, pMemoryBarriers == null ? 0 : pMemoryBarriers.remaining(), memAddressSafe(pMemoryBarriers), pBufferMemoryBarriers == null ? 0 : pBufferMemoryBarriers.remaining(), memAddressSafe(pBufferMemoryBarriers), pImageMemoryBarriers == null ? 0 : pImageMemoryBarriers.remaining(), memAddressSafe(pImageMemoryBarriers));
+		nvkCmdWaitEvents(commandBuffer, pEvents.remaining(), memAddress(pEvents), srcStageMask, dstStageMask, remainingSafe(pMemoryBarriers), memAddressSafe(pMemoryBarriers), remainingSafe(pBufferMemoryBarriers), memAddressSafe(pBufferMemoryBarriers), remainingSafe(pImageMemoryBarriers), memAddressSafe(pImageMemoryBarriers));
 	}
 
 	// --- [ vkCmdPipelineBarrier ] ---
@@ -12330,7 +12330,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param pImageMemoryBarriers  a pointer to an array of {@link VkImageMemoryBarrier} structures
 	 */
 	public static void vkCmdPipelineBarrier(VkCommandBuffer commandBuffer, int srcStageMask, int dstStageMask, int dependencyFlags, VkMemoryBarrier.Buffer pMemoryBarriers, VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
-		nvkCmdPipelineBarrier(commandBuffer, srcStageMask, dstStageMask, dependencyFlags, pMemoryBarriers == null ? 0 : pMemoryBarriers.remaining(), memAddressSafe(pMemoryBarriers), pBufferMemoryBarriers == null ? 0 : pBufferMemoryBarriers.remaining(), memAddressSafe(pBufferMemoryBarriers), pImageMemoryBarriers == null ? 0 : pImageMemoryBarriers.remaining(), memAddressSafe(pImageMemoryBarriers));
+		nvkCmdPipelineBarrier(commandBuffer, srcStageMask, dstStageMask, dependencyFlags, remainingSafe(pMemoryBarriers), memAddressSafe(pMemoryBarriers), remainingSafe(pBufferMemoryBarriers), memAddressSafe(pBufferMemoryBarriers), remainingSafe(pImageMemoryBarriers), memAddressSafe(pImageMemoryBarriers));
 	}
 
 	// --- [ vkCmdBeginQuery ] ---
@@ -13748,7 +13748,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void vkCmdBindDescriptorSets(VkCommandBuffer commandBuffer, int pipelineBindPoint, long layout, int firstSet, long[] pDescriptorSets, int[] pDynamicOffsets) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdBindDescriptorSets;
-		callPJPPV(__functionAddress, commandBuffer.address(), pipelineBindPoint, layout, firstSet, pDescriptorSets.length, pDescriptorSets, pDynamicOffsets == null ? 0 : pDynamicOffsets.length, pDynamicOffsets);
+		callPJPPV(__functionAddress, commandBuffer.address(), pipelineBindPoint, layout, firstSet, pDescriptorSets.length, pDescriptorSets, lengthSafe(pDynamicOffsets), pDynamicOffsets);
 	}
 
 	/**
@@ -13820,7 +13820,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 */
 	public static void vkCmdWaitEvents(VkCommandBuffer commandBuffer, long[] pEvents, int srcStageMask, int dstStageMask, VkMemoryBarrier.Buffer pMemoryBarriers, VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdWaitEvents;
-		callPPPPPV(__functionAddress, commandBuffer.address(), pEvents.length, pEvents, srcStageMask, dstStageMask, pMemoryBarriers == null ? 0 : pMemoryBarriers.remaining(), memAddressSafe(pMemoryBarriers), pBufferMemoryBarriers == null ? 0 : pBufferMemoryBarriers.remaining(), memAddressSafe(pBufferMemoryBarriers), pImageMemoryBarriers == null ? 0 : pImageMemoryBarriers.remaining(), memAddressSafe(pImageMemoryBarriers));
+		callPPPPPV(__functionAddress, commandBuffer.address(), pEvents.length, pEvents, srcStageMask, dstStageMask, remainingSafe(pMemoryBarriers), memAddressSafe(pMemoryBarriers), remainingSafe(pBufferMemoryBarriers), memAddressSafe(pBufferMemoryBarriers), remainingSafe(pImageMemoryBarriers), memAddressSafe(pImageMemoryBarriers));
 	}
 
 	/**

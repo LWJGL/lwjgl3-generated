@@ -47,7 +47,7 @@ public class KHRSwapBuffersWithDamage {
 	}
 
 	public static boolean eglSwapBuffersWithDamageKHR(long dpy, long surface, IntBuffer rects) {
-		return neglSwapBuffersWithDamageKHR(dpy, surface, memAddressSafe(rects), rects == null ? 0 : rects.remaining()) != 0;
+		return neglSwapBuffersWithDamageKHR(dpy, surface, memAddressSafe(rects), remainingSafe(rects)) != 0;
 	}
 
 	/** Array version of: {@link #eglSwapBuffersWithDamageKHR SwapBuffersWithDamageKHR} */
@@ -58,7 +58,7 @@ public class KHRSwapBuffersWithDamage {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPPI(__functionAddress, dpy, surface, rects, rects == null ? 0 : rects.length) != 0;
+		return callPPPI(__functionAddress, dpy, surface, rects, lengthSafe(rects)) != 0;
 	}
 
 }

@@ -321,14 +321,14 @@ public class CL20 {
 	public static int clGetPipeInfo(long pipe, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			checkBufferSafe(param_value_size_ret, 1);
-		return nclGetPipeInfo(pipe, param_name, (long)(param_value == null ? 0 : param_value.remaining()), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetPipeInfo(pipe, param_name, (long)remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetPipeInfo GetPipeInfo} */
 	public static int clGetPipeInfo(long pipe, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			checkBufferSafe(param_value_size_ret, 1);
-		return nclGetPipeInfo(pipe, param_name, (param_value == null ? 0 : param_value.remaining() << 2), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetPipeInfo(pipe, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	// --- [ clSVMAlloc ] ---
@@ -566,7 +566,7 @@ public class CL20 {
 	public static int clEnqueueSVMFree(long command_queue, PointerBuffer svm_pointers, CLSVMFreeCallbackI pfn_free_func, ByteBuffer user_data, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			checkBufferSafe(event, 1);
-		return nclEnqueueSVMFree(command_queue, svm_pointers.remaining(), memAddress(svm_pointers), memAddressSafe(pfn_free_func), memAddressSafe(user_data), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueSVMFree(command_queue, svm_pointers.remaining(), memAddress(svm_pointers), memAddressSafe(pfn_free_func), memAddressSafe(user_data), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clEnqueueSVMMemcpy ] ---
@@ -670,7 +670,7 @@ public class CL20 {
 	public static int clEnqueueSVMMemcpy(long command_queue, int blocking_copy, ByteBuffer dst_ptr, ByteBuffer src_ptr, long size, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			checkBufferSafe(event, 1);
-		return nclEnqueueSVMMemcpy(command_queue, blocking_copy, memAddress(dst_ptr), memAddress(src_ptr), size, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueSVMMemcpy(command_queue, blocking_copy, memAddress(dst_ptr), memAddress(src_ptr), size, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clEnqueueSVMMemFill ] ---
@@ -763,7 +763,7 @@ public class CL20 {
 	public static int clEnqueueSVMMemFill(long command_queue, ByteBuffer svm_ptr, ByteBuffer pattern, long size, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			checkBufferSafe(event, 1);
-		return nclEnqueueSVMMemFill(command_queue, memAddress(svm_ptr), memAddress(pattern), (long)pattern.remaining(), size, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueSVMMemFill(command_queue, memAddress(svm_ptr), memAddress(pattern), (long)pattern.remaining(), size, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clEnqueueSVMMap ] ---
@@ -860,7 +860,7 @@ public class CL20 {
 	public static int clEnqueueSVMMap(long command_queue, int blocking_map, long map_flags, ByteBuffer svm_ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			checkBufferSafe(event, 1);
-		return nclEnqueueSVMMap(command_queue, blocking_map, map_flags, memAddress(svm_ptr), (long)svm_ptr.remaining(), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueSVMMap(command_queue, blocking_map, map_flags, memAddress(svm_ptr), (long)svm_ptr.remaining(), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clEnqueueSVMUnmap ] ---
@@ -932,7 +932,7 @@ public class CL20 {
 	public static int clEnqueueSVMUnmap(long command_queue, ByteBuffer svm_ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			checkBufferSafe(event, 1);
-		return nclEnqueueSVMUnmap(command_queue, memAddress(svm_ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueSVMUnmap(command_queue, memAddress(svm_ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clSetKernelArgSVMPointer ] ---
@@ -1208,7 +1208,7 @@ public class CL20 {
 			checkPointer(pipe);
 			checkBufferSafe(param_value_size_ret, 1);
 		}
-		return callPPPPI(__functionAddress, pipe, param_name, (long)(param_value == null ? 0 : param_value.length << 2), param_value, memAddressSafe(param_value_size_ret));
+		return callPPPPI(__functionAddress, pipe, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
 
 	/** int[] version of: {@link #clSetKernelExecInfo SetKernelExecInfo} */

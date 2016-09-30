@@ -417,7 +417,7 @@ public class CL11 {
 			checkBuffer(region, 3);
 			checkBufferSafe(event, 1);
 		}
-		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** ShortBuffer version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
@@ -428,7 +428,7 @@ public class CL11 {
 			checkBuffer(region, 3);
 			checkBufferSafe(event, 1);
 		}
-		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** IntBuffer version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
@@ -439,7 +439,7 @@ public class CL11 {
 			checkBuffer(region, 3);
 			checkBufferSafe(event, 1);
 		}
-		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** FloatBuffer version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
@@ -450,7 +450,7 @@ public class CL11 {
 			checkBuffer(region, 3);
 			checkBufferSafe(event, 1);
 		}
-		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** DoubleBuffer version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
@@ -461,7 +461,7 @@ public class CL11 {
 			checkBuffer(region, 3);
 			checkBufferSafe(event, 1);
 		}
-		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clEnqueueWriteBufferRect ] ---
@@ -632,7 +632,7 @@ public class CL11 {
 			checkBuffer(region, 3);
 			checkBufferSafe(event, 1);
 		}
-		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** ShortBuffer version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
@@ -643,7 +643,7 @@ public class CL11 {
 			checkBuffer(region, 3);
 			checkBufferSafe(event, 1);
 		}
-		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** IntBuffer version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
@@ -654,7 +654,7 @@ public class CL11 {
 			checkBuffer(region, 3);
 			checkBufferSafe(event, 1);
 		}
-		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** FloatBuffer version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
@@ -665,7 +665,7 @@ public class CL11 {
 			checkBuffer(region, 3);
 			checkBufferSafe(event, 1);
 		}
-		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** DoubleBuffer version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
@@ -676,7 +676,7 @@ public class CL11 {
 			checkBuffer(region, 3);
 			checkBufferSafe(event, 1);
 		}
-		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clEnqueueCopyBufferRect ] ---
@@ -834,7 +834,7 @@ public class CL11 {
 			checkBuffer(region, 3);
 			checkBufferSafe(event, 1);
 		}
-		return nclEnqueueCopyBufferRect(command_queue, src_buffer, dst_buffer, memAddress(src_origin), memAddress(dst_origin), memAddress(region), src_row_pitch, src_slice_pitch, dst_row_pitch, dst_slice_pitch, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueCopyBufferRect(command_queue, src_buffer, dst_buffer, memAddress(src_origin), memAddress(dst_origin), memAddress(region), src_row_pitch, src_slice_pitch, dst_row_pitch, dst_slice_pitch, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clCreateUserEvent ] ---
@@ -1071,7 +1071,7 @@ clReleaseMemObject(buf2);</code></pre>
 			checkBuffer(region, 3);
 			checkBufferSafe(event, 1);
 		}
-		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** int[] version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
@@ -1086,7 +1086,7 @@ clReleaseMemObject(buf2);</code></pre>
 			checkBuffer(region, 3);
 			checkBufferSafe(event, 1);
 		}
-		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** float[] version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
@@ -1101,7 +1101,7 @@ clReleaseMemObject(buf2);</code></pre>
 			checkBuffer(region, 3);
 			checkBufferSafe(event, 1);
 		}
-		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** double[] version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
@@ -1116,7 +1116,7 @@ clReleaseMemObject(buf2);</code></pre>
 			checkBuffer(region, 3);
 			checkBufferSafe(event, 1);
 		}
-		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** short[] version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
@@ -1131,7 +1131,7 @@ clReleaseMemObject(buf2);</code></pre>
 			checkBuffer(region, 3);
 			checkBufferSafe(event, 1);
 		}
-		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** int[] version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
@@ -1146,7 +1146,7 @@ clReleaseMemObject(buf2);</code></pre>
 			checkBuffer(region, 3);
 			checkBufferSafe(event, 1);
 		}
-		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** float[] version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
@@ -1161,7 +1161,7 @@ clReleaseMemObject(buf2);</code></pre>
 			checkBuffer(region, 3);
 			checkBufferSafe(event, 1);
 		}
-		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** double[] version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
@@ -1176,7 +1176,7 @@ clReleaseMemObject(buf2);</code></pre>
 			checkBuffer(region, 3);
 			checkBufferSafe(event, 1);
 		}
-		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Array version of: {@link #clCreateUserEvent CreateUserEvent} */

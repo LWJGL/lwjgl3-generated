@@ -125,7 +125,7 @@ public class KHREGLImage {
 	public static int clEnqueueAcquireEGLObjectsKHR(long command_queue, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			checkBufferSafe(event, 1);
-		return nclEnqueueAcquireEGLObjectsKHR(command_queue, mem_objects.remaining(), memAddress(mem_objects), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueAcquireEGLObjectsKHR(command_queue, mem_objects.remaining(), memAddress(mem_objects), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clEnqueueReleaseEGLObjectsKHR ] ---
@@ -173,7 +173,7 @@ public class KHREGLImage {
 	public static int clEnqueueReleaseEGLObjectsKHR(long command_queue, int num_objects, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			checkBufferSafe(event, 1);
-		return nclEnqueueReleaseEGLObjectsKHR(command_queue, num_objects, memAddress(mem_objects), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueReleaseEGLObjectsKHR(command_queue, num_objects, memAddress(mem_objects), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Array version of: {@link #clCreateFromEGLImageKHR CreateFromEGLImageKHR} */

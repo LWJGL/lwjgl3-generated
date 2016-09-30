@@ -92,7 +92,7 @@ public class ARBMultiBind {
 	 * @param buffers an array of zeros or names of existing buffers objects
 	 */
 	public static void glBindBuffersBase(int target, int first, IntBuffer buffers) {
-		nglBindBuffersBase(target, first, buffers == null ? 0 : buffers.remaining(), memAddressSafe(buffers));
+		nglBindBuffersBase(target, first, remainingSafe(buffers), memAddressSafe(buffers));
 	}
 
 	// --- [ glBindBuffersRange ] ---
@@ -161,10 +161,10 @@ public class ARBMultiBind {
 	 */
 	public static void glBindBuffersRange(int target, int first, IntBuffer buffers, PointerBuffer offsets, PointerBuffer sizes) {
 		if ( CHECKS ) {
-			checkBufferSafe(offsets, buffers.remaining());
-			checkBufferSafe(sizes, buffers.remaining());
+			checkBufferSafe(offsets, remainingSafe(buffers));
+			checkBufferSafe(sizes, remainingSafe(buffers));
 		}
-		nglBindBuffersRange(target, first, buffers == null ? 0 : buffers.remaining(), memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(sizes));
+		nglBindBuffersRange(target, first, remainingSafe(buffers), memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(sizes));
 	}
 
 	// --- [ glBindTextures ] ---
@@ -254,7 +254,7 @@ public class ARBMultiBind {
 	 * @param textures an array of zeros or names of existing texture objects
 	 */
 	public static void glBindTextures(int first, IntBuffer textures) {
-		nglBindTextures(first, textures == null ? 0 : textures.remaining(), memAddressSafe(textures));
+		nglBindTextures(first, remainingSafe(textures), memAddressSafe(textures));
 	}
 
 	// --- [ glBindSamplers ] ---
@@ -312,7 +312,7 @@ public class ARBMultiBind {
 	 * @param samplers an array of zeros or names of existing sampler objects
 	 */
 	public static void glBindSamplers(int first, IntBuffer samplers) {
-		nglBindSamplers(first, samplers == null ? 0 : samplers.remaining(), memAddressSafe(samplers));
+		nglBindSamplers(first, remainingSafe(samplers), memAddressSafe(samplers));
 	}
 
 	// --- [ glBindImageTextures ] ---
@@ -392,7 +392,7 @@ public class ARBMultiBind {
 	 * @param textures an array of zeros or names of existing texture objects
 	 */
 	public static void glBindImageTextures(int first, IntBuffer textures) {
-		nglBindImageTextures(first, textures == null ? 0 : textures.remaining(), memAddressSafe(textures));
+		nglBindImageTextures(first, remainingSafe(textures), memAddressSafe(textures));
 	}
 
 	// --- [ glBindVertexBuffers ] ---
@@ -465,10 +465,10 @@ public class ARBMultiBind {
 	 */
 	public static void glBindVertexBuffers(int first, IntBuffer buffers, PointerBuffer offsets, IntBuffer strides) {
 		if ( CHECKS ) {
-			checkBufferSafe(offsets, buffers.remaining());
-			checkBufferSafe(strides, buffers.remaining());
+			checkBufferSafe(offsets, remainingSafe(buffers));
+			checkBufferSafe(strides, remainingSafe(buffers));
 		}
-		nglBindVertexBuffers(first, buffers == null ? 0 : buffers.remaining(), memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(strides));
+		nglBindVertexBuffers(first, remainingSafe(buffers), memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(strides));
 	}
 
 	/** Array version of: {@link #glBindBuffersBase BindBuffersBase} */
@@ -476,7 +476,7 @@ public class ARBMultiBind {
 		long __functionAddress = GL.getCapabilities().glBindBuffersBase;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPV(__functionAddress, target, first, buffers == null ? 0 : buffers.length, buffers);
+		callPV(__functionAddress, target, first, lengthSafe(buffers), buffers);
 	}
 
 	/** Array version of: {@link #glBindBuffersRange BindBuffersRange} */
@@ -484,10 +484,10 @@ public class ARBMultiBind {
 		long __functionAddress = GL.getCapabilities().glBindBuffersRange;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(offsets, buffers.length);
-			checkBufferSafe(sizes, buffers.length);
+			checkBufferSafe(offsets, lengthSafe(buffers));
+			checkBufferSafe(sizes, lengthSafe(buffers));
 		}
-		callPPPV(__functionAddress, target, first, buffers == null ? 0 : buffers.length, buffers, memAddressSafe(offsets), memAddressSafe(sizes));
+		callPPPV(__functionAddress, target, first, lengthSafe(buffers), buffers, memAddressSafe(offsets), memAddressSafe(sizes));
 	}
 
 	/** Array version of: {@link #glBindTextures BindTextures} */
@@ -495,7 +495,7 @@ public class ARBMultiBind {
 		long __functionAddress = GL.getCapabilities().glBindTextures;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPV(__functionAddress, first, textures == null ? 0 : textures.length, textures);
+		callPV(__functionAddress, first, lengthSafe(textures), textures);
 	}
 
 	/** Array version of: {@link #glBindSamplers BindSamplers} */
@@ -503,7 +503,7 @@ public class ARBMultiBind {
 		long __functionAddress = GL.getCapabilities().glBindSamplers;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPV(__functionAddress, first, samplers == null ? 0 : samplers.length, samplers);
+		callPV(__functionAddress, first, lengthSafe(samplers), samplers);
 	}
 
 	/** Array version of: {@link #glBindImageTextures BindImageTextures} */
@@ -511,7 +511,7 @@ public class ARBMultiBind {
 		long __functionAddress = GL.getCapabilities().glBindImageTextures;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		callPV(__functionAddress, first, textures == null ? 0 : textures.length, textures);
+		callPV(__functionAddress, first, lengthSafe(textures), textures);
 	}
 
 	/** Array version of: {@link #glBindVertexBuffers BindVertexBuffers} */
@@ -519,10 +519,10 @@ public class ARBMultiBind {
 		long __functionAddress = GL.getCapabilities().glBindVertexBuffers;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(offsets, buffers.length);
-			checkBufferSafe(strides, buffers.length);
+			checkBufferSafe(offsets, lengthSafe(buffers));
+			checkBufferSafe(strides, lengthSafe(buffers));
 		}
-		callPPPV(__functionAddress, first, buffers == null ? 0 : buffers.length, buffers, memAddressSafe(offsets), strides);
+		callPPPV(__functionAddress, first, lengthSafe(buffers), buffers, memAddressSafe(offsets), strides);
 	}
 
 }

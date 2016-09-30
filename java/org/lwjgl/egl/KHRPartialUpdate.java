@@ -58,7 +58,7 @@ public class KHRPartialUpdate {
 	}
 
 	public static boolean eglSetDamageRegionKHR(long dpy, long surface, IntBuffer rects) {
-		return neglSetDamageRegionKHR(dpy, surface, memAddressSafe(rects), rects == null ? 0 : rects.remaining()) != 0;
+		return neglSetDamageRegionKHR(dpy, surface, memAddressSafe(rects), remainingSafe(rects)) != 0;
 	}
 
 	/** Array version of: {@link #eglSetDamageRegionKHR SetDamageRegionKHR} */
@@ -69,7 +69,7 @@ public class KHRPartialUpdate {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPPI(__functionAddress, dpy, surface, rects, rects == null ? 0 : rects.length) != 0;
+		return callPPPI(__functionAddress, dpy, surface, rects, lengthSafe(rects)) != 0;
 	}
 
 }

@@ -98,14 +98,14 @@ public class INTELSubgroups {
 	public static int clGetKernelSubGroupInfoKHR(long kernel, long device, int param_name, ByteBuffer input_value, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			checkBufferSafe(param_value_size_ret, 1);
-		return nclGetKernelSubGroupInfoKHR(kernel, device, param_name, (long)input_value.remaining(), memAddress(input_value), (long)(param_value == null ? 0 : param_value.remaining()), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetKernelSubGroupInfoKHR(kernel, device, param_name, (long)input_value.remaining(), memAddress(input_value), (long)remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** PointerBuffer version of: {@link #clGetKernelSubGroupInfoKHR GetKernelSubGroupInfoKHR} */
 	public static int clGetKernelSubGroupInfoKHR(long kernel, long device, int param_name, ByteBuffer input_value, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			checkBufferSafe(param_value_size_ret, 1);
-		return nclGetKernelSubGroupInfoKHR(kernel, device, param_name, (long)input_value.remaining(), memAddress(input_value), (param_value == null ? 0 : param_value.remaining() << POINTER_SHIFT), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetKernelSubGroupInfoKHR(kernel, device, param_name, (long)input_value.remaining(), memAddress(input_value), remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 }

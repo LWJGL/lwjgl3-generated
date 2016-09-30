@@ -106,7 +106,7 @@ public class EXTDeviceBase {
 	public static boolean eglQueryDevicesEXT(PointerBuffer devices, IntBuffer num_devices) {
 		if ( CHECKS )
 			checkBuffer(num_devices, 1);
-		return neglQueryDevicesEXT(devices == null ? 0 : devices.remaining(), memAddressSafe(devices), memAddress(num_devices)) != 0;
+		return neglQueryDevicesEXT(remainingSafe(devices), memAddressSafe(devices), memAddress(num_devices)) != 0;
 	}
 
 	/** Array version of: {@link #eglQueryDevicesEXT QueryDevicesEXT} */
@@ -116,7 +116,7 @@ public class EXTDeviceBase {
 			checkFunctionAddress(__functionAddress);
 			checkBuffer(num_devices, 1);
 		}
-		return callPPI(__functionAddress, devices == null ? 0 : devices.remaining(), memAddressSafe(devices), num_devices) != 0;
+		return callPPI(__functionAddress, remainingSafe(devices), memAddressSafe(devices), num_devices) != 0;
 	}
 
 }

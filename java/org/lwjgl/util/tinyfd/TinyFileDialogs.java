@@ -253,7 +253,7 @@ public class TinyFileDialogs {
 			checkNT1(aDefaultPathAndFile);
 			checkNT1Safe(aSingleFilterDescription);
 		}
-		long __result = ntinyfd_saveFileDialog(memAddress(aTitle), memAddress(aDefaultPathAndFile), aFilterPatterns == null ? 0 : aFilterPatterns.remaining(), memAddressSafe(aFilterPatterns), memAddressSafe(aSingleFilterDescription));
+		long __result = ntinyfd_saveFileDialog(memAddress(aTitle), memAddress(aDefaultPathAndFile), remainingSafe(aFilterPatterns), memAddressSafe(aFilterPatterns), memAddressSafe(aSingleFilterDescription));
 		return memUTF8(__result);
 	}
 
@@ -273,7 +273,7 @@ public class TinyFileDialogs {
 			ByteBuffer aTitleEncoded = stack.UTF8(aTitle);
 			ByteBuffer aDefaultPathAndFileEncoded = stack.UTF8(aDefaultPathAndFile);
 			ByteBuffer aSingleFilterDescriptionEncoded = stack.UTF8(aSingleFilterDescription);
-			long __result = ntinyfd_saveFileDialog(memAddress(aTitleEncoded), memAddress(aDefaultPathAndFileEncoded), aFilterPatterns == null ? 0 : aFilterPatterns.remaining(), memAddressSafe(aFilterPatterns), memAddressSafe(aSingleFilterDescriptionEncoded));
+			long __result = ntinyfd_saveFileDialog(memAddress(aTitleEncoded), memAddress(aDefaultPathAndFileEncoded), remainingSafe(aFilterPatterns), memAddressSafe(aFilterPatterns), memAddressSafe(aSingleFilterDescriptionEncoded));
 			return memUTF8(__result);
 		} finally {
 			stack.setPointer(stackPointer);
@@ -313,7 +313,7 @@ public class TinyFileDialogs {
 			checkNT1(aDefaultPathAndFile);
 			checkNT1Safe(aSingleFilterDescription);
 		}
-		long __result = ntinyfd_openFileDialog(memAddress(aTitle), memAddress(aDefaultPathAndFile), aFilterPatterns == null ? 0 : aFilterPatterns.remaining(), memAddressSafe(aFilterPatterns), memAddressSafe(aSingleFilterDescription), aAllowMultipleSelects ? 1 : 0);
+		long __result = ntinyfd_openFileDialog(memAddress(aTitle), memAddress(aDefaultPathAndFile), remainingSafe(aFilterPatterns), memAddressSafe(aFilterPatterns), memAddressSafe(aSingleFilterDescription), aAllowMultipleSelects ? 1 : 0);
 		return memUTF8(__result);
 	}
 
@@ -334,7 +334,7 @@ public class TinyFileDialogs {
 			ByteBuffer aTitleEncoded = stack.UTF8(aTitle);
 			ByteBuffer aDefaultPathAndFileEncoded = stack.UTF8(aDefaultPathAndFile);
 			ByteBuffer aSingleFilterDescriptionEncoded = stack.UTF8(aSingleFilterDescription);
-			long __result = ntinyfd_openFileDialog(memAddress(aTitleEncoded), memAddress(aDefaultPathAndFileEncoded), aFilterPatterns == null ? 0 : aFilterPatterns.remaining(), memAddressSafe(aFilterPatterns), memAddressSafe(aSingleFilterDescriptionEncoded), aAllowMultipleSelects ? 1 : 0);
+			long __result = ntinyfd_openFileDialog(memAddress(aTitleEncoded), memAddress(aDefaultPathAndFileEncoded), remainingSafe(aFilterPatterns), memAddressSafe(aFilterPatterns), memAddressSafe(aSingleFilterDescriptionEncoded), aAllowMultipleSelects ? 1 : 0);
 			return memUTF8(__result);
 		} finally {
 			stack.setPointer(stackPointer);

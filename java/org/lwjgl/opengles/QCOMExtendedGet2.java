@@ -43,7 +43,7 @@ public class QCOMExtendedGet2 {
 	public static void glExtGetShadersQCOM(IntBuffer shaders, IntBuffer numShaders) {
 		if ( CHECKS )
 			checkBufferSafe(numShaders, 1);
-		nglExtGetShadersQCOM(memAddressSafe(shaders), shaders == null ? 0 : shaders.remaining(), memAddressSafe(numShaders));
+		nglExtGetShadersQCOM(memAddressSafe(shaders), remainingSafe(shaders), memAddressSafe(numShaders));
 	}
 
 	// --- [ glExtGetProgramsQCOM ] ---
@@ -58,7 +58,7 @@ public class QCOMExtendedGet2 {
 	public static void glExtGetProgramsQCOM(IntBuffer programs, IntBuffer numPrograms) {
 		if ( CHECKS )
 			checkBufferSafe(numPrograms, 1);
-		nglExtGetProgramsQCOM(memAddressSafe(programs), programs == null ? 0 : programs.remaining(), memAddressSafe(numPrograms));
+		nglExtGetProgramsQCOM(memAddressSafe(programs), remainingSafe(programs), memAddressSafe(numPrograms));
 	}
 
 	// --- [ glExtIsProgramBinaryQCOM ] ---
@@ -92,7 +92,7 @@ public class QCOMExtendedGet2 {
 			checkFunctionAddress(__functionAddress);
 			checkBufferSafe(numShaders, 1);
 		}
-		callPPV(__functionAddress, shaders, shaders == null ? 0 : shaders.length, numShaders);
+		callPPV(__functionAddress, shaders, lengthSafe(shaders), numShaders);
 	}
 
 	/** Array version of: {@link #glExtGetProgramsQCOM ExtGetProgramsQCOM} */
@@ -102,7 +102,7 @@ public class QCOMExtendedGet2 {
 			checkFunctionAddress(__functionAddress);
 			checkBufferSafe(numPrograms, 1);
 		}
-		callPPV(__functionAddress, programs, programs == null ? 0 : programs.length, numPrograms);
+		callPPV(__functionAddress, programs, lengthSafe(programs), numPrograms);
 	}
 
 	/** Array version of: {@link #glExtGetProgramBinarySourceQCOM ExtGetProgramBinarySourceQCOM} */

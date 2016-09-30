@@ -732,7 +732,7 @@ public class ObjCRuntime {
 	 * @return an integer value indicating the total number of registered classes
 	 */
 	public static int objc_getClassList(PointerBuffer buffer) {
-		return nobjc_getClassList(memAddressSafe(buffer), buffer == null ? 0 : buffer.remaining());
+		return nobjc_getClassList(memAddressSafe(buffer), remainingSafe(buffer));
 	}
 
 	// --- [ objc_copyClassList ] ---

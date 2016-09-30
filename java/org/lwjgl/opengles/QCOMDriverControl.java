@@ -52,7 +52,7 @@ public class QCOMDriverControl {
 	public static void glGetDriverControlsQCOM(IntBuffer num, IntBuffer driverControls) {
 		if ( CHECKS )
 			checkBufferSafe(num, 1);
-		nglGetDriverControlsQCOM(memAddressSafe(num), driverControls == null ? 0 : driverControls.remaining(), memAddressSafe(driverControls));
+		nglGetDriverControlsQCOM(memAddressSafe(num), remainingSafe(driverControls), memAddressSafe(driverControls));
 	}
 
 	// --- [ glGetDriverControlStringQCOM ] ---
@@ -67,7 +67,7 @@ public class QCOMDriverControl {
 	public static void glGetDriverControlStringQCOM(int driverControl, IntBuffer length, ByteBuffer driverControlString) {
 		if ( CHECKS )
 			checkBufferSafe(length, 1);
-		nglGetDriverControlStringQCOM(driverControl, driverControlString == null ? 0 : driverControlString.remaining(), memAddressSafe(length), memAddressSafe(driverControlString));
+		nglGetDriverControlStringQCOM(driverControl, remainingSafe(driverControlString), memAddressSafe(length), memAddressSafe(driverControlString));
 	}
 
 	public static String glGetDriverControlStringQCOM(int driverControl, int bufSize) {
@@ -107,7 +107,7 @@ public class QCOMDriverControl {
 			checkFunctionAddress(__functionAddress);
 			checkBufferSafe(num, 1);
 		}
-		callPPV(__functionAddress, num, driverControls == null ? 0 : driverControls.length, driverControls);
+		callPPV(__functionAddress, num, lengthSafe(driverControls), driverControls);
 	}
 
 	/** Array version of: {@link #glGetDriverControlStringQCOM GetDriverControlStringQCOM} */
@@ -117,7 +117,7 @@ public class QCOMDriverControl {
 			checkFunctionAddress(__functionAddress);
 			checkBufferSafe(length, 1);
 		}
-		callPPV(__functionAddress, driverControl, driverControlString == null ? 0 : driverControlString.remaining(), length, memAddressSafe(driverControlString));
+		callPPV(__functionAddress, driverControl, remainingSafe(driverControlString), length, memAddressSafe(driverControlString));
 	}
 
 }

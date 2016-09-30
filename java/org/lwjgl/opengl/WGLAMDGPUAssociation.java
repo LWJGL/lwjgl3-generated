@@ -79,7 +79,7 @@ public class WGLAMDGPUAssociation {
 	 * @param ids the array of returned IDs
 	 */
 	public static int wglGetGPUIDsAMD(IntBuffer ids) {
-		return nwglGetGPUIDsAMD(ids == null ? 0 : ids.remaining(), memAddressSafe(ids));
+		return nwglGetGPUIDsAMD(remainingSafe(ids), memAddressSafe(ids));
 	}
 
 	// --- [ wglGetGPUInfoAMD ] ---
@@ -274,7 +274,7 @@ public class WGLAMDGPUAssociation {
 		long __functionAddress = GL.getCapabilitiesWGL().wglGetGPUIDsAMD;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
-		return callPI(__functionAddress, ids == null ? 0 : ids.length, ids);
+		return callPI(__functionAddress, lengthSafe(ids), ids);
 	}
 
 	/** int[] version of: {@link #wglGetGPUInfoAMD GetGPUInfoAMD} */

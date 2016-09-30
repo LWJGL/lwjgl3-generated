@@ -117,7 +117,7 @@ public class INTELVAAPIMediaSharing {
 	public static int clGetDeviceIDsFromVA_APIMediaAdapterINTEL(long platform, int media_adapter_type, long media_adapter, int media_adapter_set, PointerBuffer devices, IntBuffer num_devices) {
 		if ( CHECKS )
 			checkBufferSafe(num_devices, 1);
-		return nclGetDeviceIDsFromVA_APIMediaAdapterINTEL(platform, media_adapter_type, media_adapter, media_adapter_set, devices == null ? 0 : devices.remaining(), memAddressSafe(devices), memAddressSafe(num_devices));
+		return nclGetDeviceIDsFromVA_APIMediaAdapterINTEL(platform, media_adapter_type, media_adapter, media_adapter_set, remainingSafe(devices), memAddressSafe(devices), memAddressSafe(num_devices));
 	}
 
 	// --- [ clCreateFromVA_APIMediaSurfaceINTEL ] ---
@@ -221,7 +221,7 @@ public class INTELVAAPIMediaSharing {
 	public static int clEnqueueAcquireVA_APIMediaSurfacesINTEL(long command_queue, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			checkBufferSafe(event, 1);
-		return nclEnqueueAcquireVA_APIMediaSurfacesINTEL(command_queue, mem_objects.remaining(), memAddress(mem_objects), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueAcquireVA_APIMediaSurfacesINTEL(command_queue, mem_objects.remaining(), memAddress(mem_objects), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clEnqueueReleaseVA_APIMediaSurfacesINTEL ] ---
@@ -290,7 +290,7 @@ public class INTELVAAPIMediaSharing {
 	public static int clEnqueueReleaseVA_APIMediaSurfacesINTEL(long command_queue, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			checkBufferSafe(event, 1);
-		return nclEnqueueReleaseVA_APIMediaSurfacesINTEL(command_queue, mem_objects.remaining(), memAddress(mem_objects), event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueReleaseVA_APIMediaSurfacesINTEL(command_queue, mem_objects.remaining(), memAddress(mem_objects), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Array version of: {@link #clGetDeviceIDsFromVA_APIMediaAdapterINTEL GetDeviceIDsFromVA_APIMediaAdapterINTEL} */
@@ -302,7 +302,7 @@ public class INTELVAAPIMediaSharing {
 			checkPointer(media_adapter);
 			checkBufferSafe(num_devices, 1);
 		}
-		return callPPPPI(__functionAddress, platform, media_adapter_type, media_adapter, media_adapter_set, devices == null ? 0 : devices.remaining(), memAddressSafe(devices), num_devices);
+		return callPPPPI(__functionAddress, platform, media_adapter_type, media_adapter, media_adapter_set, remainingSafe(devices), memAddressSafe(devices), num_devices);
 	}
 
 	/** Array version of: {@link #clCreateFromVA_APIMediaSurfaceINTEL CreateFromVA_APIMediaSurfaceINTEL} */

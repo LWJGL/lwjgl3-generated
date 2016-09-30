@@ -61,7 +61,7 @@ public class QCOMExtendedGet {
 	public static void glExtGetTexturesQCOM(IntBuffer textures, IntBuffer numTextures) {
 		if ( CHECKS )
 			checkBufferSafe(numTextures, 1);
-		nglExtGetTexturesQCOM(memAddressSafe(textures), textures == null ? 0 : textures.remaining(), memAddressSafe(numTextures));
+		nglExtGetTexturesQCOM(memAddressSafe(textures), remainingSafe(textures), memAddressSafe(numTextures));
 	}
 
 	// --- [ glExtGetBuffersQCOM ] ---
@@ -76,7 +76,7 @@ public class QCOMExtendedGet {
 	public static void glExtGetBuffersQCOM(IntBuffer buffers, IntBuffer numBuffers) {
 		if ( CHECKS )
 			checkBufferSafe(numBuffers, 1);
-		nglExtGetBuffersQCOM(memAddressSafe(buffers), buffers == null ? 0 : buffers.remaining(), memAddressSafe(numBuffers));
+		nglExtGetBuffersQCOM(memAddressSafe(buffers), remainingSafe(buffers), memAddressSafe(numBuffers));
 	}
 
 	// --- [ glExtGetRenderbuffersQCOM ] ---
@@ -91,7 +91,7 @@ public class QCOMExtendedGet {
 	public static void glExtGetRenderbuffersQCOM(IntBuffer renderbuffers, IntBuffer numRenderbuffers) {
 		if ( CHECKS )
 			checkBufferSafe(numRenderbuffers, 1);
-		nglExtGetRenderbuffersQCOM(memAddressSafe(renderbuffers), renderbuffers == null ? 0 : renderbuffers.remaining(), memAddressSafe(numRenderbuffers));
+		nglExtGetRenderbuffersQCOM(memAddressSafe(renderbuffers), remainingSafe(renderbuffers), memAddressSafe(numRenderbuffers));
 	}
 
 	// --- [ glExtGetFramebuffersQCOM ] ---
@@ -106,7 +106,7 @@ public class QCOMExtendedGet {
 	public static void glExtGetFramebuffersQCOM(IntBuffer framebuffers, IntBuffer numFramebuffers) {
 		if ( CHECKS )
 			checkBufferSafe(numFramebuffers, 1);
-		nglExtGetFramebuffersQCOM(memAddressSafe(framebuffers), framebuffers == null ? 0 : framebuffers.remaining(), memAddressSafe(numFramebuffers));
+		nglExtGetFramebuffersQCOM(memAddressSafe(framebuffers), remainingSafe(framebuffers), memAddressSafe(numFramebuffers));
 	}
 
 	// --- [ glExtGetTexLevelParameterivQCOM ] ---
@@ -190,7 +190,7 @@ public class QCOMExtendedGet {
 			checkFunctionAddress(__functionAddress);
 			checkBufferSafe(numTextures, 1);
 		}
-		callPPV(__functionAddress, textures, textures == null ? 0 : textures.length, numTextures);
+		callPPV(__functionAddress, textures, lengthSafe(textures), numTextures);
 	}
 
 	/** Array version of: {@link #glExtGetBuffersQCOM ExtGetBuffersQCOM} */
@@ -200,7 +200,7 @@ public class QCOMExtendedGet {
 			checkFunctionAddress(__functionAddress);
 			checkBufferSafe(numBuffers, 1);
 		}
-		callPPV(__functionAddress, buffers, buffers == null ? 0 : buffers.length, numBuffers);
+		callPPV(__functionAddress, buffers, lengthSafe(buffers), numBuffers);
 	}
 
 	/** Array version of: {@link #glExtGetRenderbuffersQCOM ExtGetRenderbuffersQCOM} */
@@ -210,7 +210,7 @@ public class QCOMExtendedGet {
 			checkFunctionAddress(__functionAddress);
 			checkBufferSafe(numRenderbuffers, 1);
 		}
-		callPPV(__functionAddress, renderbuffers, renderbuffers == null ? 0 : renderbuffers.length, numRenderbuffers);
+		callPPV(__functionAddress, renderbuffers, lengthSafe(renderbuffers), numRenderbuffers);
 	}
 
 	/** Array version of: {@link #glExtGetFramebuffersQCOM ExtGetFramebuffersQCOM} */
@@ -220,7 +220,7 @@ public class QCOMExtendedGet {
 			checkFunctionAddress(__functionAddress);
 			checkBufferSafe(numFramebuffers, 1);
 		}
-		callPPV(__functionAddress, framebuffers, framebuffers == null ? 0 : framebuffers.length, numFramebuffers);
+		callPPV(__functionAddress, framebuffers, lengthSafe(framebuffers), numFramebuffers);
 	}
 
 	/** Array version of: {@link #glExtGetTexLevelParameterivQCOM ExtGetTexLevelParameterivQCOM} */

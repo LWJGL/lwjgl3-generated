@@ -1015,17 +1015,17 @@ public class BGFX {
 	 * @return number of output indices after conversion
 	 */
 	public static int bgfx_topology_convert(int _conversion, ByteBuffer _dst, ByteBuffer _indices, boolean _index32) {
-		return nbgfx_topology_convert(_conversion, memAddressSafe(_dst), _dst == null ? 0 : _dst.remaining(), memAddress(_indices), _indices.remaining() >> (_index32 ? 2 : 1), _index32);
+		return nbgfx_topology_convert(_conversion, memAddressSafe(_dst), remainingSafe(_dst), memAddress(_indices), _indices.remaining() >> (_index32 ? 2 : 1), _index32);
 	}
 
 	/** ShortBuffer version of: {@link #bgfx_topology_convert topology_convert} */
 	public static int bgfx_topology_convert(int _conversion, ShortBuffer _dst, ShortBuffer _indices, boolean _index32) {
-		return nbgfx_topology_convert(_conversion, memAddressSafe(_dst), (_dst == null ? 0 : _dst.remaining() << 1), memAddress(_indices), _indices.remaining(), _index32);
+		return nbgfx_topology_convert(_conversion, memAddressSafe(_dst), remainingSafe(_dst) << 1, memAddress(_indices), _indices.remaining(), _index32);
 	}
 
 	/** IntBuffer version of: {@link #bgfx_topology_convert topology_convert} */
 	public static int bgfx_topology_convert(int _conversion, IntBuffer _dst, IntBuffer _indices, boolean _index32) {
-		return nbgfx_topology_convert(_conversion, memAddressSafe(_dst), (_dst == null ? 0 : _dst.remaining() << 2), memAddress(_indices), _indices.remaining(), _index32);
+		return nbgfx_topology_convert(_conversion, memAddressSafe(_dst), remainingSafe(_dst) << 2, memAddress(_indices), _indices.remaining(), _index32);
 	}
 
 	// --- [ bgfx_topology_sort_tri_list ] ---
@@ -4555,13 +4555,13 @@ public class BGFX {
 	/** short[] version of: {@link #bgfx_topology_convert topology_convert} */
 	public static int bgfx_topology_convert(int _conversion, short[] _dst, short[] _indices, boolean _index32) {
 		long __functionAddress = Functions.topology_convert;
-		return invokePPI(__functionAddress, _conversion, _dst, _dst == null ? 0 : _dst.length << 1, _indices, _indices.length >> (_index32 ? 2 : 1), _index32);
+		return invokePPI(__functionAddress, _conversion, _dst, lengthSafe(_dst) << 1, _indices, _indices.length >> (_index32 ? 2 : 1), _index32);
 	}
 
 	/** int[] version of: {@link #bgfx_topology_convert topology_convert} */
 	public static int bgfx_topology_convert(int _conversion, int[] _dst, int[] _indices, boolean _index32) {
 		long __functionAddress = Functions.topology_convert;
-		return invokePPI(__functionAddress, _conversion, _dst, _dst == null ? 0 : _dst.length << 2, _indices, _indices.length >> (_index32 ? 2 : 1), _index32);
+		return invokePPI(__functionAddress, _conversion, _dst, lengthSafe(_dst) << 2, _indices, _indices.length >> (_index32 ? 2 : 1), _index32);
 	}
 
 	/** Array version of: {@link #bgfx_topology_sort_tri_list topology_sort_tri_list} */

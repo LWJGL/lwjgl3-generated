@@ -52,7 +52,7 @@ public class NOKSwapRegion2 {
 	}
 
 	public static boolean eglSwapBuffersRegion2NOK(long dpy, long surface, IntBuffer rects) {
-		return neglSwapBuffersRegion2NOK(dpy, surface, rects == null ? 0 : rects.remaining(), memAddressSafe(rects)) != 0;
+		return neglSwapBuffersRegion2NOK(dpy, surface, remainingSafe(rects), memAddressSafe(rects)) != 0;
 	}
 
 	/** Array version of: {@link #eglSwapBuffersRegion2NOK SwapBuffersRegion2NOK} */
@@ -63,7 +63,7 @@ public class NOKSwapRegion2 {
 			checkPointer(dpy);
 			checkPointer(surface);
 		}
-		return callPPPI(__functionAddress, dpy, surface, rects == null ? 0 : rects.length, rects) != 0;
+		return callPPPI(__functionAddress, dpy, surface, lengthSafe(rects), rects) != 0;
 	}
 
 }

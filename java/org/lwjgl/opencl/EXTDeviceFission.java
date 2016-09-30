@@ -129,7 +129,7 @@ public class EXTDeviceFission {
 			checkNT(properties);
 			checkBufferSafe(num_devices, 1);
 		}
-		return nclCreateSubDevicesEXT(in_device, memAddress(properties), out_devices == null ? 0 : out_devices.remaining(), memAddressSafe(out_devices), memAddressSafe(num_devices));
+		return nclCreateSubDevicesEXT(in_device, memAddress(properties), remainingSafe(out_devices), memAddressSafe(out_devices), memAddressSafe(num_devices));
 	}
 
 	/** Array version of: {@link #clCreateSubDevicesEXT CreateSubDevicesEXT} */
@@ -141,7 +141,7 @@ public class EXTDeviceFission {
 			checkNT(properties);
 			checkBufferSafe(num_devices, 1);
 		}
-		return callPPPPI(__functionAddress, in_device, properties, out_devices == null ? 0 : out_devices.remaining(), memAddressSafe(out_devices), num_devices);
+		return callPPPPI(__functionAddress, in_device, properties, remainingSafe(out_devices), memAddressSafe(out_devices), num_devices);
 	}
 
 }

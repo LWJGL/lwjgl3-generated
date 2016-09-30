@@ -113,7 +113,7 @@ public class EGL10 {
 			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 			checkBuffer(num_config, 1);
 		}
-		return neglChooseConfig(dpy, memAddressSafe(attrib_list), memAddressSafe(configs), configs == null ? 0 : configs.remaining(), memAddress(num_config)) != 0;
+		return neglChooseConfig(dpy, memAddressSafe(attrib_list), memAddressSafe(configs), remainingSafe(configs), memAddress(num_config)) != 0;
 	}
 
 	// --- [ eglCopyBuffers ] ---
@@ -259,7 +259,7 @@ public class EGL10 {
 	public static boolean eglGetConfigs(long dpy, PointerBuffer configs, IntBuffer num_config) {
 		if ( CHECKS )
 			checkBuffer(num_config, 1);
-		return neglGetConfigs(dpy, memAddressSafe(configs), configs == null ? 0 : configs.remaining(), memAddress(num_config)) != 0;
+		return neglGetConfigs(dpy, memAddressSafe(configs), remainingSafe(configs), memAddress(num_config)) != 0;
 	}
 
 	// --- [ eglGetCurrentDisplay ] ---
@@ -456,7 +456,7 @@ public class EGL10 {
 			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 			checkBuffer(num_config, 1);
 		}
-		return callPPPPI(__functionAddress, dpy, attrib_list, memAddressSafe(configs), configs == null ? 0 : configs.remaining(), num_config) != 0;
+		return callPPPPI(__functionAddress, dpy, attrib_list, memAddressSafe(configs), remainingSafe(configs), num_config) != 0;
 	}
 
 	/** Array version of: {@link #eglCreateContext CreateContext} */
@@ -529,7 +529,7 @@ public class EGL10 {
 			checkPointer(dpy);
 			checkBuffer(num_config, 1);
 		}
-		return callPPPI(__functionAddress, dpy, memAddressSafe(configs), configs == null ? 0 : configs.remaining(), num_config) != 0;
+		return callPPPI(__functionAddress, dpy, memAddressSafe(configs), remainingSafe(configs), num_config) != 0;
 	}
 
 	/** Array version of: {@link #eglInitialize Initialize} */

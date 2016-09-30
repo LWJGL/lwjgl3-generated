@@ -322,7 +322,7 @@ public class WGL {
 	 *                     glyph metrics are returned.
 	 */
 	public static boolean wglUseFontOutlines(long hdc, int first, int listBase, float deviation, float extrusion, int format, GLYPHMETRICSFLOAT.Buffer glyphMetrics) {
-		return nwglUseFontOutlines(hdc, first, glyphMetrics == null ? 0 : glyphMetrics.remaining(), listBase, deviation, extrusion, format, memAddressSafe(glyphMetrics)) != 0;
+		return nwglUseFontOutlines(hdc, first, remainingSafe(glyphMetrics), listBase, deviation, extrusion, format, memAddressSafe(glyphMetrics)) != 0;
 	}
 
 }

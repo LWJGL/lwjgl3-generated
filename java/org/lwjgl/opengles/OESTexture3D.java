@@ -135,7 +135,7 @@ public class OESTexture3D {
 	}
 
 	public static void glCompressedTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, ByteBuffer data) {
-		nglCompressedTexImage3DOES(target, level, internalformat, width, height, depth, border, data == null ? 0 : data.remaining(), memAddressSafe(data));
+		nglCompressedTexImage3DOES(target, level, internalformat, width, height, depth, border, remainingSafe(data), memAddressSafe(data));
 	}
 
 	// --- [ glCompressedTexSubImage3DOES ] ---

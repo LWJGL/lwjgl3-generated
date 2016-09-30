@@ -281,7 +281,7 @@ public class GL13 {
 	 * @param data           a pointer to the compressed image data
 	 */
 	public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, ByteBuffer data) {
-		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, data == null ? 0 : data.remaining(), memAddressSafe(data));
+		nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, remainingSafe(data), memAddressSafe(data));
 	}
 
 	// --- [ glCompressedTexImage2D ] ---
@@ -339,7 +339,7 @@ public class GL13 {
 	 * @param data           a pointer to the compressed image data
 	 */
 	public static void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, ByteBuffer data) {
-		nglCompressedTexImage2D(target, level, internalformat, width, height, border, data == null ? 0 : data.remaining(), memAddressSafe(data));
+		nglCompressedTexImage2D(target, level, internalformat, width, height, border, remainingSafe(data), memAddressSafe(data));
 	}
 
 	// --- [ glCompressedTexImage1D ] ---
@@ -394,7 +394,7 @@ public class GL13 {
 	 * @param data           a pointer to the compressed image data
 	 */
 	public static void glCompressedTexImage1D(int target, int level, int internalformat, int width, int border, ByteBuffer data) {
-		nglCompressedTexImage1D(target, level, internalformat, width, border, data == null ? 0 : data.remaining(), memAddressSafe(data));
+		nglCompressedTexImage1D(target, level, internalformat, width, border, remainingSafe(data), memAddressSafe(data));
 	}
 
 	// --- [ glCompressedTexSubImage3D ] ---

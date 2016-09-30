@@ -405,14 +405,14 @@ public class CL21 {
 	public static int clGetKernelSubGroupInfo(long kernel, long device, int param_name, ByteBuffer input_value, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			checkBufferSafe(param_value_size_ret, 1);
-		return nclGetKernelSubGroupInfo(kernel, device, param_name, (long)(input_value == null ? 0 : input_value.remaining()), memAddressSafe(input_value), (long)(param_value == null ? 0 : param_value.remaining()), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetKernelSubGroupInfo(kernel, device, param_name, (long)remainingSafe(input_value), memAddressSafe(input_value), (long)remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** PointerBuffer version of: {@link #clGetKernelSubGroupInfo GetKernelSubGroupInfo} */
 	public static int clGetKernelSubGroupInfo(long kernel, long device, int param_name, ByteBuffer input_value, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			checkBufferSafe(param_value_size_ret, 1);
-		return nclGetKernelSubGroupInfo(kernel, device, param_name, (long)(input_value == null ? 0 : input_value.remaining()), memAddressSafe(input_value), (param_value == null ? 0 : param_value.remaining() << POINTER_SHIFT), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetKernelSubGroupInfo(kernel, device, param_name, (long)remainingSafe(input_value), memAddressSafe(input_value), remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	// --- [ clEnqueueSVMMigrateMem ] ---
@@ -506,7 +506,7 @@ public class CL21 {
 			checkBufferSafe(sizes, svm_pointers.remaining());
 			checkBufferSafe(event, 1);
 		}
-		return nclEnqueueSVMMigrateMem(command_queue, svm_pointers.remaining(), memAddress(svm_pointers), memAddressSafe(sizes), flags, event_wait_list == null ? 0 : event_wait_list.remaining(), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueSVMMigrateMem(command_queue, svm_pointers.remaining(), memAddress(svm_pointers), memAddressSafe(sizes), flags, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	/** Array version of: {@link #clGetDeviceAndHostTimer GetDeviceAndHostTimer} */
