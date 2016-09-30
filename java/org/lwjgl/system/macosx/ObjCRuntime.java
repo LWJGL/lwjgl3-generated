@@ -2186,7 +2186,7 @@ public class ObjCRuntime {
 	 * @param dst the reference string to store the description
 	 */
 	public static void method_getReturnType(long m, ByteBuffer dst) {
-		nmethod_getReturnType(m, memAddress(dst), (long)dst.remaining());
+		nmethod_getReturnType(m, memAddress(dst), dst.remaining());
 	}
 
 	/**
@@ -2239,7 +2239,7 @@ public class ObjCRuntime {
 	 * @param dst   the reference string to store the description
 	 */
 	public static void method_getArgumentType(long m, int index, ByteBuffer dst) {
-		nmethod_getArgumentType(m, index, memAddress(dst), (long)dst.remaining());
+		nmethod_getArgumentType(m, index, memAddress(dst), dst.remaining());
 	}
 
 	/**

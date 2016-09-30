@@ -532,7 +532,7 @@ public class Nuklear {
 	 * @param font   
 	 */
 	public static boolean nk_init_fixed(NkContext ctx, ByteBuffer memory, NkUserFont font) {
-		return nnk_init_fixed(ctx.address(), memAddress(memory), (long)memory.remaining(), memAddressSafe(font)) != 0;
+		return nnk_init_fixed(ctx.address(), memAddress(memory), memory.remaining(), memAddressSafe(font)) != 0;
 	}
 
 	// --- [ nk_init_custom ] ---
@@ -8497,7 +8497,7 @@ public class Nuklear {
 	public static native void nnk_buffer_init_fixed(long buffer, long memory, long size);
 
 	public static void nk_buffer_init_fixed(NkBuffer buffer, ByteBuffer memory) {
-		nnk_buffer_init_fixed(buffer.address(), memAddress(memory), (long)memory.remaining());
+		nnk_buffer_init_fixed(buffer.address(), memAddress(memory), memory.remaining());
 	}
 
 	// --- [ nk_buffer_info ] ---
@@ -8530,7 +8530,7 @@ public class Nuklear {
 	 * @param align  
 	 */
 	public static void nk_buffer_push(NkBuffer buffer, int type, ByteBuffer memory, long align) {
-		nnk_buffer_push(buffer.address(), type, memAddress(memory), (long)memory.remaining(), align);
+		nnk_buffer_push(buffer.address(), type, memAddress(memory), memory.remaining(), align);
 	}
 
 	// --- [ nk_buffer_mark ] ---
@@ -8626,7 +8626,7 @@ public class Nuklear {
 	public static native void nnk_str_init_fixed(long str, long memory, long size);
 
 	public static void nk_str_init_fixed(NkStr str, ByteBuffer memory) {
-		nnk_str_init_fixed(str.address(), memAddress(memory), (long)memory.remaining());
+		nnk_str_init_fixed(str.address(), memAddress(memory), memory.remaining());
 	}
 
 	// --- [ nk_str_clear ] ---
@@ -8962,7 +8962,7 @@ public class Nuklear {
 	public static native void nnk_textedit_init_fixed(long box, long memory, long size);
 
 	public static void nk_textedit_init_fixed(NkTextEdit box, ByteBuffer memory) {
-		nnk_textedit_init_fixed(box.address(), memAddress(memory), (long)memory.remaining());
+		nnk_textedit_init_fixed(box.address(), memAddress(memory), memory.remaining());
 	}
 
 	// --- [ nk_textedit_free ] ---

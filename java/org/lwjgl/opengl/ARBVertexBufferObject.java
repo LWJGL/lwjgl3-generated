@@ -287,7 +287,7 @@ public class ARBVertexBufferObject {
 
 	/** ByteBuffer version of: {@link #glBufferDataARB BufferDataARB} */
 	public static void glBufferDataARB(int target, ByteBuffer data, int usage) {
-		nglBufferDataARB(target, (long)data.remaining(), memAddress(data), usage);
+		nglBufferDataARB(target, data.remaining(), memAddress(data), usage);
 	}
 
 	/** ShortBuffer version of: {@link #glBufferDataARB BufferDataARB} */
@@ -335,7 +335,7 @@ public class ARBVertexBufferObject {
 	 * @param data   a pointer to the new data that will be copied into the data store
 	 */
 	public static void glBufferSubDataARB(int target, long offset, ByteBuffer data) {
-		nglBufferSubDataARB(target, offset, (long)data.remaining(), memAddress(data));
+		nglBufferSubDataARB(target, offset, data.remaining(), memAddress(data));
 	}
 
 	/** ShortBuffer version of: {@link #glBufferSubDataARB BufferSubDataARB} */
@@ -383,7 +383,7 @@ public class ARBVertexBufferObject {
 	 * @param data   a pointer to the location where buffer object data is returned
 	 */
 	public static void glGetBufferSubDataARB(int target, long offset, ByteBuffer data) {
-		nglGetBufferSubDataARB(target, offset, (long)data.remaining(), memAddress(data));
+		nglGetBufferSubDataARB(target, offset, data.remaining(), memAddress(data));
 	}
 
 	/** ShortBuffer version of: {@link #glGetBufferSubDataARB GetBufferSubDataARB} */

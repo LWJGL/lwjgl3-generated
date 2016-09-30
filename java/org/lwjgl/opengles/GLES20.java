@@ -468,7 +468,7 @@ public class GLES20 {
 
 	/** ByteBuffer version of: {@link #glBufferData BufferData} */
 	public static void glBufferData(int target, ByteBuffer data, int usage) {
-		nglBufferData(target, (long)data.remaining(), memAddress(data), usage);
+		nglBufferData(target, data.remaining(), memAddress(data), usage);
 	}
 
 	/** ShortBuffer version of: {@link #glBufferData BufferData} */
@@ -494,7 +494,7 @@ public class GLES20 {
 	}
 
 	public static void glBufferSubData(int target, long offset, ByteBuffer data) {
-		nglBufferSubData(target, offset, (long)data.remaining(), memAddress(data));
+		nglBufferSubData(target, offset, data.remaining(), memAddress(data));
 	}
 
 	/** ShortBuffer version of: {@link #glBufferSubData BufferSubData} */

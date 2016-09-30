@@ -450,7 +450,7 @@ public class JEmalloc {
 	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
 	 */
 	public static void je_sdallocx(ByteBuffer ptr, int flags) {
-		nje_sdallocx(memAddress(ptr), (long)ptr.remaining(), flags);
+		nje_sdallocx(memAddress(ptr), ptr.remaining(), flags);
 	}
 
 	/** ShortBuffer version of: {@link #je_sdallocx sdallocx} */
@@ -550,7 +550,7 @@ public class JEmalloc {
 			checkNT1(name);
 			checkBufferSafe(oldlenp, 1);
 		}
-		return nje_mallctl(memAddress(name), memAddressSafe(oldp), memAddressSafe(oldlenp), memAddressSafe(newp), (long)remainingSafe(newp));
+		return nje_mallctl(memAddress(name), memAddressSafe(oldp), memAddressSafe(oldlenp), memAddressSafe(newp), remainingSafe(newp));
 	}
 
 	/**
@@ -572,7 +572,7 @@ public class JEmalloc {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.ASCII(name);
-			return nje_mallctl(memAddress(nameEncoded), memAddressSafe(oldp), memAddressSafe(oldlenp), memAddressSafe(newp), (long)remainingSafe(newp));
+			return nje_mallctl(memAddress(nameEncoded), memAddressSafe(oldp), memAddressSafe(oldlenp), memAddressSafe(newp), remainingSafe(newp));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -726,7 +726,7 @@ for (i = 0; i < nbins; i++) {
 	public static int je_mallctlbymib(PointerBuffer mib, ByteBuffer oldp, PointerBuffer oldlenp, ByteBuffer newp) {
 		if ( CHECKS )
 			checkBufferSafe(oldlenp, 1);
-		return nje_mallctlbymib(memAddress(mib), (long)mib.remaining(), memAddressSafe(oldp), memAddressSafe(oldlenp), memAddressSafe(newp), (long)remainingSafe(newp));
+		return nje_mallctlbymib(memAddress(mib), mib.remaining(), memAddressSafe(oldp), memAddressSafe(oldlenp), memAddressSafe(newp), remainingSafe(newp));
 	}
 
 	// --- [ je_malloc_stats_print ] ---

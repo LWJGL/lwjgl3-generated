@@ -139,7 +139,7 @@ public class INTELAccelerator {
 	public static long clCreateAcceleratorINTEL(long context, int accelerator_type, ByteBuffer descriptor, IntBuffer errcode_ret) {
 		if ( CHECKS )
 			checkBufferSafe(errcode_ret, 1);
-		return nclCreateAcceleratorINTEL(context, accelerator_type, (long)descriptor.remaining(), memAddress(descriptor), memAddressSafe(errcode_ret));
+		return nclCreateAcceleratorINTEL(context, accelerator_type, descriptor.remaining(), memAddress(descriptor), memAddressSafe(errcode_ret));
 	}
 
 	// --- [ clRetainAcceleratorINTEL ] ---
@@ -242,7 +242,7 @@ public class INTELAccelerator {
 	public static int clGetAcceleratorInfoINTEL(long accelerator, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			checkBufferSafe(param_value_size_ret, 1);
-		return nclGetAcceleratorInfoINTEL(accelerator, param_name, (long)remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+		return nclGetAcceleratorInfoINTEL(accelerator, param_name, remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
 	/** IntBuffer version of: {@link #clGetAcceleratorInfoINTEL GetAcceleratorInfoINTEL} */

@@ -2393,7 +2393,7 @@ public class EXTDirectStateAccess {
 
 	/** ByteBuffer version of: {@link #glNamedBufferDataEXT NamedBufferDataEXT} */
 	public static void glNamedBufferDataEXT(int buffer, ByteBuffer data, int usage) {
-		nglNamedBufferDataEXT(buffer, (long)data.remaining(), memAddress(data), usage);
+		nglNamedBufferDataEXT(buffer, data.remaining(), memAddress(data), usage);
 	}
 
 	/** ShortBuffer version of: {@link #glNamedBufferDataEXT NamedBufferDataEXT} */
@@ -2426,7 +2426,7 @@ public class EXTDirectStateAccess {
 	}
 
 	public static void glNamedBufferSubDataEXT(int buffer, long offset, ByteBuffer data) {
-		nglNamedBufferSubDataEXT(buffer, offset, (long)data.remaining(), memAddress(data));
+		nglNamedBufferSubDataEXT(buffer, offset, data.remaining(), memAddress(data));
 	}
 
 	/** ShortBuffer version of: {@link #glNamedBufferSubDataEXT NamedBufferSubDataEXT} */
@@ -2519,7 +2519,7 @@ public class EXTDirectStateAccess {
 	}
 
 	public static void glGetNamedBufferSubDataEXT(int buffer, long offset, ByteBuffer data) {
-		nglGetNamedBufferSubDataEXT(buffer, offset, (long)data.remaining(), memAddress(data));
+		nglGetNamedBufferSubDataEXT(buffer, offset, data.remaining(), memAddress(data));
 	}
 
 	/** ShortBuffer version of: {@link #glGetNamedBufferSubDataEXT GetNamedBufferSubDataEXT} */

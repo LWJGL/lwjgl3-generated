@@ -427,7 +427,7 @@ public class ARBDirectStateAccess {
 
 	/** ByteBuffer version of: {@link #glNamedBufferStorage NamedBufferStorage} */
 	public static void glNamedBufferStorage(int buffer, ByteBuffer data, int flags) {
-		nglNamedBufferStorage(buffer, (long)data.remaining(), memAddress(data), flags);
+		nglNamedBufferStorage(buffer, data.remaining(), memAddress(data), flags);
 	}
 
 	/** ShortBuffer version of: {@link #glNamedBufferStorage NamedBufferStorage} */
@@ -480,7 +480,7 @@ public class ARBDirectStateAccess {
 
 	/** ByteBuffer version of: {@link #glNamedBufferData NamedBufferData} */
 	public static void glNamedBufferData(int buffer, ByteBuffer data, int usage) {
-		nglNamedBufferData(buffer, (long)data.remaining(), memAddress(data), usage);
+		nglNamedBufferData(buffer, data.remaining(), memAddress(data), usage);
 	}
 
 	/** ShortBuffer version of: {@link #glNamedBufferData NamedBufferData} */
@@ -528,7 +528,7 @@ public class ARBDirectStateAccess {
 	 * @param data   a pointer to the new data that will be copied into the data store
 	 */
 	public static void glNamedBufferSubData(int buffer, long offset, ByteBuffer data) {
-		nglNamedBufferSubData(buffer, offset, (long)data.remaining(), memAddress(data));
+		nglNamedBufferSubData(buffer, offset, data.remaining(), memAddress(data));
 	}
 
 	/** ShortBuffer version of: {@link #glNamedBufferSubData NamedBufferSubData} */
@@ -958,7 +958,7 @@ public class ARBDirectStateAccess {
 	 * @param data   a pointer to the location where buffer object data is returned
 	 */
 	public static void glGetNamedBufferSubData(int buffer, long offset, ByteBuffer data) {
-		nglGetNamedBufferSubData(buffer, offset, (long)data.remaining(), memAddress(data));
+		nglGetNamedBufferSubData(buffer, offset, data.remaining(), memAddress(data));
 	}
 
 	/** ShortBuffer version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData} */

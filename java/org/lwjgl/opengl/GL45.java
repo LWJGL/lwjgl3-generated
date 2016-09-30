@@ -548,7 +548,7 @@ public class GL45 {
 	 * ByteBuffer version of: {@link #glNamedBufferStorage NamedBufferStorage}
 	 */
 	public static void glNamedBufferStorage(int buffer, ByteBuffer data, int flags) {
-		nglNamedBufferStorage(buffer, (long)data.remaining(), memAddress(data), flags);
+		nglNamedBufferStorage(buffer, data.remaining(), memAddress(data), flags);
 	}
 
 	/**
@@ -625,7 +625,7 @@ public class GL45 {
 	 * ByteBuffer version of: {@link #glNamedBufferData NamedBufferData}
 	 */
 	public static void glNamedBufferData(int buffer, ByteBuffer data, int usage) {
-		nglNamedBufferData(buffer, (long)data.remaining(), memAddress(data), usage);
+		nglNamedBufferData(buffer, data.remaining(), memAddress(data), usage);
 	}
 
 	/**
@@ -693,7 +693,7 @@ public class GL45 {
 	 * @param data   a pointer to the new data that will be copied into the data store
 	 */
 	public static void glNamedBufferSubData(int buffer, long offset, ByteBuffer data) {
-		nglNamedBufferSubData(buffer, offset, (long)data.remaining(), memAddress(data));
+		nglNamedBufferSubData(buffer, offset, data.remaining(), memAddress(data));
 	}
 
 	/**
@@ -1213,7 +1213,7 @@ public class GL45 {
 	 * @param data   a pointer to the location where buffer object data is returned
 	 */
 	public static void glGetNamedBufferSubData(int buffer, long offset, ByteBuffer data) {
-		nglGetNamedBufferSubData(buffer, offset, (long)data.remaining(), memAddress(data));
+		nglGetNamedBufferSubData(buffer, offset, data.remaining(), memAddress(data));
 	}
 
 	/**

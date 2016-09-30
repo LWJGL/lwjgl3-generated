@@ -229,7 +229,7 @@ public class GL44 {
 	 * ByteBuffer version of: {@link #glBufferStorage BufferStorage}
 	 */
 	public static void glBufferStorage(int target, ByteBuffer data, int flags) {
-		nglBufferStorage(target, (long)data.remaining(), memAddress(data), flags);
+		nglBufferStorage(target, data.remaining(), memAddress(data), flags);
 	}
 
 	/**

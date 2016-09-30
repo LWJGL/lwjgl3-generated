@@ -5990,7 +5990,7 @@ or _unsignaled_.</p>
 	 * @param flags      a bitmask of {@code VkQueryResultFlagBits} specifying how and when results are returned. One or more of:<br><table><tr><td>{@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT}</td><td>{@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT}</td><td>{@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT}</td></tr><tr><td>{@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT}</td></tr></table>
 	 */
 	public static int vkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, ByteBuffer pData, long stride, int flags) {
-		return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, (long)pData.remaining(), memAddress(pData), stride, flags);
+		return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, pData.remaining(), memAddress(pData), stride, flags);
 	}
 
 	/**
@@ -11285,7 +11285,7 @@ attribAddress = bufferBindingAddress + vertexOffset + attribDesc.offset;</code><
 	 * @param pData         a pointer to the source data for the buffer update, and <b>must</b> be at least {@code dataSize} bytes in size
 	 */
 	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, ByteBuffer pData) {
-		nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, (long)pData.remaining(), memAddress(pData));
+		nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining(), memAddress(pData));
 	}
 
 	/**

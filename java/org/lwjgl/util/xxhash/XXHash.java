@@ -62,7 +62,7 @@ public class XXHash {
 	 * @param seed  the seed that can be used to alter the result predictably
 	 */
 	public static int XXH32(ByteBuffer input, int seed) {
-		return nXXH32(memAddress(input), (long)input.remaining(), seed);
+		return nXXH32(memAddress(input), input.remaining(), seed);
 	}
 
 	// --- [ XXH32_createState ] ---
@@ -178,7 +178,7 @@ public class XXHash {
 	 * @param input    the bytes to hash. The memory between {@code input} &amp; {@code input+length} must be valid (allocated and read-accessible).
 	 */
 	public static int XXH32_update(XXH32State statePtr, ByteBuffer input) {
-		return nXXH32_update(statePtr.address(), memAddress(input), (long)input.remaining());
+		return nXXH32_update(statePtr.address(), memAddress(input), input.remaining());
 	}
 
 	// --- [ XXH32_digest ] ---
@@ -267,7 +267,7 @@ public class XXHash {
 	 * @param seed  the seed that can be used to alter the result predictably
 	 */
 	public static long XXH64(ByteBuffer input, long seed) {
-		return nXXH64(memAddress(input), (long)input.remaining(), seed);
+		return nXXH64(memAddress(input), input.remaining(), seed);
 	}
 
 	// --- [ XXH64_createState ] ---
@@ -345,7 +345,7 @@ public class XXHash {
 	 * @param input    the bytes to hash. The memory between {@code input} &amp; {@code input+length} must be valid (allocated and read-accessible).
 	 */
 	public static int XXH64_update(XXH64State statePtr, ByteBuffer input) {
-		return nXXH64_update(statePtr.address(), memAddress(input), (long)input.remaining());
+		return nXXH64_update(statePtr.address(), memAddress(input), input.remaining());
 	}
 
 	// --- [ XXH64_digest ] ---

@@ -320,7 +320,7 @@ public class GL15 {
 	 * ByteBuffer version of: {@link #glBufferData BufferData}
 	 */
 	public static void glBufferData(int target, ByteBuffer data, int usage) {
-		nglBufferData(target, (long)data.remaining(), memAddress(data), usage);
+		nglBufferData(target, data.remaining(), memAddress(data), usage);
 	}
 
 	/**
@@ -388,7 +388,7 @@ public class GL15 {
 	 * @param data   a pointer to the new data that will be copied into the data store
 	 */
 	public static void glBufferSubData(int target, long offset, ByteBuffer data) {
-		nglBufferSubData(target, offset, (long)data.remaining(), memAddress(data));
+		nglBufferSubData(target, offset, data.remaining(), memAddress(data));
 	}
 
 	/**
@@ -456,7 +456,7 @@ public class GL15 {
 	 * @param data   a pointer to the location where buffer object data is returned
 	 */
 	public static void glGetBufferSubData(int target, long offset, ByteBuffer data) {
-		nglGetBufferSubData(target, offset, (long)data.remaining(), memAddress(data));
+		nglGetBufferSubData(target, offset, data.remaining(), memAddress(data));
 	}
 
 	/**

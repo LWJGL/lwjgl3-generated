@@ -70,7 +70,7 @@ public class EXTBufferStorage {
 
 	/** ByteBuffer version of: {@link #glBufferStorageEXT BufferStorageEXT} */
 	public static void glBufferStorageEXT(int target, ByteBuffer data, int flags) {
-		nglBufferStorageEXT(target, (long)data.remaining(), memAddress(data), flags);
+		nglBufferStorageEXT(target, data.remaining(), memAddress(data), flags);
 	}
 
 	/** ShortBuffer version of: {@link #glBufferStorageEXT BufferStorageEXT} */

@@ -100,7 +100,7 @@ public class NVGPUMulticast {
 	}
 
 	public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, ByteBuffer data) {
-		nglMulticastBufferSubDataNV(gpuMask, buffer, offset, (long)data.remaining(), memAddress(data));
+		nglMulticastBufferSubDataNV(gpuMask, buffer, offset, data.remaining(), memAddress(data));
 	}
 
 	/** ShortBuffer version of: {@link #glMulticastBufferSubDataNV MulticastBufferSubDataNV} */

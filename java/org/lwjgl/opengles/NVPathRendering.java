@@ -696,7 +696,7 @@ public class NVPathRendering {
 	 * @param emScale               
 	 */
 	public static int glPathMemoryGlyphIndexArrayNV(int firstPathName, int fontTarget, ByteBuffer fontData, int faceIndex, int firstGlyphIndex, int numGlyphs, int pathParameterTemplate, float emScale) {
-		return nglPathMemoryGlyphIndexArrayNV(firstPathName, fontTarget, (long)fontData.remaining(), memAddress(fontData), faceIndex, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
+		return nglPathMemoryGlyphIndexArrayNV(firstPathName, fontTarget, fontData.remaining(), memAddress(fontData), faceIndex, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
 	}
 
 	// --- [ glCopyPathNV ] ---
