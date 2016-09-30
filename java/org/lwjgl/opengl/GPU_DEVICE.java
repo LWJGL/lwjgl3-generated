@@ -289,7 +289,7 @@ public class GPU_DEVICE extends Struct implements NativeResource {
 
 		@Override
 		protected GPU_DEVICE newInstance(long address) {
-			return new GPU_DEVICE(address, getContainer());
+			return new GPU_DEVICE(address, container);
 		}
 
 		@Override

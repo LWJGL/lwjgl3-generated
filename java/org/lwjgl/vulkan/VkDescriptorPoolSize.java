@@ -294,7 +294,7 @@ public class VkDescriptorPoolSize extends Struct implements NativeResource {
 
 		@Override
 		protected VkDescriptorPoolSize newInstance(long address) {
-			return new VkDescriptorPoolSize(address, getContainer());
+			return new VkDescriptorPoolSize(address, container);
 		}
 
 		@Override

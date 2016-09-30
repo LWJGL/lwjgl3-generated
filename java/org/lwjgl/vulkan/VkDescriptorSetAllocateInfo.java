@@ -362,7 +362,7 @@ public class VkDescriptorSetAllocateInfo extends Struct implements NativeResourc
 
 		@Override
 		protected VkDescriptorSetAllocateInfo newInstance(long address) {
-			return new VkDescriptorSetAllocateInfo(address, getContainer());
+			return new VkDescriptorSetAllocateInfo(address, container);
 		}
 
 		@Override

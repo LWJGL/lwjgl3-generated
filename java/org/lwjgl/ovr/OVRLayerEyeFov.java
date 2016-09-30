@@ -430,7 +430,7 @@ public class OVRLayerEyeFov extends Struct implements NativeResource {
 
 		@Override
 		protected OVRLayerEyeFov newInstance(long address) {
-			return new OVRLayerEyeFov(address, getContainer());
+			return new OVRLayerEyeFov(address, container);
 		}
 
 		@Override

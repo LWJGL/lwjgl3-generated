@@ -310,7 +310,7 @@ public class VkSemaphoreCreateInfo extends Struct implements NativeResource {
 
 		@Override
 		protected VkSemaphoreCreateInfo newInstance(long address) {
-			return new VkSemaphoreCreateInfo(address, getContainer());
+			return new VkSemaphoreCreateInfo(address, container);
 		}
 
 		@Override

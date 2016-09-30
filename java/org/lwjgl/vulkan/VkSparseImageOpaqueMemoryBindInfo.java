@@ -328,7 +328,7 @@ public class VkSparseImageOpaqueMemoryBindInfo extends Struct implements NativeR
 
 		@Override
 		protected VkSparseImageOpaqueMemoryBindInfo newInstance(long address) {
-			return new VkSparseImageOpaqueMemoryBindInfo(address, getContainer());
+			return new VkSparseImageOpaqueMemoryBindInfo(address, container);
 		}
 
 		@Override

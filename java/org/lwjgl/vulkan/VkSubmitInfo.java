@@ -452,7 +452,7 @@ public class VkSubmitInfo extends Struct implements NativeResource {
 
 		@Override
 		protected VkSubmitInfo newInstance(long address) {
-			return new VkSubmitInfo(address, getContainer());
+			return new VkSubmitInfo(address, container);
 		}
 
 		@Override

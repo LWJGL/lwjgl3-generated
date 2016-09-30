@@ -617,7 +617,7 @@ public class VkSwapchainCreateInfoKHR extends Struct implements NativeResource {
 
 		@Override
 		protected VkSwapchainCreateInfoKHR newInstance(long address) {
-			return new VkSwapchainCreateInfoKHR(address, getContainer());
+			return new VkSwapchainCreateInfoKHR(address, container);
 		}
 
 		@Override

@@ -440,7 +440,7 @@ public class VkDeviceCreateInfo extends Struct implements NativeResource {
 
 		@Override
 		protected VkDeviceCreateInfo newInstance(long address) {
-			return new VkDeviceCreateInfo(address, getContainer());
+			return new VkDeviceCreateInfo(address, container);
 		}
 
 		@Override

@@ -342,7 +342,7 @@ public class NkUserFontGlyph extends Struct implements NativeResource {
 
 		@Override
 		protected NkUserFontGlyph newInstance(long address) {
-			return new NkUserFontGlyph(address, getContainer());
+			return new NkUserFontGlyph(address, container);
 		}
 
 		@Override

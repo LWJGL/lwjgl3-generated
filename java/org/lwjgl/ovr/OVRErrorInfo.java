@@ -249,7 +249,7 @@ public class OVRErrorInfo extends Struct implements NativeResource {
 
 		@Override
 		protected OVRErrorInfo newInstance(long address) {
-			return new OVRErrorInfo(address, getContainer());
+			return new OVRErrorInfo(address, container);
 		}
 
 		@Override

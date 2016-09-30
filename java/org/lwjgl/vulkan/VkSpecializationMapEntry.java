@@ -309,7 +309,7 @@ public class VkSpecializationMapEntry extends Struct implements NativeResource {
 
 		@Override
 		protected VkSpecializationMapEntry newInstance(long address) {
-			return new VkSpecializationMapEntry(address, getContainer());
+			return new VkSpecializationMapEntry(address, container);
 		}
 
 		@Override

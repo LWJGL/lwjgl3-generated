@@ -328,7 +328,7 @@ public class VkVertexInputAttributeDescription extends Struct implements NativeR
 
 		@Override
 		protected VkVertexInputAttributeDescription newInstance(long address) {
-			return new VkVertexInputAttributeDescription(address, getContainer());
+			return new VkVertexInputAttributeDescription(address, container);
 		}
 
 		@Override

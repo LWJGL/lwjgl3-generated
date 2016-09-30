@@ -314,7 +314,7 @@ public class OVRQuatf extends Struct implements NativeResource {
 
 		@Override
 		protected OVRQuatf newInstance(long address) {
-			return new OVRQuatf(address, getContainer());
+			return new OVRQuatf(address, container);
 		}
 
 		@Override

@@ -323,7 +323,7 @@ public class GLFWImage extends Struct implements NativeResource {
 
 		@Override
 		protected GLFWImage newInstance(long address) {
-			return new GLFWImage(address, getContainer());
+			return new GLFWImage(address, container);
 		}
 
 		@Override

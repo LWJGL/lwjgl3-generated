@@ -459,7 +459,7 @@ public class XSetWindowAttributes extends Struct implements NativeResource {
 
 		@Override
 		protected XSetWindowAttributes newInstance(long address) {
-			return new XSetWindowAttributes(address, getContainer());
+			return new XSetWindowAttributes(address, container);
 		}
 
 		@Override

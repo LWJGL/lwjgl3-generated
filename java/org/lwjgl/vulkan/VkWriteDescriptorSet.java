@@ -483,7 +483,7 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
 
 		@Override
 		protected VkWriteDescriptorSet newInstance(long address) {
-			return new VkWriteDescriptorSet(address, getContainer());
+			return new VkWriteDescriptorSet(address, container);
 		}
 
 		@Override

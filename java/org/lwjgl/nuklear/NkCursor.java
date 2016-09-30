@@ -289,7 +289,7 @@ public class NkCursor extends Struct implements NativeResource {
 
 		@Override
 		protected NkCursor newInstance(long address) {
-			return new NkCursor(address, getContainer());
+			return new NkCursor(address, container);
 		}
 
 		@Override

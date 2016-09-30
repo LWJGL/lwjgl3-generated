@@ -284,7 +284,7 @@ public class OVRPosef extends Struct implements NativeResource {
 
 		@Override
 		protected OVRPosef newInstance(long address) {
-			return new OVRPosef(address, getContainer());
+			return new OVRPosef(address, container);
 		}
 
 		@Override

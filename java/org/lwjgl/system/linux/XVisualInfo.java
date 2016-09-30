@@ -409,7 +409,7 @@ public class XVisualInfo extends Struct implements NativeResource {
 
 		@Override
 		protected XVisualInfo newInstance(long address) {
-			return new XVisualInfo(address, getContainer());
+			return new XVisualInfo(address, container);
 		}
 
 		@Override

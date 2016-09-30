@@ -309,7 +309,7 @@ public class VkDescriptorBufferInfo extends Struct implements NativeResource {
 
 		@Override
 		protected VkDescriptorBufferInfo newInstance(long address) {
-			return new VkDescriptorBufferInfo(address, getContainer());
+			return new VkDescriptorBufferInfo(address, container);
 		}
 
 		@Override

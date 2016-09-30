@@ -164,7 +164,7 @@ class NkConfigurationStacks extends Struct {
 
 		@Override
 		protected NkConfigurationStacks newInstance(long address) {
-			return new NkConfigurationStacks(address, getContainer());
+			return new NkConfigurationStacks(address, container);
 		}
 
 		@Override

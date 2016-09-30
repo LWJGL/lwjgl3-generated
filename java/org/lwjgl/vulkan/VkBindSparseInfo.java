@@ -481,7 +481,7 @@ public class VkBindSparseInfo extends Struct implements NativeResource {
 
 		@Override
 		protected VkBindSparseInfo newInstance(long address) {
-			return new VkBindSparseInfo(address, getContainer());
+			return new VkBindSparseInfo(address, container);
 		}
 
 		@Override

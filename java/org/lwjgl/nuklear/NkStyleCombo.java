@@ -513,7 +513,7 @@ public class NkStyleCombo extends Struct implements NativeResource {
 
 		@Override
 		protected NkStyleCombo newInstance(long address) {
-			return new NkStyleCombo(address, getContainer());
+			return new NkStyleCombo(address, container);
 		}
 
 		@Override

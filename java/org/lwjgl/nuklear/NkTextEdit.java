@@ -230,7 +230,7 @@ class NkTextEdit extends Struct {
 
 		@Override
 		protected NkTextEdit newInstance(long address) {
-			return new NkTextEdit(address, getContainer());
+			return new NkTextEdit(address, container);
 		}
 
 		@Override

@@ -347,7 +347,7 @@ public class VkSparseMemoryBind extends Struct implements NativeResource {
 
 		@Override
 		protected VkSparseMemoryBind newInstance(long address) {
-			return new VkSparseMemoryBind(address, getContainer());
+			return new VkSparseMemoryBind(address, container);
 		}
 
 		@Override

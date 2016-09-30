@@ -439,7 +439,7 @@ public class VkFramebufferCreateInfo extends Struct implements NativeResource {
 
 		@Override
 		protected VkFramebufferCreateInfo newInstance(long address) {
-			return new VkFramebufferCreateInfo(address, getContainer());
+			return new VkFramebufferCreateInfo(address, container);
 		}
 
 		@Override

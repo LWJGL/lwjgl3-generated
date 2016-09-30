@@ -148,7 +148,7 @@ public class NkKeyboard extends Struct {
 
 		@Override
 		protected NkKeyboard newInstance(long address) {
-			return new NkKeyboard(address, getContainer());
+			return new NkKeyboard(address, container);
 		}
 
 		@Override

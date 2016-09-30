@@ -414,7 +414,7 @@ public class VkBufferCreateInfo extends Struct implements NativeResource {
 
 		@Override
 		protected VkBufferCreateInfo newInstance(long address) {
-			return new VkBufferCreateInfo(address, getContainer());
+			return new VkBufferCreateInfo(address, container);
 		}
 
 		@Override

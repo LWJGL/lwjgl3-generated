@@ -281,7 +281,7 @@ public class OVRSessionStatus extends Struct implements NativeResource {
 
 		@Override
 		protected OVRSessionStatus newInstance(long address) {
-			return new OVRSessionStatus(address, getContainer());
+			return new OVRSessionStatus(address, container);
 		}
 
 		@Override

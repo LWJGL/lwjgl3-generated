@@ -264,7 +264,7 @@ public class NkStyleItemData extends Struct implements NativeResource {
 
 		@Override
 		protected NkStyleItemData newInstance(long address) {
-			return new NkStyleItemData(address, getContainer());
+			return new NkStyleItemData(address, container);
 		}
 
 		@Override

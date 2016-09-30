@@ -281,7 +281,7 @@ public class NVGTextRow extends Struct implements NativeResource {
 
 		@Override
 		protected NVGTextRow newInstance(long address) {
-			return new NVGTextRow(address, getContainer());
+			return new NVGTextRow(address, container);
 		}
 
 		@Override

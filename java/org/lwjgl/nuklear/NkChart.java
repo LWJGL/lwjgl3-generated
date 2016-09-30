@@ -164,7 +164,7 @@ public class NkChart extends Struct {
 
 		@Override
 		protected NkChart newInstance(long address) {
-			return new NkChart(address, getContainer());
+			return new NkChart(address, container);
 		}
 
 		@Override

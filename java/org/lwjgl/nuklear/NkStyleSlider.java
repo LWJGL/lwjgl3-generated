@@ -540,7 +540,7 @@ public class NkStyleSlider extends Struct implements NativeResource {
 
 		@Override
 		protected NkStyleSlider newInstance(long address) {
-			return new NkStyleSlider(address, getContainer());
+			return new NkStyleSlider(address, container);
 		}
 
 		@Override

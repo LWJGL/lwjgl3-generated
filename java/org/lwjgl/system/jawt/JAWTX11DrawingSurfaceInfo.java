@@ -160,7 +160,7 @@ public class JAWTX11DrawingSurfaceInfo extends Struct {
 
 		@Override
 		protected JAWTX11DrawingSurfaceInfo newInstance(long address) {
-			return new JAWTX11DrawingSurfaceInfo(address, getContainer());
+			return new JAWTX11DrawingSurfaceInfo(address, container);
 		}
 
 		@Override

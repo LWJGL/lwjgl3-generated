@@ -275,7 +275,7 @@ public class VkSubresourceLayout extends Struct implements NativeResource {
 
 		@Override
 		protected VkSubresourceLayout newInstance(long address) {
-			return new VkSubresourceLayout(address, getContainer());
+			return new VkSubresourceLayout(address, container);
 		}
 
 		@Override

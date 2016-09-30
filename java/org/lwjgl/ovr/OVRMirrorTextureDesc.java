@@ -311,7 +311,7 @@ public class OVRMirrorTextureDesc extends Struct implements NativeResource {
 
 		@Override
 		protected OVRMirrorTextureDesc newInstance(long address) {
-			return new OVRMirrorTextureDesc(address, getContainer());
+			return new OVRMirrorTextureDesc(address, container);
 		}
 
 		@Override

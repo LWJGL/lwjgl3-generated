@@ -124,7 +124,7 @@ public class NkBufferMarker extends Struct {
 
 		@Override
 		protected NkBufferMarker newInstance(long address) {
-			return new NkBufferMarker(address, getContainer());
+			return new NkBufferMarker(address, container);
 		}
 
 		@Override

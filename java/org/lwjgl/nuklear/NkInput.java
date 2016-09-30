@@ -236,7 +236,7 @@ public class NkInput extends Struct implements NativeResource {
 
 		@Override
 		protected NkInput newInstance(long address) {
-			return new NkInput(address, getContainer());
+			return new NkInput(address, container);
 		}
 
 		@Override

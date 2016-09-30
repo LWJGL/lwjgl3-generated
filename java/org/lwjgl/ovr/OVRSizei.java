@@ -284,7 +284,7 @@ public class OVRSizei extends Struct implements NativeResource {
 
 		@Override
 		protected OVRSizei newInstance(long address) {
-			return new OVRSizei(address, getContainer());
+			return new OVRSizei(address, container);
 		}
 
 		@Override

@@ -381,7 +381,7 @@ public class JAWT extends Struct implements NativeResource {
 
 		@Override
 		protected JAWT newInstance(long address) {
-			return new JAWT(address, getContainer());
+			return new JAWT(address, container);
 		}
 
 		@Override

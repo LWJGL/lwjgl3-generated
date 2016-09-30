@@ -361,7 +361,7 @@ public class OVRLayerQuad extends Struct implements NativeResource {
 
 		@Override
 		protected OVRLayerQuad newInstance(long address) {
-			return new OVRLayerQuad(address, getContainer());
+			return new OVRLayerQuad(address, container);
 		}
 
 		@Override

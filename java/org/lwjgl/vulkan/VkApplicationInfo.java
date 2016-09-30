@@ -390,7 +390,7 @@ public class VkApplicationInfo extends Struct implements NativeResource {
 
 		@Override
 		protected VkApplicationInfo newInstance(long address) {
-			return new VkApplicationInfo(address, getContainer());
+			return new VkApplicationInfo(address, container);
 		}
 
 		@Override

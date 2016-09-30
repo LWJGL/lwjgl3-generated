@@ -302,7 +302,7 @@ public class VkClearRect extends Struct implements NativeResource {
 
 		@Override
 		protected VkClearRect newInstance(long address) {
-			return new VkClearRect(address, getContainer());
+			return new VkClearRect(address, container);
 		}
 
 		@Override

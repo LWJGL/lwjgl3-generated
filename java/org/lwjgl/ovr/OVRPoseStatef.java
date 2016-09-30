@@ -172,7 +172,7 @@ public class OVRPoseStatef extends Struct {
 
 		@Override
 		protected OVRPoseStatef newInstance(long address) {
-			return new OVRPoseStatef(address, getContainer());
+			return new OVRPoseStatef(address, container);
 		}
 
 		@Override

@@ -302,7 +302,7 @@ public class VkClearAttachment extends Struct implements NativeResource {
 
 		@Override
 		protected VkClearAttachment newInstance(long address) {
-			return new VkClearAttachment(address, getContainer());
+			return new VkClearAttachment(address, container);
 		}
 
 		@Override

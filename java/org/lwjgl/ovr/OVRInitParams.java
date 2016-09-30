@@ -338,7 +338,7 @@ public class OVRInitParams extends Struct implements NativeResource {
 
 		@Override
 		protected OVRInitParams newInstance(long address) {
-			return new OVRInitParams(address, getContainer());
+			return new OVRInitParams(address, container);
 		}
 
 		@Override

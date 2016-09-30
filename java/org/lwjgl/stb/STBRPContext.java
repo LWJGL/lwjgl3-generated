@@ -213,7 +213,7 @@ public class STBRPContext extends Struct implements NativeResource {
 
 		@Override
 		protected STBRPContext newInstance(long address) {
-			return new STBRPContext(address, getContainer());
+			return new STBRPContext(address, container);
 		}
 
 		@Override

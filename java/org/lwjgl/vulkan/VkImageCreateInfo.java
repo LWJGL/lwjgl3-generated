@@ -621,7 +621,7 @@ public class VkImageCreateInfo extends Struct implements NativeResource {
 
 		@Override
 		protected VkImageCreateInfo newInstance(long address) {
-			return new VkImageCreateInfo(address, getContainer());
+			return new VkImageCreateInfo(address, container);
 		}
 
 		@Override

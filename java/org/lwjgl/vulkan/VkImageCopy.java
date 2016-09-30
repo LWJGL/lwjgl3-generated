@@ -361,7 +361,7 @@ public class VkImageCopy extends Struct implements NativeResource {
 
 		@Override
 		protected VkImageCopy newInstance(long address) {
-			return new VkImageCopy(address, getContainer());
+			return new VkImageCopy(address, container);
 		}
 
 		@Override

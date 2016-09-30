@@ -327,7 +327,7 @@ public class VkMemoryBarrier extends Struct implements NativeResource {
 
 		@Override
 		protected VkMemoryBarrier newInstance(long address) {
-			return new VkMemoryBarrier(address, getContainer());
+			return new VkMemoryBarrier(address, container);
 		}
 
 		@Override

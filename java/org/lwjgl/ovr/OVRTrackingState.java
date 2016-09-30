@@ -296,7 +296,7 @@ public class OVRTrackingState extends Struct implements NativeResource {
 
 		@Override
 		protected OVRTrackingState newInstance(long address) {
-			return new OVRTrackingState(address, getContainer());
+			return new OVRTrackingState(address, container);
 		}
 
 		@Override

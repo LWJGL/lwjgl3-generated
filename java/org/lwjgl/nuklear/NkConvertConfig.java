@@ -426,7 +426,7 @@ public class NkConvertConfig extends Struct implements NativeResource {
 
 		@Override
 		protected NkConvertConfig newInstance(long address) {
-			return new NkConvertConfig(address, getContainer());
+			return new NkConvertConfig(address, container);
 		}
 
 		@Override

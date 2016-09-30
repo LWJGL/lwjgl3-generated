@@ -213,7 +213,7 @@ public class NFDPathSet extends Struct implements NativeResource {
 
 		@Override
 		protected NFDPathSet newInstance(long address) {
-			return new NFDPathSet(address, getContainer());
+			return new NFDPathSet(address, container);
 		}
 
 		@Override

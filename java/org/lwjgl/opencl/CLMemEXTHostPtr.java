@@ -284,7 +284,7 @@ public class CLMemEXTHostPtr extends Struct implements NativeResource {
 
 		@Override
 		protected CLMemEXTHostPtr newInstance(long address) {
-			return new CLMemEXTHostPtr(address, getContainer());
+			return new CLMemEXTHostPtr(address, container);
 		}
 
 		@Override

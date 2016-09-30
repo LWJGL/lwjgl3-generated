@@ -148,7 +148,7 @@ public class NkMenuState extends Struct {
 
 		@Override
 		protected NkMenuState newInstance(long address) {
-			return new NkMenuState(address, getContainer());
+			return new NkMenuState(address, container);
 		}
 
 		@Override

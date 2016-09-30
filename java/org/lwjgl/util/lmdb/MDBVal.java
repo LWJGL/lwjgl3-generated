@@ -290,7 +290,7 @@ public class MDBVal extends Struct implements NativeResource {
 
 		@Override
 		protected MDBVal newInstance(long address) {
-			return new MDBVal(address, getContainer());
+			return new MDBVal(address, container);
 		}
 
 		@Override

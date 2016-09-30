@@ -132,7 +132,7 @@ class NkConfigStackFlags extends Struct {
 
 		@Override
 		protected NkConfigStackFlags newInstance(long address) {
-			return new NkConfigStackFlags(address, getContainer());
+			return new NkConfigStackFlags(address, container);
 		}
 
 		@Override

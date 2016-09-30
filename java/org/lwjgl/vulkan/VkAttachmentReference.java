@@ -297,7 +297,7 @@ public class VkAttachmentReference extends Struct implements NativeResource {
 
 		@Override
 		protected VkAttachmentReference newInstance(long address) {
-			return new VkAttachmentReference(address, getContainer());
+			return new VkAttachmentReference(address, container);
 		}
 
 		@Override

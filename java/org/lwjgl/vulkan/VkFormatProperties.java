@@ -257,7 +257,7 @@ public class VkFormatProperties extends Struct implements NativeResource {
 
 		@Override
 		protected VkFormatProperties newInstance(long address) {
-			return new VkFormatProperties(address, getContainer());
+			return new VkFormatProperties(address, container);
 		}
 
 		@Override

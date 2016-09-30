@@ -286,7 +286,7 @@ public class STBTTAlignedQuad extends Struct implements NativeResource {
 
 		@Override
 		protected STBTTAlignedQuad newInstance(long address) {
-			return new STBTTAlignedQuad(address, getContainer());
+			return new STBTTAlignedQuad(address, container);
 		}
 
 		@Override

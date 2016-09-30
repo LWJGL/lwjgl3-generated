@@ -297,7 +297,7 @@ public class NkDrawVertexLayoutElement extends Struct implements NativeResource 
 
 		@Override
 		protected NkDrawVertexLayoutElement newInstance(long address) {
-			return new NkDrawVertexLayoutElement(address, getContainer());
+			return new NkDrawVertexLayoutElement(address, container);
 		}
 
 		@Override

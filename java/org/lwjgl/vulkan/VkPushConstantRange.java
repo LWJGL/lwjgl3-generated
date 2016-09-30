@@ -313,7 +313,7 @@ public class VkPushConstantRange extends Struct implements NativeResource {
 
 		@Override
 		protected VkPushConstantRange newInstance(long address) {
-			return new VkPushConstantRange(address, getContainer());
+			return new VkPushConstantRange(address, container);
 		}
 
 		@Override

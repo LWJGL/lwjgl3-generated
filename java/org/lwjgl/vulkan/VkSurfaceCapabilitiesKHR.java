@@ -337,7 +337,7 @@ public class VkSurfaceCapabilitiesKHR extends Struct implements NativeResource {
 
 		@Override
 		protected VkSurfaceCapabilitiesKHR newInstance(long address) {
-			return new VkSurfaceCapabilitiesKHR(address, getContainer());
+			return new VkSurfaceCapabilitiesKHR(address, container);
 		}
 
 		@Override

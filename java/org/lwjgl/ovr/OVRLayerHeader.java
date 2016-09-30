@@ -287,7 +287,7 @@ public class OVRLayerHeader extends Struct implements NativeResource {
 
 		@Override
 		protected OVRLayerHeader newInstance(long address) {
-			return new OVRLayerHeader(address, getContainer());
+			return new OVRLayerHeader(address, container);
 		}
 
 		@Override

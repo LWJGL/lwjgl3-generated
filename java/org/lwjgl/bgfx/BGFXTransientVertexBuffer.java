@@ -360,7 +360,7 @@ public class BGFXTransientVertexBuffer extends Struct implements NativeResource 
 
 		@Override
 		protected BGFXTransientVertexBuffer newInstance(long address) {
-			return new BGFXTransientVertexBuffer(address, getContainer());
+			return new BGFXTransientVertexBuffer(address, container);
 		}
 
 		@Override

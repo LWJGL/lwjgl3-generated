@@ -409,7 +409,7 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
 
 		@Override
 		protected VkPipelineMultisampleStateCreateInfo newInstance(long address) {
-			return new VkPipelineMultisampleStateCreateInfo(address, getContainer());
+			return new VkPipelineMultisampleStateCreateInfo(address, container);
 		}
 
 		@Override

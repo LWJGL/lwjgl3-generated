@@ -420,7 +420,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
 
 		@Override
 		protected VkPresentInfoKHR newInstance(long address) {
-			return new VkPresentInfoKHR(address, getContainer());
+			return new VkPresentInfoKHR(address, container);
 		}
 
 		@Override

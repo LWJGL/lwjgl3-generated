@@ -132,7 +132,7 @@ class NkConfigStackStyleItem extends Struct {
 
 		@Override
 		protected NkConfigStackStyleItem newInstance(long address) {
-			return new NkConfigStackStyleItem(address, getContainer());
+			return new NkConfigStackStyleItem(address, container);
 		}
 
 		@Override

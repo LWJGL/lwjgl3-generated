@@ -340,7 +340,7 @@ public class BGFXVertexDecl extends Struct implements NativeResource {
 
 		@Override
 		protected BGFXVertexDecl newInstance(long address) {
-			return new BGFXVertexDecl(address, getContainer());
+			return new BGFXVertexDecl(address, container);
 		}
 
 		@Override

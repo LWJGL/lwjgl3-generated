@@ -124,7 +124,7 @@ public class NkKey extends Struct {
 
 		@Override
 		protected NkKey newInstance(long address) {
-			return new NkKey(address, getContainer());
+			return new NkKey(address, container);
 		}
 
 		@Override

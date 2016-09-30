@@ -314,7 +314,7 @@ public class RECT extends Struct implements NativeResource {
 
 		@Override
 		protected RECT newInstance(long address) {
-			return new RECT(address, getContainer());
+			return new RECT(address, container);
 		}
 
 		@Override

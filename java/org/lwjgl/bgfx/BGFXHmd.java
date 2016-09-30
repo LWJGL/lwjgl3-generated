@@ -176,7 +176,7 @@ public class BGFXHmd extends Struct {
 
 		@Override
 		protected BGFXHmd newInstance(long address) {
-			return new BGFXHmd(address, getContainer());
+			return new BGFXHmd(address, container);
 		}
 
 		@Override

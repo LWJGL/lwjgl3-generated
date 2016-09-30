@@ -379,7 +379,7 @@ public class VkPipelineViewportStateCreateInfo extends Struct implements NativeR
 
 		@Override
 		protected VkPipelineViewportStateCreateInfo newInstance(long address) {
-			return new VkPipelineViewportStateCreateInfo(address, getContainer());
+			return new VkPipelineViewportStateCreateInfo(address, container);
 		}
 
 		@Override

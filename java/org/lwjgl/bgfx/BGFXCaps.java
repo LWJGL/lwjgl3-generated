@@ -221,7 +221,7 @@ public class BGFXCaps extends Struct {
 
 		@Override
 		protected BGFXCaps newInstance(long address) {
-			return new BGFXCaps(address, getContainer());
+			return new BGFXCaps(address, container);
 		}
 
 		@Override

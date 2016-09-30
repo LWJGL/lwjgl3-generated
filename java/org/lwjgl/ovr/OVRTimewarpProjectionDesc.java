@@ -256,7 +256,7 @@ public class OVRTimewarpProjectionDesc extends Struct implements NativeResource 
 
 		@Override
 		protected OVRTimewarpProjectionDesc newInstance(long address) {
-			return new OVRTimewarpProjectionDesc(address, getContainer());
+			return new OVRTimewarpProjectionDesc(address, container);
 		}
 
 		@Override

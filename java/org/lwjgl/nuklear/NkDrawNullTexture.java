@@ -271,7 +271,7 @@ public class NkDrawNullTexture extends Struct implements NativeResource {
 
 		@Override
 		protected NkDrawNullTexture newInstance(long address) {
-			return new NkDrawNullTexture(address, getContainer());
+			return new NkDrawNullTexture(address, container);
 		}
 
 		@Override

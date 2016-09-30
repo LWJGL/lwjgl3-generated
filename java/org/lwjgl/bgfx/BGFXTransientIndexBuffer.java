@@ -330,7 +330,7 @@ public class BGFXTransientIndexBuffer extends Struct implements NativeResource {
 
 		@Override
 		protected BGFXTransientIndexBuffer newInstance(long address) {
-			return new BGFXTransientIndexBuffer(address, getContainer());
+			return new BGFXTransientIndexBuffer(address, container);
 		}
 
 		@Override

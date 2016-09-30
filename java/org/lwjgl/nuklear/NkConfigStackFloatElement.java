@@ -128,7 +128,7 @@ class NkConfigStackFloatElement extends Struct {
 
 		@Override
 		protected NkConfigStackFloatElement newInstance(long address) {
-			return new NkConfigStackFloatElement(address, getContainer());
+			return new NkConfigStackFloatElement(address, container);
 		}
 
 		@Override

@@ -284,7 +284,7 @@ public class OVRRecti extends Struct implements NativeResource {
 
 		@Override
 		protected OVRRecti newInstance(long address) {
-			return new OVRRecti(address, getContainer());
+			return new OVRRecti(address, container);
 		}
 
 		@Override

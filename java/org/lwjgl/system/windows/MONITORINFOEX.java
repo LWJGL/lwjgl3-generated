@@ -310,7 +310,7 @@ public class MONITORINFOEX extends Struct implements NativeResource {
 
 		@Override
 		protected MONITORINFOEX newInstance(long address) {
-			return new MONITORINFOEX(address, getContainer());
+			return new MONITORINFOEX(address, container);
 		}
 
 		@Override

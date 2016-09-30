@@ -132,7 +132,7 @@ class NkConfigStackColor extends Struct {
 
 		@Override
 		protected NkConfigStackColor newInstance(long address) {
-			return new NkConfigStackColor(address, getContainer());
+			return new NkConfigStackColor(address, container);
 		}
 
 		@Override

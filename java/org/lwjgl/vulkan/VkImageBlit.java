@@ -373,7 +373,7 @@ public class VkImageBlit extends Struct implements NativeResource {
 
 		@Override
 		protected VkImageBlit newInstance(long address) {
-			return new VkImageBlit(address, getContainer());
+			return new VkImageBlit(address, container);
 		}
 
 		@Override

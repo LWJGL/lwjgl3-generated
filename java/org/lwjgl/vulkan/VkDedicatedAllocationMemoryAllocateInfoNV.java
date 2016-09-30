@@ -337,7 +337,7 @@ public class VkDedicatedAllocationMemoryAllocateInfoNV extends Struct implements
 
 		@Override
 		protected VkDedicatedAllocationMemoryAllocateInfoNV newInstance(long address) {
-			return new VkDedicatedAllocationMemoryAllocateInfoNV(address, getContainer());
+			return new VkDedicatedAllocationMemoryAllocateInfoNV(address, container);
 		}
 
 		@Override

@@ -314,7 +314,7 @@ public class NkBuffer extends Struct implements NativeResource {
 
 		@Override
 		protected NkBuffer newInstance(long address) {
-			return new NkBuffer(address, getContainer());
+			return new NkBuffer(address, container);
 		}
 
 		@Override

@@ -173,7 +173,7 @@ public class VkDrawIndexedIndirectCommand extends Struct {
 
 		@Override
 		protected VkDrawIndexedIndirectCommand newInstance(long address) {
-			return new VkDrawIndexedIndirectCommand(address, getContainer());
+			return new VkDrawIndexedIndirectCommand(address, container);
 		}
 
 		@Override

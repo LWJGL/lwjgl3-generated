@@ -342,7 +342,7 @@ public class VkCommandBufferAllocateInfo extends Struct implements NativeResourc
 
 		@Override
 		protected VkCommandBufferAllocateInfo newInstance(long address) {
-			return new VkCommandBufferAllocateInfo(address, getContainer());
+			return new VkCommandBufferAllocateInfo(address, container);
 		}
 
 		@Override

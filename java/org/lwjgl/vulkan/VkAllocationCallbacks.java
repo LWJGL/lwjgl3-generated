@@ -385,7 +385,7 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
 
 		@Override
 		protected VkAllocationCallbacks newInstance(long address) {
-			return new VkAllocationCallbacks(address, getContainer());
+			return new VkAllocationCallbacks(address, container);
 		}
 
 		@Override

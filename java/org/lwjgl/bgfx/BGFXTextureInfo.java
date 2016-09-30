@@ -308,7 +308,7 @@ public class BGFXTextureInfo extends Struct implements NativeResource {
 
 		@Override
 		protected BGFXTextureInfo newInstance(long address) {
-			return new BGFXTextureInfo(address, getContainer());
+			return new BGFXTextureInfo(address, container);
 		}
 
 		@Override

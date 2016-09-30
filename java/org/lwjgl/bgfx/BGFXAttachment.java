@@ -299,7 +299,7 @@ public class BGFXAttachment extends Struct implements NativeResource {
 
 		@Override
 		protected BGFXAttachment newInstance(long address) {
-			return new BGFXAttachment(address, getContainer());
+			return new BGFXAttachment(address, container);
 		}
 
 		@Override

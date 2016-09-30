@@ -336,7 +336,7 @@ public class GLFWGammaRamp extends Struct implements NativeResource {
 
 		@Override
 		protected GLFWGammaRamp newInstance(long address) {
-			return new GLFWGammaRamp(address, getContainer());
+			return new GLFWGammaRamp(address, container);
 		}
 
 		@Override

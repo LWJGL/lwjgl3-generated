@@ -343,7 +343,7 @@ public class VkImageResolve extends Struct implements NativeResource {
 
 		@Override
 		protected VkImageResolve newInstance(long address) {
-			return new VkImageResolve(address, getContainer());
+			return new VkImageResolve(address, container);
 		}
 
 		@Override

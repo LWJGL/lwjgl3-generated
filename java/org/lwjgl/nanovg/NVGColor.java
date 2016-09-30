@@ -333,7 +333,7 @@ public class NVGColor extends Struct implements NativeResource {
 
 		@Override
 		protected NVGColor newInstance(long address) {
-			return new NVGColor(address, getContainer());
+			return new NVGColor(address, container);
 		}
 
 		@Override

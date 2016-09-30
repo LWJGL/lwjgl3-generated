@@ -275,7 +275,7 @@ public class NkStyleText extends Struct implements NativeResource {
 
 		@Override
 		protected NkStyleText newInstance(long address) {
-			return new NkStyleText(address, getContainer());
+			return new NkStyleText(address, container);
 		}
 
 		@Override

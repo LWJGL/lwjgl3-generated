@@ -327,7 +327,7 @@ public class VkMemoryAllocateInfo extends Struct implements NativeResource {
 
 		@Override
 		protected VkMemoryAllocateInfo newInstance(long address) {
-			return new VkMemoryAllocateInfo(address, getContainer());
+			return new VkMemoryAllocateInfo(address, container);
 		}
 
 		@Override

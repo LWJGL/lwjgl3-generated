@@ -244,7 +244,7 @@ public class OVRGraphicsLuid extends Struct implements NativeResource {
 
 		@Override
 		protected OVRGraphicsLuid newInstance(long address) {
-			return new OVRGraphicsLuid(address, getContainer());
+			return new OVRGraphicsLuid(address, container);
 		}
 
 		@Override

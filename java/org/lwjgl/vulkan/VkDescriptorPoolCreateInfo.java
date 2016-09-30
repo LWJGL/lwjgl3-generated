@@ -376,7 +376,7 @@ public class VkDescriptorPoolCreateInfo extends Struct implements NativeResource
 
 		@Override
 		protected VkDescriptorPoolCreateInfo newInstance(long address) {
-			return new VkDescriptorPoolCreateInfo(address, getContainer());
+			return new VkDescriptorPoolCreateInfo(address, container);
 		}
 
 		@Override

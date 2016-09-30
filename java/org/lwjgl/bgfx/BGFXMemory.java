@@ -291,7 +291,7 @@ public class BGFXMemory extends Struct implements NativeResource {
 
 		@Override
 		protected BGFXMemory newInstance(long address) {
-			return new BGFXMemory(address, getContainer());
+			return new BGFXMemory(address, container);
 		}
 
 		@Override

@@ -449,7 +449,7 @@ public class VkPipelineDepthStencilStateCreateInfo extends Struct implements Nat
 
 		@Override
 		protected VkPipelineDepthStencilStateCreateInfo newInstance(long address) {
-			return new VkPipelineDepthStencilStateCreateInfo(address, getContainer());
+			return new VkPipelineDepthStencilStateCreateInfo(address, container);
 		}
 
 		@Override

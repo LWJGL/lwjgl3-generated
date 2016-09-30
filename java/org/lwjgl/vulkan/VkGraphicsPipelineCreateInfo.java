@@ -684,7 +684,7 @@ public class VkGraphicsPipelineCreateInfo extends Struct implements NativeResour
 
 		@Override
 		protected VkGraphicsPipelineCreateInfo newInstance(long address) {
-			return new VkGraphicsPipelineCreateInfo(address, getContainer());
+			return new VkGraphicsPipelineCreateInfo(address, container);
 		}
 
 		@Override

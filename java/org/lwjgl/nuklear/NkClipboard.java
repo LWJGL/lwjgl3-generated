@@ -276,7 +276,7 @@ public class NkClipboard extends Struct implements NativeResource {
 
 		@Override
 		protected NkClipboard newInstance(long address) {
-			return new NkClipboard(address, getContainer());
+			return new NkClipboard(address, container);
 		}
 
 		@Override

@@ -148,7 +148,7 @@ public class NkPopupBuffer extends Struct {
 
 		@Override
 		protected NkPopupBuffer newInstance(long address) {
-			return new NkPopupBuffer(address, getContainer());
+			return new NkPopupBuffer(address, container);
 		}
 
 		@Override

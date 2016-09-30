@@ -153,7 +153,7 @@ public class VkDispatchIndirectCommand extends Struct {
 
 		@Override
 		protected VkDispatchIndirectCommand newInstance(long address) {
-			return new VkDispatchIndirectCommand(address, getContainer());
+			return new VkDispatchIndirectCommand(address, container);
 		}
 
 		@Override

@@ -275,7 +275,7 @@ public class VkImageFormatProperties extends Struct implements NativeResource {
 
 		@Override
 		protected VkImageFormatProperties newInstance(long address) {
-			return new VkImageFormatProperties(address, getContainer());
+			return new VkImageFormatProperties(address, container);
 		}
 
 		@Override

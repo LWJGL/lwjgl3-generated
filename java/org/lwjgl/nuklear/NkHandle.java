@@ -264,7 +264,7 @@ public class NkHandle extends Struct implements NativeResource {
 
 		@Override
 		protected NkHandle newInstance(long address) {
-			return new NkHandle(address, getContainer());
+			return new NkHandle(address, container);
 		}
 
 		@Override

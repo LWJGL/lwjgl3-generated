@@ -361,7 +361,7 @@ public class Visual extends Struct implements NativeResource {
 
 		@Override
 		protected Visual newInstance(long address) {
-			return new Visual(address, getContainer());
+			return new Visual(address, container);
 		}
 
 		@Override

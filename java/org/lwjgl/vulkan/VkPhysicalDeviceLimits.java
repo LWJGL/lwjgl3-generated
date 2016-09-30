@@ -1150,7 +1150,7 @@ public class VkPhysicalDeviceLimits extends Struct {
 
 		@Override
 		protected VkPhysicalDeviceLimits newInstance(long address) {
-			return new VkPhysicalDeviceLimits(address, getContainer());
+			return new VkPhysicalDeviceLimits(address, container);
 		}
 
 		@Override

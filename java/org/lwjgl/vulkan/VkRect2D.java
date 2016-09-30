@@ -287,7 +287,7 @@ public class VkRect2D extends Struct implements NativeResource {
 
 		@Override
 		protected VkRect2D newInstance(long address) {
-			return new VkRect2D(address, getContainer());
+			return new VkRect2D(address, container);
 		}
 
 		@Override

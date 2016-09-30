@@ -326,7 +326,7 @@ public class VkCommandPoolCreateInfo extends Struct implements NativeResource {
 
 		@Override
 		protected VkCommandPoolCreateInfo newInstance(long address) {
-			return new VkCommandPoolCreateInfo(address, getContainer());
+			return new VkCommandPoolCreateInfo(address, container);
 		}
 
 		@Override

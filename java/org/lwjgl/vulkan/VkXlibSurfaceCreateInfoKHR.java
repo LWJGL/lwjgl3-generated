@@ -361,7 +361,7 @@ public class VkXlibSurfaceCreateInfoKHR extends Struct implements NativeResource
 
 		@Override
 		protected VkXlibSurfaceCreateInfoKHR newInstance(long address) {
-			return new VkXlibSurfaceCreateInfoKHR(address, getContainer());
+			return new VkXlibSurfaceCreateInfoKHR(address, container);
 		}
 
 		@Override

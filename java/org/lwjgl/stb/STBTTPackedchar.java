@@ -294,7 +294,7 @@ public class STBTTPackedchar extends Struct implements NativeResource {
 
 		@Override
 		protected STBTTPackedchar newInstance(long address) {
-			return new STBTTPackedchar(address, getContainer());
+			return new STBTTPackedchar(address, container);
 		}
 
 		@Override

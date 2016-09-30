@@ -314,7 +314,7 @@ public class OVRColorf extends Struct implements NativeResource {
 
 		@Override
 		protected OVRColorf newInstance(long address) {
-			return new OVRColorf(address, getContainer());
+			return new OVRColorf(address, container);
 		}
 
 		@Override

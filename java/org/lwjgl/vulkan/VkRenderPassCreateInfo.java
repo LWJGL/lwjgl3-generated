@@ -435,7 +435,7 @@ public class VkRenderPassCreateInfo extends Struct implements NativeResource {
 
 		@Override
 		protected VkRenderPassCreateInfo newInstance(long address) {
-			return new VkRenderPassCreateInfo(address, getContainer());
+			return new VkRenderPassCreateInfo(address, container);
 		}
 
 		@Override

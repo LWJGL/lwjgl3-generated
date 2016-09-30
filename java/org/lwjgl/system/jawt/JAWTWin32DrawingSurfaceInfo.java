@@ -170,7 +170,7 @@ public class JAWTWin32DrawingSurfaceInfo extends Struct {
 
 		@Override
 		protected JAWTWin32DrawingSurfaceInfo newInstance(long address) {
-			return new JAWTWin32DrawingSurfaceInfo(address, getContainer());
+			return new JAWTWin32DrawingSurfaceInfo(address, container);
 		}
 
 		@Override

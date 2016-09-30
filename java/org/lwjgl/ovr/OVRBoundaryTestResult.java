@@ -263,7 +263,7 @@ public class OVRBoundaryTestResult extends Struct implements NativeResource {
 
 		@Override
 		protected OVRBoundaryTestResult newInstance(long address) {
-			return new OVRBoundaryTestResult(address, getContainer());
+			return new OVRBoundaryTestResult(address, container);
 		}
 
 		@Override

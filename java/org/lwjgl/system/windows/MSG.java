@@ -344,7 +344,7 @@ public class MSG extends Struct implements NativeResource {
 
 		@Override
 		protected MSG newInstance(long address) {
-			return new MSG(address, getContainer());
+			return new MSG(address, container);
 		}
 
 		@Override

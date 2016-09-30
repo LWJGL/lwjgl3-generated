@@ -383,7 +383,7 @@ public class VkBufferViewCreateInfo extends Struct implements NativeResource {
 
 		@Override
 		protected VkBufferViewCreateInfo newInstance(long address) {
-			return new VkBufferViewCreateInfo(address, getContainer());
+			return new VkBufferViewCreateInfo(address, container);
 		}
 
 		@Override

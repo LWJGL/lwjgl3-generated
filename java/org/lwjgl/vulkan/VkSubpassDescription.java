@@ -464,7 +464,7 @@ public class VkSubpassDescription extends Struct implements NativeResource {
 
 		@Override
 		protected VkSubpassDescription newInstance(long address) {
-			return new VkSubpassDescription(address, getContainer());
+			return new VkSubpassDescription(address, container);
 		}
 
 		@Override

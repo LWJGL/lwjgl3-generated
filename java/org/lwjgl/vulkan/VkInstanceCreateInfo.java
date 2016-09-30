@@ -405,7 +405,7 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
 
 		@Override
 		protected VkInstanceCreateInfo newInstance(long address) {
-			return new VkInstanceCreateInfo(address, getContainer());
+			return new VkInstanceCreateInfo(address, container);
 		}
 
 		@Override

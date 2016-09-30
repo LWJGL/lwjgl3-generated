@@ -316,7 +316,7 @@ public class OVRFovPort extends Struct implements NativeResource {
 
 		@Override
 		protected OVRFovPort newInstance(long address) {
-			return new OVRFovPort(address, getContainer());
+			return new OVRFovPort(address, container);
 		}
 
 		@Override

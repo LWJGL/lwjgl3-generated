@@ -124,7 +124,7 @@ public class BGFXInternalData extends Struct {
 
 		@Override
 		protected BGFXInternalData newInstance(long address) {
-			return new BGFXInternalData(address, getContainer());
+			return new BGFXInternalData(address, container);
 		}
 
 		@Override

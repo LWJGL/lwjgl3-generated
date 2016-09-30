@@ -303,7 +303,7 @@ public class NkColor extends Struct implements NativeResource {
 
 		@Override
 		protected NkColor newInstance(long address) {
-			return new NkColor(address, getContainer());
+			return new NkColor(address, container);
 		}
 
 		@Override

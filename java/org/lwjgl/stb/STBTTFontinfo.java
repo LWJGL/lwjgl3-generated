@@ -213,7 +213,7 @@ public class STBTTFontinfo extends Struct implements NativeResource {
 
 		@Override
 		protected STBTTFontinfo newInstance(long address) {
-			return new STBTTFontinfo(address, getContainer());
+			return new STBTTFontinfo(address, container);
 		}
 
 		@Override

@@ -311,7 +311,7 @@ public class VkImageSubresource extends Struct implements NativeResource {
 
 		@Override
 		protected VkImageSubresource newInstance(long address) {
-			return new VkImageSubresource(address, getContainer());
+			return new VkImageSubresource(address, container);
 		}
 
 		@Override

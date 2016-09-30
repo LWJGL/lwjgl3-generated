@@ -456,7 +456,7 @@ public class NkStyleProperty extends Struct implements NativeResource {
 
 		@Override
 		protected NkStyleProperty newInstance(long address) {
-			return new NkStyleProperty(address, getContainer());
+			return new NkStyleProperty(address, container);
 		}
 
 		@Override

@@ -345,7 +345,7 @@ public class NkStyleChart extends Struct implements NativeResource {
 
 		@Override
 		protected NkStyleChart newInstance(long address) {
-			return new NkStyleChart(address, getContainer());
+			return new NkStyleChart(address, container);
 		}
 
 		@Override

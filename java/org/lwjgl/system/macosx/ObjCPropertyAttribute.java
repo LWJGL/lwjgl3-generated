@@ -319,7 +319,7 @@ public class ObjCPropertyAttribute extends Struct implements NativeResource {
 
 		@Override
 		protected ObjCPropertyAttribute newInstance(long address) {
-			return new ObjCPropertyAttribute(address, getContainer());
+			return new ObjCPropertyAttribute(address, container);
 		}
 
 		@Override

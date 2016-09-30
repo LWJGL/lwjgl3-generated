@@ -397,7 +397,7 @@ public class VkPipelineColorBlendAttachmentState extends Struct implements Nativ
 
 		@Override
 		protected VkPipelineColorBlendAttachmentState newInstance(long address) {
-			return new VkPipelineColorBlendAttachmentState(address, getContainer());
+			return new VkPipelineColorBlendAttachmentState(address, container);
 		}
 
 		@Override

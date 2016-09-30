@@ -435,7 +435,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
 
 		@Override
 		protected VkPipelineShaderStageCreateInfo newInstance(long address) {
-			return new VkPipelineShaderStageCreateInfo(address, getContainer());
+			return new VkPipelineShaderStageCreateInfo(address, container);
 		}
 
 		@Override

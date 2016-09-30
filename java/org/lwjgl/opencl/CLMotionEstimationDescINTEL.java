@@ -317,7 +317,7 @@ public class CLMotionEstimationDescINTEL extends Struct implements NativeResourc
 
 		@Override
 		protected CLMotionEstimationDescINTEL newInstance(long address) {
-			return new CLMotionEstimationDescINTEL(address, getContainer());
+			return new CLMotionEstimationDescINTEL(address, container);
 		}
 
 		@Override

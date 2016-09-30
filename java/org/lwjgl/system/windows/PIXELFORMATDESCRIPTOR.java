@@ -650,7 +650,7 @@ public class PIXELFORMATDESCRIPTOR extends Struct implements NativeResource {
 
 		@Override
 		protected PIXELFORMATDESCRIPTOR newInstance(long address) {
-			return new PIXELFORMATDESCRIPTOR(address, getContainer());
+			return new PIXELFORMATDESCRIPTOR(address, container);
 		}
 
 		@Override

@@ -360,7 +360,7 @@ public class VkDebugReportCallbackCreateInfoEXT extends Struct implements Native
 
 		@Override
 		protected VkDebugReportCallbackCreateInfoEXT newInstance(long address) {
-			return new VkDebugReportCallbackCreateInfoEXT(address, getContainer());
+			return new VkDebugReportCallbackCreateInfoEXT(address, container);
 		}
 
 		@Override

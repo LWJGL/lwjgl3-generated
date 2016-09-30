@@ -138,7 +138,7 @@ public class VkMemoryType extends Struct {
 
 		@Override
 		protected VkMemoryType newInstance(long address) {
-			return new VkMemoryType(address, getContainer());
+			return new VkMemoryType(address, container);
 		}
 
 		@Override

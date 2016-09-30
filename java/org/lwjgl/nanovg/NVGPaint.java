@@ -385,7 +385,7 @@ public class NVGPaint extends Struct implements NativeResource {
 
 		@Override
 		protected NVGPaint newInstance(long address) {
-			return new NVGPaint(address, getContainer());
+			return new NVGPaint(address, container);
 		}
 
 		@Override

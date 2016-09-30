@@ -151,7 +151,7 @@ public class NVGLUFramebuffer extends Struct {
 
 		@Override
 		protected NVGLUFramebuffer newInstance(long address) {
-			return new NVGLUFramebuffer(address, getContainer());
+			return new NVGLUFramebuffer(address, container);
 		}
 
 		@Override

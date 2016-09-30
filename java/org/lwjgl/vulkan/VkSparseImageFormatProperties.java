@@ -257,7 +257,7 @@ public class VkSparseImageFormatProperties extends Struct implements NativeResou
 
 		@Override
 		protected VkSparseImageFormatProperties newInstance(long address) {
-			return new VkSparseImageFormatProperties(address, getContainer());
+			return new VkSparseImageFormatProperties(address, container);
 		}
 
 		@Override

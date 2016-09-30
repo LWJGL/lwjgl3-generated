@@ -360,7 +360,7 @@ public class BGFXInstanceDataBuffer extends Struct implements NativeResource {
 
 		@Override
 		protected BGFXInstanceDataBuffer newInstance(long address) {
-			return new BGFXInstanceDataBuffer(address, getContainer());
+			return new BGFXInstanceDataBuffer(address, container);
 		}
 
 		@Override

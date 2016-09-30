@@ -284,7 +284,7 @@ public class POINTFLOAT extends Struct implements NativeResource {
 
 		@Override
 		protected POINTFLOAT newInstance(long address) {
-			return new POINTFLOAT(address, getContainer());
+			return new POINTFLOAT(address, container);
 		}
 
 		@Override

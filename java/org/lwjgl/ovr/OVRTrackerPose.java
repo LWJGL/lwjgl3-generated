@@ -258,7 +258,7 @@ public class OVRTrackerPose extends Struct implements NativeResource {
 
 		@Override
 		protected OVRTrackerPose newInstance(long address) {
-			return new OVRTrackerPose(address, getContainer());
+			return new OVRTrackerPose(address, container);
 		}
 
 		@Override

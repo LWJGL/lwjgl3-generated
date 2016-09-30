@@ -169,7 +169,7 @@ public class GLFWVidMode extends Struct {
 
 		@Override
 		protected GLFWVidMode newInstance(long address) {
-			return new GLFWVidMode(address, getContainer());
+			return new GLFWVidMode(address, container);
 		}
 
 		@Override

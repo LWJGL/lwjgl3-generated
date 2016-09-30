@@ -310,7 +310,7 @@ public class VkEventCreateInfo extends Struct implements NativeResource {
 
 		@Override
 		protected VkEventCreateInfo newInstance(long address) {
-			return new VkEventCreateInfo(address, getContainer());
+			return new VkEventCreateInfo(address, container);
 		}
 
 		@Override

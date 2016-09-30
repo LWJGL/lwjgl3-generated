@@ -280,7 +280,7 @@ public class BGFXAllocatorVtbl extends Struct implements NativeResource {
 
 		@Override
 		protected BGFXAllocatorVtbl newInstance(long address) {
-			return new BGFXAllocatorVtbl(address, getContainer());
+			return new BGFXAllocatorVtbl(address, container);
 		}
 
 		@Override

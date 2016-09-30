@@ -281,7 +281,7 @@ public class MDBStat extends Struct implements NativeResource {
 
 		@Override
 		protected MDBStat newInstance(long address) {
-			return new MDBStat(address, getContainer());
+			return new MDBStat(address, container);
 		}
 
 		@Override

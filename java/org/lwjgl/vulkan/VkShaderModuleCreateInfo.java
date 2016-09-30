@@ -371,7 +371,7 @@ public class VkShaderModuleCreateInfo extends Struct implements NativeResource {
 
 		@Override
 		protected VkShaderModuleCreateInfo newInstance(long address) {
-			return new VkShaderModuleCreateInfo(address, getContainer());
+			return new VkShaderModuleCreateInfo(address, container);
 		}
 
 		@Override

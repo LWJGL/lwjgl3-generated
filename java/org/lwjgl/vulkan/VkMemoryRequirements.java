@@ -257,7 +257,7 @@ public class VkMemoryRequirements extends Struct implements NativeResource {
 
 		@Override
 		protected VkMemoryRequirements newInstance(long address) {
-			return new VkMemoryRequirements(address, getContainer());
+			return new VkMemoryRequirements(address, container);
 		}
 
 		@Override

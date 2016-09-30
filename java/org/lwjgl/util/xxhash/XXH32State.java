@@ -388,7 +388,7 @@ public class XXH32State extends Struct implements NativeResource {
 
 		@Override
 		protected XXH32State newInstance(long address) {
-			return new XXH32State(address, getContainer());
+			return new XXH32State(address, container);
 		}
 
 		@Override

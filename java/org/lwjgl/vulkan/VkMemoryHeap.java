@@ -136,7 +136,7 @@ public class VkMemoryHeap extends Struct {
 
 		@Override
 		protected VkMemoryHeap newInstance(long address) {
-			return new VkMemoryHeap(address, getContainer());
+			return new VkMemoryHeap(address, container);
 		}
 
 		@Override

@@ -284,7 +284,7 @@ public class STBVorbisAlloc extends Struct implements NativeResource {
 
 		@Override
 		protected STBVorbisAlloc newInstance(long address) {
-			return new STBVorbisAlloc(address, getContainer());
+			return new STBVorbisAlloc(address, container);
 		}
 
 		@Override

@@ -132,7 +132,7 @@ class NkConfigStackFloat extends Struct {
 
 		@Override
 		protected NkConfigStackFloat newInstance(long address) {
-			return new NkConfigStackFloat(address, getContainer());
+			return new NkConfigStackFloat(address, container);
 		}
 
 		@Override

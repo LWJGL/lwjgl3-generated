@@ -310,7 +310,7 @@ public class VkFenceCreateInfo extends Struct implements NativeResource {
 
 		@Override
 		protected VkFenceCreateInfo newInstance(long address) {
-			return new VkFenceCreateInfo(address, getContainer());
+			return new VkFenceCreateInfo(address, container);
 		}
 
 		@Override

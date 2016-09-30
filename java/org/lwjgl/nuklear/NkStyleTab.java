@@ -443,7 +443,7 @@ public class NkStyleTab extends Struct implements NativeResource {
 
 		@Override
 		protected NkStyleTab newInstance(long address) {
-			return new NkStyleTab(address, getContainer());
+			return new NkStyleTab(address, container);
 		}
 
 		@Override

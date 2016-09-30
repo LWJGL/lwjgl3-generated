@@ -180,7 +180,7 @@ public class NkPopupState extends Struct {
 
 		@Override
 		protected NkPopupState newInstance(long address) {
-			return new NkPopupState(address, getContainer());
+			return new NkPopupState(address, container);
 		}
 
 		@Override

@@ -325,7 +325,7 @@ public class DISPLAY_DEVICE extends Struct implements NativeResource {
 
 		@Override
 		protected DISPLAY_DEVICE newInstance(long address) {
-			return new DISPLAY_DEVICE(address, getContainer());
+			return new DISPLAY_DEVICE(address, container);
 		}
 
 		@Override

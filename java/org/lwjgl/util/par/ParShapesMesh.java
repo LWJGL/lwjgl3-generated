@@ -185,7 +185,7 @@ public class ParShapesMesh extends Struct {
 
 		@Override
 		protected ParShapesMesh newInstance(long address) {
-			return new ParShapesMesh(address, getContainer());
+			return new ParShapesMesh(address, container);
 		}
 
 		@Override

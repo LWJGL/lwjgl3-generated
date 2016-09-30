@@ -282,7 +282,7 @@ public class VkClearValue extends Struct implements NativeResource {
 
 		@Override
 		protected VkClearValue newInstance(long address) {
-			return new VkClearValue(address, getContainer());
+			return new VkClearValue(address, container);
 		}
 
 		@Override

@@ -399,7 +399,7 @@ public class OVRTextureSwapChainDesc extends Struct implements NativeResource {
 
 		@Override
 		protected OVRTextureSwapChainDesc newInstance(long address) {
-			return new OVRTextureSwapChainDesc(address, getContainer());
+			return new OVRTextureSwapChainDesc(address, container);
 		}
 
 		@Override

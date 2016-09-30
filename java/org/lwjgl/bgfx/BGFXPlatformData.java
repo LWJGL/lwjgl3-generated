@@ -329,7 +329,7 @@ public class BGFXPlatformData extends Struct implements NativeResource {
 
 		@Override
 		protected BGFXPlatformData newInstance(long address) {
-			return new BGFXPlatformData(address, getContainer());
+			return new BGFXPlatformData(address, container);
 		}
 
 		@Override

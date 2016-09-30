@@ -346,7 +346,7 @@ public class VkSpecializationInfo extends Struct implements NativeResource {
 
 		@Override
 		protected VkSpecializationInfo newInstance(long address) {
-			return new VkSpecializationInfo(address, getContainer());
+			return new VkSpecializationInfo(address, container);
 		}
 
 		@Override

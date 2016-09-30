@@ -310,7 +310,7 @@ public class OVRViewScaleDesc extends Struct implements NativeResource {
 
 		@Override
 		protected OVRViewScaleDesc newInstance(long address) {
-			return new OVRViewScaleDesc(address, getContainer());
+			return new OVRViewScaleDesc(address, container);
 		}
 
 		@Override

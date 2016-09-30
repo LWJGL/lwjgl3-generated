@@ -132,7 +132,7 @@ class NkConfigStackButtonBehavior extends Struct {
 
 		@Override
 		protected NkConfigStackButtonBehavior newInstance(long address) {
-			return new NkConfigStackButtonBehavior(address, getContainer());
+			return new NkConfigStackButtonBehavior(address, container);
 		}
 
 		@Override

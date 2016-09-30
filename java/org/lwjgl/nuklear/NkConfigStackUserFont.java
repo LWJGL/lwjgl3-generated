@@ -132,7 +132,7 @@ class NkConfigStackUserFont extends Struct {
 
 		@Override
 		protected NkConfigStackUserFont newInstance(long address) {
-			return new NkConfigStackUserFont(address, getContainer());
+			return new NkConfigStackUserFont(address, container);
 		}
 
 		@Override

@@ -332,7 +332,7 @@ public class NkDrawList extends Struct implements NativeResource {
 
 		@Override
 		protected NkDrawList newInstance(long address) {
-			return new NkDrawList(address, getContainer());
+			return new NkDrawList(address, container);
 		}
 
 		@Override

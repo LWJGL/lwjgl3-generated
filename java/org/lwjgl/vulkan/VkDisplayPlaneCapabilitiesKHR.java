@@ -317,7 +317,7 @@ public class VkDisplayPlaneCapabilitiesKHR extends Struct implements NativeResou
 
 		@Override
 		protected VkDisplayPlaneCapabilitiesKHR newInstance(long address) {
-			return new VkDisplayPlaneCapabilitiesKHR(address, getContainer());
+			return new VkDisplayPlaneCapabilitiesKHR(address, container);
 		}
 
 		@Override

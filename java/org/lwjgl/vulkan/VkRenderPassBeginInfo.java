@@ -396,7 +396,7 @@ public class VkRenderPassBeginInfo extends Struct implements NativeResource {
 
 		@Override
 		protected VkRenderPassBeginInfo newInstance(long address) {
-			return new VkRenderPassBeginInfo(address, getContainer());
+			return new VkRenderPassBeginInfo(address, container);
 		}
 
 		@Override

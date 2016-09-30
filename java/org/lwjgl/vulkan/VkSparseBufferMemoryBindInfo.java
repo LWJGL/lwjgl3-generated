@@ -326,7 +326,7 @@ public class VkSparseBufferMemoryBindInfo extends Struct implements NativeResour
 
 		@Override
 		protected VkSparseBufferMemoryBindInfo newInstance(long address) {
-			return new VkSparseBufferMemoryBindInfo(address, getContainer());
+			return new VkSparseBufferMemoryBindInfo(address, container);
 		}
 
 		@Override

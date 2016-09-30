@@ -275,7 +275,7 @@ public class NkVec2 extends Struct implements NativeResource {
 
 		@Override
 		protected NkVec2 newInstance(long address) {
-			return new NkVec2(address, getContainer());
+			return new NkVec2(address, container);
 		}
 
 		@Override

@@ -351,7 +351,7 @@ public class STBTTPackRange extends Struct implements NativeResource {
 
 		@Override
 		protected STBTTPackRange newInstance(long address) {
-			return new STBTTPackRange(address, getContainer());
+			return new STBTTPackRange(address, container);
 		}
 
 		@Override

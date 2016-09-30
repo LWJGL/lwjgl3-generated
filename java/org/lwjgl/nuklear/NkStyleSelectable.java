@@ -492,7 +492,7 @@ public class NkStyleSelectable extends Struct implements NativeResource {
 
 		@Override
 		protected NkStyleSelectable newInstance(long address) {
-			return new NkStyleSelectable(address, getContainer());
+			return new NkStyleSelectable(address, container);
 		}
 
 		@Override

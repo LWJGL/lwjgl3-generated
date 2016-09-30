@@ -161,7 +161,7 @@ public class JAWTDrawingSurfaceInfo extends Struct {
 
 		@Override
 		protected JAWTDrawingSurfaceInfo newInstance(long address) {
-			return new JAWTDrawingSurfaceInfo(address, getContainer());
+			return new JAWTDrawingSurfaceInfo(address, container);
 		}
 
 		@Override

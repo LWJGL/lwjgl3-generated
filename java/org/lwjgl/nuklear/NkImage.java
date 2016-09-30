@@ -301,7 +301,7 @@ public class NkImage extends Struct implements NativeResource {
 
 		@Override
 		protected NkImage newInstance(long address) {
-			return new NkImage(address, getContainer());
+			return new NkImage(address, container);
 		}
 
 		@Override

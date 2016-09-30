@@ -405,7 +405,7 @@ public class OVRHmdDesc extends Struct implements NativeResource {
 
 		@Override
 		protected OVRHmdDesc newInstance(long address) {
-			return new OVRHmdDesc(address, getContainer());
+			return new OVRHmdDesc(address, container);
 		}
 
 		@Override

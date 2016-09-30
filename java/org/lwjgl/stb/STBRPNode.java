@@ -213,7 +213,7 @@ public class STBRPNode extends Struct implements NativeResource {
 
 		@Override
 		protected STBRPNode newInstance(long address) {
-			return new STBRPNode(address, getContainer());
+			return new STBRPNode(address, container);
 		}
 
 		@Override

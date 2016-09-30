@@ -171,7 +171,7 @@ public class JAWTDrawingSurface extends Struct {
 
 		@Override
 		protected JAWTDrawingSurface newInstance(long address) {
-			return new JAWTDrawingSurface(address, getContainer());
+			return new JAWTDrawingSurface(address, container);
 		}
 
 		@Override

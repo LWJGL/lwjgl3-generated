@@ -180,7 +180,7 @@ public class NkChartSlot extends Struct {
 
 		@Override
 		protected NkChartSlot newInstance(long address) {
-			return new NkChartSlot(address, getContainer());
+			return new NkChartSlot(address, container);
 		}
 
 		@Override

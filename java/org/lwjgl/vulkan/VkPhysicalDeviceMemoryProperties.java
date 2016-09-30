@@ -284,7 +284,7 @@ public class VkPhysicalDeviceMemoryProperties extends Struct implements NativeRe
 
 		@Override
 		protected VkPhysicalDeviceMemoryProperties newInstance(long address) {
-			return new VkPhysicalDeviceMemoryProperties(address, getContainer());
+			return new VkPhysicalDeviceMemoryProperties(address, container);
 		}
 
 		@Override

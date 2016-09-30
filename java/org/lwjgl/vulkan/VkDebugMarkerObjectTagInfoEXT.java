@@ -385,7 +385,7 @@ public class VkDebugMarkerObjectTagInfoEXT extends Struct implements NativeResou
 
 		@Override
 		protected VkDebugMarkerObjectTagInfoEXT newInstance(long address) {
-			return new VkDebugMarkerObjectTagInfoEXT(address, getContainer());
+			return new VkDebugMarkerObjectTagInfoEXT(address, container);
 		}
 
 		@Override

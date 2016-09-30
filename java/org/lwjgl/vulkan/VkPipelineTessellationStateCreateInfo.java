@@ -326,7 +326,7 @@ public class VkPipelineTessellationStateCreateInfo extends Struct implements Nat
 
 		@Override
 		protected VkPipelineTessellationStateCreateInfo newInstance(long address) {
-			return new VkPipelineTessellationStateCreateInfo(address, getContainer());
+			return new VkPipelineTessellationStateCreateInfo(address, container);
 		}
 
 		@Override

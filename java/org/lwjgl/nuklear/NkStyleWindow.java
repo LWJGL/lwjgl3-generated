@@ -653,7 +653,7 @@ public class NkStyleWindow extends Struct implements NativeResource {
 
 		@Override
 		protected NkStyleWindow newInstance(long address) {
-			return new NkStyleWindow(address, getContainer());
+			return new NkStyleWindow(address, container);
 		}
 
 		@Override

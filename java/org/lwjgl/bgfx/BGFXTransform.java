@@ -245,7 +245,7 @@ public class BGFXTransform extends Struct implements NativeResource {
 
 		@Override
 		protected BGFXTransform newInstance(long address) {
-			return new BGFXTransform(address, getContainer());
+			return new BGFXTransform(address, container);
 		}
 
 		@Override

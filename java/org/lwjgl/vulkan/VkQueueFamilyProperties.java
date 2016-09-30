@@ -266,7 +266,7 @@ public class VkQueueFamilyProperties extends Struct implements NativeResource {
 
 		@Override
 		protected VkQueueFamilyProperties newInstance(long address) {
-			return new VkQueueFamilyProperties(address, getContainer());
+			return new VkQueueFamilyProperties(address, container);
 		}
 
 		@Override

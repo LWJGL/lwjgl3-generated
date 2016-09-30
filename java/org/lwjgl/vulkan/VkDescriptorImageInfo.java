@@ -312,7 +312,7 @@ public class VkDescriptorImageInfo extends Struct implements NativeResource {
 
 		@Override
 		protected VkDescriptorImageInfo newInstance(long address) {
-			return new VkDescriptorImageInfo(address, getContainer());
+			return new VkDescriptorImageInfo(address, container);
 		}
 
 		@Override

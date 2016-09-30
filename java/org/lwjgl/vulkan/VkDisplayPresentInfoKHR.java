@@ -355,7 +355,7 @@ public class VkDisplayPresentInfoKHR extends Struct implements NativeResource {
 
 		@Override
 		protected VkDisplayPresentInfoKHR newInstance(long address) {
-			return new VkDisplayPresentInfoKHR(address, getContainer());
+			return new VkDisplayPresentInfoKHR(address, container);
 		}
 
 		@Override

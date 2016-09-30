@@ -262,7 +262,7 @@ public class STBTTVertex extends Struct implements NativeResource {
 
 		@Override
 		protected STBTTVertex newInstance(long address) {
-			return new STBTTVertex(address, getContainer());
+			return new STBTTVertex(address, container);
 		}
 
 		@Override

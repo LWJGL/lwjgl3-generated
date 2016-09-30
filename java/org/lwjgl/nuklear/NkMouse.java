@@ -182,7 +182,7 @@ public class NkMouse extends Struct {
 
 		@Override
 		protected NkMouse newInstance(long address) {
-			return new NkMouse(address, getContainer());
+			return new NkMouse(address, container);
 		}
 
 		@Override

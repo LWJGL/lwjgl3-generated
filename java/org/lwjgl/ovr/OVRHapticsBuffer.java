@@ -315,7 +315,7 @@ public class OVRHapticsBuffer extends Struct implements NativeResource {
 
 		@Override
 		protected OVRHapticsBuffer newInstance(long address) {
-			return new OVRHapticsBuffer(address, getContainer());
+			return new OVRHapticsBuffer(address, container);
 		}
 
 		@Override

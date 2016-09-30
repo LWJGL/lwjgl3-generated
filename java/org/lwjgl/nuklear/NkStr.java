@@ -242,7 +242,7 @@ public class NkStr extends Struct implements NativeResource {
 
 		@Override
 		protected NkStr newInstance(long address) {
-			return new NkStr(address, getContainer());
+			return new NkStr(address, container);
 		}
 
 		@Override

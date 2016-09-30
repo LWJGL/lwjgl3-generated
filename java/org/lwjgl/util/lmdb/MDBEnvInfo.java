@@ -281,7 +281,7 @@ public class MDBEnvInfo extends Struct implements NativeResource {
 
 		@Override
 		protected MDBEnvInfo newInstance(long address) {
-			return new MDBEnvInfo(address, getContainer());
+			return new MDBEnvInfo(address, container);
 		}
 
 		@Override

@@ -281,7 +281,7 @@ public class OVRTouchHapticsDesc extends Struct implements NativeResource {
 
 		@Override
 		protected OVRTouchHapticsDesc newInstance(long address) {
-			return new OVRTouchHapticsDesc(address, getContainer());
+			return new OVRTouchHapticsDesc(address, container);
 		}
 
 		@Override

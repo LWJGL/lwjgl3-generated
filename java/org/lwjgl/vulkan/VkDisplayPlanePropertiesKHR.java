@@ -254,7 +254,7 @@ public class VkDisplayPlanePropertiesKHR extends Struct implements NativeResourc
 
 		@Override
 		protected VkDisplayPlanePropertiesKHR newInstance(long address) {
-			return new VkDisplayPlanePropertiesKHR(address, getContainer());
+			return new VkDisplayPlanePropertiesKHR(address, container);
 		}
 
 		@Override

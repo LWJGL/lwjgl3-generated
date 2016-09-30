@@ -284,7 +284,7 @@ public class CLBufferRegion extends Struct implements NativeResource {
 
 		@Override
 		protected CLBufferRegion newInstance(long address) {
-			return new CLBufferRegion(address, getContainer());
+			return new CLBufferRegion(address, container);
 		}
 
 		@Override

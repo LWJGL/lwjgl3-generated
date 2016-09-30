@@ -309,7 +309,7 @@ public class VkPipelineRasterizationStateRasterizationOrderAMD extends Struct im
 
 		@Override
 		protected VkPipelineRasterizationStateRasterizationOrderAMD newInstance(long address) {
-			return new VkPipelineRasterizationStateRasterizationOrderAMD(address, getContainer());
+			return new VkPipelineRasterizationStateRasterizationOrderAMD(address, container);
 		}
 
 		@Override

@@ -395,7 +395,7 @@ public class VkPipelineVertexInputStateCreateInfo extends Struct implements Nati
 
 		@Override
 		protected VkPipelineVertexInputStateCreateInfo newInstance(long address) {
-			return new VkPipelineVertexInputStateCreateInfo(address, getContainer());
+			return new VkPipelineVertexInputStateCreateInfo(address, container);
 		}
 
 		@Override

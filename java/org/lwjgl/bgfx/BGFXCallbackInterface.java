@@ -286,7 +286,7 @@ public class BGFXCallbackInterface extends Struct implements NativeResource {
 
 		@Override
 		protected BGFXCallbackInterface newInstance(long address) {
-			return new BGFXCallbackInterface(address, getContainer());
+			return new BGFXCallbackInterface(address, container);
 		}
 
 		@Override

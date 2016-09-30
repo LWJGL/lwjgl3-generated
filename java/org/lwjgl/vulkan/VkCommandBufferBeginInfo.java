@@ -333,7 +333,7 @@ public class VkCommandBufferBeginInfo extends Struct implements NativeResource {
 
 		@Override
 		protected VkCommandBufferBeginInfo newInstance(long address) {
-			return new VkCommandBufferBeginInfo(address, getContainer());
+			return new VkCommandBufferBeginInfo(address, container);
 		}
 
 		@Override

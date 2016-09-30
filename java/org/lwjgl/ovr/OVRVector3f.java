@@ -299,7 +299,7 @@ public class OVRVector3f extends Struct implements NativeResource {
 
 		@Override
 		protected OVRVector3f newInstance(long address) {
-			return new OVRVector3f(address, getContainer());
+			return new OVRVector3f(address, container);
 		}
 
 		@Override

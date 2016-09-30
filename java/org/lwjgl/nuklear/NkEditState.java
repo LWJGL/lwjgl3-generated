@@ -196,7 +196,7 @@ public class NkEditState extends Struct {
 
 		@Override
 		protected NkEditState newInstance(long address) {
-			return new NkEditState(address, getContainer());
+			return new NkEditState(address, container);
 		}
 
 		@Override

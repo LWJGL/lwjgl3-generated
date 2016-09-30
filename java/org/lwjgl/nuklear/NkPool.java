@@ -172,7 +172,7 @@ class NkPool extends Struct {
 
 		@Override
 		protected NkPool newInstance(long address) {
-			return new NkPool(address, getContainer());
+			return new NkPool(address, container);
 		}
 
 		@Override

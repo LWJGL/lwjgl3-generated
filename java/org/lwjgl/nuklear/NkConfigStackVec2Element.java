@@ -124,7 +124,7 @@ class NkConfigStackVec2Element extends Struct {
 
 		@Override
 		protected NkConfigStackVec2Element newInstance(long address) {
-			return new NkConfigStackVec2Element(address, getContainer());
+			return new NkConfigStackVec2Element(address, container);
 		}
 
 		@Override

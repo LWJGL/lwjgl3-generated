@@ -284,7 +284,7 @@ public class CLBusAddressAMD extends Struct implements NativeResource {
 
 		@Override
 		protected CLBusAddressAMD newInstance(long address) {
-			return new CLBusAddressAMD(address, getContainer());
+			return new CLBusAddressAMD(address, container);
 		}
 
 		@Override

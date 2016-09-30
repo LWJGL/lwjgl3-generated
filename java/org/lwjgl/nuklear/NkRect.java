@@ -303,7 +303,7 @@ public class NkRect extends Struct implements NativeResource {
 
 		@Override
 		protected NkRect newInstance(long address) {
-			return new NkRect(address, getContainer());
+			return new NkRect(address, container);
 		}
 
 		@Override

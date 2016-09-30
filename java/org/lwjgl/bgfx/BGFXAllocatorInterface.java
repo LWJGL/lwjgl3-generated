@@ -282,7 +282,7 @@ public class BGFXAllocatorInterface extends Struct implements NativeResource {
 
 		@Override
 		protected BGFXAllocatorInterface newInstance(long address) {
-			return new BGFXAllocatorInterface(address, getContainer());
+			return new BGFXAllocatorInterface(address, container);
 		}
 
 		@Override

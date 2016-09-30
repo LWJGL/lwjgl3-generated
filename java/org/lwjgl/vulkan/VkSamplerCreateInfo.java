@@ -558,7 +558,7 @@ public class VkSamplerCreateInfo extends Struct implements NativeResource {
 
 		@Override
 		protected VkSamplerCreateInfo newInstance(long address) {
-			return new VkSamplerCreateInfo(address, getContainer());
+			return new VkSamplerCreateInfo(address, container);
 		}
 
 		@Override

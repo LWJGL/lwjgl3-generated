@@ -412,7 +412,7 @@ public class VkCopyDescriptorSet extends Struct implements NativeResource {
 
 		@Override
 		protected VkCopyDescriptorSet newInstance(long address) {
-			return new VkCopyDescriptorSet(address, getContainer());
+			return new VkCopyDescriptorSet(address, container);
 		}
 
 		@Override

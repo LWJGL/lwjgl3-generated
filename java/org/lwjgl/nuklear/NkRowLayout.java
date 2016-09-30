@@ -200,7 +200,7 @@ public class NkRowLayout extends Struct {
 
 		@Override
 		protected NkRowLayout newInstance(long address) {
-			return new NkRowLayout(address, getContainer());
+			return new NkRowLayout(address, container);
 		}
 
 		@Override

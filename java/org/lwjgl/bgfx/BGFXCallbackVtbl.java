@@ -417,7 +417,7 @@ public class BGFXCallbackVtbl extends Struct implements NativeResource {
 
 		@Override
 		protected BGFXCallbackVtbl newInstance(long address) {
-			return new BGFXCallbackVtbl(address, getContainer());
+			return new BGFXCallbackVtbl(address, container);
 		}
 
 		@Override

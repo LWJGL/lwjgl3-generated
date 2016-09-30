@@ -124,7 +124,7 @@ public class NkMemory extends Struct {
 
 		@Override
 		protected NkMemory newInstance(long address) {
-			return new NkMemory(address, getContainer());
+			return new NkMemory(address, container);
 		}
 
 		@Override

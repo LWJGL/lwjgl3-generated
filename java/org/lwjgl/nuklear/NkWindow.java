@@ -264,7 +264,7 @@ public class NkWindow extends Struct {
 
 		@Override
 		protected NkWindow newInstance(long address) {
-			return new NkWindow(address, getContainer());
+			return new NkWindow(address, container);
 		}
 
 		@Override

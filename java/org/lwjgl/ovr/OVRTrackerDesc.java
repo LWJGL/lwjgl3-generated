@@ -263,7 +263,7 @@ public class OVRTrackerDesc extends Struct implements NativeResource {
 
 		@Override
 		protected OVRTrackerDesc newInstance(long address) {
-			return new OVRTrackerDesc(address, getContainer());
+			return new OVRTrackerDesc(address, container);
 		}
 
 		@Override

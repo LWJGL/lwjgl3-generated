@@ -346,7 +346,7 @@ public class VkMappedMemoryRange extends Struct implements NativeResource {
 
 		@Override
 		protected VkMappedMemoryRange newInstance(long address) {
-			return new VkMappedMemoryRange(address, getContainer());
+			return new VkMappedMemoryRange(address, container);
 		}
 
 		@Override

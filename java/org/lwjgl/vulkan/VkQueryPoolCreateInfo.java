@@ -359,7 +359,7 @@ public class VkQueryPoolCreateInfo extends Struct implements NativeResource {
 
 		@Override
 		protected VkQueryPoolCreateInfo newInstance(long address) {
-			return new VkQueryPoolCreateInfo(address, getContainer());
+			return new VkQueryPoolCreateInfo(address, container);
 		}
 
 		@Override

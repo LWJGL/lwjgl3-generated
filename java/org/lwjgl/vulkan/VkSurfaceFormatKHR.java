@@ -255,7 +255,7 @@ public class VkSurfaceFormatKHR extends Struct implements NativeResource {
 
 		@Override
 		protected VkSurfaceFormatKHR newInstance(long address) {
-			return new VkSurfaceFormatKHR(address, getContainer());
+			return new VkSurfaceFormatKHR(address, container);
 		}
 
 		@Override

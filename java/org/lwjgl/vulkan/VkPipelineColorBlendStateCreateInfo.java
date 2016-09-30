@@ -420,7 +420,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
 
 		@Override
 		protected VkPipelineColorBlendStateCreateInfo newInstance(long address) {
-			return new VkPipelineColorBlendStateCreateInfo(address, getContainer());
+			return new VkPipelineColorBlendStateCreateInfo(address, container);
 		}
 
 		@Override

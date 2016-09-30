@@ -444,7 +444,7 @@ public class NkStyleButton extends Struct implements NativeResource {
 
 		@Override
 		protected NkStyleButton newInstance(long address) {
-			return new NkStyleButton(address, getContainer());
+			return new NkStyleButton(address, container);
 		}
 
 		@Override

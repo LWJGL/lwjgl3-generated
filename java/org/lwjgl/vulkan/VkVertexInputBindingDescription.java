@@ -310,7 +310,7 @@ public class VkVertexInputBindingDescription extends Struct implements NativeRes
 
 		@Override
 		protected VkVertexInputBindingDescription newInstance(long address) {
-			return new VkVertexInputBindingDescription(address, getContainer());
+			return new VkVertexInputBindingDescription(address, container);
 		}
 
 		@Override

@@ -404,7 +404,7 @@ public class VkPipelineLayoutCreateInfo extends Struct implements NativeResource
 
 		@Override
 		protected VkPipelineLayoutCreateInfo newInstance(long address) {
-			return new VkPipelineLayoutCreateInfo(address, getContainer());
+			return new VkPipelineLayoutCreateInfo(address, container);
 		}
 
 		@Override

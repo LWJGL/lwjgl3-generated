@@ -364,7 +364,7 @@ public class NkPanel extends Struct implements NativeResource {
 
 		@Override
 		protected NkPanel newInstance(long address) {
-			return new NkPanel(address, getContainer());
+			return new NkPanel(address, container);
 		}
 
 		@Override

@@ -236,7 +236,7 @@ public class NkScroll extends Struct implements NativeResource {
 
 		@Override
 		protected NkScroll newInstance(long address) {
-			return new NkScroll(address, getContainer());
+			return new NkScroll(address, container);
 		}
 
 		@Override

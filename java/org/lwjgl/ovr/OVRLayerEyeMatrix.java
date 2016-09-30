@@ -446,7 +446,7 @@ public class OVRLayerEyeMatrix extends Struct implements NativeResource {
 
 		@Override
 		protected OVRLayerEyeMatrix newInstance(long address) {
-			return new OVRLayerEyeMatrix(address, getContainer());
+			return new OVRLayerEyeMatrix(address, container);
 		}
 
 		@Override

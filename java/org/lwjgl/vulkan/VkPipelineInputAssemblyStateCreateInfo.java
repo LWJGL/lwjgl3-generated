@@ -348,7 +348,7 @@ public class VkPipelineInputAssemblyStateCreateInfo extends Struct implements Na
 
 		@Override
 		protected VkPipelineInputAssemblyStateCreateInfo newInstance(long address) {
-			return new VkPipelineInputAssemblyStateCreateInfo(address, getContainer());
+			return new VkPipelineInputAssemblyStateCreateInfo(address, container);
 		}
 
 		@Override

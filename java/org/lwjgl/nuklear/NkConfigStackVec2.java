@@ -132,7 +132,7 @@ class NkConfigStackVec2 extends Struct {
 
 		@Override
 		protected NkConfigStackVec2 newInstance(long address) {
-			return new NkConfigStackVec2(address, getContainer());
+			return new NkConfigStackVec2(address, container);
 		}
 
 		@Override

@@ -170,7 +170,7 @@ class NkTextUndoState extends Struct {
 
 		@Override
 		protected NkTextUndoState newInstance(long address) {
-			return new NkTextUndoState(address, getContainer());
+			return new NkTextUndoState(address, container);
 		}
 
 		@Override

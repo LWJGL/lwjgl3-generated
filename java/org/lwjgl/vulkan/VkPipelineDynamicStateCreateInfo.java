@@ -360,7 +360,7 @@ public class VkPipelineDynamicStateCreateInfo extends Struct implements NativeRe
 
 		@Override
 		protected VkPipelineDynamicStateCreateInfo newInstance(long address) {
-			return new VkPipelineDynamicStateCreateInfo(address, getContainer());
+			return new VkPipelineDynamicStateCreateInfo(address, container);
 		}
 
 		@Override

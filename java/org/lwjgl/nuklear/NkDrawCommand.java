@@ -140,7 +140,7 @@ public class NkDrawCommand extends Struct {
 
 		@Override
 		protected NkDrawCommand newInstance(long address) {
-			return new NkDrawCommand(address, getContainer());
+			return new NkDrawCommand(address, container);
 		}
 
 		@Override

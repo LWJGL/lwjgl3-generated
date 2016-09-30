@@ -344,7 +344,7 @@ public class STBRPRect extends Struct implements NativeResource {
 
 		@Override
 		protected STBRPRect newInstance(long address) {
-			return new STBRPRect(address, getContainer());
+			return new STBRPRect(address, container);
 		}
 
 		@Override

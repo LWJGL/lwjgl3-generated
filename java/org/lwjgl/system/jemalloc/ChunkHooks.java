@@ -390,7 +390,7 @@ public class ChunkHooks extends Struct implements NativeResource {
 
 		@Override
 		protected ChunkHooks newInstance(long address) {
-			return new ChunkHooks(address, getContainer());
+			return new ChunkHooks(address, container);
 		}
 
 		@Override

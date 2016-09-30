@@ -166,7 +166,7 @@ public class VkPhysicalDeviceSparseProperties extends Struct {
 
 		@Override
 		protected VkPhysicalDeviceSparseProperties newInstance(long address) {
-			return new VkPhysicalDeviceSparseProperties(address, getContainer());
+			return new VkPhysicalDeviceSparseProperties(address, container);
 		}
 
 		@Override

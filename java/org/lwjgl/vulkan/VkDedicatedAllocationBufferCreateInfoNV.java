@@ -312,7 +312,7 @@ public class VkDedicatedAllocationBufferCreateInfoNV extends Struct implements N
 
 		@Override
 		protected VkDedicatedAllocationBufferCreateInfoNV newInstance(long address) {
-			return new VkDedicatedAllocationBufferCreateInfoNV(address, getContainer());
+			return new VkDedicatedAllocationBufferCreateInfoNV(address, container);
 		}
 
 		@Override

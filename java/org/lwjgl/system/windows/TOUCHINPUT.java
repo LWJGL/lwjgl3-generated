@@ -331,7 +331,7 @@ public class TOUCHINPUT extends Struct implements NativeResource {
 
 		@Override
 		protected TOUCHINPUT newInstance(long address) {
-			return new TOUCHINPUT(address, getContainer());
+			return new TOUCHINPUT(address, container);
 		}
 
 		@Override

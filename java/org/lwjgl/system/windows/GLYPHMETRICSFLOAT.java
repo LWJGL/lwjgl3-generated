@@ -272,7 +272,7 @@ public class GLYPHMETRICSFLOAT extends Struct implements NativeResource {
 
 		@Override
 		protected GLYPHMETRICSFLOAT newInstance(long address) {
-			return new GLYPHMETRICSFLOAT(address, getContainer());
+			return new GLYPHMETRICSFLOAT(address, container);
 		}
 
 		@Override

@@ -273,7 +273,7 @@ public class OVRMatrix4f extends Struct implements NativeResource {
 
 		@Override
 		protected OVRMatrix4f newInstance(long address) {
-			return new OVRMatrix4f(address, getContainer());
+			return new OVRMatrix4f(address, container);
 		}
 
 		@Override

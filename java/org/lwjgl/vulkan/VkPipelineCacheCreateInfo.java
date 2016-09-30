@@ -361,7 +361,7 @@ public class VkPipelineCacheCreateInfo extends Struct implements NativeResource 
 
 		@Override
 		protected VkPipelineCacheCreateInfo newInstance(long address) {
-			return new VkPipelineCacheCreateInfo(address, getContainer());
+			return new VkPipelineCacheCreateInfo(address, container);
 		}
 
 		@Override

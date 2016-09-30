@@ -492,7 +492,7 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
 
 		@Override
 		protected NkStyleScrollbar newInstance(long address) {
-			return new NkStyleScrollbar(address, getContainer());
+			return new NkStyleScrollbar(address, container);
 		}
 
 		@Override

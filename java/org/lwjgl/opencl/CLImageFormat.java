@@ -286,7 +286,7 @@ public class CLImageFormat extends Struct implements NativeResource {
 
 		@Override
 		protected CLImageFormat newInstance(long address) {
-			return new CLImageFormat(address, getContainer());
+			return new CLImageFormat(address, container);
 		}
 
 		@Override

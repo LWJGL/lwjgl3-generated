@@ -425,7 +425,7 @@ public class CLImageDesc extends Struct implements NativeResource {
 
 		@Override
 		protected CLImageDesc newInstance(long address) {
-			return new CLImageDesc(address, getContainer());
+			return new CLImageDesc(address, container);
 		}
 
 		@Override

@@ -204,7 +204,7 @@ public class BGFXHmdEye extends Struct {
 
 		@Override
 		protected BGFXHmdEye newInstance(long address) {
-			return new BGFXHmdEye(address, getContainer());
+			return new BGFXHmdEye(address, container);
 		}
 
 		@Override

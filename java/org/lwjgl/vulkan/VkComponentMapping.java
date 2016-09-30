@@ -326,7 +326,7 @@ public class VkComponentMapping extends Struct implements NativeResource {
 
 		@Override
 		protected VkComponentMapping newInstance(long address) {
-			return new VkComponentMapping(address, getContainer());
+			return new VkComponentMapping(address, container);
 		}
 
 		@Override

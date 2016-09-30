@@ -364,7 +364,7 @@ public class VkDebugMarkerMarkerInfoEXT extends Struct implements NativeResource
 
 		@Override
 		protected VkDebugMarkerMarkerInfoEXT newInstance(long address) {
-			return new VkDebugMarkerMarkerInfoEXT(address, getContainer());
+			return new VkDebugMarkerMarkerInfoEXT(address, container);
 		}
 
 		@Override

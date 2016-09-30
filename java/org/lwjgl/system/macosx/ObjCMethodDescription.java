@@ -249,7 +249,7 @@ public class ObjCMethodDescription extends Struct implements NativeResource {
 
 		@Override
 		protected ObjCMethodDescription newInstance(long address) {
-			return new ObjCMethodDescription(address, getContainer());
+			return new ObjCMethodDescription(address, container);
 		}
 
 		@Override

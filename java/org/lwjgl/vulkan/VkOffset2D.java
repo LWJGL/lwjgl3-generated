@@ -287,7 +287,7 @@ public class VkOffset2D extends Struct implements NativeResource {
 
 		@Override
 		protected VkOffset2D newInstance(long address) {
-			return new VkOffset2D(address, getContainer());
+			return new VkOffset2D(address, container);
 		}
 
 		@Override

@@ -185,7 +185,7 @@ public class GLXStereoNotifyEventEXT extends Struct {
 
 		@Override
 		protected GLXStereoNotifyEventEXT newInstance(long address) {
-			return new GLXStereoNotifyEventEXT(address, getContainer());
+			return new GLXStereoNotifyEventEXT(address, container);
 		}
 
 		@Override

@@ -273,7 +273,7 @@ public class OVREyeRenderDesc extends Struct implements NativeResource {
 
 		@Override
 		protected OVREyeRenderDesc newInstance(long address) {
-			return new OVREyeRenderDesc(address, getContainer());
+			return new OVREyeRenderDesc(address, container);
 		}
 
 		@Override

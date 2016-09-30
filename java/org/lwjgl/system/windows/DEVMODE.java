@@ -655,7 +655,7 @@ public class DEVMODE extends Struct implements NativeResource {
 
 		@Override
 		protected DEVMODE newInstance(long address) {
-			return new DEVMODE(address, getContainer());
+			return new DEVMODE(address, container);
 		}
 
 		@Override

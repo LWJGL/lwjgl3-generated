@@ -242,7 +242,7 @@ public class XXH64Canonical extends Struct implements NativeResource {
 
 		@Override
 		protected XXH64Canonical newInstance(long address) {
-			return new XXH64Canonical(address, getContainer());
+			return new XXH64Canonical(address, container);
 		}
 
 		@Override

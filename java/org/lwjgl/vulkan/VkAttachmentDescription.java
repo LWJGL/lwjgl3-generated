@@ -413,7 +413,7 @@ public class VkAttachmentDescription extends Struct implements NativeResource {
 
 		@Override
 		protected VkAttachmentDescription newInstance(long address) {
-			return new VkAttachmentDescription(address, getContainer());
+			return new VkAttachmentDescription(address, container);
 		}
 
 		@Override

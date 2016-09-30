@@ -408,7 +408,7 @@ public class VkComputePipelineCreateInfo extends Struct implements NativeResourc
 
 		@Override
 		protected VkComputePipelineCreateInfo newInstance(long address) {
-			return new VkComputePipelineCreateInfo(address, getContainer());
+			return new VkComputePipelineCreateInfo(address, container);
 		}
 
 		@Override

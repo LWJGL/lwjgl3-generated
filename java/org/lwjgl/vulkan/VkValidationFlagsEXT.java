@@ -340,7 +340,7 @@ public class VkValidationFlagsEXT extends Struct implements NativeResource {
 
 		@Override
 		protected VkValidationFlagsEXT newInstance(long address) {
-			return new VkValidationFlagsEXT(address, getContainer());
+			return new VkValidationFlagsEXT(address, container);
 		}
 
 		@Override

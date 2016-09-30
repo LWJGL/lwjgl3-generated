@@ -276,7 +276,7 @@ public class VkLayerProperties extends Struct implements NativeResource {
 
 		@Override
 		protected VkLayerProperties newInstance(long address) {
-			return new VkLayerProperties(address, getContainer());
+			return new VkLayerProperties(address, container);
 		}
 
 		@Override

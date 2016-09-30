@@ -397,7 +397,7 @@ public class VkCommandBufferInheritanceInfo extends Struct implements NativeReso
 
 		@Override
 		protected VkCommandBufferInheritanceInfo newInstance(long address) {
-			return new VkCommandBufferInheritanceInfo(address, getContainer());
+			return new VkCommandBufferInheritanceInfo(address, container);
 		}
 
 		@Override

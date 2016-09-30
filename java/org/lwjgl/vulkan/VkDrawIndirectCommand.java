@@ -161,7 +161,7 @@ public class VkDrawIndirectCommand extends Struct {
 
 		@Override
 		protected VkDrawIndirectCommand newInstance(long address) {
-			return new VkDrawIndirectCommand(address, getContainer());
+			return new VkDrawIndirectCommand(address, container);
 		}
 
 		@Override

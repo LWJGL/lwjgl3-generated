@@ -432,7 +432,7 @@ public class NkStyleProgress extends Struct implements NativeResource {
 
 		@Override
 		protected NkStyleProgress newInstance(long address) {
-			return new NkStyleProgress(address, getContainer());
+			return new NkStyleProgress(address, container);
 		}
 
 		@Override

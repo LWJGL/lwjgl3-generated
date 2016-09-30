@@ -270,7 +270,7 @@ public class STBVorbisInfo extends Struct implements NativeResource {
 
 		@Override
 		protected STBVorbisInfo newInstance(long address) {
-			return new STBVorbisInfo(address, getContainer());
+			return new STBVorbisInfo(address, container);
 		}
 
 		@Override

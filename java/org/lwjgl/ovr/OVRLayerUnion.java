@@ -284,7 +284,7 @@ public class OVRLayerUnion extends Struct implements NativeResource {
 
 		@Override
 		protected OVRLayerUnion newInstance(long address) {
-			return new OVRLayerUnion(address, getContainer());
+			return new OVRLayerUnion(address, container);
 		}
 
 		@Override

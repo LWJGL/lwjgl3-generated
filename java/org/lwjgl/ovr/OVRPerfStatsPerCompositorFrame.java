@@ -283,7 +283,7 @@ public class OVRPerfStatsPerCompositorFrame extends Struct {
 
 		@Override
 		protected OVRPerfStatsPerCompositorFrame newInstance(long address) {
-			return new OVRPerfStatsPerCompositorFrame(address, getContainer());
+			return new OVRPerfStatsPerCompositorFrame(address, container);
 		}
 
 		@Override

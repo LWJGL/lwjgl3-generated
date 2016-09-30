@@ -456,7 +456,7 @@ public class NkStyleToggle extends Struct implements NativeResource {
 
 		@Override
 		protected NkStyleToggle newInstance(long address) {
-			return new NkStyleToggle(address, getContainer());
+			return new NkStyleToggle(address, container);
 		}
 
 		@Override

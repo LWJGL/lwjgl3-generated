@@ -1097,7 +1097,7 @@ public class VkPhysicalDeviceFeatures extends Struct implements NativeResource {
 
 		@Override
 		protected VkPhysicalDeviceFeatures newInstance(long address) {
-			return new VkPhysicalDeviceFeatures(address, getContainer());
+			return new VkPhysicalDeviceFeatures(address, container);
 		}
 
 		@Override

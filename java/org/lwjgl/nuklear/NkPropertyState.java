@@ -188,7 +188,7 @@ public class NkPropertyState extends Struct {
 
 		@Override
 		protected NkPropertyState newInstance(long address) {
-			return new NkPropertyState(address, getContainer());
+			return new NkPropertyState(address, container);
 		}
 
 		@Override

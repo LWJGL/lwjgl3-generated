@@ -284,7 +284,7 @@ public class POINT extends Struct implements NativeResource {
 
 		@Override
 		protected POINT newInstance(long address) {
-			return new POINT(address, getContainer());
+			return new POINT(address, container);
 		}
 
 		@Override

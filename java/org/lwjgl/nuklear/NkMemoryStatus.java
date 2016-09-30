@@ -268,7 +268,7 @@ public class NkMemoryStatus extends Struct implements NativeResource {
 
 		@Override
 		protected NkMemoryStatus newInstance(long address) {
-			return new NkMemoryStatus(address, getContainer());
+			return new NkMemoryStatus(address, container);
 		}
 
 		@Override

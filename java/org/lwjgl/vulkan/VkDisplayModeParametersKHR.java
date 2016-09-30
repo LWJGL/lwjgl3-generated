@@ -287,7 +287,7 @@ public class VkDisplayModeParametersKHR extends Struct implements NativeResource
 
 		@Override
 		protected VkDisplayModeParametersKHR newInstance(long address) {
-			return new VkDisplayModeParametersKHR(address, getContainer());
+			return new VkDisplayModeParametersKHR(address, container);
 		}
 
 		@Override

@@ -187,7 +187,7 @@ public class BGFXStats extends Struct {
 
 		@Override
 		protected BGFXStats newInstance(long address) {
-			return new BGFXStats(address, getContainer());
+			return new BGFXStats(address, container);
 		}
 
 		@Override

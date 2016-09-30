@@ -396,7 +396,7 @@ public class NkContext extends Struct implements NativeResource {
 
 		@Override
 		protected NkContext newInstance(long address) {
-			return new NkContext(address, getContainer());
+			return new NkContext(address, container);
 		}
 
 		@Override

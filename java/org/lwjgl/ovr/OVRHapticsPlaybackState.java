@@ -245,7 +245,7 @@ public class OVRHapticsPlaybackState extends Struct implements NativeResource {
 
 		@Override
 		protected OVRHapticsPlaybackState newInstance(long address) {
-			return new OVRHapticsPlaybackState(address, getContainer());
+			return new OVRHapticsPlaybackState(address, container);
 		}
 
 		@Override

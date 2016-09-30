@@ -132,7 +132,7 @@ public class NkCommand extends Struct {
 
 		@Override
 		protected NkCommand newInstance(long address) {
-			return new NkCommand(address, getContainer());
+			return new NkCommand(address, container);
 		}
 
 		@Override

@@ -310,7 +310,7 @@ public class NkUserFont extends Struct implements NativeResource {
 
 		@Override
 		protected NkUserFont newInstance(long address) {
-			return new NkUserFont(address, getContainer());
+			return new NkUserFont(address, container);
 		}
 
 		@Override

@@ -213,7 +213,7 @@ public class STBTTPackContext extends Struct implements NativeResource {
 
 		@Override
 		protected STBTTPackContext newInstance(long address) {
-			return new STBTTPackContext(address, getContainer());
+			return new STBTTPackContext(address, container);
 		}
 
 		@Override

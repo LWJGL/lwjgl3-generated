@@ -430,7 +430,7 @@ public class VkDisplaySurfaceCreateInfoKHR extends Struct implements NativeResou
 
 		@Override
 		protected VkDisplaySurfaceCreateInfoKHR newInstance(long address) {
-			return new VkDisplaySurfaceCreateInfoKHR(address, getContainer());
+			return new VkDisplaySurfaceCreateInfoKHR(address, container);
 		}
 
 		@Override

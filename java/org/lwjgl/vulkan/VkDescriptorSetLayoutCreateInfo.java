@@ -359,7 +359,7 @@ public class VkDescriptorSetLayoutCreateInfo extends Struct implements NativeRes
 
 		@Override
 		protected VkDescriptorSetLayoutCreateInfo newInstance(long address) {
-			return new VkDescriptorSetLayoutCreateInfo(address, getContainer());
+			return new VkDescriptorSetLayoutCreateInfo(address, container);
 		}
 
 		@Override

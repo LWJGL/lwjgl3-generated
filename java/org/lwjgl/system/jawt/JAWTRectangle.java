@@ -314,7 +314,7 @@ public class JAWTRectangle extends Struct implements NativeResource {
 
 		@Override
 		protected JAWTRectangle newInstance(long address) {
-			return new JAWTRectangle(address, getContainer());
+			return new JAWTRectangle(address, container);
 		}
 
 		@Override

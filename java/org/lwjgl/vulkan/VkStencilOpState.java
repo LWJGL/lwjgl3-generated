@@ -371,7 +371,7 @@ public class VkStencilOpState extends Struct implements NativeResource {
 
 		@Override
 		protected VkStencilOpState newInstance(long address) {
-			return new VkStencilOpState(address, getContainer());
+			return new VkStencilOpState(address, container);
 		}
 
 		@Override

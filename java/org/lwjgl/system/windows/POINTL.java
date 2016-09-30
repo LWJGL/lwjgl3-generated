@@ -284,7 +284,7 @@ public class POINTL extends Struct implements NativeResource {
 
 		@Override
 		protected POINTL newInstance(long address) {
-			return new POINTL(address, getContainer());
+			return new POINTL(address, container);
 		}
 
 		@Override

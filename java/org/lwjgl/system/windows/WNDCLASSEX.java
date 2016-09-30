@@ -478,7 +478,7 @@ public class WNDCLASSEX extends Struct implements NativeResource {
 
 		@Override
 		protected WNDCLASSEX newInstance(long address) {
-			return new WNDCLASSEX(address, getContainer());
+			return new WNDCLASSEX(address, container);
 		}
 
 		@Override

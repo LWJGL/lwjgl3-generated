@@ -263,7 +263,7 @@ public class BGFXCapsLimits extends Struct {
 
 		@Override
 		protected BGFXCapsLimits newInstance(long address) {
-			return new BGFXCapsLimits(address, getContainer());
+			return new BGFXCapsLimits(address, container);
 		}
 
 		@Override

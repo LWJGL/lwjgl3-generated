@@ -128,7 +128,7 @@ class NkConfigStackFlagsElement extends Struct {
 
 		@Override
 		protected NkConfigStackFlagsElement newInstance(long address) {
-			return new NkConfigStackFlagsElement(address, getContainer());
+			return new NkConfigStackFlagsElement(address, container);
 		}
 
 		@Override

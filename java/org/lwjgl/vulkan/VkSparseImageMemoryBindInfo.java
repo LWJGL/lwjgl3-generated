@@ -326,7 +326,7 @@ public class VkSparseImageMemoryBindInfo extends Struct implements NativeResourc
 
 		@Override
 		protected VkSparseImageMemoryBindInfo newInstance(long address) {
-			return new VkSparseImageMemoryBindInfo(address, getContainer());
+			return new VkSparseImageMemoryBindInfo(address, container);
 		}
 
 		@Override

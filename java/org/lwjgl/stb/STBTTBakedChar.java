@@ -278,7 +278,7 @@ public class STBTTBakedChar extends Struct implements NativeResource {
 
 		@Override
 		protected STBTTBakedChar newInstance(long address) {
-			return new STBTTBakedChar(address, getContainer());
+			return new STBTTBakedChar(address, container);
 		}
 
 		@Override

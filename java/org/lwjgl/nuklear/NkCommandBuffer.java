@@ -164,7 +164,7 @@ public class NkCommandBuffer extends Struct {
 
 		@Override
 		protected NkCommandBuffer newInstance(long address) {
-			return new NkCommandBuffer(address, getContainer());
+			return new NkCommandBuffer(address, container);
 		}
 
 		@Override

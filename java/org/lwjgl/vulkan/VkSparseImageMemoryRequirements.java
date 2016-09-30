@@ -277,7 +277,7 @@ public class VkSparseImageMemoryRequirements extends Struct implements NativeRes
 
 		@Override
 		protected VkSparseImageMemoryRequirements newInstance(long address) {
-			return new VkSparseImageMemoryRequirements(address, getContainer());
+			return new VkSparseImageMemoryRequirements(address, container);
 		}
 
 		@Override

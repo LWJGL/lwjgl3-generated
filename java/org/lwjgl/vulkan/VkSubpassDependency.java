@@ -390,7 +390,7 @@ public class VkSubpassDependency extends Struct implements NativeResource {
 
 		@Override
 		protected VkSubpassDependency newInstance(long address) {
-			return new VkSubpassDependency(address, getContainer());
+			return new VkSubpassDependency(address, container);
 		}
 
 		@Override

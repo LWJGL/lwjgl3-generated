@@ -252,7 +252,7 @@ public class VkExtensionProperties extends Struct implements NativeResource {
 
 		@Override
 		protected VkExtensionProperties newInstance(long address) {
-			return new VkExtensionProperties(address, getContainer());
+			return new VkExtensionProperties(address, container);
 		}
 
 		@Override

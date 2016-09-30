@@ -295,7 +295,7 @@ public class OVRPerfStats extends Struct implements NativeResource {
 
 		@Override
 		protected OVRPerfStats newInstance(long address) {
-			return new OVRPerfStats(address, getContainer());
+			return new OVRPerfStats(address, container);
 		}
 
 		@Override

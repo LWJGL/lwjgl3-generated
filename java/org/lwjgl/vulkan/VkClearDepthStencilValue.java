@@ -297,7 +297,7 @@ public class VkClearDepthStencilValue extends Struct implements NativeResource {
 
 		@Override
 		protected VkClearDepthStencilValue newInstance(long address) {
-			return new VkClearDepthStencilValue(address, getContainer());
+			return new VkClearDepthStencilValue(address, container);
 		}
 
 		@Override

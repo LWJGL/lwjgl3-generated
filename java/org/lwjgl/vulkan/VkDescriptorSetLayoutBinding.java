@@ -354,7 +354,7 @@ public class VkDescriptorSetLayoutBinding extends Struct implements NativeResour
 
 		@Override
 		protected VkDescriptorSetLayoutBinding newInstance(long address) {
-			return new VkDescriptorSetLayoutBinding(address, getContainer());
+			return new VkDescriptorSetLayoutBinding(address, container);
 		}
 
 		@Override

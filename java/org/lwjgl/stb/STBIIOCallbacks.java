@@ -321,7 +321,7 @@ public class STBIIOCallbacks extends Struct implements NativeResource {
 
 		@Override
 		protected STBIIOCallbacks newInstance(long address) {
-			return new STBIIOCallbacks(address, getContainer());
+			return new STBIIOCallbacks(address, container);
 		}
 
 		@Override

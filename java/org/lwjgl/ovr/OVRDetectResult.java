@@ -255,7 +255,7 @@ public class OVRDetectResult extends Struct implements NativeResource {
 
 		@Override
 		protected OVRDetectResult newInstance(long address) {
-			return new OVRDetectResult(address, getContainer());
+			return new OVRDetectResult(address, container);
 		}
 
 		@Override

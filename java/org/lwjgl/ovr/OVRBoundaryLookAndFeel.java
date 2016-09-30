@@ -260,7 +260,7 @@ public class OVRBoundaryLookAndFeel extends Struct implements NativeResource {
 
 		@Override
 		protected OVRBoundaryLookAndFeel newInstance(long address) {
-			return new OVRBoundaryLookAndFeel(address, getContainer());
+			return new OVRBoundaryLookAndFeel(address, container);
 		}
 
 		@Override

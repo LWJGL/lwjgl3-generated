@@ -317,7 +317,7 @@ public class VkDedicatedAllocationImageCreateInfoNV extends Struct implements Na
 
 		@Override
 		protected VkDedicatedAllocationImageCreateInfoNV newInstance(long address) {
-			return new VkDedicatedAllocationImageCreateInfoNV(address, getContainer());
+			return new VkDedicatedAllocationImageCreateInfoNV(address, container);
 		}
 
 		@Override

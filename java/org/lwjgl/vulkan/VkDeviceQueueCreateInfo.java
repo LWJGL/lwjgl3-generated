@@ -377,7 +377,7 @@ public class VkDeviceQueueCreateInfo extends Struct implements NativeResource {
 
 		@Override
 		protected VkDeviceQueueCreateInfo newInstance(long address) {
-			return new VkDeviceQueueCreateInfo(address, getContainer());
+			return new VkDeviceQueueCreateInfo(address, container);
 		}
 
 		@Override

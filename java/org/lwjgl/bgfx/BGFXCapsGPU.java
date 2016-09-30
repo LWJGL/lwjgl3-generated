@@ -133,7 +133,7 @@ public class BGFXCapsGPU extends Struct {
 
 		@Override
 		protected BGFXCapsGPU newInstance(long address) {
-			return new BGFXCapsGPU(address, getContainer());
+			return new BGFXCapsGPU(address, container);
 		}
 
 		@Override

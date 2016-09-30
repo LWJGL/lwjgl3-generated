@@ -372,7 +372,7 @@ public class VkBufferImageCopy extends Struct implements NativeResource {
 
 		@Override
 		protected VkBufferImageCopy newInstance(long address) {
-			return new VkBufferImageCopy(address, getContainer());
+			return new VkBufferImageCopy(address, container);
 		}
 
 		@Override

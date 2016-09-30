@@ -346,7 +346,7 @@ public class WINDOWPLACEMENT extends Struct implements NativeResource {
 
 		@Override
 		protected WINDOWPLACEMENT newInstance(long address) {
-			return new WINDOWPLACEMENT(address, getContainer());
+			return new WINDOWPLACEMENT(address, container);
 		}
 
 		@Override

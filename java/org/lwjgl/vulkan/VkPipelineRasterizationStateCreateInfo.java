@@ -465,7 +465,7 @@ public class VkPipelineRasterizationStateCreateInfo extends Struct implements Na
 
 		@Override
 		protected VkPipelineRasterizationStateCreateInfo newInstance(long address) {
-			return new VkPipelineRasterizationStateCreateInfo(address, getContainer());
+			return new VkPipelineRasterizationStateCreateInfo(address, container);
 		}
 
 		@Override

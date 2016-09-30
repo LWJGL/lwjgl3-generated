@@ -361,7 +361,7 @@ public class VkWin32SurfaceCreateInfoKHR extends Struct implements NativeResourc
 
 		@Override
 		protected VkWin32SurfaceCreateInfoKHR newInstance(long address) {
-			return new VkWin32SurfaceCreateInfoKHR(address, getContainer());
+			return new VkWin32SurfaceCreateInfoKHR(address, container);
 		}
 
 		@Override

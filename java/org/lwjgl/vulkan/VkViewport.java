@@ -360,7 +360,7 @@ public class VkViewport extends Struct implements NativeResource {
 
 		@Override
 		protected VkViewport newInstance(long address) {
-			return new VkViewport(address, getContainer());
+			return new VkViewport(address, container);
 		}
 
 		@Override

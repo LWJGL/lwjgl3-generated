@@ -457,7 +457,7 @@ public class NkStyleWindowHeader extends Struct implements NativeResource {
 
 		@Override
 		protected NkStyleWindowHeader newInstance(long address) {
-			return new NkStyleWindowHeader(address, getContainer());
+			return new NkStyleWindowHeader(address, container);
 		}
 
 		@Override

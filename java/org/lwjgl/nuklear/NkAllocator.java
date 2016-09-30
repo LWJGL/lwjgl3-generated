@@ -276,7 +276,7 @@ public class NkAllocator extends Struct implements NativeResource {
 
 		@Override
 		protected NkAllocator newInstance(long address) {
-			return new NkAllocator(address, getContainer());
+			return new NkAllocator(address, container);
 		}
 
 		@Override

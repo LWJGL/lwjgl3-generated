@@ -309,7 +309,7 @@ public class VkDisplayPropertiesKHR extends Struct implements NativeResource {
 
 		@Override
 		protected VkDisplayPropertiesKHR newInstance(long address) {
-			return new VkDisplayPropertiesKHR(address, getContainer());
+			return new VkDisplayPropertiesKHR(address, container);
 		}
 
 		@Override

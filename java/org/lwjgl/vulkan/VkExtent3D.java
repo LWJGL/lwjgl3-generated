@@ -302,7 +302,7 @@ public class VkExtent3D extends Struct implements NativeResource {
 
 		@Override
 		protected VkExtent3D newInstance(long address) {
-			return new VkExtent3D(address, getContainer());
+			return new VkExtent3D(address, container);
 		}
 
 		@Override

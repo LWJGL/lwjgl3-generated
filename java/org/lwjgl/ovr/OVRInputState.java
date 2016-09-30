@@ -367,7 +367,7 @@ public class OVRInputState extends Struct implements NativeResource {
 
 		@Override
 		protected OVRInputState newInstance(long address) {
-			return new OVRInputState(address, getContainer());
+			return new OVRInputState(address, container);
 		}
 
 		@Override

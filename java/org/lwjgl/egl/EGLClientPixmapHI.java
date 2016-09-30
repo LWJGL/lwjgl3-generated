@@ -343,7 +343,7 @@ public class EGLClientPixmapHI extends Struct implements NativeResource {
 
 		@Override
 		protected EGLClientPixmapHI newInstance(long address) {
-			return new EGLClientPixmapHI(address, getContainer());
+			return new EGLClientPixmapHI(address, container);
 		}
 
 		@Override

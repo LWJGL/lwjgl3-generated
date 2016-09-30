@@ -263,7 +263,7 @@ public class NVGGlyphPosition extends Struct implements NativeResource {
 
 		@Override
 		protected NVGGlyphPosition newInstance(long address) {
-			return new NVGGlyphPosition(address, getContainer());
+			return new NVGGlyphPosition(address, container);
 		}
 
 		@Override

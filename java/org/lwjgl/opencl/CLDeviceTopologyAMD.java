@@ -290,7 +290,7 @@ public class CLDeviceTopologyAMD extends Struct implements NativeResource {
 
 		@Override
 		protected CLDeviceTopologyAMD newInstance(long address) {
-			return new CLDeviceTopologyAMD(address, getContainer());
+			return new CLDeviceTopologyAMD(address, container);
 		}
 
 		@Override

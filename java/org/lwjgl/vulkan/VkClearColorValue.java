@@ -328,7 +328,7 @@ public class VkClearColorValue extends Struct implements NativeResource {
 
 		@Override
 		protected VkClearColorValue newInstance(long address) {
-			return new VkClearColorValue(address, getContainer());
+			return new VkClearColorValue(address, container);
 		}
 
 		@Override

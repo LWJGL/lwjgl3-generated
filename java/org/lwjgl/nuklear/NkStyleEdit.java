@@ -555,7 +555,7 @@ public class NkStyleEdit extends Struct implements NativeResource {
 
 		@Override
 		protected NkStyleEdit newInstance(long address) {
-			return new NkStyleEdit(address, getContainer());
+			return new NkStyleEdit(address, container);
 		}
 
 		@Override

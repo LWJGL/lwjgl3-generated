@@ -287,7 +287,7 @@ public class VkExtent2D extends Struct implements NativeResource {
 
 		@Override
 		protected VkExtent2D newInstance(long address) {
-			return new VkExtent2D(address, getContainer());
+			return new VkExtent2D(address, container);
 		}
 
 		@Override
