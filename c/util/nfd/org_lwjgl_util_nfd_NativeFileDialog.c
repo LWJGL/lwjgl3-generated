@@ -70,7 +70,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_util_nfd_NativeFileDialog_nNFD_1PathSet_1F
 	NFD_PathSet_Free(pathSet);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_util_nfd_NativeFileDialog_nNFD_1Free(JNIEnv *__env, jclass clazz, jlong outPathAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_util_nfd_NativeFileDialog_nNFDi_1Free(JNIEnv *__env, jclass clazz, jlong outPathAddress) {
 	void *outPath = (void *)(intptr_t)outPathAddress;
 	UNUSED_PARAMS(__env, clazz)
 	NFDi_Free(outPath);

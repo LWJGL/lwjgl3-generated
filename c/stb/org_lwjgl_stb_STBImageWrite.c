@@ -12,9 +12,9 @@ DISABLE_WARNINGS()
 	__pragma(warning(disable : 4701 4702 4711 4738))
 #endif
 #include "lwjgl_malloc.h"
-#define STBIW_MALLOC(sz)    lwjgl_malloc(sz)
-#define STBIW_REALLOC(p,sz) lwjgl_realloc(p,sz)
-#define STBIW_FREE(p)       lwjgl_free(p)
+#define STBIW_MALLOC(sz)    org_lwjgl_malloc(sz)
+#define STBIW_REALLOC(p,sz) org_lwjgl_realloc(p,sz)
+#define STBIW_FREE(p)       org_lwjgl_free(p)
 #define STBIW_ASSERT(x)
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #define STB_IMAGE_WRITE_STATIC
@@ -93,14 +93,14 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1hdr__JIII_
 	jint __result;
 	jfloat *data = (*__env)->GetPrimitiveArrayCritical(__env, dataAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jint)stbi_write_hdr(filename, w, h, comp, (float*)data);
+	__result = (jint)stbi_write_hdr(filename, w, h, comp, (const float *)data);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, dataAddress, data, 0);
 	return __result;
 }
 JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBImageWrite_nstbi_1write_1hdr__JIII_3F(jlong filenameAddress, jint w, jint h, jint comp, jint data__length, jfloat* data) {
 	const char *filename = (const char *)(intptr_t)filenameAddress;
 	UNUSED_PARAM(data__length)
-	return (jint)stbi_write_hdr(filename, w, h, comp, (float*)data);
+	return (jint)stbi_write_hdr(filename, w, h, comp, (const float *)data);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1hdr_1to_1func__JJIII_3F(JNIEnv *__env, jclass clazz, jlong funcAddress, jlong contextAddress, jint w, jint h, jint comp, jfloatArray dataAddress) {
@@ -109,7 +109,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1hdr_1to_1f
 	jint __result;
 	jfloat *data = (*__env)->GetPrimitiveArrayCritical(__env, dataAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jint)stbi_write_hdr_to_func(func, context, w, h, comp, (float*)data);
+	__result = (jint)stbi_write_hdr_to_func(func, context, w, h, comp, (const float *)data);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, dataAddress, data, 0);
 	return __result;
 }
@@ -117,7 +117,7 @@ JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBImageWrite_nstbi_1write_1hd
 	stbi_write_func *func = (stbi_write_func *)(intptr_t)funcAddress;
 	void *context = (void *)(intptr_t)contextAddress;
 	UNUSED_PARAM(data__length)
-	return (jint)stbi_write_hdr_to_func(func, context, w, h, comp, (float*)data);
+	return (jint)stbi_write_hdr_to_func(func, context, w, h, comp, (const float *)data);
 }
 
 EXTERN_C_EXIT

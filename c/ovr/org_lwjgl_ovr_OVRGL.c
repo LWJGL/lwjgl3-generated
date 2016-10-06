@@ -48,7 +48,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRGL_novr_1GetTextureSwapChainBufferG
 	jint __result;
 	jint *out_TexId = (*__env)->GetPrimitiveArrayCritical(__env, out_TexIdAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jint)ovr_GetTextureSwapChainBufferGL(session, chain, index, (unsigned int*)out_TexId);
+	__result = (jint)ovr_GetTextureSwapChainBufferGL(session, chain, index, (unsigned int *)out_TexId);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, out_TexIdAddress, out_TexId, 0);
 	return __result;
 }
@@ -56,7 +56,7 @@ JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_ovr_OVRGL_novr_1GetTextureSwapChai
 	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
 	ovrTextureSwapChain chain = (ovrTextureSwapChain)(intptr_t)chainAddress;
 	UNUSED_PARAM(out_TexId__length)
-	return (jint)ovr_GetTextureSwapChainBufferGL(session, chain, index, (unsigned int*)out_TexId);
+	return (jint)ovr_GetTextureSwapChainBufferGL(session, chain, index, (unsigned int *)out_TexId);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRGL_novr_1GetMirrorTextureBufferGL__JJ_3I(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong mirrorTextureAddress, jintArray out_TexIdAddress) {
@@ -65,7 +65,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRGL_novr_1GetMirrorTextureBufferGL__
 	jint __result;
 	jint *out_TexId = (*__env)->GetPrimitiveArrayCritical(__env, out_TexIdAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jint)ovr_GetMirrorTextureBufferGL(session, mirrorTexture, (unsigned int*)out_TexId);
+	__result = (jint)ovr_GetMirrorTextureBufferGL(session, mirrorTexture, (unsigned int *)out_TexId);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, out_TexIdAddress, out_TexId, 0);
 	return __result;
 }
@@ -73,7 +73,7 @@ JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_ovr_OVRGL_novr_1GetMirrorTextureBu
 	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
 	ovrMirrorTexture mirrorTexture = (ovrMirrorTexture)(intptr_t)mirrorTextureAddress;
 	UNUSED_PARAM(out_TexId__length)
-	return (jint)ovr_GetMirrorTextureBufferGL(session, mirrorTexture, (unsigned int*)out_TexId);
+	return (jint)ovr_GetMirrorTextureBufferGL(session, mirrorTexture, (unsigned int *)out_TexId);
 }
 
 EXTERN_C_EXIT

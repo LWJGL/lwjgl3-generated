@@ -368,7 +368,7 @@ public class NativeFileDialog {
 	 *
 	 * @param outPath the string to free
 	 */
-	public static native void nNFD_Free(long outPath);
+	public static native void nNFDi_Free(long outPath);
 
 	/**
 	 * Frees memory allocated by NativeFileDialog.
@@ -376,7 +376,7 @@ public class NativeFileDialog {
 	 * @param outPath the string to free
 	 */
 	public static void NFD_Free(ByteBuffer outPath) {
-		nNFD_Free(memAddress(outPath));
+		nNFDi_Free(memAddress(outPath));
 	}
 
 }

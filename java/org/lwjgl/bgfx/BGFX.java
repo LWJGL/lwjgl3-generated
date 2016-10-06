@@ -22,7 +22,7 @@ import static org.lwjgl.system.Pointer.*;
 public class BGFX {
 
 	/** API version */
-	public static final int BGFX_API_VERSION = 22;
+	public static final int BGFX_API_VERSION = 24;
 
 	/** State */
 	public static final long
@@ -326,30 +326,30 @@ public class BGFX {
 
 	/** Caps */
 	public static final long
-		BGFX_CAPS_TEXTURE_COMPARE_LEQUAL = 0x1L,
-		BGFX_CAPS_TEXTURE_COMPARE_ALL    = 0x3L,
-		BGFX_CAPS_TEXTURE_3D             = 0x4L,
-		BGFX_CAPS_VERTEX_ATTRIB_HALF     = 0x8L,
-		BGFX_CAPS_VERTEX_ATTRIB_UINT10   = 0x10L,
-		BGFX_CAPS_INSTANCING             = 0x20L,
-		BGFX_CAPS_RENDERER_MULTITHREADED = 0x40L,
-		BGFX_CAPS_FRAGMENT_DEPTH         = 0x80L,
-		BGFX_CAPS_BLEND_INDEPENDENT      = 0x100L,
-		BGFX_CAPS_COMPUTE                = 0x200L,
-		BGFX_CAPS_FRAGMENT_ORDERING      = 0x400L,
-		BGFX_CAPS_SWAP_CHAIN             = 0x800L,
-		BGFX_CAPS_HMD                    = 0x1000L,
-		BGFX_CAPS_INDEX32                = 0x2000L,
-		BGFX_CAPS_DRAW_INDIRECT          = 0x4000L,
-		BGFX_CAPS_HIDPI                  = 0x8000L,
-		BGFX_CAPS_TEXTURE_BLIT           = 0x10000L,
-		BGFX_CAPS_TEXTURE_READ_BACK      = 0x20000L,
-		BGFX_CAPS_OCCLUSION_QUERY        = 0x40000L,
-		BGFX_CAPS_ALPHA_TO_COVERAGE      = 0x80000L,
-		BGFX_CAPS_CONSERVATIVE_RASTER    = 0x100000L,
-		BGFX_CAPS_TEXTURE_2D_ARRAY       = 0x200000L,
-		BGFX_CAPS_TEXTURE_CUBE_ARRAY     = 0x400000L,
-		BGFX_CAPS_GRAPHICS_DEBUGGER      = 0x800000L;
+		BGFX_CAPS_ALPHA_TO_COVERAGE      = 0x1L,
+		BGFX_CAPS_BLEND_INDEPENDENT      = 0x3L,
+		BGFX_CAPS_COMPUTE                = 0x4L,
+		BGFX_CAPS_CONSERVATIVE_RASTER    = 0x8L,
+		BGFX_CAPS_DRAW_INDIRECT          = 0x10L,
+		BGFX_CAPS_FRAGMENT_DEPTH         = 0x20L,
+		BGFX_CAPS_FRAGMENT_ORDERING      = 0x40L,
+		BGFX_CAPS_GRAPHICS_DEBUGGER      = 0x80L,
+		BGFX_CAPS_HIDPI                  = 0x100L,
+		BGFX_CAPS_HMD                    = 0x200L,
+		BGFX_CAPS_INDEX32                = 0x400L,
+		BGFX_CAPS_INSTANCING             = 0x800L,
+		BGFX_CAPS_OCCLUSION_QUERY        = 0x1000L,
+		BGFX_CAPS_RENDERER_MULTITHREADED = 0x2000L,
+		BGFX_CAPS_SWAP_CHAIN             = 0x4000L,
+		BGFX_CAPS_TEXTURE_2D_ARRAY       = 0x8000L,
+		BGFX_CAPS_TEXTURE_3D             = 0x10000L,
+		BGFX_CAPS_TEXTURE_BLIT           = 0x20000L,
+		BGFX_CAPS_TEXTURE_COMPARE_ALL    = 0x40000L,
+		BGFX_CAPS_TEXTURE_COMPARE_LEQUAL = 0x80000L,
+		BGFX_CAPS_TEXTURE_CUBE_ARRAY     = 0x100000L,
+		BGFX_CAPS_TEXTURE_READ_BACK      = 0x200000L,
+		BGFX_CAPS_VERTEX_ATTRIB_HALF     = 0x400000L,
+		BGFX_CAPS_VERTEX_ATTRIB_UINT10   = 0x800000L;
 
 	/** Format caps */
 	public static final short
@@ -412,15 +412,15 @@ public class BGFX {
 
 	/** Renderer type. ({@code bgfx_renderer_type_t}) */
 	public static final int
-		BGFX_RENDERER_TYPE_NULL       = 0,
+		BGFX_RENDERER_TYPE_NOOP       = 0,
 		BGFX_RENDERER_TYPE_DIRECT3D9  = 1,
 		BGFX_RENDERER_TYPE_DIRECT3D11 = 2,
 		BGFX_RENDERER_TYPE_DIRECT3D12 = 3,
-		BGFX_RENDERER_TYPE_METAL      = 4,
-		BGFX_RENDERER_TYPE_OPENGLES   = 5,
-		BGFX_RENDERER_TYPE_OPENGL     = 6,
-		BGFX_RENDERER_TYPE_VULKAN     = 7,
-		BGFX_RENDERER_TYPE_GNM        = 8,
+		BGFX_RENDERER_TYPE_GNM        = 4,
+		BGFX_RENDERER_TYPE_METAL      = 5,
+		BGFX_RENDERER_TYPE_OPENGLES   = 6,
+		BGFX_RENDERER_TYPE_OPENGL     = 7,
+		BGFX_RENDERER_TYPE_VULKAN     = 8,
 		BGFX_RENDERER_TYPE_COUNT      = 9;
 
 	/** bgfx_access_t */
@@ -759,7 +759,7 @@ public class BGFX {
 	 * Start a vertex declaration.
 	 *
 	 * @param _decl     the vertex declaration
-	 * @param _renderer the renderer type. One of:<br><table><tr><td>{@link #BGFX_RENDERER_TYPE_NULL RENDERER_TYPE_NULL}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D9 RENDERER_TYPE_DIRECT3D9}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D11 RENDERER_TYPE_DIRECT3D11}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D12 RENDERER_TYPE_DIRECT3D12}</td><td>{@link #BGFX_RENDERER_TYPE_METAL RENDERER_TYPE_METAL}</td><td>{@link #BGFX_RENDERER_TYPE_OPENGLES RENDERER_TYPE_OPENGLES}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_OPENGL RENDERER_TYPE_OPENGL}</td><td>{@link #BGFX_RENDERER_TYPE_VULKAN RENDERER_TYPE_VULKAN}</td><td>{@link #BGFX_RENDERER_TYPE_GNM RENDERER_TYPE_GNM}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_COUNT RENDERER_TYPE_COUNT}</td></tr></table>
+	 * @param _renderer the renderer type. One of:<br><table><tr><td>{@link #BGFX_RENDERER_TYPE_NOOP RENDERER_TYPE_NOOP}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D9 RENDERER_TYPE_DIRECT3D9}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D11 RENDERER_TYPE_DIRECT3D11}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D12 RENDERER_TYPE_DIRECT3D12}</td><td>{@link #BGFX_RENDERER_TYPE_GNM RENDERER_TYPE_GNM}</td><td>{@link #BGFX_RENDERER_TYPE_METAL RENDERER_TYPE_METAL}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_OPENGLES RENDERER_TYPE_OPENGLES}</td><td>{@link #BGFX_RENDERER_TYPE_OPENGL RENDERER_TYPE_OPENGL}</td><td>{@link #BGFX_RENDERER_TYPE_VULKAN RENDERER_TYPE_VULKAN}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_COUNT RENDERER_TYPE_COUNT}</td></tr></table>
 	 */
 	public static void nbgfx_vertex_decl_begin(long _decl, int _renderer) {
 		long __functionAddress = Functions.vertex_decl_begin;
@@ -770,7 +770,7 @@ public class BGFX {
 	 * Start a vertex declaration.
 	 *
 	 * @param _decl     the vertex declaration
-	 * @param _renderer the renderer type. One of:<br><table><tr><td>{@link #BGFX_RENDERER_TYPE_NULL RENDERER_TYPE_NULL}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D9 RENDERER_TYPE_DIRECT3D9}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D11 RENDERER_TYPE_DIRECT3D11}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D12 RENDERER_TYPE_DIRECT3D12}</td><td>{@link #BGFX_RENDERER_TYPE_METAL RENDERER_TYPE_METAL}</td><td>{@link #BGFX_RENDERER_TYPE_OPENGLES RENDERER_TYPE_OPENGLES}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_OPENGL RENDERER_TYPE_OPENGL}</td><td>{@link #BGFX_RENDERER_TYPE_VULKAN RENDERER_TYPE_VULKAN}</td><td>{@link #BGFX_RENDERER_TYPE_GNM RENDERER_TYPE_GNM}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_COUNT RENDERER_TYPE_COUNT}</td></tr></table>
+	 * @param _renderer the renderer type. One of:<br><table><tr><td>{@link #BGFX_RENDERER_TYPE_NOOP RENDERER_TYPE_NOOP}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D9 RENDERER_TYPE_DIRECT3D9}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D11 RENDERER_TYPE_DIRECT3D11}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D12 RENDERER_TYPE_DIRECT3D12}</td><td>{@link #BGFX_RENDERER_TYPE_GNM RENDERER_TYPE_GNM}</td><td>{@link #BGFX_RENDERER_TYPE_METAL RENDERER_TYPE_METAL}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_OPENGLES RENDERER_TYPE_OPENGLES}</td><td>{@link #BGFX_RENDERER_TYPE_OPENGL RENDERER_TYPE_OPENGL}</td><td>{@link #BGFX_RENDERER_TYPE_VULKAN RENDERER_TYPE_VULKAN}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_COUNT RENDERER_TYPE_COUNT}</td></tr></table>
 	 */
 	public static void bgfx_vertex_decl_begin(BGFXVertexDecl _decl, int _renderer) {
 		nbgfx_vertex_decl_begin(_decl.address(), _renderer);
@@ -1208,7 +1208,7 @@ public class BGFX {
 	/**
 	 * Returns name of renderer.
 	 *
-	 * @param _type the renderer type. One of:<br><table><tr><td>{@link #BGFX_RENDERER_TYPE_NULL RENDERER_TYPE_NULL}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D9 RENDERER_TYPE_DIRECT3D9}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D11 RENDERER_TYPE_DIRECT3D11}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D12 RENDERER_TYPE_DIRECT3D12}</td><td>{@link #BGFX_RENDERER_TYPE_METAL RENDERER_TYPE_METAL}</td><td>{@link #BGFX_RENDERER_TYPE_OPENGLES RENDERER_TYPE_OPENGLES}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_OPENGL RENDERER_TYPE_OPENGL}</td><td>{@link #BGFX_RENDERER_TYPE_VULKAN RENDERER_TYPE_VULKAN}</td><td>{@link #BGFX_RENDERER_TYPE_GNM RENDERER_TYPE_GNM}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_COUNT RENDERER_TYPE_COUNT}</td></tr></table>
+	 * @param _type the renderer type. One of:<br><table><tr><td>{@link #BGFX_RENDERER_TYPE_NOOP RENDERER_TYPE_NOOP}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D9 RENDERER_TYPE_DIRECT3D9}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D11 RENDERER_TYPE_DIRECT3D11}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D12 RENDERER_TYPE_DIRECT3D12}</td><td>{@link #BGFX_RENDERER_TYPE_GNM RENDERER_TYPE_GNM}</td><td>{@link #BGFX_RENDERER_TYPE_METAL RENDERER_TYPE_METAL}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_OPENGLES RENDERER_TYPE_OPENGLES}</td><td>{@link #BGFX_RENDERER_TYPE_OPENGL RENDERER_TYPE_OPENGL}</td><td>{@link #BGFX_RENDERER_TYPE_VULKAN RENDERER_TYPE_VULKAN}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_COUNT RENDERER_TYPE_COUNT}</td></tr></table>
 	 */
 	public static long nbgfx_get_renderer_name(int _type) {
 		long __functionAddress = Functions.get_renderer_name;
@@ -1218,7 +1218,7 @@ public class BGFX {
 	/**
 	 * Returns name of renderer.
 	 *
-	 * @param _type the renderer type. One of:<br><table><tr><td>{@link #BGFX_RENDERER_TYPE_NULL RENDERER_TYPE_NULL}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D9 RENDERER_TYPE_DIRECT3D9}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D11 RENDERER_TYPE_DIRECT3D11}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D12 RENDERER_TYPE_DIRECT3D12}</td><td>{@link #BGFX_RENDERER_TYPE_METAL RENDERER_TYPE_METAL}</td><td>{@link #BGFX_RENDERER_TYPE_OPENGLES RENDERER_TYPE_OPENGLES}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_OPENGL RENDERER_TYPE_OPENGL}</td><td>{@link #BGFX_RENDERER_TYPE_VULKAN RENDERER_TYPE_VULKAN}</td><td>{@link #BGFX_RENDERER_TYPE_GNM RENDERER_TYPE_GNM}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_COUNT RENDERER_TYPE_COUNT}</td></tr></table>
+	 * @param _type the renderer type. One of:<br><table><tr><td>{@link #BGFX_RENDERER_TYPE_NOOP RENDERER_TYPE_NOOP}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D9 RENDERER_TYPE_DIRECT3D9}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D11 RENDERER_TYPE_DIRECT3D11}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D12 RENDERER_TYPE_DIRECT3D12}</td><td>{@link #BGFX_RENDERER_TYPE_GNM RENDERER_TYPE_GNM}</td><td>{@link #BGFX_RENDERER_TYPE_METAL RENDERER_TYPE_METAL}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_OPENGLES RENDERER_TYPE_OPENGLES}</td><td>{@link #BGFX_RENDERER_TYPE_OPENGL RENDERER_TYPE_OPENGL}</td><td>{@link #BGFX_RENDERER_TYPE_VULKAN RENDERER_TYPE_VULKAN}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_COUNT RENDERER_TYPE_COUNT}</td></tr></table>
 	 */
 	public static String bgfx_get_renderer_name(int _type) {
 		long __result = nbgfx_get_renderer_name(_type);
@@ -1230,7 +1230,7 @@ public class BGFX {
 	/**
 	 * Initializes bgfx library.
 	 *
-	 * @param _type      select rendering backend. When set to {@link #BGFX_RENDERER_TYPE_COUNT RENDERER_TYPE_COUNT}, default rendering backend will be selected. One of:<br><table><tr><td>{@link #BGFX_RENDERER_TYPE_NULL RENDERER_TYPE_NULL}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D9 RENDERER_TYPE_DIRECT3D9}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D11 RENDERER_TYPE_DIRECT3D11}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D12 RENDERER_TYPE_DIRECT3D12}</td><td>{@link #BGFX_RENDERER_TYPE_METAL RENDERER_TYPE_METAL}</td><td>{@link #BGFX_RENDERER_TYPE_OPENGLES RENDERER_TYPE_OPENGLES}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_OPENGL RENDERER_TYPE_OPENGL}</td><td>{@link #BGFX_RENDERER_TYPE_VULKAN RENDERER_TYPE_VULKAN}</td><td>{@link #BGFX_RENDERER_TYPE_GNM RENDERER_TYPE_GNM}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_COUNT RENDERER_TYPE_COUNT}</td></tr></table>
+	 * @param _type      select rendering backend. When set to {@link #BGFX_RENDERER_TYPE_COUNT RENDERER_TYPE_COUNT}, default rendering backend will be selected. One of:<br><table><tr><td>{@link #BGFX_RENDERER_TYPE_NOOP RENDERER_TYPE_NOOP}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D9 RENDERER_TYPE_DIRECT3D9}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D11 RENDERER_TYPE_DIRECT3D11}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D12 RENDERER_TYPE_DIRECT3D12}</td><td>{@link #BGFX_RENDERER_TYPE_GNM RENDERER_TYPE_GNM}</td><td>{@link #BGFX_RENDERER_TYPE_METAL RENDERER_TYPE_METAL}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_OPENGLES RENDERER_TYPE_OPENGLES}</td><td>{@link #BGFX_RENDERER_TYPE_OPENGL RENDERER_TYPE_OPENGL}</td><td>{@link #BGFX_RENDERER_TYPE_VULKAN RENDERER_TYPE_VULKAN}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_COUNT RENDERER_TYPE_COUNT}</td></tr></table>
 	 * @param _vendorId  vendor PCI id. If set to {@link #BGFX_PCI_ID_NONE PCI_ID_NONE} it will select the first device.
 	 * @param _deviceId  device id. If set to 0 it will select first device, or device with matching id.
 	 * @param _callback  provide application specific callback interface
@@ -1246,7 +1246,7 @@ public class BGFX {
 	/**
 	 * Initializes bgfx library.
 	 *
-	 * @param _type      select rendering backend. When set to {@link #BGFX_RENDERER_TYPE_COUNT RENDERER_TYPE_COUNT}, default rendering backend will be selected. One of:<br><table><tr><td>{@link #BGFX_RENDERER_TYPE_NULL RENDERER_TYPE_NULL}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D9 RENDERER_TYPE_DIRECT3D9}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D11 RENDERER_TYPE_DIRECT3D11}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D12 RENDERER_TYPE_DIRECT3D12}</td><td>{@link #BGFX_RENDERER_TYPE_METAL RENDERER_TYPE_METAL}</td><td>{@link #BGFX_RENDERER_TYPE_OPENGLES RENDERER_TYPE_OPENGLES}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_OPENGL RENDERER_TYPE_OPENGL}</td><td>{@link #BGFX_RENDERER_TYPE_VULKAN RENDERER_TYPE_VULKAN}</td><td>{@link #BGFX_RENDERER_TYPE_GNM RENDERER_TYPE_GNM}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_COUNT RENDERER_TYPE_COUNT}</td></tr></table>
+	 * @param _type      select rendering backend. When set to {@link #BGFX_RENDERER_TYPE_COUNT RENDERER_TYPE_COUNT}, default rendering backend will be selected. One of:<br><table><tr><td>{@link #BGFX_RENDERER_TYPE_NOOP RENDERER_TYPE_NOOP}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D9 RENDERER_TYPE_DIRECT3D9}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D11 RENDERER_TYPE_DIRECT3D11}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D12 RENDERER_TYPE_DIRECT3D12}</td><td>{@link #BGFX_RENDERER_TYPE_GNM RENDERER_TYPE_GNM}</td><td>{@link #BGFX_RENDERER_TYPE_METAL RENDERER_TYPE_METAL}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_OPENGLES RENDERER_TYPE_OPENGLES}</td><td>{@link #BGFX_RENDERER_TYPE_OPENGL RENDERER_TYPE_OPENGL}</td><td>{@link #BGFX_RENDERER_TYPE_VULKAN RENDERER_TYPE_VULKAN}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_COUNT RENDERER_TYPE_COUNT}</td></tr></table>
 	 * @param _vendorId  vendor PCI id. If set to {@link #BGFX_PCI_ID_NONE PCI_ID_NONE} it will select the first device.
 	 * @param _deviceId  device id. If set to 0 it will select first device, or device with matching id.
 	 * @param _callback  provide application specific callback interface

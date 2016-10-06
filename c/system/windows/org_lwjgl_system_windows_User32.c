@@ -6,16 +6,16 @@
 #include "common_tools.h"
 #define APIENTRY __stdcall
 
-typedef jshort (APIENTRY *RegisterClassExPROC) (const intptr_t);
-typedef jint (APIENTRY *UnregisterClassPROC) (intptr_t, intptr_t);
-typedef intptr_t (APIENTRY *CreateWindowExPROC) (jint, intptr_t, intptr_t, jint, jint, jint, jint, jint, intptr_t, intptr_t, intptr_t, intptr_t);
+typedef jshort (APIENTRY *RegisterClassExWPROC) (const intptr_t);
+typedef jint (APIENTRY *UnregisterClassWPROC) (intptr_t, intptr_t);
+typedef intptr_t (APIENTRY *CreateWindowExWPROC) (jint, intptr_t, intptr_t, jint, jint, jint, jint, jint, intptr_t, intptr_t, intptr_t, intptr_t);
 typedef jint (APIENTRY *DestroyWindowPROC) (intptr_t);
 typedef jint (APIENTRY *SetWindowPosPROC) (intptr_t, intptr_t, jint, jint, jint, jint, jint);
-typedef jint (APIENTRY *SetWindowTextPROC) (intptr_t, intptr_t);
-typedef jint (APIENTRY *GetMessagePROC) (intptr_t, intptr_t, jint, jint);
+typedef jint (APIENTRY *SetWindowTextWPROC) (intptr_t, intptr_t);
+typedef jint (APIENTRY *GetMessageWPROC) (intptr_t, intptr_t, jint, jint);
 typedef jint (APIENTRY *WaitMessagePROC) (void);
-typedef jint (APIENTRY *PostMessagePROC) (intptr_t, jint, intptr_t, intptr_t);
-typedef jint (APIENTRY *SendMessagePROC) (intptr_t, jint, intptr_t, intptr_t);
+typedef jint (APIENTRY *PostMessageWPROC) (intptr_t, jint, intptr_t, intptr_t);
+typedef jint (APIENTRY *SendMessageWPROC) (intptr_t, jint, intptr_t, intptr_t);
 typedef jint (APIENTRY *AdjustWindowRectExPROC) (intptr_t, jint, jint, jint);
 typedef jint (APIENTRY *GetWindowRectPROC) (intptr_t, intptr_t);
 typedef jint (APIENTRY *MoveWindowPROC) (intptr_t, jint, jint, jint, jint, jint);
@@ -26,8 +26,8 @@ typedef intptr_t (APIENTRY *GetWindowLongPtrPROC) (intptr_t, jint);
 typedef intptr_t (APIENTRY *SetClassLongPtrPROC) (intptr_t, jint, intptr_t);
 typedef intptr_t (APIENTRY *GetClassLongPtrPROC) (intptr_t, jint);
 typedef jint (APIENTRY *SetLayeredWindowAttributesPROC) (intptr_t, jint, jbyte, jint);
-typedef intptr_t (APIENTRY *LoadIconPROC) (intptr_t, intptr_t);
-typedef intptr_t (APIENTRY *LoadCursorPROC) (intptr_t, intptr_t);
+typedef intptr_t (APIENTRY *LoadIconWPROC) (intptr_t, intptr_t);
+typedef intptr_t (APIENTRY *LoadCursorWPROC) (intptr_t, intptr_t);
 typedef jint (APIENTRY *RegisterTouchWindowPROC) (intptr_t, jint);
 typedef jint (APIENTRY *UnregisterTouchWindowPROC) (intptr_t);
 typedef jint (APIENTRY *GetTouchInputInfoPROC) (intptr_t, jint, intptr_t, jint);
@@ -35,29 +35,29 @@ typedef jint (APIENTRY *CloseTouchInputHandlePROC) (intptr_t);
 
 EXTERN_C_ENTER
 
-JNIEXPORT jshort JNICALL Java_org_lwjgl_system_windows_User32_nRegisterClassEx(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong lpwcxAddress) {
-	RegisterClassExPROC RegisterClassEx = (RegisterClassExPROC)(intptr_t)__functionAddress;
+JNIEXPORT jshort JNICALL Java_org_lwjgl_system_windows_User32_nRegisterClassExW(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong lpwcxAddress) {
+	RegisterClassExWPROC RegisterClassExW = (RegisterClassExWPROC)(intptr_t)__functionAddress;
 	const intptr_t lpwcx = (const intptr_t)lpwcxAddress;
 	jshort __result;
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jshort)RegisterClassEx(lpwcx);
+	__result = (jshort)RegisterClassExW(lpwcx);
 	saveLastError();
 	return __result;
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_User32_nUnregisterClass(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong lpClassNameAddress, jlong hInstanceAddress) {
-	UnregisterClassPROC UnregisterClass = (UnregisterClassPROC)(intptr_t)__functionAddress;
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_User32_nUnregisterClassW(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong lpClassNameAddress, jlong hInstanceAddress) {
+	UnregisterClassWPROC UnregisterClassW = (UnregisterClassWPROC)(intptr_t)__functionAddress;
 	intptr_t lpClassName = (intptr_t)lpClassNameAddress;
 	intptr_t hInstance = (intptr_t)hInstanceAddress;
 	jint __result;
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jint)UnregisterClass(lpClassName, hInstance);
+	__result = (jint)UnregisterClassW(lpClassName, hInstance);
 	saveLastError();
 	return __result;
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_User32_nCreateWindowEx(JNIEnv *__env, jclass clazz, jlong __functionAddress, jint dwExStyle, jlong lpClassNameAddress, jlong lpWindowNameAddress, jint dwStyle, jint x, jint y, jint nWidth, jint nHeight, jlong hWndParentAddress, jlong hMenuAddress, jlong hInstanceAddress, jlong lpParamAddress) {
-	CreateWindowExPROC CreateWindowEx = (CreateWindowExPROC)(intptr_t)__functionAddress;
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_User32_nCreateWindowExW(JNIEnv *__env, jclass clazz, jlong __functionAddress, jint dwExStyle, jlong lpClassNameAddress, jlong lpWindowNameAddress, jint dwStyle, jint x, jint y, jint nWidth, jint nHeight, jlong hWndParentAddress, jlong hMenuAddress, jlong hInstanceAddress, jlong lpParamAddress) {
+	CreateWindowExWPROC CreateWindowExW = (CreateWindowExWPROC)(intptr_t)__functionAddress;
 	intptr_t lpClassName = (intptr_t)lpClassNameAddress;
 	intptr_t lpWindowName = (intptr_t)lpWindowNameAddress;
 	intptr_t hWndParent = (intptr_t)hWndParentAddress;
@@ -66,7 +66,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_User32_nCreateWindowEx(JNI
 	intptr_t lpParam = (intptr_t)lpParamAddress;
 	jlong __result;
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jlong)CreateWindowEx(dwExStyle, lpClassName, lpWindowName, dwStyle, x, y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam);
+	__result = (jlong)CreateWindowExW(dwExStyle, lpClassName, lpWindowName, dwStyle, x, y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam);
 	saveLastError();
 	return __result;
 }
@@ -92,24 +92,24 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_User32_nSetWindowPos(JNIEnv
 	return __result;
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_User32_nSetWindowText(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong hWndAddress, jlong lpStringAddress) {
-	SetWindowTextPROC SetWindowText = (SetWindowTextPROC)(intptr_t)__functionAddress;
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_User32_nSetWindowTextW(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong hWndAddress, jlong lpStringAddress) {
+	SetWindowTextWPROC SetWindowTextW = (SetWindowTextWPROC)(intptr_t)__functionAddress;
 	intptr_t hWnd = (intptr_t)hWndAddress;
 	intptr_t lpString = (intptr_t)lpStringAddress;
 	jint __result;
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jint)SetWindowText(hWnd, lpString);
+	__result = (jint)SetWindowTextW(hWnd, lpString);
 	saveLastError();
 	return __result;
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_User32_nGetMessage(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong lpMsgAddress, jlong hWndAddress, jint wMsgFilterMin, jint wMsgFilterMax) {
-	GetMessagePROC GetMessage = (GetMessagePROC)(intptr_t)__functionAddress;
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_User32_nGetMessageW(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong lpMsgAddress, jlong hWndAddress, jint wMsgFilterMin, jint wMsgFilterMax) {
+	GetMessageWPROC GetMessageW = (GetMessageWPROC)(intptr_t)__functionAddress;
 	intptr_t lpMsg = (intptr_t)lpMsgAddress;
 	intptr_t hWnd = (intptr_t)hWndAddress;
 	jint __result;
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jint)GetMessage(lpMsg, hWnd, wMsgFilterMin, wMsgFilterMax);
+	__result = (jint)GetMessageW(lpMsg, hWnd, wMsgFilterMin, wMsgFilterMax);
 	saveLastError();
 	return __result;
 }
@@ -123,22 +123,22 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_User32_nWaitMessage(JNIEnv 
 	return __result;
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_User32_nPostMessage(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong hWndAddress, jint Msg, jlong wParam, jlong lParam) {
-	PostMessagePROC PostMessage = (PostMessagePROC)(intptr_t)__functionAddress;
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_User32_nPostMessageW(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong hWndAddress, jint Msg, jlong wParam, jlong lParam) {
+	PostMessageWPROC PostMessageW = (PostMessageWPROC)(intptr_t)__functionAddress;
 	intptr_t hWnd = (intptr_t)hWndAddress;
 	jint __result;
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jint)PostMessage(hWnd, Msg, (intptr_t)wParam, (intptr_t)lParam);
+	__result = (jint)PostMessageW(hWnd, Msg, (intptr_t)wParam, (intptr_t)lParam);
 	saveLastError();
 	return __result;
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_User32_nSendMessage(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong hWndAddress, jint Msg, jlong wParam, jlong lParam) {
-	SendMessagePROC SendMessage = (SendMessagePROC)(intptr_t)__functionAddress;
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_User32_nSendMessageW(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong hWndAddress, jint Msg, jlong wParam, jlong lParam) {
+	SendMessageWPROC SendMessageW = (SendMessageWPROC)(intptr_t)__functionAddress;
 	intptr_t hWnd = (intptr_t)hWndAddress;
 	jint __result;
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jint)SendMessage(hWnd, Msg, (intptr_t)wParam, (intptr_t)lParam);
+	__result = (jint)SendMessageW(hWnd, Msg, (intptr_t)wParam, (intptr_t)lParam);
 	saveLastError();
 	return __result;
 }
@@ -246,24 +246,24 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_User32_nSetLayeredWindowAtt
 	return __result;
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_User32_nLoadIcon(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong instanceAddress, jlong iconNameAddress) {
-	LoadIconPROC LoadIcon = (LoadIconPROC)(intptr_t)__functionAddress;
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_User32_nLoadIconW(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong instanceAddress, jlong iconNameAddress) {
+	LoadIconWPROC LoadIconW = (LoadIconWPROC)(intptr_t)__functionAddress;
 	intptr_t instance = (intptr_t)instanceAddress;
 	intptr_t iconName = (intptr_t)iconNameAddress;
 	jlong __result;
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jlong)LoadIcon(instance, iconName);
+	__result = (jlong)LoadIconW(instance, iconName);
 	saveLastError();
 	return __result;
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_User32_nLoadCursor(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong instanceAddress, jlong cursorNameAddress) {
-	LoadCursorPROC LoadCursor = (LoadCursorPROC)(intptr_t)__functionAddress;
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_windows_User32_nLoadCursorW(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong instanceAddress, jlong cursorNameAddress) {
+	LoadCursorWPROC LoadCursorW = (LoadCursorWPROC)(intptr_t)__functionAddress;
 	intptr_t instance = (intptr_t)instanceAddress;
 	intptr_t cursorName = (intptr_t)cursorNameAddress;
 	jlong __result;
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jlong)LoadCursor(instance, cursorName);
+	__result = (jlong)LoadCursorW(instance, cursorName);
 	saveLastError();
 	return __result;
 }

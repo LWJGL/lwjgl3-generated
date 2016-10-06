@@ -985,7 +985,7 @@ public class User32 {
 	 *
 	 * @param lpwcx a {@link WNDCLASSEX} structure. You must fill the structure with the appropriate class attributes before passing it to the function.
 	 */
-	public static native short nRegisterClassEx(long __functionAddress, long lpwcx);
+	public static native short nRegisterClassExW(long __functionAddress, long lpwcx);
 
 	/**
 	 * Registers a window class for subsequent use in calls to the {@link #CreateWindowEx} function.
@@ -996,7 +996,7 @@ public class User32 {
 		long __functionAddress = Functions.RegisterClassEx;
 		if ( CHECKS )
 			WNDCLASSEX.validate(lpwcx);
-		return nRegisterClassEx(__functionAddress, lpwcx);
+		return nRegisterClassExW(__functionAddress, lpwcx);
 	}
 
 	/**
@@ -1019,7 +1019,7 @@ public class User32 {
 	 *                    word of {@code lpClassName}; the high-order word must be zero.
 	 * @param hInstance   a handle to the instance of the module that created the class
 	 */
-	public static native int nUnregisterClass(long __functionAddress, long lpClassName, long hInstance);
+	public static native int nUnregisterClassW(long __functionAddress, long lpClassName, long hInstance);
 
 	/**
 	 * Unregisters a window class, freeing the memory required for the class.
@@ -1032,7 +1032,7 @@ public class User32 {
 	 */
 	public static int nUnregisterClass(long lpClassName, long hInstance) {
 		long __functionAddress = Functions.UnregisterClass;
-		return nUnregisterClass(__functionAddress, lpClassName, hInstance);
+		return nUnregisterClassW(__functionAddress, lpClassName, hInstance);
 	}
 
 	/**
@@ -1088,7 +1088,7 @@ public class User32 {
 	 * @param lpParam      a value to be passed to the window through the {@code CREATESTRUCT} structure ({@code createParams} member) pointed to by the {@code lParam} param
 	 *                     of the {@link #WM_CREATE} message.
 	 */
-	public static native long nCreateWindowEx(long __functionAddress, int dwExStyle, long lpClassName, long lpWindowName, int dwStyle, int x, int y, int nWidth, int nHeight, long hWndParent, long hMenu, long hInstance, long lpParam);
+	public static native long nCreateWindowExW(long __functionAddress, int dwExStyle, long lpClassName, long lpWindowName, int dwStyle, int x, int y, int nWidth, int nHeight, long hWndParent, long hMenu, long hInstance, long lpParam);
 
 	/**
 	 * Creates an overlapped, pop-up, or child window with an extended window style; otherwise, this function is identical to the CreateWindow function.
@@ -1109,7 +1109,7 @@ public class User32 {
 	 */
 	public static long nCreateWindowEx(int dwExStyle, long lpClassName, long lpWindowName, int dwStyle, int x, int y, int nWidth, int nHeight, long hWndParent, long hMenu, long hInstance, long lpParam) {
 		long __functionAddress = Functions.CreateWindowEx;
-		return nCreateWindowEx(__functionAddress, dwExStyle, lpClassName, lpWindowName, dwStyle, x, y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam);
+		return nCreateWindowExW(__functionAddress, dwExStyle, lpClassName, lpWindowName, dwStyle, x, y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam);
 	}
 
 	/**
@@ -1291,7 +1291,7 @@ public class User32 {
 	 * @param hWnd     a handle to the window or control whose text is to be changed
 	 * @param lpString the new title or control text
 	 */
-	public static native int nSetWindowText(long __functionAddress, long hWnd, long lpString);
+	public static native int nSetWindowTextW(long __functionAddress, long hWnd, long lpString);
 
 	/**
 	 * Changes the text of the specified window's title bar (if it has one). If the specified window is a control, the text of the control is changed.
@@ -1304,7 +1304,7 @@ public class User32 {
 		long __functionAddress = Functions.SetWindowText;
 		if ( CHECKS )
 			checkPointer(hWnd);
-		return nSetWindowText(__functionAddress, hWnd, lpString);
+		return nSetWindowTextW(__functionAddress, hWnd, lpString);
 	}
 
 	/**
@@ -1355,7 +1355,7 @@ public class User32 {
 	 * @param wMsgFilterMin the integer value of the lowest message value to be retrieved
 	 * @param wMsgFilterMax the integer value of the highest message value to be retrieved
 	 */
-	public static native int nGetMessage(long __functionAddress, long lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax);
+	public static native int nGetMessageW(long __functionAddress, long lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax);
 
 	/**
 	 * Retrieves a message from the calling thread's message queue. The function dispatches incoming sent messages until a posted message is available for
@@ -1375,7 +1375,7 @@ public class User32 {
 	 */
 	public static int nGetMessage(long lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax) {
 		long __functionAddress = Functions.GetMessage;
-		return nGetMessage(__functionAddress, lpMsg, hWnd, wMsgFilterMin, wMsgFilterMax);
+		return nGetMessageW(__functionAddress, lpMsg, hWnd, wMsgFilterMin, wMsgFilterMax);
 	}
 
 	/**
@@ -1521,7 +1521,7 @@ public class User32 {
 	 * @param wParam additional message-specific information
 	 * @param lParam additional message-specific information
 	 */
-	public static native int nPostMessage(long __functionAddress, long hWnd, int Msg, long wParam, long lParam);
+	public static native int nPostMessageW(long __functionAddress, long hWnd, int Msg, long wParam, long lParam);
 
 	/**
 	 * Places (posts) a message in the message queue associated with the thread that created the specified window and returns without waiting for the thread
@@ -1540,7 +1540,7 @@ public class User32 {
 	 */
 	public static boolean PostMessage(long hWnd, int Msg, long wParam, long lParam) {
 		long __functionAddress = Functions.PostMessage;
-		return nPostMessage(__functionAddress, hWnd, Msg, wParam, lParam) != 0;
+		return nPostMessageW(__functionAddress, hWnd, Msg, wParam, lParam) != 0;
 	}
 
 	// --- [ SendMessage ] ---
@@ -1559,7 +1559,7 @@ public class User32 {
 	 * @param wParam additional message-specific information
 	 * @param lParam additional message-specific information
 	 */
-	public static native int nSendMessage(long __functionAddress, long hWnd, int Msg, long wParam, long lParam);
+	public static native int nSendMessageW(long __functionAddress, long hWnd, int Msg, long wParam, long lParam);
 
 	/**
 	 * Sends the specified message to a window or windows. The {@code SendMessage} function calls the window procedure for the specified window and does not
@@ -1579,7 +1579,7 @@ public class User32 {
 		long __functionAddress = Functions.SendMessage;
 		if ( CHECKS )
 			checkPointer(hWnd);
-		return nSendMessage(__functionAddress, hWnd, Msg, wParam, lParam) != 0;
+		return nSendMessageW(__functionAddress, hWnd, Msg, wParam, lParam) != 0;
 	}
 
 	// --- [ AdjustWindowRectEx ] ---
@@ -2008,7 +2008,7 @@ public class User32 {
 	 *                 being loaded.
 	 * @param iconName the name of the icon resource to be loaded or one of:<br><table><tr><td>{@link #IDI_APPLICATION}</td><td>{@link #IDI_HAND}</td><td>{@link #IDI_QUESTION}</td><td>{@link #IDI_EXCLAMATION}</td><td>{@link #IDI_ASTERISK}</td><td>{@link #IDI_WINLOGO}</td></tr><tr><td>{@link #IDI_SHIELD}</td><td>{@link #IDI_WARNING}</td><td>{@link #IDI_ERROR}</td><td>{@link #IDI_INFORMATION}</td></tr></table>
 	 */
-	public static native long nLoadIcon(long __functionAddress, long instance, long iconName);
+	public static native long nLoadIconW(long __functionAddress, long instance, long iconName);
 
 	/**
 	 * Loads the specified icon resource from the executable (.exe) file associated with an application instance.
@@ -2019,7 +2019,7 @@ public class User32 {
 	 */
 	public static long nLoadIcon(long instance, long iconName) {
 		long __functionAddress = Functions.LoadIcon;
-		return nLoadIcon(__functionAddress, instance, iconName);
+		return nLoadIconW(__functionAddress, instance, iconName);
 	}
 
 	/**
@@ -2060,7 +2060,7 @@ public class User32 {
 	 * @param instance   a handle to an instance of the module whose executable file contains the cursor to be loaded.
 	 * @param cursorName the name of the cursor resource to be loaded or one of:<br><table><tr><td>{@link #IDC_ARROW}</td><td>{@link #IDC_IBEAM}</td><td>{@link #IDC_WAIT}</td><td>{@link #IDC_CROSS}</td><td>{@link #IDC_UPARROW}</td><td>{@link #IDC_SIZE}</td><td>{@link #IDC_ICON}</td><td>{@link #IDC_SIZENWSE}</td></tr><tr><td>{@link #IDC_SIZENESW}</td><td>{@link #IDC_SIZEWE}</td><td>{@link #IDC_SIZENS}</td><td>{@link #IDC_SIZEALL}</td><td>{@link #IDC_NO}</td><td>{@link #IDC_HAND}</td><td>{@link #IDC_APPSTARTING}</td><td>{@link #IDC_HELP}</td></tr></table>
 	 */
-	public static native long nLoadCursor(long __functionAddress, long instance, long cursorName);
+	public static native long nLoadCursorW(long __functionAddress, long instance, long cursorName);
 
 	/**
 	 * Loads the specified cursor resource from the executable (.EXE) file associated with an application instance.
@@ -2070,7 +2070,7 @@ public class User32 {
 	 */
 	public static long nLoadCursor(long instance, long cursorName) {
 		long __functionAddress = Functions.LoadCursor;
-		return nLoadCursor(__functionAddress, instance, cursorName);
+		return nLoadCursorW(__functionAddress, instance, cursorName);
 	}
 
 	/**

@@ -28,7 +28,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_nanovg_NanoVGGL2_nnvglImageHandleGL2(JNIEn
 	return (jint)nvglImageHandleGL2(ctx, image);
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_nanovg_NanoVGGL2_nvgCreateGL2(JNIEnv *__env, jclass clazz, jint flags) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_nanovg_NanoVGGL2_nnvgCreateGL2(JNIEnv *__env, jclass clazz, jint flags) {
 	UNUSED_PARAM(clazz)
 	return (jlong)(intptr_t)nvgCreateGL2(__env, flags);
 }
@@ -39,24 +39,24 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVGGL2_nnvgDeleteGL2(JNIEnv *__e
 	nvgDeleteGL2(ctx);
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_nanovg_NanoVGGL2_nnvgluCreateFramebuffer(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint w, jint h, jint imageFlags) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_nanovg_NanoVGGL2_nnvgluCreateFramebufferGL2(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint w, jint h, jint imageFlags) {
 	NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
 	UNUSED_PARAMS(__env, clazz)
-	return (jlong)(intptr_t)nvgluCreateFramebuffer(ctx, w, h, imageFlags);
+	return (jlong)(intptr_t)nvgluCreateFramebufferGL2(ctx, w, h, imageFlags);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVGGL2_nnvgluBindFramebuffer(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong fbAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVGGL2_nnvgluBindFramebufferGL2(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong fbAddress) {
 	NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
 	NVGLUframebuffer *fb = (NVGLUframebuffer *)(intptr_t)fbAddress;
 	UNUSED_PARAMS(__env, clazz)
-	nvgluBindFramebuffer(ctx, fb);
+	nvgluBindFramebufferGL2(ctx, fb);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVGGL2_nnvgluDeleteFramebuffer(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong fbAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVGGL2_nnvgluDeleteFramebufferGL2(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong fbAddress) {
 	NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
 	NVGLUframebuffer *fb = (NVGLUframebuffer *)(intptr_t)fbAddress;
 	UNUSED_PARAMS(__env, clazz)
-	nvgluDeleteFramebuffer(ctx, fb);
+	nvgluDeleteFramebufferGL2(ctx, fb);
 }
 
 EXTERN_C_EXIT

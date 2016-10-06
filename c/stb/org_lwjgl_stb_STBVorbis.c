@@ -192,7 +192,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1open_1pushdat
 	jint *datablock_memory_consumed_in_bytes = (*__env)->GetPrimitiveArrayCritical(__env, datablock_memory_consumed_in_bytesAddress, 0);
 	jint *error = (*__env)->GetPrimitiveArrayCritical(__env, errorAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jlong)(intptr_t)stb_vorbis_open_pushdata(datablock, datablock_length_in_bytes, (int*)datablock_memory_consumed_in_bytes, (int*)error, alloc_buffer);
+	__result = (jlong)(intptr_t)stb_vorbis_open_pushdata(datablock, datablock_length_in_bytes, (int *)datablock_memory_consumed_in_bytes, (int *)error, alloc_buffer);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, errorAddress, error, 0);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, datablock_memory_consumed_in_bytesAddress, datablock_memory_consumed_in_bytes, 0);
 	return __result;
@@ -202,7 +202,7 @@ JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1open_
 	const stb_vorbis_alloc *alloc_buffer = (const stb_vorbis_alloc *)(intptr_t)alloc_bufferAddress;
 	UNUSED_PARAM(datablock_memory_consumed_in_bytes__length)
 	UNUSED_PARAM(error__length)
-	return (jlong)(intptr_t)stb_vorbis_open_pushdata(datablock, datablock_length_in_bytes, (int*)datablock_memory_consumed_in_bytes, (int*)error, alloc_buffer);
+	return (jlong)(intptr_t)stb_vorbis_open_pushdata(datablock, datablock_length_in_bytes, (int *)datablock_memory_consumed_in_bytes, (int *)error, alloc_buffer);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode_1frame_1pushdata__JJI_3IJ_3I(JNIEnv *__env, jclass clazz, jlong fAddress, jlong datablockAddress, jint datablock_length_in_bytes, jintArray channelsAddress, jlong outputAddress, jintArray samplesAddress) {
@@ -213,7 +213,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode_1frame_
 	jint *channels = channelsAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, channelsAddress, 0);
 	jint *samples = (*__env)->GetPrimitiveArrayCritical(__env, samplesAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jint)stb_vorbis_decode_frame_pushdata(f, datablock, datablock_length_in_bytes, (int*)channels, output, (int*)samples);
+	__result = (jint)stb_vorbis_decode_frame_pushdata(f, datablock, datablock_length_in_bytes, (int *)channels, output, (int *)samples);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, samplesAddress, samples, 0);
 	if ( channels != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, channelsAddress, channels, 0);
 	return __result;
@@ -224,7 +224,7 @@ JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode
 	float ***output = (float ***)(intptr_t)outputAddress;
 	UNUSED_PARAM(channels__length)
 	UNUSED_PARAM(samples__length)
-	return (jint)stb_vorbis_decode_frame_pushdata(f, datablock, datablock_length_in_bytes, (int*)channels, output, (int*)samples);
+	return (jint)stb_vorbis_decode_frame_pushdata(f, datablock, datablock_length_in_bytes, (int *)channels, output, (int *)samples);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode_1filename__J_3I_3IJ(JNIEnv *__env, jclass clazz, jlong filenameAddress, jintArray channelsAddress, jintArray sample_rateAddress, jlong outputAddress) {
@@ -234,7 +234,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode_1filena
 	jint *channels = (*__env)->GetPrimitiveArrayCritical(__env, channelsAddress, 0);
 	jint *sample_rate = (*__env)->GetPrimitiveArrayCritical(__env, sample_rateAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jint)stb_vorbis_decode_filename(filename, (int*)channels, (int*)sample_rate, output);
+	__result = (jint)stb_vorbis_decode_filename(filename, (int *)channels, (int *)sample_rate, output);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, sample_rateAddress, sample_rate, 0);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, channelsAddress, channels, 0);
 	return __result;
@@ -244,7 +244,7 @@ JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode
 	short **output = (short **)(intptr_t)outputAddress;
 	UNUSED_PARAM(channels__length)
 	UNUSED_PARAM(sample_rate__length)
-	return (jint)stb_vorbis_decode_filename(filename, (int*)channels, (int*)sample_rate, output);
+	return (jint)stb_vorbis_decode_filename(filename, (int *)channels, (int *)sample_rate, output);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode_1memory__JI_3I_3IJ(JNIEnv *__env, jclass clazz, jlong memAddress, jint len, jintArray channelsAddress, jintArray sample_rateAddress, jlong outputAddress) {
@@ -254,7 +254,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode_1memory
 	jint *channels = (*__env)->GetPrimitiveArrayCritical(__env, channelsAddress, 0);
 	jint *sample_rate = (*__env)->GetPrimitiveArrayCritical(__env, sample_rateAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jint)stb_vorbis_decode_memory(mem, len, (int*)channels, (int*)sample_rate, output);
+	__result = (jint)stb_vorbis_decode_memory(mem, len, (int *)channels, (int *)sample_rate, output);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, sample_rateAddress, sample_rate, 0);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, channelsAddress, channels, 0);
 	return __result;
@@ -264,7 +264,7 @@ JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode
 	short **output = (short **)(intptr_t)outputAddress;
 	UNUSED_PARAM(channels__length)
 	UNUSED_PARAM(sample_rate__length)
-	return (jint)stb_vorbis_decode_memory(mem, len, (int*)channels, (int*)sample_rate, output);
+	return (jint)stb_vorbis_decode_memory(mem, len, (int *)channels, (int *)sample_rate, output);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1open_1memory__JI_3IJ(JNIEnv *__env, jclass clazz, jlong memAddress, jint len, jintArray errorAddress, jlong alloc_bufferAddress) {
@@ -273,7 +273,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1open_1memory_
 	jlong __result;
 	jint *error = (*__env)->GetPrimitiveArrayCritical(__env, errorAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jlong)(intptr_t)stb_vorbis_open_memory(mem, len, (int*)error, alloc_buffer);
+	__result = (jlong)(intptr_t)stb_vorbis_open_memory(mem, len, (int *)error, alloc_buffer);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, errorAddress, error, 0);
 	return __result;
 }
@@ -281,7 +281,7 @@ JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1open_
 	const unsigned char *mem = (const unsigned char *)(intptr_t)memAddress;
 	const stb_vorbis_alloc *alloc_buffer = (const stb_vorbis_alloc *)(intptr_t)alloc_bufferAddress;
 	UNUSED_PARAM(error__length)
-	return (jlong)(intptr_t)stb_vorbis_open_memory(mem, len, (int*)error, alloc_buffer);
+	return (jlong)(intptr_t)stb_vorbis_open_memory(mem, len, (int *)error, alloc_buffer);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1open_1filename__J_3IJ(JNIEnv *__env, jclass clazz, jlong filenameAddress, jintArray errorAddress, jlong alloc_bufferAddress) {
@@ -290,7 +290,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1open_1filenam
 	jlong __result;
 	jint *error = (*__env)->GetPrimitiveArrayCritical(__env, errorAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jlong)(intptr_t)stb_vorbis_open_filename(filename, (int*)error, alloc_buffer);
+	__result = (jlong)(intptr_t)stb_vorbis_open_filename(filename, (int *)error, alloc_buffer);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, errorAddress, error, 0);
 	return __result;
 }
@@ -298,7 +298,7 @@ JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1open_
 	const char *filename = (const char *)(intptr_t)filenameAddress;
 	const stb_vorbis_alloc *alloc_buffer = (const stb_vorbis_alloc *)(intptr_t)alloc_bufferAddress;
 	UNUSED_PARAM(error__length)
-	return (jlong)(intptr_t)stb_vorbis_open_filename(filename, (int*)error, alloc_buffer);
+	return (jlong)(intptr_t)stb_vorbis_open_filename(filename, (int *)error, alloc_buffer);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1get_1frame_1float__J_3IJ(JNIEnv *__env, jclass clazz, jlong fAddress, jintArray channelsAddress, jlong outputAddress) {
@@ -307,7 +307,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1get_1frame_1fl
 	jint __result;
 	jint *channels = channelsAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, channelsAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jint)stb_vorbis_get_frame_float(f, (int*)channels, output);
+	__result = (jint)stb_vorbis_get_frame_float(f, (int *)channels, output);
 	if ( channels != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, channelsAddress, channels, 0);
 	return __result;
 }
@@ -315,7 +315,7 @@ JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1get_1f
 	stb_vorbis *f = (stb_vorbis *)(intptr_t)fAddress;
 	float ***output = (float ***)(intptr_t)outputAddress;
 	UNUSED_PARAM(channels__length)
-	return (jint)stb_vorbis_get_frame_float(f, (int*)channels, output);
+	return (jint)stb_vorbis_get_frame_float(f, (int *)channels, output);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1get_1frame_1short_1interleaved__JI_3SI(JNIEnv *__env, jclass clazz, jlong fAddress, jint num_c, jshortArray bufferAddress, jint num_shorts) {
@@ -323,14 +323,14 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1get_1frame_1sh
 	jint __result;
 	jshort *buffer = (*__env)->GetPrimitiveArrayCritical(__env, bufferAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jint)stb_vorbis_get_frame_short_interleaved(f, num_c, (short*)buffer, num_shorts);
+	__result = (jint)stb_vorbis_get_frame_short_interleaved(f, num_c, (short *)buffer, num_shorts);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, bufferAddress, buffer, 0);
 	return __result;
 }
 JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1get_1frame_1short_1interleaved__JI_3SI(jlong fAddress, jint num_c, jint buffer__length, jshort* buffer, jint num_shorts) {
 	stb_vorbis *f = (stb_vorbis *)(intptr_t)fAddress;
 	UNUSED_PARAM(buffer__length)
-	return (jint)stb_vorbis_get_frame_short_interleaved(f, num_c, (short*)buffer, num_shorts);
+	return (jint)stb_vorbis_get_frame_short_interleaved(f, num_c, (short *)buffer, num_shorts);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1get_1samples_1float_1interleaved__JI_3FI(JNIEnv *__env, jclass clazz, jlong fAddress, jint channels, jfloatArray bufferAddress, jint num_floats) {
@@ -338,14 +338,14 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1get_1samples_1
 	jint __result;
 	jfloat *buffer = (*__env)->GetPrimitiveArrayCritical(__env, bufferAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jint)stb_vorbis_get_samples_float_interleaved(f, channels, (float*)buffer, num_floats);
+	__result = (jint)stb_vorbis_get_samples_float_interleaved(f, channels, (float *)buffer, num_floats);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, bufferAddress, buffer, 0);
 	return __result;
 }
 JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1get_1samples_1float_1interleaved__JI_3FI(jlong fAddress, jint channels, jint buffer__length, jfloat* buffer, jint num_floats) {
 	stb_vorbis *f = (stb_vorbis *)(intptr_t)fAddress;
 	UNUSED_PARAM(buffer__length)
-	return (jint)stb_vorbis_get_samples_float_interleaved(f, channels, (float*)buffer, num_floats);
+	return (jint)stb_vorbis_get_samples_float_interleaved(f, channels, (float *)buffer, num_floats);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1get_1samples_1short_1interleaved__JI_3SI(JNIEnv *__env, jclass clazz, jlong fAddress, jint channels, jshortArray bufferAddress, jint num_shorts) {
@@ -353,14 +353,14 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1get_1samples_1
 	jint __result;
 	jshort *buffer = (*__env)->GetPrimitiveArrayCritical(__env, bufferAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jint)stb_vorbis_get_samples_short_interleaved(f, channels, (short*)buffer, num_shorts);
+	__result = (jint)stb_vorbis_get_samples_short_interleaved(f, channels, (short *)buffer, num_shorts);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, bufferAddress, buffer, 0);
 	return __result;
 }
 JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1get_1samples_1short_1interleaved__JI_3SI(jlong fAddress, jint channels, jint buffer__length, jshort* buffer, jint num_shorts) {
 	stb_vorbis *f = (stb_vorbis *)(intptr_t)fAddress;
 	UNUSED_PARAM(buffer__length)
-	return (jint)stb_vorbis_get_samples_short_interleaved(f, channels, (short*)buffer, num_shorts);
+	return (jint)stb_vorbis_get_samples_short_interleaved(f, channels, (short *)buffer, num_shorts);
 }
 
 EXTERN_C_EXIT

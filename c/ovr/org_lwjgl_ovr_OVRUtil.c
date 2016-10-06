@@ -67,7 +67,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1GetEyePoses__JJZJJ_3D(JN
 	ovrPosef *outEyePoses = (ovrPosef *)(intptr_t)outEyePosesAddress;
 	jdouble *outSensorSampleTime = outSensorSampleTimeAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, outSensorSampleTimeAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	ovr_GetEyePoses(session, frameIndex, latencyMarker, hmdToEyeOffset, outEyePoses, (double*)outSensorSampleTime);
+	ovr_GetEyePoses(session, frameIndex, latencyMarker, hmdToEyeOffset, outEyePoses, (double *)outSensorSampleTime);
 	if ( outSensorSampleTime != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, outSensorSampleTimeAddress, outSensorSampleTime, 0);
 }
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_ovr_OVRUtil_novr_1GetEyePoses__JJZJJ_3D(jlong sessionAddress, jlong frameIndex, jboolean latencyMarker, jlong hmdToEyeOffsetAddress, jlong outEyePosesAddress, jint outSensorSampleTime__length, jdouble* outSensorSampleTime) {
@@ -75,7 +75,7 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_ovr_OVRUtil_novr_1GetEyePoses__JJZ
 	const ovrVector3f *hmdToEyeOffset = (const ovrVector3f *)(intptr_t)hmdToEyeOffsetAddress;
 	ovrPosef *outEyePoses = (ovrPosef *)(intptr_t)outEyePosesAddress;
 	UNUSED_PARAM(outSensorSampleTime__length)
-	ovr_GetEyePoses(session, frameIndex, latencyMarker, hmdToEyeOffset, outEyePoses, (double*)outSensorSampleTime);
+	ovr_GetEyePoses(session, frameIndex, latencyMarker, hmdToEyeOffset, outEyePoses, (double *)outSensorSampleTime);
 }
 
 EXTERN_C_EXIT

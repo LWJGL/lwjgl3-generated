@@ -479,7 +479,9 @@ public class STBTruetype {
 	 *
 	 * @return the point size of the character
 	 */
-	public static native int STBTT_POINT_SIZE(int font_size);
+	public static int STBTT_POINT_SIZE(int font_size) {
+		return -font_size;
+	}
 
 	// --- [ stbtt_PackFontRange ] ---
 

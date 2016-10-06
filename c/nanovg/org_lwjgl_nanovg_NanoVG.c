@@ -15,15 +15,15 @@ DISABLE_WARNINGS()
 	__pragma(warning(disable : 4711))
 #endif
 #include "lwjgl_malloc.h"
-#define STBI_MALLOC(sz)    lwjgl_malloc(sz)
-#define STBI_REALLOC(p,sz) lwjgl_realloc(p,sz)
-#define STBI_FREE(p)       lwjgl_free(p)
+#define STBI_MALLOC(sz)    org_lwjgl_malloc(sz)
+#define STBI_REALLOC(p,sz) org_lwjgl_realloc(p,sz)
+#define STBI_FREE(p)       org_lwjgl_free(p)
 #define STBI_FAILURE_USERMSG
 #define STBI_ASSERT(x)
 #define STB_IMAGE_IMPLEMENTATION
 #define STB_IMAGE_STATIC
-#define STBTT_malloc(x,u)  ((void)(u),lwjgl_malloc(x))
-#define STBTT_free(x,u)    ((void)(u),lwjgl_free(x))
+#define STBTT_malloc(x,u)  ((void)(u),org_lwjgl_malloc(x))
+#define STBTT_free(x,u)    ((void)(u),org_lwjgl_free(x))
 #define STBTT_assert
 #define STB_TRUETYPE_IMPLEMENTATION
 #define STBTT_STATIC
@@ -634,107 +634,107 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgCurrentTransform__J_3F(J
 	NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
 	jfloat *xform = (*__env)->GetPrimitiveArrayCritical(__env, xformAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	nvgCurrentTransform(ctx, (float*)xform);
+	nvgCurrentTransform(ctx, (float *)xform);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, xformAddress, xform, 0);
 }
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgCurrentTransform__J_3F(jlong ctxAddress, jint xform__length, jfloat* xform) {
 	NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
 	UNUSED_PARAM(xform__length)
-	nvgCurrentTransform(ctx, (float*)xform);
+	nvgCurrentTransform(ctx, (float *)xform);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformIdentity___3F(JNIEnv *__env, jclass clazz, jfloatArray dstAddress) {
 	jfloat *dst = (*__env)->GetPrimitiveArrayCritical(__env, dstAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	nvgTransformIdentity((float*)dst);
+	nvgTransformIdentity((float *)dst);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, dstAddress, dst, 0);
 }
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTransformIdentity___3F(jint dst__length, jfloat* dst) {
 	UNUSED_PARAM(dst__length)
-	nvgTransformIdentity((float*)dst);
+	nvgTransformIdentity((float *)dst);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformTranslate___3FFF(JNIEnv *__env, jclass clazz, jfloatArray dstAddress, jfloat tx, jfloat ty) {
 	jfloat *dst = (*__env)->GetPrimitiveArrayCritical(__env, dstAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	nvgTransformTranslate((float*)dst, tx, ty);
+	nvgTransformTranslate((float *)dst, tx, ty);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, dstAddress, dst, 0);
 }
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTransformTranslate___3FFF(jint dst__length, jfloat* dst, jfloat tx, jfloat ty) {
 	UNUSED_PARAM(dst__length)
-	nvgTransformTranslate((float*)dst, tx, ty);
+	nvgTransformTranslate((float *)dst, tx, ty);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformScale___3FFF(JNIEnv *__env, jclass clazz, jfloatArray dstAddress, jfloat sx, jfloat sy) {
 	jfloat *dst = (*__env)->GetPrimitiveArrayCritical(__env, dstAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	nvgTransformScale((float*)dst, sx, sy);
+	nvgTransformScale((float *)dst, sx, sy);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, dstAddress, dst, 0);
 }
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTransformScale___3FFF(jint dst__length, jfloat* dst, jfloat sx, jfloat sy) {
 	UNUSED_PARAM(dst__length)
-	nvgTransformScale((float*)dst, sx, sy);
+	nvgTransformScale((float *)dst, sx, sy);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformRotate___3FF(JNIEnv *__env, jclass clazz, jfloatArray dstAddress, jfloat a) {
 	jfloat *dst = (*__env)->GetPrimitiveArrayCritical(__env, dstAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	nvgTransformRotate((float*)dst, a);
+	nvgTransformRotate((float *)dst, a);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, dstAddress, dst, 0);
 }
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTransformRotate___3FF(jint dst__length, jfloat* dst, jfloat a) {
 	UNUSED_PARAM(dst__length)
-	nvgTransformRotate((float*)dst, a);
+	nvgTransformRotate((float *)dst, a);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformSkewX___3FF(JNIEnv *__env, jclass clazz, jfloatArray dstAddress, jfloat a) {
 	jfloat *dst = (*__env)->GetPrimitiveArrayCritical(__env, dstAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	nvgTransformSkewX((float*)dst, a);
+	nvgTransformSkewX((float *)dst, a);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, dstAddress, dst, 0);
 }
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTransformSkewX___3FF(jint dst__length, jfloat* dst, jfloat a) {
 	UNUSED_PARAM(dst__length)
-	nvgTransformSkewX((float*)dst, a);
+	nvgTransformSkewX((float *)dst, a);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformSkewY___3FF(JNIEnv *__env, jclass clazz, jfloatArray dstAddress, jfloat a) {
 	jfloat *dst = (*__env)->GetPrimitiveArrayCritical(__env, dstAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	nvgTransformSkewY((float*)dst, a);
+	nvgTransformSkewY((float *)dst, a);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, dstAddress, dst, 0);
 }
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTransformSkewY___3FF(jint dst__length, jfloat* dst, jfloat a) {
 	UNUSED_PARAM(dst__length)
-	nvgTransformSkewY((float*)dst, a);
+	nvgTransformSkewY((float *)dst, a);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformMultiply___3F_3F(JNIEnv *__env, jclass clazz, jfloatArray dstAddress, jfloatArray srcAddress) {
 	jfloat *dst = (*__env)->GetPrimitiveArrayCritical(__env, dstAddress, 0);
 	jfloat *src = (*__env)->GetPrimitiveArrayCritical(__env, srcAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	nvgTransformMultiply((float*)dst, (float*)src);
+	nvgTransformMultiply((float *)dst, (const float *)src);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, srcAddress, src, 0);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, dstAddress, dst, 0);
 }
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTransformMultiply___3F_3F(jint dst__length, jfloat* dst, jint src__length, jfloat* src) {
 	UNUSED_PARAM(dst__length)
 	UNUSED_PARAM(src__length)
-	nvgTransformMultiply((float*)dst, (float*)src);
+	nvgTransformMultiply((float *)dst, (const float *)src);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformPremultiply___3F_3F(JNIEnv *__env, jclass clazz, jfloatArray dstAddress, jfloatArray srcAddress) {
 	jfloat *dst = (*__env)->GetPrimitiveArrayCritical(__env, dstAddress, 0);
 	jfloat *src = (*__env)->GetPrimitiveArrayCritical(__env, srcAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	nvgTransformPremultiply((float*)dst, (float*)src);
+	nvgTransformPremultiply((float *)dst, (const float *)src);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, srcAddress, src, 0);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, dstAddress, dst, 0);
 }
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTransformPremultiply___3F_3F(jint dst__length, jfloat* dst, jint src__length, jfloat* src) {
 	UNUSED_PARAM(dst__length)
 	UNUSED_PARAM(src__length)
-	nvgTransformPremultiply((float*)dst, (float*)src);
+	nvgTransformPremultiply((float *)dst, (const float *)src);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformInverse___3F_3F(JNIEnv *__env, jclass clazz, jfloatArray dstAddress, jfloatArray srcAddress) {
@@ -742,7 +742,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformInverse___3F_3F
 	jfloat *dst = (*__env)->GetPrimitiveArrayCritical(__env, dstAddress, 0);
 	jfloat *src = (*__env)->GetPrimitiveArrayCritical(__env, srcAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jint)nvgTransformInverse((float*)dst, (float*)src);
+	__result = (jint)nvgTransformInverse((float *)dst, (const float *)src);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, srcAddress, src, 0);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, dstAddress, dst, 0);
 	return __result;
@@ -750,7 +750,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformInverse___3F_3F
 JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTransformInverse___3F_3F(jint dst__length, jfloat* dst, jint src__length, jfloat* src) {
 	UNUSED_PARAM(dst__length)
 	UNUSED_PARAM(src__length)
-	return (jint)nvgTransformInverse((float*)dst, (float*)src);
+	return (jint)nvgTransformInverse((float *)dst, (const float *)src);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformPoint___3F_3F_3FFF(JNIEnv *__env, jclass clazz, jfloatArray dstxAddress, jfloatArray dstyAddress, jfloatArray xformAddress, jfloat srcx, jfloat srcy) {
@@ -758,7 +758,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformPoint___3F_3F_3
 	jfloat *dsty = (*__env)->GetPrimitiveArrayCritical(__env, dstyAddress, 0);
 	jfloat *xform = (*__env)->GetPrimitiveArrayCritical(__env, xformAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	nvgTransformPoint((float*)dstx, (float*)dsty, (float*)xform, srcx, srcy);
+	nvgTransformPoint((float *)dstx, (float *)dsty, (const float *)xform, srcx, srcy);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, xformAddress, xform, 0);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, dstyAddress, dsty, 0);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, dstxAddress, dstx, 0);
@@ -767,7 +767,7 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTransformPoint__
 	UNUSED_PARAM(dstx__length)
 	UNUSED_PARAM(dsty__length)
 	UNUSED_PARAM(xform__length)
-	nvgTransformPoint((float*)dstx, (float*)dsty, (float*)xform, srcx, srcy);
+	nvgTransformPoint((float *)dstx, (float *)dsty, (const float *)xform, srcx, srcy);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgImageSize__JI_3I_3I(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint image, jintArray wAddress, jintArray hAddress) {
@@ -775,7 +775,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgImageSize__JI_3I_3I(JNIE
 	jint *w = (*__env)->GetPrimitiveArrayCritical(__env, wAddress, 0);
 	jint *h = (*__env)->GetPrimitiveArrayCritical(__env, hAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	nvgImageSize(ctx, image, (int*)w, (int*)h);
+	nvgImageSize(ctx, image, (int *)w, (int *)h);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, hAddress, h, 0);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, wAddress, w, 0);
 }
@@ -783,7 +783,7 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgImageSize__JI_3I
 	NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
 	UNUSED_PARAM(w__length)
 	UNUSED_PARAM(h__length)
-	nvgImageSize(ctx, image, (int*)w, (int*)h);
+	nvgImageSize(ctx, image, (int *)w, (int *)h);
 }
 
 JNIEXPORT jfloat JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextBounds__JFFJJ_3F(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloat x, jfloat y, jlong stringAddress, jlong endAddress, jfloatArray boundsAddress) {
@@ -793,7 +793,7 @@ JNIEXPORT jfloat JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextBounds__JFFJJ_3F(J
 	jfloat __result;
 	jfloat *bounds = boundsAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, boundsAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jfloat)nvgTextBounds(ctx, x, y, string, end, (float*)bounds);
+	__result = (jfloat)nvgTextBounds(ctx, x, y, string, end, (float *)bounds);
 	if ( bounds != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, boundsAddress, bounds, 0);
 	return __result;
 }
@@ -802,7 +802,7 @@ JNIEXPORT jfloat JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTextBounds__JF
 	const char *string = (const char *)(intptr_t)stringAddress;
 	const char *end = (const char *)(intptr_t)endAddress;
 	UNUSED_PARAM(bounds__length)
-	return (jfloat)nvgTextBounds(ctx, x, y, string, end, (float*)bounds);
+	return (jfloat)nvgTextBounds(ctx, x, y, string, end, (float *)bounds);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextBoxBounds__JFFFJJ_3F(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloat x, jfloat y, jfloat breakRowWidth, jlong stringAddress, jlong endAddress, jfloatArray boundsAddress) {
@@ -811,7 +811,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextBoxBounds__JFFFJJ_3F
 	const char *end = (const char *)(intptr_t)endAddress;
 	jfloat *bounds = boundsAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, boundsAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	nvgTextBoxBounds(ctx, x, y, breakRowWidth, string, end, (float*)bounds);
+	nvgTextBoxBounds(ctx, x, y, breakRowWidth, string, end, (float *)bounds);
 	if ( bounds != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, boundsAddress, bounds, 0);
 }
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTextBoxBounds__JFFFJJ_3F(jlong ctxAddress, jfloat x, jfloat y, jfloat breakRowWidth, jlong stringAddress, jlong endAddress, jint bounds__length, jfloat* bounds) {
@@ -819,7 +819,7 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTextBoxBounds__J
 	const char *string = (const char *)(intptr_t)stringAddress;
 	const char *end = (const char *)(intptr_t)endAddress;
 	UNUSED_PARAM(bounds__length)
-	nvgTextBoxBounds(ctx, x, y, breakRowWidth, string, end, (float*)bounds);
+	nvgTextBoxBounds(ctx, x, y, breakRowWidth, string, end, (float *)bounds);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextMetrics__J_3F_3F_3F(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloatArray ascenderAddress, jfloatArray descenderAddress, jfloatArray linehAddress) {
@@ -828,7 +828,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextMetrics__J_3F_3F_3F(
 	jfloat *descender = descenderAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, descenderAddress, 0);
 	jfloat *lineh = linehAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, linehAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	nvgTextMetrics(ctx, (float*)ascender, (float*)descender, (float*)lineh);
+	nvgTextMetrics(ctx, (float *)ascender, (float *)descender, (float *)lineh);
 	if ( lineh != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, linehAddress, lineh, 0);
 	if ( descender != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, descenderAddress, descender, 0);
 	if ( ascender != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, ascenderAddress, ascender, 0);
@@ -838,7 +838,7 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTextMetrics__J_3
 	UNUSED_PARAM(ascender__length)
 	UNUSED_PARAM(descender__length)
 	UNUSED_PARAM(lineh__length)
-	nvgTextMetrics(ctx, (float*)ascender, (float*)descender, (float*)lineh);
+	nvgTextMetrics(ctx, (float *)ascender, (float *)descender, (float *)lineh);
 }
 
 EXTERN_C_EXIT

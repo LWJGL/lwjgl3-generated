@@ -9,10 +9,10 @@
 #endif
 #include "common_tools.h"
 #include "lwjgl_malloc.h"
-#define PAR_MALLOC(T, N) ((T*) lwjgl_malloc(N * sizeof(T)))
-#define PAR_CALLOC(T, N) ((T*) lwjgl_calloc(N, sizeof(T)))
-#define PAR_REALLOC(T, BUF, N) ((T*) lwjgl_realloc(BUF, sizeof(T) * N))
-#define PAR_FREE(BUF) lwjgl_free(BUF)
+#define PAR_MALLOC(T, N) ((T*) org_lwjgl_malloc(N * sizeof(T)))
+#define PAR_CALLOC(T, N) ((T*) org_lwjgl_calloc(N, sizeof(T)))
+#define PAR_REALLOC(T, BUF, N) ((T*) org_lwjgl_realloc(BUF, sizeof(T) * N))
+#define PAR_FREE(BUF) org_lwjgl_free(BUF)
 DISABLE_WARNINGS()
 #ifdef LWJGL_WINDOWS
 	__pragma(warning(disable : 4711 4738))
@@ -209,7 +209,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_par_ParShapes_npar_1shapes_1create_1
 	jfloat *center = (*__env)->GetPrimitiveArrayCritical(__env, centerAddress, 0);
 	jfloat *normal = (*__env)->GetPrimitiveArrayCritical(__env, normalAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jlong)(intptr_t)par_shapes_create_disk(radius, slices, (float*)center, (float*)normal);
+	__result = (jlong)(intptr_t)par_shapes_create_disk(radius, slices, (const float *)center, (const float *)normal);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, normalAddress, normal, 0);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, centerAddress, center, 0);
 	return __result;
@@ -217,33 +217,33 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_par_ParShapes_npar_1shapes_1create_1
 JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_util_par_ParShapes_npar_1shapes_1create_1disk__FI_3F_3F(jfloat radius, jint slices, jint center__length, jfloat* center, jint normal__length, jfloat* normal) {
 	UNUSED_PARAM(center__length)
 	UNUSED_PARAM(normal__length)
-	return (jlong)(intptr_t)par_shapes_create_disk(radius, slices, (float*)center, (float*)normal);
+	return (jlong)(intptr_t)par_shapes_create_disk(radius, slices, (const float *)center, (const float *)normal);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_util_par_ParShapes_npar_1shapes_1compute_1aabb__J_3F(JNIEnv *__env, jclass clazz, jlong meshAddress, jfloatArray aabbAddress) {
 	const par_shapes_mesh *mesh = (const par_shapes_mesh *)(intptr_t)meshAddress;
 	jfloat *aabb = (*__env)->GetPrimitiveArrayCritical(__env, aabbAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	par_shapes_compute_aabb(mesh, (float*)aabb);
+	par_shapes_compute_aabb(mesh, (float *)aabb);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, aabbAddress, aabb, 0);
 }
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_util_par_ParShapes_npar_1shapes_1compute_1aabb__J_3F(jlong meshAddress, jint aabb__length, jfloat* aabb) {
 	const par_shapes_mesh *mesh = (const par_shapes_mesh *)(intptr_t)meshAddress;
 	UNUSED_PARAM(aabb__length)
-	par_shapes_compute_aabb(mesh, (float*)aabb);
+	par_shapes_compute_aabb(mesh, (float *)aabb);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_util_par_ParShapes_npar_1shapes_1rotate__JF_3F(JNIEnv *__env, jclass clazz, jlong meshAddress, jfloat radians, jfloatArray axisAddress) {
 	par_shapes_mesh *mesh = (par_shapes_mesh *)(intptr_t)meshAddress;
 	jfloat *axis = (*__env)->GetPrimitiveArrayCritical(__env, axisAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	par_shapes_rotate(mesh, radians, (float*)axis);
+	par_shapes_rotate(mesh, radians, (const float *)axis);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, axisAddress, axis, 0);
 }
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_util_par_ParShapes_npar_1shapes_1rotate__JF_3F(jlong meshAddress, jfloat radians, jint axis__length, jfloat* axis) {
 	par_shapes_mesh *mesh = (par_shapes_mesh *)(intptr_t)meshAddress;
 	UNUSED_PARAM(axis__length)
-	par_shapes_rotate(mesh, radians, (float*)axis);
+	par_shapes_rotate(mesh, radians, (const float *)axis);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_par_ParShapes_npar_1shapes_1weld__JF_3S(JNIEnv *__env, jclass clazz, jlong meshAddress, jfloat epsilon, jshortArray mappingAddress) {
@@ -251,14 +251,14 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_par_ParShapes_npar_1shapes_1weld__JF
 	jlong __result;
 	jshort *mapping = mappingAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, mappingAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jlong)(intptr_t)par_shapes_weld(mesh, epsilon, (PAR_SHAPES_T*)mapping);
+	__result = (jlong)(intptr_t)par_shapes_weld(mesh, epsilon, (PAR_SHAPES_T *)mapping);
 	if ( mapping != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, mappingAddress, mapping, 0);
 	return __result;
 }
 JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_util_par_ParShapes_npar_1shapes_1weld__JF_3S(jlong meshAddress, jfloat epsilon, jint mapping__length, jshort* mapping) {
 	const par_shapes_mesh *mesh = (const par_shapes_mesh *)(intptr_t)meshAddress;
 	UNUSED_PARAM(mapping__length)
-	return (jlong)(intptr_t)par_shapes_weld(mesh, epsilon, (PAR_SHAPES_T*)mapping);
+	return (jlong)(intptr_t)par_shapes_weld(mesh, epsilon, (PAR_SHAPES_T *)mapping);
 }
 
 EXTERN_C_EXIT

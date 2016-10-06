@@ -9,8 +9,8 @@ DISABLE_WARNINGS()
 	__pragma(warning(disable : 4701 4702 4711 4738))
 #endif
 #include "lwjgl_malloc.h"
-#define STBTT_malloc(x,u)  ((void)(u),lwjgl_malloc(x))
-#define STBTT_free(x,u)    ((void)(u),lwjgl_free(x))
+#define STBTT_malloc(x,u)  ((void)(u),org_lwjgl_malloc(x))
+#define STBTT_free(x,u)    ((void)(u),org_lwjgl_free(x))
 #define STBTT_assert
 #define STB_TRUETYPE_IMPLEMENTATION
 #define STBTT_STATIC
@@ -49,11 +49,6 @@ JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1PackEnd(JNIEnv *__
 	stbtt_pack_context *spc = (stbtt_pack_context *)(intptr_t)spcAddress;
 	UNUSED_PARAMS(__env, clazz)
 	stbtt_PackEnd(spc);
-}
-
-JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBTruetype_STBTT_1POINT_1SIZE(JNIEnv *__env, jclass clazz, jint font_size) {
-	UNUSED_PARAMS(__env, clazz)
-	return (jint)STBTT_POINT_SIZE(font_size);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1PackFontRange(JNIEnv *__env, jclass clazz, jlong spcAddress, jlong fontdataAddress, jint font_index, jfloat font_size, jint first_unicode_char_in_range, jint num_chars_in_range, jlong chardata_for_rangeAddress) {
@@ -379,7 +374,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetBakedQuad__JIII
 	jfloat *xpos = (*__env)->GetPrimitiveArrayCritical(__env, xposAddress, 0);
 	jfloat *ypos = (*__env)->GetPrimitiveArrayCritical(__env, yposAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	stbtt_GetBakedQuad(chardata, pw, ph, char_index, (float*)xpos, (float*)ypos, q, opengl_fillrule);
+	stbtt_GetBakedQuad(chardata, pw, ph, char_index, (float *)xpos, (float *)ypos, q, opengl_fillrule);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, yposAddress, ypos, 0);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, xposAddress, xpos, 0);
 }
@@ -388,7 +383,7 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_stb_STBTruetype_nstbtt_1GetBakedQu
 	stbtt_aligned_quad *q = (stbtt_aligned_quad *)(intptr_t)qAddress;
 	UNUSED_PARAM(xpos__length)
 	UNUSED_PARAM(ypos__length)
-	stbtt_GetBakedQuad(chardata, pw, ph, char_index, (float*)xpos, (float*)ypos, q, opengl_fillrule);
+	stbtt_GetBakedQuad(chardata, pw, ph, char_index, (float *)xpos, (float *)ypos, q, opengl_fillrule);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetPackedQuad__JIII_3F_3FJI(JNIEnv *__env, jclass clazz, jlong chardataAddress, jint pw, jint ph, jint char_index, jfloatArray xposAddress, jfloatArray yposAddress, jlong qAddress, jint align_to_integer) {
@@ -397,7 +392,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetPackedQuad__JII
 	jfloat *xpos = (*__env)->GetPrimitiveArrayCritical(__env, xposAddress, 0);
 	jfloat *ypos = (*__env)->GetPrimitiveArrayCritical(__env, yposAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	stbtt_GetPackedQuad(chardata, pw, ph, char_index, (float*)xpos, (float*)ypos, q, align_to_integer);
+	stbtt_GetPackedQuad(chardata, pw, ph, char_index, (float *)xpos, (float *)ypos, q, align_to_integer);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, yposAddress, ypos, 0);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, xposAddress, xpos, 0);
 }
@@ -406,7 +401,7 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_stb_STBTruetype_nstbtt_1GetPackedQ
 	stbtt_aligned_quad *q = (stbtt_aligned_quad *)(intptr_t)qAddress;
 	UNUSED_PARAM(xpos__length)
 	UNUSED_PARAM(ypos__length)
-	stbtt_GetPackedQuad(chardata, pw, ph, char_index, (float*)xpos, (float*)ypos, q, align_to_integer);
+	stbtt_GetPackedQuad(chardata, pw, ph, char_index, (float *)xpos, (float *)ypos, q, align_to_integer);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetFontVMetrics__J_3I_3I_3I(JNIEnv *__env, jclass clazz, jlong infoAddress, jintArray ascentAddress, jintArray descentAddress, jintArray lineGapAddress) {
@@ -415,7 +410,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetFontVMetrics__J
 	jint *descent = descentAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, descentAddress, 0);
 	jint *lineGap = lineGapAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, lineGapAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	stbtt_GetFontVMetrics(info, (int*)ascent, (int*)descent, (int*)lineGap);
+	stbtt_GetFontVMetrics(info, (int *)ascent, (int *)descent, (int *)lineGap);
 	if ( lineGap != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, lineGapAddress, lineGap, 0);
 	if ( descent != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, descentAddress, descent, 0);
 	if ( ascent != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, ascentAddress, ascent, 0);
@@ -425,7 +420,7 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_stb_STBTruetype_nstbtt_1GetFontVMe
 	UNUSED_PARAM(ascent__length)
 	UNUSED_PARAM(descent__length)
 	UNUSED_PARAM(lineGap__length)
-	stbtt_GetFontVMetrics(info, (int*)ascent, (int*)descent, (int*)lineGap);
+	stbtt_GetFontVMetrics(info, (int *)ascent, (int *)descent, (int *)lineGap);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetFontBoundingBox__J_3I_3I_3I_3I(JNIEnv *__env, jclass clazz, jlong infoAddress, jintArray x0Address, jintArray y0Address, jintArray x1Address, jintArray y1Address) {
@@ -435,7 +430,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetFontBoundingBox
 	jint *x1 = (*__env)->GetPrimitiveArrayCritical(__env, x1Address, 0);
 	jint *y1 = (*__env)->GetPrimitiveArrayCritical(__env, y1Address, 0);
 	UNUSED_PARAMS(__env, clazz)
-	stbtt_GetFontBoundingBox(info, (int*)x0, (int*)y0, (int*)x1, (int*)y1);
+	stbtt_GetFontBoundingBox(info, (int *)x0, (int *)y0, (int *)x1, (int *)y1);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, y1Address, y1, 0);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, x1Address, x1, 0);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, y0Address, y0, 0);
@@ -447,7 +442,7 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_stb_STBTruetype_nstbtt_1GetFontBou
 	UNUSED_PARAM(y0__length)
 	UNUSED_PARAM(x1__length)
 	UNUSED_PARAM(y1__length)
-	stbtt_GetFontBoundingBox(info, (int*)x0, (int*)y0, (int*)x1, (int*)y1);
+	stbtt_GetFontBoundingBox(info, (int *)x0, (int *)y0, (int *)x1, (int *)y1);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetCodepointHMetrics__JI_3I_3I(JNIEnv *__env, jclass clazz, jlong infoAddress, jint codepoint, jintArray advanceWidthAddress, jintArray leftSideBearingAddress) {
@@ -455,7 +450,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetCodepointHMetri
 	jint *advanceWidth = advanceWidthAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, advanceWidthAddress, 0);
 	jint *leftSideBearing = leftSideBearingAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, leftSideBearingAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	stbtt_GetCodepointHMetrics(info, codepoint, (int*)advanceWidth, (int*)leftSideBearing);
+	stbtt_GetCodepointHMetrics(info, codepoint, (int *)advanceWidth, (int *)leftSideBearing);
 	if ( leftSideBearing != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, leftSideBearingAddress, leftSideBearing, 0);
 	if ( advanceWidth != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, advanceWidthAddress, advanceWidth, 0);
 }
@@ -463,7 +458,7 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_stb_STBTruetype_nstbtt_1GetCodepoi
 	const stbtt_fontinfo *info = (const stbtt_fontinfo *)(intptr_t)infoAddress;
 	UNUSED_PARAM(advanceWidth__length)
 	UNUSED_PARAM(leftSideBearing__length)
-	stbtt_GetCodepointHMetrics(info, codepoint, (int*)advanceWidth, (int*)leftSideBearing);
+	stbtt_GetCodepointHMetrics(info, codepoint, (int *)advanceWidth, (int *)leftSideBearing);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetCodepointBox__JI_3I_3I_3I_3I(JNIEnv *__env, jclass clazz, jlong infoAddress, jint codepoint, jintArray x0Address, jintArray y0Address, jintArray x1Address, jintArray y1Address) {
@@ -474,7 +469,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetCodepointBox__J
 	jint *x1 = x1Address == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, x1Address, 0);
 	jint *y1 = y1Address == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, y1Address, 0);
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jint)stbtt_GetCodepointBox(info, codepoint, (int*)x0, (int*)y0, (int*)x1, (int*)y1);
+	__result = (jint)stbtt_GetCodepointBox(info, codepoint, (int *)x0, (int *)y0, (int *)x1, (int *)y1);
 	if ( y1 != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, y1Address, y1, 0);
 	if ( x1 != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, x1Address, x1, 0);
 	if ( y0 != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, y0Address, y0, 0);
@@ -487,7 +482,7 @@ JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBTruetype_nstbtt_1GetCodepoi
 	UNUSED_PARAM(y0__length)
 	UNUSED_PARAM(x1__length)
 	UNUSED_PARAM(y1__length)
-	return (jint)stbtt_GetCodepointBox(info, codepoint, (int*)x0, (int*)y0, (int*)x1, (int*)y1);
+	return (jint)stbtt_GetCodepointBox(info, codepoint, (int *)x0, (int *)y0, (int *)x1, (int *)y1);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetGlyphHMetrics__JI_3I_3I(JNIEnv *__env, jclass clazz, jlong infoAddress, jint glyph_index, jintArray advanceWidthAddress, jintArray leftSideBearingAddress) {
@@ -495,7 +490,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetGlyphHMetrics__
 	jint *advanceWidth = advanceWidthAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, advanceWidthAddress, 0);
 	jint *leftSideBearing = leftSideBearingAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, leftSideBearingAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	stbtt_GetGlyphHMetrics(info, glyph_index, (int*)advanceWidth, (int*)leftSideBearing);
+	stbtt_GetGlyphHMetrics(info, glyph_index, (int *)advanceWidth, (int *)leftSideBearing);
 	if ( leftSideBearing != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, leftSideBearingAddress, leftSideBearing, 0);
 	if ( advanceWidth != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, advanceWidthAddress, advanceWidth, 0);
 }
@@ -503,7 +498,7 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_stb_STBTruetype_nstbtt_1GetGlyphHM
 	const stbtt_fontinfo *info = (const stbtt_fontinfo *)(intptr_t)infoAddress;
 	UNUSED_PARAM(advanceWidth__length)
 	UNUSED_PARAM(leftSideBearing__length)
-	stbtt_GetGlyphHMetrics(info, glyph_index, (int*)advanceWidth, (int*)leftSideBearing);
+	stbtt_GetGlyphHMetrics(info, glyph_index, (int *)advanceWidth, (int *)leftSideBearing);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetGlyphBox__JI_3I_3I_3I_3I(JNIEnv *__env, jclass clazz, jlong infoAddress, jint glyph_index, jintArray x0Address, jintArray y0Address, jintArray x1Address, jintArray y1Address) {
@@ -514,7 +509,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetGlyphBox__JI_3I
 	jint *x1 = x1Address == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, x1Address, 0);
 	jint *y1 = y1Address == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, y1Address, 0);
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jint)stbtt_GetGlyphBox(info, glyph_index, (int*)x0, (int*)y0, (int*)x1, (int*)y1);
+	__result = (jint)stbtt_GetGlyphBox(info, glyph_index, (int *)x0, (int *)y0, (int *)x1, (int *)y1);
 	if ( y1 != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, y1Address, y1, 0);
 	if ( x1 != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, x1Address, x1, 0);
 	if ( y0 != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, y0Address, y0, 0);
@@ -527,7 +522,7 @@ JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBTruetype_nstbtt_1GetGlyphBo
 	UNUSED_PARAM(y0__length)
 	UNUSED_PARAM(x1__length)
 	UNUSED_PARAM(y1__length)
-	return (jint)stbtt_GetGlyphBox(info, glyph_index, (int*)x0, (int*)y0, (int*)x1, (int*)y1);
+	return (jint)stbtt_GetGlyphBox(info, glyph_index, (int *)x0, (int *)y0, (int *)x1, (int *)y1);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetCodepointBitmap__JFFI_3I_3I_3I_3I(JNIEnv *__env, jclass clazz, jlong infoAddress, jfloat scale_x, jfloat scale_y, jint codepoint, jintArray widthAddress, jintArray heightAddress, jintArray xoffAddress, jintArray yoffAddress) {
@@ -538,7 +533,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetCodepointBitma
 	jint *xoff = xoffAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, xoffAddress, 0);
 	jint *yoff = yoffAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, yoffAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jlong)(intptr_t)stbtt_GetCodepointBitmap(info, scale_x, scale_y, codepoint, (int*)width, (int*)height, (int*)xoff, (int*)yoff);
+	__result = (jlong)(intptr_t)stbtt_GetCodepointBitmap(info, scale_x, scale_y, codepoint, (int *)width, (int *)height, (int *)xoff, (int *)yoff);
 	if ( yoff != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, yoffAddress, yoff, 0);
 	if ( xoff != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, xoffAddress, xoff, 0);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, heightAddress, height, 0);
@@ -551,7 +546,7 @@ JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_stb_STBTruetype_nstbtt_1GetCodepo
 	UNUSED_PARAM(height__length)
 	UNUSED_PARAM(xoff__length)
 	UNUSED_PARAM(yoff__length)
-	return (jlong)(intptr_t)stbtt_GetCodepointBitmap(info, scale_x, scale_y, codepoint, (int*)width, (int*)height, (int*)xoff, (int*)yoff);
+	return (jlong)(intptr_t)stbtt_GetCodepointBitmap(info, scale_x, scale_y, codepoint, (int *)width, (int *)height, (int *)xoff, (int *)yoff);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetCodepointBitmapSubpixel__JFFFFI_3I_3I_3I_3I(JNIEnv *__env, jclass clazz, jlong infoAddress, jfloat scale_x, jfloat scale_y, jfloat shift_x, jfloat shift_y, jint codepoint, jintArray widthAddress, jintArray heightAddress, jintArray xoffAddress, jintArray yoffAddress) {
@@ -562,7 +557,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetCodepointBitma
 	jint *xoff = xoffAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, xoffAddress, 0);
 	jint *yoff = yoffAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, yoffAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jlong)(intptr_t)stbtt_GetCodepointBitmapSubpixel(info, scale_x, scale_y, shift_x, shift_y, codepoint, (int*)width, (int*)height, (int*)xoff, (int*)yoff);
+	__result = (jlong)(intptr_t)stbtt_GetCodepointBitmapSubpixel(info, scale_x, scale_y, shift_x, shift_y, codepoint, (int *)width, (int *)height, (int *)xoff, (int *)yoff);
 	if ( yoff != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, yoffAddress, yoff, 0);
 	if ( xoff != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, xoffAddress, xoff, 0);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, heightAddress, height, 0);
@@ -575,7 +570,7 @@ JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_stb_STBTruetype_nstbtt_1GetCodepo
 	UNUSED_PARAM(height__length)
 	UNUSED_PARAM(xoff__length)
 	UNUSED_PARAM(yoff__length)
-	return (jlong)(intptr_t)stbtt_GetCodepointBitmapSubpixel(info, scale_x, scale_y, shift_x, shift_y, codepoint, (int*)width, (int*)height, (int*)xoff, (int*)yoff);
+	return (jlong)(intptr_t)stbtt_GetCodepointBitmapSubpixel(info, scale_x, scale_y, shift_x, shift_y, codepoint, (int *)width, (int *)height, (int *)xoff, (int *)yoff);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetCodepointBitmapBox__JIFF_3I_3I_3I_3I(JNIEnv *__env, jclass clazz, jlong fontAddress, jint codepoint, jfloat scale_x, jfloat scale_y, jintArray ix0Address, jintArray iy0Address, jintArray ix1Address, jintArray iy1Address) {
@@ -585,7 +580,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetCodepointBitmap
 	jint *ix1 = ix1Address == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, ix1Address, 0);
 	jint *iy1 = iy1Address == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, iy1Address, 0);
 	UNUSED_PARAMS(__env, clazz)
-	stbtt_GetCodepointBitmapBox(font, codepoint, scale_x, scale_y, (int*)ix0, (int*)iy0, (int*)ix1, (int*)iy1);
+	stbtt_GetCodepointBitmapBox(font, codepoint, scale_x, scale_y, (int *)ix0, (int *)iy0, (int *)ix1, (int *)iy1);
 	if ( iy1 != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, iy1Address, iy1, 0);
 	if ( ix1 != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, ix1Address, ix1, 0);
 	if ( iy0 != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, iy0Address, iy0, 0);
@@ -597,7 +592,7 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_stb_STBTruetype_nstbtt_1GetCodepoi
 	UNUSED_PARAM(iy0__length)
 	UNUSED_PARAM(ix1__length)
 	UNUSED_PARAM(iy1__length)
-	stbtt_GetCodepointBitmapBox(font, codepoint, scale_x, scale_y, (int*)ix0, (int*)iy0, (int*)ix1, (int*)iy1);
+	stbtt_GetCodepointBitmapBox(font, codepoint, scale_x, scale_y, (int *)ix0, (int *)iy0, (int *)ix1, (int *)iy1);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetCodepointBitmapBoxSubpixel__JIFFFF_3I_3I_3I_3I(JNIEnv *__env, jclass clazz, jlong fontAddress, jint codepoint, jfloat scale_x, jfloat scale_y, jfloat shift_x, jfloat shift_y, jintArray ix0Address, jintArray iy0Address, jintArray ix1Address, jintArray iy1Address) {
@@ -607,7 +602,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetCodepointBitmap
 	jint *ix1 = ix1Address == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, ix1Address, 0);
 	jint *iy1 = iy1Address == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, iy1Address, 0);
 	UNUSED_PARAMS(__env, clazz)
-	stbtt_GetCodepointBitmapBoxSubpixel(font, codepoint, scale_x, scale_y, shift_x, shift_y, (int*)ix0, (int*)iy0, (int*)ix1, (int*)iy1);
+	stbtt_GetCodepointBitmapBoxSubpixel(font, codepoint, scale_x, scale_y, shift_x, shift_y, (int *)ix0, (int *)iy0, (int *)ix1, (int *)iy1);
 	if ( iy1 != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, iy1Address, iy1, 0);
 	if ( ix1 != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, ix1Address, ix1, 0);
 	if ( iy0 != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, iy0Address, iy0, 0);
@@ -619,7 +614,7 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_stb_STBTruetype_nstbtt_1GetCodepoi
 	UNUSED_PARAM(iy0__length)
 	UNUSED_PARAM(ix1__length)
 	UNUSED_PARAM(iy1__length)
-	stbtt_GetCodepointBitmapBoxSubpixel(font, codepoint, scale_x, scale_y, shift_x, shift_y, (int*)ix0, (int*)iy0, (int*)ix1, (int*)iy1);
+	stbtt_GetCodepointBitmapBoxSubpixel(font, codepoint, scale_x, scale_y, shift_x, shift_y, (int *)ix0, (int *)iy0, (int *)ix1, (int *)iy1);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetGlyphBitmap__JFFI_3I_3I_3I_3I(JNIEnv *__env, jclass clazz, jlong infoAddress, jfloat scale_x, jfloat scale_y, jint glyph, jintArray widthAddress, jintArray heightAddress, jintArray xoffAddress, jintArray yoffAddress) {
@@ -630,7 +625,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetGlyphBitmap__J
 	jint *xoff = xoffAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, xoffAddress, 0);
 	jint *yoff = yoffAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, yoffAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jlong)(intptr_t)stbtt_GetGlyphBitmap(info, scale_x, scale_y, glyph, (int*)width, (int*)height, (int*)xoff, (int*)yoff);
+	__result = (jlong)(intptr_t)stbtt_GetGlyphBitmap(info, scale_x, scale_y, glyph, (int *)width, (int *)height, (int *)xoff, (int *)yoff);
 	if ( yoff != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, yoffAddress, yoff, 0);
 	if ( xoff != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, xoffAddress, xoff, 0);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, heightAddress, height, 0);
@@ -643,7 +638,7 @@ JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_stb_STBTruetype_nstbtt_1GetGlyphB
 	UNUSED_PARAM(height__length)
 	UNUSED_PARAM(xoff__length)
 	UNUSED_PARAM(yoff__length)
-	return (jlong)(intptr_t)stbtt_GetGlyphBitmap(info, scale_x, scale_y, glyph, (int*)width, (int*)height, (int*)xoff, (int*)yoff);
+	return (jlong)(intptr_t)stbtt_GetGlyphBitmap(info, scale_x, scale_y, glyph, (int *)width, (int *)height, (int *)xoff, (int *)yoff);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetGlyphBitmapSubpixel__JFFFFI_3I_3I_3I_3I(JNIEnv *__env, jclass clazz, jlong infoAddress, jfloat scale_x, jfloat scale_y, jfloat shift_x, jfloat shift_y, jint glyph, jintArray widthAddress, jintArray heightAddress, jintArray xoffAddress, jintArray yoffAddress) {
@@ -654,7 +649,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetGlyphBitmapSub
 	jint *xoff = xoffAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, xoffAddress, 0);
 	jint *yoff = yoffAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, yoffAddress, 0);
 	UNUSED_PARAMS(__env, clazz)
-	__result = (jlong)(intptr_t)stbtt_GetGlyphBitmapSubpixel(info, scale_x, scale_y, shift_x, shift_y, glyph, (int*)width, (int*)height, (int*)xoff, (int*)yoff);
+	__result = (jlong)(intptr_t)stbtt_GetGlyphBitmapSubpixel(info, scale_x, scale_y, shift_x, shift_y, glyph, (int *)width, (int *)height, (int *)xoff, (int *)yoff);
 	if ( yoff != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, yoffAddress, yoff, 0);
 	if ( xoff != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, xoffAddress, xoff, 0);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, heightAddress, height, 0);
@@ -667,7 +662,7 @@ JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_stb_STBTruetype_nstbtt_1GetGlyphB
 	UNUSED_PARAM(height__length)
 	UNUSED_PARAM(xoff__length)
 	UNUSED_PARAM(yoff__length)
-	return (jlong)(intptr_t)stbtt_GetGlyphBitmapSubpixel(info, scale_x, scale_y, shift_x, shift_y, glyph, (int*)width, (int*)height, (int*)xoff, (int*)yoff);
+	return (jlong)(intptr_t)stbtt_GetGlyphBitmapSubpixel(info, scale_x, scale_y, shift_x, shift_y, glyph, (int *)width, (int *)height, (int *)xoff, (int *)yoff);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetGlyphBitmapBox__JIFF_3I_3I_3I_3I(JNIEnv *__env, jclass clazz, jlong fontAddress, jint glyph, jfloat scale_x, jfloat scale_y, jintArray ix0Address, jintArray iy0Address, jintArray ix1Address, jintArray iy1Address) {
@@ -677,7 +672,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetGlyphBitmapBox_
 	jint *ix1 = ix1Address == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, ix1Address, 0);
 	jint *iy1 = iy1Address == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, iy1Address, 0);
 	UNUSED_PARAMS(__env, clazz)
-	stbtt_GetGlyphBitmapBox(font, glyph, scale_x, scale_y, (int*)ix0, (int*)iy0, (int*)ix1, (int*)iy1);
+	stbtt_GetGlyphBitmapBox(font, glyph, scale_x, scale_y, (int *)ix0, (int *)iy0, (int *)ix1, (int *)iy1);
 	if ( iy1 != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, iy1Address, iy1, 0);
 	if ( ix1 != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, ix1Address, ix1, 0);
 	if ( iy0 != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, iy0Address, iy0, 0);
@@ -689,7 +684,7 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_stb_STBTruetype_nstbtt_1GetGlyphBi
 	UNUSED_PARAM(iy0__length)
 	UNUSED_PARAM(ix1__length)
 	UNUSED_PARAM(iy1__length)
-	stbtt_GetGlyphBitmapBox(font, glyph, scale_x, scale_y, (int*)ix0, (int*)iy0, (int*)ix1, (int*)iy1);
+	stbtt_GetGlyphBitmapBox(font, glyph, scale_x, scale_y, (int *)ix0, (int *)iy0, (int *)ix1, (int *)iy1);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetGlyphBitmapBoxSubpixel__JIFFFF_3I_3I_3I_3I(JNIEnv *__env, jclass clazz, jlong fontAddress, jint glyph, jfloat scale_x, jfloat scale_y, jfloat shift_x, jfloat shift_y, jintArray ix0Address, jintArray iy0Address, jintArray ix1Address, jintArray iy1Address) {
@@ -699,7 +694,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetGlyphBitmapBoxS
 	jint *ix1 = ix1Address == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, ix1Address, 0);
 	jint *iy1 = iy1Address == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, iy1Address, 0);
 	UNUSED_PARAMS(__env, clazz)
-	stbtt_GetGlyphBitmapBoxSubpixel(font, glyph, scale_x, scale_y, shift_x, shift_y, (int*)ix0, (int*)iy0, (int*)ix1, (int*)iy1);
+	stbtt_GetGlyphBitmapBoxSubpixel(font, glyph, scale_x, scale_y, shift_x, shift_y, (int *)ix0, (int *)iy0, (int *)ix1, (int *)iy1);
 	if ( iy1 != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, iy1Address, iy1, 0);
 	if ( ix1 != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, ix1Address, ix1, 0);
 	if ( iy0 != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, iy0Address, iy0, 0);
@@ -711,7 +706,7 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_stb_STBTruetype_nstbtt_1GetGlyphBi
 	UNUSED_PARAM(iy0__length)
 	UNUSED_PARAM(ix1__length)
 	UNUSED_PARAM(iy1__length)
-	stbtt_GetGlyphBitmapBoxSubpixel(font, glyph, scale_x, scale_y, shift_x, shift_y, (int*)ix0, (int*)iy0, (int*)ix1, (int*)iy1);
+	stbtt_GetGlyphBitmapBoxSubpixel(font, glyph, scale_x, scale_y, shift_x, shift_y, (int *)ix0, (int *)iy0, (int *)ix1, (int *)iy1);
 }
 
 EXTERN_C_EXIT

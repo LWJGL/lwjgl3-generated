@@ -34,7 +34,7 @@ public class NanoVGGLES2 {
 		throw new UnsupportedOperationException();
 	}
 
-	// --- [ nvglCreateImageFromHandleGLES2 ] ---
+	// --- [ nvglCreateImageFromHandle ] ---
 
 	/**
 	 * Creates a NanoVG image from an OpenGL texture.
@@ -60,13 +60,13 @@ public class NanoVGGLES2 {
 	 *
 	 * @return a handle to the image
 	 */
-	public static int nvglCreateImageFromHandleGLES2(long ctx, int textureId, int w, int h, int flags) {
+	public static int nvglCreateImageFromHandle(long ctx, int textureId, int w, int h, int flags) {
 		if ( CHECKS )
 			checkPointer(ctx);
 		return nnvglCreateImageFromHandleGLES2(ctx, textureId, w, h, flags);
 	}
 
-	// --- [ nvglImageHandleGLES2 ] ---
+	// --- [ nvglImageHandle ] ---
 
 	/**
 	 * Returns the OpenGL texture id associated with a NanoVG image.
@@ -82,13 +82,13 @@ public class NanoVGGLES2 {
 	 * @param ctx   the NanoVG context
 	 * @param image the image handle
 	 */
-	public static int nvglImageHandleGLES2(long ctx, int image) {
+	public static int nvglImageHandle(long ctx, int image) {
 		if ( CHECKS )
 			checkPointer(ctx);
 		return nnvglImageHandleGLES2(ctx, image);
 	}
 
-	// --- [ nvgCreateGLES2 ] ---
+	// --- [ nvgCreate ] ---
 
 	/**
 	 * Creates a NanoVG context with an OpenGL ES 2.0 rendering back-end.
@@ -98,23 +98,35 @@ public class NanoVGGLES2 {
 	 *
 	 * @param flags the context flags. One of:<br><table><tr><td>{@link #NVG_ANTIALIAS ANTIALIAS}</td><td>{@link #NVG_STENCIL_STROKES STENCIL_STROKES}</td><td>{@link #NVG_DEBUG DEBUG}</td></tr></table>
 	 */
-	public static native long nvgCreateGLES2(int flags);
-
-	// --- [ nvgDeleteGLES2 ] ---
+	public static native long nnvgCreateGLES2(int flags);
 
 	/**
-	 * Deletes a NanoVG context created with {@link #nvgCreateGLES2 CreateGLES2}.
+	 * Creates a NanoVG context with an OpenGL ES 2.0 rendering back-end.
+	 * 
+	 * <p>An OpenGL ES 2.0+ context must be current in the current thread when this function is called and the returned NanoVG context may only be used in
+	 * the thread in which that OpenGL context is current.</p>
+	 *
+	 * @param flags the context flags. One of:<br><table><tr><td>{@link #NVG_ANTIALIAS ANTIALIAS}</td><td>{@link #NVG_STENCIL_STROKES STENCIL_STROKES}</td><td>{@link #NVG_DEBUG DEBUG}</td></tr></table>
+	 */
+	public static long nvgCreate(int flags) {
+		return nnvgCreateGLES2(flags);
+	}
+
+	// --- [ nvgDelete ] ---
+
+	/**
+	 * Deletes a NanoVG context created with {@link #nvgCreate Create}.
 	 *
 	 * @param ctx the NanoVG context
 	 */
 	public static native void nnvgDeleteGLES2(long ctx);
 
 	/**
-	 * Deletes a NanoVG context created with {@link #nvgCreateGLES2 CreateGLES2}.
+	 * Deletes a NanoVG context created with {@link #nvgCreate Create}.
 	 *
 	 * @param ctx the NanoVG context
 	 */
-	public static void nvgDeleteGLES2(long ctx) {
+	public static void nvgDelete(long ctx) {
 		if ( CHECKS )
 			checkPointer(ctx);
 		nnvgDeleteGLES2(ctx);
@@ -130,7 +142,7 @@ public class NanoVGGLES2 {
 	 * @param h          the framebuffer height
 	 * @param imageFlags the image flags
 	 */
-	public static native long nnvgluCreateFramebuffer(long ctx, int w, int h, int imageFlags);
+	public static native long nnvgluCreateFramebufferGLES2(long ctx, int w, int h, int imageFlags);
 
 	/**
 	 * Creates a framebuffer object to render to.
@@ -143,7 +155,7 @@ public class NanoVGGLES2 {
 	public static NVGLUFramebuffer nvgluCreateFramebuffer(long ctx, int w, int h, int imageFlags) {
 		if ( CHECKS )
 			checkPointer(ctx);
-		long __result = nnvgluCreateFramebuffer(ctx, w, h, imageFlags);
+		long __result = nnvgluCreateFramebufferGLES2(ctx, w, h, imageFlags);
 		return NVGLUFramebuffer.create(__result);
 	}
 
@@ -155,7 +167,7 @@ public class NanoVGGLES2 {
 	 * @param ctx the NanoVG context
 	 * @param fb  the framebuffer to bind
 	 */
-	public static native void nnvgluBindFramebuffer(long ctx, long fb);
+	public static native void nnvgluBindFramebufferGLES2(long ctx, long fb);
 
 	/**
 	 * Binds the framebuffer object associated with the specified {@link NVGLUFramebuffer}.
@@ -166,7 +178,7 @@ public class NanoVGGLES2 {
 	public static void nvgluBindFramebuffer(long ctx, NVGLUFramebuffer fb) {
 		if ( CHECKS )
 			checkPointer(ctx);
-		nnvgluBindFramebuffer(ctx, memAddressSafe(fb));
+		nnvgluBindFramebufferGLES2(ctx, memAddressSafe(fb));
 	}
 
 	// --- [ nvgluDeleteFramebuffer ] ---
@@ -177,7 +189,7 @@ public class NanoVGGLES2 {
 	 * @param ctx the NanoVG context
 	 * @param fb  the framebuffer to delete
 	 */
-	public static native void nnvgluDeleteFramebuffer(long ctx, long fb);
+	public static native void nnvgluDeleteFramebufferGLES2(long ctx, long fb);
 
 	/**
 	 * Deletes an {@link NVGLUFramebuffer}.
@@ -188,7 +200,7 @@ public class NanoVGGLES2 {
 	public static void nvgluDeleteFramebuffer(long ctx, NVGLUFramebuffer fb) {
 		if ( CHECKS )
 			checkPointer(ctx);
-		nnvgluDeleteFramebuffer(ctx, fb.address());
+		nnvgluDeleteFramebufferGLES2(ctx, fb.address());
 	}
 
 }
