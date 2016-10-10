@@ -180,7 +180,7 @@ public class ARBIndirectParameters {
 		long __functionAddress = GL.getCapabilities().glMultiDrawArraysIndirectCountARB;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(indirect, maxdrawcount * (stride == 0 ? (4 * 4) : stride));
+			checkBuffer(indirect, (maxdrawcount * (stride == 0 ? (4 * 4) : stride)) >> 2);
 		}
 		callPPV(__functionAddress, mode, indirect, drawcount, maxdrawcount, stride);
 	}
@@ -190,7 +190,7 @@ public class ARBIndirectParameters {
 		long __functionAddress = GL.getCapabilities().glMultiDrawElementsIndirectCountARB;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(indirect, maxdrawcount * (stride == 0 ? (5 * 4) : stride));
+			checkBuffer(indirect, (maxdrawcount * (stride == 0 ? (5 * 4) : stride)) >> 2);
 		}
 		callPPV(__functionAddress, mode, type, indirect, drawcount, maxdrawcount, stride);
 	}

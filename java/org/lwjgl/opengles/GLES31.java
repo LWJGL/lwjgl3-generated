@@ -1232,7 +1232,7 @@ public class GLES31 {
 		long __functionAddress = GLES.getCapabilities().glDrawArraysIndirect;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(indirect, 4 * 4);
+			checkBuffer(indirect, (4 * 4) >> 2);
 		}
 		callPV(__functionAddress, mode, indirect);
 	}
@@ -1242,7 +1242,7 @@ public class GLES31 {
 		long __functionAddress = GLES.getCapabilities().glDrawElementsIndirect;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(indirect, 5 * 4);
+			checkBuffer(indirect, (5 * 4) >> 2);
 		}
 		callPV(__functionAddress, mode, type, indirect);
 	}

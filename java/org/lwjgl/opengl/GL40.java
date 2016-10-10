@@ -1895,7 +1895,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 		long __functionAddress = GL.getCapabilities().glDrawArraysIndirect;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(indirect, 4 * 4);
+			checkBuffer(indirect, (4 * 4) >> 2);
 		}
 		callPV(__functionAddress, mode, indirect);
 	}
@@ -1909,7 +1909,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 		long __functionAddress = GL.getCapabilities().glDrawElementsIndirect;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(indirect, 5 * 4);
+			checkBuffer(indirect, (5 * 4) >> 2);
 		}
 		callPV(__functionAddress, mode, type, indirect);
 	}

@@ -282,7 +282,7 @@ public class AMDPerformanceMonitor {
 		long __functionAddress = GLES.getCapabilities().glGetPerfMonitorCounterInfoAMD;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, 4);
+			checkBuffer(data, 4 >> 2);
 		}
 		callPV(__functionAddress, group, counter, pname, data);
 	}
@@ -292,7 +292,7 @@ public class AMDPerformanceMonitor {
 		long __functionAddress = GLES.getCapabilities().glGetPerfMonitorCounterInfoAMD;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, 4);
+			checkBuffer(data, 4 >> 2);
 		}
 		callPV(__functionAddress, group, counter, pname, data);
 	}

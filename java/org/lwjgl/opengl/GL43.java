@@ -2706,7 +2706,7 @@ for ( i = 0; i < primcount; i++ ) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawArraysIndirect;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(indirect, primcount * (stride == 0 ? (4 * 4) : stride));
+			checkBuffer(indirect, (primcount * (stride == 0 ? (4 * 4) : stride)) >> 2);
 		}
 		callPV(__functionAddress, mode, indirect, primcount, stride);
 	}
@@ -2720,7 +2720,7 @@ for ( i = 0; i < primcount; i++ ) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawElementsIndirect;
 		if ( CHECKS ) {
 			checkFunctionAddress(__functionAddress);
-			checkBuffer(indirect, primcount * (stride == 0 ? (5 * 4) : stride));
+			checkBuffer(indirect, (primcount * (stride == 0 ? (5 * 4) : stride)) >> 2);
 		}
 		callPV(__functionAddress, mode, type, indirect, primcount, stride);
 	}

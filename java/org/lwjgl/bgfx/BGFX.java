@@ -4599,8 +4599,8 @@ public class BGFX {
 		long __functionAddress = Functions.image_swizzle_bgra8;
 		int bytes = _height * _pitch * 4;
 		if ( CHECKS ) {
-			checkBuffer(_src, bytes);
-			checkBuffer(_dst, bytes);
+			checkBuffer(_src, bytes >> 2);
+			checkBuffer(_dst, bytes >> 2);
 		}
 		invokePPV(__functionAddress, _width, _height, _pitch, _src, _dst);
 	}
@@ -4610,8 +4610,8 @@ public class BGFX {
 		long __functionAddress = Functions.image_rgba8_downsample_2x2;
 		int bytes = _height * _pitch * 4;
 		if ( CHECKS ) {
-			checkBuffer(_src, bytes);
-			checkBuffer(_dst, bytes >> 2);
+			checkBuffer(_src, bytes >> 2);
+			checkBuffer(_dst, (bytes >> 2) >> 2);
 		}
 		invokePPV(__functionAddress, _width, _height, _pitch, _src, _dst);
 	}
@@ -4719,8 +4719,8 @@ public class BGFX {
 	public static void bgfx_set_view_transform(int _id, float[] _view, float[] _proj) {
 		long __functionAddress = Functions.set_view_transform;
 		if ( CHECKS ) {
-			checkBufferSafe(_view, 64);
-			checkBufferSafe(_proj, 64);
+			checkBufferSafe(_view, 64 >> 2);
+			checkBufferSafe(_proj, 64 >> 2);
 		}
 		invokePPV(__functionAddress, (byte)_id, _view, _proj);
 	}
@@ -4729,9 +4729,9 @@ public class BGFX {
 	public static void bgfx_set_view_transform_stereo(int _id, float[] _view, float[] _projL, int _flags, float[] _projR) {
 		long __functionAddress = Functions.set_view_transform_stereo;
 		if ( CHECKS ) {
-			checkBufferSafe(_view, 64);
-			checkBufferSafe(_projL, 64);
-			checkBufferSafe(_projR, 64);
+			checkBufferSafe(_view, 64 >> 2);
+			checkBufferSafe(_projL, 64 >> 2);
+			checkBufferSafe(_projR, 64 >> 2);
 		}
 		invokePPPV(__functionAddress, (byte)_id, _view, _projL, (byte)_flags, _projR);
 	}
