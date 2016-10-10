@@ -26,7 +26,7 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_system_jawt_JAWTFunctions_nJAWT_1GetAW
 	JAWT_GetAWTPROC JAWT_GetAWT = (JAWT_GetAWTPROC)(intptr_t)__functionAddress;
 	intptr_t awt = (intptr_t)awtAddress;
 	UNUSED_PARAM(clazz)
-	return (jboolean)JAWT_GetAWT(__env, awt);
+	return JAWT_GetAWT(__env, awt);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_jawt_JAWTFunctions_nJAWT_1GetDrawingSurface(JNIEnv *__env, jclass clazz, jlong __functionAddress, jobject target) {
@@ -51,14 +51,14 @@ JNIEXPORT jobject JNICALL Java_org_lwjgl_system_jawt_JAWTFunctions_nJAWT_1GetCom
 	JAWT_GetComponentPROC JAWT_GetComponent = (JAWT_GetComponentPROC)(intptr_t)__functionAddress;
 	intptr_t platformInfo = (intptr_t)platformInfoAddress;
 	UNUSED_PARAM(clazz)
-	return (jobject)JAWT_GetComponent(__env, platformInfo);
+	return JAWT_GetComponent(__env, platformInfo);
 }
 
 JNIEXPORT jobject JNICALL Java_org_lwjgl_system_jawt_JAWTFunctions_nJAWT_1CreateEmbeddedFrame(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong platformInfoAddress) {
 	JAWT_CreateEmbeddedFramePROC JAWT_CreateEmbeddedFrame = (JAWT_CreateEmbeddedFramePROC)(intptr_t)__functionAddress;
 	intptr_t platformInfo = (intptr_t)platformInfoAddress;
 	UNUSED_PARAM(clazz)
-	return (jobject)JAWT_CreateEmbeddedFrame(__env, platformInfo);
+	return JAWT_CreateEmbeddedFrame(__env, platformInfo);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_jawt_JAWTFunctions_nJAWT_1SetBounds(JNIEnv *__env, jclass clazz, jlong __functionAddress, jobject embeddedFrame, jint x, jint y, jint w, jint h) {
