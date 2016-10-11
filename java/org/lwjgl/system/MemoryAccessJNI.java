@@ -12,7 +12,7 @@ class MemoryAccessJNI {
 
 	static { Library.initialize(); }
 
-	protected MemoryAccessJNI() {
+	private MemoryAccessJNI() {
 		throw new UnsupportedOperationException();
 	}
 
