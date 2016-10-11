@@ -120,8 +120,6 @@ public class GDI32 {
 		PFD_OVERLAY_PLANE  = 1,
 		PFD_UNDERLAY_PLANE = (byte)-1;
 
-	static { Library.initialize(); }
-
 	protected GDI32() {
 		throw new UnsupportedOperationException();
 	}

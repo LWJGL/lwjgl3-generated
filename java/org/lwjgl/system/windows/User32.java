@@ -905,8 +905,6 @@ public class User32 {
 		DISP_CHANGE_BADPARAM    = -5,
 		DISP_CHANGE_BADDUALVIEW = -6;
 
-	static { Library.initialize(); }
-
 	protected User32() {
 		throw new UnsupportedOperationException();
 	}

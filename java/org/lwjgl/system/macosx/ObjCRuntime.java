@@ -93,8 +93,6 @@ public class ObjCRuntime {
 		OBJC_ASSOCIATION_RETAIN           = 1401,
 		OBJC_ASSOCIATION_COPY             = 1403;
 
-	static { Library.initialize(); }
-
 	protected ObjCRuntime() {
 		throw new UnsupportedOperationException();
 	}
