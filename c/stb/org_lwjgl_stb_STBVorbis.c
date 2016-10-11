@@ -218,6 +218,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode_1frame_
 	if ( channels != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, channelsAddress, channels, 0);
 	return __result;
 }
+#ifdef LWJGL_WINDOWS
 JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode_1frame_1pushdata__JJI_3IJ_3I(jlong fAddress, jlong datablockAddress, jint datablock_length_in_bytes, jint channels__length, jint* channels, jlong outputAddress, jint samples__length, jint* samples) {
 	stb_vorbis *f = (stb_vorbis *)(intptr_t)fAddress;
 	const unsigned char *datablock = (const unsigned char *)(intptr_t)datablockAddress;
@@ -226,6 +227,7 @@ JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode
 	UNUSED_PARAM(samples__length)
 	return (jint)stb_vorbis_decode_frame_pushdata(f, datablock, datablock_length_in_bytes, (int *)channels, output, (int *)samples);
 }
+#endif
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode_1filename__J_3I_3IJ(JNIEnv *__env, jclass clazz, jlong filenameAddress, jintArray channelsAddress, jintArray sample_rateAddress, jlong outputAddress) {
 	const char *filename = (const char *)(intptr_t)filenameAddress;

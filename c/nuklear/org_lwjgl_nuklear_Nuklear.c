@@ -3203,6 +3203,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1selectable_1image_1te
 	(*__env)->ReleasePrimitiveArrayCritical(__env, valueAddress, value, 0);
 	return __result;
 }
+#ifdef LWJGL_WINDOWS
 JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1selectable_1image_1text__JJJII_3I(jlong ctxAddress, jlong imgAddress, jlong strAddress, jint len, jint align, jint value__length, jint* value) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
 	struct nk_image *img = (struct nk_image *)(intptr_t)imgAddress;
@@ -3210,6 +3211,7 @@ JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1selectable_1i
 	UNUSED_PARAM(value__length)
 	return (jint)nk_selectable_image_text(ctx, *img, str, len, align, (int *)value);
 }
+#endif
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1slider_1float__JF_3FFF(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloat min, jfloatArray valAddress, jfloat max, jfloat step) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
@@ -3249,12 +3251,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1property_1int__JJI_3I
 	nk_property_int(ctx, name, min, (int *)val, max, step, inc_per_pixel);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, valAddress, val, 0);
 }
+#ifdef LWJGL_WINDOWS
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1property_1int__JJI_3IIIF(jlong ctxAddress, jlong nameAddress, jint min, jint val__length, jint* val, jint max, jint step, jfloat inc_per_pixel) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
 	const char *name = (const char *)(intptr_t)nameAddress;
 	UNUSED_PARAM(val__length)
 	nk_property_int(ctx, name, min, (int *)val, max, step, inc_per_pixel);
 }
+#endif
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1property_1float__JJF_3FFFF(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong nameAddress, jfloat min, jfloatArray valAddress, jfloat max, jfloat step, jfloat inc_per_pixel) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
@@ -3264,12 +3268,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1property_1float__JJF_
 	nk_property_float(ctx, name, min, (float *)val, max, step, inc_per_pixel);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, valAddress, val, 0);
 }
+#ifdef LWJGL_WINDOWS
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1property_1float__JJF_3FFFF(jlong ctxAddress, jlong nameAddress, jfloat min, jint val__length, jfloat* val, jfloat max, jfloat step, jfloat inc_per_pixel) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
 	const char *name = (const char *)(intptr_t)nameAddress;
 	UNUSED_PARAM(val__length)
 	nk_property_float(ctx, name, min, (float *)val, max, step, inc_per_pixel);
 }
+#endif
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1property_1double__JJD_3DDDF(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong nameAddress, jdouble min, jdoubleArray valAddress, jdouble max, jdouble step, jfloat inc_per_pixel) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
@@ -3279,12 +3285,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1property_1double__JJD
 	nk_property_double(ctx, name, min, (double *)val, max, step, inc_per_pixel);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, valAddress, val, 0);
 }
+#ifdef LWJGL_WINDOWS
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1property_1double__JJD_3DDDF(jlong ctxAddress, jlong nameAddress, jdouble min, jint val__length, jdouble* val, jdouble max, jdouble step, jfloat inc_per_pixel) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
 	const char *name = (const char *)(intptr_t)nameAddress;
 	UNUSED_PARAM(val__length)
 	nk_property_double(ctx, name, min, (double *)val, max, step, inc_per_pixel);
 }
+#endif
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1edit_1string__JIJ_3IIJ(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint flags, jlong memoryAddress, jintArray lenAddress, jint max, jlong filterAddress) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
@@ -3297,6 +3305,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1edit_1string__JIJ_3II
 	(*__env)->ReleasePrimitiveArrayCritical(__env, lenAddress, len, 0);
 	return __result;
 }
+#ifdef LWJGL_WINDOWS
 JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1edit_1string__JIJ_3IIJ(jlong ctxAddress, jint flags, jlong memoryAddress, jint len__length, jint* len, jint max, jlong filterAddress) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
 	char *memory = (char *)(intptr_t)memoryAddress;
@@ -3304,6 +3313,7 @@ JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1edit_1string_
 	UNUSED_PARAM(len__length)
 	return (jint)nk_edit_string(ctx, flags, memory, (int *)len, max, filter);
 }
+#endif
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1plot__JI_3FII(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint type, jfloatArray valuesAddress, jint count, jint offset) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
@@ -3327,6 +3337,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1combobox__JJI_3IIJ(JN
 	nk_combobox(ctx, items, count, (int *)selected, item_height, *size);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, selectedAddress, selected, 0);
 }
+#ifdef LWJGL_WINDOWS
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1combobox__JJI_3IIJ(jlong ctxAddress, jlong itemsAddress, jint count, jint selected__length, jint* selected, jint item_height, jlong sizeAddress) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
 	const char **items = (const char **)(intptr_t)itemsAddress;
@@ -3334,6 +3345,7 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1combobox__JJI
 	UNUSED_PARAM(selected__length)
 	nk_combobox(ctx, items, count, (int *)selected, item_height, *size);
 }
+#endif
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1combobox_1string__JJ_3IIIJ(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong items_separated_by_zerosAddress, jintArray selectedAddress, jint count, jint item_height, jlong sizeAddress) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
@@ -3344,6 +3356,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1combobox_1string__JJ_
 	nk_combobox_string(ctx, items_separated_by_zeros, (int *)selected, count, item_height, *size);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, selectedAddress, selected, 0);
 }
+#ifdef LWJGL_WINDOWS
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1combobox_1string__JJ_3IIIJ(jlong ctxAddress, jlong items_separated_by_zerosAddress, jint selected__length, jint* selected, jint count, jint item_height, jlong sizeAddress) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
 	const char *items_separated_by_zeros = (const char *)(intptr_t)items_separated_by_zerosAddress;
@@ -3351,6 +3364,7 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1combobox_1str
 	UNUSED_PARAM(selected__length)
 	nk_combobox_string(ctx, items_separated_by_zeros, (int *)selected, count, item_height, *size);
 }
+#endif
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1combobox_1separator__JJI_3IIIJ(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong items_separated_by_separatorAddress, jint separator, jintArray selectedAddress, jint count, jint item_height, jlong sizeAddress) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
@@ -3361,6 +3375,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1combobox_1separator__
 	nk_combobox_separator(ctx, items_separated_by_separator, separator, (int *)selected, count, item_height, *size);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, selectedAddress, selected, 0);
 }
+#ifdef LWJGL_WINDOWS
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1combobox_1separator__JJI_3IIIJ(jlong ctxAddress, jlong items_separated_by_separatorAddress, jint separator, jint selected__length, jint* selected, jint count, jint item_height, jlong sizeAddress) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
 	const char *items_separated_by_separator = (const char *)(intptr_t)items_separated_by_separatorAddress;
@@ -3368,6 +3383,7 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1combobox_1sep
 	UNUSED_PARAM(selected__length)
 	nk_combobox_separator(ctx, items_separated_by_separator, separator, (int *)selected, count, item_height, *size);
 }
+#endif
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1combobox_1callback__JJJ_3IIIJ(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong item_getterAddress, jlong userdataAddress, jintArray selectedAddress, jint count, jint item_height, jlong sizeAddress) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
@@ -3379,6 +3395,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1combobox_1callback__J
 	nk_combobox_callback(ctx, item_getter, userdata, (int *)selected, count, item_height, *size);
 	(*__env)->ReleasePrimitiveArrayCritical(__env, selectedAddress, selected, 0);
 }
+#ifdef LWJGL_WINDOWS
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1combobox_1callback__JJJ_3IIIJ(jlong ctxAddress, jlong item_getterAddress, jlong userdataAddress, jint selected__length, jint* selected, jint count, jint item_height, jlong sizeAddress) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
 	nk_item_getter item_getter = (nk_item_getter)(intptr_t)item_getterAddress;
@@ -3387,6 +3404,7 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1combobox_1cal
 	UNUSED_PARAM(selected__length)
 	nk_combobox_callback(ctx, item_getter, userdata, (int *)selected, count, item_height, *size);
 }
+#endif
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1style_1push_1float__J_3FF(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloatArray addressAddress, jfloat value) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;

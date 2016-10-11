@@ -797,6 +797,7 @@ JNIEXPORT jfloat JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextBounds__JFFJJ_3F(J
 	if ( bounds != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, boundsAddress, bounds, 0);
 	return __result;
 }
+#ifdef LWJGL_WINDOWS
 JNIEXPORT jfloat JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTextBounds__JFFJJ_3F(jlong ctxAddress, jfloat x, jfloat y, jlong stringAddress, jlong endAddress, jint bounds__length, jfloat* bounds) {
 	NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
 	const char *string = (const char *)(intptr_t)stringAddress;
@@ -804,6 +805,7 @@ JNIEXPORT jfloat JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTextBounds__JF
 	UNUSED_PARAM(bounds__length)
 	return (jfloat)nvgTextBounds(ctx, x, y, string, end, (float *)bounds);
 }
+#endif
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextBoxBounds__JFFFJJ_3F(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloat x, jfloat y, jfloat breakRowWidth, jlong stringAddress, jlong endAddress, jfloatArray boundsAddress) {
 	NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
@@ -814,6 +816,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextBoxBounds__JFFFJJ_3F
 	nvgTextBoxBounds(ctx, x, y, breakRowWidth, string, end, (float *)bounds);
 	if ( bounds != NULL ) (*__env)->ReleasePrimitiveArrayCritical(__env, boundsAddress, bounds, 0);
 }
+#ifdef LWJGL_WINDOWS
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTextBoxBounds__JFFFJJ_3F(jlong ctxAddress, jfloat x, jfloat y, jfloat breakRowWidth, jlong stringAddress, jlong endAddress, jint bounds__length, jfloat* bounds) {
 	NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
 	const char *string = (const char *)(intptr_t)stringAddress;
@@ -821,6 +824,7 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTextBoxBounds__J
 	UNUSED_PARAM(bounds__length)
 	nvgTextBoxBounds(ctx, x, y, breakRowWidth, string, end, (float *)bounds);
 }
+#endif
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextMetrics__J_3F_3F_3F(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloatArray ascenderAddress, jfloatArray descenderAddress, jfloatArray linehAddress) {
 	NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;

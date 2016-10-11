@@ -113,11 +113,13 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1hdr_1to_1f
 	(*__env)->ReleasePrimitiveArrayCritical(__env, dataAddress, data, 0);
 	return __result;
 }
+#ifdef LWJGL_WINDOWS
 JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBImageWrite_nstbi_1write_1hdr_1to_1func__JJIII_3F(jlong funcAddress, jlong contextAddress, jint w, jint h, jint comp, jint data__length, jfloat* data) {
 	stbi_write_func *func = (stbi_write_func *)(intptr_t)funcAddress;
 	void *context = (void *)(intptr_t)contextAddress;
 	UNUSED_PARAM(data__length)
 	return (jint)stbi_write_hdr_to_func(func, context, w, h, comp, (const float *)data);
 }
+#endif
 
 EXTERN_C_EXIT
