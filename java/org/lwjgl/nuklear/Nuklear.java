@@ -506,8 +506,6 @@ public class Nuklear {
 
 	static { Library.loadSystem(Platform.mapLibraryNameBundled("lwjgl_nuklear")); }
 
-	static { MemoryUtil.getAllocator(); }
-
 	protected Nuklear() {
 		throw new UnsupportedOperationException();
 	}

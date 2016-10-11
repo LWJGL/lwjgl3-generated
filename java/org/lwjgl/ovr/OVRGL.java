@@ -9,8 +9,6 @@ import java.nio.*;
 
 import org.lwjgl.*;
 
-import org.lwjgl.system.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 

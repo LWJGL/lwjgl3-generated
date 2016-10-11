@@ -7,8 +7,6 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
-import org.lwjgl.*;
-
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;

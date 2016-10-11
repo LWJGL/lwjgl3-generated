@@ -5,10 +5,6 @@
  */
 package org.lwjgl.stb;
 
-import org.lwjgl.system.*;
-
-import static org.lwjgl.system.Checks.*;
-import static org.lwjgl.system.MemoryUtil.*;
 
 /**
  * Native bindings to stb_rect_pack.h from the <a href="https://github.com/nothings/stb">stb library</a>.

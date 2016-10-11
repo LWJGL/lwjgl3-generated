@@ -5,8 +5,6 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.system.linux.*;
-
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/visual_info.txt">GLX_EXT_visual_rating</a> extension.
  * 

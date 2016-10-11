@@ -53,8 +53,6 @@ public class STBImageWrite {
 
 	static { LibSTB.initialize(); }
 
-	static { MemoryUtil.getAllocator(); }
-
 	protected STBImageWrite() {
 		throw new UnsupportedOperationException();
 	}

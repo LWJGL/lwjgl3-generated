@@ -8,8 +8,6 @@ package org.lwjgl.opengl;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
-import org.lwjgl.system.linux.*;
-
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/NV/glx_delay_before_swap.txt">GLX_NV_delay_before_swap</a> extension.
  * 

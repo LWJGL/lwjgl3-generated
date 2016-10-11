@@ -6,9 +6,7 @@
 package org.lwjgl.bgfx;
 
 import static org.lwjgl.system.APIUtil.*;
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to the C platform API of the <a href="https://github.com/bkaradzic/bgfx">bgfx</a> library. */
 public class BGFXPlatform {

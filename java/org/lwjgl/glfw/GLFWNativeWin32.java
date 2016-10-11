@@ -5,8 +5,6 @@
  */
 package org.lwjgl.glfw;
 
-import java.nio.*;
-
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;

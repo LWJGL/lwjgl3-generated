@@ -5,8 +5,6 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.system.linux.*;
-
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/ARB/color_buffer_float.txt">GLX_ARB_fbconfig_float</a> extension.
  * 

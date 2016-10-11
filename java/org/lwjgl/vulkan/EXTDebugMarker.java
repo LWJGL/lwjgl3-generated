@@ -7,7 +7,6 @@ package org.lwjgl.vulkan;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.system.MemoryUtil.*;
 
 /**
  * This extension introduces concepts of object naming and tagging, for better tracking of Vulkan objects, as well as additional commands for recording

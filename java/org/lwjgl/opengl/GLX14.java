@@ -11,8 +11,6 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-import org.lwjgl.system.linux.*;
-
 /** Native bindings to GLX 1.4. */
 public class GLX14 {
 

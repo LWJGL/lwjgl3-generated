@@ -7,7 +7,6 @@ package org.lwjgl.system.libc;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 
 /** Native bindings to errno.h. */
 public class Errno {

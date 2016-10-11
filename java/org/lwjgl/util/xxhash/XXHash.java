@@ -7,9 +7,6 @@ package org.lwjgl.util.xxhash;
 
 import java.nio.*;
 
-import org.lwjgl.system.*;
-
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -37,8 +34,6 @@ public class XXHash {
 	public static final int XXH_VERSION_NUMBER = (XXH_VERSION_MAJOR *100*100 + XXH_VERSION_MINOR *100 + XXH_VERSION_RELEASE);
 
 	static { LibXXHash.initialize(); }
-
-	static { MemoryUtil.getAllocator(); }
 
 	protected XXHash() {
 		throw new UnsupportedOperationException();

@@ -5,9 +5,6 @@
  */
 package org.lwjgl.ovr;
 
-import org.lwjgl.system.*;
-
-import static org.lwjgl.system.Checks.*;
 
 /** LibOVR error code declarations. */
 public class OVRErrorCode {

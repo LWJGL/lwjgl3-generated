@@ -5,9 +5,6 @@
  */
 package org.lwjgl.stb;
 
-import org.lwjgl.system.*;
-
-import static org.lwjgl.system.Checks.*;
 
 /**
  * Native bindings to stb_perlin.h from the <a href="https://github.com/nothings/stb">stb library</a>.

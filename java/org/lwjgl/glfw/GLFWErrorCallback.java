@@ -11,7 +11,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 import java.io.PrintStream;
 import java.util.Map;
-import org.lwjgl.system.APIUtil;
 
 import static org.lwjgl.glfw.GLFW.*;
 

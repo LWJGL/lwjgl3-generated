@@ -8,8 +8,6 @@ package org.lwjgl.opengles;
 import org.lwjgl.system.*;
 import java.util.Set;
 
-import static org.lwjgl.system.MemoryUtil.*;
-
 /** Defines the capabilities of an OpenGL ES context. */
 public final class GLESCapabilities {
 

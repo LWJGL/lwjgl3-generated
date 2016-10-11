@@ -7,7 +7,6 @@ package org.lwjgl.egl;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.system.MemoryUtil.*;
 
 /**
  * Native bindings to the <a href="https://www.khronos.org/registry/egl/extensions/HI/EGL_HI_clientpixmap.txt">HI_clientpixmap</a> extension.

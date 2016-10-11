@@ -6,7 +6,6 @@
 package org.lwjgl.system.macosx;
 
 import static org.lwjgl.system.APIUtil.*;
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
 /** Native bindings to libc, the Standard C Library. */

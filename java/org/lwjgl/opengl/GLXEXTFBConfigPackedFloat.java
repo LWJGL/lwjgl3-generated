@@ -5,8 +5,6 @@
  */
 package org.lwjgl.opengl;
 
-import org.lwjgl.system.linux.*;
-
 /**
  * Native bindings to the <a href="http://www.opengl.org/registry/specs/EXT/packed_float.txt">GLX_EXT_fbconfig_packed_float</a> extension.
  * 

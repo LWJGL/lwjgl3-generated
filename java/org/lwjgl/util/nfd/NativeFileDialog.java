@@ -71,8 +71,6 @@ public class NativeFileDialog {
 
 	static { LibNFD.initialize(); }
 
-	static { MemoryUtil.getAllocator(); }
-
 	protected NativeFileDialog() {
 		throw new UnsupportedOperationException();
 	}

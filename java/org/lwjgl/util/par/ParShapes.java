@@ -38,8 +38,6 @@ public class ParShapes {
 
 	static { LibPar.initialize(); }
 
-	static { MemoryUtil.getAllocator(); }
-
 	protected ParShapes() {
 		throw new UnsupportedOperationException();
 	}

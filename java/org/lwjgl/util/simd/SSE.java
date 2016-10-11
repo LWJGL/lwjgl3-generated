@@ -5,9 +5,6 @@
  */
 package org.lwjgl.util.simd;
 
-import org.lwjgl.system.*;
-
-import static org.lwjgl.system.Checks.*;
 
 /** Bindings to SSE macros. */
 public class SSE {

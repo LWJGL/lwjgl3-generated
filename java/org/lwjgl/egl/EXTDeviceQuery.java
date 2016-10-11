@@ -5,8 +5,6 @@
  */
 package org.lwjgl.egl;
 
-import java.nio.*;
-
 import org.lwjgl.*;
 
 import static org.lwjgl.system.Checks.*;
