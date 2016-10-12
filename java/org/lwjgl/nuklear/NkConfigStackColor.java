@@ -101,7 +101,7 @@ class NkConfigStackColor extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkConfigStackColor} structs. */
-	public static final class Buffer extends StructBuffer<NkConfigStackColor, Buffer> {
+	public static class Buffer extends StructBuffer<NkConfigStackColor, Buffer> {
 
 		/**
 		 * Creates a new {@link NkConfigStackColor.Buffer} instance backed by the specified container.

@@ -277,7 +277,7 @@ public class BGFXTextureInfo extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link BGFXTextureInfo} structs. */
-	public static final class Buffer extends StructBuffer<BGFXTextureInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<BGFXTextureInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link BGFXTextureInfo.Buffer} instance backed by the specified container.

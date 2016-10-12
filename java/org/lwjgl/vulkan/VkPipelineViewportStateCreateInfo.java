@@ -347,7 +347,7 @@ public class VkPipelineViewportStateCreateInfo extends Struct implements NativeR
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineViewportStateCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineViewportStateCreateInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkPipelineViewportStateCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineViewportStateCreateInfo.Buffer} instance backed by the specified container.

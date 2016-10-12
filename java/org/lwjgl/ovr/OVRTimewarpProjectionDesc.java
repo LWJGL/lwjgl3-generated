@@ -225,7 +225,7 @@ public class OVRTimewarpProjectionDesc extends Struct implements NativeResource 
 	// -----------------------------------
 
 	/** An array of {@link OVRTimewarpProjectionDesc} structs. */
-	public static final class Buffer extends StructBuffer<OVRTimewarpProjectionDesc, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<OVRTimewarpProjectionDesc, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRTimewarpProjectionDesc.Buffer} instance backed by the specified container.

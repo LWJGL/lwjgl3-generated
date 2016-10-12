@@ -260,7 +260,7 @@ public class BGFXMemory extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link BGFXMemory} structs. */
-	public static final class Buffer extends StructBuffer<BGFXMemory, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<BGFXMemory, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link BGFXMemory.Buffer} instance backed by the specified container.

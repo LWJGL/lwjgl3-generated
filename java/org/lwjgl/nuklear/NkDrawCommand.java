@@ -109,7 +109,7 @@ public class NkDrawCommand extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkDrawCommand} structs. */
-	public static final class Buffer extends StructBuffer<NkDrawCommand, Buffer> {
+	public static class Buffer extends StructBuffer<NkDrawCommand, Buffer> {
 
 		/**
 		 * Creates a new {@link NkDrawCommand.Buffer} instance backed by the specified container.

@@ -93,7 +93,7 @@ public class BGFXInternalData extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link BGFXInternalData} structs. */
-	public static final class Buffer extends StructBuffer<BGFXInternalData, Buffer> {
+	public static class Buffer extends StructBuffer<BGFXInternalData, Buffer> {
 
 		/**
 		 * Creates a new {@link BGFXInternalData.Buffer} instance backed by the specified container.

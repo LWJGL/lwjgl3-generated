@@ -330,7 +330,7 @@ public class OVRLayerQuad extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link OVRLayerQuad} structs. */
-	public static final class Buffer extends StructBuffer<OVRLayerQuad, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<OVRLayerQuad, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRLayerQuad.Buffer} instance backed by the specified container.

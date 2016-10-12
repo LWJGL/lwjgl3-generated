@@ -409,7 +409,7 @@ public class VkDeviceCreateInfo extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkDeviceCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkDeviceCreateInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkDeviceCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDeviceCreateInfo.Buffer} instance backed by the specified container.

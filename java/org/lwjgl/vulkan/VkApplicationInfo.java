@@ -359,7 +359,7 @@ public class VkApplicationInfo extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkApplicationInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkApplicationInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkApplicationInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkApplicationInfo.Buffer} instance backed by the specified container.

@@ -258,7 +258,7 @@ public class GPU_DEVICE extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link GPU_DEVICE} structs. */
-	public static final class Buffer extends StructBuffer<GPU_DEVICE, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<GPU_DEVICE, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link GPU_DEVICE.Buffer} instance backed by the specified container.

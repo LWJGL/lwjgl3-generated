@@ -182,7 +182,7 @@ public class STBTTPackContext extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link STBTTPackContext} structs. */
-	public static final class Buffer extends StructBuffer<STBTTPackContext, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<STBTTPackContext, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link STBTTPackContext.Buffer} instance backed by the specified container.

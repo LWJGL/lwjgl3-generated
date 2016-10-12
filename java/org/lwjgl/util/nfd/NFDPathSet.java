@@ -182,7 +182,7 @@ public class NFDPathSet extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NFDPathSet} structs. */
-	public static final class Buffer extends StructBuffer<NFDPathSet, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NFDPathSet, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NFDPathSet.Buffer} instance backed by the specified container.

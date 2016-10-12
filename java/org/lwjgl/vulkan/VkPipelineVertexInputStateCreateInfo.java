@@ -364,7 +364,7 @@ public class VkPipelineVertexInputStateCreateInfo extends Struct implements Nati
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineVertexInputStateCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineVertexInputStateCreateInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkPipelineVertexInputStateCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineVertexInputStateCreateInfo.Buffer} instance backed by the specified container.

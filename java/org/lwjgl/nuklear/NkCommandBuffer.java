@@ -133,7 +133,7 @@ public class NkCommandBuffer extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkCommandBuffer} structs. */
-	public static final class Buffer extends StructBuffer<NkCommandBuffer, Buffer> {
+	public static class Buffer extends StructBuffer<NkCommandBuffer, Buffer> {
 
 		/**
 		 * Creates a new {@link NkCommandBuffer.Buffer} instance backed by the specified container.

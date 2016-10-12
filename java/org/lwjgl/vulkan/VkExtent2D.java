@@ -255,7 +255,7 @@ public class VkExtent2D extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkExtent2D} structs. */
-	public static final class Buffer extends StructBuffer<VkExtent2D, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkExtent2D, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkExtent2D.Buffer} instance backed by the specified container.

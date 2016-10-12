@@ -285,7 +285,7 @@ public class CLMotionEstimationDescINTEL extends Struct implements NativeResourc
 	// -----------------------------------
 
 	/** An array of {@link CLMotionEstimationDescINTEL} structs. */
-	public static final class Buffer extends StructBuffer<CLMotionEstimationDescINTEL, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<CLMotionEstimationDescINTEL, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link CLMotionEstimationDescINTEL.Buffer} instance backed by the specified container.

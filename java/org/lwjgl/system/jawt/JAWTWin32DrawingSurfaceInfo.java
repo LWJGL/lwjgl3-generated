@@ -139,7 +139,7 @@ public class JAWTWin32DrawingSurfaceInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link JAWTWin32DrawingSurfaceInfo} structs. */
-	public static final class Buffer extends StructBuffer<JAWTWin32DrawingSurfaceInfo, Buffer> {
+	public static class Buffer extends StructBuffer<JAWTWin32DrawingSurfaceInfo, Buffer> {
 
 		/**
 		 * Creates a new {@link JAWTWin32DrawingSurfaceInfo.Buffer} instance backed by the specified container.

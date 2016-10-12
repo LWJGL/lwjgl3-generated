@@ -508,7 +508,7 @@ public class NkStyleSlider extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NkStyleSlider} structs. */
-	public static final class Buffer extends StructBuffer<NkStyleSlider, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NkStyleSlider, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkStyleSlider.Buffer} instance backed by the specified container.

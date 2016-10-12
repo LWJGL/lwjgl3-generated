@@ -101,7 +101,7 @@ class NkConfigStackStyleItem extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkConfigStackStyleItem} structs. */
-	public static final class Buffer extends StructBuffer<NkConfigStackStyleItem, Buffer> {
+	public static class Buffer extends StructBuffer<NkConfigStackStyleItem, Buffer> {
 
 		/**
 		 * Creates a new {@link NkConfigStackStyleItem.Buffer} instance backed by the specified container.

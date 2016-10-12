@@ -165,7 +165,7 @@ public class NkEditState extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkEditState} structs. */
-	public static final class Buffer extends StructBuffer<NkEditState, Buffer> {
+	public static class Buffer extends StructBuffer<NkEditState, Buffer> {
 
 		/**
 		 * Creates a new {@link NkEditState.Buffer} instance backed by the specified container.

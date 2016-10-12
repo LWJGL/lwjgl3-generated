@@ -255,7 +255,7 @@ public class VkOffset2D extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkOffset2D} structs. */
-	public static final class Buffer extends StructBuffer<VkOffset2D, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkOffset2D, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkOffset2D.Buffer} instance backed by the specified container.

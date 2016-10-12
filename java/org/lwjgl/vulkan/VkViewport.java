@@ -328,7 +328,7 @@ public class VkViewport extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkViewport} structs. */
-	public static final class Buffer extends StructBuffer<VkViewport, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkViewport, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkViewport.Buffer} instance backed by the specified container.

@@ -117,7 +117,7 @@ public class NkMenuState extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkMenuState} structs. */
-	public static final class Buffer extends StructBuffer<NkMenuState, Buffer> {
+	public static class Buffer extends StructBuffer<NkMenuState, Buffer> {
 
 		/**
 		 * Creates a new {@link NkMenuState.Buffer} instance backed by the specified container.

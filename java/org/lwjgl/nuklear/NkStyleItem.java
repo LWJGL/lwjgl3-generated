@@ -239,7 +239,7 @@ public class NkStyleItem extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NkStyleItem} structs. */
-	public static final class Buffer extends StructBuffer<NkStyleItem, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NkStyleItem, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkStyleItem.Buffer} instance backed by the specified container.

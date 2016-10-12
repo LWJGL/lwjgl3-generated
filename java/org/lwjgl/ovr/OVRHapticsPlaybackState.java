@@ -214,7 +214,7 @@ public class OVRHapticsPlaybackState extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link OVRHapticsPlaybackState} structs. */
-	public static final class Buffer extends StructBuffer<OVRHapticsPlaybackState, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<OVRHapticsPlaybackState, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRHapticsPlaybackState.Buffer} instance backed by the specified container.

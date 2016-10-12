@@ -252,7 +252,7 @@ public class POINTL extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link POINTL} structs. */
-	public static final class Buffer extends StructBuffer<POINTL, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<POINTL, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link POINTL.Buffer} instance backed by the specified container.

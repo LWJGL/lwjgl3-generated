@@ -244,7 +244,7 @@ public class NkClipboard extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NkClipboard} structs. */
-	public static final class Buffer extends StructBuffer<NkClipboard, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NkClipboard, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkClipboard.Buffer} instance backed by the specified container.

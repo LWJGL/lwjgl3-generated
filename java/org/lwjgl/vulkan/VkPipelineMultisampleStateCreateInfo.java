@@ -377,7 +377,7 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineMultisampleStateCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineMultisampleStateCreateInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkPipelineMultisampleStateCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineMultisampleStateCreateInfo.Buffer} instance backed by the specified container.

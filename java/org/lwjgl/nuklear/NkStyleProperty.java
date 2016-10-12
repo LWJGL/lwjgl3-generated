@@ -424,7 +424,7 @@ public class NkStyleProperty extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NkStyleProperty} structs. */
-	public static final class Buffer extends StructBuffer<NkStyleProperty, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NkStyleProperty, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkStyleProperty.Buffer} instance backed by the specified container.

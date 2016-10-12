@@ -433,7 +433,7 @@ public class VkPipelineRasterizationStateCreateInfo extends Struct implements Na
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineRasterizationStateCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineRasterizationStateCreateInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkPipelineRasterizationStateCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineRasterizationStateCreateInfo.Buffer} instance backed by the specified container.

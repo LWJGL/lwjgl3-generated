@@ -316,7 +316,7 @@ public class VkPipelineInputAssemblyStateCreateInfo extends Struct implements Na
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineInputAssemblyStateCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineInputAssemblyStateCreateInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkPipelineInputAssemblyStateCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineInputAssemblyStateCreateInfo.Buffer} instance backed by the specified container.

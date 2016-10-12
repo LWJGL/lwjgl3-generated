@@ -309,7 +309,7 @@ public class BGFXVertexDecl extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link BGFXVertexDecl} structs. */
-	public static final class Buffer extends StructBuffer<BGFXVertexDecl, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<BGFXVertexDecl, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link BGFXVertexDecl.Buffer} instance backed by the specified container.

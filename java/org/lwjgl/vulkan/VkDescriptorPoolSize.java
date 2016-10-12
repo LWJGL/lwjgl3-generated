@@ -262,7 +262,7 @@ public class VkDescriptorPoolSize extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkDescriptorPoolSize} structs. */
-	public static final class Buffer extends StructBuffer<VkDescriptorPoolSize, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkDescriptorPoolSize, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDescriptorPoolSize.Buffer} instance backed by the specified container.

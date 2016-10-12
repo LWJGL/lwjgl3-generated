@@ -252,7 +252,7 @@ public class CLMemEXTHostPtr extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link CLMemEXTHostPtr} structs. */
-	public static final class Buffer extends StructBuffer<CLMemEXTHostPtr, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<CLMemEXTHostPtr, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link CLMemEXTHostPtr.Buffer} instance backed by the specified container.

@@ -333,7 +333,7 @@ public class NkPanel extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NkPanel} structs. */
-	public static final class Buffer extends StructBuffer<NkPanel, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NkPanel, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkPanel.Buffer} instance backed by the specified container.

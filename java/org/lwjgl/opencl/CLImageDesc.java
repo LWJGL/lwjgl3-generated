@@ -393,7 +393,7 @@ public class CLImageDesc extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link CLImageDesc} structs. */
-	public static final class Buffer extends StructBuffer<CLImageDesc, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<CLImageDesc, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link CLImageDesc.Buffer} instance backed by the specified container.

@@ -154,7 +154,7 @@ public class ParShapesMesh extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link ParShapesMesh} structs. */
-	public static final class Buffer extends StructBuffer<ParShapesMesh, Buffer> {
+	public static class Buffer extends StructBuffer<ParShapesMesh, Buffer> {
 
 		/**
 		 * Creates a new {@link ParShapesMesh.Buffer} instance backed by the specified container.

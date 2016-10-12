@@ -130,7 +130,7 @@ public class JAWTDrawingSurfaceInfo extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link JAWTDrawingSurfaceInfo} structs. */
-	public static final class Buffer extends StructBuffer<JAWTDrawingSurfaceInfo, Buffer> {
+	public static class Buffer extends StructBuffer<JAWTDrawingSurfaceInfo, Buffer> {
 
 		/**
 		 * Creates a new {@link JAWTDrawingSurfaceInfo.Buffer} instance backed by the specified container.

@@ -282,7 +282,7 @@ public class OVRQuatf extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link OVRQuatf} structs. */
-	public static final class Buffer extends StructBuffer<OVRQuatf, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<OVRQuatf, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRQuatf.Buffer} instance backed by the specified container.

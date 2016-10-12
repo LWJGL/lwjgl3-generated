@@ -250,7 +250,7 @@ public class OVRSessionStatus extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link OVRSessionStatus} structs. */
-	public static final class Buffer extends StructBuffer<OVRSessionStatus, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<OVRSessionStatus, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRSessionStatus.Buffer} instance backed by the specified container.

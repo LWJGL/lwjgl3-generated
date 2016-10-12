@@ -213,7 +213,7 @@ public class OVRGraphicsLuid extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link OVRGraphicsLuid} structs. */
-	public static final class Buffer extends StructBuffer<OVRGraphicsLuid, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<OVRGraphicsLuid, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRGraphicsLuid.Buffer} instance backed by the specified container.

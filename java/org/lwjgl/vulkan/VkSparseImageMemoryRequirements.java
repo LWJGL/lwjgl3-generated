@@ -246,7 +246,7 @@ public class VkSparseImageMemoryRequirements extends Struct implements NativeRes
 	// -----------------------------------
 
 	/** An array of {@link VkSparseImageMemoryRequirements} structs. */
-	public static final class Buffer extends StructBuffer<VkSparseImageMemoryRequirements, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkSparseImageMemoryRequirements, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkSparseImageMemoryRequirements.Buffer} instance backed by the specified container.

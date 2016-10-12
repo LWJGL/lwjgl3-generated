@@ -329,7 +329,7 @@ public class VkDebugReportCallbackCreateInfoEXT extends Struct implements Native
 	// -----------------------------------
 
 	/** An array of {@link VkDebugReportCallbackCreateInfoEXT} structs. */
-	public static final class Buffer extends StructBuffer<VkDebugReportCallbackCreateInfoEXT, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkDebugReportCallbackCreateInfoEXT, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDebugReportCallbackCreateInfoEXT.Buffer} instance backed by the specified container.

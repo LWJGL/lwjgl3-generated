@@ -278,7 +278,7 @@ public class MONITORINFOEX extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link MONITORINFOEX} structs. */
-	public static final class Buffer extends StructBuffer<MONITORINFOEX, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<MONITORINFOEX, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link MONITORINFOEX.Buffer} instance backed by the specified container.

@@ -117,7 +117,7 @@ public class NkPopupBuffer extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkPopupBuffer} structs. */
-	public static final class Buffer extends StructBuffer<NkPopupBuffer, Buffer> {
+	public static class Buffer extends StructBuffer<NkPopupBuffer, Buffer> {
 
 		/**
 		 * Creates a new {@link NkPopupBuffer.Buffer} instance backed by the specified container.

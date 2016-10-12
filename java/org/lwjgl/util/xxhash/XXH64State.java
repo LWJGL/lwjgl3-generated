@@ -356,7 +356,7 @@ public class XXH64State extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link XXH64State} structs. */
-	public static final class Buffer extends StructBuffer<XXH64State, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<XXH64State, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link XXH64State.Buffer} instance backed by the specified container.

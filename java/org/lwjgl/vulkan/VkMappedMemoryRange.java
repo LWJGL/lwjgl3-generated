@@ -314,7 +314,7 @@ public class VkMappedMemoryRange extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkMappedMemoryRange} structs. */
-	public static final class Buffer extends StructBuffer<VkMappedMemoryRange, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkMappedMemoryRange, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkMappedMemoryRange.Buffer} instance backed by the specified container.

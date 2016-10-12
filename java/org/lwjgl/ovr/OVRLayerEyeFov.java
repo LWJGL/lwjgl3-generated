@@ -399,7 +399,7 @@ public class OVRLayerEyeFov extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link OVRLayerEyeFov} structs. */
-	public static final class Buffer extends StructBuffer<OVRLayerEyeFov, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<OVRLayerEyeFov, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRLayerEyeFov.Buffer} instance backed by the specified container.

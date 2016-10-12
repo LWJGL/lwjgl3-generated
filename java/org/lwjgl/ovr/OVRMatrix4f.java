@@ -242,7 +242,7 @@ public class OVRMatrix4f extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link OVRMatrix4f} structs. */
-	public static final class Buffer extends StructBuffer<OVRMatrix4f, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<OVRMatrix4f, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRMatrix4f.Buffer} instance backed by the specified container.

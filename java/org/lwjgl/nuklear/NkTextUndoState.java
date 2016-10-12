@@ -139,7 +139,7 @@ class NkTextUndoState extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkTextUndoState} structs. */
-	public static final class Buffer extends StructBuffer<NkTextUndoState, Buffer> {
+	public static class Buffer extends StructBuffer<NkTextUndoState, Buffer> {
 
 		/**
 		 * Creates a new {@link NkTextUndoState.Buffer} instance backed by the specified container.

@@ -205,7 +205,7 @@ public class NkScroll extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NkScroll} structs. */
-	public static final class Buffer extends StructBuffer<NkScroll, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NkScroll, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkScroll.Buffer} instance backed by the specified container.

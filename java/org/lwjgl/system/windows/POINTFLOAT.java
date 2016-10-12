@@ -252,7 +252,7 @@ public class POINTFLOAT extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link POINTFLOAT} structs. */
-	public static final class Buffer extends StructBuffer<POINTFLOAT, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<POINTFLOAT, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link POINTFLOAT.Buffer} instance backed by the specified container.

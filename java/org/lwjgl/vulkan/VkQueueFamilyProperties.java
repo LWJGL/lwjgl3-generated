@@ -235,7 +235,7 @@ public class VkQueueFamilyProperties extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkQueueFamilyProperties} structs. */
-	public static final class Buffer extends StructBuffer<VkQueueFamilyProperties, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkQueueFamilyProperties, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkQueueFamilyProperties.Buffer} instance backed by the specified container.

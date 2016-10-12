@@ -101,7 +101,7 @@ class NkConfigStackFloat extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkConfigStackFloat} structs. */
-	public static final class Buffer extends StructBuffer<NkConfigStackFloat, Buffer> {
+	public static class Buffer extends StructBuffer<NkConfigStackFloat, Buffer> {
 
 		/**
 		 * Creates a new {@link NkConfigStackFloat.Buffer} instance backed by the specified container.

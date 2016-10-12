@@ -157,7 +157,7 @@ public class NkPropertyState extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkPropertyState} structs. */
-	public static final class Buffer extends StructBuffer<NkPropertyState, Buffer> {
+	public static class Buffer extends StructBuffer<NkPropertyState, Buffer> {
 
 		/**
 		 * Creates a new {@link NkPropertyState.Buffer} instance backed by the specified container.

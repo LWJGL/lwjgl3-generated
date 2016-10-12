@@ -280,7 +280,7 @@ public class VkDescriptorImageInfo extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkDescriptorImageInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkDescriptorImageInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkDescriptorImageInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDescriptorImageInfo.Buffer} instance backed by the specified container.

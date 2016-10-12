@@ -460,7 +460,7 @@ public class NkStyleSelectable extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NkStyleSelectable} structs. */
-	public static final class Buffer extends StructBuffer<NkStyleSelectable, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NkStyleSelectable, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkStyleSelectable.Buffer} instance backed by the specified container.

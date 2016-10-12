@@ -294,7 +294,7 @@ public class VkPipelineTessellationStateCreateInfo extends Struct implements Nat
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineTessellationStateCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineTessellationStateCreateInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkPipelineTessellationStateCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineTessellationStateCreateInfo.Buffer} instance backed by the specified container.

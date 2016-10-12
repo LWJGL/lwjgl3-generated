@@ -278,7 +278,7 @@ public class VkVertexInputBindingDescription extends Struct implements NativeRes
 	// -----------------------------------
 
 	/** An array of {@link VkVertexInputBindingDescription} structs. */
-	public static final class Buffer extends StructBuffer<VkVertexInputBindingDescription, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkVertexInputBindingDescription, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkVertexInputBindingDescription.Buffer} instance backed by the specified container.

@@ -286,7 +286,7 @@ public class VkDisplayPlaneCapabilitiesKHR extends Struct implements NativeResou
 	// -----------------------------------
 
 	/** An array of {@link VkDisplayPlaneCapabilitiesKHR} structs. */
-	public static final class Buffer extends StructBuffer<VkDisplayPlaneCapabilitiesKHR, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkDisplayPlaneCapabilitiesKHR, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDisplayPlaneCapabilitiesKHR.Buffer} instance backed by the specified container.

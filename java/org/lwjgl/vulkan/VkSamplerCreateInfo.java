@@ -526,7 +526,7 @@ public class VkSamplerCreateInfo extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkSamplerCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkSamplerCreateInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkSamplerCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkSamplerCreateInfo.Buffer} instance backed by the specified container.

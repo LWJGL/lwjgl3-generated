@@ -253,7 +253,7 @@ public class STBVorbisAlloc extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link STBVorbisAlloc} structs. */
-	public static final class Buffer extends StructBuffer<STBVorbisAlloc, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<STBVorbisAlloc, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link STBVorbisAlloc.Buffer} instance backed by the specified container.

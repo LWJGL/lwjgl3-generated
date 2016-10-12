@@ -130,7 +130,7 @@ public class VkDrawIndirectCommand extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkDrawIndirectCommand} structs. */
-	public static final class Buffer extends StructBuffer<VkDrawIndirectCommand, Buffer> {
+	public static class Buffer extends StructBuffer<VkDrawIndirectCommand, Buffer> {
 
 		/**
 		 * Creates a new {@link VkDrawIndirectCommand.Buffer} instance backed by the specified container.

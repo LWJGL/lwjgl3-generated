@@ -282,7 +282,7 @@ public class RECT extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link RECT} structs. */
-	public static final class Buffer extends StructBuffer<RECT, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<RECT, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link RECT.Buffer} instance backed by the specified container.

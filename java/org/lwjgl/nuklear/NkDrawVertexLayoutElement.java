@@ -265,7 +265,7 @@ public class NkDrawVertexLayoutElement extends Struct implements NativeResource 
 	// -----------------------------------
 
 	/** An array of {@link NkDrawVertexLayoutElement} structs. */
-	public static final class Buffer extends StructBuffer<NkDrawVertexLayoutElement, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NkDrawVertexLayoutElement, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkDrawVertexLayoutElement.Buffer} instance backed by the specified container.

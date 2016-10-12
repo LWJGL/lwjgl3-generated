@@ -214,7 +214,7 @@ public class BGFXTransform extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link BGFXTransform} structs. */
-	public static final class Buffer extends StructBuffer<BGFXTransform, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<BGFXTransform, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link BGFXTransform.Buffer} instance backed by the specified container.

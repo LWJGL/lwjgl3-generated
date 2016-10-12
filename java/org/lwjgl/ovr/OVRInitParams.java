@@ -306,7 +306,7 @@ public class OVRInitParams extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link OVRInitParams} structs. */
-	public static final class Buffer extends StructBuffer<OVRInitParams, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<OVRInitParams, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRInitParams.Buffer} instance backed by the specified container.

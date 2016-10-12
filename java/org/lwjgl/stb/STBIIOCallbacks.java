@@ -290,7 +290,7 @@ public class STBIIOCallbacks extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link STBIIOCallbacks} structs. */
-	public static final class Buffer extends StructBuffer<STBIIOCallbacks, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<STBIIOCallbacks, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link STBIIOCallbacks.Buffer} instance backed by the specified container.

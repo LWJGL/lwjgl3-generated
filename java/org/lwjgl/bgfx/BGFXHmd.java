@@ -145,7 +145,7 @@ public class BGFXHmd extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link BGFXHmd} structs. */
-	public static final class Buffer extends StructBuffer<BGFXHmd, Buffer> {
+	public static class Buffer extends StructBuffer<BGFXHmd, Buffer> {
 
 		/**
 		 * Creates a new {@link BGFXHmd.Buffer} instance backed by the specified container.

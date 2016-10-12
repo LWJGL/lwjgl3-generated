@@ -285,7 +285,7 @@ public class VkDedicatedAllocationImageCreateInfoNV extends Struct implements Na
 	// -----------------------------------
 
 	/** An array of {@link VkDedicatedAllocationImageCreateInfoNV} structs. */
-	public static final class Buffer extends StructBuffer<VkDedicatedAllocationImageCreateInfoNV, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkDedicatedAllocationImageCreateInfoNV, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDedicatedAllocationImageCreateInfoNV.Buffer} instance backed by the specified container.

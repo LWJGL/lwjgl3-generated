@@ -101,7 +101,7 @@ class NkConfigStackUserFont extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkConfigStackUserFont} structs. */
-	public static final class Buffer extends StructBuffer<NkConfigStackUserFont, Buffer> {
+	public static class Buffer extends StructBuffer<NkConfigStackUserFont, Buffer> {
 
 		/**
 		 * Creates a new {@link NkConfigStackUserFont.Buffer} instance backed by the specified container.

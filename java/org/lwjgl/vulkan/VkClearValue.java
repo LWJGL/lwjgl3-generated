@@ -250,7 +250,7 @@ public class VkClearValue extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkClearValue} structs. */
-	public static final class Buffer extends StructBuffer<VkClearValue, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkClearValue, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkClearValue.Buffer} instance backed by the specified container.

@@ -292,7 +292,7 @@ public class VkPhysicalDeviceProperties extends Struct implements NativeResource
 	// -----------------------------------
 
 	/** An array of {@link VkPhysicalDeviceProperties} structs. */
-	public static final class Buffer extends StructBuffer<VkPhysicalDeviceProperties, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkPhysicalDeviceProperties, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPhysicalDeviceProperties.Buffer} instance backed by the specified container.

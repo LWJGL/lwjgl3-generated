@@ -365,7 +365,7 @@ public class VkPipelineColorBlendAttachmentState extends Struct implements Nativ
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineColorBlendAttachmentState} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineColorBlendAttachmentState, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkPipelineColorBlendAttachmentState, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineColorBlendAttachmentState.Buffer} instance backed by the specified container.

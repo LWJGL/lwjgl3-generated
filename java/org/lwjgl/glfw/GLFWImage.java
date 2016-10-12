@@ -292,7 +292,7 @@ public class GLFWImage extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link GLFWImage} structs. */
-	public static final class Buffer extends StructBuffer<GLFWImage, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<GLFWImage, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link GLFWImage.Buffer} instance backed by the specified container.

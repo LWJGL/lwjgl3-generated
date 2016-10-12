@@ -354,7 +354,7 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkAllocationCallbacks} structs. */
-	public static final class Buffer extends StructBuffer<VkAllocationCallbacks, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkAllocationCallbacks, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkAllocationCallbacks.Buffer} instance backed by the specified container.

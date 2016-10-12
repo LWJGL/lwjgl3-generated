@@ -342,7 +342,7 @@ public class VkSparseImageMemoryBind extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkSparseImageMemoryBind} structs. */
-	public static final class Buffer extends StructBuffer<VkSparseImageMemoryBind, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkSparseImageMemoryBind, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkSparseImageMemoryBind.Buffer} instance backed by the specified container.

@@ -359,7 +359,7 @@ public class ChunkHooks extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link ChunkHooks} structs. */
-	public static final class Buffer extends StructBuffer<ChunkHooks, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<ChunkHooks, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link ChunkHooks.Buffer} instance backed by the specified container.

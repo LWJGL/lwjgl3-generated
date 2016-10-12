@@ -93,7 +93,7 @@ public class NkKey extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkKey} structs. */
-	public static final class Buffer extends StructBuffer<NkKey, Buffer> {
+	public static class Buffer extends StructBuffer<NkKey, Buffer> {
 
 		/**
 		 * Creates a new {@link NkKey.Buffer} instance backed by the specified container.

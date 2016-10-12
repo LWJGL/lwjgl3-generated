@@ -138,7 +138,7 @@ public class GLFWVidMode extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link GLFWVidMode} structs. */
-	public static final class Buffer extends StructBuffer<GLFWVidMode, Buffer> {
+	public static class Buffer extends StructBuffer<GLFWVidMode, Buffer> {
 
 		/**
 		 * Creates a new {@link GLFWVidMode.Buffer} instance backed by the specified container.

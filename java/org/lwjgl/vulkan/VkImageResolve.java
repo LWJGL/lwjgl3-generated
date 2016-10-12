@@ -311,7 +311,7 @@ public class VkImageResolve extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkImageResolve} structs. */
-	public static final class Buffer extends StructBuffer<VkImageResolve, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkImageResolve, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkImageResolve.Buffer} instance backed by the specified container.

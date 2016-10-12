@@ -122,7 +122,7 @@ public class VkDispatchIndirectCommand extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkDispatchIndirectCommand} structs. */
-	public static final class Buffer extends StructBuffer<VkDispatchIndirectCommand, Buffer> {
+	public static class Buffer extends StructBuffer<VkDispatchIndirectCommand, Buffer> {
 
 		/**
 		 * Creates a new {@link VkDispatchIndirectCommand.Buffer} instance backed by the specified container.

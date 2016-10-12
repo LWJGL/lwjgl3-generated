@@ -329,7 +329,7 @@ public class BGFXInstanceDataBuffer extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link BGFXInstanceDataBuffer} structs. */
-	public static final class Buffer extends StructBuffer<BGFXInstanceDataBuffer, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<BGFXInstanceDataBuffer, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link BGFXInstanceDataBuffer.Buffer} instance backed by the specified container.

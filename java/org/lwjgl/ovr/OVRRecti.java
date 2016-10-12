@@ -252,7 +252,7 @@ public class OVRRecti extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link OVRRecti} structs. */
-	public static final class Buffer extends StructBuffer<OVRRecti, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<OVRRecti, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRRecti.Buffer} instance backed by the specified container.

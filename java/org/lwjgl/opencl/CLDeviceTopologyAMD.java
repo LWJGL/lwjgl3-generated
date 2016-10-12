@@ -259,7 +259,7 @@ public class CLDeviceTopologyAMD extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link CLDeviceTopologyAMD} structs. */
-	public static final class Buffer extends StructBuffer<CLDeviceTopologyAMD, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<CLDeviceTopologyAMD, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link CLDeviceTopologyAMD.Buffer} instance backed by the specified container.

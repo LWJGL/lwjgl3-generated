@@ -224,7 +224,7 @@ public class OVRDetectResult extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link OVRDetectResult} structs. */
-	public static final class Buffer extends StructBuffer<OVRDetectResult, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<OVRDetectResult, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRDetectResult.Buffer} instance backed by the specified container.

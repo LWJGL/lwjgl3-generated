@@ -300,7 +300,7 @@ public class TOUCHINPUT extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link TOUCHINPUT} structs. */
-	public static final class Buffer extends StructBuffer<TOUCHINPUT, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<TOUCHINPUT, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link TOUCHINPUT.Buffer} instance backed by the specified container.

@@ -241,7 +241,7 @@ public class GLYPHMETRICSFLOAT extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link GLYPHMETRICSFLOAT} structs. */
-	public static final class Buffer extends StructBuffer<GLYPHMETRICSFLOAT, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<GLYPHMETRICSFLOAT, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link GLYPHMETRICSFLOAT.Buffer} instance backed by the specified container.

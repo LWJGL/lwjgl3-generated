@@ -299,7 +299,7 @@ public class BGFXTransientIndexBuffer extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link BGFXTransientIndexBuffer} structs. */
-	public static final class Buffer extends StructBuffer<BGFXTransientIndexBuffer, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<BGFXTransientIndexBuffer, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link BGFXTransientIndexBuffer.Buffer} instance backed by the specified container.

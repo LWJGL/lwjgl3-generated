@@ -367,7 +367,7 @@ public class OVRTextureSwapChainDesc extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link OVRTextureSwapChainDesc} structs. */
-	public static final class Buffer extends StructBuffer<OVRTextureSwapChainDesc, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<OVRTextureSwapChainDesc, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRTextureSwapChainDesc.Buffer} instance backed by the specified container.

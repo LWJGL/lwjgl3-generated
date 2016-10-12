@@ -227,7 +227,7 @@ public class OVRTrackerPose extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link OVRTrackerPose} structs. */
-	public static final class Buffer extends StructBuffer<OVRTrackerPose, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<OVRTrackerPose, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRTrackerPose.Buffer} instance backed by the specified container.

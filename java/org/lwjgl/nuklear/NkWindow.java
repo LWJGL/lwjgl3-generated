@@ -233,7 +233,7 @@ public class NkWindow extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkWindow} structs. */
-	public static final class Buffer extends StructBuffer<NkWindow, Buffer> {
+	public static class Buffer extends StructBuffer<NkWindow, Buffer> {
 
 		/**
 		 * Creates a new {@link NkWindow.Buffer} instance backed by the specified container.

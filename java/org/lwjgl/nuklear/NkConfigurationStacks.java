@@ -133,7 +133,7 @@ class NkConfigurationStacks extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkConfigurationStacks} structs. */
-	public static final class Buffer extends StructBuffer<NkConfigurationStacks, Buffer> {
+	public static class Buffer extends StructBuffer<NkConfigurationStacks, Buffer> {
 
 		/**
 		 * Creates a new {@link NkConfigurationStacks.Buffer} instance backed by the specified container.

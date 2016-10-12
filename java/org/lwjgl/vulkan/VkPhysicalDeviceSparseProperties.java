@@ -135,7 +135,7 @@ public class VkPhysicalDeviceSparseProperties extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkPhysicalDeviceSparseProperties} structs. */
-	public static final class Buffer extends StructBuffer<VkPhysicalDeviceSparseProperties, Buffer> {
+	public static class Buffer extends StructBuffer<VkPhysicalDeviceSparseProperties, Buffer> {
 
 		/**
 		 * Creates a new {@link VkPhysicalDeviceSparseProperties.Buffer} instance backed by the specified container.

@@ -226,7 +226,7 @@ public class VkMemoryRequirements extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkMemoryRequirements} structs. */
-	public static final class Buffer extends StructBuffer<VkMemoryRequirements, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkMemoryRequirements, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkMemoryRequirements.Buffer} instance backed by the specified container.

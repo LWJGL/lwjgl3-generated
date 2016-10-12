@@ -342,7 +342,7 @@ public class VkImageBlit extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkImageBlit} structs. */
-	public static final class Buffer extends StructBuffer<VkImageBlit, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkImageBlit, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkImageBlit.Buffer} instance backed by the specified container.

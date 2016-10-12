@@ -282,7 +282,7 @@ public class OVRColorf extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link OVRColorf} structs. */
-	public static final class Buffer extends StructBuffer<OVRColorf, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<OVRColorf, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRColorf.Buffer} instance backed by the specified container.

@@ -228,7 +228,7 @@ public class OVRBoundaryLookAndFeel extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link OVRBoundaryLookAndFeel} structs. */
-	public static final class Buffer extends StructBuffer<OVRBoundaryLookAndFeel, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<OVRBoundaryLookAndFeel, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRBoundaryLookAndFeel.Buffer} instance backed by the specified container.

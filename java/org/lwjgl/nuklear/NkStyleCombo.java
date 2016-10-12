@@ -481,7 +481,7 @@ public class NkStyleCombo extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NkStyleCombo} structs. */
-	public static final class Buffer extends StructBuffer<NkStyleCombo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NkStyleCombo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkStyleCombo.Buffer} instance backed by the specified container.

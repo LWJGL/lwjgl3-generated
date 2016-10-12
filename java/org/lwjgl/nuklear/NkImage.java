@@ -270,7 +270,7 @@ public class NkImage extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NkImage} structs. */
-	public static final class Buffer extends StructBuffer<NkImage, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NkImage, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkImage.Buffer} instance backed by the specified container.

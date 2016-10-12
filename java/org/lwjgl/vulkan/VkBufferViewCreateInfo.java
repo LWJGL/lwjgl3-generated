@@ -351,7 +351,7 @@ public class VkBufferViewCreateInfo extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkBufferViewCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkBufferViewCreateInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkBufferViewCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkBufferViewCreateInfo.Buffer} instance backed by the specified container.

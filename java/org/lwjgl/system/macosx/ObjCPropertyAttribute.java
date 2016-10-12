@@ -288,7 +288,7 @@ public class ObjCPropertyAttribute extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link ObjCPropertyAttribute} structs. */
-	public static final class Buffer extends StructBuffer<ObjCPropertyAttribute, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<ObjCPropertyAttribute, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link ObjCPropertyAttribute.Buffer} instance backed by the specified container.

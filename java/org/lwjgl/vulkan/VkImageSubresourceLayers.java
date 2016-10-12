@@ -297,7 +297,7 @@ public class VkImageSubresourceLayers extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkImageSubresourceLayers} structs. */
-	public static final class Buffer extends StructBuffer<VkImageSubresourceLayers, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkImageSubresourceLayers, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkImageSubresourceLayers.Buffer} instance backed by the specified container.

@@ -383,7 +383,7 @@ public class VkBufferMemoryBarrier extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkBufferMemoryBarrier} structs. */
-	public static final class Buffer extends StructBuffer<VkBufferMemoryBarrier, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkBufferMemoryBarrier, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkBufferMemoryBarrier.Buffer} instance backed by the specified container.

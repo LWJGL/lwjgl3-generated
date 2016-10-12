@@ -301,7 +301,7 @@ public class VkCommandBufferBeginInfo extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkCommandBufferBeginInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkCommandBufferBeginInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkCommandBufferBeginInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkCommandBufferBeginInfo.Buffer} instance backed by the specified container.

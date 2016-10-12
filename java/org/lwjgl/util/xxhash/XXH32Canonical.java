@@ -211,7 +211,7 @@ public class XXH32Canonical extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link XXH32Canonical} structs. */
-	public static final class Buffer extends StructBuffer<XXH32Canonical, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<XXH32Canonical, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link XXH32Canonical.Buffer} instance backed by the specified container.

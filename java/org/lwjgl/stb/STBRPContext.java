@@ -182,7 +182,7 @@ public class STBRPContext extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link STBRPContext} structs. */
-	public static final class Buffer extends StructBuffer<STBRPContext, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<STBRPContext, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link STBRPContext.Buffer} instance backed by the specified container.

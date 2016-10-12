@@ -178,7 +178,9 @@ public class VKCapabilities {
 		vkSetEvent,
 		vkUnmapMemory,
 		vkUpdateDescriptorSets,
-		vkWaitForFences;
+		vkWaitForFences,
+		vkvkCmdDrawIndexedIndirectCountAMD,
+		vkvkCmdDrawIndirectCountAMD;
 
 
 	/** The Vulkan API version number. */
@@ -186,8 +188,12 @@ public class VKCapabilities {
 
 	/** When true, {@link VK10} is supported. */
 	public final boolean Vulkan10;
+	/** When true, {@link AMDDrawIndirectCount} is supported. */
+	public final boolean VK_AMD_draw_indirect_count;
 	/** When true, {@link AMDGCNShader} is supported. */
 	public final boolean VK_AMD_gcn_shader;
+	/** When true, {@link AMDGCNShaderHalfFloat} is supported. */
+	public final boolean VK_AMD_gcn_shader_half_float;
 	/** When true, {@link AMDNegativeViewportHeight} is supported. */
 	public final boolean VK_AMD_negative_viewport_height;
 	/** When true, {@link AMDRasterizationOrder} is supported. */
@@ -397,9 +403,13 @@ public class VKCapabilities {
 		vkUnmapMemory = provider.getFunctionAddress("vkUnmapMemory");
 		vkUpdateDescriptorSets = provider.getFunctionAddress("vkUpdateDescriptorSets");
 		vkWaitForFences = provider.getFunctionAddress("vkWaitForFences");
+		vkvkCmdDrawIndexedIndirectCountAMD = provider.getFunctionAddress("vkvkCmdDrawIndexedIndirectCountAMD");
+		vkvkCmdDrawIndirectCountAMD = provider.getFunctionAddress("vkvkCmdDrawIndirectCountAMD");
 
 		Vulkan10 = ext.contains("Vulkan10") && VK.checkExtension("Vulkan10", VK10.isAvailable(this));
+		VK_AMD_draw_indirect_count = ext.contains("VK_AMD_draw_indirect_count") && VK.checkExtension("VK_AMD_draw_indirect_count", AMDDrawIndirectCount.isAvailable(this));
 		VK_AMD_gcn_shader = ext.contains("VK_AMD_gcn_shader");
+		VK_AMD_gcn_shader_half_float = ext.contains("VK_AMD_gcn_shader_half_float");
 		VK_AMD_negative_viewport_height = ext.contains("VK_AMD_negative_viewport_height");
 		VK_AMD_rasterization_order = ext.contains("VK_AMD_rasterization_order");
 		VK_AMD_shader_ballot = ext.contains("VK_AMD_shader_ballot");

@@ -330,7 +330,7 @@ public class VkXlibSurfaceCreateInfoKHR extends Struct implements NativeResource
 	// -----------------------------------
 
 	/** An array of {@link VkXlibSurfaceCreateInfoKHR} structs. */
-	public static final class Buffer extends StructBuffer<VkXlibSurfaceCreateInfoKHR, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkXlibSurfaceCreateInfoKHR, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkXlibSurfaceCreateInfoKHR.Buffer} instance backed by the specified container.

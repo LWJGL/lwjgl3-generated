@@ -378,7 +378,7 @@ public class XVisualInfo extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link XVisualInfo} structs. */
-	public static final class Buffer extends StructBuffer<XVisualInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<XVisualInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link XVisualInfo.Buffer} instance backed by the specified container.

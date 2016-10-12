@@ -247,7 +247,7 @@ public class STBTTBakedChar extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link STBTTBakedChar} structs. */
-	public static final class Buffer extends StructBuffer<STBTTBakedChar, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<STBTTBakedChar, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link STBTTBakedChar.Buffer} instance backed by the specified container.

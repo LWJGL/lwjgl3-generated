@@ -329,7 +329,7 @@ public class VkPipelineDynamicStateCreateInfo extends Struct implements NativeRe
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineDynamicStateCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineDynamicStateCreateInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkPipelineDynamicStateCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineDynamicStateCreateInfo.Buffer} instance backed by the specified container.

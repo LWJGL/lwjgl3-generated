@@ -205,7 +205,7 @@ public class NkInput extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NkInput} structs. */
-	public static final class Buffer extends StructBuffer<NkInput, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NkInput, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkInput.Buffer} instance backed by the specified container.

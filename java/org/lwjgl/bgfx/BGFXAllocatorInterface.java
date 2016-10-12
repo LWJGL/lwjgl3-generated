@@ -251,7 +251,7 @@ public class BGFXAllocatorInterface extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link BGFXAllocatorInterface} structs. */
-	public static final class Buffer extends StructBuffer<BGFXAllocatorInterface, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<BGFXAllocatorInterface, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link BGFXAllocatorInterface.Buffer} instance backed by the specified container.

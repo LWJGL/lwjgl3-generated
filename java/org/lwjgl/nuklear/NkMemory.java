@@ -93,7 +93,7 @@ public class NkMemory extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkMemory} structs. */
-	public static final class Buffer extends StructBuffer<NkMemory, Buffer> {
+	public static class Buffer extends StructBuffer<NkMemory, Buffer> {
 
 		/**
 		 * Creates a new {@link NkMemory.Buffer} instance backed by the specified container.

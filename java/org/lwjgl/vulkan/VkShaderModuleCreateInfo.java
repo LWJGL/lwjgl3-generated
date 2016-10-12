@@ -340,7 +340,7 @@ public class VkShaderModuleCreateInfo extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkShaderModuleCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkShaderModuleCreateInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkShaderModuleCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkShaderModuleCreateInfo.Buffer} instance backed by the specified container.

@@ -398,7 +398,7 @@ public class VkDisplaySurfaceCreateInfoKHR extends Struct implements NativeResou
 	// -----------------------------------
 
 	/** An array of {@link VkDisplaySurfaceCreateInfoKHR} structs. */
-	public static final class Buffer extends StructBuffer<VkDisplaySurfaceCreateInfoKHR, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkDisplaySurfaceCreateInfoKHR, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDisplaySurfaceCreateInfoKHR.Buffer} instance backed by the specified container.

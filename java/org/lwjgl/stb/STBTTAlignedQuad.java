@@ -255,7 +255,7 @@ public class STBTTAlignedQuad extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link STBTTAlignedQuad} structs. */
-	public static final class Buffer extends StructBuffer<STBTTAlignedQuad, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<STBTTAlignedQuad, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link STBTTAlignedQuad.Buffer} instance backed by the specified container.

@@ -93,7 +93,7 @@ public class NkBufferMarker extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkBufferMarker} structs. */
-	public static final class Buffer extends StructBuffer<NkBufferMarker, Buffer> {
+	public static class Buffer extends StructBuffer<NkBufferMarker, Buffer> {
 
 		/**
 		 * Creates a new {@link NkBufferMarker.Buffer} instance backed by the specified container.

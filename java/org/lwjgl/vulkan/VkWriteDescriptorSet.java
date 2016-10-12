@@ -451,7 +451,7 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkWriteDescriptorSet} structs. */
-	public static final class Buffer extends StructBuffer<VkWriteDescriptorSet, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkWriteDescriptorSet, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkWriteDescriptorSet.Buffer} instance backed by the specified container.

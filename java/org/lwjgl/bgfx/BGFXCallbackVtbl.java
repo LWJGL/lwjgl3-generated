@@ -386,7 +386,7 @@ public class BGFXCallbackVtbl extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link BGFXCallbackVtbl} structs. */
-	public static final class Buffer extends StructBuffer<BGFXCallbackVtbl, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<BGFXCallbackVtbl, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link BGFXCallbackVtbl.Buffer} instance backed by the specified container.

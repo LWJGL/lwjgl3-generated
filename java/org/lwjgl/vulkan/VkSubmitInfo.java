@@ -421,7 +421,7 @@ public class VkSubmitInfo extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkSubmitInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkSubmitInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkSubmitInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkSubmitInfo.Buffer} instance backed by the specified container.

@@ -425,7 +425,7 @@ public class NkStyleWindowHeader extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NkStyleWindowHeader} structs. */
-	public static final class Buffer extends StructBuffer<NkStyleWindowHeader, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NkStyleWindowHeader, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkStyleWindowHeader.Buffer} instance backed by the specified container.

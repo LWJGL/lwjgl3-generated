@@ -252,7 +252,7 @@ public class OVRPerfStatsPerCompositorFrame extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link OVRPerfStatsPerCompositorFrame} structs. */
-	public static final class Buffer extends StructBuffer<OVRPerfStatsPerCompositorFrame, Buffer> {
+	public static class Buffer extends StructBuffer<OVRPerfStatsPerCompositorFrame, Buffer> {
 
 		/**
 		 * Creates a new {@link OVRPerfStatsPerCompositorFrame.Buffer} instance backed by the specified container.

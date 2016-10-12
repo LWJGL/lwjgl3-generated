@@ -117,7 +117,7 @@ public class NkKeyboard extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkKeyboard} structs. */
-	public static final class Buffer extends StructBuffer<NkKeyboard, Buffer> {
+	public static class Buffer extends StructBuffer<NkKeyboard, Buffer> {
 
 		/**
 		 * Creates a new {@link NkKeyboard.Buffer} instance backed by the specified container.

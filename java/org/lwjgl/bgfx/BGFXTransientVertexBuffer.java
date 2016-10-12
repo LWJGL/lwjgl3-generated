@@ -329,7 +329,7 @@ public class BGFXTransientVertexBuffer extends Struct implements NativeResource 
 	// -----------------------------------
 
 	/** An array of {@link BGFXTransientVertexBuffer} structs. */
-	public static final class Buffer extends StructBuffer<BGFXTransientVertexBuffer, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<BGFXTransientVertexBuffer, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link BGFXTransientVertexBuffer.Buffer} instance backed by the specified container.

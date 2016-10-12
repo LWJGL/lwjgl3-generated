@@ -190,7 +190,7 @@ public class BGFXCaps extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link BGFXCaps} structs. */
-	public static final class Buffer extends StructBuffer<BGFXCaps, Buffer> {
+	public static class Buffer extends StructBuffer<BGFXCaps, Buffer> {
 
 		/**
 		 * Creates a new {@link BGFXCaps.Buffer} instance backed by the specified container.

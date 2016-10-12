@@ -257,7 +257,7 @@ public class NkCursor extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NkCursor} structs. */
-	public static final class Buffer extends StructBuffer<NkCursor, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NkCursor, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkCursor.Buffer} instance backed by the specified container.

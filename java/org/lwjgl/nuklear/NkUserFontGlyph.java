@@ -311,7 +311,7 @@ public class NkUserFontGlyph extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NkUserFontGlyph} structs. */
-	public static final class Buffer extends StructBuffer<NkUserFontGlyph, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NkUserFontGlyph, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkUserFontGlyph.Buffer} instance backed by the specified container.

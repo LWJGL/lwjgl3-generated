@@ -169,7 +169,7 @@ public class NkRowLayout extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkRowLayout} structs. */
-	public static final class Buffer extends StructBuffer<NkRowLayout, Buffer> {
+	public static class Buffer extends StructBuffer<NkRowLayout, Buffer> {
 
 		/**
 		 * Creates a new {@link NkRowLayout.Buffer} instance backed by the specified container.

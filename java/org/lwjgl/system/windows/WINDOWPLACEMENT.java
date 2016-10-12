@@ -314,7 +314,7 @@ public class WINDOWPLACEMENT extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link WINDOWPLACEMENT} structs. */
-	public static final class Buffer extends StructBuffer<WINDOWPLACEMENT, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<WINDOWPLACEMENT, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link WINDOWPLACEMENT.Buffer} instance backed by the specified container.

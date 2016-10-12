@@ -330,7 +330,7 @@ public class VkPipelineCacheCreateInfo extends Struct implements NativeResource 
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineCacheCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineCacheCreateInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkPipelineCacheCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineCacheCreateInfo.Buffer} instance backed by the specified container.

@@ -255,7 +255,7 @@ public class BGFXCallbackInterface extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link BGFXCallbackInterface} structs. */
-	public static final class Buffer extends StructBuffer<BGFXCallbackInterface, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<BGFXCallbackInterface, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link BGFXCallbackInterface.Buffer} instance backed by the specified container.

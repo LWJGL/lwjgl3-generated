@@ -404,7 +404,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineShaderStageCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineShaderStageCreateInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkPipelineShaderStageCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineShaderStageCreateInfo.Buffer} instance backed by the specified container.

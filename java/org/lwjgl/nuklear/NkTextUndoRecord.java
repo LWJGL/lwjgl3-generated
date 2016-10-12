@@ -109,7 +109,7 @@ class NkTextUndoRecord extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkTextUndoRecord} structs. */
-	public static final class Buffer extends StructBuffer<NkTextUndoRecord, Buffer> {
+	public static class Buffer extends StructBuffer<NkTextUndoRecord, Buffer> {
 
 		/**
 		 * Creates a new {@link NkTextUndoRecord.Buffer} instance backed by the specified container.

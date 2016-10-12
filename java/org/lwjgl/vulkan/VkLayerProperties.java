@@ -245,7 +245,7 @@ public class VkLayerProperties extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkLayerProperties} structs. */
-	public static final class Buffer extends StructBuffer<VkLayerProperties, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkLayerProperties, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkLayerProperties.Buffer} instance backed by the specified container.

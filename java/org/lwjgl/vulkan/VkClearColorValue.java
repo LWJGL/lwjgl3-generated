@@ -297,7 +297,7 @@ public class VkClearColorValue extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkClearColorValue} structs. */
-	public static final class Buffer extends StructBuffer<VkClearColorValue, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkClearColorValue, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkClearColorValue.Buffer} instance backed by the specified container.

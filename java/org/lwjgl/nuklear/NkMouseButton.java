@@ -101,7 +101,7 @@ public class NkMouseButton extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkMouseButton} structs. */
-	public static final class Buffer extends StructBuffer<NkMouseButton, Buffer> {
+	public static class Buffer extends StructBuffer<NkMouseButton, Buffer> {
 
 		/**
 		 * Creates a new {@link NkMouseButton.Buffer} instance backed by the specified container.

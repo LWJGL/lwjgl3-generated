@@ -232,7 +232,7 @@ public class NVGGlyphPosition extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NVGGlyphPosition} structs. */
-	public static final class Buffer extends StructBuffer<NVGGlyphPosition, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NVGGlyphPosition, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NVGGlyphPosition.Buffer} instance backed by the specified container.

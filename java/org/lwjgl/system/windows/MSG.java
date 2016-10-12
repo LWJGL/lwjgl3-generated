@@ -312,7 +312,7 @@ public class MSG extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link MSG} structs. */
-	public static final class Buffer extends StructBuffer<MSG, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<MSG, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link MSG.Buffer} instance backed by the specified container.

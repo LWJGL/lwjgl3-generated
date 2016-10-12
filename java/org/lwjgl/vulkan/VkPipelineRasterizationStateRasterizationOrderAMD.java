@@ -277,7 +277,7 @@ public class VkPipelineRasterizationStateRasterizationOrderAMD extends Struct im
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineRasterizationStateRasterizationOrderAMD} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineRasterizationStateRasterizationOrderAMD, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkPipelineRasterizationStateRasterizationOrderAMD, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineRasterizationStateRasterizationOrderAMD.Buffer} instance backed by the specified container.

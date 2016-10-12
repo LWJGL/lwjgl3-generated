@@ -243,7 +243,7 @@ public class NkVec2 extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NkVec2} structs. */
-	public static final class Buffer extends StructBuffer<NkVec2, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NkVec2, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkVec2.Buffer} instance backed by the specified container.

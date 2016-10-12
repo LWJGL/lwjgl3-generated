@@ -231,7 +231,7 @@ public class STBTTVertex extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link STBTTVertex} structs. */
-	public static final class Buffer extends StructBuffer<STBTTVertex, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<STBTTVertex, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link STBTTVertex.Buffer} instance backed by the specified container.

@@ -328,7 +328,7 @@ public class VkDescriptorSetLayoutCreateInfo extends Struct implements NativeRes
 	// -----------------------------------
 
 	/** An array of {@link VkDescriptorSetLayoutCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkDescriptorSetLayoutCreateInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkDescriptorSetLayoutCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDescriptorSetLayoutCreateInfo.Buffer} instance backed by the specified container.

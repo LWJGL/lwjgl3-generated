@@ -271,7 +271,7 @@ public class NkRect extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NkRect} structs. */
-	public static final class Buffer extends StructBuffer<NkRect, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NkRect, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkRect.Buffer} instance backed by the specified container.

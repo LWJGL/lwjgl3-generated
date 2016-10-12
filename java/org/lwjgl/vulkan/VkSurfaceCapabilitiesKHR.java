@@ -306,7 +306,7 @@ public class VkSurfaceCapabilitiesKHR extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkSurfaceCapabilitiesKHR} structs. */
-	public static final class Buffer extends StructBuffer<VkSurfaceCapabilitiesKHR, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkSurfaceCapabilitiesKHR, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkSurfaceCapabilitiesKHR.Buffer} instance backed by the specified container.

@@ -460,7 +460,7 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NkStyleScrollbar} structs. */
-	public static final class Buffer extends StructBuffer<NkStyleScrollbar, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NkStyleScrollbar, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkStyleScrollbar.Buffer} instance backed by the specified container.

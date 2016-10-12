@@ -156,7 +156,7 @@ public class BGFXStats extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link BGFXStats} structs. */
-	public static final class Buffer extends StructBuffer<BGFXStats, Buffer> {
+	public static class Buffer extends StructBuffer<BGFXStats, Buffer> {
 
 		/**
 		 * Creates a new {@link BGFXStats.Buffer} instance backed by the specified container.

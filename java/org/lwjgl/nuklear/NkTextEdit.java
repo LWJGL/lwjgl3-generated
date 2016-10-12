@@ -199,7 +199,7 @@ class NkTextEdit extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkTextEdit} structs. */
-	public static final class Buffer extends StructBuffer<NkTextEdit, Buffer> {
+	public static class Buffer extends StructBuffer<NkTextEdit, Buffer> {
 
 		/**
 		 * Creates a new {@link NkTextEdit.Buffer} instance backed by the specified container.

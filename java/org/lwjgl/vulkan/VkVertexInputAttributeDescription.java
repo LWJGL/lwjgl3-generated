@@ -296,7 +296,7 @@ public class VkVertexInputAttributeDescription extends Struct implements NativeR
 	// -----------------------------------
 
 	/** An array of {@link VkVertexInputAttributeDescription} structs. */
-	public static final class Buffer extends StructBuffer<VkVertexInputAttributeDescription, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkVertexInputAttributeDescription, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkVertexInputAttributeDescription.Buffer} instance backed by the specified container.

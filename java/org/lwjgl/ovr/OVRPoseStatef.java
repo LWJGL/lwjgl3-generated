@@ -141,7 +141,7 @@ public class OVRPoseStatef extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link OVRPoseStatef} structs. */
-	public static final class Buffer extends StructBuffer<OVRPoseStatef, Buffer> {
+	public static class Buffer extends StructBuffer<OVRPoseStatef, Buffer> {
 
 		/**
 		 * Creates a new {@link OVRPoseStatef.Buffer} instance backed by the specified container.

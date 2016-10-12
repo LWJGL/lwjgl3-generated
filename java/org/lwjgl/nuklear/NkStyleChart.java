@@ -313,7 +313,7 @@ public class NkStyleChart extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NkStyleChart} structs. */
-	public static final class Buffer extends StructBuffer<NkStyleChart, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NkStyleChart, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkStyleChart.Buffer} instance backed by the specified container.

@@ -252,7 +252,7 @@ public class CLBufferRegion extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link CLBufferRegion} structs. */
-	public static final class Buffer extends StructBuffer<CLBufferRegion, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<CLBufferRegion, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link CLBufferRegion.Buffer} instance backed by the specified container.

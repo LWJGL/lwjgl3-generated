@@ -330,7 +330,7 @@ public class VkWin32SurfaceCreateInfoKHR extends Struct implements NativeResourc
 	// -----------------------------------
 
 	/** An array of {@link VkWin32SurfaceCreateInfoKHR} structs. */
-	public static final class Buffer extends StructBuffer<VkWin32SurfaceCreateInfoKHR, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkWin32SurfaceCreateInfoKHR, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkWin32SurfaceCreateInfoKHR.Buffer} instance backed by the specified container.

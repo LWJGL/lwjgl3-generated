@@ -415,7 +415,7 @@ public class OVRLayerEyeMatrix extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link OVRLayerEyeMatrix} structs. */
-	public static final class Buffer extends StructBuffer<OVRLayerEyeMatrix, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<OVRLayerEyeMatrix, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRLayerEyeMatrix.Buffer} instance backed by the specified container.

@@ -340,7 +340,7 @@ public class VkBufferImageCopy extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkBufferImageCopy} structs. */
-	public static final class Buffer extends StructBuffer<VkBufferImageCopy, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkBufferImageCopy, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkBufferImageCopy.Buffer} instance backed by the specified container.

@@ -424,7 +424,7 @@ public class NkStyleToggle extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NkStyleToggle} structs. */
-	public static final class Buffer extends StructBuffer<NkStyleToggle, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NkStyleToggle, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkStyleToggle.Buffer} instance backed by the specified container.

@@ -267,7 +267,7 @@ public class BGFXAttachment extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link BGFXAttachment} structs. */
-	public static final class Buffer extends StructBuffer<BGFXAttachment, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<BGFXAttachment, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link BGFXAttachment.Buffer} instance backed by the specified container.

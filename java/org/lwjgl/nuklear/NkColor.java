@@ -271,7 +271,7 @@ public class NkColor extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NkColor} structs. */
-	public static final class Buffer extends StructBuffer<NkColor, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NkColor, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkColor.Buffer} instance backed by the specified container.

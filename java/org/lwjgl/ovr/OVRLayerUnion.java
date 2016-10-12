@@ -252,7 +252,7 @@ public class OVRLayerUnion extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link OVRLayerUnion} structs. */
-	public static final class Buffer extends StructBuffer<OVRLayerUnion, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<OVRLayerUnion, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRLayerUnion.Buffer} instance backed by the specified container.

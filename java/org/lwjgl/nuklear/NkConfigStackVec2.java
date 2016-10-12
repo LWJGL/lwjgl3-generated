@@ -101,7 +101,7 @@ class NkConfigStackVec2 extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkConfigStackVec2} structs. */
-	public static final class Buffer extends StructBuffer<NkConfigStackVec2, Buffer> {
+	public static class Buffer extends StructBuffer<NkConfigStackVec2, Buffer> {
 
 		/**
 		 * Creates a new {@link NkConfigStackVec2.Buffer} instance backed by the specified container.

@@ -133,7 +133,7 @@ public class NkChart extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkChart} structs. */
-	public static final class Buffer extends StructBuffer<NkChart, Buffer> {
+	public static class Buffer extends StructBuffer<NkChart, Buffer> {
 
 		/**
 		 * Creates a new {@link NkChart.Buffer} instance backed by the specified container.

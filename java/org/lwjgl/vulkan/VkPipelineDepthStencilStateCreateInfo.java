@@ -417,7 +417,7 @@ public class VkPipelineDepthStencilStateCreateInfo extends Struct implements Nat
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineDepthStencilStateCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineDepthStencilStateCreateInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkPipelineDepthStencilStateCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineDepthStencilStateCreateInfo.Buffer} instance backed by the specified container.

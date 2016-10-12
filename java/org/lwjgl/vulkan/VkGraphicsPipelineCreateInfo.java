@@ -653,7 +653,7 @@ public class VkGraphicsPipelineCreateInfo extends Struct implements NativeResour
 	// -----------------------------------
 
 	/** An array of {@link VkGraphicsPipelineCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkGraphicsPipelineCreateInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkGraphicsPipelineCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkGraphicsPipelineCreateInfo.Buffer} instance backed by the specified container.

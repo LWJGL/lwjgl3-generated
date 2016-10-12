@@ -154,7 +154,7 @@ public class GLXStereoNotifyEventEXT extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link GLXStereoNotifyEventEXT} structs. */
-	public static final class Buffer extends StructBuffer<GLXStereoNotifyEventEXT, Buffer> {
+	public static class Buffer extends StructBuffer<GLXStereoNotifyEventEXT, Buffer> {
 
 		/**
 		 * Creates a new {@link GLXStereoNotifyEventEXT.Buffer} instance backed by the specified container.

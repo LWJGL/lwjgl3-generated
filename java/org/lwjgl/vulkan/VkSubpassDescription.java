@@ -433,7 +433,7 @@ public class VkSubpassDescription extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkSubpassDescription} structs. */
-	public static final class Buffer extends StructBuffer<VkSubpassDescription, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkSubpassDescription, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkSubpassDescription.Buffer} instance backed by the specified container.

@@ -295,7 +295,7 @@ public class VkSparseBufferMemoryBindInfo extends Struct implements NativeResour
 	// -----------------------------------
 
 	/** An array of {@link VkSparseBufferMemoryBindInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkSparseBufferMemoryBindInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkSparseBufferMemoryBindInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkSparseBufferMemoryBindInfo.Buffer} instance backed by the specified container.

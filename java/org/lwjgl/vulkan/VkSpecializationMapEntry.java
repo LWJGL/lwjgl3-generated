@@ -277,7 +277,7 @@ public class VkSpecializationMapEntry extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkSpecializationMapEntry} structs. */
-	public static final class Buffer extends StructBuffer<VkSpecializationMapEntry, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkSpecializationMapEntry, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkSpecializationMapEntry.Buffer} instance backed by the specified container.

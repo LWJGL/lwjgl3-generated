@@ -265,7 +265,7 @@ public class VkClearDepthStencilValue extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkClearDepthStencilValue} structs. */
-	public static final class Buffer extends StructBuffer<VkClearDepthStencilValue, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkClearDepthStencilValue, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkClearDepthStencilValue.Buffer} instance backed by the specified container.

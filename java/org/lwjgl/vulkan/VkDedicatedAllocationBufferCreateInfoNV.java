@@ -280,7 +280,7 @@ public class VkDedicatedAllocationBufferCreateInfoNV extends Struct implements N
 	// -----------------------------------
 
 	/** An array of {@link VkDedicatedAllocationBufferCreateInfoNV} structs. */
-	public static final class Buffer extends StructBuffer<VkDedicatedAllocationBufferCreateInfoNV, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkDedicatedAllocationBufferCreateInfoNV, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDedicatedAllocationBufferCreateInfoNV.Buffer} instance backed by the specified container.

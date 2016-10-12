@@ -252,7 +252,7 @@ public class OVRVector2f extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link OVRVector2f} structs. */
-	public static final class Buffer extends StructBuffer<OVRVector2f, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<OVRVector2f, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRVector2f.Buffer} instance backed by the specified container.

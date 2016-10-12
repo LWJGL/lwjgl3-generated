@@ -297,7 +297,7 @@ public class BGFXPlatformData extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link BGFXPlatformData} structs. */
-	public static final class Buffer extends StructBuffer<BGFXPlatformData, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<BGFXPlatformData, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link BGFXPlatformData.Buffer} instance backed by the specified container.

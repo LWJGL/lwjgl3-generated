@@ -314,7 +314,7 @@ public class VkDebugMarkerObjectNameInfoEXT extends Struct implements NativeReso
 	// -----------------------------------
 
 	/** An array of {@link VkDebugMarkerObjectNameInfoEXT} structs. */
-	public static final class Buffer extends StructBuffer<VkDebugMarkerObjectNameInfoEXT, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkDebugMarkerObjectNameInfoEXT, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDebugMarkerObjectNameInfoEXT.Buffer} instance backed by the specified container.

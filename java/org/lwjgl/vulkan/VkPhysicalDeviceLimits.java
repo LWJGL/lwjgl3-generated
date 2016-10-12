@@ -1119,7 +1119,7 @@ public class VkPhysicalDeviceLimits extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkPhysicalDeviceLimits} structs. */
-	public static final class Buffer extends StructBuffer<VkPhysicalDeviceLimits, Buffer> {
+	public static class Buffer extends StructBuffer<VkPhysicalDeviceLimits, Buffer> {
 
 		/**
 		 * Creates a new {@link VkPhysicalDeviceLimits.Buffer} instance backed by the specified container.

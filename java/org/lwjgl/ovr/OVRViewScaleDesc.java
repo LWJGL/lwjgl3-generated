@@ -279,7 +279,7 @@ public class OVRViewScaleDesc extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link OVRViewScaleDesc} structs. */
-	public static final class Buffer extends StructBuffer<OVRViewScaleDesc, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<OVRViewScaleDesc, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRViewScaleDesc.Buffer} instance backed by the specified container.

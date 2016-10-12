@@ -141,7 +141,7 @@ class NkPool extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkPool} structs. */
-	public static final class Buffer extends StructBuffer<NkPool, Buffer> {
+	public static class Buffer extends StructBuffer<NkPool, Buffer> {
 
 		/**
 		 * Creates a new {@link NkPool.Buffer} instance backed by the specified container.

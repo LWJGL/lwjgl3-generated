@@ -412,7 +412,7 @@ public class NkStyleButton extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NkStyleButton} structs. */
-	public static final class Buffer extends StructBuffer<NkStyleButton, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NkStyleButton, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkStyleButton.Buffer} instance backed by the specified container.

@@ -252,7 +252,7 @@ public class OVRSizei extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link OVRSizei} structs. */
-	public static final class Buffer extends StructBuffer<OVRSizei, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<OVRSizei, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRSizei.Buffer} instance backed by the specified container.

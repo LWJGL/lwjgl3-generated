@@ -354,7 +354,7 @@ public class NVGPaint extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NVGPaint} structs. */
-	public static final class Buffer extends StructBuffer<NVGPaint, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NVGPaint, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NVGPaint.Buffer} instance backed by the specified container.

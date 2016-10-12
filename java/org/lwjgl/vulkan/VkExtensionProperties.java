@@ -221,7 +221,7 @@ public class VkExtensionProperties extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkExtensionProperties} structs. */
-	public static final class Buffer extends StructBuffer<VkExtensionProperties, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkExtensionProperties, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkExtensionProperties.Buffer} instance backed by the specified container.

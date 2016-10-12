@@ -233,7 +233,7 @@ public class NkHandle extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NkHandle} structs. */
-	public static final class Buffer extends StructBuffer<NkHandle, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NkHandle, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkHandle.Buffer} instance backed by the specified container.

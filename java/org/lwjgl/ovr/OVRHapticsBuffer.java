@@ -284,7 +284,7 @@ public class OVRHapticsBuffer extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link OVRHapticsBuffer} structs. */
-	public static final class Buffer extends StructBuffer<OVRHapticsBuffer, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<OVRHapticsBuffer, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRHapticsBuffer.Buffer} instance backed by the specified container.

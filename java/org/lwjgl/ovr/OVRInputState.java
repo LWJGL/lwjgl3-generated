@@ -336,7 +336,7 @@ public class OVRInputState extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link OVRInputState} structs. */
-	public static final class Buffer extends StructBuffer<OVRInputState, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<OVRInputState, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRInputState.Buffer} instance backed by the specified container.

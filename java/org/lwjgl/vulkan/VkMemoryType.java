@@ -107,7 +107,7 @@ public class VkMemoryType extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link VkMemoryType} structs. */
-	public static final class Buffer extends StructBuffer<VkMemoryType, Buffer> {
+	public static class Buffer extends StructBuffer<VkMemoryType, Buffer> {
 
 		/**
 		 * Creates a new {@link VkMemoryType.Buffer} instance backed by the specified container.

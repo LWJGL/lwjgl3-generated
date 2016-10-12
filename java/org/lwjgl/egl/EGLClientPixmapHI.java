@@ -312,7 +312,7 @@ public class EGLClientPixmapHI extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link EGLClientPixmapHI} structs. */
-	public static final class Buffer extends StructBuffer<EGLClientPixmapHI, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<EGLClientPixmapHI, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link EGLClientPixmapHI.Buffer} instance backed by the specified container.

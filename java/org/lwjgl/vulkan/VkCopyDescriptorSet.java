@@ -380,7 +380,7 @@ public class VkCopyDescriptorSet extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkCopyDescriptorSet} structs. */
-	public static final class Buffer extends StructBuffer<VkCopyDescriptorSet, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkCopyDescriptorSet, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkCopyDescriptorSet.Buffer} instance backed by the specified container.

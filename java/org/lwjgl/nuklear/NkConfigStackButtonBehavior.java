@@ -101,7 +101,7 @@ class NkConfigStackButtonBehavior extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkConfigStackButtonBehavior} structs. */
-	public static final class Buffer extends StructBuffer<NkConfigStackButtonBehavior, Buffer> {
+	public static class Buffer extends StructBuffer<NkConfigStackButtonBehavior, Buffer> {
 
 		/**
 		 * Creates a new {@link NkConfigStackButtonBehavior.Buffer} instance backed by the specified container.

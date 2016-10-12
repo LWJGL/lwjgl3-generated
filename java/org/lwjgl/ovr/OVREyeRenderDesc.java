@@ -242,7 +242,7 @@ public class OVREyeRenderDesc extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link OVREyeRenderDesc} structs. */
-	public static final class Buffer extends StructBuffer<OVREyeRenderDesc, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<OVREyeRenderDesc, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVREyeRenderDesc.Buffer} instance backed by the specified container.

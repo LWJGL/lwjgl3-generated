@@ -237,7 +237,7 @@ public class NkMemoryStatus extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NkMemoryStatus} structs. */
-	public static final class Buffer extends StructBuffer<NkMemoryStatus, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NkMemoryStatus, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkMemoryStatus.Buffer} instance backed by the specified container.

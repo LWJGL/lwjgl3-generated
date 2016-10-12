@@ -389,7 +389,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
 	// -----------------------------------
 
 	/** An array of {@link VkPipelineColorBlendStateCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkPipelineColorBlendStateCreateInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkPipelineColorBlendStateCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkPipelineColorBlendStateCreateInfo.Buffer} instance backed by the specified container.

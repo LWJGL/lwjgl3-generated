@@ -323,7 +323,7 @@ public class VkDisplayPresentInfoKHR extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkDisplayPresentInfoKHR} structs. */
-	public static final class Buffer extends StructBuffer<VkDisplayPresentInfoKHR, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkDisplayPresentInfoKHR, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDisplayPresentInfoKHR.Buffer} instance backed by the specified container.

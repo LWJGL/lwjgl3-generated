@@ -278,7 +278,7 @@ public class VkFenceCreateInfo extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkFenceCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkFenceCreateInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkFenceCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkFenceCreateInfo.Buffer} instance backed by the specified container.

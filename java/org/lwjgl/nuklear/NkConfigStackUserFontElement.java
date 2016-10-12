@@ -98,7 +98,7 @@ class NkConfigStackUserFontElement extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NkConfigStackUserFontElement} structs. */
-	public static final class Buffer extends StructBuffer<NkConfigStackUserFontElement, Buffer> {
+	public static class Buffer extends StructBuffer<NkConfigStackUserFontElement, Buffer> {
 
 		/**
 		 * Creates a new {@link NkConfigStackUserFontElement.Buffer} instance backed by the specified container.

@@ -173,7 +173,7 @@ public class BGFXHmdEye extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link BGFXHmdEye} structs. */
-	public static final class Buffer extends StructBuffer<BGFXHmdEye, Buffer> {
+	public static class Buffer extends StructBuffer<BGFXHmdEye, Buffer> {
 
 		/**
 		 * Creates a new {@link BGFXHmdEye.Buffer} instance backed by the specified container.

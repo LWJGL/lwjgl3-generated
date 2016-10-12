@@ -404,7 +404,7 @@ public class VkRenderPassCreateInfo extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkRenderPassCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkRenderPassCreateInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkRenderPassCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkRenderPassCreateInfo.Buffer} instance backed by the specified container.

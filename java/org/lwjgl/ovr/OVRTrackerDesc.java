@@ -232,7 +232,7 @@ public class OVRTrackerDesc extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link OVRTrackerDesc} structs. */
-	public static final class Buffer extends StructBuffer<OVRTrackerDesc, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<OVRTrackerDesc, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link OVRTrackerDesc.Buffer} instance backed by the specified container.

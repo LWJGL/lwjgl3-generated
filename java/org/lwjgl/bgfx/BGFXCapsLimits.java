@@ -232,7 +232,7 @@ public class BGFXCapsLimits extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link BGFXCapsLimits} structs. */
-	public static final class Buffer extends StructBuffer<BGFXCapsLimits, Buffer> {
+	public static class Buffer extends StructBuffer<BGFXCapsLimits, Buffer> {
 
 		/**
 		 * Creates a new {@link BGFXCapsLimits.Buffer} instance backed by the specified container.

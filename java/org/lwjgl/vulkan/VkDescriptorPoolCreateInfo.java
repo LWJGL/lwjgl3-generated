@@ -345,7 +345,7 @@ public class VkDescriptorPoolCreateInfo extends Struct implements NativeResource
 	// -----------------------------------
 
 	/** An array of {@link VkDescriptorPoolCreateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkDescriptorPoolCreateInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkDescriptorPoolCreateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDescriptorPoolCreateInfo.Buffer} instance backed by the specified container.

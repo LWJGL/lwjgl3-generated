@@ -621,7 +621,7 @@ public class NkStyleWindow extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NkStyleWindow} structs. */
-	public static final class Buffer extends StructBuffer<NkStyleWindow, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NkStyleWindow, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NkStyleWindow.Buffer} instance backed by the specified container.

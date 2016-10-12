@@ -339,7 +339,7 @@ public class VkStencilOpState extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link VkStencilOpState} structs. */
-	public static final class Buffer extends StructBuffer<VkStencilOpState, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkStencilOpState, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkStencilOpState.Buffer} instance backed by the specified container.

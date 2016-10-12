@@ -302,7 +302,7 @@ public class NVGColor extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link NVGColor} structs. */
-	public static final class Buffer extends StructBuffer<NVGColor, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<NVGColor, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link NVGColor.Buffer} instance backed by the specified container.

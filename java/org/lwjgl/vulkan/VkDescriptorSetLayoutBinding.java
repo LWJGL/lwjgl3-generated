@@ -322,7 +322,7 @@ public class VkDescriptorSetLayoutBinding extends Struct implements NativeResour
 	// -----------------------------------
 
 	/** An array of {@link VkDescriptorSetLayoutBinding} structs. */
-	public static final class Buffer extends StructBuffer<VkDescriptorSetLayoutBinding, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkDescriptorSetLayoutBinding, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDescriptorSetLayoutBinding.Buffer} instance backed by the specified container.

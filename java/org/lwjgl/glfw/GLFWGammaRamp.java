@@ -20,9 +20,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code red} &ndash; an array of value describing the response of the red channel</li>
- * <li>{@code green} &ndash; an array of value describing the response of the green channel</li>
- * <li>{@code blue} &ndash; an array of value describing the response of the blue channel</li>
+ * <li>{@code red} &ndash; an array of values describing the response of the red channel</li>
+ * <li>{@code green} &ndash; an array of values describing the response of the green channel</li>
+ * <li>{@code blue} &ndash; an array of values describing the response of the blue channel</li>
  * <li>{@code size} &ndash; the number of elements in each array</li>
  * </ul>
  * 
@@ -305,7 +305,7 @@ public class GLFWGammaRamp extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** An array of {@link GLFWGammaRamp} structs. */
-	public static final class Buffer extends StructBuffer<GLFWGammaRamp, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<GLFWGammaRamp, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link GLFWGammaRamp.Buffer} instance backed by the specified container.

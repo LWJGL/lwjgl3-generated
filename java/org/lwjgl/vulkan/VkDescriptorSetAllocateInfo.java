@@ -331,7 +331,7 @@ public class VkDescriptorSetAllocateInfo extends Struct implements NativeResourc
 	// -----------------------------------
 
 	/** An array of {@link VkDescriptorSetAllocateInfo} structs. */
-	public static final class Buffer extends StructBuffer<VkDescriptorSetAllocateInfo, Buffer> implements NativeResource {
+	public static class Buffer extends StructBuffer<VkDescriptorSetAllocateInfo, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDescriptorSetAllocateInfo.Buffer} instance backed by the specified container.

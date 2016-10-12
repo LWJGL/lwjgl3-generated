@@ -120,7 +120,7 @@ public class NVGLUFramebuffer extends Struct {
 	// -----------------------------------
 
 	/** An array of {@link NVGLUFramebuffer} structs. */
-	public static final class Buffer extends StructBuffer<NVGLUFramebuffer, Buffer> {
+	public static class Buffer extends StructBuffer<NVGLUFramebuffer, Buffer> {
 
 		/**
 		 * Creates a new {@link NVGLUFramebuffer.Buffer} instance backed by the specified container.
