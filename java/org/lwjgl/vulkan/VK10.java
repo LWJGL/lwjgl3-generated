@@ -20,32 +20,12 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class VK10 {
 
 	/**
-	 * The Vulkan version number is used in several places in the API. In each such use, the API major version number, minor version number, and patch version
-	 * number are packed into a 32-bit integer as follows:
+	 * The API version number for Vulkan 1.0.
 	 * 
-	 * <ul>
-	 * <li>The major version number is a 10-bit integer packed into bits 31-22.</li>
-	 * <li>The minor version number is a 10-bit integer packed into bits 21-12.</li>
-	 * <li>The patch version number is a 12-bit integer packed into bits 11-0.</li>
-	 * </ul>
-	 * 
-	 * <p>Differences in any of the Vulkan version numbers indicates a change to the API in some way, with each part of the version number indicating a different
-	 * scope of changes.</p>
-	 * 
-	 * <p>A difference in patch version numbers indicates that some usually small aspect of the specification or header has been modified, typically to fix a
-	 * bug, and <b>may</b> have an impact on the behavior of existing functionality. Differences in this version number <b>should</b> not affect either full compatibility
-	 * or backwards compatibility between two versions, or add additional interfaces to the API.</p>
-	 * 
-	 * <p>A difference in minor version numbers indicates that some amount of new functionality has been added. This will usually include new interfaces in the
-	 * header, and <b>may</b> also include behavior changes and bug fixes. Functionality <b>may</b> be deprecated in a minor revision, but will not be removed. When a new
-	 * minor version is introduced, the patch version is reset to 0, and each minor revision maintains its own set of patch versions. Differences in this
-	 * version <b>should</b> not affect backwards compatibility, but will affect full compatibility.</p>
-	 * 
-	 * <p>A difference in major version numbers indicates a large set of changes to the API, potentially including new functionality and header interfaces,
-	 * behavioral changes, removal of deprecated features, modification or outright replacement of any feature, and is thus very likely to break any and all
-	 * compatibility. Differences in this version will typically require significant modification to an application in order for it to function.</p>
+	 * <p>The patch version number in this macro will always be zero. The supported patch version for a physical device <b>can</b> be queried with
+	 * {@link #vkGetPhysicalDeviceProperties GetPhysicalDeviceProperties}.</p>
 	 */
-	public static final int VK_API_VERSION_1_0 = VKUtil.VK_MAKE_VERSION(1, 0, 0);
+	public static final int VK_API_VERSION_1_0 = VK_MAKE_VERSION(1, 0, 0);
 
 	/**
 	 * The reserved handle {@code VK_NULL_HANDLE} <b>can</b> be passed in place of valid object handles when explicitly called out in the specification. Any command
@@ -2153,6 +2133,62 @@ k<sub>0</sub> = floor(w - 0.5)      k<sub>1</sub> = k<sub>0</sub> + 1
 			caps.vkCmdResetQueryPool, caps.vkCmdWriteTimestamp, caps.vkCmdCopyQueryPoolResults, caps.vkCmdPushConstants, caps.vkCmdBeginRenderPass, 
 			caps.vkCmdNextSubpass, caps.vkCmdEndRenderPass, caps.vkCmdExecuteCommands
 		);
+	}
+
+	// --- [ VK_MAKE_VERSION ] ---
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VK_MAKE_VERSION.html">Khronos Reference Page</a></p>
+	 * 
+	 * Constructs an API version number.
+	 * 
+	 * <p>This macro <b>can</b> be used when constructing the {@link VkApplicationInfo}{@code ::pname:apiVersion} parameter passed to {@link #vkCreateInstance CreateInstance}.</p>
+	 *
+	 * @param major the major version number
+	 * @param minor the minor version number
+	 * @param patch the patch version number
+	 */
+	public static int VK_MAKE_VERSION(int major, int minor, int patch) {
+		return (major << 22) | (minor << 12) | patch;
+	}
+
+	// --- [ VK_VERSION_MAJOR ] ---
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VK_VERSION_MAJOR.html">Khronos Reference Page</a></p>
+	 * 
+	 * Extracts the API major version number from a packed version number.
+	 *
+	 * @param version the Vulkan API version
+	 */
+	public static int VK_VERSION_MAJOR(int version) {
+		return version >> 22;
+	}
+
+	// --- [ VK_VERSION_MINOR ] ---
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VK_VERSION_MINOR.html">Khronos Reference Page</a></p>
+	 * 
+	 * Extracts the API minor version number from a packed version number.
+	 *
+	 * @param version the Vulkan API version
+	 */
+	public static int VK_VERSION_MINOR(int version) {
+		return (version >> 12) & 0x3FF;
+	}
+
+	// --- [ VK_VERSION_PATCH ] ---
+
+	/**
+	 * <p><a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VK_VERSION_PATCH.html">Khronos Reference Page</a></p>
+	 * 
+	 * Extracts the API patch version number from a packed version number.
+	 *
+	 * @param version the Vulkan API version
+	 */
+	public static int VK_VERSION_PATCH(int version) {
+		return version & 0xFFF;
 	}
 
 	// --- [ vkCreateInstance ] ---
