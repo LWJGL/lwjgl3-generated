@@ -18,9 +18,23 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <ul>
  * <li>{@code maxDrawCalls} &ndash; maximum draw calls</li>
+ * <li>{@code maxBlits} &ndash; maximum number of blit calls</li>
  * <li>{@code maxTextureSize} &ndash; maximum texture size</li>
  * <li>{@code maxViews} &ndash; maximum views</li>
+ * <li>{@code maxFrameBuffers} &ndash; maximum number of frame buffer handles</li>
  * <li>{@code maxFBAttachments} &ndash; maximum frame buffer attachments</li>
+ * <li>{@code maxPrograms} &ndash; maximum number of program handles</li>
+ * <li>{@code maxShaders} &ndash; maximum number of shader handles</li>
+ * <li>{@code maxTextures} &ndash; maximum number of texture handles</li>
+ * <li>{@code maxTextureSamplers} &ndash; maximum number of texture samplers</li>
+ * <li>{@code maxVertexDecls} &ndash; maximum number of vertex format declarations</li>
+ * <li>{@code maxVertexStreams} &ndash; maximum number of vertex streams</li>
+ * <li>{@code maxIndexBuffers} &ndash; maximum number of index buffer handles</li>
+ * <li>{@code maxVertexBuffers} &ndash; maximum number of vertex buffer handles</li>
+ * <li>{@code maxDynamicIndexBuffers} &ndash; maximum number of dynamic index buffer handles</li>
+ * <li>{@code maxDynamicVertexBuffers} &ndash; maximum number of vertex buffer handles</li>
+ * <li>{@code maxUniforms} &ndash; maximum number of uniform handles</li>
+ * <li>{@code maxOcclusionQueries} &ndash; maximum number of occlusion query handles</li>
  * </ul>
  * 
  * <h3>Layout</h3>

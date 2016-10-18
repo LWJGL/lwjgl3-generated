@@ -22,7 +22,10 @@ import static org.lwjgl.system.Pointer.*;
 public class BGFX {
 
 	/** API version */
-	public static final int BGFX_API_VERSION = 24;
+	public static final int BGFX_API_VERSION = 26;
+
+	/** Invalid handle */
+	public static final short BGFX_INVALID_HANDLE = (short)0xFFFF;
 
 	/** State */
 	public static final long
@@ -592,12 +595,22 @@ public class BGFX {
 	/** bgfx_fatal_t */
 	public static final int
 		BGFX_FATAL_DEBUG_CHECK              = 0,
-		BGFX_FATAL_MINIMUM_REQUIRED_SPECS   = 1,
-		BGFX_FATAL_INVALID_SHADER           = 2,
-		BGFX_FATAL_UNABLE_TO_INITIALIZE     = 3,
-		BGFX_FATAL_UNABLE_TO_CREATE_TEXTURE = 4,
-		BGFX_FATAL_DEVICE_LOST              = 5,
-		BGFX_FATAL_COUNT                    = 6;
+		BGFX_FATAL_INVALID_SHADER           = 1,
+		BGFX_FATAL_UNABLE_TO_INITIALIZE     = 2,
+		BGFX_FATAL_UNABLE_TO_CREATE_TEXTURE = 3,
+		BGFX_FATAL_DEVICE_LOST              = 4,
+		BGFX_FATAL_COUNT                    = 5;
+
+	/** Blend state macros */
+	public static final long
+		BGFX_STATE_BLEND_ADD         = BGFX_STATE_BLEND_FUNC(BGFX_STATE_BLEND_ONE, BGFX_STATE_BLEND_ONE),
+		BGFX_STATE_BLEND_ALPHA       = BGFX_STATE_BLEND_FUNC(BGFX_STATE_BLEND_SRC_ALPHA, BGFX_STATE_BLEND_INV_SRC_ALPHA),
+		BGFX_STATE_BLEND_DARKEN      = BGFX_STATE_BLEND_FUNC(BGFX_STATE_BLEND_ONE, BGFX_STATE_BLEND_ONE) | BGFX_STATE_BLEND_EQUATION(BGFX_STATE_BLEND_EQUATION_MIN),
+		BGFX_STATE_BLEND_LIGHTEN     = BGFX_STATE_BLEND_FUNC(BGFX_STATE_BLEND_ONE, BGFX_STATE_BLEND_ONE) | BGFX_STATE_BLEND_EQUATION(BGFX_STATE_BLEND_EQUATION_MAX),
+		BGFX_STATE_BLEND_MULTIPLY    = BGFX_STATE_BLEND_FUNC(BGFX_STATE_BLEND_DST_COLOR, BGFX_STATE_BLEND_ZERO),
+		BGFX_STATE_BLEND_NORMAL      = BGFX_STATE_BLEND_FUNC(BGFX_STATE_BLEND_ONE, BGFX_STATE_BLEND_INV_SRC_ALPHA),
+		BGFX_STATE_BLEND_SCREEN      = BGFX_STATE_BLEND_FUNC(BGFX_STATE_BLEND_ONE, BGFX_STATE_BLEND_INV_SRC_COLOR),
+		BGFX_STATE_BLEND_LINEAR_BURN = BGFX_STATE_BLEND_FUNC(BGFX_STATE_BLEND_DST_COLOR, BGFX_STATE_BLEND_INV_DST_COLOR) | BGFX_STATE_BLEND_EQUATION(BGFX_STATE_BLEND_EQUATION_SUB);
 
 	protected BGFX() {
 		throw new UnsupportedOperationException();
@@ -1181,26 +1194,25 @@ public class BGFX {
 	/**
 	 * Returns supported backend API renderers.
 	 *
-	 * @param _enum pointer to an array of {@link #BGFX_RENDERER_TYPE_COUNT RENDERER_TYPE_COUNT} renderer types
+	 * @param _max  maximum number of elements in {@code _enum} array
+	 * @param _enum array where supported renderers will be written
 	 *
 	 * @return the number of renderers written to {@code _enum}
 	 */
-	public static byte nbgfx_get_supported_renderers(long _enum) {
+	public static byte nbgfx_get_supported_renderers(byte _max, long _enum) {
 		long __functionAddress = Functions.get_supported_renderers;
-		return invokePB(__functionAddress, _enum);
+		return invokePB(__functionAddress, _max, _enum);
 	}
 
 	/**
 	 * Returns supported backend API renderers.
 	 *
-	 * @param _enum pointer to an array of {@link #BGFX_RENDERER_TYPE_COUNT RENDERER_TYPE_COUNT} renderer types
+	 * @param _enum array where supported renderers will be written
 	 *
 	 * @return the number of renderers written to {@code _enum}
 	 */
 	public static byte bgfx_get_supported_renderers(IntBuffer _enum) {
-		if ( CHECKS )
-			checkBuffer(_enum, BGFX_RENDERER_TYPE_COUNT);
-		return nbgfx_get_supported_renderers(memAddress(_enum));
+		return nbgfx_get_supported_renderers((byte)_enum.remaining(), memAddress(_enum));
 	}
 
 	// --- [ bgfx_get_renderer_name ] ---
@@ -3553,7 +3565,7 @@ public class BGFX {
 	 * <p>Remarks:</p>
 	 * 
 	 * <ol>
-	 * <li>Use {@link BGFXUtil#BGFX_STATE_ALPHA_REF}, {@link BGFXUtil#BGFX_STATE_POINT_SIZE} and {@link BGFXUtil#BGFX_STATE_BLEND_FUNC} macros to setup more complex states.</li>
+	 * <li>Use {@link #BGFX_STATE_ALPHA_REF}, {@link #BGFX_STATE_POINT_SIZE} and {@link #BGFX_STATE_BLEND_FUNC} macros to setup more complex states.</li>
 	 * <li>{@link #BGFX_STATE_BLEND_EQUATION_ADD STATE_BLEND_EQUATION_ADD} is set when no other blend equation is specified.</li>
 	 * </ol>
 	 *
@@ -4530,6 +4542,108 @@ public class BGFX {
 		}
 	}
 
+	// --- [ BGFX_STATE_ALPHA_REF ] ---
+
+	public static long BGFX_STATE_ALPHA_REF(long _ref) {
+		return (_ref << BGFX_STATE_ALPHA_REF_SHIFT) & BGFX_STATE_ALPHA_REF_MASK;
+	}
+
+	// --- [ BGFX_STATE_POINT_SIZE ] ---
+
+	public static long BGFX_STATE_POINT_SIZE(long _size) {
+		return (_size << BGFX_STATE_POINT_SIZE_SHIFT) & BGFX_STATE_POINT_SIZE_MASK;
+	}
+
+	// --- [ BGFX_STATE_BLEND_FUNC_SEPARATE ] ---
+
+	public static long BGFX_STATE_BLEND_FUNC_SEPARATE(long _srcRGB, long _dstRGB, long _srcA, long _dstA) {
+		return ((_srcRGB | (_dstRGB << 4))) | ((_srcA | (_dstA << 4)) << 8);
+	}
+
+	// --- [ BGFX_STATE_BLEND_EQUATION_SEPARATE ] ---
+
+	public static long BGFX_STATE_BLEND_EQUATION_SEPARATE(long _rgb, long _a) {
+		return _rgb | (_a << 3);
+	}
+
+	// --- [ BGFX_STATE_BLEND_FUNC ] ---
+
+	public static long BGFX_STATE_BLEND_FUNC(long _src, long _dst) {
+		return BGFX_STATE_BLEND_FUNC_SEPARATE(_src, _dst, _src, _dst);
+	}
+
+	// --- [ BGFX_STATE_BLEND_EQUATION ] ---
+
+	public static long BGFX_STATE_BLEND_EQUATION(long _equation) {
+		return BGFX_STATE_BLEND_EQUATION_SEPARATE(_equation, _equation);
+	}
+
+	// --- [ BGFX_STATE_BLEND_FUNC_RT_x ] ---
+
+	public static long BGFX_STATE_BLEND_FUNC_RT_x(long _src, long _dst) {
+		return (_src >> BGFX_STATE_BLEND_SHIFT) | ((_dst >> BGFX_STATE_BLEND_SHIFT) << 4);
+	}
+
+	// --- [ BGFX_STATE_BLEND_FUNC_RT_xE ] ---
+
+	public static long BGFX_STATE_BLEND_FUNC_RT_xE(long _src, long _dst, long _equation) {
+		return BGFX_STATE_BLEND_FUNC_RT_x(_src, _dst) | ((_equation >> BGFX_STATE_BLEND_EQUATION_SHIFT) << 8);
+	}
+
+	// --- [ BGFX_STATE_BLEND_FUNC_RT_1 ] ---
+
+	public static long BGFX_STATE_BLEND_FUNC_RT_1(long _src, long _dst) {
+		return BGFX_STATE_BLEND_FUNC_RT_x(_src, _dst) << 0;
+	}
+
+	// --- [ BGFX_STATE_BLEND_FUNC_RT_2 ] ---
+
+	public static long BGFX_STATE_BLEND_FUNC_RT_2(long _src, long _dst) {
+		return BGFX_STATE_BLEND_FUNC_RT_x(_src, _dst) << 11;
+	}
+
+	// --- [ BGFX_STATE_BLEND_FUNC_RT_3 ] ---
+
+	public static long BGFX_STATE_BLEND_FUNC_RT_3(long _src, long _dst) {
+		return BGFX_STATE_BLEND_FUNC_RT_x(_src, _dst) << 22;
+	}
+
+	// --- [ BGFX_STATE_BLEND_FUNC_RT_1E ] ---
+
+	public static long BGFX_STATE_BLEND_FUNC_RT_1E(long _src, long _dst, long _equation) {
+		return BGFX_STATE_BLEND_FUNC_RT_xE(_src, _dst, _equation) << 0;
+	}
+
+	// --- [ BGFX_STATE_BLEND_FUNC_RT_2E ] ---
+
+	public static long BGFX_STATE_BLEND_FUNC_RT_2E(long _src, long _dst, long _equation) {
+		return BGFX_STATE_BLEND_FUNC_RT_xE(_src, _dst, _equation) << 11;
+	}
+
+	// --- [ BGFX_STATE_BLEND_FUNC_RT_3E ] ---
+
+	public static long BGFX_STATE_BLEND_FUNC_RT_3E(long _src, long _dst, long _equation) {
+		return BGFX_STATE_BLEND_FUNC_RT_xE(_src, _dst, _equation) << 22;
+	}
+
+	// --- [ BGFX_STENCIL_FUNC_REF ] ---
+
+	public static int BGFX_STENCIL_FUNC_REF(int _ref) {
+		return (_ref << BGFX_STENCIL_FUNC_REF_SHIFT) & BGFX_STENCIL_FUNC_REF_MASK;
+	}
+
+	// --- [ BGFX_STENCIL_FUNC_RMASK ] ---
+
+	public static int BGFX_STENCIL_FUNC_RMASK(int _mask) {
+		return (_mask << BGFX_STENCIL_FUNC_RMASK_SHIFT) & BGFX_STENCIL_FUNC_RMASK_MASK;
+	}
+
+	// --- [ BGFX_TEXTURE_BORDER_COLOR ] ---
+
+	public static int BGFX_TEXTURE_BORDER_COLOR(int _index) {
+		return (_index << BGFX_TEXTURE_BORDER_COLOR_SHIFT) & BGFX_TEXTURE_BORDER_COLOR_MASK;
+	}
+
 	/** Array version of: {@link #bgfx_vertex_pack vertex_pack} */
 	public static void bgfx_vertex_pack(float[] _input, boolean _inputNormalized, int _attr, BGFXVertexDecl _decl, ByteBuffer _data, int _index) {
 		long __functionAddress = Functions.vertex_pack;
@@ -4619,9 +4733,7 @@ public class BGFX {
 	/** Array version of: {@link #bgfx_get_supported_renderers get_supported_renderers} */
 	public static byte bgfx_get_supported_renderers(int[] _enum) {
 		long __functionAddress = Functions.get_supported_renderers;
-		if ( CHECKS )
-			checkBuffer(_enum, BGFX_RENDERER_TYPE_COUNT);
-		return invokePB(__functionAddress, _enum);
+		return invokePB(__functionAddress, (byte)_enum.length, _enum);
 	}
 
 	/** short[] version of: {@link #bgfx_copy copy} */
