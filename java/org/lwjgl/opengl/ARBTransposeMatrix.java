@@ -45,20 +45,7 @@ public class ARBTransposeMatrix {
 
 	// --- [ glLoadTransposeMatrixfARB ] ---
 
-	/**
-	 * Sets the current matrix to a 4 &times; 4 matrix in row-major order.
-	 * 
-	 * <p>The matrix is stored as 16 consecutive values, i.e. as:</p>
-	 * 
-	 * <table class="lwjgl matrix">
-	 * <tr><td>a1</td><td>a2</td><td>a3</td><td>a4</td></tr>
-	 * <tr><td>a5</td><td>a6</td><td>a7</td><td>a8</td></tr>
-	 * <tr><td>a9</td><td>a10</td><td>a11</td><td>a12</td></tr>
-	 * <tr><td>a13</td><td>a14</td><td>a15</td><td>a16</td></tr>
-	 * </table>
-	 *
-	 * @param m the matrix data
-	 */
+	/** Unsafe version of: {@link #glLoadTransposeMatrixfARB LoadTransposeMatrixfARB} */
 	public static void nglLoadTransposeMatrixfARB(long m) {
 		long __functionAddress = GL.getCapabilities().glLoadTransposeMatrixfARB;
 		if ( CHECKS )
@@ -88,11 +75,7 @@ public class ARBTransposeMatrix {
 
 	// --- [ glLoadTransposeMatrixdARB ] ---
 
-	/**
-	 * Double version of {@link #glLoadTransposeMatrixfARB LoadTransposeMatrixfARB}.
-	 *
-	 * @param m the matrix data
-	 */
+	/** Unsafe version of: {@link #glLoadTransposeMatrixdARB LoadTransposeMatrixdARB} */
 	public static void nglLoadTransposeMatrixdARB(long m) {
 		long __functionAddress = GL.getCapabilities().glLoadTransposeMatrixdARB;
 		if ( CHECKS )
@@ -113,11 +96,7 @@ public class ARBTransposeMatrix {
 
 	// --- [ glMultTransposeMatrixfARB ] ---
 
-	/**
-	 * Multiplies the current matrix with a 4 &times; 4 matrix in row-major order. See {@link #glLoadTransposeMatrixfARB LoadTransposeMatrixfARB} for details.
-	 *
-	 * @param m the matrix data
-	 */
+	/** Unsafe version of: {@link #glMultTransposeMatrixfARB MultTransposeMatrixfARB} */
 	public static void nglMultTransposeMatrixfARB(long m) {
 		long __functionAddress = GL.getCapabilities().glMultTransposeMatrixfARB;
 		if ( CHECKS )
@@ -138,11 +117,7 @@ public class ARBTransposeMatrix {
 
 	// --- [ glMultTransposeMatrixdARB ] ---
 
-	/**
-	 * Double version of {@link #glMultTransposeMatrixfARB MultTransposeMatrixfARB}.
-	 *
-	 * @param m the matrix data
-	 */
+	/** Unsafe version of: {@link #glMultTransposeMatrixdARB MultTransposeMatrixdARB} */
 	public static void nglMultTransposeMatrixdARB(long m) {
 		long __functionAddress = GL.getCapabilities().glMultTransposeMatrixdARB;
 		if ( CHECKS )

@@ -28,11 +28,7 @@ public class DynLoad {
 
 	// --- [ dlLoadLibrary ] ---
 
-	/**
-	 * Loads a dynamic library at {@code libpath} and returns a handle to it.
-	 *
-	 * @param libpath the dynamic library path
-	 */
+	/** Unsafe version of: {@link #dlLoadLibrary LoadLibrary} */
 	public static native long ndlLoadLibrary(long libpath);
 
 	/**
@@ -63,11 +59,7 @@ public class DynLoad {
 
 	// --- [ dlFreeLibrary ] ---
 
-	/**
-	 * Frees a loaded library.
-	 *
-	 * @param pLib the dynamic library to free
-	 */
+	/** Unsafe version of: {@link #dlFreeLibrary FreeLibrary} */
 	public static native void ndlFreeLibrary(long pLib);
 
 	/**
@@ -83,13 +75,7 @@ public class DynLoad {
 
 	// --- [ dlFindSymbol ] ---
 
-	/**
-	 * Returns a pointer to a symbol with name {@code pSymbolName} in the library with handle {@code pLib}, or returns a null pointer if the symbol cannot be
-	 * found.
-	 *
-	 * @param pLib        the dynamic library
-	 * @param pSymbolName the symbol name
-	 */
+	/** Unsafe version of: {@link #dlFindSymbol FindSymbol} */
 	public static native long ndlFindSymbol(long pLib, long pSymbolName);
 
 	/**
@@ -128,11 +114,7 @@ public class DynLoad {
 
 	// --- [ dlSymsInit ] ---
 
-	/**
-	 * Creates a new {@code DLSyms} object.
-	 *
-	 * @param libPath the dynamic library path
-	 */
+	/** Unsafe version of: {@link #dlSymsInit SymsInit} */
 	public static native long ndlSymsInit(long libPath);
 
 	/**
@@ -163,11 +145,7 @@ public class DynLoad {
 
 	// --- [ dlSymsCleanup ] ---
 
-	/**
-	 * Frees the specified {@code DLSyms} object.
-	 *
-	 * @param pSyms the {@code DLSyms} object to free
-	 */
+	/** Unsafe version of: {@link #dlSymsCleanup SymsCleanup} */
 	public static native void ndlSymsCleanup(long pSyms);
 
 	/**
@@ -183,11 +161,7 @@ public class DynLoad {
 
 	// --- [ dlSymsCount ] ---
 
-	/**
-	 * Returns the number of symbols exported by the specified library.
-	 *
-	 * @param pSyms a {@code DLSyms} object
-	 */
+	/** Unsafe version of: {@link #dlSymsCount SymsCount} */
 	public static native int ndlSymsCount(long pSyms);
 
 	/**
@@ -203,12 +177,7 @@ public class DynLoad {
 
 	// --- [ dlSymsName ] ---
 
-	/**
-	 * Returns the symbol name exported by the specified library at the specified index.
-	 *
-	 * @param pSyms a {@code DLSyms} object
-	 * @param index 
-	 */
+	/** Unsafe version of: {@link #dlSymsName SymsName} */
 	public static native long ndlSymsName(long pSyms, int index);
 
 	/**
@@ -226,12 +195,7 @@ public class DynLoad {
 
 	// --- [ dlSymsNameFromValue ] ---
 
-	/**
-	 * Returns the symbol name exported by the specified library at the specified address.
-	 *
-	 * @param pSyms a {@code DLSyms} object
-	 * @param value the symbol address
-	 */
+	/** Unsafe version of: {@link #dlSymsNameFromValue SymsNameFromValue} */
 	public static native long ndlSymsNameFromValue(long pSyms, long value);
 
 	/**

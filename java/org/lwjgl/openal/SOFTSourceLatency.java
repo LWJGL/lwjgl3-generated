@@ -110,13 +110,7 @@ public class SOFTSourceLatency {
 
 	// --- [ alSourcedvSOFT ] ---
 
-	/**
-	 * pointer version of {@link #alSourcedSOFT SourcedSOFT}
-	 *
-	 * @param source the source to modify
-	 * @param param  the parameter to modify
-	 * @param value  the parameter values
-	 */
+	/** Unsafe version of: {@link #alSourcedvSOFT SourcedvSOFT} */
 	public static void nalSourcedvSOFT(int source, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alSourcedvSOFT;
 		if ( CHECKS )
@@ -137,13 +131,7 @@ public class SOFTSourceLatency {
 
 	// --- [ alGetSourcedSOFT ] ---
 
-	/**
-	 * Gets the double value of a source parameter.
-	 *
-	 * @param source the source to query
-	 * @param param  the parameter to query
-	 * @param value  the parameter values
-	 */
+	/** Unsafe version of: {@link #alGetSourcedSOFT GetSourcedSOFT} */
 	public static void nalGetSourcedSOFT(int source, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetSourcedSOFT;
 		if ( CHECKS )
@@ -183,15 +171,7 @@ public class SOFTSourceLatency {
 
 	// --- [ alGetSource3dSOFT ] ---
 
-	/**
-	 * Gets the 3 dimensional double values of a source parameter.
-	 *
-	 * @param source the source to query
-	 * @param param  the parameter to query
-	 * @param value1 the first value
-	 * @param value2 the second value
-	 * @param value3 the third value
-	 */
+	/** Unsafe version of: {@link #alGetSource3dSOFT GetSource3dSOFT} */
 	public static void nalGetSource3dSOFT(int source, int param, long value1, long value2, long value3) {
 		long __functionAddress = AL.getCapabilities().alGetSource3dSOFT;
 		if ( CHECKS )
@@ -219,13 +199,7 @@ public class SOFTSourceLatency {
 
 	// --- [ alGetSourcedvSOFT ] ---
 
-	/**
-	 * Array version of {@link #alGetSourcedSOFT GetSourcedSOFT}
-	 *
-	 * @param source the source to query
-	 * @param param  the parameter to query
-	 * @param values the parameter values
-	 */
+	/** Unsafe version of: {@link #alGetSourcedvSOFT GetSourcedvSOFT} */
 	public static void nalGetSourcedvSOFT(int source, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetSourcedvSOFT;
 		if ( CHECKS )
@@ -280,13 +254,7 @@ public class SOFTSourceLatency {
 
 	// --- [ alSourcei64vSOFT ] ---
 
-	/**
-	 * Array version of {@link #alSourcei64SOFT Sourcei64SOFT}
-	 *
-	 * @param source the source to modify
-	 * @param param  the parameter to modify
-	 * @param values the parameter values
-	 */
+	/** Unsafe version of: {@link #alSourcei64vSOFT Sourcei64vSOFT} */
 	public static void nalSourcei64vSOFT(int source, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alSourcei64vSOFT;
 		if ( CHECKS )
@@ -307,13 +275,7 @@ public class SOFTSourceLatency {
 
 	// --- [ alGetSourcei64SOFT ] ---
 
-	/**
-	 * Gets the 64 bit integer value of a source parameter.
-	 *
-	 * @param source the source to query
-	 * @param param  the parameter to query
-	 * @param value  the parameter values
-	 */
+	/** Unsafe version of: {@link #alGetSourcei64SOFT GetSourcei64SOFT} */
 	public static void nalGetSourcei64SOFT(int source, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetSourcei64SOFT;
 		if ( CHECKS )
@@ -353,15 +315,7 @@ public class SOFTSourceLatency {
 
 	// --- [ alGetSource3i64SOFT ] ---
 
-	/**
-	 * Gets the 3 dimensional 64 bit integer values of a source parameter.
-	 *
-	 * @param source the source to query
-	 * @param param  the parameter to query
-	 * @param value1 the first value
-	 * @param value2 the second value
-	 * @param value3 the third value
-	 */
+	/** Unsafe version of: {@link #alGetSource3i64SOFT GetSource3i64SOFT} */
 	public static void nalGetSource3i64SOFT(int source, int param, long value1, long value2, long value3) {
 		long __functionAddress = AL.getCapabilities().alGetSource3i64SOFT;
 		if ( CHECKS )
@@ -389,13 +343,7 @@ public class SOFTSourceLatency {
 
 	// --- [ alGetSourcei64vSOFT ] ---
 
-	/**
-	 * Array version of {@link #alGetSourcei64SOFT GetSourcei64SOFT}
-	 *
-	 * @param source the source to query
-	 * @param param  the parameter to query
-	 * @param values the parameter values
-	 */
+	/** Unsafe version of: {@link #alGetSourcei64vSOFT GetSourcei64vSOFT} */
 	public static void nalGetSourcei64vSOFT(int source, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetSourcei64vSOFT;
 		if ( CHECKS )

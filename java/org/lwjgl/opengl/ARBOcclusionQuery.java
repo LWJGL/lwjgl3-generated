@@ -85,10 +85,9 @@ public class ARBOcclusionQuery {
 	// --- [ glGenQueriesARB ] ---
 
 	/**
-	 * Generates query object names.
+	 * Unsafe version of: {@link #glGenQueriesARB GenQueriesARB}
 	 *
-	 * @param n   the number of query object names to be generated
-	 * @param ids a buffer in which the generated query object names are stored
+	 * @param n the number of query object names to be generated
 	 */
 	public static void nglGenQueriesARB(int n, long ids) {
 		long __functionAddress = GL.getCapabilities().glGenQueriesARB;
@@ -121,10 +120,9 @@ public class ARBOcclusionQuery {
 	// --- [ glDeleteQueriesARB ] ---
 
 	/**
-	 * Deletes named query objects.
+	 * Unsafe version of: {@link #glDeleteQueriesARB DeleteQueriesARB}
 	 *
-	 * @param n   the number of query objects to be deleted
-	 * @param ids an array of query objects to be deleted
+	 * @param n the number of query objects to be deleted
 	 */
 	public static void nglDeleteQueriesARB(int n, long ids) {
 		long __functionAddress = GL.getCapabilities().glDeleteQueriesARB;
@@ -198,13 +196,7 @@ public class ARBOcclusionQuery {
 
 	// --- [ glGetQueryivARB ] ---
 
-	/**
-	 * Returns parameters of a query object target.
-	 *
-	 * @param target the query object target. One of:<br><table><tr><td>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}</td><td>{@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}</td><td>{@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}</td><td>{@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}</td></tr><tr><td>{@link GL33#GL_TIMESTAMP TIMESTAMP}</td><td>{@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}</td><td>{@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}</td></tr></table>
-	 * @param pname  the symbolic name of a query object target parameter. One of:<br><table><tr><td>{@link #GL_QUERY_COUNTER_BITS_ARB QUERY_COUNTER_BITS_ARB}</td><td>{@link #GL_CURRENT_QUERY_ARB CURRENT_QUERY_ARB}</td></tr></table>
-	 * @param params the requested data
-	 */
+	/** Unsafe version of: {@link #glGetQueryivARB GetQueryivARB} */
 	public static void nglGetQueryivARB(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryivARB;
 		if ( CHECKS )
@@ -244,13 +236,7 @@ public class ARBOcclusionQuery {
 
 	// --- [ glGetQueryObjectivARB ] ---
 
-	/**
-	 * Returns the integer value of a query object parameter.
-	 *
-	 * @param id     the name of a query object
-	 * @param pname  the symbolic name of a query object parameter. One of:<br><table><tr><td>{@link #GL_QUERY_RESULT_ARB QUERY_RESULT_ARB}</td><td>{@link #GL_QUERY_RESULT_AVAILABLE_ARB QUERY_RESULT_AVAILABLE_ARB}</td></tr></table>
-	 * @param params the requested data
-	 */
+	/** Unsafe version of: {@link #glGetQueryObjectivARB GetQueryObjectivARB} */
 	public static void nglGetQueryObjectivARB(int id, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjectivARB;
 		if ( CHECKS )
@@ -290,13 +276,7 @@ public class ARBOcclusionQuery {
 
 	// --- [ glGetQueryObjectuivARB ] ---
 
-	/**
-	 * Unsigned version of {@link #glGetQueryObjectivARB GetQueryObjectivARB}.
-	 *
-	 * @param id     the name of a query object
-	 * @param pname  the symbolic name of a query object parameter. One of:<br><table><tr><td>{@link #GL_QUERY_RESULT_ARB QUERY_RESULT_ARB}</td><td>{@link #GL_QUERY_RESULT_AVAILABLE_ARB QUERY_RESULT_AVAILABLE_ARB}</td></tr></table>
-	 * @param params the requested data
-	 */
+	/** Unsafe version of: {@link #glGetQueryObjectuivARB GetQueryObjectuivARB} */
 	public static void nglGetQueryObjectuivARB(int id, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjectuivARB;
 		if ( CHECKS )

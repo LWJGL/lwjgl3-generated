@@ -272,11 +272,9 @@ public class NVBindlessTexture {
 	// --- [ glUniformHandleui64vNV ] ---
 
 	/**
-	 * Loads {@code count} 64-bit unsigned integer handles into a uniform location corresponding to sampler or image variable types.
+	 * Unsafe version of: {@link #glUniformHandleui64vNV UniformHandleui64vNV}
 	 *
-	 * @param location the uniform location
-	 * @param count    the number of handles to load
-	 * @param values   a buffer from which to load the handles
+	 * @param count the number of handles to load
 	 */
 	public static void nglUniformHandleui64vNV(int location, int count, long values) {
 		long __functionAddress = GL.getCapabilities().glUniformHandleui64vNV;
@@ -314,12 +312,9 @@ public class NVBindlessTexture {
 	// --- [ glProgramUniformHandleui64vNV ] ---
 
 	/**
-	 * DSA version of {@link #glUniformHandleui64vNV UniformHandleui64vNV}.
+	 * Unsafe version of: {@link #glProgramUniformHandleui64vNV ProgramUniformHandleui64vNV}
 	 *
-	 * @param program  the program object
-	 * @param location the uniform location
-	 * @param count    the number of handles to load
-	 * @param values   a buffer from which to load the handles
+	 * @param count the number of handles to load
 	 */
 	public static void nglProgramUniformHandleui64vNV(int program, int location, int count, long values) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformHandleui64vNV;

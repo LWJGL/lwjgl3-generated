@@ -144,12 +144,9 @@ public class GL15 {
 	// --- [ glDeleteBuffers ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteBuffers.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Deletes named buffer objects.
+	 * Unsafe version of: {@link #glDeleteBuffers DeleteBuffers}
 	 *
-	 * @param n       the number of buffer objects to be deleted
-	 * @param buffers an array of buffer objects to be deleted
+	 * @param n the number of buffer objects to be deleted
 	 */
 	public static void nglDeleteBuffers(int n, long buffers) {
 		long __functionAddress = GL.getCapabilities().glDeleteBuffers;
@@ -187,12 +184,9 @@ public class GL15 {
 	// --- [ glGenBuffers ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenBuffers.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Generates buffer object names.
+	 * Unsafe version of: {@link #glGenBuffers GenBuffers}
 	 *
-	 * @param n       the number of buffer object names to be generated
-	 * @param buffers a buffer in which the generated buffer object names are stored
+	 * @param n the number of buffer object names to be generated
 	 */
 	public static void nglGenBuffers(int n, long buffers) {
 		long __functionAddress = GL.getCapabilities().glGenBuffers;
@@ -247,33 +241,9 @@ public class GL15 {
 	// --- [ glBufferData ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBufferData.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Creates and initializes a buffer object's data store.
-	 * 
-	 * <p>{@code usage} is a hint to the GL implementation as to how a buffer object's data store will be accessed. This enables the GL implementation to make
-	 * more intelligent decisions that may significantly impact buffer object performance. It does not, however, constrain the actual usage of the data store.
-	 * {@code usage} can be broken down into two parts: first, the frequency of access (modification and usage), and second, the nature of that access. The
-	 * frequency of access may be one of these:</p>
-	 * 
-	 * <ul>
-	 * <li><em>STREAM</em> - The data store contents will be modified once and used at most a few times.</li>
-	 * <li><em>STATIC</em> - The data store contents will be modified once and used many times.</li>
-	 * <li><em>DYNAMIC</em> - The data store contents will be modified repeatedly and used many times.</li>
-	 * </ul>
-	 * 
-	 * <p>The nature of access may be one of these:</p>
-	 * 
-	 * <ul>
-	 * <li><em>DRAW</em> - The data store contents are modified by the application, and used as the source for GL drawing and image specification commands.</li>
-	 * <li><em>READ</em> - The data store contents are modified by reading data from the GL, and used to return that data when queried by the application.</li>
-	 * <li><em>COPY</em> - The data store contents are modified by reading data from the GL, and used as the source for GL drawing and image specification commands.</li>
-	 * </ul>
+	 * Unsafe version of: {@link #glBufferData BufferData}
 	 *
-	 * @param target the target buffer object. One of:<br><table><tr><td>{@link #GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link #GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td></tr><tr><td>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td><td>{@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td></tr><tr><td>{@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}</td></tr><tr><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td><td>{@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}</td></tr></table>
-	 * @param size   the size in bytes of the buffer object's new data store
-	 * @param data   a pointer to data that will be copied into the data store for initialization, or {@code NULL} if no data is to be copied
-	 * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link #GL_STREAM_DRAW STREAM_DRAW}</td><td>{@link #GL_STREAM_READ STREAM_READ}</td><td>{@link #GL_STREAM_COPY STREAM_COPY}</td><td>{@link #GL_STATIC_DRAW STATIC_DRAW}</td><td>{@link #GL_STATIC_READ STATIC_READ}</td><td>{@link #GL_STATIC_COPY STATIC_COPY}</td><td>{@link #GL_DYNAMIC_DRAW DYNAMIC_DRAW}</td></tr><tr><td>{@link #GL_DYNAMIC_READ DYNAMIC_READ}</td><td>{@link #GL_DYNAMIC_COPY DYNAMIC_COPY}</td></tr></table>
+	 * @param size the size in bytes of the buffer object's new data store
 	 */
 	public static void nglBufferData(int target, long size, long data, int usage) {
 		long __functionAddress = GL.getCapabilities().glBufferData;
@@ -362,14 +332,9 @@ public class GL15 {
 	// --- [ glBufferSubData ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBufferSubData.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Updates a subset of a buffer object's data store.
+	 * Unsafe version of: {@link #glBufferSubData BufferSubData}
 	 *
-	 * @param target the target buffer object. One of:<br><table><tr><td>{@link #GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link #GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td></tr><tr><td>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td><td>{@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td></tr><tr><td>{@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}</td></tr><tr><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td><td>{@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}</td></tr></table>
-	 * @param offset the offset into the buffer object's data store where data replacement will begin, measured in bytes
-	 * @param size   the size in bytes of the data store region being replaced
-	 * @param data   a pointer to the new data that will be copied into the data store
+	 * @param size the size in bytes of the data store region being replaced
 	 */
 	public static void nglBufferSubData(int target, long offset, long size, long data) {
 		long __functionAddress = GL.getCapabilities().glBufferSubData;
@@ -430,14 +395,9 @@ public class GL15 {
 	// --- [ glGetBufferSubData ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetBufferSubData.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns a subset of a buffer object's data store.
+	 * Unsafe version of: {@link #glGetBufferSubData GetBufferSubData}
 	 *
-	 * @param target the target buffer object. One of:<br><table><tr><td>{@link #GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link #GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td></tr><tr><td>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td><td>{@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td></tr><tr><td>{@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}</td></tr><tr><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td><td>{@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}</td></tr></table>
-	 * @param offset the offset into the buffer object's data store from which data will be returned, measured in bytes
-	 * @param size   the size in bytes of the data store region being returned
-	 * @param data   a pointer to the location where buffer object data is returned
+	 * @param size the size in bytes of the data store region being returned
 	 */
 	public static void nglGetBufferSubData(int target, long offset, long size, long data) {
 		long __functionAddress = GL.getCapabilities().glGetBufferSubData;
@@ -497,22 +457,7 @@ public class GL15 {
 
 	// --- [ glMapBuffer ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMapBuffer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Maps a buffer object's data store.
-	 * 
-	 * <p><b>LWJGL note</b>: This method comes in 3 flavors:</p>
-	 * 
-	 * <ol>
-	 * <li>{@link #glMapBuffer(int, int)} - Calls {@link #glGetBufferParameteri GetBufferParameteri} to retrieve the buffer size and a new ByteBuffer instance is always returned.</li>
-	 * <li>{@link #glMapBuffer(int, int, ByteBuffer)} - Calls {@link #glGetBufferParameteri GetBufferParameteri} to retrieve the buffer size and the {@code old_buffer} parameter is reused if not null.</li>
-	 * <li>{@link #glMapBuffer(int, int, long, ByteBuffer)} - The buffer size is explicitly specified and the {@code old_buffer} parameter is reused if not null. This is the most efficient method.</li>
-	 * </ol>
-	 *
-	 * @param target the target buffer object being mapped. One of:<br><table><tr><td>{@link #GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link #GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td></tr><tr><td>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td><td>{@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td></tr><tr><td>{@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}</td></tr><tr><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td><td>{@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}</td></tr></table>
-	 * @param access the access policy, indicating whether it will be possible to read from, write to, or both read from and write to the buffer object's mapped data store. One of:<br><table><tr><td>{@link #GL_READ_ONLY READ_ONLY}</td><td>{@link #GL_WRITE_ONLY WRITE_ONLY}</td><td>{@link #GL_READ_WRITE READ_WRITE}</td></tr></table>
-	 */
+	/** Unsafe version of: {@link #glMapBuffer MapBuffer} */
 	public static long nglMapBuffer(int target, int access) {
 		long __functionAddress = GL.getCapabilities().glMapBuffer;
 		if ( CHECKS )
@@ -607,15 +552,7 @@ public class GL15 {
 
 	// --- [ glGetBufferParameteriv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetBufferParameter.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns the value of a buffer object parameter.
-	 *
-	 * @param target the target buffer object. One of:<br><table><tr><td>{@link #GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link #GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td></tr><tr><td>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td><td>{@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td></tr><tr><td>{@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}</td></tr><tr><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td><td>{@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}</td></tr></table>
-	 * @param pname  the symbolic name of a buffer object parameter. One of:<br><table><tr><td>{@link #GL_BUFFER_SIZE BUFFER_SIZE}</td><td>{@link #GL_BUFFER_USAGE BUFFER_USAGE}</td><td>{@link #GL_BUFFER_ACCESS BUFFER_ACCESS}</td><td>{@link #GL_BUFFER_MAPPED BUFFER_MAPPED}</td><td>{@link GL30#GL_BUFFER_ACCESS_FLAGS BUFFER_ACCESS_FLAGS}</td></tr><tr><td>{@link GL30#GL_BUFFER_MAP_LENGTH BUFFER_MAP_LENGTH}</td><td>{@link GL30#GL_BUFFER_MAP_OFFSET BUFFER_MAP_OFFSET}</td><td>{@link GL44#GL_BUFFER_IMMUTABLE_STORAGE BUFFER_IMMUTABLE_STORAGE}</td><td>{@link GL44#GL_BUFFER_STORAGE_FLAGS BUFFER_STORAGE_FLAGS}</td></tr></table>
-	 * @param params the requested parameter
-	 */
+	/** Unsafe version of: {@link #glGetBufferParameteriv GetBufferParameteriv} */
 	public static void nglGetBufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetBufferParameteriv;
 		if ( CHECKS )
@@ -659,15 +596,7 @@ public class GL15 {
 
 	// --- [ glGetBufferPointerv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetBufferPointer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns the pointer to a mapped buffer object's data store.
-	 *
-	 * @param target the target buffer object. One of:<br><table><tr><td>{@link #GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link #GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td></tr><tr><td>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td><td>{@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td></tr><tr><td>{@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}</td></tr><tr><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td><td>{@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}</td></tr></table>
-	 * @param pname  the pointer to be returned. Must be:<br><table><tr><td>{@link #GL_BUFFER_MAP_POINTER BUFFER_MAP_POINTER}</td></tr></table>
-	 * @param params the pointer value specified by {@code pname}
-	 */
+	/** Unsafe version of: {@link #glGetBufferPointerv GetBufferPointerv} */
 	public static void nglGetBufferPointerv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetBufferPointerv;
 		if ( CHECKS )
@@ -712,12 +641,9 @@ public class GL15 {
 	// --- [ glGenQueries ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenQueries.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Generates query object names.
+	 * Unsafe version of: {@link #glGenQueries GenQueries}
 	 *
-	 * @param n   the number of query object names to be generated
-	 * @param ids a buffer in which the generated query object names are stored
+	 * @param n the number of query object names to be generated
 	 */
 	public static void nglGenQueries(int n, long ids) {
 		long __functionAddress = GL.getCapabilities().glGenQueries;
@@ -756,12 +682,9 @@ public class GL15 {
 	// --- [ glDeleteQueries ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteQueries.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Deletes named query objects.
+	 * Unsafe version of: {@link #glDeleteQueries DeleteQueries}
 	 *
-	 * @param n   the number of query objects to be deleted
-	 * @param ids an array of query objects to be deleted
+	 * @param n the number of query objects to be deleted
 	 */
 	public static void nglDeleteQueries(int n, long ids) {
 		long __functionAddress = GL.getCapabilities().glDeleteQueries;
@@ -847,15 +770,7 @@ public class GL15 {
 
 	// --- [ glGetQueryiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQuery.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns parameters of a query object target.
-	 *
-	 * @param target the query object target. One of:<br><table><tr><td>{@link #GL_SAMPLES_PASSED SAMPLES_PASSED}</td><td>{@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}</td><td>{@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}</td><td>{@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}</td></tr><tr><td>{@link GL33#GL_TIMESTAMP TIMESTAMP}</td><td>{@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}</td><td>{@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}</td></tr></table>
-	 * @param pname  the symbolic name of a query object target parameter. One of:<br><table><tr><td>{@link #GL_QUERY_COUNTER_BITS QUERY_COUNTER_BITS}</td><td>{@link #GL_CURRENT_QUERY CURRENT_QUERY}</td></tr></table>
-	 * @param params the requested data
-	 */
+	/** Unsafe version of: {@link #glGetQueryiv GetQueryiv} */
 	public static void nglGetQueryiv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryiv;
 		if ( CHECKS )
@@ -899,15 +814,7 @@ public class GL15 {
 
 	// --- [ glGetQueryObjectiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryObject.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns the integer value of a query object parameter.
-	 *
-	 * @param id     the name of a query object
-	 * @param pname  the symbolic name of a query object parameter. One of:<br><table><tr><td>{@link #GL_QUERY_RESULT QUERY_RESULT}</td><td>{@link #GL_QUERY_RESULT_AVAILABLE QUERY_RESULT_AVAILABLE}</td></tr></table>
-	 * @param params the requested data
-	 */
+	/** Unsafe version of: {@link #glGetQueryObjectiv GetQueryObjectiv} */
 	public static void nglGetQueryObjectiv(int id, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjectiv;
 		if ( CHECKS )
@@ -951,15 +858,7 @@ public class GL15 {
 
 	// --- [ glGetQueryObjectuiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryObject.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Unsigned version of {@link #glGetQueryObjectiv GetQueryObjectiv}.
-	 *
-	 * @param id     the name of a query object
-	 * @param pname  the symbolic name of a query object parameter. One of:<br><table><tr><td>{@link #GL_QUERY_RESULT QUERY_RESULT}</td><td>{@link #GL_QUERY_RESULT_AVAILABLE QUERY_RESULT_AVAILABLE}</td></tr></table>
-	 * @param params the requested data
-	 */
+	/** Unsafe version of: {@link #glGetQueryObjectuiv GetQueryObjectuiv} */
 	public static void nglGetQueryObjectuiv(int id, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjectuiv;
 		if ( CHECKS )

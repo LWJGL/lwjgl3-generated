@@ -63,37 +63,9 @@ public class INTELAccelerator {
 	// --- [ clCreateAcceleratorINTEL ] ---
 
 	/**
-	 * Accelerator objects represent the programmable state of an acceleration processor, engine, or algorithm. Accelerator objects can be supplied to kernels
-	 * as arguments. Unless an extension defines a new OpenCL C language type for the engine-specific accelerator (e.g. sampler_t), accelerator objects can
-	 * only be used in conjunction with built-in kernels.
-	 * 
-	 * <p>This function creates an accelerator object. The accelerator object will be created with a reference count of one. Accelerator objects created with
-	 * this function have semantics defined by the parameter {@code accelerator_type}, which are defined and described by extensions external to this
-	 * document.</p>
+	 * Unsafe version of: {@link #clCreateAcceleratorINTEL CreateAcceleratorINTEL}
 	 *
-	 * @param context          a valid OpenCL context
-	 * @param accelerator_type specifies the type of accelerator object created. The type constants are defined by acceleration engine-specific extensions. It is encouraged that
-	 *                         extensions follow the naming scheme of CL_ACCELERATOR_TYPE_{name}_INTEL where {name} is a descriptive acceleration engine string.
-	 * @param descriptor_size  a value which specifies of the size, in bytes, of the immediately following descriptor structure
-	 * @param descriptor       a pointer to a structure that defines the parameter set of the accelerator object. This parameter set describes the configurable state of the
-	 *                         underlying object. The actual structure supplied must be consistent with {@code accelerator_type}. The descriptor structures are defined by
-	 *                         acceleration engine-specific extensions. It is encouraged that extensions follow the naming scheme of cl_{name}_desc_INTEL where {name} is a
-	 *                         descriptive acceleration engine string.
-	 * @param errcode_ret      will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
-	 *
-	 * @return a valid non-zero accelerator object, and {@code errcode_ret} is set to {@link CL10#CL_SUCCESS SUCCESS} if the accelerator object is created successfully. Otherwise, it returns a
-	 *         {@code NULL} value with one of the following error values returned in {@code errcode_ret}:
-	 *         
-	 *         <ul>
-	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
-	 *         <li>{@link #CL_INVALID_ACCELERATOR_TYPE_INTEL INVALID_ACCELERATOR_TYPE_INTEL} if the supplied accelerator type is not valid.</li>
-	 *         <li>{@link #CL_INVALID_ACCELERATOR_DESCRIPTOR_INTEL INVALID_ACCELERATOR_DESCRIPTOR_INTEL} if values specified in {@code accelerator_desc} are not valid (or a combination of values is not valid) or if
-	 *         {@code accelerator_desc} is {@code NULL}.</li>
-	 *         <li>{@link #CL_ACCELERATOR_TYPE_NOT_SUPPORTED_INTEL ACCELERATOR_TYPE_NOT_SUPPORTED_INTEL} if the supplied accelerator type is not supported by the context.</li>
-	 *         <li>{@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} if none of the devices in the context support accelerator objects.</li>
-	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
-	 *         </ul>
+	 * @param descriptor_size a value which specifies of the size, in bytes, of the immediately following descriptor structure
 	 */
 	public static long nclCreateAcceleratorINTEL(long context, int accelerator_type, long descriptor_size, long descriptor, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateAcceleratorINTEL;
@@ -194,23 +166,9 @@ public class INTELAccelerator {
 	// --- [ clGetAcceleratorInfoINTEL ] ---
 
 	/**
-	 * Returns information about the accelerator object.
+	 * Unsafe version of: {@link #clGetAcceleratorInfoINTEL GetAcceleratorInfoINTEL}
 	 *
-	 * @param accelerator          the accelerator object being queried
-	 * @param param_name           the information to query. One of:<br><table><tr><td>{@link #CL_ACCELERATOR_DESCRIPTOR_INTEL ACCELERATOR_DESCRIPTOR_INTEL}</td><td>{@link #CL_ACCELERATOR_REFERENCE_COUNT_INTEL ACCELERATOR_REFERENCE_COUNT_INTEL}</td></tr><tr><td>{@link #CL_ACCELERATOR_CONTEXT_INTEL ACCELERATOR_CONTEXT_INTEL}</td><td>{@link #CL_ACCELERATOR_TYPE_INTEL ACCELERATOR_TYPE_INTEL}</td></tr></table>
-	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
-	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
-	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
-	 *
-	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
-	 *         
-	 *         <ul>
-	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is not valid or if size in bytes specified by {@code param_value_size} is &lt; size of return type and
-	 *         {@code param_value} is not {@code NULL}.</li>
-	 *         <li>{@link #CL_INVALID_ACCELERATOR_INTEL INVALID_ACCELERATOR_INTEL} if accelerator is a not a valid accelerator object.</li>
-	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
-	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
-	 *         </ul>
+	 * @param param_value_size the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
 	 */
 	public static int nclGetAcceleratorInfoINTEL(long accelerator, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetAcceleratorInfoINTEL;

@@ -240,12 +240,7 @@ public class AL10 {
 
 	// --- [ alGetBooleanv ] ---
 
-	/**
-	 * Pointer version of {@link #alGetBoolean GetBoolean}.
-	 *
-	 * @param paramName the parameter to query
-	 * @param dest      a buffer that will receive the parameter values
-	 */
+	/** Unsafe version of: {@link #alGetBooleanv GetBooleanv} */
 	public static void nalGetBooleanv(int paramName, long dest) {
 		long __functionAddress = AL.getCapabilities().alGetBooleanv;
 		invokePV(__functionAddress, paramName, dest);
@@ -265,12 +260,7 @@ public class AL10 {
 
 	// --- [ alGetIntegerv ] ---
 
-	/**
-	 * Pointer version of {@link #alGetInteger GetInteger}.
-	 *
-	 * @param paramName the parameter to query
-	 * @param dest      a buffer that will receive the parameter values
-	 */
+	/** Unsafe version of: {@link #alGetIntegerv GetIntegerv} */
 	public static void nalGetIntegerv(int paramName, long dest) {
 		long __functionAddress = AL.getCapabilities().alGetIntegerv;
 		invokePV(__functionAddress, paramName, dest);
@@ -290,12 +280,7 @@ public class AL10 {
 
 	// --- [ alGetFloatv ] ---
 
-	/**
-	 * Pointer version of {@link #alGetFloat GetFloat}.
-	 *
-	 * @param paramName the parameter to query
-	 * @param dest      a buffer that will receive the parameter values
-	 */
+	/** Unsafe version of: {@link #alGetFloatv GetFloatv} */
 	public static void nalGetFloatv(int paramName, long dest) {
 		long __functionAddress = AL.getCapabilities().alGetFloatv;
 		invokePV(__functionAddress, paramName, dest);
@@ -315,12 +300,7 @@ public class AL10 {
 
 	// --- [ alGetDoublev ] ---
 
-	/**
-	 * Pointer version of {@link #alGetDouble GetDouble}.
-	 *
-	 * @param paramName the parameter to query
-	 * @param dest      a buffer that will receive the parameter values
-	 */
+	/** Unsafe version of: {@link #alGetDoublev GetDoublev} */
 	public static void nalGetDoublev(int paramName, long dest) {
 		long __functionAddress = AL.getCapabilities().alGetDoublev;
 		invokePV(__functionAddress, paramName, dest);
@@ -340,11 +320,7 @@ public class AL10 {
 
 	// --- [ alGetString ] ---
 
-	/**
-	 * Returns the string value of the specified parameter
-	 *
-	 * @param paramName the parameter to query. One of:<br><table><tr><td>{@link #AL_VENDOR VENDOR}</td><td>{@link #AL_VERSION VERSION}</td><td>{@link #AL_RENDERER RENDERER}</td><td>{@link #AL_EXTENSIONS EXTENSIONS}</td></tr></table>
-	 */
+	/** Unsafe version of: {@link #alGetString GetString} */
 	public static long nalGetString(int paramName) {
 		long __functionAddress = AL.getCapabilities().alGetString;
 		return invokeP(__functionAddress, paramName);
@@ -495,12 +471,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alListenerfv ] ---
 
-	/**
-	 * Pointer version of {@link #alListenerf Listenerf}.
-	 *
-	 * @param paramName the parameter to modify
-	 * @param values    the parameter values
-	 */
+	/** Unsafe version of: {@link #alListenerfv Listenerfv} */
 	public static void nalListenerfv(int paramName, long values) {
 		long __functionAddress = AL.getCapabilities().alListenerfv;
 		invokePV(__functionAddress, paramName, values);
@@ -520,12 +491,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetListenerf ] ---
 
-	/**
-	 * Returns the float value of a listener parameter.
-	 *
-	 * @param paramName the parameter to query. One of:<br><table><tr><td>{@link #AL_ORIENTATION ORIENTATION}</td><td>{@link #AL_POSITION POSITION}</td><td>{@link #AL_VELOCITY VELOCITY}</td><td>{@link #AL_GAIN GAIN}</td></tr></table>
-	 * @param value     the parameter value
-	 */
+	/** Unsafe version of: {@link #alGetListenerf GetListenerf} */
 	public static void nalGetListenerf(int paramName, long value) {
 		long __functionAddress = AL.getCapabilities().alGetListenerf;
 		invokePV(__functionAddress, paramName, value);
@@ -561,12 +527,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetListeneri ] ---
 
-	/**
-	 * Returns the integer value of a listener parameter.
-	 *
-	 * @param paramName the parameter to query. One of:<br><table><tr><td>{@link #AL_ORIENTATION ORIENTATION}</td><td>{@link #AL_POSITION POSITION}</td><td>{@link #AL_VELOCITY VELOCITY}</td><td>{@link #AL_GAIN GAIN}</td></tr></table>
-	 * @param value     the parameter value
-	 */
+	/** Unsafe version of: {@link #alGetListeneri GetListeneri} */
 	public static void nalGetListeneri(int paramName, long value) {
 		long __functionAddress = AL.getCapabilities().alGetListeneri;
 		invokePV(__functionAddress, paramName, value);
@@ -602,14 +563,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetListener3f ] ---
 
-	/**
-	 * Returns the 3 dimensional values of a listener parameter.
-	 *
-	 * @param paramName the parameter to query. One of:<br><table><tr><td>{@link #AL_ORIENTATION ORIENTATION}</td><td>{@link #AL_POSITION POSITION}</td><td>{@link #AL_VELOCITY VELOCITY}</td><td>{@link #AL_GAIN GAIN}</td></tr></table>
-	 * @param value1    the first parameter value
-	 * @param value2    the second parameter value
-	 * @param value3    the third parameter value
-	 */
+	/** Unsafe version of: {@link #alGetListener3f GetListener3f} */
 	public static void nalGetListener3f(int paramName, long value1, long value2, long value3) {
 		long __functionAddress = AL.getCapabilities().alGetListener3f;
 		invokePPPV(__functionAddress, paramName, value1, value2, value3);
@@ -634,12 +588,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetListenerfv ] ---
 
-	/**
-	 * Returns float values of a listener parameter.
-	 *
-	 * @param paramName the parameter to query. One of:<br><table><tr><td>{@link #AL_ORIENTATION ORIENTATION}</td><td>{@link #AL_POSITION POSITION}</td><td>{@link #AL_VELOCITY VELOCITY}</td><td>{@link #AL_GAIN GAIN}</td></tr></table>
-	 * @param values    the parameter values
-	 */
+	/** Unsafe version of: {@link #alGetListenerfv GetListenerfv} */
 	public static void nalGetListenerfv(int paramName, long values) {
 		long __functionAddress = AL.getCapabilities().alGetListenerfv;
 		invokePV(__functionAddress, paramName, values);
@@ -660,10 +609,9 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	// --- [ alGenSources ] ---
 
 	/**
-	 * Requests a number of source names.
+	 * Unsafe version of: {@link #alGenSources GenSources}
 	 *
-	 * @param n        the number of source names to generated
-	 * @param srcNames the buffer that will receive the source names
+	 * @param n the number of source names to generated
 	 */
 	public static void nalGenSources(int n, long srcNames) {
 		long __functionAddress = AL.getCapabilities().alGenSources;
@@ -694,10 +642,9 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	// --- [ alDeleteSources ] ---
 
 	/**
-	 * Requests the deletion of a number of sources.
+	 * Unsafe version of: {@link #alDeleteSources DeleteSources}
 	 *
-	 * @param n       the number of sources to delete
-	 * @param sources the sources to delete
+	 * @param n the number of sources to delete
 	 */
 	public static void nalDeleteSources(int n, long sources) {
 		long __functionAddress = AL.getCapabilities().alDeleteSources;
@@ -768,13 +715,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alSourcefv ] ---
 
-	/**
-	 * Pointer version of {@link #alSourcef Sourcef}.
-	 *
-	 * @param source the source to modify
-	 * @param param  the parameter to modify
-	 * @param values the parameter values
-	 */
+	/** Unsafe version of: {@link #alSourcefv Sourcefv} */
 	public static void nalSourcefv(int source, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alSourcefv;
 		invokePV(__functionAddress, source, param, values);
@@ -809,13 +750,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetSourcef ] ---
 
-	/**
-	 * Returns the float value of the specified source parameter.
-	 *
-	 * @param source the source to query
-	 * @param param  the parameter to query. One of:<br><table><tr><td>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}</td><td>{@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}</td><td>{@link #AL_PITCH PITCH}</td><td>{@link #AL_DIRECTION DIRECTION}</td><td>{@link #AL_LOOPING LOOPING}</td><td>{@link #AL_BUFFER BUFFER}</td><td>{@link #AL_SOURCE_STATE SOURCE_STATE}</td></tr><tr><td>{@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}</td><td>{@link #AL_SOURCE_TYPE SOURCE_TYPE}</td><td>{@link #AL_POSITION POSITION}</td><td>{@link #AL_VELOCITY VELOCITY}</td><td>{@link #AL_GAIN GAIN}</td><td>{@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}</td><td>{@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}</td></tr><tr><td>{@link #AL_MAX_DISTANCE MAX_DISTANCE}</td></tr></table>
-	 * @param value  the parameter value
-	 */
+	/** Unsafe version of: {@link #alGetSourcef GetSourcef} */
 	public static void nalGetSourcef(int source, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetSourcef;
 		invokePV(__functionAddress, source, param, value);
@@ -853,15 +788,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetSource3f ] ---
 
-	/**
-	 * Returns the 3 dimensional values of the specified source parameter.
-	 *
-	 * @param source the source to query
-	 * @param param  the parameter to query. One of:<br><table><tr><td>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}</td><td>{@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}</td><td>{@link #AL_PITCH PITCH}</td><td>{@link #AL_DIRECTION DIRECTION}</td><td>{@link #AL_LOOPING LOOPING}</td><td>{@link #AL_BUFFER BUFFER}</td><td>{@link #AL_SOURCE_STATE SOURCE_STATE}</td></tr><tr><td>{@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}</td><td>{@link #AL_SOURCE_TYPE SOURCE_TYPE}</td><td>{@link #AL_POSITION POSITION}</td><td>{@link #AL_VELOCITY VELOCITY}</td><td>{@link #AL_GAIN GAIN}</td><td>{@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}</td><td>{@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}</td></tr><tr><td>{@link #AL_MAX_DISTANCE MAX_DISTANCE}</td></tr></table>
-	 * @param v1     the first parameter value
-	 * @param v2     the second parameter value
-	 * @param v3     the third parameter value
-	 */
+	/** Unsafe version of: {@link #alGetSource3f GetSource3f} */
 	public static void nalGetSource3f(int source, int param, long v1, long v2, long v3) {
 		long __functionAddress = AL.getCapabilities().alGetSource3f;
 		invokePPPV(__functionAddress, source, param, v1, v2, v3);
@@ -887,13 +814,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetSourcefv ] ---
 
-	/**
-	 * Returns the float values of the specified source parameter.
-	 *
-	 * @param source the source to query
-	 * @param param  the parameter to query. One of:<br><table><tr><td>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}</td><td>{@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}</td><td>{@link #AL_PITCH PITCH}</td><td>{@link #AL_DIRECTION DIRECTION}</td><td>{@link #AL_LOOPING LOOPING}</td><td>{@link #AL_BUFFER BUFFER}</td><td>{@link #AL_SOURCE_STATE SOURCE_STATE}</td></tr><tr><td>{@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}</td><td>{@link #AL_SOURCE_TYPE SOURCE_TYPE}</td><td>{@link #AL_POSITION POSITION}</td><td>{@link #AL_VELOCITY VELOCITY}</td><td>{@link #AL_GAIN GAIN}</td><td>{@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}</td><td>{@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}</td></tr><tr><td>{@link #AL_MAX_DISTANCE MAX_DISTANCE}</td></tr></table>
-	 * @param values the parameter values
-	 */
+	/** Unsafe version of: {@link #alGetSourcefv GetSourcefv} */
 	public static void nalGetSourcefv(int source, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetSourcefv;
 		invokePV(__functionAddress, source, param, values);
@@ -914,13 +835,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetSourcei ] ---
 
-	/**
-	 * Returns the integer value of the specified source parameter.
-	 *
-	 * @param source the source to query
-	 * @param param  the parameter to query. One of:<br><table><tr><td>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}</td><td>{@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}</td><td>{@link #AL_PITCH PITCH}</td><td>{@link #AL_DIRECTION DIRECTION}</td><td>{@link #AL_LOOPING LOOPING}</td><td>{@link #AL_BUFFER BUFFER}</td><td>{@link #AL_SOURCE_STATE SOURCE_STATE}</td></tr><tr><td>{@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}</td><td>{@link #AL_SOURCE_TYPE SOURCE_TYPE}</td><td>{@link #AL_POSITION POSITION}</td><td>{@link #AL_VELOCITY VELOCITY}</td><td>{@link #AL_GAIN GAIN}</td><td>{@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}</td><td>{@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}</td></tr><tr><td>{@link #AL_MAX_DISTANCE MAX_DISTANCE}</td></tr></table>
-	 * @param value  the parameter value
-	 */
+	/** Unsafe version of: {@link #alGetSourcei GetSourcei} */
 	public static void nalGetSourcei(int source, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetSourcei;
 		invokePV(__functionAddress, source, param, value);
@@ -958,13 +873,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetSourceiv ] ---
 
-	/**
-	 * Returns the integer values of the specified source parameter.
-	 *
-	 * @param source the source to query
-	 * @param param  the parameter to query. One of:<br><table><tr><td>{@link #AL_CONE_INNER_ANGLE CONE_INNER_ANGLE}</td><td>{@link #AL_CONE_OUTER_ANGLE CONE_OUTER_ANGLE}</td><td>{@link #AL_PITCH PITCH}</td><td>{@link #AL_DIRECTION DIRECTION}</td><td>{@link #AL_LOOPING LOOPING}</td><td>{@link #AL_BUFFER BUFFER}</td><td>{@link #AL_SOURCE_STATE SOURCE_STATE}</td></tr><tr><td>{@link #AL_CONE_OUTER_GAIN CONE_OUTER_GAIN}</td><td>{@link #AL_SOURCE_TYPE SOURCE_TYPE}</td><td>{@link #AL_POSITION POSITION}</td><td>{@link #AL_VELOCITY VELOCITY}</td><td>{@link #AL_GAIN GAIN}</td><td>{@link #AL_REFERENCE_DISTANCE REFERENCE_DISTANCE}</td><td>{@link #AL_ROLLOFF_FACTOR ROLLOFF_FACTOR}</td></tr><tr><td>{@link #AL_MAX_DISTANCE MAX_DISTANCE}</td></tr></table>
-	 * @param values the parameter values
-	 */
+	/** Unsafe version of: {@link #alGetSourceiv GetSourceiv} */
 	public static void nalGetSourceiv(int source, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetSourceiv;
 		invokePV(__functionAddress, source, param, values);
@@ -986,15 +895,9 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	// --- [ alSourceQueueBuffers ] ---
 
 	/**
-	 * Queues up one or multiple buffer names to the specified source.
-	 * 
-	 * <p>The buffers will be queued in the sequence in which they appear in the array. This command is legal on a source in any playback state (to allow for
-	 * streaming, queuing has to be possible on a AL_PLAYING source). All buffers in a queue must have the same format and attributes, with the exception of
-	 * the {@code NULL} buffer (i.e., 0) which can always be queued.</p>
+	 * Unsafe version of: {@link #alSourceQueueBuffers SourceQueueBuffers}
 	 *
-	 * @param sourceName  the target source
-	 * @param numBuffers  the number of buffers to queue
-	 * @param bufferNames the buffer names
+	 * @param numBuffers the number of buffers to queue
 	 */
 	public static void nalSourceQueueBuffers(int sourceName, int numBuffers, long bufferNames) {
 		long __functionAddress = AL.getCapabilities().alSourceQueueBuffers;
@@ -1037,16 +940,9 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	// --- [ alSourceUnqueueBuffers ] ---
 
 	/**
-	 * Removes a number of buffer entries that have finished processing, in the order of apperance, from the queue of the specified source.
-	 * 
-	 * <p>Once a queue entry for a buffer has been appended to a queue and is pending processing, it should not be changed. Removal of a given queue entry is not
-	 * possible unless either the source is stopped (in which case then entire queue is considered processed), or if the queue entry has already been processed
-	 * (AL_PLAYING or AL_PAUSED source). A playing source will enter the AL_STOPPED state if it completes playback of the last buffer in its queue (the same
-	 * behavior as when a single buffer has been attached to a source and has finished playback).</p>
+	 * Unsafe version of: {@link #alSourceUnqueueBuffers SourceUnqueueBuffers}
 	 *
-	 * @param sourceName  the target source
-	 * @param numEntries  the number of buffers to unqueue
-	 * @param bufferNames the buffer names
+	 * @param numEntries the number of buffers to unqueue
 	 */
 	public static void nalSourceUnqueueBuffers(int sourceName, int numEntries, long bufferNames) {
 		long __functionAddress = AL.getCapabilities().alSourceUnqueueBuffers;
@@ -1159,10 +1055,9 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	// --- [ alSourcePlayv ] ---
 
 	/**
-	 * Pointer version of {@link #alSourcePlay SourcePlay}.
+	 * Unsafe version of: {@link #alSourcePlayv SourcePlayv}
 	 *
-	 * @param n       the number of sources to play
-	 * @param sources the sources to play
+	 * @param n the number of sources to play
 	 */
 	public static void nalSourcePlayv(int n, long sources) {
 		long __functionAddress = AL.getCapabilities().alSourcePlayv;
@@ -1181,10 +1076,9 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	// --- [ alSourcePausev ] ---
 
 	/**
-	 * Pointer version of {@link #alSourcePause SourcePause}.
+	 * Unsafe version of: {@link #alSourcePausev SourcePausev}
 	 *
-	 * @param n       the number of sources to pause
-	 * @param sources the sources to pause
+	 * @param n the number of sources to pause
 	 */
 	public static void nalSourcePausev(int n, long sources) {
 		long __functionAddress = AL.getCapabilities().alSourcePausev;
@@ -1203,10 +1097,9 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	// --- [ alSourceStopv ] ---
 
 	/**
-	 * Pointer version of {@link #alSourceStop SourceStop}.
+	 * Unsafe version of: {@link #alSourceStopv SourceStopv}
 	 *
-	 * @param n       the number of sources to stop
-	 * @param sources the sources to stop
+	 * @param n the number of sources to stop
 	 */
 	public static void nalSourceStopv(int n, long sources) {
 		long __functionAddress = AL.getCapabilities().alSourceStopv;
@@ -1225,10 +1118,9 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	// --- [ alSourceRewindv ] ---
 
 	/**
-	 * Pointer version of {@link #alSourceRewind SourceRewind}.
+	 * Unsafe version of: {@link #alSourceRewindv SourceRewindv}
 	 *
-	 * @param n       the number of sources to rewind
-	 * @param sources the sources to rewind
+	 * @param n the number of sources to rewind
 	 */
 	public static void nalSourceRewindv(int n, long sources) {
 		long __functionAddress = AL.getCapabilities().alSourceRewindv;
@@ -1247,10 +1139,9 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	// --- [ alGenBuffers ] ---
 
 	/**
-	 * Requests a number of buffer names.
+	 * Unsafe version of: {@link #alGenBuffers GenBuffers}
 	 *
-	 * @param n           the number of buffer names to generate
-	 * @param bufferNames the buffer that will receive the buffer names
+	 * @param n the number of buffer names to generate
 	 */
 	public static void nalGenBuffers(int n, long bufferNames) {
 		long __functionAddress = AL.getCapabilities().alGenBuffers;
@@ -1281,10 +1172,9 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	// --- [ alDeleteBuffers ] ---
 
 	/**
-	 * Requests the deletion of a number of buffers.
+	 * Unsafe version of: {@link #alDeleteBuffers DeleteBuffers}
 	 *
-	 * @param n           the number of buffers to delete
-	 * @param bufferNames the buffers to delete
+	 * @param n the number of buffers to delete
 	 */
 	public static void nalDeleteBuffers(int n, long bufferNames) {
 		long __functionAddress = AL.getCapabilities().alDeleteBuffers;
@@ -1325,13 +1215,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetBufferf ] ---
 
-	/**
-	 * Returns the float value of the specified buffer parameter.
-	 *
-	 * @param bufferName the buffer to query
-	 * @param paramName  the parameter to query. One of:<br><table><tr><td>{@link #AL_FREQUENCY FREQUENCY}</td><td>{@link #AL_BITS BITS}</td><td>{@link #AL_CHANNELS CHANNELS}</td><td>{@link #AL_SIZE SIZE}</td></tr></table>
-	 * @param value      the parameter value
-	 */
+	/** Unsafe version of: {@link #alGetBufferf GetBufferf} */
 	public static void nalGetBufferf(int bufferName, int paramName, long value) {
 		long __functionAddress = AL.getCapabilities().alGetBufferf;
 		invokePV(__functionAddress, bufferName, paramName, value);
@@ -1369,13 +1253,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetBufferi ] ---
 
-	/**
-	 * Returns the integer value of the specified buffer parameter.
-	 *
-	 * @param bufferName the buffer to query
-	 * @param paramName  the parameter to query. One of:<br><table><tr><td>{@link #AL_FREQUENCY FREQUENCY}</td><td>{@link #AL_BITS BITS}</td><td>{@link #AL_CHANNELS CHANNELS}</td><td>{@link #AL_SIZE SIZE}</td></tr></table>
-	 * @param value      the parameter value
-	 */
+	/** Unsafe version of: {@link #alGetBufferi GetBufferi} */
 	public static void nalGetBufferi(int bufferName, int paramName, long value) {
 		long __functionAddress = AL.getCapabilities().alGetBufferi;
 		invokePV(__functionAddress, bufferName, paramName, value);
@@ -1414,26 +1292,9 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	// --- [ alBufferData ] ---
 
 	/**
-	 * Sets the sample data of the specified buffer.
-	 * 
-	 * <p>The data specified is copied to an internal software, or if possible, hardware buffer. The implementation is free to apply decompression, conversion,
-	 * resampling, and filtering as needed.</p>
-	 * 
-	 * <p>8-bit data is expressed as an unsigned value over the range 0 to 255, 128 being an audio output level of zero.</p>
-	 * 
-	 * <p>16-bit data is expressed as a signed value over the range -32768 to 32767, 0 being an audio output level of zero. Byte order for 16-bit values is
-	 * determined by the native format of the CPU.</p>
-	 * 
-	 * <p>Stereo data is expressed in an interleaved format, left channel sample followed by the right channel sample.</p>
-	 * 
-	 * <p>Buffers containing audio data with more than one channel will be played without 3D spatialization features – these formats are normally used for
-	 * background music.</p>
+	 * Unsafe version of: {@link #alBufferData BufferData}
 	 *
-	 * @param bufferName the buffer to modify
-	 * @param format     the data format. One of:<br><table><tr><td>{@link #AL_FORMAT_MONO8 FORMAT_MONO8}</td><td>{@link #AL_FORMAT_MONO16 FORMAT_MONO16}</td><td>{@link #AL_FORMAT_STEREO8 FORMAT_STEREO8}</td><td>{@link #AL_FORMAT_STEREO16 FORMAT_STEREO16}</td></tr></table>
-	 * @param data       the sample data
-	 * @param size       the data buffer size, in bytes
-	 * @param frequency  the data frequency
+	 * @param size the data buffer size, in bytes
 	 */
 	public static void nalBufferData(int bufferName, int format, long data, int size, int frequency) {
 		long __functionAddress = AL.getCapabilities().alBufferData;
@@ -1482,11 +1343,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetEnumValue ] ---
 
-	/**
-	 * Returns the enumeration value of the specified enum.
-	 *
-	 * @param enumName the enum name
-	 */
+	/** Unsafe version of: {@link #alGetEnumValue GetEnumValue} */
 	public static int nalGetEnumValue(long enumName) {
 		long __functionAddress = AL.getCapabilities().alGetEnumValue;
 		return invokePI(__functionAddress, enumName);
@@ -1520,17 +1377,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alGetProcAddress ] ---
 
-	/**
-	 * Retrieves extension entry points.
-	 * 
-	 * <p>Returns {@code NULL} if no entry point with the name funcName can be found. Implementations are free to return {@code NULL} if an entry point is present, but not
-	 * applicable for the current context. However the specification does not guarantee this behavior.</p>
-	 * 
-	 * <p>Applications can use alGetProcAddress to obtain core API entry points, not just extensions. This is the recommended way to dynamically load and unload
-	 * OpenAL DLL's as sound drivers.</p>
-	 *
-	 * @param funcName the function name
-	 */
+	/** Unsafe version of: {@link #alGetProcAddress GetProcAddress} */
 	public static long nalGetProcAddress(long funcName) {
 		long __functionAddress = AL.getCapabilities().alGetProcAddress;
 		return invokePP(__functionAddress, funcName);
@@ -1576,14 +1423,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 
 	// --- [ alIsExtensionPresent ] ---
 
-	/**
-	 * Verifies that a given extension is available for the current context and the device it is associated with.
-	 * 
-	 * <p>Invalid and unsupported string tokens return ALC_FALSE. {@code extName} is not case sensitive – the implementation will convert the name to all
-	 * upper-case internally (and will express extension names in upper-case).</p>
-	 *
-	 * @param extName the extension name
-	 */
+	/** Unsafe version of: {@link #alIsExtensionPresent IsExtensionPresent} */
 	public static boolean nalIsExtensionPresent(long extName) {
 		long __functionAddress = AL.getCapabilities().alIsExtensionPresent;
 		return invokePZ(__functionAddress, extName);

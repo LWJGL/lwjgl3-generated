@@ -54,14 +54,7 @@ public class ARBBlendFuncExtended {
 
 	// --- [ glBindFragDataLocationIndexed ] ---
 
-	/**
-	 * Binds a user-defined varying out variable to a fragment shader color number and index.
-	 *
-	 * @param program     the name of the program containing varying out variable whose binding to modify
-	 * @param colorNumber the color number to bind the user-defined varying out variable to
-	 * @param index       the index of the color input to bind the user-defined varying out variable to
-	 * @param name        the name of the user-defined varying out variable whose binding to modify
-	 */
+	/** Unsafe version of: {@link #glBindFragDataLocationIndexed BindFragDataLocationIndexed} */
 	public static void nglBindFragDataLocationIndexed(int program, int colorNumber, int index, long name) {
 		long __functionAddress = GL.getCapabilities().glBindFragDataLocationIndexed;
 		if ( CHECKS )
@@ -103,12 +96,7 @@ public class ARBBlendFuncExtended {
 
 	// --- [ glGetFragDataIndex ] ---
 
-	/**
-	 * Queries the bindings of color indices to user-defined varying out variables.
-	 *
-	 * @param program the name of the program containing varying out variable whose binding to query
-	 * @param name    the name of the user-defined varying out variable whose index to query
-	 */
+	/** Unsafe version of: {@link #glGetFragDataIndex GetFragDataIndex} */
 	public static int nglGetFragDataIndex(int program, long name) {
 		long __functionAddress = GL.getCapabilities().glGetFragDataIndex;
 		if ( CHECKS )

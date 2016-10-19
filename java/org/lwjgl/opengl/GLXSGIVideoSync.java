@@ -30,11 +30,7 @@ public class GLXSGIVideoSync {
 
 	// --- [ glXGetVideoSyncSGI ] ---
 
-	/**
-	 * Returns the value of the video sync counter in {@code count}. Zero is returned if the call is successful.
-	 *
-	 * @param count the video sync counter value
-	 */
+	/** Unsafe version of: {@link #glXGetVideoSyncSGI GetVideoSyncSGI} */
 	public static int nglXGetVideoSyncSGI(long count) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetVideoSyncSGI;
 		if ( CHECKS )
@@ -55,19 +51,7 @@ public class GLXSGIVideoSync {
 
 	// --- [ glXWaitVideoSyncSGI ] ---
 
-	/**
-	 * Puts the calling process to sleep until
-	 * 
-	 * <p><code>(C mod D) = R</code></p>
-	 * 
-	 * <p>where {@code C} is the video sync counter, {@code D} is specified by the {@code divisor} parameter of {@code glXWaitVideoSyncSGI}, and {@code R} is
-	 * specified by the {@code remainder} parameter of {@code glXWaitVideoSyncSGI}. {@code glXWaitVideoSyncSGI} returns the current video sync counter value in
-	 * {@code count}. Zero is returned by {@code glXWaitVideoSyncSGI} if it is successful.</p>
-	 *
-	 * @param divisor   the divisor value
-	 * @param remainder the remainder value
-	 * @param count     the video sync counter value
-	 */
+	/** Unsafe version of: {@link #glXWaitVideoSyncSGI WaitVideoSyncSGI} */
 	public static int nglXWaitVideoSyncSGI(int divisor, int remainder, long count) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXWaitVideoSyncSGI;
 		if ( CHECKS )

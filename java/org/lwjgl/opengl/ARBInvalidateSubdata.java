@@ -129,11 +129,9 @@ public class ARBInvalidateSubdata {
 	// --- [ glInvalidateFramebuffer ] ---
 
 	/**
-	 * Invalidate the content some or all of a framebuffer object's attachments.
+	 * Unsafe version of: {@link #glInvalidateFramebuffer InvalidateFramebuffer}
 	 *
-	 * @param target         the target to which the framebuffer is attached. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td></tr></table>
 	 * @param numAttachments the number of entries in the {@code attachments} array
-	 * @param attachments    the address of an array identifying the attachments to be invalidated
 	 */
 	public static void nglInvalidateFramebuffer(int target, int numAttachments, long attachments) {
 		long __functionAddress = GL.getCapabilities().glInvalidateFramebuffer;
@@ -170,15 +168,9 @@ public class ARBInvalidateSubdata {
 	// --- [ glInvalidateSubFramebuffer ] ---
 
 	/**
-	 * Invalidates the content of a region of some or all of a framebuffer object's attachments.
+	 * Unsafe version of: {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer}
 	 *
-	 * @param target         the target to which the framebuffer is attached. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td></tr></table>
 	 * @param numAttachments the number of entries in the {@code attachments} array
-	 * @param attachments    an array identifying the attachments to be invalidated
-	 * @param x              the X offset of the region to be invalidated
-	 * @param y              the Y offset of the region to be invalidated
-	 * @param width          the width of the region to be invalidated
-	 * @param height         the height of the region to be invalidated
 	 */
 	public static void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height) {
 		long __functionAddress = GL.getCapabilities().glInvalidateSubFramebuffer;

@@ -137,12 +137,7 @@ public class ARBTessellationShader {
 
 	// --- [ glPatchParameterfv ] ---
 
-	/**
-	 * Specifies an array of float values for the specified parameter for patch primitives.
-	 *
-	 * @param pname  the name of the parameter to set. One of:<br><table><tr><td>{@link #GL_PATCH_DEFAULT_OUTER_LEVEL PATCH_DEFAULT_OUTER_LEVEL}</td><td>{@link #GL_PATCH_DEFAULT_INNER_LEVEL PATCH_DEFAULT_INNER_LEVEL}</td></tr></table>
-	 * @param values an array containing the new values for the parameter given by {@code pname}
-	 */
+	/** Unsafe version of: {@link #glPatchParameterfv PatchParameterfv} */
 	public static void nglPatchParameterfv(int pname, long values) {
 		long __functionAddress = GL.getCapabilities().glPatchParameterfv;
 		if ( CHECKS )

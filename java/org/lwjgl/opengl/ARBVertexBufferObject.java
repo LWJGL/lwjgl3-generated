@@ -137,10 +137,9 @@ public class ARBVertexBufferObject {
 	// --- [ glDeleteBuffersARB ] ---
 
 	/**
-	 * Deletes named buffer objects.
+	 * Unsafe version of: {@link #glDeleteBuffersARB DeleteBuffersARB}
 	 *
-	 * @param n       the number of buffer objects to be deleted
-	 * @param buffers an array of buffer objects to be deleted
+	 * @param n the number of buffer objects to be deleted
 	 */
 	public static void nglDeleteBuffersARB(int n, long buffers) {
 		long __functionAddress = GL.getCapabilities().glDeleteBuffersARB;
@@ -172,10 +171,9 @@ public class ARBVertexBufferObject {
 	// --- [ glGenBuffersARB ] ---
 
 	/**
-	 * Generates buffer object names.
+	 * Unsafe version of: {@link #glGenBuffersARB GenBuffersARB}
 	 *
-	 * @param n       the number of buffer object names to be generated
-	 * @param buffers a buffer in which the generated buffer object names are stored
+	 * @param n the number of buffer object names to be generated
 	 */
 	public static void nglGenBuffersARB(int n, long buffers) {
 		long __functionAddress = GL.getCapabilities().glGenBuffersARB;
@@ -222,31 +220,9 @@ public class ARBVertexBufferObject {
 	// --- [ glBufferDataARB ] ---
 
 	/**
-	 * Creates and initializes a buffer object's data store.
-	 * 
-	 * <p>{@code usage} is a hint to the GL implementation as to how a buffer object's data store will be accessed. This enables the GL implementation to make
-	 * more intelligent decisions that may significantly impact buffer object performance. It does not, however, constrain the actual usage of the data store.
-	 * {@code usage} can be broken down into two parts: first, the frequency of access (modification and usage), and second, the nature of that access. The
-	 * frequency of access may be one of these:</p>
-	 * 
-	 * <ul>
-	 * <li><em>STREAM</em> - The data store contents will be modified once and used at most a few times.</li>
-	 * <li><em>STATIC</em> - The data store contents will be modified once and used many times.</li>
-	 * <li><em>DYNAMIC</em> - The data store contents will be modified repeatedly and used many times.</li>
-	 * </ul>
-	 * 
-	 * <p>The nature of access may be one of these:</p>
-	 * 
-	 * <ul>
-	 * <li><em>DRAW</em> - The data store contents are modified by the application, and used as the source for GL drawing and image specification commands.</li>
-	 * <li><em>READ</em> - The data store contents are modified by reading data from the GL, and used to return that data when queried by the application.</li>
-	 * <li><em>COPY</em> - The data store contents are modified by reading data from the GL, and used as the source for GL drawing and image specification commands.</li>
-	 * </ul>
+	 * Unsafe version of: {@link #glBufferDataARB BufferDataARB}
 	 *
-	 * @param target the target buffer object. One of:<br><table><tr><td>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td></tr><tr><td>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td><td>{@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td></tr><tr><td>{@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}</td></tr><tr><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td><td>{@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}</td></tr></table>
-	 * @param size   the size in bytes of the buffer object's new data store
-	 * @param data   a pointer to data that will be copied into the data store for initialization, or {@code NULL} if no data is to be copied
-	 * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link #GL_STREAM_DRAW_ARB STREAM_DRAW_ARB}</td><td>{@link #GL_STREAM_READ_ARB STREAM_READ_ARB}</td><td>{@link #GL_STREAM_COPY_ARB STREAM_COPY_ARB}</td><td>{@link #GL_STATIC_DRAW_ARB STATIC_DRAW_ARB}</td><td>{@link #GL_STATIC_READ_ARB STATIC_READ_ARB}</td></tr><tr><td>{@link #GL_STATIC_COPY_ARB STATIC_COPY_ARB}</td><td>{@link #GL_DYNAMIC_DRAW_ARB DYNAMIC_DRAW_ARB}</td><td>{@link #GL_DYNAMIC_READ_ARB DYNAMIC_READ_ARB}</td><td>{@link #GL_DYNAMIC_COPY_ARB DYNAMIC_COPY_ARB}</td></tr></table>
+	 * @param size the size in bytes of the buffer object's new data store
 	 */
 	public static void nglBufferDataARB(int target, long size, long data, int usage) {
 		long __functionAddress = GL.getCapabilities().glBufferDataARB;
@@ -313,12 +289,9 @@ public class ARBVertexBufferObject {
 	// --- [ glBufferSubDataARB ] ---
 
 	/**
-	 * Updates a subset of a buffer object's data store.
+	 * Unsafe version of: {@link #glBufferSubDataARB BufferSubDataARB}
 	 *
-	 * @param target the target buffer object. One of:<br><table><tr><td>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td></tr><tr><td>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td><td>{@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td></tr><tr><td>{@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}</td></tr><tr><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td><td>{@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}</td></tr></table>
-	 * @param offset the offset into the buffer object's data store where data replacement will begin, measured in bytes
-	 * @param size   the size in bytes of the data store region being replaced
-	 * @param data   a pointer to the new data that will be copied into the data store
+	 * @param size the size in bytes of the data store region being replaced
 	 */
 	public static void nglBufferSubDataARB(int target, long offset, long size, long data) {
 		long __functionAddress = GL.getCapabilities().glBufferSubDataARB;
@@ -361,12 +334,9 @@ public class ARBVertexBufferObject {
 	// --- [ glGetBufferSubDataARB ] ---
 
 	/**
-	 * Returns a subset of a buffer object's data store.
+	 * Unsafe version of: {@link #glGetBufferSubDataARB GetBufferSubDataARB}
 	 *
-	 * @param target the target buffer object. One of:<br><table><tr><td>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td></tr><tr><td>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td><td>{@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td></tr><tr><td>{@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}</td></tr><tr><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td><td>{@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}</td></tr></table>
-	 * @param offset the offset into the buffer object's data store from which data will be returned, measured in bytes
-	 * @param size   the size in bytes of the data store region being returned
-	 * @param data   a pointer to the location where buffer object data is returned
+	 * @param size the size in bytes of the data store region being returned
 	 */
 	public static void nglGetBufferSubDataARB(int target, long offset, long size, long data) {
 		long __functionAddress = GL.getCapabilities().glGetBufferSubDataARB;
@@ -408,20 +378,7 @@ public class ARBVertexBufferObject {
 
 	// --- [ glMapBufferARB ] ---
 
-	/**
-	 * Maps a buffer object's data store.
-	 * 
-	 * <p><b>LWJGL note</b>: This method comes in 3 flavors:</p>
-	 * 
-	 * <ol>
-	 * <li>{@link #glMapBufferARB(int, int)} - Calls {@link #glGetBufferParameteriARB GetBufferParameteriARB} to retrieve the buffer size and a new ByteBuffer instance is always returned.</li>
-	 * <li>{@link #glMapBufferARB(int, int, ByteBuffer)} - Calls {@link #glGetBufferParameteriARB GetBufferParameteriARB} to retrieve the buffer size and the {@code old_buffer} parameter is reused if not null.</li>
-	 * <li>{@link #glMapBufferARB(int, int, long, ByteBuffer)} - The buffer size is explicitly specified and the {@code old_buffer} parameter is reused if not null. This is the most efficient method.</li>
-	 * </ol>
-	 *
-	 * @param target the target buffer object being mapped. One of:<br><table><tr><td>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td></tr><tr><td>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td><td>{@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td></tr><tr><td>{@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}</td></tr><tr><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td><td>{@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}</td></tr></table>
-	 * @param access the access policy, indicating whether it will be possible to read from, write to, or both read from and write to the buffer object's mapped data store. One of:<br><table><tr><td>{@link #GL_READ_ONLY_ARB READ_ONLY_ARB}</td><td>{@link #GL_WRITE_ONLY_ARB WRITE_ONLY_ARB}</td><td>{@link #GL_READ_WRITE_ARB READ_WRITE_ARB}</td></tr></table>
-	 */
+	/** Unsafe version of: {@link #glMapBufferARB MapBufferARB} */
 	public static long nglMapBufferARB(int target, int access) {
 		long __functionAddress = GL.getCapabilities().glMapBufferARB;
 		if ( CHECKS )
@@ -508,13 +465,7 @@ public class ARBVertexBufferObject {
 
 	// --- [ glGetBufferParameterivARB ] ---
 
-	/**
-	 * Returns the value of a buffer object parameter.
-	 *
-	 * @param target the target buffer object. One of:<br><table><tr><td>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td></tr><tr><td>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td><td>{@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td></tr><tr><td>{@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}</td></tr><tr><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td><td>{@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}</td></tr></table>
-	 * @param pname  the symbolic name of a buffer object parameter. One of:<br><table><tr><td>{@link GL15#GL_BUFFER_SIZE BUFFER_SIZE}</td><td>{@link GL15#GL_BUFFER_USAGE BUFFER_USAGE}</td><td>{@link GL15#GL_BUFFER_ACCESS BUFFER_ACCESS}</td><td>{@link GL15#GL_BUFFER_MAPPED BUFFER_MAPPED}</td><td>{@link GL30#GL_BUFFER_ACCESS_FLAGS BUFFER_ACCESS_FLAGS}</td></tr><tr><td>{@link GL30#GL_BUFFER_MAP_LENGTH BUFFER_MAP_LENGTH}</td><td>{@link GL30#GL_BUFFER_MAP_OFFSET BUFFER_MAP_OFFSET}</td><td>{@link GL44#GL_BUFFER_IMMUTABLE_STORAGE BUFFER_IMMUTABLE_STORAGE}</td><td>{@link GL44#GL_BUFFER_STORAGE_FLAGS BUFFER_STORAGE_FLAGS}</td></tr></table>
-	 * @param params the requested parameter
-	 */
+	/** Unsafe version of: {@link #glGetBufferParameterivARB GetBufferParameterivARB} */
 	public static void nglGetBufferParameterivARB(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetBufferParameterivARB;
 		if ( CHECKS )
@@ -554,13 +505,7 @@ public class ARBVertexBufferObject {
 
 	// --- [ glGetBufferPointervARB ] ---
 
-	/**
-	 * Returns the pointer to a mapped buffer object's data store.
-	 *
-	 * @param target the target buffer object. One of:<br><table><tr><td>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td></tr><tr><td>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td><td>{@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td></tr><tr><td>{@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}</td></tr><tr><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td><td>{@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}</td></tr></table>
-	 * @param pname  the pointer to be returned. Must be:<br><table><tr><td>{@link #GL_BUFFER_MAP_POINTER_ARB BUFFER_MAP_POINTER_ARB}</td></tr></table>
-	 * @param params the pointer value specified by {@code pname}
-	 */
+	/** Unsafe version of: {@link #glGetBufferPointervARB GetBufferPointervARB} */
 	public static void nglGetBufferPointervARB(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetBufferPointervARB;
 		if ( CHECKS )

@@ -34,17 +34,7 @@ public class NanoVGGL3 {
 
 	// --- [ nvglCreateImageFromHandle ] ---
 
-	/**
-	 * Creates a NanoVG image from an OpenGL texture.
-	 *
-	 * @param ctx       the NanoVG context
-	 * @param textureId the OpenGL texture id
-	 * @param w         the image width
-	 * @param h         the image height
-	 * @param flags     the image flags
-	 *
-	 * @return a handle to the image
-	 */
+	/** Unsafe version of: {@link #nvglCreateImageFromHandle lCreateImageFromHandle} */
 	public static native int nnvglCreateImageFromHandleGL3(long ctx, int textureId, int w, int h, int flags);
 
 	/**
@@ -66,12 +56,7 @@ public class NanoVGGL3 {
 
 	// --- [ nvglImageHandle ] ---
 
-	/**
-	 * Returns the OpenGL texture id associated with a NanoVG image.
-	 *
-	 * @param ctx   the NanoVG context
-	 * @param image the image handle
-	 */
+	/** Unsafe version of: {@link #nvglImageHandle lImageHandle} */
 	public static native int nnvglImageHandleGL3(long ctx, int image);
 
 	/**
@@ -88,14 +73,7 @@ public class NanoVGGL3 {
 
 	// --- [ nvgCreate ] ---
 
-	/**
-	 * Creates a NanoVG context with an OpenGL 3.0 rendering back-end.
-	 * 
-	 * <p>An OpenGL 3.0+ context must be current in the current thread when this function is called and the returned NanoVG context may only be used in the
-	 * thread in which that OpenGL context is current.</p>
-	 *
-	 * @param flags the context flags. One of:<br><table><tr><td>{@link #NVG_ANTIALIAS ANTIALIAS}</td><td>{@link #NVG_STENCIL_STROKES STENCIL_STROKES}</td><td>{@link #NVG_DEBUG DEBUG}</td></tr></table>
-	 */
+	/** Unsafe version of: {@link #nvgCreate Create} */
 	public static native long nnvgCreateGL3(int flags);
 
 	/**
@@ -112,11 +90,7 @@ public class NanoVGGL3 {
 
 	// --- [ nvgDelete ] ---
 
-	/**
-	 * Deletes a NanoVG context created with {@link #nvgCreate Create}.
-	 *
-	 * @param ctx the NanoVG context
-	 */
+	/** Unsafe version of: {@link #nvgDelete Delete} */
 	public static native void nnvgDeleteGL3(long ctx);
 
 	/**
@@ -132,14 +106,7 @@ public class NanoVGGL3 {
 
 	// --- [ nvgluCreateFramebuffer ] ---
 
-	/**
-	 * Creates a framebuffer object to render to.
-	 *
-	 * @param ctx        the NanoVG context
-	 * @param w          the framebuffer width
-	 * @param h          the framebuffer height
-	 * @param imageFlags the image flags
-	 */
+	/** Unsafe version of: {@link #nvgluCreateFramebuffer luCreateFramebuffer} */
 	public static native long nnvgluCreateFramebufferGL3(long ctx, int w, int h, int imageFlags);
 
 	/**
@@ -159,12 +126,7 @@ public class NanoVGGL3 {
 
 	// --- [ nvgluBindFramebuffer ] ---
 
-	/**
-	 * Binds the framebuffer object associated with the specified {@link NVGLUFramebuffer}.
-	 *
-	 * @param ctx the NanoVG context
-	 * @param fb  the framebuffer to bind
-	 */
+	/** Unsafe version of: {@link #nvgluBindFramebuffer luBindFramebuffer} */
 	public static native void nnvgluBindFramebufferGL3(long ctx, long fb);
 
 	/**
@@ -181,12 +143,7 @@ public class NanoVGGL3 {
 
 	// --- [ nvgluDeleteFramebuffer ] ---
 
-	/**
-	 * Deletes an {@link NVGLUFramebuffer}.
-	 *
-	 * @param ctx the NanoVG context
-	 * @param fb  the framebuffer to delete
-	 */
+	/** Unsafe version of: {@link #nvgluDeleteFramebuffer luDeleteFramebuffer} */
 	public static native void nnvgluDeleteFramebufferGL3(long ctx, long fb);
 
 	/**

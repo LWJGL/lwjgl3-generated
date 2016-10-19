@@ -42,11 +42,9 @@ public class XXHash {
 	// --- [ XXH32 ] ---
 
 	/**
-	 * Calculates the 32-bits hash of sequence {@code length} bytes stored at memory address {@code input}.
+	 * Unsafe version of: {@link #XXH32 32}
 	 *
-	 * @param input  the bytes to hash. The memory between {@code input} &amp; {@code input+length} must be valid (allocated and read-accessible).
 	 * @param length the number of bytes stored at memory address {@code input}
-	 * @param seed   the seed that can be used to alter the result predictably
 	 */
 	public static native int nXXH32(long input, long length, int seed);
 
@@ -62,11 +60,7 @@ public class XXHash {
 
 	// --- [ XXH32_createState ] ---
 
-	/**
-	 * Creates memory for {@code XXH32_state_t}. The state must then be initialized using {@link #XXH32_reset 32_reset} before first use.
-	 * 
-	 * <p><b>LWJGL note</b>: This function simply delegates to the system {@code malloc()} function.</p>
-	 */
+	/** Unsafe version of: {@link #XXH32_createState 32_createState} */
 	public static native long nXXH32_createState();
 
 	/**
@@ -81,11 +75,7 @@ public class XXHash {
 
 	// --- [ XXH32_freeState ] ---
 
-	/**
-	 * Frees the specified {@code XXH32_state_t}.
-	 *
-	 * @param statePtr the state to free
-	 */
+	/** Unsafe version of: {@link #XXH32_freeState 32_freeState} */
 	public static native int nXXH32_freeState(long statePtr);
 
 	/**
@@ -107,12 +97,7 @@ public class XXHash {
 
 	// --- [ XXH32_reset ] ---
 
-	/**
-	 * Resets the specified {@code XXH32_state_t}.
-	 *
-	 * @param statePtr the {@code XXH32_state_t} to reset
-	 * @param seed     the seed that can be used to alter the hashing result predictably
-	 */
+	/** Unsafe version of: {@link #XXH32_reset 32_reset} */
 	public static native int nXXH32_reset(long statePtr, int seed);
 
 	/**
@@ -128,26 +113,9 @@ public class XXHash {
 	// --- [ XXH32_update ] ---
 
 	/**
-	 * These functions generate the xxHash of an input provided in multiple segments. Note that, for small input, they are slower than single-call functions,
-	 * due to state management. For small input, prefer {@link #XXH32 32}.
-	 * 
-	 * <p>XXH state must first be allocated, using {@link #XXH32_createState 32_createState}.</p>
-	 * 
-	 * <p>Start a new hash by initializing state with a seed, using {@link #XXH32_reset 32_reset}.</p>
-	 * 
-	 * <p>Then, feed the hash state by calling {@link #XXH32_update 32_update} as many times as necessary. Obviously, input must be allocated and read accessible. The function
-	 * returns an error code, with 0 meaning OK, and any other value meaning there is an error.</p>
-	 * 
-	 * <p>Finally, a hash value can be produced anytime, by using {@link #XXH32_digest 32_digest}. This function returns the 32-bits hash as an int.</p>
-	 * 
-	 * <p>It's still possible to continue inserting input into the hash state after a digest, and generate some new hashes later on, by calling again
-	 * {@link #XXH32_digest 32_digest}.</p>
-	 * 
-	 * <p>When done, free XXH state space.</p>
+	 * Unsafe version of: {@link #XXH32_update 32_update}
 	 *
-	 * @param statePtr the {@code XXH32_state_t} to use
-	 * @param input    the bytes to hash. The memory between {@code input} &amp; {@code input+length} must be valid (allocated and read-accessible).
-	 * @param length   the number of bytes stored at memory address {@code input}
+	 * @param length the number of bytes stored at memory address {@code input}
 	 */
 	public static native int nXXH32_update(long statePtr, long input, long length);
 
@@ -178,11 +146,7 @@ public class XXHash {
 
 	// --- [ XXH32_digest ] ---
 
-	/**
-	 * Returns the final 32-bits hash of the specified {@code XXH32_state_t}.
-	 *
-	 * @param statePtr the {@code XXH32_state_t} to use
-	 */
+	/** Unsafe version of: {@link #XXH32_digest 32_digest} */
 	public static native int nXXH32_digest(long statePtr);
 
 	/**
@@ -196,16 +160,7 @@ public class XXHash {
 
 	// --- [ XXH32_canonicalFromHash ] ---
 
-	/**
-	 * Default result type for XXH functions are primitive unsigned 32 and 64 bits.
-	 * 
-	 * <p>The canonical representation uses human-readable write convention, aka big-endian (large digits first). These functions allow transformation of hash
-	 * result into and from its canonical format. This way, hash values can be written into a file / memory, and remain comparable on different systems and
-	 * programs.</p>
-	 *
-	 * @param dst  the destination canonical representation
-	 * @param hash the source hash
-	 */
+	/** Unsafe version of: {@link #XXH32_canonicalFromHash 32_canonicalFromHash} */
 	public static native void nXXH32_canonicalFromHash(long dst, int hash);
 
 	/**
@@ -224,11 +179,7 @@ public class XXHash {
 
 	// --- [ XXH32_hashFromCanonical ] ---
 
-	/**
-	 * Transforms the specified canonical representation to a primitive value.
-	 *
-	 * @param src the source canonical representation
-	 */
+	/** Unsafe version of: {@link #XXH32_hashFromCanonical 32_hashFromCanonical} */
 	public static native int nXXH32_hashFromCanonical(long src);
 
 	/**
@@ -243,13 +194,9 @@ public class XXHash {
 	// --- [ XXH64 ] ---
 
 	/**
-	 * 64-bit version of {@link #XXH32 32}.
-	 * 
-	 * <p>This function runs 2x faster on 64-bits systems, but slower on 32-bits systems.</p>
+	 * Unsafe version of: {@link #XXH64 64}
 	 *
-	 * @param input  the bytes to hash. The memory between {@code input} &amp; {@code input+length} must be valid (allocated and read-accessible).
 	 * @param length the number of bytes stored at memory address {@code input}
-	 * @param seed   the seed that can be used to alter the result predictably
 	 */
 	public static native long nXXH64(long input, long length, long seed);
 
@@ -267,7 +214,7 @@ public class XXHash {
 
 	// --- [ XXH64_createState ] ---
 
-	/** 64-bit version of {@link #XXH32_createState 32_createState}. */
+	/** Unsafe version of: {@link #XXH64_createState 64_createState} */
 	public static native long nXXH64_createState();
 
 	/** 64-bit version of {@link #XXH32_createState 32_createState}. */
@@ -278,11 +225,7 @@ public class XXHash {
 
 	// --- [ XXH64_freeState ] ---
 
-	/**
-	 * 64-bit version of {@link #XXH32_freeState 32_freeState}.
-	 *
-	 * @param statePtr the state to free
-	 */
+	/** Unsafe version of: {@link #XXH64_freeState 64_freeState} */
 	public static native int nXXH64_freeState(long statePtr);
 
 	/**
@@ -304,12 +247,7 @@ public class XXHash {
 
 	// --- [ XXH64_reset ] ---
 
-	/**
-	 * 64-bit version of {@link #XXH32_reset 32_reset}.
-	 *
-	 * @param statePtr the {@code XXH64_state_t} to reset
-	 * @param seed     the seed that can be used to alter the hashing result predictably
-	 */
+	/** Unsafe version of: {@link #XXH64_reset 64_reset} */
 	public static native int nXXH64_reset(long statePtr, long seed);
 
 	/**
@@ -325,11 +263,9 @@ public class XXHash {
 	// --- [ XXH64_update ] ---
 
 	/**
-	 * 64-bit version of {@link #XXH32_update 32_update}.
+	 * Unsafe version of: {@link #XXH64_update 64_update}
 	 *
-	 * @param statePtr the {@code XXH64_state_t} to use
-	 * @param input    the bytes to hash. The memory between {@code input} &amp; {@code input+length} must be valid (allocated and read-accessible).
-	 * @param length   the number of bytes stored at memory address {@code input}
+	 * @param length the number of bytes stored at memory address {@code input}
 	 */
 	public static native int nXXH64_update(long statePtr, long input, long length);
 
@@ -345,11 +281,7 @@ public class XXHash {
 
 	// --- [ XXH64_digest ] ---
 
-	/**
-	 * 64-bit version of {@link #XXH32_digest 32_digest}.
-	 *
-	 * @param statePtr the {@code XXH64_state_t} to use
-	 */
+	/** Unsafe version of: {@link #XXH64_digest 64_digest} */
 	public static native long nXXH64_digest(long statePtr);
 
 	/**
@@ -363,12 +295,7 @@ public class XXHash {
 
 	// --- [ XXH64_canonicalFromHash ] ---
 
-	/**
-	 * 64-bit version of {@link #XXH32_canonicalFromHash 32_canonicalFromHash}.
-	 *
-	 * @param dst  the destination canonical representation
-	 * @param hash the source hash
-	 */
+	/** Unsafe version of: {@link #XXH64_canonicalFromHash 64_canonicalFromHash} */
 	public static native void nXXH64_canonicalFromHash(long dst, long hash);
 
 	/**
@@ -383,11 +310,7 @@ public class XXHash {
 
 	// --- [ XXH64_hashFromCanonical ] ---
 
-	/**
-	 * 64-bit version of {@link #XXH32_hashFromCanonical 32_hashFromCanonical}.
-	 *
-	 * @param src the source canonical representation
-	 */
+	/** Unsafe version of: {@link #XXH64_hashFromCanonical 64_hashFromCanonical} */
 	public static native long nXXH64_hashFromCanonical(long src);
 
 	/**

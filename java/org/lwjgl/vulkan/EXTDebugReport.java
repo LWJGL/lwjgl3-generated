@@ -116,32 +116,7 @@ public class EXTDebugReport {
 
 	// --- [ vkCreateDebugReportCallbackEXT ] ---
 
-	/**
-	 * Registers a callback.
-	 * 
-	 * <p>For each {@code VkDebugReportCallbackEXT} that is created the flags determine when that function is called.</p>
-	 * 
-	 * <p>A callback will be made for issues that match any bit set in its flags. The callback will come directly from the component that detected the event,
-	 * unless some other layer intercepts the calls for its own purposes (filter them in different way, log to system error log, etc.)</p>
-	 * 
-	 * <p>An application may receive multiple callbacks if multiple {@code VkDebugReportCallbackEXT} objects were created. A callback will always be executed in
-	 * the same thread as the originating Vulkan call. A callback may be called from multiple threads simultaneously (if the application is making Vulkan
-	 * calls from multiple threads).</p>
-	 * 
-	 * <h5>Valid Usage</h5>
-	 * 
-	 * <ul>
-	 * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
-	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkDebugReportCallbackCreateInfoEXT} structure</li>
-	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>{@code pCallback} <b>must</b> be a pointer to a {@code VkDebugReportCallbackEXT} handle</li>
-	 * </ul>
-	 *
-	 * @param instance    the instance the callback will be logged on
-	 * @param pCreateInfo points to a {@link VkDebugReportCallbackCreateInfoEXT} structure which defines the conditions under which this callback will be called
-	 * @param pAllocator  controls host memory allocation
-	 * @param pCallback   a pointer to record the sname:VkDebugReportCallbackEXT object created
-	 */
+	/** Unsafe version of: {@link #vkCreateDebugReportCallbackEXT CreateDebugReportCallbackEXT} */
 	public static int nvkCreateDebugReportCallbackEXT(VkInstance instance, long pCreateInfo, long pAllocator, long pCallback) {
 		long __functionAddress = instance.getCapabilities().vkCreateDebugReportCallbackEXT;
 		if ( CHECKS ) {
@@ -186,30 +161,7 @@ public class EXTDebugReport {
 
 	// --- [ vkDestroyDebugReportCallbackEXT ] ---
 
-	/**
-	 * Destroys a {@code VkDebugReportCallbackEXT}.
-	 * 
-	 * <h5>Valid Usage</h5>
-	 * 
-	 * <ul>
-	 * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
-	 * <li>{@code callback} <b>must</b> be a valid {@code VkDebugReportCallbackEXT} handle</li>
-	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>{@code callback} <b>must</b> have been created, allocated, or retrieved from {@code instance}</li>
-	 * <li>If {@code VkAllocationCallbacks} were provided when {@code instance} was created, a compatible set of callbacks <b>must</b> be provided here</li>
-	 * <li>If no {@code VkAllocationCallbacks} were provided when {@code instance} was created, {@code pAllocator} <b>must</b> be {@code NULL}</li>
-	 * </ul>
-	 * 
-	 * <h5>Host Synchronization</h5>
-	 * 
-	 * <ul>
-	 * <li>Host access to {@code callback} <b>must</b> be externally synchronized</li>
-	 * </ul>
-	 *
-	 * @param instance   the instance where the callback was created
-	 * @param callback   the {@code VkDebugReportCallbackEXT} object to destroy
-	 * @param pAllocator controls host memory allocation
-	 */
+	/** Unsafe version of: {@link #vkDestroyDebugReportCallbackEXT DestroyDebugReportCallbackEXT} */
 	public static void nvkDestroyDebugReportCallbackEXT(VkInstance instance, long callback, long pAllocator) {
 		long __functionAddress = instance.getCapabilities().vkDestroyDebugReportCallbackEXT;
 		if ( CHECKS ) {
@@ -249,38 +201,7 @@ public class EXTDebugReport {
 
 	// --- [ vkDebugReportMessageEXT ] ---
 
-	/**
-	 * Injects a custom message into the debug stream.
-	 * 
-	 * <h5>Valid Usage</h5>
-	 * 
-	 * <ul>
-	 * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
-	 * <li>{@code flags} <b>must</b> be a valid combination of {@code VkDebugReportFlagBitsEXT} values</li>
-	 * <li>{@code flags} <b>must</b> not be 0</li>
-	 * <li>{@code objectType} <b>must</b> be a valid {@code VkDebugReportObjectTypeEXT} value</li>
-	 * <li>{@code pLayerPrefix} <b>must</b> be a pointer to a valid</li>
-	 * <li>{@code pMessage} <b>must</b> be a pointer to a valid</li>
-	 * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
-	 * <li>{@code flags} <b>must</b> be a combination of one or more of {@code VkDebugReportFlagBitsEXT}</li>
-	 * <li>{@code objType} <b>must</b> be one of {@code VkDebugReportObjectTypeEXT}, {@link #VK_DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT} if {@code object} is {@code NULL}</li>
-	 * <li>{@code object} <b>may</b> be a Vulkan object</li>
-	 * <li>{@code pLayerPrefix} <b>must</b> be a {@code NULL} terminated string</li>
-	 * <li>{@code pMsg} <b>must</b> be a {@code NULL} terminated string</li>
-	 * </ul>
-	 * 
-	 * <p>The call will propagate through the layers and cause a callback to the application. The parameters are passed on to the callback in addition to the
-	 * {@code pUserData} value that was defined at the time the callback was registered.</p>
-	 *
-	 * @param instance     the instance the callback will be logged on
-	 * @param flags        indicates the {@code VkDebugReportFlagBitsEXT} that triggered this callback. One of:<br><table><tr><td>{@link #VK_DEBUG_REPORT_INFORMATION_BIT_EXT DEBUG_REPORT_INFORMATION_BIT_EXT}</td><td>{@link #VK_DEBUG_REPORT_WARNING_BIT_EXT DEBUG_REPORT_WARNING_BIT_EXT}</td></tr><tr><td>{@link #VK_DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT}</td><td>{@link #VK_DEBUG_REPORT_ERROR_BIT_EXT DEBUG_REPORT_ERROR_BIT_EXT}</td></tr><tr><td>{@link #VK_DEBUG_REPORT_DEBUG_BIT_EXT DEBUG_REPORT_DEBUG_BIT_EXT}</td></tr></table>
-	 * @param objectType   the type of object being used / created at the time the event was triggered. One of:<br><table><tr><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT}</td><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_INSTANCE_EXT DEBUG_REPORT_OBJECT_TYPE_INSTANCE_EXT}</td></tr><tr><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_PHYSICAL_DEVICE_EXT DEBUG_REPORT_OBJECT_TYPE_PHYSICAL_DEVICE_EXT}</td><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_DEVICE_EXT DEBUG_REPORT_OBJECT_TYPE_DEVICE_EXT}</td></tr><tr><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_QUEUE_EXT DEBUG_REPORT_OBJECT_TYPE_QUEUE_EXT}</td><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_SEMAPHORE_EXT DEBUG_REPORT_OBJECT_TYPE_SEMAPHORE_EXT}</td></tr><tr><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_COMMAND_BUFFER_EXT DEBUG_REPORT_OBJECT_TYPE_COMMAND_BUFFER_EXT}</td><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_FENCE_EXT DEBUG_REPORT_OBJECT_TYPE_FENCE_EXT}</td></tr><tr><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_DEVICE_MEMORY_EXT DEBUG_REPORT_OBJECT_TYPE_DEVICE_MEMORY_EXT}</td><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_BUFFER_EXT DEBUG_REPORT_OBJECT_TYPE_BUFFER_EXT}</td></tr><tr><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_IMAGE_EXT DEBUG_REPORT_OBJECT_TYPE_IMAGE_EXT}</td><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_EVENT_EXT DEBUG_REPORT_OBJECT_TYPE_EVENT_EXT}</td></tr><tr><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_QUERY_POOL_EXT DEBUG_REPORT_OBJECT_TYPE_QUERY_POOL_EXT}</td><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_BUFFER_VIEW_EXT DEBUG_REPORT_OBJECT_TYPE_BUFFER_VIEW_EXT}</td></tr><tr><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_IMAGE_VIEW_EXT DEBUG_REPORT_OBJECT_TYPE_IMAGE_VIEW_EXT}</td><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_SHADER_MODULE_EXT DEBUG_REPORT_OBJECT_TYPE_SHADER_MODULE_EXT}</td></tr><tr><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_PIPELINE_CACHE_EXT DEBUG_REPORT_OBJECT_TYPE_PIPELINE_CACHE_EXT}</td><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_PIPELINE_LAYOUT_EXT DEBUG_REPORT_OBJECT_TYPE_PIPELINE_LAYOUT_EXT}</td></tr><tr><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_RENDER_PASS_EXT DEBUG_REPORT_OBJECT_TYPE_RENDER_PASS_EXT}</td><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_PIPELINE_EXT DEBUG_REPORT_OBJECT_TYPE_PIPELINE_EXT}</td></tr><tr><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_SET_LAYOUT_EXT DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_SET_LAYOUT_EXT}</td><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_SAMPLER_EXT DEBUG_REPORT_OBJECT_TYPE_SAMPLER_EXT}</td></tr><tr><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_POOL_EXT DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_POOL_EXT}</td><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_SET_EXT DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_SET_EXT}</td></tr><tr><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_FRAMEBUFFER_EXT DEBUG_REPORT_OBJECT_TYPE_FRAMEBUFFER_EXT}</td><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_COMMAND_POOL_EXT DEBUG_REPORT_OBJECT_TYPE_COMMAND_POOL_EXT}</td></tr><tr><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_SURFACE_KHR_EXT DEBUG_REPORT_OBJECT_TYPE_SURFACE_KHR_EXT}</td><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_SWAPCHAIN_KHR_EXT DEBUG_REPORT_OBJECT_TYPE_SWAPCHAIN_KHR_EXT}</td></tr><tr><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_EXT DEBUG_REPORT_OBJECT_TYPE_DEBUG_REPORT_EXT}</td></tr></table>
-	 * @param object       the object where the issue was detected. {@code object} may be {@link VK10#VK_NULL_HANDLE NULL_HANDLE} if there is no object associated with the event.
-	 * @param location     a component (layer, driver, loader) defined value that indicates the "location" of the trigger. This is an optional value.
-	 * @param messageCode  a layer defined value indicating what test triggered this callback
-	 * @param pLayerPrefix abbreviation of the component making the callback
-	 * @param pMessage     a null terminated string detailing the trigger conditions
-	 */
+	/** Unsafe version of: {@link #vkDebugReportMessageEXT DebugReportMessageEXT} */
 	public static void nvkDebugReportMessageEXT(VkInstance instance, int flags, int objectType, long object, long location, int messageCode, long pLayerPrefix, long pMessage) {
 		long __functionAddress = instance.getCapabilities().vkDebugReportMessageEXT;
 		if ( CHECKS )

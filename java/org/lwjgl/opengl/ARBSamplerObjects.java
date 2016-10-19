@@ -52,10 +52,9 @@ public class ARBSamplerObjects {
 	// --- [ glGenSamplers ] ---
 
 	/**
-	 * Generates sampler object names.
+	 * Unsafe version of: {@link #glGenSamplers GenSamplers}
 	 *
-	 * @param count    the number of sampler object names to generate
-	 * @param samplers a buffer in which the generated sampler object names are stored
+	 * @param count the number of sampler object names to generate
 	 */
 	public static void nglGenSamplers(int count, long samplers) {
 		long __functionAddress = GL.getCapabilities().glGenSamplers;
@@ -88,10 +87,9 @@ public class ARBSamplerObjects {
 	// --- [ glDeleteSamplers ] ---
 
 	/**
-	 * Deletes named sampler objects.
+	 * Unsafe version of: {@link #glDeleteSamplers DeleteSamplers}
 	 *
-	 * @param count    the number of sampler objects to be deleted
-	 * @param samplers an array of sampler objects to be deleted
+	 * @param count the number of sampler objects to be deleted
 	 */
 	public static void nglDeleteSamplers(int count, long samplers) {
 		long __functionAddress = GL.getCapabilities().glDeleteSamplers;
@@ -183,13 +181,7 @@ public class ARBSamplerObjects {
 
 	// --- [ glSamplerParameteriv ] ---
 
-	/**
-	 * Pointer version of {@link #glSamplerParameteri SamplerParameteri}.
-	 *
-	 * @param sampler the sampler object whose parameter to modify
-	 * @param pname   the symbolic name of a sampler parameter. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_BORDER_COLOR TEXTURE_BORDER_COLOR}</td><td>{@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}</td><td>{@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}</td><td>{@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}</td></tr><tr><td>{@link GL11#GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}</td><td>{@link GL11#GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}</td><td>{@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}</td><td>{@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}</td></tr><tr><td>{@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}</td><td>{@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}</td><td>{@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}</td></tr></table>
-	 * @param params  an array where the value or values of {@code pname} are stored
-	 */
+	/** Unsafe version of: {@link #glSamplerParameteriv SamplerParameteriv} */
 	public static void nglSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameteriv;
 		if ( CHECKS )
@@ -210,13 +202,7 @@ public class ARBSamplerObjects {
 
 	// --- [ glSamplerParameterfv ] ---
 
-	/**
-	 * Float version of {@link #glSamplerParameteriv SamplerParameteriv}.
-	 *
-	 * @param sampler the sampler object whose parameter to modify
-	 * @param pname   the symbolic name of a sampler parameter
-	 * @param params  an array where the value or values of {@code pname} are stored
-	 */
+	/** Unsafe version of: {@link #glSamplerParameterfv SamplerParameterfv} */
 	public static void nglSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterfv;
 		if ( CHECKS )
@@ -237,13 +223,7 @@ public class ARBSamplerObjects {
 
 	// --- [ glSamplerParameterIiv ] ---
 
-	/**
-	 * Pure integer version of {@link #glSamplerParameteriv SamplerParameteriv}.
-	 *
-	 * @param sampler the sampler object whose parameter to modify
-	 * @param pname   the symbolic name of a sampler parameter
-	 * @param params  an array where the value or values of {@code pname} are stored
-	 */
+	/** Unsafe version of: {@link #glSamplerParameterIiv SamplerParameterIiv} */
 	public static void nglSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterIiv;
 		if ( CHECKS )
@@ -264,13 +244,7 @@ public class ARBSamplerObjects {
 
 	// --- [ glSamplerParameterIuiv ] ---
 
-	/**
-	 * Unsigned pure integer version of {@link #glSamplerParameteriv SamplerParameteriv}.
-	 *
-	 * @param sampler the sampler object whose parameter to modify
-	 * @param pname   the symbolic name of a sampler parameter
-	 * @param params  an array where the value or values of {@code pname} are stored
-	 */
+	/** Unsafe version of: {@link #glSamplerParameterIuiv SamplerParameterIuiv} */
 	public static void nglSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterIuiv;
 		if ( CHECKS )
@@ -291,13 +265,7 @@ public class ARBSamplerObjects {
 
 	// --- [ glGetSamplerParameteriv ] ---
 
-	/**
-	 * Return the integer value(s) of a sampler parameter.
-	 *
-	 * @param sampler the name of the sampler object from which to retrieve parameters
-	 * @param pname   the symbolic name of a sampler parameter. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}</td><td>{@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}</td><td>{@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}</td><td>{@link GL11#GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}</td><td>{@link GL11#GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}</td></tr><tr><td>{@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}</td><td>{@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}</td><td>{@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}</td><td>{@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}</td><td>{@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}</td></tr><tr><td>,</td><td>{@link GL11#GL_TEXTURE_BORDER_COLOR TEXTURE_BORDER_COLOR}</td></tr></table>
-	 * @param params  the sampler parameters
-	 */
+	/** Unsafe version of: {@link #glGetSamplerParameteriv GetSamplerParameteriv} */
 	public static void nglGetSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameteriv;
 		if ( CHECKS )
@@ -337,13 +305,7 @@ public class ARBSamplerObjects {
 
 	// --- [ glGetSamplerParameterfv ] ---
 
-	/**
-	 * Float version of {@link #glGetSamplerParameteriv GetSamplerParameteriv}.
-	 *
-	 * @param sampler the name of the sampler object from which to retrieve parameters
-	 * @param pname   the symbolic name of a sampler parameter
-	 * @param params  the sampler parameters
-	 */
+	/** Unsafe version of: {@link #glGetSamplerParameterfv GetSamplerParameterfv} */
 	public static void nglGetSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameterfv;
 		if ( CHECKS )
@@ -383,13 +345,7 @@ public class ARBSamplerObjects {
 
 	// --- [ glGetSamplerParameterIiv ] ---
 
-	/**
-	 * Pure integer version of {@link #glGetSamplerParameteriv GetSamplerParameteriv}.
-	 *
-	 * @param sampler the name of the sampler object from which to retrieve parameters
-	 * @param pname   the symbolic name of a sampler parameter
-	 * @param params  the sampler parameters
-	 */
+	/** Unsafe version of: {@link #glGetSamplerParameterIiv GetSamplerParameterIiv} */
 	public static void nglGetSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameterIiv;
 		if ( CHECKS )
@@ -429,13 +385,7 @@ public class ARBSamplerObjects {
 
 	// --- [ glGetSamplerParameterIuiv ] ---
 
-	/**
-	 * Unsigned pure integer version of {@link #glGetSamplerParameteriv GetSamplerParameteriv}.
-	 *
-	 * @param sampler the name of the sampler object from which to retrieve parameters
-	 * @param pname   the symbolic name of a sampler parameter
-	 * @param params  the sampler parameters
-	 */
+	/** Unsafe version of: {@link #glGetSamplerParameterIuiv GetSamplerParameterIuiv} */
 	public static void nglGetSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameterIuiv;
 		if ( CHECKS )

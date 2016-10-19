@@ -34,14 +34,7 @@ public class APPLEContextLoggingFunctions {
 
 	// --- [ clLogMessagesToSystemLogAPPLE ] ---
 
-	/**
-	 * Forwards on all log messages to the Apple System Logger.
-	 *
-	 * @param errstr       
-	 * @param private_info 
-	 * @param cb           
-	 * @param user_data    
-	 */
+	/** Unsafe version of: {@link #clLogMessagesToSystemLogAPPLE LogMessagesToSystemLogAPPLE} */
 	public static void nclLogMessagesToSystemLogAPPLE(long errstr, long private_info, long cb, long user_data) {
 		long __functionAddress = CL.getICD().clLogMessagesToSystemLogAPPLE;
 		if ( CHECKS )
@@ -63,14 +56,7 @@ public class APPLEContextLoggingFunctions {
 
 	// --- [ clLogMessagesToStdoutAPPLE ] ---
 
-	/**
-	 * Forwards on all log messages to the standard output stream.
-	 *
-	 * @param errstr       
-	 * @param private_info 
-	 * @param cb           
-	 * @param user_data    
-	 */
+	/** Unsafe version of: {@link #clLogMessagesToStdoutAPPLE LogMessagesToStdoutAPPLE} */
 	public static void nclLogMessagesToStdoutAPPLE(long errstr, long private_info, long cb, long user_data) {
 		long __functionAddress = CL.getICD().clLogMessagesToStdoutAPPLE;
 		if ( CHECKS )
@@ -92,14 +78,7 @@ public class APPLEContextLoggingFunctions {
 
 	// --- [ clLogMessagesToStderrAPPLE ] ---
 
-	/**
-	 * Forwards on all log messages to the standard error stream.
-	 *
-	 * @param errstr       
-	 * @param private_info 
-	 * @param cb           
-	 * @param user_data    
-	 */
+	/** Unsafe version of: {@link #clLogMessagesToStderrAPPLE LogMessagesToStderrAPPLE} */
 	public static void nclLogMessagesToStderrAPPLE(long errstr, long private_info, long cb, long user_data) {
 		long __functionAddress = CL.getICD().clLogMessagesToStderrAPPLE;
 		if ( CHECKS )

@@ -56,13 +56,7 @@ public class ARBShaderSubroutine {
 
 	// --- [ glGetSubroutineUniformLocation ] ---
 
-	/**
-	 * Retrieves the location of a subroutine uniform of a given shader stage within a program.
-	 *
-	 * @param program    the name of the program containing shader stage
-	 * @param shadertype the shader stage from which to query for subroutine uniform index. One of:<br><table><tr><td>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}</td><td>{@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}</td><td>{@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}</td><td>{@link GL40#GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}</td></tr><tr><td>{@link GL40#GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}</td></tr></table>
-	 * @param name       the name of the subroutine uniform whose index to query.
-	 */
+	/** Unsafe version of: {@link #glGetSubroutineUniformLocation GetSubroutineUniformLocation} */
 	public static int nglGetSubroutineUniformLocation(int program, int shadertype, long name) {
 		long __functionAddress = GL.getCapabilities().glGetSubroutineUniformLocation;
 		if ( CHECKS )
@@ -102,13 +96,7 @@ public class ARBShaderSubroutine {
 
 	// --- [ glGetSubroutineIndex ] ---
 
-	/**
-	 * Retrieves the index of a subroutine function of a given shader stage within a program.
-	 *
-	 * @param program    the name of the program containing shader stage
-	 * @param shadertype the shader stage from which to query for subroutine function index. One of:<br><table><tr><td>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}</td><td>{@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}</td><td>{@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}</td><td>{@link GL40#GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}</td></tr><tr><td>{@link GL40#GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}</td></tr></table>
-	 * @param name       the name of the subroutine function whose index to query
-	 */
+	/** Unsafe version of: {@link #glGetSubroutineIndex GetSubroutineIndex} */
 	public static int nglGetSubroutineIndex(int program, int shadertype, long name) {
 		long __functionAddress = GL.getCapabilities().glGetSubroutineIndex;
 		if ( CHECKS )
@@ -148,15 +136,7 @@ public class ARBShaderSubroutine {
 
 	// --- [ glGetActiveSubroutineUniformiv ] ---
 
-	/**
-	 * Queries a property of an active shader subroutine uniform.
-	 *
-	 * @param program    the name of the program containing the subroutine
-	 * @param shadertype the shader stage from which to query for the subroutine parameter. One of:<br><table><tr><td>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}</td><td>{@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}</td><td>{@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}</td><td>{@link GL40#GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}</td></tr><tr><td>{@link GL40#GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}</td></tr></table>
-	 * @param index      the index of the shader subroutine uniform
-	 * @param pname      the parameter of the shader subroutine uniform to query. One of:<br><table><tr><td>{@link #GL_NUM_COMPATIBLE_SUBROUTINES NUM_COMPATIBLE_SUBROUTINES}</td><td>{@link #GL_COMPATIBLE_SUBROUTINES COMPATIBLE_SUBROUTINES}</td><td>{@link GL31#GL_UNIFORM_SIZE UNIFORM_SIZE}</td><td>{@link GL31#GL_UNIFORM_NAME_LENGTH UNIFORM_NAME_LENGTH}</td></tr></table>
-	 * @param values     the address of a buffer into which the queried value or values will be placed
-	 */
+	/** Unsafe version of: {@link #glGetActiveSubroutineUniformiv GetActiveSubroutineUniformiv} */
 	public static void nglGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, long values) {
 		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineUniformiv;
 		if ( CHECKS )
@@ -201,14 +181,9 @@ public class ARBShaderSubroutine {
 	// --- [ glGetActiveSubroutineUniformName ] ---
 
 	/**
-	 * Queries the name of an active shader subroutine uniform.
+	 * Unsafe version of: {@link #glGetActiveSubroutineUniformName GetActiveSubroutineUniformName}
 	 *
-	 * @param program    the name of the program containing the subroutine
-	 * @param shadertype the shader stage from which to query for the subroutine parameter. One of:<br><table><tr><td>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}</td><td>{@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}</td><td>{@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}</td><td>{@link GL40#GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}</td></tr><tr><td>{@link GL40#GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}</td></tr></table>
-	 * @param index      the index of the shader subroutine uniform
-	 * @param bufsize    the size of the buffer whose address is given in {@code name}
-	 * @param length     the address of a variable into which is written the number of characters copied into {@code name}
-	 * @param name       the address of a buffer that will receive the name of the specified shader subroutine uniform
+	 * @param bufsize the size of the buffer whose address is given in {@code name}
 	 */
 	public static void nglGetActiveSubroutineUniformName(int program, int shadertype, int index, int bufsize, long length, long name) {
 		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineUniformName;
@@ -275,14 +250,9 @@ public class ARBShaderSubroutine {
 	// --- [ glGetActiveSubroutineName ] ---
 
 	/**
-	 * Queries the name of an active shader subroutine.
+	 * Unsafe version of: {@link #glGetActiveSubroutineName GetActiveSubroutineName}
 	 *
-	 * @param program    the name of the program containing the subroutine
-	 * @param shadertype the shader stage from which to query the subroutine name. One of:<br><table><tr><td>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}</td><td>{@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}</td><td>{@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}</td><td>{@link GL40#GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}</td></tr><tr><td>{@link GL40#GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}</td></tr></table>
-	 * @param index      the index of the shader subroutine uniform
-	 * @param bufsize    the size of the buffer whose address is given in {@code name}
-	 * @param length     a variable which is to receive the length of the shader subroutine uniform name
-	 * @param name       an array into which the name of the shader subroutine uniform will be written
+	 * @param bufsize the size of the buffer whose address is given in {@code name}
 	 */
 	public static void nglGetActiveSubroutineName(int program, int shadertype, int index, int bufsize, long length, long name) {
 		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineName;
@@ -349,11 +319,9 @@ public class ARBShaderSubroutine {
 	// --- [ glUniformSubroutinesuiv ] ---
 
 	/**
-	 * Loads active subroutine uniforms.
+	 * Unsafe version of: {@link #glUniformSubroutinesuiv UniformSubroutinesuiv}
 	 *
-	 * @param shadertype the shader stage to update. One of:<br><table><tr><td>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}</td><td>{@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}</td><td>{@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}</td><td>{@link GL40#GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}</td></tr><tr><td>{@link GL40#GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}</td></tr></table>
-	 * @param count      the number of uniform indices stored in {@code indices}
-	 * @param indices    an array holding the indices to load into the shader subroutine variables
+	 * @param count the number of uniform indices stored in {@code indices}
 	 */
 	public static void nglUniformSubroutinesuiv(int shadertype, int count, long indices) {
 		long __functionAddress = GL.getCapabilities().glUniformSubroutinesuiv;
@@ -389,13 +357,7 @@ public class ARBShaderSubroutine {
 
 	// --- [ glGetUniformSubroutineuiv ] ---
 
-	/**
-	 * Retrieves the value of a subroutine uniform of a given shader stage of the current program.
-	 *
-	 * @param shadertype the shader stage from which to query for subroutine uniform index. One of:<br><table><tr><td>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}</td><td>{@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}</td><td>{@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}</td><td>{@link GL40#GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}</td></tr><tr><td>{@link GL40#GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}</td></tr></table>
-	 * @param location   the location of the subroutine uniform
-	 * @param params     a variable to receive the value or values of the subroutine uniform
-	 */
+	/** Unsafe version of: {@link #glGetUniformSubroutineuiv GetUniformSubroutineuiv} */
 	public static void nglGetUniformSubroutineuiv(int shadertype, int location, long params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformSubroutineuiv;
 		if ( CHECKS )
@@ -435,14 +397,7 @@ public class ARBShaderSubroutine {
 
 	// --- [ glGetProgramStageiv ] ---
 
-	/**
-	 * Retrieves properties of a program object corresponding to a specified shader stage.
-	 *
-	 * @param program    the name of the program containing shader stage
-	 * @param shadertype the shader stage from which to query for the subroutine parameter. One of:<br><table><tr><td>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}</td><td>{@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}</td><td>{@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}</td><td>{@link GL40#GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}</td></tr><tr><td>{@link GL40#GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}</td></tr></table>
-	 * @param pname      the parameter of the shader to query. One of:<br><table><tr><td>{@link #GL_ACTIVE_SUBROUTINES ACTIVE_SUBROUTINES}</td><td>{@link #GL_ACTIVE_SUBROUTINE_UNIFORMS ACTIVE_SUBROUTINE_UNIFORMS}</td></tr><tr><td>{@link #GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS}</td><td>{@link #GL_ACTIVE_SUBROUTINE_MAX_LENGTH ACTIVE_SUBROUTINE_MAX_LENGTH}</td></tr><tr><td>{@link #GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH}</td></tr></table>
-	 * @param values     a variable into which the queried value or values will be placed
-	 */
+	/** Unsafe version of: {@link #glGetProgramStageiv GetProgramStageiv} */
 	public static void nglGetProgramStageiv(int program, int shadertype, int pname, long values) {
 		long __functionAddress = GL.getCapabilities().glGetProgramStageiv;
 		if ( CHECKS )

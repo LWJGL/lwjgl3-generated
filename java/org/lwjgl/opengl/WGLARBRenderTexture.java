@@ -153,12 +153,7 @@ public class WGLARBRenderTexture {
 
 	// --- [ wglSetPbufferAttribARB ] ---
 
-	/**
-	 * Sets an attribute to the specified pbuffer.
-	 *
-	 * @param pbuffer    a pbuffer handle
-	 * @param attribList a 0-terminated list of attribute {type, value} pairs containing integer values
-	 */
+	/** Unsafe version of: {@link #wglSetPbufferAttribARB SetPbufferAttribARB} */
 	public static int nwglSetPbufferAttribARB(long pbuffer, long attribList) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglSetPbufferAttribARB;
 		if ( CHECKS ) {

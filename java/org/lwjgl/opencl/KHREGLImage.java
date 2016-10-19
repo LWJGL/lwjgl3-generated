@@ -42,16 +42,7 @@ public class KHREGLImage {
 
 	// --- [ clCreateFromEGLImageKHR ] ---
 
-	/**
-	 * Creates an {@code EGLImage} target of type {@code cl_mem} from the {@code EGLImage} source provided as {@code image}.
-	 *
-	 * @param context     
-	 * @param display     an {@code EGLDisplay}
-	 * @param image       an {@code EGLImageKHR}
-	 * @param flags       a bit-field that is used to specify usage information about the memory object being created
-	 * @param properties  a list of property names and their corresponding values
-	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
-	 */
+	/** Unsafe version of: {@link #clCreateFromEGLImageKHR CreateFromEGLImageKHR} */
 	public static long nclCreateFromEGLImageKHR(long context, long display, long image, long flags, long properties, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateFromEGLImageKHR;
 		if ( CHECKS ) {
@@ -84,20 +75,10 @@ public class KHREGLImage {
 	// --- [ clEnqueueAcquireEGLObjectsKHR ] ---
 
 	/**
-	 * Acquires OpenCL memory objects that have been created from EGL resources. The EGL objects are acquired by the OpenCL context associated with
-	 * {@code command_queue} and can therefore be used by all command-queues associated with the OpenCL context.
+	 * Unsafe version of: {@link #clEnqueueAcquireEGLObjectsKHR EnqueueAcquireEGLObjectsKHR}
 	 *
-	 * @param command_queue           a valid command-queue
 	 * @param num_objects             the number of memory objects to be acquired in {@code mem_objects}
-	 * @param mem_objects             a pointer to a list of OpenCL memory objects that were created from EGL resources, within the context associated with {@code command_queue}
 	 * @param num_events_in_wait_list the number of events in {@code event_wait_list}
-	 * @param event_wait_list         a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
-	 *                                does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
-	 *                                {@code event_wait_list} and {@code command_queue} must be the same.
-	 * @param event                   Returns an event object that identifies this particular command and can be used to query or queue a wait for this particular command to complete.
-	 *                                {@code event} can be {@code NULL} in which case it will not be possible for the application to query the status of this command or queue a wait for this command to
-	 *                                complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
-	 *                                {@code event_wait_list} array.
 	 */
 	public static int nclEnqueueAcquireEGLObjectsKHR(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = CL.getICD().clEnqueueAcquireEGLObjectsKHR;
@@ -131,20 +112,9 @@ public class KHREGLImage {
 	// --- [ clEnqueueReleaseEGLObjectsKHR ] ---
 
 	/**
-	 * Releases OpenCL memory objects that have been created from EGL resources. The EGL objects are released by the OpenCL context associated with
-	 * {@code command_queue}.
+	 * Unsafe version of: {@link #clEnqueueReleaseEGLObjectsKHR EnqueueReleaseEGLObjectsKHR}
 	 *
-	 * @param command_queue           a valid command-queue
-	 * @param num_objects             the number of memory objects to be released in {@code mem_objects}
-	 * @param mem_objects             a pointer to a list of OpenCL memory objects that were created from EGL resources, within the context associated with {@code command_queue}
 	 * @param num_events_in_wait_list the number of events in {@code event_wait_list}
-	 * @param event_wait_list         a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
-	 *                                does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
-	 *                                {@code event_wait_list} and {@code command_queue} must be the same.
-	 * @param event                   Returns an event object that identifies this particular command and can be used to query or queue a wait for this particular command to complete.
-	 *                                {@code event} can be {@code NULL} in which case it will not be possible for the application to query the status of this command or queue a wait for this command to
-	 *                                complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
-	 *                                {@code event_wait_list} array.
 	 */
 	public static int nclEnqueueReleaseEGLObjectsKHR(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = CL.getICD().clEnqueueReleaseEGLObjectsKHR;

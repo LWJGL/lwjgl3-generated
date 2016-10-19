@@ -313,12 +313,7 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttrib1fvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttrib1fARB VertexAttrib1fARB}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib1fvARB VertexAttrib1fvARB} */
 	public static void nglVertexAttrib1fvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1fvARB;
 		if ( CHECKS )
@@ -340,12 +335,7 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttrib1svARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttrib1sARB VertexAttrib1sARB}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib1svARB VertexAttrib1svARB} */
 	public static void nglVertexAttrib1svARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1svARB;
 		if ( CHECKS )
@@ -367,12 +357,7 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttrib1dvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttrib1dARB VertexAttrib1dARB}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib1dvARB VertexAttrib1dvARB} */
 	public static void nglVertexAttrib1dvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1dvARB;
 		if ( CHECKS )
@@ -394,12 +379,7 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttrib2fvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttrib2fARB VertexAttrib2fARB}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib2fvARB VertexAttrib2fvARB} */
 	public static void nglVertexAttrib2fvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2fvARB;
 		if ( CHECKS )
@@ -421,12 +401,7 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttrib2svARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttrib2sARB VertexAttrib2sARB}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib2svARB VertexAttrib2svARB} */
 	public static void nglVertexAttrib2svARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2svARB;
 		if ( CHECKS )
@@ -448,12 +423,7 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttrib2dvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttrib2dARB VertexAttrib2dARB}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib2dvARB VertexAttrib2dvARB} */
 	public static void nglVertexAttrib2dvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2dvARB;
 		if ( CHECKS )
@@ -475,12 +445,7 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttrib3fvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttrib3fARB VertexAttrib3fARB}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib3fvARB VertexAttrib3fvARB} */
 	public static void nglVertexAttrib3fvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3fvARB;
 		if ( CHECKS )
@@ -502,12 +467,7 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttrib3svARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttrib3sARB VertexAttrib3sARB}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib3svARB VertexAttrib3svARB} */
 	public static void nglVertexAttrib3svARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3svARB;
 		if ( CHECKS )
@@ -529,12 +489,7 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttrib3dvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttrib3dARB VertexAttrib3dARB}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib3dvARB VertexAttrib3dvARB} */
 	public static void nglVertexAttrib3dvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3dvARB;
 		if ( CHECKS )
@@ -556,12 +511,7 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttrib4fvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4fvARB VertexAttrib4fvARB} */
 	public static void nglVertexAttrib4fvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4fvARB;
 		if ( CHECKS )
@@ -583,12 +533,7 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttrib4svARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttrib4sARB VertexAttrib4sARB}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4svARB VertexAttrib4svARB} */
 	public static void nglVertexAttrib4svARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4svARB;
 		if ( CHECKS )
@@ -610,12 +555,7 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttrib4dvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttrib4dARB VertexAttrib4dARB}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4dvARB VertexAttrib4dvARB} */
 	public static void nglVertexAttrib4dvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4dvARB;
 		if ( CHECKS )
@@ -637,12 +577,7 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttrib4ivARB ] ---
 
-	/**
-	 * Integer pointer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4ivARB VertexAttrib4ivARB} */
 	public static void nglVertexAttrib4ivARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4ivARB;
 		if ( CHECKS )
@@ -664,12 +599,7 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttrib4bvARB ] ---
 
-	/**
-	 * Byte pointer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4bvARB VertexAttrib4bvARB} */
 	public static void nglVertexAttrib4bvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4bvARB;
 		if ( CHECKS )
@@ -691,12 +621,7 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttrib4ubvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttrib4NubARB VertexAttrib4NubARB}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4ubvARB VertexAttrib4ubvARB} */
 	public static void nglVertexAttrib4ubvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4ubvARB;
 		if ( CHECKS )
@@ -718,12 +643,7 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttrib4usvARB ] ---
 
-	/**
-	 * Unsigned short pointer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4usvARB VertexAttrib4usvARB} */
 	public static void nglVertexAttrib4usvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4usvARB;
 		if ( CHECKS )
@@ -745,12 +665,7 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttrib4uivARB ] ---
 
-	/**
-	 * Unsigned int pointer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4uivARB VertexAttrib4uivARB} */
 	public static void nglVertexAttrib4uivARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4uivARB;
 		if ( CHECKS )
@@ -772,12 +687,7 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttrib4NbvARB ] ---
 
-	/**
-	 * Normalized byte pointer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4NbvARB VertexAttrib4NbvARB} */
 	public static void nglVertexAttrib4NbvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4NbvARB;
 		if ( CHECKS )
@@ -799,12 +709,7 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttrib4NsvARB ] ---
 
-	/**
-	 * Normalized short pointer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4NsvARB VertexAttrib4NsvARB} */
 	public static void nglVertexAttrib4NsvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4NsvARB;
 		if ( CHECKS )
@@ -826,12 +731,7 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttrib4NivARB ] ---
 
-	/**
-	 * Normalized int pointer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4NivARB VertexAttrib4NivARB} */
 	public static void nglVertexAttrib4NivARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4NivARB;
 		if ( CHECKS )
@@ -853,12 +753,7 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttrib4NubvARB ] ---
 
-	/**
-	 * Normalized unsigned byte pointer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4NubvARB VertexAttrib4NubvARB} */
 	public static void nglVertexAttrib4NubvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4NubvARB;
 		if ( CHECKS )
@@ -880,12 +775,7 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttrib4NusvARB ] ---
 
-	/**
-	 * Normalized unsigned short pointer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4NusvARB VertexAttrib4NusvARB} */
 	public static void nglVertexAttrib4NusvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4NusvARB;
 		if ( CHECKS )
@@ -907,12 +797,7 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttrib4NuivARB ] ---
 
-	/**
-	 * Normalized unsigned int pointer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4NuivARB VertexAttrib4NuivARB} */
 	public static void nglVertexAttrib4NuivARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4NuivARB;
 		if ( CHECKS )
@@ -934,18 +819,7 @@ public class ARBVertexShader {
 
 	// --- [ glVertexAttribPointerARB ] ---
 
-	/**
-	 * Specifies the location and organization of a vertex attribute array.
-	 *
-	 * @param index      the index of the generic vertex attribute to be modified
-	 * @param size       the number of values per vertex that are stored in the array. The initial value is 4. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
-	 * @param type       the data type of each component in the array. The initial value is GL_FLOAT. One of:<br><table><tr><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_SHORT SHORT}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link GL11#GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL11#GL_DOUBLE DOUBLE}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td><td>{@link GL33#GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL41#GL_FIXED FIXED}</td></tr></table>
-	 * @param normalized whether fixed-point data values should be normalized or converted directly as fixed-point values when they are accessed
-	 * @param stride     the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
-	 *                   the array. The initial value is 0.
-	 * @param pointer    the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
-	 *                   currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
-	 */
+	/** Unsafe version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
 	public static void nglVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribPointerARB;
 		if ( CHECKS )
@@ -1030,13 +904,7 @@ public class ARBVertexShader {
 
 	// --- [ glBindAttribLocationARB ] ---
 
-	/**
-	 * Associates a generic vertex attribute index with a named attribute variable.
-	 *
-	 * @param programObj the handle of the program object in which the association is to be made
-	 * @param index      the index of the generic vertex attribute to be bound
-	 * @param name       a null terminated string containing the name of the vertex shader attribute variable to which {@code index} is to be bound
-	 */
+	/** Unsafe version of: {@link #glBindAttribLocationARB BindAttribLocationARB} */
 	public static void nglBindAttribLocationARB(int programObj, int index, long name) {
 		long __functionAddress = GL.getCapabilities().glBindAttribLocationARB;
 		if ( CHECKS )
@@ -1077,16 +945,9 @@ public class ARBVertexShader {
 	// --- [ glGetActiveAttribARB ] ---
 
 	/**
-	 * Returns information about an active attribute variable for the specified program object.
+	 * Unsafe version of: {@link #glGetActiveAttribARB GetActiveAttribARB}
 	 *
-	 * @param programObj the program object to be queried
-	 * @param index      the index of the attribute variable to be queried
-	 * @param maxLength  the maximum number of characters OpenGL is allowed to write in the character buffer indicated by {@code name}
-	 * @param length     the number of characters actually written by OpenGL in the string indicated by {@code name} (excluding the null terminator) if a value other than
-	 *                   {@code NULL} is passed
-	 * @param size       the size of the attribute variable
-	 * @param type       the data type of the attribute variable
-	 * @param name       a null terminated string containing the name of the attribute variable
+	 * @param maxLength the maximum number of characters OpenGL is allowed to write in the character buffer indicated by {@code name}
 	 */
 	public static void nglGetActiveAttribARB(int programObj, int index, int maxLength, long length, long size, long type, long name) {
 		long __functionAddress = GL.getCapabilities().glGetActiveAttribARB;
@@ -1167,12 +1028,7 @@ public class ARBVertexShader {
 
 	// --- [ glGetAttribLocationARB ] ---
 
-	/**
-	 * Returns the location of an attribute variable.
-	 *
-	 * @param programObj the program object to be queried
-	 * @param name       a null terminated string containing the name of the attribute variable whose location is to be queried
-	 */
+	/** Unsafe version of: {@link #glGetAttribLocationARB GetAttribLocationARB} */
 	public static int nglGetAttribLocationARB(int programObj, long name) {
 		long __functionAddress = GL.getCapabilities().glGetAttribLocationARB;
 		if ( CHECKS )
@@ -1210,13 +1066,7 @@ public class ARBVertexShader {
 
 	// --- [ glGetVertexAttribivARB ] ---
 
-	/**
-	 * Returns the integer value of a generic vertex attribute parameter.
-	 *
-	 * @param index  the generic vertex attribute parameter to be queried
-	 * @param pname  the symbolic name of the vertex attribute parameter to be queried. One of:<br><table><tr><td>{@link GL15#GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING VERTEX_ATTRIB_ARRAY_BUFFER_BINDING}</td><td>{@link #GL_VERTEX_ATTRIB_ARRAY_ENABLED_ARB VERTEX_ATTRIB_ARRAY_ENABLED_ARB}</td></tr><tr><td>{@link #GL_VERTEX_ATTRIB_ARRAY_SIZE_ARB VERTEX_ATTRIB_ARRAY_SIZE_ARB}</td><td>{@link #GL_VERTEX_ATTRIB_ARRAY_STRIDE_ARB VERTEX_ATTRIB_ARRAY_STRIDE_ARB}</td></tr><tr><td>{@link #GL_VERTEX_ATTRIB_ARRAY_TYPE_ARB VERTEX_ATTRIB_ARRAY_TYPE_ARB}</td><td>{@link #GL_VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB}</td></tr><tr><td>{@link #GL_CURRENT_VERTEX_ATTRIB_ARB CURRENT_VERTEX_ATTRIB_ARB}</td><td>{@link GL30#GL_VERTEX_ATTRIB_ARRAY_INTEGER VERTEX_ATTRIB_ARRAY_INTEGER}</td></tr><tr><td>{@link GL33#GL_VERTEX_ATTRIB_ARRAY_DIVISOR VERTEX_ATTRIB_ARRAY_DIVISOR}</td></tr></table>
-	 * @param params returns the requested data
-	 */
+	/** Unsafe version of: {@link #glGetVertexAttribivARB GetVertexAttribivARB} */
 	public static void nglGetVertexAttribivARB(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribivARB;
 		if ( CHECKS )
@@ -1256,13 +1106,7 @@ public class ARBVertexShader {
 
 	// --- [ glGetVertexAttribfvARB ] ---
 
-	/**
-	 * Float version of {@link #glGetVertexAttribivARB GetVertexAttribivARB}.
-	 *
-	 * @param index  the generic vertex attribute parameter to be queried
-	 * @param pname  the symbolic name of the vertex attribute parameter to be queried
-	 * @param params returns the requested data
-	 */
+	/** Unsafe version of: {@link #glGetVertexAttribfvARB GetVertexAttribfvARB} */
 	public static void nglGetVertexAttribfvARB(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribfvARB;
 		if ( CHECKS )
@@ -1285,13 +1129,7 @@ public class ARBVertexShader {
 
 	// --- [ glGetVertexAttribdvARB ] ---
 
-	/**
-	 * Double version of {@link #glGetVertexAttribivARB GetVertexAttribivARB}.
-	 *
-	 * @param index  the generic vertex attribute parameter to be queried
-	 * @param pname  the symbolic name of the vertex attribute parameter to be queried
-	 * @param params returns the requested data
-	 */
+	/** Unsafe version of: {@link #glGetVertexAttribdvARB GetVertexAttribdvARB} */
 	public static void nglGetVertexAttribdvARB(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribdvARB;
 		if ( CHECKS )
@@ -1314,13 +1152,7 @@ public class ARBVertexShader {
 
 	// --- [ glGetVertexAttribPointervARB ] ---
 
-	/**
-	 * Returns the address of the specified generic vertex attribute pointer.
-	 *
-	 * @param index   the generic vertex attribute parameter to be queried
-	 * @param pname   the symbolic name of the generic vertex attribute parameter to be returned. Must be:<br><table><tr><td>{@link #GL_VERTEX_ATTRIB_ARRAY_POINTER_ARB VERTEX_ATTRIB_ARRAY_POINTER_ARB}</td></tr></table>
-	 * @param pointer the pointer value
-	 */
+	/** Unsafe version of: {@link #glGetVertexAttribPointervARB GetVertexAttribPointervARB} */
 	public static void nglGetVertexAttribPointervARB(int index, int pname, long pointer) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribPointervARB;
 		if ( CHECKS )

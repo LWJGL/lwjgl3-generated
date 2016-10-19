@@ -116,35 +116,7 @@ public class STBImage {
 
 	// --- [ stbi_load ] ---
 
-	/**
-	 * Loads an image from the specified file.
-	 * 
-	 * <p>The return value from an image loader is an {@code 'unsigned char *'} which points to the pixel data, or {@code NULL} on an allocation failure or if the image
-	 * is corrupt or invalid. The pixel data consists of {@code *y} scanlines of {@code *x} pixels, with each pixel consisting of N interleaved 8-bit
-	 * components; the first pixel pointed to is top-left-most in the image. There is no padding between image scanlines or between pixels, regardless of
-	 * format. The number of components N is {@code 'req_comp'} if {@code req_comp} is non-zero, or {@code *comp} otherwise. If {@code req_comp} is non-zero,
-	 * {@code *comp} has the number of components that <i>would</i> have been output otherwise. E.g. if you set {@code req_comp} to 4, you will always get
-	 * RGBA output, but you can check {@code *comp} to see if it's trivially opaque because e.g. there were only 3 channels in the source image.</p>
-	 * 
-	 * <p>An output image with N components has the following components interleaved in this order in each pixel:</p>
-	 * 
-	 * <pre><code>N=#comp     components
-  1           grey
-  2           grey, alpha
-  3           red, green, blue
-  4           red, green, blue, alpha</code></pre>
-	 * 
-	 * <p>If image loading fails for any reason, the return value will be {@code NULL}, and {@code *x}, {@code *y}, {@code *comp} will be unchanged. The function
-	 * {@link #stbi_failure_reason failure_reason} can be queried for an extremely brief, end-user unfriendly explanation of why the load failed.</p>
-	 * 
-	 * <p>Paletted PNG, BMP, GIF, and PIC images are automatically depalettized.</p>
-	 *
-	 * @param filename the file name
-	 * @param x        outputs the image width in pixels
-	 * @param y        outputs the image height in pixels
-	 * @param comp     outputs number of components in image
-	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
-	 */
+	/** Unsafe version of: {@link #stbi_load load} */
 	public static native long nstbi_load(long filename, long x, long y, long comp, int req_comp);
 
 	/**
@@ -235,14 +207,9 @@ public class STBImage {
 	// --- [ stbi_load_from_memory ] ---
 
 	/**
-	 * In-memory version of {@link #stbi_load load}.
+	 * Unsafe version of: {@link #stbi_load_from_memory load_from_memory}
 	 *
-	 * @param buffer   the buffer from which to load the image data
-	 * @param len      the buffer length, in bytes
-	 * @param x        outputs the image width in pixels
-	 * @param y        outputs the image height in pixels
-	 * @param comp     outputs number of components in image
-	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
+	 * @param len the buffer length, in bytes
 	 */
 	public static native long nstbi_load_from_memory(long buffer, int len, long x, long y, long comp, int req_comp);
 
@@ -267,22 +234,7 @@ public class STBImage {
 
 	// --- [ stbi_load_from_callbacks ] ---
 
-	/**
-	 * Callback version of {@link #stbi_load load}.
-	 * 
-	 * <p>I/O callbacks allow you to read from arbitrary sources, like packaged files or some other source. Data read from callbacks are processed through a
-	 * small internal buffer (currently 128 bytes) to try to reduce overhead.</p>
-	 * 
-	 * <p>The three functions you must define are "read" (reads some bytes of data), "skip" (skips some bytes of data), "eof" (reports if the stream is at the
-	 * end).</p>
-	 *
-	 * @param clbk     an {@link STBIIOCallbacks} struct
-	 * @param user     a pointer to user data
-	 * @param x        outputs the image width in pixels
-	 * @param y        outputs the image height in pixels
-	 * @param comp     outputs number of components in image
-	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
-	 */
+	/** Unsafe version of: {@link #stbi_load_from_callbacks load_from_callbacks} */
 	public static native long nstbi_load_from_callbacks(long clbk, long user, long x, long y, long comp, int req_comp);
 
 	/**
@@ -314,15 +266,7 @@ public class STBImage {
 
 	// --- [ stbi_loadf ] ---
 
-	/**
-	 * Floating-point version of {@link #stbi_load load}.
-	 *
-	 * @param filename the file name
-	 * @param x        outputs the image width in pixels
-	 * @param y        outputs the image height in pixels
-	 * @param comp     outputs number of components in image
-	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
-	 */
+	/** Unsafe version of: {@link #stbi_loadf loadf} */
 	public static native long nstbi_loadf(long filename, long x, long y, long comp, int req_comp);
 
 	/**
@@ -373,14 +317,9 @@ public class STBImage {
 	// --- [ stbi_loadf_from_memory ] ---
 
 	/**
-	 * Floating-point version of {@link #stbi_load_from_memory load_from_memory}.
+	 * Unsafe version of: {@link #stbi_loadf_from_memory loadf_from_memory}
 	 *
-	 * @param buffer   the buffer from which to load the image data
-	 * @param len      the buffer length, in bytes
-	 * @param x        outputs the image width in pixels
-	 * @param y        outputs the image height in pixels
-	 * @param comp     outputs number of components in image
-	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
+	 * @param len the buffer length, in bytes
 	 */
 	public static native long nstbi_loadf_from_memory(long buffer, int len, long x, long y, long comp, int req_comp);
 
@@ -405,16 +344,7 @@ public class STBImage {
 
 	// --- [ stbi_loadf_from_callbacks ] ---
 
-	/**
-	 * Floating-point version of {@link #stbi_load_from_callbacks load_from_callbacks}.
-	 *
-	 * @param clbk     an {@link STBIIOCallbacks} struct
-	 * @param user     a pointer to user data
-	 * @param x        outputs the image width in pixels
-	 * @param y        outputs the image height in pixels
-	 * @param comp     outputs number of components in image
-	 * @param req_comp 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
-	 */
+	/** Unsafe version of: {@link #stbi_loadf_from_callbacks loadf_from_callbacks} */
 	public static native long nstbi_loadf_from_callbacks(long clbk, long user, long x, long y, long comp, int req_comp);
 
 	/**
@@ -476,13 +406,7 @@ public class STBImage {
 
 	// --- [ stbi_is_hdr ] ---
 
-	/**
-	 * Checks if the specified file contains an HDR image.
-	 *
-	 * @param filename the file name
-	 *
-	 * @return 1 if the image is HDR, 0 otherwise
-	 */
+	/** Unsafe version of: {@link #stbi_is_hdr is_hdr} */
 	public static native int nstbi_is_hdr(long filename);
 
 	/**
@@ -518,10 +442,9 @@ public class STBImage {
 	// --- [ stbi_is_hdr_from_memory ] ---
 
 	/**
-	 * In-memory version of {@link #stbi_is_hdr is_hdr}.
+	 * Unsafe version of: {@link #stbi_is_hdr_from_memory is_hdr_from_memory}
 	 *
-	 * @param buffer the buffer from which to read the image data
-	 * @param len    the buffer length, in bytes
+	 * @param len the buffer length, in bytes
 	 */
 	public static native int nstbi_is_hdr_from_memory(long buffer, int len);
 
@@ -536,12 +459,7 @@ public class STBImage {
 
 	// --- [ stbi_is_hdr_from_callbacks ] ---
 
-	/**
-	 * Callback version of {@link #stbi_is_hdr is_hdr}.
-	 *
-	 * @param clbk an {@link STBIIOCallbacks} struct
-	 * @param user a pointer to user data
-	 */
+	/** Unsafe version of: {@link #stbi_is_hdr_from_callbacks is_hdr_from_callbacks} */
 	public static native int nstbi_is_hdr_from_callbacks(long clbk, long user);
 
 	/**
@@ -558,7 +476,7 @@ public class STBImage {
 
 	// --- [ stbi_failure_reason ] ---
 
-	/** Returns a brief reason for failure. */
+	/** Unsafe version of: {@link #stbi_failure_reason failure_reason} */
 	public static native long nstbi_failure_reason();
 
 	/** Returns a brief reason for failure. */
@@ -569,11 +487,7 @@ public class STBImage {
 
 	// --- [ stbi_image_free ] ---
 
-	/**
-	 * Frees a loaded image
-	 *
-	 * @param retval_from_stbi_load an stb image
-	 */
+	/** Unsafe version of: {@link #stbi_image_free image_free} */
 	public static native void nstbi_image_free(long retval_from_stbi_load);
 
 	/**
@@ -592,16 +506,7 @@ public class STBImage {
 
 	// --- [ stbi_info ] ---
 
-	/**
-	 * Returns image dimensions &amp; components without fully decoding the image.
-	 *
-	 * @param filename the file name
-	 * @param x        outputs the image width in pixels
-	 * @param y        outputs the image height in pixels
-	 * @param comp     outputs number of components in image
-	 *
-	 * @return 1 on success, 0 on failure
-	 */
+	/** Unsafe version of: {@link #stbi_info info} */
 	public static native int nstbi_info(long filename, long x, long y, long comp);
 
 	/**
@@ -652,13 +557,9 @@ public class STBImage {
 	// --- [ stbi_info_from_memory ] ---
 
 	/**
-	 * In-memory version of {@link #stbi_info info}.
+	 * Unsafe version of: {@link #stbi_info_from_memory info_from_memory}
 	 *
-	 * @param buffer the buffer from which to read the image data
-	 * @param len    the buffer length, in bytes
-	 * @param x      outputs the image width in pixels
-	 * @param y      outputs the image height in pixels
-	 * @param comp   outputs number of components in image
+	 * @param len the buffer length, in bytes
 	 */
 	public static native int nstbi_info_from_memory(long buffer, int len, long x, long y, long comp);
 
@@ -681,15 +582,7 @@ public class STBImage {
 
 	// --- [ stbi_info_from_callbacks ] ---
 
-	/**
-	 * Callback version of {@link #stbi_info info}.
-	 *
-	 * @param clbk an {@link STBIIOCallbacks} struct
-	 * @param user a pointer to user data
-	 * @param x    outputs the image width in pixels
-	 * @param y    outputs the image height in pixels
-	 * @param comp outputs number of components in image
-	 */
+	/** Unsafe version of: {@link #stbi_info_from_callbacks info_from_callbacks} */
 	public static native int nstbi_info_from_callbacks(long clbk, long user, long x, long y, long comp);
 
 	/**
@@ -713,12 +606,7 @@ public class STBImage {
 
 	// --- [ stbi_set_unpremultiply_on_load ] ---
 
-	/**
-	 * For image formats that explicitly notate that they have premultiplied alpha, we just return the colors as stored in the file. Set this flag to force
-	 * unpremultiplication. Results are undefined if the unpremultiply overflows.
-	 *
-	 * @param flag_true_if_should_unpremultiply the unpremultiply flag
-	 */
+	/** Unsafe version of: {@link #stbi_set_unpremultiply_on_load set_unpremultiply_on_load} */
 	public static native void nstbi_set_unpremultiply_on_load(int flag_true_if_should_unpremultiply);
 
 	/**
@@ -733,11 +621,7 @@ public class STBImage {
 
 	// --- [ stbi_convert_iphone_png_to_rgb ] ---
 
-	/**
-	 * Indicate whether we should process iPhone images back to canonical format, or just pass them through "as-is".
-	 *
-	 * @param flag_true_if_should_convert the convert iPhone PNG to RGB flag
-	 */
+	/** Unsafe version of: {@link #stbi_convert_iphone_png_to_rgb convert_iphone_png_to_rgb} */
 	public static native void nstbi_convert_iphone_png_to_rgb(int flag_true_if_should_convert);
 
 	/**
@@ -751,11 +635,7 @@ public class STBImage {
 
 	// --- [ stbi_set_flip_vertically_on_load ] ---
 
-	/**
-	 * Flips the image vertically, so the first pixel in the output array is the bottom left.
-	 *
-	 * @param flag_true_if_should_flip the flip vertically on load flag
-	 */
+	/** Unsafe version of: {@link #stbi_set_flip_vertically_on_load set_flip_vertically_on_load} */
 	public static native void nstbi_set_flip_vertically_on_load(int flag_true_if_should_flip);
 
 	/**
@@ -769,14 +649,7 @@ public class STBImage {
 
 	// --- [ stbi_zlib_decode_malloc_guesssize ] ---
 
-	/**
-	 * ZLIB client - used by PNG, available for other purposes
-	 *
-	 * @param buffer       
-	 * @param len          
-	 * @param initial_size 
-	 * @param outlen       
-	 */
+	/** Unsafe version of: {@link #stbi_zlib_decode_malloc_guesssize zlib_decode_malloc_guesssize} */
 	public static native long nstbi_zlib_decode_malloc_guesssize(long buffer, int len, int initial_size, long outlen);
 
 	/**
@@ -798,15 +671,7 @@ public class STBImage {
 
 	// --- [ stbi_zlib_decode_malloc_guesssize_headerflag ] ---
 
-	/**
-	 * ZLIB client - used by PNG, available for other purposes
-	 *
-	 * @param buffer       
-	 * @param len          
-	 * @param initial_size 
-	 * @param outlen       
-	 * @param parse_header 
-	 */
+	/** Unsafe version of: {@link #stbi_zlib_decode_malloc_guesssize_headerflag zlib_decode_malloc_guesssize_headerflag} */
 	public static native long nstbi_zlib_decode_malloc_guesssize_headerflag(long buffer, int len, int initial_size, long outlen, int parse_header);
 
 	/**
@@ -829,13 +694,7 @@ public class STBImage {
 
 	// --- [ stbi_zlib_decode_malloc ] ---
 
-	/**
-	 * ZLIB client - used by PNG, available for other purposes
-	 *
-	 * @param buffer 
-	 * @param len    
-	 * @param outlen 
-	 */
+	/** Unsafe version of: {@link #stbi_zlib_decode_malloc zlib_decode_malloc} */
 	public static native long nstbi_zlib_decode_malloc(long buffer, int len, long outlen);
 
 	/**
@@ -856,14 +715,7 @@ public class STBImage {
 
 	// --- [ stbi_zlib_decode_buffer ] ---
 
-	/**
-	 * ZLIB client - used by PNG, available for other purposes
-	 *
-	 * @param obuffer 
-	 * @param olen    
-	 * @param ibuffer 
-	 * @param ilen    
-	 */
+	/** Unsafe version of: {@link #stbi_zlib_decode_buffer zlib_decode_buffer} */
 	public static native int nstbi_zlib_decode_buffer(long obuffer, int olen, long ibuffer, int ilen);
 
 	/**
@@ -878,13 +730,7 @@ public class STBImage {
 
 	// --- [ stbi_zlib_decode_noheader_malloc ] ---
 
-	/**
-	 * ZLIB client - used by PNG, available for other purposes
-	 *
-	 * @param buffer 
-	 * @param len    
-	 * @param outlen 
-	 */
+	/** Unsafe version of: {@link #stbi_zlib_decode_noheader_malloc zlib_decode_noheader_malloc} */
 	public static native long nstbi_zlib_decode_noheader_malloc(long buffer, int len, long outlen);
 
 	/**
@@ -905,14 +751,7 @@ public class STBImage {
 
 	// --- [ stbi_zlib_decode_noheader_buffer ] ---
 
-	/**
-	 * ZLIB client - used by PNG, available for other purposes
-	 *
-	 * @param obuffer 
-	 * @param olen    
-	 * @param ibuffer 
-	 * @param ilen    
-	 */
+	/** Unsafe version of: {@link #stbi_zlib_decode_noheader_buffer zlib_decode_noheader_buffer} */
 	public static native int nstbi_zlib_decode_noheader_buffer(long obuffer, int olen, long ibuffer, int ilen);
 
 	/**
@@ -925,7 +764,7 @@ public class STBImage {
 		return nstbi_zlib_decode_noheader_buffer(memAddress(obuffer), obuffer.remaining(), memAddress(ibuffer), ibuffer.remaining());
 	}
 
-	/** Array version of: {@link #stbi_load load} */
+	/** Array version of: {@link #nstbi_load} */
 	public static native long nstbi_load(long filename, int[] x, int[] y, int[] comp, int req_comp);
 
 	/** Array version of: {@link #stbi_load load} */
@@ -957,7 +796,7 @@ public class STBImage {
 		}
 	}
 
-	/** Array version of: {@link #stbi_load_from_memory load_from_memory} */
+	/** Array version of: {@link #nstbi_load_from_memory} */
 	public static native long nstbi_load_from_memory(long buffer, int len, int[] x, int[] y, int[] comp, int req_comp);
 
 	/** Array version of: {@link #stbi_load_from_memory load_from_memory} */
@@ -971,7 +810,7 @@ public class STBImage {
 		return memByteBuffer(__result, x[0] * y[0] * (req_comp != 0 ? req_comp : comp[0]));
 	}
 
-	/** Array version of: {@link #stbi_load_from_callbacks load_from_callbacks} */
+	/** Array version of: {@link #nstbi_load_from_callbacks} */
 	public static native long nstbi_load_from_callbacks(long clbk, long user, int[] x, int[] y, int[] comp, int req_comp);
 
 	/** Array version of: {@link #stbi_load_from_callbacks load_from_callbacks} */
@@ -986,7 +825,7 @@ public class STBImage {
 		return memByteBuffer(__result, x[0] * y[0] * (req_comp != 0 ? req_comp : comp[0]));
 	}
 
-	/** Array version of: {@link #stbi_loadf loadf} */
+	/** Array version of: {@link #nstbi_loadf} */
 	public static native long nstbi_loadf(long filename, int[] x, int[] y, int[] comp, int req_comp);
 
 	/** Array version of: {@link #stbi_loadf loadf} */
@@ -1018,7 +857,7 @@ public class STBImage {
 		}
 	}
 
-	/** Array version of: {@link #stbi_loadf_from_memory loadf_from_memory} */
+	/** Array version of: {@link #nstbi_loadf_from_memory} */
 	public static native long nstbi_loadf_from_memory(long buffer, int len, int[] x, int[] y, int[] comp, int req_comp);
 
 	/** Array version of: {@link #stbi_loadf_from_memory loadf_from_memory} */
@@ -1032,7 +871,7 @@ public class STBImage {
 		return memFloatBuffer(__result, x[0] * y[0] * (req_comp != 0 ? req_comp : comp[0]));
 	}
 
-	/** Array version of: {@link #stbi_loadf_from_callbacks loadf_from_callbacks} */
+	/** Array version of: {@link #nstbi_loadf_from_callbacks} */
 	public static native long nstbi_loadf_from_callbacks(long clbk, long user, int[] x, int[] y, int[] comp, int req_comp);
 
 	/** Array version of: {@link #stbi_loadf_from_callbacks loadf_from_callbacks} */
@@ -1047,7 +886,7 @@ public class STBImage {
 		return memFloatBuffer(__result, x[0] * y[0] * (req_comp != 0 ? req_comp : comp[0]));
 	}
 
-	/** Array version of: {@link #stbi_info info} */
+	/** Array version of: {@link #nstbi_info} */
 	public static native int nstbi_info(long filename, int[] x, int[] y, int[] comp);
 
 	/** Array version of: {@link #stbi_info info} */
@@ -1077,7 +916,7 @@ public class STBImage {
 		}
 	}
 
-	/** Array version of: {@link #stbi_info_from_memory info_from_memory} */
+	/** Array version of: {@link #nstbi_info_from_memory} */
 	public static native int nstbi_info_from_memory(long buffer, int len, int[] x, int[] y, int[] comp);
 
 	/** Array version of: {@link #stbi_info_from_memory info_from_memory} */
@@ -1090,7 +929,7 @@ public class STBImage {
 		return nstbi_info_from_memory(memAddress(buffer), buffer.remaining(), x, y, comp) != 0;
 	}
 
-	/** Array version of: {@link #stbi_info_from_callbacks info_from_callbacks} */
+	/** Array version of: {@link #nstbi_info_from_callbacks} */
 	public static native int nstbi_info_from_callbacks(long clbk, long user, int[] x, int[] y, int[] comp);
 
 	/** Array version of: {@link #stbi_info_from_callbacks info_from_callbacks} */

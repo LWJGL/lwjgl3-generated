@@ -60,11 +60,7 @@ class MemoryAccessJNI {
 
 	// --- [ getByte ] ---
 
-	/**
-	 * Reads a byte value from the specified memory address.
-	 *
-	 * @param ptr the memory address to read
-	 */
+	/** Unsafe version of: {@link #getByte} */
 	static native byte ngetByte(long ptr);
 
 	/**
@@ -80,11 +76,7 @@ class MemoryAccessJNI {
 
 	// --- [ getShort ] ---
 
-	/**
-	 * Reads a short value from the specified memory address.
-	 *
-	 * @param ptr the memory address to read
-	 */
+	/** Unsafe version of: {@link #getShort} */
 	static native short ngetShort(long ptr);
 
 	/**
@@ -100,11 +92,7 @@ class MemoryAccessJNI {
 
 	// --- [ getInt ] ---
 
-	/**
-	 * Reads an int value from the specified memory address.
-	 *
-	 * @param ptr the memory address to read
-	 */
+	/** Unsafe version of: {@link #getInt} */
 	static native int ngetInt(long ptr);
 
 	/**
@@ -120,11 +108,7 @@ class MemoryAccessJNI {
 
 	// --- [ getLong ] ---
 
-	/**
-	 * Reads a long value from the specified memory address.
-	 *
-	 * @param ptr the memory address to read
-	 */
+	/** Unsafe version of: {@link #getLong} */
 	static native long ngetLong(long ptr);
 
 	/**
@@ -140,11 +124,7 @@ class MemoryAccessJNI {
 
 	// --- [ getFloat ] ---
 
-	/**
-	 * Reads a float value from the specified memory address.
-	 *
-	 * @param ptr the memory address to read
-	 */
+	/** Unsafe version of: {@link #getFloat} */
 	static native float ngetFloat(long ptr);
 
 	/**
@@ -160,11 +140,7 @@ class MemoryAccessJNI {
 
 	// --- [ getDouble ] ---
 
-	/**
-	 * Reads a double value from the specified memory address.
-	 *
-	 * @param ptr the memory address to read
-	 */
+	/** Unsafe version of: {@link #getDouble} */
 	static native double ngetDouble(long ptr);
 
 	/**
@@ -180,11 +156,7 @@ class MemoryAccessJNI {
 
 	// --- [ getAddress ] ---
 
-	/**
-	 * Reads a pointer address from the specified memory address.
-	 *
-	 * @param ptr the memory address to read
-	 */
+	/** Unsafe version of: {@link #getAddress} */
 	static native long ngetAddress(long ptr);
 
 	/**
@@ -200,12 +172,7 @@ class MemoryAccessJNI {
 
 	// --- [ putByte ] ---
 
-	/**
-	 * Writes a byte value to the specified memory address.
-	 *
-	 * @param ptr   the memory address to write
-	 * @param value the value to write
-	 */
+	/** Unsafe version of: {@link #putByte} */
 	static native void nputByte(long ptr, byte value);
 
 	/**
@@ -222,12 +189,7 @@ class MemoryAccessJNI {
 
 	// --- [ putShort ] ---
 
-	/**
-	 * Writes a short value to the specified memory address.
-	 *
-	 * @param ptr   the memory address to write
-	 * @param value the value to write
-	 */
+	/** Unsafe version of: {@link #putShort} */
 	static native void nputShort(long ptr, short value);
 
 	/**
@@ -244,12 +206,7 @@ class MemoryAccessJNI {
 
 	// --- [ putInt ] ---
 
-	/**
-	 * Writes an int value to the specified memory address.
-	 *
-	 * @param ptr   the memory address to write
-	 * @param value the value to write
-	 */
+	/** Unsafe version of: {@link #putInt} */
 	static native void nputInt(long ptr, int value);
 
 	/**
@@ -266,12 +223,7 @@ class MemoryAccessJNI {
 
 	// --- [ putLong ] ---
 
-	/**
-	 * Writes a long value to the specified memory address.
-	 *
-	 * @param ptr   the memory address to write
-	 * @param value the value to write
-	 */
+	/** Unsafe version of: {@link #putLong} */
 	static native void nputLong(long ptr, long value);
 
 	/**
@@ -288,12 +240,7 @@ class MemoryAccessJNI {
 
 	// --- [ putFloat ] ---
 
-	/**
-	 * Writes a float value to the specified memory address.
-	 *
-	 * @param ptr   the memory address to write
-	 * @param value the value to write
-	 */
+	/** Unsafe version of: {@link #putFloat} */
 	static native void nputFloat(long ptr, float value);
 
 	/**
@@ -310,12 +257,7 @@ class MemoryAccessJNI {
 
 	// --- [ putDouble ] ---
 
-	/**
-	 * Writes a double value to the specified memory address.
-	 *
-	 * @param ptr   the memory address to write
-	 * @param value the value to write
-	 */
+	/** Unsafe version of: {@link #putDouble} */
 	static native void nputDouble(long ptr, double value);
 
 	/**
@@ -332,12 +274,7 @@ class MemoryAccessJNI {
 
 	// --- [ putAddress ] ---
 
-	/**
-	 * Writes a pointer address to the specified memory address.
-	 *
-	 * @param ptr   the memory address to write
-	 * @param value the value to write
-	 */
+	/** Unsafe version of: {@link #putAddress} */
 	static native void nputAddress(long ptr, long value);
 
 	/**

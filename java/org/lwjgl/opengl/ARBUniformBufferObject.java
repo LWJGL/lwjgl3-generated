@@ -160,12 +160,9 @@ public class ARBUniformBufferObject {
 	// --- [ glGetUniformIndices ] ---
 
 	/**
-	 * Retrieves the indices of a number of uniforms within a program object
+	 * Unsafe version of: {@link #glGetUniformIndices GetUniformIndices}
 	 *
-	 * @param program        the name of a program containing uniforms whose indices to query
-	 * @param uniformCount   the number of uniforms whose indices to query
-	 * @param uniformNames   an array of pointers to buffers containing the names of the queried uniforms
-	 * @param uniformIndices an array that will receive the indices of the uniforms
+	 * @param uniformCount the number of uniforms whose indices to query
 	 */
 	public static void nglGetUniformIndices(int program, int uniformCount, long uniformNames, long uniformIndices) {
 		long __functionAddress = GL.getCapabilities().glGetUniformIndices;
@@ -228,13 +225,9 @@ public class ARBUniformBufferObject {
 	// --- [ glGetActiveUniformsiv ] ---
 
 	/**
-	 * Returns information about several active uniform variables for the specified program object.
+	 * Unsafe version of: {@link #glGetActiveUniformsiv GetActiveUniformsiv}
 	 *
-	 * @param program        the program object to be queried
-	 * @param uniformCount   the number of elements in the array of indices {@code uniformIndices} and the number of parameters written to {@code params} upon successful return
-	 * @param uniformIndices an array of {@code uniformCount} integers containing the indices of uniforms within {@code program}
-	 * @param pname          the property of the each uniform in {@code uniformIndices} that should be written into the corresponding element of {@code params}
-	 * @param params         an array of {@code uniformCount} integers which are to receive the value of {@code pname} for each uniform in {@code uniformIndices}
+	 * @param uniformCount the number of elements in the array of indices {@code uniformIndices} and the number of parameters written to {@code params} upon successful return
 	 */
 	public static void nglGetActiveUniformsiv(int program, int uniformCount, long uniformIndices, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniformsiv;
@@ -278,13 +271,9 @@ public class ARBUniformBufferObject {
 	// --- [ glGetActiveUniformName ] ---
 
 	/**
-	 * Queries the name of an active uniform.
+	 * Unsafe version of: {@link #glGetActiveUniformName GetActiveUniformName}
 	 *
-	 * @param program      the program containing the active uniform index {@code uniformIndex}
-	 * @param uniformIndex the index of the active uniform whose name to query
-	 * @param bufSize      the size of the buffer, in units of {@code GLchar}, of the buffer whose address is specified in {@code uniformName}
-	 * @param length       the address of a variable that will receive the number of characters that were or would have been written to the buffer addressed by {@code uniformName}
-	 * @param uniformName  the address of a buffer into which the GL will place the name of the active uniform at {@code uniformIndex} within {@code program}
+	 * @param bufSize the size of the buffer, in units of {@code GLchar}, of the buffer whose address is specified in {@code uniformName}
 	 */
 	public static void nglGetActiveUniformName(int program, int uniformIndex, int bufSize, long length, long uniformName) {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniformName;
@@ -347,12 +336,7 @@ public class ARBUniformBufferObject {
 
 	// --- [ glGetUniformBlockIndex ] ---
 
-	/**
-	 * Retrieves the index of a named uniform block.
-	 *
-	 * @param program          the name of a program containing the uniform block
-	 * @param uniformBlockName an array of characters to containing the name of the uniform block whose index to retrieve
-	 */
+	/** Unsafe version of: {@link #glGetUniformBlockIndex GetUniformBlockIndex} */
 	public static int nglGetUniformBlockIndex(int program, long uniformBlockName) {
 		long __functionAddress = GL.getCapabilities().glGetUniformBlockIndex;
 		if ( CHECKS )
@@ -390,14 +374,7 @@ public class ARBUniformBufferObject {
 
 	// --- [ glGetActiveUniformBlockiv ] ---
 
-	/**
-	 * Queries information about an active uniform block.
-	 *
-	 * @param program           the name of a program containing the uniform block
-	 * @param uniformBlockIndex the index of the uniform block within {@code program}
-	 * @param pname             the name of the parameter to query. One of:<br><table><tr><td>{@link #GL_UNIFORM_BLOCK_BINDING UNIFORM_BLOCK_BINDING}</td><td>{@link #GL_UNIFORM_BLOCK_DATA_SIZE UNIFORM_BLOCK_DATA_SIZE}</td></tr><tr><td>{@link #GL_UNIFORM_BLOCK_NAME_LENGTH UNIFORM_BLOCK_NAME_LENGTH}</td><td>{@link #GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS UNIFORM_BLOCK_ACTIVE_UNIFORMS}</td></tr><tr><td>{@link #GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES}</td><td>{@link #GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER}</td></tr><tr><td>{@link #GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER}</td><td>{@link #GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER}</td></tr></table>
-	 * @param params            the address of a variable to receive the result of the query
-	 */
+	/** Unsafe version of: {@link #glGetActiveUniformBlockiv GetActiveUniformBlockiv} */
 	public static void nglGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniformBlockiv;
 		if ( CHECKS )
@@ -440,13 +417,9 @@ public class ARBUniformBufferObject {
 	// --- [ glGetActiveUniformBlockName ] ---
 
 	/**
-	 * Retrieves the name of an active uniform block.
+	 * Unsafe version of: {@link #glGetActiveUniformBlockName GetActiveUniformBlockName}
 	 *
-	 * @param program           the name of a program containing the uniform block
-	 * @param uniformBlockIndex the index of the uniform block within {@code program}
-	 * @param bufSize           the size of the buffer addressed by {@code uniformBlockName}
-	 * @param length            the address of a variable to receive the number of characters that were written to {@code uniformBlockName}
-	 * @param uniformBlockName  an array of characters to receive the name of the uniform block at {@code uniformBlockIndex}
+	 * @param bufSize the size of the buffer addressed by {@code uniformBlockName}
 	 */
 	public static void nglGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, long length, long uniformBlockName) {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniformBlockName;
@@ -543,13 +516,7 @@ public class ARBUniformBufferObject {
 
 	// --- [ glGetIntegeri_v ] ---
 
-	/**
-	 * Queries the integer value of an indexed state variable.
-	 *
-	 * @param target the indexed state to query
-	 * @param index  the index of the element being queried
-	 * @param data   a scalar or buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetIntegeri_v GetIntegeri_v} */
 	public static void nglGetIntegeri_v(int target, int index, long data) {
 		long __functionAddress = GL.getCapabilities().glGetIntegeri_v;
 		if ( CHECKS )

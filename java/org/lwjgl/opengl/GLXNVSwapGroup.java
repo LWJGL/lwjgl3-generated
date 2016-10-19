@@ -74,14 +74,7 @@ public class GLXNVSwapGroup {
 
 	// --- [ glXQuerySwapGroupNV ] ---
 
-	/**
-	 * 
-	 *
-	 * @param display  the connection to the X server
-	 * @param drawable 
-	 * @param group    
-	 * @param barrier  
-	 */
+	/** Unsafe version of: {@link #glXQuerySwapGroupNV QuerySwapGroupNV} */
 	public static int nglXQuerySwapGroupNV(long display, long drawable, long group, long barrier) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQuerySwapGroupNV;
 		if ( CHECKS ) {
@@ -110,14 +103,7 @@ public class GLXNVSwapGroup {
 
 	// --- [ glXQueryMaxSwapGroupsNV ] ---
 
-	/**
-	 * 
-	 *
-	 * @param display     the connection to the X server
-	 * @param screen      
-	 * @param maxGroups   
-	 * @param maxBarriers 
-	 */
+	/** Unsafe version of: {@link #glXQueryMaxSwapGroupsNV QueryMaxSwapGroupsNV} */
 	public static int nglXQueryMaxSwapGroupsNV(long display, int screen, long maxGroups, long maxBarriers) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryMaxSwapGroupsNV;
 		if ( CHECKS ) {
@@ -145,13 +131,7 @@ public class GLXNVSwapGroup {
 
 	// --- [ glXQueryFrameCountNV ] ---
 
-	/**
-	 * 
-	 *
-	 * @param display the connection to the X server
-	 * @param screen  
-	 * @param count   
-	 */
+	/** Unsafe version of: {@link #glXQueryFrameCountNV QueryFrameCountNV} */
 	public static int nglXQueryFrameCountNV(long display, int screen, long count) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryFrameCountNV;
 		if ( CHECKS ) {

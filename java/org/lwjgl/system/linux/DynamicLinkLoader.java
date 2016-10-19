@@ -47,13 +47,7 @@ public class DynamicLinkLoader {
 
 	// --- [ dlopen ] ---
 
-	/**
-	 * Loads the dynamic library file named by the null-terminated string {@code filename} and returns an opaque "handle" for the dynamic library. If
-	 * {@code filename} is {@code NULL}, then the returned handle is for the main program.
-	 *
-	 * @param filename the name of the dynamic library to open, or {@code NULL}
-	 * @param mode     a bitfield. One or more of:<br><table><tr><td>{@link #RTLD_LAZY}</td><td>{@link #RTLD_NOW}</td><td>{@link #RTLD_BINDING_MASK}</td><td>{@link #RTLD_NOLOAD}</td><td>{@link #RTLD_DEEPBIND}</td><td>{@link #RTLD_GLOBAL}</td></tr><tr><td>{@link #RTLD_LOCAL}</td><td>{@link #RTLD_NODELETE}</td></tr></table>
-	 */
+	/** Unsafe version of: {@link #dlopen} */
 	public static native long ndlopen(long filename, int mode);
 
 	/**
@@ -88,10 +82,7 @@ public class DynamicLinkLoader {
 
 	// --- [ dlerror ] ---
 
-	/**
-	 * Returns a human readable string describing the most recent error that occurred from {@link #dlopen}, {@link #dlsym} or {@link #dlclose} since
-	 * the last call to {@code dlerror()}. It returns {@code NULL} if no errors have occurred since initialization or since it was last called.
-	 */
+	/** Unsafe version of: {@link #dlerror} */
 	public static native long ndlerror();
 
 	/**
@@ -105,14 +96,7 @@ public class DynamicLinkLoader {
 
 	// --- [ dlsym ] ---
 
-	/**
-	 * Takes a "handle" of a dynamic library returned by {@link #dlopen} and the null-terminated symbol name, returning the address where that symbol is loaded
-	 * into memory. If the symbol is not found, in the specified library or any of the libraries that were automatically loaded by {@link #dlopen} when that
-	 * library was loaded, {@code dlsym()} returns {@code NULL}.
-	 *
-	 * @param handle the dynamic library handle
-	 * @param name   the symbol name
-	 */
+	/** Unsafe version of: {@link #dlsym} */
 	public static native long ndlsym(long handle, long name);
 
 	/**
@@ -153,12 +137,7 @@ public class DynamicLinkLoader {
 
 	// --- [ dlclose ] ---
 
-	/**
-	 * Decrements the reference count on the dynamic library handle handle. If the reference count drops to zero and no other loaded libraries use symbols in
-	 * it, then the dynamic library is unloaded.
-	 *
-	 * @param handle the dynamic library to close
-	 */
+	/** Unsafe version of: {@link #dlclose} */
 	public static native int ndlclose(long handle);
 
 	/**

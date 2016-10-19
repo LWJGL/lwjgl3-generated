@@ -38,15 +38,7 @@ public class DynCallback {
 
 	// --- [ dcbNewCallback ] ---
 
-	/**
-	 * Creates and initializes a new {@code Callback} object.
-	 * 
-	 * <p>Use {@link #dcbFreeCallback FreeCallback} to destroy the {@code Callback} object.</p>
-	 *
-	 * @param signature the function signature of the function to mimic
-	 * @param funcptr   a pointer to a callback handler
-	 * @param userdata  a pointer to custom data that might be useful in the handler
-	 */
+	/** Unsafe version of: {@link #dcbNewCallback NewCallback} */
 	public static native long ndcbNewCallback(long signature, long funcptr, long userdata);
 
 	/**
@@ -92,14 +84,7 @@ public class DynCallback {
 
 	// --- [ dcbInitCallback ] ---
 
-	/**
-	 * (Re)initializes a callback object.
-	 *
-	 * @param pcb       the callback object
-	 * @param signature 
-	 * @param handler   
-	 * @param userdata  
-	 */
+	/** Unsafe version of: {@link #dcbInitCallback InitCallback} */
 	public static native void ndcbInitCallback(long pcb, long signature, long handler, long userdata);
 
 	/**
@@ -120,11 +105,7 @@ public class DynCallback {
 
 	// --- [ dcbFreeCallback ] ---
 
-	/**
-	 * Destroys and frees the callback object.
-	 *
-	 * @param pcb the callback object
-	 */
+	/** Unsafe version of: {@link #dcbFreeCallback FreeCallback} */
 	public static native void ndcbFreeCallback(long pcb);
 
 	/**
@@ -140,11 +121,7 @@ public class DynCallback {
 
 	// --- [ dcbGetUserData ] ---
 
-	/**
-	 * Returns a pointer to the {@code userdata} passed to the callback object on creation or initialization.
-	 *
-	 * @param pcb the callback object
-	 */
+	/** Unsafe version of: {@link #dcbGetUserData GetUserData} */
 	public static native long ndcbGetUserData(long pcb);
 
 	/**
@@ -160,11 +137,7 @@ public class DynCallback {
 
 	// --- [ dcbArgBool ] ---
 
-	/**
-	 * Returns the next {@code bool} argument.
-	 *
-	 * @param args the function arguments
-	 */
+	/** Unsafe version of: {@link #dcbArgBool ArgBool} */
 	public static native int ndcbArgBool(long args);
 
 	/**
@@ -180,11 +153,7 @@ public class DynCallback {
 
 	// --- [ dcbArgChar ] ---
 
-	/**
-	 * Returns the next {@code char} argument.
-	 *
-	 * @param args the function arguments
-	 */
+	/** Unsafe version of: {@link #dcbArgChar ArgChar} */
 	public static native byte ndcbArgChar(long args);
 
 	/**
@@ -200,11 +169,7 @@ public class DynCallback {
 
 	// --- [ dcbArgShort ] ---
 
-	/**
-	 * Returns the next {@code short} argument.
-	 *
-	 * @param args the function arguments
-	 */
+	/** Unsafe version of: {@link #dcbArgShort ArgShort} */
 	public static native short ndcbArgShort(long args);
 
 	/**
@@ -220,11 +185,7 @@ public class DynCallback {
 
 	// --- [ dcbArgInt ] ---
 
-	/**
-	 * Returns the next {@code int} argument.
-	 *
-	 * @param args the function arguments
-	 */
+	/** Unsafe version of: {@link #dcbArgInt ArgInt} */
 	public static native int ndcbArgInt(long args);
 
 	/**
@@ -240,11 +201,7 @@ public class DynCallback {
 
 	// --- [ dcbArgLong ] ---
 
-	/**
-	 * Returns the next {@code long} argument.
-	 *
-	 * @param args the function arguments
-	 */
+	/** Unsafe version of: {@link #dcbArgLong ArgLong} */
 	public static native int ndcbArgLong(long args);
 
 	/**
@@ -260,11 +217,7 @@ public class DynCallback {
 
 	// --- [ dcbArgLongLong ] ---
 
-	/**
-	 * Returns the next {@code long long} argument.
-	 *
-	 * @param args the function arguments
-	 */
+	/** Unsafe version of: {@link #dcbArgLongLong ArgLongLong} */
 	public static native long ndcbArgLongLong(long args);
 
 	/**
@@ -280,11 +233,7 @@ public class DynCallback {
 
 	// --- [ dcbArgUChar ] ---
 
-	/**
-	 * Returns the next {@code unsigned char} argument.
-	 *
-	 * @param args the function arguments
-	 */
+	/** Unsafe version of: {@link #dcbArgUChar ArgUChar} */
 	public static native byte ndcbArgUChar(long args);
 
 	/**
@@ -300,11 +249,7 @@ public class DynCallback {
 
 	// --- [ dcbArgUShort ] ---
 
-	/**
-	 * Returns the next {@code unsigned short} argument.
-	 *
-	 * @param args the function arguments
-	 */
+	/** Unsafe version of: {@link #dcbArgUShort ArgUShort} */
 	public static native short ndcbArgUShort(long args);
 
 	/**
@@ -320,11 +265,7 @@ public class DynCallback {
 
 	// --- [ dcbArgUInt ] ---
 
-	/**
-	 * Returns the next {@code unsigned int} argument.
-	 *
-	 * @param args the function arguments
-	 */
+	/** Unsafe version of: {@link #dcbArgUInt ArgUInt} */
 	public static native int ndcbArgUInt(long args);
 
 	/**
@@ -340,11 +281,7 @@ public class DynCallback {
 
 	// --- [ dcbArgULong ] ---
 
-	/**
-	 * Returns the next {@code unsigned long} argument.
-	 *
-	 * @param args the function arguments
-	 */
+	/** Unsafe version of: {@link #dcbArgULong ArgULong} */
 	public static native int ndcbArgULong(long args);
 
 	/**
@@ -360,11 +297,7 @@ public class DynCallback {
 
 	// --- [ dcbArgULongLong ] ---
 
-	/**
-	 * Returns the next {@code unsigned long long} argument.
-	 *
-	 * @param args the function arguments
-	 */
+	/** Unsafe version of: {@link #dcbArgULongLong ArgULongLong} */
 	public static native long ndcbArgULongLong(long args);
 
 	/**
@@ -380,11 +313,7 @@ public class DynCallback {
 
 	// --- [ dcbArgFloat ] ---
 
-	/**
-	 * Returns the next {@code float} argument.
-	 *
-	 * @param args the function arguments
-	 */
+	/** Unsafe version of: {@link #dcbArgFloat ArgFloat} */
 	public static native float ndcbArgFloat(long args);
 
 	/**
@@ -400,11 +329,7 @@ public class DynCallback {
 
 	// --- [ dcbArgDouble ] ---
 
-	/**
-	 * Returns the next {@code double} argument.
-	 *
-	 * @param args the function arguments
-	 */
+	/** Unsafe version of: {@link #dcbArgDouble ArgDouble} */
 	public static native double ndcbArgDouble(long args);
 
 	/**
@@ -420,11 +345,7 @@ public class DynCallback {
 
 	// --- [ dcbArgPointer ] ---
 
-	/**
-	 * Returns the next {@code pointer} argument.
-	 *
-	 * @param args the function arguments
-	 */
+	/** Unsafe version of: {@link #dcbArgPointer ArgPointer} */
 	public static native long ndcbArgPointer(long args);
 
 	/**

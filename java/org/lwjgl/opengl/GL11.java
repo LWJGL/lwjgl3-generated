@@ -827,15 +827,9 @@ public class GL11 {
 	// --- [ glAreTexturesResident ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glAreTexturesResident.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Returns {@link #GL_TRUE TRUE} if all of the texture objects named in textures are resident, or if the implementation does not distinguish a working set. If
-	 * at least one of the texture objects named in textures is not resident, then {@link #GL_FALSE FALSE} is returned, and the residence of each texture object is
-	 * returned in residences. Otherwise the contents of residences are not changed.
+	 * Unsafe version of: {@link #glAreTexturesResident AreTexturesResident}
 	 *
-	 * @param n          the number of texture objects in {@code textures}
-	 * @param textures   an array of texture objects
-	 * @param residences returns the residences of each texture object
+	 * @param n the number of texture objects in {@code textures}
 	 */
 	public static boolean nglAreTexturesResident(int n, long textures, long residences) {
 		long __functionAddress = GL.getCapabilities().glAreTexturesResident;
@@ -932,20 +926,7 @@ public class GL11 {
 
 	// --- [ glBitmap ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glBitmap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Sents a bitmap to the GL. Bitmaps are rectangles of zeros and ones specifying a particular pattern of fragments to be produced. Each of these fragments
-	 * has the same associated data. These data are those associated with the current raster position.
-	 *
-	 * @param w     the bitmap width
-	 * @param h     the bitmap width
-	 * @param xOrig the bitmap origin x coordinate
-	 * @param yOrig the bitmap origin y coordinate
-	 * @param xInc  the x increment added to the raster position
-	 * @param yInc  the y increment added to the raster position
-	 * @param data  the buffer containing the bitmap data.
-	 */
+	/** Unsafe version of: {@link #glBitmap Bitmap} */
 	public static void nglBitmap(int w, int h, float xOrig, float yOrig, float xInc, float yInc, long data) {
 		long __functionAddress = GL.getCapabilities().glBitmap;
 		if ( CHECKS )
@@ -1023,13 +1004,10 @@ public class GL11 {
 	// --- [ glCallLists ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glCallLists.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Provides an efficient means for executing a number of display lists.
+	 * Unsafe version of: {@link #glCallLists CallLists}
 	 *
-	 * @param n     the number of display lists to be called
-	 * @param type  the data type of each element in {@code lists}. One of:<br><table><tr><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_SHORT SHORT}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_INT INT}</td><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_FLOAT FLOAT}</td><td>{@link #GL_2_BYTES 2_BYTES}</td><td>{@link #GL_3_BYTES 3_BYTES}</td><td>{@link #GL_4_BYTES 4_BYTES}</td></tr></table>
-	 * @param lists an array of offsets. Each offset is added to the display list base to obtain the display list number.
+	 * @param n    the number of display lists to be called
+	 * @param type the data type of each element in {@code lists}. One of:<br><table><tr><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_SHORT SHORT}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_INT INT}</td><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_FLOAT FLOAT}</td><td>{@link #GL_2_BYTES 2_BYTES}</td><td>{@link #GL_3_BYTES 3_BYTES}</td><td>{@link #GL_4_BYTES 4_BYTES}</td></tr></table>
 	 */
 	public static void nglCallLists(int n, int type, long lists) {
 		long __functionAddress = GL.getCapabilities().glCallLists;
@@ -1183,18 +1161,7 @@ public class GL11 {
 
 	// --- [ glClipPlane ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glClipPlane.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Specifies a client-defined clip plane.
-	 * 
-	 * <p>The value of the first argument, {@code plane}, is a symbolic constant, CLIP_PLANEi, where i is an integer between 0 and n &ndash; 1, indicating one of
-	 * n client-defined clip planes. {@code equation} is an array of four double-precision floating-point values. These are the coefficients of a plane
-	 * equation in object coordinates: p1, p2, p3, and p4 (in that order).</p>
-	 *
-	 * @param plane    the clip plane to define
-	 * @param equation the clip plane coefficients
-	 */
+	/** Unsafe version of: {@link #glClipPlane ClipPlane} */
 	public static void nglClipPlane(int plane, long equation) {
 		long __functionAddress = GL.getCapabilities().glClipPlane;
 		callPV(__functionAddress, plane, equation);
@@ -1362,13 +1329,7 @@ public class GL11 {
 
 	// --- [ glColor3bv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3b.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Byte pointer version of {@link #glColor3b Color3b}.
-	 *
-	 * @param v the color buffer
-	 */
+	/** Unsafe version of: {@link #glColor3bv Color3bv} */
 	public static void nglColor3bv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor3bv;
 		if ( CHECKS )
@@ -1391,13 +1352,7 @@ public class GL11 {
 
 	// --- [ glColor3sv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glColor3s Color3s}.
-	 *
-	 * @param v the color buffer
-	 */
+	/** Unsafe version of: {@link #glColor3sv Color3sv} */
 	public static void nglColor3sv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor3sv;
 		if ( CHECKS )
@@ -1420,13 +1375,7 @@ public class GL11 {
 
 	// --- [ glColor3iv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glColor3i Color3i}.
-	 *
-	 * @param v the color buffer
-	 */
+	/** Unsafe version of: {@link #glColor3iv Color3iv} */
 	public static void nglColor3iv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor3iv;
 		if ( CHECKS )
@@ -1449,13 +1398,7 @@ public class GL11 {
 
 	// --- [ glColor3fv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glColor3f Color3f}.
-	 *
-	 * @param v the color buffer
-	 */
+	/** Unsafe version of: {@link #glColor3fv Color3fv} */
 	public static void nglColor3fv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor3fv;
 		if ( CHECKS )
@@ -1478,13 +1421,7 @@ public class GL11 {
 
 	// --- [ glColor3dv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glColor3d Color3d}.
-	 *
-	 * @param v the color buffer
-	 */
+	/** Unsafe version of: {@link #glColor3dv Color3dv} */
 	public static void nglColor3dv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor3dv;
 		if ( CHECKS )
@@ -1507,13 +1444,7 @@ public class GL11 {
 
 	// --- [ glColor3ubv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3ub.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glColor3ub Color3ub}.
-	 *
-	 * @param v the color buffer
-	 */
+	/** Unsafe version of: {@link #glColor3ubv Color3ubv} */
 	public static void nglColor3ubv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor3ubv;
 		if ( CHECKS )
@@ -1536,13 +1467,7 @@ public class GL11 {
 
 	// --- [ glColor3usv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glColor3us Color3us}.
-	 *
-	 * @param v the color buffer
-	 */
+	/** Unsafe version of: {@link #glColor3usv Color3usv} */
 	public static void nglColor3usv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor3usv;
 		if ( CHECKS )
@@ -1565,13 +1490,7 @@ public class GL11 {
 
 	// --- [ glColor3uiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glColor3ui Color3ui}.
-	 *
-	 * @param v the color buffer
-	 */
+	/** Unsafe version of: {@link #glColor3uiv Color3uiv} */
 	public static void nglColor3uiv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor3uiv;
 		if ( CHECKS )
@@ -1746,13 +1665,7 @@ public class GL11 {
 
 	// --- [ glColor4bv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4b.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glColor4b Color4b}.
-	 *
-	 * @param v the color buffer
-	 */
+	/** Unsafe version of: {@link #glColor4bv Color4bv} */
 	public static void nglColor4bv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor4bv;
 		if ( CHECKS )
@@ -1775,13 +1688,7 @@ public class GL11 {
 
 	// --- [ glColor4sv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glColor4s Color4s}.
-	 *
-	 * @param v the color buffer
-	 */
+	/** Unsafe version of: {@link #glColor4sv Color4sv} */
 	public static void nglColor4sv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor4sv;
 		if ( CHECKS )
@@ -1804,13 +1711,7 @@ public class GL11 {
 
 	// --- [ glColor4iv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glColor4i Color4i}.
-	 *
-	 * @param v the color buffer
-	 */
+	/** Unsafe version of: {@link #glColor4iv Color4iv} */
 	public static void nglColor4iv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor4iv;
 		if ( CHECKS )
@@ -1833,13 +1734,7 @@ public class GL11 {
 
 	// --- [ glColor4fv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glColor4f Color4f}.
-	 *
-	 * @param v the color buffer
-	 */
+	/** Unsafe version of: {@link #glColor4fv Color4fv} */
 	public static void nglColor4fv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor4fv;
 		if ( CHECKS )
@@ -1862,13 +1757,7 @@ public class GL11 {
 
 	// --- [ glColor4dv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glColor4d Color4d}.
-	 *
-	 * @param v the color buffer
-	 */
+	/** Unsafe version of: {@link #glColor4dv Color4dv} */
 	public static void nglColor4dv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor4dv;
 		if ( CHECKS )
@@ -1891,13 +1780,7 @@ public class GL11 {
 
 	// --- [ glColor4ubv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4ub.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glColor4ub Color4ub}.
-	 *
-	 * @param v the color buffer
-	 */
+	/** Unsafe version of: {@link #glColor4ubv Color4ubv} */
 	public static void nglColor4ubv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor4ubv;
 		if ( CHECKS )
@@ -1920,13 +1803,7 @@ public class GL11 {
 
 	// --- [ glColor4usv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glColor4us Color4us}.
-	 *
-	 * @param v the color buffer
-	 */
+	/** Unsafe version of: {@link #glColor4usv Color4usv} */
 	public static void nglColor4usv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor4usv;
 		if ( CHECKS )
@@ -1949,13 +1826,7 @@ public class GL11 {
 
 	// --- [ glColor4uiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColor4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glColor4ui Color4ui}.
-	 *
-	 * @param v the color buffer
-	 */
+	/** Unsafe version of: {@link #glColor4uiv Color4uiv} */
 	public static void nglColor4uiv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor4uiv;
 		if ( CHECKS )
@@ -2014,16 +1885,7 @@ public class GL11 {
 
 	// --- [ glColorPointer ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColorPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Specifies the location and organization of a color array.
-	 *
-	 * @param size    the number of values per vertex that are stored in the array, as well as their component ordering. One of:<br><table><tr><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
-	 * @param type    the data type of the values stored in the array. One of:<br><table><tr><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_SHORT SHORT}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_INT INT}</td><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td></tr><tr><td>{@link #GL_FLOAT FLOAT}</td><td>{@link #GL_DOUBLE DOUBLE}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td><td>{@link GL33#GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td></tr></table>
-	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
-	 * @param pointer the color array data
-	 */
+	/** Unsafe version of: {@link #glColorPointer ColorPointer} */
 	public static void nglColorPointer(int size, int type, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glColorPointer;
 		if ( CHECKS )
@@ -2237,16 +2099,10 @@ public class GL11 {
 	// --- [ glDrawElements ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawElements.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Constructs a sequence of geometric primitives by successively transferring elements for {@code count} vertices to the GL.
-	 * The i<sup>th</sup> element transferred by {@code DrawElements} will be taken from element {@code indices[i]} (if no element array buffer is bound), or
-	 * from the element whose index is stored in the currently bound element array buffer at offset {@code indices + i}.
+	 * Unsafe version of: {@link #glDrawElements DrawElements}
 	 *
-	 * @param mode    the kind of primitives being constructed. One of:<br><table><tr><td>{@link #GL_POINTS POINTS}</td><td>{@link #GL_LINE_STRIP LINE_STRIP}</td><td>{@link #GL_LINE_LOOP LINE_LOOP}</td><td>{@link #GL_LINES LINES}</td><td>{@link #GL_POLYGON POLYGON}</td><td>{@link #GL_TRIANGLE_STRIP TRIANGLE_STRIP}</td><td>{@link #GL_TRIANGLE_FAN TRIANGLE_FAN}</td></tr><tr><td>{@link #GL_TRIANGLES TRIANGLES}</td><td>{@link #GL_QUAD_STRIP QUAD_STRIP}</td><td>{@link #GL_QUADS QUADS}</td><td>{@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}</td><td>{@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}</td></tr><tr><td>{@link GL40#GL_PATCHES PATCHES}</td></tr></table>
-	 * @param count   the number of vertices to transfer to the GL
-	 * @param type    indicates the type of index values in {@code indices}. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
-	 * @param indices the index values
+	 * @param count the number of vertices to transfer to the GL
+	 * @param type  indicates the type of index values in {@code indices}. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
 	 */
 	public static void nglDrawElements(int mode, int count, int type, long indices) {
 		long __functionAddress = GL.getCapabilities().glDrawElements;
@@ -2328,17 +2184,7 @@ public class GL11 {
 
 	// --- [ glDrawPixels ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glDrawPixels.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Draws a pixel rectangle to the active draw buffers.
-	 *
-	 * @param width  the pixel rectangle width
-	 * @param height the pixel rectangle height
-	 * @param format the pixel data format. One of:<br><table><tr><td>{@link #GL_STENCIL_INDEX STENCIL_INDEX}</td><td>{@link #GL_DEPTH_COMPONENT DEPTH_COMPONENT}</td><td>{@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}</td><td>{@link #GL_RED RED}</td><td>{@link #GL_GREEN GREEN}</td><td>{@link #GL_BLUE BLUE}</td><td>{@link #GL_ALPHA ALPHA}</td><td>{@link GL30#GL_RG RG}</td></tr><tr><td>{@link #GL_RGB RGB}</td><td>{@link #GL_RGBA RGBA}</td><td>{@link GL12#GL_BGR BGR}</td><td>{@link GL12#GL_BGRA BGRA}</td><td>{@link #GL_LUMINANCE LUMINANCE}</td><td>{@link #GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}</td><td>{@link GL30#GL_RED_INTEGER RED_INTEGER}</td><td>{@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}</td></tr><tr><td>{@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}</td><td>{@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}</td><td>{@link GL30#GL_RG_INTEGER RG_INTEGER}</td><td>{@link GL30#GL_RGB_INTEGER RGB_INTEGER}</td><td>{@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}</td><td>{@link GL30#GL_BGR_INTEGER BGR_INTEGER}</td><td>{@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}</td></tr></table>
-	 * @param type   the pixel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
-	 * @param pixels the pixel data
-	 */
+	/** Unsafe version of: {@link #glDrawPixels DrawPixels} */
 	public static void nglDrawPixels(int width, int height, int format, int type, long pixels) {
 		long __functionAddress = GL.getCapabilities().glDrawPixels;
 		if ( CHECKS )
@@ -2427,13 +2273,7 @@ public class GL11 {
 
 	// --- [ glEdgeFlagv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEdgeFlag.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glEdgeFlag EdgeFlag}.
-	 *
-	 * @param flag the edge flag buffer
-	 */
+	/** Unsafe version of: {@link #glEdgeFlagv EdgeFlagv} */
 	public static void nglEdgeFlagv(long flag) {
 		long __functionAddress = GL.getCapabilities().glEdgeFlagv;
 		if ( CHECKS )
@@ -2456,14 +2296,7 @@ public class GL11 {
 
 	// --- [ glEdgeFlagPointer ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEdgeFlagPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Specifies the location and organization of an edge flag array.
-	 *
-	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
-	 * @param pointer the edge flag array data
-	 */
+	/** Unsafe version of: {@link #glEdgeFlagPointer EdgeFlagPointer} */
 	public static void nglEdgeFlagPointer(int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glEdgeFlagPointer;
 		if ( CHECKS )
@@ -2543,13 +2376,7 @@ public class GL11 {
 
 	// --- [ glEvalCoord1fv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEvalCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glEvalCoord1f EvalCoord1f}.
-	 *
-	 * @param u the domain coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glEvalCoord1fv EvalCoord1fv} */
 	public static void nglEvalCoord1fv(long u) {
 		long __functionAddress = GL.getCapabilities().glEvalCoord1fv;
 		if ( CHECKS )
@@ -2586,13 +2413,7 @@ public class GL11 {
 
 	// --- [ glEvalCoord1dv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEvalCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glEvalCoord1d EvalCoord1d}.
-	 *
-	 * @param u the domain coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glEvalCoord1dv EvalCoord1dv} */
 	public static void nglEvalCoord1dv(long u) {
 		long __functionAddress = GL.getCapabilities().glEvalCoord1dv;
 		if ( CHECKS )
@@ -2630,13 +2451,7 @@ public class GL11 {
 
 	// --- [ glEvalCoord2fv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEvalCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glEvalCoord2f EvalCoord2f}.
-	 *
-	 * @param u the domain coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glEvalCoord2fv EvalCoord2fv} */
 	public static void nglEvalCoord2fv(long u) {
 		long __functionAddress = GL.getCapabilities().glEvalCoord2fv;
 		if ( CHECKS )
@@ -2674,13 +2489,7 @@ public class GL11 {
 
 	// --- [ glEvalCoord2dv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glEvalCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glEvalCoord2d EvalCoord2d}.
-	 *
-	 * @param u the domain coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glEvalCoord2dv EvalCoord2dv} */
 	public static void nglEvalCoord2dv(long u) {
 		long __functionAddress = GL.getCapabilities().glEvalCoord2dv;
 		if ( CHECKS )
@@ -2773,13 +2582,9 @@ public class GL11 {
 	// --- [ glFeedbackBuffer ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFeedbackBuffer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Returns information about primitives when the GL is in feedback mode.
+	 * Unsafe version of: {@link #glFeedbackBuffer FeedbackBuffer}
 	 *
-	 * @param size   the maximum number of values that can be written to {@code buffer}
-	 * @param type   the type of information to feed back for each vertex. One of:<br><table><tr><td>{@link #GL_2D 2D}</td><td>{@link #GL_3D 3D}</td><td>{@link #GL_3D_COLOR 3D_COLOR}</td><td>{@link #GL_3D_COLOR_TEXTURE 3D_COLOR_TEXTURE}</td><td>{@link #GL_4D_COLOR_TEXTURE 4D_COLOR_TEXTURE}</td></tr></table>
-	 * @param buffer an array of floating-point values into which feedback information will be placed
+	 * @param size the maximum number of values that can be written to {@code buffer}
 	 */
 	public static void nglFeedbackBuffer(int size, int type, long buffer) {
 		long __functionAddress = GL.getCapabilities().glFeedbackBuffer;
@@ -2844,14 +2649,7 @@ public class GL11 {
 
 	// --- [ glFogiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFog.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glFogi Fogi}.
-	 *
-	 * @param pname  the fog parameter. One of:<br><table><tr><td>{@link #GL_FOG_MODE FOG_MODE}</td><td>{@link GL15#GL_FOG_COORD_SRC FOG_COORD_SRC}</td></tr></table>
-	 * @param params the fog parameter buffer
-	 */
+	/** Unsafe version of: {@link #glFogiv Fogiv} */
 	public static void nglFogiv(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glFogiv;
 		if ( CHECKS )
@@ -2892,14 +2690,7 @@ public class GL11 {
 
 	// --- [ glFogfv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFog.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glFogf Fogf}.
-	 *
-	 * @param pname  the fog parameter. One of:<br><table><tr><td>{@link #GL_FOG_DENSITY FOG_DENSITY}</td><td>{@link #GL_FOG_START FOG_START}</td><td>{@link #GL_FOG_END FOG_END}</td></tr></table>
-	 * @param params the fog parameter buffer
-	 */
+	/** Unsafe version of: {@link #glFogfv Fogfv} */
 	public static void nglFogfv(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glFogfv;
 		if ( CHECKS )
@@ -2959,13 +2750,9 @@ public class GL11 {
 	// --- [ glGenTextures ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenTextures.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns n previously unused texture names in textures. These names are marked as used, for the purposes of GenTextures only, but they acquire texture
-	 * state and a dimensionality only when they are first bound, just as if they were unused.
+	 * Unsafe version of: {@link #glGenTextures GenTextures}
 	 *
-	 * @param n        the number of textures to create
-	 * @param textures a scalar or buffer in which to place the returned texture names
+	 * @param n the number of textures to create
 	 */
 	public static void nglGenTextures(int n, long textures) {
 		long __functionAddress = GL.getCapabilities().glGenTextures;
@@ -3004,18 +2791,9 @@ public class GL11 {
 	// --- [ glDeleteTextures ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteTextures.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Deletes texture objects. After a texture object is deleted, it has no contents or dimensionality, and its name is again unused. If a texture that is
-	 * currently bound to any of the target bindings of {@link #glBindTexture BindTexture} is deleted, it is as though {@link #glBindTexture BindTexture} had been executed with the
-	 * same target and texture zero. Additionally, special care must be taken when deleting a texture if any of the images of the texture are attached to a
-	 * framebuffer object.
-	 * 
-	 * <p>Unused names in textures that have been marked as used for the purposes of {@link #glGenTextures GenTextures} are marked as unused again. Unused names in textures are
-	 * silently ignored, as is the name zero.</p>
+	 * Unsafe version of: {@link #glDeleteTextures DeleteTextures}
 	 *
-	 * @param n        the number of texture names in the {@code textures} parameter
-	 * @param textures contains {@code n} names of texture objects to be deleted
+	 * @param n the number of texture names in the {@code textures} parameter
 	 */
 	public static void nglDeleteTextures(int n, long textures) {
 		long __functionAddress = GL.getCapabilities().glDeleteTextures;
@@ -3062,15 +2840,7 @@ public class GL11 {
 
 	// --- [ glGetClipPlane ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetClipPlane.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns four double-precision values in {@code equation}; these are the coefficients of the plane equation of plane in eye coordinates (these
-	 * coordinates are those that were computed when the plane was specified).
-	 *
-	 * @param plane    the clip plane
-	 * @param equation a buffer in which to place the returned values
-	 */
+	/** Unsafe version of: {@link #glGetClipPlane GetClipPlane} */
 	public static void nglGetClipPlane(int plane, long equation) {
 		long __functionAddress = GL.getCapabilities().glGetClipPlane;
 		callPV(__functionAddress, plane, equation);
@@ -3093,18 +2863,7 @@ public class GL11 {
 
 	// --- [ glGetBooleanv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns the current boolean value of the specified state variable.
-	 * 
-	 * <p><b>LWJGL note</b>: The state that corresponds to the state variable may be a single value or an array of values. In the case of an array of values,
-	 * LWJGL will <b>not</b> validate if {@code params} has enough space to store that array. Doing so would introduce significant overhead, as the
-	 * OpenGL state variables are too many. It is the user's responsibility to avoid JVM crashes by ensuring enough space for the returned values.</p>
-	 *
-	 * @param pname  the state variable
-	 * @param params a scalar or buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetBooleanv GetBooleanv} */
 	public static void nglGetBooleanv(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetBooleanv;
 		callPV(__functionAddress, pname, params);
@@ -3152,18 +2911,7 @@ public class GL11 {
 
 	// --- [ glGetFloatv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns the current float value of the specified state variable.
-	 * 
-	 * <p><b>LWJGL note</b>: The state that corresponds to the state variable may be a single value or an array of values. In the case of an array of values,
-	 * LWJGL will <b>not</b> validate if {@code params} has enough space to store that array. Doing so would introduce significant overhead, as the
-	 * OpenGL state variables are too many. It is the user's responsibility to avoid JVM crashes by ensuring enough space for the returned values.</p>
-	 *
-	 * @param pname  the state variable
-	 * @param params a scalar or buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetFloatv GetFloatv} */
 	public static void nglGetFloatv(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetFloatv;
 		callPV(__functionAddress, pname, params);
@@ -3211,18 +2959,7 @@ public class GL11 {
 
 	// --- [ glGetIntegerv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns the current integer value of the specified state variable.
-	 * 
-	 * <p><b>LWJGL note</b>: The state that corresponds to the state variable may be a single value or an array of values. In the case of an array of values,
-	 * LWJGL will <b>not</b> validate if {@code params} has enough space to store that array. Doing so would introduce significant overhead, as the
-	 * OpenGL state variables are too many. It is the user's responsibility to avoid JVM crashes by ensuring enough space for the returned values.</p>
-	 *
-	 * @param pname  the state variable
-	 * @param params a scalar or buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetIntegerv GetIntegerv} */
 	public static void nglGetIntegerv(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetIntegerv;
 		callPV(__functionAddress, pname, params);
@@ -3270,18 +3007,7 @@ public class GL11 {
 
 	// --- [ glGetDoublev ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGet.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns the current double value of the specified state variable.
-	 * 
-	 * <p><b>LWJGL note</b>: The state that corresponds to the state variable may be a single value or an array of values. In the case of an array of values,
-	 * LWJGL will <b>not</b> validate if {@code params} has enough space to store that array. Doing so would introduce significant overhead, as the
-	 * OpenGL state variables are too many. It is the user's responsibility to avoid JVM crashes by ensuring enough space for the returned values.</p>
-	 *
-	 * @param pname  the state variable
-	 * @param params a scalar or buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetDoublev GetDoublev} */
 	public static void nglGetDoublev(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetDoublev;
 		callPV(__functionAddress, pname, params);
@@ -3344,15 +3070,7 @@ public class GL11 {
 
 	// --- [ glGetLightiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetLight.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Returns integer information about light parameter {@code pname} for {@code light} in {@code data}.
-	 *
-	 * @param light the light for which to return information. One of:<br><table><tr><td>{@link #GL_LIGHT0 LIGHT0}</td><td>GL_LIGHT[1-7]</td></tr></table>
-	 * @param pname the light parameter to query. One of:<br><table><tr><td>{@link #GL_AMBIENT AMBIENT}</td><td>{@link #GL_DIFFUSE DIFFUSE}</td><td>{@link #GL_SPECULAR SPECULAR}</td><td>{@link #GL_POSITION POSITION}</td><td>{@link #GL_CONSTANT_ATTENUATION CONSTANT_ATTENUATION}</td><td>{@link #GL_LINEAR_ATTENUATION LINEAR_ATTENUATION}</td></tr><tr><td>{@link #GL_QUADRATIC_ATTENUATION QUADRATIC_ATTENUATION}</td><td>{@link #GL_SPOT_DIRECTION SPOT_DIRECTION}</td><td>{@link #GL_SPOT_EXPONENT SPOT_EXPONENT}</td><td>{@link #GL_SPOT_CUTOFF SPOT_CUTOFF}</td></tr></table>
-	 * @param data  a scalar or buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetLightiv GetLightiv} */
 	public static void nglGetLightiv(int light, int pname, long data) {
 		long __functionAddress = GL.getCapabilities().glGetLightiv;
 		if ( CHECKS )
@@ -3396,15 +3114,7 @@ public class GL11 {
 
 	// --- [ glGetLightfv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetLight.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Float version of {@link #glGetLightiv GetLightiv}.
-	 *
-	 * @param light the light for which to return information
-	 * @param pname the light parameter to query
-	 * @param data  a scalar or buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetLightfv GetLightfv} */
 	public static void nglGetLightfv(int light, int pname, long data) {
 		long __functionAddress = GL.getCapabilities().glGetLightfv;
 		if ( CHECKS )
@@ -3448,15 +3158,7 @@ public class GL11 {
 
 	// --- [ glGetMapiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Returns integer information about {@code query} for evaluator map {@code target} in {@code data}.
-	 *
-	 * @param target the evaluator target. One of:<br><table><tr><td>{@link #GL_MAP1_VERTEX_3 MAP1_VERTEX_3}</td><td>{@link #GL_MAP1_VERTEX_4 MAP1_VERTEX_4}</td><td>{@link #GL_MAP1_COLOR_4 MAP1_COLOR_4}</td><td>{@link #GL_MAP1_NORMAL MAP1_NORMAL}</td><td>{@link #GL_MAP1_TEXTURE_COORD_1 MAP1_TEXTURE_COORD_1}</td></tr><tr><td>{@link #GL_MAP1_TEXTURE_COORD_2 MAP1_TEXTURE_COORD_2}</td><td>{@link #GL_MAP1_TEXTURE_COORD_3 MAP1_TEXTURE_COORD_3}</td><td>{@link #GL_MAP1_TEXTURE_COORD_4 MAP1_TEXTURE_COORD_4}</td><td>{@link #GL_MAP2_VERTEX_3 MAP2_VERTEX_3}</td><td>{@link #GL_MAP2_VERTEX_4 MAP2_VERTEX_4}</td></tr><tr><td>{@link #GL_MAP2_COLOR_4 MAP2_COLOR_4}</td><td>{@link #GL_MAP2_NORMAL MAP2_NORMAL}</td><td>{@link #GL_MAP2_TEXTURE_COORD_1 MAP2_TEXTURE_COORD_1}</td><td>{@link #GL_MAP2_TEXTURE_COORD_2 MAP2_TEXTURE_COORD_2}</td><td>{@link #GL_MAP2_TEXTURE_COORD_3 MAP2_TEXTURE_COORD_3}</td></tr><tr><td>{@link #GL_MAP2_TEXTURE_COORD_4 MAP2_TEXTURE_COORD_4}</td></tr></table>
-	 * @param query  the information to query. One of:<br><table><tr><td>{@link #GL_ORDER ORDER}</td><td>{@link #GL_COEFF COEFF}</td><td>{@link #GL_DOMAIN DOMAIN}</td></tr></table>
-	 * @param data   a scalar or buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetMapiv GetMapiv} */
 	public static void nglGetMapiv(int target, int query, long data) {
 		long __functionAddress = GL.getCapabilities().glGetMapiv;
 		if ( CHECKS )
@@ -3500,15 +3202,7 @@ public class GL11 {
 
 	// --- [ glGetMapfv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Float version of {@link #glGetMapiv GetMapiv}.
-	 *
-	 * @param target the evaluator map
-	 * @param query  the information to query
-	 * @param data   a scalar or buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetMapfv GetMapfv} */
 	public static void nglGetMapfv(int target, int query, long data) {
 		long __functionAddress = GL.getCapabilities().glGetMapfv;
 		if ( CHECKS )
@@ -3552,15 +3246,7 @@ public class GL11 {
 
 	// --- [ glGetMapdv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Double version of {@link #glGetMapiv GetMapiv}.
-	 *
-	 * @param target the evaluator map
-	 * @param query  the information to query
-	 * @param data   a scalar or buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetMapdv GetMapdv} */
 	public static void nglGetMapdv(int target, int query, long data) {
 		long __functionAddress = GL.getCapabilities().glGetMapdv;
 		if ( CHECKS )
@@ -3604,15 +3290,7 @@ public class GL11 {
 
 	// --- [ glGetMaterialiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetMaterial.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Returns integer information about material property {@code pname} for {@code face} in {@code data}.
-	 *
-	 * @param face  the material face for which to return information. One of:<br><table><tr><td>{@link #GL_FRONT FRONT}</td><td>{@link #GL_BACK BACK}</td></tr></table>
-	 * @param pname the information to query. One of:<br><table><tr><td>{@link #GL_AMBIENT AMBIENT}</td><td>{@link #GL_DIFFUSE DIFFUSE}</td><td>{@link #GL_SPECULAR SPECULAR}</td><td>{@link #GL_EMISSION EMISSION}</td><td>{@link #GL_SHININESS SHININESS}</td></tr></table>
-	 * @param data  a scalar or buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetMaterialiv GetMaterialiv} */
 	public static void nglGetMaterialiv(int face, int pname, long data) {
 		long __functionAddress = GL.getCapabilities().glGetMaterialiv;
 		if ( CHECKS )
@@ -3635,15 +3313,7 @@ public class GL11 {
 
 	// --- [ glGetMaterialfv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetMaterial.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Float version of {@link #glGetMaterialiv GetMaterialiv}.
-	 *
-	 * @param face  the material face for which to return information
-	 * @param pname the information to query
-	 * @param data  a scalar or buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetMaterialfv GetMaterialfv} */
 	public static void nglGetMaterialfv(int face, int pname, long data) {
 		long __functionAddress = GL.getCapabilities().glGetMaterialfv;
 		if ( CHECKS )
@@ -3666,14 +3336,7 @@ public class GL11 {
 
 	// --- [ glGetPixelMapfv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Returns all float values in the pixel map {@code map} in {@code data}.
-	 *
-	 * @param map  the pixel map parameter to query. One of:<br><table><tr><td>{@link #GL_PIXEL_MAP_I_TO_I PIXEL_MAP_I_TO_I}</td><td>{@link #GL_PIXEL_MAP_S_TO_S PIXEL_MAP_S_TO_S}</td><td>{@link #GL_PIXEL_MAP_I_TO_R PIXEL_MAP_I_TO_R}</td><td>{@link #GL_PIXEL_MAP_I_TO_G PIXEL_MAP_I_TO_G}</td><td>{@link #GL_PIXEL_MAP_I_TO_B PIXEL_MAP_I_TO_B}</td></tr><tr><td>{@link #GL_PIXEL_MAP_I_TO_A PIXEL_MAP_I_TO_A}</td><td>{@link #GL_PIXEL_MAP_R_TO_R PIXEL_MAP_R_TO_R}</td><td>{@link #GL_PIXEL_MAP_G_TO_G PIXEL_MAP_G_TO_G}</td><td>{@link #GL_PIXEL_MAP_B_TO_B PIXEL_MAP_B_TO_B}</td><td>{@link #GL_PIXEL_MAP_A_TO_A PIXEL_MAP_A_TO_A}</td></tr></table>
-	 * @param data a buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetPixelMapfv GetPixelMapfv} */
 	public static void nglGetPixelMapfv(int map, long data) {
 		long __functionAddress = GL.getCapabilities().glGetPixelMapfv;
 		if ( CHECKS )
@@ -3709,14 +3372,7 @@ public class GL11 {
 
 	// --- [ glGetPixelMapusv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Unsigned short version of {@link #glGetPixelMapfv GetPixelMapfv}.
-	 *
-	 * @param map  the pixel map parameter to query
-	 * @param data a buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetPixelMapusv GetPixelMapusv} */
 	public static void nglGetPixelMapusv(int map, long data) {
 		long __functionAddress = GL.getCapabilities().glGetPixelMapusv;
 		if ( CHECKS )
@@ -3752,14 +3408,7 @@ public class GL11 {
 
 	// --- [ glGetPixelMapuiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Unsigned integer version of {@link #glGetPixelMapfv GetPixelMapfv}.
-	 *
-	 * @param map  the pixel map parameter to query
-	 * @param data a buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetPixelMapuiv GetPixelMapuiv} */
 	public static void nglGetPixelMapuiv(int map, long data) {
 		long __functionAddress = GL.getCapabilities().glGetPixelMapuiv;
 		if ( CHECKS )
@@ -3795,14 +3444,7 @@ public class GL11 {
 
 	// --- [ glGetPointerv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetPointer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns a pointer in the current GL context.
-	 *
-	 * @param pname  the pointer to return. One of:<br><table><tr><td>{@link #GL_FEEDBACK_BUFFER_POINTER FEEDBACK_BUFFER_POINTER}</td><td>{@link #GL_SELECTION_BUFFER_POINTER SELECTION_BUFFER_POINTER}</td><td>{@link #GL_VERTEX_ARRAY_POINTER VERTEX_ARRAY_POINTER}</td></tr><tr><td>{@link #GL_NORMAL_ARRAY_POINTER NORMAL_ARRAY_POINTER}</td><td>{@link #GL_COLOR_ARRAY_POINTER COLOR_ARRAY_POINTER}</td><td>{@link #GL_INDEX_ARRAY_POINTER INDEX_ARRAY_POINTER}</td></tr><tr><td>{@link #GL_TEXTURE_COORD_ARRAY_POINTER TEXTURE_COORD_ARRAY_POINTER}</td><td>{@link #GL_EDGE_FLAG_ARRAY_POINTER EDGE_FLAG_ARRAY_POINTER}</td><td>{@link GL14#GL_SECONDARY_COLOR_ARRAY_POINTER SECONDARY_COLOR_ARRAY_POINTER}</td></tr><tr><td>{@link GL15#GL_FOG_COORD_ARRAY_POINTER FOG_COORD_ARRAY_POINTER}</td><td>{@link GL43#GL_DEBUG_CALLBACK_FUNCTION DEBUG_CALLBACK_FUNCTION}</td><td>{@link GL43#GL_DEBUG_CALLBACK_USER_PARAM DEBUG_CALLBACK_USER_PARAM}</td></tr></table>
-	 * @param params a buffer in which to place the returned pointer
-	 */
+	/** Unsafe version of: {@link #glGetPointerv GetPointerv} */
 	public static void nglGetPointerv(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetPointerv;
 		callPV(__functionAddress, pname, params);
@@ -3842,13 +3484,7 @@ public class GL11 {
 
 	// --- [ glGetPolygonStipple ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetPolygonStipple.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Obtains the polygon stipple.
-	 *
-	 * @param pattern a buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetPolygonStipple GetPolygonStipple} */
 	public static void nglGetPolygonStipple(long pattern) {
 		long __functionAddress = GL.getCapabilities().glGetPolygonStipple;
 		if ( CHECKS )
@@ -3882,13 +3518,7 @@ public class GL11 {
 
 	// --- [ glGetString ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetString.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Return strings describing properties of the current GL context.
-	 *
-	 * @param name the property to query. One of:<br><table><tr><td>{@link #GL_RENDERER RENDERER}</td><td>{@link #GL_VENDOR VENDOR}</td><td>{@link #GL_EXTENSIONS EXTENSIONS}</td><td>{@link #GL_VERSION VERSION}</td><td>{@link GL20#GL_SHADING_LANGUAGE_VERSION SHADING_LANGUAGE_VERSION}</td></tr></table>
-	 */
+	/** Unsafe version of: {@link #glGetString GetString} */
 	public static long nglGetString(int name) {
 		long __functionAddress = GL.getCapabilities().glGetString;
 		return callP(__functionAddress, name);
@@ -3908,15 +3538,7 @@ public class GL11 {
 
 	// --- [ glGetTexEnviv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexEnv.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns integer information about {@code pname} for {@code env} in {@code data}.
-	 *
-	 * @param env   the texture environment to query. One of:<br><table><tr><td>{@link GL20#GL_POINT_SPRITE POINT_SPRITE}</td><td>{@link #GL_TEXTURE_ENV TEXTURE_ENV}</td><td>{@link GL14#GL_TEXTURE_FILTER_CONTROL TEXTURE_FILTER_CONTROL}</td></tr></table>
-	 * @param pname the parameter to query. One of:<br><table><tr><td>{@link GL20#GL_COORD_REPLACE COORD_REPLACE}</td><td>{@link #GL_TEXTURE_ENV_MODE TEXTURE_ENV_MODE}</td><td>{@link #GL_TEXTURE_ENV_COLOR TEXTURE_ENV_COLOR}</td><td>{@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}</td><td>{@link GL13#GL_COMBINE_RGB COMBINE_RGB}</td><td>{@link GL13#GL_COMBINE_ALPHA COMBINE_ALPHA}</td></tr><tr><td>{@link GL15#GL_SRC0_RGB SRC0_RGB}</td><td>{@link GL15#GL_SRC1_RGB SRC1_RGB}</td><td>{@link GL15#GL_SRC2_RGB SRC2_RGB}</td><td>{@link GL15#GL_SRC0_ALPHA SRC0_ALPHA}</td><td>{@link GL15#GL_SRC1_ALPHA SRC1_ALPHA}</td><td>{@link GL15#GL_SRC2_ALPHA SRC2_ALPHA}</td></tr><tr><td>{@link GL13#GL_OPERAND0_RGB OPERAND0_RGB}</td><td>{@link GL13#GL_OPERAND1_RGB OPERAND1_RGB}</td><td>{@link GL13#GL_OPERAND2_RGB OPERAND2_RGB}</td><td>{@link GL13#GL_OPERAND0_ALPHA OPERAND0_ALPHA}</td><td>{@link GL13#GL_OPERAND1_ALPHA OPERAND1_ALPHA}</td><td>{@link GL13#GL_OPERAND2_ALPHA OPERAND2_ALPHA}</td></tr><tr><td>{@link GL13#GL_RGB_SCALE RGB_SCALE}</td><td>{@link #GL_ALPHA_SCALE ALPHA_SCALE}</td></tr></table>
-	 * @param data  a scalar or buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetTexEnviv GetTexEnviv} */
 	public static void nglGetTexEnviv(int env, int pname, long data) {
 		long __functionAddress = GL.getCapabilities().glGetTexEnviv;
 		callPV(__functionAddress, env, pname, data);
@@ -3958,15 +3580,7 @@ public class GL11 {
 
 	// --- [ glGetTexEnvfv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexEnv.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Float version of {@link #glGetTexEnviv GetTexEnviv}.
-	 *
-	 * @param env   the texture environment to query
-	 * @param pname the parameter to query
-	 * @param data  a scalar or buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetTexEnvfv GetTexEnvfv} */
 	public static void nglGetTexEnvfv(int env, int pname, long data) {
 		long __functionAddress = GL.getCapabilities().glGetTexEnvfv;
 		callPV(__functionAddress, env, pname, data);
@@ -4008,15 +3622,7 @@ public class GL11 {
 
 	// --- [ glGetTexGeniv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetTexGen.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Returns integer information about {@code pname} for {@code coord} in {@code data}.
-	 *
-	 * @param coord the coord to query. One of:<br><table><tr><td>{@link #GL_S S}</td><td>{@link #GL_T T}</td><td>{@link #GL_R R}</td><td>{@link #GL_Q Q}</td></tr></table>
-	 * @param pname the parameter to query. One of:<br><table><tr><td>{@link #GL_EYE_PLANE EYE_PLANE}</td><td>{@link #GL_OBJECT_PLANE OBJECT_PLANE}</td><td>{@link #GL_TEXTURE_GEN_MODE TEXTURE_GEN_MODE}</td></tr></table>
-	 * @param data  a scalar or buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetTexGeniv GetTexGeniv} */
 	public static void nglGetTexGeniv(int coord, int pname, long data) {
 		long __functionAddress = GL.getCapabilities().glGetTexGeniv;
 		if ( CHECKS )
@@ -4060,15 +3666,7 @@ public class GL11 {
 
 	// --- [ glGetTexGenfv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetTexGen.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Float version of {@link #glGetTexGeniv GetTexGeniv}.
-	 *
-	 * @param coord the coord to query
-	 * @param pname the parameter to query
-	 * @param data  a scalar or buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetTexGenfv GetTexGenfv} */
 	public static void nglGetTexGenfv(int coord, int pname, long data) {
 		long __functionAddress = GL.getCapabilities().glGetTexGenfv;
 		if ( CHECKS )
@@ -4112,15 +3710,7 @@ public class GL11 {
 
 	// --- [ glGetTexGendv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glGetTexGen.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Double version of {@link #glGetTexGeniv GetTexGeniv}.
-	 *
-	 * @param coord the coord to query
-	 * @param pname the parameter to query
-	 * @param data  a scalar or buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetTexGendv GetTexGendv} */
 	public static void nglGetTexGendv(int coord, int pname, long data) {
 		long __functionAddress = GL.getCapabilities().glGetTexGendv;
 		if ( CHECKS )
@@ -4164,17 +3754,7 @@ public class GL11 {
 
 	// --- [ glGetTexImage ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexImage.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Obtains texture images.
-	 *
-	 * @param tex    the texture (or texture face) to be obtained. One of:<br><table><tr><td>{@link #GL_TEXTURE_1D TEXTURE_1D}</td><td>{@link #GL_TEXTURE_2D TEXTURE_2D}</td><td>{@link GL12#GL_TEXTURE_3D TEXTURE_3D}</td><td>{@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}</td></tr><tr><td>{@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}</td><td>{@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_X TEXTURE_CUBE_MAP_POSITIVE_X}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_X TEXTURE_CUBE_MAP_NEGATIVE_X}</td></tr><tr><td>{@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Y TEXTURE_CUBE_MAP_POSITIVE_Y}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Y TEXTURE_CUBE_MAP_NEGATIVE_Y}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Z TEXTURE_CUBE_MAP_POSITIVE_Z}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Z TEXTURE_CUBE_MAP_NEGATIVE_Z}</td></tr></table>
-	 * @param level  the level-of-detail number
-	 * @param format the pixel format. One of:<br><table><tr><td>{@link #GL_STENCIL_INDEX STENCIL_INDEX}</td><td>{@link #GL_DEPTH_COMPONENT DEPTH_COMPONENT}</td><td>{@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}</td><td>{@link #GL_RED RED}</td><td>{@link #GL_GREEN GREEN}</td><td>{@link #GL_BLUE BLUE}</td><td>{@link #GL_ALPHA ALPHA}</td><td>{@link GL30#GL_RG RG}</td></tr><tr><td>{@link #GL_RGB RGB}</td><td>{@link #GL_RGBA RGBA}</td><td>{@link GL12#GL_BGR BGR}</td><td>{@link GL12#GL_BGRA BGRA}</td><td>{@link #GL_LUMINANCE LUMINANCE}</td><td>{@link #GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}</td><td>{@link GL30#GL_RED_INTEGER RED_INTEGER}</td><td>{@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}</td></tr><tr><td>{@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}</td><td>{@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}</td><td>{@link GL30#GL_RG_INTEGER RG_INTEGER}</td><td>{@link GL30#GL_RGB_INTEGER RGB_INTEGER}</td><td>{@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}</td><td>{@link GL30#GL_BGR_INTEGER BGR_INTEGER}</td><td>{@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}</td></tr></table>
-	 * @param type   the pixel type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
-	 * @param pixels the buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetTexImage GetTexImage} */
 	public static void nglGetTexImage(int tex, int level, int format, int type, long pixels) {
 		long __functionAddress = GL.getCapabilities().glGetTexImage;
 		callPV(__functionAddress, tex, level, format, type, pixels);
@@ -4248,16 +3828,7 @@ public class GL11 {
 
 	// --- [ glGetTexLevelParameteriv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexLevelParameter.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Places integer information about texture image parameter {@code pname} for level-of-detail {@code level} of the specified {@code target} into {@code params}.
-	 *
-	 * @param target the texture image target. One of:<br><table><tr><td>{@link #GL_TEXTURE_2D TEXTURE_2D}</td><td>{@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}</td><td>{@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}</td></tr><tr><td>{@link #GL_PROXY_TEXTURE_2D PROXY_TEXTURE_2D}</td><td>{@link GL30#GL_PROXY_TEXTURE_1D_ARRAY PROXY_TEXTURE_1D_ARRAY}</td><td>{@link GL31#GL_PROXY_TEXTURE_RECTANGLE PROXY_TEXTURE_RECTANGLE}</td><td>{@link GL13#GL_PROXY_TEXTURE_CUBE_MAP PROXY_TEXTURE_CUBE_MAP}</td></tr><tr><td>{@link #GL_TEXTURE_1D TEXTURE_1D}</td><td>{@link GL12#GL_TEXTURE_3D TEXTURE_3D}</td><td>{@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}</td><td>{@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}</td></tr><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}</td><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}</td><td>{@link #GL_PROXY_TEXTURE_1D PROXY_TEXTURE_1D}</td><td>{@link GL12#GL_PROXY_TEXTURE_3D PROXY_TEXTURE_3D}</td></tr><tr><td>{@link GL30#GL_PROXY_TEXTURE_2D_ARRAY PROXY_TEXTURE_2D_ARRAY}</td><td>{@link GL40#GL_PROXY_TEXTURE_CUBE_MAP_ARRAY PROXY_TEXTURE_CUBE_MAP_ARRAY}</td><td>{@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE PROXY_TEXTURE_2D_MULTISAMPLE}</td><td>{@link GL32#GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY}</td></tr></table>
-	 * @param level  the level-of-detail number
-	 * @param pname  the parameter to query. One of:<br><table><tr><td>{@link #GL_TEXTURE_WIDTH TEXTURE_WIDTH}</td><td>{@link #GL_TEXTURE_HEIGHT TEXTURE_HEIGHT}</td><td>{@link GL12#GL_TEXTURE_DEPTH TEXTURE_DEPTH}</td><td>{@link #GL_TEXTURE_BORDER TEXTURE_BORDER}</td></tr><tr><td>{@link GL32#GL_TEXTURE_SAMPLES TEXTURE_SAMPLES}</td><td>{@link GL32#GL_TEXTURE_FIXED_SAMPLE_LOCATIONS TEXTURE_FIXED_SAMPLE_LOCATIONS}</td><td>{@link #GL_TEXTURE_INTERNAL_FORMAT TEXTURE_INTERNAL_FORMAT}</td><td>{@link #GL_TEXTURE_RED_SIZE TEXTURE_RED_SIZE}</td></tr><tr><td>{@link #GL_TEXTURE_GREEN_SIZE TEXTURE_GREEN_SIZE}</td><td>{@link #GL_TEXTURE_BLUE_SIZE TEXTURE_BLUE_SIZE}</td><td>{@link #GL_TEXTURE_ALPHA_SIZE TEXTURE_ALPHA_SIZE}</td><td>{@link #GL_TEXTURE_LUMINANCE_SIZE TEXTURE_LUMINANCE_SIZE}</td></tr><tr><td>{@link #GL_TEXTURE_INTENSITY_SIZE TEXTURE_INTENSITY_SIZE}</td><td>{@link GL14#GL_TEXTURE_DEPTH_SIZE TEXTURE_DEPTH_SIZE}</td><td>{@link GL30#GL_TEXTURE_STENCIL_SIZE TEXTURE_STENCIL_SIZE}</td><td>{@link GL30#GL_TEXTURE_SHARED_SIZE TEXTURE_SHARED_SIZE}</td></tr><tr><td>{@link GL30#GL_TEXTURE_RED_TYPE TEXTURE_RED_TYPE}</td><td>{@link GL30#GL_TEXTURE_GREEN_TYPE TEXTURE_GREEN_TYPE}</td><td>{@link GL30#GL_TEXTURE_BLUE_TYPE TEXTURE_BLUE_TYPE}</td><td>{@link GL30#GL_TEXTURE_ALPHA_TYPE TEXTURE_ALPHA_TYPE}</td></tr><tr><td>{@link GL30#GL_TEXTURE_LUMINANCE_TYPE TEXTURE_LUMINANCE_TYPE}</td><td>{@link GL30#GL_TEXTURE_INTENSITY_TYPE TEXTURE_INTENSITY_TYPE}</td><td>{@link GL30#GL_TEXTURE_DEPTH_TYPE TEXTURE_DEPTH_TYPE}</td><td>{@link GL13#GL_TEXTURE_COMPRESSED TEXTURE_COMPRESSED}</td></tr><tr><td>{@link GL13#GL_TEXTURE_COMPRESSED_IMAGE_SIZE TEXTURE_COMPRESSED_IMAGE_SIZE}</td><td>{@link GL31#GL_TEXTURE_BUFFER_DATA_STORE_BINDING TEXTURE_BUFFER_DATA_STORE_BINDING}</td><td>{@link GL43#GL_TEXTURE_BUFFER_OFFSET TEXTURE_BUFFER_OFFSET}</td><td>{@link GL43#GL_TEXTURE_BUFFER_SIZE TEXTURE_BUFFER_SIZE}</td></tr></table>
-	 * @param params a scalar or buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetTexLevelParameteriv GetTexLevelParameteriv} */
 	public static void nglGetTexLevelParameteriv(int target, int level, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetTexLevelParameteriv;
 		callPV(__functionAddress, target, level, pname, params);
@@ -4301,16 +3872,7 @@ public class GL11 {
 
 	// --- [ glGetTexLevelParameterfv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexLevelParameter.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Float version of {@link #glGetTexLevelParameteriv GetTexLevelParameteriv}.
-	 *
-	 * @param target the texture image target
-	 * @param level  the level-of-detail number
-	 * @param pname  the parameter to query
-	 * @param params a scalar or buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetTexLevelParameterfv GetTexLevelParameterfv} */
 	public static void nglGetTexLevelParameterfv(int target, int level, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetTexLevelParameterfv;
 		callPV(__functionAddress, target, level, pname, params);
@@ -4354,15 +3916,7 @@ public class GL11 {
 
 	// --- [ glGetTexParameteriv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexParameter.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Place integer information about texture parameter {@code pname} for the specified {@code target} into {@code params}.
-	 *
-	 * @param target the texture target. One of:<br><table><tr><td>{@link #GL_TEXTURE_1D TEXTURE_1D}</td><td>{@link #GL_TEXTURE_2D TEXTURE_2D}</td><td>{@link GL12#GL_TEXTURE_3D TEXTURE_3D}</td><td>{@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}</td></tr><tr><td>{@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}</td><td>{@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}</td><td>{@link GL40#GL_TEXTURE_CUBE_MAP_ARRAY TEXTURE_CUBE_MAP_ARRAY}</td></tr><tr><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE TEXTURE_2D_MULTISAMPLE}</td><td>{@link GL32#GL_TEXTURE_2D_MULTISAMPLE_ARRAY TEXTURE_2D_MULTISAMPLE_ARRAY}</td></tr></table>
-	 * @param pname  the parameter to query. One of:<br><table><tr><td>{@link GL12#GL_TEXTURE_BASE_LEVEL TEXTURE_BASE_LEVEL}</td><td>{@link #GL_TEXTURE_BORDER_COLOR TEXTURE_BORDER_COLOR}</td><td>{@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}</td><td>{@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}</td></tr><tr><td>{@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}</td><td>{@link #GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}</td><td>{@link GL12#GL_TEXTURE_MAX_LEVEL TEXTURE_MAX_LEVEL}</td><td>{@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}</td></tr><tr><td>{@link #GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}</td><td>{@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}</td><td>{@link #GL_TEXTURE_PRIORITY TEXTURE_PRIORITY}</td><td>{@link GL33#GL_TEXTURE_SWIZZLE_R TEXTURE_SWIZZLE_R}</td></tr><tr><td>{@link GL33#GL_TEXTURE_SWIZZLE_G TEXTURE_SWIZZLE_G}</td><td>{@link GL33#GL_TEXTURE_SWIZZLE_B TEXTURE_SWIZZLE_B}</td><td>{@link GL33#GL_TEXTURE_SWIZZLE_A TEXTURE_SWIZZLE_A}</td><td>{@link GL33#GL_TEXTURE_SWIZZLE_RGBA TEXTURE_SWIZZLE_RGBA}</td></tr><tr><td>{@link #GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}</td><td>{@link #GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}</td><td>{@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}</td><td>{@link GL14#GL_DEPTH_TEXTURE_MODE DEPTH_TEXTURE_MODE}</td></tr><tr><td>{@link GL14#GL_GENERATE_MIPMAP GENERATE_MIPMAP}</td><td>{@link GL42#GL_IMAGE_FORMAT_COMPATIBILITY_TYPE IMAGE_FORMAT_COMPATIBILITY_TYPE}</td><td>{@link GL42#GL_TEXTURE_IMMUTABLE_FORMAT TEXTURE_IMMUTABLE_FORMAT}</td><td>{@link GL43#GL_TEXTURE_IMMUTABLE_LEVELS TEXTURE_IMMUTABLE_LEVELS}</td></tr><tr><td>{@link GL43#GL_TEXTURE_VIEW_MIN_LEVEL TEXTURE_VIEW_MIN_LEVEL}</td><td>{@link GL43#GL_TEXTURE_VIEW_NUM_LEVELS TEXTURE_VIEW_NUM_LEVELS}</td><td>{@link GL43#GL_TEXTURE_VIEW_MIN_LAYER TEXTURE_VIEW_MIN_LAYER}</td><td>{@link GL43#GL_TEXTURE_VIEW_NUM_LAYERS TEXTURE_VIEW_NUM_LAYERS}</td></tr><tr><td>{@link #GL_TEXTURE_RESIDENT TEXTURE_RESIDENT}</td></tr></table>
-	 * @param params a scalar or buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetTexParameteriv GetTexParameteriv} */
 	public static void nglGetTexParameteriv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetTexParameteriv;
 		callPV(__functionAddress, target, pname, params);
@@ -4404,15 +3958,7 @@ public class GL11 {
 
 	// --- [ glGetTexParameterfv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetTexParameter.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Float version of {@link #glGetTexParameteriv GetTexParameteriv}.
-	 *
-	 * @param target the texture target
-	 * @param pname  the parameter to query
-	 * @param params a scalar or buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetTexParameterfv GetTexParameterfv} */
 	public static void nglGetTexParameterfv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetTexParameterfv;
 		callPV(__functionAddress, target, pname, params);
@@ -4550,13 +4096,7 @@ public class GL11 {
 
 	// --- [ glIndexiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndex.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glIndexi Indexi}
-	 *
-	 * @param index the value to which the current color index should be set
-	 */
+	/** Unsafe version of: {@link #glIndexiv Indexiv} */
 	public static void nglIndexiv(long index) {
 		long __functionAddress = GL.getCapabilities().glIndexiv;
 		if ( CHECKS )
@@ -4579,13 +4119,7 @@ public class GL11 {
 
 	// --- [ glIndexubv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndexub.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glIndexub Indexub}.
-	 *
-	 * @param index the value to which the current color index should be set
-	 */
+	/** Unsafe version of: {@link #glIndexubv Indexubv} */
 	public static void nglIndexubv(long index) {
 		long __functionAddress = GL.getCapabilities().glIndexubv;
 		if ( CHECKS )
@@ -4608,13 +4142,7 @@ public class GL11 {
 
 	// --- [ glIndexsv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndex.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glIndexs Indexs}.
-	 *
-	 * @param index the value to which the current color index should be set
-	 */
+	/** Unsafe version of: {@link #glIndexsv Indexsv} */
 	public static void nglIndexsv(long index) {
 		long __functionAddress = GL.getCapabilities().glIndexsv;
 		if ( CHECKS )
@@ -4637,13 +4165,7 @@ public class GL11 {
 
 	// --- [ glIndexfv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndex.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glIndexf Indexf}.
-	 *
-	 * @param index the value to which the current color index should be set
-	 */
+	/** Unsafe version of: {@link #glIndexfv Indexfv} */
 	public static void nglIndexfv(long index) {
 		long __functionAddress = GL.getCapabilities().glIndexfv;
 		if ( CHECKS )
@@ -4666,13 +4188,7 @@ public class GL11 {
 
 	// --- [ glIndexdv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndex.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glIndexd Indexd}.
-	 *
-	 * @param index the value to which the current color index should be set
-	 */
+	/** Unsafe version of: {@link #glIndexdv Indexdv} */
 	public static void nglIndexdv(long index) {
 		long __functionAddress = GL.getCapabilities().glIndexdv;
 		if ( CHECKS )
@@ -4714,13 +4230,9 @@ public class GL11 {
 	// --- [ glIndexPointer ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glIndexPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Specifies the location and organization of a color index array.
+	 * Unsafe version of: {@link #glIndexPointer IndexPointer}
 	 *
-	 * @param type    the data type of the values stored in the array. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_SHORT SHORT}</td><td>{@link #GL_INT INT}</td><td>{@link #GL_FLOAT FLOAT}</td><td>{@link #GL_DOUBLE DOUBLE}</td></tr></table>
-	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
-	 * @param pointer the color index array data
+	 * @param type the data type of the values stored in the array. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_SHORT SHORT}</td><td>{@link #GL_INT INT}</td><td>{@link #GL_FLOAT FLOAT}</td><td>{@link #GL_DOUBLE DOUBLE}</td></tr></table>
 	 */
 	public static void nglIndexPointer(int type, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glIndexPointer;
@@ -4807,15 +4319,7 @@ public class GL11 {
 
 	// --- [ glInterleavedArrays ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glInterleavedArrays.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Efficiently initializes the six vertex arrays and their enables to one of 14 configurations.
-	 *
-	 * @param format  the interleaved array format. One of:<br><table><tr><td>{@link #GL_V2F V2F}</td><td>{@link #GL_V3F V3F}</td><td>{@link #GL_C4UB_V2F C4UB_V2F}</td><td>{@link #GL_C4UB_V3F C4UB_V3F}</td><td>{@link #GL_C3F_V3F C3F_V3F}</td><td>{@link #GL_N3F_V3F N3F_V3F}</td><td>{@link #GL_C4F_N3F_V3F C4F_N3F_V3F}</td><td>{@link #GL_T2F_V3F T2F_V3F}</td></tr><tr><td>{@link #GL_T4F_V4F T4F_V4F}</td><td>{@link #GL_T2F_C4UB_V3F T2F_C4UB_V3F}</td><td>{@link #GL_T2F_C3F_V3F T2F_C3F_V3F}</td><td>{@link #GL_T2F_N3F_V3F T2F_N3F_V3F}</td><td>{@link #GL_T2F_C4F_N3F_V3F T2F_C4F_N3F_V3F}</td><td>{@link #GL_T4F_C4F_N3F_V4F T4F_C4F_N3F_V4F}</td></tr></table>
-	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
-	 * @param pointer the vertex array data
-	 */
+	/** Unsafe version of: {@link #glInterleavedArrays InterleavedArrays} */
 	public static void nglInterleavedArrays(int format, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glInterleavedArrays;
 		callPV(__functionAddress, format, stride, pointer);
@@ -4963,14 +4467,7 @@ public class GL11 {
 
 	// --- [ glLightModeliv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLightModel.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glLightModeli LightModeli}.
-	 *
-	 * @param pname  the lighting model parameter to set
-	 * @param params the parameter value
-	 */
+	/** Unsafe version of: {@link #glLightModeliv LightModeliv} */
 	public static void nglLightModeliv(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glLightModeliv;
 		if ( CHECKS )
@@ -4994,14 +4491,7 @@ public class GL11 {
 
 	// --- [ glLightModelfv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLightModel.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glLightModelf LightModelf}.
-	 *
-	 * @param pname  the lighting model parameter to set
-	 * @param params the parameter value
-	 */
+	/** Unsafe version of: {@link #glLightModelfv LightModelfv} */
 	public static void nglLightModelfv(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glLightModelfv;
 		if ( CHECKS )
@@ -5061,15 +4551,7 @@ public class GL11 {
 
 	// --- [ glLightiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLight.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glLighti Lighti}.
-	 *
-	 * @param light  the light for which to set the parameter
-	 * @param pname  the parameter to set
-	 * @param params the parameter value
-	 */
+	/** Unsafe version of: {@link #glLightiv Lightiv} */
 	public static void nglLightiv(int light, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glLightiv;
 		if ( CHECKS )
@@ -5094,15 +4576,7 @@ public class GL11 {
 
 	// --- [ glLightfv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLight.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glLightf Lightf}.
-	 *
-	 * @param light  the light for which to set the parameter
-	 * @param pname  the parameter to set
-	 * @param params the parameter value
-	 */
+	/** Unsafe version of: {@link #glLightfv Lightfv} */
 	public static void nglLightfv(int light, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glLightfv;
 		if ( CHECKS )
@@ -5176,25 +4650,7 @@ public class GL11 {
 
 	// --- [ glLoadMatrixf ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLoadMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Sets the current matrix to a 4 &times; 4 matrix in column-major order.
-	 * 
-	 * <p>The matrix is stored as 16 consecutive values, i.e. as:</p>
-	 * 
-	 * <table class="lwjgl matrix">
-	 * <tr><td>a1</td><td>a5</td><td>a9</td><td>a13</td></tr>
-	 * <tr><td>a2</td><td>a6</td><td>a10</td><td>a14</td></tr>
-	 * <tr><td>a3</td><td>a7</td><td>a11</td><td>a15</td></tr>
-	 * <tr><td>a4</td><td>a8</td><td>a12</td><td>a16</td></tr>
-	 * </table>
-	 * 
-	 * <p>This differs from the standard row-major ordering for matrix elements. If the standard ordering is used, all of the subsequent transformation equations
-	 * are transposed, and the columns representing vectors become rows.</p>
-	 *
-	 * @param m the matrix data
-	 */
+	/** Unsafe version of: {@link #glLoadMatrixf LoadMatrixf} */
 	public static void nglLoadMatrixf(long m) {
 		long __functionAddress = GL.getCapabilities().glLoadMatrixf;
 		if ( CHECKS )
@@ -5229,13 +4685,7 @@ public class GL11 {
 
 	// --- [ glLoadMatrixd ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glLoadMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Double version of {@link #glLoadMatrixf LoadMatrixf}.
-	 *
-	 * @param m the matrix data
-	 */
+	/** Unsafe version of: {@link #glLoadMatrixd LoadMatrixd} */
 	public static void nglLoadMatrixd(long m) {
 		long __functionAddress = GL.getCapabilities().glLoadMatrixd;
 		if ( CHECKS )
@@ -5311,19 +4761,7 @@ public class GL11 {
 
 	// --- [ glMap1f ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMap1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Defines a polynomial or rational polynomial mapping to produce vertex, normal, texture coordinates and colors. The values so produced are sent on to
-	 * further stages of the GL as if they had been provided directly by the client.
-	 *
-	 * @param target the evaluator target. One of:<br><table><tr><td>{@link #GL_MAP1_VERTEX_3 MAP1_VERTEX_3}</td><td>{@link #GL_MAP1_VERTEX_4 MAP1_VERTEX_4}</td><td>{@link #GL_MAP1_COLOR_4 MAP1_COLOR_4}</td><td>{@link #GL_MAP1_NORMAL MAP1_NORMAL}</td><td>{@link #GL_MAP1_TEXTURE_COORD_1 MAP1_TEXTURE_COORD_1}</td></tr><tr><td>{@link #GL_MAP1_TEXTURE_COORD_2 MAP1_TEXTURE_COORD_2}</td><td>{@link #GL_MAP1_TEXTURE_COORD_3 MAP1_TEXTURE_COORD_3}</td><td>{@link #GL_MAP1_TEXTURE_COORD_4 MAP1_TEXTURE_COORD_4}</td></tr></table>
-	 * @param u1     the first endpoint of the pre-image of the map
-	 * @param u2     the second endpoint of the pre-image of the map
-	 * @param stride the number of values in each block of storage
-	 * @param order  the polynomial order
-	 * @param points a set of {@code order} blocks of storage containing control points
-	 */
+	/** Unsafe version of: {@link #glMap1f Map1f} */
 	public static void nglMap1f(int target, float u1, float u2, int stride, int order, long points) {
 		long __functionAddress = GL.getCapabilities().glMap1f;
 		if ( CHECKS )
@@ -5352,18 +4790,7 @@ public class GL11 {
 
 	// --- [ glMap1d ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMap1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Double version of {@link #glMap1f Map1f}.
-	 *
-	 * @param target the evaluator target
-	 * @param u1     the first endpoint of the pre-image of the map
-	 * @param u2     the second endpoint of the pre-image of the map
-	 * @param stride the number of values in each block of storage
-	 * @param order  the polynomial order
-	 * @param points a set of {@code order} blocks of storage containing control points
-	 */
+	/** Unsafe version of: {@link #glMap1d Map1d} */
 	public static void nglMap1d(int target, double u1, double u2, int stride, int order, long points) {
 		long __functionAddress = GL.getCapabilities().glMap1d;
 		if ( CHECKS )
@@ -5391,22 +4818,7 @@ public class GL11 {
 
 	// --- [ glMap2f ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMap2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Bivariate version of {@link #glMap1f Map1f}.
-	 *
-	 * @param target  the evaluator target
-	 * @param u1      the first u-dimension endpoint of the pre-image rectangle of the map
-	 * @param u2      the second u-dimension endpoint of the pre-image rectangle of the map
-	 * @param ustride the number of values in the u-dimension in each block of storage
-	 * @param uorder  the polynomial order in the u-dimension
-	 * @param v1      the first v-dimension endpoint of the pre-image rectangle of the map
-	 * @param v2      the second v-dimension endpoint of the pre-image rectangle of the map
-	 * @param vstride the number of values in the v-dimension in each block of storage
-	 * @param vorder  the polynomial order in the v-dimension
-	 * @param points  a set of <code>uorder &times; vorder</code> blocks of storage containing control points
-	 */
+	/** Unsafe version of: {@link #glMap2f Map2f} */
 	public static void nglMap2f(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, long points) {
 		long __functionAddress = GL.getCapabilities().glMap2f;
 		if ( CHECKS )
@@ -5438,22 +4850,7 @@ public class GL11 {
 
 	// --- [ glMap2d ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMap2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Double version of {@link #glMap2f Map2f}.
-	 *
-	 * @param target  the evaluator target
-	 * @param u1      the first u-dimension endpoint of the pre-image rectangle of the map
-	 * @param u2      the second u-dimension endpoint of the pre-image rectangle of the map
-	 * @param ustride the number of values in the u-dimension in each block of storage
-	 * @param uorder  the polynomial order in the u-dimension
-	 * @param v1      the first v-dimension endpoint of the pre-image rectangle of the map
-	 * @param v2      the second v-dimension endpoint of the pre-image rectangle of the map
-	 * @param vstride the number of values in the v-dimension in each block of storage
-	 * @param vorder  the polynomial order in the v-dimension
-	 * @param points  a set of <code>uorder &times; vorder</code> blocks of storage containing control points
-	 */
+	/** Unsafe version of: {@link #glMap2d Map2d} */
 	public static void nglMap2d(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, long points) {
 		long __functionAddress = GL.getCapabilities().glMap2d;
 		if ( CHECKS )
@@ -5599,15 +4996,7 @@ public class GL11 {
 
 	// --- [ glMaterialiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMaterial.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glMateriali Materiali}.
-	 *
-	 * @param face   the material face for which to set the parameter
-	 * @param pname  the parameter to set. One of:<br><table><tr><td>{@link #GL_AMBIENT AMBIENT}</td><td>{@link #GL_DIFFUSE DIFFUSE}</td><td>{@link #GL_AMBIENT_AND_DIFFUSE AMBIENT_AND_DIFFUSE}</td><td>{@link #GL_SPECULAR SPECULAR}</td><td>{@link #GL_EMISSION EMISSION}</td></tr></table>
-	 * @param params the parameter value
-	 */
+	/** Unsafe version of: {@link #glMaterialiv Materialiv} */
 	public static void nglMaterialiv(int face, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glMaterialiv;
 		if ( CHECKS )
@@ -5632,15 +5021,7 @@ public class GL11 {
 
 	// --- [ glMaterialfv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMaterial.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glMaterialf Materialf}.
-	 *
-	 * @param face   the material face for which to set the parameter
-	 * @param pname  the parameter to set
-	 * @param params the parameter value
-	 */
+	/** Unsafe version of: {@link #glMaterialfv Materialfv} */
 	public static void nglMaterialfv(int face, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glMaterialfv;
 		if ( CHECKS )
@@ -5681,13 +5062,7 @@ public class GL11 {
 
 	// --- [ glMultMatrixf ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Multiplies the current matrix with a 4 &times; 4 matrix in column-major order. See {@link #glLoadMatrixf LoadMatrixf} for details.
-	 *
-	 * @param m the matrix data
-	 */
+	/** Unsafe version of: {@link #glMultMatrixf MultMatrixf} */
 	public static void nglMultMatrixf(long m) {
 		long __functionAddress = GL.getCapabilities().glMultMatrixf;
 		if ( CHECKS )
@@ -5710,13 +5085,7 @@ public class GL11 {
 
 	// --- [ glMultMatrixd ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultMatrix.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Double version of {@link #glMultMatrixf MultMatrixf}.
-	 *
-	 * @param m the matrix data
-	 */
+	/** Unsafe version of: {@link #glMultMatrixd MultMatrixd} */
 	public static void nglMultMatrixd(long m) {
 		long __functionAddress = GL.getCapabilities().glMultMatrixd;
 		if ( CHECKS )
@@ -5894,13 +5263,7 @@ public class GL11 {
 
 	// --- [ glNormal3fv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glNormal3f Normal3f}.
-	 *
-	 * @param v the normal buffer
-	 */
+	/** Unsafe version of: {@link #glNormal3fv Normal3fv} */
 	public static void nglNormal3fv(long v) {
 		long __functionAddress = GL.getCapabilities().glNormal3fv;
 		if ( CHECKS )
@@ -5923,13 +5286,7 @@ public class GL11 {
 
 	// --- [ glNormal3bv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3b.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glNormal3b Normal3b}.
-	 *
-	 * @param v the normal buffer
-	 */
+	/** Unsafe version of: {@link #glNormal3bv Normal3bv} */
 	public static void nglNormal3bv(long v) {
 		long __functionAddress = GL.getCapabilities().glNormal3bv;
 		if ( CHECKS )
@@ -5952,13 +5309,7 @@ public class GL11 {
 
 	// --- [ glNormal3sv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glNormal3s Normal3s}.
-	 *
-	 * @param v the normal buffer
-	 */
+	/** Unsafe version of: {@link #glNormal3sv Normal3sv} */
 	public static void nglNormal3sv(long v) {
 		long __functionAddress = GL.getCapabilities().glNormal3sv;
 		if ( CHECKS )
@@ -5981,13 +5332,7 @@ public class GL11 {
 
 	// --- [ glNormal3iv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glNormal3i Normal3i}.
-	 *
-	 * @param v the normal buffer
-	 */
+	/** Unsafe version of: {@link #glNormal3iv Normal3iv} */
 	public static void nglNormal3iv(long v) {
 		long __functionAddress = GL.getCapabilities().glNormal3iv;
 		if ( CHECKS )
@@ -6010,13 +5355,7 @@ public class GL11 {
 
 	// --- [ glNormal3dv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormal3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glNormal3d Normal3d}.
-	 *
-	 * @param v the normal buffer
-	 */
+	/** Unsafe version of: {@link #glNormal3dv Normal3dv} */
 	public static void nglNormal3dv(long v) {
 		long __functionAddress = GL.getCapabilities().glNormal3dv;
 		if ( CHECKS )
@@ -6039,15 +5378,7 @@ public class GL11 {
 
 	// --- [ glNormalPointer ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormalPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Specifies the location and organization of a normal array.
-	 *
-	 * @param type    the data type of the values stored in the array. One of:<br><table><tr><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_SHORT SHORT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td><td>{@link #GL_DOUBLE DOUBLE}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td><td>{@link GL33#GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td></tr></table>
-	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
-	 * @param pointer the normal array data
-	 */
+	/** Unsafe version of: {@link #glNormalPointer NormalPointer} */
 	public static void nglNormalPointer(int type, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glNormalPointer;
 		if ( CHECKS )
@@ -6162,13 +5493,9 @@ public class GL11 {
 	// --- [ glPixelMapfv ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Sets a pixel map lookup table.
+	 * Unsafe version of: {@link #glPixelMapfv PixelMapfv}
 	 *
-	 * @param map    the map to set. One of:<br><table><tr><td>{@link #GL_PIXEL_MAP_I_TO_I PIXEL_MAP_I_TO_I}</td><td>{@link #GL_PIXEL_MAP_S_TO_S PIXEL_MAP_S_TO_S}</td><td>{@link #GL_PIXEL_MAP_I_TO_R PIXEL_MAP_I_TO_R}</td><td>{@link #GL_PIXEL_MAP_I_TO_G PIXEL_MAP_I_TO_G}</td><td>{@link #GL_PIXEL_MAP_I_TO_B PIXEL_MAP_I_TO_B}</td></tr><tr><td>{@link #GL_PIXEL_MAP_I_TO_A PIXEL_MAP_I_TO_A}</td><td>{@link #GL_PIXEL_MAP_R_TO_R PIXEL_MAP_R_TO_R}</td><td>{@link #GL_PIXEL_MAP_G_TO_G PIXEL_MAP_G_TO_G}</td><td>{@link #GL_PIXEL_MAP_B_TO_B PIXEL_MAP_B_TO_B}</td><td>{@link #GL_PIXEL_MAP_A_TO_A PIXEL_MAP_A_TO_A}</td></tr></table>
-	 * @param size   the map size
-	 * @param values the map values
+	 * @param size the map size
 	 */
 	public static void nglPixelMapfv(int map, int size, long values) {
 		long __functionAddress = GL.getCapabilities().glPixelMapfv;
@@ -6205,13 +5532,9 @@ public class GL11 {
 	// --- [ glPixelMapusv ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Unsigned short version of {@link #glPixelMapfv PixelMapfv}.
+	 * Unsafe version of: {@link #glPixelMapusv PixelMapusv}
 	 *
-	 * @param map    the map to set
-	 * @param size   the map size
-	 * @param values the map values
+	 * @param size the map size
 	 */
 	public static void nglPixelMapusv(int map, int size, long values) {
 		long __functionAddress = GL.getCapabilities().glPixelMapusv;
@@ -6248,13 +5571,9 @@ public class GL11 {
 	// --- [ glPixelMapuiv ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPixelMap.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Unsigned integer version of {@link #glPixelMapfv PixelMapfv}.
+	 * Unsafe version of: {@link #glPixelMapuiv PixelMapuiv}
 	 *
-	 * @param map    the map to set
-	 * @param size   the map size
-	 * @param values the map values
+	 * @param size the map size
 	 */
 	public static void nglPixelMapuiv(int map, int size, long values) {
 		long __functionAddress = GL.getCapabilities().glPixelMapuiv;
@@ -6431,20 +5750,7 @@ public class GL11 {
 
 	// --- [ glPolygonStipple ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPolygonStipple.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Defines a polygon stipple. It works much the same way as {@link #glLineStipple LineStipple}, masking out certain fragments produced by rasterization so that they
-	 * are not sent to the next stage of the GL. This is the case regardless of the state of polygon antialiasing.
-	 * 
-	 * <p>If x<sub>w</sub> and y<sub>w</sub> are the window coordinates of a rasterized polygon fragment, then that fragment is sent to the next stage of the GL
-	 * if and only if the bit of the pattern (x<sub>w</sub> mod 32, y<sub>w</sub> mod 32) is 1.</p>
-	 * 
-	 * <p>Polygon stippling may be enabled or disabled with {@link #glEnable Enable} or {@link #glDisable Disable} using the constant {@link #GL_POLYGON_STIPPLE POLYGON_STIPPLE}. When disabled,
-	 * it is as if the stipple pattern were all ones.</p>
-	 *
-	 * @param pattern a pointer to memory into which a 32 &times; 32 pattern is packed
-	 */
+	/** Unsafe version of: {@link #glPolygonStipple PolygonStipple} */
 	public static void nglPolygonStipple(long pattern) {
 		long __functionAddress = GL.getCapabilities().glPolygonStipple;
 		if ( CHECKS )
@@ -6593,14 +5899,9 @@ public class GL11 {
 	// --- [ glPrioritizeTextures ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glPrioritizeTextures.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Sets the priority of texture objects. Each priority value is clamped to the range [0, 1] before it is assigned. Zero indicates the lowest priority, with
-	 * the least likelihood of being resident. One indicates the highest priority, with the greatest likelihood of being resident.
+	 * Unsafe version of: {@link #glPrioritizeTextures PrioritizeTextures}
 	 *
-	 * @param n          the number of texture object priorities to set
-	 * @param textures   an array of texture object names
-	 * @param priorities an array of texture object priorities
+	 * @param n the number of texture object priorities to set
 	 */
 	public static void nglPrioritizeTextures(int n, long textures, long priorities) {
 		long __functionAddress = GL.getCapabilities().glPrioritizeTextures;
@@ -6730,13 +6031,7 @@ public class GL11 {
 
 	// --- [ glRasterPos2iv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glRasterPos2i RasterPos2i}.
-	 *
-	 * @param coords the raster position buffer
-	 */
+	/** Unsafe version of: {@link #glRasterPos2iv RasterPos2iv} */
 	public static void nglRasterPos2iv(long coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos2iv;
 		if ( CHECKS )
@@ -6759,13 +6054,7 @@ public class GL11 {
 
 	// --- [ glRasterPos2sv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glRasterPos2s RasterPos2s}.
-	 *
-	 * @param coords the raster position buffer
-	 */
+	/** Unsafe version of: {@link #glRasterPos2sv RasterPos2sv} */
 	public static void nglRasterPos2sv(long coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos2sv;
 		if ( CHECKS )
@@ -6788,13 +6077,7 @@ public class GL11 {
 
 	// --- [ glRasterPos2fv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glRasterPos2f RasterPos2f}.
-	 *
-	 * @param coords the raster position buffer
-	 */
+	/** Unsafe version of: {@link #glRasterPos2fv RasterPos2fv} */
 	public static void nglRasterPos2fv(long coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos2fv;
 		if ( CHECKS )
@@ -6817,13 +6100,7 @@ public class GL11 {
 
 	// --- [ glRasterPos2dv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glRasterPos2d RasterPos2d}.
-	 *
-	 * @param coords the raster position buffer
-	 */
+	/** Unsafe version of: {@link #glRasterPos2dv RasterPos2dv} */
 	public static void nglRasterPos2dv(long coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos2dv;
 		if ( CHECKS )
@@ -6918,13 +6195,7 @@ public class GL11 {
 
 	// --- [ glRasterPos3iv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glRasterPos3i RasterPos3i}.
-	 *
-	 * @param coords the raster position buffer
-	 */
+	/** Unsafe version of: {@link #glRasterPos3iv RasterPos3iv} */
 	public static void nglRasterPos3iv(long coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos3iv;
 		if ( CHECKS )
@@ -6947,13 +6218,7 @@ public class GL11 {
 
 	// --- [ glRasterPos3sv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glRasterPos3s RasterPos3s}.
-	 *
-	 * @param coords the raster position buffer
-	 */
+	/** Unsafe version of: {@link #glRasterPos3sv RasterPos3sv} */
 	public static void nglRasterPos3sv(long coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos3sv;
 		if ( CHECKS )
@@ -6976,13 +6241,7 @@ public class GL11 {
 
 	// --- [ glRasterPos3fv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glRasterPos3f RasterPos3f}.
-	 *
-	 * @param coords the raster position buffer
-	 */
+	/** Unsafe version of: {@link #glRasterPos3fv RasterPos3fv} */
 	public static void nglRasterPos3fv(long coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos3fv;
 		if ( CHECKS )
@@ -7005,13 +6264,7 @@ public class GL11 {
 
 	// --- [ glRasterPos3dv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glRasterPos3d RasterPos3d}.
-	 *
-	 * @param coords the raster position buffer
-	 */
+	/** Unsafe version of: {@link #glRasterPos3dv RasterPos3dv} */
 	public static void nglRasterPos3dv(long coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos3dv;
 		if ( CHECKS )
@@ -7110,13 +6363,7 @@ public class GL11 {
 
 	// --- [ glRasterPos4iv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glRasterPos4i RasterPos4i}.
-	 *
-	 * @param coords the raster position buffer
-	 */
+	/** Unsafe version of: {@link #glRasterPos4iv RasterPos4iv} */
 	public static void nglRasterPos4iv(long coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos4iv;
 		if ( CHECKS )
@@ -7139,13 +6386,7 @@ public class GL11 {
 
 	// --- [ glRasterPos4sv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glRasterPos4s RasterPos4s}.
-	 *
-	 * @param coords the raster position buffer
-	 */
+	/** Unsafe version of: {@link #glRasterPos4sv RasterPos4sv} */
 	public static void nglRasterPos4sv(long coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos4sv;
 		if ( CHECKS )
@@ -7168,13 +6409,7 @@ public class GL11 {
 
 	// --- [ glRasterPos4fv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glRasterPos4f RasterPos4f}.
-	 *
-	 * @param coords the raster position buffer
-	 */
+	/** Unsafe version of: {@link #glRasterPos4fv RasterPos4fv} */
 	public static void nglRasterPos4fv(long coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos4fv;
 		if ( CHECKS )
@@ -7197,13 +6432,7 @@ public class GL11 {
 
 	// --- [ glRasterPos4dv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRasterPos4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glRasterPos4d RasterPos4d}.
-	 *
-	 * @param coords the raster position buffer
-	 */
+	/** Unsafe version of: {@link #glRasterPos4dv RasterPos4dv} */
 	public static void nglRasterPos4dv(long coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos4dv;
 		if ( CHECKS )
@@ -7243,23 +6472,7 @@ public class GL11 {
 
 	// --- [ glReadPixels ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glReadPixels.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * ReadPixels obtains values from the selected read buffer from each pixel with lower left hand corner at {@code (x + i, y + j)} for {@code 0 <= i < width}
-	 * and {@code 0 <= j < height}; this pixel is said to be the i<sup>th</sup> pixel in the j<sup>th</sup> row. If any of these pixels lies outside of the
-	 * window allocated to the current GL context, or outside of the image attached to the currently bound read framebuffer object, then the values obtained
-	 * for those pixels are undefined. When {@link GL30#GL_READ_FRAMEBUFFER_BINDING READ_FRAMEBUFFER_BINDING} is zero, values are also undefined for individual pixels that are not owned by
-	 * the current context. Otherwise, {@code ReadPixels} obtains values from the selected buffer, regardless of how those values were placed there.
-	 *
-	 * @param x      the left pixel coordinate
-	 * @param y      the lower pixel coordinate
-	 * @param width  the number of pixels to read in the x-dimension
-	 * @param height the number of pixels to read in the y-dimension
-	 * @param format the pixel format. One of:<br><table><tr><td>{@link #GL_STENCIL_INDEX STENCIL_INDEX}</td><td>{@link #GL_DEPTH_COMPONENT DEPTH_COMPONENT}</td><td>{@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}</td><td>{@link #GL_RED RED}</td><td>{@link #GL_GREEN GREEN}</td><td>{@link #GL_BLUE BLUE}</td><td>{@link #GL_ALPHA ALPHA}</td><td>{@link GL30#GL_RG RG}</td></tr><tr><td>{@link #GL_RGB RGB}</td><td>{@link #GL_RGBA RGBA}</td><td>{@link GL12#GL_BGR BGR}</td><td>{@link GL12#GL_BGRA BGRA}</td><td>{@link #GL_LUMINANCE LUMINANCE}</td><td>{@link #GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}</td><td>{@link GL30#GL_RED_INTEGER RED_INTEGER}</td><td>{@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}</td></tr><tr><td>{@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}</td><td>{@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}</td><td>{@link GL30#GL_RG_INTEGER RG_INTEGER}</td><td>{@link GL30#GL_RGB_INTEGER RGB_INTEGER}</td><td>{@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}</td><td>{@link GL30#GL_BGR_INTEGER BGR_INTEGER}</td><td>{@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}</td></tr></table>
-	 * @param type   the pixel type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
-	 * @param pixels a buffer in which to place the returned pixel data
-	 */
+	/** Unsafe version of: {@link #glReadPixels ReadPixels} */
 	public static void nglReadPixels(int x, int y, int width, int height, int format, int type, long pixels) {
 		long __functionAddress = GL.getCapabilities().glReadPixels;
 		callPV(__functionAddress, x, y, width, height, format, type, pixels);
@@ -7425,14 +6638,7 @@ public class GL11 {
 
 	// --- [ glRectiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRect.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glRecti Recti}.
-	 *
-	 * @param v1 the first vertex buffer
-	 * @param v2 the second vertex buffer
-	 */
+	/** Unsafe version of: {@link #glRectiv Rectiv} */
 	public static void nglRectiv(long v1, long v2) {
 		long __functionAddress = GL.getCapabilities().glRectiv;
 		if ( CHECKS )
@@ -7458,14 +6664,7 @@ public class GL11 {
 
 	// --- [ glRectsv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRect.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glRects Rects}.
-	 *
-	 * @param v1 the first vertex buffer
-	 * @param v2 the second vertex buffer
-	 */
+	/** Unsafe version of: {@link #glRectsv Rectsv} */
 	public static void nglRectsv(long v1, long v2) {
 		long __functionAddress = GL.getCapabilities().glRectsv;
 		if ( CHECKS )
@@ -7491,14 +6690,7 @@ public class GL11 {
 
 	// --- [ glRectfv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRect.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glRectf Rectf}.
-	 *
-	 * @param v1 the first vertex buffer
-	 * @param v2 the second vertex buffer
-	 */
+	/** Unsafe version of: {@link #glRectfv Rectfv} */
 	public static void nglRectfv(long v1, long v2) {
 		long __functionAddress = GL.getCapabilities().glRectfv;
 		if ( CHECKS )
@@ -7524,14 +6716,7 @@ public class GL11 {
 
 	// --- [ glRectdv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glRect.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glRectd Rectd}.
-	 *
-	 * @param v1 the first vertex buffer
-	 * @param v2 the second vertex buffer
-	 */
+	/** Unsafe version of: {@link #glRectdv Rectdv} */
 	public static void nglRectdv(long v1, long v2) {
 		long __functionAddress = GL.getCapabilities().glRectdv;
 		if ( CHECKS )
@@ -7698,12 +6883,9 @@ public class GL11 {
 	// --- [ glSelectBuffer ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSelectBuffer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Sets the selection array.
+	 * Unsafe version of: {@link #glSelectBuffer SelectBuffer}
 	 *
-	 * @param size   the maximum number of values that can be stored in {@code buffer}
-	 * @param buffer an array of unsigned integers to be potentially filled names
+	 * @param size the maximum number of values that can be stored in {@code buffer}
 	 */
 	public static void nglSelectBuffer(int size, long buffer) {
 		long __functionAddress = GL.getCapabilities().glSelectBuffer;
@@ -7871,13 +7053,7 @@ public class GL11 {
 
 	// --- [ glTexCoord1fv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glTexCoord1f TexCoord1f}.
-	 *
-	 * @param v the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glTexCoord1fv TexCoord1fv} */
 	public static void nglTexCoord1fv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord1fv;
 		if ( CHECKS )
@@ -7900,13 +7076,7 @@ public class GL11 {
 
 	// --- [ glTexCoord1sv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glTexCoord1s TexCoord1s}.
-	 *
-	 * @param v the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glTexCoord1sv TexCoord1sv} */
 	public static void nglTexCoord1sv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord1sv;
 		if ( CHECKS )
@@ -7929,13 +7099,7 @@ public class GL11 {
 
 	// --- [ glTexCoord1iv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glTexCoord1i TexCoord1i}.
-	 *
-	 * @param v the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glTexCoord1iv TexCoord1iv} */
 	public static void nglTexCoord1iv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord1iv;
 		if ( CHECKS )
@@ -7958,13 +7122,7 @@ public class GL11 {
 
 	// --- [ glTexCoord1dv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glTexCoord1d TexCoord1d}.
-	 *
-	 * @param v the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glTexCoord1dv TexCoord1dv} */
 	public static void nglTexCoord1dv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord1dv;
 		if ( CHECKS )
@@ -8055,13 +7213,7 @@ public class GL11 {
 
 	// --- [ glTexCoord2fv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glTexCoord2f TexCoord2f}.
-	 *
-	 * @param v the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glTexCoord2fv TexCoord2fv} */
 	public static void nglTexCoord2fv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord2fv;
 		if ( CHECKS )
@@ -8084,13 +7236,7 @@ public class GL11 {
 
 	// --- [ glTexCoord2sv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glTexCoord2s TexCoord2s}.
-	 *
-	 * @param v the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glTexCoord2sv TexCoord2sv} */
 	public static void nglTexCoord2sv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord2sv;
 		if ( CHECKS )
@@ -8113,13 +7259,7 @@ public class GL11 {
 
 	// --- [ glTexCoord2iv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glTexCoord2i TexCoord2i}.
-	 *
-	 * @param v the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glTexCoord2iv TexCoord2iv} */
 	public static void nglTexCoord2iv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord2iv;
 		if ( CHECKS )
@@ -8142,13 +7282,7 @@ public class GL11 {
 
 	// --- [ glTexCoord2dv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glTexCoord2d TexCoord2d}.
-	 *
-	 * @param v the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glTexCoord2dv TexCoord2dv} */
 	public static void nglTexCoord2dv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord2dv;
 		if ( CHECKS )
@@ -8243,13 +7377,7 @@ public class GL11 {
 
 	// --- [ glTexCoord3fv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glTexCoord3f TexCoord3f}.
-	 *
-	 * @param v the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glTexCoord3fv TexCoord3fv} */
 	public static void nglTexCoord3fv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord3fv;
 		if ( CHECKS )
@@ -8272,13 +7400,7 @@ public class GL11 {
 
 	// --- [ glTexCoord3sv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glTexCoord3s TexCoord3s}.
-	 *
-	 * @param v the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glTexCoord3sv TexCoord3sv} */
 	public static void nglTexCoord3sv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord3sv;
 		if ( CHECKS )
@@ -8301,13 +7423,7 @@ public class GL11 {
 
 	// --- [ glTexCoord3iv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glTexCoord3i TexCoord3i}.
-	 *
-	 * @param v the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glTexCoord3iv TexCoord3iv} */
 	public static void nglTexCoord3iv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord3iv;
 		if ( CHECKS )
@@ -8330,13 +7446,7 @@ public class GL11 {
 
 	// --- [ glTexCoord3dv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glTexCoord3d TexCoord3d}.
-	 *
-	 * @param v the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glTexCoord3dv TexCoord3dv} */
 	public static void nglTexCoord3dv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord3dv;
 		if ( CHECKS )
@@ -8435,13 +7545,7 @@ public class GL11 {
 
 	// --- [ glTexCoord4fv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glTexCoord4f TexCoord4f}.
-	 *
-	 * @param v the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glTexCoord4fv TexCoord4fv} */
 	public static void nglTexCoord4fv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord4fv;
 		if ( CHECKS )
@@ -8464,13 +7568,7 @@ public class GL11 {
 
 	// --- [ glTexCoord4sv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glTexCoord4s TexCoord4s}.
-	 *
-	 * @param v the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glTexCoord4sv TexCoord4sv} */
 	public static void nglTexCoord4sv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord4sv;
 		if ( CHECKS )
@@ -8493,13 +7591,7 @@ public class GL11 {
 
 	// --- [ glTexCoord4iv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glTexCoord4i TexCoord4i}.
-	 *
-	 * @param v the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glTexCoord4iv TexCoord4iv} */
 	public static void nglTexCoord4iv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord4iv;
 		if ( CHECKS )
@@ -8522,13 +7614,7 @@ public class GL11 {
 
 	// --- [ glTexCoord4dv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoord4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glTexCoord4d TexCoord4d}.
-	 *
-	 * @param v the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glTexCoord4dv TexCoord4dv} */
 	public static void nglTexCoord4dv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord4dv;
 		if ( CHECKS )
@@ -8551,16 +7637,7 @@ public class GL11 {
 
 	// --- [ glTexCoordPointer ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Specifies the location and organization of a texture coordinate array.
-	 *
-	 * @param size    the number of values per vertex that are stored in the array. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
-	 * @param type    the data type of the values stored in the array. One of:<br><table><tr><td>{@link #GL_SHORT SHORT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td><td>{@link #GL_DOUBLE DOUBLE}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td><td>{@link GL33#GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td></tr></table>
-	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
-	 * @param pointer the texture coordinate array data
-	 */
+	/** Unsafe version of: {@link #glTexCoordPointer TexCoordPointer} */
 	public static void nglTexCoordPointer(int size, int type, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glTexCoordPointer;
 		if ( CHECKS )
@@ -8642,15 +7719,7 @@ public class GL11 {
 
 	// --- [ glTexEnviv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexEnv.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pointer version of {@link #glTexEnvi TexEnvi}.
-	 *
-	 * @param target the texture environment target. Must be:<br><table><tr><td>{@link #GL_TEXTURE_ENV TEXTURE_ENV}</td></tr></table>
-	 * @param pname  the parameter to set. Must be:<br><table><tr><td>{@link #GL_TEXTURE_ENV_COLOR TEXTURE_ENV_COLOR}</td></tr></table>
-	 * @param params the parameter value
-	 */
+	/** Unsafe version of: {@link #glTexEnviv TexEnviv} */
 	public static void nglTexEnviv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glTexEnviv;
 		callPV(__functionAddress, target, pname, params);
@@ -8689,15 +7758,7 @@ public class GL11 {
 
 	// --- [ glTexEnvfv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexEnv.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pointer version of {@link #glTexEnvf TexEnvf}.
-	 *
-	 * @param target the texture environment target. Must be:<br><table><tr><td>{@link #GL_TEXTURE_ENV TEXTURE_ENV}</td></tr></table>
-	 * @param pname  the parameter to set. Must be:<br><table><tr><td>{@link #GL_TEXTURE_ENV_COLOR TEXTURE_ENV_COLOR}</td></tr></table>
-	 * @param params the parameter value
-	 */
+	/** Unsafe version of: {@link #glTexEnvfv TexEnvfv} */
 	public static void nglTexEnvfv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glTexEnvfv;
 		callPV(__functionAddress, target, pname, params);
@@ -8746,15 +7807,7 @@ public class GL11 {
 
 	// --- [ glTexGeniv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexGen.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glTexGeni TexGeni}.
-	 *
-	 * @param coord  the coordinate for which to set the parameter
-	 * @param pname  the parameter to set. One of:<br><table><tr><td>{@link #GL_OBJECT_PLANE OBJECT_PLANE}</td><td>{@link #GL_EYE_PLANE EYE_PLANE}</td></tr></table>
-	 * @param params the parameter value
-	 */
+	/** Unsafe version of: {@link #glTexGeniv TexGeniv} */
 	public static void nglTexGeniv(int coord, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glTexGeniv;
 		if ( CHECKS )
@@ -8797,15 +7850,7 @@ public class GL11 {
 
 	// --- [ glTexGenfv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexGen.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glTexGenf TexGenf}.
-	 *
-	 * @param coord  the coordinate for which to set the parameter
-	 * @param pname  the parameter to set. One of:<br><table><tr><td>{@link #GL_OBJECT_PLANE OBJECT_PLANE}</td><td>{@link #GL_EYE_PLANE EYE_PLANE}</td></tr></table>
-	 * @param params the parameter value
-	 */
+	/** Unsafe version of: {@link #glTexGenfv TexGenfv} */
 	public static void nglTexGenfv(int coord, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glTexGenfv;
 		if ( CHECKS )
@@ -8848,15 +7893,7 @@ public class GL11 {
 
 	// --- [ glTexGendv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexGen.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glTexGend TexGend}.
-	 *
-	 * @param coord  the coordinate for which to set the parameter
-	 * @param pname  the parameter to set
-	 * @param params the parameter value
-	 */
+	/** Unsafe version of: {@link #glTexGendv TexGendv} */
 	public static void nglTexGendv(int coord, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glTexGendv;
 		if ( CHECKS )
@@ -8881,21 +7918,7 @@ public class GL11 {
 
 	// --- [ glTexImage2D ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage2D.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Specifies a two-dimensional texture image.
-	 *
-	 * @param target         the texture target. One of:<br><table><tr><td>{@link #GL_TEXTURE_2D TEXTURE_2D}</td><td>{@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}</td><td>{@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}</td></tr><tr><td>{@link #GL_PROXY_TEXTURE_2D PROXY_TEXTURE_2D}</td><td>{@link GL30#GL_PROXY_TEXTURE_1D_ARRAY PROXY_TEXTURE_1D_ARRAY}</td><td>{@link GL31#GL_PROXY_TEXTURE_RECTANGLE PROXY_TEXTURE_RECTANGLE}</td><td>{@link GL13#GL_PROXY_TEXTURE_CUBE_MAP PROXY_TEXTURE_CUBE_MAP}</td></tr></table>
-	 * @param level          the level-of-detail number
-	 * @param internalformat the texture internal format. One of:<br><table><tr><td>{@link #GL_RED RED}</td><td>{@link GL30#GL_RG RG}</td><td>{@link #GL_RGB RGB}</td><td>{@link #GL_RGBA RGBA}</td><td>{@link #GL_DEPTH_COMPONENT DEPTH_COMPONENT}</td><td>{@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}</td></tr><tr><td>{@link GL30#GL_R8 R8}</td><td>{@link GL31#GL_R8_SNORM R8_SNORM}</td><td>{@link GL30#GL_R16 R16}</td><td>{@link GL31#GL_R16_SNORM R16_SNORM}</td><td>{@link GL30#GL_RG8 RG8}</td><td>{@link GL31#GL_RG8_SNORM RG8_SNORM}</td></tr><tr><td>{@link GL30#GL_RG16 RG16}</td><td>{@link GL31#GL_RG16_SNORM RG16_SNORM}</td><td>{@link #GL_R3_G3_B2 R3_G3_B2}</td><td>{@link #GL_RGB4 RGB4}</td><td>{@link #GL_RGB5 RGB5}</td><td>{@link GL41#GL_RGB565 RGB565}</td></tr><tr><td>{@link #GL_RGB8 RGB8}</td><td>{@link GL31#GL_RGB8_SNORM RGB8_SNORM}</td><td>{@link #GL_RGB10 RGB10}</td><td>{@link #GL_RGB12 RGB12}</td><td>{@link #GL_RGB16 RGB16}</td><td>{@link GL31#GL_RGB16_SNORM RGB16_SNORM}</td></tr><tr><td>{@link #GL_RGBA2 RGBA2}</td><td>{@link #GL_RGBA4 RGBA4}</td><td>{@link #GL_RGB5_A1 RGB5_A1}</td><td>{@link #GL_RGBA8 RGBA8}</td><td>{@link GL31#GL_RGBA8_SNORM RGBA8_SNORM}</td><td>{@link #GL_RGB10_A2 RGB10_A2}</td></tr><tr><td>{@link GL33#GL_RGB10_A2UI RGB10_A2UI}</td><td>{@link #GL_RGBA12 RGBA12}</td><td>{@link #GL_RGBA16 RGBA16}</td><td>{@link GL31#GL_RGBA16_SNORM RGBA16_SNORM}</td><td>{@link GL21#GL_SRGB8 SRGB8}</td><td>{@link GL21#GL_SRGB8_ALPHA8 SRGB8_ALPHA8}</td></tr><tr><td>{@link GL30#GL_R16F R16F}</td><td>{@link GL30#GL_RG16F RG16F}</td><td>{@link GL30#GL_RGB16F RGB16F}</td><td>{@link GL30#GL_RGBA16F RGBA16F}</td><td>{@link GL30#GL_R32F R32F}</td><td>{@link GL30#GL_RG32F RG32F}</td></tr><tr><td>{@link GL30#GL_RGB32F RGB32F}</td><td>{@link GL30#GL_RGBA32F RGBA32F}</td><td>{@link GL30#GL_R11F_G11F_B10F R11F_G11F_B10F}</td><td>{@link GL30#GL_RGB9_E5 RGB9_E5}</td><td>{@link GL30#GL_R8I R8I}</td><td>{@link GL30#GL_R8UI R8UI}</td></tr><tr><td>{@link GL30#GL_R16I R16I}</td><td>{@link GL30#GL_R16UI R16UI}</td><td>{@link GL30#GL_R32I R32I}</td><td>{@link GL30#GL_R32UI R32UI}</td><td>{@link GL30#GL_RG8I RG8I}</td><td>{@link GL30#GL_RG8UI RG8UI}</td></tr><tr><td>{@link GL30#GL_RG16I RG16I}</td><td>{@link GL30#GL_RG16UI RG16UI}</td><td>{@link GL30#GL_RG32I RG32I}</td><td>{@link GL30#GL_RG32UI RG32UI}</td><td>{@link GL30#GL_RGB8I RGB8I}</td><td>{@link GL30#GL_RGB8UI RGB8UI}</td></tr><tr><td>{@link GL30#GL_RGB16I RGB16I}</td><td>{@link GL30#GL_RGB16UI RGB16UI}</td><td>{@link GL30#GL_RGB32I RGB32I}</td><td>{@link GL30#GL_RGB32UI RGB32UI}</td><td>{@link GL30#GL_RGBA8I RGBA8I}</td><td>{@link GL30#GL_RGBA8UI RGBA8UI}</td></tr><tr><td>{@link GL30#GL_RGBA16I RGBA16I}</td><td>{@link GL30#GL_RGBA16UI RGBA16UI}</td><td>{@link GL30#GL_RGBA32I RGBA32I}</td><td>{@link GL30#GL_RGBA32UI RGBA32UI}</td><td>{@link GL14#GL_DEPTH_COMPONENT16 DEPTH_COMPONENT16}</td><td>{@link GL14#GL_DEPTH_COMPONENT24 DEPTH_COMPONENT24}</td></tr><tr><td>{@link GL14#GL_DEPTH_COMPONENT32 DEPTH_COMPONENT32}</td><td>{@link GL30#GL_DEPTH24_STENCIL8 DEPTH24_STENCIL8}</td><td>{@link GL30#GL_DEPTH_COMPONENT32F DEPTH_COMPONENT32F}</td><td>{@link GL30#GL_DEPTH32F_STENCIL8 DEPTH32F_STENCIL8}</td><td>{@link GL30#GL_COMPRESSED_RED COMPRESSED_RED}</td><td>{@link GL30#GL_COMPRESSED_RG COMPRESSED_RG}</td></tr><tr><td>{@link GL13#GL_COMPRESSED_RGB COMPRESSED_RGB}</td><td>{@link GL13#GL_COMPRESSED_RGBA COMPRESSED_RGBA}</td><td>{@link GL21#GL_COMPRESSED_SRGB COMPRESSED_SRGB}</td><td>{@link GL21#GL_COMPRESSED_SRGB_ALPHA COMPRESSED_SRGB_ALPHA}</td><td>{@link GL30#GL_COMPRESSED_RED_RGTC1 COMPRESSED_RED_RGTC1}</td><td>{@link GL30#GL_COMPRESSED_SIGNED_RED_RGTC1 COMPRESSED_SIGNED_RED_RGTC1}</td></tr><tr><td>{@link GL30#GL_COMPRESSED_RG_RGTC2 COMPRESSED_RG_RGTC2}</td><td>{@link GL30#GL_COMPRESSED_SIGNED_RG_RGTC2 COMPRESSED_SIGNED_RG_RGTC2}</td><td>{@link GL42#GL_COMPRESSED_RGBA_BPTC_UNORM COMPRESSED_RGBA_BPTC_UNORM}</td><td>{@link GL42#GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM COMPRESSED_SRGB_ALPHA_BPTC_UNORM}</td><td>{@link GL42#GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT COMPRESSED_RGB_BPTC_SIGNED_FLOAT}</td><td>{@link GL42#GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT}</td></tr><tr><td>{@link GL43#GL_COMPRESSED_RGB8_ETC2 COMPRESSED_RGB8_ETC2}</td><td>{@link GL43#GL_COMPRESSED_SRGB8_ETC2 COMPRESSED_SRGB8_ETC2}</td><td>{@link GL43#GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2}</td><td>{@link GL43#GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2}</td><td>{@link GL43#GL_COMPRESSED_RGBA8_ETC2_EAC COMPRESSED_RGBA8_ETC2_EAC}</td><td>{@link GL43#GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC COMPRESSED_SRGB8_ALPHA8_ETC2_EAC}</td></tr><tr><td>{@link GL43#GL_COMPRESSED_R11_EAC COMPRESSED_R11_EAC}</td><td>{@link GL43#GL_COMPRESSED_SIGNED_R11_EAC COMPRESSED_SIGNED_R11_EAC}</td><td>{@link GL43#GL_COMPRESSED_RG11_EAC COMPRESSED_RG11_EAC}</td><td>{@link GL43#GL_COMPRESSED_SIGNED_RG11_EAC COMPRESSED_SIGNED_RG11_EAC}</td><td>see {@link EXTTextureCompressionS3TC}</td><td>see {@link EXTTextureCompressionLATC}</td></tr><tr><td>see {@link ATITextureCompression3DC}</td></tr></table>
-	 * @param width          the texture width
-	 * @param height         the texture height
-	 * @param border         the texture border width
-	 * @param format         the texel data format. One of:<br><table><tr><td>{@link #GL_STENCIL_INDEX STENCIL_INDEX}</td><td>{@link #GL_DEPTH_COMPONENT DEPTH_COMPONENT}</td><td>{@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}</td><td>{@link #GL_RED RED}</td><td>{@link #GL_GREEN GREEN}</td><td>{@link #GL_BLUE BLUE}</td><td>{@link #GL_ALPHA ALPHA}</td><td>{@link GL30#GL_RG RG}</td></tr><tr><td>{@link #GL_RGB RGB}</td><td>{@link #GL_RGBA RGBA}</td><td>{@link GL12#GL_BGR BGR}</td><td>{@link GL12#GL_BGRA BGRA}</td><td>{@link #GL_LUMINANCE LUMINANCE}</td><td>{@link #GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}</td><td>{@link GL30#GL_RED_INTEGER RED_INTEGER}</td><td>{@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}</td></tr><tr><td>{@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}</td><td>{@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}</td><td>{@link GL30#GL_RG_INTEGER RG_INTEGER}</td><td>{@link GL30#GL_RGB_INTEGER RGB_INTEGER}</td><td>{@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}</td><td>{@link GL30#GL_BGR_INTEGER BGR_INTEGER}</td><td>{@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}</td></tr></table>
-	 * @param type           the texel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
-	 * @param pixels         the texel data
-	 */
+	/** Unsafe version of: {@link #glTexImage2D TexImage2D} */
 	public static void nglTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, long pixels) {
 		long __functionAddress = GL.getCapabilities().glTexImage2D;
 		callPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
@@ -8977,20 +8000,7 @@ public class GL11 {
 
 	// --- [ glTexImage1D ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexImage1D.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * One-dimensional version of {@link #glTexImage2D TexImage2D}}.
-	 *
-	 * @param target         the texture target. One of:<br><table><tr><td>{@link #GL_TEXTURE_1D TEXTURE_1D}</td><td>{@link #GL_PROXY_TEXTURE_1D PROXY_TEXTURE_1D}</td></tr></table>
-	 * @param level          the level-of-detail number
-	 * @param internalformat the texture internal format
-	 * @param width          the texture width
-	 * @param border         the texture border width
-	 * @param format         the texel data format
-	 * @param type           the texel data type
-	 * @param pixels         the texel data
-	 */
+	/** Unsafe version of: {@link #glTexImage1D TexImage1D} */
 	public static void nglTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, long pixels) {
 		long __functionAddress = GL.getCapabilities().glTexImage1D;
 		callPV(__functionAddress, target, level, internalformat, width, border, format, type, pixels);
@@ -9189,15 +8199,7 @@ public class GL11 {
 
 	// --- [ glTexParameteriv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexParameter.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pointer version of {@link #glTexParameteri TexParameteri}.
-	 *
-	 * @param target the texture target
-	 * @param pname  the parameter to set
-	 * @param params the parameter value
-	 */
+	/** Unsafe version of: {@link #glTexParameteriv TexParameteriv} */
 	public static void nglTexParameteriv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glTexParameteriv;
 		callPV(__functionAddress, target, pname, params);
@@ -9236,15 +8238,7 @@ public class GL11 {
 
 	// --- [ glTexParameterfv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexParameter.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pointer version of {@link #glTexParameterf TexParameterf}.
-	 *
-	 * @param target the texture target
-	 * @param pname  the parameter to set
-	 * @param params the parameter value
-	 */
+	/** Unsafe version of: {@link #glTexParameterfv TexParameterfv} */
 	public static void nglTexParameterfv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glTexParameterfv;
 		callPV(__functionAddress, target, pname, params);
@@ -9267,19 +8261,7 @@ public class GL11 {
 
 	// --- [ glTexSubImage1D ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage1D.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * One-dimensional version of {@link #glTexSubImage2D TexSubImage2D}.
-	 *
-	 * @param target  the texture target. Must be:<br><table><tr><td>{@link #GL_TEXTURE_1D TEXTURE_1D}</td></tr></table>
-	 * @param level   the level-of-detail-number
-	 * @param xoffset the left coordinate of the texel subregion
-	 * @param width   the subregion width
-	 * @param format  the pixel data format. One of:<br><table><tr><td>{@link #GL_STENCIL_INDEX STENCIL_INDEX}</td><td>{@link #GL_DEPTH_COMPONENT DEPTH_COMPONENT}</td><td>{@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}</td><td>{@link #GL_RED RED}</td><td>{@link #GL_GREEN GREEN}</td><td>{@link #GL_BLUE BLUE}</td><td>{@link #GL_ALPHA ALPHA}</td><td>{@link GL30#GL_RG RG}</td></tr><tr><td>{@link #GL_RGB RGB}</td><td>{@link #GL_RGBA RGBA}</td><td>{@link GL12#GL_BGR BGR}</td><td>{@link GL12#GL_BGRA BGRA}</td><td>{@link #GL_LUMINANCE LUMINANCE}</td><td>{@link #GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}</td><td>{@link GL30#GL_RED_INTEGER RED_INTEGER}</td><td>{@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}</td></tr><tr><td>{@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}</td><td>{@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}</td><td>{@link GL30#GL_RG_INTEGER RG_INTEGER}</td><td>{@link GL30#GL_RGB_INTEGER RGB_INTEGER}</td><td>{@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}</td><td>{@link GL30#GL_BGR_INTEGER BGR_INTEGER}</td><td>{@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}</td></tr></table>
-	 * @param type    the pixel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
-	 * @param pixels  the pixel data
-	 */
+	/** Unsafe version of: {@link #glTexSubImage1D TexSubImage1D} */
 	public static void nglTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, long pixels) {
 		long __functionAddress = GL.getCapabilities().glTexSubImage1D;
 		callPV(__functionAddress, target, level, xoffset, width, format, type, pixels);
@@ -9357,22 +8339,7 @@ public class GL11 {
 
 	// --- [ glTexSubImage2D ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glTexSubImage2D.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Respecifies a rectangular subregion of an existing texel array. No change is made to the internalformat, width, height, depth, or border parameters of
-	 * the specified texel array, nor is any change made to texel values outside the specified subregion.
-	 *
-	 * @param target  the texture target. One of:<br><table><tr><td>{@link #GL_TEXTURE_2D TEXTURE_2D}</td><td>{@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}</td><td>{@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}</td></tr></table>
-	 * @param level   the level-of-detail-number
-	 * @param xoffset the left coordinate of the texel subregion
-	 * @param yoffset the bottom coordinate of the texel subregion
-	 * @param width   the subregion width
-	 * @param height  the subregion height
-	 * @param format  the pixel data format. One of:<br><table><tr><td>{@link #GL_STENCIL_INDEX STENCIL_INDEX}</td><td>{@link #GL_DEPTH_COMPONENT DEPTH_COMPONENT}</td><td>{@link GL30#GL_DEPTH_STENCIL DEPTH_STENCIL}</td><td>{@link #GL_RED RED}</td><td>{@link #GL_GREEN GREEN}</td><td>{@link #GL_BLUE BLUE}</td><td>{@link #GL_ALPHA ALPHA}</td><td>{@link GL30#GL_RG RG}</td></tr><tr><td>{@link #GL_RGB RGB}</td><td>{@link #GL_RGBA RGBA}</td><td>{@link GL12#GL_BGR BGR}</td><td>{@link GL12#GL_BGRA BGRA}</td><td>{@link #GL_LUMINANCE LUMINANCE}</td><td>{@link #GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}</td><td>{@link GL30#GL_RED_INTEGER RED_INTEGER}</td><td>{@link GL30#GL_GREEN_INTEGER GREEN_INTEGER}</td></tr><tr><td>{@link GL30#GL_BLUE_INTEGER BLUE_INTEGER}</td><td>{@link GL30#GL_ALPHA_INTEGER ALPHA_INTEGER}</td><td>{@link GL30#GL_RG_INTEGER RG_INTEGER}</td><td>{@link GL30#GL_RGB_INTEGER RGB_INTEGER}</td><td>{@link GL30#GL_RGBA_INTEGER RGBA_INTEGER}</td><td>{@link GL30#GL_BGR_INTEGER BGR_INTEGER}</td><td>{@link GL30#GL_BGRA_INTEGER BGRA_INTEGER}</td></tr></table>
-	 * @param type    the pixel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
-	 * @param pixels  the pixel data
-	 */
+	/** Unsafe version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void nglTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, long pixels) {
 		long __functionAddress = GL.getCapabilities().glTexSubImage2D;
 		callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
@@ -9570,13 +8537,7 @@ public class GL11 {
 
 	// --- [ glVertex2fv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glVertex2f Vertex2f}.
-	 *
-	 * @param coords the vertex buffer
-	 */
+	/** Unsafe version of: {@link #glVertex2fv Vertex2fv} */
 	public static void nglVertex2fv(long coords) {
 		long __functionAddress = GL.getCapabilities().glVertex2fv;
 		if ( CHECKS )
@@ -9599,13 +8560,7 @@ public class GL11 {
 
 	// --- [ glVertex2sv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glVertex2s Vertex2s}.
-	 *
-	 * @param coords the vertex buffer
-	 */
+	/** Unsafe version of: {@link #glVertex2sv Vertex2sv} */
 	public static void nglVertex2sv(long coords) {
 		long __functionAddress = GL.getCapabilities().glVertex2sv;
 		if ( CHECKS )
@@ -9628,13 +8583,7 @@ public class GL11 {
 
 	// --- [ glVertex2iv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glVertex2i Vertex2i}.
-	 *
-	 * @param coords the vertex buffer
-	 */
+	/** Unsafe version of: {@link #glVertex2iv Vertex2iv} */
 	public static void nglVertex2iv(long coords) {
 		long __functionAddress = GL.getCapabilities().glVertex2iv;
 		if ( CHECKS )
@@ -9657,13 +8606,7 @@ public class GL11 {
 
 	// --- [ glVertex2dv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glVertex2d Vertex2d}.
-	 *
-	 * @param coords the vertex buffer
-	 */
+	/** Unsafe version of: {@link #glVertex2dv Vertex2dv} */
 	public static void nglVertex2dv(long coords) {
 		long __functionAddress = GL.getCapabilities().glVertex2dv;
 		if ( CHECKS )
@@ -9759,13 +8702,7 @@ public class GL11 {
 
 	// --- [ glVertex3fv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glVertex3f Vertex3f}.
-	 *
-	 * @param coords the vertex buffer
-	 */
+	/** Unsafe version of: {@link #glVertex3fv Vertex3fv} */
 	public static void nglVertex3fv(long coords) {
 		long __functionAddress = GL.getCapabilities().glVertex3fv;
 		if ( CHECKS )
@@ -9788,13 +8725,7 @@ public class GL11 {
 
 	// --- [ glVertex3sv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glVertex3s Vertex3s}.
-	 *
-	 * @param coords the vertex buffer
-	 */
+	/** Unsafe version of: {@link #glVertex3sv Vertex3sv} */
 	public static void nglVertex3sv(long coords) {
 		long __functionAddress = GL.getCapabilities().glVertex3sv;
 		if ( CHECKS )
@@ -9817,13 +8748,7 @@ public class GL11 {
 
 	// --- [ glVertex3iv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glVertex3i Vertex3i}.
-	 *
-	 * @param coords the vertex buffer
-	 */
+	/** Unsafe version of: {@link #glVertex3iv Vertex3iv} */
 	public static void nglVertex3iv(long coords) {
 		long __functionAddress = GL.getCapabilities().glVertex3iv;
 		if ( CHECKS )
@@ -9846,13 +8771,7 @@ public class GL11 {
 
 	// --- [ glVertex3dv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glVertex3d Vertex3d}.
-	 *
-	 * @param coords the vertex buffer
-	 */
+	/** Unsafe version of: {@link #glVertex3dv Vertex3dv} */
 	public static void nglVertex3dv(long coords) {
 		long __functionAddress = GL.getCapabilities().glVertex3dv;
 		if ( CHECKS )
@@ -9951,13 +8870,7 @@ public class GL11 {
 
 	// --- [ glVertex4fv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glVertex4f Vertex4f}.
-	 *
-	 * @param coords the vertex buffer
-	 */
+	/** Unsafe version of: {@link #glVertex4fv Vertex4fv} */
 	public static void nglVertex4fv(long coords) {
 		long __functionAddress = GL.getCapabilities().glVertex4fv;
 		if ( CHECKS )
@@ -9980,13 +8893,7 @@ public class GL11 {
 
 	// --- [ glVertex4sv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glVertex4s Vertex4s}.
-	 *
-	 * @param coords the vertex buffer
-	 */
+	/** Unsafe version of: {@link #glVertex4sv Vertex4sv} */
 	public static void nglVertex4sv(long coords) {
 		long __functionAddress = GL.getCapabilities().glVertex4sv;
 		if ( CHECKS )
@@ -10009,13 +8916,7 @@ public class GL11 {
 
 	// --- [ glVertex4iv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glVertex4i Vertex4i}.
-	 *
-	 * @param coords the vertex buffer
-	 */
+	/** Unsafe version of: {@link #glVertex4iv Vertex4iv} */
 	public static void nglVertex4iv(long coords) {
 		long __functionAddress = GL.getCapabilities().glVertex4iv;
 		if ( CHECKS )
@@ -10038,13 +8939,7 @@ public class GL11 {
 
 	// --- [ glVertex4dv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertex4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glVertex4d Vertex4d}.
-	 *
-	 * @param coords the vertex buffer
-	 */
+	/** Unsafe version of: {@link #glVertex4dv Vertex4dv} */
 	public static void nglVertex4dv(long coords) {
 		long __functionAddress = GL.getCapabilities().glVertex4dv;
 		if ( CHECKS )
@@ -10067,16 +8962,7 @@ public class GL11 {
 
 	// --- [ glVertexPointer ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertexPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Specifies the location and organization of a vertex array.
-	 *
-	 * @param size    the number of values per vertex that are stored in the array. One of:<br><table><tr><td>2</td><td>3</td><td>4</td></tr></table>
-	 * @param type    the data type of the values stored in the array. One of:<br><table><tr><td>{@link #GL_SHORT SHORT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td><td>{@link #GL_DOUBLE DOUBLE}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td><td>{@link GL33#GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td></tr></table>
-	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
-	 * @param pointer the vertex array data
-	 */
+	/** Unsafe version of: {@link #glVertexPointer VertexPointer} */
 	public static void nglVertexPointer(int size, int type, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexPointer;
 		if ( CHECKS )

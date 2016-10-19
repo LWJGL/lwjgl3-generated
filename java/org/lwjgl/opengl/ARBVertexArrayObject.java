@@ -58,10 +58,9 @@ public class ARBVertexArrayObject {
 	// --- [ glDeleteVertexArrays ] ---
 
 	/**
-	 * Deletes vertex array objects.
+	 * Unsafe version of: {@link #glDeleteVertexArrays DeleteVertexArrays}
 	 *
-	 * @param n      the number of vertex array objects to be deleted
-	 * @param arrays an array containing the n names of the objects to be deleted
+	 * @param n the number of vertex array objects to be deleted
 	 */
 	public static void nglDeleteVertexArrays(int n, long arrays) {
 		long __functionAddress = GL.getCapabilities().glDeleteVertexArrays;
@@ -93,10 +92,9 @@ public class ARBVertexArrayObject {
 	// --- [ glGenVertexArrays ] ---
 
 	/**
-	 * Generates vertex array object names.
+	 * Unsafe version of: {@link #glGenVertexArrays GenVertexArrays}
 	 *
-	 * @param n      the number of vertex array object names to generate
-	 * @param arrays a buffer in which the generated vertex array object names are stored
+	 * @param n the number of vertex array object names to generate
 	 */
 	public static void nglGenVertexArrays(int n, long arrays) {
 		long __functionAddress = GL.getCapabilities().glGenVertexArrays;

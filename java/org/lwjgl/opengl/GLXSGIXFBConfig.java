@@ -77,14 +77,7 @@ public class GLXSGIXFBConfig {
 
 	// --- [ glXGetFBConfigAttribSGIX ] ---
 
-	/**
-	 * Gets the value of a GLX attribute for a {@code GLXFBConfigSGIX}.
-	 *
-	 * @param display   the connection to the X server
-	 * @param config    the {@code GLXFBConfigSGIX} being queried
-	 * @param attribute the attribute to query
-	 * @param value     returns the attribute value
-	 */
+	/** Unsafe version of: {@link #glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX} */
 	public static int nglXGetFBConfigAttribSGIX(long display, long config, int attribute, long value) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetFBConfigAttribSGIX;
 		if ( CHECKS ) {
@@ -112,12 +105,9 @@ public class GLXSGIXFBConfig {
 	// --- [ glXChooseFBConfigSGIX ] ---
 
 	/**
-	 * Gets {@code GLXFBConfigSGIX}s that match a list of attributes or to get the list of GLXFBConfigSGIXs that are available on the specified screen.
+	 * Unsafe version of: {@link #glXChooseFBConfigSGIX ChooseFBConfigSGIX}
 	 *
-	 * @param display     the connection to the X server
-	 * @param screen      the screen number
-	 * @param attrib_list an optional list of attributes, terminated with org.lwjgl.system.linux.{@code None}
-	 * @param nelements   the number of {@code GLXFBConfigSGIX} returned
+	 * @param nelements the number of {@code GLXFBConfigSGIX} returned
 	 */
 	public static long nglXChooseFBConfigSGIX(long display, int screen, long attrib_list, long nelements) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXChooseFBConfigSGIX;
@@ -189,12 +179,7 @@ public class GLXSGIXFBConfig {
 
 	// --- [ glXGetVisualFromFBConfigSGIX ] ---
 
-	/**
-	 * Retrieves the associated visual of a {@code GLXFBConfigSGIX}.
-	 *
-	 * @param display the connection to the X server
-	 * @param config  the {@code GLXFBConfigSGIX}
-	 */
+	/** Unsafe version of: {@link #glXGetVisualFromFBConfigSGIX GetVisualFromFBConfigSGIX} */
 	public static long nglXGetVisualFromFBConfigSGIX(long display, long config) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetVisualFromFBConfigSGIX;
 		if ( CHECKS ) {
@@ -218,12 +203,7 @@ public class GLXSGIXFBConfig {
 
 	// --- [ glXGetFBConfigFromVisualSGIX ] ---
 
-	/**
-	 * Retrieves the {@code GLXFBConfigSGIX} associated with a visual.
-	 *
-	 * @param display the connection to the X server
-	 * @param vis     the visual
-	 */
+	/** Unsafe version of: {@link #glXGetFBConfigFromVisualSGIX GetFBConfigFromVisualSGIX} */
 	public static long nglXGetFBConfigFromVisualSGIX(long display, long vis) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetFBConfigFromVisualSGIX;
 		if ( CHECKS ) {

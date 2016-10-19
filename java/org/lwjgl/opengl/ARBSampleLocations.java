@@ -62,17 +62,9 @@ public class ARBSampleLocations {
 	// --- [ glFramebufferSampleLocationsfvARB ] ---
 
 	/**
-	 * Controls the programmable sample locations for the framebuffer bound to the specified {@code target}.
-	 * 
-	 * <p>There are {@code N} pairs of programmable sample locations values in a framebuffer, where {@code N} is the value of
-	 * {@link #GL_PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_ARB PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_ARB}. Each programmable sample location is specified as a pair of floating point values in the range
-	 * {@code [0,1]}, corresponding to the x and y locations respectively in GL pixel space. {@code (0.5, 0.5)} thus corresponds to the pixel center. Sample
-	 * locations outside of {@code [0,1]} result in undefined behavior.</p>
+	 * Unsafe version of: {@link #glFramebufferSampleLocationsfvARB FramebufferSampleLocationsfvARB}
 	 *
-	 * @param target the framebuffer target. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td></tr></table>
-	 * @param start  the first sample location to update
-	 * @param count  the number of sample locations to update
-	 * @param v      a pair of values for each sample location to update
+	 * @param count the number of sample locations to update
 	 */
 	public static void nglFramebufferSampleLocationsfvARB(int target, int start, int count, long v) {
 		long __functionAddress = GL.getCapabilities().glFramebufferSampleLocationsfvARB;
@@ -100,12 +92,9 @@ public class ARBSampleLocations {
 	// --- [ glNamedFramebufferSampleLocationsfvARB ] ---
 
 	/**
-	 * DSA version of {@link #glFramebufferSampleLocationsfvARB FramebufferSampleLocationsfvARB}.
+	 * Unsafe version of: {@link #glNamedFramebufferSampleLocationsfvARB NamedFramebufferSampleLocationsfvARB}
 	 *
-	 * @param framebuffer the framebuffer object to update
-	 * @param start       the first sample location to update
-	 * @param count       the number of sample locations to update
-	 * @param v           a pair of values for each sample location to update
+	 * @param count the number of sample locations to update
 	 */
 	public static void nglNamedFramebufferSampleLocationsfvARB(int framebuffer, int start, int count, long v) {
 		long __functionAddress = GL.getCapabilities().glNamedFramebufferSampleLocationsfvARB;

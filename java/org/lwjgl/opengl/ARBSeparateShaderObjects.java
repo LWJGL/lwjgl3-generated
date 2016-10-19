@@ -141,37 +141,9 @@ public class ARBSeparateShaderObjects {
 	// --- [ glCreateShaderProgramv ] ---
 
 	/**
-	 * Creates a stand-alone program from an array of null-terminated source code strings.
-	 * 
-	 * <p>{@code glCreateShaderProgram} is equivalent (assuming no errors are generated) to:</p>
-	 * 
-	 * <pre><code>const GLuint shader = glCreateShader(type);
-if (shader) {
-    glShaderSource(shader, count, strings, NULL);
-    glCompileShader(shader);
-    const GLuint program = glCreateProgram();
-    if (program) {
-        GLint compiled = GL_FALSE;
-        glGetShaderiv(shader, GL_COMPILE_STATUS, &compiled);
-        glProgramParameteri(program, GL_PROGRAM_SEPARABLE, GL_TRUE);
-        if (compiled) {
-            glAttachShader(program, shader);
-            glLinkProgram(program);
-            glDetachShader(program, shader);
-        }
-        // append-shader-info-log-to-program-info-log
-    }
-    glDeleteShader(shader);
-    return program;
-} else {
-    return 0;
-}</code></pre>
-	 * 
-	 * <p>The program object created by glCreateShaderProgram has its GL_PROGRAM_SEPARABLE status set to GL_TRUE.</p>
+	 * Unsafe version of: {@link #glCreateShaderProgramv CreateShaderProgramv}
 	 *
-	 * @param type    the type of shader to create
-	 * @param count   the number of source code strings in the array {@code strings}
-	 * @param strings an array of pointers to source code strings from which to create the program object
+	 * @param count the number of source code strings in the array {@code strings}
 	 */
 	public static int nglCreateShaderProgramv(int type, int count, long strings) {
 		long __functionAddress = GL.getCapabilities().glCreateShaderProgramv;
@@ -320,10 +292,9 @@ if (shader) {
 	// --- [ glDeleteProgramPipelines ] ---
 
 	/**
-	 * Deletes program pipeline objects.
+	 * Unsafe version of: {@link #glDeleteProgramPipelines DeleteProgramPipelines}
 	 *
-	 * @param n         the number of program pipeline objects to delete
-	 * @param pipelines an array of names of program pipeline objects to delete
+	 * @param n the number of program pipeline objects to delete
 	 */
 	public static void nglDeleteProgramPipelines(int n, long pipelines) {
 		long __functionAddress = GL.getCapabilities().glDeleteProgramPipelines;
@@ -355,10 +326,9 @@ if (shader) {
 	// --- [ glGenProgramPipelines ] ---
 
 	/**
-	 * Reserves program pipeline object names.
+	 * Unsafe version of: {@link #glGenProgramPipelines GenProgramPipelines}
 	 *
-	 * @param n         the number of program pipeline object names to reserve
-	 * @param pipelines an array of into which the reserved names will be written
+	 * @param n the number of program pipeline object names to reserve
 	 */
 	public static void nglGenProgramPipelines(int n, long pipelines) {
 		long __functionAddress = GL.getCapabilities().glGenProgramPipelines;
@@ -420,13 +390,7 @@ if (shader) {
 
 	// --- [ glGetProgramPipelineiv ] ---
 
-	/**
-	 * Retrieves properties of a program pipeline object.
-	 *
-	 * @param pipeline the name of a program pipeline object whose parameter retrieve
-	 * @param pname    the name of the parameter to retrieve. One of:<br><table><tr><td>{@link #GL_ACTIVE_PROGRAM ACTIVE_PROGRAM}</td><td>{@link GL20#GL_INFO_LOG_LENGTH INFO_LOG_LENGTH}</td><td>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}</td><td>{@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}</td><td>{@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}</td></tr><tr><td>{@link GL40#GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}</td><td>{@link GL40#GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}</td></tr></table>
-	 * @param params   a variable into which will be written the value or values of {@code pname} for {@code pipeline}
-	 */
+	/** Unsafe version of: {@link #glGetProgramPipelineiv GetProgramPipelineiv} */
 	public static void nglGetProgramPipelineiv(int pipeline, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetProgramPipelineiv;
 		if ( CHECKS )
@@ -747,12 +711,9 @@ if (shader) {
 	// --- [ glProgramUniform1iv ] ---
 
 	/**
-	 * Specifies the value of a single float uniform variable or a float uniform variable array for a specified program object.
+	 * Unsafe version of: {@link #glProgramUniform1iv ProgramUniform1iv}
 	 *
-	 * @param program  the handle of the program containing the uniform variable to be modified
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglProgramUniform1iv(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform1iv;
@@ -775,12 +736,9 @@ if (shader) {
 	// --- [ glProgramUniform2iv ] ---
 
 	/**
-	 * Specifies the value of a single ivec2 uniform variable or an ivec2 uniform variable array for a specified program object.
+	 * Unsafe version of: {@link #glProgramUniform2iv ProgramUniform2iv}
 	 *
-	 * @param program  the handle of the program containing the uniform variable to be modified
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglProgramUniform2iv(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform2iv;
@@ -803,12 +761,9 @@ if (shader) {
 	// --- [ glProgramUniform3iv ] ---
 
 	/**
-	 * Specifies the value of a single ivec3 uniform variable or an ivec3 uniform variable array for a specified program object.
+	 * Unsafe version of: {@link #glProgramUniform3iv ProgramUniform3iv}
 	 *
-	 * @param program  the handle of the program containing the uniform variable to be modified
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglProgramUniform3iv(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform3iv;
@@ -831,12 +786,9 @@ if (shader) {
 	// --- [ glProgramUniform4iv ] ---
 
 	/**
-	 * Specifies the value of a single ivec4 uniform variable or an ivec4 uniform variable array for a specified program object.
+	 * Unsafe version of: {@link #glProgramUniform4iv ProgramUniform4iv}
 	 *
-	 * @param program  the handle of the program containing the uniform variable to be modified
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglProgramUniform4iv(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform4iv;
@@ -859,12 +811,9 @@ if (shader) {
 	// --- [ glProgramUniform1uiv ] ---
 
 	/**
-	 * Specifies the value of a single uint uniform variable or a uint uniform variable array for a specified program object.
+	 * Unsafe version of: {@link #glProgramUniform1uiv ProgramUniform1uiv}
 	 *
-	 * @param program  the handle of the program containing the uniform variable to be modified
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglProgramUniform1uiv(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform1uiv;
@@ -887,12 +836,9 @@ if (shader) {
 	// --- [ glProgramUniform2uiv ] ---
 
 	/**
-	 * Specifies the value of a single uvec2 uniform variable or a uvec2 uniform variable array for a specified program object.
+	 * Unsafe version of: {@link #glProgramUniform2uiv ProgramUniform2uiv}
 	 *
-	 * @param program  the handle of the program containing the uniform variable to be modified
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglProgramUniform2uiv(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform2uiv;
@@ -915,12 +861,9 @@ if (shader) {
 	// --- [ glProgramUniform3uiv ] ---
 
 	/**
-	 * Specifies the value of a single uvec3 uniform variable or a uvec3 uniform variable array for a specified program object.
+	 * Unsafe version of: {@link #glProgramUniform3uiv ProgramUniform3uiv}
 	 *
-	 * @param program  the handle of the program containing the uniform variable to be modified
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglProgramUniform3uiv(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform3uiv;
@@ -943,12 +886,9 @@ if (shader) {
 	// --- [ glProgramUniform4uiv ] ---
 
 	/**
-	 * Specifies the value of a single uvec4 uniform variable or a uvec4 uniform variable array for a specified program object.
+	 * Unsafe version of: {@link #glProgramUniform4uiv ProgramUniform4uiv}
 	 *
-	 * @param program  the handle of the program containing the uniform variable to be modified
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglProgramUniform4uiv(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform4uiv;
@@ -971,12 +911,9 @@ if (shader) {
 	// --- [ glProgramUniform1fv ] ---
 
 	/**
-	 * Specifies the value of a single float uniform variable or a float uniform variable array for a specified program object.
+	 * Unsafe version of: {@link #glProgramUniform1fv ProgramUniform1fv}
 	 *
-	 * @param program  the handle of the program containing the uniform variable to be modified
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglProgramUniform1fv(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform1fv;
@@ -999,12 +936,9 @@ if (shader) {
 	// --- [ glProgramUniform2fv ] ---
 
 	/**
-	 * Specifies the value of a single vec2 uniform variable or a vec2 uniform variable array for a specified program object.
+	 * Unsafe version of: {@link #glProgramUniform2fv ProgramUniform2fv}
 	 *
-	 * @param program  the handle of the program containing the uniform variable to be modified
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglProgramUniform2fv(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform2fv;
@@ -1027,12 +961,9 @@ if (shader) {
 	// --- [ glProgramUniform3fv ] ---
 
 	/**
-	 * Specifies the value of a single vec3 uniform variable or a vec3 uniform variable array for a specified program object.
+	 * Unsafe version of: {@link #glProgramUniform3fv ProgramUniform3fv}
 	 *
-	 * @param program  the handle of the program containing the uniform variable to be modified
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglProgramUniform3fv(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform3fv;
@@ -1055,12 +986,9 @@ if (shader) {
 	// --- [ glProgramUniform4fv ] ---
 
 	/**
-	 * Specifies the value of a single vec4 uniform variable or a vec4 uniform variable array for a specified program object.
+	 * Unsafe version of: {@link #glProgramUniform4fv ProgramUniform4fv}
 	 *
-	 * @param program  the handle of the program containing the uniform variable to be modified
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglProgramUniform4fv(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform4fv;
@@ -1083,12 +1011,9 @@ if (shader) {
 	// --- [ glProgramUniform1dv ] ---
 
 	/**
-	 * Specifies the value of a single double uniform variable or a double uniform variable array for a specified program object.
+	 * Unsafe version of: {@link #glProgramUniform1dv ProgramUniform1dv}
 	 *
-	 * @param program  the handle of the program containing the uniform variable to be modified
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglProgramUniform1dv(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform1dv;
@@ -1111,12 +1036,9 @@ if (shader) {
 	// --- [ glProgramUniform2dv ] ---
 
 	/**
-	 * Specifies the value of a single dvec2 uniform variable or a dvec2 uniform variable array for a specified program object.
+	 * Unsafe version of: {@link #glProgramUniform2dv ProgramUniform2dv}
 	 *
-	 * @param program  the handle of the program containing the uniform variable to be modified
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglProgramUniform2dv(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform2dv;
@@ -1139,12 +1061,9 @@ if (shader) {
 	// --- [ glProgramUniform3dv ] ---
 
 	/**
-	 * Specifies the value of a single dvec3 uniform variable or a dvec3 uniform variable array for a specified program object.
+	 * Unsafe version of: {@link #glProgramUniform3dv ProgramUniform3dv}
 	 *
-	 * @param program  the handle of the program containing the uniform variable to be modified
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglProgramUniform3dv(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform3dv;
@@ -1167,12 +1086,9 @@ if (shader) {
 	// --- [ glProgramUniform4dv ] ---
 
 	/**
-	 * Specifies the value of a single dvec4 uniform variable or a dvec4 uniform variable array for a specified program object.
+	 * Unsafe version of: {@link #glProgramUniform4dv ProgramUniform4dv}
 	 *
-	 * @param program  the handle of the program containing the uniform variable to be modified
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglProgramUniform4dv(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform4dv;
@@ -1195,13 +1111,9 @@ if (shader) {
 	// --- [ glProgramUniformMatrix2fv ] ---
 
 	/**
-	 * Specifies the value of a single mat2 uniform variable or a mat2 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glProgramUniformMatrix2fv ProgramUniformMatrix2fv}
 	 *
-	 * @param program   the handle of the program containing the uniform variable to be modified
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix2fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2fv;
@@ -1225,13 +1137,9 @@ if (shader) {
 	// --- [ glProgramUniformMatrix3fv ] ---
 
 	/**
-	 * Specifies the value of a single mat3 uniform variable or a mat3 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glProgramUniformMatrix3fv ProgramUniformMatrix3fv}
 	 *
-	 * @param program   the handle of the program containing the uniform variable to be modified
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix3fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3fv;
@@ -1255,13 +1163,9 @@ if (shader) {
 	// --- [ glProgramUniformMatrix4fv ] ---
 
 	/**
-	 * Specifies the value of a single mat4 uniform variable or a mat4 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glProgramUniformMatrix4fv ProgramUniformMatrix4fv}
 	 *
-	 * @param program   the handle of the program containing the uniform variable to be modified
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix4fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4fv;
@@ -1285,13 +1189,9 @@ if (shader) {
 	// --- [ glProgramUniformMatrix2dv ] ---
 
 	/**
-	 * Specifies the value of a single dmat2 uniform variable or a dmat2 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glProgramUniformMatrix2dv ProgramUniformMatrix2dv}
 	 *
-	 * @param program   the handle of the program containing the uniform variable to be modified
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix2dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2dv;
@@ -1315,13 +1215,9 @@ if (shader) {
 	// --- [ glProgramUniformMatrix3dv ] ---
 
 	/**
-	 * Specifies the value of a single dmat3 uniform variable or a dmat3 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glProgramUniformMatrix3dv ProgramUniformMatrix3dv}
 	 *
-	 * @param program   the handle of the program containing the uniform variable to be modified
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix3dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3dv;
@@ -1345,13 +1241,9 @@ if (shader) {
 	// --- [ glProgramUniformMatrix4dv ] ---
 
 	/**
-	 * Specifies the value of a single dmat4 uniform variable or a dmat4 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glProgramUniformMatrix4dv ProgramUniformMatrix4dv}
 	 *
-	 * @param program   the handle of the program containing the uniform variable to be modified
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix4dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4dv;
@@ -1375,13 +1267,9 @@ if (shader) {
 	// --- [ glProgramUniformMatrix2x3fv ] ---
 
 	/**
-	 * Specifies the value of a single mat2x3 uniform variable or a mat2x3 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glProgramUniformMatrix2x3fv ProgramUniformMatrix2x3fv}
 	 *
-	 * @param program   the handle of the program containing the uniform variable to be modified
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix2x3fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2x3fv;
@@ -1405,13 +1293,9 @@ if (shader) {
 	// --- [ glProgramUniformMatrix3x2fv ] ---
 
 	/**
-	 * Specifies the value of a single mat3x2 uniform variable or a mat3x2 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glProgramUniformMatrix3x2fv ProgramUniformMatrix3x2fv}
 	 *
-	 * @param program   the handle of the program containing the uniform variable to be modified
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix3x2fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3x2fv;
@@ -1435,13 +1319,9 @@ if (shader) {
 	// --- [ glProgramUniformMatrix2x4fv ] ---
 
 	/**
-	 * Specifies the value of a single mat2x4 uniform variable or a mat2x4 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glProgramUniformMatrix2x4fv ProgramUniformMatrix2x4fv}
 	 *
-	 * @param program   the handle of the program containing the uniform variable to be modified
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix2x4fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2x4fv;
@@ -1465,13 +1345,9 @@ if (shader) {
 	// --- [ glProgramUniformMatrix4x2fv ] ---
 
 	/**
-	 * Specifies the value of a single mat4x2 uniform variable or a mat4x2 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glProgramUniformMatrix4x2fv ProgramUniformMatrix4x2fv}
 	 *
-	 * @param program   the handle of the program containing the uniform variable to be modified
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix4x2fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4x2fv;
@@ -1495,13 +1371,9 @@ if (shader) {
 	// --- [ glProgramUniformMatrix3x4fv ] ---
 
 	/**
-	 * Specifies the value of a single mat3x4 uniform variable or a mat3x4 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glProgramUniformMatrix3x4fv ProgramUniformMatrix3x4fv}
 	 *
-	 * @param program   the handle of the program containing the uniform variable to be modified
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix3x4fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3x4fv;
@@ -1525,13 +1397,9 @@ if (shader) {
 	// --- [ glProgramUniformMatrix4x3fv ] ---
 
 	/**
-	 * Specifies the value of a single mat4x3 uniform variable or a mat4x3 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glProgramUniformMatrix4x3fv ProgramUniformMatrix4x3fv}
 	 *
-	 * @param program   the handle of the program containing the uniform variable to be modified
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix4x3fv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4x3fv;
@@ -1555,13 +1423,9 @@ if (shader) {
 	// --- [ glProgramUniformMatrix2x3dv ] ---
 
 	/**
-	 * Specifies the value of a single dmat2x3 uniform variable or a dmat2x3 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glProgramUniformMatrix2x3dv ProgramUniformMatrix2x3dv}
 	 *
-	 * @param program   the handle of the program containing the uniform variable to be modified
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix2x3dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2x3dv;
@@ -1585,13 +1449,9 @@ if (shader) {
 	// --- [ glProgramUniformMatrix3x2dv ] ---
 
 	/**
-	 * Specifies the value of a single dmat3x2 uniform variable or a dmat3x2 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glProgramUniformMatrix3x2dv ProgramUniformMatrix3x2dv}
 	 *
-	 * @param program   the handle of the program containing the uniform variable to be modified
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix3x2dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3x2dv;
@@ -1615,13 +1475,9 @@ if (shader) {
 	// --- [ glProgramUniformMatrix2x4dv ] ---
 
 	/**
-	 * Specifies the value of a single dmat2x4 uniform variable or a dmat2x4 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glProgramUniformMatrix2x4dv ProgramUniformMatrix2x4dv}
 	 *
-	 * @param program   the handle of the program containing the uniform variable to be modified
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix2x4dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2x4dv;
@@ -1645,13 +1501,9 @@ if (shader) {
 	// --- [ glProgramUniformMatrix4x2dv ] ---
 
 	/**
-	 * Specifies the value of a single dmat4x2 uniform variable or a dmat4x2 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glProgramUniformMatrix4x2dv ProgramUniformMatrix4x2dv}
 	 *
-	 * @param program   the handle of the program containing the uniform variable to be modified
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix4x2dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4x2dv;
@@ -1675,13 +1527,9 @@ if (shader) {
 	// --- [ glProgramUniformMatrix3x4dv ] ---
 
 	/**
-	 * Specifies the value of a single dmat3x4 uniform variable or a dmat3x4 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glProgramUniformMatrix3x4dv ProgramUniformMatrix3x4dv}
 	 *
-	 * @param program   the handle of the program containing the uniform variable to be modified
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix3x4dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3x4dv;
@@ -1705,13 +1553,9 @@ if (shader) {
 	// --- [ glProgramUniformMatrix4x3dv ] ---
 
 	/**
-	 * Specifies the value of a single dmat4x3 uniform variable or a dmat4x3 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glProgramUniformMatrix4x3dv ProgramUniformMatrix4x3dv}
 	 *
-	 * @param program   the handle of the program containing the uniform variable to be modified
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix4x3dv(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4x3dv;
@@ -1749,12 +1593,9 @@ if (shader) {
 	// --- [ glGetProgramPipelineInfoLog ] ---
 
 	/**
-	 * Retrieves the info log string from a program pipeline object.
+	 * Unsafe version of: {@link #glGetProgramPipelineInfoLog GetProgramPipelineInfoLog}
 	 *
-	 * @param pipeline the name of a program pipeline object from which to retrieve the info log
-	 * @param bufSize  the maximum number of characters, including the null terminator, that may be written into {@code infoLog}
-	 * @param length   a variable into which will be written the number of characters written into {@code infoLog}
-	 * @param infoLog  an array of characters into which will be written the info log for {@code pipeline}
+	 * @param bufSize the maximum number of characters, including the null terminator, that may be written into {@code infoLog}
 	 */
 	public static void nglGetProgramPipelineInfoLog(int pipeline, int bufSize, long length, long infoLog) {
 		long __functionAddress = GL.getCapabilities().glGetProgramPipelineInfoLog;

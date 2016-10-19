@@ -53,14 +53,9 @@ public class WGLAMDGPUAssociation {
 	// --- [ wglGetGPUIDsAMD ] ---
 
 	/**
-	 * Returns the IDs for available GPUs.
-	 * 
-	 * <p>If the function succeeds, the return value is the number of total GPUs available. The value 0 is returned if no GPUs are available or if the call has
-	 * failed. The ID 0 is reserved and will not be retuned as a valid GPU ID. If the array {@code ids} is {@code NULL}, the function will only return the total
-	 * number of GPUs. {@code ids} will be tightly packed with no 0 values between valid ids.</p>
+	 * Unsafe version of: {@link #wglGetGPUIDsAMD GetGPUIDsAMD}
 	 *
 	 * @param maxCount the max number of IDs that can be returned
-	 * @param ids      the array of returned IDs
 	 */
 	public static int nwglGetGPUIDsAMD(int maxCount, long ids) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglGetGPUIDsAMD;
@@ -85,19 +80,9 @@ public class WGLAMDGPUAssociation {
 	// --- [ wglGetGPUInfoAMD ] ---
 
 	/**
-	 * Each GPU in a system may have different properties, performance characteristics and different supported OpenGL versions. Use this function to determine
-	 * which GPU is best suited for a specific task.
-	 * 
-	 * <p>For a string, {@code size} will be the number of characters allocated and will include {@code NULL} termination. For arrays of type GL_UNSIGNED_INT, GL_INT,
-	 * and GL_FLOAT {@code size} will be the array depth. If the function succeeds, the number of values written will be returned. If the number of values
-	 * written is equal to {@code size}, the query should be repeated with a larger {@code data} buffer. Strings should be queried using the GL_UNSIGNED_BYTE
-	 * type, are UTF-8 encoded and will be {@code NULL} terminated. If the function fails, -1 will be returned.</p>
+	 * Unsafe version of: {@link #wglGetGPUInfoAMD GetGPUInfoAMD}
 	 *
-	 * @param id       a GPU id obtained from calling {@link #wglGetGPUIDsAMD GetGPUIDsAMD}
-	 * @param property the information being queried. One of:<br><table><tr><td>{@link #WGL_GPU_VENDOR_AMD GPU_VENDOR_AMD}</td><td>{@link #WGL_GPU_RENDERER_STRING_AMD GPU_RENDERER_STRING_AMD}</td><td>{@link #WGL_GPU_OPENGL_VERSION_STRING_AMD GPU_OPENGL_VERSION_STRING_AMD}</td><td>{@link #WGL_GPU_FASTEST_TARGET_GPUS_AMD GPU_FASTEST_TARGET_GPUS_AMD}</td></tr><tr><td>{@link #WGL_GPU_RAM_AMD GPU_RAM_AMD}</td><td>{@link #WGL_GPU_CLOCK_AMD GPU_CLOCK_AMD}</td><td>{@link #WGL_GPU_NUM_PIPES_AMD GPU_NUM_PIPES_AMD}</td><td>{@link #WGL_GPU_NUM_SIMD_AMD GPU_NUM_SIMD_AMD}</td></tr><tr><td>{@link #WGL_GPU_NUM_RB_AMD GPU_NUM_RB_AMD}</td><td>{@link #WGL_GPU_NUM_SPI_AMD GPU_NUM_SPI_AMD}</td></tr></table>
-	 * @param dataType the data type to be returned. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_FLOAT FLOAT}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td></tr></table>
-	 * @param size     the size of the {@code data} buffer
-	 * @param data     the buffer which will be filled with the requested information
+	 * @param size the size of the {@code data} buffer
 	 */
 	public static int nwglGetGPUInfoAMD(int id, int property, int dataType, int size, long data) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglGetGPUInfoAMD;
@@ -170,15 +155,7 @@ public class WGLAMDGPUAssociation {
 
 	// --- [ wglCreateAssociatedContextAttribsAMD ] ---
 
-	/**
-	 * Create an associated context with a specific GL version.
-	 * 
-	 * <p>All capabilities and limitations of {@link WGLARBCreateContext#wglCreateContextAttribsARB CreateContextAttribsARB} apply to {@code CreateAssociatedContextAttribsAMD}.</p>
-	 *
-	 * @param id           a valid GPU id
-	 * @param shareContext must either be {@code NULL} or that of an associated context created with the same GPU ID as {@code id}
-	 * @param attribList   a 0-terminated list of attributes for the context
-	 */
+	/** Unsafe version of: {@link #wglCreateAssociatedContextAttribsAMD CreateAssociatedContextAttribsAMD} */
 	public static long nwglCreateAssociatedContextAttribsAMD(int id, long shareContext, long attribList) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglCreateAssociatedContextAttribsAMD;
 		if ( CHECKS )

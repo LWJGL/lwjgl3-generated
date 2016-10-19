@@ -69,18 +69,7 @@ public class WGLARBPbuffer {
 
 	// --- [ wglCreatePbufferARB ] ---
 
-	/**
-	 * Creates a pixel buffer (pbuffer) and returns a handle to it.
-	 * 
-	 * <p>Support for pbuffers may be restricted to specific pixel formats. Use {@link WGLARBPixelFormat#wglGetPixelFormatAttribiARB GetPixelFormatAttribiARB} to query the {@link #WGL_DRAW_TO_PBUFFER_ARB DRAW_TO_PBUFFER_ARB}
-	 * attribute to determine which pixel formats support the creation of pbuffers.</p>
-	 *
-	 * @param hdc         a device context for the device on which the pbuffer is created
-	 * @param pixelFormat a non-generic pixel format descriptor index
-	 * @param width       the pixel width of the rectangular pbuffer
-	 * @param height      the pixel height of the rectangular pbuffer
-	 * @param attribList  a 0-terminated list of attributes {type, value} pairs containing integer attribute values
-	 */
+	/** Unsafe version of: {@link #wglCreatePbufferARB CreatePbufferARB} */
 	public static long nwglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, long attribList) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglCreatePbufferARB;
 		if ( CHECKS ) {
@@ -163,13 +152,7 @@ public class WGLARBPbuffer {
 
 	// --- [ wglQueryPbufferARB ] ---
 
-	/**
-	 * Queries an attribute associated with a specific pbuffer.
-	 *
-	 * @param pbuffer   a pbuffer handle
-	 * @param attribute the attribute to query. One of:<br><table><tr><td>{@link #WGL_PBUFFER_WIDTH_ARB PBUFFER_WIDTH_ARB}</td><td>{@link #WGL_PBUFFER_HEIGHT_ARB PBUFFER_HEIGHT_ARB}</td><td>{@link #WGL_PBUFFER_LOST_ARB PBUFFER_LOST_ARB}</td></tr></table>
-	 * @param value     the attribute value
-	 */
+	/** Unsafe version of: {@link #wglQueryPbufferARB QueryPbufferARB} */
 	public static int nwglQueryPbufferARB(long pbuffer, int attribute, long value) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglQueryPbufferARB;
 		if ( CHECKS ) {

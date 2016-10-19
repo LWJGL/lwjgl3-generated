@@ -54,13 +54,9 @@ public class ARBGetProgramBinary {
 	// --- [ glGetProgramBinary ] ---
 
 	/**
-	 * Returns a binary representation of a program object's compiled and linked executable source.
+	 * Unsafe version of: {@link #glGetProgramBinary GetProgramBinary}
 	 *
-	 * @param program      the name of a program object whose binary representation to retrieve
-	 * @param bufSize      the size of the buffer whose address is given by {@code binary}
-	 * @param length       the address of a variable to receive the number of bytes written into {@code binary}
-	 * @param binaryFormat a variable to receive a token indicating the format of the binary data returned by the GL
-	 * @param binary       an array into which the GL will return {@code program}'s binary representation
+	 * @param bufSize the size of the buffer whose address is given by {@code binary}
 	 */
 	public static void nglGetProgramBinary(int program, int bufSize, long length, long binaryFormat, long binary) {
 		long __functionAddress = GL.getCapabilities().glGetProgramBinary;
@@ -88,12 +84,9 @@ public class ARBGetProgramBinary {
 	// --- [ glProgramBinary ] ---
 
 	/**
-	 * Loads a program object with a program binary.
+	 * Unsafe version of: {@link #glProgramBinary ProgramBinary}
 	 *
-	 * @param program      the name of a program object into which to load a program binary
-	 * @param binaryFormat the format of the binary data in binary
-	 * @param binary       an array containing the binary to be loaded into {@code program}
-	 * @param length       the number of bytes contained in {@code binary}
+	 * @param length the number of bytes contained in {@code binary}
 	 */
 	public static void nglProgramBinary(int program, int binaryFormat, long binary, int length) {
 		long __functionAddress = GL.getCapabilities().glProgramBinary;

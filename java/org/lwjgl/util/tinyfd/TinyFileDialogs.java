@@ -83,15 +83,7 @@ public class TinyFileDialogs {
 
 	// --- [ tinyfd_response ] ---
 
-	/**
-	 * If you pass "tinyfd_query" as {@code aTitle}, the functions will not display the dialogs but will fill {@code tinyfd_response} with the retain solution
-	 * and return:
-	 * 
-	 * <p>Possible values for {@code tinyfd_response} are (all lowercase) for the graphic mode: windows applescript zenity zenity3 matedialog kdialog xdialog
-	 * tkinter gdialog gxmessage xmessage</p>
-	 * 
-	 * <p>For the console mode: dialog whiptail basicinput</p>
-	 */
+	/** Unsafe version of: {@link #tinyfd_response response} */
 	public static native long ntinyfd_response();
 
 	/**
@@ -110,17 +102,7 @@ public class TinyFileDialogs {
 
 	// --- [ tinyfd_messageBox ] ---
 
-	/**
-	 * Displays a message dialog.
-	 *
-	 * @param aTitle         the dialog title
-	 * @param aMessage       the message. It may contain \n and \t characters.
-	 * @param aDialogType    the dialog type. One of:<br><table><tr><td>"ok"</td><td>"okcancel"</td><td>"yesno"</td></tr></table>
-	 * @param aIconType      the icon type. One of:<br><table><tr><td>"info"</td><td>"warning"</td><td>"error"</td><td>"question"</td></tr></table>
-	 * @param aDefaultButton 0 for cancel/no, 1 for ok/yes
-	 *
-	 * @return 0 for cancel/no, 1 for ok/yes
-	 */
+	/** Unsafe version of: {@link #tinyfd_messageBox messageBox} */
 	public static native int ntinyfd_messageBox(long aTitle, long aMessage, long aDialogType, long aIconType, int aDefaultButton);
 
 	/**
@@ -170,15 +152,7 @@ public class TinyFileDialogs {
 
 	// --- [ tinyfd_inputBox ] ---
 
-	/**
-	 * Displays an input dialog.
-	 *
-	 * @param aTitle        the dialog title
-	 * @param aMessage      the message. May NOT contain \n and \t characters on Windows.
-	 * @param aDefaultInput if {@code NULL} it's a password box
-	 *
-	 * @return the input value or {@code NULL} on cancel
-	 */
+	/** Unsafe version of: {@link #tinyfd_inputBox inputBox} */
 	public static native long ntinyfd_inputBox(long aTitle, long aMessage, long aDefaultInput);
 
 	/**
@@ -225,15 +199,9 @@ public class TinyFileDialogs {
 	// --- [ tinyfd_saveFileDialog ] ---
 
 	/**
-	 * Displays a file save dialog.
+	 * Unsafe version of: {@link #tinyfd_saveFileDialog saveFileDialog}
 	 *
-	 * @param aTitle                   the dialog title
-	 * @param aDefaultPathAndFile      the default path and/or file
-	 * @param aNumOfFilterPatterns     the number of patterns in {@code aFilterPatterns}
-	 * @param aFilterPatterns          an array of file type patterns ({@code NULL} or {"*.jpg","*.png"}
-	 * @param aSingleFilterDescription {@code NULL} or "image files"
-	 *
-	 * @return the selected file path or {@code NULL} on cancel
+	 * @param aNumOfFilterPatterns the number of patterns in {@code aFilterPatterns}
 	 */
 	public static native long ntinyfd_saveFileDialog(long aTitle, long aDefaultPathAndFile, int aNumOfFilterPatterns, long aFilterPatterns, long aSingleFilterDescription);
 
@@ -283,16 +251,9 @@ public class TinyFileDialogs {
 	// --- [ tinyfd_openFileDialog ] ---
 
 	/**
-	 * Displays a file open dialog.
+	 * Unsafe version of: {@link #tinyfd_openFileDialog openFileDialog}
 	 *
-	 * @param aTitle                   the dialog title
-	 * @param aDefaultPathAndFile      the default path and/or file
-	 * @param aNumOfFilterPatterns     the number of patterns in {@code aFilterPatterns}
-	 * @param aFilterPatterns          an array of file type patterns ({@code NULL} or {"*.jpg","*.png"}
-	 * @param aSingleFilterDescription {@code NULL} or "image files"
-	 * @param aAllowMultipleSelects    if true, multiple selections are allowed
-	 *
-	 * @return the file(s) selected or {@code NULL} on cancel. In case of multiple files, the separator is '|'.
+	 * @param aNumOfFilterPatterns the number of patterns in {@code aFilterPatterns}
 	 */
 	public static native long ntinyfd_openFileDialog(long aTitle, long aDefaultPathAndFile, int aNumOfFilterPatterns, long aFilterPatterns, long aSingleFilterDescription, int aAllowMultipleSelects);
 
@@ -343,12 +304,7 @@ public class TinyFileDialogs {
 
 	// --- [ tinyfd_selectFolderDialog ] ---
 
-	/**
-	 * Displays a folder selection dialog.
-	 *
-	 * @param aTitle       the dialog title
-	 * @param aDefaultPath the default path
-	 */
+	/** Unsafe version of: {@link #tinyfd_selectFolderDialog selectFolderDialog} */
 	public static native long ntinyfd_selectFolderDialog(long aTitle, long aDefaultPath);
 
 	/**
@@ -386,16 +342,7 @@ public class TinyFileDialogs {
 
 	// --- [ tinyfd_colorChooser ] ---
 
-	/**
-	 * Displays a color chooser dialog.
-	 *
-	 * @param aTitle         the dialog title
-	 * @param aDefaultHexRGB {@code NULL} or "#FF0000"
-	 * @param aDefaultRGB    { 0 , 255 , 255 }. Used only if {@code aDefaultHexRGB} is {@code NULL}.
-	 * @param aoResultRGB    returns the selected color. {@code aDefaultRGB} and {@code aoResultRGB} can be the same array.
-	 *
-	 * @return the selected hexcolor as a string "#FF0000" or {@code NULL} on cancel
-	 */
+	/** Unsafe version of: {@link #tinyfd_colorChooser colorChooser} */
 	public static native long ntinyfd_colorChooser(long aTitle, long aDefaultHexRGB, long aDefaultRGB, long aoResultRGB);
 
 	/**

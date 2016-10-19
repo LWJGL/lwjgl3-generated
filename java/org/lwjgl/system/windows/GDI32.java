@@ -148,20 +148,10 @@ public class GDI32 {
 
 	// --- [ ChoosePixelFormat ] ---
 
-	/**
-	 * Attempts to match an appropriate pixel format supported by a device context to a given pixel format specification.
-	 *
-	 * @param hdc                   the device context that the function examines to determine the best match for the pixel format descriptor pointed to by {@code pixelFormatDescriptor}
-	 * @param pixelFormatDescriptor a {@link PIXELFORMATDESCRIPTOR} structure that specifies the requested pixel format
-	 */
+	/** Unsafe version of: {@link #ChoosePixelFormat} */
 	public static native int nChoosePixelFormat(long __functionAddress, long hdc, long pixelFormatDescriptor);
 
-	/**
-	 * Attempts to match an appropriate pixel format supported by a device context to a given pixel format specification.
-	 *
-	 * @param hdc                   the device context that the function examines to determine the best match for the pixel format descriptor pointed to by {@code pixelFormatDescriptor}
-	 * @param pixelFormatDescriptor a {@link PIXELFORMATDESCRIPTOR} structure that specifies the requested pixel format
-	 */
+	/** Unsafe version of: {@link #ChoosePixelFormat} */
 	public static int nChoosePixelFormat(long hdc, long pixelFormatDescriptor) {
 		long __functionAddress = Functions.ChoosePixelFormat;
 		if ( CHECKS )
@@ -181,34 +171,10 @@ public class GDI32 {
 
 	// --- [ DescribePixelFormat ] ---
 
-	/**
-	 * Obtains information about the pixel format identified by pixelFormat of the device associated with dc. The function sets the members of the
-	 * {@link PIXELFORMATDESCRIPTOR} structure pointed to by pixelFormatDescriptor with that pixel format data. The return value is the maximum pixel format
-	 * index of the device context.
-	 *
-	 * @param hdc                   the device context
-	 * @param pixelFormat           index that specifies the pixel format. The pixel formats that a device context supports are identified by positive one-based integer indexes.
-	 * @param bytes                 the size, in bytes, of the structure pointed to by {@code pixelFormatDescriptor}. The {@code wglDescribePixelFormat} function stores no more than
-	 *                              {@code bytes} bytes of data to that structure. Set this value to {@link PIXELFORMATDESCRIPTOR#SIZEOF}.
-	 * @param pixelFormatDescriptor a {@link PIXELFORMATDESCRIPTOR} structure whose members the function sets with pixel format data. The function stores the number of bytes copied to
-	 *                              the structure in the structure's {@code size} member. If, upon entry, {@code pixelFormatDescriptor} is {@code NULL}, the function writes no data to the
-	 *                              structure. This is useful when you only want to obtain the maximum pixel format index of a device context.
-	 */
+	/** Unsafe version of: {@link #DescribePixelFormat} */
 	public static native int nDescribePixelFormat(long __functionAddress, long hdc, int pixelFormat, int bytes, long pixelFormatDescriptor);
 
-	/**
-	 * Obtains information about the pixel format identified by pixelFormat of the device associated with dc. The function sets the members of the
-	 * {@link PIXELFORMATDESCRIPTOR} structure pointed to by pixelFormatDescriptor with that pixel format data. The return value is the maximum pixel format
-	 * index of the device context.
-	 *
-	 * @param hdc                   the device context
-	 * @param pixelFormat           index that specifies the pixel format. The pixel formats that a device context supports are identified by positive one-based integer indexes.
-	 * @param bytes                 the size, in bytes, of the structure pointed to by {@code pixelFormatDescriptor}. The {@code wglDescribePixelFormat} function stores no more than
-	 *                              {@code bytes} bytes of data to that structure. Set this value to {@link PIXELFORMATDESCRIPTOR#SIZEOF}.
-	 * @param pixelFormatDescriptor a {@link PIXELFORMATDESCRIPTOR} structure whose members the function sets with pixel format data. The function stores the number of bytes copied to
-	 *                              the structure in the structure's {@code size} member. If, upon entry, {@code pixelFormatDescriptor} is {@code NULL}, the function writes no data to the
-	 *                              structure. This is useful when you only want to obtain the maximum pixel format index of a device context.
-	 */
+	/** Unsafe version of: {@link #DescribePixelFormat} */
 	public static int nDescribePixelFormat(long hdc, int pixelFormat, int bytes, long pixelFormatDescriptor) {
 		long __functionAddress = Functions.DescribePixelFormat;
 		if ( CHECKS )
@@ -250,11 +216,7 @@ public class GDI32 {
 
 	// --- [ GetPixelFormat ] ---
 
-	/**
-	 * Obtains the index of the currently selected pixel format of the specified device context.
-	 *
-	 * @param hdc the device context of the currently selected pixel format index returned by the function
-	 */
+	/** Unsafe version of: {@link #GetPixelFormat} */
 	public static native int nGetPixelFormat(long __functionAddress, long hdc);
 
 	/**
@@ -271,24 +233,10 @@ public class GDI32 {
 
 	// --- [ SetPixelFormat ] ---
 
-	/**
-	 * Sets the pixel format of the specified device context to the format specified by the pixelFormat index.
-	 *
-	 * @param hdc                   the device context whose pixel format the function attempts to set
-	 * @param pixelFormat           index that identifies the pixel format to set. The various pixel formats supported by a device context are identified by one-based indexes.
-	 * @param pixelFormatDescriptor a {@link PIXELFORMATDESCRIPTOR} structure that contains the logical pixel format specification. The system's metafile component uses this structure
-	 *                              to record the logical pixel format specification. The structure has no other effect upon the behavior of the SetPixelFormat function.
-	 */
+	/** Unsafe version of: {@link #SetPixelFormat} */
 	public static native int nSetPixelFormat(long __functionAddress, long hdc, int pixelFormat, long pixelFormatDescriptor);
 
-	/**
-	 * Sets the pixel format of the specified device context to the format specified by the pixelFormat index.
-	 *
-	 * @param hdc                   the device context whose pixel format the function attempts to set
-	 * @param pixelFormat           index that identifies the pixel format to set. The various pixel formats supported by a device context are identified by one-based indexes.
-	 * @param pixelFormatDescriptor a {@link PIXELFORMATDESCRIPTOR} structure that contains the logical pixel format specification. The system's metafile component uses this structure
-	 *                              to record the logical pixel format specification. The structure has no other effect upon the behavior of the SetPixelFormat function.
-	 */
+	/** Unsafe version of: {@link #SetPixelFormat} */
 	public static int nSetPixelFormat(long hdc, int pixelFormat, long pixelFormatDescriptor) {
 		long __functionAddress = Functions.SetPixelFormat;
 		if ( CHECKS )
@@ -310,12 +258,7 @@ public class GDI32 {
 
 	// --- [ SwapBuffers ] ---
 
-	/**
-	 * Exchanges the front and back buffers if the current pixel format for the window referenced by the specified device context includes a back buffer.
-	 *
-	 * @param dc a device context. If the current pixel format for the window referenced by this device context includes a back buffer, the function exchanges the
-	 *           front and back buffers.
-	 */
+	/** Unsafe version of: {@link #SwapBuffers} */
 	public static native int nSwapBuffers(long __functionAddress, long dc);
 
 	/**

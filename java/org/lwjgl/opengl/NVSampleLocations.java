@@ -64,12 +64,9 @@ public class NVSampleLocations {
 	// --- [ glFramebufferSampleLocationsfvNV ] ---
 
 	/**
-	 * Updates the programmable sample locations
+	 * Unsafe version of: {@link #glFramebufferSampleLocationsfvNV FramebufferSampleLocationsfvNV}
 	 *
-	 * @param target the framebuffer whose programmable sample locations are modified
-	 * @param start  the index of the first sample location to modify
-	 * @param count  the number of sample locations to modify
-	 * @param v      a pair of floating point values in the range [0,1] for each sample location
+	 * @param count the number of sample locations to modify
 	 */
 	public static void nglFramebufferSampleLocationsfvNV(int target, int start, int count, long v) {
 		long __functionAddress = GL.getCapabilities().glFramebufferSampleLocationsfvNV;
@@ -92,12 +89,9 @@ public class NVSampleLocations {
 	// --- [ glNamedFramebufferSampleLocationsfvNV ] ---
 
 	/**
-	 * Updates the programmable sample locations
+	 * Unsafe version of: {@link #glNamedFramebufferSampleLocationsfvNV NamedFramebufferSampleLocationsfvNV}
 	 *
-	 * @param framebuffer the framebuffer whose programmable sample locations are modified
-	 * @param start       the index of the first sample location to modify
-	 * @param count       the number of sample locations to modify
-	 * @param v           a pair of floating point values in the range [0,1] for each sample location
+	 * @param count the number of sample locations to modify
 	 */
 	public static void nglNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, int count, long v) {
 		long __functionAddress = GL.getCapabilities().glNamedFramebufferSampleLocationsfvNV;

@@ -57,17 +57,9 @@ public class QCOMEXTHostPtr {
 	// --- [ clGetDeviceImageInfoQCOM ] ---
 
 	/**
-	 * An application that creates OpenCL image objects with the {@link #CL_MEM_EXT_HOST_PTR_QCOM MEM_EXT_HOST_PTR_QCOM} flag can invoke this function to query the required row pitch, slice
-	 * pitch and alignment for a particular device.
+	 * Unsafe version of: {@link #clGetDeviceImageInfoQCOM GetDeviceImageInfoQCOM}
 	 *
-	 * @param device               a valid device
-	 * @param image_width          width of the image in image elements (pixels)
-	 * @param image_height         height of the image in image elements (pixels)
-	 * @param image_format         format of the image
-	 * @param param_name           the parameter to query. One of:<br><table><tr><td>{@link CL10#CL_IMAGE_ROW_PITCH IMAGE_ROW_PITCH}</td><td>{@link CL10#CL_IMAGE_SLICE_PITCH IMAGE_SLICE_PITCH}</td><td>{@link #CL_IMAGE_ROW_ALIGNMENT_QCOM IMAGE_ROW_ALIGNMENT_QCOM}</td></tr><tr><td>{@link #CL_IMAGE_SLICE_ALIGNMENT_QCOM IMAGE_SLICE_ALIGNMENT_QCOM}</td></tr></table>
-	 * @param param_value_size     the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
-	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
-	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
+	 * @param param_value_size the size in bytes of memory pointed to by {@code param_value}. This size must be &#x2265; size of return type. If {@code param_value} is {@code NULL}, it is ignored.
 	 */
 	public static int nclGetDeviceImageInfoQCOM(long device, long image_width, long image_height, long image_format, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetDeviceImageInfoQCOM;

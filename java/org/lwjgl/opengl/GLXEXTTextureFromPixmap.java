@@ -89,15 +89,7 @@ public class GLXEXTTextureFromPixmap {
 
 	// --- [ glXBindTexImageEXT ] ---
 
-	/**
-	 * Defines a one- or two-dimensional texture image. The texture image is taken from {@code buffer} and need not be copied. The texture target, the texture
-	 * format, and the size of the texture components are derived from attributes of {@code drawable}.
-	 *
-	 * @param display     the connection to the X server
-	 * @param drawable    the drawable
-	 * @param buffer      the buffer
-	 * @param attrib_list an optional null-terminated list of attributes
-	 */
+	/** Unsafe version of: {@link #glXBindTexImageEXT BindTexImageEXT} */
 	public static void nglXBindTexImageEXT(long display, long drawable, int buffer, long attrib_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXBindTexImageEXT;
 		if ( CHECKS ) {

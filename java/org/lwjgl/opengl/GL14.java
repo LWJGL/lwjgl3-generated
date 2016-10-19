@@ -247,13 +247,7 @@ public class GL14 {
 
 	// --- [ glFogCoordfv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFogCoord.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glFogCoordf FogCoordf}.
-	 *
-	 * @param coord the fog coordinate value
-	 */
+	/** Unsafe version of: {@link #glFogCoordfv FogCoordfv} */
 	public static void nglFogCoordfv(long coord) {
 		long __functionAddress = GL.getCapabilities().glFogCoordfv;
 		if ( CHECKS )
@@ -276,13 +270,7 @@ public class GL14 {
 
 	// --- [ glFogCoorddv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFogCoord.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glFogCoordd FogCoordd}.
-	 *
-	 * @param coord the fog coordinate value
-	 */
+	/** Unsafe version of: {@link #glFogCoorddv FogCoorddv} */
 	public static void nglFogCoorddv(long coord) {
 		long __functionAddress = GL.getCapabilities().glFogCoorddv;
 		if ( CHECKS )
@@ -305,15 +293,7 @@ public class GL14 {
 
 	// --- [ glFogCoordPointer ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFogCoordPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Specifies the location and organization of a fog coordinate array.
-	 *
-	 * @param type    the data type of the values stored in the array. One of:<br><table><tr><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link GL11#GL_FLOAT FLOAT}</td><td>{@link GL11#GL_DOUBLE DOUBLE}</td></tr></table>
-	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
-	 * @param pointer the fog coordinate array data
-	 */
+	/** Unsafe version of: {@link #glFogCoordPointer FogCoordPointer} */
 	public static void nglFogCoordPointer(int type, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glFogCoordPointer;
 		if ( CHECKS )
@@ -368,13 +348,8 @@ public class GL14 {
 	// --- [ glMultiDrawArrays ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMultiDrawArrays.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Renders multiple sets of primitives from array data.
+	 * Unsafe version of: {@link #glMultiDrawArrays MultiDrawArrays}
 	 *
-	 * @param mode      the kind of primitives to render. One of:<br><table><tr><td>{@link GL11#GL_POINTS POINTS}</td><td>{@link GL11#GL_LINE_STRIP LINE_STRIP}</td><td>{@link GL11#GL_LINE_LOOP LINE_LOOP}</td><td>{@link GL11#GL_LINES LINES}</td><td>{@link GL11#GL_POLYGON POLYGON}</td><td>{@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}</td><td>{@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}</td></tr><tr><td>{@link GL11#GL_TRIANGLES TRIANGLES}</td><td>{@link GL11#GL_QUAD_STRIP QUAD_STRIP}</td><td>{@link GL11#GL_QUADS QUADS}</td><td>{@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}</td><td>{@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}</td></tr><tr><td>{@link GL40#GL_PATCHES PATCHES}</td></tr></table>
-	 * @param first     an array of starting indices in the enabled arrays
-	 * @param count     an array of the number of indices to be rendered
 	 * @param primcount the size of {@code first} and {@code count}
 	 */
 	public static void nglMultiDrawArrays(int mode, long first, long count, int primcount) {
@@ -402,16 +377,8 @@ public class GL14 {
 	// --- [ glMultiDrawElements ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glMultiDrawElements.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Renders multiple sets of primitives by specifying indices of array data elements.
-	 * 
-	 * <p><b>LWJGL note</b>: Use {@link org.lwjgl.system.MemoryUtil#memAddress} to retrieve pointers to the index buffers.</p>
+	 * Unsafe version of: {@link #glMultiDrawElements MultiDrawElements}
 	 *
-	 * @param mode      the kind of primitives to render. One of:<br><table><tr><td>{@link GL11#GL_POINTS POINTS}</td><td>{@link GL11#GL_LINE_STRIP LINE_STRIP}</td><td>{@link GL11#GL_LINE_LOOP LINE_LOOP}</td><td>{@link GL11#GL_LINES LINES}</td><td>{@link GL11#GL_POLYGON POLYGON}</td><td>{@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}</td><td>{@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}</td></tr><tr><td>{@link GL11#GL_TRIANGLES TRIANGLES}</td><td>{@link GL11#GL_QUAD_STRIP QUAD_STRIP}</td><td>{@link GL11#GL_QUADS QUADS}</td><td>{@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}</td><td>{@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}</td></tr><tr><td>{@link GL40#GL_PATCHES PATCHES}</td></tr></table>
-	 * @param count     an array of the elements counts
-	 * @param type      the type of the values in indices. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
-	 * @param indices   a pointer to the location where the indices are stored
 	 * @param primcount the size of the {@code count} array
 	 */
 	public static void nglMultiDrawElements(int mode, long count, int type, long indices, int primcount) {
@@ -475,14 +442,7 @@ public class GL14 {
 
 	// --- [ glPointParameterfv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPointParameter.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pointer version of {@link #glPointParameterf PointParameterf}.
-	 *
-	 * @param pname  the parameter to set. Must be:<br><table><tr><td>{@link #GL_POINT_DISTANCE_ATTENUATION POINT_DISTANCE_ATTENUATION}</td></tr></table>
-	 * @param params the parameter value
-	 */
+	/** Unsafe version of: {@link #glPointParameterfv PointParameterfv} */
 	public static void nglPointParameterfv(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glPointParameterfv;
 		if ( CHECKS )
@@ -506,14 +466,7 @@ public class GL14 {
 
 	// --- [ glPointParameteriv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glPointParameter.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pointer version of {@link #glPointParameteri PointParameteri}.
-	 *
-	 * @param pname  the parameter to set. Must be:<br><table><tr><td>{@link #GL_POINT_DISTANCE_ATTENUATION POINT_DISTANCE_ATTENUATION}</td></tr></table>
-	 * @param params the parameter value
-	 */
+	/** Unsafe version of: {@link #glPointParameteriv PointParameteriv} */
 	public static void nglPointParameteriv(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glPointParameteriv;
 		if ( CHECKS )
@@ -681,13 +634,7 @@ public class GL14 {
 
 	// --- [ glSecondaryColor3bv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3b.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Byte pointer version of {@link #glSecondaryColor3b SecondaryColor3b}.
-	 *
-	 * @param v the secondary color buffer
-	 */
+	/** Unsafe version of: {@link #glSecondaryColor3bv SecondaryColor3bv} */
 	public static void nglSecondaryColor3bv(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3bv;
 		if ( CHECKS )
@@ -710,13 +657,7 @@ public class GL14 {
 
 	// --- [ glSecondaryColor3sv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glSecondaryColor3s SecondaryColor3s}.
-	 *
-	 * @param v the secondary color buffer
-	 */
+	/** Unsafe version of: {@link #glSecondaryColor3sv SecondaryColor3sv} */
 	public static void nglSecondaryColor3sv(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3sv;
 		if ( CHECKS )
@@ -739,13 +680,7 @@ public class GL14 {
 
 	// --- [ glSecondaryColor3iv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glSecondaryColor3i SecondaryColor3i}.
-	 *
-	 * @param v the secondary color buffer
-	 */
+	/** Unsafe version of: {@link #glSecondaryColor3iv SecondaryColor3iv} */
 	public static void nglSecondaryColor3iv(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3iv;
 		if ( CHECKS )
@@ -768,13 +703,7 @@ public class GL14 {
 
 	// --- [ glSecondaryColor3fv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glSecondaryColor3f SecondaryColor3f}.
-	 *
-	 * @param v the secondary color buffer
-	 */
+	/** Unsafe version of: {@link #glSecondaryColor3fv SecondaryColor3fv} */
 	public static void nglSecondaryColor3fv(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3fv;
 		if ( CHECKS )
@@ -797,13 +726,7 @@ public class GL14 {
 
 	// --- [ glSecondaryColor3dv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glSecondaryColor3d SecondaryColor3d}.
-	 *
-	 * @param v the secondary color buffer
-	 */
+	/** Unsafe version of: {@link #glSecondaryColor3dv SecondaryColor3dv} */
 	public static void nglSecondaryColor3dv(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3dv;
 		if ( CHECKS )
@@ -826,13 +749,7 @@ public class GL14 {
 
 	// --- [ glSecondaryColor3ubv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3ub.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glSecondaryColor3ub SecondaryColor3ub}.
-	 *
-	 * @param v the secondary color buffer
-	 */
+	/** Unsafe version of: {@link #glSecondaryColor3ubv SecondaryColor3ubv} */
 	public static void nglSecondaryColor3ubv(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3ubv;
 		if ( CHECKS )
@@ -855,13 +772,7 @@ public class GL14 {
 
 	// --- [ glSecondaryColor3usv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glSecondaryColor3us SecondaryColor3us}.
-	 *
-	 * @param v the secondary color buffer
-	 */
+	/** Unsafe version of: {@link #glSecondaryColor3usv SecondaryColor3usv} */
 	public static void nglSecondaryColor3usv(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3usv;
 		if ( CHECKS )
@@ -884,13 +795,7 @@ public class GL14 {
 
 	// --- [ glSecondaryColor3uiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColor3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glSecondaryColor3ui SecondaryColor3ui}.
-	 *
-	 * @param v the secondary color buffer
-	 */
+	/** Unsafe version of: {@link #glSecondaryColor3uiv SecondaryColor3uiv} */
 	public static void nglSecondaryColor3uiv(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3uiv;
 		if ( CHECKS )
@@ -913,16 +818,7 @@ public class GL14 {
 
 	// --- [ glSecondaryColorPointer ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColorPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Specifies the location and organization of a secondary color array.
-	 *
-	 * @param size    the number of values per vertex that are stored in the array, as well as their component ordering. Must be:<br><table><tr><td>3</td></tr></table>
-	 * @param type    the data type of the values stored in the array. One of:<br><table><tr><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_SHORT SHORT}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td></tr><tr><td>{@link GL11#GL_FLOAT FLOAT}</td><td>{@link GL11#GL_DOUBLE DOUBLE}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td><td>{@link GL33#GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td></tr></table>
-	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
-	 * @param pointer the secondary color array data
-	 */
+	/** Unsafe version of: {@link #glSecondaryColorPointer SecondaryColorPointer} */
 	public static void nglSecondaryColorPointer(int size, int type, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColorPointer;
 		if ( CHECKS )
@@ -1074,13 +970,7 @@ public class GL14 {
 
 	// --- [ glWindowPos2iv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glWindowPos2i WindowPos2i}.
-	 *
-	 * @param p the position value
-	 */
+	/** Unsafe version of: {@link #glWindowPos2iv WindowPos2iv} */
 	public static void nglWindowPos2iv(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2iv;
 		if ( CHECKS )
@@ -1103,13 +993,7 @@ public class GL14 {
 
 	// --- [ glWindowPos2sv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glWindowPos2s WindowPos2s}.
-	 *
-	 * @param p the position value
-	 */
+	/** Unsafe version of: {@link #glWindowPos2sv WindowPos2sv} */
 	public static void nglWindowPos2sv(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2sv;
 		if ( CHECKS )
@@ -1132,13 +1016,7 @@ public class GL14 {
 
 	// --- [ glWindowPos2fv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glWindowPos2f WindowPos2f}.
-	 *
-	 * @param p the position value
-	 */
+	/** Unsafe version of: {@link #glWindowPos2fv WindowPos2fv} */
 	public static void nglWindowPos2fv(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2fv;
 		if ( CHECKS )
@@ -1161,13 +1039,7 @@ public class GL14 {
 
 	// --- [ glWindowPos2dv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glWindowPos2d WindowPos2d}.
-	 *
-	 * @param p the position value
-	 */
+	/** Unsafe version of: {@link #glWindowPos2dv WindowPos2dv} */
 	public static void nglWindowPos2dv(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2dv;
 		if ( CHECKS )
@@ -1262,13 +1134,7 @@ public class GL14 {
 
 	// --- [ glWindowPos3iv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glWindowPos3i WindowPos3i}.
-	 *
-	 * @param p the position value
-	 */
+	/** Unsafe version of: {@link #glWindowPos3iv WindowPos3iv} */
 	public static void nglWindowPos3iv(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3iv;
 		if ( CHECKS )
@@ -1291,13 +1157,7 @@ public class GL14 {
 
 	// --- [ glWindowPos3sv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glWindowPos3s WindowPos3s}.
-	 *
-	 * @param p the position value
-	 */
+	/** Unsafe version of: {@link #glWindowPos3sv WindowPos3sv} */
 	public static void nglWindowPos3sv(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3sv;
 		if ( CHECKS )
@@ -1320,13 +1180,7 @@ public class GL14 {
 
 	// --- [ glWindowPos3fv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glWindowPos3f WindowPos3f}.
-	 *
-	 * @param p the position value
-	 */
+	/** Unsafe version of: {@link #glWindowPos3fv WindowPos3fv} */
 	public static void nglWindowPos3fv(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3fv;
 		if ( CHECKS )
@@ -1349,13 +1203,7 @@ public class GL14 {
 
 	// --- [ glWindowPos3dv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glWindowPos3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glWindowPos3d WindowPos3d}.
-	 *
-	 * @param p the position value
-	 */
+	/** Unsafe version of: {@link #glWindowPos3dv WindowPos3dv} */
 	public static void nglWindowPos3dv(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3dv;
 		if ( CHECKS )

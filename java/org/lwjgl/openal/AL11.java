@@ -62,12 +62,7 @@ public class AL11 {
 
 	// --- [ alGetListeneriv ] ---
 
-	/**
-	 * Returns the integer values of the specified listener parameter.
-	 *
-	 * @param param  the parameter to query
-	 * @param values the parameter values
-	 */
+	/** Unsafe version of: {@link #alGetListeneriv GetListeneriv} */
 	public static void nalGetListeneriv(int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetListeneriv;
 		if ( CHECKS )
@@ -107,12 +102,7 @@ public class AL11 {
 
 	// --- [ alListeneriv ] ---
 
-	/**
-	 * Pointer version.
-	 *
-	 * @param listener the parameter to modify
-	 * @param value    the parameter values
-	 */
+	/** Unsafe version of: {@link #alListeneriv Listeneriv} */
 	public static void nalListeneriv(int listener, long value) {
 		long __functionAddress = AL.getCapabilities().alListeneriv;
 		if ( CHECKS )
@@ -134,13 +124,7 @@ public class AL11 {
 
 	// --- [ alSourceiv ] ---
 
-	/**
-	 * Pointer version.
-	 *
-	 * @param source    the source to modify
-	 * @param paramName the parameter to modify
-	 * @param value     the parameter values
-	 */
+	/** Unsafe version of: {@link #alSourceiv Sourceiv} */
 	public static void nalSourceiv(int source, int paramName, long value) {
 		long __functionAddress = AL.getCapabilities().alSourceiv;
 		if ( CHECKS )
@@ -197,13 +181,7 @@ public class AL11 {
 
 	// --- [ alBufferfv ] ---
 
-	/**
-	 * the pointer version of {@link #alBufferf Bufferf}
-	 *
-	 * @param buffer    the buffer to modify
-	 * @param paramName the parameter to modify
-	 * @param value     the parameter values
-	 */
+	/** Unsafe version of: {@link #alBufferfv Bufferfv} */
 	public static void nalBufferfv(int buffer, int paramName, long value) {
 		long __functionAddress = AL.getCapabilities().alBufferfv;
 		if ( CHECKS )
@@ -260,13 +238,7 @@ public class AL11 {
 
 	// --- [ alBufferiv ] ---
 
-	/**
-	 * the pointer version of {@link #alBufferi Bufferi}
-	 *
-	 * @param buffer    the buffer to modify
-	 * @param paramName the parameter to modify
-	 * @param value     the parameter values
-	 */
+	/** Unsafe version of: {@link #alBufferiv Bufferiv} */
 	public static void nalBufferiv(int buffer, int paramName, long value) {
 		long __functionAddress = AL.getCapabilities().alBufferiv;
 		if ( CHECKS )
@@ -289,13 +261,7 @@ public class AL11 {
 
 	// --- [ alGetBufferi ] ---
 
-	/**
-	 * Returns the integer value of the specified buffer parameter.
-	 *
-	 * @param buffer the buffer to query
-	 * @param param  the parameter to query
-	 * @param value  the parameter value
-	 */
+	/** Unsafe version of: {@link #alGetBufferi GetBufferi} */
 	public static void nalGetBufferi(int buffer, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetBufferi;
 		if ( CHECKS )
@@ -335,13 +301,7 @@ public class AL11 {
 
 	// --- [ alGetBufferiv ] ---
 
-	/**
-	 * Returns the integer values of the specified buffer parameter.
-	 *
-	 * @param buffer the buffer to query
-	 * @param param  the parameter to query
-	 * @param values the parameter values
-	 */
+	/** Unsafe version of: {@link #alGetBufferiv GetBufferiv} */
 	public static void nalGetBufferiv(int buffer, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetBufferiv;
 		if ( CHECKS )
@@ -364,13 +324,7 @@ public class AL11 {
 
 	// --- [ alGetBufferf ] ---
 
-	/**
-	 * Returns the float value of the specified buffer parameter.
-	 *
-	 * @param buffer the buffer to query
-	 * @param param  the parameter to query
-	 * @param value  the parameter value
-	 */
+	/** Unsafe version of: {@link #alGetBufferf GetBufferf} */
 	public static void nalGetBufferf(int buffer, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetBufferf;
 		if ( CHECKS )
@@ -410,13 +364,7 @@ public class AL11 {
 
 	// --- [ alGetBufferfv ] ---
 
-	/**
-	 * Returns the float values of the specified buffer parameter.
-	 *
-	 * @param buffer the buffer to query
-	 * @param param  the parameter to query
-	 * @param values the parameter values
-	 */
+	/** Unsafe version of: {@link #alGetBufferfv GetBufferfv} */
 	public static void nalGetBufferfv(int buffer, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetBufferfv;
 		if ( CHECKS )

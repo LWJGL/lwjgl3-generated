@@ -38,13 +38,7 @@ public class KHRGLEvent {
 
 	// --- [ clCreateEventFromGLsyncKHR ] ---
 
-	/**
-	 * Creates an OpenCL event object from an OpenGL fence sync object.
-	 *
-	 * @param context     the OpenCL context in which to create the event object
-	 * @param sync        the OpenGL fence sync object
-	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
-	 */
+	/** Unsafe version of: {@link #clCreateEventFromGLsyncKHR CreateEventFromGLsyncKHR} */
 	public static long nclCreateEventFromGLsyncKHR(long context, long sync, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateEventFromGLsyncKHR;
 		if ( CHECKS ) {

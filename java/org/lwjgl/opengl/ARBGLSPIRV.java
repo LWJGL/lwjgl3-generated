@@ -50,15 +50,7 @@ public class ARBGLSPIRV {
 
 	// --- [ glSpecializeShaderARB ] ---
 
-	/**
-	 * Specializes a shader created from a SPIR-V module.
-	 *
-	 * @param shader                     
-	 * @param pEntryPoint                
-	 * @param numSpecializationConstants 
-	 * @param pConstantIndex             
-	 * @param pConstantValue             
-	 */
+	/** Unsafe version of: {@link #glSpecializeShaderARB SpecializeShaderARB} */
 	public static void nglSpecializeShaderARB(int shader, long pEntryPoint, int numSpecializationConstants, long pConstantIndex, long pConstantValue) {
 		long __functionAddress = GL.getCapabilities().glSpecializeShaderARB;
 		if ( CHECKS )

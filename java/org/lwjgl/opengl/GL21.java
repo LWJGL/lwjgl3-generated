@@ -77,14 +77,9 @@ public class GL21 {
 	// --- [ glUniformMatrix2x3fv ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x3.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Specifies the value of a single mat2x3 uniform variable or a mat2x3 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniformMatrix2x3fv UniformMatrix2x3fv}
 	 *
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglUniformMatrix2x3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix2x3fv;
@@ -109,14 +104,9 @@ public class GL21 {
 	// --- [ glUniformMatrix3x2fv ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x2.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Specifies the value of a single mat3x2 uniform variable or a mat3x2 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniformMatrix3x2fv UniformMatrix3x2fv}
 	 *
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglUniformMatrix3x2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix3x2fv;
@@ -141,14 +131,9 @@ public class GL21 {
 	// --- [ glUniformMatrix2x4fv ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2x4.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Specifies the value of a single mat2x4 uniform variable or a mat2x4 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniformMatrix2x4fv UniformMatrix2x4fv}
 	 *
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglUniformMatrix2x4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix2x4fv;
@@ -173,14 +158,9 @@ public class GL21 {
 	// --- [ glUniformMatrix4x2fv ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x2.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Specifies the value of a single mat4x2 uniform variable or a mat4x2 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniformMatrix4x2fv UniformMatrix4x2fv}
 	 *
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglUniformMatrix4x2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix4x2fv;
@@ -205,14 +185,9 @@ public class GL21 {
 	// --- [ glUniformMatrix3x4fv ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3x4.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Specifies the value of a single mat3x4 uniform variable or a mat3x4 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniformMatrix3x4fv UniformMatrix3x4fv}
 	 *
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglUniformMatrix3x4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix3x4fv;
@@ -237,14 +212,9 @@ public class GL21 {
 	// --- [ glUniformMatrix4x3fv ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4x3.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Specifies the value of a single mat4x3 uniform variable or a mat4x3 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniformMatrix4x3fv UniformMatrix4x3fv}
 	 *
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglUniformMatrix4x3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix4x3fv;

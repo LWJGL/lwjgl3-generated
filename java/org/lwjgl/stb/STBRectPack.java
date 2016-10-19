@@ -31,22 +31,8 @@ public class STBRectPack {
 	// --- [ stbrp_pack_rects ] ---
 
 	/**
-	 * Assigns packed locations to rectangles. The rectangles are of type {@link STBRPRect}, stored in the array {@code rects}, and there are {@code num_rects} many
-	 * of them.
-	 * 
-	 * <p>Rectangles which are successfully packed have the {@code was_packed} flag set to a non-zero value and {@code x} and {@code y} store the minimum
-	 * location on each axis (i.e. bottom-left in cartesian coordinates, top-left if you imagine y increasing downwards). Rectangles which do not fit have the
-	 * {@code was_packed} flag set to 0.</p>
-	 * 
-	 * <p>You should not try to access the {@code rects} array from another thread while this function is running, as the function temporarily reorders the array
-	 * while it executes.</p>
-	 * 
-	 * <p>To pack into another rectangle, you need to call {@link #stbrp_init_target init_target} again. To continue packing into the same rectangle, you can call this function again.
-	 * Calling this multiple times with multiple rect arrays will probably produce worse packing results than calling it a single time with the full rectangle
-	 * array, but the option is available.</p>
+	 * Unsafe version of: {@link #stbrp_pack_rects pack_rects}
 	 *
-	 * @param context   an {@link STBRPContext} struct
-	 * @param rects     an array of {@link STBRPRect} structs
 	 * @param num_rects the number of structs in {@code rects}
 	 */
 	public static native void nstbrp_pack_rects(long context, long rects, int num_rects);
@@ -76,30 +62,8 @@ public class STBRectPack {
 	// --- [ stbrp_init_target ] ---
 
 	/**
-	 * Initialize a rectangle packer to: pack a rectangle that is {@code width} by {@code height} in dimensions using temporary storage provided by the array
-	 * {@code nodes}, which is {@code num_nodes} long.
-	 * 
-	 * <p>You must call this function every time you start packing into a new target.</p>
-	 * 
-	 * <p>There is no "shutdown" function. The {@code nodes} memory must stay valid for the following {@link #stbrp_pack_rects pack_rects} call (or calls), but can be freed after the
-	 * call (or calls) finish.</p>
-	 * 
-	 * <p>Note: to guarantee best results, either:</p>
-	 * 
-	 * <ol>
-	 * <li>make sure {@code num_nodes &ge; width}</li>
-	 * <li>or, call {@link #stbrp_setup_allow_out_of_mem setup_allow_out_of_mem} with {@code allow_out_of_mem = 1}</li>
-	 * </ol>
-	 * 
-	 * <p>If you don't do either of the above things, widths will be quantized to multiples of small integers to guarantee the algorithm doesn't run out of
-	 * temporary storage.</p>
-	 * 
-	 * <p>If you do #2, then the non-quantized algorithm will be used, but the algorithm may run out of temporary storage and be unable to pack some rectangles.</p>
+	 * Unsafe version of: {@link #stbrp_init_target init_target}
 	 *
-	 * @param context   an {@link STBRPContext} struct
-	 * @param width     the rectangle width
-	 * @param height    the rectangle height
-	 * @param nodes     an array of {@link STBRPNode} structs
 	 * @param num_nodes the number of structs in {@code nodes}
 	 */
 	public static native void nstbrp_init_target(long context, int width, int height, long nodes, int num_nodes);
@@ -136,13 +100,7 @@ public class STBRectPack {
 
 	// --- [ stbrp_setup_allow_out_of_mem ] ---
 
-	/**
-	 * Optionally call this function after init but before doing any packing to change the handling of the out-of-temp-memory scenario, described in
-	 * {@link #stbrp_init_target init_target}. If you call init again, this will be reset to the default (false).
-	 *
-	 * @param context          an {@link STBRPContext} struct
-	 * @param allow_out_of_mem 1 to allow running out of temporary storage
-	 */
+	/** Unsafe version of: {@link #stbrp_setup_allow_out_of_mem setup_allow_out_of_mem} */
 	public static native void nstbrp_setup_allow_out_of_mem(long context, int allow_out_of_mem);
 
 	/**
@@ -158,13 +116,7 @@ public class STBRectPack {
 
 	// --- [ stbrp_setup_heuristic ] ---
 
-	/**
-	 * Optionally select which packing heuristic the library should use. Different heuristics will produce better/worse results for different data sets. If
-	 * you call init again, this will be reset to the default.
-	 *
-	 * @param context   an {@link STBRPContext} struct
-	 * @param heuristic the packing heuristic
-	 */
+	/** Unsafe version of: {@link #stbrp_setup_heuristic setup_heuristic} */
 	public static native void nstbrp_setup_heuristic(long context, int heuristic);
 
 	/**

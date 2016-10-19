@@ -66,12 +66,7 @@ public class ARBPointParameters {
 
 	// --- [ glPointParameterfvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glPointParameterfARB PointParameterfARB}.
-	 *
-	 * @param pname  the parameter to set. Must be:<br><table><tr><td>{@link #GL_POINT_DISTANCE_ATTENUATION_ARB POINT_DISTANCE_ATTENUATION_ARB}</td></tr></table>
-	 * @param params the parameter value
-	 */
+	/** Unsafe version of: {@link #glPointParameterfvARB PointParameterfvARB} */
 	public static void nglPointParameterfvARB(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glPointParameterfvARB;
 		if ( CHECKS )

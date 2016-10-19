@@ -129,16 +129,9 @@ public class KHRRobustness {
 	// --- [ glReadnPixelsKHR ] ---
 
 	/**
-	 * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
+	 * Unsafe version of: {@link #glReadnPixelsKHR ReadnPixelsKHR}
 	 *
-	 * @param x       the left pixel coordinate
-	 * @param y       the lower pixel coordinate
-	 * @param width   the number of pixels to read in the x-dimension
-	 * @param height  the number of pixels to read in the y-dimension
-	 * @param format  the pixel format
-	 * @param type    the pixel type
 	 * @param bufSize the maximum number of bytes to write into {@code data}
-	 * @param pixels  a buffer in which to place the returned pixel data
 	 */
 	public static void nglReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixelsKHR;
@@ -196,12 +189,9 @@ public class KHRRobustness {
 	// --- [ glGetnUniformfvKHR ] ---
 
 	/**
-	 * Returns the value or values of a uniform of the default uniform block.
+	 * Unsafe version of: {@link #glGetnUniformfvKHR GetnUniformfvKHR}
 	 *
-	 * @param program  the program object
-	 * @param location the uniform location
-	 * @param bufSize  the maximum number of bytes to write to {@code params}
-	 * @param params   the buffer in which to place the returned data
+	 * @param bufSize the maximum number of bytes to write to {@code params}
 	 */
 	public static void nglGetnUniformfvKHR(int program, int location, int bufSize, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetnUniformfvKHR;
@@ -241,12 +231,9 @@ public class KHRRobustness {
 	// --- [ glGetnUniformivKHR ] ---
 
 	/**
-	 * Integer version of {@link #glGetnUniformfvKHR GetnUniformfvKHR}.
+	 * Unsafe version of: {@link #glGetnUniformivKHR GetnUniformivKHR}
 	 *
-	 * @param program  the program object
-	 * @param location the uniform location
-	 * @param bufSize  the maximum number of bytes to write to {@code params}
-	 * @param params   the buffer in which to place the returned data
+	 * @param bufSize the maximum number of bytes to write to {@code params}
 	 */
 	public static void nglGetnUniformivKHR(int program, int location, int bufSize, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetnUniformivKHR;
@@ -286,12 +273,9 @@ public class KHRRobustness {
 	// --- [ glGetnUniformuivKHR ] ---
 
 	/**
-	 * Unsigned version of {@link #glGetnUniformivKHR GetnUniformivKHR}.
+	 * Unsafe version of: {@link #glGetnUniformuivKHR GetnUniformuivKHR}
 	 *
-	 * @param program  the program object
-	 * @param location the uniform location
-	 * @param bufSize  the maximum number of bytes to write to {@code params}
-	 * @param params   the buffer in which to place the returned data
+	 * @param bufSize the maximum number of bytes to write to {@code params}
 	 */
 	public static void nglGetnUniformuivKHR(int program, int location, int bufSize, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetnUniformuivKHR;

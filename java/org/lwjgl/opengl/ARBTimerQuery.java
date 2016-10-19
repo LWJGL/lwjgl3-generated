@@ -69,13 +69,7 @@ public class ARBTimerQuery {
 
 	// --- [ glGetQueryObjecti64v ] ---
 
-	/**
-	 * Returns the 64bit integer value of query object parameter.
-	 *
-	 * @param id     the name of a query object
-	 * @param pname  the symbolic name of a query object parameter. One of:<br><table><tr><td>{@link GL15#GL_QUERY_RESULT QUERY_RESULT}</td><td>{@link GL15#GL_QUERY_RESULT_AVAILABLE QUERY_RESULT_AVAILABLE}</td></tr></table>
-	 * @param params the requested data
-	 */
+	/** Unsafe version of: {@link #glGetQueryObjecti64v GetQueryObjecti64v} */
 	public static void nglGetQueryObjecti64v(int id, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjecti64v;
 		if ( CHECKS )
@@ -115,13 +109,7 @@ public class ARBTimerQuery {
 
 	// --- [ glGetQueryObjectui64v ] ---
 
-	/**
-	 * Unsigned version of {@link #glGetQueryObjecti64v GetQueryObjecti64v}.
-	 *
-	 * @param id     the name of a query object
-	 * @param pname  the symbolic name of a query object parameter
-	 * @param params the requested data
-	 */
+	/** Unsafe version of: {@link #glGetQueryObjectui64v GetQueryObjectui64v} */
 	public static void nglGetQueryObjectui64v(int id, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjectui64v;
 		if ( CHECKS )

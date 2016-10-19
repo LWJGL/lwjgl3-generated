@@ -430,40 +430,7 @@ public class OVR {
 
 	// --- [ ovr_Initialize ] ---
 
-	/**
-	 * Initialize LibOVR for application usage. This includes finding and loading the LibOVRRT shared library. No LibOVR API functions, other than
-	 * {@link #ovr_GetLastErrorInfo GetLastErrorInfo} and {@link OVRUtil#ovr_Detect _Detect}, can be called unless {@link #ovr_Initialize Initialize} succeeds. A successful call to {@code ovr_Initialize} must be eventually
-	 * followed by a call to {@link #ovr_Shutdown Shutdown}. {@code ovr_Initialize} calls are idempotent. Calling {@code ovr_Initialize} twice does not require two matching
-	 * calls to {@code ovr_Shutdown}. If already initialized, the return value is {@link OVRErrorCode#ovrSuccess Success}.
-	 * 
-	 * <p>LibOVRRT shared library search order:</p>
-	 * 
-	 * <ol>
-	 * <li>Current working directory (often the same as the application directory).</li>
-	 * <li>Module directory (usually the same as the application directory, but not if the module is a separate shared library).</li>
-	 * <li>Application directory</li>
-	 * <li>Development directory (only if OVR_ENABLE_DEVELOPER_SEARCH is enabled, which is off by default).</li>
-	 * <li>Standard OS shared library search location(s) (OS-specific).</li>
-	 * </ol>
-	 *
-	 * @param params specifies custom initialization options. May be {@code NULL} to indicate default options when using the CAPI shim. If you are directly calling the
-	 *               LibOVRRT version of {@code ovr_Initialize} in the LibOVRRT DLL then this must be valid and include {@link #ovrInit_RequestVersion Init_RequestVersion}.
-	 *
-	 * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link #ovr_GetLastErrorInfo GetLastErrorInfo} to get more information. Example failed results
-	 *         include:
-	 *         
-	 *         <ul>
-	 *         <li>{@link OVRErrorCode#ovrError_Initialize Error_Initialize}: Generic initialization error.</li>
-	 *         <li>{@link OVRErrorCode#ovrError_LibLoad Error_LibLoad}: Couldn't load LibOVRRT.</li>
-	 *         <li>{@link OVRErrorCode#ovrError_LibVersion Error_LibVersion}: LibOVRRT version incompatibility.</li>
-	 *         <li>{@link OVRErrorCode#ovrError_ServiceConnection Error_ServiceConnection}: Couldn't connect to the OVR Service.</li>
-	 *         <li>{@link OVRErrorCode#ovrError_ServiceVersion Error_ServiceVersion}: OVR Service version incompatibility.</li>
-	 *         <li>{@link OVRErrorCode#ovrError_IncompatibleOS Error_IncompatibleOS}: The operating system version is incompatible.</li>
-	 *         <li>{@link OVRErrorCode#ovrError_DisplayInit Error_DisplayInit}: Unable to initialize the HMD display.</li>
-	 *         <li>{@link OVRErrorCode#ovrError_ServerStart Error_ServerStart}:  Unable to start the server. Is it already running?</li>
-	 *         <li>{@link OVRErrorCode#ovrError_Reinitialization Error_Reinitialization}: Attempted to re-initialize with a different version.</li>
-	 *         </ul>
-	 */
+	/** Unsafe version of: {@link #ovr_Initialize Initialize} */
 	public static native int novr_Initialize(long params);
 
 	/**
@@ -517,16 +484,7 @@ public class OVR {
 
 	// --- [ ovr_GetLastErrorInfo ] ---
 
-	/**
-	 * Returns information about the most recent failed return value by the current thread for this library.
-	 * 
-	 * <p>This function itself can never generate an error. The last error is never cleared by LibOVR, but will be overwritten by new errors. Do not use this
-	 * call to determine if there was an error in the last API call as successful API calls don't clear the last {@link OVRErrorInfo}. To avoid any inconsistency,
-	 * {@link #ovr_GetLastErrorInfo GetLastErrorInfo} should be called immediately after an API function that returned a failed {@code ovrResult}, with no other API functions called in
-	 * the interim.</p>
-	 *
-	 * @param errorInfo The last {@link OVRErrorInfo} for the current thread
-	 */
+	/** Unsafe version of: {@link #ovr_GetLastErrorInfo GetLastErrorInfo} */
 	public static native void novr_GetLastErrorInfo(long errorInfo);
 
 	/**
@@ -545,18 +503,7 @@ public class OVR {
 
 	// --- [ ovr_GetVersionString ] ---
 
-	/**
-	 * Returns the version string representing the LibOVRRT version.
-	 * 
-	 * <p>The returned string pointer is valid until the next call to {@link #ovr_Shutdown Shutdown}.</p>
-	 * 
-	 * <p>Note that the returned version string doesn't necessarily match the current OVR_MAJOR_VERSION, etc., as the returned string refers to the LibOVRRT
-	 * shared library version and not the locally compiled interface version.</p>
-	 * 
-	 * <p>The format of this string is subject to change in future versions and its contents should not be interpreted.</p>
-	 *
-	 * @return a UTF8-encoded null-terminated version string
-	 */
+	/** Unsafe version of: {@link #ovr_GetVersionString GetVersionString} */
 	public static native long novr_GetVersionString();
 
 	/**
@@ -578,16 +525,7 @@ public class OVR {
 
 	// --- [ ovr_TraceMessage ] ---
 
-	/**
-	 * Writes a message string to the LibOVR tracing mechanism (if enabled).
-	 * 
-	 * <p>This message will be passed back to the application via the {@link OVRLogCallback} if it was registered.</p>
-	 *
-	 * @param level   an {@code ovrLogLevel} constant. One of:<br><table><tr><td>{@link #ovrLogLevel_Debug LogLevel_Debug}</td><td>{@link #ovrLogLevel_Info LogLevel_Info}</td><td>{@link #ovrLogLevel_Error LogLevel_Error}</td></tr></table>
-	 * @param message a UTF8-encoded null-terminated string
-	 *
-	 * @return the {@code strlen} of the message or a negative value if the message is too large
-	 */
+	/** Unsafe version of: {@link #ovr_TraceMessage TraceMessage} */
 	public static native long novr_TraceMessage(int level, long message);
 
 	/**
@@ -630,31 +568,7 @@ public class OVR {
 
 	// --- [ ovr_IdentifyClient ] ---
 
-	/**
-	 * Identifies client application info.
-	 * 
-	 * <p>The string is one or more newline-delimited lines of optional info indicating engine name, engine version, engine plugin name, engine plugin version,
-	 * engine editor. The order of the lines is not relevant. Individual lines are optional. A newline is not necessary at the end of the last line. Call
-	 * after {@link #ovr_Initialize Initialize} and before the first call to {@link #ovr_Create Create}. Each value is limited to 20 characters. Key names such as 'EngineName:', 'EngineVersion:'
-	 * do not count towards this limit.</p>
-	 * 
-	 * <pre><code>EngineName: %s\n
-EngineVersion: %s\n
-EnginePluginName: %s\n
-EnginePluginVersion: %s\n
-EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
-	 * 
-	 * <p>Example code:</p>
-	 * 
-	 * <pre><code>ovr_IdentifyClient(
-    "EngineName: Unity\n" +
-    "EngineVersion: 5.3.3\n" +
-    "EnginePluginName: OVRPlugin\n" +
-    "EnginePluginVersion: 1.2.0\n" +
-    "EngineEditor: true");</code></pre>
-	 *
-	 * @param identity specifies one or more newline-delimited lines of optional info
-	 */
+	/** Unsafe version of: {@link #ovr_IdentifyClient IdentifyClient} */
 	public static native int novr_IdentifyClient(long identity);
 
 	/**
@@ -725,15 +639,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_GetHmdDesc ] ---
 
-	/**
-	 * Returns information about the current HMD.
-	 * 
-	 * <p>{@link #ovr_Initialize Initialize} must have first been called in order for this to succeed, otherwise ovrHmdDesc::Type will be reported as {@link #ovrHmd_None Hmd_None}.</p>
-	 *
-	 * @param session  an {@code ovrSession} previously returned by {@link #ovr_Create Create}, else {@code NULL} in which case this function detects whether an HMD is present and returns its
-	 *                 info if so.
-	 * @param __result an {@link OVRHmdDesc}. If the {@code hmd} is {@code NULL} and ovrHmdDesc::Type is {@link #ovrHmd_None Hmd_None} then no HMD is present.
-	 */
+	/** Unsafe version of: {@link #ovr_GetHmdDesc GetHmdDesc} */
 	public static native void novr_GetHmdDesc(long session, long __result);
 
 	/**
@@ -752,13 +658,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_GetTrackerCount ] ---
 
-	/**
-	 * Returns the number of attached trackers.
-	 * 
-	 * <p>The number of trackers may change at any time, so this function should be called before use as opposed to once on startup.</p>
-	 *
-	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 */
+	/** Unsafe version of: {@link #ovr_GetTrackerCount GetTrackerCount} */
 	public static native int novr_GetTrackerCount(long session);
 
 	/**
@@ -776,16 +676,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_GetTrackerDesc ] ---
 
-	/**
-	 * Returns a given attached tracker description.
-	 * 
-	 * <p>{@link #ovr_Initialize Initialize} must have first been called in order for this to succeed, otherwise the returned {@code trackerDescArray} will be zero-initialized. The
-	 * data returned by this function can change at runtime.</p>
-	 *
-	 * @param session          an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param trackerDescIndex a tracker index. The valid indexes are in the range of 0 to the tracker count returned by {@link #ovr_GetTrackerCount GetTrackerCount}.
-	 * @param __result         an {@link OVRTrackerDesc}. An empty {@code OVRTrackerDesc} will be returned if {@code trackerDescIndex} is out of range.
-	 */
+	/** Unsafe version of: {@link #ovr_GetTrackerDesc GetTrackerDesc} */
 	public static native void novr_GetTrackerDesc(long session, int trackerDescIndex, long __result);
 
 	/**
@@ -807,19 +698,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_Create ] ---
 
-	/**
-	 * Creates a handle to a VR session.
-	 * 
-	 * <p>Upon success the returned {@code ovrSession} must be eventually freed with {@link #ovr_Destroy Destroy} when it is no longer needed. A second call to {@link #ovr_Create Create} will result
-	 * in an error return value if the previous session has not been destroyed.</p>
-	 *
-	 * @param pSession a pointer to an {@code ovrSession} which will be written to upon success
-	 * @param luid     a system specific graphics adapter identifier that locates which graphics adapter has the HMD attached. This must match the adapter used by the
-	 *                 application or no rendering output will be possible. This is important for stability on multi-adapter systems. An application that simply chooses
-	 *                 the default adapter will not run reliably on multi-adapter systems.
-	 *
-	 * @return an {@code ovrResult} indicating success or failure. Upon failure the returned {@code ovrSession} will be {@code NULL}.
-	 */
+	/** Unsafe version of: {@link #ovr_Create Create} */
 	public static native int novr_Create(long pSession, long luid);
 
 	/**
@@ -843,11 +722,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_Destroy ] ---
 
-	/**
-	 * Destroys the session.
-	 *
-	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 */
+	/** Unsafe version of: {@link #ovr_Destroy Destroy} */
 	public static native void novr_Destroy(long session);
 
 	/**
@@ -863,12 +738,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_GetSessionStatus ] ---
 
-	/**
-	 * Returns status information for the application.
-	 *
-	 * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param sessionStatus an {@link OVRSessionStatus} that is filled in
-	 */
+	/** Unsafe version of: {@link #ovr_GetSessionStatus GetSessionStatus} */
 	public static native int novr_GetSessionStatus(long session, long sessionStatus);
 
 	/**
@@ -885,14 +755,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_SetTrackingOriginType ] ---
 
-	/**
-	 * Sets the tracking origin type.
-	 * 
-	 * <p>When the tracking origin is changed, all of the calls that either provide or accept ovrPosef will use the new tracking origin provided.</p>
-	 *
-	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param origin  an {@code ovrTrackingOrigin} to be used for all {@link OVRPosef}
-	 */
+	/** Unsafe version of: {@link #ovr_SetTrackingOriginType SetTrackingOriginType} */
 	public static native int novr_SetTrackingOriginType(long session, int origin);
 
 	/**
@@ -911,11 +774,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_GetTrackingOriginType ] ---
 
-	/**
-	 * Gets the tracking origin state.
-	 *
-	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 */
+	/** Unsafe version of: {@link #ovr_GetTrackingOriginType GetTrackingOriginType} */
 	public static native int novr_GetTrackingOriginType(long session);
 
 	/**
@@ -931,21 +790,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_RecenterTrackingOrigin ] ---
 
-	/**
-	 * Re-centers the sensor position and orientation.
-	 * 
-	 * <p>This resets the (x,y,z) positional components and the yaw orientation component. The Roll and pitch orientation components are always determined by
-	 * gravity and cannot be redefined. All future tracking will report values relative to this new reference position. If you are using {@link OVRTrackerPose} then
-	 * you will need to call {@link #ovr_GetTrackerPose GetTrackerPose} after this, because the sensor position(s) will change as a result of this.</p>
-	 * 
-	 * <p>The headset cannot be facing vertically upward or downward but rather must be roughly level otherwise this function will fail with
-	 * {@link OVRErrorCode#ovrError_InvalidHeadsetOrientation Error_InvalidHeadsetOrientation}.</p>
-	 * 
-	 * <p>For more info, see the notes on each {@code ovrTrackingOrigin} enumeration to understand how recenter will vary slightly in its behavior based on the
-	 * current {@code ovrTrackingOrigin} setting.</p>
-	 *
-	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 */
+	/** Unsafe version of: {@link #ovr_RecenterTrackingOrigin RecenterTrackingOrigin} */
 	public static native int novr_RecenterTrackingOrigin(long session);
 
 	/**
@@ -971,14 +816,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_ClearShouldRecenterFlag ] ---
 
-	/**
-	 * Clears the ShouldRecenter status bit in ovrSessionStatus.
-	 * 
-	 * <p>Clears the {@code ShouldRecenter} status bit in {@link OVRSessionStatus}, allowing further recenter requests to be detected. Since this is automatically done
-	 * by {@link #ovr_RecenterTrackingOrigin RecenterTrackingOrigin}, this is only needs to be called when application is doing its own re-centering.</p>
-	 *
-	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 */
+	/** Unsafe version of: {@link #ovr_ClearShouldRecenterFlag ClearShouldRecenterFlag} */
 	public static native void novr_ClearShouldRecenterFlag(long session);
 
 	/**
@@ -997,22 +835,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_GetTrackingState ] ---
 
-	/**
-	 * Returns tracking state reading based on the specified absolute system time.
-	 * 
-	 * <p>Pass an {@code absTime} value of 0.0 to request the most recent sensor reading. In this case both {@code PredictedPose} and {@code SamplePose} will
-	 * have the same value.</p>
-	 * 
-	 * <p>This may also be used for more refined timing of front buffer rendering logic, and so on.</p>
-	 * 
-	 * <p>This may be called by multiple threads.</p>
-	 *
-	 * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param absTime       the absolute future time to predict the return {@link OVRTrackingState} value. Use 0 to request the most recent tracking state.
-	 * @param latencyMarker specifies that this call is the point in time where the "App-to-Mid-Photon" latency timer starts from. If a given {@code ovrLayer} provides
-	 *                      "SensorSampleTime", that will override the value stored here.
-	 * @param __result      the {@link OVRTrackingState} that is predicted for the given {@code absTime}
-	 */
+	/** Unsafe version of: {@link #ovr_GetTrackingState GetTrackingState} */
 	public static native void novr_GetTrackingState(long session, double absTime, boolean latencyMarker, long __result);
 
 	/**
@@ -1040,12 +863,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_GetTrackerPose ] ---
 
-	/**
-	 * Returns the {@link OVRTrackerPose} for the given attached tracker.
-	 *
-	 * @param session          an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param trackerPoseIndex index of the tracker being requested.
-	 */
+	/** Unsafe version of: {@link #ovr_GetTrackerPose GetTrackerPose} */
 	public static native void novr_GetTrackerPose(long session, int trackerPoseIndex, long __result);
 
 	/**
@@ -1063,16 +881,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_GetInputState ] ---
 
-	/**
-	 * Returns the most recent input state for controllers, without positional tracking info. Developers can tell whether the same state was returned by
-	 * checking the {@code PacketNumber}.
-	 *
-	 * @param session        an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param controllerType which controllers the input will be returned for
-	 * @param inputState     the input state that will be filled in
-	 *
-	 * @return {@link OVRErrorCode#ovrSuccess Success} if the new state was successfully obtained
-	 */
+	/** Unsafe version of: {@link #ovr_GetInputState GetInputState} */
 	public static native int novr_GetInputState(long session, int controllerType, long inputState);
 
 	/**
@@ -1093,11 +902,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_GetConnectedControllerTypes ] ---
 
-	/**
-	 * Returns controller types connected to the system OR'ed together.
-	 *
-	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 */
+	/** Unsafe version of: {@link #ovr_GetConnectedControllerTypes GetConnectedControllerTypes} */
 	public static native int novr_GetConnectedControllerTypes(long session);
 
 	/**
@@ -1113,13 +918,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_GetTouchHapticsDesc ] ---
 
-	/**
-	 * Gets information about Haptics engine for the specified Touch controller.
-	 *
-	 * @param session        an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param controllerType the controller to retrieve the information from
-	 * @param __result       an {@link OVRTouchHapticsDesc}
-	 */
+	/** Unsafe version of: {@link #ovr_GetTouchHapticsDesc GetTouchHapticsDesc} */
 	public static native void novr_GetTouchHapticsDesc(long session, int controllerType, long __result);
 
 	/**
@@ -1138,26 +937,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_SetControllerVibration ] ---
 
-	/**
-	 * Sets constant vibration (with specified frequency and amplitude) to a controller.
-	 * 
-	 * <p>Note: {@code ovr_SetControllerVibration} cannot be used interchangeably with {@link #ovr_SubmitControllerVibration SubmitControllerVibration}.</p>
-	 * 
-	 * <p>This method should be called periodically, vibration lasts for a maximum of 2.5 seconds. It's recommended to call this method once a second, calls will
-	 * be rejected if called too frequently (over 30hz).</p>
-	 *
-	 * @param session        an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param controllerType the controller to set the vibration to
-	 * @param frequency      the vibration frequency. Supported values are: 0.0 (disabled), 0.5 and 1.0. Non valid values will be clamped.
-	 * @param amplitude      the vibration amplitude in the {@code [0.0, 1.0]} range
-	 *
-	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
-	 *         
-	 *         <ul>
-	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: The call succeeded and a result was returned.</li>
-	 *         <li>{@link OVRErrorCode#ovrSuccess_DeviceUnavailable Success_DeviceUnavailable}: The call succeeded but the device referred to by {@code controllerType} is not available.</li>
-	 *         </ul>
-	 */
+	/** Unsafe version of: {@link #ovr_SetControllerVibration SetControllerVibration} */
 	public static native int novr_SetControllerVibration(long session, int controllerType, float frequency, float amplitude);
 
 	/**
@@ -1188,22 +968,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_SubmitControllerVibration ] ---
 
-	/**
-	 * Submits a Haptics buffer (used for vibration) to Touch (only) controllers.
-	 * 
-	 * <p>Note: {@code ovr_SubmitControllerVibration} cannot be used interchangeably with {@link #ovr_SetControllerVibration SetControllerVibration}.</p>
-	 *
-	 * @param session        an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param controllerType the controller where the Haptics buffer will be played
-	 * @param buffer         the Haptics buffer containing amplitude samples to be played
-	 *
-	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
-	 *         
-	 *         <ul>
-	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: The call succeeded and a result was returned.</li>
-	 *         <li>{@link OVRErrorCode#ovrSuccess_DeviceUnavailable Success_DeviceUnavailable}: The call succeeded but the device referred to by {@code controllerType} is not available.</li>
-	 *         </ul>
-	 */
+	/** Unsafe version of: {@link #ovr_SubmitControllerVibration SubmitControllerVibration} */
 	public static native int novr_SubmitControllerVibration(long session, int controllerType, long buffer);
 
 	/**
@@ -1232,20 +997,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_GetControllerVibrationState ] ---
 
-	/**
-	 * Gets the Haptics engine playback state of a specific Touch controller.
-	 *
-	 * @param session        an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param controllerType the controller where the Haptics buffer will be played
-	 * @param outState       the state of the haptics engine
-	 *
-	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
-	 *         
-	 *         <ul>
-	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: The call succeeded and a result was returned.</li>
-	 *         <li>{@link OVRErrorCode#ovrSuccess_DeviceUnavailable Success_DeviceUnavailable}: The call succeeded but the device referred to by {@code controllerType} is not available.</li>
-	 *         </ul>
-	 */
+	/** Unsafe version of: {@link #ovr_GetControllerVibrationState GetControllerVibrationState} */
 	public static native int novr_GetControllerVibrationState(long session, int controllerType, long outState);
 
 	/**
@@ -1270,24 +1022,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_TestBoundary ] ---
 
-	/**
-	 * Tests collision/proximity of position tracked devices (e.g. HMD and/or Touch) against the Boundary System.
-	 * 
-	 * <p>Note: this method is similar to {@link #ovr_BoundaryTestPoint BoundaryTestPoint} but can be more precise as it may take into account device acceleration/momentum.</p>
-	 *
-	 * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param deviceBitmask bitmask of one or more tracked devices to test. One or more of:<br><table><tr><td>{@link #ovrTrackedDevice_HMD TrackedDevice_HMD}</td><td>{@link #ovrTrackedDevice_LTouch TrackedDevice_LTouch}</td><td>{@link #ovrTrackedDevice_RTouch TrackedDevice_RTouch}</td><td>{@link #ovrTrackedDevice_Touch TrackedDevice_Touch}</td></tr><tr><td>{@link #ovrTrackedDevice_All TrackedDevice_All}</td></tr></table>
-	 * @param boundaryType  the boundary type. One of:<br><table><tr><td>{@link #ovrBoundary_Outer Boundary_Outer}</td><td>{@link #ovrBoundary_PlayArea Boundary_PlayArea}</td></tr></table>
-	 * @param outTestResult result of collision/proximity test, contains information such as distance and closest point
-	 *
-	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
-	 *         
-	 *         <ul>
-	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: The call succeeded and a result was returned.</li>
-	 *         <li>{@link OVRErrorCode#ovrSuccess_BoundaryInvalid Success_BoundaryInvalid}: The call succeeded but the result is not a valid boundary due to not being set up.</li>
-	 *         <li>{@link OVRErrorCode#ovrSuccess_DeviceUnavailable Success_DeviceUnavailable}: The call succeeded but the device referred to by {@code deviceBitmask} is not available.</li>
-	 *         </ul>
-	 */
+	/** Unsafe version of: {@link #ovr_TestBoundary TestBoundary} */
 	public static native int novr_TestBoundary(long session, int deviceBitmask, int boundaryType, long outTestResult);
 
 	/**
@@ -1316,21 +1051,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_TestBoundaryPoint ] ---
 
-	/**
-	 * Tests collision/proximity of a 3D point against the Boundary System.
-	 *
-	 * @param session            an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param point              the 3D point to test
-	 * @param singleBoundaryType the boundary type. One of:<br><table><tr><td>{@link #ovrBoundary_Outer Boundary_Outer}</td><td>{@link #ovrBoundary_PlayArea Boundary_PlayArea}</td></tr></table>
-	 * @param outTestResult      result of collision/proximity test, contains information such as distance and closest point
-	 *
-	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
-	 *         
-	 *         <ul>
-	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: The call succeeded and a result was returned.</li>
-	 *         <li>{@link OVRErrorCode#ovrSuccess_BoundaryInvalid Success_BoundaryInvalid}: The call succeeded but the result is not a valid boundary due to not being set up.</li>
-	 *         </ul>
-	 */
+	/** Unsafe version of: {@link #ovr_TestBoundaryPoint TestBoundaryPoint} */
 	public static native int novr_TestBoundaryPoint(long session, long point, int singleBoundaryType, long outTestResult);
 
 	/**
@@ -1356,14 +1077,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_SetBoundaryLookAndFeel ] ---
 
-	/**
-	 * Sets the look and feel of the Boundary System.
-	 *
-	 * @param session     an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param lookAndFeel the look and feel parameters
-	 *
-	 * @return {@link OVRErrorCode#ovrSuccess Success} upon success
-	 */
+	/** Unsafe version of: {@link #ovr_SetBoundaryLookAndFeel SetBoundaryLookAndFeel} */
 	public static native int novr_SetBoundaryLookAndFeel(long session, long lookAndFeel);
 
 	/**
@@ -1382,13 +1096,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_ResetBoundaryLookAndFeel ] ---
 
-	/**
-	 * Resets the look and feel of the Boundary System to its default state.
-	 *
-	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 *
-	 * @return {@link OVRErrorCode#ovrSuccess Success} upon success
-	 */
+	/** Unsafe version of: {@link #ovr_ResetBoundaryLookAndFeel ResetBoundaryLookAndFeel} */
 	public static native int novr_ResetBoundaryLookAndFeel(long session);
 
 	/**
@@ -1406,21 +1114,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_GetBoundaryGeometry ] ---
 
-	/**
-	 * Gets the geometry of the Boundary System's "play area" or "outer boundary" as 3D floor points.
-	 *
-	 * @param session             an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param boundaryType        the boundary type. One of:<br><table><tr><td>{@link #ovrBoundary_Outer Boundary_Outer}</td><td>{@link #ovrBoundary_PlayArea Boundary_PlayArea}</td></tr></table>
-	 * @param outFloorPoints      an array of 3D points (in clockwise order) defining the boundary at floor height (up to 256)
-	 * @param outFloorPointsCount the number of 3D points returned in the array
-	 *
-	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
-	 *         
-	 *         <ul>
-	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: The call succeeded and a result was returned.</li>
-	 *         <li>{@link OVRErrorCode#ovrSuccess_BoundaryInvalid Success_BoundaryInvalid}: The call succeeded but the result is not a valid boundary due to not being set up.</li>
-	 *         </ul>
-	 */
+	/** Unsafe version of: {@link #ovr_GetBoundaryGeometry GetBoundaryGeometry} */
 	public static native int novr_GetBoundaryGeometry(long session, int boundaryType, long outFloorPoints, long outFloorPointsCount);
 
 	/**
@@ -1446,20 +1140,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_GetBoundaryDimensions ] ---
 
-	/**
-	 * Gets the dimension of the Boundary System's "play area" or "outer boundary".
-	 *
-	 * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param boundaryType  the boundary type. One of:<br><table><tr><td>{@link #ovrBoundary_Outer Boundary_Outer}</td><td>{@link #ovrBoundary_PlayArea Boundary_PlayArea}</td></tr></table>
-	 * @param outDimensions dimensions of the axis aligned bounding box that encloses the area in meters (width, height and length)
-	 *
-	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
-	 *         
-	 *         <ul>
-	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: The call succeeded and a result was returned.</li>
-	 *         <li>{@link OVRErrorCode#ovrSuccess_BoundaryInvalid Success_BoundaryInvalid}: The call succeeded but the result is not a valid boundary due to not being set up.</li>
-	 *         </ul>
-	 */
+	/** Unsafe version of: {@link #ovr_GetBoundaryDimensions GetBoundaryDimensions} */
 	public static native int novr_GetBoundaryDimensions(long session, int boundaryType, long outDimensions);
 
 	/**
@@ -1484,22 +1165,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_GetBoundaryVisible ] ---
 
-	/**
-	 * Returns if the boundary is currently visible.
-	 * 
-	 * <p>Note: visibility is false if the user has turned off boundaries, otherwise, it's true if the app has requested boundaries to be visible or if any
-	 * tracked device is currently triggering it. This may not exactly match rendering due to fade-in and fade-out effects.</p>
-	 *
-	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param outIsVisible {@link #ovrTrue True}, if the boundary is visible
-	 *
-	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
-	 *         
-	 *         <ul>
-	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: The call succeeded and a result was returned.</li>
-	 *         <li>{@link OVRErrorCode#ovrSuccess_BoundaryInvalid Success_BoundaryInvalid}: The call succeeded but the result is not a valid boundary due to not being set up.</li>
-	 *         </ul>
-	 */
+	/** Unsafe version of: {@link #ovr_GetBoundaryVisible GetBoundaryVisible} */
 	public static native int novr_GetBoundaryVisible(long session, long outIsVisible);
 
 	/**
@@ -1526,14 +1192,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_RequestBoundaryVisible ] ---
 
-	/**
-	 * Requests boundary to be visible.
-	 *
-	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param visible forces the outer boundary to be visible. An application can't force it to be invisible, but can cancel its request by passing false.
-	 *
-	 * @return {@link OVRErrorCode#ovrSuccess Success} upon success
-	 */
+	/** Unsafe version of: {@link #ovr_RequestBoundaryVisible RequestBoundaryVisible} */
 	public static native int novr_RequestBoundaryVisible(long session, boolean visible);
 
 	/**
@@ -1552,13 +1211,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_GetTextureSwapChainLength ] ---
 
-	/**
-	 * Gets the number of buffers in an {@code ovrTextureSwapChain}.
-	 *
-	 * @param session    an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param chain      the {@code ovrTextureSwapChain} for which the length should be retrieved
-	 * @param out_Length returns the number of buffers in the specified chain
-	 */
+	/** Unsafe version of: {@link #ovr_GetTextureSwapChainLength GetTextureSwapChainLength} */
 	public static native int novr_GetTextureSwapChainLength(long session, long chain, long out_Length);
 
 	/**
@@ -1579,13 +1232,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_GetTextureSwapChainCurrentIndex ] ---
 
-	/**
-	 * Gets the current index in an {@code ovrTextureSwapChain}.
-	 *
-	 * @param session   an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param chain     the {@code ovrTextureSwapChain} for which the index should be retrieved
-	 * @param out_Index returns the current (free) index in specified chain
-	 */
+	/** Unsafe version of: {@link #ovr_GetTextureSwapChainCurrentIndex GetTextureSwapChainCurrentIndex} */
 	public static native int novr_GetTextureSwapChainCurrentIndex(long session, long chain, long out_Index);
 
 	/**
@@ -1606,13 +1253,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_GetTextureSwapChainDesc ] ---
 
-	/**
-	 * Gets the description of the buffers in an {@code ovrTextureSwapChain}.
-	 *
-	 * @param session  an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param chain    the {@code ovrTextureSwapChain} for which the description should be retrieved
-	 * @param out_Desc returns the description of the specified chain
-	 */
+	/** Unsafe version of: {@link #ovr_GetTextureSwapChainDesc GetTextureSwapChainDesc} */
 	public static native int novr_GetTextureSwapChainDesc(long session, long chain, long out_Desc);
 
 	/**
@@ -1632,16 +1273,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_CommitTextureSwapChain ] ---
 
-	/**
-	 * Commits any pending changes to an {@code ovrTextureSwapChain}, and advances its current index.
-	 * 
-	 * <p>When Commit is called, the texture at the current index is considered ready for use by the runtime, and further writes to it should be avoided. The
-	 * swap chain's current index is advanced, providing there's room in the chain. The next time the SDK dereferences this texture swap chain, it will
-	 * synchronize with the app's graphics context and pick up the submitted index, opening up room in the swap chain for further commits.</p>
-	 *
-	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param chain   the {@code ovrTextureSwapChain} to commit
-	 */
+	/** Unsafe version of: {@link #ovr_CommitTextureSwapChain CommitTextureSwapChain} */
 	public static native int novr_CommitTextureSwapChain(long session, long chain);
 
 	/**
@@ -1664,12 +1296,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_DestroyTextureSwapChain ] ---
 
-	/**
-	 * Destroys an {@code ovrTextureSwapChain} and frees all the resources associated with it.
-	 *
-	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param chain   the {@code ovrTextureSwapChain} to destroy. If it is {@code NULL} then this function has no effect.
-	 */
+	/** Unsafe version of: {@link #ovr_DestroyTextureSwapChain DestroyTextureSwapChain} */
 	public static native void novr_DestroyTextureSwapChain(long session, long chain);
 
 	/**
@@ -1686,12 +1313,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_DestroyMirrorTexture ] ---
 
-	/**
-	 * Destroys a mirror texture previously created by one of the mirror texture creation functions.
-	 *
-	 * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param mirrorTexture the {@code ovrTexture} to destroy. If it is {@code NULL} then this function has no effect.
-	 */
+	/** Unsafe version of: {@link #ovr_DestroyMirrorTexture DestroyMirrorTexture} */
 	public static native void novr_DestroyMirrorTexture(long session, long mirrorTexture);
 
 	/**
@@ -1708,25 +1330,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 
 	// --- [ ovr_GetFovTextureSize ] ---
 
-	/**
-	 * Calculates the recommended viewport size for rendering a given eye within the HMD with a given FOV cone.
-	 * 
-	 * <p>Higher FOV will generally require larger textures to maintain quality. Apps packing multiple eye views together on the same texture should ensure there
-	 * are at least 8 pixels of padding between them to prevent texture filtering and chromatic aberration causing images to leak between the two eye views.</p>
-	 * 
-	 * <p>Example code:</p>
-	 * 
-	 * <pre><code>ovrHmdDesc hmdDesc = ovr_GetHmdDesc(session);
-ovrSizei eyeSizeLeft  = ovr_GetFovTextureSize(session, ovrEye_Left,  hmdDesc.DefaultEyeFov[ovrEye_Left],  1.0f);
-ovrSizei eyeSizeRight = ovr_GetFovTextureSize(session, ovrEye_Right, hmdDesc.DefaultEyeFov[ovrEye_Right], 1.0f);</code></pre>
-	 *
-	 * @param session               an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param eye                   which eye (left or right) to calculate for. One of:<br><table><tr><td>{@link #ovrEye_Left Eye_Left}</td><td>{@link #ovrEye_Right Eye_Right}</td></tr></table>
-	 * @param fov                   the {@link OVRFovPort} to use
-	 * @param pixelsPerDisplayPixel the ratio of the number of render target pixels to display pixels at the center of distortion. 1.0 is the default value. Lower values can improve
-	 *                              performance, higher values give improved quality.
-	 * @param __result              the texture width and height size
-	 */
+	/** Unsafe version of: {@link #ovr_GetFovTextureSize GetFovTextureSize} */
 	public static native void novr_GetFovTextureSize(long session, int eye, long fov, float pixelsPerDisplayPixel, long __result);
 
 	/**
@@ -1757,14 +1361,7 @@ ovrSizei eyeSizeRight = ovr_GetFovTextureSize(session, ovrEye_Right, hmdDesc.Def
 
 	// --- [ ovr_GetRenderDesc ] ---
 
-	/**
-	 * Computes the distortion viewport, view adjust, and other rendering parameters for the specified eye.
-	 *
-	 * @param session  an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param eyeType  which eye (left or right) for which to perform calculations. One of:<br><table><tr><td>{@link #ovrEye_Left Eye_Left}</td><td>{@link #ovrEye_Right Eye_Right}</td></tr></table>
-	 * @param fov      the {@link OVRFovPort} to use.
-	 * @param __result the computed {@link OVREyeRenderDesc} for the given {@code eyeType} and field of view
-	 */
+	/** Unsafe version of: {@link #ovr_GetRenderDesc GetRenderDesc} */
 	public static native void novr_GetRenderDesc(long session, int eyeType, long fov, long __result);
 
 	/**
@@ -1785,53 +1382,10 @@ ovrSizei eyeSizeRight = ovr_GetFovTextureSize(session, ovrEye_Right, hmdDesc.Def
 	// --- [ ovr_SubmitFrame ] ---
 
 	/**
-	 * Submits layers for distortion and display.
-	 * 
-	 * <p>{@code ovr_SubmitFrame} triggers distortion and processing which might happen asynchronously. The function will return when there is room in the submission
-	 * queue and surfaces are available. Distortion might or might not have completed.</p>
-	 * 
-	 * <ul>
-	 * <li>Layers are drawn in the order they are specified in the array, regardless of the layer type.</li>
-	 * <li>Layers are not remembered between successive calls to {@code ovr_SubmitFrame}. A layer must be specified in every call to {@code ovr_SubmitFrame}
-	 * or it won't be displayed.</li>
-	 * <li>If a {@code layerPtrList} entry that was specified in a previous call to {@code ovr_SubmitFrame} is passed as {@code NULL} or is of type
-	 * {@link #ovrLayerType_Disabled LayerType_Disabled}, that layer is no longer displayed.</li>
-	 * <li>A {@code layerPtrList} entry can be of any layer type and multiple entries of the same layer type are allowed. No {@code layerPtrList} entry may be
-	 * duplicated (i.e. the same pointer as an earlier entry).</li>
-	 * </ul>
-	 * 
-	 * <h3>Example code</h3>
-	 * 
-	 * <pre><code>ovrLayerEyeFov  layer0;
-ovrLayerQuad    layer1;
-...
-ovrLayerHeader* layers[2] = { &layer0.Header, &layer1.Header };
-ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</code></pre>
+	 * Unsafe version of: {@link #ovr_SubmitFrame SubmitFrame}
 	 *
-	 * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param frameIndex    the targeted application frame index, or 0 to refer to one frame after the last time {@link #ovr_SubmitFrame SubmitFrame} was called
-	 * @param viewScaleDesc provides additional information needed only if {@code layerPtrList} contains an {@link #ovrLayerType_Quad LayerType_Quad}. If {@code NULL}, a default version is used based on the
-	 *                      current configuration and a 1.0 world scale.
-	 * @param layerPtrList  a list of {@code ovrLayer} pointers, which can include {@code NULL} entries to indicate that any previously shown layer at that index is to not be
-	 *                      displayed. Each layer header must be a part of a layer structure such as {@link OVRLayerEyeFov} or {@link OVRLayerQuad}, with {@code Header.Type} identifying
-	 *                      its type. A {@code NULL} {@code layerPtrList} entry in the array indicates the absence of the given layer.
-	 * @param layerCount    the number of valid elements in {@code layerPtrList}. The maximum supported {@code layerCount} is not currently specified, but may be specified in
-	 *                      a future version.
-	 *
-	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon one of the possible success values:
-	 *         
-	 *         <ul>
-	 *         <li>{@link OVRErrorCode#ovrSuccess Success}: rendering completed successfully.</li>
-	 *         <li>{@link OVRErrorCode#ovrSuccess_NotVisible Success_NotVisible}: rendering completed successfully but was not displayed on the HMD, usually because another application currently
-	 *         has ownership of the HMD. Applications receiving this result should stop rendering new content, but continue to call {@code ovr_SubmitFrame}
-	 *         periodically until it returns a value other than {@link OVRErrorCode#ovrSuccess_NotVisible Success_NotVisible}.</li>
-	 *         <li>{@link OVRErrorCode#ovrError_DisplayLost Error_DisplayLost}: The session has become invalid (such as due to a device removal) and the shared resources need to be released
-	 *         ({@link #ovr_DestroyTextureSwapChain DestroyTextureSwapChain}), the session needs to destroyed ({@link #ovr_Destroy Destroy}) and recreated ({@link #ovr_Create Create}), and new resources need to be created
-	 *         ({@code ovr_CreateTextureSwapChainXXX}). The application's existing private graphics resources do not need to be recreated unless the new
-	 *         {@code ovr_Create} call returns a different {@code GraphicsLuid}.</li>
-	 *         <li>{@link OVRErrorCode#ovrError_TextureSwapChainInvalid Error_TextureSwapChainInvalid}: The {@code ovrTextureSwapChain} is in an incomplete or inconsistent state. Ensure
-	 *         {@link #ovr_CommitTextureSwapChain CommitTextureSwapChain} was called at least once first.</li>
-	 *         </ul>
+	 * @param layerCount the number of valid elements in {@code layerPtrList}. The maximum supported {@code layerCount} is not currently specified, but may be specified in
+	 *                   a future version.
 	 */
 	public static native int novr_SubmitFrame(long session, long frameIndex, long viewScaleDesc, long layerPtrList, int layerCount);
 
@@ -1890,18 +1444,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 
 	// --- [ ovr_GetPerfStats ] ---
 
-	/**
-	 * Retrieves performance stats for the VR app as well as the SDK compositor.
-	 * 
-	 * <p>If the app calling this function is not the one in focus (i.e. not visible in the HMD), then {@code outStats} will be zero'd out. New stats are
-	 * populated after each successive call to {@link #ovr_SubmitFrame SubmitFrame}. So the app should call this function on the same thread it calls {@link #ovr_SubmitFrame SubmitFrame}, preferably
-	 * immediately afterwards.</p>
-	 *
-	 * @param session  an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param outStats contains the performance stats for the application and SDK compositor
-	 *
-	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success
-	 */
+	/** Unsafe version of: {@link #ovr_GetPerfStats GetPerfStats} */
 	public static native int novr_GetPerfStats(long session, long outStats);
 
 	/**
@@ -1924,16 +1467,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 
 	// --- [ ovr_ResetPerfStats ] ---
 
-	/**
-	 * Resets the accumulated stats reported in each {@link OVRPerfStatsPerCompositorFrame} back to zero.
-	 * 
-	 * <p>Only the integer values such as {@code HmdVsyncIndex}, {@code AppDroppedFrameCount} etc. will be reset as the other fields such as
-	 * {@code AppMotionToPhotonLatency} are independent timing values updated per-frame.</p>
-	 *
-	 * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 *
-	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success
-	 */
+	/** Unsafe version of: {@link #ovr_ResetPerfStats ResetPerfStats} */
 	public static native int novr_ResetPerfStats(long session);
 
 	/**
@@ -1954,25 +1488,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 
 	// --- [ ovr_GetPredictedDisplayTime ] ---
 
-	/**
-	 * Gets the time of the specified frame midpoint.
-	 * 
-	 * <p>Predicts the time at which the given frame will be displayed. The predicted time is the middle of the time period during which the corresponding eye
-	 * images will be displayed.</p>
-	 * 
-	 * <p>The application should increment frameIndex for each successively targeted frame, and pass that index to any relevant OVR functions that need to apply
-	 * to the frame identified by that index.</p>
-	 * 
-	 * <p>This function is thread-safe and allows for multiple application threads to target their processing to the same displayed frame.</p>
-	 * 
-	 * <p>In the event that prediction fails due to various reasons (e.g. the display being off or app has yet to present any frames), the return value will be
-	 * current CPU time.</p>
-	 *
-	 * @param session    an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param frameIndex the frame the caller wishes to target. A value of zero returns the next frame index.
-	 *
-	 * @return the absolute frame midpoint time for the given {@code frameIndex}
-	 */
+	/** Unsafe version of: {@link #ovr_GetPredictedDisplayTime GetPredictedDisplayTime} */
 	public static native double novr_GetPredictedDisplayTime(long session, long frameIndex);
 
 	/**
@@ -2013,15 +1529,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 
 	// --- [ ovr_GetBool ] ---
 
-	/**
-	 * Reads a boolean property.
-	 *
-	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param propertyName the name of the property, which needs to be valid for only the call
-	 * @param defaultVal   specifes the value to return if the property couldn't be read
-	 *
-	 * @return the property interpreted as a boolean value. Returns {@code defaultVal} if the property doesn't exist.
-	 */
+	/** Unsafe version of: {@link #ovr_GetBool GetBool} */
 	public static native boolean novr_GetBool(long session, long propertyName, boolean defaultVal);
 
 	/**
@@ -2064,17 +1572,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 
 	// --- [ ovr_SetBool ] ---
 
-	/**
-	 * Writes or creates a boolean property.
-	 * 
-	 * <p>If the property wasn't previously a boolean property, it is changed to a boolean property.</p>
-	 *
-	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param propertyName the name of the property, which needs to be valid only for the call
-	 * @param value        the value to write
-	 *
-	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
-	 */
+	/** Unsafe version of: {@link #ovr_SetBool SetBool} */
 	public static native boolean novr_SetBool(long session, long propertyName, boolean value);
 
 	/**
@@ -2121,15 +1619,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 
 	// --- [ ovr_GetInt ] ---
 
-	/**
-	 * Reads an integer property.
-	 *
-	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param propertyName the name of the property, which needs to be valid only for the call
-	 * @param defaultVal   specifes the value to return if the property couldn't be read
-	 *
-	 * @return the property interpreted as an integer value. Returns {@code defaultVal} if the property doesn't exist.
-	 */
+	/** Unsafe version of: {@link #ovr_GetInt GetInt} */
 	public static native int novr_GetInt(long session, long propertyName, int defaultVal);
 
 	/**
@@ -2172,17 +1662,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 
 	// --- [ ovr_SetInt ] ---
 
-	/**
-	 * Writes or creates an integer property.
-	 * 
-	 * <p>If the property wasn't previously an integer property, it is changed to an integer property.</p>
-	 *
-	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param propertyName the name of the property, which needs to be valid only for the call
-	 * @param value        the value to write
-	 *
-	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
-	 */
+	/** Unsafe version of: {@link #ovr_SetInt SetInt} */
 	public static native boolean novr_SetInt(long session, long propertyName, int value);
 
 	/**
@@ -2229,15 +1709,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 
 	// --- [ ovr_GetFloat ] ---
 
-	/**
-	 * Reads a float property.
-	 *
-	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param propertyName the name of the property, which needs to be valid only for the call
-	 * @param defaultVal   specifes the value to return if the property couldn't be read
-	 *
-	 * @return the property interpreted as a float value. Returns {@code defaultVal} if the property doesn't exist.
-	 */
+	/** Unsafe version of: {@link #ovr_GetFloat GetFloat} */
 	public static native float novr_GetFloat(long session, long propertyName, float defaultVal);
 
 	/**
@@ -2280,17 +1752,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 
 	// --- [ ovr_SetFloat ] ---
 
-	/**
-	 * Writes or creates a float property.
-	 * 
-	 * <p>If the property wasn't previously a float property, it's changed to a float property.</p>
-	 *
-	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param propertyName the name of the property, which needs to be valid only for the call
-	 * @param value        the value to write
-	 *
-	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
-	 */
+	/** Unsafe version of: {@link #ovr_SetFloat SetFloat} */
 	public static native boolean novr_SetFloat(long session, long propertyName, float value);
 
 	/**
@@ -2338,14 +1800,9 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	// --- [ ovr_GetFloatArray ] ---
 
 	/**
-	 * Reads a float array property.
+	 * Unsafe version of: {@link #ovr_GetFloatArray GetFloatArray}
 	 *
-	 * @param session        an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param propertyName   the name of the property, which needs to be valid only for the call
-	 * @param values         an array of float to write to
 	 * @param valuesCapacity the maximum number of elements to write to the values array
-	 *
-	 * @return the number of elements read, or 0 if property doesn't exist or is empty
 	 */
 	public static native int novr_GetFloatArray(long session, long propertyName, long values, int valuesCapacity);
 
@@ -2390,14 +1847,9 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	// --- [ ovr_SetFloatArray ] ---
 
 	/**
-	 * Writes or creates a float array property.
+	 * Unsafe version of: {@link #ovr_SetFloatArray SetFloatArray}
 	 *
-	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param propertyName the name of the property, which needs to be valid only for the call
-	 * @param values       an array of float to write from
-	 * @param valuesSize   the number of elements to write
-	 *
-	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
+	 * @param valuesSize the number of elements to write
 	 */
 	public static native boolean novr_SetFloatArray(long session, long propertyName, long values, int valuesSize);
 
@@ -2441,18 +1893,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 
 	// --- [ ovr_GetString ] ---
 
-	/**
-	 * Reads a string property.
-	 * 
-	 * <p>Strings are UTF8-encoded and null-terminated.</p>
-	 *
-	 * @param session      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param propertyName the name of the property, which needs to be valid only for the call
-	 * @param defaultVal   specifes the value to return if the property couldn't be read
-	 *
-	 * @return the string property if it exists. Otherwise returns {@code defaultVal}, which can be specified as {@code NULL}. The return memory is guaranteed to be valid
-	 *         until next call to {@code ovr_GetString} or until the HMD is destroyed, whichever occurs first.
-	 */
+	/** Unsafe version of: {@link #ovr_GetString GetString} */
 	public static native long novr_GetString(long session, long propertyName, long defaultVal);
 
 	/**
@@ -2505,17 +1946,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 
 	// --- [ ovr_SetString ] ---
 
-	/**
-	 * Writes or creates a string property.
-	 * 
-	 * <p>Strings are UTF8-encoded and null-terminated.</p>
-	 *
-	 * @param hmddesc      an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-	 * @param propertyName the name of the property, which needs to be valid only for the call
-	 * @param value        the string property, which only needs to be valid for the duration of the call
-	 *
-	 * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
-	 */
+	/** Unsafe version of: {@link #ovr_SetString SetString} */
 	public static native boolean novr_SetString(long hmddesc, long propertyName, long value);
 
 	/**
@@ -2562,7 +1993,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 		}
 	}
 
-	/** Array version of: {@link #ovr_GetBoundaryGeometry GetBoundaryGeometry} */
+	/** Array version of: {@link #novr_GetBoundaryGeometry} */
 	public static native int novr_GetBoundaryGeometry(long session, int boundaryType, long outFloorPoints, int[] outFloorPointsCount);
 
 	/** Array version of: {@link #ovr_GetBoundaryGeometry GetBoundaryGeometry} */
@@ -2572,7 +2003,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 		return novr_GetBoundaryGeometry(session, boundaryType, memAddressSafe(outFloorPoints), outFloorPointsCount);
 	}
 
-	/** Array version of: {@link #ovr_GetTextureSwapChainLength GetTextureSwapChainLength} */
+	/** Array version of: {@link #novr_GetTextureSwapChainLength} */
 	public static native int novr_GetTextureSwapChainLength(long session, long chain, int[] out_Length);
 
 	/** Array version of: {@link #ovr_GetTextureSwapChainLength GetTextureSwapChainLength} */
@@ -2585,7 +2016,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 		return novr_GetTextureSwapChainLength(session, chain, out_Length);
 	}
 
-	/** Array version of: {@link #ovr_GetTextureSwapChainCurrentIndex GetTextureSwapChainCurrentIndex} */
+	/** Array version of: {@link #novr_GetTextureSwapChainCurrentIndex} */
 	public static native int novr_GetTextureSwapChainCurrentIndex(long session, long chain, int[] out_Index);
 
 	/** Array version of: {@link #ovr_GetTextureSwapChainCurrentIndex GetTextureSwapChainCurrentIndex} */
@@ -2598,7 +2029,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 		return novr_GetTextureSwapChainCurrentIndex(session, chain, out_Index);
 	}
 
-	/** Array version of: {@link #ovr_GetFloatArray GetFloatArray} */
+	/** Array version of: {@link #novr_GetFloatArray} */
 	public static native int novr_GetFloatArray(long session, long propertyName, float[] values, int valuesCapacity);
 
 	/** Array version of: {@link #ovr_GetFloatArray GetFloatArray} */
@@ -2623,7 +2054,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 		}
 	}
 
-	/** Array version of: {@link #ovr_SetFloatArray SetFloatArray} */
+	/** Array version of: {@link #novr_SetFloatArray} */
 	public static native boolean novr_SetFloatArray(long session, long propertyName, float[] values, int valuesSize);
 
 	/** Array version of: {@link #ovr_SetFloatArray SetFloatArray} */

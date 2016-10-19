@@ -179,12 +179,7 @@ public class ARBSync {
 
 	// --- [ glGetInteger64v ] ---
 
-	/**
-	 * Returns the 64bit integer value or values of a selected parameter.
-	 *
-	 * @param pname  the parameter value to be returned
-	 * @param params the value or values of the specified parameter
-	 */
+	/** Unsafe version of: {@link #glGetInteger64v GetInteger64v} */
 	public static void nglGetInteger64v(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetInteger64v;
 		if ( CHECKS )
@@ -223,13 +218,9 @@ public class ARBSync {
 	// --- [ glGetSynciv ] ---
 
 	/**
-	 * Queries the properties of a sync object.
+	 * Unsafe version of: {@link #glGetSynciv GetSynciv}
 	 *
-	 * @param sync    the sync object whose properties to query
-	 * @param pname   the parameter whose value to retrieve from the sync object specified in {@code sync}. One of:<br><table><tr><td>{@link #GL_OBJECT_TYPE OBJECT_TYPE}</td><td>{@link #GL_SYNC_CONDITION SYNC_CONDITION}</td><td>{@link #GL_SYNC_STATUS SYNC_STATUS}</td><td>{@link #GL_SYNC_FLAGS SYNC_FLAGS}</td></tr></table>
 	 * @param bufSize the size of the buffer whose address is given in {@code values}
-	 * @param length  the address of an variable to receive the number of integers placed in {@code values}
-	 * @param values  the address of an array to receive the values of the queried parameter
 	 */
 	public static void nglGetSynciv(long sync, int pname, int bufSize, long length, long values) {
 		long __functionAddress = GL.getCapabilities().glGetSynciv;

@@ -427,17 +427,7 @@ public class X11 {
 
 	// --- [ XOpenDisplay ] ---
 
-	/**
-	 * Returns a Display structure that serves as the connection to the X server and that contains all the information about that X server. {@code XOpenDisplay}
-	 * connects your application to the X server through TCP or DECnet communications protocols, or through some local inter-process communication protocol.
-	 * If the hostname is a host machine name and a single colon (:) separates the hostname and display number, {@code XOpenDisplay} connects using TCP streams.
-	 * If the hostname is not specified, Xlib uses whatever it believes is the fastest transport. If the hostname is a host machine name and a double colon
-	 * (::) separates the hostname and display number, {@code XOpenDisplay} connects using DECnet. A single X server can support any or all of these transport
-	 * mechanisms simultaneously. A particular Xlib implementation can support many more of these transport mechanisms.
-	 *
-	 * @param display_name the hardware display name, which determines the display and communications domain to be used. On a POSIX-conformant system, if the
-	 *                     {@code display_name} is {@code NULL}, it defaults to the value of the DISPLAY environment variable.
-	 */
+	/** Unsafe version of: {@link #XOpenDisplay} */
 	public static long nXOpenDisplay(long display_name) {
 		long __functionAddress = Functions.XOpenDisplay;
 		return invokePP(__functionAddress, display_name);
@@ -530,15 +520,7 @@ public class X11 {
 
 	// --- [ XCreateColormap ] ---
 
-	/**
-	 * Creates a colormap of the specified visual type for the screen on which the specified window resides and returns the colormap ID associated with it.
-	 * Note that the specified window is only used to determine the screen.
-	 *
-	 * @param display the connection to the X server
-	 * @param w       the window
-	 * @param visual  a visual type supported on the screen. If the visual type is not one supported by the screen, a {@code BadMatch} error results.
-	 * @param alloc   the colormap entries to be allocated. You can pass AllocNone or AllocAll.
-	 */
+	/** Unsafe version of: {@link #XCreateColormap} */
 	public static long nXCreateColormap(long display, long w, long visual, int alloc) {
 		long __functionAddress = Functions.XCreateColormap;
 		if ( CHECKS )
@@ -579,32 +561,7 @@ public class X11 {
 
 	// --- [ XCreateWindow ] ---
 
-	/**
-	 * Creates an unmapped subwindow for a specified parent window, returns the window ID of the created window, and causes the X server to generate a
-	 * {@code CreateNotify }event. The created window is placed on top in the stacking order with respect to siblings.
-	 * 
-	 * <p>The coordinate system has the X axis horizontal and the Y axis vertical with the origin [0, 0] at the upper-left corner. Coordinates are integral, in
-	 * terms of pixels, and coincide with pixel centers. Each window and pixmap has its own coordinate system. For a window, the origin is inside the border at
-	 * the inside, upper-left corner.</p>
-	 * 
-	 * <p>The x and y coordinates are the top-left outside corner of the window's borders and are relative to the inside of the parent window's borders.</p>
-	 * 
-	 * <p>The width and height are the created window's inside dimensions and do not include the created window's borders.</p>
-	 *
-	 * @param display      the connection to the X server
-	 * @param parent       the parent window
-	 * @param x            the window x-coordinate
-	 * @param y            the window y-coordinate
-	 * @param width        the window width
-	 * @param height       the window height
-	 * @param border_width the border width
-	 * @param depth        the window's depth. A depth of {@link #CopyFromParent} means the depth is taken from the parent.
-	 * @param windowClass  the created window's class. One of:<br><table><tr><td>{@link #InputOutput}</td><td>{@link #InputOnly}</td><td>{@link #CopyFromParent}</td></tr></table>
-	 * @param visual       the visual type. A visual of {@link #CopyFromParent} means the visual type is taken from the parent.
-	 * @param valuemask    which window attributes are defined in the attributes argument. This mask is the bitwise inclusive OR of the valid attribute mask bits. If
-	 *                     {@code valuemask} is zero, the attributes are ignored and are not referenced.
-	 * @param attributes   the structure from which the values (as specified by the value mask) are to be taken
-	 */
+	/** Unsafe version of: {@link #XCreateWindow} */
 	public static long nXCreateWindow(long display, long parent, int x, int y, int width, int height, int border_width, int depth, int windowClass, long visual, long valuemask, long attributes) {
 		long __functionAddress = Functions.XCreateWindow;
 		if ( CHECKS )
@@ -664,11 +621,7 @@ public class X11 {
 
 	// --- [ XFree ] ---
 
-	/**
-	 * Free in-memory data that was created by an Xlib function.
-	 *
-	 * @param data the data that is to be freed
-	 */
+	/** Unsafe version of: {@link #XFree} */
 	public static int nXFree(long data) {
 		long __functionAddress = Functions.XFree;
 		return invokePI(__functionAddress, data);

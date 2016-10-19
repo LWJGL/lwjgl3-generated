@@ -181,11 +181,7 @@ public class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3bvEXT ] ---
 
-	/**
-	 * Pointer version of {@link #glSecondaryColor3bEXT SecondaryColor3bEXT}.
-	 *
-	 * @param v the secondary color buffer
-	 */
+	/** Unsafe version of: {@link #glSecondaryColor3bvEXT SecondaryColor3bvEXT} */
 	public static void nglSecondaryColor3bvEXT(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3bvEXT;
 		if ( CHECKS )
@@ -206,11 +202,7 @@ public class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3svEXT ] ---
 
-	/**
-	 * Pointer version of {@link #glSecondaryColor3sEXT SecondaryColor3sEXT}.
-	 *
-	 * @param v the secondary color buffer
-	 */
+	/** Unsafe version of: {@link #glSecondaryColor3svEXT SecondaryColor3svEXT} */
 	public static void nglSecondaryColor3svEXT(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3svEXT;
 		if ( CHECKS )
@@ -231,11 +223,7 @@ public class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3ivEXT ] ---
 
-	/**
-	 * Pointer version of {@link #glSecondaryColor3iEXT SecondaryColor3iEXT}.
-	 *
-	 * @param v the secondary color buffer
-	 */
+	/** Unsafe version of: {@link #glSecondaryColor3ivEXT SecondaryColor3ivEXT} */
 	public static void nglSecondaryColor3ivEXT(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3ivEXT;
 		if ( CHECKS )
@@ -256,11 +244,7 @@ public class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3fvEXT ] ---
 
-	/**
-	 * Pointer version of {@link #glSecondaryColor3fEXT SecondaryColor3fEXT}.
-	 *
-	 * @param v the secondary color buffer
-	 */
+	/** Unsafe version of: {@link #glSecondaryColor3fvEXT SecondaryColor3fvEXT} */
 	public static void nglSecondaryColor3fvEXT(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3fvEXT;
 		if ( CHECKS )
@@ -281,11 +265,7 @@ public class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3dvEXT ] ---
 
-	/**
-	 * Pointer version of {@link #glSecondaryColor3dEXT SecondaryColor3dEXT}.
-	 *
-	 * @param v the secondary color buffer
-	 */
+	/** Unsafe version of: {@link #glSecondaryColor3dvEXT SecondaryColor3dvEXT} */
 	public static void nglSecondaryColor3dvEXT(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3dvEXT;
 		if ( CHECKS )
@@ -306,11 +286,7 @@ public class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3ubvEXT ] ---
 
-	/**
-	 * Pointer version of {@link #glSecondaryColor3ubEXT SecondaryColor3ubEXT}.
-	 *
-	 * @param v the secondary color buffer
-	 */
+	/** Unsafe version of: {@link #glSecondaryColor3ubvEXT SecondaryColor3ubvEXT} */
 	public static void nglSecondaryColor3ubvEXT(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3ubvEXT;
 		if ( CHECKS )
@@ -331,11 +307,7 @@ public class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3usvEXT ] ---
 
-	/**
-	 * Pointer version of {@link #glSecondaryColor3usEXT SecondaryColor3usEXT}.
-	 *
-	 * @param v the secondary color buffer
-	 */
+	/** Unsafe version of: {@link #glSecondaryColor3usvEXT SecondaryColor3usvEXT} */
 	public static void nglSecondaryColor3usvEXT(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3usvEXT;
 		if ( CHECKS )
@@ -356,11 +328,7 @@ public class EXTSecondaryColor {
 
 	// --- [ glSecondaryColor3uivEXT ] ---
 
-	/**
-	 * Pointer version of {@link #glSecondaryColor3uiEXT SecondaryColor3uiEXT}.
-	 *
-	 * @param v the secondary color buffer
-	 */
+	/** Unsafe version of: {@link #glSecondaryColor3uivEXT SecondaryColor3uivEXT} */
 	public static void nglSecondaryColor3uivEXT(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3uivEXT;
 		if ( CHECKS )
@@ -381,14 +349,7 @@ public class EXTSecondaryColor {
 
 	// --- [ glSecondaryColorPointerEXT ] ---
 
-	/**
-	 * Specifies the location and organization of a secondary color array.
-	 *
-	 * @param size    the number of values per vertex that are stored in the array, as well as their component ordering. Must be:<br><table><tr><td>3</td></tr></table>
-	 * @param type    the data type of the values stored in the array. One of:<br><table><tr><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_SHORT SHORT}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td></tr><tr><td>{@link GL11#GL_FLOAT FLOAT}</td><td>{@link GL11#GL_DOUBLE DOUBLE}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td><td>{@link GL33#GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td></tr></table>
-	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
-	 * @param pointer the secondary color array data
-	 */
+	/** Unsafe version of: {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
 	public static void nglSecondaryColorPointerEXT(int size, int type, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColorPointerEXT;
 		if ( CHECKS )

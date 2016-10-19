@@ -310,22 +310,9 @@ public class STBTruetype {
 	// --- [ stbtt_BakeFontBitmap ] ---
 
 	/**
-	 * Bakes a font to a bitmap for use as texture.
-	 * 
-	 * <p>This uses a very simply packing, use with {@link #stbtt_GetBakedQuad GetBakedQuad}.</p>
+	 * Unsafe version of: {@link #stbtt_BakeFontBitmap BakeFontBitmap}
 	 *
-	 * @param data         the font data
-	 * @param offset       the font data offset, use 0 for plain .ttf files
-	 * @param pixel_height the font height, in pixels
-	 * @param pixels       a buffer in which to write the font bitmap
-	 * @param pw           the bitmap width, in pixels
-	 * @param ph           the bitmap height, in pixels
-	 * @param first_char   the first character to bake
-	 * @param num_chars    the number of characters to bake, starting at {@code first_char}
-	 * @param chardata     an array of {@link STBTTBakedChar} structs, it's {@code num_chars} long
-	 *
-	 * @return if positive, the first unused row of the bitmap. If negative, returns the negative of the number of characters that fit. If 0, no characters fit and no
-	 *         rows were used.
+	 * @param num_chars the number of characters to bake, starting at {@code first_char}
 	 */
 	public static native int nstbtt_BakeFontBitmap(long data, int offset, float pixel_height, long pixels, int pw, int ph, int first_char, int num_chars, long chardata);
 
@@ -353,21 +340,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetBakedQuad ] ---
 
-	/**
-	 * Computes quad to draw for a given char and advances the current position.
-	 * 
-	 * <p>The coordinate system used assumes y increases downwards. Characters will extend both above and below the current position; see discussion of
-	 * "BASELINE" above.</p>
-	 *
-	 * @param chardata        an array of {@link STBTTBakedChar} structs
-	 * @param pw              the bitmap width, in pixels
-	 * @param ph              the bitmap height, in pixels
-	 * @param char_index      the character index in the {@code chardata} array
-	 * @param xpos            the current x position, in screen pixel space
-	 * @param ypos            the current y position, in screen pixel space
-	 * @param q               an {@link STBTTAlignedQuad} struct in which to return the quad to draw
-	 * @param opengl_fillrule 1 if opengl fill rule; 0 if DX9 or earlier
-	 */
+	/** Unsafe version of: {@link #stbtt_GetBakedQuad GetBakedQuad} */
 	public static native void nstbtt_GetBakedQuad(long chardata, int pw, int ph, int char_index, long xpos, long ypos, long q, int opengl_fillrule);
 
 	/**
@@ -396,20 +369,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_PackBegin ] ---
 
-	/**
-	 * Initializes a packing context stored in the passed-in {@code stbtt_pack_context}. Future calls using this context will pack characters into the bitmap
-	 * passed in here: a 1-channel bitmap that is width x height.
-	 *
-	 * @param spc             an {@link STBTTPackContext} struct
-	 * @param pixels          a buffer in which to store the bitmap data
-	 * @param width           the bitmap width, in pixels
-	 * @param height          the bitmap height, in pixels
-	 * @param stride_in_bytes the distance from one row to the next (or 0 to mean they are packed tightly together)
-	 * @param padding         the amount of padding to leave between each character (normally you want '1' for bitmaps you'll use as textures with bilinear filtering)
-	 * @param alloc_context   a pointer to an allocation context
-	 *
-	 * @return 1 on success, 0 on failure
-	 */
+	/** Unsafe version of: {@link #stbtt_PackBegin PackBegin} */
 	public static native int nstbtt_PackBegin(long spc, long pixels, int width, int height, int stride_in_bytes, int padding, long alloc_context);
 
 	/**
@@ -453,11 +413,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_PackEnd ] ---
 
-	/**
-	 * Cleans up the packing context and frees all memory.
-	 *
-	 * @param spc an {@link STBTTPackContext} struct
-	 */
+	/** Unsafe version of: {@link #stbtt_PackEnd PackEnd} */
 	public static native void nstbtt_PackEnd(long spc);
 
 	/**
@@ -486,23 +442,9 @@ public class STBTruetype {
 	// --- [ stbtt_PackFontRange ] ---
 
 	/**
-	 * Creates character bitmaps from the {@code font_index}'th font found in fontdata (use {@code font_index=0} if you don't know what that is). It creates
-	 * {@code num_chars_in_range} bitmaps for characters with unicode values starting at {@code first_unicode_char_in_range} and increasing. Data for how to
-	 * render them is stored in {@code chardata_for_range}; pass these to {@link #stbtt_GetPackedQuad GetPackedQuad} to get back renderable quads.
+	 * Unsafe version of: {@link #stbtt_PackFontRange PackFontRange}
 	 *
-	 * @param spc                         an {@link STBTTPackContext} struct
-	 * @param fontdata                    the font data
-	 * @param font_index                  the font index (use 0 if you don't know what that is
-	 * @param font_size                   the full height of the character from ascender to descender, as computed by {@link #stbtt_ScaleForPixelHeight ScaleForPixelHeight}. To use a point size as computed by
-	 *                                    {@link #stbtt_ScaleForMappingEmToPixels ScaleForMappingEmToPixels}, wrap the font size in {@link #STBTT_POINT_SIZE} and pass the result, i.e.:
-	 *                                    
-	 *                                    <pre><code>...,                  20 , ... // font max minus min y is 20 pixels tall
-..., STBTT_POINT_SIZE(20), ... // 'M' is 20 pixels tall</code></pre>
-	 * @param first_unicode_char_in_range the first unicode code point in the range
-	 * @param num_chars_in_range          the number of unicode code points in the range
-	 * @param chardata_for_range          an array of {@link STBTTPackedchar} structs
-	 *
-	 * @return 1 on success, 0 on failure
+	 * @param num_chars_in_range the number of unicode code points in the range
 	 */
 	public static native int nstbtt_PackFontRange(long spc, long fontdata, int font_index, float font_size, int first_unicode_char_in_range, int num_chars_in_range, long chardata_for_range);
 
@@ -531,16 +473,9 @@ public class STBTruetype {
 	// --- [ stbtt_PackFontRanges ] ---
 
 	/**
-	 * Creates character bitmaps from multiple ranges of characters stored in ranges. This will usually create a better-packed bitmap than multiple calls to
-	 * {@link #stbtt_PackFontRange PackFontRange}. Note that you can call this multiple times within a single {@link #stbtt_PackBegin PackBegin}/{@link #stbtt_PackEnd PackEnd}.
+	 * Unsafe version of: {@link #stbtt_PackFontRanges PackFontRanges}
 	 *
-	 * @param spc        an {@link STBTTPackContext} struct
-	 * @param fontdata   the font data
-	 * @param font_index the font index (use 0 if you don't know what that is
-	 * @param ranges     an array of {@link STBTTPackRange} structs
 	 * @param num_ranges the number of {@link STBTTPackRange} structs in {@code ranges}
-	 *
-	 * @return 1 on success, 0 on failure
 	 */
 	public static native int nstbtt_PackFontRanges(long spc, long fontdata, int font_index, long ranges, int num_ranges);
 
@@ -563,21 +498,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_PackSetOversampling ] ---
 
-	/**
-	 * Oversampling a font increases the quality by allowing higher-quality subpixel positioning, and is especially valuable at smaller text sizes.
-	 * 
-	 * <p>This function sets the amount of oversampling for all following calls to {@link #stbtt_PackFontRange PackFontRange} or {@link #stbtt_PackFontRangesGatherRects PackFontRangesGatherRects} for a given pack context. The
-	 * default (no oversampling) is achieved by {@code h_oversample=1, v_oversample=1}. The total number of pixels required is
-	 * {@code h_oversample*v_oversample} larger than the default; for example, 2x2 oversampling requires 4x the storage of 1x1. For best results, render
-	 * oversampled textures with bilinear filtering. Look at the readme in
-	 * <a href="https://github.com/nothings/stb/blob/master/tests/oversample/README.md">stb/tests/oversample</a> for information about oversampled fonts.</p>
-	 * 
-	 * <p>To use with PackFontRangesGather etc., you must set it before calls to {@link #stbtt_PackFontRangesGatherRects PackFontRangesGatherRects}.</p>
-	 *
-	 * @param spc          an {@link STBTTPackContext} struct
-	 * @param h_oversample the horizontal oversampling amount
-	 * @param v_oversample the vertical oversampling amount
-	 */
+	/** Unsafe version of: {@link #stbtt_PackSetOversampling PackSetOversampling} */
 	public static native void nstbtt_PackSetOversampling(long spc, int h_oversample, int v_oversample);
 
 	/**
@@ -601,21 +522,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetPackedQuad ] ---
 
-	/**
-	 * Computes quad to draw for a given char and advances the current position.
-	 * 
-	 * <p>The coordinate system used assumes y increases downwards. Characters will extend both above and below the current position; see discussion of
-	 * "BASELINE" above.</p>
-	 *
-	 * @param chardata         an array of {@link STBTTPackedchar} structs
-	 * @param pw               the bitmap width, in pixels
-	 * @param ph               the bitmap height, in pixels
-	 * @param char_index       the character index in the {@code chardata} array
-	 * @param xpos             the current x position, in screen pixel space
-	 * @param ypos             the current y position, in screen pixel space
-	 * @param q                an {@link STBTTAlignedQuad} struct in which to return the quad to draw
-	 * @param align_to_integer 1 to align the quad to integer coordinates
-	 */
+	/** Unsafe version of: {@link #stbtt_GetPackedQuad GetPackedQuad} */
 	public static native void nstbtt_GetPackedQuad(long chardata, int pw, int ph, int char_index, long xpos, long ypos, long q, int align_to_integer);
 
 	/**
@@ -645,18 +552,9 @@ public class STBTruetype {
 	// --- [ stbtt_PackFontRangesGatherRects ] ---
 
 	/**
-	 * Calling these functions in sequence is roughly equivalent to calling {@link #stbtt_PackFontRanges PackFontRanges}. If you want more control over the packing of multiple fonts, or
-	 * if you want to pack custom data into a font texture, take a look at the source of {@link #stbtt_PackFontRanges PackFontRanges} and create a custom version using these functions,
-	 * e.g. call {@link #stbtt_PackFontRangesGatherRects PackFontRangesGatherRects} multiple times, building up a single array of rects, then call {@link #stbtt_PackFontRangesPackRects PackFontRangesPackRects} once, then call
-	 * {@link #stbtt_PackFontRangesRenderIntoRects PackFontRangesRenderIntoRects} repeatedly. This may result in a better packing than calling {@link #stbtt_PackFontRanges PackFontRanges} multiple times (or it may not).
+	 * Unsafe version of: {@link #stbtt_PackFontRangesGatherRects PackFontRangesGatherRects}
 	 *
-	 * @param spc        an {@link STBTTPackContext} struct
-	 * @param info       an {@link STBTTFontinfo} struct
-	 * @param ranges     an array of {@link STBTTPackRange} structs
 	 * @param num_ranges the number of {@link STBTTPackRange} structs in {@code ranges}
-	 * @param rects      an array of {@link STBRPRect} structs. It must be big enough to accommodate all characters in the given ranges.
-	 *
-	 * @return the number of structs written in {@code rects}
 	 */
 	public static native int nstbtt_PackFontRangesGatherRects(long spc, long info, long ranges, int num_ranges, long rects);
 
@@ -682,10 +580,8 @@ public class STBTruetype {
 	// --- [ stbtt_PackFontRangesPackRects ] ---
 
 	/**
-	 * See {@link #stbtt_PackFontRangesGatherRects PackFontRangesGatherRects}.
+	 * Unsafe version of: {@link #stbtt_PackFontRangesPackRects PackFontRangesPackRects}
 	 *
-	 * @param spc       an {@link STBTTPackContext} struct
-	 * @param rects     an array of {@link STBRPRect} structs
 	 * @param num_rects the number of structs in {@code rects}
 	 */
 	public static native void nstbtt_PackFontRangesPackRects(long spc, long rects, int num_rects);
@@ -703,15 +599,9 @@ public class STBTruetype {
 	// --- [ stbtt_PackFontRangesRenderIntoRects ] ---
 
 	/**
-	 * See {@link #stbtt_PackFontRangesGatherRects PackFontRangesGatherRects}.
+	 * Unsafe version of: {@link #stbtt_PackFontRangesRenderIntoRects PackFontRangesRenderIntoRects}
 	 *
-	 * @param spc        an {@link STBTTPackContext} struct
-	 * @param info       an {@link STBTTFontinfo} struct
-	 * @param ranges     an array of {@link STBTTPackRange} structs
 	 * @param num_ranges the number of {@link STBTTPackRange} structs in {@code ranges}
-	 * @param rects      an array of {@link STBRPRect} structs. It must be big enough to accommodate all characters in the given ranges.
-	 *
-	 * @return 1 on success, 0 on failure
 	 */
 	public static native int nstbtt_PackFontRangesRenderIntoRects(long spc, long info, long ranges, int num_ranges, long rects);
 
@@ -733,14 +623,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetFontOffsetForIndex ] ---
 
-	/**
-	 * Each .ttf/.ttc file may have more than one font. Each font has a sequential index number starting from 0. Call this function to get the font offset for
-	 * a given index; it returns -1 if the index is out of range. A regular .ttf file will only define one font and it always be at offset 0, so it will
-	 * return '0' for index 0, and -1 for all other indices. You can just skip this step if you know it's that kind of font.
-	 *
-	 * @param data  the font data
-	 * @param index the font index
-	 */
+	/** Unsafe version of: {@link #stbtt_GetFontOffsetForIndex GetFontOffsetForIndex} */
 	public static native int nstbtt_GetFontOffsetForIndex(long data, int index);
 
 	/**
@@ -757,17 +640,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_InitFont ] ---
 
-	/**
-	 * Given an offset into the file that defines a font, this function builds the necessary cached info for the rest of the system. You must allocate the
-	 * {@link STBTTFontinfo} yourself, and stbtt_InitFont will fill it out. You don't need to do anything special to free it, because the contents are pure value
-	 * data with no additional data structures.
-	 *
-	 * @param info   an {@link STBTTFontinfo} struct
-	 * @param data   the font data
-	 * @param offset the font data offset
-	 *
-	 * @return 1 on success, 0 on failure
-	 */
+	/** Unsafe version of: {@link #stbtt_InitFont InitFont} */
 	public static native int nstbtt_InitFont(long info, long data, int offset);
 
 	/**
@@ -801,15 +674,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_FindGlyphIndex ] ---
 
-	/**
-	 * If you're going to perform multiple operations on the same character and you want a speed-up, call this function with the character you're going to
-	 * process, then use glyph-based functions instead of the codepoint-based functions.
-	 *
-	 * @param info              an {@link STBTTFontinfo} struct
-	 * @param unicode_codepoint the unicode code point
-	 *
-	 * @return the glyph index
-	 */
+	/** Unsafe version of: {@link #stbtt_FindGlyphIndex FindGlyphIndex} */
 	public static native int nstbtt_FindGlyphIndex(long info, int unicode_codepoint);
 
 	/**
@@ -827,19 +692,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_ScaleForPixelHeight ] ---
 
-	/**
-	 * Computes a scale factor to produce a font whose "height" is {@code pixels} tall. Height is measured as the distance from the highest ascender to the
-	 * lowest descender; in other words, it's equivalent to calling {@link #stbtt_GetFontVMetrics GetFontVMetrics} and computing:
-	 * 
-	 * <pre><code>scale = pixels / (ascent - descent)</code></pre>
-	 * 
-	 * <p>so if you prefer to measure height by the ascent only, use a similar calculation.</p>
-	 *
-	 * @param info   an {@link STBTTFontinfo} struct
-	 * @param pixels the font height, in pixels
-	 *
-	 * @return the scale factor
-	 */
+	/** Unsafe version of: {@link #stbtt_ScaleForPixelHeight ScaleForPixelHeight} */
 	public static native float nstbtt_ScaleForPixelHeight(long info, float pixels);
 
 	/**
@@ -861,15 +714,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_ScaleForMappingEmToPixels ] ---
 
-	/**
-	 * Computes a scale factor to produce a font whose EM size is mapped to {@code pixels} tall. This is probably what traditional APIs compute, but I'm not
-	 * positive.
-	 *
-	 * @param info   an {@link STBTTFontinfo} struct
-	 * @param pixels the font height, in pixels
-	 *
-	 * @return the scale factor
-	 */
+	/** Unsafe version of: {@link #stbtt_ScaleForMappingEmToPixels ScaleForMappingEmToPixels} */
 	public static native float nstbtt_ScaleForMappingEmToPixels(long info, float pixels);
 
 	/**
@@ -887,16 +732,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetFontVMetrics ] ---
 
-	/**
-	 * Returns vertical metrics for the specified font. You should advance the vertical position by {@code *ascent - *descent + *lineGap}
-	 * 
-	 * <p>The returned values are expressed in unscaled coordinates, so you must multiply by the scale factor for a given size.</p>
-	 *
-	 * @param info    an {@link STBTTFontinfo} struct
-	 * @param ascent  returns the coordinate above the baseline the font extends
-	 * @param descent returns the coordinate below the baseline the font extends (i.e. it is typically negative)
-	 * @param lineGap returns the spacing between one row's descent and the next row's ascent
-	 */
+	/** Unsafe version of: {@link #stbtt_GetFontVMetrics GetFontVMetrics} */
 	public static native void nstbtt_GetFontVMetrics(long info, long ascent, long descent, long lineGap);
 
 	/**
@@ -920,15 +756,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetFontBoundingBox ] ---
 
-	/**
-	 * Returns the bounding box around all possible characters.
-	 *
-	 * @param info an {@link STBTTFontinfo} struct
-	 * @param x0   the left coordinate
-	 * @param y0   the bottom coordinate
-	 * @param x1   the right coordinate
-	 * @param y1   the top coordinate
-	 */
+	/** Unsafe version of: {@link #stbtt_GetFontBoundingBox GetFontBoundingBox} */
 	public static native void nstbtt_GetFontBoundingBox(long info, long x0, long y0, long x1, long y1);
 
 	/**
@@ -952,16 +780,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetCodepointHMetrics ] ---
 
-	/**
-	 * Returns horizontal metrics for the specified codepoint.
-	 * 
-	 * <p>The returned values are expressed in unscaled coordinates.</p>
-	 *
-	 * @param info            an {@link STBTTFontinfo} struct
-	 * @param codepoint       the unicode codepoint
-	 * @param advanceWidth    the offset from the current horizontal position to the next horizontal position
-	 * @param leftSideBearing the offset from the current horizontal position to the left edge of the character
-	 */
+	/** Unsafe version of: {@link #stbtt_GetCodepointHMetrics GetCodepointHMetrics} */
 	public static native void nstbtt_GetCodepointHMetrics(long info, int codepoint, long advanceWidth, long leftSideBearing);
 
 	/**
@@ -984,13 +803,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetCodepointKernAdvance ] ---
 
-	/**
-	 * Returns the additional amount to add to the {@code advance} value between {@code ch1} and {@code ch2}.
-	 *
-	 * @param info an {@link STBTTFontinfo} struct
-	 * @param ch1  the first unicode codepoint
-	 * @param ch2  the second unicode codepoint
-	 */
+	/** Unsafe version of: {@link #stbtt_GetCodepointKernAdvance GetCodepointKernAdvance} */
 	public static native int nstbtt_GetCodepointKernAdvance(long info, int ch1, int ch2);
 
 	/**
@@ -1006,16 +819,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetCodepointBox ] ---
 
-	/**
-	 * Gets the bounding box of the visible part of the glyph, in unscaled coordinates.
-	 *
-	 * @param info      an {@link STBTTFontinfo} struct
-	 * @param codepoint the unicode codepoint
-	 * @param x0        returns the left coordinate
-	 * @param y0        returns the bottom coordinate
-	 * @param x1        returns the right coordinate
-	 * @param y1        returns the top coordinate
-	 */
+	/** Unsafe version of: {@link #stbtt_GetCodepointBox GetCodepointBox} */
 	public static native int nstbtt_GetCodepointBox(long info, int codepoint, long x0, long y0, long x1, long y1);
 
 	/**
@@ -1040,14 +844,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetGlyphHMetrics ] ---
 
-	/**
-	 * Glyph version of {@link #stbtt_GetCodepointHMetrics GetCodepointHMetrics}, for greater efficiency.
-	 *
-	 * @param info            an {@link STBTTFontinfo} struct
-	 * @param glyph_index     the glyph index
-	 * @param advanceWidth    the offset from the current horizontal position to the next horizontal position
-	 * @param leftSideBearing the offset from the current horizontal position to the left edge of the character
-	 */
+	/** Unsafe version of: {@link #stbtt_GetGlyphHMetrics GetGlyphHMetrics} */
 	public static native void nstbtt_GetGlyphHMetrics(long info, int glyph_index, long advanceWidth, long leftSideBearing);
 
 	/**
@@ -1068,13 +865,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetGlyphKernAdvance ] ---
 
-	/**
-	 * Glyph version of {@link #stbtt_GetCodepointKernAdvance GetCodepointKernAdvance}, for greater efficiency.
-	 *
-	 * @param info   an {@link STBTTFontinfo} struct
-	 * @param glyph1 the first glyph index
-	 * @param glyph2 the second glyph index
-	 */
+	/** Unsafe version of: {@link #stbtt_GetGlyphKernAdvance GetGlyphKernAdvance} */
 	public static native int nstbtt_GetGlyphKernAdvance(long info, int glyph1, int glyph2);
 
 	/**
@@ -1090,16 +881,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetGlyphBox ] ---
 
-	/**
-	 * Glyph version of {@link #stbtt_GetCodepointBox GetCodepointBox}, for greater efficiency.
-	 *
-	 * @param info        an {@link STBTTFontinfo} struct
-	 * @param glyph_index the glyph index
-	 * @param x0          returns the left coordinate
-	 * @param y0          returns the bottom coordinate
-	 * @param x1          returns the right coordinate
-	 * @param y1          returns the top coordinate
-	 */
+	/** Unsafe version of: {@link #stbtt_GetGlyphBox GetGlyphBox} */
 	public static native int nstbtt_GetGlyphBox(long info, int glyph_index, long x0, long y0, long x1, long y1);
 
 	/**
@@ -1124,12 +906,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_IsGlyphEmpty ] ---
 
-	/**
-	 * Returns non-zero if nothing is drawn for this glyph.
-	 *
-	 * @param info        an {@link STBTTFontinfo} struct
-	 * @param glyph_index the glyph index
-	 */
+	/** Unsafe version of: {@link #stbtt_IsGlyphEmpty IsGlyphEmpty} */
 	public static native int nstbtt_IsGlyphEmpty(long info, int glyph_index);
 
 	/**
@@ -1144,19 +921,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetCodepointShape ] ---
 
-	/**
-	 * Returns number of vertices and fills {@code *vertices} with the pointer to them
-	 * 
-	 * <p>The shape is a series of countours. Each one starts with a {@link #STBTT_vmove vmove}, then consists of a series of mixed {@link #STBTT_vline vline} and {@link #STBTT_vcurve vcurve} segments. A {@link #STBTT_vline vline} draws a
-	 * line from previous endpoint to its {@code x,y}; a {@link #STBTT_vcurve vcurve} draws a quadratic bezier from previous endpoint to its {@code x,y}, using {@code cx,cy} as
-	 * the bezier control point.</p>
-	 * 
-	 * <p>The {@link STBTTVertex} values are expressed in "unscaled" coordinates.</p>
-	 *
-	 * @param info              an {@link STBTTFontinfo} struct
-	 * @param unicode_codepoint the unicode codepoint
-	 * @param vertices          returns a pointer to an array of {@link STBTTVertex} structs
-	 */
+	/** Unsafe version of: {@link #stbtt_GetCodepointShape GetCodepointShape} */
 	public static native int nstbtt_GetCodepointShape(long info, int unicode_codepoint, long vertices);
 
 	/**
@@ -1203,13 +968,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetGlyphShape ] ---
 
-	/**
-	 * Glyph version of {@link #stbtt_GetCodepointShape GetCodepointShape}, for greater efficiency.
-	 *
-	 * @param info        an {@link STBTTFontinfo} struct
-	 * @param glyph_index the unicode codepoint
-	 * @param vertices    returns a pointer to an array of {@link STBTTVertex} structs
-	 */
+	/** Unsafe version of: {@link #stbtt_GetGlyphShape GetGlyphShape} */
 	public static native int nstbtt_GetGlyphShape(long info, int glyph_index, long vertices);
 
 	/**
@@ -1244,12 +1003,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_FreeShape ] ---
 
-	/**
-	 * Frees the data allocated by {@link #stbtt_GetCodepointShape GetCodepointShape} and {@link #stbtt_GetGlyphShape GetGlyphShape}.
-	 *
-	 * @param info     an {@link STBTTFontinfo} struct
-	 * @param vertices the array of {@link STBTTVertex} structs to free
-	 */
+	/** Unsafe version of: {@link #stbtt_FreeShape FreeShape} */
 	public static native void nstbtt_FreeShape(long info, long vertices);
 
 	/**
@@ -1266,12 +1020,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_FreeBitmap ] ---
 
-	/**
-	 * Frees a bitmap allocated by {@link #stbtt_GetCodepointBitmap GetCodepointBitmap}, {@link #stbtt_GetCodepointBitmapSubpixel GetCodepointBitmapSubpixel}, {@link #stbtt_GetGlyphBitmap GetGlyphBitmap} or {@link #stbtt_GetGlyphBitmapSubpixel GetGlyphBitmapSubpixel}.
-	 *
-	 * @param bitmap   the bitmap to free
-	 * @param userdata a pointer to user data
-	 */
+	/** Unsafe version of: {@link #stbtt_FreeBitmap FreeBitmap} */
 	public static native void nstbtt_FreeBitmap(long bitmap, long userdata);
 
 	/**
@@ -1286,18 +1035,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetCodepointBitmap ] ---
 
-	/**
-	 * Allocates a large-enough single-channel 8bpp bitmap and renders the specified character/glyph at the specified scale into it, with antialiasing.
-	 *
-	 * @param info      an {@link STBTTFontinfo} struct
-	 * @param scale_x   the horizontal scale
-	 * @param scale_y   the vertical scale
-	 * @param codepoint the unicode codepoint to render
-	 * @param width     returns the bitmap width
-	 * @param height    returns the bitmap height
-	 * @param xoff      returns the horizontal offset in pixel space from the glyph origin to the left of the bitmap
-	 * @param yoff      returns the vertical offset in pixel space from the glyph origin to the top of the bitmap
-	 */
+	/** Unsafe version of: {@link #stbtt_GetCodepointBitmap GetCodepointBitmap} */
 	public static native long nstbtt_GetCodepointBitmap(long info, float scale_x, float scale_y, int codepoint, long width, long height, long xoff, long yoff);
 
 	/**
@@ -1325,20 +1063,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetCodepointBitmapSubpixel ] ---
 
-	/**
-	 * Same as {@link #stbtt_GetCodepointBitmap GetCodepointBitmap}, but you can specify a subpixel shift for the character.
-	 *
-	 * @param info      an {@link STBTTFontinfo} struct
-	 * @param scale_x   the horizontal scale
-	 * @param scale_y   the vertical scale
-	 * @param shift_x   the horizontal subpixel shift
-	 * @param shift_y   the vertical subpixel shift
-	 * @param codepoint the unicode codepoint to render
-	 * @param width     returns the bitmap width
-	 * @param height    returns the bitmap height
-	 * @param xoff      returns the horizontal offset in pixel space from the glyph origin to the left of the bitmap
-	 * @param yoff      returns the vertical offset in pixel space from the glyph origin to the top of the bitmap
-	 */
+	/** Unsafe version of: {@link #stbtt_GetCodepointBitmapSubpixel GetCodepointBitmapSubpixel} */
 	public static native long nstbtt_GetCodepointBitmapSubpixel(long info, float scale_x, float scale_y, float shift_x, float shift_y, int codepoint, long width, long height, long xoff, long yoff);
 
 	/**
@@ -1368,19 +1093,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_MakeCodepointBitmap ] ---
 
-	/**
-	 * Same as {@link #stbtt_GetCodepointBitmap GetCodepointBitmap}, but you pass in storage for the bitmap in the form of {@code output}, with row spacing of {@code out_stride} bytes. The
-	 * bitmap is clipped to {@code out_w/out_h} bytes. Call {@link #stbtt_GetCodepointBitmapBox GetCodepointBitmapBox} to get the width and height and positioning info for it first.
-	 *
-	 * @param info       an {@link STBTTFontinfo} struct
-	 * @param output     the bitmap storage
-	 * @param out_w      the bitmap width
-	 * @param out_h      the bitmap height
-	 * @param out_stride the row stride, in bytes
-	 * @param scale_x    the horizontal scale
-	 * @param scale_y    the vertical scale
-	 * @param codepoint  the unicode codepoint to render
-	 */
+	/** Unsafe version of: {@link #stbtt_MakeCodepointBitmap MakeCodepointBitmap} */
 	public static native void nstbtt_MakeCodepointBitmap(long info, long output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, int codepoint);
 
 	/**
@@ -1404,20 +1117,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_MakeCodepointBitmapSubpixel ] ---
 
-	/**
-	 * Same as {@link #stbtt_MakeCodepointBitmap MakeCodepointBitmap}, but you can specify a subpixel shift for the character.
-	 *
-	 * @param info       an {@link STBTTFontinfo} struct
-	 * @param output     the bitmap storage
-	 * @param out_w      the bitmap width
-	 * @param out_h      the bitmap height
-	 * @param out_stride the row stride, in bytes
-	 * @param scale_x    the horizontal scale
-	 * @param scale_y    the vertical scale
-	 * @param shift_x    the horizontal subpixel shift
-	 * @param shift_y    the vertical subpixel shift
-	 * @param codepoint  the unicode codepoint to render
-	 */
+	/** Unsafe version of: {@link #stbtt_MakeCodepointBitmapSubpixel MakeCodepointBitmapSubpixel} */
 	public static native void nstbtt_MakeCodepointBitmapSubpixel(long info, long output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int codepoint);
 
 	/**
@@ -1442,21 +1142,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetCodepointBitmapBox ] ---
 
-	/**
-	 * Get the bbox of the bitmap centered around the glyph origin; so the bitmap width is {@code ix1-ix0}, height is {@code iy1-iy0}, and location to place
-	 * the bitmap top left is {@code (leftSideBearing*scale,iy0)}.
-	 * 
-	 * <p>Note that the bitmap uses y-increases-down, but the shape uses y-increases-up, so {@code CodepointBitmapBox} and {@code CodepointBox} are inverted.</p>
-	 *
-	 * @param font      an {@link STBTTFontinfo} struct
-	 * @param codepoint the unicode codepoint
-	 * @param scale_x   the horizontal scale
-	 * @param scale_y   the vertical scale
-	 * @param ix0       returns the left coordinate
-	 * @param iy0       returns the bottom coordinate
-	 * @param ix1       returns the right coordinate
-	 * @param iy1       returns the top coordinate
-	 */
+	/** Unsafe version of: {@link #stbtt_GetCodepointBitmapBox GetCodepointBitmapBox} */
 	public static native void nstbtt_GetCodepointBitmapBox(long font, int codepoint, float scale_x, float scale_y, long ix0, long iy0, long ix1, long iy1);
 
 	/**
@@ -1486,20 +1172,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetCodepointBitmapBoxSubpixel ] ---
 
-	/**
-	 * Same as {@link #stbtt_GetCodepointBitmapBox GetCodepointBitmapBox}, but you can specify a subpixel shift for the character.
-	 *
-	 * @param font      an {@link STBTTFontinfo} struct
-	 * @param codepoint the unicode codepoint
-	 * @param scale_x   the horizontal scale
-	 * @param scale_y   the vertical scale
-	 * @param shift_x   the horizontal subpixel shift
-	 * @param shift_y   the vertical subpixel shift
-	 * @param ix0       returns the left coordinate
-	 * @param iy0       returns the bottom coordinate
-	 * @param ix1       returns the right coordinate
-	 * @param iy1       returns the top coordinate
-	 */
+	/** Unsafe version of: {@link #stbtt_GetCodepointBitmapBoxSubpixel GetCodepointBitmapBoxSubpixel} */
 	public static native void nstbtt_GetCodepointBitmapBoxSubpixel(long font, int codepoint, float scale_x, float scale_y, float shift_x, float shift_y, long ix0, long iy0, long ix1, long iy1);
 
 	/**
@@ -1528,18 +1201,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetGlyphBitmap ] ---
 
-	/**
-	 * Allocates a large-enough single-channel 8bpp bitmap and renders the specified character/glyph at the specified scale into it, with antialiasing.
-	 *
-	 * @param info    an {@link STBTTFontinfo} struct
-	 * @param scale_x the horizontal scale
-	 * @param scale_y the vertical scale
-	 * @param glyph   the glyph index to render
-	 * @param width   returns the bitmap width
-	 * @param height  returns the bitmap height
-	 * @param xoff    returns the horizontal offset in pixel space from the glyph origin to the left of the bitmap
-	 * @param yoff    returns the vertical offset in pixel space from the glyph origin to the top of the bitmap
-	 */
+	/** Unsafe version of: {@link #stbtt_GetGlyphBitmap GetGlyphBitmap} */
 	public static native long nstbtt_GetGlyphBitmap(long info, float scale_x, float scale_y, int glyph, long width, long height, long xoff, long yoff);
 
 	/**
@@ -1567,20 +1229,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetGlyphBitmapSubpixel ] ---
 
-	/**
-	 * Same as {@link #stbtt_GetGlyphBitmap GetGlyphBitmap}, but you can specify a subpixel shift for the character.
-	 *
-	 * @param info    an {@link STBTTFontinfo} struct
-	 * @param scale_x the horizontal scale
-	 * @param scale_y the vertical scale
-	 * @param shift_x the horizontal subpixel shift
-	 * @param shift_y the vertical subpixel shift
-	 * @param glyph   the glyph index to render
-	 * @param width   returns the bitmap width
-	 * @param height  returns the bitmap height
-	 * @param xoff    returns the horizontal offset in pixel space from the glyph origin to the left of the bitmap
-	 * @param yoff    returns the vertical offset in pixel space from the glyph origin to the top of the bitmap
-	 */
+	/** Unsafe version of: {@link #stbtt_GetGlyphBitmapSubpixel GetGlyphBitmapSubpixel} */
 	public static native long nstbtt_GetGlyphBitmapSubpixel(long info, float scale_x, float scale_y, float shift_x, float shift_y, int glyph, long width, long height, long xoff, long yoff);
 
 	/**
@@ -1610,19 +1259,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_MakeGlyphBitmap ] ---
 
-	/**
-	 * Same as {@link #stbtt_GetGlyphBitmap GetGlyphBitmap}, but you pass in storage for the bitmap in the form of {@code output}, with row spacing of {@code out_stride} bytes. The
-	 * bitmap is clipped to {@code out_w/out_h} bytes. Call {@link #stbtt_GetGlyphBitmapBox GetGlyphBitmapBox} to get the width and height and positioning info for it first.
-	 *
-	 * @param info       an {@link STBTTFontinfo} struct
-	 * @param output     the bitmap storage
-	 * @param out_w      the bitmap width
-	 * @param out_h      the bitmap height
-	 * @param out_stride the row stride, in bytes
-	 * @param scale_x    the horizontal scale
-	 * @param scale_y    the vertical scale
-	 * @param glyph      the glyph index to render
-	 */
+	/** Unsafe version of: {@link #stbtt_MakeGlyphBitmap MakeGlyphBitmap} */
 	public static native void nstbtt_MakeGlyphBitmap(long info, long output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, int glyph);
 
 	/**
@@ -1646,20 +1283,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_MakeGlyphBitmapSubpixel ] ---
 
-	/**
-	 * Same as {@link #stbtt_MakeGlyphBitmap MakeGlyphBitmap}, but you can specify a subpixel shift for the character.
-	 *
-	 * @param info       an {@link STBTTFontinfo} struct
-	 * @param output     the bitmap storage
-	 * @param out_w      the bitmap width
-	 * @param out_h      the bitmap height
-	 * @param out_stride the row stride, in bytes
-	 * @param scale_x    the horizontal scale
-	 * @param scale_y    the vertical scale
-	 * @param shift_x    the horizontal subpixel shift
-	 * @param shift_y    the vertical subpixel shift
-	 * @param glyph      the glyph index to render
-	 */
+	/** Unsafe version of: {@link #stbtt_MakeGlyphBitmapSubpixel MakeGlyphBitmapSubpixel} */
 	public static native void nstbtt_MakeGlyphBitmapSubpixel(long info, long output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int glyph);
 
 	/**
@@ -1684,21 +1308,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetGlyphBitmapBox ] ---
 
-	/**
-	 * Get the bbox of the bitmap centered around the glyph origin; so the bitmap width is {@code ix1-ix0}, height is {@code iy1-iy0}, and location to place
-	 * the bitmap top left is {@code (leftSideBearing*scale,iy0)}.
-	 * 
-	 * <p>Note that the bitmap uses y-increases-down, but the shape uses y-increases-up, so {@code GlyphBitmapBox} and {@code GlyphBox} are inverted.</p>
-	 *
-	 * @param font    an {@link STBTTFontinfo} struct
-	 * @param glyph   the glyph index
-	 * @param scale_x the horizontal scale
-	 * @param scale_y the vertical scale
-	 * @param ix0     returns the left coordinate
-	 * @param iy0     returns the bottom coordinate
-	 * @param ix1     returns the right coordinate
-	 * @param iy1     returns the top coordinate
-	 */
+	/** Unsafe version of: {@link #stbtt_GetGlyphBitmapBox GetGlyphBitmapBox} */
 	public static native void nstbtt_GetGlyphBitmapBox(long font, int glyph, float scale_x, float scale_y, long ix0, long iy0, long ix1, long iy1);
 
 	/**
@@ -1728,20 +1338,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_GetGlyphBitmapBoxSubpixel ] ---
 
-	/**
-	 * Same as {@link #stbtt_GetGlyphBitmapBox GetGlyphBitmapBox}, but you can specify a subpixel shift for the character.
-	 *
-	 * @param font    an {@link STBTTFontinfo} struct
-	 * @param glyph   the glyph index
-	 * @param scale_x the horizontal scale
-	 * @param scale_y the vertical scale
-	 * @param shift_x the horizontal subpixel shift
-	 * @param shift_y the vertical subpixel shift
-	 * @param ix0     returns the left coordinate
-	 * @param iy0     returns the bottom coordinate
-	 * @param ix1     returns the right coordinate
-	 * @param iy1     returns the top coordinate
-	 */
+	/** Unsafe version of: {@link #stbtt_GetGlyphBitmapBoxSubpixel GetGlyphBitmapBoxSubpixel} */
 	public static native void nstbtt_GetGlyphBitmapBoxSubpixel(long font, int glyph, float scale_x, float scale_y, float shift_x, float shift_y, long ix0, long iy0, long ix1, long iy1);
 
 	/**
@@ -1770,16 +1367,7 @@ public class STBTruetype {
 
 	// --- [ stbtt_FindMatchingFont ] ---
 
-	/**
-	 * Returns the offset (not index) of the font that matches, or -1 if none.
-	 * 
-	 * <p>If you use STBTT_MACSTYLE_DONTCARE, use a font name like "Arial Bold". If you use any other flag, use a font name like "Arial"; this checks the
-	 * {@code macStyle} header field; I don't know if fonts set this consistently.</p>
-	 *
-	 * @param fontdata the font data
-	 * @param name     the font name
-	 * @param flags    the style flags. One of:<br><table><tr><td>{@link #STBTT_MACSTYLE_DONTCARE MACSTYLE_DONTCARE}</td><td>{@link #STBTT_MACSTYLE_BOLD MACSTYLE_BOLD}</td><td>{@link #STBTT_MACSTYLE_ITALIC MACSTYLE_ITALIC}</td><td>{@link #STBTT_MACSTYLE_UNDERSCORE MACSTYLE_UNDERSCORE}</td><td>{@link #STBTT_MACSTYLE_NONE MACSTYLE_NONE}</td></tr></table>
-	 */
+	/** Unsafe version of: {@link #stbtt_FindMatchingFont FindMatchingFont} */
 	public static native int nstbtt_FindMatchingFont(long fontdata, long name, int flags);
 
 	/**
@@ -1821,12 +1409,9 @@ public class STBTruetype {
 	// --- [ stbtt_CompareUTF8toUTF16_bigendian ] ---
 
 	/**
-	 * Returns 1/0 whether the first string interpreted as utf8 is identical to the second string interpreted as big-endian utf16... useful for strings
-	 * returned from {@link #stbtt_GetFontNameString GetFontNameString}.
+	 * Unsafe version of: {@link #stbtt_CompareUTF8toUTF16_bigendian CompareUTF8toUTF16_bigendian}
 	 *
-	 * @param s1   the first string
 	 * @param len1 the length of the first string, in bytes
-	 * @param s2   the second string
 	 * @param len2 the length of the second string, in bytes
 	 */
 	public static native int nstbtt_CompareUTF8toUTF16_bigendian(long s1, int len1, long s2, int len2);
@@ -1845,21 +1430,9 @@ public class STBTruetype {
 	// --- [ stbtt_GetFontNameString ] ---
 
 	/**
-	 * Returns the string (which may be big-endian double byte, e.g. for unicode) and puts the length in bytes in {@code *length}.
-	 * 
-	 * <p>See the truetype spec:</p>
-	 * 
-	 * <ul>
-	 * <li><a href="https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6name.html">TrueType Reference Manual - The 'name' table</a></li>
-	 * <li><a href="http://www.microsoft.com/typography/otspec/name.htm">OpenType™ Specification - The Naming Table</a></li>
-	 * </ul>
+	 * Unsafe version of: {@link #stbtt_GetFontNameString GetFontNameString}
 	 *
-	 * @param font       an {@link STBTTFontinfo} struct
-	 * @param length     returns the string length, in bytes
-	 * @param platformID the platform ID. One of:<br><table><tr><td>{@link #STBTT_PLATFORM_ID_UNICODE PLATFORM_ID_UNICODE}</td><td>{@link #STBTT_PLATFORM_ID_MAC PLATFORM_ID_MAC}</td><td>{@link #STBTT_PLATFORM_ID_ISO PLATFORM_ID_ISO}</td><td>{@link #STBTT_PLATFORM_ID_MICROSOFT PLATFORM_ID_MICROSOFT}</td></tr></table>
-	 * @param encodingID the encoding ID. One of:<br><table><tr><td>{@link #STBTT_UNICODE_EID_UNICODE_1_0 UNICODE_EID_UNICODE_1_0}</td><td>{@link #STBTT_UNICODE_EID_UNICODE_1_1 UNICODE_EID_UNICODE_1_1}</td><td>{@link #STBTT_UNICODE_EID_ISO_10646 UNICODE_EID_ISO_10646}</td><td>{@link #STBTT_UNICODE_EID_UNICODE_2_0_BMP UNICODE_EID_UNICODE_2_0_BMP}</td></tr><tr><td>{@link #STBTT_UNICODE_EID_UNICODE_2_0_FULL UNICODE_EID_UNICODE_2_0_FULL}</td><td>{@link #STBTT_MS_EID_SYMBOL MS_EID_SYMBOL}</td><td>{@link #STBTT_MS_EID_UNICODE_BMP MS_EID_UNICODE_BMP}</td><td>{@link #STBTT_MS_EID_SHIFTJIS MS_EID_SHIFTJIS}</td></tr><tr><td>{@link #STBTT_MS_EID_UNICODE_FULL MS_EID_UNICODE_FULL}</td><td>{@link #STBTT_MAC_EID_ROMAN MAC_EID_ROMAN}</td><td>{@link #STBTT_MAC_EID_JAPANESE MAC_EID_JAPANESE}</td><td>{@link #STBTT_MAC_EID_CHINESE_TRAD MAC_EID_CHINESE_TRAD}</td></tr><tr><td>{@link #STBTT_MAC_EID_KOREAN MAC_EID_KOREAN}</td><td>{@link #STBTT_MAC_EID_ARABIC MAC_EID_ARABIC}</td><td>{@link #STBTT_MAC_EID_HEBREW MAC_EID_HEBREW}</td><td>{@link #STBTT_MAC_EID_GREEK MAC_EID_GREEK}</td></tr><tr><td>{@link #STBTT_MAC_EID_RUSSIAN MAC_EID_RUSSIAN}</td></tr></table>
-	 * @param languageID the language ID. One of:<br><table><tr><td>{@link #STBTT_MS_LANG_ENGLISH MS_LANG_ENGLISH}</td><td>{@link #STBTT_MS_LANG_CHINESE MS_LANG_CHINESE}</td><td>{@link #STBTT_MS_LANG_DUTCH MS_LANG_DUTCH}</td><td>{@link #STBTT_MS_LANG_FRENCH MS_LANG_FRENCH}</td><td>{@link #STBTT_MS_LANG_GERMAN MS_LANG_GERMAN}</td></tr><tr><td>{@link #STBTT_MS_LANG_HEBREW MS_LANG_HEBREW}</td><td>{@link #STBTT_MS_LANG_ITALIAN MS_LANG_ITALIAN}</td><td>{@link #STBTT_MS_LANG_JAPANESE MS_LANG_JAPANESE}</td><td>{@link #STBTT_MS_LANG_KOREAN MS_LANG_KOREAN}</td><td>{@link #STBTT_MS_LANG_RUSSIAN MS_LANG_RUSSIAN}</td></tr><tr><td>{@link #STBTT_MS_LANG_SPANISH MS_LANG_SPANISH}</td><td>{@link #STBTT_MS_LANG_SWEDISH MS_LANG_SWEDISH}</td><td>{@link #STBTT_MAC_LANG_ENGLISH MAC_LANG_ENGLISH}</td><td>{@link #STBTT_MAC_LANG_ARABIC MAC_LANG_ARABIC}</td><td>{@link #STBTT_MAC_LANG_DUTCH MAC_LANG_DUTCH}</td></tr><tr><td>{@link #STBTT_MAC_LANG_FRENCH MAC_LANG_FRENCH}</td><td>{@link #STBTT_MAC_LANG_GERMAN MAC_LANG_GERMAN}</td><td>{@link #STBTT_MAC_LANG_HEBREW MAC_LANG_HEBREW}</td><td>{@link #STBTT_MAC_LANG_ITALIAN MAC_LANG_ITALIAN}</td><td>{@link #STBTT_MAC_LANG_JAPANESE MAC_LANG_JAPANESE}</td></tr><tr><td>{@link #STBTT_MAC_LANG_KOREAN MAC_LANG_KOREAN}</td><td>{@link #STBTT_MAC_LANG_RUSSIAN MAC_LANG_RUSSIAN}</td><td>{@link #STBTT_MAC_LANG_SPANISH MAC_LANG_SPANISH}</td><td>{@link #STBTT_MAC_LANG_SWEDISH MAC_LANG_SWEDISH}</td><td>{@link #STBTT_MAC_LANG_CHINESE_SIMPLIFIED MAC_LANG_CHINESE_SIMPLIFIED}</td></tr><tr><td>{@link #STBTT_MAC_LANG_CHINESE_TRAD MAC_LANG_CHINESE_TRAD}</td></tr></table>
-	 * @param nameID     the name ID
+	 * @param length returns the string length, in bytes
 	 */
 	public static native long nstbtt_GetFontNameString(long font, long length, int platformID, int encodingID, int languageID, int nameID);
 
@@ -1890,7 +1463,7 @@ public class STBTruetype {
 		}
 	}
 
-	/** Array version of: {@link #stbtt_GetBakedQuad GetBakedQuad} */
+	/** Array version of: {@link #nstbtt_GetBakedQuad} */
 	public static native void nstbtt_GetBakedQuad(long chardata, int pw, int ph, int char_index, float[] xpos, float[] ypos, long q, int opengl_fillrule);
 
 	/** Array version of: {@link #stbtt_GetBakedQuad GetBakedQuad} */
@@ -1903,7 +1476,7 @@ public class STBTruetype {
 		nstbtt_GetBakedQuad(chardata.address(), pw, ph, char_index, xpos, ypos, q.address(), opengl_fillrule ? 1 : 0);
 	}
 
-	/** Array version of: {@link #stbtt_GetPackedQuad GetPackedQuad} */
+	/** Array version of: {@link #nstbtt_GetPackedQuad} */
 	public static native void nstbtt_GetPackedQuad(long chardata, int pw, int ph, int char_index, float[] xpos, float[] ypos, long q, int align_to_integer);
 
 	/** Array version of: {@link #stbtt_GetPackedQuad GetPackedQuad} */
@@ -1916,7 +1489,7 @@ public class STBTruetype {
 		nstbtt_GetPackedQuad(chardata.address(), pw, ph, char_index, xpos, ypos, q.address(), align_to_integer ? 1 : 0);
 	}
 
-	/** Array version of: {@link #stbtt_GetFontVMetrics GetFontVMetrics} */
+	/** Array version of: {@link #nstbtt_GetFontVMetrics} */
 	public static native void nstbtt_GetFontVMetrics(long info, int[] ascent, int[] descent, int[] lineGap);
 
 	/** Array version of: {@link #stbtt_GetFontVMetrics GetFontVMetrics} */
@@ -1929,7 +1502,7 @@ public class STBTruetype {
 		nstbtt_GetFontVMetrics(info.address(), ascent, descent, lineGap);
 	}
 
-	/** Array version of: {@link #stbtt_GetFontBoundingBox GetFontBoundingBox} */
+	/** Array version of: {@link #nstbtt_GetFontBoundingBox} */
 	public static native void nstbtt_GetFontBoundingBox(long info, int[] x0, int[] y0, int[] x1, int[] y1);
 
 	/** Array version of: {@link #stbtt_GetFontBoundingBox GetFontBoundingBox} */
@@ -1943,7 +1516,7 @@ public class STBTruetype {
 		nstbtt_GetFontBoundingBox(info.address(), x0, y0, x1, y1);
 	}
 
-	/** Array version of: {@link #stbtt_GetCodepointHMetrics GetCodepointHMetrics} */
+	/** Array version of: {@link #nstbtt_GetCodepointHMetrics} */
 	public static native void nstbtt_GetCodepointHMetrics(long info, int codepoint, int[] advanceWidth, int[] leftSideBearing);
 
 	/** Array version of: {@link #stbtt_GetCodepointHMetrics GetCodepointHMetrics} */
@@ -1955,7 +1528,7 @@ public class STBTruetype {
 		nstbtt_GetCodepointHMetrics(info.address(), codepoint, advanceWidth, leftSideBearing);
 	}
 
-	/** Array version of: {@link #stbtt_GetCodepointBox GetCodepointBox} */
+	/** Array version of: {@link #nstbtt_GetCodepointBox} */
 	public static native int nstbtt_GetCodepointBox(long info, int codepoint, int[] x0, int[] y0, int[] x1, int[] y1);
 
 	/** Array version of: {@link #stbtt_GetCodepointBox GetCodepointBox} */
@@ -1969,7 +1542,7 @@ public class STBTruetype {
 		return nstbtt_GetCodepointBox(info.address(), codepoint, x0, y0, x1, y1) != 0;
 	}
 
-	/** Array version of: {@link #stbtt_GetGlyphHMetrics GetGlyphHMetrics} */
+	/** Array version of: {@link #nstbtt_GetGlyphHMetrics} */
 	public static native void nstbtt_GetGlyphHMetrics(long info, int glyph_index, int[] advanceWidth, int[] leftSideBearing);
 
 	/** Array version of: {@link #stbtt_GetGlyphHMetrics GetGlyphHMetrics} */
@@ -1981,7 +1554,7 @@ public class STBTruetype {
 		nstbtt_GetGlyphHMetrics(info.address(), glyph_index, advanceWidth, leftSideBearing);
 	}
 
-	/** Array version of: {@link #stbtt_GetGlyphBox GetGlyphBox} */
+	/** Array version of: {@link #nstbtt_GetGlyphBox} */
 	public static native int nstbtt_GetGlyphBox(long info, int glyph_index, int[] x0, int[] y0, int[] x1, int[] y1);
 
 	/** Array version of: {@link #stbtt_GetGlyphBox GetGlyphBox} */
@@ -1995,7 +1568,7 @@ public class STBTruetype {
 		return nstbtt_GetGlyphBox(info.address(), glyph_index, x0, y0, x1, y1) != 0;
 	}
 
-	/** Array version of: {@link #stbtt_GetCodepointBitmap GetCodepointBitmap} */
+	/** Array version of: {@link #nstbtt_GetCodepointBitmap} */
 	public static native long nstbtt_GetCodepointBitmap(long info, float scale_x, float scale_y, int codepoint, int[] width, int[] height, int[] xoff, int[] yoff);
 
 	/** Array version of: {@link #stbtt_GetCodepointBitmap GetCodepointBitmap} */
@@ -2010,7 +1583,7 @@ public class STBTruetype {
 		return memByteBuffer(__result, width[0] * height[0]);
 	}
 
-	/** Array version of: {@link #stbtt_GetCodepointBitmapSubpixel GetCodepointBitmapSubpixel} */
+	/** Array version of: {@link #nstbtt_GetCodepointBitmapSubpixel} */
 	public static native long nstbtt_GetCodepointBitmapSubpixel(long info, float scale_x, float scale_y, float shift_x, float shift_y, int codepoint, int[] width, int[] height, int[] xoff, int[] yoff);
 
 	/** Array version of: {@link #stbtt_GetCodepointBitmapSubpixel GetCodepointBitmapSubpixel} */
@@ -2025,7 +1598,7 @@ public class STBTruetype {
 		return memByteBuffer(__result, width[0] * height[0]);
 	}
 
-	/** Array version of: {@link #stbtt_GetCodepointBitmapBox GetCodepointBitmapBox} */
+	/** Array version of: {@link #nstbtt_GetCodepointBitmapBox} */
 	public static native void nstbtt_GetCodepointBitmapBox(long font, int codepoint, float scale_x, float scale_y, int[] ix0, int[] iy0, int[] ix1, int[] iy1);
 
 	/** Array version of: {@link #stbtt_GetCodepointBitmapBox GetCodepointBitmapBox} */
@@ -2039,7 +1612,7 @@ public class STBTruetype {
 		nstbtt_GetCodepointBitmapBox(font.address(), codepoint, scale_x, scale_y, ix0, iy0, ix1, iy1);
 	}
 
-	/** Array version of: {@link #stbtt_GetCodepointBitmapBoxSubpixel GetCodepointBitmapBoxSubpixel} */
+	/** Array version of: {@link #nstbtt_GetCodepointBitmapBoxSubpixel} */
 	public static native void nstbtt_GetCodepointBitmapBoxSubpixel(long font, int codepoint, float scale_x, float scale_y, float shift_x, float shift_y, int[] ix0, int[] iy0, int[] ix1, int[] iy1);
 
 	/** Array version of: {@link #stbtt_GetCodepointBitmapBoxSubpixel GetCodepointBitmapBoxSubpixel} */
@@ -2053,7 +1626,7 @@ public class STBTruetype {
 		nstbtt_GetCodepointBitmapBoxSubpixel(font.address(), codepoint, scale_x, scale_y, shift_x, shift_y, ix0, iy0, ix1, iy1);
 	}
 
-	/** Array version of: {@link #stbtt_GetGlyphBitmap GetGlyphBitmap} */
+	/** Array version of: {@link #nstbtt_GetGlyphBitmap} */
 	public static native long nstbtt_GetGlyphBitmap(long info, float scale_x, float scale_y, int glyph, int[] width, int[] height, int[] xoff, int[] yoff);
 
 	/** Array version of: {@link #stbtt_GetGlyphBitmap GetGlyphBitmap} */
@@ -2068,7 +1641,7 @@ public class STBTruetype {
 		return memByteBuffer(__result, width[0] * height[0]);
 	}
 
-	/** Array version of: {@link #stbtt_GetGlyphBitmapSubpixel GetGlyphBitmapSubpixel} */
+	/** Array version of: {@link #nstbtt_GetGlyphBitmapSubpixel} */
 	public static native long nstbtt_GetGlyphBitmapSubpixel(long info, float scale_x, float scale_y, float shift_x, float shift_y, int glyph, int[] width, int[] height, int[] xoff, int[] yoff);
 
 	/** Array version of: {@link #stbtt_GetGlyphBitmapSubpixel GetGlyphBitmapSubpixel} */
@@ -2083,7 +1656,7 @@ public class STBTruetype {
 		return memByteBuffer(__result, width[0] * height[0]);
 	}
 
-	/** Array version of: {@link #stbtt_GetGlyphBitmapBox GetGlyphBitmapBox} */
+	/** Array version of: {@link #nstbtt_GetGlyphBitmapBox} */
 	public static native void nstbtt_GetGlyphBitmapBox(long font, int glyph, float scale_x, float scale_y, int[] ix0, int[] iy0, int[] ix1, int[] iy1);
 
 	/** Array version of: {@link #stbtt_GetGlyphBitmapBox GetGlyphBitmapBox} */
@@ -2097,7 +1670,7 @@ public class STBTruetype {
 		nstbtt_GetGlyphBitmapBox(font.address(), glyph, scale_x, scale_y, ix0, iy0, ix1, iy1);
 	}
 
-	/** Array version of: {@link #stbtt_GetGlyphBitmapBoxSubpixel GetGlyphBitmapBoxSubpixel} */
+	/** Array version of: {@link #nstbtt_GetGlyphBitmapBoxSubpixel} */
 	public static native void nstbtt_GetGlyphBitmapBoxSubpixel(long font, int glyph, float scale_x, float scale_y, float shift_x, float shift_y, int[] ix0, int[] iy0, int[] ix1, int[] iy1);
 
 	/** Array version of: {@link #stbtt_GetGlyphBitmapBoxSubpixel GetGlyphBitmapBoxSubpixel} */

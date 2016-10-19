@@ -133,13 +133,7 @@ public class ARBTextureMultisample {
 
 	// --- [ glGetMultisamplefv ] ---
 
-	/**
-	 * Retrieves the location of a sample.
-	 *
-	 * @param pname the sample parameter name. Must be:<br><table><tr><td>{@link #GL_SAMPLE_POSITION SAMPLE_POSITION}</td></tr></table>
-	 * @param index the index of the sample whose position to query
-	 * @param val   an array to receive the position of the sample
-	 */
+	/** Unsafe version of: {@link #glGetMultisamplefv GetMultisamplefv} */
 	public static void nglGetMultisamplefv(int pname, int index, long val) {
 		long __functionAddress = GL.getCapabilities().glGetMultisamplefv;
 		if ( CHECKS )

@@ -54,13 +54,7 @@ public class BGFXPlatform {
 
 	// --- [ bgfx_set_platform_data ] ---
 
-	/**
-	 * Sets platform data.
-	 * 
-	 * <p>Must be called before {@link BGFX#bgfx_init init}.</p>
-	 *
-	 * @param _data the platform data to set
-	 */
+	/** Unsafe version of: {@link #bgfx_set_platform_data set_platform_data} */
 	public static void nbgfx_set_platform_data(long _data) {
 		long __functionAddress = Functions.set_platform_data;
 		invokePV(__functionAddress, _data);
@@ -79,7 +73,7 @@ public class BGFXPlatform {
 
 	// --- [ bgfx_get_internal_data ] ---
 
-	/** Gets internal data for interop. */
+	/** Unsafe version of: {@link #bgfx_get_internal_data get_internal_data} */
 	public static long nbgfx_get_internal_data() {
 		long __functionAddress = Functions.get_internal_data;
 		return invokeP(__functionAddress);
@@ -112,22 +106,7 @@ public class BGFXPlatform {
 
 	// --- [ bgfx_override_internal_texture ] ---
 
-	/**
-	 * Overrides internal texture by creating new texture. Previously created internal texture will released.
-	 * 
-	 * <p>It's expected you understand some bgfx internals before you use this call.</p>
-	 * 
-	 * <p>Must be called only on render thread.</p>
-	 *
-	 * @param _handle  texture handle
-	 * @param _width   width
-	 * @param _height  height
-	 * @param _numMips number of mip-maps
-	 * @param _format  texture format
-	 * @param _flags   default texture sampling mode is linear, and wrap mode is repeat
-	 *
-	 * @return native API pointer to texture. If result is 0, texture is not created yet from the main thread.
-	 */
+	/** Unsafe version of: {@link #bgfx_override_internal_texture override_internal_texture} */
 	public static long nbgfx_override_internal_texture(short _handle, short _width, short _height, byte _numMips, int _format, int _flags) {
 		long __functionAddress = Functions.override_internal_texture;
 		return invokeP(__functionAddress, _handle, _width, _height, _numMips, _format, _flags);

@@ -39,38 +39,7 @@ public class KHRXlibSurface {
 
 	// --- [ vkCreateXlibSurfaceKHR ] ---
 
-	/**
-	 * Creates a {@code VkSurfaceKHR} object for an X11 window, using the Xlib client-side library.
-	 * 
-	 * <h5>Valid Usage</h5>
-	 * 
-	 * <ul>
-	 * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
-	 * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkXlibSurfaceCreateInfoKHR} structure</li>
-	 * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-	 * <li>{@code pSurface} <b>must</b> be a pointer to a {@code VkSurfaceKHR} handle</li>
-	 * </ul>
-	 * 
-	 * <p>With Xlib, {@code minImageExtent}, {@code maxImageExtent}, and {@code currentExtent} are the window size. Therefore, a swapchain’s {@code imageExtent}
-	 * <b>must</b> match the window’s size.</p>
-	 * 
-	 * <p>Some Vulkan functions <b>may</b> send protocol over the specified Xlib Display connection when using a swapchain or presentable images created from a
-	 * {@code VkSurface} referring to an Xlib window. Applications <b>must</b> therefore ensure the display connection is available to Vulkan for the duration of
-	 * any functions that manipulate such swapchains or their presentable images, and any functions that build or queue command buffers that operate on such
-	 * presentable images. Specifically, applications using Vulkan with Xlib-based swapchains <b>must</b></p>
-	 * 
-	 * <ul>
-	 * <li>Call {@code XInitThreads()} before calling any other Xlib functions if they intend to use Vulkan in multiple threads, or use Vulkan and Xlib in
-	 * separate threads.</li>
-	 * <li>Avoid holding a server grab on a display connection while waiting for Vulkan operations to complete using a swapchain derived from a different
-	 * display connection referring to the same X server instance. Failing to do so may result in deadlock.</li>
-	 * </ul>
-	 *
-	 * @param instance    the instance to associate the surface with
-	 * @param pCreateInfo a pointer to an instance of the {@link VkXlibSurfaceCreateInfoKHR} structure containing the parameters affecting the creation of the surface object
-	 * @param pAllocator  controls host memory allocation
-	 * @param pSurface    points to a {@code VkSurfaceKHR} handle in which the created surface object is returned
-	 */
+	/** Unsafe version of: {@link #vkCreateXlibSurfaceKHR CreateXlibSurfaceKHR} */
 	public static int nvkCreateXlibSurfaceKHR(VkInstance instance, long pCreateInfo, long pAllocator, long pSurface) {
 		long __functionAddress = instance.getCapabilities().vkCreateXlibSurfaceKHR;
 		if ( CHECKS ) {

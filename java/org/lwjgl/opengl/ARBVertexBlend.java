@@ -102,10 +102,9 @@ public class ARBVertexBlend {
 	// --- [ glWeightfvARB ] ---
 
 	/**
-	 * Sets the current vertex weights.
+	 * Unsafe version of: {@link #glWeightfvARB WeightfvARB}
 	 *
-	 * @param size    the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
-	 * @param weights the vertex weights
+	 * @param size the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 */
 	public static void nglWeightfvARB(int size, long weights) {
 		long __functionAddress = GL.getCapabilities().glWeightfvARB;
@@ -126,10 +125,9 @@ public class ARBVertexBlend {
 	// --- [ glWeightbvARB ] ---
 
 	/**
-	 * Byte version of {@link #glWeightfvARB WeightfvARB}.
+	 * Unsafe version of: {@link #glWeightbvARB WeightbvARB}
 	 *
-	 * @param size    the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
-	 * @param weights the vertex weights
+	 * @param size the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 */
 	public static void nglWeightbvARB(int size, long weights) {
 		long __functionAddress = GL.getCapabilities().glWeightbvARB;
@@ -150,10 +148,9 @@ public class ARBVertexBlend {
 	// --- [ glWeightubvARB ] ---
 
 	/**
-	 * Unsigned byte version of {@link #glWeightfvARB WeightfvARB}.
+	 * Unsafe version of: {@link #glWeightubvARB WeightubvARB}
 	 *
-	 * @param size    the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
-	 * @param weights the vertex weights
+	 * @param size the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 */
 	public static void nglWeightubvARB(int size, long weights) {
 		long __functionAddress = GL.getCapabilities().glWeightubvARB;
@@ -174,10 +171,9 @@ public class ARBVertexBlend {
 	// --- [ glWeightsvARB ] ---
 
 	/**
-	 * Short version of {@link #glWeightfvARB WeightfvARB}.
+	 * Unsafe version of: {@link #glWeightsvARB WeightsvARB}
 	 *
-	 * @param size    the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
-	 * @param weights the vertex weights
+	 * @param size the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 */
 	public static void nglWeightsvARB(int size, long weights) {
 		long __functionAddress = GL.getCapabilities().glWeightsvARB;
@@ -198,10 +194,9 @@ public class ARBVertexBlend {
 	// --- [ glWeightusvARB ] ---
 
 	/**
-	 * Unsigned short version of {@link #glWeightfvARB WeightfvARB}.
+	 * Unsafe version of: {@link #glWeightusvARB WeightusvARB}
 	 *
-	 * @param size    the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
-	 * @param weights the vertex weights
+	 * @param size the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 */
 	public static void nglWeightusvARB(int size, long weights) {
 		long __functionAddress = GL.getCapabilities().glWeightusvARB;
@@ -222,10 +217,9 @@ public class ARBVertexBlend {
 	// --- [ glWeightivARB ] ---
 
 	/**
-	 * Integer version of {@link #glWeightfvARB WeightfvARB}.
+	 * Unsafe version of: {@link #glWeightivARB WeightivARB}
 	 *
-	 * @param size    the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
-	 * @param weights the vertex weights
+	 * @param size the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 */
 	public static void nglWeightivARB(int size, long weights) {
 		long __functionAddress = GL.getCapabilities().glWeightivARB;
@@ -246,10 +240,9 @@ public class ARBVertexBlend {
 	// --- [ glWeightuivARB ] ---
 
 	/**
-	 * Unsigned integer version of {@link #glWeightfvARB WeightfvARB}.
+	 * Unsafe version of: {@link #glWeightuivARB WeightuivARB}
 	 *
-	 * @param size    the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
-	 * @param weights the vertex weights
+	 * @param size the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 */
 	public static void nglWeightuivARB(int size, long weights) {
 		long __functionAddress = GL.getCapabilities().glWeightuivARB;
@@ -270,10 +263,9 @@ public class ARBVertexBlend {
 	// --- [ glWeightdvARB ] ---
 
 	/**
-	 * Double version of {@link #glWeightfvARB WeightfvARB}.
+	 * Unsafe version of: {@link #glWeightdvARB WeightdvARB}
 	 *
-	 * @param size    the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
-	 * @param weights the vertex weights
+	 * @param size the number of weights to set. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
 	 */
 	public static void nglWeightdvARB(int size, long weights) {
 		long __functionAddress = GL.getCapabilities().glWeightdvARB;
@@ -293,14 +285,7 @@ public class ARBVertexBlend {
 
 	// --- [ glWeightPointerARB ] ---
 
-	/**
-	 * Specifies the location and organization of a weight array.
-	 *
-	 * @param size    the number of values per vertex that are stored in the array. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
-	 * @param type    the data type of the values stored in the array. One of:<br><table><tr><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_SHORT SHORT}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_FLOAT FLOAT}</td><td>{@link GL11#GL_DOUBLE DOUBLE}</td></tr></table>
-	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
-	 * @param pointer the weight data
-	 */
+	/** Unsafe version of: {@link #glWeightPointerARB WeightPointerARB} */
 	public static void nglWeightPointerARB(int size, int type, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glWeightPointerARB;
 		if ( CHECKS )

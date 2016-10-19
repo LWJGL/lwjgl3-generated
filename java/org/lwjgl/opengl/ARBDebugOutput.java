@@ -148,32 +148,9 @@ public class ARBDebugOutput {
 	// --- [ glDebugMessageControlARB ] ---
 
 	/**
-	 * Controls the volume of debug output by disabling specific or groups of messages.
-	 * 
-	 * <p>If {@code enabled} is {@link GL11#GL_TRUE TRUE}, the referenced subset of messages will be enabled. If {@link GL11#GL_FALSE FALSE}, then those messages will be disabled.</p>
-	 * 
-	 * <p>This command can reference different subsets of messages by first considering the set of all messages, and filtering out messages based on the following
-	 * ways:</p>
-	 * 
-	 * <ul>
-	 * <li>If {@code source} is not {@link GL11#GL_DONT_CARE DONT_CARE}, then all messages whose source does not match {@code source} will not be referenced.</li>
-	 * <li>If {@code type} is not {@link GL11#GL_DONT_CARE DONT_CARE}, then all messages whose type does not match {@code type} will not be referenced.</li>
-	 * <li>If {@code severity} is not {@link GL11#GL_DONT_CARE DONT_CARE}, then all messages whose severity level does not match {@code severity} will not be referenced.</li>
-	 * <li>If {@code count} is greater than zero, then {@code ids} is an array of {@code count} message IDs for the specified combination of {@code source} and
-	 * {@code type}. In this case, if {@code source} or {@code type} is {@link GL11#GL_DONT_CARE DONT_CARE}, or {@code severity} is not {@link GL11#GL_DONT_CARE DONT_CARE}, the error
-	 * {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION} is generated. If {@code count} is zero, the value if {@code ids} is ignored.</li>
-	 * </ul>
-	 * 
-	 * <p>Although messages are grouped into an implicit hierarchy by their sources and types, there is no explicit per-source, per-type or per-severity enabled
-	 * state. Instead, the enabled state is stored individually for each message. There is no difference between disabling all messages from one source in a
-	 * single call, and individually disabling all messages from that source using their types and IDs.</p>
+	 * Unsafe version of: {@link #glDebugMessageControlARB DebugMessageControlARB}
 	 *
-	 * @param source   the message source. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_API_ARB DEBUG_SOURCE_API_ARB}</td><td>{@link #GL_DEBUG_SOURCE_WINDOW_SYSTEM_ARB DEBUG_SOURCE_WINDOW_SYSTEM_ARB}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_SHADER_COMPILER_ARB DEBUG_SOURCE_SHADER_COMPILER_ARB}</td><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY_ARB DEBUG_SOURCE_THIRD_PARTY_ARB}</td></tr><tr><td>{@link #GL_DEBUG_SOURCE_APPLICATION_ARB DEBUG_SOURCE_APPLICATION_ARB}</td><td>{@link #GL_DEBUG_SOURCE_OTHER_ARB DEBUG_SOURCE_OTHER_ARB}</td></tr></table>
-	 * @param type     the message type. One of:<br><table><tr><td>{@link #GL_DEBUG_TYPE_ERROR_ARB DEBUG_TYPE_ERROR_ARB}</td><td>{@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_ARB DEBUG_TYPE_DEPRECATED_BEHAVIOR_ARB}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_ARB DEBUG_TYPE_UNDEFINED_BEHAVIOR_ARB}</td><td>{@link #GL_DEBUG_TYPE_PORTABILITY_ARB DEBUG_TYPE_PORTABILITY_ARB}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_PERFORMANCE_ARB DEBUG_TYPE_PERFORMANCE_ARB}</td><td>{@link #GL_DEBUG_TYPE_OTHER_ARB DEBUG_TYPE_OTHER_ARB}</td></tr></table>
-	 * @param severity the message severity level. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH_ARB DEBUG_SEVERITY_HIGH_ARB}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM_ARB DEBUG_SEVERITY_MEDIUM_ARB}</td><td>{@link #GL_DEBUG_SEVERITY_LOW_ARB DEBUG_SEVERITY_LOW_ARB}</td></tr></table>
-	 * @param count    the number of message IDs in {@code ids}
-	 * @param ids      the message IDs to enable or disable
-	 * @param enabled  whether to enable or disable the references subset of messages
+	 * @param count the number of message IDs in {@code ids}
 	 */
 	public static void nglDebugMessageControlARB(int source, int type, int severity, int count, long ids, boolean enabled) {
 		long __functionAddress = GL.getCapabilities().glDebugMessageControlARB;
@@ -252,18 +229,9 @@ public class ARBDebugOutput {
 	// --- [ glDebugMessageInsertARB ] ---
 
 	/**
-	 * This function can be called by applications and third-party libraries to generate their own messages, such as ones containing timestamp information or
-	 * signals about specific render system events.
-	 * 
-	 * <p>The error {@link GL11#GL_INVALID_VALUE INVALID_VALUE} will be generated if the number of characters in {@code buf}, excluding the null terminator when {@code length} is
-	 * negative, is not less than {@link #GL_MAX_DEBUG_MESSAGE_LENGTH_ARB MAX_DEBUG_MESSAGE_LENGTH_ARB}.</p>
+	 * Unsafe version of: {@link #glDebugMessageInsertARB DebugMessageInsertARB}
 	 *
-	 * @param source   the message source. One of:<br><table><tr><td>{@link #GL_DEBUG_SOURCE_THIRD_PARTY_ARB DEBUG_SOURCE_THIRD_PARTY_ARB}</td><td>{@link #GL_DEBUG_SOURCE_APPLICATION_ARB DEBUG_SOURCE_APPLICATION_ARB}</td></tr></table>
-	 * @param type     the message type. One of:<br><table><tr><td>{@link #GL_DEBUG_TYPE_ERROR_ARB DEBUG_TYPE_ERROR_ARB}</td><td>{@link #GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_ARB DEBUG_TYPE_DEPRECATED_BEHAVIOR_ARB}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_ARB DEBUG_TYPE_UNDEFINED_BEHAVIOR_ARB}</td><td>{@link #GL_DEBUG_TYPE_PORTABILITY_ARB DEBUG_TYPE_PORTABILITY_ARB}</td></tr><tr><td>{@link #GL_DEBUG_TYPE_PERFORMANCE_ARB DEBUG_TYPE_PERFORMANCE_ARB}</td><td>{@link #GL_DEBUG_TYPE_OTHER_ARB DEBUG_TYPE_OTHER_ARB}</td></tr></table>
-	 * @param id       the message ID
-	 * @param severity the message severity level. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH_ARB DEBUG_SEVERITY_HIGH_ARB}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM_ARB DEBUG_SEVERITY_MEDIUM_ARB}</td><td>{@link #GL_DEBUG_SEVERITY_LOW_ARB DEBUG_SEVERITY_LOW_ARB}</td></tr></table>
-	 * @param length   the number of characters in {@code buf}. If negative, it is implied that {@code buf} contains a null terminated string.
-	 * @param buf      the string representation of the message
+	 * @param length the number of characters in {@code buf}. If negative, it is implied that {@code buf} contains a null terminated string.
 	 */
 	public static void nglDebugMessageInsertARB(int source, int type, int id, int severity, int length, long buf) {
 		long __functionAddress = GL.getCapabilities().glDebugMessageInsertARB;
@@ -315,44 +283,7 @@ public class ARBDebugOutput {
 
 	// --- [ glDebugMessageCallbackARB ] ---
 
-	/**
-	 * Specifies a callback function for receiving debug messages.
-	 * 
-	 * <p>This function's prototype must follow the type definition of DEBUGPROCARB including its platform-dependent calling convention. Anything else will result
-	 * in undefined behavior. Only one debug callback can be specified for the current context, and further calls overwrite the previous callback. Specifying
-	 * {@code NULL} as the value of {@code callback} clears the current callback and disables message output through callbacks. Applications can provide
-	 * user-specified data through the pointer {@code userParam}. The context will store this pointer and will include it as one of the parameters in each call
-	 * to the callback function.</p>
-	 * 
-	 * <p>If the application has specified a callback function for receiving debug output, the implementation will call that function whenever any enabled message
-	 * is generated. The source, type, ID, and severity of the message are specified by the DEBUGPROCARB parameters {@code source}, {@code type}, {@code id},
-	 * and {@code severity}, respectively. The string representation of the message is stored in {@code message} and its length (excluding the null-terminator)
-	 * is stored in {@code length}. The parameter {@code userParam} is the user-specified parameter that was given when calling DebugMessageCallbackARB.</p>
-	 * 
-	 * <p>Applications can query the current callback function and the current user-specified parameter by obtaining the values of {@link #GL_DEBUG_CALLBACK_FUNCTION_ARB DEBUG_CALLBACK_FUNCTION_ARB}
-	 * and {@link #GL_DEBUG_CALLBACK_USER_PARAM_ARB DEBUG_CALLBACK_USER_PARAM_ARB}, respectively.</p>
-	 * 
-	 * <p>Applications that specify a callback function must be aware of certain special conditions when executing code inside a callback when it is called by the
-	 * GL, regardless of the debug source.</p>
-	 * 
-	 * <p>The memory for {@code message} is owned and managed by the GL, and should only be considered valid for the duration of the function call.</p>
-	 * 
-	 * <p>The behavior of calling any GL or window system function from within the callback function is undefined and may lead to program termination.</p>
-	 * 
-	 * <p>Care must also be taken in securing debug callbacks for use with asynchronous debug output by multi-threaded GL implementations.</p>
-	 * 
-	 * <p>If {@link #GL_DEBUG_CALLBACK_FUNCTION_ARB DEBUG_CALLBACK_FUNCTION_ARB} is {@code NULL}, then debug messages are instead stored in an internal message log up to some maximum number of messages as
-	 * defined by the value of {@link #GL_MAX_DEBUG_LOGGED_MESSAGES_ARB MAX_DEBUG_LOGGED_MESSAGES_ARB}.</p>
-	 * 
-	 * <p>Each context stores its own message log and will only store messages generated by commands operating in that context.  If the message log fills up, then
-	 * any subsequently generated messages will not be placed in the log until the message log is cleared, and will instead be discarded.</p>
-	 * 
-	 * <p>Applications can query the number of messages currently in the log by obtaining the value of {@link #GL_DEBUG_LOGGED_MESSAGES_ARB DEBUG_LOGGED_MESSAGES_ARB}, and the string length
-	 * (including its null terminator) of the oldest message in the log through the value of {@link #GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH_ARB DEBUG_NEXT_LOGGED_MESSAGE_LENGTH_ARB}.</p>
-	 *
-	 * @param callback  a callback function that will be called when a debug message is generated
-	 * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
-	 */
+	/** Unsafe version of: {@link #glDebugMessageCallbackARB DebugMessageCallbackARB} */
 	public static void nglDebugMessageCallbackARB(long callback, long userParam) {
 		long __functionAddress = GL.getCapabilities().glDebugMessageCallbackARB;
 		if ( CHECKS )
@@ -405,34 +336,9 @@ public class ARBDebugOutput {
 	// --- [ glGetDebugMessageLogARB ] ---
 
 	/**
-	 * When no debug callback is set, debug messages are stored in a debug message log. Messages can be queried from the log by calling this function.
-	 * 
-	 * <p>This function fetches a maximum of {@code count} messages from the message log, and will return the number of messages successfully fetched.</p>
-	 * 
-	 * <p>Messages will be fetched from the log in order of oldest to newest. Those messages that were fetched will be removed from the log.</p>
-	 * 
-	 * <p>The sources, types, severities, IDs, and string lengths of fetched messages will be stored in the application-provided arrays {@code sources},
-	 * {@code types}, {@code severities}, {@code ids}, and {@code lengths}, respectively. The application is responsible for allocating enough space for each
-	 * array to hold up to {@code count} elements. The string representations of all fetched messages are stored in the {@code messageLog} array. If multiple
-	 * messages are fetched, their strings are concatenated into the same {@code messageLog} array and will be separated by single null terminators. The last
-	 * string in the array will also be null-terminated. The maximum size of {@code messageLog}, including the space used by all null terminators, is given by
-	 * {@code bufSize}. If {@code bufSize} is less than zero, the error {@link GL11#GL_INVALID_VALUE INVALID_VALUE} will be generated. If a message's string, including its null
-	 * terminator, can not fully fit within the {@code messageLog} array's remaining space, then that message and any subsequent messages will not be fetched
-	 * and will remain in the log. The string lengths stored in the array {@code lengths} include the space for the null terminator of each string.</p>
-	 * 
-	 * <p>Any or all of the arrays {@code sources}, {@code types}, {@code ids}, {@code severities}, {@code lengths} and {@code messageLog} can also be null
-	 * pointers, which causes the attributes for such arrays to be discarded when messages are fetched, however those messages will still be removed from the
-	 * log. Thus to simply delete up to {@code count} messages from the message log while ignoring their attributes, the application can call the function with
-	 * null pointers for all attribute arrays. If {@code messageLog} is {@code NULL}, the value of {@code bufSize} is ignored.</p>
+	 * Unsafe version of: {@link #glGetDebugMessageLogARB GetDebugMessageLogARB}
 	 *
-	 * @param count      the number of debug messages to retrieve from the log
-	 * @param bufSize    the maximum number of characters that can be written in the {@code messageLog} array
-	 * @param sources    a buffer in which to place the returned message sources
-	 * @param types      a buffer in which to place the returned message typesd
-	 * @param ids        a buffer in which to place the returned message IDs
-	 * @param severities a buffer in which to place the returned message severity levels
-	 * @param lengths    a buffer in which to place the returned message lengths
-	 * @param messageLog a buffer in which to place the returned messages
+	 * @param bufSize the maximum number of characters that can be written in the {@code messageLog} array
 	 */
 	public static int nglGetDebugMessageLogARB(int count, int bufSize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
 		long __functionAddress = GL.getCapabilities().glGetDebugMessageLogARB;

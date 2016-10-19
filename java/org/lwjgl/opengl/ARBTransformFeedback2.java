@@ -74,10 +74,9 @@ public class ARBTransformFeedback2 {
 	// --- [ glDeleteTransformFeedbacks ] ---
 
 	/**
-	 * Deletes transform feedback objects.
+	 * Unsafe version of: {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks}
 	 *
-	 * @param n   the number of transform feedback objects to delete
-	 * @param ids an array of names of transform feedback objects to delete
+	 * @param n the number of transform feedback objects to delete
 	 */
 	public static void nglDeleteTransformFeedbacks(int n, long ids) {
 		long __functionAddress = GL.getCapabilities().glDeleteTransformFeedbacks;
@@ -109,10 +108,9 @@ public class ARBTransformFeedback2 {
 	// --- [ glGenTransformFeedbacks ] ---
 
 	/**
-	 * Reserves transform feedback object names.
+	 * Unsafe version of: {@link #glGenTransformFeedbacks GenTransformFeedbacks}
 	 *
-	 * @param n   the number of transform feedback object names to reserve
-	 * @param ids an array of into which the reserved names will be written
+	 * @param n the number of transform feedback object names to reserve
 	 */
 	public static void nglGenTransformFeedbacks(int n, long ids) {
 		long __functionAddress = GL.getCapabilities().glGenTransformFeedbacks;

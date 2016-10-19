@@ -34,14 +34,7 @@ public class APPLECommandQueuePriority {
 
 	// --- [ clCreateCommandQueueWithPropertiesAPPLE ] ---
 
-	/**
-	 * 
-	 *
-	 * @param context     
-	 * @param device      
-	 * @param properties  
-	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
-	 */
+	/** Unsafe version of: {@link #clCreateCommandQueueWithPropertiesAPPLE CreateCommandQueueWithPropertiesAPPLE} */
 	public static long nclCreateCommandQueueWithPropertiesAPPLE(long context, long device, long properties, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateCommandQueueWithPropertiesAPPLE;
 		if ( CHECKS ) {

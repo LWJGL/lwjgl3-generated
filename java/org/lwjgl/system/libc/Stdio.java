@@ -31,16 +31,7 @@ public class Stdio {
 
 	// --- [ vsscanf ] ---
 
-	/**
-	 * Reads data from the null-terminated character string {@code buffer}, interprets it according to {@code format} and stores the results into locations
-	 * defined by {@code vlist}.
-	 *
-	 * @param buffer pointer to a null-terminated character string to read from
-	 * @param format pointer to a null-terminated character string specifying how to read the input
-	 * @param vlist  variable argument list containing the receiving arguments
-	 *
-	 * @return the number of receiving arguments successfully assigned, or {@code EOF} if read failure occurs before the first receiving argument was assigned
-	 */
+	/** Unsafe version of: {@link #vsscanf} */
 	public static native int nvsscanf(long buffer, long format, long vlist);
 
 	/**
@@ -100,17 +91,9 @@ public class Stdio {
 	// --- [ vsnprintf ] ---
 
 	/**
-	 * Loads the data from the locations, defined by {@code vlist}, converts them to character string equivalents and writes the results to a character string
-	 * buffer.
+	 * Unsafe version of: {@link #vsnprintf}
 	 *
-	 * @param buffer   pointer to a character string to write to
 	 * @param buf_size up to {@code buf_size - 1} characters may be written, plus the null terminator
-	 * @param format   pointer to a null-terminated character string specifying how to interpret the data
-	 * @param vlist    variable argument list containing the data to print
-	 *
-	 * @return the number of characters written if successful or negative value if an error occurred. If the resulting string gets truncated due to {@code buf_size}
-	 *         limit, function returns the total number of characters (not including the terminating null-byte) which would have been written, if the limit was not
-	 *         imposed.
 	 */
 	public static native int nvsnprintf(long buffer, long buf_size, long format, long vlist);
 

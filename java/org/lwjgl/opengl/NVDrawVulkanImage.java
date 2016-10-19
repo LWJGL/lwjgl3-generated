@@ -70,11 +70,7 @@ public class NVDrawVulkanImage {
 
 	// --- [ glGetVkProcAddrNV ] ---
 
-	/**
-	 * Queries the Vulkan function entry points from within an OpenGL context.
-	 *
-	 * @param name name of the Vulkan function
-	 */
+	/** Unsafe version of: {@link #glGetVkProcAddrNV GetVkProcAddrNV} */
 	public static long nglGetVkProcAddrNV(long name) {
 		long __functionAddress = GL.getCapabilities().glGetVkProcAddrNV;
 		if ( CHECKS )

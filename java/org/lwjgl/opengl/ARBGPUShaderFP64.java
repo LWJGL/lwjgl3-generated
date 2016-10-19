@@ -151,11 +151,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glUniform1dv ] ---
 
 	/**
-	 * Specifies the value of a single double uniform variable or a double uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniform1dv Uniform1dv}
 	 *
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglUniform1dv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform1dv;
@@ -177,11 +175,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glUniform2dv ] ---
 
 	/**
-	 * Specifies the value of a single dvec2 uniform variable or a dvec2 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniform2dv Uniform2dv}
 	 *
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglUniform2dv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform2dv;
@@ -203,11 +199,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glUniform3dv ] ---
 
 	/**
-	 * Specifies the value of a single dvec3 uniform variable or a dvec3 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniform3dv Uniform3dv}
 	 *
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglUniform3dv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform3dv;
@@ -229,11 +223,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glUniform4dv ] ---
 
 	/**
-	 * Specifies the value of a single dvec4 uniform variable or a dvec4 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniform4dv Uniform4dv}
 	 *
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglUniform4dv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform4dv;
@@ -255,12 +247,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glUniformMatrix2dv ] ---
 
 	/**
-	 * Specifies the value of a single dmat2 uniform variable or a dmat2 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniformMatrix2dv UniformMatrix2dv}
 	 *
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglUniformMatrix2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix2dv;
@@ -283,12 +272,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glUniformMatrix3dv ] ---
 
 	/**
-	 * Specifies the value of a single dmat3 uniform variable or a dmat3 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniformMatrix3dv UniformMatrix3dv}
 	 *
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglUniformMatrix3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix3dv;
@@ -311,12 +297,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glUniformMatrix4dv ] ---
 
 	/**
-	 * Specifies the value of a single dmat4 uniform variable or a dmat4 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniformMatrix4dv UniformMatrix4dv}
 	 *
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglUniformMatrix4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix4dv;
@@ -339,12 +322,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glUniformMatrix2x3dv ] ---
 
 	/**
-	 * Specifies the value of a single dmat2x3 uniform variable or a dmat2x3 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniformMatrix2x3dv UniformMatrix2x3dv}
 	 *
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglUniformMatrix2x3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix2x3dv;
@@ -367,12 +347,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glUniformMatrix2x4dv ] ---
 
 	/**
-	 * Specifies the value of a single dmat2x4 uniform variable or a dmat2x4 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniformMatrix2x4dv UniformMatrix2x4dv}
 	 *
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglUniformMatrix2x4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix2x4dv;
@@ -395,12 +372,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glUniformMatrix3x2dv ] ---
 
 	/**
-	 * Specifies the value of a single dmat3x2 uniform variable or a dmat3x2 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniformMatrix3x2dv UniformMatrix3x2dv}
 	 *
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglUniformMatrix3x2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix3x2dv;
@@ -423,12 +397,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glUniformMatrix3x4dv ] ---
 
 	/**
-	 * Specifies the value of a single dmat3x4 uniform variable or a dmat3x4 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniformMatrix3x4dv UniformMatrix3x4dv}
 	 *
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglUniformMatrix3x4dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix3x4dv;
@@ -451,12 +422,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glUniformMatrix4x2dv ] ---
 
 	/**
-	 * Specifies the value of a single dmat4x2 uniform variable or a dmat4x2 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniformMatrix4x2dv UniformMatrix4x2dv}
 	 *
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglUniformMatrix4x2dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix4x2dv;
@@ -479,12 +447,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glUniformMatrix4x3dv ] ---
 
 	/**
-	 * Specifies the value of a single dmat4x3 uniform variable or a dmat4x3 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniformMatrix4x3dv UniformMatrix4x3dv}
 	 *
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglUniformMatrix4x3dv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix4x3dv;
@@ -506,13 +471,7 @@ public class ARBGPUShaderFP64 {
 
 	// --- [ glGetUniformdv ] ---
 
-	/**
-	 * Returns the double value(s) of a uniform variable.
-	 *
-	 * @param program  the program object to be queried
-	 * @param location the location of the uniform variable to be queried
-	 * @param params   the value of the specified uniform variable
-	 */
+	/** Unsafe version of: {@link #glGetUniformdv GetUniformdv} */
 	public static void nglGetUniformdv(int program, int location, long params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformdv;
 		if ( CHECKS )
@@ -623,12 +582,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glProgramUniform1dvEXT ] ---
 
 	/**
-	 * DSA version of {@link #glUniform1dv Uniform1dv}.
+	 * Unsafe version of: {@link #glProgramUniform1dvEXT ProgramUniform1dvEXT}
 	 *
-	 * @param program  the program object to update
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglProgramUniform1dvEXT(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform1dvEXT;
@@ -651,12 +607,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glProgramUniform2dvEXT ] ---
 
 	/**
-	 * DSA version of {@link #glUniform2dv Uniform2dv}.
+	 * Unsafe version of: {@link #glProgramUniform2dvEXT ProgramUniform2dvEXT}
 	 *
-	 * @param program  the program object to update
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglProgramUniform2dvEXT(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform2dvEXT;
@@ -679,12 +632,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glProgramUniform3dvEXT ] ---
 
 	/**
-	 * DSA version of {@link #glUniform3dv Uniform3dv}.
+	 * Unsafe version of: {@link #glProgramUniform3dvEXT ProgramUniform3dvEXT}
 	 *
-	 * @param program  the program object to update
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglProgramUniform3dvEXT(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform3dvEXT;
@@ -707,12 +657,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glProgramUniform4dvEXT ] ---
 
 	/**
-	 * DSA version of {@link #glUniform4dv Uniform4dv}.
+	 * Unsafe version of: {@link #glProgramUniform4dvEXT ProgramUniform4dvEXT}
 	 *
-	 * @param program  the program object to update
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglProgramUniform4dvEXT(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform4dvEXT;
@@ -735,13 +682,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glProgramUniformMatrix2dvEXT ] ---
 
 	/**
-	 * DSA version of {@link #glUniformMatrix2dv UniformMatrix2dv}.
+	 * Unsafe version of: {@link #glProgramUniformMatrix2dvEXT ProgramUniformMatrix2dvEXT}
 	 *
-	 * @param program   the program object to update
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix2dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2dvEXT;
@@ -765,13 +708,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glProgramUniformMatrix3dvEXT ] ---
 
 	/**
-	 * DSA version of {@link #glUniformMatrix3dv UniformMatrix3dv}.
+	 * Unsafe version of: {@link #glProgramUniformMatrix3dvEXT ProgramUniformMatrix3dvEXT}
 	 *
-	 * @param program   the program object to update
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix3dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3dvEXT;
@@ -795,13 +734,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glProgramUniformMatrix4dvEXT ] ---
 
 	/**
-	 * DSA version of {@link #glUniformMatrix4dv UniformMatrix4dv}.
+	 * Unsafe version of: {@link #glProgramUniformMatrix4dvEXT ProgramUniformMatrix4dvEXT}
 	 *
-	 * @param program   the program object to update
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix4dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4dvEXT;
@@ -825,13 +760,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glProgramUniformMatrix2x3dvEXT ] ---
 
 	/**
-	 * DSA version of {@link #glUniformMatrix2x3dv UniformMatrix2x3dv}.
+	 * Unsafe version of: {@link #glProgramUniformMatrix2x3dvEXT ProgramUniformMatrix2x3dvEXT}
 	 *
-	 * @param program   the program object to update
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix2x3dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2x3dvEXT;
@@ -855,13 +786,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glProgramUniformMatrix2x4dvEXT ] ---
 
 	/**
-	 * DSA version of {@link #glUniformMatrix2x4dv UniformMatrix2x4dv}.
+	 * Unsafe version of: {@link #glProgramUniformMatrix2x4dvEXT ProgramUniformMatrix2x4dvEXT}
 	 *
-	 * @param program   the program object to update
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix2x4dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix2x4dvEXT;
@@ -885,13 +812,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glProgramUniformMatrix3x2dvEXT ] ---
 
 	/**
-	 * DSA version of {@link #glUniformMatrix3x2dv UniformMatrix3x2dv}.
+	 * Unsafe version of: {@link #glProgramUniformMatrix3x2dvEXT ProgramUniformMatrix3x2dvEXT}
 	 *
-	 * @param program   the program object to update
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix3x2dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3x2dvEXT;
@@ -915,13 +838,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glProgramUniformMatrix3x4dvEXT ] ---
 
 	/**
-	 * DSA version of {@link #glUniformMatrix3x4dv UniformMatrix3x4dv}.
+	 * Unsafe version of: {@link #glProgramUniformMatrix3x4dvEXT ProgramUniformMatrix3x4dvEXT}
 	 *
-	 * @param program   the program object to update
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix3x4dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix3x4dvEXT;
@@ -945,13 +864,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glProgramUniformMatrix4x2dvEXT ] ---
 
 	/**
-	 * DSA version of {@link #glUniformMatrix4x2dv UniformMatrix4x2dv}.
+	 * Unsafe version of: {@link #glProgramUniformMatrix4x2dvEXT ProgramUniformMatrix4x2dvEXT}
 	 *
-	 * @param program   the program object to update
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix4x2dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4x2dvEXT;
@@ -975,13 +890,9 @@ public class ARBGPUShaderFP64 {
 	// --- [ glProgramUniformMatrix4x3dvEXT ] ---
 
 	/**
-	 * DSA version of {@link #glUniformMatrix4x3dv UniformMatrix4x3dv}.
+	 * Unsafe version of: {@link #glProgramUniformMatrix4x3dvEXT ProgramUniformMatrix4x3dvEXT}
 	 *
-	 * @param program   the program object to update
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglProgramUniformMatrix4x3dvEXT(int program, int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformMatrix4x3dvEXT;

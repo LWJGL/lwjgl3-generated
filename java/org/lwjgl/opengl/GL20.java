@@ -342,19 +342,9 @@ public class GL20 {
 	// --- [ glShaderSource ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glShaderSource.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Sets the source code in {@code shader} to the source code in the array of strings specified by {@code strings}. Any source code previously stored in the
-	 * shader object is completely replaced. The number of strings in the array is specified by {@code count}. If {@code length} is {@code NULL}, each string is
-	 * assumed to be null terminated. If {@code length} is a value other than {@code NULL}, it points to an array containing a string length for each of the
-	 * corresponding elements of {@code strings}. Each element in the length array may contain the length of the corresponding string (the null character is not
-	 * counted as part of the string length) or a value less than 0 to indicate that the string is null terminated. The source code strings are not scanned or
-	 * parsed at this time; they are simply copied into the specified shader object.
+	 * Unsafe version of: {@link #glShaderSource ShaderSource}
 	 *
-	 * @param shader  the shader object whose source code is to be replaced
-	 * @param count   the number of elements in the string and length arrays
-	 * @param strings an array of pointers to strings containing the source code to be loaded into the shader
-	 * @param length  an array of string lengths
+	 * @param count the number of elements in the string and length arrays
 	 */
 	public static void nglShaderSource(int shader, int count, long strings, long length) {
 		long __functionAddress = GL.getCapabilities().glShaderSource;
@@ -645,13 +635,9 @@ public class GL20 {
 	// --- [ glUniform1fv ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Specifies the value of a single float uniform variable or a float uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniform1fv Uniform1fv}
 	 *
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglUniform1fv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform1fv;
@@ -675,13 +661,9 @@ public class GL20 {
 	// --- [ glUniform2fv ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Specifies the value of a single vec2 uniform variable or a vec2 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniform2fv Uniform2fv}
 	 *
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglUniform2fv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform2fv;
@@ -705,13 +687,9 @@ public class GL20 {
 	// --- [ glUniform3fv ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Specifies the value of a single vec3 uniform variable or a vec3 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniform3fv Uniform3fv}
 	 *
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglUniform3fv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform3fv;
@@ -735,13 +713,9 @@ public class GL20 {
 	// --- [ glUniform4fv ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Specifies the value of a single vec4 uniform variable or a vec4 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniform4fv Uniform4fv}
 	 *
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglUniform4fv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform4fv;
@@ -765,13 +739,9 @@ public class GL20 {
 	// --- [ glUniform1iv ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform1.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Specifies the value of a single int uniform variable or a int uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniform1iv Uniform1iv}
 	 *
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglUniform1iv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform1iv;
@@ -795,13 +765,9 @@ public class GL20 {
 	// --- [ glUniform2iv ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform2.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Specifies the value of a single ivec2 uniform variable or an ivec2 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniform2iv Uniform2iv}
 	 *
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglUniform2iv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform2iv;
@@ -825,13 +791,9 @@ public class GL20 {
 	// --- [ glUniform3iv ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform3.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Specifies the value of a single ivec3 uniform variable or an ivec3 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniform3iv Uniform3iv}
 	 *
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglUniform3iv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform3iv;
@@ -855,13 +817,9 @@ public class GL20 {
 	// --- [ glUniform4iv ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniform4.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Specifies the value of a single ivec4 uniform variable or an ivec4 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniform4iv Uniform4iv}
 	 *
-	 * @param location the location of the uniform variable to be modified
-	 * @param count    the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
-	 * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of elements that are to be modified. This should be 1 if the targeted uniform variable is not an array, and 1 or more if it is an array.
 	 */
 	public static void nglUniform4iv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform4iv;
@@ -885,14 +843,9 @@ public class GL20 {
 	// --- [ glUniformMatrix2fv ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix2.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Specifies the value of a single mat2 uniform variable or a mat2 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniformMatrix2fv UniformMatrix2fv}
 	 *
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglUniformMatrix2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix2fv;
@@ -917,14 +870,9 @@ public class GL20 {
 	// --- [ glUniformMatrix3fv ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix3.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Specifies the value of a single mat3 uniform variable or a mat3 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniformMatrix3fv UniformMatrix3fv}
 	 *
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglUniformMatrix3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix3fv;
@@ -949,14 +897,9 @@ public class GL20 {
 	// --- [ glUniformMatrix4fv ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glUniformMatrix4.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Specifies the value of a single mat4 uniform variable or a mat4 uniform variable array for the current program object.
+	 * Unsafe version of: {@link #glUniformMatrix4fv UniformMatrix4fv}
 	 *
-	 * @param location  the location of the uniform variable to be modified
-	 * @param count     the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
-	 * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
-	 * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
+	 * @param count the number of matrices that are to be modified. This should be 1 if the targeted uniform variable is not an array of matrices, and 1 or more if it is an array of matrices.
 	 */
 	public static void nglUniformMatrix4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix4fv;
@@ -980,15 +923,7 @@ public class GL20 {
 
 	// --- [ glGetShaderiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetShader.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns a parameter from a shader object.
-	 *
-	 * @param shader the shader object to be queried
-	 * @param pname  the object parameter. One of:<br><table><tr><td>{@link #GL_SHADER_TYPE SHADER_TYPE}</td><td>{@link #GL_DELETE_STATUS DELETE_STATUS}</td><td>{@link #GL_COMPILE_STATUS COMPILE_STATUS}</td><td>{@link #GL_INFO_LOG_LENGTH INFO_LOG_LENGTH}</td><td>{@link #GL_SHADER_SOURCE_LENGTH SHADER_SOURCE_LENGTH}</td></tr></table>
-	 * @param params the requested object parameter
-	 */
+	/** Unsafe version of: {@link #glGetShaderiv GetShaderiv} */
 	public static void nglGetShaderiv(int shader, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetShaderiv;
 		if ( CHECKS )
@@ -1032,15 +967,7 @@ public class GL20 {
 
 	// --- [ glGetProgramiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgram.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns a parameter from a program object.
-	 *
-	 * @param program the program object to be queried
-	 * @param pname   the object parameter. One of:<br><table><tr><td>{@link #GL_DELETE_STATUS DELETE_STATUS}</td><td>{@link #GL_LINK_STATUS LINK_STATUS}</td><td>{@link #GL_VALIDATE_STATUS VALIDATE_STATUS}</td></tr><tr><td>{@link #GL_INFO_LOG_LENGTH INFO_LOG_LENGTH}</td><td>{@link #GL_ATTACHED_SHADERS ATTACHED_SHADERS}</td><td>{@link #GL_ACTIVE_ATTRIBUTES ACTIVE_ATTRIBUTES}</td></tr><tr><td>{@link #GL_ACTIVE_ATTRIBUTE_MAX_LENGTH ACTIVE_ATTRIBUTE_MAX_LENGTH}</td><td>{@link #GL_ACTIVE_UNIFORMS ACTIVE_UNIFORMS}</td><td>{@link #GL_ACTIVE_UNIFORM_MAX_LENGTH ACTIVE_UNIFORM_MAX_LENGTH}</td></tr><tr><td>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER_MODE TRANSFORM_FEEDBACK_BUFFER_MODE}</td><td>{@link GL30#GL_TRANSFORM_FEEDBACK_VARYINGS TRANSFORM_FEEDBACK_VARYINGS}</td><td>{@link GL30#GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH}</td></tr><tr><td>{@link GL31#GL_ACTIVE_UNIFORM_BLOCKS ACTIVE_UNIFORM_BLOCKS}</td><td>{@link GL31#GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH}</td><td>{@link GL32#GL_GEOMETRY_VERTICES_OUT GEOMETRY_VERTICES_OUT}</td></tr><tr><td>{@link GL32#GL_GEOMETRY_INPUT_TYPE GEOMETRY_INPUT_TYPE}</td><td>{@link GL32#GL_GEOMETRY_OUTPUT_TYPE GEOMETRY_OUTPUT_TYPE}</td><td>{@link GL41#GL_PROGRAM_BINARY_LENGTH PROGRAM_BINARY_LENGTH}</td></tr><tr><td>{@link GL42#GL_ACTIVE_ATOMIC_COUNTER_BUFFERS ACTIVE_ATOMIC_COUNTER_BUFFERS}</td><td>{@link GL43#GL_COMPUTE_WORK_GROUP_SIZE COMPUTE_WORK_GROUP_SIZE}</td></tr></table>
-	 * @param params  the requested object parameter
-	 */
+	/** Unsafe version of: {@link #glGetProgramiv GetProgramiv} */
 	public static void nglGetProgramiv(int program, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetProgramiv;
 		if ( CHECKS )
@@ -1085,14 +1012,9 @@ public class GL20 {
 	// --- [ glGetShaderInfoLog ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetShaderInfoLog.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns the information log for a shader object.
+	 * Unsafe version of: {@link #glGetShaderInfoLog GetShaderInfoLog}
 	 *
-	 * @param shader    the shader object whose information log is to be queried
 	 * @param maxLength the size of the character buffer for storing the returned information log
-	 * @param length    the length of the string returned in {@code infoLog} (excluding the null terminator)
-	 * @param infoLog   an array of characters that is used to return the information log
 	 */
 	public static void nglGetShaderInfoLog(int shader, int maxLength, long length, long infoLog) {
 		long __functionAddress = GL.getCapabilities().glGetShaderInfoLog;
@@ -1161,14 +1083,9 @@ public class GL20 {
 	// --- [ glGetProgramInfoLog ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetProgramInfoLog.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns the information log for a program object.
+	 * Unsafe version of: {@link #glGetProgramInfoLog GetProgramInfoLog}
 	 *
-	 * @param program   the program object whose information log is to be queried
 	 * @param maxLength the size of the character buffer for storing the returned information log
-	 * @param length    the length of the string returned in {@code infoLog} (excluding the null terminator)
-	 * @param infoLog   an array of characters that is used to return the information log
 	 */
 	public static void nglGetProgramInfoLog(int program, int maxLength, long length, long infoLog) {
 		long __functionAddress = GL.getCapabilities().glGetProgramInfoLog;
@@ -1237,14 +1154,9 @@ public class GL20 {
 	// --- [ glGetAttachedShaders ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetAttachedShaders.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns the shader objects attached to a program object.
+	 * Unsafe version of: {@link #glGetAttachedShaders GetAttachedShaders}
 	 *
-	 * @param program  the program object to be queried
 	 * @param maxCount the size of the array for storing the returned object names
-	 * @param count    the number of names actually returned in {@code shaders}
-	 * @param shaders  an array that is used to return the names of attached shader objects
 	 */
 	public static void nglGetAttachedShaders(int program, int maxCount, long count, long shaders) {
 		long __functionAddress = GL.getCapabilities().glGetAttachedShaders;
@@ -1270,14 +1182,7 @@ public class GL20 {
 
 	// --- [ glGetUniformLocation ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniformLocation.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns the location of a uniform variable.
-	 *
-	 * @param program the program object to be queried
-	 * @param name    a null terminated string containing the name of the uniform variable whose location is to be queried
-	 */
+	/** Unsafe version of: {@link #glGetUniformLocation GetUniformLocation} */
 	public static int nglGetUniformLocation(int program, long name) {
 		long __functionAddress = GL.getCapabilities().glGetUniformLocation;
 		if ( CHECKS )
@@ -1320,17 +1225,9 @@ public class GL20 {
 	// --- [ glGetActiveUniform ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveUniform.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns information about an active uniform variable for the specified program object.
+	 * Unsafe version of: {@link #glGetActiveUniform GetActiveUniform}
 	 *
-	 * @param program   the program object to be queried
-	 * @param index     the index of the uniform variable to be queried
 	 * @param maxLength the maximum number of characters OpenGL is allowed to write in the character buffer indicated by {@code name}
-	 * @param length    the number of characters actually written by OpenGL in the string indicated by {@code name} (excluding the null terminator) if a value other than NULL is passed
-	 * @param size      the size of the uniform variable
-	 * @param type      the data type of the uniform variable
-	 * @param name      a null terminated string containing the name of the uniform variable
 	 */
 	public static void nglGetActiveUniform(int program, int index, int maxLength, long length, long size, long type, long name) {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniform;
@@ -1416,15 +1313,7 @@ public class GL20 {
 
 	// --- [ glGetUniformfv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniform.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns the float value(s) of a uniform variable.
-	 *
-	 * @param program  the program object to be queried
-	 * @param location the location of the uniform variable to be queried
-	 * @param params   the value of the specified uniform variable
-	 */
+	/** Unsafe version of: {@link #glGetUniformfv GetUniformfv} */
 	public static void nglGetUniformfv(int program, int location, long params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformfv;
 		if ( CHECKS )
@@ -1468,15 +1357,7 @@ public class GL20 {
 
 	// --- [ glGetUniformiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetUniform.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns the int value(s) of a uniform variable.
-	 *
-	 * @param program  the program object to be queried
-	 * @param location the location of the uniform variable to be queried
-	 * @param params   the value of the specified uniform variable
-	 */
+	/** Unsafe version of: {@link #glGetUniformiv GetUniformiv} */
 	public static void nglGetUniformiv(int program, int location, long params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformiv;
 		if ( CHECKS )
@@ -1521,14 +1402,9 @@ public class GL20 {
 	// --- [ glGetShaderSource ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetShaderSource.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns the source code string from a shader object.
+	 * Unsafe version of: {@link #glGetShaderSource GetShaderSource}
 	 *
-	 * @param shader    the shader object to be queried
 	 * @param maxLength the size of the character buffer for storing the returned source code string
-	 * @param length    the length of the string returned in source (excluding the null terminator)
-	 * @param source    an array of characters that is used to return the source code string
 	 */
 	public static void nglGetShaderSource(int shader, int maxLength, long length, long source) {
 		long __functionAddress = GL.getCapabilities().glGetShaderSource;
@@ -1838,14 +1714,7 @@ public class GL20 {
 
 	// --- [ glVertexAttrib1fv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pointer version of {@link #glVertexAttrib1f VertexAttrib1f}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib1fv VertexAttrib1fv} */
 	public static void nglVertexAttrib1fv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1fv;
 		if ( CHECKS )
@@ -1869,14 +1738,7 @@ public class GL20 {
 
 	// --- [ glVertexAttrib1sv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pointer version of {@link #glVertexAttrib1s VertexAttrib1s}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib1sv VertexAttrib1sv} */
 	public static void nglVertexAttrib1sv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1sv;
 		if ( CHECKS )
@@ -1900,14 +1762,7 @@ public class GL20 {
 
 	// --- [ glVertexAttrib1dv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib1.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pointer version of {@link #glVertexAttrib1d VertexAttrib1d}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib1dv VertexAttrib1dv} */
 	public static void nglVertexAttrib1dv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1dv;
 		if ( CHECKS )
@@ -1931,14 +1786,7 @@ public class GL20 {
 
 	// --- [ glVertexAttrib2fv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pointer version of {@link #glVertexAttrib2f VertexAttrib2f}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib2fv VertexAttrib2fv} */
 	public static void nglVertexAttrib2fv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2fv;
 		if ( CHECKS )
@@ -1962,14 +1810,7 @@ public class GL20 {
 
 	// --- [ glVertexAttrib2sv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pointer version of {@link #glVertexAttrib2s VertexAttrib2s}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib2sv VertexAttrib2sv} */
 	public static void nglVertexAttrib2sv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2sv;
 		if ( CHECKS )
@@ -1993,14 +1834,7 @@ public class GL20 {
 
 	// --- [ glVertexAttrib2dv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib2.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pointer version of {@link #glVertexAttrib2d VertexAttrib2d}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib2dv VertexAttrib2dv} */
 	public static void nglVertexAttrib2dv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2dv;
 		if ( CHECKS )
@@ -2024,14 +1858,7 @@ public class GL20 {
 
 	// --- [ glVertexAttrib3fv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pointer version of {@link #glVertexAttrib3f VertexAttrib3f}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib3fv VertexAttrib3fv} */
 	public static void nglVertexAttrib3fv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3fv;
 		if ( CHECKS )
@@ -2055,14 +1882,7 @@ public class GL20 {
 
 	// --- [ glVertexAttrib3sv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pointer version of {@link #glVertexAttrib3s VertexAttrib3s}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib3sv VertexAttrib3sv} */
 	public static void nglVertexAttrib3sv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3sv;
 		if ( CHECKS )
@@ -2086,14 +1906,7 @@ public class GL20 {
 
 	// --- [ glVertexAttrib3dv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib3.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pointer version of {@link #glVertexAttrib3d VertexAttrib3d}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib3dv VertexAttrib3dv} */
 	public static void nglVertexAttrib3dv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3dv;
 		if ( CHECKS )
@@ -2117,14 +1930,7 @@ public class GL20 {
 
 	// --- [ glVertexAttrib4fv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4fv VertexAttrib4fv} */
 	public static void nglVertexAttrib4fv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4fv;
 		if ( CHECKS )
@@ -2148,14 +1954,7 @@ public class GL20 {
 
 	// --- [ glVertexAttrib4sv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pointer version of {@link #glVertexAttrib4s VertexAttrib4s}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4sv VertexAttrib4sv} */
 	public static void nglVertexAttrib4sv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4sv;
 		if ( CHECKS )
@@ -2179,14 +1978,7 @@ public class GL20 {
 
 	// --- [ glVertexAttrib4dv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pointer version of {@link #glVertexAttrib4d VertexAttrib4d}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4dv VertexAttrib4dv} */
 	public static void nglVertexAttrib4dv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4dv;
 		if ( CHECKS )
@@ -2210,14 +2002,7 @@ public class GL20 {
 
 	// --- [ glVertexAttrib4iv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Integer pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4iv VertexAttrib4iv} */
 	public static void nglVertexAttrib4iv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4iv;
 		if ( CHECKS )
@@ -2241,14 +2026,7 @@ public class GL20 {
 
 	// --- [ glVertexAttrib4bv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4b.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Byte pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4bv VertexAttrib4bv} */
 	public static void nglVertexAttrib4bv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4bv;
 		if ( CHECKS )
@@ -2272,14 +2050,7 @@ public class GL20 {
 
 	// --- [ glVertexAttrib4ubv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4ub.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pointer version of {@link #glVertexAttrib4Nub VertexAttrib4Nub}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4ubv VertexAttrib4ubv} */
 	public static void nglVertexAttrib4ubv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4ubv;
 		if ( CHECKS )
@@ -2303,14 +2074,7 @@ public class GL20 {
 
 	// --- [ glVertexAttrib4usv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Unsigned short pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4usv VertexAttrib4usv} */
 	public static void nglVertexAttrib4usv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4usv;
 		if ( CHECKS )
@@ -2334,14 +2098,7 @@ public class GL20 {
 
 	// --- [ glVertexAttrib4uiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Unsigned int pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4uiv VertexAttrib4uiv} */
 	public static void nglVertexAttrib4uiv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4uiv;
 		if ( CHECKS )
@@ -2365,14 +2122,7 @@ public class GL20 {
 
 	// --- [ glVertexAttrib4Nbv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4Nb.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Normalized byte pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4Nbv VertexAttrib4Nbv} */
 	public static void nglVertexAttrib4Nbv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nbv;
 		if ( CHECKS )
@@ -2396,14 +2146,7 @@ public class GL20 {
 
 	// --- [ glVertexAttrib4Nsv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4N.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Normalized short pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4Nsv VertexAttrib4Nsv} */
 	public static void nglVertexAttrib4Nsv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nsv;
 		if ( CHECKS )
@@ -2427,14 +2170,7 @@ public class GL20 {
 
 	// --- [ glVertexAttrib4Niv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4N.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Normalized int pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4Niv VertexAttrib4Niv} */
 	public static void nglVertexAttrib4Niv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4Niv;
 		if ( CHECKS )
@@ -2458,14 +2194,7 @@ public class GL20 {
 
 	// --- [ glVertexAttrib4Nubv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4Nub.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Normalized unsigned byte pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4Nubv VertexAttrib4Nubv} */
 	public static void nglVertexAttrib4Nubv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nubv;
 		if ( CHECKS )
@@ -2489,14 +2218,7 @@ public class GL20 {
 
 	// --- [ glVertexAttrib4Nusv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4N.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Normalized unsigned short pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4Nusv VertexAttrib4Nusv} */
 	public static void nglVertexAttrib4Nusv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nusv;
 		if ( CHECKS )
@@ -2520,14 +2242,7 @@ public class GL20 {
 
 	// --- [ glVertexAttrib4Nuiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttrib4N.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Normalized unsigned int pointer version of {@link #glVertexAttrib4f VertexAttrib4f}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4Nuiv VertexAttrib4Nuiv} */
 	public static void nglVertexAttrib4Nuiv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nuiv;
 		if ( CHECKS )
@@ -2551,20 +2266,7 @@ public class GL20 {
 
 	// --- [ glVertexAttribPointer ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribPointer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Specifies the location and organization of a vertex attribute array.
-	 *
-	 * @param index      the index of the generic vertex attribute to be modified
-	 * @param size       the number of values per vertex that are stored in the array. The initial value is 4. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
-	 * @param type       the data type of each component in the array. The initial value is GL_FLOAT. One of:<br><table><tr><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_SHORT SHORT}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link GL11#GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL11#GL_DOUBLE DOUBLE}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td><td>{@link GL33#GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL41#GL_FIXED FIXED}</td></tr></table>
-	 * @param normalized whether fixed-point data values should be normalized or converted directly as fixed-point values when they are accessed
-	 * @param stride     the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
-	 *                   the array. The initial value is 0.
-	 * @param pointer    the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
-	 *                   currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
-	 */
+	/** Unsafe version of: {@link #glVertexAttribPointer VertexAttribPointer} */
 	public static void nglVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribPointer;
 		if ( CHECKS )
@@ -2669,15 +2371,7 @@ public class GL20 {
 
 	// --- [ glBindAttribLocation ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindAttribLocation.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Associates a generic vertex attribute index with a named attribute variable.
-	 *
-	 * @param program the program object in which the association is to be made
-	 * @param index   the index of the generic vertex attribute to be bound
-	 * @param name    a null terminated string containing the name of the vertex shader attribute variable to which {@code index} is to be bound
-	 */
+	/** Unsafe version of: {@link #glBindAttribLocation BindAttribLocation} */
 	public static void nglBindAttribLocation(int program, int index, long name) {
 		long __functionAddress = GL.getCapabilities().glBindAttribLocation;
 		if ( CHECKS )
@@ -2722,18 +2416,9 @@ public class GL20 {
 	// --- [ glGetActiveAttrib ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetActiveAttrib.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns information about an active attribute variable for the specified program object.
+	 * Unsafe version of: {@link #glGetActiveAttrib GetActiveAttrib}
 	 *
-	 * @param program   the program object to be queried
-	 * @param index     the index of the attribute variable to be queried
 	 * @param maxLength the maximum number of characters OpenGL is allowed to write in the character buffer indicated by {@code name}
-	 * @param length    the number of characters actually written by OpenGL in the string indicated by {@code name} (excluding the null terminator) if a value other than
-	 *                  {@code NULL} is passed
-	 * @param size      the size of the attribute variable
-	 * @param type      the data type of the attribute variable
-	 * @param name      a null terminated string containing the name of the attribute variable
 	 */
 	public static void nglGetActiveAttrib(int program, int index, int maxLength, long length, long size, long type, long name) {
 		long __functionAddress = GL.getCapabilities().glGetActiveAttrib;
@@ -2820,14 +2505,7 @@ public class GL20 {
 
 	// --- [ glGetAttribLocation ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetAttribLocation.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns the location of an attribute variable.
-	 *
-	 * @param program the program object to be queried
-	 * @param name    a null terminated string containing the name of the attribute variable whose location is to be queried
-	 */
+	/** Unsafe version of: {@link #glGetAttribLocation GetAttribLocation} */
 	public static int nglGetAttribLocation(int program, long name) {
 		long __functionAddress = GL.getCapabilities().glGetAttribLocation;
 		if ( CHECKS )
@@ -2869,15 +2547,7 @@ public class GL20 {
 
 	// --- [ glGetVertexAttribiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns the integer value of a generic vertex attribute parameter.
-	 *
-	 * @param index  the generic vertex attribute parameter to be queried
-	 * @param pname  the symbolic name of the vertex attribute parameter to be queried. One of:<br><table><tr><td>{@link GL15#GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING VERTEX_ATTRIB_ARRAY_BUFFER_BINDING}</td><td>{@link #GL_VERTEX_ATTRIB_ARRAY_ENABLED VERTEX_ATTRIB_ARRAY_ENABLED}</td></tr><tr><td>{@link #GL_VERTEX_ATTRIB_ARRAY_SIZE VERTEX_ATTRIB_ARRAY_SIZE}</td><td>{@link #GL_VERTEX_ATTRIB_ARRAY_STRIDE VERTEX_ATTRIB_ARRAY_STRIDE}</td></tr><tr><td>{@link #GL_VERTEX_ATTRIB_ARRAY_TYPE VERTEX_ATTRIB_ARRAY_TYPE}</td><td>{@link #GL_VERTEX_ATTRIB_ARRAY_NORMALIZED VERTEX_ATTRIB_ARRAY_NORMALIZED}</td></tr><tr><td>{@link #GL_CURRENT_VERTEX_ATTRIB CURRENT_VERTEX_ATTRIB}</td><td>{@link GL30#GL_VERTEX_ATTRIB_ARRAY_INTEGER VERTEX_ATTRIB_ARRAY_INTEGER}</td></tr><tr><td>{@link GL33#GL_VERTEX_ATTRIB_ARRAY_DIVISOR VERTEX_ATTRIB_ARRAY_DIVISOR}</td></tr></table>
-	 * @param params returns the requested data
-	 */
+	/** Unsafe version of: {@link #glGetVertexAttribiv GetVertexAttribiv} */
 	public static void nglGetVertexAttribiv(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribiv;
 		if ( CHECKS )
@@ -2921,15 +2591,7 @@ public class GL20 {
 
 	// --- [ glGetVertexAttribfv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Float version of {@link #glGetVertexAttribiv GetVertexAttribiv}.
-	 *
-	 * @param index  the generic vertex attribute parameter to be queried
-	 * @param pname  the symbolic name of the vertex attribute parameter to be queried
-	 * @param params returns the requested data
-	 */
+	/** Unsafe version of: {@link #glGetVertexAttribfv GetVertexAttribfv} */
 	public static void nglGetVertexAttribfv(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribfv;
 		if ( CHECKS )
@@ -2954,15 +2616,7 @@ public class GL20 {
 
 	// --- [ glGetVertexAttribdv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Double version of {@link #glGetVertexAttribiv GetVertexAttribiv}.
-	 *
-	 * @param index  the generic vertex attribute parameter to be queried
-	 * @param pname  the symbolic name of the vertex attribute parameter to be queried
-	 * @param params returns the requested data
-	 */
+	/** Unsafe version of: {@link #glGetVertexAttribdv GetVertexAttribdv} */
 	public static void nglGetVertexAttribdv(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribdv;
 		if ( CHECKS )
@@ -2987,15 +2641,7 @@ public class GL20 {
 
 	// --- [ glGetVertexAttribPointerv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttribPointer.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns the address of the specified generic vertex attribute pointer.
-	 *
-	 * @param index   the generic vertex attribute parameter to be queried
-	 * @param pname   the symbolic name of the generic vertex attribute parameter to be returned. Must be:<br><table><tr><td>{@link #GL_VERTEX_ATTRIB_ARRAY_POINTER VERTEX_ATTRIB_ARRAY_POINTER}</td></tr></table>
-	 * @param pointer the pointer value
-	 */
+	/** Unsafe version of: {@link #glGetVertexAttribPointerv GetVertexAttribPointerv} */
 	public static void nglGetVertexAttribPointerv(int index, int pname, long pointer) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribPointerv;
 		if ( CHECKS )
@@ -3040,12 +2686,9 @@ public class GL20 {
 	// --- [ glDrawBuffers ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDrawBuffers.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Specifies a list of color buffers to be drawn into.
+	 * Unsafe version of: {@link #glDrawBuffers DrawBuffers}
 	 *
-	 * @param n    the number of buffers in {@code bufs}
-	 * @param bufs an array of symbolic constants specifying the buffers into which fragment colors or data values will be written. One of:<br><table><tr><td>{@link GL11#GL_NONE NONE}</td><td>{@link GL11#GL_FRONT_LEFT FRONT_LEFT}</td><td>{@link GL11#GL_FRONT_RIGHT FRONT_RIGHT}</td><td>{@link GL11#GL_BACK_LEFT BACK_LEFT}</td><td>{@link GL11#GL_BACK_RIGHT BACK_RIGHT}</td><td>{@link GL11#GL_AUX0 AUX0}</td><td>{@link GL11#GL_AUX1 AUX1}</td><td>{@link GL11#GL_AUX2 AUX2}</td></tr><tr><td>{@link GL11#GL_AUX3 AUX3}</td><td>{@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}</td><td>GL30.GL_COLOR_ATTACHMENT[1-15]</td></tr></table>
+	 * @param n the number of buffers in {@code bufs}
 	 */
 	public static void nglDrawBuffers(int n, long bufs) {
 		long __functionAddress = GL.getCapabilities().glDrawBuffers;

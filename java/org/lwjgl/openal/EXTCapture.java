@@ -42,17 +42,7 @@ public class EXTCapture {
 
 	// --- [ alcCaptureOpenDevice ] ---
 
-	/**
-	 * Allows the application to connect to a capture device.
-	 * 
-	 * <p>The {@code deviceName} argument is a null terminated string that requests a certain device or device configuration. If {@code NULL} is specified, the implementation
-	 * will provide an implementation specific default.</p>
-	 *
-	 * @param devicename the device or device configuration
-	 * @param frequency  the audio frequency
-	 * @param format     the audio format
-	 * @param buffersize the number of sample frame to buffer in the AL
-	 */
+	/** Unsafe version of: {@link #alcCaptureOpenDevice CaptureOpenDevice} */
 	public static long nalcCaptureOpenDevice(long devicename, int frequency, int format, int buffersize) {
 		long __functionAddress = ALC.getICD().alcCaptureOpenDevice;
 		if ( CHECKS )
@@ -156,12 +146,8 @@ public class EXTCapture {
 	// --- [ alcCaptureSamples ] ---
 
 	/**
-	 * Obtains captured audio samples from the AL.
-	 * 
-	 * <p>The implementation may defer conversion and resampling until this point. Requesting more sample frames than are currently available is an error.</p>
+	 * Unsafe version of: {@link #alcCaptureSamples CaptureSamples}
 	 *
-	 * @param device  the capture device
-	 * @param buffer  the buffer that will receive the samples
 	 * @param samples the buffer size
 	 */
 	public static void nalcCaptureSamples(long device, long buffer, int samples) {

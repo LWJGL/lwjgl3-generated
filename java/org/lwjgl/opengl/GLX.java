@@ -96,13 +96,7 @@ public class GLX {
 
 	// --- [ glXQueryExtension ] ---
 
-	/**
-	 * Ascertains if the GLX extension is defined for an X server.
-	 *
-	 * @param display    the connection to the X server
-	 * @param error_base returns the value of the first error code
-	 * @param event_base returns the value of the first event code
-	 */
+	/** Unsafe version of: {@link #glXQueryExtension QueryExtension} */
 	public static int nglXQueryExtension(long display, long error_base, long event_base) {
 		long __functionAddress = Functions.QueryExtension;
 		if ( CHECKS )
@@ -127,13 +121,7 @@ public class GLX {
 
 	// --- [ glXQueryVersion ] ---
 
-	/**
-	 * Queries the GLX version supported.
-	 *
-	 * @param display the connection to the X server
-	 * @param major   returns the major version
-	 * @param minor   returns the minor version
-	 */
+	/** Unsafe version of: {@link #glXQueryVersion QueryVersion} */
 	public static int nglXQueryVersion(long display, long major, long minor) {
 		long __functionAddress = Functions.QueryVersion;
 		if ( CHECKS )
@@ -158,14 +146,7 @@ public class GLX {
 
 	// --- [ glXGetConfig ] ---
 
-	/**
-	 * Returns a description of an OpenGL attribute exported by a Visual.
-	 *
-	 * @param display   the connection to the X server
-	 * @param visual    a pointer to an {@link XVisualInfo} structure
-	 * @param attribute the attribute to query
-	 * @param value     returns the attribute value
-	 */
+	/** Unsafe version of: {@link #glXGetConfig GetConfig} */
 	public static int nglXGetConfig(long display, long visual, int attribute, long value) {
 		long __functionAddress = Functions.GetConfig;
 		if ( CHECKS ) {
@@ -191,16 +172,7 @@ public class GLX {
 
 	// --- [ glXChooseVisual ] ---
 
-	/**
-	 * Finds a visual that matches the client’s specified attributes.
-	 *
-	 * @param display     the connection to the X server
-	 * @param screen      the screen number
-	 * @param attrib_list a list of attributes terminated with {@code None}
-	 *
-	 * @return a pointer to an {@code XVisualInfo} structure describing the visual that best matches the specified attributes. If no matching visual exists, {@code NULL} is
-	 *         returned.
-	 */
+	/** Unsafe version of: {@link #glXChooseVisual ChooseVisual} */
 	public static long nglXChooseVisual(long display, int screen, long attrib_list) {
 		long __functionAddress = Functions.ChooseVisual;
 		if ( CHECKS )
@@ -227,14 +199,7 @@ public class GLX {
 
 	// --- [ glXCreateContext ] ---
 
-	/**
-	 * Creates an OpenGL context.
-	 *
-	 * @param display    the connection to the X server
-	 * @param visual     a pointer to an {@link XVisualInfo} structure
-	 * @param share_list the GLXContext to share objects with
-	 * @param direct     whether direct rendering is requested
-	 */
+	/** Unsafe version of: {@link #glXCreateContext CreateContext} */
 	public static long nglXCreateContext(long display, long visual, long share_list, int direct) {
 		long __functionAddress = Functions.CreateContext;
 		if ( CHECKS ) {
@@ -409,13 +374,7 @@ public class GLX {
 
 	// --- [ glXCreateGLXPixmap ] ---
 
-	/**
-	 * Creates a GLXPixmap from a Pixmap.
-	 *
-	 * @param display the connection to the X server
-	 * @param visual  a pointer to a {@link XVisualInfo} structure
-	 * @param pixmap  the Pixmap
-	 */
+	/** Unsafe version of: {@link #glXCreateGLXPixmap CreateGLXPixmap} */
 	public static long nglXCreateGLXPixmap(long display, long visual, long pixmap) {
 		long __functionAddress = Functions.CreateGLXPixmap;
 		if ( CHECKS ) {

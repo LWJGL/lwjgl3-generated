@@ -46,14 +46,7 @@ public class ANDROIDCreateNativeClientBuffer {
 
 	// --- [ eglCreateNativeClientBufferANDROID ] ---
 
-	/**
-	 * May be used to create an {@code EGLClientBuffer} backed by an {@code ANativeWindowBuffer} struct. EGL implementations must guarantee that the lifetime
-	 * of the returned {@code EGLClientBuffer} is at least as long as the {@code EGLImage(s)} it is bound to; the {@code EGLClientBuffer} must be destroyed no
-	 * earlier than when all of its associated {@code EGLImages} are destroyed by {@link KHRImageBase#eglDestroyImageKHR DestroyImageKHR}.
-	 *
-	 * @param attrib_list a list of attribute-value pairs which is used to specify the dimensions, format, and usage of the underlying buffer structure. If it is non-{@code NULL},
-	 *                    the last attribute specified in the list must be {@link EGL10#EGL_NONE NONE}.
-	 */
+	/** Unsafe version of: {@link #eglCreateNativeClientBufferANDROID CreateNativeClientBufferANDROID} */
 	public static long neglCreateNativeClientBufferANDROID(long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateNativeClientBufferANDROID;
 		if ( CHECKS )

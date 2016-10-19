@@ -53,13 +53,9 @@ public class NVDrawInstanced {
 	// --- [ glDrawElementsInstancedNV ] ---
 
 	/**
-	 * 
+	 * Unsafe version of: {@link #glDrawElementsInstancedNV DrawElementsInstancedNV}
 	 *
-	 * @param mode      
-	 * @param count     
-	 * @param type      {@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE} {@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT} {@link GLES20#GL_UNSIGNED_INT UNSIGNED_INT}
-	 * @param indices   
-	 * @param primcount 
+	 * @param type {@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE} {@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT} {@link GLES20#GL_UNSIGNED_INT UNSIGNED_INT}
 	 */
 	public static void nglDrawElementsInstancedNV(int mode, int count, int type, long indices, int primcount) {
 		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedNV;

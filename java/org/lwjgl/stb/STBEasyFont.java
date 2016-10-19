@@ -58,13 +58,7 @@ public class STBEasyFont {
 
 	// --- [ stb_easy_font_width ] ---
 
-	/**
-	 * Takes a string and returns the horizontal size.
-	 *
-	 * @param text an ASCII string
-	 *
-	 * @return the horizontal size, in pixels
-	 */
+	/** Unsafe version of: {@link #stb_easy_font_width easy_font_width} */
 	public static native int nstb_easy_font_width(long text);
 
 	/**
@@ -99,13 +93,7 @@ public class STBEasyFont {
 
 	// --- [ stb_easy_font_height ] ---
 
-	/**
-	 * Takes a string and returns the vertical size (which can vary if {@code text} has newlines).
-	 *
-	 * @param text an ASCII string
-	 *
-	 * @return the vertical size, in pixels
-	 */
+	/** Unsafe version of: {@link #stb_easy_font_height easy_font_height} */
 	public static native int nstb_easy_font_height(long text);
 
 	/**
@@ -141,35 +129,9 @@ public class STBEasyFont {
 	// --- [ stb_easy_font_print ] ---
 
 	/**
-	 * Takes a string (which can contain '\n') and fills out a vertex buffer with renderable data to draw the string. Output data assumes increasing x is
-	 * rightwards, increasing y is downwards.
-	 * 
-	 * <p>The vertex data is divided into quads, i.e. there are four vertices in the vertex buffer for each quad.</p>
-	 * 
-	 * <p>The vertices are stored in an interleaved format:</p>
-	 * 
-	 * <pre><code>x:float
-y:float
-z:float
-color:uint8[4]</code></pre>
-	 * 
-	 * <p>You can ignore z and color if you get them from elsewhere. This format was chosen in the hopes it would make it easier for you to reuse existing
-	 * buffer-drawing code.</p>
-	 * 
-	 * <p>If you pass in {@code NULL} for color, it becomes {@code 255,255,255,255}.</p>
-	 * 
-	 * <p>If the buffer isn't large enough, it will truncate. Expect it to use an average of ~270 bytes per character.</p>
-	 * 
-	 * <p>If your API doesn't draw quads, build a reusable index list that allows you to render quads as indexed triangles.</p>
+	 * Unsafe version of: {@link #stb_easy_font_print easy_font_print}
 	 *
-	 * @param x             the x offset
-	 * @param y             the y offset
-	 * @param text          an ASCII string
-	 * @param color         the text color, in RGBA (4 bytes)
-	 * @param vertex_buffer a pointer to memory in which to store the vertex data
-	 * @param vbuf_size     the {@code vertex_buffer} size, in bytes
-	 *
-	 * @return the number of quads
+	 * @param vbuf_size the {@code vertex_buffer} size, in bytes
 	 */
 	public static native int nstb_easy_font_print(float x, float y, long text, long color, long vertex_buffer, int vbuf_size);
 

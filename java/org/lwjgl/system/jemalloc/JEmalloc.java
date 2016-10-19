@@ -80,12 +80,7 @@ public class JEmalloc {
 
 	// --- [ je_malloc ] ---
 
-	/**
-	 * Allocates {@code size} bytes of uninitialized memory. The allocated space is suitably aligned (after possible pointer coercion) for storage of any type
-	 * of object.
-	 *
-	 * @param size the number of bytes to allocate
-	 */
+	/** Unsafe version of: {@link #je_malloc malloc} */
 	public static long nje_malloc(long size) {
 		long __functionAddress = Functions.malloc;
 		return invokePP(__functionAddress, size);
@@ -104,13 +99,7 @@ public class JEmalloc {
 
 	// --- [ je_calloc ] ---
 
-	/**
-	 * Allocates space for {@code num} objects, each {@code size} bytes in length. The result is identical to calling {@link #je_malloc malloc} with an argument of
-	 * {@code num * size}, with the exception that the allocated memory is explicitly initialized to zero bytes.
-	 *
-	 * @param num  the number of objects to allocate
-	 * @param size the size of each object, in bytes
-	 */
+	/** Unsafe version of: {@link #je_calloc calloc} */
 	public static long nje_calloc(long num, long size) {
 		long __functionAddress = Functions.calloc;
 		return invokePPP(__functionAddress, num, size);
@@ -130,14 +119,7 @@ public class JEmalloc {
 
 	// --- [ je_posix_memalign ] ---
 
-	/**
-	 * Allocates {@code size} bytes of memory such that the allocation's base address is an even multiple of {@code alignment}, and returns the allocation in
-	 * the value pointed to by {@code memptr}. The requested alignment must be a power of 2 at least as large as {@code sizeof(void *)}.
-	 *
-	 * @param memptr    returns the allocated memory
-	 * @param alignment the allocation alignment, in bytes
-	 * @param size      the number of bytes to allocate
-	 */
+	/** Unsafe version of: {@link #je_posix_memalign posix_memalign} */
 	public static int nje_posix_memalign(long memptr, long alignment, long size) {
 		long __functionAddress = Functions.posix_memalign;
 		return invokePPPI(__functionAddress, memptr, alignment, size);
@@ -159,13 +141,7 @@ public class JEmalloc {
 
 	// --- [ je_aligned_alloc ] ---
 
-	/**
-	 * Allocates {@code size} bytes of memory such that the allocation's base address is an even multiple of {@code alignment}. The requested alignment must
-	 * be a power of 2. Behavior is undefined if {@code size} is not an integral multiple of {@code alignment}.
-	 *
-	 * @param alignment the allocation alignment, in bytes
-	 * @param size      the number of bytes to allocate
-	 */
+	/** Unsafe version of: {@link #je_aligned_alloc aligned_alloc} */
 	public static long nje_aligned_alloc(long alignment, long size) {
 		long __functionAddress = Functions.aligned_alloc;
 		return invokePPP(__functionAddress, alignment, size);
@@ -185,16 +161,7 @@ public class JEmalloc {
 
 	// --- [ je_realloc ] ---
 
-	/**
-	 * Changes the size of the previously allocated memory referenced by {@code ptr} to {@code size} bytes. The contents of the memory are unchanged up to the
-	 * lesser of the new and old sizes. If the new size is larger, the contents of the newly allocated portion of the memory are undefined. Upon success, the
-	 * memory referenced by {@code ptr} is freed and a pointer to the newly allocated memory is returned. Note that realloc() may move the memory allocation,
-	 * resulting in a different return value than {@code ptr}. If {@code ptr} is {@code NULL}, the realloc() function behaves identically to malloc() for the
-	 * specified size.
-	 *
-	 * @param ptr  the previously allocated memory or {@code NULL}
-	 * @param size the number of bytes to allocate
-	 */
+	/** Unsafe version of: {@link #je_realloc realloc} */
 	public static long nje_realloc(long ptr, long size) {
 		long __functionAddress = Functions.realloc;
 		return invokePPP(__functionAddress, ptr, size);
@@ -217,11 +184,7 @@ public class JEmalloc {
 
 	// --- [ je_free ] ---
 
-	/**
-	 * Causes the allocated memory referenced by {@code ptr} to be made available for future allocations. If {@code ptr} is {@code NULL}, no action occurs.
-	 *
-	 * @param ptr the allocated memory to free
-	 */
+	/** Unsafe version of: {@link #je_free free} */
 	public static void nje_free(long ptr) {
 		long __functionAddress = Functions.free;
 		invokePV(__functionAddress, ptr);
@@ -268,13 +231,7 @@ public class JEmalloc {
 
 	// --- [ je_mallocx ] ---
 
-	/**
-	 * Allocates at least {@code size} bytes of memory, and returns a pointer to the base address of the allocation. Behavior is undefined if {@code size} is
-	 * 0, or if request size overflows due to size class and/or alignment constraints.
-	 *
-	 * @param size  the number of bytes to allocate
-	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
-	 */
+	/** Unsafe version of: {@link #je_mallocx mallocx} */
 	public static long nje_mallocx(long size, int flags) {
 		long __functionAddress = Functions.mallocx;
 		return invokePP(__functionAddress, size, flags);
@@ -294,15 +251,7 @@ public class JEmalloc {
 
 	// --- [ je_rallocx ] ---
 
-	/**
-	 * Resizes the allocation at {@code ptr} to be at least {@code size} bytes, and returns a pointer to the base address of the resulting allocation, which
-	 * may or may not have moved from its original location. Behavior is undefined if {@code size} is 0, or if request size overflows due to size class and/or
-	 * alignment constraints.
-	 *
-	 * @param ptr   the previously allocated memory or {@code NULL}
-	 * @param size  the number of bytes to allocate
-	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
-	 */
+	/** Unsafe version of: {@link #je_rallocx rallocx} */
 	public static long nje_rallocx(long ptr, long size, int flags) {
 		long __functionAddress = Functions.rallocx;
 		return invokePPP(__functionAddress, ptr, size, flags);
@@ -324,16 +273,7 @@ public class JEmalloc {
 
 	// --- [ je_xallocx ] ---
 
-	/**
-	 * Resizes the allocation at {@code ptr} in place to be at least size bytes, and returns the real size of the allocation. If {@code extra} is non-zero, an
-	 * attempt is made to resize the allocation to be at least {@code (size + extra)} bytes, though inability to allocate the extra byte(s) will not by itself
-	 * result in failure to resize. Behavior is undefined if {@code size} is 0, or if {@code (size + extra > SIZE_T_MAX)}.
-	 *
-	 * @param ptr   the previously allocated memory or {@code NULL}
-	 * @param size  the number of bytes to allocate
-	 * @param extra the number of extra bytes to allocate
-	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
-	 */
+	/** Unsafe version of: {@link #je_xallocx xallocx} */
 	public static long nje_xallocx(long ptr, long size, long extra, int flags) {
 		long __functionAddress = Functions.xallocx;
 		return invokePPPP(__functionAddress, ptr, size, extra, flags);
@@ -355,12 +295,7 @@ public class JEmalloc {
 
 	// --- [ je_sallocx ] ---
 
-	/**
-	 * Returns the real size of the allocation at {@code ptr}.
-	 *
-	 * @param ptr   the allocated memory to query
-	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
-	 */
+	/** Unsafe version of: {@link #je_sallocx sallocx} */
 	public static long nje_sallocx(long ptr, int flags) {
 		long __functionAddress = Functions.sallocx;
 		return invokePP(__functionAddress, ptr, flags);
@@ -378,12 +313,7 @@ public class JEmalloc {
 
 	// --- [ je_dallocx ] ---
 
-	/**
-	 * Causes the memory referenced by {@code ptr} to be made available for future allocations.
-	 *
-	 * @param ptr   the allocated memory to deallocate
-	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
-	 */
+	/** Unsafe version of: {@link #je_dallocx dallocx} */
 	public static void nje_dallocx(long ptr, int flags) {
 		long __functionAddress = Functions.dallocx;
 		invokePV(__functionAddress, ptr, flags);
@@ -432,11 +362,9 @@ public class JEmalloc {
 	// --- [ je_sdallocx ] ---
 
 	/**
-	 * Sized version of {@link #je_dallocx dallocx}. The primary optimization over {@code dallocx()} is the removal of a metadata read, which often suffers an L1 cache miss.
+	 * Unsafe version of: {@link #je_sdallocx sdallocx}
 	 *
-	 * @param ptr   the allocated memory to deallocate
-	 * @param size  the number of bytes in {@code ptr}
-	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+	 * @param size the number of bytes in {@code ptr}
 	 */
 	public static void nje_sdallocx(long ptr, long size, int flags) {
 		long __functionAddress = Functions.sdallocx;
@@ -485,14 +413,7 @@ public class JEmalloc {
 
 	// --- [ je_nallocx ] ---
 
-	/**
-	 * Allocates no memory, but it performs the same size computation as the {@link #je_mallocx mallocx} function, and returns the real size of the allocation that would
-	 * result from the equivalent {@code mallocx()} function call. Behavior is undefined if {@code size} is 0, or if request size overflows due to size class
-	 * and/or alignment constraints.
-	 *
-	 * @param size  the number of bytes to allocate
-	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
-	 */
+	/** Unsafe version of: {@link #je_nallocx nallocx} */
 	public static long nje_nallocx(long size, int flags) {
 		long __functionAddress = Functions.nallocx;
 		return invokePP(__functionAddress, size, flags);
@@ -514,18 +435,9 @@ public class JEmalloc {
 	// --- [ je_mallctl ] ---
 
 	/**
-	 * Provides a general interface for introspecting the memory allocator, as well as setting modifiable parameters and triggering actions. The
-	 * period-separated {@code name} argument specifies a location in a tree-structured namespace; see the
-	 * <a href="http://www.canonware.com/download/jemalloc/jemalloc-latest/doc/jemalloc.html#mallctl_namespace">MALLCTL NAMESPACE</a> section for
-	 * documentation on the tree contents. To read a value, pass a pointer via {@code oldp} to adequate space to contain the value, and a pointer to its
-	 * length via {@code oldlenp}; otherwise pass {@code NULL} and {@code NULL}. Similarly, to write a value, pass a pointer to the value via {@code newp}, and its length
-	 * via {@code newlen}; otherwise pass {@code NULL} and {@code 0}.
+	 * Unsafe version of: {@link #je_mallctl mallctl}
 	 *
-	 * @param name    the namespace location
-	 * @param oldp    returns a value
-	 * @param oldlenp returns the value length
-	 * @param newp    the new value
-	 * @param newlen  the new value length
+	 * @param newlen the new value length
 	 */
 	public static int nje_mallctl(long name, long oldp, long oldlenp, long newp, long newlen) {
 		long __functionAddress = Functions.mallctl;
@@ -581,33 +493,8 @@ public class JEmalloc {
 	// --- [ je_mallctlnametomib ] ---
 
 	/**
-	 * Provides a way to avoid repeated name lookups for applications that repeatedly query the same portion of the namespace, by translating a name to a
-	 * “Management Information Base” (MIB) that can be passed repeatedly to {@link #je_mallctlbymib mallctlbymib}. Upon successful return from {@code mallctlnametomib()},
-	 * {@code mibp} contains an array of {@code *miblenp} integers, where {@code *miblenp} is the lesser of the number of components in name and the input
-	 * value of {@code *miblenp}. Thus it is possible to pass a {@code *miblenp} that is smaller than the number of period-separated name components, which
-	 * results in a partial MIB that can be used as the basis for constructing a complete MIB. For name components that are integers (e.g. the 2 in
-	 * "arenas.bin.2.size"), the corresponding MIB component will always be that integer. Therefore, it is legitimate to construct code like the following:
-	 * 
-	 * <pre><code>unsigned nbins, i;
-size_t mib[4];
-size_t len, miblen;
-
-len = sizeof(nbins);
-mallctl("arenas.nbins", &nbins, &len, NULL, 0);
-
-miblen = 4;
-mallctlnametomib("arenas.bin.0.size", mib, &miblen);
-for (i = 0; i < nbins; i++) {
-    size_t bin_size;
-
-    mib[2] = i;
-    len = sizeof(bin_size);
-    mallctlbymib(mib, miblen, &bin_size, &len, NULL, 0);
-    // Do something with bin_size...
-}</code></pre>
+	 * Unsafe version of: {@link #je_mallctlnametomib mallctlnametomib}
 	 *
-	 * @param name    the namespace location
-	 * @param mibp    an array of integers
 	 * @param miblenp the number of components in {@code mibp}
 	 */
 	public static int nje_mallctlnametomib(long name, long mibp, long miblenp) {
@@ -701,14 +588,10 @@ for (i = 0; i < nbins; i++) {
 	// --- [ je_mallctlbymib ] ---
 
 	/**
-	 * Similar to {@link #je_mallctl mallctl}, but uses MIBs instead of names. See {@link #je_mallctlnametomib mallctlnametomib} for details.
+	 * Unsafe version of: {@link #je_mallctlbymib mallctlbymib}
 	 *
-	 * @param mib     a MIB
-	 * @param miblen  the number of elements in {@code mib}
-	 * @param oldp    returns a value
-	 * @param oldlenp returns the value length
-	 * @param newp    the new value
-	 * @param newlen  the new value length
+	 * @param miblen the number of elements in {@code mib}
+	 * @param newlen the new value length
 	 */
 	public static int nje_mallctlbymib(long mib, long miblen, long oldp, long oldlenp, long newp, long newlen) {
 		long __functionAddress = Functions.mallctlbymib;
@@ -731,19 +614,7 @@ for (i = 0; i < nbins; i++) {
 
 	// --- [ je_malloc_stats_print ] ---
 
-	/**
-	 * Writes human-readable summary statistics via the {@code write_cb} callback function pointer and {@code cbopaque} data passed to {@code write_cb}, or
-	 * {@code malloc_message()} if {@code write_cb} is {@code NULL}. This function can be called repeatedly. General information that never changes during execution
-	 * can be omitted by specifying "g" as a character within the {@code opts} string. Note that {@code malloc_message()} uses the {@code mallctl*()}
-	 * functions internally, so inconsistent statistics can be reported if multiple threads use these functions simultaneously. If {@code --enable-stats} is
-	 * specified during configuration, “m” and “a” can be specified to omit merged arena and per arena statistics, respectively; “b” and “l” can be specified to
-	 * omit per size class statistics for bins and large objects, respectively. Unrecognized characters are silently ignored. Note that thread caching may
-	 * prevent some statistics from being completely up to date, since extra locking would be required to merge counters that track thread cache operations.
-	 *
-	 * @param write_cb    the print callback, or {@code NULL} to use {@code malloc_message()}
-	 * @param je_cbopaque an opaque pointer that will be passed to {@code write_cb}
-	 * @param opts        an options string
-	 */
+	/** Unsafe version of: {@link #je_malloc_stats_print malloc_stats_print} */
 	public static void nje_malloc_stats_print(long write_cb, long je_cbopaque, long opts) {
 		long __functionAddress = Functions.malloc_stats_print;
 		invokePPPV(__functionAddress, write_cb, je_cbopaque, opts);
@@ -793,14 +664,7 @@ for (i = 0; i < nbins; i++) {
 
 	// --- [ je_malloc_usable_size ] ---
 
-	/**
-	 * Returns the usable size of the allocation pointed to by {@code ptr}. The return value may be larger than the size that was requested during allocation.
-	 * The {@code malloc_usable_size()} function is not a mechanism for in-place {@link #je_realloc realloc}; rather it is provided solely as a tool for introspection
-	 * purposes. Any discrepancy between the requested allocation size and the size reported by {@code malloc_usable_size()} should not be depended on, since
-	 * such behavior is entirely implementation-dependent.
-	 *
-	 * @param ptr the allocated memory to query
-	 */
+	/** Unsafe version of: {@link #je_malloc_usable_size malloc_usable_size} */
 	public static long nje_malloc_usable_size(long ptr) {
 		long __functionAddress = Functions.malloc_usable_size;
 		return invokePP(__functionAddress, ptr);

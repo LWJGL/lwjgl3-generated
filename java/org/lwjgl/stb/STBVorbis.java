@@ -81,11 +81,7 @@ public class STBVorbis {
 
 	// --- [ stb_vorbis_get_info ] ---
 
-	/**
-	 * Returns general information about the specified file.
-	 *
-	 * @param f an ogg vorbis file decoder
-	 */
+	/** Unsafe version of: {@link #stb_vorbis_get_info get_info} */
 	public static native void nstb_vorbis_get_info(long f, long __result);
 
 	/**
@@ -102,11 +98,7 @@ public class STBVorbis {
 
 	// --- [ stb_vorbis_get_error ] ---
 
-	/**
-	 * Returns the last error detected (clears it, too).
-	 *
-	 * @param f an ogg vorbis file decoder
-	 */
+	/** Unsafe version of: {@link #stb_vorbis_get_error get_error} */
 	public static native int nstb_vorbis_get_error(long f);
 
 	/**
@@ -122,11 +114,7 @@ public class STBVorbis {
 
 	// --- [ stb_vorbis_close ] ---
 
-	/**
-	 * Closes an ogg vorbis file and free all memory in use
-	 *
-	 * @param f an ogg vorbis file decoder
-	 */
+	/** Unsafe version of: {@link #stb_vorbis_close close} */
 	public static native void nstb_vorbis_close(long f);
 
 	/**
@@ -142,14 +130,7 @@ public class STBVorbis {
 
 	// --- [ stb_vorbis_get_sample_offset ] ---
 
-	/**
-	 * Returns the offset (in samples) from the beginning of the file that will be returned by the next decode, if it is known, or -1 otherwise. After a
-	 * {@link #stb_vorbis_flush_pushdata flush_pushdata} call, this may take a while before it becomes valid again.
-	 * 
-	 * <p>NOT WORKING YET after a seek with PULLDATA API.</p>
-	 *
-	 * @param f an ogg vorbis file decoder
-	 */
+	/** Unsafe version of: {@link #stb_vorbis_get_sample_offset get_sample_offset} */
 	public static native int nstb_vorbis_get_sample_offset(long f);
 
 	/**
@@ -168,11 +149,7 @@ public class STBVorbis {
 
 	// --- [ stb_vorbis_get_file_offset ] ---
 
-	/**
-	 * Returns the current seek point within the file, or offset from the beginning of the memory buffer. In pushdata mode it returns 0.
-	 *
-	 * @param f an ogg vorbis file decoder
-	 */
+	/** Unsafe version of: {@link #stb_vorbis_get_file_offset get_file_offset} */
 	public static native int nstb_vorbis_get_file_offset(long f);
 
 	/**
@@ -189,19 +166,9 @@ public class STBVorbis {
 	// --- [ stb_vorbis_open_pushdata ] ---
 
 	/**
-	 * Creates a vorbis decoder by passing in the initial data block containing the ogg&vorbis headers (you don't need to do parse them, just provide the
-	 * first N bytes of the file -- you're told if it's not enough, see below)
+	 * Unsafe version of: {@link #stb_vorbis_open_pushdata open_pushdata}
 	 *
-	 * @param datablock                          the data block containing the ogg vorbis headers
-	 * @param datablock_length_in_bytes          the length of {@code datablock}, in bytes
-	 * @param datablock_memory_consumed_in_bytes returns the amount of data parsed/consumed, in bytes
-	 * @param error                              returns the error code
-	 * @param alloc_buffer                       an {@link STBVorbisAlloc} struct
-	 *
-	 * @return On success, returns an {@code stb_vorbis *}, does not set error, returns the amount of data parsed/consumed on this call in
-	 *         {@code *datablock_memory_consumed_in_bytes}; On failure, returns {@code NULL} on error and sets {@code *error}, does not change
-	 *         {@code *datablock_memory_consumed}. If it returns {@code NULL} and {@code *error} is {@link #VORBIS_need_more_data need_more_data}, then the input block was incomplete and you need to pass
-	 *         in a larger block from the start of the file.
+	 * @param datablock_length_in_bytes the length of {@code datablock}, in bytes
 	 */
 	public static native long nstb_vorbis_open_pushdata(long datablock, int datablock_length_in_bytes, long datablock_memory_consumed_in_bytes, long error, long alloc_buffer);
 
@@ -228,31 +195,9 @@ public class STBVorbis {
 	// --- [ stb_vorbis_decode_frame_pushdata ] ---
 
 	/**
-	 * Decodes a frame of audio sample data if possible from the passed-in data block.
-	 * 
-	 * <p>Note that on resynch, stb_vorbis will rarely consume all of the buffer, instead only {@code datablock_length_in_bytes-3} or less. This is because it
-	 * wants to avoid missing parts of a page header if they cross a datablock boundary, without writing state-machiney code to record a partial detection.</p>
-	 * 
-	 * <p>The number of channels returned are stored in *channels (which can be {@code NULL} -- it is always the same as the number of channels reported by {@link #stb_vorbis_get_info get_info}).
-	 * {@code *output} will contain an array of {@code float*} buffers, one per channel. In other words, {@code (*output)[0][0]} contains the first sample
-	 * from the first channel, and {@code (*output)[1][0]} contains the first sample from the second channel.</p>
+	 * Unsafe version of: {@link #stb_vorbis_decode_frame_pushdata decode_frame_pushdata}
 	 *
-	 * @param f                         an ogg vorbis file decoder
-	 * @param datablock                 the data block containing the audio sample data
 	 * @param datablock_length_in_bytes the length of {@code datablock}, in bytes
-	 * @param channels                  place to write number of {@code float *} buffers
-	 * @param output                    place to write float ** array of float * buffers
-	 * @param samples                   place to write number of output samples
-	 *
-	 * @return the number of bytes we used from datablock. Possible cases:
-	 *         
-	 *         <ul>
-	 *         <li>0 bytes used, 0 samples output (need more data)</li>
-	 *         <li>N bytes used, 0 samples output (resynching the stream, keep going)</li>
-	 *         <li>N bytes used, M samples output (one frame of data)</li>
-	 *         </ul>
-	 *         
-	 *         <p>Note that after opening a file, you will ALWAYS get one N-bytes,0-sample frame, because Vorbis always "discards" the first frame.</p>
 	 */
 	public static native int nstb_vorbis_decode_frame_pushdata(long f, long datablock, int datablock_length_in_bytes, long channels, long output, long samples);
 
@@ -294,16 +239,7 @@ public class STBVorbis {
 
 	// --- [ stb_vorbis_flush_pushdata ] ---
 
-	/**
-	 * Inform stb_vorbis that your next datablock will not be contiguous with previous ones (e.g. you've seeked in the data); future attempts to decode frames
-	 * will cause stb_vorbis to resynchronize (as noted above), and once it sees a valid Ogg page (typically 4-8KB, as large as 64KB), it will begin decoding
-	 * the <b>next</b> frame.
-	 * 
-	 * <p>If you want to seek using pushdata, you need to seek in your file, then call stb_vorbis_flush_pushdata(), then start calling decoding, then once
-	 * decoding is returning you data, call {@link #stb_vorbis_get_sample_offset get_sample_offset}, and if you don't like the result, seek your file again and repeat.</p>
-	 *
-	 * @param f an ogg vorbis file decoder
-	 */
+	/** Unsafe version of: {@link #stb_vorbis_flush_pushdata flush_pushdata} */
 	public static native void nstb_vorbis_flush_pushdata(long f);
 
 	/**
@@ -324,17 +260,7 @@ public class STBVorbis {
 
 	// --- [ stb_vorbis_decode_filename ] ---
 
-	/**
-	 * Decode an entire file and output the data interleaved into a {@code malloc()ed} buffer stored in {@code *output}. When you're done with it, just
-	 * {@link Stdlib#free} the pointer returned in {@code *output}.
-	 *
-	 * @param filename    the file name
-	 * @param channels    returns the number of channels
-	 * @param sample_rate returns the sample rate
-	 * @param output      returns a pointer to the decoded data
-	 *
-	 * @return the number of samples decoded, or -1 if the file could not be opened or was not an ogg vorbis file
-	 */
+	/** Unsafe version of: {@link #stb_vorbis_decode_filename decode_filename} */
 	public static native int nstb_vorbis_decode_filename(long filename, long channels, long sample_rate, long output);
 
 	/**
@@ -413,13 +339,9 @@ public class STBVorbis {
 	// --- [ stb_vorbis_decode_memory ] ---
 
 	/**
-	 * In-memory version of {@link #stb_vorbis_decode_filename decode_filename}.
+	 * Unsafe version of: {@link #stb_vorbis_decode_memory decode_memory}
 	 *
-	 * @param mem         the data to decode
-	 * @param len         the {@code data} length, in bytes
-	 * @param channels    returns the number of channels
-	 * @param sample_rate returns the sample rate
-	 * @param output      returns a pointer to the decoded data
+	 * @param len the {@code data} length, in bytes
 	 */
 	public static native int nstb_vorbis_decode_memory(long mem, int len, long channels, long sample_rate, long output);
 
@@ -465,14 +387,9 @@ public class STBVorbis {
 	// --- [ stb_vorbis_open_memory ] ---
 
 	/**
-	 * Creates an ogg vorbis decoder from an ogg vorbis stream in memory (note this must be the entire stream!).
+	 * Unsafe version of: {@link #stb_vorbis_open_memory open_memory}
 	 *
-	 * @param mem          the data to decode
-	 * @param len          the {@code data} length, in bytes
-	 * @param error        returns an error code
-	 * @param alloc_buffer an {@link STBVorbisAlloc} struct
-	 *
-	 * @return the ogg vorbis decoder. On failure, returns {@code NULL} and sets {@code *error}.
+	 * @param len the {@code data} length, in bytes
 	 */
 	public static native long nstb_vorbis_open_memory(long mem, int len, long error, long alloc_buffer);
 
@@ -495,15 +412,7 @@ public class STBVorbis {
 
 	// --- [ stb_vorbis_open_filename ] ---
 
-	/**
-	 * Creates an ogg vorbis decoder from a file name.
-	 *
-	 * @param filename     the file name
-	 * @param error        returns an error code
-	 * @param alloc_buffer an {@link STBVorbisAlloc} struct
-	 *
-	 * @return the ogg vorbis decoder. On failure, returns {@code NULL} and sets {@code *error}.
-	 */
+	/** Unsafe version of: {@link #stb_vorbis_open_filename open_filename} */
 	public static native long nstb_vorbis_open_filename(long filename, long error, long alloc_buffer);
 
 	/**
@@ -549,13 +458,7 @@ public class STBVorbis {
 
 	// --- [ stb_vorbis_seek_frame ] ---
 
-	/**
-	 * Seeks in the Vorbis file to (approximately) {@code sample_number}. After calling seek_frame(), the next call to {@code get_frame_*()} will include the
-	 * specified sample.
-	 *
-	 * @param f             an ogg vorbis file decoder
-	 * @param sample_number the sample index
-	 */
+	/** Unsafe version of: {@link #stb_vorbis_seek_frame seek_frame} */
 	public static native int nstb_vorbis_seek_frame(long f, int sample_number);
 
 	/**
@@ -573,13 +476,7 @@ public class STBVorbis {
 
 	// --- [ stb_vorbis_seek ] ---
 
-	/**
-	 * Seeks in the Vorbis file to (approximately) {@code sample_number}. After calling stb_vorbis_seek(), the next call to {@code stb_vorbis_get_samples_*}
-	 * will start with the specified sample.
-	 *
-	 * @param f             an ogg vorbis file decoder
-	 * @param sample_number the sample index
-	 */
+	/** Unsafe version of: {@link #stb_vorbis_seek seek} */
 	public static native int nstb_vorbis_seek(long f, int sample_number);
 
 	/**
@@ -597,11 +494,7 @@ public class STBVorbis {
 
 	// --- [ stb_vorbis_seek_start ] ---
 
-	/**
-	 * This function is equivalent to {@link #stb_vorbis_seek seek}(f,0).
-	 *
-	 * @param f an ogg vorbis file decoder
-	 */
+	/** Unsafe version of: {@link #stb_vorbis_seek_start seek_start} */
 	public static native void nstb_vorbis_seek_start(long f);
 
 	/**
@@ -617,11 +510,7 @@ public class STBVorbis {
 
 	// --- [ stb_vorbis_stream_length_in_samples ] ---
 
-	/**
-	 * Returns the total length of the vorbis stream, in samples.
-	 *
-	 * @param f an ogg vorbis file decoder
-	 */
+	/** Unsafe version of: {@link #stb_vorbis_stream_length_in_samples stream_length_in_samples} */
 	public static native int nstb_vorbis_stream_length_in_samples(long f);
 
 	/**
@@ -637,11 +526,7 @@ public class STBVorbis {
 
 	// --- [ stb_vorbis_stream_length_in_seconds ] ---
 
-	/**
-	 * Returns the total length of the vorbis stream, in samples.
-	 *
-	 * @param f an ogg vorbis file decoder
-	 */
+	/** Unsafe version of: {@link #stb_vorbis_stream_length_in_seconds stream_length_in_seconds} */
 	public static native float nstb_vorbis_stream_length_in_seconds(long f);
 
 	/**
@@ -657,18 +542,7 @@ public class STBVorbis {
 
 	// --- [ stb_vorbis_get_frame_float ] ---
 
-	/**
-	 * Decodes the next frame and return the number of samples.
-	 * 
-	 * <p>You generally should not intermix calls to {@code stb_vorbis_get_frame_*()} and {@code stb_vorbis_get_samples_*()}, since the latter calls the former.</p>
-	 *
-	 * @param f        an ogg vorbis file decoder
-	 * @param channels returns the number of channels. Can be {@code NULL} -- it is always the same as the number of channels reported by {@link #stb_vorbis_get_info get_info}.
-	 * @param output   returns a pointer to an array of float* buffers, one per channel. These outputs will be overwritten on the next call to
-	 *                 {@code stb_vorbis_get_frame_*}.
-	 *
-	 * @return the number of samples per channel
-	 */
+	/** Unsafe version of: {@link #stb_vorbis_get_frame_float get_frame_float} */
 	public static native int nstb_vorbis_get_frame_float(long f, long channels, long output);
 
 	/**
@@ -694,32 +568,9 @@ public class STBVorbis {
 	// --- [ stb_vorbis_get_frame_short ] ---
 
 	/**
-	 * Decodes the next frame and returns the number of <b>samples</b> per channel. Note that for interleaved data, you pass in the number of shorts (the size
-	 * of your array), but the return value is the number of samples per channel, not the total number of samples.
-	 * 
-	 * <p>The data is coerced to the number of channels you request according to the channel coercion rules (see below). You must pass in the size of your
-	 * buffer(s) so that stb_vorbis will not overwrite the end of the buffer. The maximum buffer size needed can be gotten from {@link #stb_vorbis_get_info get_info}; however, the
-	 * Vorbis I specification implies an absolute maximum of 4096 samples per channel.</p>
-	 * 
-	 * <h3>Channel coercion rules</h3>
-	 * 
-	 * <p>Let M be the number of channels requested, and N the number of channels present, and Cn be the nth channel; let stereo L be the sum of all L and center
-	 * channels, and stereo R be the sum of all R and center channels (channel assignment from the vorbis spec).</p>
-	 * 
-	 * <pre><code>M    N      output
-1    k      sum(Ck) for all k
-2    *      stereo L, stereo R
-k    l      k > l, the first l channels, then 0s
-k    l      k <= l, the first k channels</code></pre>
-	 * 
-	 * <p>Note that this is not <b>good</b> surround etc. mixing at all! It's just so you get something useful.</p>
+	 * Unsafe version of: {@link #stb_vorbis_get_frame_short get_frame_short}
 	 *
-	 * @param f           an ogg vorbis file decoder
-	 * @param num_c       the number of channels
-	 * @param buffer      the output buffer, an array of pointers with length {@code num_c}, each pointing to a short array with length {@code num_samples}
-	 * @param num_samples the number of samples
-	 *
-	 * @return the number of samples per channel
+	 * @param num_c the number of channels
 	 */
 	public static native int nstb_vorbis_get_frame_short(long f, int num_c, long buffer, int num_samples);
 
@@ -759,17 +610,9 @@ k    l      k <= l, the first k channels</code></pre>
 	// --- [ stb_vorbis_get_frame_short_interleaved ] ---
 
 	/**
-	 * Interleaved version of {@link #stb_vorbis_get_frame_short get_frame_short}.
-	 * 
-	 * <p>Note that for interleaved data, you pass in the number of shorts (the size of your array), but the return value is the number of samples per channel,
-	 * not the total number of samples.</p>
+	 * Unsafe version of: {@link #stb_vorbis_get_frame_short_interleaved get_frame_short_interleaved}
 	 *
-	 * @param f          an ogg vorbis file decoder
-	 * @param num_c      the number of channels
-	 * @param buffer     the output buffer
 	 * @param num_shorts the size of {@code buffer}
-	 *
-	 * @return the number of samples per channel
 	 */
 	public static native int nstb_vorbis_get_frame_short_interleaved(long f, int num_c, long buffer, int num_shorts);
 
@@ -794,15 +637,9 @@ k    l      k <= l, the first k channels</code></pre>
 	// --- [ stb_vorbis_get_samples_float ] ---
 
 	/**
-	 * Gets {@code num_samples} samples, not necessarily on a frame boundary -- this requires buffering so you have to supply the buffers. DOES NOT APPLY THE
-	 * COERCION RULES.
+	 * Unsafe version of: {@link #stb_vorbis_get_samples_float get_samples_float}
 	 *
-	 * @param f           an ogg vorbis file decoder
-	 * @param channels    the number of channels to decode
-	 * @param buffer      the output buffer, an array of pointers with length {@code channels}, each pointing to a float array with length {@code num_samples}
-	 * @param num_samples the number of samples to decode
-	 *
-	 * @return the number of samples stored per channel; it may be less than requested at the end of the file. If there are no more samples in the file, returns 0.
+	 * @param channels the number of channels to decode
 	 */
 	public static native int nstb_vorbis_get_samples_float(long f, int channels, long buffer, int num_samples);
 
@@ -825,14 +662,9 @@ k    l      k <= l, the first k channels</code></pre>
 	// --- [ stb_vorbis_get_samples_float_interleaved ] ---
 
 	/**
-	 * Interleaved version of {@link #stb_vorbis_get_samples_float get_samples_float}.
+	 * Unsafe version of: {@link #stb_vorbis_get_samples_float_interleaved get_samples_float_interleaved}
 	 *
-	 * @param f          an ogg vorbis file decoder
-	 * @param channels   the number of channels
-	 * @param buffer     the output buffer
 	 * @param num_floats the size of {@code buffer}
-	 *
-	 * @return the number of samples stored per channel; it may be less than requested at the end of the file. If there are no more samples in the file, returns 0.
 	 */
 	public static native int nstb_vorbis_get_samples_float_interleaved(long f, int channels, long buffer, int num_floats);
 
@@ -854,15 +686,9 @@ k    l      k <= l, the first k channels</code></pre>
 	// --- [ stb_vorbis_get_samples_short ] ---
 
 	/**
-	 * Gets {@code num_samples} samples, not necessarily on a frame boundary -- this requires buffering so you have to supply the buffers. Applies the
-	 * coercion rules above to produce {@code channels} channels.
+	 * Unsafe version of: {@link #stb_vorbis_get_samples_short get_samples_short}
 	 *
-	 * @param f           an ogg vorbis file decoder
-	 * @param channels    the number of channels
-	 * @param buffer      the output buffer, an array of pointers with length {@code channels}, each pointing to a short array with length {@code num_samples}
-	 * @param num_samples the number of samples
-	 *
-	 * @return the number of samples stored per channel; it may be less than requested at the end of the file. If there are no more samples in the file, returns 0.
+	 * @param channels the number of channels
 	 */
 	public static native int nstb_vorbis_get_samples_short(long f, int channels, long buffer, int num_samples);
 
@@ -885,14 +711,9 @@ k    l      k <= l, the first k channels</code></pre>
 	// --- [ stb_vorbis_get_samples_short_interleaved ] ---
 
 	/**
-	 * Interleaved version of {@link #stb_vorbis_get_samples_short get_samples_short}.
+	 * Unsafe version of: {@link #stb_vorbis_get_samples_short_interleaved get_samples_short_interleaved}
 	 *
-	 * @param f          an ogg vorbis file decoder
-	 * @param channels   the number of channels
-	 * @param buffer     the output buffer
 	 * @param num_shorts the size of {@code buffer}
-	 *
-	 * @return the number of samples stored per channel; it may be less than requested at the end of the file. If there are no more samples in the file, returns 0.
 	 */
 	public static native int nstb_vorbis_get_samples_short_interleaved(long f, int channels, long buffer, int num_shorts);
 
@@ -911,7 +732,7 @@ k    l      k <= l, the first k channels</code></pre>
 		return nstb_vorbis_get_samples_short_interleaved(f, channels, memAddress(buffer), buffer.remaining());
 	}
 
-	/** Array version of: {@link #stb_vorbis_open_pushdata open_pushdata} */
+	/** Array version of: {@link #nstb_vorbis_open_pushdata} */
 	public static native long nstb_vorbis_open_pushdata(long datablock, int datablock_length_in_bytes, int[] datablock_memory_consumed_in_bytes, int[] error, long alloc_buffer);
 
 	/** Array version of: {@link #stb_vorbis_open_pushdata open_pushdata} */
@@ -921,7 +742,7 @@ k    l      k <= l, the first k channels</code></pre>
 		return nstb_vorbis_open_pushdata(memAddress(datablock), datablock.remaining(), datablock_memory_consumed_in_bytes, error, memAddressSafe(alloc_buffer));
 	}
 
-	/** Array version of: {@link #stb_vorbis_decode_frame_pushdata decode_frame_pushdata} */
+	/** Array version of: {@link #nstb_vorbis_decode_frame_pushdata} */
 	public static native int nstb_vorbis_decode_frame_pushdata(long f, long datablock, int datablock_length_in_bytes, int[] channels, long output, int[] samples);
 
 	/** Array version of: {@link #stb_vorbis_decode_frame_pushdata decode_frame_pushdata} */
@@ -935,7 +756,7 @@ k    l      k <= l, the first k channels</code></pre>
 		return nstb_vorbis_decode_frame_pushdata(f, memAddress(datablock), datablock.remaining(), channels, memAddress(output), samples);
 	}
 
-	/** Array version of: {@link #stb_vorbis_decode_filename decode_filename} */
+	/** Array version of: {@link #nstb_vorbis_decode_filename} */
 	public static native int nstb_vorbis_decode_filename(long filename, int[] channels, int[] sample_rate, long output);
 
 	/** Array version of: {@link #stb_vorbis_decode_filename decode_filename} */
@@ -965,7 +786,7 @@ k    l      k <= l, the first k channels</code></pre>
 		}
 	}
 
-	/** Array version of: {@link #stb_vorbis_decode_memory decode_memory} */
+	/** Array version of: {@link #nstb_vorbis_decode_memory} */
 	public static native int nstb_vorbis_decode_memory(long mem, int len, int[] channels, int[] sample_rate, long output);
 
 	/** Array version of: {@link #stb_vorbis_decode_memory decode_memory} */
@@ -978,7 +799,7 @@ k    l      k <= l, the first k channels</code></pre>
 		return nstb_vorbis_decode_memory(memAddress(mem), mem.remaining(), channels, sample_rate, memAddress(output));
 	}
 
-	/** Array version of: {@link #stb_vorbis_open_memory open_memory} */
+	/** Array version of: {@link #nstb_vorbis_open_memory} */
 	public static native long nstb_vorbis_open_memory(long mem, int len, int[] error, long alloc_buffer);
 
 	/** Array version of: {@link #stb_vorbis_open_memory open_memory} */
@@ -990,7 +811,7 @@ k    l      k <= l, the first k channels</code></pre>
 		return nstb_vorbis_open_memory(memAddress(mem), mem.remaining(), error, memAddressSafe(alloc_buffer));
 	}
 
-	/** Array version of: {@link #stb_vorbis_open_filename open_filename} */
+	/** Array version of: {@link #nstb_vorbis_open_filename} */
 	public static native long nstb_vorbis_open_filename(long filename, int[] error, long alloc_buffer);
 
 	/** Array version of: {@link #stb_vorbis_open_filename open_filename} */
@@ -1018,7 +839,7 @@ k    l      k <= l, the first k channels</code></pre>
 		}
 	}
 
-	/** Array version of: {@link #stb_vorbis_get_frame_float get_frame_float} */
+	/** Array version of: {@link #nstb_vorbis_get_frame_float} */
 	public static native int nstb_vorbis_get_frame_float(long f, int[] channels, long output);
 
 	/** Array version of: {@link #stb_vorbis_get_frame_float get_frame_float} */
@@ -1030,7 +851,7 @@ k    l      k <= l, the first k channels</code></pre>
 		return nstb_vorbis_get_frame_float(f, channels, memAddress(output));
 	}
 
-	/** Array version of: {@link #stb_vorbis_get_frame_short_interleaved get_frame_short_interleaved} */
+	/** Array version of: {@link #nstb_vorbis_get_frame_short_interleaved} */
 	public static native int nstb_vorbis_get_frame_short_interleaved(long f, int num_c, short[] buffer, int num_shorts);
 
 	/** Array version of: {@link #stb_vorbis_get_frame_short_interleaved get_frame_short_interleaved} */
@@ -1040,7 +861,7 @@ k    l      k <= l, the first k channels</code></pre>
 		return nstb_vorbis_get_frame_short_interleaved(f, num_c, buffer, buffer.length);
 	}
 
-	/** Array version of: {@link #stb_vorbis_get_samples_float_interleaved get_samples_float_interleaved} */
+	/** Array version of: {@link #nstb_vorbis_get_samples_float_interleaved} */
 	public static native int nstb_vorbis_get_samples_float_interleaved(long f, int channels, float[] buffer, int num_floats);
 
 	/** Array version of: {@link #stb_vorbis_get_samples_float_interleaved get_samples_float_interleaved} */
@@ -1050,7 +871,7 @@ k    l      k <= l, the first k channels</code></pre>
 		return nstb_vorbis_get_samples_float_interleaved(f, channels, buffer, buffer.length);
 	}
 
-	/** Array version of: {@link #stb_vorbis_get_samples_short_interleaved get_samples_short_interleaved} */
+	/** Array version of: {@link #nstb_vorbis_get_samples_short_interleaved} */
 	public static native int nstb_vorbis_get_samples_short_interleaved(long f, int channels, short[] buffer, int num_shorts);
 
 	/** Array version of: {@link #stb_vorbis_get_samples_short_interleaved get_samples_short_interleaved} */

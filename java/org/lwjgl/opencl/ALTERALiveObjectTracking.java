@@ -65,14 +65,7 @@ public class ALTERALiveObjectTracking {
 
 	// --- [ clReportLiveObjectsAltera ] ---
 
-	/**
-	 * Requests an enumeration of all live objects in the runtime. The enumeration is performed by calling the callback function once for each live object in
-	 * some implementation-defined sequence (i.e. not concurrently).
-	 *
-	 * @param platform  the platform for which live objects are being tracked
-	 * @param report_fn the callback function
-	 * @param user_data a pointer to user data that will be passed to {@code report_fn}
-	 */
+	/** Unsafe version of: {@link #clReportLiveObjectsAltera ReportLiveObjectsAltera} */
 	public static void nclReportLiveObjectsAltera(long platform, long report_fn, long user_data) {
 		long __functionAddress = CL.getICD().clReportLiveObjectsAltera;
 		if ( CHECKS ) {

@@ -193,10 +193,9 @@ public class NVCommandList {
 	// --- [ glCreateStatesNV ] ---
 
 	/**
-	 * Returns {@code n} previously unused state object names in {@code states}, and creates a state object in the initial state for each name.
+	 * Unsafe version of: {@link #glCreateStatesNV CreateStatesNV}
 	 *
-	 * @param n      the number of state object names to create
-	 * @param states the buffer in which to write the created state object names
+	 * @param n the number of state object names to create
 	 */
 	public static void nglCreateStatesNV(int n, long states) {
 		long __functionAddress = GL.getCapabilities().glCreateStatesNV;
@@ -229,11 +228,9 @@ public class NVCommandList {
 	// --- [ glDeleteStatesNV ] ---
 
 	/**
-	 * Deletes {@code n} names of state objects given by {@code states}. Once a state object is deleted it has no contents and its name is again unused.
-	 * Unused names in {@code states} are silently ignored, as is the value zero.
+	 * Unsafe version of: {@link #glDeleteStatesNV DeleteStatesNV}
 	 *
-	 * @param n      the number of state object names to delete
-	 * @param states the buffer from which to read the state object names to delete
+	 * @param n the number of state object names to delete
 	 */
 	public static void nglDeleteStatesNV(int n, long states) {
 		long __functionAddress = GL.getCapabilities().glDeleteStatesNV;
@@ -346,14 +343,9 @@ public class NVCommandList {
 	// --- [ glDrawCommandsNV ] ---
 
 	/**
-	 * Accepts arrays of buffer addresses as an array of offsets {@code indirects} into a buffer named by {@code buffer}, an array of command lengths in
-	 * {@code sizes}. All arrays have {@code count} entries.
+	 * Unsafe version of: {@link #glDrawCommandsNV DrawCommandsNV}
 	 *
-	 * @param primitiveMode the primitive mode
-	 * @param buffer        the buffer object name
-	 * @param indirects     the array of offsets into the buffer
-	 * @param sizes         the array of command lengths
-	 * @param count         the number of commands
+	 * @param count the number of commands
 	 */
 	public static void nglDrawCommandsNV(int primitiveMode, int buffer, long indirects, long sizes, int count) {
 		long __functionAddress = GL.getCapabilities().glDrawCommandsNV;
@@ -380,13 +372,9 @@ public class NVCommandList {
 	// --- [ glDrawCommandsAddressNV ] ---
 
 	/**
-	 * Accepts arrays of buffer addresses as an array of GPU addresses {@code indirects}, an array of sequence lengths in {@code sizes}. All arrays have
-	 * {@code count} entries.
+	 * Unsafe version of: {@link #glDrawCommandsAddressNV DrawCommandsAddressNV}
 	 *
-	 * @param primitiveMode the primitive mode
-	 * @param indirects     the array of GPU addreses
-	 * @param sizes         the array of command lengths
-	 * @param count         the number of commands
+	 * @param count the number of commands
 	 */
 	public static void nglDrawCommandsAddressNV(int primitiveMode, long indirects, long sizes, int count) {
 		long __functionAddress = GL.getCapabilities().glDrawCommandsAddressNV;
@@ -412,17 +400,9 @@ public class NVCommandList {
 	// --- [ glDrawCommandsStatesNV ] ---
 
 	/**
-	 * Accepts arrays of buffer addresses as an array of offsets {@code indirects} into a buffer named by {@code buffer}, an array of command lengths in
-	 * {@code sizes}, and an array of state object names in {@code states}, of which all names must be non-zero. Frame buffer object names are stored in
-	 * {@code fbos} and can be either zero or non-zero. All arrays have {@code count} entries. The residency of textures used as attachment inside the state
-	 * object's captured fbo or the passed fbo must managed explicitly.
+	 * Unsafe version of: {@link #glDrawCommandsStatesNV DrawCommandsStatesNV}
 	 *
-	 * @param buffer    the buffer object name
-	 * @param indirects the array of offsets into the buffer
-	 * @param sizes     the array of command lengths
-	 * @param states    the array of state object names
-	 * @param fbos      the array of framebuffer object names
-	 * @param count     the number of commands
+	 * @param count the number of commands
 	 */
 	public static void nglDrawCommandsStatesNV(int buffer, long indirects, long sizes, long states, long fbos, int count) {
 		long __functionAddress = GL.getCapabilities().glDrawCommandsStatesNV;
@@ -455,16 +435,9 @@ public class NVCommandList {
 	// --- [ glDrawCommandsStatesAddressNV ] ---
 
 	/**
-	 * Accepts arrays of buffer addresses as an array of GPU addresses {@code indirects}, an array of command lengths in {@code sizes}, and an array of state
-	 * object names in {@code states}, of which all names must be non-zero. Frame buffer object names are stored in {@code fbos} and can be either zero or
-	 * non-zero. All arrays have {@code count} entries. The residency of textures used as attachment inside the state object's captured fbo or the passed fbo
-	 * must managed explicitly.
+	 * Unsafe version of: {@link #glDrawCommandsStatesAddressNV DrawCommandsStatesAddressNV}
 	 *
-	 * @param indirects the array of GPU addresses
-	 * @param sizes     the array of command lengths
-	 * @param states    the array of state object names
-	 * @param fbos      the array of framebuffer object names
-	 * @param count     the number of commands
+	 * @param count the number of commands
 	 */
 	public static void nglDrawCommandsStatesAddressNV(long indirects, long sizes, long states, long fbos, int count) {
 		long __functionAddress = GL.getCapabilities().glDrawCommandsStatesAddressNV;
@@ -496,10 +469,9 @@ public class NVCommandList {
 	// --- [ glCreateCommandListsNV ] ---
 
 	/**
-	 * Returns {@code n} previously unused command list names in {@code lists}, and creates a command list in the initial state for each name.
+	 * Unsafe version of: {@link #glCreateCommandListsNV CreateCommandListsNV}
 	 *
-	 * @param n     the number of command list names to create
-	 * @param lists the buffer in which to return the created command list names
+	 * @param n the number of command list names to create
 	 */
 	public static void nglCreateCommandListsNV(int n, long lists) {
 		long __functionAddress = GL.getCapabilities().glCreateCommandListsNV;
@@ -532,11 +504,9 @@ public class NVCommandList {
 	// --- [ glDeleteCommandListsNV ] ---
 
 	/**
-	 * Deletes {@code n} command lists stored in {@code lists}. Once a command list is deleted it has no contents and its name is again unused. Unused names
-	 * in {@code lists} are silently ignored, as is the value zero.
+	 * Unsafe version of: {@link #glDeleteCommandListsNV DeleteCommandListsNV}
 	 *
-	 * @param n     the number of command list names to delete
-	 * @param lists the buffer from which to read the command list names to delete
+	 * @param n the number of command list names to delete
 	 */
 	public static void nglDeleteCommandListsNV(int n, long lists) {
 		long __functionAddress = GL.getCapabilities().glDeleteCommandListsNV;
@@ -586,29 +556,9 @@ public class NVCommandList {
 	// --- [ glListDrawCommandsStatesClientNV ] ---
 
 	/**
-	 * A list has multiple segments and each segment enqueues an ordered list of commands. This command enqueues the equivalent of the
-	 * DrawCommandsStatesClientNV commands into the list indicated by {@code list} on the segment indicated by {@code segment}.
-	 * 
-	 * <p>A list has multiple segments and each segment enqueues an ordered list of command sequences. This command enqueues the equivalent of the
-	 * DrawCommandsStatesNV commands into the list indicated by {@code list} on the segment indicated by {@code segment} except that the sequence data is
-	 * copied from the sequences pointed to by the {@code indirects} pointer. The {@code indirects} pointer should point to a list of size {@code count} of
-	 * pointers, each of which should point to a command sequence.</p>
-	 * 
-	 * <p>The pre-validated state from {@code states} is saved into the command list, rather than a reference to the state object (i.e. the state objects or fbos
-	 * could be deleted and the command list would be unaffected). This includes native GPU addresses for all textures indirectly referenced through the fbos
-	 * passed or state objects' fbos attachments, therefore a recompile of the command list is required if such referenced textures change their allocation
-	 * (for example due to resizing), as well as explicit management of the residency of the textures prior {@link #glCallCommandListNV CallCommandListNV}.</p>
-	 * 
-	 * <p>ListDrawCommandsStatesClientNV performs a by-value copy of the indirect data based on the provided client-side pointers. In this case the content is
-	 * fully immutable, while the buffer-based versions can change the content of the buffers at any later time.</p>
+	 * Unsafe version of: {@link #glListDrawCommandsStatesClientNV ListDrawCommandsStatesClientNV}
 	 *
-	 * @param list      the command list
-	 * @param segment   the segment
-	 * @param indirects the array of GPU addresses
-	 * @param sizes     the array of command lengths
-	 * @param states    the array of state object names
-	 * @param fbos      the array of framebuffer object names
-	 * @param count     the number of commands
+	 * @param count the number of commands
 	 */
 	public static void nglListDrawCommandsStatesClientNV(int list, int segment, long indirects, long sizes, long states, long fbos, int count) {
 		long __functionAddress = GL.getCapabilities().glListDrawCommandsStatesClientNV;

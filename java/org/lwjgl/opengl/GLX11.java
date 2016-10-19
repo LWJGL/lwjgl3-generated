@@ -30,12 +30,7 @@ public class GLX11 {
 
 	// --- [ glXQueryExtensionsString ] ---
 
-	/**
-	 * Returns a string describing which GLX extensions are supported on the connection.
-	 *
-	 * @param display the connection to the X server
-	 * @param screen  the screen number
-	 */
+	/** Unsafe version of: {@link #glXQueryExtensionsString QueryExtensionsString} */
 	public static long nglXQueryExtensionsString(long display, int screen) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryExtensionsString;
 		if ( CHECKS ) {
@@ -58,12 +53,7 @@ public class GLX11 {
 
 	// --- [ glXGetClientString ] ---
 
-	/**
-	 * Returns a pointer to a string describing some aspect of the client library.
-	 *
-	 * @param display the connection to the X server
-	 * @param name    the string to query
-	 */
+	/** Unsafe version of: {@link #glXGetClientString GetClientString} */
 	public static long nglXGetClientString(long display, int name) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetClientString;
 		if ( CHECKS ) {
@@ -86,13 +76,7 @@ public class GLX11 {
 
 	// --- [ glXQueryServerString ] ---
 
-	/**
-	 * Returns a pointer to a string describing some aspect of the server's GLX extension.
-	 *
-	 * @param display the connection to the X server
-	 * @param screen  the screen number
-	 * @param name    the string to query
-	 */
+	/** Unsafe version of: {@link #glXQueryServerString QueryServerString} */
 	public static long nglXQueryServerString(long display, int screen, int name) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryServerString;
 		if ( CHECKS ) {

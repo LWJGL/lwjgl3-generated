@@ -402,12 +402,7 @@ public class ARBVertexProgram {
 
 	// --- [ glVertexAttrib1svARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttrib1sARB VertexAttrib1sARB}
-	 *
-	 * @param index the vertex attribute index
-	 * @param v     a buffer from which to read the attribute value
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib1svARB VertexAttrib1svARB} */
 	public static void nglVertexAttrib1svARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1svARB;
 		if ( CHECKS )
@@ -429,12 +424,7 @@ public class ARBVertexProgram {
 
 	// --- [ glVertexAttrib1fvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttrib1fARB VertexAttrib1fARB}
-	 *
-	 * @param index the vertex attribute index
-	 * @param v     a buffer from which to read the attribute value
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib1fvARB VertexAttrib1fvARB} */
 	public static void nglVertexAttrib1fvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1fvARB;
 		if ( CHECKS )
@@ -456,12 +446,7 @@ public class ARBVertexProgram {
 
 	// --- [ glVertexAttrib1dvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttrib1dARB VertexAttrib1dARB}
-	 *
-	 * @param index the vertex attribute index
-	 * @param v     a buffer from which to read the attribute value
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib1dvARB VertexAttrib1dvARB} */
 	public static void nglVertexAttrib1dvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1dvARB;
 		if ( CHECKS )
@@ -483,12 +468,7 @@ public class ARBVertexProgram {
 
 	// --- [ glVertexAttrib2svARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttrib2sARB VertexAttrib2sARB}
-	 *
-	 * @param index the vertex attribute index
-	 * @param v     a buffer from which to read the attribute value
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib2svARB VertexAttrib2svARB} */
 	public static void nglVertexAttrib2svARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2svARB;
 		if ( CHECKS )
@@ -510,12 +490,7 @@ public class ARBVertexProgram {
 
 	// --- [ glVertexAttrib2fvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttrib2fARB VertexAttrib2fARB}
-	 *
-	 * @param index the vertex attribute index
-	 * @param v     a buffer from which to read the attribute value
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib2fvARB VertexAttrib2fvARB} */
 	public static void nglVertexAttrib2fvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2fvARB;
 		if ( CHECKS )
@@ -537,12 +512,7 @@ public class ARBVertexProgram {
 
 	// --- [ glVertexAttrib2dvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttrib2dARB VertexAttrib2dARB}
-	 *
-	 * @param index the vertex attribute index
-	 * @param v     a buffer from which to read the attribute value
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib2dvARB VertexAttrib2dvARB} */
 	public static void nglVertexAttrib2dvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2dvARB;
 		if ( CHECKS )
@@ -564,12 +534,7 @@ public class ARBVertexProgram {
 
 	// --- [ glVertexAttrib3svARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttrib3sARB VertexAttrib3sARB}
-	 *
-	 * @param index the vertex attribute index
-	 * @param v     a buffer from which to read the attribute value
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib3svARB VertexAttrib3svARB} */
 	public static void nglVertexAttrib3svARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3svARB;
 		if ( CHECKS )
@@ -591,12 +556,7 @@ public class ARBVertexProgram {
 
 	// --- [ glVertexAttrib3fvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttrib3fARB VertexAttrib3fARB}
-	 *
-	 * @param index the vertex attribute index
-	 * @param v     a buffer from which to read the attribute value
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib3fvARB VertexAttrib3fvARB} */
 	public static void nglVertexAttrib3fvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3fvARB;
 		if ( CHECKS )
@@ -618,12 +578,7 @@ public class ARBVertexProgram {
 
 	// --- [ glVertexAttrib3dvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttrib3dARB VertexAttrib3dARB}
-	 *
-	 * @param index the vertex attribute index
-	 * @param v     a buffer from which to read the attribute value
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib3dvARB VertexAttrib3dvARB} */
 	public static void nglVertexAttrib3dvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3dvARB;
 		if ( CHECKS )
@@ -645,12 +600,7 @@ public class ARBVertexProgram {
 
 	// --- [ glVertexAttrib4fvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttrib4fARB VertexAttrib4fARB}
-	 *
-	 * @param index the vertex attribute index
-	 * @param v     a buffer from which to read the attribute value
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4fvARB VertexAttrib4fvARB} */
 	public static void nglVertexAttrib4fvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4fvARB;
 		if ( CHECKS )
@@ -672,12 +622,7 @@ public class ARBVertexProgram {
 
 	// --- [ glVertexAttrib4bvARB ] ---
 
-	/**
-	 * Byte version of {@link #glVertexAttrib4fvARB VertexAttrib4fvARB}
-	 *
-	 * @param index the vertex attribute index
-	 * @param v     a buffer from which to read the attribute value
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4bvARB VertexAttrib4bvARB} */
 	public static void nglVertexAttrib4bvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4bvARB;
 		if ( CHECKS )
@@ -699,12 +644,7 @@ public class ARBVertexProgram {
 
 	// --- [ glVertexAttrib4svARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttrib4sARB VertexAttrib4sARB}
-	 *
-	 * @param index the vertex attribute index
-	 * @param v     a buffer from which to read the attribute value
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4svARB VertexAttrib4svARB} */
 	public static void nglVertexAttrib4svARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4svARB;
 		if ( CHECKS )
@@ -726,12 +666,7 @@ public class ARBVertexProgram {
 
 	// --- [ glVertexAttrib4ivARB ] ---
 
-	/**
-	 * Integer version of {@link #glVertexAttrib4fvARB VertexAttrib4fvARB}
-	 *
-	 * @param index the vertex attribute index
-	 * @param v     a buffer from which to read the attribute value
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4ivARB VertexAttrib4ivARB} */
 	public static void nglVertexAttrib4ivARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4ivARB;
 		if ( CHECKS )
@@ -753,12 +688,7 @@ public class ARBVertexProgram {
 
 	// --- [ glVertexAttrib4ubvARB ] ---
 
-	/**
-	 * Unsigned byte version of {@link #glVertexAttrib4fvARB VertexAttrib4fvARB}
-	 *
-	 * @param index the vertex attribute index
-	 * @param v     a buffer from which to read the attribute value
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4ubvARB VertexAttrib4ubvARB} */
 	public static void nglVertexAttrib4ubvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4ubvARB;
 		if ( CHECKS )
@@ -780,12 +710,7 @@ public class ARBVertexProgram {
 
 	// --- [ glVertexAttrib4usvARB ] ---
 
-	/**
-	 * Unsigned short version of {@link #glVertexAttrib4fvARB VertexAttrib4fvARB}
-	 *
-	 * @param index the vertex attribute index
-	 * @param v     a buffer from which to read the attribute value
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4usvARB VertexAttrib4usvARB} */
 	public static void nglVertexAttrib4usvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4usvARB;
 		if ( CHECKS )
@@ -807,12 +732,7 @@ public class ARBVertexProgram {
 
 	// --- [ glVertexAttrib4uivARB ] ---
 
-	/**
-	 * Unsigned integer version of {@link #glVertexAttrib4fvARB VertexAttrib4fvARB}
-	 *
-	 * @param index the vertex attribute index
-	 * @param v     a buffer from which to read the attribute value
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4uivARB VertexAttrib4uivARB} */
 	public static void nglVertexAttrib4uivARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4uivARB;
 		if ( CHECKS )
@@ -834,12 +754,7 @@ public class ARBVertexProgram {
 
 	// --- [ glVertexAttrib4dvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttrib4dARB VertexAttrib4dARB}
-	 *
-	 * @param index the vertex attribute index
-	 * @param v     a buffer from which to read the attribute value
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4dvARB VertexAttrib4dvARB} */
 	public static void nglVertexAttrib4dvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4dvARB;
 		if ( CHECKS )
@@ -861,12 +776,7 @@ public class ARBVertexProgram {
 
 	// --- [ glVertexAttrib4NbvARB ] ---
 
-	/**
-	 * Fixed-point version of {@link #glVertexAttrib4bvARB VertexAttrib4bvARB}
-	 *
-	 * @param index the vertex attribute index
-	 * @param v     a buffer from which to read the attribute value
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4NbvARB VertexAttrib4NbvARB} */
 	public static void nglVertexAttrib4NbvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4NbvARB;
 		if ( CHECKS )
@@ -888,12 +798,7 @@ public class ARBVertexProgram {
 
 	// --- [ glVertexAttrib4NsvARB ] ---
 
-	/**
-	 * Fixed-point version of {@link #glVertexAttrib4svARB VertexAttrib4svARB}
-	 *
-	 * @param index the vertex attribute index
-	 * @param v     a buffer from which to read the attribute value
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4NsvARB VertexAttrib4NsvARB} */
 	public static void nglVertexAttrib4NsvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4NsvARB;
 		if ( CHECKS )
@@ -915,12 +820,7 @@ public class ARBVertexProgram {
 
 	// --- [ glVertexAttrib4NivARB ] ---
 
-	/**
-	 * Fixed-point version of {@link #glVertexAttrib4ivARB VertexAttrib4ivARB}
-	 *
-	 * @param index the vertex attribute index
-	 * @param v     a buffer from which to read the attribute value
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4NivARB VertexAttrib4NivARB} */
 	public static void nglVertexAttrib4NivARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4NivARB;
 		if ( CHECKS )
@@ -942,12 +842,7 @@ public class ARBVertexProgram {
 
 	// --- [ glVertexAttrib4NubvARB ] ---
 
-	/**
-	 * Fixed-point unsigned version of {@link #glVertexAttrib4bvARB VertexAttrib4bvARB}
-	 *
-	 * @param index the vertex attribute index
-	 * @param v     a buffer from which to read the attribute value
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4NubvARB VertexAttrib4NubvARB} */
 	public static void nglVertexAttrib4NubvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4NubvARB;
 		if ( CHECKS )
@@ -969,12 +864,7 @@ public class ARBVertexProgram {
 
 	// --- [ glVertexAttrib4NusvARB ] ---
 
-	/**
-	 * Fixed-point unsigned version of {@link #glVertexAttrib4svARB VertexAttrib4svARB}
-	 *
-	 * @param index the vertex attribute index
-	 * @param v     a buffer from which to read the attribute value
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4NusvARB VertexAttrib4NusvARB} */
 	public static void nglVertexAttrib4NusvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4NusvARB;
 		if ( CHECKS )
@@ -996,12 +886,7 @@ public class ARBVertexProgram {
 
 	// --- [ glVertexAttrib4NuivARB ] ---
 
-	/**
-	 * Fixed-point unsigned version of {@link #glVertexAttrib4ivARB VertexAttrib4ivARB}
-	 *
-	 * @param index the vertex attribute index
-	 * @param v     a buffer from which to read the attribute value
-	 */
+	/** Unsafe version of: {@link #glVertexAttrib4NuivARB VertexAttrib4NuivARB} */
 	public static void nglVertexAttrib4NuivARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4NuivARB;
 		if ( CHECKS )
@@ -1023,16 +908,7 @@ public class ARBVertexProgram {
 
 	// --- [ glVertexAttribPointerARB ] ---
 
-	/**
-	 * Specifies the location and organization of a vertex attribute array.
-	 *
-	 * @param index      the vertex attribute index
-	 * @param size       the vertex attribute number of components. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
-	 * @param type       the data type of the values stored in the array. One of:<br><table><tr><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_SHORT SHORT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link NVHalfFloat#GL_HALF_FLOAT_NV HALF_FLOAT_NV}</td></tr><tr><td>{@link GL11#GL_FLOAT FLOAT}</td><td>{@link GL11#GL_DOUBLE DOUBLE}</td></tr></table>
-	 * @param normalized if {@link GL11#GL_TRUE TRUE}, fixed-point types are normalized when converted to floating-point
-	 * @param stride     the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
-	 * @param pointer    the vertex attribute array data
-	 */
+	/** Unsafe version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
 	public static void nglVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribPointerARB;
 		if ( CHECKS )
@@ -1114,23 +990,9 @@ public class ARBVertexProgram {
 	// --- [ glProgramStringARB ] ---
 
 	/**
-	 * Updates the program string for the current program object for {@code target}.
-	 * 
-	 * <p>When a program string is loaded, it is interpreted according to syntactic and semantic rules corresponding to the program target specified by
-	 * {@code target}. If a program violates the syntactic or semantic restrictions of the program target, ProgramStringARB generates the error
-	 * {@link GL11#GL_INVALID_OPERATION INVALID_OPERATION}.</p>
-	 * 
-	 * <p>Additionally, ProgramString will update the program error position ({@link #GL_PROGRAM_ERROR_POSITION_ARB PROGRAM_ERROR_POSITION_ARB}) and error string ({@link #GL_PROGRAM_ERROR_STRING_ARB PROGRAM_ERROR_STRING_ARB}). If a
-	 * program fails to load, the value of the program error position is set to the ubyte offset into the specified program string indicating where the first
-	 * program error was detected. If the program fails to load because of a semantic restriction that is not detected until the program is fully scanned, the
-	 * error position is set to the value of {@code len}. If a program loads successfully, the error position is set to the value negative one. The
-	 * implementation-dependent program error string contains one or more error or warning messages.  If a program loads succesfully, the error string may
-	 * either contain warning messages or be empty.</p>
+	 * Unsafe version of: {@link #glProgramStringARB ProgramStringARB}
 	 *
-	 * @param target the program target. One of:<br><table><tr><td>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}</td><td>{@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}</td></tr></table>
-	 * @param format the format of the program string. Must be:<br><table><tr><td>{@link #GL_PROGRAM_FORMAT_ASCII_ARB PROGRAM_FORMAT_ASCII_ARB}</td></tr></table>
-	 * @param len    the length of the program string, excluding the null-terminator
-	 * @param string an array of bytes representing the program string being loaded
+	 * @param len the length of the program string, excluding the null-terminator
 	 */
 	public static void nglProgramStringARB(int target, int format, int len, long string) {
 		long __functionAddress = GL.getCapabilities().glProgramStringARB;
@@ -1181,10 +1043,9 @@ public class ARBVertexProgram {
 	// --- [ glDeleteProgramsARB ] ---
 
 	/**
-	 * Deletes program objects.
+	 * Unsafe version of: {@link #glDeleteProgramsARB DeleteProgramsARB}
 	 *
-	 * @param n        the number of program object to delete
-	 * @param programs an array of {@code n} program objects to be deleted
+	 * @param n the number of program object to delete
 	 */
 	public static void nglDeleteProgramsARB(int n, long programs) {
 		long __functionAddress = GL.getCapabilities().glDeleteProgramsARB;
@@ -1205,11 +1066,9 @@ public class ARBVertexProgram {
 	// --- [ glGenProgramsARB ] ---
 
 	/**
-	 * Returns {@code n} currently unused program names in {@code programs}. These names are marked as used, for the purposes of GenProgramsARB only, but
-	 * objects are created only when they are first bound using {@link #glBindProgramARB BindProgramARB}.
+	 * Unsafe version of: {@link #glGenProgramsARB GenProgramsARB}
 	 *
-	 * @param n        the number of program names to genereate
-	 * @param programs an array in which to return the generated program names
+	 * @param n the number of program names to genereate
 	 */
 	public static void nglGenProgramsARB(int n, long programs) {
 		long __functionAddress = GL.getCapabilities().glGenProgramsARB;
@@ -1264,13 +1123,7 @@ public class ARBVertexProgram {
 
 	// --- [ glProgramEnvParameter4dvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glProgramEnvParameter4dARB ProgramEnvParameter4dARB}
-	 *
-	 * @param target the program target. One of:<br><table><tr><td>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}</td><td>{@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}</td></tr></table>
-	 * @param index  the environment parameter index
-	 * @param params a buffer from which to read the parameter value
-	 */
+	/** Unsafe version of: {@link #glProgramEnvParameter4dvARB ProgramEnvParameter4dvARB} */
 	public static void nglProgramEnvParameter4dvARB(int target, int index, long params) {
 		long __functionAddress = GL.getCapabilities().glProgramEnvParameter4dvARB;
 		if ( CHECKS )
@@ -1312,13 +1165,7 @@ public class ARBVertexProgram {
 
 	// --- [ glProgramEnvParameter4fvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glProgramEnvParameter4fARB ProgramEnvParameter4fARB}.
-	 *
-	 * @param target the program target. One of:<br><table><tr><td>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}</td><td>{@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}</td></tr></table>
-	 * @param index  the environment parameter index
-	 * @param params a buffer from which to read the parameter value
-	 */
+	/** Unsafe version of: {@link #glProgramEnvParameter4fvARB ProgramEnvParameter4fvARB} */
 	public static void nglProgramEnvParameter4fvARB(int target, int index, long params) {
 		long __functionAddress = GL.getCapabilities().glProgramEnvParameter4fvARB;
 		if ( CHECKS )
@@ -1360,13 +1207,7 @@ public class ARBVertexProgram {
 
 	// --- [ glProgramLocalParameter4dvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glProgramLocalParameter4dARB ProgramLocalParameter4dARB}.
-	 *
-	 * @param target the program target. One of:<br><table><tr><td>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}</td><td>{@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}</td></tr></table>
-	 * @param index  the environment parameter index
-	 * @param params a buffer from which to read the parameter value
-	 */
+	/** Unsafe version of: {@link #glProgramLocalParameter4dvARB ProgramLocalParameter4dvARB} */
 	public static void nglProgramLocalParameter4dvARB(int target, int index, long params) {
 		long __functionAddress = GL.getCapabilities().glProgramLocalParameter4dvARB;
 		if ( CHECKS )
@@ -1408,13 +1249,7 @@ public class ARBVertexProgram {
 
 	// --- [ glProgramLocalParameter4fvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glProgramLocalParameter4fARB ProgramLocalParameter4fARB}.
-	 *
-	 * @param target the program target. One of:<br><table><tr><td>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}</td><td>{@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}</td></tr></table>
-	 * @param index  the environment parameter index
-	 * @param params a buffer from which to read the parameter value
-	 */
+	/** Unsafe version of: {@link #glProgramLocalParameter4fvARB ProgramLocalParameter4fvARB} */
 	public static void nglProgramLocalParameter4fvARB(int target, int index, long params) {
 		long __functionAddress = GL.getCapabilities().glProgramLocalParameter4fvARB;
 		if ( CHECKS )
@@ -1437,14 +1272,7 @@ public class ARBVertexProgram {
 
 	// --- [ glGetProgramEnvParameterfvARB ] ---
 
-	/**
-	 * Obtain the current value for the program environment parameter numbered {@code index} for the specified program target {@code target}, and places the
-	 * information in the array {@code params}.
-	 *
-	 * @param target the program target. One of:<br><table><tr><td>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}</td><td>{@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}</td></tr></table>
-	 * @param index  the environment parameter index
-	 * @param params a buffer in which to place the current parameter value
-	 */
+	/** Unsafe version of: {@link #glGetProgramEnvParameterfvARB GetProgramEnvParameterfvARB} */
 	public static void nglGetProgramEnvParameterfvARB(int target, int index, long params) {
 		long __functionAddress = GL.getCapabilities().glGetProgramEnvParameterfvARB;
 		if ( CHECKS )
@@ -1468,13 +1296,7 @@ public class ARBVertexProgram {
 
 	// --- [ glGetProgramEnvParameterdvARB ] ---
 
-	/**
-	 * Double version of {@link #glGetProgramEnvParameterfvARB GetProgramEnvParameterfvARB}.
-	 *
-	 * @param target the program target. One of:<br><table><tr><td>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}</td><td>{@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}</td></tr></table>
-	 * @param index  the environment parameter index
-	 * @param params a buffer in which to place the current parameter value
-	 */
+	/** Unsafe version of: {@link #glGetProgramEnvParameterdvARB GetProgramEnvParameterdvARB} */
 	public static void nglGetProgramEnvParameterdvARB(int target, int index, long params) {
 		long __functionAddress = GL.getCapabilities().glGetProgramEnvParameterdvARB;
 		if ( CHECKS )
@@ -1497,14 +1319,7 @@ public class ARBVertexProgram {
 
 	// --- [ glGetProgramLocalParameterfvARB ] ---
 
-	/**
-	 * Obtain the current value for the program local parameter numbered {@code index} for the specified program target {@code target}, and places the
-	 * information in the array {@code params}.
-	 *
-	 * @param target the program target. One of:<br><table><tr><td>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}</td><td>{@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}</td></tr></table>
-	 * @param index  the environment parameter index
-	 * @param params a buffer in which to place the current parameter value
-	 */
+	/** Unsafe version of: {@link #glGetProgramLocalParameterfvARB GetProgramLocalParameterfvARB} */
 	public static void nglGetProgramLocalParameterfvARB(int target, int index, long params) {
 		long __functionAddress = GL.getCapabilities().glGetProgramLocalParameterfvARB;
 		if ( CHECKS )
@@ -1528,13 +1343,7 @@ public class ARBVertexProgram {
 
 	// --- [ glGetProgramLocalParameterdvARB ] ---
 
-	/**
-	 * Double version of {@link #glGetProgramLocalParameterfvARB GetProgramLocalParameterfvARB}.
-	 *
-	 * @param target the program target. One of:<br><table><tr><td>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}</td><td>{@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}</td></tr></table>
-	 * @param index  the environment parameter index
-	 * @param params a buffer in which to place the current parameter value
-	 */
+	/** Unsafe version of: {@link #glGetProgramLocalParameterdvARB GetProgramLocalParameterdvARB} */
 	public static void nglGetProgramLocalParameterdvARB(int target, int index, long params) {
 		long __functionAddress = GL.getCapabilities().glGetProgramLocalParameterdvARB;
 		if ( CHECKS )
@@ -1557,14 +1366,7 @@ public class ARBVertexProgram {
 
 	// --- [ glGetProgramivARB ] ---
 
-	/**
-	 * Obtains program state for the program target {@code target}, writing the state into the array given by {@code params}. GetProgramivARB can be used to
-	 * determine the properties of the currently bound program object or implementation limits for {@code target}.
-	 *
-	 * @param target the program target. One of:<br><table><tr><td>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}</td><td>{@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}</td></tr></table>
-	 * @param pname  the parameter to query. One of:<br><table><tr><td>{@link #GL_PROGRAM_LENGTH_ARB PROGRAM_LENGTH_ARB}</td><td>{@link #GL_PROGRAM_FORMAT_ARB PROGRAM_FORMAT_ARB}</td></tr><tr><td>{@link #GL_PROGRAM_BINDING_ARB PROGRAM_BINDING_ARB}</td><td>{@link #GL_PROGRAM_INSTRUCTIONS_ARB PROGRAM_INSTRUCTIONS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_INSTRUCTIONS_ARB MAX_PROGRAM_INSTRUCTIONS_ARB}</td><td>{@link #GL_PROGRAM_NATIVE_INSTRUCTIONS_ARB PROGRAM_NATIVE_INSTRUCTIONS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_NATIVE_INSTRUCTIONS_ARB MAX_PROGRAM_NATIVE_INSTRUCTIONS_ARB}</td><td>{@link #GL_PROGRAM_TEMPORARIES_ARB PROGRAM_TEMPORARIES_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_TEMPORARIES_ARB MAX_PROGRAM_TEMPORARIES_ARB}</td><td>{@link #GL_PROGRAM_NATIVE_TEMPORARIES_ARB PROGRAM_NATIVE_TEMPORARIES_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_NATIVE_TEMPORARIES_ARB MAX_PROGRAM_NATIVE_TEMPORARIES_ARB}</td><td>{@link #GL_PROGRAM_PARAMETERS_ARB PROGRAM_PARAMETERS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_PARAMETERS_ARB MAX_PROGRAM_PARAMETERS_ARB}</td><td>{@link #GL_PROGRAM_NATIVE_PARAMETERS_ARB PROGRAM_NATIVE_PARAMETERS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_NATIVE_PARAMETERS_ARB MAX_PROGRAM_NATIVE_PARAMETERS_ARB}</td><td>{@link #GL_PROGRAM_ATTRIBS_ARB PROGRAM_ATTRIBS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_ATTRIBS_ARB MAX_PROGRAM_ATTRIBS_ARB}</td><td>{@link #GL_PROGRAM_NATIVE_ATTRIBS_ARB PROGRAM_NATIVE_ATTRIBS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_NATIVE_ATTRIBS_ARB MAX_PROGRAM_NATIVE_ATTRIBS_ARB}</td><td>{@link #GL_PROGRAM_ADDRESS_REGISTERS_ARB PROGRAM_ADDRESS_REGISTERS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_ADDRESS_REGISTERS_ARB MAX_PROGRAM_ADDRESS_REGISTERS_ARB}</td><td>{@link #GL_PROGRAM_NATIVE_ADDRESS_REGISTERS_ARB PROGRAM_NATIVE_ADDRESS_REGISTERS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_NATIVE_ADDRESS_REGISTERS_ARB MAX_PROGRAM_NATIVE_ADDRESS_REGISTERS_ARB}</td><td>{@link #GL_MAX_PROGRAM_LOCAL_PARAMETERS_ARB MAX_PROGRAM_LOCAL_PARAMETERS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_ENV_PARAMETERS_ARB MAX_PROGRAM_ENV_PARAMETERS_ARB}</td><td>{@link #GL_PROGRAM_UNDER_NATIVE_LIMITS_ARB PROGRAM_UNDER_NATIVE_LIMITS_ARB}</td></tr></table>
-	 * @param params an array in which to place the parameter value
-	 */
+	/** Unsafe version of: {@link #glGetProgramivARB GetProgramivARB} */
 	public static void nglGetProgramivARB(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetProgramivARB;
 		if ( CHECKS )
@@ -1606,16 +1408,7 @@ public class ARBVertexProgram {
 
 	// --- [ glGetProgramStringARB ] ---
 
-	/**
-	 * Obtains the program string for the program object bound to {@code target} and places the information in the array {@code string}.
-	 * 
-	 * <p>{@code n} ubytes are returned into the array program where {@code n} is the length of the program in ubytes, as returned by {@link #glGetProgramivARB GetProgramivARB} when
-	 * {@code pname} is {@link #GL_PROGRAM_LENGTH_ARB PROGRAM_LENGTH_ARB}. The program string is always returned using the format given when the program string was specified.</p>
-	 *
-	 * @param target the program target. One of:<br><table><tr><td>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}</td><td>{@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}</td></tr></table>
-	 * @param pname  the parameter to query. Must be:<br><table><tr><td>{@link #GL_PROGRAM_STRING_ARB PROGRAM_STRING_ARB}</td></tr></table>
-	 * @param string an array in which to place the program string
-	 */
+	/** Unsafe version of: {@link #glGetProgramStringARB GetProgramStringARB} */
 	public static void nglGetProgramStringARB(int target, int pname, long string) {
 		long __functionAddress = GL.getCapabilities().glGetProgramStringARB;
 		if ( CHECKS )
@@ -1642,14 +1435,7 @@ public class ARBVertexProgram {
 
 	// --- [ glGetVertexAttribfvARB ] ---
 
-	/**
-	 * Obtains the vertex attribute state named by {@code pname} for the vertex attribute numbered {@code index} and places the information in the array
-	 * {@code params}.
-	 *
-	 * @param index  the vertex attribute index
-	 * @param pname  the parameter to query. Must be:<br><table><tr><td>{@link #GL_CURRENT_VERTEX_ATTRIB_ARB CURRENT_VERTEX_ATTRIB_ARB}</td></tr></table>
-	 * @param params an array in which to place the parameter value
-	 */
+	/** Unsafe version of: {@link #glGetVertexAttribfvARB GetVertexAttribfvARB} */
 	public static void nglGetVertexAttribfvARB(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribfvARB;
 		if ( CHECKS )
@@ -1673,13 +1459,7 @@ public class ARBVertexProgram {
 
 	// --- [ glGetVertexAttribdvARB ] ---
 
-	/**
-	 * Double version of {@link #glGetVertexAttribfvARB GetVertexAttribfvARB}.
-	 *
-	 * @param index  the vertex attribute index
-	 * @param pname  the parameter to query. Must be:<br><table><tr><td>{@link #GL_CURRENT_VERTEX_ATTRIB_ARB CURRENT_VERTEX_ATTRIB_ARB}</td></tr></table>
-	 * @param params an array in which to place the parameter value
-	 */
+	/** Unsafe version of: {@link #glGetVertexAttribdvARB GetVertexAttribdvARB} */
 	public static void nglGetVertexAttribdvARB(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribdvARB;
 		if ( CHECKS )
@@ -1702,13 +1482,7 @@ public class ARBVertexProgram {
 
 	// --- [ glGetVertexAttribivARB ] ---
 
-	/**
-	 * Integer version of {@link #glGetVertexAttribfvARB GetVertexAttribfvARB}.
-	 *
-	 * @param index  the vertex attribute index
-	 * @param pname  the parameter to query. One of:<br><table><tr><td>{@link #GL_VERTEX_ATTRIB_ARRAY_ENABLED_ARB VERTEX_ATTRIB_ARRAY_ENABLED_ARB}</td><td>{@link #GL_VERTEX_ATTRIB_ARRAY_SIZE_ARB VERTEX_ATTRIB_ARRAY_SIZE_ARB}</td></tr><tr><td>{@link #GL_VERTEX_ATTRIB_ARRAY_STRIDE_ARB VERTEX_ATTRIB_ARRAY_STRIDE_ARB}</td><td>{@link #GL_VERTEX_ATTRIB_ARRAY_TYPE_ARB VERTEX_ATTRIB_ARRAY_TYPE_ARB}</td></tr><tr><td>{@link #GL_VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB}</td><td>{@link #GL_CURRENT_VERTEX_ATTRIB_ARB CURRENT_VERTEX_ATTRIB_ARB}</td></tr></table>
-	 * @param params an array in which to place the parameter value
-	 */
+	/** Unsafe version of: {@link #glGetVertexAttribivARB GetVertexAttribivARB} */
 	public static void nglGetVertexAttribivARB(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribivARB;
 		if ( CHECKS )
@@ -1748,13 +1522,7 @@ public class ARBVertexProgram {
 
 	// --- [ glGetVertexAttribPointervARB ] ---
 
-	/**
-	 * Obtains the pointer named {@code pname} for vertex attribute numbered {@code index} and places the information in the array {@code pointer}.
-	 *
-	 * @param index   the vertex attribute index
-	 * @param pname   the parameter to query. Must be:<br><table><tr><td>{@link #GL_VERTEX_ATTRIB_ARRAY_POINTER_ARB VERTEX_ATTRIB_ARRAY_POINTER_ARB}</td></tr></table>
-	 * @param pointer an array in which to place the vertex attribute array pointer
-	 */
+	/** Unsafe version of: {@link #glGetVertexAttribPointervARB GetVertexAttribPointervARB} */
 	public static void nglGetVertexAttribPointervARB(int index, int pname, long pointer) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribPointervARB;
 		if ( CHECKS )

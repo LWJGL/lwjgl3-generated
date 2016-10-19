@@ -200,19 +200,7 @@ public class NanoVG {
 
 	// --- [ nvgBeginFrame ] ---
 
-	/**
-	 * Begins drawing a new frame.
-	 * 
-	 * <p>Calls to nanovg drawing API should be wrapped in {@link #nvgBeginFrame BeginFrame} &amp; {@link #nvgEndFrame EndFrame}. {@link #nvgBeginFrame BeginFrame} defines the size of the window to render to in relation
-	 * currently set viewport (i.e. {@code glViewport} on GL backends). Device pixel ration allows to control the rendering on Hi-DPI devices. For example,
-	 * GLFW returns two dimension for an opened window: window size and frame buffer size. In that case you would set {@code windowWidth/Height} to the window
-	 * size {@code devicePixelRatio} to: {@code frameBufferWidth / windowWidth}.</p>
-	 *
-	 * @param ctx              the NanoVG context
-	 * @param windowWidth      the window width
-	 * @param windowHeight     the window height
-	 * @param devicePixelRatio the device pixel ratio
-	 */
+	/** Unsafe version of: {@link #nvgBeginFrame BeginFrame} */
 	public static native void nnvgBeginFrame(long ctx, int windowWidth, int windowHeight, float devicePixelRatio);
 
 	/**
@@ -236,11 +224,7 @@ public class NanoVG {
 
 	// --- [ nvgCancelFrame ] ---
 
-	/**
-	 * Cancels drawing the current frame.
-	 *
-	 * @param ctx the NanoVG context
-	 */
+	/** Unsafe version of: {@link #nvgCancelFrame CancelFrame} */
 	public static native void nnvgCancelFrame(long ctx);
 
 	/**
@@ -256,11 +240,7 @@ public class NanoVG {
 
 	// --- [ nvgEndFrame ] ---
 
-	/**
-	 * Ends drawing flushing remaining render state.
-	 *
-	 * @param ctx the NanoVG context
-	 */
+	/** Unsafe version of: {@link #nvgEndFrame EndFrame} */
 	public static native void nnvgEndFrame(long ctx);
 
 	/**
@@ -276,12 +256,7 @@ public class NanoVG {
 
 	// --- [ nvgGlobalCompositeOperation ] ---
 
-	/**
-	 * Sets the composite operation.
-	 *
-	 * @param ctx the NanoVG context
-	 * @param op  the composite operation. One of:<br><table><tr><td>{@link #NVG_SOURCE_OVER SOURCE_OVER}</td><td>{@link #NVG_SOURCE_IN SOURCE_IN}</td><td>{@link #NVG_SOURCE_OUT SOURCE_OUT}</td><td>{@link #NVG_ATOP ATOP}</td><td>{@link #NVG_DESTINATION_OVER DESTINATION_OVER}</td><td>{@link #NVG_DESTINATION_IN DESTINATION_IN}</td><td>{@link #NVG_DESTINATION_OUT DESTINATION_OUT}</td><td>{@link #NVG_DESTINATION_ATOP DESTINATION_ATOP}</td></tr><tr><td>{@link #NVG_LIGHTER LIGHTER}</td><td>{@link #NVG_COPY COPY}</td><td>{@link #NVG_XOR XOR}</td></tr></table>
-	 */
+	/** Unsafe version of: {@link #nvgGlobalCompositeOperation GlobalCompositeOperation} */
 	public static native void nnvgGlobalCompositeOperation(long ctx, int op);
 
 	/**
@@ -298,13 +273,7 @@ public class NanoVG {
 
 	// --- [ nvgGlobalCompositeBlendFunc ] ---
 
-	/**
-	 * Sets the composite operation with custom pixel arithmetic.
-	 *
-	 * @param ctx     the NanoVG context
-	 * @param sfactor the source blend factor. One of:<br><table><tr><td>{@link #NVG_ZERO ZERO}</td><td>{@link #NVG_ONE ONE}</td><td>{@link #NVG_SRC_COLOR SRC_COLOR}</td><td>{@link #NVG_ONE_MINUS_SRC_COLOR ONE_MINUS_SRC_COLOR}</td><td>{@link #NVG_DST_COLOR DST_COLOR}</td><td>{@link #NVG_ONE_MINUS_DST_COLOR ONE_MINUS_DST_COLOR}</td></tr><tr><td>{@link #NVG_SRC_ALPHA SRC_ALPHA}</td><td>{@link #NVG_ONE_MINUS_SRC_ALPHA ONE_MINUS_SRC_ALPHA}</td><td>{@link #NVG_DST_ALPHA DST_ALPHA}</td><td>{@link #NVG_ONE_MINUS_DST_ALPHA ONE_MINUS_DST_ALPHA}</td><td>{@link #NVG_SRC_ALPHA_SATURATE SRC_ALPHA_SATURATE}</td></tr></table>
-	 * @param dfactor the destination blend factor. One of:<br><table><tr><td>{@link #NVG_ZERO ZERO}</td><td>{@link #NVG_ONE ONE}</td><td>{@link #NVG_SRC_COLOR SRC_COLOR}</td><td>{@link #NVG_ONE_MINUS_SRC_COLOR ONE_MINUS_SRC_COLOR}</td><td>{@link #NVG_DST_COLOR DST_COLOR}</td><td>{@link #NVG_ONE_MINUS_DST_COLOR ONE_MINUS_DST_COLOR}</td></tr><tr><td>{@link #NVG_SRC_ALPHA SRC_ALPHA}</td><td>{@link #NVG_ONE_MINUS_SRC_ALPHA ONE_MINUS_SRC_ALPHA}</td><td>{@link #NVG_DST_ALPHA DST_ALPHA}</td><td>{@link #NVG_ONE_MINUS_DST_ALPHA ONE_MINUS_DST_ALPHA}</td><td>{@link #NVG_SRC_ALPHA_SATURATE SRC_ALPHA_SATURATE}</td></tr></table>
-	 */
+	/** Unsafe version of: {@link #nvgGlobalCompositeBlendFunc GlobalCompositeBlendFunc} */
 	public static native void nnvgGlobalCompositeBlendFunc(long ctx, int sfactor, int dfactor);
 
 	/**
@@ -322,15 +291,7 @@ public class NanoVG {
 
 	// --- [ nvgGlobalCompositeBlendFuncSeparate ] ---
 
-	/**
-	 * Sets the composite operation with custom pixel arithmetic for RGB and alpha components separately.
-	 *
-	 * @param ctx      the NanoVG context
-	 * @param srcRGB   the source RGB blend factor. One of:<br><table><tr><td>{@link #NVG_ZERO ZERO}</td><td>{@link #NVG_ONE ONE}</td><td>{@link #NVG_SRC_COLOR SRC_COLOR}</td><td>{@link #NVG_ONE_MINUS_SRC_COLOR ONE_MINUS_SRC_COLOR}</td><td>{@link #NVG_DST_COLOR DST_COLOR}</td><td>{@link #NVG_ONE_MINUS_DST_COLOR ONE_MINUS_DST_COLOR}</td></tr><tr><td>{@link #NVG_SRC_ALPHA SRC_ALPHA}</td><td>{@link #NVG_ONE_MINUS_SRC_ALPHA ONE_MINUS_SRC_ALPHA}</td><td>{@link #NVG_DST_ALPHA DST_ALPHA}</td><td>{@link #NVG_ONE_MINUS_DST_ALPHA ONE_MINUS_DST_ALPHA}</td><td>{@link #NVG_SRC_ALPHA_SATURATE SRC_ALPHA_SATURATE}</td></tr></table>
-	 * @param dstRGB   the destination RGB blend factor. One of:<br><table><tr><td>{@link #NVG_ZERO ZERO}</td><td>{@link #NVG_ONE ONE}</td><td>{@link #NVG_SRC_COLOR SRC_COLOR}</td><td>{@link #NVG_ONE_MINUS_SRC_COLOR ONE_MINUS_SRC_COLOR}</td><td>{@link #NVG_DST_COLOR DST_COLOR}</td><td>{@link #NVG_ONE_MINUS_DST_COLOR ONE_MINUS_DST_COLOR}</td></tr><tr><td>{@link #NVG_SRC_ALPHA SRC_ALPHA}</td><td>{@link #NVG_ONE_MINUS_SRC_ALPHA ONE_MINUS_SRC_ALPHA}</td><td>{@link #NVG_DST_ALPHA DST_ALPHA}</td><td>{@link #NVG_ONE_MINUS_DST_ALPHA ONE_MINUS_DST_ALPHA}</td><td>{@link #NVG_SRC_ALPHA_SATURATE SRC_ALPHA_SATURATE}</td></tr></table>
-	 * @param srcAlpha the source alpha blend factor. One of:<br><table><tr><td>{@link #NVG_ZERO ZERO}</td><td>{@link #NVG_ONE ONE}</td><td>{@link #NVG_SRC_COLOR SRC_COLOR}</td><td>{@link #NVG_ONE_MINUS_SRC_COLOR ONE_MINUS_SRC_COLOR}</td><td>{@link #NVG_DST_COLOR DST_COLOR}</td><td>{@link #NVG_ONE_MINUS_DST_COLOR ONE_MINUS_DST_COLOR}</td></tr><tr><td>{@link #NVG_SRC_ALPHA SRC_ALPHA}</td><td>{@link #NVG_ONE_MINUS_SRC_ALPHA ONE_MINUS_SRC_ALPHA}</td><td>{@link #NVG_DST_ALPHA DST_ALPHA}</td><td>{@link #NVG_ONE_MINUS_DST_ALPHA ONE_MINUS_DST_ALPHA}</td><td>{@link #NVG_SRC_ALPHA_SATURATE SRC_ALPHA_SATURATE}</td></tr></table>
-	 * @param dstAlpha the destination alpha blend factor. One of:<br><table><tr><td>{@link #NVG_ZERO ZERO}</td><td>{@link #NVG_ONE ONE}</td><td>{@link #NVG_SRC_COLOR SRC_COLOR}</td><td>{@link #NVG_ONE_MINUS_SRC_COLOR ONE_MINUS_SRC_COLOR}</td><td>{@link #NVG_DST_COLOR DST_COLOR}</td><td>{@link #NVG_ONE_MINUS_DST_COLOR ONE_MINUS_DST_COLOR}</td></tr><tr><td>{@link #NVG_SRC_ALPHA SRC_ALPHA}</td><td>{@link #NVG_ONE_MINUS_SRC_ALPHA ONE_MINUS_SRC_ALPHA}</td><td>{@link #NVG_DST_ALPHA DST_ALPHA}</td><td>{@link #NVG_ONE_MINUS_DST_ALPHA ONE_MINUS_DST_ALPHA}</td><td>{@link #NVG_SRC_ALPHA_SATURATE SRC_ALPHA_SATURATE}</td></tr></table>
-	 */
+	/** Unsafe version of: {@link #nvgGlobalCompositeBlendFuncSeparate GlobalCompositeBlendFuncSeparate} */
 	public static native void nnvgGlobalCompositeBlendFuncSeparate(long ctx, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
 
 	/**
@@ -350,13 +311,7 @@ public class NanoVG {
 
 	// --- [ nvgRGB ] ---
 
-	/**
-	 * Returns a color value from red, green, blue values. Alpha will be set to 255 (1.0f).
-	 *
-	 * @param r the red value
-	 * @param g the green value
-	 * @param b the blue value
-	 */
+	/** Unsafe version of: {@link #nvgRGB RGB} */
 	public static native void nnvgRGB(byte r, byte g, byte b, long __result);
 
 	/**
@@ -373,13 +328,7 @@ public class NanoVG {
 
 	// --- [ nvgRGBf ] ---
 
-	/**
-	 * Returns a color value from red, green, blue values. Alpha will be set to 1.0f.
-	 *
-	 * @param r the red value
-	 * @param g the green value
-	 * @param b the blue value
-	 */
+	/** Unsafe version of: {@link #nvgRGBf RGBf} */
 	public static native void nnvgRGBf(float r, float g, float b, long __result);
 
 	/**
@@ -396,14 +345,7 @@ public class NanoVG {
 
 	// --- [ nvgRGBA ] ---
 
-	/**
-	 * Returns a color value from red, green, blue and alpha values.
-	 *
-	 * @param r the red value
-	 * @param g the green value
-	 * @param b the blue value
-	 * @param a the alpha value
-	 */
+	/** Unsafe version of: {@link #nvgRGBA RGBA} */
 	public static native void nnvgRGBA(byte r, byte g, byte b, byte a, long __result);
 
 	/**
@@ -421,14 +363,7 @@ public class NanoVG {
 
 	// --- [ nvgRGBAf ] ---
 
-	/**
-	 * Returns a color value from red, green, blue and alpha values.
-	 *
-	 * @param r the red value
-	 * @param g the green value
-	 * @param b the blue value
-	 * @param a the alpha value
-	 */
+	/** Unsafe version of: {@link #nvgRGBAf RGBAf} */
 	public static native void nnvgRGBAf(float r, float g, float b, float a, long __result);
 
 	/**
@@ -446,13 +381,7 @@ public class NanoVG {
 
 	// --- [ nvgLerpRGBA ] ---
 
-	/**
-	 * Linearly interpolates from color {@code c0} to {@code c1}, and returns resulting color value.
-	 *
-	 * @param c0 the first color
-	 * @param c1 the second color
-	 * @param u  the interpolation factor
-	 */
+	/** Unsafe version of: {@link #nvgLerpRGBA LerpRGBA} */
 	public static native void nnvgLerpRGBA(long c0, long c1, float u, long __result);
 
 	/**
@@ -469,12 +398,7 @@ public class NanoVG {
 
 	// --- [ nvgTransRGBA ] ---
 
-	/**
-	 * Sets transparency of a color value.
-	 *
-	 * @param c0 the color
-	 * @param a  the alpha value
-	 */
+	/** Unsafe version of: {@link #nvgTransRGBA TransRGBA} */
 	public static native void nnvgTransRGBA(long c0, byte a, long __result);
 
 	/**
@@ -490,12 +414,7 @@ public class NanoVG {
 
 	// --- [ nvgTransRGBAf ] ---
 
-	/**
-	 * Sets transparency of a color value.
-	 *
-	 * @param c0 the color
-	 * @param a  the alpha value
-	 */
+	/** Unsafe version of: {@link #nvgTransRGBAf TransRGBAf} */
 	public static native void nnvgTransRGBAf(long c0, float a, long __result);
 
 	/**
@@ -511,15 +430,7 @@ public class NanoVG {
 
 	// --- [ nvgHSL ] ---
 
-	/**
-	 * Returns color value specified by hue, saturation and lightness.
-	 * 
-	 * <p>HSL values are all in range {@code [0..1]}, alpha will be set to 255.</p>
-	 *
-	 * @param h the hue value
-	 * @param s the saturation value
-	 * @param l the lightness value
-	 */
+	/** Unsafe version of: {@link #nvgHSL HSL} */
 	public static native void nnvgHSL(float h, float s, float l, long __result);
 
 	/**
@@ -538,16 +449,7 @@ public class NanoVG {
 
 	// --- [ nvgHSLA ] ---
 
-	/**
-	 * Returns color value specified by hue, saturation and lightness and alpha.
-	 * 
-	 * <p>HSL values are all in range {@code [0..1]}, alpha in range {@code [0..255]}</p>
-	 *
-	 * @param h the hue value
-	 * @param s the saturation value
-	 * @param l the lightness value
-	 * @param a the alpha value
-	 */
+	/** Unsafe version of: {@link #nvgHSLA HSLA} */
 	public static native void nnvgHSLA(float h, float s, float l, byte a, long __result);
 
 	/**
@@ -567,11 +469,7 @@ public class NanoVG {
 
 	// --- [ nvgSave ] ---
 
-	/**
-	 * Pushes and saves the current render state into a state stack. A matching {@link #nvgRestore Restore} must be used to restore the state.
-	 *
-	 * @param ctx the NanoVG context
-	 */
+	/** Unsafe version of: {@link #nvgSave Save} */
 	public static native void nnvgSave(long ctx);
 
 	/**
@@ -587,11 +485,7 @@ public class NanoVG {
 
 	// --- [ nvgRestore ] ---
 
-	/**
-	 * Pops and restores current render state.
-	 *
-	 * @param ctx the NanoVG context
-	 */
+	/** Unsafe version of: {@link #nvgRestore Restore} */
 	public static native void nnvgRestore(long ctx);
 
 	/**
@@ -607,11 +501,7 @@ public class NanoVG {
 
 	// --- [ nvgReset ] ---
 
-	/**
-	 * Resets current render state to default values. Does not affect the render state stack.
-	 *
-	 * @param ctx the NanoVG context
-	 */
+	/** Unsafe version of: {@link #nvgReset Reset} */
 	public static native void nnvgReset(long ctx);
 
 	/**
@@ -627,12 +517,7 @@ public class NanoVG {
 
 	// --- [ nvgStrokeColor ] ---
 
-	/**
-	 * Sets current stroke style to a solid color.
-	 *
-	 * @param ctx   the NanoVG context
-	 * @param color the color to set
-	 */
+	/** Unsafe version of: {@link #nvgStrokeColor StrokeColor} */
 	public static native void nnvgStrokeColor(long ctx, long color);
 
 	/**
@@ -649,12 +534,7 @@ public class NanoVG {
 
 	// --- [ nvgStrokePaint ] ---
 
-	/**
-	 * Sets current stroke style to a paint, which can be a one of the gradients or a pattern.
-	 *
-	 * @param ctx   the NanoVG context
-	 * @param paint the paint to set
-	 */
+	/** Unsafe version of: {@link #nvgStrokePaint StrokePaint} */
 	public static native void nnvgStrokePaint(long ctx, long paint);
 
 	/**
@@ -671,12 +551,7 @@ public class NanoVG {
 
 	// --- [ nvgFillColor ] ---
 
-	/**
-	 * Sets current fill style to a solid color.
-	 *
-	 * @param ctx   the NanoVG context
-	 * @param color the color to set
-	 */
+	/** Unsafe version of: {@link #nvgFillColor FillColor} */
 	public static native void nnvgFillColor(long ctx, long color);
 
 	/**
@@ -693,12 +568,7 @@ public class NanoVG {
 
 	// --- [ nvgFillPaint ] ---
 
-	/**
-	 * Sets current fill style to a paint, which can be a one of the gradients or a pattern.
-	 *
-	 * @param ctx   the NanoVG context
-	 * @param paint the paint to set
-	 */
+	/** Unsafe version of: {@link #nvgFillPaint FillPaint} */
 	public static native void nnvgFillPaint(long ctx, long paint);
 
 	/**
@@ -715,12 +585,7 @@ public class NanoVG {
 
 	// --- [ nvgMiterLimit ] ---
 
-	/**
-	 * Sets the miter limit of the stroke style. Miter limit controls when a sharp corner is beveled.
-	 *
-	 * @param ctx   the NanoVG context
-	 * @param limit the miter limit to set
-	 */
+	/** Unsafe version of: {@link #nvgMiterLimit MiterLimit} */
 	public static native void nnvgMiterLimit(long ctx, float limit);
 
 	/**
@@ -737,12 +602,7 @@ public class NanoVG {
 
 	// --- [ nvgStrokeWidth ] ---
 
-	/**
-	 * Sets the stroke width of the stroke style.
-	 *
-	 * @param ctx  the NanoVG context
-	 * @param size the stroke width to set
-	 */
+	/** Unsafe version of: {@link #nvgStrokeWidth StrokeWidth} */
 	public static native void nnvgStrokeWidth(long ctx, float size);
 
 	/**
@@ -759,14 +619,7 @@ public class NanoVG {
 
 	// --- [ nvgLineCap ] ---
 
-	/**
-	 * Sets how the end of the line (cap) is drawn.
-	 * 
-	 * <p>The default line cap is {@link #NVG_BUTT BUTT}.</p>
-	 *
-	 * @param ctx the NanoVG context
-	 * @param cap the line cap to set. One of:<br><table><tr><td>{@link #NVG_BUTT BUTT}</td><td>{@link #NVG_ROUND ROUND}</td><td>{@link #NVG_SQUARE SQUARE}</td></tr></table>
-	 */
+	/** Unsafe version of: {@link #nvgLineCap LineCap} */
 	public static native void nnvgLineCap(long ctx, int cap);
 
 	/**
@@ -785,14 +638,7 @@ public class NanoVG {
 
 	// --- [ nvgLineJoin ] ---
 
-	/**
-	 * Sets how sharp path corners are drawn.
-	 * 
-	 * <p>The default line join is {@link #NVG_MITER MITER}.</p>
-	 *
-	 * @param ctx  the NanoVG context
-	 * @param join the line join to set. One of:<br><table><tr><td>{@link #NVG_MITER MITER}</td><td>{@link #NVG_ROUND ROUND}</td><td>{@link #NVG_BEVEL BEVEL}</td></tr></table>
-	 */
+	/** Unsafe version of: {@link #nvgLineJoin LineJoin} */
 	public static native void nnvgLineJoin(long ctx, int join);
 
 	/**
@@ -811,14 +657,7 @@ public class NanoVG {
 
 	// --- [ nvgGlobalAlpha ] ---
 
-	/**
-	 * Sets the transparency applied to all rendered shapes.
-	 * 
-	 * <p>Already transparent paths will get proportionally more transparent as well.</p>
-	 *
-	 * @param ctx   the NanoVG context
-	 * @param alpha the alpha value to set
-	 */
+	/** Unsafe version of: {@link #nvgGlobalAlpha GlobalAlpha} */
 	public static native void nnvgGlobalAlpha(long ctx, float alpha);
 
 	/**
@@ -837,11 +676,7 @@ public class NanoVG {
 
 	// --- [ nvgResetTransform ] ---
 
-	/**
-	 * Resets current transform to an identity matrix.
-	 *
-	 * @param ctx the NanoVG context
-	 */
+	/** Unsafe version of: {@link #nvgResetTransform ResetTransform} */
 	public static native void nnvgResetTransform(long ctx);
 
 	/**
@@ -857,21 +692,7 @@ public class NanoVG {
 
 	// --- [ nvgTransform ] ---
 
-	/**
-	 * Premultiplies current coordinate system by specified matrix. The parameters are interpreted as matrix as follows:
-	 * 
-	 * <pre><code>[a c e]
-[b d f]
-[0 0 1]</code></pre>
-	 *
-	 * @param ctx the NanoVG context
-	 * @param a   the a value
-	 * @param b   the b value
-	 * @param c   the c value
-	 * @param d   the d value
-	 * @param e   the e value
-	 * @param f   the f value
-	 */
+	/** Unsafe version of: {@link #nvgTransform Transform} */
 	public static native void nnvgTransform(long ctx, float a, float b, float c, float d, float e, float f);
 
 	/**
@@ -897,13 +718,7 @@ public class NanoVG {
 
 	// --- [ nvgTranslate ] ---
 
-	/**
-	 * Translates current coordinate system.
-	 *
-	 * @param ctx the NanoVG context
-	 * @param x   the X axis translation amount
-	 * @param y   the Y axis translation amount
-	 */
+	/** Unsafe version of: {@link #nvgTranslate Translate} */
 	public static native void nnvgTranslate(long ctx, float x, float y);
 
 	/**
@@ -921,12 +736,7 @@ public class NanoVG {
 
 	// --- [ nvgRotate ] ---
 
-	/**
-	 * Rotates current coordinate system.
-	 *
-	 * @param ctx   the NanoVG context
-	 * @param angle the rotation angle, in radians
-	 */
+	/** Unsafe version of: {@link #nvgRotate Rotate} */
 	public static native void nnvgRotate(long ctx, float angle);
 
 	/**
@@ -943,12 +753,7 @@ public class NanoVG {
 
 	// --- [ nvgSkewX ] ---
 
-	/**
-	 * Skews the current coordinate system along X axis.
-	 *
-	 * @param ctx   the NanoVG context
-	 * @param angle the skew angle, in radians
-	 */
+	/** Unsafe version of: {@link #nvgSkewX SkewX} */
 	public static native void nnvgSkewX(long ctx, float angle);
 
 	/**
@@ -965,12 +770,7 @@ public class NanoVG {
 
 	// --- [ nvgSkewY ] ---
 
-	/**
-	 * Skews the current coordinate system along Y axis.
-	 *
-	 * @param ctx   the NanoVG context
-	 * @param angle the skew angle, in radians
-	 */
+	/** Unsafe version of: {@link #nvgSkewY SkewY} */
 	public static native void nnvgSkewY(long ctx, float angle);
 
 	/**
@@ -987,13 +787,7 @@ public class NanoVG {
 
 	// --- [ nvgScale ] ---
 
-	/**
-	 * Scales the current coordinate system.
-	 *
-	 * @param ctx the NanoVG context
-	 * @param x   the X axis scale factor
-	 * @param y   the Y axis scale factor
-	 */
+	/** Unsafe version of: {@link #nvgScale Scale} */
 	public static native void nnvgScale(long ctx, float x, float y);
 
 	/**
@@ -1011,18 +805,7 @@ public class NanoVG {
 
 	// --- [ nvgCurrentTransform ] ---
 
-	/**
-	 * Stores the top part (a-f) of the current transformation matrix in to the specified buffer.
-	 * 
-	 * <pre><code>[a c e]
-[b d f]
-[0 0 1]</code></pre>
-	 * 
-	 * <p>There should be space for 6 floats in the return buffer for the values {@code a-f}.</p>
-	 *
-	 * @param ctx   the NanoVG context
-	 * @param xform the destination buffer
-	 */
+	/** Unsafe version of: {@link #nvgCurrentTransform CurrentTransform} */
 	public static native void nnvgCurrentTransform(long ctx, long xform);
 
 	/**
@@ -1047,11 +830,7 @@ public class NanoVG {
 
 	// --- [ nvgTransformIdentity ] ---
 
-	/**
-	 * Sets the transform to identity matrix.
-	 *
-	 * @param dst the destination buffer
-	 */
+	/** Unsafe version of: {@link #nvgTransformIdentity TransformIdentity} */
 	public static native void nnvgTransformIdentity(long dst);
 
 	/**
@@ -1067,13 +846,7 @@ public class NanoVG {
 
 	// --- [ nvgTransformTranslate ] ---
 
-	/**
-	 * Sets the transform to translation matrix matrix.
-	 *
-	 * @param dst the destination buffer
-	 * @param tx  the X axis translation amount
-	 * @param ty  the Y axis translation amount
-	 */
+	/** Unsafe version of: {@link #nvgTransformTranslate TransformTranslate} */
 	public static native void nnvgTransformTranslate(long dst, float tx, float ty);
 
 	/**
@@ -1091,13 +864,7 @@ public class NanoVG {
 
 	// --- [ nvgTransformScale ] ---
 
-	/**
-	 * Sets the transform to scale matrix.
-	 *
-	 * @param dst the destination buffer
-	 * @param sx  the X axis scale factor
-	 * @param sy  the Y axis scale factor
-	 */
+	/** Unsafe version of: {@link #nvgTransformScale TransformScale} */
 	public static native void nnvgTransformScale(long dst, float sx, float sy);
 
 	/**
@@ -1115,12 +882,7 @@ public class NanoVG {
 
 	// --- [ nvgTransformRotate ] ---
 
-	/**
-	 * Sets the transform to rotate matrix.
-	 *
-	 * @param dst the destination buffer
-	 * @param a   the rotation angle, in radians
-	 */
+	/** Unsafe version of: {@link #nvgTransformRotate TransformRotate} */
 	public static native void nnvgTransformRotate(long dst, float a);
 
 	/**
@@ -1137,12 +899,7 @@ public class NanoVG {
 
 	// --- [ nvgTransformSkewX ] ---
 
-	/**
-	 * Sets the transform to skew-x matrix.
-	 *
-	 * @param dst the destination buffer
-	 * @param a   the skew angle, in radians
-	 */
+	/** Unsafe version of: {@link #nvgTransformSkewX TransformSkewX} */
 	public static native void nnvgTransformSkewX(long dst, float a);
 
 	/**
@@ -1159,12 +916,7 @@ public class NanoVG {
 
 	// --- [ nvgTransformSkewY ] ---
 
-	/**
-	 * Sets the transform to skew-y matrix.
-	 *
-	 * @param dst the destination buffer
-	 * @param a   the skew angle, in radians
-	 */
+	/** Unsafe version of: {@link #nvgTransformSkewY TransformSkewY} */
 	public static native void nnvgTransformSkewY(long dst, float a);
 
 	/**
@@ -1181,12 +933,7 @@ public class NanoVG {
 
 	// --- [ nvgTransformMultiply ] ---
 
-	/**
-	 * Sets the transform to the result of multiplication of two transforms, of {@code A = A*B}.
-	 *
-	 * @param dst the destination buffer
-	 * @param src the {@code B} transformation matrix
-	 */
+	/** Unsafe version of: {@link #nvgTransformMultiply TransformMultiply} */
 	public static native void nnvgTransformMultiply(long dst, long src);
 
 	/**
@@ -1205,12 +952,7 @@ public class NanoVG {
 
 	// --- [ nvgTransformPremultiply ] ---
 
-	/**
-	 * Sets the transform to the result of multiplication of two transforms, of {@code A = B*A}.
-	 *
-	 * @param dst the destination buffer
-	 * @param src the {@code B} transformation matrix
-	 */
+	/** Unsafe version of: {@link #nvgTransformPremultiply TransformPremultiply} */
 	public static native void nnvgTransformPremultiply(long dst, long src);
 
 	/**
@@ -1229,14 +971,7 @@ public class NanoVG {
 
 	// --- [ nvgTransformInverse ] ---
 
-	/**
-	 * Sets the destination to inverse of specified transform.
-	 *
-	 * @param dst the destination buffer
-	 * @param src the transformation matrix to inverse
-	 *
-	 * @return 1 if the inverse could be calculated, else 0
-	 */
+	/** Unsafe version of: {@link #nvgTransformInverse TransformInverse} */
 	public static native int nnvgTransformInverse(long dst, long src);
 
 	/**
@@ -1257,15 +992,7 @@ public class NanoVG {
 
 	// --- [ nvgTransformPoint ] ---
 
-	/**
-	 * Transform a point by given transform.
-	 *
-	 * @param dstx  returns the transformed X axis coordinate
-	 * @param dsty  returns the transformed Y axis coordinate
-	 * @param xform the transformation matrix
-	 * @param srcx  the point X axis coordinate
-	 * @param srcy  the point Y axis coordinate
-	 */
+	/** Unsafe version of: {@link #nvgTransformPoint TransformPoint} */
 	public static native void nnvgTransformPoint(long dstx, long dsty, long xform, float srcx, float srcy);
 
 	/**
@@ -1306,15 +1033,7 @@ public class NanoVG {
 
 	// --- [ nvgCreateImage ] ---
 
-	/**
-	 * Creates image by loading it from the disk from specified file name.
-	 *
-	 * @param ctx        the NanoVG context
-	 * @param filename   the image file name
-	 * @param imageFlags the image flags. One of:<br><table><tr><td>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}</td><td>{@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}</td><td>{@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}</td><td>{@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}</td><td>{@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}</td></tr></table>
-	 *
-	 * @return a handle to the image
-	 */
+	/** Unsafe version of: {@link #nvgCreateImage CreateImage} */
 	public static native int nnvgCreateImage(long ctx, long filename, int imageFlags);
 
 	/**
@@ -1358,14 +1077,9 @@ public class NanoVG {
 	// --- [ nvgCreateImageMem ] ---
 
 	/**
-	 * Creates image by loading it from the specified chunk of memory.
+	 * Unsafe version of: {@link #nvgCreateImageMem CreateImageMem}
 	 *
-	 * @param ctx        the NanoVG context
-	 * @param imageFlags the image flags. One of:<br><table><tr><td>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}</td><td>{@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}</td><td>{@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}</td><td>{@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}</td><td>{@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}</td></tr></table>
-	 * @param data       the image data
-	 * @param ndata      the image data size, in bytes
-	 *
-	 * @return a handle to the image
+	 * @param ndata the image data size, in bytes
 	 */
 	public static native int nnvgCreateImageMem(long ctx, int imageFlags, long data, int ndata);
 
@@ -1386,17 +1100,7 @@ public class NanoVG {
 
 	// --- [ nvgCreateImageRGBA ] ---
 
-	/**
-	 * Creates image from specified image data.
-	 *
-	 * @param ctx        the NanoVG context
-	 * @param w          the image width
-	 * @param h          the image height
-	 * @param imageFlags the image flags. One of:<br><table><tr><td>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS}</td><td>{@link #NVG_IMAGE_REPEATX IMAGE_REPEATX}</td><td>{@link #NVG_IMAGE_REPEATY IMAGE_REPEATY}</td><td>{@link #NVG_IMAGE_FLIPY IMAGE_FLIPY}</td><td>{@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED}</td></tr></table>
-	 * @param data       the image data
-	 *
-	 * @return a handle to the image
-	 */
+	/** Unsafe version of: {@link #nvgCreateImageRGBA CreateImageRGBA} */
 	public static native int nnvgCreateImageRGBA(long ctx, int w, int h, int imageFlags, long data);
 
 	/**
@@ -1420,13 +1124,7 @@ public class NanoVG {
 
 	// --- [ nvgUpdateImage ] ---
 
-	/**
-	 * Updates image data specified by image handle.
-	 *
-	 * @param ctx   the NanoVG context
-	 * @param image the image handle
-	 * @param data  the image data
-	 */
+	/** Unsafe version of: {@link #nvgUpdateImage UpdateImage} */
 	public static native void nnvgUpdateImage(long ctx, int image, long data);
 
 	/**
@@ -1444,14 +1142,7 @@ public class NanoVG {
 
 	// --- [ nvgImageSize ] ---
 
-	/**
-	 * Returns the dimensions of a created image.
-	 *
-	 * @param ctx   the NanoVG context
-	 * @param image the image handle
-	 * @param w     returns the image width
-	 * @param h     returns the image height
-	 */
+	/** Unsafe version of: {@link #nvgImageSize ImageSize} */
 	public static native void nnvgImageSize(long ctx, int image, long w, long h);
 
 	/**
@@ -1473,12 +1164,7 @@ public class NanoVG {
 
 	// --- [ nvgDeleteImage ] ---
 
-	/**
-	 * Deletes created image.
-	 *
-	 * @param ctx   the NanoVG context
-	 * @param image the image handle to delete
-	 */
+	/** Unsafe version of: {@link #nvgDeleteImage DeleteImage} */
 	public static native void nnvgDeleteImage(long ctx, int image);
 
 	/**
@@ -1495,19 +1181,7 @@ public class NanoVG {
 
 	// --- [ nvgLinearGradient ] ---
 
-	/**
-	 * Creates and returns a linear gradient.
-	 * 
-	 * <p>The gradient is transformed by the current transform when it is passed to {@link #nvgFillPaint FillPaint} or {@link #nvgStrokePaint StrokePaint}.</p>
-	 *
-	 * @param ctx  the NanoVG context
-	 * @param sx   the X axis start coordinate
-	 * @param sy   the Y axis start coordinate
-	 * @param ex   the X axis end coordinate
-	 * @param ey   the Y axis end coordinate
-	 * @param icol the start color
-	 * @param ocol the end color
-	 */
+	/** Unsafe version of: {@link #nvgLinearGradient LinearGradient} */
 	public static native void nnvgLinearGradient(long ctx, float sx, float sy, float ex, float ey, long icol, long ocol, long __result);
 
 	/**
@@ -1532,21 +1206,7 @@ public class NanoVG {
 
 	// --- [ nvgBoxGradient ] ---
 
-	/**
-	 * Creates and returns a box gradient. Box gradient is a feathered rounded rectangle, it is useful for rendering drop shadows or highlights for boxes.
-	 * 
-	 * <p>The gradient is transformed by the current transform when it is passed to {@link #nvgFillPaint FillPaint} or {@link #nvgStrokePaint StrokePaint}.</p>
-	 *
-	 * @param ctx  the NanoVG context
-	 * @param x    the rectangle left coordinate
-	 * @param y    the rectangle top coordinate
-	 * @param w    the rectangle width
-	 * @param h    the rectangle height
-	 * @param r    the corner radius
-	 * @param f    the feather value. Feather defines how blurry the border of the rectangle is.
-	 * @param icol the inner color
-	 * @param ocol the outer color
-	 */
+	/** Unsafe version of: {@link #nvgBoxGradient BoxGradient} */
 	public static native void nnvgBoxGradient(long ctx, float x, float y, float w, float h, float r, float f, long icol, long ocol, long __result);
 
 	/**
@@ -1573,19 +1233,7 @@ public class NanoVG {
 
 	// --- [ nvgRadialGradient ] ---
 
-	/**
-	 * Creates and returns a radial gradient.
-	 * 
-	 * <p>The gradient is transformed by the current transform when it is passed to {@link #nvgFillPaint FillPaint} or {@link #nvgStrokePaint StrokePaint}.</p>
-	 *
-	 * @param ctx  the NanoVG context
-	 * @param cx   the X axis center coordinate
-	 * @param cy   the Y axis center coordinate
-	 * @param inr  the inner radius
-	 * @param outr the outer radius
-	 * @param icol the start color
-	 * @param ocol the end color
-	 */
+	/** Unsafe version of: {@link #nvgRadialGradient RadialGradient} */
 	public static native void nnvgRadialGradient(long ctx, float cx, float cy, float inr, float outr, long icol, long ocol, long __result);
 
 	/**
@@ -1610,20 +1258,7 @@ public class NanoVG {
 
 	// --- [ nvgImagePattern ] ---
 
-	/**
-	 * Creates and returns an image patter.
-	 * 
-	 * <p>The gradient is transformed by the current transform when it is passed to {@link #nvgFillPaint FillPaint} or {@link #nvgStrokePaint StrokePaint}.</p>
-	 *
-	 * @param ctx   the NanoVG context
-	 * @param ox    the image pattern left coordinate
-	 * @param oy    the image pattern top coordinate
-	 * @param ex    the image width
-	 * @param ey    the image height
-	 * @param angle the rotation angle around the top-left corner
-	 * @param image the image to render
-	 * @param alpha the alpha value
-	 */
+	/** Unsafe version of: {@link #nvgImagePattern ImagePattern} */
 	public static native void nnvgImagePattern(long ctx, float ox, float oy, float ex, float ey, float angle, int image, float alpha, long __result);
 
 	/**
@@ -1649,17 +1284,7 @@ public class NanoVG {
 
 	// --- [ nvgScissor ] ---
 
-	/**
-	 * Sets the current scissor rectangle.
-	 * 
-	 * <p>The scissor rectangle is transformed by the current transform.</p>
-	 *
-	 * @param ctx the NanoVG context
-	 * @param x   the rectangle X axis coordinate
-	 * @param y   the rectangle Y axis coordinate
-	 * @param w   the rectangle width
-	 * @param h   the rectangle height
-	 */
+	/** Unsafe version of: {@link #nvgScissor Scissor} */
 	public static native void nnvgScissor(long ctx, float x, float y, float w, float h);
 
 	/**
@@ -1681,20 +1306,7 @@ public class NanoVG {
 
 	// --- [ nvgIntersectScissor ] ---
 
-	/**
-	 * Intersects current scissor rectangle with the specified rectangle.
-	 * 
-	 * <p>The scissor rectangle is transformed by the current transform.</p>
-	 * 
-	 * <p>Note: in case the rotation of previous scissor rect differs from the current one, the intersection will be done between the specified rectangle and the
-	 * previous scissor rectangle transformed in the current transform space. The resulting shape is always rectangle.</p>
-	 *
-	 * @param ctx the NanoVG context
-	 * @param x   the rectangle X axis coordinate
-	 * @param y   the rectangle Y axis coordinate
-	 * @param w   the rectangle width
-	 * @param h   the rectangle height
-	 */
+	/** Unsafe version of: {@link #nvgIntersectScissor IntersectScissor} */
 	public static native void nnvgIntersectScissor(long ctx, float x, float y, float w, float h);
 
 	/**
@@ -1719,11 +1331,7 @@ public class NanoVG {
 
 	// --- [ nvgResetScissor ] ---
 
-	/**
-	 * Resets and disables scissoring.
-	 *
-	 * @param ctx the NanoVG context
-	 */
+	/** Unsafe version of: {@link #nvgResetScissor ResetScissor} */
 	public static native void nnvgResetScissor(long ctx);
 
 	/**
@@ -1739,11 +1347,7 @@ public class NanoVG {
 
 	// --- [ nvgBeginPath ] ---
 
-	/**
-	 * Clears the current path and sub-paths.
-	 *
-	 * @param ctx the NanoVG context
-	 */
+	/** Unsafe version of: {@link #nvgBeginPath BeginPath} */
 	public static native void nnvgBeginPath(long ctx);
 
 	/**
@@ -1759,13 +1363,7 @@ public class NanoVG {
 
 	// --- [ nvgMoveTo ] ---
 
-	/**
-	 * Starts new sub-path with specified point as first point.
-	 *
-	 * @param ctx the NanoVG context
-	 * @param x   the point X axis coordinate
-	 * @param y   the point Y axis coordinate
-	 */
+	/** Unsafe version of: {@link #nvgMoveTo MoveTo} */
 	public static native void nnvgMoveTo(long ctx, float x, float y);
 
 	/**
@@ -1783,13 +1381,7 @@ public class NanoVG {
 
 	// --- [ nvgLineTo ] ---
 
-	/**
-	 * Adds line segment from the last point in the path to the specified point.
-	 *
-	 * @param ctx the NanoVG context
-	 * @param x   the point X axis coordinate
-	 * @param y   the point Y axis coordinate
-	 */
+	/** Unsafe version of: {@link #nvgLineTo LineTo} */
 	public static native void nnvgLineTo(long ctx, float x, float y);
 
 	/**
@@ -1807,17 +1399,7 @@ public class NanoVG {
 
 	// --- [ nvgBezierTo ] ---
 
-	/**
-	 * Adds cubic bezier segment from last point in the path via two control points to the specified point.
-	 *
-	 * @param ctx the NanoVG context
-	 * @param c1x the first control point X axis coordinate
-	 * @param c1y the first control point Y axis coordinate
-	 * @param c2x the second control point X axis coordinate
-	 * @param c2y the second control point Y axis coordinate
-	 * @param x   the point X axis coordinate
-	 * @param y   the point Y axis coordinate
-	 */
+	/** Unsafe version of: {@link #nvgBezierTo BezierTo} */
 	public static native void nnvgBezierTo(long ctx, float c1x, float c1y, float c2x, float c2y, float x, float y);
 
 	/**
@@ -1839,15 +1421,7 @@ public class NanoVG {
 
 	// --- [ nvgQuadTo ] ---
 
-	/**
-	 * Adds quadratic bezier segment from last point in the path via a control point to the specified point.
-	 *
-	 * @param ctx the NanoVG context
-	 * @param cx  the control point X axis coordinate
-	 * @param cy  the control point Y axis coordinate
-	 * @param x   the point X axis coordinate
-	 * @param y   the point Y axis coordinate
-	 */
+	/** Unsafe version of: {@link #nvgQuadTo QuadTo} */
 	public static native void nnvgQuadTo(long ctx, float cx, float cy, float x, float y);
 
 	/**
@@ -1867,16 +1441,7 @@ public class NanoVG {
 
 	// --- [ nvgArcTo ] ---
 
-	/**
-	 * Adds an arc segment at the corner defined by the last path point, and two specified points.
-	 *
-	 * @param ctx    the NanoVG context
-	 * @param x1     the first point X axis coordinate
-	 * @param y1     the first point Y axis coordinate
-	 * @param x2     the second point X axis coordinate
-	 * @param y2     the second point Y axis coordinate
-	 * @param radius the arc radius, in radians
-	 */
+	/** Unsafe version of: {@link #nvgArcTo ArcTo} */
 	public static native void nnvgArcTo(long ctx, float x1, float y1, float x2, float y2, float radius);
 
 	/**
@@ -1897,11 +1462,7 @@ public class NanoVG {
 
 	// --- [ nvgClosePath ] ---
 
-	/**
-	 * Closes current sub-path with a line segment.
-	 *
-	 * @param ctx the NanoVG context
-	 */
+	/** Unsafe version of: {@link #nvgClosePath ClosePath} */
 	public static native void nnvgClosePath(long ctx);
 
 	/**
@@ -1917,12 +1478,7 @@ public class NanoVG {
 
 	// --- [ nvgPathWinding ] ---
 
-	/**
-	 * Sets the current sub-path winding.
-	 *
-	 * @param ctx the NanoVG context
-	 * @param dir the sub-path winding. One of:<br><table><tr><td>{@link #NVG_CCW CCW}</td><td>{@link #NVG_CW CW}</td></tr></table>
-	 */
+	/** Unsafe version of: {@link #nvgPathWinding PathWinding} */
 	public static native void nnvgPathWinding(long ctx, int dir);
 
 	/**
@@ -1939,17 +1495,7 @@ public class NanoVG {
 
 	// --- [ nvgArc ] ---
 
-	/**
-	 * Creates new circle arc shaped sub-path.
-	 *
-	 * @param ctx the NanoVG context
-	 * @param cx  the arc center X axis coordinate
-	 * @param cy  the arc center Y axis coordinate
-	 * @param r   the arc radius
-	 * @param a0  the arc starting angle, in radians
-	 * @param a1  the arc ending angle, in radians
-	 * @param dir the arc direction. One of:<br><table><tr><td>{@link #NVG_CCW CCW}</td><td>{@link #NVG_CW CW}</td></tr></table>
-	 */
+	/** Unsafe version of: {@link #nvgArc Arc} */
 	public static native void nnvgArc(long ctx, float cx, float cy, float r, float a0, float a1, int dir);
 
 	/**
@@ -1971,15 +1517,7 @@ public class NanoVG {
 
 	// --- [ nvgRect ] ---
 
-	/**
-	 * Creates new rectangle shaped sub-path.
-	 *
-	 * @param ctx the NanoVG context
-	 * @param x   the rectangle X axis coordinate
-	 * @param y   the rectangle Y axis coordinate
-	 * @param w   the rectangle width
-	 * @param h   the rectangle height
-	 */
+	/** Unsafe version of: {@link #nvgRect Rect} */
 	public static native void nnvgRect(long ctx, float x, float y, float w, float h);
 
 	/**
@@ -1999,16 +1537,7 @@ public class NanoVG {
 
 	// --- [ nvgRoundedRect ] ---
 
-	/**
-	 * Creates new rounded rectangle shaped sub-path.
-	 *
-	 * @param ctx the NanoVG context
-	 * @param x   the rectangle X axis coordinate
-	 * @param y   the rectangle Y axis coordinate
-	 * @param w   the rectangle width
-	 * @param h   the rectangle height
-	 * @param r   the corner radius
-	 */
+	/** Unsafe version of: {@link #nvgRoundedRect RoundedRect} */
 	public static native void nnvgRoundedRect(long ctx, float x, float y, float w, float h, float r);
 
 	/**
@@ -2029,19 +1558,7 @@ public class NanoVG {
 
 	// --- [ nvgRoundedRectVarying ] ---
 
-	/**
-	 * Creates new rounded rectangle shaped sub-path with varying radii for each corner.
-	 *
-	 * @param ctx            the NanoVG context
-	 * @param x              the rectangle X axis coordinate
-	 * @param y              the rectangle Y axis coordinate
-	 * @param w              the rectangle width
-	 * @param h              the rectangle height
-	 * @param radTopLeft     the top-left corner radius
-	 * @param radTopRight    the top-right corner radius
-	 * @param radBottomRight the bottom-right corner radius
-	 * @param radBottomLeft  the bottom-left corner radius
-	 */
+	/** Unsafe version of: {@link #nvgRoundedRectVarying RoundedRectVarying} */
 	public static native void nnvgRoundedRectVarying(long ctx, float x, float y, float w, float h, float radTopLeft, float radTopRight, float radBottomRight, float radBottomLeft);
 
 	/**
@@ -2065,15 +1582,7 @@ public class NanoVG {
 
 	// --- [ nvgEllipse ] ---
 
-	/**
-	 * Creates new ellipse shaped sub-path.
-	 *
-	 * @param ctx the NanoVG context
-	 * @param cx  the ellipse center X axis coordinate
-	 * @param cy  the ellipse center Y axis coordinate
-	 * @param rx  the ellipse X axis radius
-	 * @param ry  the ellipse Y axis radius
-	 */
+	/** Unsafe version of: {@link #nvgEllipse Ellipse} */
 	public static native void nnvgEllipse(long ctx, float cx, float cy, float rx, float ry);
 
 	/**
@@ -2093,14 +1602,7 @@ public class NanoVG {
 
 	// --- [ nvgCircle ] ---
 
-	/**
-	 * Creates new circle shaped sub-path.
-	 *
-	 * @param ctx the NanoVG context
-	 * @param cx  the circle center X axis coordinate
-	 * @param cy  the circle center Y axis coordinate
-	 * @param r   the circle radius
-	 */
+	/** Unsafe version of: {@link #nvgCircle Circle} */
 	public static native void nnvgCircle(long ctx, float cx, float cy, float r);
 
 	/**
@@ -2119,11 +1621,7 @@ public class NanoVG {
 
 	// --- [ nvgFill ] ---
 
-	/**
-	 * Fills the current path with current fill style.
-	 *
-	 * @param ctx the NanoVG context
-	 */
+	/** Unsafe version of: {@link #nvgFill Fill} */
 	public static native void nnvgFill(long ctx);
 
 	/**
@@ -2139,11 +1637,7 @@ public class NanoVG {
 
 	// --- [ nvgStroke ] ---
 
-	/**
-	 * Fills the current path with current stroke style.
-	 *
-	 * @param ctx the NanoVG context
-	 */
+	/** Unsafe version of: {@link #nvgStroke Stroke} */
 	public static native void nnvgStroke(long ctx);
 
 	/**
@@ -2159,15 +1653,7 @@ public class NanoVG {
 
 	// --- [ nvgCreateFont ] ---
 
-	/**
-	 * Creates font by loading it from the disk from specified file name.
-	 *
-	 * @param ctx      the NanoVG context
-	 * @param name     the font name
-	 * @param filename the font file name
-	 *
-	 * @return a handle to the font
-	 */
+	/** Unsafe version of: {@link #nvgCreateFont CreateFont} */
 	public static native int nnvgCreateFont(long ctx, long name, long filename);
 
 	/**
@@ -2213,17 +1699,9 @@ public class NanoVG {
 	// --- [ nvgCreateFontMem ] ---
 
 	/**
-	 * Creates font by loading it from the specified memory chunk.
-	 * 
-	 * <p>The memory chunk must remain valid for as long as the font is used by NanoVG.</p>
+	 * Unsafe version of: {@link #nvgCreateFontMem CreateFontMem}
 	 *
-	 * @param ctx      the NanoVG context
-	 * @param name     the font name
-	 * @param data     the font data
-	 * @param ndata    the font data size, in bytes
-	 * @param freeData 1 if the font data should be freed automatically, 0 otherwise
-	 *
-	 * @return a handle to the font
+	 * @param ndata the font data size, in bytes
 	 */
 	public static native int nnvgCreateFontMem(long ctx, long name, long data, int ndata, int freeData);
 
@@ -2273,12 +1751,7 @@ public class NanoVG {
 
 	// --- [ nvgFindFont ] ---
 
-	/**
-	 * Finds a loaded font of specified name, and returns handle to it, or -1 if the font is not found.
-	 *
-	 * @param ctx  the NanoVG context
-	 * @param name the font name
-	 */
+	/** Unsafe version of: {@link #nvgFindFont FindFont} */
 	public static native int nnvgFindFont(long ctx, long name);
 
 	/**
@@ -2315,12 +1788,7 @@ public class NanoVG {
 
 	// --- [ nvgFontSize ] ---
 
-	/**
-	 * Sets the font size of current text style.
-	 *
-	 * @param ctx  the NanoVG context
-	 * @param size the font size to set
-	 */
+	/** Unsafe version of: {@link #nvgFontSize FontSize} */
 	public static native void nnvgFontSize(long ctx, float size);
 
 	/**
@@ -2337,12 +1805,7 @@ public class NanoVG {
 
 	// --- [ nvgFontBlur ] ---
 
-	/**
-	 * Sets the blur of current text style.
-	 *
-	 * @param ctx  the NanoVG context
-	 * @param blur the blur amount to set
-	 */
+	/** Unsafe version of: {@link #nvgFontBlur FontBlur} */
 	public static native void nnvgFontBlur(long ctx, float blur);
 
 	/**
@@ -2359,12 +1822,7 @@ public class NanoVG {
 
 	// --- [ nvgTextLetterSpacing ] ---
 
-	/**
-	 * Sets the letter spacing of current text style.
-	 *
-	 * @param ctx     the NanoVG context
-	 * @param spacing the letter spacing amount to set
-	 */
+	/** Unsafe version of: {@link #nvgTextLetterSpacing TextLetterSpacing} */
 	public static native void nnvgTextLetterSpacing(long ctx, float spacing);
 
 	/**
@@ -2381,12 +1839,7 @@ public class NanoVG {
 
 	// --- [ nvgTextLineHeight ] ---
 
-	/**
-	 * Sets the proportional line height of current text style. The line height is specified as multiple of font size.
-	 *
-	 * @param ctx        the NanoVG context
-	 * @param lineHeight the line height to set
-	 */
+	/** Unsafe version of: {@link #nvgTextLineHeight TextLineHeight} */
 	public static native void nnvgTextLineHeight(long ctx, float lineHeight);
 
 	/**
@@ -2403,12 +1856,7 @@ public class NanoVG {
 
 	// --- [ nvgTextAlign ] ---
 
-	/**
-	 * Sets the text align of current text style.
-	 *
-	 * @param ctx   the NanoVG context
-	 * @param align the text align to set. One of:<br><table><tr><td>{@link #NVG_ALIGN_LEFT ALIGN_LEFT}</td><td>{@link #NVG_ALIGN_CENTER ALIGN_CENTER}</td><td>{@link #NVG_ALIGN_RIGHT ALIGN_RIGHT}</td><td>{@link #NVG_ALIGN_TOP ALIGN_TOP}</td><td>{@link #NVG_ALIGN_MIDDLE ALIGN_MIDDLE}</td><td>{@link #NVG_ALIGN_BOTTOM ALIGN_BOTTOM}</td><td>{@link #NVG_ALIGN_BASELINE ALIGN_BASELINE}</td></tr></table>
-	 */
+	/** Unsafe version of: {@link #nvgTextAlign TextAlign} */
 	public static native void nnvgTextAlign(long ctx, int align);
 
 	/**
@@ -2425,12 +1873,7 @@ public class NanoVG {
 
 	// --- [ nvgFontFaceId ] ---
 
-	/**
-	 * Sets the font face based on specified id of current text style.
-	 *
-	 * @param ctx  the NanoVG context
-	 * @param font the font id
-	 */
+	/** Unsafe version of: {@link #nvgFontFaceId FontFaceId} */
 	public static native void nnvgFontFaceId(long ctx, int font);
 
 	/**
@@ -2447,12 +1890,7 @@ public class NanoVG {
 
 	// --- [ nvgFontFace ] ---
 
-	/**
-	 * Sets the font face based on specified name of current text style.
-	 *
-	 * @param ctx  the NanoVG context
-	 * @param font the font name
-	 */
+	/** Unsafe version of: {@link #nvgFontFace FontFace} */
 	public static native void nnvgFontFace(long ctx, long font);
 
 	/**
@@ -2489,15 +1927,7 @@ public class NanoVG {
 
 	// --- [ nvgText ] ---
 
-	/**
-	 * Draws text string at specified location. If {@code end} is specified only the sub-string up to the {@code end} is drawn.
-	 *
-	 * @param ctx    the NanoVG context
-	 * @param x      the text X axis coordinate
-	 * @param y      the text Y axis coordinate
-	 * @param string the text string to draw
-	 * @param end    a pointer to the end of the sub-string to draw, or {@code NULL}
-	 */
+	/** Unsafe version of: {@link #nvgText Text} */
 	public static native float nnvgText(long ctx, float x, float y, long string, long end);
 
 	/**
@@ -2540,20 +1970,7 @@ public class NanoVG {
 
 	// --- [ nvgTextBox ] ---
 
-	/**
-	 * Draws multi-line text string at specified location wrapped at the specified width. If {@code end} is specified only the sub-string up to the
-	 * {@code end} is drawn.
-	 * 
-	 * <p>White space is stripped at the beginning of the rows, the text is split at word boundaries or when new-line characters are encountered. Words longer
-	 * than the max width are slit at nearest character (i.e. no hyphenation).</p>
-	 *
-	 * @param ctx           the NanoVG context
-	 * @param x             the text box X axis coordinate
-	 * @param y             the text box Y axis coordinate
-	 * @param breakRowWidth the maximum row width
-	 * @param string        the text string to draw
-	 * @param end           a pointer to the end of the sub-string to draw, or {@code NULL}
-	 */
+	/** Unsafe version of: {@link #nvgTextBox TextBox} */
 	public static native void nnvgTextBox(long ctx, float x, float y, float breakRowWidth, long string, long end);
 
 	/**
@@ -2606,23 +2023,7 @@ public class NanoVG {
 
 	// --- [ nvgTextBounds ] ---
 
-	/**
-	 * Measures the specified text string.
-	 * 
-	 * <p>Parameter {@code bounds} should be a pointer to {@code float[4]}, if the bounding box of the text should be returned. The bounds value are
-	 * {@code [xmin,ymin, xmax,ymax]}.</p>
-	 * 
-	 * <p>Measured values are returned in local coordinate space.</p>
-	 *
-	 * @param ctx    the NanoVG context
-	 * @param x      the text X axis coordinate
-	 * @param y      the text Y axis coordinate
-	 * @param string the text string to measure
-	 * @param end    a pointer to the end of the sub-string to measure, or {@code NULL}
-	 * @param bounds returns the bounding box of the text
-	 *
-	 * @return the horizontal advance of the measured text (i.e. where the next character should drawn)
-	 */
+	/** Unsafe version of: {@link #nvgTextBounds TextBounds} */
 	public static native float nnvgTextBounds(long ctx, float x, float y, long string, long end, long bounds);
 
 	/**
@@ -2684,22 +2085,7 @@ public class NanoVG {
 
 	// --- [ nvgTextBoxBounds ] ---
 
-	/**
-	 * Measures the specified multi-text string.
-	 * 
-	 * <p>Parameter {@code bounds} should be a pointer to {@code float[4]}, if the bounding box of the text should be returned. The bounds value are
-	 * {@code [xmin,ymin, xmax,ymax]}.</p>
-	 * 
-	 * <p>Measured values are returned in local coordinate space.</p>
-	 *
-	 * @param ctx           the NanoVG context
-	 * @param x             the text box X axis coordinate
-	 * @param y             the text box Y axis coordinate
-	 * @param breakRowWidth the maximum row width
-	 * @param string        the text string to measure
-	 * @param end           a pointer to the end of the sub-string to measure, or {@code NULL}
-	 * @param bounds        returns the bounding box of the text box
-	 */
+	/** Unsafe version of: {@link #nvgTextBoxBounds TextBoxBounds} */
 	public static native void nnvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, long string, long end, long bounds);
 
 	/**
@@ -2760,16 +2146,8 @@ public class NanoVG {
 	// --- [ nvgTextGlyphPositions ] ---
 
 	/**
-	 * Calculates the glyph x positions of the specified text. If {@code end} is specified only the sub-string will be used.
-	 * 
-	 * <p>Measured values are returned in local coordinate space.</p>
+	 * Unsafe version of: {@link #nvgTextGlyphPositions TextGlyphPositions}
 	 *
-	 * @param ctx          the NanoVG context
-	 * @param x            the text X axis coordinate
-	 * @param y            the text Y axis coordinate
-	 * @param string       the text string to measure
-	 * @param end          a pointer to the end of the sub-string to measure, or {@code NULL}
-	 * @param positions    returns the glyph x positions
 	 * @param maxPositions the maximum number of glyph positions to return
 	 */
 	public static native int nnvgTextGlyphPositions(long ctx, float x, float y, long string, long end, long positions, int maxPositions);
@@ -2820,16 +2198,7 @@ public class NanoVG {
 
 	// --- [ nvgTextMetrics ] ---
 
-	/**
-	 * Returns the vertical metrics based on the current text style.
-	 * 
-	 * <p>Measured values are returned in local coordinate space.</p>
-	 *
-	 * @param ctx       the NanoVG context
-	 * @param ascender  the line ascend
-	 * @param descender the line descend
-	 * @param lineh     the line height
-	 */
+	/** Unsafe version of: {@link #nvgTextMetrics TextMetrics} */
 	public static native void nnvgTextMetrics(long ctx, long ascender, long descender, long lineh);
 
 	/**
@@ -2855,17 +2224,9 @@ public class NanoVG {
 	// --- [ nvgTextBreakLines ] ---
 
 	/**
-	 * Breaks the specified text into lines. If {@code end} is specified only the sub-string will be used.
-	 * 
-	 * <p>White space is stripped at the beginning of the rows, the text is split at word boundaries or when new-line characters are encountered. Words longer
-	 * than the max width are slit at nearest character (i.e. no hyphenation).</p>
+	 * Unsafe version of: {@link #nvgTextBreakLines TextBreakLines}
 	 *
-	 * @param ctx           the NanoVG context
-	 * @param string        the text string to measure
-	 * @param end           a pointer to the end of the sub-string to measure, or {@code NULL}
-	 * @param breakRowWidth the maximum row width
-	 * @param rows          returns the text rows
-	 * @param maxRows       the maximum number of text rows to return
+	 * @param maxRows the maximum number of text rows to return
 	 */
 	public static native int nnvgTextBreakLines(long ctx, long string, long end, float breakRowWidth, long rows, int maxRows);
 
@@ -2913,7 +2274,7 @@ public class NanoVG {
 		}
 	}
 
-	/** Array version of: {@link #nvgCurrentTransform CurrentTransform} */
+	/** Array version of: {@link #nnvgCurrentTransform} */
 	public static native void nnvgCurrentTransform(long ctx, float[] xform);
 
 	/** Array version of: {@link #nvgCurrentTransform CurrentTransform} */
@@ -2925,7 +2286,7 @@ public class NanoVG {
 		nnvgCurrentTransform(ctx, xform);
 	}
 
-	/** Array version of: {@link #nvgTransformIdentity TransformIdentity} */
+	/** Array version of: {@link #nnvgTransformIdentity} */
 	public static native void nnvgTransformIdentity(float[] dst);
 
 	/** Array version of: {@link #nvgTransformIdentity TransformIdentity} */
@@ -2935,7 +2296,7 @@ public class NanoVG {
 		nnvgTransformIdentity(dst);
 	}
 
-	/** Array version of: {@link #nvgTransformTranslate TransformTranslate} */
+	/** Array version of: {@link #nnvgTransformTranslate} */
 	public static native void nnvgTransformTranslate(float[] dst, float tx, float ty);
 
 	/** Array version of: {@link #nvgTransformTranslate TransformTranslate} */
@@ -2945,7 +2306,7 @@ public class NanoVG {
 		nnvgTransformTranslate(dst, tx, ty);
 	}
 
-	/** Array version of: {@link #nvgTransformScale TransformScale} */
+	/** Array version of: {@link #nnvgTransformScale} */
 	public static native void nnvgTransformScale(float[] dst, float sx, float sy);
 
 	/** Array version of: {@link #nvgTransformScale TransformScale} */
@@ -2955,7 +2316,7 @@ public class NanoVG {
 		nnvgTransformScale(dst, sx, sy);
 	}
 
-	/** Array version of: {@link #nvgTransformRotate TransformRotate} */
+	/** Array version of: {@link #nnvgTransformRotate} */
 	public static native void nnvgTransformRotate(float[] dst, float a);
 
 	/** Array version of: {@link #nvgTransformRotate TransformRotate} */
@@ -2965,7 +2326,7 @@ public class NanoVG {
 		nnvgTransformRotate(dst, a);
 	}
 
-	/** Array version of: {@link #nvgTransformSkewX TransformSkewX} */
+	/** Array version of: {@link #nnvgTransformSkewX} */
 	public static native void nnvgTransformSkewX(float[] dst, float a);
 
 	/** Array version of: {@link #nvgTransformSkewX TransformSkewX} */
@@ -2975,7 +2336,7 @@ public class NanoVG {
 		nnvgTransformSkewX(dst, a);
 	}
 
-	/** Array version of: {@link #nvgTransformSkewY TransformSkewY} */
+	/** Array version of: {@link #nnvgTransformSkewY} */
 	public static native void nnvgTransformSkewY(float[] dst, float a);
 
 	/** Array version of: {@link #nvgTransformSkewY TransformSkewY} */
@@ -2985,7 +2346,7 @@ public class NanoVG {
 		nnvgTransformSkewY(dst, a);
 	}
 
-	/** Array version of: {@link #nvgTransformMultiply TransformMultiply} */
+	/** Array version of: {@link #nnvgTransformMultiply} */
 	public static native void nnvgTransformMultiply(float[] dst, float[] src);
 
 	/** Array version of: {@link #nvgTransformMultiply TransformMultiply} */
@@ -2997,7 +2358,7 @@ public class NanoVG {
 		nnvgTransformMultiply(dst, src);
 	}
 
-	/** Array version of: {@link #nvgTransformPremultiply TransformPremultiply} */
+	/** Array version of: {@link #nnvgTransformPremultiply} */
 	public static native void nnvgTransformPremultiply(float[] dst, float[] src);
 
 	/** Array version of: {@link #nvgTransformPremultiply TransformPremultiply} */
@@ -3009,7 +2370,7 @@ public class NanoVG {
 		nnvgTransformPremultiply(dst, src);
 	}
 
-	/** Array version of: {@link #nvgTransformInverse TransformInverse} */
+	/** Array version of: {@link #nnvgTransformInverse} */
 	public static native int nnvgTransformInverse(float[] dst, float[] src);
 
 	/** Array version of: {@link #nvgTransformInverse TransformInverse} */
@@ -3021,7 +2382,7 @@ public class NanoVG {
 		return nnvgTransformInverse(dst, src) != 0;
 	}
 
-	/** Array version of: {@link #nvgTransformPoint TransformPoint} */
+	/** Array version of: {@link #nnvgTransformPoint} */
 	public static native void nnvgTransformPoint(float[] dstx, float[] dsty, float[] xform, float srcx, float srcy);
 
 	/** Array version of: {@link #nvgTransformPoint TransformPoint} */
@@ -3034,7 +2395,7 @@ public class NanoVG {
 		nnvgTransformPoint(dstx, dsty, xform, srcx, srcy);
 	}
 
-	/** Array version of: {@link #nvgImageSize ImageSize} */
+	/** Array version of: {@link #nnvgImageSize} */
 	public static native void nnvgImageSize(long ctx, int image, int[] w, int[] h);
 
 	/** Array version of: {@link #nvgImageSize ImageSize} */
@@ -3047,7 +2408,7 @@ public class NanoVG {
 		nnvgImageSize(ctx, image, w, h);
 	}
 
-	/** Array version of: {@link #nvgTextBounds TextBounds} */
+	/** Array version of: {@link #nnvgTextBounds} */
 	public static native float nnvgTextBounds(long ctx, float x, float y, long string, long end, float[] bounds);
 
 	/** Array version of: {@link #nvgTextBounds TextBounds} */
@@ -3075,7 +2436,7 @@ public class NanoVG {
 		}
 	}
 
-	/** Array version of: {@link #nvgTextBoxBounds TextBoxBounds} */
+	/** Array version of: {@link #nnvgTextBoxBounds} */
 	public static native void nnvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, long string, long end, float[] bounds);
 
 	/** Array version of: {@link #nvgTextBoxBounds TextBoxBounds} */
@@ -3103,7 +2464,7 @@ public class NanoVG {
 		}
 	}
 
-	/** Array version of: {@link #nvgTextMetrics TextMetrics} */
+	/** Array version of: {@link #nnvgTextMetrics} */
 	public static native void nnvgTextMetrics(long ctx, float[] ascender, float[] descender, float[] lineh);
 
 	/** Array version of: {@link #nvgTextMetrics TextMetrics} */

@@ -136,18 +136,9 @@ public class WGLNVDXInterop {
 	// --- [ wglDXLockObjectsNV ] ---
 
 	/**
-	 * Before a GL object which is associated with a DirectX resource may be used, it must be locked with this function.
-	 * 
-	 * <p>A return value of TRUE indicates that all objects were successfully locked.  A return value of FALSE indicates an error. If the function returns FALSE,
-	 * none of the objects will be locked.</p>
-	 * 
-	 * <p>Attempting to access an interop object via GL when the object is not locked, or attempting to access the DirectX resource through the DirectX API when
-	 * it is locked by GL, will result in undefined behavior and may result in data corruption or program termination. Likewise, passing invalid interop device
-	 * or object handles to this function has undefined results, including program termination.</p>
+	 * Unsafe version of: {@link #wglDXLockObjectsNV DXLockObjectsNV}
 	 *
-	 * @param device  the GL/DirectX interop device handle
-	 * @param count   the number of objects to lock
-	 * @param objects an array of {@code count} interop objects
+	 * @param count the number of objects to lock
 	 */
 	public static int nwglDXLockObjectsNV(long device, int count, long objects) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglDXLockObjectsNV;
@@ -178,11 +169,9 @@ public class WGLNVDXInterop {
 	// --- [ wglDXUnlockObjectsNV ] ---
 
 	/**
-	 * Return control of an object to DirectX.
+	 * Unsafe version of: {@link #wglDXUnlockObjectsNV DXUnlockObjectsNV}
 	 *
-	 * @param device  the GL/DirectX interop device handle
-	 * @param count   the number of objects to unlock
-	 * @param objects an array of {@code count} interop objects
+	 * @param count the number of objects to unlock
 	 */
 	public static int nwglDXUnlockObjectsNV(long device, int count, long objects) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglDXUnlockObjectsNV;

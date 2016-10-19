@@ -92,12 +92,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	// --- [ glVertexP2uiv ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexP2ui VertexP2ui}.
-	 *
-	 * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param value the packed value
-	 */
+	/** Unsafe version of: {@link #glVertexP2uiv VertexP2uiv} */
 	public static void nglVertexP2uiv(int type, long value) {
 		long __functionAddress = GL.getCapabilities().glVertexP2uiv;
 		if ( CHECKS )
@@ -119,12 +114,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	// --- [ glVertexP3uiv ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexP3ui VertexP3ui}.
-	 *
-	 * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param value the packed value
-	 */
+	/** Unsafe version of: {@link #glVertexP3uiv VertexP3uiv} */
 	public static void nglVertexP3uiv(int type, long value) {
 		long __functionAddress = GL.getCapabilities().glVertexP3uiv;
 		if ( CHECKS )
@@ -146,12 +136,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	// --- [ glVertexP4uiv ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexP4ui VertexP4ui}.
-	 *
-	 * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param value the packed value
-	 */
+	/** Unsafe version of: {@link #glVertexP4uiv VertexP4uiv} */
 	public static void nglVertexP4uiv(int type, long value) {
 		long __functionAddress = GL.getCapabilities().glVertexP4uiv;
 		if ( CHECKS )
@@ -233,12 +218,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	// --- [ glTexCoordP1uiv ] ---
 
-	/**
-	 * Pointer version of {@link #glTexCoordP1ui TexCoordP1ui}.
-	 *
-	 * @param type   type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param coords the packed value
-	 */
+	/** Unsafe version of: {@link #glTexCoordP1uiv TexCoordP1uiv} */
 	public static void nglTexCoordP1uiv(int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glTexCoordP1uiv;
 		if ( CHECKS )
@@ -260,12 +240,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	// --- [ glTexCoordP2uiv ] ---
 
-	/**
-	 * Pointer version of {@link #glTexCoordP2ui TexCoordP2ui}.
-	 *
-	 * @param type   type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param coords the packed value
-	 */
+	/** Unsafe version of: {@link #glTexCoordP2uiv TexCoordP2uiv} */
 	public static void nglTexCoordP2uiv(int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glTexCoordP2uiv;
 		if ( CHECKS )
@@ -287,12 +262,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	// --- [ glTexCoordP3uiv ] ---
 
-	/**
-	 * Pointer version of {@link #glTexCoordP3ui TexCoordP3ui}.
-	 *
-	 * @param type   type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param coords the packed value
-	 */
+	/** Unsafe version of: {@link #glTexCoordP3uiv TexCoordP3uiv} */
 	public static void nglTexCoordP3uiv(int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glTexCoordP3uiv;
 		if ( CHECKS )
@@ -314,12 +284,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	// --- [ glTexCoordP4uiv ] ---
 
-	/**
-	 * Pointer version of {@link #glTexCoordP4ui TexCoordP4ui}.
-	 *
-	 * @param type   type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param coords the packed value
-	 */
+	/** Unsafe version of: {@link #glTexCoordP4uiv TexCoordP4uiv} */
 	public static void nglTexCoordP4uiv(int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glTexCoordP4uiv;
 		if ( CHECKS )
@@ -405,13 +370,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	// --- [ glMultiTexCoordP1uiv ] ---
 
-	/**
-	 * Pointer version of {@link #glMultiTexCoordP1ui MultiTexCoordP1ui}.
-	 *
-	 * @param texture the coordinate set to be modified
-	 * @param type    type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param coords  the packed value
-	 */
+	/** Unsafe version of: {@link #glMultiTexCoordP1uiv MultiTexCoordP1uiv} */
 	public static void nglMultiTexCoordP1uiv(int texture, int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoordP1uiv;
 		if ( CHECKS )
@@ -434,13 +393,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	// --- [ glMultiTexCoordP2uiv ] ---
 
-	/**
-	 * Pointer version of {@link #glMultiTexCoordP2ui MultiTexCoordP2ui}.
-	 *
-	 * @param texture the coordinate set to be modified
-	 * @param type    type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param coords  the packed value
-	 */
+	/** Unsafe version of: {@link #glMultiTexCoordP2uiv MultiTexCoordP2uiv} */
 	public static void nglMultiTexCoordP2uiv(int texture, int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoordP2uiv;
 		if ( CHECKS )
@@ -463,13 +416,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	// --- [ glMultiTexCoordP3uiv ] ---
 
-	/**
-	 * Pointer version of {@link #glMultiTexCoordP3ui MultiTexCoordP3ui}.
-	 *
-	 * @param texture the coordinate set to be modified
-	 * @param type    type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param coords  the packed value
-	 */
+	/** Unsafe version of: {@link #glMultiTexCoordP3uiv MultiTexCoordP3uiv} */
 	public static void nglMultiTexCoordP3uiv(int texture, int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoordP3uiv;
 		if ( CHECKS )
@@ -492,13 +439,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	// --- [ glMultiTexCoordP4uiv ] ---
 
-	/**
-	 * Pointer version of {@link #glMultiTexCoordP4ui MultiTexCoordP4ui}.
-	 *
-	 * @param texture the coordinate set to be modified
-	 * @param type    type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param coords  the packed value
-	 */
+	/** Unsafe version of: {@link #glMultiTexCoordP4uiv MultiTexCoordP4uiv} */
 	public static void nglMultiTexCoordP4uiv(int texture, int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoordP4uiv;
 		if ( CHECKS )
@@ -536,12 +477,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	// --- [ glNormalP3uiv ] ---
 
-	/**
-	 * Pointer version {@link #glNormalP3ui NormalP3ui}.
-	 *
-	 * @param type   type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param coords the packed value
-	 */
+	/** Unsafe version of: {@link #glNormalP3uiv NormalP3uiv} */
 	public static void nglNormalP3uiv(int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glNormalP3uiv;
 		if ( CHECKS )
@@ -593,12 +529,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	// --- [ glColorP3uiv ] ---
 
-	/**
-	 * Pointer version of {@link #glColorP3ui ColorP3ui}.
-	 *
-	 * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param color the packed value
-	 */
+	/** Unsafe version of: {@link #glColorP3uiv ColorP3uiv} */
 	public static void nglColorP3uiv(int type, long color) {
 		long __functionAddress = GL.getCapabilities().glColorP3uiv;
 		if ( CHECKS )
@@ -620,12 +551,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	// --- [ glColorP4uiv ] ---
 
-	/**
-	 * Pointer version of {@link #glColorP4ui ColorP4ui}.
-	 *
-	 * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param color the packed value
-	 */
+	/** Unsafe version of: {@link #glColorP4uiv ColorP4uiv} */
 	public static void nglColorP4uiv(int type, long color) {
 		long __functionAddress = GL.getCapabilities().glColorP4uiv;
 		if ( CHECKS )
@@ -662,12 +588,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	// --- [ glSecondaryColorP3uiv ] ---
 
-	/**
-	 * Pointer version of {@link #glSecondaryColorP3ui SecondaryColorP3ui}.
-	 *
-	 * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param color the packed value
-	 */
+	/** Unsafe version of: {@link #glSecondaryColorP3uiv SecondaryColorP3uiv} */
 	public static void nglSecondaryColorP3uiv(int type, long color) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColorP3uiv;
 		if ( CHECKS )
@@ -757,14 +678,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	// --- [ glVertexAttribP1uiv ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttribP1ui VertexAttribP1ui}.
-	 *
-	 * @param index      the index of the generic vertex attribute to be modified
-	 * @param type       type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param normalized whether values should be normalized or cast directly to floating-point
-	 * @param value      the packed value
-	 */
+	/** Unsafe version of: {@link #glVertexAttribP1uiv VertexAttribP1uiv} */
 	public static void nglVertexAttribP1uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribP1uiv;
 		if ( CHECKS )
@@ -788,14 +702,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	// --- [ glVertexAttribP2uiv ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttribP2ui VertexAttribP2ui}.
-	 *
-	 * @param index      the index of the generic vertex attribute to be modified
-	 * @param type       type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param normalized whether values should be normalized or cast directly to floating-point
-	 * @param value      the packed value
-	 */
+	/** Unsafe version of: {@link #glVertexAttribP2uiv VertexAttribP2uiv} */
 	public static void nglVertexAttribP2uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribP2uiv;
 		if ( CHECKS )
@@ -819,14 +726,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	// --- [ glVertexAttribP3uiv ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttribP3ui VertexAttribP3ui}.
-	 *
-	 * @param index      the index of the generic vertex attribute to be modified
-	 * @param type       type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param normalized whether values should be normalized or cast directly to floating-point
-	 * @param value      the packed value
-	 */
+	/** Unsafe version of: {@link #glVertexAttribP3uiv VertexAttribP3uiv} */
 	public static void nglVertexAttribP3uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribP3uiv;
 		if ( CHECKS )
@@ -850,14 +750,7 @@ public class ARBVertexType2_10_10_10_REV {
 
 	// --- [ glVertexAttribP4uiv ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttribP4ui VertexAttribP4ui}.
-	 *
-	 * @param index      the index of the generic vertex attribute to be modified
-	 * @param type       type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param normalized whether values should be normalized or cast directly to floating-point
-	 * @param value      the packed value
-	 */
+	/** Unsafe version of: {@link #glVertexAttribP4uiv VertexAttribP4uiv} */
 	public static void nglVertexAttribP4uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribP4uiv;
 		if ( CHECKS )

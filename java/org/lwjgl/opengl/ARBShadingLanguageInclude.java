@@ -94,16 +94,10 @@ public class ARBShadingLanguageInclude {
 	// --- [ glNamedStringARB ] ---
 
 	/**
-	 * Specifies a string and its name. Such strings can be included by name in shaders during compilation, allowing reuse of the same code segments.
-	 * 
-	 * <p>After calling NamedStringARB, the contents of {@code string} are associated with the tree location corresponding to {@code name}. If a string is already
-	 * associated with that tree location, it will be replaced with the new {@code string}.</p>
+	 * Unsafe version of: {@link #glNamedStringARB NamedStringARB}
 	 *
-	 * @param type      the string type. Must be:<br><table><tr><td>{@link #GL_SHADER_INCLUDE_ARB SHADER_INCLUDE_ARB}</td></tr></table>
 	 * @param namelen   the number of characters in {@code name}. If negative, {@code name} is considered to be a null-terminated string.
-	 * @param name      the name associated with the string
 	 * @param stringlen the number of characters in {@code string}. If negative, {@code string} is considered to be a null-terminated string.
-	 * @param string    an arbitrary string of characters
 	 */
 	public static void nglNamedStringARB(int type, int namelen, long name, int stringlen, long string) {
 		long __functionAddress = GL.getCapabilities().glNamedStringARB;
@@ -152,10 +146,9 @@ public class ARBShadingLanguageInclude {
 	// --- [ glDeleteNamedStringARB ] ---
 
 	/**
-	 * Deletes a named string.
+	 * Unsafe version of: {@link #glDeleteNamedStringARB DeleteNamedStringARB}
 	 *
 	 * @param namelen the number of characters in {@code name}. If negative, {@code name} is considered to be a null-terminated string.
-	 * @param name    the name associated with the string
 	 */
 	public static void nglDeleteNamedStringARB(int namelen, long name) {
 		long __functionAddress = GL.getCapabilities().glDeleteNamedStringARB;
@@ -191,18 +184,7 @@ public class ARBShadingLanguageInclude {
 
 	// --- [ glCompileShaderIncludeARB ] ---
 
-	/**
-	 * Compiles a shader object.
-	 * 
-	 * <p>The ordered list of {@code path}s is used during compilation, together with the arguments of {@code &#35;include} directives in the shader source, to search for
-	 * named strings corresponding to the {@code &#35;include} directives. If a {@code &#35;include} directive does not correspond to a valid named string, compilation will fail.</p>
-	 *
-	 * @param shader the shader object compile
-	 * @param count  
-	 * @param path   an ordered array of {@code count} pointers to optionally null-terminated character strings defining search paths
-	 * @param length an array {@code count} values with the number of characters in each string (the string length). If an element in {@code length} is negative, its
-	 *               accompanying string is null-terminated. If {@code length} is {@code NULL}, all strings in the {@code path} argument are considered null-terminated.
-	 */
+	/** Unsafe version of: {@link #glCompileShaderIncludeARB CompileShaderIncludeARB} */
 	public static void nglCompileShaderIncludeARB(int shader, int count, long path, long length) {
 		long __functionAddress = GL.getCapabilities().glCompileShaderIncludeARB;
 		if ( CHECKS )
@@ -230,11 +212,9 @@ public class ARBShadingLanguageInclude {
 	// --- [ glIsNamedStringARB ] ---
 
 	/**
-	 * Returns {@link GL11#GL_TRUE TRUE} if the tree location corresponding to {@code name} has a string associated with it, and {@link GL11#GL_FALSE FALSE} if the tree location has no string
-	 * associated with it.
+	 * Unsafe version of: {@link #glIsNamedStringARB IsNamedStringARB}
 	 *
 	 * @param namelen the number of characters in {@code name}. If negative, {@code name} is considered to be a null-terminated string.
-	 * @param name    the name associated with the string
 	 */
 	public static boolean nglIsNamedStringARB(int namelen, long name) {
 		long __functionAddress = GL.getCapabilities().glIsNamedStringARB;
@@ -273,14 +253,10 @@ public class ARBShadingLanguageInclude {
 	// --- [ glGetNamedStringARB ] ---
 
 	/**
-	 * Returns in {@code string} the string corresponding to the specified {@code name}. The returned string will be null-terminated.
+	 * Unsafe version of: {@link #glGetNamedStringARB GetNamedStringARB}
 	 *
-	 * @param namelen   the number of characters in {@code name}. If negative, {@code name} is considered to be a null-terminated string.
-	 * @param name      the name associated with the string
-	 * @param bufSize   the maximum number of characters that may be written into {@code string}, including the null terminator
-	 * @param stringlen a buffer in which to place the actual number of characters written into {@code string}, excluding the null terminator. If {@code NULL}, no length is
-	 *                  returned.
-	 * @param string    a buffer in which to place the returned string
+	 * @param namelen the number of characters in {@code name}. If negative, {@code name} is considered to be a null-terminated string.
+	 * @param bufSize the maximum number of characters that may be written into {@code string}, including the null terminator
 	 */
 	public static void nglGetNamedStringARB(int namelen, long name, int bufSize, long stringlen, long string) {
 		long __functionAddress = GL.getCapabilities().glGetNamedStringARB;
@@ -367,12 +343,9 @@ public class ARBShadingLanguageInclude {
 	// --- [ glGetNamedStringivARB ] ---
 
 	/**
-	 * Returns properties of the named string whose tree location corresponds to {@code name}.
+	 * Unsafe version of: {@link #glGetNamedStringivARB GetNamedStringivARB}
 	 *
 	 * @param namelen the number of characters in {@code name}. If negative, {@code name} is considered to be a null-terminated string.
-	 * @param name    the name associated with the string
-	 * @param pname   the parameter to query. One of:<br><table><tr><td>{@link #GL_NAMED_STRING_LENGTH_ARB NAMED_STRING_LENGTH_ARB}</td><td>{@link #GL_NAMED_STRING_TYPE_ARB NAMED_STRING_TYPE_ARB}</td></tr></table>
-	 * @param params  a buffer in which to place the returned value
 	 */
 	public static void nglGetNamedStringivARB(int namelen, long name, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetNamedStringivARB;

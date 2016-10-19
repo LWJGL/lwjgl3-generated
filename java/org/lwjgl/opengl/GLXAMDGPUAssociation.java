@@ -80,13 +80,7 @@ public class GLXAMDGPUAssociation {
 
 	// --- [ glXCreateAssociatedContextAttribsAMD ] ---
 
-	/**
-	 * Creates an associated context and requests a specific GL version.
-	 *
-	 * @param id            
-	 * @param share_context 
-	 * @param attribList    
-	 */
+	/** Unsafe version of: {@link #glXCreateAssociatedContextAttribsAMD CreateAssociatedContextAttribsAMD} */
 	public static long nglXCreateAssociatedContextAttribsAMD(int id, long share_context, long attribList) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateAssociatedContextAttribsAMD;
 		if ( CHECKS ) {
@@ -166,15 +160,7 @@ public class GLXAMDGPUAssociation {
 
 	// --- [ glXGetGPUInfoAMD ] ---
 
-	/**
-	 * Queries GPU properties.
-	 *
-	 * @param id       
-	 * @param property one of:<br><table><tr><td>{@link #GLX_GPU_VENDOR_AMD GPU_VENDOR_AMD}</td><td>{@link #GLX_GPU_RENDERER_STRING_AMD GPU_RENDERER_STRING_AMD}</td><td>{@link #GLX_GPU_OPENGL_VERSION_STRING_AMD GPU_OPENGL_VERSION_STRING_AMD}</td><td>{@link #GLX_GPU_FASTEST_TARGET_GPUS_AMD GPU_FASTEST_TARGET_GPUS_AMD}</td></tr><tr><td>{@link #GLX_GPU_RAM_AMD GPU_RAM_AMD}</td><td>{@link #GLX_GPU_CLOCK_AMD GPU_CLOCK_AMD}</td><td>{@link #GLX_GPU_NUM_PIPES_AMD GPU_NUM_PIPES_AMD}</td><td>{@link #GLX_GPU_NUM_SIMD_AMD GPU_NUM_SIMD_AMD}</td></tr><tr><td>{@link #GLX_GPU_NUM_RB_AMD GPU_NUM_RB_AMD}</td><td>{@link #GLX_GPU_NUM_SPI_AMD GPU_NUM_SPI_AMD}</td></tr></table>
-	 * @param dataType 
-	 * @param size     
-	 * @param data     
-	 */
+	/** Unsafe version of: {@link #glXGetGPUInfoAMD GetGPUInfoAMD} */
 	public static int nglXGetGPUInfoAMD(int id, int property, int dataType, int size, long data) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetGPUInfoAMD;
 		if ( CHECKS )

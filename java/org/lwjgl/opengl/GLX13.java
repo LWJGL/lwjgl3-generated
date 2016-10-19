@@ -95,10 +95,8 @@ public class GLX13 {
 	// --- [ glXGetFBConfigs ] ---
 
 	/**
-	 * Returns the list of all GLXFBConfigs that are available on the specified screen.
+	 * Unsafe version of: {@link #glXGetFBConfigs GetFBConfigs}
 	 *
-	 * @param display   the connection to the X server
-	 * @param screen    the screen number
 	 * @param nelements returns the number of GLXFBConfigs in the returned list
 	 */
 	public static long nglXGetFBConfigs(long display, int screen, long nelements) {
@@ -130,12 +128,9 @@ public class GLX13 {
 	// --- [ glXChooseFBConfig ] ---
 
 	/**
-	 * Returns a list of GLXFBConfigs that match a list of attributes.
+	 * Unsafe version of: {@link #glXChooseFBConfig ChooseFBConfig}
 	 *
-	 * @param display     the connection to the X server
-	 * @param screen      the screen number
-	 * @param attrib_list a list of attributes terminated with {@code None}
-	 * @param nelements   returns the number of GLXFBConfigs matched
+	 * @param nelements returns the number of GLXFBConfigs matched
 	 */
 	public static long nglXChooseFBConfig(long display, int screen, long attrib_list, long nelements) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXChooseFBConfig;
@@ -168,14 +163,7 @@ public class GLX13 {
 
 	// --- [ glXGetFBConfigAttrib ] ---
 
-	/**
-	 * Queries the value of a GLX attribute for a GLXFBConfig.
-	 *
-	 * @param display   the connection to the X server
-	 * @param config    the GLXFBConfig being queried
-	 * @param attribute the attribute to query
-	 * @param value     the attribute value
-	 */
+	/** Unsafe version of: {@link #glXGetFBConfigAttrib GetFBConfigAttrib} */
 	public static int nglXGetFBConfigAttrib(long display, long config, int attribute, long value) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetFBConfigAttrib;
 		if ( CHECKS ) {
@@ -202,12 +190,7 @@ public class GLX13 {
 
 	// --- [ glXGetVisualFromFBConfig ] ---
 
-	/**
-	 * Retrieves the associated visual of a GLXFBConfig.
-	 *
-	 * @param display the connection to the X server
-	 * @param config  the GLXFBConfig
-	 */
+	/** Unsafe version of: {@link #glXGetVisualFromFBConfig GetVisualFromFBConfig} */
 	public static long nglXGetVisualFromFBConfig(long display, long config) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetVisualFromFBConfig;
 		if ( CHECKS ) {
@@ -231,14 +214,7 @@ public class GLX13 {
 
 	// --- [ glXCreateWindow ] ---
 
-	/**
-	 * Create an onscreen rendering area from an X Window and a desired GLXFBConfig.
-	 *
-	 * @param display     the connection to the X server
-	 * @param config      the GLXFBConfig
-	 * @param win         the X Window
-	 * @param attrib_list a list of attributes terminated with {@code None}
-	 */
+	/** Unsafe version of: {@link #glXCreateWindow CreateWindow} */
 	public static long nglXCreateWindow(long display, long config, long win, long attrib_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateWindow;
 		if ( CHECKS ) {
@@ -265,14 +241,7 @@ public class GLX13 {
 
 	// --- [ glXCreatePixmap ] ---
 
-	/**
-	 * Creates a GLXPixmap offscreen rendering area from an X Pixmap and a desired GLXFBConfig.
-	 *
-	 * @param display     the connection to the X server
-	 * @param config      the GLXFBConfig
-	 * @param pixmap      the X Pixmap
-	 * @param attrib_list a list of attributes terminated with {@code None}
-	 */
+	/** Unsafe version of: {@link #glXCreatePixmap CreatePixmap} */
 	public static long nglXCreatePixmap(long display, long config, long pixmap, long attrib_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreatePixmap;
 		if ( CHECKS ) {
@@ -317,13 +286,7 @@ public class GLX13 {
 
 	// --- [ glXCreatePbuffer ] ---
 
-	/**
-	 * Creates a GLXPbuffer from a GLXFBConfig.
-	 *
-	 * @param display     the connection to the X server
-	 * @param config      the GLXFBConfig
-	 * @param attrib_list a list of attributes terminated with {@code None}
-	 */
+	/** Unsafe version of: {@link #glXCreatePbuffer CreatePbuffer} */
 	public static long nglXCreatePbuffer(long display, long config, long attrib_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreatePbuffer;
 		if ( CHECKS ) {
@@ -367,14 +330,7 @@ public class GLX13 {
 
 	// --- [ glXQueryDrawable ] ---
 
-	/**
-	 * Queries an attribute associated with a GLXDrawable.
-	 *
-	 * @param display   the connection to the X server
-	 * @param draw      the GLXDrawable being queried
-	 * @param attribute the attribute to query
-	 * @param value     returns the attribute value
-	 */
+	/** Unsafe version of: {@link #glXQueryDrawable QueryDrawable} */
 	public static void nglXQueryDrawable(long display, long draw, int attribute, long value) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryDrawable;
 		if ( CHECKS ) {
@@ -451,14 +407,7 @@ public class GLX13 {
 
 	// --- [ glXQueryContext ] ---
 
-	/**
-	 * Queries the value of a GLXContext attribute.
-	 *
-	 * @param display   the connection to the X server
-	 * @param ctx       the GLXContext being queried
-	 * @param attribute the attribute to query
-	 * @param value     returns the attribute value
-	 */
+	/** Unsafe version of: {@link #glXQueryContext QueryContext} */
 	public static int nglXQueryContext(long display, long ctx, int attribute, long value) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryContext;
 		if ( CHECKS ) {
@@ -504,13 +453,7 @@ public class GLX13 {
 
 	// --- [ glXGetSelectedEvent ] ---
 
-	/**
-	 * Returns which GLX events are selected for a GLXDrawable.
-	 *
-	 * @param display    the connection to the X server
-	 * @param draw       the GLXDrawable
-	 * @param event_mask returns the selection mask
-	 */
+	/** Unsafe version of: {@link #glXGetSelectedEvent GetSelectedEvent} */
 	public static void nglXGetSelectedEvent(long display, long draw, long event_mask) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetSelectedEvent;
 		if ( CHECKS ) {

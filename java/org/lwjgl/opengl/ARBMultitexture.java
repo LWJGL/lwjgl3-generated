@@ -169,12 +169,7 @@ public class ARBMultitexture {
 
 	// --- [ glMultiTexCoord1fvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glMultiTexCoord1fARB MultiTexCoord1fARB}.
-	 *
-	 * @param texture the coordinate set to be modified
-	 * @param v       the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glMultiTexCoord1fvARB MultiTexCoord1fvARB} */
 	public static void nglMultiTexCoord1fvARB(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord1fvARB;
 		if ( CHECKS )
@@ -196,12 +191,7 @@ public class ARBMultitexture {
 
 	// --- [ glMultiTexCoord1svARB ] ---
 
-	/**
-	 * Pointer version of {@link #glMultiTexCoord1sARB MultiTexCoord1sARB}.
-	 *
-	 * @param texture the coordinate set to be modified
-	 * @param v       the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glMultiTexCoord1svARB MultiTexCoord1svARB} */
 	public static void nglMultiTexCoord1svARB(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord1svARB;
 		if ( CHECKS )
@@ -223,12 +213,7 @@ public class ARBMultitexture {
 
 	// --- [ glMultiTexCoord1ivARB ] ---
 
-	/**
-	 * Pointer version of {@link #glMultiTexCoord1iARB MultiTexCoord1iARB}.
-	 *
-	 * @param texture the coordinate set to be modified
-	 * @param v       the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glMultiTexCoord1ivARB MultiTexCoord1ivARB} */
 	public static void nglMultiTexCoord1ivARB(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord1ivARB;
 		if ( CHECKS )
@@ -250,12 +235,7 @@ public class ARBMultitexture {
 
 	// --- [ glMultiTexCoord1dvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glMultiTexCoord1dARB MultiTexCoord1dARB}.
-	 *
-	 * @param texture the coordinate set to be modified
-	 * @param v       the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glMultiTexCoord1dvARB MultiTexCoord1dvARB} */
 	public static void nglMultiTexCoord1dvARB(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord1dvARB;
 		if ( CHECKS )
@@ -341,12 +321,7 @@ public class ARBMultitexture {
 
 	// --- [ glMultiTexCoord2fvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glMultiTexCoord2fARB MultiTexCoord2fARB}.
-	 *
-	 * @param texture the coordinate set to be modified
-	 * @param v       the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glMultiTexCoord2fvARB MultiTexCoord2fvARB} */
 	public static void nglMultiTexCoord2fvARB(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord2fvARB;
 		if ( CHECKS )
@@ -368,12 +343,7 @@ public class ARBMultitexture {
 
 	// --- [ glMultiTexCoord2svARB ] ---
 
-	/**
-	 * Pointer version of {@link #glMultiTexCoord2sARB MultiTexCoord2sARB}.
-	 *
-	 * @param texture the coordinate set to be modified
-	 * @param v       the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glMultiTexCoord2svARB MultiTexCoord2svARB} */
 	public static void nglMultiTexCoord2svARB(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord2svARB;
 		if ( CHECKS )
@@ -395,12 +365,7 @@ public class ARBMultitexture {
 
 	// --- [ glMultiTexCoord2ivARB ] ---
 
-	/**
-	 * Pointer version of {@link #glMultiTexCoord2iARB MultiTexCoord2iARB}.
-	 *
-	 * @param texture the coordinate set to be modified
-	 * @param v       the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glMultiTexCoord2ivARB MultiTexCoord2ivARB} */
 	public static void nglMultiTexCoord2ivARB(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord2ivARB;
 		if ( CHECKS )
@@ -422,12 +387,7 @@ public class ARBMultitexture {
 
 	// --- [ glMultiTexCoord2dvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glMultiTexCoord2dARB MultiTexCoord2dARB}.
-	 *
-	 * @param texture the coordinate set to be modified
-	 * @param v       the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glMultiTexCoord2dvARB MultiTexCoord2dvARB} */
 	public static void nglMultiTexCoord2dvARB(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord2dvARB;
 		if ( CHECKS )
@@ -517,12 +477,7 @@ public class ARBMultitexture {
 
 	// --- [ glMultiTexCoord3fvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glMultiTexCoord3fARB MultiTexCoord3fARB}.
-	 *
-	 * @param texture the coordinate set to be modified
-	 * @param v       the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glMultiTexCoord3fvARB MultiTexCoord3fvARB} */
 	public static void nglMultiTexCoord3fvARB(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord3fvARB;
 		if ( CHECKS )
@@ -544,12 +499,7 @@ public class ARBMultitexture {
 
 	// --- [ glMultiTexCoord3svARB ] ---
 
-	/**
-	 * Pointer version of {@link #glMultiTexCoord3sARB MultiTexCoord3sARB}.
-	 *
-	 * @param texture the coordinate set to be modified
-	 * @param v       the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glMultiTexCoord3svARB MultiTexCoord3svARB} */
 	public static void nglMultiTexCoord3svARB(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord3svARB;
 		if ( CHECKS )
@@ -571,12 +521,7 @@ public class ARBMultitexture {
 
 	// --- [ glMultiTexCoord3ivARB ] ---
 
-	/**
-	 * Pointer version of {@link #glMultiTexCoord3iARB MultiTexCoord3iARB}.
-	 *
-	 * @param texture the coordinate set to be modified
-	 * @param v       the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glMultiTexCoord3ivARB MultiTexCoord3ivARB} */
 	public static void nglMultiTexCoord3ivARB(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord3ivARB;
 		if ( CHECKS )
@@ -598,12 +543,7 @@ public class ARBMultitexture {
 
 	// --- [ glMultiTexCoord3dvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glMultiTexCoord3dARB MultiTexCoord3dARB}.
-	 *
-	 * @param texture the coordinate set to be modified
-	 * @param v       the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glMultiTexCoord3dvARB MultiTexCoord3dvARB} */
 	public static void nglMultiTexCoord3dvARB(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord3dvARB;
 		if ( CHECKS )
@@ -697,12 +637,7 @@ public class ARBMultitexture {
 
 	// --- [ glMultiTexCoord4fvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glMultiTexCoord4fARB MultiTexCoord4fARB}.
-	 *
-	 * @param texture the coordinate set to be modified
-	 * @param v       the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glMultiTexCoord4fvARB MultiTexCoord4fvARB} */
 	public static void nglMultiTexCoord4fvARB(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord4fvARB;
 		if ( CHECKS )
@@ -724,12 +659,7 @@ public class ARBMultitexture {
 
 	// --- [ glMultiTexCoord4svARB ] ---
 
-	/**
-	 * Pointer version of {@link #glMultiTexCoord4sARB MultiTexCoord4sARB}.
-	 *
-	 * @param texture the coordinate set to be modified
-	 * @param v       the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glMultiTexCoord4svARB MultiTexCoord4svARB} */
 	public static void nglMultiTexCoord4svARB(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord4svARB;
 		if ( CHECKS )
@@ -751,12 +681,7 @@ public class ARBMultitexture {
 
 	// --- [ glMultiTexCoord4ivARB ] ---
 
-	/**
-	 * Pointer version of {@link #glMultiTexCoord4iARB MultiTexCoord4iARB}.
-	 *
-	 * @param texture the coordinate set to be modified
-	 * @param v       the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glMultiTexCoord4ivARB MultiTexCoord4ivARB} */
 	public static void nglMultiTexCoord4ivARB(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord4ivARB;
 		if ( CHECKS )
@@ -778,12 +703,7 @@ public class ARBMultitexture {
 
 	// --- [ glMultiTexCoord4dvARB ] ---
 
-	/**
-	 * Pointer version of {@link #glMultiTexCoord4dARB MultiTexCoord4dARB}.
-	 *
-	 * @param texture the coordinate set to be modified
-	 * @param v       the texture coordinate buffer
-	 */
+	/** Unsafe version of: {@link #glMultiTexCoord4dvARB MultiTexCoord4dvARB} */
 	public static void nglMultiTexCoord4dvARB(int texture, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord4dvARB;
 		if ( CHECKS )

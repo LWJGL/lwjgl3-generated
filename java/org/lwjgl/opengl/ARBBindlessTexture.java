@@ -259,11 +259,9 @@ public class ARBBindlessTexture {
 	// --- [ glUniformHandleui64vARB ] ---
 
 	/**
-	 * Loads {@code count} 64-bit unsigned integer handles into a uniform location corresponding to sampler or image variable types.
+	 * Unsafe version of: {@link #glUniformHandleui64vARB UniformHandleui64vARB}
 	 *
-	 * @param location the uniform location
-	 * @param count    the number of handles to load
-	 * @param values   a buffer from which to load the handles
+	 * @param count the number of handles to load
 	 */
 	public static void nglUniformHandleui64vARB(int location, int count, long values) {
 		long __functionAddress = GL.getCapabilities().glUniformHandleui64vARB;
@@ -301,12 +299,9 @@ public class ARBBindlessTexture {
 	// --- [ glProgramUniformHandleui64vARB ] ---
 
 	/**
-	 * DSA version of {@link #glUniformHandleui64vARB UniformHandleui64vARB}.
+	 * Unsafe version of: {@link #glProgramUniformHandleui64vARB ProgramUniformHandleui64vARB}
 	 *
-	 * @param program  the program object
-	 * @param location the uniform location
-	 * @param count    the number of handles to load
-	 * @param values   a buffer from which to load the handles
+	 * @param count the number of handles to load
 	 */
 	public static void nglProgramUniformHandleui64vARB(int program, int location, int count, long values) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformHandleui64vARB;
@@ -371,12 +366,7 @@ public class ARBBindlessTexture {
 
 	// --- [ glVertexAttribL1ui64vARB ] ---
 
-	/**
-	 * Pointer version of {@link #glVertexAttribL1ui64ARB VertexAttribL1ui64ARB}.
-	 *
-	 * @param index the index of the generic vertex attribute to be modified
-	 * @param v     the vertex attribute buffer
-	 */
+	/** Unsafe version of: {@link #glVertexAttribL1ui64vARB VertexAttribL1ui64vARB} */
 	public static void nglVertexAttribL1ui64vARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL1ui64vARB;
 		if ( CHECKS )
@@ -396,13 +386,7 @@ public class ARBBindlessTexture {
 
 	// --- [ glGetVertexAttribLui64vARB ] ---
 
-	/**
-	 * Returns the 64-bit unsigned integer handle value of a generic vertex attribute parameter.
-	 *
-	 * @param index  the generic vertex attribute index
-	 * @param pname  the parameter to query
-	 * @param params a buffer in which to place the returned data
-	 */
+	/** Unsafe version of: {@link #glGetVertexAttribLui64vARB GetVertexAttribLui64vARB} */
 	public static void nglGetVertexAttribLui64vARB(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribLui64vARB;
 		if ( CHECKS )

@@ -38,14 +38,7 @@ public class KHREGLEvent {
 
 	// --- [ clCreateEventFromEGLSyncKHR ] ---
 
-	/**
-	 * Creates a linked event object.
-	 *
-	 * @param context     a valid OpenCL context
-	 * @param sync        the name of a sync object of type {@link org.lwjgl.egl.EGL15#EGL_SYNC_FENCE} created with respect to {@code EGLDisplay display}.
-	 * @param display     an {@code EGLDisplay}
-	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
-	 */
+	/** Unsafe version of: {@link #clCreateEventFromEGLSyncKHR CreateEventFromEGLSyncKHR} */
 	public static long nclCreateEventFromEGLSyncKHR(long context, long sync, long display, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateEventFromEGLSyncKHR;
 		if ( CHECKS ) {

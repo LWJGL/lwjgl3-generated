@@ -87,22 +87,10 @@ public class JAWTFunctions {
 
 	// --- [ JAWT_GetAWT ] ---
 
-	/**
-	 * Returns the AWT native structure.
-	 *
-	 * @param awt the target {@code JAWT} struct
-	 *
-	 * @return {@code JNI_FALSE} if an error occurs
-	 */
+	/** Unsafe version of: {@link #JAWT_GetAWT GetAWT} */
 	public static native boolean nJAWT_GetAWT(long __functionAddress, long awt);
 
-	/**
-	 * Returns the AWT native structure.
-	 *
-	 * @param awt the target {@code JAWT} struct
-	 *
-	 * @return {@code JNI_FALSE} if an error occurs
-	 */
+	/** Unsafe version of: {@link #JAWT_GetAWT GetAWT} */
 	public static boolean nJAWT_GetAWT(long awt) {
 		long __functionAddress = Functions.GetAWT;
 		return nJAWT_GetAWT(__functionAddress, awt);
@@ -121,21 +109,7 @@ public class JAWTFunctions {
 
 	// --- [ JAWT_DrawingSurface_Lock ] ---
 
-	/**
-	 * Locks the surface of the target component for native rendering. When finished drawing, the surface must be unlocked with {@link #JAWT_DrawingSurface_Unlock DrawingSurface_Unlock}.
-	 *
-	 * @param __functionAddress the function address
-	 * @param ds                the surface to lock
-	 *
-	 * @return a bitmask with one or more of the following values:
-	 *         
-	 *         <ul>
-	 *         <li>{@link #JAWT_LOCK_ERROR LOCK_ERROR} - When an error has occurred and the surface could not be locked.</li>
-	 *         <li>{@link #JAWT_LOCK_CLIP_CHANGED LOCK_CLIP_CHANGED} - When the clip region has changed.</li>
-	 *         <li>{@link #JAWT_LOCK_BOUNDS_CHANGED LOCK_BOUNDS_CHANGED} - When the bounds of the surface have changed.</li>
-	 *         <li>{@link #JAWT_LOCK_SURFACE_CHANGED LOCK_SURFACE_CHANGED} - When the surface itself has changed</li>
-	 *         </ul>
-	 */
+	/** Unsafe version of: {@link #JAWT_DrawingSurface_Lock DrawingSurface_Lock} */
 	public static int nJAWT_DrawingSurface_Lock(long __functionAddress, long ds) {
 		if ( CHECKS )
 			checkPointer(__functionAddress);
@@ -163,19 +137,7 @@ public class JAWTFunctions {
 
 	// --- [ JAWT_DrawingSurface_GetDrawingSurfaceInfo ] ---
 
-	/**
-	 * Returns the drawing surface info.
-	 * 
-	 * <p>The value returned may be cached, but the values may change if additional calls to {@link #JAWT_DrawingSurface_Lock DrawingSurface_Lock} or {@link #JAWT_DrawingSurface_Unlock DrawingSurface_Unlock} are made.
-	 * {@link #JAWT_DrawingSurface_Lock DrawingSurface_Lock} must be called before this can return a valid value.</p>
-	 * 
-	 * <p>When finished with the returned value, {@link #JAWT_DrawingSurface_FreeDrawingSurfaceInfo DrawingSurface_FreeDrawingSurfaceInfo} must be called.</p>
-	 *
-	 * @param __functionAddress the function address
-	 * @param ds                the {@link JAWTDrawingSurface} to free
-	 *
-	 * @return {@code NULL} if an error has occurred.
-	 */
+	/** Unsafe version of: {@link #JAWT_DrawingSurface_GetDrawingSurfaceInfo DrawingSurface_GetDrawingSurfaceInfo} */
 	public static long nJAWT_DrawingSurface_GetDrawingSurfaceInfo(long __functionAddress, long ds) {
 		if ( CHECKS )
 			checkPointer(__functionAddress);
@@ -202,12 +164,7 @@ public class JAWTFunctions {
 
 	// --- [ JAWT_DrawingSurface_FreeDrawingSurfaceInfo ] ---
 
-	/**
-	 * Frees the drawing surface info.
-	 *
-	 * @param __functionAddress the function address
-	 * @param dsi               the {@link JAWTDrawingSurfaceInfo} to free
-	 */
+	/** Unsafe version of: {@link #JAWT_DrawingSurface_FreeDrawingSurfaceInfo DrawingSurface_FreeDrawingSurfaceInfo} */
 	public static void nJAWT_DrawingSurface_FreeDrawingSurfaceInfo(long __functionAddress, long dsi) {
 		if ( CHECKS )
 			checkPointer(__functionAddress);
@@ -226,12 +183,7 @@ public class JAWTFunctions {
 
 	// --- [ JAWT_DrawingSurface_Unlock ] ---
 
-	/**
-	 * Unlocks the drawing surface of the target component for native rendering.
-	 *
-	 * @param __functionAddress the function address
-	 * @param ds                the surface to unlock
-	 */
+	/** Unsafe version of: {@link #JAWT_DrawingSurface_Unlock DrawingSurface_Unlock} */
 	public static void nJAWT_DrawingSurface_Unlock(long __functionAddress, long ds) {
 		if ( CHECKS )
 			checkPointer(__functionAddress);
@@ -250,16 +202,7 @@ public class JAWTFunctions {
 
 	// --- [ JAWT_GetDrawingSurface ] ---
 
-	/**
-	 * Returns a drawing surface from a target {@code jobject}. This value may be cached.
-	 * 
-	 * <p>{@link #JAWT_FreeDrawingSurface FreeDrawingSurface} must be called when finished with the returned {@link JAWTDrawingSurface}.</p>
-	 *
-	 * @param __functionAddress the function address
-	 * @param target            must be a {@link java.awt.Component Component} (should be a {@link java.awt.Canvas Canvas} or {@link java.awt.Window Window} for native rendering)
-	 *
-	 * @return {@code NULL} if an error has occurred
-	 */
+	/** Unsafe version of: {@link #JAWT_GetDrawingSurface GetDrawingSurface} */
 	public static native long nJAWT_GetDrawingSurface(long __functionAddress, Object target);
 
 	/**
@@ -281,12 +224,7 @@ public class JAWTFunctions {
 
 	// --- [ JAWT_FreeDrawingSurface ] ---
 
-	/**
-	 * Frees the drawing surface allocated in {@link #JAWT_GetDrawingSurface GetDrawingSurface}.
-	 *
-	 * @param __functionAddress the function address
-	 * @param ds                the {@link JAWTDrawingSurface} to free
-	 */
+	/** Unsafe version of: {@link #JAWT_FreeDrawingSurface FreeDrawingSurface} */
 	public static void nJAWT_FreeDrawingSurface(long __functionAddress, long ds) {
 		if ( CHECKS )
 			checkPointer(__functionAddress);
@@ -305,11 +243,7 @@ public class JAWTFunctions {
 
 	// --- [ JAWT_Lock ] ---
 
-	/**
-	 * Locks the entire AWT for synchronization purposes.
-	 *
-	 * @param __functionAddress the function address
-	 */
+	/** Unsafe version of: {@link #JAWT_Lock Lock} */
 	public static native void nJAWT_Lock(long __functionAddress);
 
 	/**
@@ -325,11 +259,7 @@ public class JAWTFunctions {
 
 	// --- [ JAWT_Unlock ] ---
 
-	/**
-	 * Unlocks the entire AWT for synchronization purposes.
-	 *
-	 * @param __functionAddress the function address
-	 */
+	/** Unsafe version of: {@link #JAWT_Unlock Unlock} */
 	public static native void nJAWT_Unlock(long __functionAddress);
 
 	/**
@@ -345,15 +275,7 @@ public class JAWTFunctions {
 
 	// --- [ JAWT_GetComponent ] ---
 
-	/**
-	 * Returns a reference to a {@link Component} from a native platform handle. On Windows, this corresponds to an {@code HWND}; on Solaris and Linux, this is a
-	 * {@code Drawable}. For other platforms, see the appropriate machine-dependent header file for a description. The reference returned by this function is
-	 * a local reference that is only valid in this environment. This function returns a {@code NULL} reference if no component could be found with matching platform
-	 * information.
-	 *
-	 * @param __functionAddress the function address
-	 * @param platformInfo      the native platform handle
-	 */
+	/** Unsafe version of: {@link #JAWT_GetComponent GetComponent} */
 	public static native Component nJAWT_GetComponent(long __functionAddress, long platformInfo);
 
 	/**
@@ -373,17 +295,7 @@ public class JAWTFunctions {
 
 	// --- [ JAWT_CreateEmbeddedFrame ] ---
 
-	/**
-	 * Creates a {@link Frame} placed in a native container. Container is referenced by the native platform handle. For example on Windows this corresponds to an
-	 * {@code HWND}. For other platforms, see the appropriate machine-dependent header file for a description. The reference returned by this function is a
-	 * local reference that is only valid in this environment. This function returns a {@code NULL} reference if no frame could be created with matching platform
-	 * information.
-	 *
-	 * @param __functionAddress the function address
-	 * @param platformInfo      the native platform handle
-	 *
-	 * @since Java 9
-	 */
+	/** Unsafe version of: {@link #JAWT_CreateEmbeddedFrame CreateEmbeddedFrame} */
 	public static native Frame nJAWT_CreateEmbeddedFrame(long __functionAddress, long platformInfo);
 
 	/**
@@ -405,27 +317,7 @@ public class JAWTFunctions {
 
 	// --- [ JAWT_SetBounds ] ---
 
-	/**
-	 * Moves and resizes the embedded frame. The new location of the top-left corner is specified by x and y parameters relative to the native parent
-	 * component. The new size is specified by width and height.
-	 * 
-	 * <p>The embedded frame should be created by {@link #JAWT_CreateEmbeddedFrame CreateEmbeddedFrame} method, or this function will not have any effect.</p>
-	 * 
-	 * <p>{@link Component#setLocation} and {@link Component#setBounds} for {@code EmbeddedFrame} really don't move it within the native parent. These methods always locate
-	 * the embedded frame at (0, 0) for backward compatibility. To allow moving embedded frames this method was introduced, and it works just the same way as
-	 * {@code setLocation()} and {@code setBounds()} for usual, non-embedded components.</p>
-	 * 
-	 * <p>Using usual {@code get/setLocation()} and {@code get/setBounds()} together with this new method is not recommended.</p>
-	 *
-	 * @param __functionAddress the function address
-	 * @param embeddedFrame     the embedded frame
-	 * @param x                 the x coordinate
-	 * @param y                 the y coordinate
-	 * @param w                 the width
-	 * @param h                 the height
-	 *
-	 * @since Java 9
-	 */
+	/** Unsafe version of: {@link #JAWT_SetBounds SetBounds} */
 	public static native void nJAWT_SetBounds(long __functionAddress, Frame embeddedFrame, int x, int y, int w, int h);
 
 	/**
@@ -457,17 +349,7 @@ public class JAWTFunctions {
 
 	// --- [ JAWT_SynthesizeWindowActivation ] ---
 
-	/**
-	 * Synthesizes a native message to activate or deactivate an {@code EmbeddedFrame} window depending on the value of parameter {@code doActivate}.
-	 * 
-	 * <p>The embedded frame should be created by {@link #JAWT_CreateEmbeddedFrame CreateEmbeddedFrame} method, or this function will not have any effect.</p>
-	 *
-	 * @param __functionAddress the function address
-	 * @param embeddedFrame     the embedded frame
-	 * @param doActivate        if true activates the window; otherwise, deactivates the window
-	 *
-	 * @since Java 9
-	 */
+	/** Unsafe version of: {@link #JAWT_SynthesizeWindowActivation SynthesizeWindowActivation} */
 	public static native void nJAWT_SynthesizeWindowActivation(long __functionAddress, Frame embeddedFrame, boolean doActivate);
 
 	/**

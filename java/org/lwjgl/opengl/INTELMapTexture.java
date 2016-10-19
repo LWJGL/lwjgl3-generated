@@ -85,18 +85,7 @@ public class INTELMapTexture {
 
 	// --- [ glMapTexture2DINTEL ] ---
 
-	/**
-	 * Attempts to return a direct pointer to the graphics storage for 2D texture indicated by the {@code texture} parameter.
-	 * 
-	 * <p><b>LWJGL note</b>: If glMapTexture2DINTEL without an explicit length argument is used and direct-state-access functionality is not available in the
-	 * current context, the texture object must currently be bound to the GL_TEXTURE_2D target.</p>
-	 *
-	 * @param texture the texture to map
-	 * @param level   the mipmap level-of-detail of the texture
-	 * @param access  the type of access that will be performed by the application. One of:<br><table><tr><td>{@link GL30#GL_MAP_READ_BIT MAP_READ_BIT}</td><td>{@link GL30#GL_MAP_WRITE_BIT MAP_WRITE_BIT}</td></tr></table>
-	 * @param stride  returns the distance in bytes between subsequent rows in the texture
-	 * @param layout  returns the internal layout of the texture in the graphics memory
-	 */
+	/** Unsafe version of: {@link #glMapTexture2DINTEL MapTexture2DINTEL} */
 	public static long nglMapTexture2DINTEL(int texture, int level, int access, long stride, long layout) {
 		long __functionAddress = GL.getCapabilities().glMapTexture2DINTEL;
 		if ( CHECKS )

@@ -66,31 +66,9 @@ public class GLFWVulkan {
 	// --- [ glfwGetRequiredInstanceExtensions ] ---
 
 	/**
-	 * Returns an array of names of Vulkan instance extensions required by GLFW for creating Vulkan surfaces for GLFW windows. If successful, the list
-	 * will always contain {@code VK_KHR_surface}, so if you don't require any additional extensions you can pass this list directly to the
-	 * {@link VkInstanceCreateInfo} struct.
-	 * 
-	 * <p>If Vulkan is not available on the machine, this function returns {@code NULL} and generates a {@link GLFW#GLFW_API_UNAVAILABLE API_UNAVAILABLE} error. Call {@link #glfwVulkanSupported VulkanSupported} to check
-	 * whether Vulkan is available.</p>
-	 * 
-	 * <p>If Vulkan is available but no set of extensions allowing window surface creation was found, this function returns {@code NULL}. You may still use Vulkan
-	 * for off-screen rendering and compute work.</p>
-	 * 
-	 * <p>Additional extensions may be required by future versions of GLFW. You should check if any extensions you wish to enable are already in the returned
-	 * array, as it is an error to specify an extension more than once in the {@code VkInstanceCreateInfo} struct.</p>
-	 * 
-	 * <p>The returned array is allocated and freed by GLFW. You should not free it yourself. It is guaranteed to be valid only until the library is
-	 * terminated.</p>
-	 * 
-	 * <p>This function may be called from any thread.</p>
-	 * 
-	 * <p>Possible errors include {@link GLFW#GLFW_NOT_INITIALIZED NOT_INITIALIZED} and {@link GLFW#GLFW_API_UNAVAILABLE API_UNAVAILABLE}.</p>
+	 * Unsafe version of: {@link #glfwGetRequiredInstanceExtensions GetRequiredInstanceExtensions}
 	 *
 	 * @param count where to store the number of extensions in the returned array. This is set to zero if an error occurred.
-	 *
-	 * @return an array of ASCII encoded extension names, or {@code NULL} if an error occurred
-	 *
-	 * @since version 3.2
 	 */
 	public static long nglfwGetRequiredInstanceExtensions(long count) {
 		long __functionAddress = Functions.GetRequiredInstanceExtensions;
@@ -135,35 +113,7 @@ public class GLFWVulkan {
 
 	// --- [ glfwGetInstanceProcAddress ] ---
 
-	/**
-	 * Returns the address of the specified Vulkan core or extension function for the specified instance. If instance is set to {@code NULL} it can return any
-	 * function exported from the Vulkan loader, including at least the following functions:
-	 * 
-	 * <ul>
-	 * <li>{@link VK10#vkEnumerateInstanceExtensionProperties}</li>
-	 * <li>{@link VK10#vkEnumerateInstanceLayerProperties}</li>
-	 * <li>{@link VK10#vkCreateInstance}</li>
-	 * <li>{@link VK10#vkGetInstanceProcAddr}</li>
-	 * </ul>
-	 * 
-	 * <p>If Vulkan is not available on the machine, this function returns {@code NULL} and generates a {@link GLFW#GLFW_API_UNAVAILABLE API_UNAVAILABLE} error. Call {@link #glfwVulkanSupported VulkanSupported} to check
-	 * whether Vulkan is available.</p>
-	 * 
-	 * <p>This function is equivalent to calling {@link VK10#vkGetInstanceProcAddr} with a platform-specific query of the Vulkan loader as a fallback.</p>
-	 * 
-	 * <p>Possible errors include {@link GLFW#GLFW_NOT_INITIALIZED NOT_INITIALIZED} and {@link GLFW#GLFW_API_UNAVAILABLE API_UNAVAILABLE}.</p>
-	 * 
-	 * <p>The returned function pointer is valid until the library is terminated.</p>
-	 * 
-	 * <p>This function may be called from any thread.</p>
-	 *
-	 * @param instance the Vulkan instance to query, or {@code NULL} to retrieve functions related to instance creation
-	 * @param procname the ASCII encoded name of the function
-	 *
-	 * @return the address of the function, or {@code NULL} if an error occurred
-	 *
-	 * @since version 3.2
-	 */
+	/** Unsafe version of: {@link #glfwGetInstanceProcAddress GetInstanceProcAddress} */
 	public static long nglfwGetInstanceProcAddress(long instance, long procname) {
 		long __functionAddress = Functions.GetInstanceProcAddress;
 		return invokePPP(__functionAddress, instance, procname);
@@ -271,35 +221,7 @@ public class GLFWVulkan {
 
 	// --- [ glfwCreateWindowSurface ] ---
 
-	/**
-	 * Creates a Vulkan surface for the specified window.
-	 * 
-	 * <p>If the Vulkan loader was not found at initialization, this function returns {@link VK10#VK_ERROR_INITIALIZATION_FAILED} and generates a
-	 * {@link GLFW#GLFW_API_UNAVAILABLE API_UNAVAILABLE} error. Call {@link #glfwVulkanSupported VulkanSupported} to check whether the Vulkan loader was found.</p>
-	 * 
-	 * <p>If the required window surface creation instance extensions are not available or if the specified instance was not created with these extensions
-	 * enabled, this function returns {@link VK10#VK_ERROR_EXTENSION_NOT_PRESENT} and generates a {@link GLFW#GLFW_API_UNAVAILABLE API_UNAVAILABLE} error. Call
-	 * {@link #glfwGetRequiredInstanceExtensions GetRequiredInstanceExtensions} to check what instance extensions are required.</p>
-	 * 
-	 * <p>The window surface must be destroyed before the specified Vulkan instance. It is the responsibility of the caller to destroy the window surface.
-	 * GLFW does not destroy it for you. Call {@link KHRSurface#vkDestroySurfaceKHR} to destroy the surface.</p>
-	 * 
-	 * <p>Possible errors include {@link GLFW#GLFW_NOT_INITIALIZED NOT_INITIALIZED}, {@link GLFW#GLFW_API_UNAVAILABLE API_UNAVAILABLE} and {@link GLFW#GLFW_PLATFORM_ERROR PLATFORM_ERROR}.</p>
-	 * 
-	 * <p>If an error occurs before the creation call is made, GLFW returns the Vulkan error code most appropriate for the error. Appropriate use of
-	 * {@link #glfwVulkanSupported VulkanSupported} and {@link #glfwGetRequiredInstanceExtensions GetRequiredInstanceExtensions} should eliminate almost all occurrences of these errors.</p>
-	 * 
-	 * <p>This function may be called from any thread. For synchronization details of Vulkan objects, see the Vulkan specification.</p>
-	 *
-	 * @param instance  the Vulkan instance to create the surface in
-	 * @param window    the window to create the surface for
-	 * @param allocator the allocator to use, or {@code NULL} to use the default allocator.
-	 * @param surface   where to store the handle of the surface. This is set to {@link VK10#VK_NULL_HANDLE} if an error occurred.
-	 *
-	 * @return {@link VK10#VK_SUCCESS} if successful, or a Vulkan error code if an error occurred
-	 *
-	 * @since version 3.2
-	 */
+	/** Unsafe version of: {@link #glfwCreateWindowSurface CreateWindowSurface} */
 	public static int nglfwCreateWindowSurface(long instance, long window, long allocator, long surface) {
 		long __functionAddress = Functions.CreateWindowSurface;
 		if ( CHECKS ) {

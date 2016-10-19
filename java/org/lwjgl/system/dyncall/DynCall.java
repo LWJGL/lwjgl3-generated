@@ -116,11 +116,7 @@ public class DynCall {
 
 	// --- [ dcFree ] ---
 
-	/**
-	 * Frees a {@code CallVM} object.
-	 *
-	 * @param vm a {@code CallVM} instance
-	 */
+	/** Unsafe version of: {@link #dcFree Free} */
 	public static native void ndcFree(long vm);
 
 	/**
@@ -136,15 +132,7 @@ public class DynCall {
 
 	// --- [ dcReset ] ---
 
-	/**
-	 * Resets the internal stack of arguments and prepares it for a new call. This function should be called after setting the call mode (using {@link #dcMode Mode}), but
-	 * prior to binding arguments to the {@code CallVM}. Use it also when reusing a {@code CallVM}, as arguments don’t get flushed automatically after a
-	 * function call invocation.
-	 * 
-	 * <p>Note: you should also call this function after initial creation of the a {@code CallVM} object, as {@link #dcNewCallVM NewCallVM} doesn’t do this, implicitly.</p>
-	 *
-	 * @param vm a {@code CallVM} instance
-	 */
+	/** Unsafe version of: {@link #dcReset Reset} */
 	public static native void ndcReset(long vm);
 
 	/**
@@ -164,16 +152,7 @@ public class DynCall {
 
 	// --- [ dcMode ] ---
 
-	/**
-	 * Sets the calling convention to use.
-	 * 
-	 * <p>{@link #DC_CALL_C_DEFAULT CALL_C_DEFAULT} is the default standard C call on the target platform. It uses the standard C calling convention. {@link #DC_CALL_C_ELLIPSIS CALL_C_ELLIPSIS} is used for C
-	 * ellipsis calls which allow to build up a variable argument list. On many platforms, there is only one C calling convention. The X86 platform provides a
-	 * rich family of different calling conventions.</p>
-	 *
-	 * @param vm   a {@code CallVM} instance
-	 * @param mode the calling convention. One of:<br><table><tr><td>{@link #DC_CALL_C_DEFAULT CALL_C_DEFAULT}</td><td>{@link #DC_CALL_C_ELLIPSIS CALL_C_ELLIPSIS}</td><td>{@link #DC_CALL_C_ELLIPSIS_VARARGS CALL_C_ELLIPSIS_VARARGS}</td><td>{@link #DC_CALL_C_X86_CDECL CALL_C_X86_CDECL}</td></tr><tr><td>{@link #DC_CALL_C_X86_WIN32_STD CALL_C_X86_WIN32_STD}</td><td>{@link #DC_CALL_C_X86_WIN32_FAST_MS CALL_C_X86_WIN32_FAST_MS}</td><td>{@link #DC_CALL_C_X86_WIN32_FAST_GNU CALL_C_X86_WIN32_FAST_GNU}</td><td>{@link #DC_CALL_C_X86_WIN32_THIS_MS CALL_C_X86_WIN32_THIS_MS}</td></tr><tr><td>{@link #DC_CALL_C_X86_WIN32_THIS_GNU CALL_C_X86_WIN32_THIS_GNU}</td><td>{@link #DC_CALL_C_X64_WIN64 CALL_C_X64_WIN64}</td><td>{@link #DC_CALL_C_X64_SYSV CALL_C_X64_SYSV}</td><td>{@link #DC_CALL_C_PPC32_DARWIN CALL_C_PPC32_DARWIN}</td></tr><tr><td>{@link #DC_CALL_C_PPC32_OSX CALL_C_PPC32_OSX}</td><td>{@link #DC_CALL_C_ARM_ARM_EABI CALL_C_ARM_ARM_EABI}</td><td>{@link #DC_CALL_C_ARM_THUMB_EABI CALL_C_ARM_THUMB_EABI}</td><td>{@link #DC_CALL_C_ARM_ARMHF CALL_C_ARM_ARMHF}</td></tr><tr><td>{@link #DC_CALL_C_MIPS32_EABI CALL_C_MIPS32_EABI}</td><td>{@link #DC_CALL_C_PPC32_SYSV CALL_C_PPC32_SYSV}</td><td>{@link #DC_CALL_C_PPC32_LINUX CALL_C_PPC32_LINUX}</td><td>{@link #DC_CALL_C_ARM_ARM CALL_C_ARM_ARM}</td></tr><tr><td>{@link #DC_CALL_C_ARM_THUMB CALL_C_ARM_THUMB}</td><td>{@link #DC_CALL_C_MIPS32_O32 CALL_C_MIPS32_O32}</td><td>{@link #DC_CALL_C_MIPS64_N32 CALL_C_MIPS64_N32}</td><td>{@link #DC_CALL_C_MIPS64_N64 CALL_C_MIPS64_N64}</td></tr><tr><td>{@link #DC_CALL_C_X86_PLAN9 CALL_C_X86_PLAN9}</td><td>{@link #DC_CALL_C_SPARC32 CALL_C_SPARC32}</td><td>{@link #DC_CALL_C_SPARC64 CALL_C_SPARC64}</td><td>{@link #DC_CALL_C_ARM64 CALL_C_ARM64}</td></tr><tr><td>{@link #DC_CALL_C_PPC64 CALL_C_PPC64}</td><td>{@link #DC_CALL_C_PPC64_LINUX CALL_C_PPC64_LINUX}</td><td>{@link #DC_CALL_SYS_DEFAULT CALL_SYS_DEFAULT}</td><td>{@link #DC_CALL_SYS_X86_INT80H_LINUX CALL_SYS_X86_INT80H_LINUX}</td></tr><tr><td>{@link #DC_CALL_SYS_X86_INT80H_BSD CALL_SYS_X86_INT80H_BSD}</td><td>{@link #DC_CALL_SYS_PPC32 CALL_SYS_PPC32}</td><td>{@link #DC_CALL_SYS_PPC64 CALL_SYS_PPC64}</td></tr></table>
-	 */
+	/** Unsafe version of: {@link #dcMode Mode} */
 	public static native void ndcMode(long vm, int mode);
 
 	/**
@@ -194,12 +173,7 @@ public class DynCall {
 
 	// --- [ dcArgBool ] ---
 
-	/**
-	 * Binds a {@code bool} argument.
-	 *
-	 * @param vm    a {@code CallVM} instance
-	 * @param value the argument value
-	 */
+	/** Unsafe version of: {@link #dcArgBool ArgBool} */
 	public static native void ndcArgBool(long vm, int value);
 
 	/**
@@ -216,12 +190,7 @@ public class DynCall {
 
 	// --- [ dcArgChar ] ---
 
-	/**
-	 * Binds a {@code char} argument.
-	 *
-	 * @param vm    a {@code CallVM} instance
-	 * @param value the argument value
-	 */
+	/** Unsafe version of: {@link #dcArgChar ArgChar} */
 	public static native void ndcArgChar(long vm, byte value);
 
 	/**
@@ -238,12 +207,7 @@ public class DynCall {
 
 	// --- [ dcArgShort ] ---
 
-	/**
-	 * Binds a {@code short} argument.
-	 *
-	 * @param vm    a {@code CallVM} instance
-	 * @param value the argument value
-	 */
+	/** Unsafe version of: {@link #dcArgShort ArgShort} */
 	public static native void ndcArgShort(long vm, short value);
 
 	/**
@@ -260,12 +224,7 @@ public class DynCall {
 
 	// --- [ dcArgInt ] ---
 
-	/**
-	 * Binds an {@code int} argument.
-	 *
-	 * @param vm    a {@code CallVM} instance
-	 * @param value the argument value
-	 */
+	/** Unsafe version of: {@link #dcArgInt ArgInt} */
 	public static native void ndcArgInt(long vm, int value);
 
 	/**
@@ -282,12 +241,7 @@ public class DynCall {
 
 	// --- [ dcArgLong ] ---
 
-	/**
-	 * Binds a {@code long} argument.
-	 *
-	 * @param vm    a {@code CallVM} instance
-	 * @param value the argument value
-	 */
+	/** Unsafe version of: {@link #dcArgLong ArgLong} */
 	public static native void ndcArgLong(long vm, int value);
 
 	/**
@@ -304,12 +258,7 @@ public class DynCall {
 
 	// --- [ dcArgLongLong ] ---
 
-	/**
-	 * Binds a {@code long long} argument.
-	 *
-	 * @param vm    a {@code CallVM} instance
-	 * @param value the argument value
-	 */
+	/** Unsafe version of: {@link #dcArgLongLong ArgLongLong} */
 	public static native void ndcArgLongLong(long vm, long value);
 
 	/**
@@ -326,12 +275,7 @@ public class DynCall {
 
 	// --- [ dcArgFloat ] ---
 
-	/**
-	 * Binds a {@code float} argument.
-	 *
-	 * @param vm    a {@code CallVM} instance
-	 * @param value the argument value
-	 */
+	/** Unsafe version of: {@link #dcArgFloat ArgFloat} */
 	public static native void ndcArgFloat(long vm, float value);
 
 	/**
@@ -348,12 +292,7 @@ public class DynCall {
 
 	// --- [ dcArgDouble ] ---
 
-	/**
-	 * Binds a {@code double} argument.
-	 *
-	 * @param vm    a {@code CallVM} instance
-	 * @param value the argument value
-	 */
+	/** Unsafe version of: {@link #dcArgDouble ArgDouble} */
 	public static native void ndcArgDouble(long vm, double value);
 
 	/**
@@ -370,12 +309,7 @@ public class DynCall {
 
 	// --- [ dcArgPointer ] ---
 
-	/**
-	 * Binds a pointer argument.
-	 *
-	 * @param vm    a {@code CallVM} instance
-	 * @param value the argument value
-	 */
+	/** Unsafe version of: {@link #dcArgPointer ArgPointer} */
 	public static native void ndcArgPointer(long vm, long value);
 
 	/**
@@ -392,13 +326,7 @@ public class DynCall {
 
 	// --- [ dcArgStruct ] ---
 
-	/**
-	 * Binds a struct argument.
-	 *
-	 * @param vm    a {@code CallVM} instance
-	 * @param s     
-	 * @param value the argument value
-	 */
+	/** Unsafe version of: {@link #dcArgStruct ArgStruct} */
 	public static native void ndcArgStruct(long vm, long s, long value);
 
 	/**
@@ -419,15 +347,7 @@ public class DynCall {
 
 	// --- [ dcCallVoid ] ---
 
-	/**
-	 * Calls the function specified by {@code funcptr} with the arguments bound to the {@code CallVM} and returns.
-	 * 
-	 * <p>After the invocation of the foreign function call, the argument values are still bound and a second call using the same arguments can be issued. If you
-	 * need to clear the argument bindings, you have to reset the {@code CallVM}.</p>
-	 *
-	 * @param vm      a {@code CallVM} instance
-	 * @param funcptr the function pointer
-	 */
+	/** Unsafe version of: {@link #dcCallVoid CallVoid} */
 	public static native void ndcCallVoid(long vm, long funcptr);
 
 	/**
@@ -449,15 +369,7 @@ public class DynCall {
 
 	// --- [ dcCallBool ] ---
 
-	/**
-	 * Calls the function specified by {@code funcptr} with the arguments bound to the {@code CallVM} and returns.
-	 * 
-	 * <p>After the invocation of the foreign function call, the argument values are still bound and a second call using the same arguments can be issued. If you
-	 * need to clear the argument bindings, you have to reset the {@code CallVM}.</p>
-	 *
-	 * @param vm      a {@code CallVM} instance
-	 * @param funcptr the function pointer
-	 */
+	/** Unsafe version of: {@link #dcCallBool CallBool} */
 	public static native int ndcCallBool(long vm, long funcptr);
 
 	/**
@@ -479,15 +391,7 @@ public class DynCall {
 
 	// --- [ dcCallChar ] ---
 
-	/**
-	 * Calls the function specified by {@code funcptr} with the arguments bound to the {@code CallVM} and returns.
-	 * 
-	 * <p>After the invocation of the foreign function call, the argument values are still bound and a second call using the same arguments can be issued. If you
-	 * need to clear the argument bindings, you have to reset the {@code CallVM}.</p>
-	 *
-	 * @param vm      a {@code CallVM} instance
-	 * @param funcptr the function pointer
-	 */
+	/** Unsafe version of: {@link #dcCallChar CallChar} */
 	public static native byte ndcCallChar(long vm, long funcptr);
 
 	/**
@@ -509,15 +413,7 @@ public class DynCall {
 
 	// --- [ dcCallShort ] ---
 
-	/**
-	 * Calls the function specified by {@code funcptr} with the arguments bound to the {@code CallVM} and returns.
-	 * 
-	 * <p>After the invocation of the foreign function call, the argument values are still bound and a second call using the same arguments can be issued. If you
-	 * need to clear the argument bindings, you have to reset the {@code CallVM}.</p>
-	 *
-	 * @param vm      a {@code CallVM} instance
-	 * @param funcptr the function pointer
-	 */
+	/** Unsafe version of: {@link #dcCallShort CallShort} */
 	public static native short ndcCallShort(long vm, long funcptr);
 
 	/**
@@ -539,15 +435,7 @@ public class DynCall {
 
 	// --- [ dcCallInt ] ---
 
-	/**
-	 * Calls the function specified by {@code funcptr} with the arguments bound to the {@code CallVM} and returns.
-	 * 
-	 * <p>After the invocation of the foreign function call, the argument values are still bound and a second call using the same arguments can be issued. If you
-	 * need to clear the argument bindings, you have to reset the {@code CallVM}.</p>
-	 *
-	 * @param vm      a {@code CallVM} instance
-	 * @param funcptr the function pointer
-	 */
+	/** Unsafe version of: {@link #dcCallInt CallInt} */
 	public static native int ndcCallInt(long vm, long funcptr);
 
 	/**
@@ -569,15 +457,7 @@ public class DynCall {
 
 	// --- [ dcCallLong ] ---
 
-	/**
-	 * Calls the function specified by {@code funcptr} with the arguments bound to the {@code CallVM} and returns.
-	 * 
-	 * <p>After the invocation of the foreign function call, the argument values are still bound and a second call using the same arguments can be issued. If you
-	 * need to clear the argument bindings, you have to reset the {@code CallVM}.</p>
-	 *
-	 * @param vm      a {@code CallVM} instance
-	 * @param funcptr the function pointer
-	 */
+	/** Unsafe version of: {@link #dcCallLong CallLong} */
 	public static native int ndcCallLong(long vm, long funcptr);
 
 	/**
@@ -599,15 +479,7 @@ public class DynCall {
 
 	// --- [ dcCallLongLong ] ---
 
-	/**
-	 * Calls the function specified by {@code funcptr} with the arguments bound to the {@code CallVM} and returns.
-	 * 
-	 * <p>After the invocation of the foreign function call, the argument values are still bound and a second call using the same arguments can be issued. If you
-	 * need to clear the argument bindings, you have to reset the {@code CallVM}.</p>
-	 *
-	 * @param vm      a {@code CallVM} instance
-	 * @param funcptr the function pointer
-	 */
+	/** Unsafe version of: {@link #dcCallLongLong CallLongLong} */
 	public static native long ndcCallLongLong(long vm, long funcptr);
 
 	/**
@@ -629,15 +501,7 @@ public class DynCall {
 
 	// --- [ dcCallFloat ] ---
 
-	/**
-	 * Calls the function specified by {@code funcptr} with the arguments bound to the {@code CallVM} and returns.
-	 * 
-	 * <p>After the invocation of the foreign function call, the argument values are still bound and a second call using the same arguments can be issued. If you
-	 * need to clear the argument bindings, you have to reset the {@code CallVM}.</p>
-	 *
-	 * @param vm      a {@code CallVM} instance
-	 * @param funcptr the function pointer
-	 */
+	/** Unsafe version of: {@link #dcCallFloat CallFloat} */
 	public static native float ndcCallFloat(long vm, long funcptr);
 
 	/**
@@ -659,15 +523,7 @@ public class DynCall {
 
 	// --- [ dcCallDouble ] ---
 
-	/**
-	 * Calls the function specified by {@code funcptr} with the arguments bound to the {@code CallVM} and returns.
-	 * 
-	 * <p>After the invocation of the foreign function call, the argument values are still bound and a second call using the same arguments can be issued. If you
-	 * need to clear the argument bindings, you have to reset the {@code CallVM}.</p>
-	 *
-	 * @param vm      a {@code CallVM} instance
-	 * @param funcptr the function pointer
-	 */
+	/** Unsafe version of: {@link #dcCallDouble CallDouble} */
 	public static native double ndcCallDouble(long vm, long funcptr);
 
 	/**
@@ -689,15 +545,7 @@ public class DynCall {
 
 	// --- [ dcCallPointer ] ---
 
-	/**
-	 * Calls the function specified by {@code funcptr} with the arguments bound to the {@code CallVM} and returns.
-	 * 
-	 * <p>After the invocation of the foreign function call, the argument values are still bound and a second call using the same arguments can be issued. If you
-	 * need to clear the argument bindings, you have to reset the {@code CallVM}.</p>
-	 *
-	 * @param vm      a {@code CallVM} instance
-	 * @param funcptr the function pointer
-	 */
+	/** Unsafe version of: {@link #dcCallPointer CallPointer} */
 	public static native long ndcCallPointer(long vm, long funcptr);
 
 	/**
@@ -719,17 +567,7 @@ public class DynCall {
 
 	// --- [ dcCallStruct ] ---
 
-	/**
-	 * Calls the function specified by {@code funcptr} with the arguments bound to the {@code CallVM} and returns.
-	 * 
-	 * <p>After the invocation of the foreign function call, the argument values are still bound and a second call using the same arguments can be issued. If you
-	 * need to clear the argument bindings, you have to reset the {@code CallVM}.</p>
-	 *
-	 * @param vm          a {@code CallVM} instance
-	 * @param funcptr     the function pointer
-	 * @param s           
-	 * @param returnValue 
-	 */
+	/** Unsafe version of: {@link #dcCallStruct CallStruct} */
 	public static native void ndcCallStruct(long vm, long funcptr, long s, long returnValue);
 
 	/**
@@ -755,11 +593,7 @@ public class DynCall {
 
 	// --- [ dcGetError ] ---
 
-	/**
-	 * Returns the most recent error state code.
-	 *
-	 * @param vm a {@code CallVM} instance
-	 */
+	/** Unsafe version of: {@link #dcGetError GetError} */
 	public static native int ndcGetError(long vm);
 
 	/**
@@ -785,14 +619,7 @@ public class DynCall {
 
 	// --- [ dcStructField ] ---
 
-	/**
-	 * Adds a field to the specified struct.
-	 *
-	 * @param s           the struct
-	 * @param type        the field type
-	 * @param alignment   a custom field alignment, or 0 to calculate automatically
-	 * @param arrayLength 1 or a higher value if the field is an array
-	 */
+	/** Unsafe version of: {@link #dcStructField StructField} */
 	public static native void ndcStructField(long s, int type, int alignment, long arrayLength);
 
 	/**
@@ -811,14 +638,7 @@ public class DynCall {
 
 	// --- [ dcSubStruct ] ---
 
-	/**
-	 * Adds a nested struct to the specified struct
-	 *
-	 * @param s           the struct
-	 * @param fieldCount  the number of fields in the nested struct
-	 * @param alignment   a custom nested struct alignment, or 0 to calculate automatically
-	 * @param arrayLength 1 or a higher value if the nested struct is an array
-	 */
+	/** Unsafe version of: {@link #dcSubStruct SubStruct} */
 	public static native void ndcSubStruct(long s, long fieldCount, int alignment, long arrayLength);
 
 	/**
@@ -837,11 +657,7 @@ public class DynCall {
 
 	// --- [ dcCloseStruct ] ---
 
-	/**
-	 * Completes the struct definition.
-	 *
-	 * @param s the struct to close
-	 */
+	/** Unsafe version of: {@link #dcCloseStruct CloseStruct} */
 	public static native void ndcCloseStruct(long s);
 
 	/**
@@ -857,11 +673,7 @@ public class DynCall {
 
 	// --- [ dcStructSize ] ---
 
-	/**
-	 * Returns the size, in bytes, of the specified struct.
-	 *
-	 * @param s the struct
-	 */
+	/** Unsafe version of: {@link #dcStructSize StructSize} */
 	public static native long ndcStructSize(long s);
 
 	/**
@@ -877,11 +689,7 @@ public class DynCall {
 
 	// --- [ dcStructAlignment ] ---
 
-	/**
-	 * Returns the alignment, in bytes, of the specified struct.
-	 *
-	 * @param s the struct
-	 */
+	/** Unsafe version of: {@link #dcStructAlignment StructAlignment} */
 	public static native long ndcStructAlignment(long s);
 
 	/**
@@ -897,11 +705,7 @@ public class DynCall {
 
 	// --- [ dcFreeStruct ] ---
 
-	/**
-	 * Frees the specified struct object.
-	 *
-	 * @param s the struct to free
-	 */
+	/** Unsafe version of: {@link #dcFreeStruct FreeStruct} */
 	public static native void ndcFreeStruct(long s);
 
 	/**
@@ -917,11 +721,7 @@ public class DynCall {
 
 	// --- [ dcDefineStruct ] ---
 
-	/**
-	 * Creates a new struct type using a signature string.
-	 *
-	 * @param signature the struct signature
-	 */
+	/** Unsafe version of: {@link #dcDefineStruct DefineStruct} */
 	public static native long ndcDefineStruct(long signature);
 
 	/**

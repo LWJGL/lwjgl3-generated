@@ -109,16 +109,7 @@ public class GL33 {
 
 	// --- [ glBindFragDataLocationIndexed ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glBindFragDataLocationIndexed.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Binds a user-defined varying out variable to a fragment shader color number and index.
-	 *
-	 * @param program     the name of the program containing varying out variable whose binding to modify
-	 * @param colorNumber the color number to bind the user-defined varying out variable to
-	 * @param index       the index of the color input to bind the user-defined varying out variable to
-	 * @param name        the name of the user-defined varying out variable whose binding to modify
-	 */
+	/** Unsafe version of: {@link #glBindFragDataLocationIndexed BindFragDataLocationIndexed} */
 	public static void nglBindFragDataLocationIndexed(int program, int colorNumber, int index, long name) {
 		long __functionAddress = GL.getCapabilities().glBindFragDataLocationIndexed;
 		if ( CHECKS )
@@ -164,14 +155,7 @@ public class GL33 {
 
 	// --- [ glGetFragDataIndex ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetFragDataIndex.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Queries the bindings of color indices to user-defined varying out variables.
-	 *
-	 * @param program the name of the program containing varying out variable whose binding to query
-	 * @param name    the name of the user-defined varying out variable whose index to query
-	 */
+	/** Unsafe version of: {@link #glGetFragDataIndex GetFragDataIndex} */
 	public static int nglGetFragDataIndex(int program, long name) {
 		long __functionAddress = GL.getCapabilities().glGetFragDataIndex;
 		if ( CHECKS )
@@ -214,12 +198,9 @@ public class GL33 {
 	// --- [ glGenSamplers ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGenSamplers.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Generates sampler object names.
+	 * Unsafe version of: {@link #glGenSamplers GenSamplers}
 	 *
-	 * @param count    the number of sampler object names to generate
-	 * @param samplers a buffer in which the generated sampler object names are stored
+	 * @param count the number of sampler object names to generate
 	 */
 	public static void nglGenSamplers(int count, long samplers) {
 		long __functionAddress = GL.getCapabilities().glGenSamplers;
@@ -258,12 +239,9 @@ public class GL33 {
 	// --- [ glDeleteSamplers ] ---
 
 	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glDeleteSamplers.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Deletes named sampler objects.
+	 * Unsafe version of: {@link #glDeleteSamplers DeleteSamplers}
 	 *
-	 * @param count    the number of sampler objects to be deleted
-	 * @param samplers an array of sampler objects to be deleted
+	 * @param count the number of sampler objects to be deleted
 	 */
 	public static void nglDeleteSamplers(int count, long samplers) {
 		long __functionAddress = GL.getCapabilities().glDeleteSamplers;
@@ -369,15 +347,7 @@ public class GL33 {
 
 	// --- [ glSamplerParameteriv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glSamplerParameter.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pointer version of {@link #glSamplerParameteri SamplerParameteri}.
-	 *
-	 * @param sampler the sampler object whose parameter to modify
-	 * @param pname   the symbolic name of a sampler parameter. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_BORDER_COLOR TEXTURE_BORDER_COLOR}</td><td>{@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}</td><td>{@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}</td><td>{@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}</td></tr><tr><td>{@link GL11#GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}</td><td>{@link GL11#GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}</td><td>{@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}</td><td>{@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}</td></tr><tr><td>{@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}</td><td>{@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}</td><td>{@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}</td></tr></table>
-	 * @param params  an array where the value or values of {@code pname} are stored
-	 */
+	/** Unsafe version of: {@link #glSamplerParameteriv SamplerParameteriv} */
 	public static void nglSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameteriv;
 		if ( CHECKS )
@@ -400,15 +370,7 @@ public class GL33 {
 
 	// --- [ glSamplerParameterfv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glSamplerParameter.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Float version of {@link #glSamplerParameteriv SamplerParameteriv}.
-	 *
-	 * @param sampler the sampler object whose parameter to modify
-	 * @param pname   the symbolic name of a sampler parameter
-	 * @param params  an array where the value or values of {@code pname} are stored
-	 */
+	/** Unsafe version of: {@link #glSamplerParameterfv SamplerParameterfv} */
 	public static void nglSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterfv;
 		if ( CHECKS )
@@ -431,15 +393,7 @@ public class GL33 {
 
 	// --- [ glSamplerParameterIiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glSamplerParameterI.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pure integer version of {@link #glSamplerParameteriv SamplerParameteriv}.
-	 *
-	 * @param sampler the sampler object whose parameter to modify
-	 * @param pname   the symbolic name of a sampler parameter
-	 * @param params  an array where the value or values of {@code pname} are stored
-	 */
+	/** Unsafe version of: {@link #glSamplerParameterIiv SamplerParameterIiv} */
 	public static void nglSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterIiv;
 		if ( CHECKS )
@@ -462,15 +416,7 @@ public class GL33 {
 
 	// --- [ glSamplerParameterIuiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glSamplerParameterI.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Unsigned pure integer version of {@link #glSamplerParameteriv SamplerParameteriv}.
-	 *
-	 * @param sampler the sampler object whose parameter to modify
-	 * @param pname   the symbolic name of a sampler parameter
-	 * @param params  an array where the value or values of {@code pname} are stored
-	 */
+	/** Unsafe version of: {@link #glSamplerParameterIuiv SamplerParameterIuiv} */
 	public static void nglSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterIuiv;
 		if ( CHECKS )
@@ -493,15 +439,7 @@ public class GL33 {
 
 	// --- [ glGetSamplerParameteriv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetSamplerParameter.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Return the integer value(s) of a sampler parameter.
-	 *
-	 * @param sampler the name of the sampler object from which to retrieve parameters
-	 * @param pname   the symbolic name of a sampler parameter. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}</td><td>{@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}</td><td>{@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}</td><td>{@link GL11#GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}</td><td>{@link GL11#GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}</td></tr><tr><td>{@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}</td><td>{@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}</td><td>{@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}</td><td>{@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}</td><td>{@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}</td></tr><tr><td>,</td><td>{@link GL11#GL_TEXTURE_BORDER_COLOR TEXTURE_BORDER_COLOR}</td></tr></table>
-	 * @param params  the sampler parameters
-	 */
+	/** Unsafe version of: {@link #glGetSamplerParameteriv GetSamplerParameteriv} */
 	public static void nglGetSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameteriv;
 		if ( CHECKS )
@@ -545,15 +483,7 @@ public class GL33 {
 
 	// --- [ glGetSamplerParameterfv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetSamplerParameter.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Float version of {@link #glGetSamplerParameteriv GetSamplerParameteriv}.
-	 *
-	 * @param sampler the name of the sampler object from which to retrieve parameters
-	 * @param pname   the symbolic name of a sampler parameter
-	 * @param params  the sampler parameters
-	 */
+	/** Unsafe version of: {@link #glGetSamplerParameterfv GetSamplerParameterfv} */
 	public static void nglGetSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameterfv;
 		if ( CHECKS )
@@ -597,15 +527,7 @@ public class GL33 {
 
 	// --- [ glGetSamplerParameterIiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetSamplerParameterI.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pure integer version of {@link #glGetSamplerParameteriv GetSamplerParameteriv}.
-	 *
-	 * @param sampler the name of the sampler object from which to retrieve parameters
-	 * @param pname   the symbolic name of a sampler parameter
-	 * @param params  the sampler parameters
-	 */
+	/** Unsafe version of: {@link #glGetSamplerParameterIiv GetSamplerParameterIiv} */
 	public static void nglGetSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameterIiv;
 		if ( CHECKS )
@@ -649,15 +571,7 @@ public class GL33 {
 
 	// --- [ glGetSamplerParameterIuiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetSamplerParameterI.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Unsigned pure integer version of {@link #glGetSamplerParameteriv GetSamplerParameteriv}.
-	 *
-	 * @param sampler the name of the sampler object from which to retrieve parameters
-	 * @param pname   the symbolic name of a sampler parameter
-	 * @param params  the sampler parameters
-	 */
+	/** Unsafe version of: {@link #glGetSamplerParameterIuiv GetSamplerParameterIuiv} */
 	public static void nglGetSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameterIuiv;
 		if ( CHECKS )
@@ -718,15 +632,7 @@ public class GL33 {
 
 	// --- [ glGetQueryObjecti64v ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryObject.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Returns the 64bit integer value of query object parameter.
-	 *
-	 * @param id     the name of a query object
-	 * @param pname  the symbolic name of a query object parameter. One of:<br><table><tr><td>{@link GL15#GL_QUERY_RESULT QUERY_RESULT}</td><td>{@link GL15#GL_QUERY_RESULT_AVAILABLE QUERY_RESULT_AVAILABLE}</td></tr></table>
-	 * @param params the requested data
-	 */
+	/** Unsafe version of: {@link #glGetQueryObjecti64v GetQueryObjecti64v} */
 	public static void nglGetQueryObjecti64v(int id, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjecti64v;
 		if ( CHECKS )
@@ -770,15 +676,7 @@ public class GL33 {
 
 	// --- [ glGetQueryObjectui64v ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetQueryObject.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Unsigned version of {@link #glGetQueryObjecti64v GetQueryObjecti64v}.
-	 *
-	 * @param id     the name of a query object
-	 * @param pname  the symbolic name of a query object parameter
-	 * @param params the requested data
-	 */
+	/** Unsafe version of: {@link #glGetQueryObjectui64v GetQueryObjectui64v} */
 	public static void nglGetQueryObjectui64v(int id, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjectui64v;
 		if ( CHECKS )
@@ -890,14 +788,7 @@ public class GL33 {
 
 	// --- [ glVertexP2uiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertexP2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glVertexP2ui VertexP2ui}.
-	 *
-	 * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param value the packed value
-	 */
+	/** Unsafe version of: {@link #glVertexP2uiv VertexP2uiv} */
 	public static void nglVertexP2uiv(int type, long value) {
 		long __functionAddress = GL.getCapabilities().glVertexP2uiv;
 		if ( CHECKS )
@@ -921,14 +812,7 @@ public class GL33 {
 
 	// --- [ glVertexP3uiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertexP3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glVertexP3ui VertexP3ui}.
-	 *
-	 * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param value the packed value
-	 */
+	/** Unsafe version of: {@link #glVertexP3uiv VertexP3uiv} */
 	public static void nglVertexP3uiv(int type, long value) {
 		long __functionAddress = GL.getCapabilities().glVertexP3uiv;
 		if ( CHECKS )
@@ -952,14 +836,7 @@ public class GL33 {
 
 	// --- [ glVertexP4uiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glVertexP4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glVertexP4ui VertexP4ui}.
-	 *
-	 * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param value the packed value
-	 */
+	/** Unsafe version of: {@link #glVertexP4uiv VertexP4uiv} */
 	public static void nglVertexP4uiv(int type, long value) {
 		long __functionAddress = GL.getCapabilities().glVertexP4uiv;
 		if ( CHECKS )
@@ -1051,14 +928,7 @@ public class GL33 {
 
 	// --- [ glTexCoordP1uiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordP1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glTexCoordP1ui TexCoordP1ui}.
-	 *
-	 * @param type   type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param coords the packed value
-	 */
+	/** Unsafe version of: {@link #glTexCoordP1uiv TexCoordP1uiv} */
 	public static void nglTexCoordP1uiv(int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glTexCoordP1uiv;
 		if ( CHECKS )
@@ -1082,14 +952,7 @@ public class GL33 {
 
 	// --- [ glTexCoordP2uiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordP2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glTexCoordP2ui TexCoordP2ui}.
-	 *
-	 * @param type   type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param coords the packed value
-	 */
+	/** Unsafe version of: {@link #glTexCoordP2uiv TexCoordP2uiv} */
 	public static void nglTexCoordP2uiv(int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glTexCoordP2uiv;
 		if ( CHECKS )
@@ -1113,14 +976,7 @@ public class GL33 {
 
 	// --- [ glTexCoordP3uiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordP3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glTexCoordP3ui TexCoordP3ui}.
-	 *
-	 * @param type   type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param coords the packed value
-	 */
+	/** Unsafe version of: {@link #glTexCoordP3uiv TexCoordP3uiv} */
 	public static void nglTexCoordP3uiv(int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glTexCoordP3uiv;
 		if ( CHECKS )
@@ -1144,14 +1000,7 @@ public class GL33 {
 
 	// --- [ glTexCoordP4uiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glTexCoordP4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glTexCoordP4ui TexCoordP4ui}.
-	 *
-	 * @param type   type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param coords the packed value
-	 */
+	/** Unsafe version of: {@link #glTexCoordP4uiv TexCoordP4uiv} */
 	public static void nglTexCoordP4uiv(int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glTexCoordP4uiv;
 		if ( CHECKS )
@@ -1247,15 +1096,7 @@ public class GL33 {
 
 	// --- [ glMultiTexCoordP1uiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoordP1.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glMultiTexCoordP1ui MultiTexCoordP1ui}.
-	 *
-	 * @param texture the coordinate set to be modified
-	 * @param type    type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param coords  the packed value
-	 */
+	/** Unsafe version of: {@link #glMultiTexCoordP1uiv MultiTexCoordP1uiv} */
 	public static void nglMultiTexCoordP1uiv(int texture, int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoordP1uiv;
 		if ( CHECKS )
@@ -1280,15 +1121,7 @@ public class GL33 {
 
 	// --- [ glMultiTexCoordP2uiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoordP2.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glMultiTexCoordP2ui MultiTexCoordP2ui}.
-	 *
-	 * @param texture the coordinate set to be modified
-	 * @param type    type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param coords  the packed value
-	 */
+	/** Unsafe version of: {@link #glMultiTexCoordP2uiv MultiTexCoordP2uiv} */
 	public static void nglMultiTexCoordP2uiv(int texture, int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoordP2uiv;
 		if ( CHECKS )
@@ -1313,15 +1146,7 @@ public class GL33 {
 
 	// --- [ glMultiTexCoordP3uiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoordP3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glMultiTexCoordP3ui MultiTexCoordP3ui}.
-	 *
-	 * @param texture the coordinate set to be modified
-	 * @param type    type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param coords  the packed value
-	 */
+	/** Unsafe version of: {@link #glMultiTexCoordP3uiv MultiTexCoordP3uiv} */
 	public static void nglMultiTexCoordP3uiv(int texture, int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoordP3uiv;
 		if ( CHECKS )
@@ -1346,15 +1171,7 @@ public class GL33 {
 
 	// --- [ glMultiTexCoordP4uiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glMultiTexCoordP4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glMultiTexCoordP4ui MultiTexCoordP4ui}.
-	 *
-	 * @param texture the coordinate set to be modified
-	 * @param type    type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param coords  the packed value
-	 */
+	/** Unsafe version of: {@link #glMultiTexCoordP4uiv MultiTexCoordP4uiv} */
 	public static void nglMultiTexCoordP4uiv(int texture, int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoordP4uiv;
 		if ( CHECKS )
@@ -1396,14 +1213,7 @@ public class GL33 {
 
 	// --- [ glNormalP3uiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glNormalP3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version {@link #glNormalP3ui NormalP3ui}.
-	 *
-	 * @param type   type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param coords the packed value
-	 */
+	/** Unsafe version of: {@link #glNormalP3uiv NormalP3uiv} */
 	public static void nglNormalP3uiv(int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glNormalP3uiv;
 		if ( CHECKS )
@@ -1461,14 +1271,7 @@ public class GL33 {
 
 	// --- [ glColorP3uiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColorP3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glColorP3ui ColorP3ui}.
-	 *
-	 * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param color the packed value
-	 */
+	/** Unsafe version of: {@link #glColorP3uiv ColorP3uiv} */
 	public static void nglColorP3uiv(int type, long color) {
 		long __functionAddress = GL.getCapabilities().glColorP3uiv;
 		if ( CHECKS )
@@ -1492,14 +1295,7 @@ public class GL33 {
 
 	// --- [ glColorP4uiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glColorP4.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glColorP4ui ColorP4ui}.
-	 *
-	 * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param color the packed value
-	 */
+	/** Unsafe version of: {@link #glColorP4uiv ColorP4uiv} */
 	public static void nglColorP4uiv(int type, long color) {
 		long __functionAddress = GL.getCapabilities().glColorP4uiv;
 		if ( CHECKS )
@@ -1540,14 +1336,7 @@ public class GL33 {
 
 	// --- [ glSecondaryColorP3uiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColorP3.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
-	 * 
-	 * Pointer version of {@link #glSecondaryColorP3ui SecondaryColorP3ui}.
-	 *
-	 * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param color the packed value
-	 */
+	/** Unsafe version of: {@link #glSecondaryColorP3uiv SecondaryColorP3uiv} */
 	public static void nglSecondaryColorP3uiv(int type, long color) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColorP3uiv;
 		if ( CHECKS )
@@ -1647,16 +1436,7 @@ public class GL33 {
 
 	// --- [ glVertexAttribP1uiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribP1.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pointer version of {@link #glVertexAttribP1ui VertexAttribP1ui}.
-	 *
-	 * @param index      the index of the generic vertex attribute to be modified
-	 * @param type       type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param normalized whether values should be normalized or cast directly to floating-point
-	 * @param value      the packed value
-	 */
+	/** Unsafe version of: {@link #glVertexAttribP1uiv VertexAttribP1uiv} */
 	public static void nglVertexAttribP1uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribP1uiv;
 		if ( CHECKS )
@@ -1682,16 +1462,7 @@ public class GL33 {
 
 	// --- [ glVertexAttribP2uiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribP2.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pointer version of {@link #glVertexAttribP2ui VertexAttribP2ui}.
-	 *
-	 * @param index      the index of the generic vertex attribute to be modified
-	 * @param type       type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param normalized whether values should be normalized or cast directly to floating-point
-	 * @param value      the packed value
-	 */
+	/** Unsafe version of: {@link #glVertexAttribP2uiv VertexAttribP2uiv} */
 	public static void nglVertexAttribP2uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribP2uiv;
 		if ( CHECKS )
@@ -1717,16 +1488,7 @@ public class GL33 {
 
 	// --- [ glVertexAttribP3uiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribP3.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pointer version of {@link #glVertexAttribP3ui VertexAttribP3ui}.
-	 *
-	 * @param index      the index of the generic vertex attribute to be modified
-	 * @param type       type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param normalized whether values should be normalized or cast directly to floating-point
-	 * @param value      the packed value
-	 */
+	/** Unsafe version of: {@link #glVertexAttribP3uiv VertexAttribP3uiv} */
 	public static void nglVertexAttribP3uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribP3uiv;
 		if ( CHECKS )
@@ -1752,16 +1514,7 @@ public class GL33 {
 
 	// --- [ glVertexAttribP4uiv ] ---
 
-	/**
-	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glVertexAttribP4.xhtml">OpenGL SDK Reference</a></p>
-	 * 
-	 * Pointer version of {@link #glVertexAttribP4ui VertexAttribP4ui}.
-	 *
-	 * @param index      the index of the generic vertex attribute to be modified
-	 * @param type       type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
-	 * @param normalized whether values should be normalized or cast directly to floating-point
-	 * @param value      the packed value
-	 */
+	/** Unsafe version of: {@link #glVertexAttribP4uiv VertexAttribP4uiv} */
 	public static void nglVertexAttribP4uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribP4uiv;
 		if ( CHECKS )

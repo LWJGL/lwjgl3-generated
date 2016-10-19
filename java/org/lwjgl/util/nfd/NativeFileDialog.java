@@ -77,16 +77,7 @@ public class NativeFileDialog {
 
 	// --- [ NFD_OpenDialog ] ---
 
-	/**
-	 * Launches a single file open dialog.
-	 * 
-	 * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPath} will contain a pointer to a UTF-8 encoded string. The user must free the string with {@link #NFD_Free Free} when it is no longer
-	 * needed.</p>
-	 *
-	 * @param filterList  an optional filter list
-	 * @param defaultPath an optional default path
-	 * @param outPath     returns the selected file path
-	 */
+	/** Unsafe version of: {@link #NFD_OpenDialog OpenDialog} */
 	public static native int nNFD_OpenDialog(long filterList, long defaultPath, long outPath);
 
 	/**
@@ -133,16 +124,7 @@ public class NativeFileDialog {
 
 	// --- [ NFD_OpenDialogMultiple ] ---
 
-	/**
-	 * Launches a multiple file open dialog.
-	 * 
-	 * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPaths} will be filled with information about the selected file or files. The user must free that information with
-	 * {@link #NFD_PathSet_Free PathSet_Free} when it is no longer needed.</p>
-	 *
-	 * @param filterList  an optional filter list
-	 * @param defaultPath an optional default path
-	 * @param outPaths    a path set that will be filled with the selected files
-	 */
+	/** Unsafe version of: {@link #NFD_OpenDialogMultiple OpenDialogMultiple} */
 	public static native int nNFD_OpenDialogMultiple(long filterList, long defaultPath, long outPaths);
 
 	/**
@@ -186,16 +168,7 @@ public class NativeFileDialog {
 
 	// --- [ NFD_SaveDialog ] ---
 
-	/**
-	 * Launches a save dialog.
-	 * 
-	 * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPath} will contain a pointer to a UTF-8 encoded string. The user must free the string with {@link #NFD_Free Free} when it is no longer
-	 * needed.</p>
-	 *
-	 * @param filterList  an optional filter list
-	 * @param defaultPath an optional default path
-	 * @param outPath     returns the selected file path
-	 */
+	/** Unsafe version of: {@link #NFD_SaveDialog SaveDialog} */
 	public static native int nNFD_SaveDialog(long filterList, long defaultPath, long outPath);
 
 	/**
@@ -242,15 +215,7 @@ public class NativeFileDialog {
 
 	// --- [ NFD_PickFolder ] ---
 
-	/**
-	 * Launches a select folder dialog.
-	 * 
-	 * <p>If {@link #NFD_OKAY OKAY} is returned, {@code outPath} will contain a pointer to a UTF-8 encoded string. The user must free the string with {@link #NFD_Free Free} when it is no longer
-	 * needed.</p>
-	 *
-	 * @param defaultPath an optional default path
-	 * @param outPath     returns the selected file path
-	 */
+	/** Unsafe version of: {@link #NFD_PickFolder PickFolder} */
 	public static native int nNFD_PickFolder(long defaultPath, long outPath);
 
 	/**
@@ -293,7 +258,7 @@ public class NativeFileDialog {
 
 	// --- [ NFD_GetError ] ---
 
-	/** Returns the last error. */
+	/** Unsafe version of: {@link #NFD_GetError GetError} */
 	public static native long nNFD_GetError();
 
 	/** Returns the last error. */
@@ -304,11 +269,7 @@ public class NativeFileDialog {
 
 	// --- [ NFD_PathSet_GetCount ] ---
 
-	/**
-	 * Returns the number of entries stored in {@code pathSet}.
-	 *
-	 * @param pathSet the path set to query
-	 */
+	/** Unsafe version of: {@link #NFD_PathSet_GetCount PathSet_GetCount} */
 	public static native long nNFD_PathSet_GetCount(long pathSet);
 
 	/**
@@ -322,12 +283,7 @@ public class NativeFileDialog {
 
 	// --- [ NFD_PathSet_GetPath ] ---
 
-	/**
-	 * Returns the UTF-8 path at offset {@code index}.
-	 *
-	 * @param pathSet the path set to query
-	 * @param index   the path offset
-	 */
+	/** Unsafe version of: {@link #NFD_PathSet_GetPath PathSet_GetPath} */
 	public static native long nNFD_PathSet_GetPath(long pathSet, long index);
 
 	/**
@@ -343,11 +299,7 @@ public class NativeFileDialog {
 
 	// --- [ NFD_PathSet_Free ] ---
 
-	/**
-	 * Frees the contents of the specified path set.
-	 *
-	 * @param pathSet the path set
-	 */
+	/** Unsafe version of: {@link #NFD_PathSet_Free PathSet_Free} */
 	public static native void nNFD_PathSet_Free(long pathSet);
 
 	/**
@@ -361,11 +313,7 @@ public class NativeFileDialog {
 
 	// --- [ NFD_Free ] ---
 
-	/**
-	 * Frees memory allocated by NativeFileDialog.
-	 *
-	 * @param outPath the string to free
-	 */
+	/** Unsafe version of: {@link #NFD_Free Free} */
 	public static native void nNFDi_Free(long outPath);
 
 	/**
