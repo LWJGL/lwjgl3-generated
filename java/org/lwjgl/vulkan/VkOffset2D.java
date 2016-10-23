@@ -14,17 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkOffset2D.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkOffset2D">Vulkan Specification</a>
- * 
- * <p>Describes a 2D offset.</p>
- * 
- * <h3>Member documentation</h3>
- * 
- * <ul>
- * <li>{@code x} &ndash; the x offset</li>
- * <li>{@code y} &ndash; the y offset</li>
- * </ul>
+ * Structure specifying a two-dimensional offset.
  * 
  * <h3>Layout</h3>
  * 

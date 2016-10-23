@@ -14,17 +14,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkClearRect.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkClearRect">Vulkan Specification</a>
+ * Structure specifying a clear rectangle.
  * 
- * <p>Defines a region within an attachment to clear.</p>
+ * <h5>Description</h5>
+ * 
+ * <p>The layers <code>[baseArrayLayer, baseArrayLayer {plus} layerCount)</code> counting from the base layer of the attachment image view are cleared.</p>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkRect2D}, {@link VK10#vkCmdClearAttachments CmdClearAttachments}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code rect} &ndash; the two-dimensional region to be cleared</li>
- * <li>{@code baseArrayLayer} &ndash; the first layer to be cleared</li>
- * <li>{@code layerCount} &ndash; the number of layers to clear</li>
+ * <li>{@code rect} &ndash; the two-dimensional region to be cleared.</li>
+ * <li>{@code baseArrayLayer} &ndash; the first layer to be cleared.</li>
+ * <li>{@code layerCount} &ndash; the number of layers to clear.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

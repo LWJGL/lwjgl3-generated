@@ -14,30 +14,55 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkImageSubresourceRange.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkImageSubresourceRange">Vulkan Specification</a>
+ * Structure specifying a image subresource range.
  * 
- * <p>Describes a range of mipmap levels, array layers, and aspects.</p>
+ * <h5>Description</h5>
+ * 
+ * <p>The number of mipmap levels and array layers <b>must</b> be a subset of the image subresources in the image. If an application wants to use all mip levels or layers in an image after the {@code baseMipLevel} or {@code baseArrayLayer}, it <b>can</b> set {@code levelCount} and {@code layerCount} to the special values {@link VK10#VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS} and {@link VK10#VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS} without knowing the exact number of mip levels or layers.</p>
+ * 
+ * <p>For cube and cube array image views, the layers of the image view starting at {@code baseArrayLayer} correspond to faces in the order +X, -X, +Y, -Y, +Z, -Z. For cube arrays, each set of six sequential layers is a single cube, so the number of cube maps in a cube map array view is <em>{@code layerCount} / 6</em>, and image array layer <em>{@code baseArrayLayer} + i</em> is face index <em>i mod 6</em> of cube <em>i / 6</em>. If the number of layers in the view, whether set explicitly in {@code layerCount} or implied by {@link VK10#VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, is not a multiple of 6, behavior when indexing the last cube is undefined.</p>
+ * 
+ * <p>{@code aspectMask} is a bitmask indicating the format being used. Bits which <b>may</b> be set include:</p>
+ * 
+ * <pre><code>typedef enum VkImageAspectFlagBits {
+    VK_IMAGE_ASPECT_COLOR_BIT = 0x00000001,
+    VK_IMAGE_ASPECT_DEPTH_BIT = 0x00000002,
+    VK_IMAGE_ASPECT_STENCIL_BIT = 0x00000004,
+    VK_IMAGE_ASPECT_METADATA_BIT = 0x00000008,
+} VkImageAspectFlagBits;</code></pre>
+ * 
+ * <p>The mask <b>must</b> be only {@link VK10#VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT}, {@link VK10#VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT} or {@link VK10#VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT} if {@code format} is a color, depth-only or stencil-only format, respectively. If using a depth/stencil format with both depth and stencil components, {@code aspectMask} <b>must</b> include at least one of {@link VK10#VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT} and {@link VK10#VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT}, and <b>can</b> include both.</p>
+ * 
+ * <p>When using an imageView of a depth/stencil image to populate a descriptor set (e.g. for sampling in the shader, or for use as an input attachment), the {@code aspectMask} <b>must</b> only include one bit and selects whether the imageView is used for depth reads (i.e. using a floating-point sampler or input attachment in the shader) or stencil reads (i.e. using an unsigned integer sampler or input attachment in the shader). When an imageView of a depth/stencil image is used as a depth/stencil framebuffer attachment, the {@code aspectMask} is ignored and both depth and stencil image subresources are used.</p>
+ * 
+ * <p>The {@code components} member is of type {@link VkComponentMapping}, and describes a remapping from components of the image to components of the vector returned by shader image instructions. This remapping <b>must</b> be identity for storage image descriptors, input attachment descriptors, and framebuffer attachments.</p>
  * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
+ * <li>If {@code levelCount} is not {@link VK10#VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS}, <code>(baseMipLevel + levelCount)</code> <b>must</b> be less than or equal to the {@code mipLevels} specified in {@link VkImageCreateInfo} when the image was created</li>
+ * <li>If {@code layerCount} is not {@link VK10#VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, <code>(baseArrayLayer + layerCount)</code> <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when the image was created</li>
+ * </ul>
+ * 
+ * <h5>Valid Usage (Implicit)</h5>
+ * 
+ * <ul>
  * <li>{@code aspectMask} <b>must</b> be a valid combination of {@code VkImageAspectFlagBits} values</li>
  * <li>{@code aspectMask} <b>must</b> not be 0</li>
- * <li>If {@code levelCount} is not {@link VK10#VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS}, {@code baseMipLevel + levelCount} <b>must</b> be less than or equal to the
- * {@code mipLevels} specified in {@code VkImageCreateInfo} when the image was created</li>
- * <li>If {@code layerCount} is not {@link VK10#VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, {@code baseArrayLayer + layerCount} <b>must</b> be less than or equal to the
- * {@code arrayLayers} specified in {@code VkImageCreateInfo} when the image was created</li>
  * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkImageMemoryBarrier}, {@link VkImageViewCreateInfo}, {@link VK10#vkCmdClearColorImage CmdClearColorImage}, {@link VK10#vkCmdClearDepthStencilImage CmdClearDepthStencilImage}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code aspectMask} &ndash; a bitmask indicating which aspect(s) of the image are included in the view. One or more of:<br><table><tr><td>{@link VK10#VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT}</td><td>{@link VK10#VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT}</td><td>{@link VK10#VK_IMAGE_ASPECT_METADATA_BIT IMAGE_ASPECT_METADATA_BIT}</td></tr><tr><td>{@link VK10#VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT}</td></tr></table></li>
- * <li>{@code baseMipLevel} &ndash; the first mipmap level accessible to the view</li>
- * <li>{@code levelCount} &ndash; the number of mipmap levels (starting from {@code baseMipLevel}) accessible to the view</li>
- * <li>{@code baseArrayLayer} &ndash; the first array layer accessible to the view</li>
- * <li>{@code layerCount} &ndash; the number of array layers (starting from {@code baseArrayLayer}) accessible to the view</li>
+ * <li>{@code aspectMask} &ndash; a bitmask indicating which aspect(s) of the image are included in the view. See {@code VkImageAspectFlagBits}.</li>
+ * <li>{@code baseMipLevel} &ndash; the first mipmap level accessible to the view.</li>
+ * <li>{@code levelCount} &ndash; the number of mipmap levels (starting from {@code baseMipLevel}) accessible to the view.</li>
+ * <li>{@code baseArrayLayer} &ndash; the first array layer accessible to the view.</li>
+ * <li>{@code layerCount} &ndash; the number of array layers (starting from {@code baseArrayLayer}) accessible to the view.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

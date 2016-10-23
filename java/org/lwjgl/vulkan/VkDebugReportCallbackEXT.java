@@ -10,13 +10,36 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Instances of this class may be set to the {@code pfnCallback} member of the {@link VkDebugReportCallbackCreateInfoEXT} struct.
+ * Application-defined debug report callback function.
  * 
- * <p>A callback will be made for issues that match any bit set in its flags. The callback will come directly from the component that detected the event,
- * unless some other layer intercepts the calls for its own purposes (filter them in different way, log to system error log, etc.) An application may
- * receive multiple callbacks if multiple {@code VkDebugReportCallbackEXT} objects were created. A callback will always be executed in the same thread as
- * the originating Vulkan call. A callback may be called from multiple threads simultaneously (if the application is making Vulkan calls from multiple
- * threads).</p>
+ * <h5>C Specification</h5>
+ * 
+ * <p>The prototype for the callback function implemented by the application is:</p>
+ * 
+ * <pre><code>typedef VkBool32 (VKAPI_PTR *PFN_vkDebugReportCallbackEXT)(
+    VkDebugReportFlagsEXT                       flags,
+    VkDebugReportObjectTypeEXT                  objectType,
+    uint64_t                                    object,
+    size_t                                      location,
+    int32_t                                     messageCode,
+    const char*                                 pLayerPrefix,
+    const char*                                 pMessage,
+    void*                                       pUserData);</code></pre>
+ * 
+ * <h5>Description</h5>
+ * 
+ * <p>The callback returns a {@code VkBool32} that indicates to the calling layer if the Vulkan call <b>should</b> be aborted or not. Applications <b>should</b> always return {@link VK10#VK_FALSE FALSE} so that they see the same behavior with and without validation layers enabled.</p>
+ * 
+ * <p>If the application returns {@link VK10#VK_TRUE TRUE} from its callback and the Vulkan call being aborted returns a {@code VkResult}, the layer will return {@link EXTDebugReport#VK_ERROR_VALIDATION_FAILED_EXT ERROR_VALIDATION_FAILED_EXT}.</p>
+ * 
+ * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+ * 
+ * <p>The primary expected use of {@link EXTDebugReport#VK_ERROR_VALIDATION_FAILED_EXT ERROR_VALIDATION_FAILED_EXT} is for validation layer testing. It is not expected that an application would see this error code during normal use of the validation layers.</p>
+ * </div>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkDebugReportCallbackCreateInfoEXT}</p>
  */
 public abstract class VkDebugReportCallbackEXT extends Callback implements VkDebugReportCallbackEXTI {
 

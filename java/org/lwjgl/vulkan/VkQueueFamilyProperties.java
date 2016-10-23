@@ -14,18 +14,72 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkQueueFamilyProperties.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkQueueFamilyProperties">Vulkan Specification</a>
+ * Structure providing information about a queue family.
  * 
- * <p>Contains properties of a queue family.</p>
+ * <h5>Description</h5>
+ * 
+ * <p>The bits specified in {@code queueFlags} are:</p>
+ * 
+ * <pre><code>typedef enum VkQueueFlagBits {
+    VK_QUEUE_GRAPHICS_BIT = 0x00000001,
+    VK_QUEUE_COMPUTE_BIT = 0x00000002,
+    VK_QUEUE_TRANSFER_BIT = 0x00000004,
+    VK_QUEUE_SPARSE_BINDING_BIT = 0x00000008,
+} VkQueueFlagBits;</code></pre>
+ * 
+ * <ul>
+ * <li>if {@link VK10#VK_QUEUE_GRAPHICS_BIT QUEUE_GRAPHICS_BIT} is set, then the queues in this queue family support graphics operations.</li>
+ * <li>if {@link VK10#VK_QUEUE_COMPUTE_BIT QUEUE_COMPUTE_BIT} is set, then the queues in this queue family support compute operations.</li>
+ * <li>if {@link VK10#VK_QUEUE_TRANSFER_BIT QUEUE_TRANSFER_BIT} is set, then the queues in this queue family support transfer operations.</li>
+ * <li>if {@link VK10#VK_QUEUE_SPARSE_BINDING_BIT QUEUE_SPARSE_BINDING_BIT} is set, then the queues in this queue family support sparse memory management operations (see <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#sparsememory">Sparse Resources</a>). If any of the sparse resource features are enabled, then at least one queue family <b>must</b> support this bit.</li>
+ * </ul>
+ * 
+ * <p>If an implementation exposes any queue family that supports graphics operations, at least one queue family of at least one physical device exposed by the implementation <b>must</b> support both graphics and compute operations.</p>
+ * 
+ * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+ * 
+ * <p>All commands that are allowed on a queue that supports transfer operations are also allowed on a queue that supports either graphics or compute operations thus if the capabilities of a queue family include {@link VK10#VK_QUEUE_GRAPHICS_BIT QUEUE_GRAPHICS_BIT} or {@link VK10#VK_QUEUE_COMPUTE_BIT QUEUE_COMPUTE_BIT} then reporting the {@link VK10#VK_QUEUE_TRANSFER_BIT QUEUE_TRANSFER_BIT} capability separately for that queue family is optional:.</p>
+ * </div>
+ * 
+ * <p>For further details see <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#devsandqueues-queues">Queues</a>.</p>
+ * 
+ * <p>The value returned in {@code minImageTransferGranularity} has a unit of compressed texel blocks for images having a block-compressed format, and a unit of texels otherwise.</p>
+ * 
+ * <p>Possible values of {@code minImageTransferGranularity} are:</p>
+ * 
+ * <ul>
+ * <li><code>(0,0,0)</code> which indicates that only whole mip levels <b>must</b> be transferred using the image transfer operations on the corresponding queues. In this case, the following restrictions apply to all offset and extent parameters of image transfer operations:
+ * 
+ * <ul>
+ * <li>The {@code x}, {@code y}, and {@code z} members of a {@link VkOffset3D} parameter <b>must</b> always be zero.</li>
+ * <li>The {@code width}, {@code height}, and {@code depth} members of a {@link VkExtent3D} parameter <b>must</b> always match the width, height, and depth of the image subresource corresponding to the parameter, respectively.</li>
+ * </ul>
+ * </li>
+ * <li><code>(A<sub>x</sub>, A<sub>y</sub>, A<sub>z</sub>)</code> where <code>A<sub>x</sub></code>, <code>A<sub>y</sub></code>, and <code>A<sub>z</sub></code> are all integer powers of two. In this case the following restrictions apply to all image transfer operations:
+ * 
+ * <ul>
+ * <li>{@code x}, {@code y}, and {@code z} of a {@link VkOffset3D} parameter <b>must</b> be integer multiples of <code>A<sub>x</sub></code>, <code>A<sub>y</sub></code>, and <code>A<sub>z</sub></code>, respectively.</li>
+ * <li>{@code width} of a {@link VkExtent3D} parameter <b>must</b> be an integer multiple of <code>A<sub>x</sub></code>, or else <code>x + width</code> <b>must</b> equal the width of the image subresource corresponding to the parameter.</li>
+ * <li>{@code height} of a {@link VkExtent3D} parameter <b>must</b> be an integer multiple of <code>A<sub>y</sub></code>, or else <code>y + height</code> <b>must</b> equal the height of the image subresource corresponding to the parameter.</li>
+ * <li>{@code depth} of a {@link VkExtent3D} parameter <b>must</b> be an integer multiple of <code>A<sub>z</sub></code>, or else <code>z + depth</code> <b>must</b> equal the depth of the image subresource corresponding to the parameter.</li>
+ * <li>If the format of the image corresponding to the parameters is one of the block-compressed formats then for the purposes of the above calculations the granularity <b>must</b> be scaled up by the compressed texel block dimensions.</li>
+ * </ul>
+ * </li>
+ * </ul>
+ * 
+ * <p>Queues supporting graphics and/or compute operations <b>must</b> report <code>(1,1,1)</code> in {@code minImageTransferGranularity}, meaning that there are no additional restrictions on the granularity of image transfer operations for these queues. Other queues supporting image transfer operations are only required: to support whole mip level transfers, thus {@code minImageTransferGranularity} for queues belonging to such queue families <b>may</b> be <code>(0,0,0)</code>.</p>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkExtent3D}, {@link VK10#vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code queueFlags} &ndash; contains flags indicating the capabilities of the queues in this queue family. One or more of:<br><table><tr><td>{@link VK10#VK_QUEUE_COMPUTE_BIT QUEUE_COMPUTE_BIT}</td><td>{@link VK10#VK_QUEUE_FAMILY_IGNORED QUEUE_FAMILY_IGNORED}</td><td>{@link VK10#VK_QUEUE_GRAPHICS_BIT QUEUE_GRAPHICS_BIT}</td><td>{@link VK10#VK_QUEUE_SPARSE_BINDING_BIT QUEUE_SPARSE_BINDING_BIT}</td></tr><tr><td>{@link VK10#VK_QUEUE_TRANSFER_BIT QUEUE_TRANSFER_BIT}</td></tr></table></li>
- * <li>{@code queueCount} &ndash; the unsigned integer count of queues in this queue family</li>
- * <li>{@code timestampValidBits} &ndash; the unsigned integer count of meaningful bits in the timestamps written via {@link VK10#vkCmdWriteTimestamp CmdWriteTimestamp}</li>
- * <li>{@code minImageTransferGranularity} &ndash; the minimum granularity supported for image transfer operations on the queues in this queue family</li>
+ * <li>{@code queueFlags} &ndash; contains flags indicating the capabilities of the queues in this queue family.</li>
+ * <li>{@code queueCount} &ndash; the unsigned integer count of queues in this queue family.</li>
+ * <li>{@code timestampValidBits} &ndash; the unsigned integer count of meaningful bits in the timestamps written via {@link VK10#vkCmdWriteTimestamp CmdWriteTimestamp}. The valid range for the count is 36..64 bits, or a value of 0, indicating no support for timestamps. Bits outside the valid range are guaranteed to be zeros.</li>
+ * <li>{@code minImageTransferGranularity} &ndash; the minimum granularity supported for image transfer operations on the queues in this queue family.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

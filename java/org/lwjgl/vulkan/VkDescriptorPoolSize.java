@@ -14,23 +14,29 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkDescriptorPoolSize.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkDescriptorPoolSize">Vulkan Specification</a>
- * 
- * <p>Contains a descriptor type and number of descriptors of that type to be allocated in a pool.</p>
+ * Structure specifying descriptor pool size.
  * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>{@code type} <b>must</b> be a valid {@code VkDescriptorType} value</li>
  * <li>{@code descriptorCount} <b>must</b> be greater than 0</li>
  * </ul>
+ * 
+ * <h5>Valid Usage (Implicit)</h5>
+ * 
+ * <ul>
+ * <li>{@code type} <b>must</b> be a valid {@code VkDescriptorType} value</li>
+ * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkDescriptorPoolCreateInfo}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code type} &ndash; the type of descriptor. One of:<br><table><tr><td>{@link VK10#VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER}</td><td>{@link VK10#VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT DESCRIPTOR_TYPE_INPUT_ATTACHMENT}</td></tr><tr><td>{@link VK10#VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE DESCRIPTOR_TYPE_SAMPLED_IMAGE}</td><td>{@link VK10#VK_DESCRIPTOR_TYPE_SAMPLER DESCRIPTOR_TYPE_SAMPLER}</td></tr><tr><td>{@link VK10#VK_DESCRIPTOR_TYPE_STORAGE_BUFFER DESCRIPTOR_TYPE_STORAGE_BUFFER}</td><td>{@link VK10#VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC}</td></tr><tr><td>{@link VK10#VK_DESCRIPTOR_TYPE_STORAGE_IMAGE DESCRIPTOR_TYPE_STORAGE_IMAGE}</td><td>{@link VK10#VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER}</td></tr><tr><td>{@link VK10#VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER DESCRIPTOR_TYPE_UNIFORM_BUFFER}</td><td>{@link VK10#VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC}</td></tr><tr><td>{@link VK10#VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER}</td></tr></table></li>
- * <li>{@code descriptorCount} &ndash; the number of descriptors of that type to allocate</li>
+ * <li>{@code type} &ndash; the type of descriptor.</li>
+ * <li>{@code descriptorCount} &ndash; the number of descriptors of that type to allocate.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

@@ -15,9 +15,9 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * Passed to {@link EXTDebugMarker#vkCmdDebugMarkerBeginEXT CmdDebugMarkerBeginEXT} and {@link EXTDebugMarker#vkCmdDebugMarkerInsertEXT CmdDebugMarkerInsertEXT}.
+ * Specify parameters of a command buffer marker region.
  * 
- * <h5>Valid Usage</h5>
+ * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link EXTDebugMarker#VK_STRUCTURE_TYPE_DEBUG_MARKER_MARKER_INFO_EXT STRUCTURE_TYPE_DEBUG_MARKER_MARKER_INFO_EXT}</li>
@@ -25,15 +25,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code pMarkerName} <b>must</b> be a null-terminated string</li>
  * </ul>
  * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link EXTDebugMarker#vkCmdDebugMarkerBeginEXT CmdDebugMarkerBeginEXT}, {@link EXTDebugMarker#vkCmdDebugMarkerInsertEXT CmdDebugMarkerInsertEXT}</p>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure. Must be: {@link EXTDebugMarker#VK_STRUCTURE_TYPE_DEBUG_MARKER_MARKER_INFO_EXT STRUCTURE_TYPE_DEBUG_MARKER_MARKER_INFO_EXT}</li>
- * <li>{@code pNext} &ndash; reserved for use by extensions</li>
- * <li>{@code pMarkerName} &ndash; a pointer to a null-terminated UTF-8 string that contains the name of the marker</li>
- * <li>{@code color} &ndash; 
- * an optional RGBA color value that can be associated with the marker. A particular implementation <b>may</b> choose to ignore this color value. The values
- * contain RGBA values in order, in the range 0.0 to 1.0. If all elements in {@code color} are set to 0.0 then it is ignored.</li>
+ * <li>{@code sType} &ndash; the type of this structure and <b>must</b> be {@link EXTDebugMarker#VK_STRUCTURE_TYPE_DEBUG_MARKER_MARKER_INFO_EXT STRUCTURE_TYPE_DEBUG_MARKER_MARKER_INFO_EXT}.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
+ * <li>{@code pMarkerName} &ndash; a pointer to a null-terminated UTF-8 string that contains the name of the marker.</li>
+ * <li>{@code color} &ndash; an optional RGBA color value that can be associated with the marker. A particular implementation <b>may</b> choose to ignore this color value. The values contain RGBA values in order, in the range 0.0 to 1.0. If all elements in {@code color} are set to 0.0 then it is ignored.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

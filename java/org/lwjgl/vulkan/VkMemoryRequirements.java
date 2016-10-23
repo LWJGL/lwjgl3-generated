@@ -14,17 +14,14 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkMemoryRequirements.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkMemoryRequirements">Vulkan Specification</a>
- * 
- * <p>Contains information about the memory requirements of an object.</p>
+ * Structure specifying memory requirements.
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code size} &ndash; the size, in bytes, of the memory allocation required for the resource</li>
- * <li>{@code alignment} &ndash; the alignment, in bytes, of the offset within the allocation required for the resource</li>
- * <li>{@code memoryTypeBits} &ndash; a bitfield and contains one bit set for every supported memory type for the resource</li>
+ * <li>{@code size} &ndash; the size, in bytes, of the memory allocation required: for the resource.</li>
+ * <li>{@code alignment} &ndash; the alignment, in bytes, of the offset within the allocation required: for the resource.</li>
+ * <li>{@code memoryTypeBits} &ndash; a bitmask and contains one bit set for every supported memory type for the resource. Bit {@code i} is set if and only if the memory type {@code i} in the {@link VkPhysicalDeviceMemoryProperties} structure for the physical device is supported for the resource.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

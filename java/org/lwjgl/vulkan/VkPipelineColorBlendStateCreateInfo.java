@@ -15,35 +15,44 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPipelineColorBlendStateCreateInfo.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPipelineColorBlendStateCreateInfo">Vulkan Specification</a>
+ * Structure specifying parameters of a newly created pipeline color blend state.
  * 
- * <p>Contains information about the blend state as part of graphics pipeline creation.</p>
+ * <h5>Description</h5>
+ * 
+ * <p>Each element of the {@code pAttachments} array is a {@link VkPipelineColorBlendAttachmentState} structure specifying per-target blending state for each individual color attachment. If the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-independentBlend">independent blending</a> feature is not enabled on the device, all {@link VkPipelineColorBlendAttachmentState} elements in the {@code pAttachments} array <b>must</b> be identical.</p>
  * 
  * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>If the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-independentBlend">independent blending</a> feature is not enabled, all elements of {@code pAttachments} <b>must</b> be identical</li>
+ * <li>If the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-logicOp">logic operations</a> feature is not enabled, {@code logicOpEnable} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
+ * <li>If {@code logicOpEnable} is {@link VK10#VK_TRUE TRUE}, {@code logicOp} <b>must</b> be a valid {@code VkLogicOp} value</li>
+ * </ul>
+ * 
+ * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code flags} <b>must</b> be 0</li>
- * <li>If {@code attachmentCount} is not 0, {@code pAttachments} <b>must</b> be a pointer to an array of {@code attachmentCount} valid
- * {@link VkPipelineColorBlendAttachmentState} structures</li>
- * <li>If the independent blending feature is not enabled, all elements of {@code pAttachments} <b>must</b> be identical</li>
- * <li>If the logic operations feature is not enabled, {@code logicOpEnable} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
- * <li>If {@code logicOpEnable} is {@link VK10#VK_TRUE TRUE}, {@code logicOp} <b>must</b> be a valid {@code VkLogicOp} value</li>
+ * <li>If {@code attachmentCount} is not 0, {@code pAttachments} <b>must</b> be a pointer to an array of {@code attachmentCount} valid {@link VkPipelineColorBlendAttachmentState} structures</li>
  * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkGraphicsPipelineCreateInfo}, {@link VkPipelineColorBlendAttachmentState}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO}</li>
- * <li>{@code pNext} &ndash; reserved for use by extensions</li>
- * <li>{@code flags} &ndash; reserved for future use</li>
- * <li>{@code logicOpEnable} &ndash; controls whether to apply logical operations</li>
- * <li>{@code logicOp} &ndash; selects which logical operation to apply. One of:<br><table><tr><td>{@link VK10#VK_LOGIC_OP_AND LOGIC_OP_AND}</td><td>{@link VK10#VK_LOGIC_OP_AND_INVERTED LOGIC_OP_AND_INVERTED}</td><td>{@link VK10#VK_LOGIC_OP_AND_REVERSE LOGIC_OP_AND_REVERSE}</td><td>{@link VK10#VK_LOGIC_OP_CLEAR LOGIC_OP_CLEAR}</td><td>{@link VK10#VK_LOGIC_OP_COPY LOGIC_OP_COPY}</td></tr><tr><td>{@link VK10#VK_LOGIC_OP_COPY_INVERTED LOGIC_OP_COPY_INVERTED}</td><td>{@link VK10#VK_LOGIC_OP_EQUIVALENT LOGIC_OP_EQUIVALENT}</td><td>{@link VK10#VK_LOGIC_OP_INVERT LOGIC_OP_INVERT}</td><td>{@link VK10#VK_LOGIC_OP_NAND LOGIC_OP_NAND}</td><td>{@link VK10#VK_LOGIC_OP_NOR LOGIC_OP_NOR}</td></tr><tr><td>{@link VK10#VK_LOGIC_OP_NO_OP LOGIC_OP_NO_OP}</td><td>{@link VK10#VK_LOGIC_OP_OR LOGIC_OP_OR}</td><td>{@link VK10#VK_LOGIC_OP_OR_INVERTED LOGIC_OP_OR_INVERTED}</td><td>{@link VK10#VK_LOGIC_OP_OR_REVERSE LOGIC_OP_OR_REVERSE}</td><td>{@link VK10#VK_LOGIC_OP_SET LOGIC_OP_SET}</td></tr><tr><td>{@link VK10#VK_LOGIC_OP_XOR LOGIC_OP_XOR}</td></tr></table></li>
- * <li>{@code attachmentCount} &ndash; the number of {@link VkPipelineColorBlendAttachmentState} elements in {@code pAttachments}</li>
- * <li>{@code pAttachments} &ndash; pointer to array of per target attachment states</li>
- * <li>{@code blendConstants} &ndash; an array of four values used as the R, G, B, and A components of the blend constant that are used in blending, depending on the blend factor</li>
+ * <li>{@code sType} &ndash; the type of this structure.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
+ * <li>{@code flags} &ndash; reserved for future use.</li>
+ * <li>{@code logicOpEnable} &ndash; controls whether to apply <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#framebuffer-logicop">Logical Operations</a>.</li>
+ * <li>{@code logicOp} &ndash; selects which logical operation to apply.</li>
+ * <li>{@code attachmentCount} &ndash; the number of {@link VkPipelineColorBlendAttachmentState} elements in {@code pAttachments}. This value <b>must</b> equal the {@code colorAttachmentCount} for the subpass in which this pipeline is used.</li>
+ * <li>{@code pAttachments} &ndash; a pointer to array of per target attachment states.</li>
+ * <li>{@code blendConstants} &ndash; an array of four values used as the R, G, B, and A components of the blend constant that are used in blending, depending on the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#framebuffer-blendfactors">blend factor</a>.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

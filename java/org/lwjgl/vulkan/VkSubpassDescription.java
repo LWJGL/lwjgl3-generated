@@ -15,64 +15,66 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkSubpassDescription.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkSubpassDescription">Vulkan Specification</a>
+ * Structure specifying a subpass description.
  * 
- * <p>Describes the subpass that a fragment shader is executed in.</p>
+ * <h5>Description</h5>
+ * 
+ * <p>The contents of an attachment within the render area become undefined at the start of a subpass S if all of the following conditions are true:</p>
+ * 
+ * <ul>
+ * <li>The attachment is used as a color, depth/stencil, or resolve attachment in any subpass in the render pass.</li>
+ * <li>There is a subpass S1 that uses or preserves the attachment, and a subpass dependency from S1 to S.</li>
+ * <li>The attachment is not used or preserved in subpass S.</li>
+ * </ul>
+ * 
+ * <p>Once the contents of an attachment become undefined in subpass S, they remain undefined for subpasses in subpass dependency chains starting with subpass S until they are written again. However, they remain valid for subpasses in other subpass dependency chains starting with subpass S1 if those subpasses use or preserve the attachment.</p>
  * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>{@code flags} <b>must</b> be 0</li>
- * <li>{@code pipelineBindPoint} <b>must</b> be a valid {@code VkPipelineBindPoint} value</li>
- * <li>If {@code inputAttachmentCount} is not 0, {@code pInputAttachments} <b>must</b> be a pointer to an array of {@code inputAttachmentCount} valid
- * {@link VkAttachmentReference} structures</li>
- * <li>If {@code colorAttachmentCount} is not 0, {@code pColorAttachments} <b>must</b> be a pointer to an array of {@code colorAttachmentCount} valid
- * {@link VkAttachmentReference} structures</li>
- * <li>If {@code colorAttachmentCount} is not 0, and {@code pResolveAttachments} is not {@code NULL}, {@code pResolveAttachments} <b>must</b> be a pointer to an array
- * of {@code colorAttachmentCount} valid {@link VkAttachmentReference} structures</li>
- * <li>If {@code pDepthStencilAttachment} is not {@code NULL}, {@code pDepthStencilAttachment} <b>must</b> be a pointer to a valid {@link VkAttachmentReference} structure</li>
- * <li>If {@code preserveAttachmentCount} is not 0, {@code pPreserveAttachments} <b>must</b> be a pointer to an array of {@code preserveAttachmentCount}
- * {@code uint32_t} values</li>
  * <li>{@code pipelineBindPoint} <b>must</b> be {@link VK10#VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS}</li>
- * <li>{@code colorCount} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxColorAttachments}</li>
- * <li>If the first use of an attachment in this render pass is as an input attachment, and the attachment is not also used as a color or depth/stencil
- * attachment in the same subpass, then {@code loadOp} <b>must</b> not be {@link VK10#VK_ATTACHMENT_LOAD_OP_CLEAR ATTACHMENT_LOAD_OP_CLEAR}</li>
- * <li>If {@code pResolveAttachments} is not {@code NULL}, for each resolve attachment that does not have the value {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED}, the corresponding color
- * attachment <b>must</b> not have the value {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED}</li>
- * <li>If {@code pResolveAttachments} is not {@code NULL}, the sample count of each element of {@code pColorAttachments} <b>must</b> be anything other than
- * {@link VK10#VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
+ * <li>{@code colorAttachmentCount} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxColorAttachments}</li>
+ * <li>If the first use of an attachment in this render pass is as an input attachment, and the attachment is not also used as a color or depth/stencil attachment in the same subpass, then {@code loadOp} <b>must</b> not be {@link VK10#VK_ATTACHMENT_LOAD_OP_CLEAR ATTACHMENT_LOAD_OP_CLEAR}</li>
+ * <li>If {@code pResolveAttachments} is not {@code NULL}, for each resolve attachment that does not have the value {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED}, the corresponding color attachment <b>must</b> not have the value {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED}</li>
+ * <li>If {@code pResolveAttachments} is not {@code NULL}, the sample count of each element of {@code pColorAttachments} <b>must</b> be anything other than {@link VK10#VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
  * <li>Any given element of {@code pResolveAttachments} <b>must</b> have a sample count of {@link VK10#VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
  * <li>Any given element of {@code pResolveAttachments} <b>must</b> have the same {@code VkFormat} as its corresponding color attachment</li>
  * <li>All attachments in {@code pColorAttachments} and {@code pDepthStencilAttachment} that are not {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED} <b>must</b> have the same sample count</li>
- * <li>If any input attachments are {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED}, then any pipelines bound during the subpass <b>must</b> not access those input attachments from the
- * fragment shader</li>
+ * <li>If any input attachments are {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED}, then any pipelines bound during the subpass <b>must</b> not access those input attachments from the fragment shader</li>
  * <li>The {@code attachment} member of any element of {@code pPreserveAttachments} <b>must</b> not be {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED}</li>
  * <li>Any given element of {@code pPreserveAttachments} <b>must</b> not also be an element of any other member of the subpass description</li>
  * <li>If any attachment is used as both an input attachment and a color or depth/stencil attachment, then each use <b>must</b> use the same {@code layout}</li>
  * </ul>
  * 
+ * <h5>Valid Usage (Implicit)</h5>
+ * 
+ * <ul>
+ * <li>{@code flags} <b>must</b> be 0</li>
+ * <li>{@code pipelineBindPoint} <b>must</b> be a valid {@code VkPipelineBindPoint} value</li>
+ * <li>If {@code inputAttachmentCount} is not 0, {@code pInputAttachments} <b>must</b> be a pointer to an array of {@code inputAttachmentCount} valid {@link VkAttachmentReference} structures</li>
+ * <li>If {@code colorAttachmentCount} is not 0, {@code pColorAttachments} <b>must</b> be a pointer to an array of {@code colorAttachmentCount} valid {@link VkAttachmentReference} structures</li>
+ * <li>If {@code colorAttachmentCount} is not 0, and {@code pResolveAttachments} is not {@code NULL}, {@code pResolveAttachments} <b>must</b> be a pointer to an array of {@code colorAttachmentCount} valid {@link VkAttachmentReference} structures</li>
+ * <li>If {@code pDepthStencilAttachment} is not {@code NULL}, {@code pDepthStencilAttachment} <b>must</b> be a pointer to a valid {@link VkAttachmentReference} structure</li>
+ * <li>If {@code preserveAttachmentCount} is not 0, {@code pPreserveAttachments} <b>must</b> be a pointer to an array of {@code preserveAttachmentCount} {@code uint32_t} values</li>
+ * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkAttachmentReference}, {@link VkRenderPassCreateInfo}</p>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code flags} &ndash; reserved for future use</li>
- * <li>{@code pipelineBindPoint} &ndash; a {@code VkPipelineBindPoint} value specifying whether this is a compute or graphics subpass. Currently, only graphics subpasses are supported. One of:<br><table><tr><td>{@link VK10#VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE}</td><td>{@link VK10#VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS}</td></tr></table></li>
- * <li>{@code inputAttachmentCount} &ndash; the number of input attachments</li>
- * <li>{@code pInputAttachments} &ndash; 
- * an array of {@link VkAttachmentReference} structures that lists which of the render pass’s attachments can be read in the shader during the subpass, and what
- * layout the attachment images will be in during the subpass</li>
- * <li>{@code colorAttachmentCount} &ndash; the number of color attachments</li>
- * <li>{@code pColorAttachments} &ndash; 
- * an array of {@code colorAttachmentCount} {@link VkAttachmentReference} structures that lists which of the render pass’s attachments will be used as color
- * attachments in the subpass, and what layout the attachment images will be in during the subpass</li>
- * <li>{@code pResolveAttachments} &ndash; 
- * {@code NULL} or a pointer to an array of {@link VkAttachmentReference} structures. If {@code pResolveAttachments} is not {@code NULL}, each of its elements corresponds to
- * a color attachment (the element in {@code pColorAttachments} at the same index)</li>
- * <li>{@code pDepthStencilAttachment} &ndash; a pointer to a {@link VkAttachmentReference} specifying which attachment will be used for depth/stencil data and the layout it will be in during the subpass</li>
- * <li>{@code preserveAttachmentCount} &ndash; the number of preserved attachments</li>
- * <li>{@code pPreserveAttachments} &ndash; 
- * an array of {@code preserveAttachmentCount} render pass attachment indices describing the attachments that are not used by a subpass, but whose
- * contents must be preserved throughout the subpass</li>
+ * <li>{@code flags} &ndash; reserved for future use.</li>
+ * <li>{@code pipelineBindPoint} &ndash; a {@code VkPipelineBindPoint} value specifying whether this is a compute or graphics subpass. Currently, only graphics subpasses are supported.</li>
+ * <li>{@code inputAttachmentCount} &ndash; the number of input attachments.</li>
+ * <li>{@code pInputAttachments} &ndash; an array of {@link VkAttachmentReference} structures (defined below) that lists which of the render pass&#8217;s attachments <b>can</b> be read in the shader during the subpass, and what layout each attachment will be in during the subpass. Each element of the array corresponds to an input attachment unit number in the shader, i.e. if the shader declares an input variable {@code layout(input_attachment_index=X, set=Y, binding=Z)} then it uses the attachment provided in {@code pInputAttachments}[X]. Input attachments <b>must</b> also be bound to the pipeline with a descriptor set, with the input attachment descriptor written in the location (set=Y, binding=Z).</li>
+ * <li>{@code colorAttachmentCount} &ndash; the number of color attachments.</li>
+ * <li>{@code pColorAttachments} &ndash; an array of {@code colorAttachmentCount} {@link VkAttachmentReference} structures that lists which of the render pass&#8217;s attachments will be used as color attachments in the subpass, and what layout each attachment will be in during the subpass. Each element of the array corresponds to a fragment shader output location, i.e. if the shader declared an output variable {@code layout(location=X)} then it uses the attachment provided in {@code pColorAttachments}[X].</li>
+ * <li>{@code pResolveAttachments} &ndash; {@code NULL} or an array of {@code colorAttachmentCount} {@link VkAttachmentReference} structures that lists which of the render pass&#8217;s attachments are resolved to at the end of the subpass, and what layout each attachment will be in during the resolve. If {@code pResolveAttachments} is not {@code NULL}, each of its elements corresponds to a color attachment (the element in {@code pColorAttachments} at the same index). At the end of each subpass, the subpass&#8217;s color attachments are resolved to corresponding resolve attachments, unless the resolve attachment index is {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED} or {@code pResolveAttachments} is {@code NULL}. If the first use of an attachment in a render pass is as a resolve attachment, then the {@code loadOp} is effectively ignored as the resolve is guaranteed to overwrite all pixels in the render area.</li>
+ * <li>{@code pDepthStencilAttachment} &ndash; a pointer to a {@link VkAttachmentReference} specifying which attachment will be used for depth/stencil data and the layout it will be in during the subpass. Setting the attachment index to {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED} or leaving this pointer as {@code NULL} indicates that no depth/stencil attachment will be used in the subpass.</li>
+ * <li>{@code preserveAttachmentCount} &ndash; the number of preserved attachments.</li>
+ * <li>{@code pPreserveAttachments} &ndash; an array of {@code preserveAttachmentCount} render pass attachment indices describing the attachments that are not used by a subpass, but whose contents <b>must</b> be preserved throughout the subpass.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

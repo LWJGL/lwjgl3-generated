@@ -14,7 +14,7 @@ public final class IMGFormatPVRTC {
 	/** The extension name. */
 	public static final String VK_IMG_FORMAT_PVRTC_EXTENSION_NAME = "VK_IMG_format_pvrtc";
 
-	/** VkFormat */
+	/** Extends {@code VkFormat}. */
 	public static final int
 		VK_FORMAT_PVRTC1_2BPP_UNORM_BLOCK_IMG = 1000054000,
 		VK_FORMAT_PVRTC1_4BPP_UNORM_BLOCK_IMG = 1000054001,

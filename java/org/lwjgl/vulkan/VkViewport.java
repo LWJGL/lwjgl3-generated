@@ -14,33 +14,53 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkViewport.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkViewport">Vulkan Specification</a>
+ * Structure specifying a viewport.
  * 
- * <p>Describes viewport transformation parameters.</p>
+ * <h5>Description</h5>
+ * 
+ * <p>The framebuffer depth coordinate <code>z<sub>f</sub></code> <b>may</b> be represented using either a fixed-point or floating-point representation. However, a floating-point representation <b>must</b> be used if the depth/stencil attachment has a floating-point depth component. If an <code>m</code>-bit fixed-point representation is used, we assume that it represents each value latexmath:[<code>\frac{k}{2<sup>m - 1}</code>], where <code>k {elem} { 0, 1, ..., 2</sup>m^-1 }</code>, as <code>k</code> (e.g. 1.0 is represented in binary as a string of all ones).</p>
+ * 
+ * <p>The viewport parameters shown in the above equations are found from these values as</p>
+ * 
+ * <dl>
+ * <dd><code>o<sub>x</sub> = x + width / 2</code></dd>
+ * <dd><code>o<sub>y</sub> = y + height / 2</code></dd>
+ * <dd><code>o<sub>z</sub> = minDepth</code></dd>
+ * <dd><code>p<sub>x</sub> = width</code></dd>
+ * <dd><code>p<sub>y</sub> = height</code></dd>
+ * <dd><code>p<sub>z</sub> = maxDepth - minDepth</code>.</dd>
+ * </dl>
+ * 
+ * <p>The width and height of the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-limits-maxViewportDimensions"> implementation-dependent maximum viewport dimensions</a> <b>must</b> be greater than or equal to the width and height of the largest image which <b>can</b> be created and attached to a framebuffer.</p>
+ * 
+ * <p>The floating-point viewport bounds are represented with an <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-limits-viewportSubPixelBits">implementation-dependent precision</a>.</p>
  * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
  * <li>{@code width} <b>must</b> be greater than {@code 0.0} and less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxViewportDimensions}[0]</li>
  * <li>{@code height} <b>must</b> be greater than {@code 0.0} and less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxViewportDimensions}[1]</li>
+ * <li>If the VK_AMD_negative_viewport_height extension is enabled, {@code height} <b>can</b> also be negative.</li>
  * <li>{@code x} and {@code y} <b>must</b> each be between {@code viewportBoundsRange}[0] and {@code viewportBoundsRange}[1], inclusive</li>
  * <li>{@code x} + {@code width} <b>must</b> be less than or equal to {@code viewportBoundsRange}[1]</li>
  * <li>{@code y} + {@code height} <b>must</b> be less than or equal to {@code viewportBoundsRange}[1]</li>
  * <li>{@code minDepth} <b>must</b> be between {@code 0.0} and {@code 1.0}, inclusive</li>
  * <li>{@code maxDepth} <b>must</b> be between {@code 0.0} and {@code 1.0}, inclusive</li>
- * <li>If the {@code VK_AMD_negative_viewport_height} extension is enabled, {@code height} <b>can</b> also be negative</li>
  * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkPipelineViewportStateCreateInfo}, {@link VK10#vkCmdSetViewport CmdSetViewport}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code x} &ndash; the viewport's left bound</li>
- * <li>{@code y} &ndash; the viewport's upper bound</li>
- * <li>{@code width} &ndash; the viewport's width</li>
- * <li>{@code height} &ndash; the viewport's height</li>
- * <li>{@code minDepth} &ndash; the minimum viewport depth</li>
- * <li>{@code maxDepth} &ndash; the maximum viewport depth</li>
+ * <li>{@code x} &ndash; {@code x} and {@code y} are the viewport&#8217;s upper left corner <code>(x,y)</code>.</li>
+ * <li>{@code y} &ndash; see {@code x}</li>
+ * <li>{@code width} &ndash; {@code width} and {@code height} are the viewport&#8217;s width and height, respectively.</li>
+ * <li>{@code height} &ndash; see {@code width}</li>
+ * <li>{@code minDepth} &ndash; {@code minDepth} and {@code maxDepth} are the depth range for the viewport. It is valid for {@code minDepth} to be greater than or equal to {@code maxDepth}.</li>
+ * <li>{@code maxDepth} &ndash; see {@code minDepth}</li>
  * </ul>
  * 
  * <h3>Layout</h3>

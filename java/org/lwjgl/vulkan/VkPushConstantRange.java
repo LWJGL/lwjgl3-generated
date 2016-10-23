@@ -14,28 +14,34 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPushConstantRange.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPushConstantRange">Vulkan Specification</a>
- * 
- * <p>Describes a push constant range.</p>
+ * Structure specifying a push constant range.
  * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>{@code stageFlags} <b>must</b> be a valid combination of {@code VkShaderStageFlagBits} values</li>
- * <li>{@code stageFlags} <b>must</b> not be 0</li>
  * <li>{@code offset} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxPushConstantsSize}</li>
  * <li>{@code size} <b>must</b> be greater than 0</li>
  * <li>{@code size} <b>must</b> be a multiple of 4</li>
  * <li>{@code size} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxPushConstantsSize} minus {@code offset}</li>
  * </ul>
  * 
+ * <h5>Valid Usage (Implicit)</h5>
+ * 
+ * <ul>
+ * <li>{@code stageFlags} <b>must</b> be a valid combination of {@code VkShaderStageFlagBits} values</li>
+ * <li>{@code stageFlags} <b>must</b> not be 0</li>
+ * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkPipelineLayoutCreateInfo}</p>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code stageFlags} &ndash; a set of stage flags describing the shader stages that will access a range of push constants. One of:<br><table><tr><td>{@link VK10#VK_SHADER_STAGE_ALL SHADER_STAGE_ALL}</td><td>{@link VK10#VK_SHADER_STAGE_ALL_GRAPHICS SHADER_STAGE_ALL_GRAPHICS}</td></tr><tr><td>{@link VK10#VK_SHADER_STAGE_COMPUTE_BIT SHADER_STAGE_COMPUTE_BIT}</td><td>{@link VK10#VK_SHADER_STAGE_FRAGMENT_BIT SHADER_STAGE_FRAGMENT_BIT}</td></tr><tr><td>{@link VK10#VK_SHADER_STAGE_GEOMETRY_BIT SHADER_STAGE_GEOMETRY_BIT}</td><td>{@link VK10#VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT SHADER_STAGE_TESSELLATION_CONTROL_BIT}</td></tr><tr><td>{@link VK10#VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT SHADER_STAGE_TESSELLATION_EVALUATION_BIT}</td><td>{@link VK10#VK_SHADER_STAGE_VERTEX_BIT SHADER_STAGE_VERTEX_BIT}</td></tr></table></li>
- * <li>{@code offset} &ndash; the start offset, in bytes, consumed by the range</li>
- * <li>{@code size} &ndash; the size, in bytes, consumed by the range</li>
+ * <li>{@code stageFlags} &ndash; a set of stage flags describing the shader stages that will access a range of push constants. If a particular stage is not included in the range, then accessing members of that range of push constants from the corresponding shader stage will result in undefined data being read.</li>
+ * <li>{@code offset} &ndash; {@code offset} and {@code size} are the start offset and size, respectively, consumed by the range. Both {@code offset} and {@code size} are in units of bytes and <b>must</b> be a multiple of 4. The layout of the push constant variables is specified in the shader.</li>
+ * <li>{@code size} &ndash; see {@code offset}</li>
  * </ul>
  * 
  * <h3>Layout</h3>

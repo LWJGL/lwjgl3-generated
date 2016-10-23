@@ -15,12 +15,9 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkWin32SurfaceCreateFlagsKHR.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkWin32SurfaceCreateFlagsKHR">Vulkan Specification</a>
+ * Structure specifying parameters of a newly created Win32 surface object.
  * 
- * <p>Contains information about how a surface for a Win32 window should be created.</p>
- * 
- * <h5>Valid Usage</h5>
+ * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHRWin32Surface#VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR}</li>
@@ -28,14 +25,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code flags} <b>must</b> be 0</li>
  * </ul>
  * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link KHRWin32Surface#vkCreateWin32SurfaceKHR CreateWin32SurfaceKHR}</p>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure. Must be: {@link KHRWin32Surface#VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR}</li>
- * <li>{@code pNext} &ndash; reserved for use by extensions</li>
- * <li>{@code flags} &ndash; reserved for future use</li>
- * <li>{@code hinstance} &ndash; the WIN32 HINSTANCE for the window to associate the surface with</li>
- * <li>{@code hwnd} &ndash; the WIN32 HWND for the window to associate the surface with</li>
+ * <li>{@code sType} &ndash; the type of this structure and <b>must</b> be {@link KHRWin32Surface#VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR}.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
+ * <li>{@code flags} &ndash; reserved for future use.</li>
+ * <li>{@code hinstance} &ndash; {@code hinstance} and {@code hwnd} are the Win32 {@code HINSTANCE} and {@code HWND} for the window to associate the surface with.</li>
+ * <li>{@code hwnd} &ndash; see {@code hinstance}</li>
  * </ul>
  * 
  * <h3>Layout</h3>

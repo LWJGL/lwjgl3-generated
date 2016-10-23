@@ -14,12 +14,15 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPipelineDepthStencilStateCreateInfo.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPipelineDepthStencilStateCreateInfo">Vulkan Specification</a>
- * 
- * <p>Contains information about depth bounds tests, stencil test and depth test as part of graphics pipeline creation.</p>
+ * Structure specifying parameters of a newly created pipeline depth stencil state.
  * 
  * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>If the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-depthBounds">depth bounds testing</a> feature is not enabled, {@code depthBoundsTestEnable} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
+ * </ul>
+ * 
+ * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO}</li>
@@ -28,24 +31,27 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code depthCompareOp} <b>must</b> be a valid {@code VkCompareOp} value</li>
  * <li>{@code front} <b>must</b> be a valid {@link VkStencilOpState} structure</li>
  * <li>{@code back} <b>must</b> be a valid {@link VkStencilOpState} structure</li>
- * <li>If the depth bounds testing feature is not enabled, {@code depthBoundsTestEnable} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
  * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkGraphicsPipelineCreateInfo}, {@link VkStencilOpState}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO}</li>
- * <li>{@code pNext} &ndash; reserved for use by extensions</li>
- * <li>{@code flags} &ndash; reserved for future use</li>
- * <li>{@code depthTestEnable} &ndash; controls whether depth testing is enabled</li>
- * <li>{@code depthWriteEnable} &ndash; controls whether depth writes are enabled</li>
- * <li>{@code depthCompareOp} &ndash; the comparison operator used in the depth test. One of:<br><table><tr><td>{@link VK10#VK_COMPARE_OP_ALWAYS COMPARE_OP_ALWAYS}</td><td>{@link VK10#VK_COMPARE_OP_EQUAL COMPARE_OP_EQUAL}</td><td>{@link VK10#VK_COMPARE_OP_GREATER COMPARE_OP_GREATER}</td><td>{@link VK10#VK_COMPARE_OP_GREATER_OR_EQUAL COMPARE_OP_GREATER_OR_EQUAL}</td></tr><tr><td>{@link VK10#VK_COMPARE_OP_LESS COMPARE_OP_LESS}</td><td>{@link VK10#VK_COMPARE_OP_LESS_OR_EQUAL COMPARE_OP_LESS_OR_EQUAL}</td><td>{@link VK10#VK_COMPARE_OP_NEVER COMPARE_OP_NEVER}</td><td>{@link VK10#VK_COMPARE_OP_NOT_EQUAL COMPARE_OP_NOT_EQUAL}</td></tr></table></li>
- * <li>{@code depthBoundsTestEnable} &ndash; controls whether depth bounds testing is enabled</li>
- * <li>{@code stencilTestEnable} &ndash; controls whether stencil testing is enabled</li>
- * <li>{@code front} &ndash; control the parameters of the stencil test for front facing primitives</li>
- * <li>{@code back} &ndash; control the parameters of the stencil test for back facing primitives</li>
- * <li>{@code minDepthBounds} &ndash; the minimum depths bounds test value</li>
- * <li>{@code maxDepthBounds} &ndash; the maximum depths bounds test value</li>
+ * <li>{@code sType} &ndash; the type of this structure.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
+ * <li>{@code flags} &ndash; reserved for future use.</li>
+ * <li>{@code depthTestEnable} &ndash; controls whether <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#fragops-depth">depth testing</a> is enabled.</li>
+ * <li>{@code depthWriteEnable} &ndash; controls whether <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#fragops-depth-write">depth writes</a> are enabled.</li>
+ * <li>{@code depthCompareOp} &ndash; the comparison operator used in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#fragops-depth">depth test</a>.</li>
+ * <li>{@code depthBoundsTestEnable} &ndash; controls whether <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#fragops-dbt">depth bounds testing</a> is enabled.</li>
+ * <li>{@code stencilTestEnable} &ndash; controls whether <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#fragops-stencil">stencil testing</a> is enabled.</li>
+ * <li>{@code front} &ndash; {@code front} and {@code back} control the parameters of the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#fragops-stencil">stencil test</a>.</li>
+ * <li>{@code back} &ndash; see {@code front}</li>
+ * <li>{@code minDepthBounds} &ndash; {@code minDepthBounds} and {@code maxDepthBounds} define the range of values used in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#fragops-dbt">depth bounds test</a>.</li>
+ * <li>{@code maxDepthBounds} &ndash; see {@code minDepthBounds}</li>
  * </ul>
  * 
  * <h3>Layout</h3>

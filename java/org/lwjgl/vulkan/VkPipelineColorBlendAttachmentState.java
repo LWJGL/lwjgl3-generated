@@ -14,12 +14,18 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPipelineColorBlendAttachmentState.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPipelineColorBlendAttachmentState">Vulkan Specification</a>
- * 
- * <p>Contains information about per-target blending state as part of graphics pipeline creation.</p>
+ * Structure specifying a pipeline color blend attachment state.
  * 
  * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>If the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-dualSrcBlend">dual source blending</a> feature is not enabled, {@code srcColorBlendFactor} <b>must</b> not be {@link VK10#VK_BLEND_FACTOR_SRC1_COLOR BLEND_FACTOR_SRC1_COLOR}, {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR BLEND_FACTOR_ONE_MINUS_SRC1_COLOR}, {@link VK10#VK_BLEND_FACTOR_SRC1_ALPHA BLEND_FACTOR_SRC1_ALPHA}, or {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA}</li>
+ * <li>If the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-dualSrcBlend">dual source blending</a> feature is not enabled, {@code dstColorBlendFactor} <b>must</b> not be {@link VK10#VK_BLEND_FACTOR_SRC1_COLOR BLEND_FACTOR_SRC1_COLOR}, {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR BLEND_FACTOR_ONE_MINUS_SRC1_COLOR}, {@link VK10#VK_BLEND_FACTOR_SRC1_ALPHA BLEND_FACTOR_SRC1_ALPHA}, or {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA}</li>
+ * <li>If the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-dualSrcBlend">dual source blending</a> feature is not enabled, {@code srcAlphaBlendFactor} <b>must</b> not be {@link VK10#VK_BLEND_FACTOR_SRC1_COLOR BLEND_FACTOR_SRC1_COLOR}, {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR BLEND_FACTOR_ONE_MINUS_SRC1_COLOR}, {@link VK10#VK_BLEND_FACTOR_SRC1_ALPHA BLEND_FACTOR_SRC1_ALPHA}, or {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA}</li>
+ * <li>If the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-dualSrcBlend">dual source blending</a> feature is not enabled, {@code dstAlphaBlendFactor} <b>must</b> not be {@link VK10#VK_BLEND_FACTOR_SRC1_COLOR BLEND_FACTOR_SRC1_COLOR}, {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR BLEND_FACTOR_ONE_MINUS_SRC1_COLOR}, {@link VK10#VK_BLEND_FACTOR_SRC1_ALPHA BLEND_FACTOR_SRC1_ALPHA}, or {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA}</li>
+ * </ul>
+ * 
+ * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code srcColorBlendFactor} <b>must</b> be a valid {@code VkBlendFactor} value</li>
@@ -29,27 +35,23 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code dstAlphaBlendFactor} <b>must</b> be a valid {@code VkBlendFactor} value</li>
  * <li>{@code alphaBlendOp} <b>must</b> be a valid {@code VkBlendOp} value</li>
  * <li>{@code colorWriteMask} <b>must</b> be a valid combination of {@code VkColorComponentFlagBits} values</li>
- * <li>If the dual source blending feature is not enabled, {@code srcColorBlendFactor} <b>must</b> not be {@link VK10#VK_BLEND_FACTOR_SRC1_COLOR BLEND_FACTOR_SRC1_COLOR},
- * {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR BLEND_FACTOR_ONE_MINUS_SRC1_COLOR}, {@link VK10#VK_BLEND_FACTOR_SRC1_ALPHA BLEND_FACTOR_SRC1_ALPHA}, or {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA}</li>
- * <li>If the dual source blending feature is not enabled, {@code dstColorBlendFactor} <b>must</b> not be {@link VK10#VK_BLEND_FACTOR_SRC1_COLOR BLEND_FACTOR_SRC1_COLOR},
- * {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR BLEND_FACTOR_ONE_MINUS_SRC1_COLOR}, {@link VK10#VK_BLEND_FACTOR_SRC1_ALPHA BLEND_FACTOR_SRC1_ALPHA}, or {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA}</li>
- * <li>If the dual source blending feature is not enabled, {@code srcAlphaBlendFactor} <b>must</b> not be {@link VK10#VK_BLEND_FACTOR_SRC1_COLOR BLEND_FACTOR_SRC1_COLOR},
- * {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR BLEND_FACTOR_ONE_MINUS_SRC1_COLOR}, {@link VK10#VK_BLEND_FACTOR_SRC1_ALPHA BLEND_FACTOR_SRC1_ALPHA}, or {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA}</li>
- * <li>If the dual source blending feature is not enabled, {@code dstAlphaBlendFactor} <b>must</b> not be {@link VK10#VK_BLEND_FACTOR_SRC1_COLOR BLEND_FACTOR_SRC1_COLOR},
- * {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR BLEND_FACTOR_ONE_MINUS_SRC1_COLOR}, {@link VK10#VK_BLEND_FACTOR_SRC1_ALPHA BLEND_FACTOR_SRC1_ALPHA}, or {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA}</li>
  * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkPipelineColorBlendStateCreateInfo}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code blendEnable} &ndash; controls whether blending is enabled for the corresponding color attachment</li>
- * <li>{@code srcColorBlendFactor} &ndash; selects which blend factor is used to determine the source factors S<sub>r</sub>,S<sub>g</sub>,S<sub>b</sub>. One of:<br><table><tr><td>{@link VK10#VK_BLEND_FACTOR_CONSTANT_ALPHA BLEND_FACTOR_CONSTANT_ALPHA}</td><td>{@link VK10#VK_BLEND_FACTOR_CONSTANT_COLOR BLEND_FACTOR_CONSTANT_COLOR}</td></tr><tr><td>{@link VK10#VK_BLEND_FACTOR_DST_ALPHA BLEND_FACTOR_DST_ALPHA}</td><td>{@link VK10#VK_BLEND_FACTOR_DST_COLOR BLEND_FACTOR_DST_COLOR}</td></tr><tr><td>{@link VK10#VK_BLEND_FACTOR_ONE BLEND_FACTOR_ONE}</td><td>{@link VK10#VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_ALPHA BLEND_FACTOR_ONE_MINUS_CONSTANT_ALPHA}</td></tr><tr><td>{@link VK10#VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_COLOR BLEND_FACTOR_ONE_MINUS_CONSTANT_COLOR}</td><td>{@link VK10#VK_BLEND_FACTOR_ONE_MINUS_DST_ALPHA BLEND_FACTOR_ONE_MINUS_DST_ALPHA}</td></tr><tr><td>{@link VK10#VK_BLEND_FACTOR_ONE_MINUS_DST_COLOR BLEND_FACTOR_ONE_MINUS_DST_COLOR}</td><td>{@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA}</td></tr><tr><td>{@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR BLEND_FACTOR_ONE_MINUS_SRC1_COLOR}</td><td>{@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA BLEND_FACTOR_ONE_MINUS_SRC_ALPHA}</td></tr><tr><td>{@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC_COLOR BLEND_FACTOR_ONE_MINUS_SRC_COLOR}</td><td>{@link VK10#VK_BLEND_FACTOR_SRC1_ALPHA BLEND_FACTOR_SRC1_ALPHA}</td></tr><tr><td>{@link VK10#VK_BLEND_FACTOR_SRC1_COLOR BLEND_FACTOR_SRC1_COLOR}</td><td>{@link VK10#VK_BLEND_FACTOR_SRC_ALPHA BLEND_FACTOR_SRC_ALPHA}</td></tr><tr><td>{@link VK10#VK_BLEND_FACTOR_SRC_ALPHA_SATURATE BLEND_FACTOR_SRC_ALPHA_SATURATE}</td><td>{@link VK10#VK_BLEND_FACTOR_SRC_COLOR BLEND_FACTOR_SRC_COLOR}</td></tr><tr><td>{@link VK10#VK_BLEND_FACTOR_ZERO BLEND_FACTOR_ZERO}</td></tr></table></li>
- * <li>{@code dstColorBlendFactor} &ndash; selects which blend factor is used to determine the destination factors D<sub>r</sub>,D<sub>g</sub>,D<sub>b</sub></li>
- * <li>{@code colorBlendOp} &ndash; selects which blend operation is used to calculate the RGB values to write to the color attachment. One of:<br><table><tr><td>{@link VK10#VK_BLEND_OP_ADD BLEND_OP_ADD}</td><td>{@link VK10#VK_BLEND_OP_MAX BLEND_OP_MAX}</td><td>{@link VK10#VK_BLEND_OP_MIN BLEND_OP_MIN}</td><td>{@link VK10#VK_BLEND_OP_REVERSE_SUBTRACT BLEND_OP_REVERSE_SUBTRACT}</td><td>{@link VK10#VK_BLEND_OP_SUBTRACT BLEND_OP_SUBTRACT}</td></tr></table></li>
- * <li>{@code srcAlphaBlendFactor} &ndash; selects which blend factor is used to determine the source factor S<sub>a</sub></li>
- * <li>{@code dstAlphaBlendFactor} &ndash; selects which blend factor is used to determine the destination factor D<sub>a</sub></li>
- * <li>{@code alphaBlendOp} &ndash; selects which blend operation is use to calculate the alpha values to write to the color attachment</li>
- * <li>{@code colorWriteMask} &ndash; a bitmask selecting which of the R, G, B, and/or A components are enabled for writing. One or more of:<br><table><tr><td>{@link VK10#VK_COLOR_COMPONENT_A_BIT COLOR_COMPONENT_A_BIT}</td><td>{@link VK10#VK_COLOR_COMPONENT_B_BIT COLOR_COMPONENT_B_BIT}</td><td>{@link VK10#VK_COLOR_COMPONENT_G_BIT COLOR_COMPONENT_G_BIT}</td></tr><tr><td>{@link VK10#VK_COLOR_COMPONENT_R_BIT COLOR_COMPONENT_R_BIT}</td></tr></table></li>
+ * <li>{@code blendEnable} &ndash; controls whether blending is enabled for the corresponding color attachment. If blending is not enabled, the source fragment&#8217;s color for that attachment is passed through unmodified.</li>
+ * <li>{@code srcColorBlendFactor} &ndash; selects which blend factor is used to determine the source factors <code>(S<sub>r</sub>,S<sub>g</sub>,S<sub>b</sub>)</code>.</li>
+ * <li>{@code dstColorBlendFactor} &ndash; selects which blend factor is used to determine the destination factors <code>(D<sub>r</sub>,D<sub>g</sub>,D<sub>b</sub>)</code>.</li>
+ * <li>{@code colorBlendOp} &ndash; selects which blend operation is used to calculate the RGB values to write to the color attachment.</li>
+ * <li>{@code srcAlphaBlendFactor} &ndash; selects which blend factor is used to determine the source factor <code>S<sub>a</sub></code>.</li>
+ * <li>{@code dstAlphaBlendFactor} &ndash; selects which blend factor is used to determine the destination factor <code>D<sub>a</sub></code>.</li>
+ * <li>{@code alphaBlendOp} &ndash; selects which blend operation is use to calculate the alpha values to write to the color attachment.</li>
+ * <li>{@code colorWriteMask} &ndash; a bitmask selecting which of the R, G, B, and/or A components are enabled for writing, as described later in this chapter.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

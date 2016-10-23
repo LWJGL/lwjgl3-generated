@@ -14,29 +14,34 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkDisplayPlaneCapabilitiesKHR.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkDisplayPlaneCapabilitiesKHR">Vulkan Specification</a>
+ * Structure describing capabilities of a mode and plane combination.
  * 
- * <p>Describes capabilities of a mode and plane combination.</p>
+ * <h5>Description</h5>
  * 
- * <h5>Valid Usage</h5>
+ * <p>The minimum and maximum position and extent fields describe the hardware limits, if any, as they apply to the specified display mode and plane. Vendors <b>may</b> support displaying a subset of a swapchain's presentable images on the specified display plane. This is expressed by returning {@code minSrcPosition}, {@code maxSrcPosition}, {@code minSrcExtent}, and {@code maxSrcExtent} values that indicate a range of possible positions and sizes <b>may</b> be used to specify the region within the presentable images that source pixels will be read from when creating a swapchain on the specified display mode and plane.</p>
  * 
- * <ul>
- * <li>{@code supportedAlpha} <b>must</b> be a valid combination of {@code VkDisplayPlaneAlphaFlagBitsKHR} values</li>
- * </ul>
+ * <p>Vendors <b>may</b> also support mapping the presentable images' content to a subset or superset of the visible region in the specified display mode. This is expressed by returning {@code minDstPosition}, {@code maxDstPosition}, {@code minDstExtent} and {@code maxDstExtent} values that indicate a range of possible positions and sizes <b>may</b> be used to describe the region within the display mode that the source pixels will be mapped to.</p>
+ * 
+ * <p>Other vendors <b>may</b> support only a 1-1 mapping between pixels in the presentable images and the display mode. This <b>may</b> be indicated by returning <code>(0,0)</code> for {@code minSrcPosition}, {@code maxSrcPosition}, {@code minDstPosition}, and {@code maxDstPosition}, and (display mode width, display mode height) for {@code minSrcExtent}, {@code maxSrcExtent}, {@code minDstExtent}, and {@code maxDstExtent}.</p>
+ * 
+ * <p>These values indicate the limits of the hardware's individual fields. Not all combinations of values within the offset and extent ranges returned in {@link VkDisplayPlaneCapabilitiesKHR} are guaranteed to be supported. Vendors <b>may</b> still fail presentation requests that specify unsupported combinations.</p>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkExtent2D}, {@link VkOffset2D}, {@link KHRDisplay#vkGetDisplayPlaneCapabilitiesKHR GetDisplayPlaneCapabilitiesKHR}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code supportedAlpha} &ndash; a bitmask describing the supported alpha blending modes. One or more of:<br><table><tr><td>{@link KHRDisplay#VK_DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR}</td><td>{@link KHRDisplay#VK_DISPLAY_PLANE_ALPHA_OPAQUE_BIT_KHR DISPLAY_PLANE_ALPHA_OPAQUE_BIT_KHR}</td></tr><tr><td>{@link KHRDisplay#VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_BIT_KHR DISPLAY_PLANE_ALPHA_PER_PIXEL_BIT_KHR}</td><td>{@link KHRDisplay#VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_PREMULTIPLIED_BIT_KHR DISPLAY_PLANE_ALPHA_PER_PIXEL_PREMULTIPLIED_BIT_KHR}</td></tr></table></li>
- * <li>{@code minSrcPosition} &ndash; the minimum source rect offset supported by this plane using the specified mode</li>
- * <li>{@code maxSrcPosition} &ndash; the maximum source rect offset supported by this plane using the specified mode</li>
- * <li>{@code minSrcExtent} &ndash; the minimum source rect size supported by this plane using the specified mode</li>
- * <li>{@code maxSrcExtent} &ndash; the maximum source rect size supported by this plane using the specified mode</li>
- * <li>{@code minDstPosition} &ndash; the minimum output rect offset supported by this plane using the specified mode</li>
- * <li>{@code maxDstPosition} &ndash; the maximum output rect offset supported by this plane using the specified mode</li>
- * <li>{@code minDstExtent} &ndash; the minimum output rect size supported by this plane using the specified mode</li>
- * <li>{@code maxDstExtent} &ndash; the maximum output rect size supported by this plane using the specified mode</li>
+ * <li>{@code supportedAlpha} &ndash; a bitmask of {@code VkDisplayPlaneAlphaFlagBitsKHR} describing the supported alpha blending modes.</li>
+ * <li>{@code minSrcPosition} &ndash; the minimum source rectangle offset supported by this plane using the specified mode.</li>
+ * <li>{@code maxSrcPosition} &ndash; the maximum source rectangle offset supported by this plane using the specified mode. The {@code x} and {@code y} components of {@code maxSrcPosition} <b>must</b> each be greater than or equal to the {@code x} and {@code y} components of {@code minSrcPosition}, respectively.</li>
+ * <li>{@code minSrcExtent} &ndash; the minimum source rectangle size supported by this plane using the specified mode.</li>
+ * <li>{@code maxSrcExtent} &ndash; the maximum source rectangle size supported by this plane using the specified mode.</li>
+ * <li>{@code minDstPosition} &ndash; {@code minDstPosition}, {@code maxDstPosition}, {@code minDstExtent}, {@code maxDstExtent} all have similar semantics to their corresponding "Src" equivalents, but apply to the output region within the mode rather than the input region within the source image. Unlike the "Src" offsets, {@code minDstPosition} and {@code maxDstPosition} <b>may</b> contain negative values.</li>
+ * <li>{@code maxDstPosition} &ndash; see {@code minDstPosition}</li>
+ * <li>{@code minDstExtent} &ndash; see {@code minDstPosition}</li>
+ * <li>{@code maxDstExtent} &ndash; see {@code minDstPosition}</li>
  * </ul>
  * 
  * <h3>Layout</h3>

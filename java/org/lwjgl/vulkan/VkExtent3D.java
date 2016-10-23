@@ -14,18 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkExtent3D.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkExtent3D">Vulkan Specification</a>
- * 
- * <p>Describes the size of a rectangular region of pixels within a three-dimensional image or framebuffer.</p>
- * 
- * <h3>Member documentation</h3>
- * 
- * <ul>
- * <li>{@code width} &ndash; the region width</li>
- * <li>{@code height} &ndash; the region height</li>
- * <li>{@code depth} &ndash; the region depth</li>
- * </ul>
+ * Structure specifying a three-dimensional extent.
  * 
  * <h3>Layout</h3>
  * 

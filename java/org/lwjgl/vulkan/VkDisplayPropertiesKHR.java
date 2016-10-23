@@ -14,33 +14,37 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkDisplayPropertiesKHR.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkDisplayPropertiesKHR">Vulkan Specification</a>
+ * Structure describing an available display device.
  * 
- * <p>Describes properties of a display device present on a Vulkan physical device.</p>
+ * <h5>Description</h5>
  * 
- * <h5>Valid Usage</h5>
+ * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+ * 
+ * <p>For devices which have no natural value to return here, implementations <b>should</b> return the maximum resolution supported.</p>
+ * </div>
  * 
  * <ul>
- * <li>{@code display} <b>must</b> be a valid {@code VkDisplayKHR} handle</li>
- * <li>{@code displayName} <b>must</b> be a null-terminated string</li>
- * <li>{@code supportedTransforms} <b>must</b> be a valid combination of {@code VkSurfaceTransformFlagBitsKHR} values</li>
+ * <li>{@code supportedTransforms} tells which transforms are supported by this display. This will contain one or more of the bits from {@code VkSurfaceTransformFlagsKHR}.</li>
+ * <li>{@code planeReorderPossible} tells whether the planes on this display <b>can</b> have their z order changed. If this is {@link VK10#VK_TRUE TRUE}, the application <b>can</b> re-arrange the planes on this display in any order relative to each other.</li>
+ * <li>{@code persistentContent} tells whether the display supports self-refresh/internal buffering. If this is true, the application <b>can</b> submit persistent present operations on swapchains created against this display.</li>
  * </ul>
+ * 
+ * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+ * 
+ * <p>Persistent presents <b>may</b> have higher latency, and <b>may</b> use less power when the screen content is updated infrequently, or when only a portion of the screen needs to be updated in most frames.</p>
+ * </div>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkExtent2D}, {@link KHRDisplay#vkGetPhysicalDeviceDisplayPropertiesKHR GetPhysicalDeviceDisplayPropertiesKHR}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
  * <li>{@code display} &ndash; a handle that is used to refer to the display described here. This handle will be valid for the lifetime of the Vulkan instance.</li>
- * <li>{@code displayName} &ndash; a pointer to a NULL-terminated string containing the name of the display. Generally, this will be the name provided by the display’s EDID. It can be NULL if no suitable name is available.</li>
- * <li>{@code physicalDimensions} &ndash; the physical width and height of the visible portion of the display, in millimeters</li>
- * <li>{@code physicalResolution} &ndash; the physical, native, or preferred resolution of the display</li>
- * <li>{@code supportedTransforms} &ndash; which transforms are supported by this display. One or more of:<br><table><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_BIT_KHR SURFACE_TRANSFORM_HORIZONTAL_MIRROR_BIT_KHR}</td></tr><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_180_BIT_KHR SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_180_BIT_KHR}</td></tr><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_270_BIT_KHR SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_270_BIT_KHR}</td></tr><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_90_BIT_KHR SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_90_BIT_KHR}</td></tr><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR SURFACE_TRANSFORM_IDENTITY_BIT_KHR}</td></tr><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_INHERIT_BIT_KHR SURFACE_TRANSFORM_INHERIT_BIT_KHR}</td></tr><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_ROTATE_180_BIT_KHR SURFACE_TRANSFORM_ROTATE_180_BIT_KHR}</td></tr><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_ROTATE_270_BIT_KHR SURFACE_TRANSFORM_ROTATE_270_BIT_KHR}</td></tr><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_ROTATE_90_BIT_KHR SURFACE_TRANSFORM_ROTATE_90_BIT_KHR}</td></tr></table></li>
- * <li>{@code planeReorderPossible} &ndash; 
- * whether the planes on this display can have their z order changed. If this is {@link VK10#VK_TRUE TRUE}, the application can re-arrange the planes on this display in any
- * order relative to each other.</li>
- * <li>{@code persistentContent} &ndash; 
- * whether the display supports self-refresh/internal buffering. If this is true, the application can submit persistent present operations on swapchains
- * created against this display.</li>
+ * <li>{@code displayName} &ndash; a pointer to a NULL-terminated string containing the name of the display. Generally, this will be the name provided by the display&#8217;s EDID. It <b>can</b> be {@code NULL} if no suitable name is available.</li>
+ * <li>{@code physicalDimensions} &ndash; describes the physical width and height of the visible portion of the display, in millimeters.</li>
+ * <li>{@code physicalResolution} &ndash; describes the physical, native, or preferred resolution of the display.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

@@ -14,17 +14,26 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkSparseImageFormatProperties.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkSparseImageFormatProperties">Vulkan Specification</a>
- * 
- * <p>Describes properties for a set of image aspects that are bound simultaneously in an image.</p>
+ * Structure specifying sparse image format properties.
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code aspectMask} &ndash; a {@code VkImageAspectFlags} specifying which aspects of the image the properties apply to</li>
- * <li>{@code imageGranularity} &ndash; the width, height, and depth of the sparse image block in texels or compressed texel blocks</li>
- * <li>{@code flags} &ndash; a {@code VkSparseImageFormatFlagBits} bitmask specifying additional information about the sparse resource. One or more of:<br><table><tr><td>{@link VK10#VK_SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT}</td></tr><tr><td>{@link VK10#VK_SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT}</td></tr><tr><td>{@link VK10#VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT}</td></tr></table></li>
+ * <li>{@code aspectMask} &ndash; a bitmask of {@code VkImageAspectFlagBits} specifying which aspects of the image the properties apply to.</li>
+ * <li>{@code imageGranularity} &ndash; the width, height, and depth of the sparse image block in texels or compressed texel blocks.</li>
+ * <li>{@code flags} &ndash; a bitmask specifying additional information about the sparse resource. Bits which <b>can</b> be set include:
+ * 
+ * <pre><code>typedef enum VkSparseImageFormatFlagBits {
+    VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT = 0x00000001,
+    VK_SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT = 0x00000002,
+    VK_SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT = 0x00000004,
+} VkSparseImageFormatFlagBits;</code></pre>
+ * 
+ * <ul>
+ * <li>If {@link VK10#VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT} is set, the image uses a single mip tail region for all array layers.</li>
+ * <li>If {@link VK10#VK_SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT} is set, the first mip level whose dimensions are not integer multiples of the corresponding dimensions of the sparse image block begins the mip tail region.</li>
+ * <li>If {@link VK10#VK_SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT} is set, the image uses non-standard sparse image block dimensions, and the {@code imageGranularity} values do not match the standard sparse image block dimensions for the given pixel format.</li>
+ * </ul></li>
  * </ul>
  * 
  * <h3>Layout</h3>

@@ -8,18 +8,7 @@ package org.lwjgl.vulkan;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
-/**
- * This extension introduces concepts of object naming and tagging, for better tracking of Vulkan objects, as well as additional commands for recording
- * annotations of named sections of a workload to aid organisation and offline analysis in external tools.
- * 
- * <p>The {@code VK_EXT_debug_marker} extension is a device extension.</p>
- * 
- * <p>Given the complexity of Vulkan there is a strong need for verbose debugging information to aid the application developer in tracking down errors in the
- * application's use of Vulkan, particularly in combination with an external debugger or profiler.</p>
- * 
- * <p>Object Annotation allows the application to associate a name or binary data with a Vulkan object, while command buffer markers provide the developer
- * with a way of associating logical elements of the scene with commands in the command buffer.</p>
- */
+/** The {@code VK_EXT_debug_marker} extension is a device extension. It introduces concepts of object naming and tagging, for better tracking of Vulkan objects, as well as additional commands for recording annotations of named sections of a workload to aid organisation and offline analysis in external tools. */
 public class EXTDebugMarker {
 
 	/** The extension specification version. */
@@ -28,7 +17,7 @@ public class EXTDebugMarker {
 	/** The extension name. */
 	public static final String VK_EXT_DEBUG_MARKER_EXTENSION_NAME = "VK_EXT_debug_marker";
 
-	/** VkStructureType */
+	/** Extends {@code VkStructureType}. */
 	public static final int
 		VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_NAME_INFO_EXT = 1000022000,
 		VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_TAG_INFO_EXT  = 1000022001,
@@ -40,46 +29,9 @@ public class EXTDebugMarker {
 
 	static boolean isAvailable(VKCapabilities caps) {
 		return checkFunctions(
-			caps.vkDebugMarkerSetObjectNameEXT, caps.vkDebugMarkerSetObjectTagEXT, caps.vkCmdDebugMarkerBeginEXT, caps.vkCmdDebugMarkerEndEXT, 
+			caps.vkDebugMarkerSetObjectTagEXT, caps.vkDebugMarkerSetObjectNameEXT, caps.vkCmdDebugMarkerBeginEXT, caps.vkCmdDebugMarkerEndEXT, 
 			caps.vkCmdDebugMarkerInsertEXT
 		);
-	}
-
-	// --- [ vkDebugMarkerSetObjectNameEXT ] ---
-
-	/** Unsafe version of: {@link #vkDebugMarkerSetObjectNameEXT DebugMarkerSetObjectNameEXT} */
-	public static int nvkDebugMarkerSetObjectNameEXT(VkDevice device, long pNameInfo) {
-		long __functionAddress = device.getCapabilities().vkDebugMarkerSetObjectNameEXT;
-		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
-		return callPPI(__functionAddress, device.address(), pNameInfo);
-	}
-
-	/**
-	 * Gives a user-friendly name to a Vulkan object.
-	 * 
-	 * <p>Applications <b>may</b> change the name associated with an object simply by calling {@code vkDebugMarkerSetObjectNameEXT} again with a new string. To remove
-	 * a previously set name, {@code pName} should be set to an empty string.</p>
-	 * 
-	 * <h5>Valid Usage</h5>
-	 * 
-	 * <ul>
-	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-	 * <li>{@code pNameInfo} <b>must</b> be a pointer to a {@link VkDebugMarkerObjectNameInfoEXT} structure</li>
-	 * <li>{@code pNameInfo.object} <b>must</b> be a Vulkan object</li>
-	 * </ul>
-	 * 
-	 * <h5>Host Synchronization</h5>
-	 * 
-	 * <ul>
-	 * <li>Host access to {@code pNameInfo.object} <b>must</b> be externally synchronized</li>
-	 * </ul>
-	 *
-	 * @param device    the device that created the object
-	 * @param pNameInfo a pointer to an instance of the {@link VkDebugMarkerObjectNameInfoEXT} structure specifying the parameters of the name to set on the object
-	 */
-	public static int vkDebugMarkerSetObjectNameEXT(VkDevice device, VkDebugMarkerObjectNameInfoEXT pNameInfo) {
-		return nvkDebugMarkerSetObjectNameEXT(device, pNameInfo.address());
 	}
 
 	// --- [ vkDebugMarkerSetObjectTagEXT ] ---
@@ -95,22 +47,28 @@ public class EXTDebugMarker {
 	}
 
 	/**
-	 * Attaches arbitrary data to a Vulkan object.
+	 * Attach arbitrary data to an object.
 	 * 
-	 * <p>In addition to setting a name for an object, debugging and validation layers may have uses for additional binary data on a per-object basis that has no
-	 * other place in the Vulkan API. For example, a {@code VkShaderModule} could have additional debugging data attached to it to aid in offline shader
-	 * tracing.</p>
+	 * <h5>C Specification</h5>
 	 * 
-	 * <p>The {@code tagName} parameter gives a name or identifier to the type of data being tagged. This can be used by debugging layers to easily filter for
-	 * only data that can be used by that implementation.</p>
+	 * <p>In addition to setting a name for an object, debugging and validation layers may have uses for additional binary data on a per-object basis that has no other place in the Vulkan API. For example, a {@code VkShaderModule} could have additional debugging data attached to it to aid in offline shader tracing. To attach data to an object, call:</p>
+	 * 
+	 * <pre><code>VkResult vkDebugMarkerSetObjectTagEXT(
+    VkDevice                                    device,
+    VkDebugMarkerObjectTagInfoEXT*              pTagInfo);</code></pre>
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
 	 * <ul>
-	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-	 * <li>{@code pTagInfo} <b>must</b> be a pointer to a {@link VkDebugMarkerObjectTagInfoEXT} structure</li>
 	 * <li>{@code pTagInfo.object} <b>must</b> be a Vulkan object</li>
 	 * <li>{@code pTagInfo.tagName} <b>must</b> not be 0</li>
+	 * </ul>
+	 * 
+	 * <h5>Valid Usage (Implicit)</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pTagInfo} <b>must</b> be a pointer to a {@link VkDebugMarkerObjectTagInfoEXT} structure</li>
 	 * </ul>
 	 * 
 	 * <h5>Host Synchronization</h5>
@@ -118,12 +76,97 @@ public class EXTDebugMarker {
 	 * <ul>
 	 * <li>Host access to {@code pTagInfo.object} <b>must</b> be externally synchronized</li>
 	 * </ul>
+	 * 
+	 * <h5>Return Codes</h5>
+	 * 
+	 * <dl>
+	 * <dt>On success, this command returns</dt>
+	 * <dd><ul>
+	 * <li>{@link VK10#VK_SUCCESS SUCCESS}</li>
+	 * </ul></dd>
+	 * <dt>On failure, this command returns</dt>
+	 * <dd><ul>
+	 * <li>{@link VK10#VK_ERROR_OUT_OF_HOST_MEMORY ERROR_OUT_OF_HOST_MEMORY}</li>
+	 * <li>{@link VK10#VK_ERROR_OUT_OF_DEVICE_MEMORY ERROR_OUT_OF_DEVICE_MEMORY}</li>
+	 * </ul></dd>
+	 * </dl>
+	 * 
+	 * <h5>See Also</h5>
+	 * 
+	 * <p>{@link VkDebugMarkerObjectTagInfoEXT}</p>
 	 *
-	 * @param device   the device that created the object
-	 * @param pTagInfo a pointer to an instance of the {@link VkDebugMarkerObjectTagInfoEXT} structure specifying the parameters of the tag to attach to the object
+	 * @param device   the device that created the object.
+	 * @param pTagInfo a pointer to an instance of the {@link VkDebugMarkerObjectTagInfoEXT} structure specifying the parameters of the tag to attach to the object.
 	 */
 	public static int vkDebugMarkerSetObjectTagEXT(VkDevice device, VkDebugMarkerObjectTagInfoEXT pTagInfo) {
 		return nvkDebugMarkerSetObjectTagEXT(device, pTagInfo.address());
+	}
+
+	// --- [ vkDebugMarkerSetObjectNameEXT ] ---
+
+	/** Unsafe version of: {@link #vkDebugMarkerSetObjectNameEXT DebugMarkerSetObjectNameEXT} */
+	public static int nvkDebugMarkerSetObjectNameEXT(VkDevice device, long pNameInfo) {
+		long __functionAddress = device.getCapabilities().vkDebugMarkerSetObjectNameEXT;
+		if ( CHECKS ) {
+			checkFunctionAddress(__functionAddress);
+			VkDebugMarkerObjectNameInfoEXT.validate(pNameInfo);
+		}
+		return callPPI(__functionAddress, device.address(), pNameInfo);
+	}
+
+	/**
+	 * Give a user-friendly name to an object.
+	 * 
+	 * <h5>C Specification</h5>
+	 * 
+	 * <p>An object can be given a user-friendly name by calling:</p>
+	 * 
+	 * <pre><code>VkResult vkDebugMarkerSetObjectNameEXT(
+    VkDevice                                    device,
+    VkDebugMarkerObjectNameInfoEXT*             pNameInfo);</code></pre>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code pNameInfo.object} <b>must</b> be a Vulkan object</li>
+	 * </ul>
+	 * 
+	 * <h5>Valid Usage (Implicit)</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code pNameInfo} <b>must</b> be a pointer to a {@link VkDebugMarkerObjectNameInfoEXT} structure</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code pNameInfo.object} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 * 
+	 * <h5>Return Codes</h5>
+	 * 
+	 * <dl>
+	 * <dt>On success, this command returns</dt>
+	 * <dd><ul>
+	 * <li>{@link VK10#VK_SUCCESS SUCCESS}</li>
+	 * </ul></dd>
+	 * <dt>On failure, this command returns</dt>
+	 * <dd><ul>
+	 * <li>{@link VK10#VK_ERROR_OUT_OF_HOST_MEMORY ERROR_OUT_OF_HOST_MEMORY}</li>
+	 * <li>{@link VK10#VK_ERROR_OUT_OF_DEVICE_MEMORY ERROR_OUT_OF_DEVICE_MEMORY}</li>
+	 * </ul></dd>
+	 * </dl>
+	 * 
+	 * <h5>See Also</h5>
+	 * 
+	 * <p>{@link VkDebugMarkerObjectNameInfoEXT}</p>
+	 *
+	 * @param device    the device that created the object.
+	 * @param pNameInfo a pointer to an instance of the {@link VkDebugMarkerObjectNameInfoEXT} structure specifying the parameters of the name to set on the object.
+	 */
+	public static int vkDebugMarkerSetObjectNameEXT(VkDevice device, VkDebugMarkerObjectNameInfoEXT pNameInfo) {
+		return nvkDebugMarkerSetObjectNameEXT(device, pNameInfo.address());
 	}
 
 	// --- [ vkCmdDebugMarkerBeginEXT ] ---
@@ -139,20 +182,17 @@ public class EXTDebugMarker {
 	}
 
 	/**
-	 * Opens a marker region.
+	 * Open a command buffer marker region.
 	 * 
-	 * <p>Typical Vulkan applications will submit many command buffers in each frame, with each command buffer containing a large number of individual commands.
-	 * Being able to logically annotate regions of command buffers that belong together as well as hierarchically subdivide the frame is important to a
-	 * developer's ability to navigate the commands viewed holistically.</p>
+	 * <h5>C Specification</h5>
 	 * 
-	 * <p>An application <b>may</b> open a marker region in one command buffer and close it in another, or otherwise split marker regions across multiple command
-	 * buffers or multiple queue submissions. When viewed from the linear series of submissions to a single queue, the calls to
-	 * {@code vkCmdDebugMarkerBeginEXT} and {@link #vkCmdDebugMarkerEndEXT CmdDebugMarkerEndEXT} <b>must</b> be matched and balanced.</p>
+	 * <p>A marker region can be opened by calling:</p>
 	 * 
-	 * <p>Any calls to {@code vkCmdDebugMarkerBeginEXT} within a secondary command buffer must have a matching {@link #vkCmdDebugMarkerEndEXT CmdDebugMarkerEndEXT} in that same command
-	 * buffer, and marker regions begun outside of the secondary command buffer must not be ended inside it.</p>
+	 * <pre><code>void vkCmdDebugMarkerBeginEXT(
+    VkCommandBuffer                             commandBuffer,
+    VkDebugMarkerMarkerInfoEXT*                 pMarkerInfo);</code></pre>
 	 * 
-	 * <h5>Valid Usage</h5>
+	 * <h5>Valid Usage (Implicit)</h5>
 	 * 
 	 * <ul>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
@@ -160,9 +200,20 @@ public class EXTDebugMarker {
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * </ul>
+	 * 
+	 * <h5>Command Properties</h5>
+	 * 
+	 * <table class="lwjgl">
+	 * <thead><tr><th>Command Buffer Levels</th><th>Render Pass Scope</th><th>Supported Queue Types</th></tr></thead>
+	 * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>GRAPHICS COMPUTE</td></tr></tbody>
+	 * </table>
+	 * 
+	 * <h5>See Also</h5>
+	 * 
+	 * <p>{@link VkDebugMarkerMarkerInfoEXT}</p>
 	 *
-	 * @param commandBuffer the command buffer into which the command is recorded
-	 * @param pMarkerInfo   a pointer to an instance of the {@link VkDebugMarkerMarkerInfoEXT} structure specifying the parameters of the marker region to open
+	 * @param commandBuffer the command buffer into which the command is recorded.
+	 * @param pMarkerInfo   a pointer to an instance of the {@link VkDebugMarkerMarkerInfoEXT} structure specifying the parameters of the marker region to open.
 	 */
 	public static void vkCmdDebugMarkerBeginEXT(VkCommandBuffer commandBuffer, VkDebugMarkerMarkerInfoEXT pMarkerInfo) {
 		nvkCmdDebugMarkerBeginEXT(commandBuffer, pMarkerInfo.address());
@@ -171,21 +222,44 @@ public class EXTDebugMarker {
 	// --- [ vkCmdDebugMarkerEndEXT ] ---
 
 	/**
-	 * Closes a marker region.
+	 * Close a command buffer marker region.
+	 * 
+	 * <h5>C Specification</h5>
+	 * 
+	 * <p>A marker region can be closed by calling:</p>
+	 * 
+	 * <pre><code>void vkCmdDebugMarkerEndEXT(
+    VkCommandBuffer                             commandBuffer);</code></pre>
+	 * 
+	 * <h5>Description</h5>
+	 * 
+	 * <p>An application <b>may</b> open a marker region in one command buffer and close it in another, or otherwise split marker regions across multiple command buffers or multiple queue submissions. When viewed from the linear series of submissions to a single queue, the calls to {@link #vkCmdDebugMarkerBeginEXT CmdDebugMarkerBeginEXT} and {@link #vkCmdDebugMarkerEndEXT CmdDebugMarkerEndEXT} <b>must</b> be matched and balanced.</p>
+	 * 
+	 * <p>Any calls to {@link #vkCmdDebugMarkerBeginEXT CmdDebugMarkerBeginEXT} within a secondary command buffer must have a matching {@link #vkCmdDebugMarkerEndEXT CmdDebugMarkerEndEXT} in that same command buffer, and marker regions begun outside of the secondary command buffer must not be ended inside it.</p>
 	 * 
 	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>There <b>must</b> be an outstanding {@link #vkCmdDebugMarkerBeginEXT CmdDebugMarkerBeginEXT} command prior to the {@link #vkCmdDebugMarkerEndEXT CmdDebugMarkerEndEXT} on the queue that {@code commandBuffer} is submitted to</li>
+	 * <li>If the matching {@link #vkCmdDebugMarkerBeginEXT CmdDebugMarkerBeginEXT} command was in a secondary command buffer, the {@link #vkCmdDebugMarkerEndEXT CmdDebugMarkerEndEXT} must be in the same {@code commandBuffer}</li>
+	 * </ul>
+	 * 
+	 * <h5>Valid Usage (Implicit)</h5>
 	 * 
 	 * <ul>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
-	 * <li>There <b>must</b> be an outstanding {@link #vkCmdDebugMarkerBeginEXT CmdDebugMarkerBeginEXT} command prior to the {@link #vkCmdDebugMarkerEndEXT CmdDebugMarkerEndEXT} on the queue that {@code commandBuffer} is
-	 * submitted to</li>
-	 * <li>If the matching {@link #vkCmdDebugMarkerBeginEXT CmdDebugMarkerBeginEXT} command was in a secondary command buffer, the {@link #vkCmdDebugMarkerEndEXT CmdDebugMarkerEndEXT} must be in the same
-	 * {@code commandBuffer}</li>
 	 * </ul>
+	 * 
+	 * <h5>Command Properties</h5>
+	 * 
+	 * <table class="lwjgl">
+	 * <thead><tr><th>Command Buffer Levels</th><th>Render Pass Scope</th><th>Supported Queue Types</th></tr></thead>
+	 * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>GRAPHICS COMPUTE</td></tr></tbody>
+	 * </table>
 	 *
-	 * @param commandBuffer the command buffer handle
+	 * @param commandBuffer the command buffer into which the command is recorded.
 	 */
 	public static void vkCmdDebugMarkerEndEXT(VkCommandBuffer commandBuffer) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdDebugMarkerEndEXT;
@@ -207,9 +281,17 @@ public class EXTDebugMarker {
 	}
 
 	/**
-	 * Inserts a single marker label into a command buffer.
+	 * Insert a marker label into a command buffer.
 	 * 
-	 * <h5>Valid Usage</h5>
+	 * <h5>C Specification</h5>
+	 * 
+	 * <p>A single marker label can be inserted into a command buffer by calling:</p>
+	 * 
+	 * <pre><code>void vkCmdDebugMarkerInsertEXT(
+    VkCommandBuffer                             commandBuffer,
+    VkDebugMarkerMarkerInfoEXT*                 pMarkerInfo);</code></pre>
+	 * 
+	 * <h5>Valid Usage (Implicit)</h5>
 	 * 
 	 * <ul>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
@@ -217,9 +299,20 @@ public class EXTDebugMarker {
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * </ul>
+	 * 
+	 * <h5>Command Properties</h5>
+	 * 
+	 * <table class="lwjgl">
+	 * <thead><tr><th>Command Buffer Levels</th><th>Render Pass Scope</th><th>Supported Queue Types</th></tr></thead>
+	 * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>GRAPHICS COMPUTE</td></tr></tbody>
+	 * </table>
+	 * 
+	 * <h5>See Also</h5>
+	 * 
+	 * <p>{@link VkDebugMarkerMarkerInfoEXT}</p>
 	 *
-	 * @param commandBuffer the command buffer into which the command is recorded
-	 * @param pMarkerInfo   a pointer to an instance of the {@link VkDebugMarkerMarkerInfoEXT} structure specifying the parameters of the marker to insert
+	 * @param commandBuffer the command buffer into which the command is recorded.
+	 * @param pMarkerInfo   a pointer to an instance of the {@link VkDebugMarkerMarkerInfoEXT} structure specifying the parameters of the marker to insert.
 	 */
 	public static void vkCmdDebugMarkerInsertEXT(VkCommandBuffer commandBuffer, VkDebugMarkerMarkerInfoEXT pMarkerInfo) {
 		nvkCmdDebugMarkerInsertEXT(commandBuffer, pMarkerInfo.address());

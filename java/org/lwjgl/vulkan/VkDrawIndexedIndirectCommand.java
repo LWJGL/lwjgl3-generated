@@ -7,34 +7,39 @@ package org.lwjgl.vulkan;
 
 import java.nio.*;
 
+import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkDrawIndexedIndirectCommand.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkDrawIndexedIndirectCommand">Vulkan Specification</a>
+ * Structure specifying a draw indexed indirect command.
  * 
- * <p>Describes an indirect indexed draw command.</p>
+ * <h5>Description</h5>
+ * 
+ * <p>The members of {@link VkDrawIndexedIndirectCommand} have the same meaning as the similarly named parameters of {@link VK10#vkCmdDrawIndexed CmdDrawIndexed}.</p>
  * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>For a given vertex buffer binding, any attribute data fetched <b>must</b> be entirely contained within the corresponding vertex buffer binding</li>
- * <li>({@code indexSize} * ({@code firstIndex} + {@code indexCount}) + {@code offset}) <b>must</b> be less than or equal to the size of the currently bound
- * index buffer, with {@code indexSize} being based on the type specified by {@code indexType}, where the index buffer, {@code indexType}, and
- * {@code offset} are specified via {@link VK10#vkCmdBindIndexBuffer CmdBindIndexBuffer}</li>
- * <li>If the drawIndirectFirstInstance feature is not enabled, {@code firstInstance} <b>must</b> be 0</li>
+ * <li>For a given vertex buffer binding, any attribute data fetched <b>must</b> be entirely contained within the corresponding vertex buffer binding, as described in <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#fxvertex-input">the “Vertex Input Description” section</a></li>
+ * <li>({@code indexSize} * ({@code firstIndex} + {@code indexCount}) + {@code offset}) <b>must</b> be less than or equal to the size of the currently bound index buffer, with {@code indexSize} being based on the type specified by {@code indexType}, where the index buffer, {@code indexType}, and {@code offset} are specified via {@link VK10#vkCmdBindIndexBuffer CmdBindIndexBuffer}</li>
+ * <li>If the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-drawIndirectFirstInstance">drawIndirectFirstInstance</a> feature is not enabled, {@code firstInstance} <b>must</b> be 0</li>
  * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VK10#vkCmdDrawIndexedIndirect CmdDrawIndexedIndirect}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code indexCount} &ndash; the number of vertices to draw</li>
- * <li>{@code instanceCount} &ndash; the number of instances to draw</li>
- * <li>{@code firstIndex} &ndash; the base index within the index buffer</li>
- * <li>{@code vertexOffset} &ndash; the value added to the vertex index before indexing into the vertex buffer</li>
- * <li>{@code firstInstance} &ndash; the instance ID of the first instance to draw</li>
+ * <li>{@code indexCount} &ndash; the number of vertices to draw.</li>
+ * <li>{@code instanceCount} &ndash; the number of instances to draw.</li>
+ * <li>{@code firstIndex} &ndash; the base index within the index buffer.</li>
+ * <li>{@code vertexOffset} &ndash; the value added to the vertex index before indexing into the vertex buffer.</li>
+ * <li>{@code firstInstance} &ndash; the instance ID of the first instance to draw.</li>
  * </ul>
  * 
  * <h3>Layout</h3>
@@ -47,7 +52,7 @@ import static org.lwjgl.system.MemoryUtil.*;
     uint32_t firstInstance;
 }</code></pre>
  */
-public class VkDrawIndexedIndirectCommand extends Struct {
+public class VkDrawIndexedIndirectCommand extends Struct implements NativeResource {
 
 	/** The struct size in bytes. */
 	public static final int SIZEOF;
@@ -109,11 +114,98 @@ public class VkDrawIndexedIndirectCommand extends Struct {
 	/** Returns the value of the {@code firstInstance} field. */
 	public int firstInstance() { return nfirstInstance(address()); }
 
+	/** Sets the specified value to the {@code indexCount} field. */
+	public VkDrawIndexedIndirectCommand indexCount(int value) { nindexCount(address(), value); return this; }
+	/** Sets the specified value to the {@code instanceCount} field. */
+	public VkDrawIndexedIndirectCommand instanceCount(int value) { ninstanceCount(address(), value); return this; }
+	/** Sets the specified value to the {@code firstIndex} field. */
+	public VkDrawIndexedIndirectCommand firstIndex(int value) { nfirstIndex(address(), value); return this; }
+	/** Sets the specified value to the {@code vertexOffset} field. */
+	public VkDrawIndexedIndirectCommand vertexOffset(int value) { nvertexOffset(address(), value); return this; }
+	/** Sets the specified value to the {@code firstInstance} field. */
+	public VkDrawIndexedIndirectCommand firstInstance(int value) { nfirstInstance(address(), value); return this; }
+
+	/** Initializes this struct with the specified values. */
+	public VkDrawIndexedIndirectCommand set(
+		int indexCount,
+		int instanceCount,
+		int firstIndex,
+		int vertexOffset,
+		int firstInstance
+	) {
+		indexCount(indexCount);
+		instanceCount(instanceCount);
+		firstIndex(firstIndex);
+		vertexOffset(vertexOffset);
+		firstInstance(firstInstance);
+
+		return this;
+	}
+
+	/** Unsafe version of {@link #set(VkDrawIndexedIndirectCommand) set}. */
+	public VkDrawIndexedIndirectCommand nset(long struct) {
+		memCopy(struct, address(), SIZEOF);
+		return this;
+	}
+
+	/**
+	 * Copies the specified struct data to this struct.
+	 *
+	 * @param src the source struct
+	 *
+	 * @return this struct
+	 */
+	public VkDrawIndexedIndirectCommand set(VkDrawIndexedIndirectCommand src) {
+		return nset(src.address());
+	}
+
 	// -----------------------------------
+
+	/** Returns a new {@link VkDrawIndexedIndirectCommand} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
+	public static VkDrawIndexedIndirectCommand malloc() {
+		return create(nmemAlloc(SIZEOF));
+	}
+
+	/** Returns a new {@link VkDrawIndexedIndirectCommand} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
+	public static VkDrawIndexedIndirectCommand calloc() {
+		return create(nmemCalloc(1, SIZEOF));
+	}
+
+	/** Returns a new {@link VkDrawIndexedIndirectCommand} instance allocated with {@link BufferUtils}. */
+	public static VkDrawIndexedIndirectCommand create() {
+		return new VkDrawIndexedIndirectCommand(BufferUtils.createByteBuffer(SIZEOF));
+	}
 
 	/** Returns a new {@link VkDrawIndexedIndirectCommand} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
 	public static VkDrawIndexedIndirectCommand create(long address) {
 		return address == NULL ? null : new VkDrawIndexedIndirectCommand(address, null);
+	}
+
+	/**
+	 * Returns a new {@link VkDrawIndexedIndirectCommand.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer malloc(int capacity) {
+		return create(nmemAlloc(capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link VkDrawIndexedIndirectCommand.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer calloc(int capacity) {
+		return create(nmemCalloc(capacity, SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link VkDrawIndexedIndirectCommand.Buffer} instance allocated with {@link BufferUtils}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer create(int capacity) {
+		return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
 	}
 
 	/**
@@ -124,6 +216,74 @@ public class VkDrawIndexedIndirectCommand extends Struct {
 	 */
 	public static Buffer create(long address, int capacity) {
 		return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+	}
+
+	// -----------------------------------
+
+	/** Returns a new {@link VkDrawIndexedIndirectCommand} instance allocated on the thread-local {@link MemoryStack}. */
+	public static VkDrawIndexedIndirectCommand mallocStack() {
+		return mallocStack(stackGet());
+	}
+
+	/** Returns a new {@link VkDrawIndexedIndirectCommand} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+	public static VkDrawIndexedIndirectCommand callocStack() {
+		return callocStack(stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkDrawIndexedIndirectCommand} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkDrawIndexedIndirectCommand mallocStack(MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkDrawIndexedIndirectCommand} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 */
+	public static VkDrawIndexedIndirectCommand callocStack(MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+	}
+
+	/**
+	 * Returns a new {@link VkDrawIndexedIndirectCommand.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity) {
+		return mallocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkDrawIndexedIndirectCommand.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity) {
+		return callocStack(capacity, stackGet());
+	}
+
+	/**
+	 * Returns a new {@link VkDrawIndexedIndirectCommand.Buffer} instance allocated on the specified {@link MemoryStack}.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer mallocStack(int capacity, MemoryStack stack) {
+		return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+	}
+
+	/**
+	 * Returns a new {@link VkDrawIndexedIndirectCommand.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+	 *
+	 * @param stack the stack from which to allocate
+	 * @param capacity the buffer capacity
+	 */
+	public static Buffer callocStack(int capacity, MemoryStack stack) {
+		return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
 	}
 
 	// -----------------------------------
@@ -139,10 +299,21 @@ public class VkDrawIndexedIndirectCommand extends Struct {
 	/** Unsafe version of {@link #firstInstance}. */
 	public static int nfirstInstance(long struct) { return memGetInt(struct + VkDrawIndexedIndirectCommand.FIRSTINSTANCE); }
 
+	/** Unsafe version of {@link #indexCount(int) indexCount}. */
+	public static void nindexCount(long struct, int value) { memPutInt(struct + VkDrawIndexedIndirectCommand.INDEXCOUNT, value); }
+	/** Unsafe version of {@link #instanceCount(int) instanceCount}. */
+	public static void ninstanceCount(long struct, int value) { memPutInt(struct + VkDrawIndexedIndirectCommand.INSTANCECOUNT, value); }
+	/** Unsafe version of {@link #firstIndex(int) firstIndex}. */
+	public static void nfirstIndex(long struct, int value) { memPutInt(struct + VkDrawIndexedIndirectCommand.FIRSTINDEX, value); }
+	/** Unsafe version of {@link #vertexOffset(int) vertexOffset}. */
+	public static void nvertexOffset(long struct, int value) { memPutInt(struct + VkDrawIndexedIndirectCommand.VERTEXOFFSET, value); }
+	/** Unsafe version of {@link #firstInstance(int) firstInstance}. */
+	public static void nfirstInstance(long struct, int value) { memPutInt(struct + VkDrawIndexedIndirectCommand.FIRSTINSTANCE, value); }
+
 	// -----------------------------------
 
 	/** An array of {@link VkDrawIndexedIndirectCommand} structs. */
-	public static class Buffer extends StructBuffer<VkDrawIndexedIndirectCommand, Buffer> {
+	public static class Buffer extends StructBuffer<VkDrawIndexedIndirectCommand, Buffer> implements NativeResource {
 
 		/**
 		 * Creates a new {@link VkDrawIndexedIndirectCommand.Buffer} instance backed by the specified container.
@@ -191,6 +362,17 @@ public class VkDrawIndexedIndirectCommand extends Struct {
 		public int vertexOffset() { return VkDrawIndexedIndirectCommand.nvertexOffset(address()); }
 		/** Returns the value of the {@code firstInstance} field. */
 		public int firstInstance() { return VkDrawIndexedIndirectCommand.nfirstInstance(address()); }
+
+		/** Sets the specified value to the {@code indexCount} field. */
+		public VkDrawIndexedIndirectCommand.Buffer indexCount(int value) { VkDrawIndexedIndirectCommand.nindexCount(address(), value); return this; }
+		/** Sets the specified value to the {@code instanceCount} field. */
+		public VkDrawIndexedIndirectCommand.Buffer instanceCount(int value) { VkDrawIndexedIndirectCommand.ninstanceCount(address(), value); return this; }
+		/** Sets the specified value to the {@code firstIndex} field. */
+		public VkDrawIndexedIndirectCommand.Buffer firstIndex(int value) { VkDrawIndexedIndirectCommand.nfirstIndex(address(), value); return this; }
+		/** Sets the specified value to the {@code vertexOffset} field. */
+		public VkDrawIndexedIndirectCommand.Buffer vertexOffset(int value) { VkDrawIndexedIndirectCommand.nvertexOffset(address(), value); return this; }
+		/** Sets the specified value to the {@code firstInstance} field. */
+		public VkDrawIndexedIndirectCommand.Buffer firstInstance(int value) { VkDrawIndexedIndirectCommand.nfirstInstance(address(), value); return this; }
 
 	}
 

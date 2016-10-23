@@ -15,12 +15,9 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkSparseBufferMemoryBindInfo.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkSparseBufferMemoryBindInfo">Vulkan Specification</a>
+ * Structure specifying a sparse buffer memory bind operation.
  * 
- * <p>Describes a memory binding to a {@code VkBuffer} object.</p>
- * 
- * <h5>Valid Usage</h5>
+ * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code buffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
@@ -28,12 +25,16 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code bindCount} <b>must</b> be greater than 0</li>
  * </ul>
  * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkBindSparseInfo}, {@link VkSparseMemoryBind}</p>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code buffer} &ndash; the {@code VkBuffer} object to be bound</li>
- * <li>{@code bindCount} &ndash; the number of {@code VkSparseMemoryBind} structures in the {@code pBinds} array</li>
- * <li>{@code pBinds} &ndash; a pointer to array of {@link VkSparseMemoryBind} structures</li>
+ * <li>{@code buffer} &ndash; the {@code VkBuffer} object to be bound.</li>
+ * <li>{@code bindCount} &ndash; the number of {@link VkSparseMemoryBind} structures in the {@code pBinds} array.</li>
+ * <li>{@code pBinds} &ndash; a pointer to array of {@link VkSparseMemoryBind} structures.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

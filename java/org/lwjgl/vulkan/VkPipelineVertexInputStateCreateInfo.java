@@ -15,39 +15,42 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPipelineVertexInputStateCreateInfo.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPipelineVertexInputStateCreateInfo">Vulkan Specification</a>
- * 
- * <p>Contains vertex input attribute and vertex input binding descriptions as part of graphics pipeline creation.</p>
+ * Structure specifying parameters of a newly created pipeline vertex input state.
  * 
  * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code vertexBindingDescriptionCount} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxVertexInputBindings}</li>
+ * <li>{@code vertexAttributeDescriptionCount} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxVertexInputAttributes}</li>
+ * <li>For every {@code binding} specified by any given element of {@code pVertexAttributeDescriptions}, a {@link VkVertexInputBindingDescription} <b>must</b> exist in {@code pVertexBindingDescriptions} with the same value of {@code binding}</li>
+ * <li>All elements of {@code pVertexBindingDescriptions} <b>must</b> describe distinct binding numbers</li>
+ * <li>All elements of {@code pVertexAttributeDescriptions} <b>must</b> describe distinct attribute locations</li>
+ * </ul>
+ * 
+ * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code flags} <b>must</b> be 0</li>
- * <li>If {@code vertexBindingDescriptionCount} is not 0, {@code pVertexBindingDescriptions} <b>must</b> be a pointer to an array of
- * {@code vertexBindingDescriptionCount} valid {@link VkVertexInputBindingDescription} structures</li>
- * <li>If {@code vertexAttributeDescriptionCount} is not 0, {@code pVertexAttributeDescriptions} <b>must</b> be a pointer to an array of
- * {@code vertexAttributeDescriptionCount} valid {@link VkVertexInputAttributeDescription} structures</li>
- * <li>{@code vertexBindingDescriptionCount} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxVertexInputBindings}</li>
- * <li>{@code vertexAttributeDescriptionCount} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxVertexInputAttributes}</li>
- * <li>For every {@code binding} specified by any given element of {@code pVertexAttributeDescriptions}, a {@code VkVertexInputBindingDescription} <b>must</b>
- * exist in {@code pVertexBindingDescriptions} with the same value of {@code binding}</li>
- * <li>All elements of {@code pVertexBindingDescriptions} <b>must</b> describe distinct binding numbers</li>
- * <li>All elements of {@code pVertexAttributeDescriptions} <b>must</b> describe distinct attribute locations</li>
+ * <li>If {@code vertexBindingDescriptionCount} is not 0, {@code pVertexBindingDescriptions} <b>must</b> be a pointer to an array of {@code vertexBindingDescriptionCount} valid {@link VkVertexInputBindingDescription} structures</li>
+ * <li>If {@code vertexAttributeDescriptionCount} is not 0, {@code pVertexAttributeDescriptions} <b>must</b> be a pointer to an array of {@code vertexAttributeDescriptionCount} valid {@link VkVertexInputAttributeDescription} structures</li>
  * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkGraphicsPipelineCreateInfo}, {@link VkVertexInputAttributeDescription}, {@link VkVertexInputBindingDescription}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO}</li>
- * <li>{@code pNext} &ndash; reserved for use by extensions</li>
- * <li>{@code flags} &ndash; reserved for future use</li>
- * <li>{@code vertexBindingDescriptionCount} &ndash; the number of vertex binding descriptions provided in {@code pVertexBindingDescriptions}</li>
- * <li>{@code pVertexBindingDescriptions} &ndash; a pointer to an array of {@link VkVertexInputBindingDescription} structures</li>
- * <li>{@code vertexAttributeDescriptionCount} &ndash; the number of vertex attribute descriptions provided in {@code pVertexAttributeDescriptions}</li>
- * <li>{@code pVertexAttributeDescriptions} &ndash; a pointer to an array of {@link VkVertexInputAttributeDescription} structures</li>
+ * <li>{@code sType} &ndash; the type of this structure.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
+ * <li>{@code flags} &ndash; reserved for future use.</li>
+ * <li>{@code vertexBindingDescriptionCount} &ndash; the number of vertex binding descriptions provided in {@code pVertexBindingDescriptions}.</li>
+ * <li>{@code pVertexBindingDescriptions} &ndash; a pointer to an array of {@link VkVertexInputBindingDescription} structures.</li>
+ * <li>{@code vertexAttributeDescriptionCount} &ndash; the number of vertex attribute descriptions provided in {@code pVertexAttributeDescriptions}.</li>
+ * <li>{@code pVertexAttributeDescriptions} &ndash; a pointer to an array of {@link VkVertexInputAttributeDescription} structures.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

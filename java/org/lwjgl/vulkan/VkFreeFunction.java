@@ -10,10 +10,23 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Instances of this class may be set to the {@code pfnFree} member of the {@link VkAllocationCallbacks} struct.
+ * Application-defined memory free function.
  * 
- * <p>{@code pMemory may} be {@code NULL}, which the callback <b>must</b> handle safely. If {@code pMemory} is non-{@code NULL}, it must be a pointer previously allocated by
- * {@code pfnAllocation} or {@code pfnReallocation} and must be freed by the function.</p>
+ * <h5>C Specification</h5>
+ * 
+ * <p>The type of {@code pfnFree} is:</p>
+ * 
+ * <pre><code>typedef void (VKAPI_PTR *PFN_vkFreeFunction)(
+    void*                                       pUserData,
+    void*                                       pMemory);</code></pre>
+ * 
+ * <h5>Description</h5>
+ * 
+ * <p>{@code pMemory} <b>may</b> be {@code NULL}, which the callback <b>must</b> handle safely. If {@code pMemory} is non-{@code NULL}, it <b>must</b> be a pointer previously allocated by {@code pfnAllocation} or {@code pfnReallocation}. The application <b>should</b> free this memory.</p>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkAllocationCallbacks}</p>
  */
 public abstract class VkFreeFunction extends Callback implements VkFreeFunctionI {
 

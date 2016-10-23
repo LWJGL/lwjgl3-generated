@@ -11,11 +11,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/**
- * The {@code VK_KHR_xlib_surface} extension is an instance extension. It provides a mechanism to create a {@code VkSurfaceKHR} object (defined by the
- * {@code VK_KHR_surface} extension) that refers to an X11 window, using the Xlib client-side library, as well as a query to determine support for
- * rendering via Xlib.
- */
+/** The {@code VK_KHR_xlib_surface} extension is an instance extension. It provides a mechanism to create a {@code VkSurfaceKHR} object (defined by the {@code VK_KHR_surface} extension) that refers to an X11 {@code Window}, using the Xlib client-side library, as well as a query to determine support for rendering via Xlib. */
 public class KHRXlibSurface {
 
 	/** The extension specification version. */
@@ -24,7 +20,7 @@ public class KHRXlibSurface {
 	/** The extension name. */
 	public static final String VK_KHR_XLIB_SURFACE_EXTENSION_NAME = "VK_KHR_xlib_surface";
 
-	/** VkStructureType */
+	/** Extends {@code VkStructureType}. */
 	public static final int VK_STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR = 1000004000;
 
 	protected KHRXlibSurface() {
@@ -51,9 +47,19 @@ public class KHRXlibSurface {
 	}
 
 	/**
-	 * Creates a {@code VkSurfaceKHR} object for an X11 window, using the Xlib client-side library.
+	 * Create a {@code VkSurfaceKHR} object for an X11 window, using the Xlib client-side library.
 	 * 
-	 * <h5>Valid Usage</h5>
+	 * <h5>C Specification</h5>
+	 * 
+	 * <p>To create a {@code VkSurfaceKHR} object for an X11 window, using the Xlib client-side library, call:</p>
+	 * 
+	 * <pre><code>VkResult vkCreateXlibSurfaceKHR(
+    VkInstance                                  instance,
+    const VkXlibSurfaceCreateInfoKHR*           pCreateInfo,
+    const VkAllocationCallbacks*                pAllocator,
+    VkSurfaceKHR*                               pSurface);</code></pre>
+	 * 
+	 * <h5>Valid Usage (Implicit)</h5>
 	 * 
 	 * <ul>
 	 * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
@@ -62,25 +68,28 @@ public class KHRXlibSurface {
 	 * <li>{@code pSurface} <b>must</b> be a pointer to a {@code VkSurfaceKHR} handle</li>
 	 * </ul>
 	 * 
-	 * <p>With Xlib, {@code minImageExtent}, {@code maxImageExtent}, and {@code currentExtent} are the window size. Therefore, a swapchain’s {@code imageExtent}
-	 * <b>must</b> match the window’s size.</p>
+	 * <h5>Return Codes</h5>
 	 * 
-	 * <p>Some Vulkan functions <b>may</b> send protocol over the specified Xlib Display connection when using a swapchain or presentable images created from a
-	 * {@code VkSurface} referring to an Xlib window. Applications <b>must</b> therefore ensure the display connection is available to Vulkan for the duration of
-	 * any functions that manipulate such swapchains or their presentable images, and any functions that build or queue command buffers that operate on such
-	 * presentable images. Specifically, applications using Vulkan with Xlib-based swapchains <b>must</b></p>
+	 * <dl>
+	 * <dt>On success, this command returns</dt>
+	 * <dd><ul>
+	 * <li>{@link VK10#VK_SUCCESS SUCCESS}</li>
+	 * </ul></dd>
+	 * <dt>On failure, this command returns</dt>
+	 * <dd><ul>
+	 * <li>{@link VK10#VK_ERROR_OUT_OF_HOST_MEMORY ERROR_OUT_OF_HOST_MEMORY}</li>
+	 * <li>{@link VK10#VK_ERROR_OUT_OF_DEVICE_MEMORY ERROR_OUT_OF_DEVICE_MEMORY}</li>
+	 * </ul></dd>
+	 * </dl>
 	 * 
-	 * <ul>
-	 * <li>Call {@code XInitThreads()} before calling any other Xlib functions if they intend to use Vulkan in multiple threads, or use Vulkan and Xlib in
-	 * separate threads.</li>
-	 * <li>Avoid holding a server grab on a display connection while waiting for Vulkan operations to complete using a swapchain derived from a different
-	 * display connection referring to the same X server instance. Failing to do so may result in deadlock.</li>
-	 * </ul>
+	 * <h5>See Also</h5>
+	 * 
+	 * <p>{@link VkAllocationCallbacks}, {@link VkXlibSurfaceCreateInfoKHR}</p>
 	 *
-	 * @param instance    the instance to associate the surface with
-	 * @param pCreateInfo a pointer to an instance of the {@link VkXlibSurfaceCreateInfoKHR} structure containing the parameters affecting the creation of the surface object
-	 * @param pAllocator  controls host memory allocation
-	 * @param pSurface    points to a {@code VkSurfaceKHR} handle in which the created surface object is returned
+	 * @param instance    the instance to associate the surface with.
+	 * @param pCreateInfo a pointer to an instance of the {@link VkXlibSurfaceCreateInfoKHR} structure containing the parameters affecting the creation of the surface object.
+	 * @param pAllocator  the allocator used for host memory allocated for the surface object when there is no more specific allocator available (see <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a>).
+	 * @param pSurface    points to a {@code VkSurfaceKHR} handle in which the created surface object is returned.
 	 */
 	public static int vkCreateXlibSurfaceKHR(VkInstance instance, VkXlibSurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSurface) {
 		if ( CHECKS )
@@ -91,23 +100,39 @@ public class KHRXlibSurface {
 	// --- [ vkGetPhysicalDeviceXlibPresentationSupportKHR ] ---
 
 	/**
-	 * Determines whether a queue family of a physical device supports presentation to an X11 server, using the Xlib client-side library.
+	 * Query physical device for presentation to X11 server using Xlib.
+	 * 
+	 * <h5>C Specification</h5>
+	 * 
+	 * <p>To determine whether a queue family of a physical device supports presentation to an X11 server, using the Xlib client-side library, call:</p>
+	 * 
+	 * <pre><code>VkBool32 vkGetPhysicalDeviceXlibPresentationSupportKHR(
+    VkPhysicalDevice                            physicalDevice,
+    uint32_t                                    queueFamilyIndex,
+    Display*                                    dpy,
+    VisualID                                    visualID);</code></pre>
+	 * 
+	 * <h5>Description</h5>
 	 * 
 	 * <p>This platform-specific function <b>can</b> be called prior to creating a surface.</p>
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
 	 * <ul>
+	 * <li>{@code queueFamilyIndex} <b>must</b> be less than {@code pQueueFamilyPropertyCount} returned by {@link VK10#vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties} for the given {@code physicalDevice}</li>
+	 * </ul>
+	 * 
+	 * <h5>Valid Usage (Implicit)</h5>
+	 * 
+	 * <ul>
 	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
 	 * <li>{@code dpy} <b>must</b> be a pointer to a {@code Display} value</li>
-	 * <li>{@code queueFamilyIndex} <b>must</b> be less than {@code pQueueFamilyPropertyCount} returned by {@link VK10#vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties} for the given
-	 * {@code physicalDevice}</li>
 	 * </ul>
 	 *
-	 * @param physicalDevice   the physical device
-	 * @param queueFamilyIndex the queue family index
-	 * @param dpy              a pointer to an Xlib {@code Display} connection to the server
-	 * @param visualID         an X11 visual (VisualID)
+	 * @param physicalDevice   the physical device.
+	 * @param queueFamilyIndex the queue family index.
+	 * @param dpy              a pointer to an Xlib {@code Display} connection to the server.
+	 * @param visualID         
 	 */
 	public static boolean vkGetPhysicalDeviceXlibPresentationSupportKHR(VkPhysicalDevice physicalDevice, int queueFamilyIndex, long dpy, long visualID) {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceXlibPresentationSupportKHR;

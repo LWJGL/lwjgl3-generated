@@ -13,23 +13,22 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
+import static org.lwjgl.vulkan.VK10.*;
+
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkExtensionProperties.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkExtensionProperties">Vulkan Specification</a>
- * 
- * <p>Contains information about a physical device extension.</p>
+ * Structure specifying a extension properties.
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code extensionName} &ndash; a null-terminated string specifying the name of the extension</li>
- * <li>{@code specVersion} &ndash; the version of this extension</li>
+ * <li>{@code extensionName} &ndash; a null-terminated string specifying the name of the extension.</li>
+ * <li>{@code specVersion} &ndash; the version of this extension. It is an integer, incremented with backward compatible changes.</li>
  * </ul>
  * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkExtensionProperties {
-    char extensionName[256];
+    char extensionName[VK_MAX_EXTENSION_NAME_SIZE];
     uint32_t specVersion;
 }</code></pre>
  */
@@ -47,7 +46,7 @@ public class VkExtensionProperties extends Struct implements NativeResource {
 
 	static {
 		Layout layout = __struct(
-			__array(1, 256),
+			__array(1, VK_MAX_EXTENSION_NAME_SIZE),
 			__member(4)
 		);
 
@@ -212,7 +211,7 @@ public class VkExtensionProperties extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** Unsafe version of {@link #extensionName}. */
-	public static ByteBuffer nextensionName(long struct) { return memByteBuffer(struct + VkExtensionProperties.EXTENSIONNAME, 256); }
+	public static ByteBuffer nextensionName(long struct) { return memByteBuffer(struct + VkExtensionProperties.EXTENSIONNAME, VK_MAX_EXTENSION_NAME_SIZE); }
 	/** Unsafe version of {@link #extensionNameString}. */
 	public static String nextensionNameString(long struct) { return memUTF8(struct + VkExtensionProperties.EXTENSIONNAME); }
 	/** Unsafe version of {@link #specVersion}. */

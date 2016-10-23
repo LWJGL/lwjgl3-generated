@@ -15,12 +15,25 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkDescriptorPoolCreateInfo.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkDescriptorPoolCreateInfo">Vulkan Specification</a>
+ * Structure specifying parameters of a newly created descriptor pool.
  * 
- * <p>Contains information about how a descriptor pool should be created.</p>
+ * <h5>Description</h5>
+ * 
+ * <p>If multiple {@link VkDescriptorPoolSize} structures appear in the {@code pPoolSizes} array then the pool will be created with enough storage for the total number of descriptors of each type.</p>
+ * 
+ * <p>Fragmentation of a descriptor pool is possible and <b>may</b> lead to descriptor set allocation failures. A failure due to fragmentation is defined as failing a descriptor set allocation despite the sum of all outstanding descriptor set allocations from the pool plus the requested allocation requiring no more than the total number of descriptors requested at pool creation. Implementations provide certain guarantees of when fragmentation <b>must</b> not cause allocation failure, as described below.</p>
+ * 
+ * <p>If a descriptor pool has not had any descriptor sets freed since it was created or most recently reset then fragmentation <b>must</b> not cause an allocation failure (note that this is always the case for a pool created without the {@link VK10#VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT} bit set). Additionally, if all sets allocated from the pool since it was created or most recently reset use the same number of descriptors (of each type) and the requested allocation also uses that same number of descriptors (of each type), then fragmentation <b>must</b> not cause an allocation failure.</p>
+ * 
+ * <p>If an allocation failure occurs due to fragmentation, an application <b>can</b> create an additional descriptor pool to perform further descriptor set allocations.</p>
  * 
  * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code maxSets} <b>must</b> be greater than 0</li>
+ * </ul>
+ * 
+ * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO}</li>
@@ -28,20 +41,27 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code flags} <b>must</b> be a valid combination of {@code VkDescriptorPoolCreateFlagBits} values</li>
  * <li>{@code pPoolSizes} <b>must</b> be a pointer to an array of {@code poolSizeCount} valid {@link VkDescriptorPoolSize} structures</li>
  * <li>{@code poolSizeCount} <b>must</b> be greater than 0</li>
- * <li>{@code maxSets} <b>must</b> be greater than 0</li>
  * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkDescriptorPoolSize}, {@link VK10#vkCreateDescriptorPool CreateDescriptorPool}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO}</li>
- * <li>{@code pNext} &ndash; reserved for use by extensions</li>
- * <li>{@code flags} &ndash; specifies certain supported operations on the pool</li>
- * <li>{@code maxSets} &ndash; the maximum number of descriptor sets that <b>can</b> be allocated from the pool</li>
- * <li>{@code poolSizeCount} &ndash;  the number of elements in {@code pPoolSizes}</li>
- * <li>{@code pPoolSizes} &ndash; 
- * a pointer to an array of {@link VkDescriptorPoolSize} structures, each containing a descriptor type and number of descriptors of that type to be allocated in
- * the pool</li>
+ * <li>{@code sType} &ndash; the type of this structure.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
+ * <li>{@code flags} &ndash; specifies certain supported operations on the pool. Bits which <b>can</b> be set include:
+ * 
+ * <pre><code>typedef enum VkDescriptorPoolCreateFlagBits {
+    VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT = 0x00000001,
+} VkDescriptorPoolCreateFlagBits;</code></pre>
+ * 
+ * <p>If {@code flags} includes {@link VK10#VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT}, then descriptor sets <b>can</b> return their individual allocations to the pool, i.e. all of {@link VK10#vkAllocateDescriptorSets AllocateDescriptorSets}, {@link VK10#vkFreeDescriptorSets FreeDescriptorSets}, and {@link VK10#vkResetDescriptorPool ResetDescriptorPool} are allowed. Otherwise, descriptor sets allocated from the pool <b>must</b> not be individually freed back to the pool, i.e. only {@link VK10#vkAllocateDescriptorSets AllocateDescriptorSets} and {@link VK10#vkResetDescriptorPool ResetDescriptorPool} are allowed.</p></li>
+ * <li>{@code maxSets} &ndash; the maximum number of descriptor sets that <b>can</b> be allocated from the pool.</li>
+ * <li>{@code poolSizeCount} &ndash; the number of elements in {@code pPoolSizes}.</li>
+ * <li>{@code pPoolSizes} &ndash; a pointer to an array of {@link VkDescriptorPoolSize} structures, each containing a descriptor type and number of descriptors of that type to be allocated in the pool.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

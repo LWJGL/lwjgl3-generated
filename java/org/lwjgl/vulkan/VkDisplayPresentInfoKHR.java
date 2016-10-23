@@ -14,42 +14,39 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkDisplayPresentInfoKHR.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkDisplayPresentInfoKHR">Vulkan Specification</a>
+ * Structure describing parameters of a queue presentation to a swapchain.
  * 
- * <p>When the {@code VK_KHR_display_swapchain} extension is enabled additional fields can be specified when presenting an image to a swapchain by setting
- * {@link VkPresentInfoKHR}{@code ::pNext} to point to a {@code VkDisplayPresentInfoKHR} structure.</p>
+ * <h5>Description</h5>
+ * 
+ * <p>If the extent of the {@code srcRect} and {@code dstRect} are not equal, the presented pixels will be scaled accordingly.</p>
  * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
+ * <li>{@code srcRect} <b>must</b> specify a rectangular region that is a subset of the image being presented</li>
+ * <li>{@code dstRect} <b>must</b> specify a rectangular region that is a subset of the {@code visibleRegion} parameter of the display mode the swapchain being presented uses</li>
+ * <li>If the {@code persistentContent} member of the {@link VkDisplayPropertiesKHR} structure returned by {@link KHRDisplay#vkGetPhysicalDeviceDisplayPropertiesKHR GetPhysicalDeviceDisplayPropertiesKHR} for the display the present operation targets then {@code persistent} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
+ * </ul>
+ * 
+ * <h5>Valid Usage (Implicit)</h5>
+ * 
+ * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHRDisplaySwapchain#VK_STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
- * <li>{@code srcRect} <b>must</b> specify a rectangular region that is a subset of the image being presented</li>
- * <li>{@code dstRect} <b>must</b> specify a rectangular region that is a subset of the {@code visibleRegion} parameter of the display mode the swapchain being
- * presented uses</li>
- * <li>If the {@code persistentContent} member of the {@link VkDisplayPropertiesKHR} structure returned by {@link KHRDisplay#vkGetPhysicalDeviceDisplayPropertiesKHR GetPhysicalDeviceDisplayPropertiesKHR} for the
- * display the present operation targets then {@code persistent} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
  * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkRect2D}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure. Must be: {@link KHRDisplaySwapchain#VK_STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR}</li>
- * <li>{@code pNext} &ndash; reserved for use by extensions</li>
- * <li>{@code srcRect} &ndash; 
- * a rectangular region of pixels to present. It must be a subset of the image being presented. If {@code VkDisplayPresentInfoKHR} is not specified, this
- * region will be assumed to be the entire presentable image.</li>
- * <li>{@code dstRect} &ndash; 
- * a rectangular region within the visible region of the swapchain’s display mode. If {@code VkDisplayPresentInfoKHR} is not specified, this region will
- * be assumed to be the entire visible region of the visible region of the swapchain’s mode. If the specified rectangle is a subset of the display mode’s
- * visible region, content from display planes below the swapchain’s plane will be visible outside the rectangle. If there are no planes below the
- * swapchain’s, the area outside the specified rectangle will be black. If portions of the specified rectangle are outside of the display’s visible
- * region, pixels mapping only to those portions of the rectangle will be discarded.</li>
- * <li>{@code persistent} &ndash; 
- * if {@link VK10#VK_TRUE TRUE}, the display engine will enable buffered mode on displays that support it. This allows the display engine to stop sending content to the
- * display until a new image is presented. The display will instead maintain a copy of the last presented image. This allows less power to be used, but
- * may increase presentation latency. If {@code VkDisplayPresentInfoKHR} is not specified, persistent mode will not be used.</li>
+ * <li>{@code sType} &ndash; the type of this structure and <b>must</b> be {@link KHRDisplaySwapchain#VK_STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR}.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
+ * <li>{@code srcRect} &ndash; a rectangular region of pixels to present. It <b>must</b> be a subset of the image being presented. If {@link VkDisplayPresentInfoKHR} is not specified, this region will be assumed to be the entire presentable image.</li>
+ * <li>{@code dstRect} &ndash; a rectangular region within the visible region of the swapchain&#8217;s display mode. If {@link VkDisplayPresentInfoKHR} is not specified, this region will be assumed to be the entire visible region of the visible region of the swapchain&#8217;s mode. If the specified rectangle is a subset of the display mode&#8217;s visible region, content from display planes below the swapchain&#8217;s plane will be visible outside the rectangle. If there are no planes below the swapchain&#8217;s, the area outside the specified rectangle will be black. If portions of the specified rectangle are outside of the display&#8217;s visible region, pixels mapping only to those portions of the rectangle will be discarded.</li>
+ * <li>{@code persistent} &ndash; If this is {@link VK10#VK_TRUE TRUE}, the display engine will enable buffered mode on displays that support it. This allows the display engine to stop sending content to the display until a new image is presented. The display will instead maintain a copy of the last presented image. This allows less power to be used, but <b>may</b> increase presentation latency. If {@link VkDisplayPresentInfoKHR} is not specified, persistent mode will not be used.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

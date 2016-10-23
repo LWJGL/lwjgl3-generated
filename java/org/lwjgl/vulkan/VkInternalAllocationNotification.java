@@ -10,9 +10,25 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Instances of this class may be set to the {@code pfnInternalAllocation} member of the {@link VkAllocationCallbacks} struct.
+ * Application-defined memory allocation notification function.
+ * 
+ * <h5>C Specification</h5>
+ * 
+ * <p>The type of {@code pfnInternalAllocation} is:</p>
+ * 
+ * <pre><code>typedef void (VKAPI_PTR *PFN_vkInternalAllocationNotification)(
+    void*                                       pUserData,
+    size_t                                      size,
+    VkInternalAllocationType                    allocationType,
+    VkSystemAllocationScope                     allocationScope);</code></pre>
+ * 
+ * <h5>Description</h5>
  * 
  * <p>This is a purely informational callback.</p>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkAllocationCallbacks}</p>
  */
 public abstract class VkInternalAllocationNotification extends Callback implements VkInternalAllocationNotificationI {
 

@@ -14,29 +14,40 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkCommandBufferAllocateInfo.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkCommandBufferAllocateInfo">Vulkan Specification</a>
- * 
- * <p>Contains information about how a command buffer should be allocated.</p>
+ * Structure specifying the allocation parameters for command buffer object.
  * 
  * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code commandBufferCount} <b>must</b> be greater than 0</li>
+ * </ul>
+ * 
+ * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code commandPool} <b>must</b> be a valid {@code VkCommandPool} handle</li>
  * <li>{@code level} <b>must</b> be a valid {@code VkCommandBufferLevel} value</li>
- * <li>{@code commandBufferCount} <b>must</b> be greater than 0</li>
  * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VK10#vkAllocateCommandBuffers AllocateCommandBuffers}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO}</li>
- * <li>{@code pNext} &ndash; reserved for use by extensions</li>
- * <li>{@code commandPool} &ndash; the name of the command pool that the command buffers allocate their memory from</li>
- * <li>{@code level} &ndash; determines whether the command buffers are primary or secondary command buffers. One of:<br><table><tr><td>{@link VK10#VK_COMMAND_BUFFER_LEVEL_PRIMARY COMMAND_BUFFER_LEVEL_PRIMARY}</td><td>{@link VK10#VK_COMMAND_BUFFER_LEVEL_SECONDARY COMMAND_BUFFER_LEVEL_SECONDARY}</td></tr></table></li>
- * <li>{@code commandBufferCount} &ndash; the number of command buffers to allocate from the pool</li>
+ * <li>{@code sType} &ndash; the type of this structure.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
+ * <li>{@code commandPool} &ndash; the name of the command pool that the command buffers allocate their memory from.</li>
+ * <li>{@code level} &ndash; determines whether the command buffers are primary or secondary command buffers. Possible values include:
+ * 
+ * <pre><code>typedef enum VkCommandBufferLevel {
+    VK_COMMAND_BUFFER_LEVEL_PRIMARY = 0,
+    VK_COMMAND_BUFFER_LEVEL_SECONDARY = 1,
+} VkCommandBufferLevel;</code></pre></li>
+ * <li>{@code commandBufferCount} &ndash; the number of command buffers to allocate from the pool.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

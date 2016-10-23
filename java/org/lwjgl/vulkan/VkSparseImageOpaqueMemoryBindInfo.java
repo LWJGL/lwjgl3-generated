@@ -15,27 +15,32 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkSparseImageOpaqueMemoryBindInfo.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkSparseImageOpaqueMemoryBindInfo">Vulkan Specification</a>
- * 
- * <p>Describes a memory binding to an opaque region of a {@code VkImage} object.</p>
+ * Structure specifying sparse image opaque memory bind info.
  * 
  * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>For any given element of {@code pBinds}, if the {@code flags} member of that element contains {@link VK10#VK_SPARSE_MEMORY_BIND_METADATA_BIT SPARSE_MEMORY_BIND_METADATA_BIT}, the binding range defined <b>must</b> be within the mip tail region of the metadata aspect of {@code image}</li>
+ * </ul>
+ * 
+ * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
  * <li>{@code pBinds} <b>must</b> be a pointer to an array of {@code bindCount} valid {@link VkSparseMemoryBind} structures</li>
  * <li>{@code bindCount} <b>must</b> be greater than 0</li>
- * <li>For any given element of {@code pBinds}, if the {@code flags} member of that element contains {@link VK10#VK_SPARSE_MEMORY_BIND_METADATA_BIT SPARSE_MEMORY_BIND_METADATA_BIT}, the binding range
- * defined <b>must</b> be within the mip tail region of the metadata aspect of {@code image}</li>
  * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkBindSparseInfo}, {@link VkSparseMemoryBind}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code image} &ndash; the {@code VkImage} object to be bound</li>
- * <li>{@code bindCount} &ndash; the number of {@code VkSparseMemoryBind} structures in the {@code pBinds} array</li>
- * <li>{@code pBinds} &ndash;  a pointer to array of {@link VkSparseMemoryBind} structures</li>
+ * <li>{@code image} &ndash; the {@code VkImage} object to be bound.</li>
+ * <li>{@code bindCount} &ndash; the number of {@link VkSparseMemoryBind} structures in the {@code pBinds} array.</li>
+ * <li>{@code pBinds} &ndash; a pointer to array of {@link VkSparseMemoryBind} structures.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

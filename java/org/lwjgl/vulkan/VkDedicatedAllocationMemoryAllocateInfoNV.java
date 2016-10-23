@@ -14,13 +14,19 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkDedicatedAllocationMemoryAllocateInfoNV.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkDedicatedAllocationMemoryAllocateInfoNV">Vulkan Specification</a>
- * 
- * <p>This structure <b>may</b> be included in the {@code pNext} list of a {@link VkMemoryAllocateInfo} structure. It includes a handle of the sole buffer or image
- * resource that the memory <b>can</b> be bound to.</p>
+ * Specify a dedicated memory allocation resource.
  * 
  * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>At least one of {@code image} and {@code buffer} <b>must</b> be {@code VK_NULL_HANDLE}</li>
+ * <li>If {@code image} is not {@code VK_NULL_HANDLE}, the image <b>must</b> have been created with {@link VkDedicatedAllocationImageCreateInfoNV}{@code ::dedicatedAllocation} equal to {@link VK10#VK_TRUE TRUE}</li>
+ * <li>If {@code buffer} is not {@code VK_NULL_HANDLE}, the buffer <b>must</b> have been created with {@link VkDedicatedAllocationBufferCreateInfoNV}{@code ::dedicatedAllocation} equal to {@link VK10#VK_TRUE TRUE}</li>
+ * <li>If {@code image} is not {@code VK_NULL_HANDLE}, {@link VkMemoryAllocateInfo}{@code ::allocationSize} <b>must</b> equal the {@link VkMemoryRequirements}{@code ::size} of the image</li>
+ * <li>If {@code buffer} is not {@code VK_NULL_HANDLE}, {@link VkMemoryAllocateInfo}{@code ::allocationSize} <b>must</b> equal the {@link VkMemoryRequirements}{@code ::size} of the buffer</li>
+ * </ul>
+ * 
+ * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link NVDedicatedAllocation#VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO_NV STRUCTURE_TYPE_DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO_NV}</li>
@@ -28,24 +34,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If {@code image} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code image} <b>must</b> be a valid {@code VkImage} handle</li>
  * <li>If {@code buffer} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code buffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
  * <li>Both of {@code buffer}, and {@code image} that are valid handles <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
- * <li>At least one of {@code image} and {@code buffer} <b>must</b> be {@link VK10#VK_NULL_HANDLE NULL_HANDLE}</li>
- * <li>If {@code image} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, the image <b>must</b> have been created with {@link VkDedicatedAllocationImageCreateInfoNV}{@code ::dedicatedAllocation}
- * equal to {@link VK10#VK_TRUE TRUE}</li>
- * <li>If {@code buffer} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, the buffer <b>must</b> have been created with
- * {@link VkDedicatedAllocationBufferCreateInfoNV}{@code ::dedicatedAllocation} equal to {@link VK10#VK_TRUE TRUE}</li>
- * <li>If {@code image} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@link VkMemoryAllocateInfo}{@code ::allocationSize} <b>must</b> equal the {@link VkMemoryRequirements}{@code ::size} of the
- * image</li>
- * <li>If {@code buffer} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@link VkMemoryAllocateInfo}{@code ::allocationSize} <b>must</b> equal the {@link VkMemoryRequirements}{@code ::size} of the
- * buffer</li>
  * </ul>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure. Must be: {@link NVDedicatedAllocation#VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO_NV STRUCTURE_TYPE_DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO_NV}</li>
- * <li>{@code pNext} &ndash; reserved for use by extensions</li>
- * <li>{@code image} &ndash; a {@code VkImage} handle or {@link VK10#VK_NULL_HANDLE NULL_HANDLE}</li>
- * <li>{@code buffer} &ndash; a {@code VkBuffer} handle or {@link VK10#VK_NULL_HANDLE NULL_HANDLE}</li>
+ * <li>{@code sType} &ndash; the type of this structure.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
+ * <li>{@code image} &ndash; {@code VK_NULL_HANDLE} or a handle of an image which this memory will be bound to.</li>
+ * <li>{@code buffer} &ndash; {@code VK_NULL_HANDLE} or a handle of a buffer which this memory will be bound to.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

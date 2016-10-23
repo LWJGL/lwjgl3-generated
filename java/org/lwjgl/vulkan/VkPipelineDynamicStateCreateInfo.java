@@ -15,12 +15,9 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPipelineDynamicStateCreateInfo.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPipelineDynamicStateCreateInfo">Vulkan Specification</a>
+ * Structure specifying parameters of a newly created pipeline dynamic state.
  * 
- * <p>Contains information about dynamic state as part of graphics pipeline creation.</p>
- * 
- * <h5>Valid Usage</h5>
+ * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO}</li>
@@ -30,16 +27,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code dynamicStateCount} <b>must</b> be greater than 0</li>
  * </ul>
  * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkGraphicsPipelineCreateInfo}</p>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO}</li>
- * <li>{@code pNext} &ndash; reserved for use by extensions</li>
- * <li>{@code flags} &ndash; reserved for future use</li>
- * <li>{@code dynamicStateCount} &ndash; the number of elements in the {@code pDynamicStates} array</li>
- * <li>{@code pDynamicStates} &ndash; 
- * an array of {@code VkDynamicState} enums which indicate which pieces of pipeline state will use the values from dynamic state commands rather than from
- * the pipeline state creation info</li>
+ * <li>{@code sType} &ndash; the type of this structure.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
+ * <li>{@code flags} &ndash; reserved for future use.</li>
+ * <li>{@code dynamicStateCount} &ndash; the number of elements in the {@code pDynamicStates} array.</li>
+ * <li>{@code pDynamicStates} &ndash; an array of {@code VkDynamicState} enums which indicate which pieces of pipeline state will use the values from dynamic state commands rather than from the pipeline state creation info.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

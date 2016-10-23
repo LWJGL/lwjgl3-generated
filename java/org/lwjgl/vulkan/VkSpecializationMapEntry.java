@@ -14,24 +14,28 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkSpecializationMapEntry.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkSpecializationMapEntry">Vulkan Specification</a>
+ * Structure specifying a specialization map entry.
  * 
- * <p>Contains information about a specialization constant.</p>
+ * <h5>Description</h5>
+ * 
+ * <p>If a {@code constantID} value is not a specialization constant ID used in the shader, that map entry does not affect the behavior of the pipeline.</p>
  * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>For a {@code constantID} specialization constant declared in a shader, {@code size} <b>must</b> match the byte size of the {@code constantID}. If the
- * specialization constant is of type {@code boolean}, {@code size} <b>must</b> be the byte size of VkBool32</li>
+ * <li>For a {@code constantID} specialization constant declared in a shader, {@code size} <b>must</b> match the byte size of the {@code constantID}. If the specialization constant is of type {@code boolean}, {@code size} <b>must</b> be the byte size of {@code VkBool32}</li>
  * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkSpecializationInfo}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code constantID} &ndash; ID of the specialization constant in SPIR-V</li>
- * <li>{@code offset} &ndash; byte offset of the specialization constant value within the supplied data buffer</li>
- * <li>{@code size} &ndash; byte size of the specialization constant value within the supplied data buffer</li>
+ * <li>{@code constantID} &ndash; the ID of the specialization constant in SPIR-V.</li>
+ * <li>{@code offset} &ndash; the byte offset of the specialization constant value within the supplied data buffer.</li>
+ * <li>{@code size} &ndash; the byte size of the specialization constant value within the supplied data buffer.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

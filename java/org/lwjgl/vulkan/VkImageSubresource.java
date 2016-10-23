@@ -14,26 +14,32 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkImageSubresource.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkImageSubresource">Vulkan Specification</a>
- * 
- * <p>Selects a specific image of an image subresource (mipLevel/arrayLayer) of an image created with linear tiling.</p>
+ * Structure specifying a image subresource.
  * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
+ * <li>{@code mipLevel} <b>must</b> be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when the image was created</li>
+ * <li>{@code arrayLayer} <b>must</b> be less than the {@code arrayLayers} specified in {@link VkImageCreateInfo} when the image was created</li>
+ * </ul>
+ * 
+ * <h5>Valid Usage (Implicit)</h5>
+ * 
+ * <ul>
  * <li>{@code aspectMask} <b>must</b> be a valid combination of {@code VkImageAspectFlagBits} values</li>
  * <li>{@code aspectMask} <b>must</b> not be 0</li>
- * <li>{@code mipLevel} <b>must</b> be less than the {@code mipLevels} specified in {@code VkImageCreateInfo} when the image was created</li>
- * <li>{@code arrayLayer} <b>must</b> be less than the {@code arrayLayers} specified in {@code VkImageCreateInfo} when the image was created</li>
  * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkSparseImageMemoryBind}, {@link VK10#vkGetImageSubresourceLayout GetImageSubresourceLayout}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code aspectMask} &ndash; a {@code VkImageAspectFlags} selecting the image aspect. One or more of:<br><table><tr><td>{@link VK10#VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT}</td><td>{@link VK10#VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT}</td><td>{@link VK10#VK_IMAGE_ASPECT_METADATA_BIT IMAGE_ASPECT_METADATA_BIT}</td></tr><tr><td>{@link VK10#VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT}</td></tr></table></li>
- * <li>{@code mipLevel} &ndash; selects the mipmap level</li>
- * <li>{@code arrayLayer} &ndash; selects the array layer</li>
+ * <li>{@code aspectMask} &ndash; a {@code VkImageAspectFlags} selecting the image <em>aspect</em>.</li>
+ * <li>{@code mipLevel} &ndash; selects the mipmap level.</li>
+ * <li>{@code arrayLayer} &ndash; selects the array layer.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

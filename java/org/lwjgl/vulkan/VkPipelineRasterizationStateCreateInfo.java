@@ -14,40 +14,50 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPipelineRasterizationStateCreateInfo.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPipelineRasterizationStateCreateInfo">Vulkan Specification</a>
+ * Structure specifying parameters of a newly created pipeline rasterization state.
  * 
- * <p>Contains information about rasterization as part of graphics pipeline creation.</p>
+ * <h5>Description</h5>
+ * 
+ * <p>The application <b>can</b> also chain a {@link VkPipelineRasterizationStateRasterizationOrderAMD} structure to the {@link VkPipelineRasterizationStateCreateInfo} structure through its {@code pNext} member. This structure enables selecting the rasterization order to use when rendering with the corresponding graphics pipeline as described in <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#primrast-order"> Rasterization Order</a>.</p>
  * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
+ * <li>If the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-depthClamp">depth clamping</a> feature is not enabled, {@code depthClampEnable} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
+ * <li>If the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-fillModeNonSolid">non-solid fill modes</a> feature is not enabled, {@code polygonMode} <b>must</b> be {@link VK10#VK_POLYGON_MODE_FILL POLYGON_MODE_FILL}</li>
+ * </ul>
+ * 
+ * <h5>Valid Usage (Implicit)</h5>
+ * 
+ * <ul>
  * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}, or a pointer to a valid instance of {@code VkPipelineRasterizationStateRasterizationOrderAMD}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}, or a pointer to a valid instance of {@link VkPipelineRasterizationStateRasterizationOrderAMD}</li>
  * <li>{@code flags} <b>must</b> be 0</li>
  * <li>{@code polygonMode} <b>must</b> be a valid {@code VkPolygonMode} value</li>
  * <li>{@code cullMode} <b>must</b> be a valid combination of {@code VkCullModeFlagBits} values</li>
  * <li>{@code frontFace} <b>must</b> be a valid {@code VkFrontFace} value</li>
- * <li>If the depth clamping feature is not enabled, {@code depthClampEnable} <b>must</b> be {@link VK10#VK_FALSE FALSE}</li>
- * <li>If the non-solid fill modes feature is not enabled, {@code polygonMode} <b>must</b> be {@link VK10#VK_POLYGON_MODE_FILL POLYGON_MODE_FILL}</li>
  * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkGraphicsPipelineCreateInfo}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO}</li>
- * <li>{@code pNext} &ndash; reserved for use by extensions</li>
- * <li>{@code flags} &ndash; reserved for future use</li>
- * <li>{@code depthClampEnable} &ndash; controls whether to clamp the fragment’s depth values instead of clipping primitives to the z planes of the frustum</li>
- * <li>{@code rasterizerDiscardEnable} &ndash; controls whether primitives are discarded immediately before the rasterization stage</li>
- * <li>{@code polygonMode} &ndash; the triangle rendering mode. One of:<br><table><tr><td>{@link VK10#VK_POLYGON_MODE_FILL POLYGON_MODE_FILL}</td><td>{@link VK10#VK_POLYGON_MODE_LINE POLYGON_MODE_LINE}</td><td>{@link VK10#VK_POLYGON_MODE_POINT POLYGON_MODE_POINT}</td></tr></table></li>
- * <li>{@code cullMode} &ndash; the triangle facing direction used for primitive culling. One of:<br><table><tr><td>{@link VK10#VK_CULL_MODE_BACK_BIT CULL_MODE_BACK_BIT}</td><td>{@link VK10#VK_CULL_MODE_FRONT_AND_BACK CULL_MODE_FRONT_AND_BACK}</td><td>{@link VK10#VK_CULL_MODE_FRONT_BIT CULL_MODE_FRONT_BIT}</td><td>{@link VK10#VK_CULL_MODE_NONE CULL_MODE_NONE}</td></tr></table></li>
- * <li>{@code frontFace} &ndash; the front-facing triangle orientation to be used for culling. One of:<br><table><tr><td>{@link VK10#VK_FRONT_FACE_CLOCKWISE FRONT_FACE_CLOCKWISE}</td><td>{@link VK10#VK_FRONT_FACE_COUNTER_CLOCKWISE FRONT_FACE_COUNTER_CLOCKWISE}</td></tr></table></li>
- * <li>{@code depthBiasEnable} &ndash; controls whether to bias fragment depth values</li>
- * <li>{@code depthBiasConstantFactor} &ndash; a scalar factor controlling the constant depth value added to each fragment</li>
- * <li>{@code depthBiasClamp} &ndash; the maximum (or minimum) depth bias of a fragment</li>
- * <li>{@code depthBiasSlopeFactor} &ndash; a scalar factor applied to a fragment’s slope in depth bias calculations</li>
- * <li>{@code lineWidth} &ndash; the width of rasterized line segments</li>
+ * <li>{@code sType} &ndash; the type of this structure.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
+ * <li>{@code flags} &ndash; reserved for future use.</li>
+ * <li>{@code depthClampEnable} &ndash; controls whether to clamp the fragment&#8217;s depth values instead of clipping primitives to the z planes of the frustum, as described in <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vertexpostproc-clipping">Primitive Clipping</a>.</li>
+ * <li>{@code rasterizerDiscardEnable} &ndash; controls whether primitives are discarded immediately before the rasterization stage.</li>
+ * <li>{@code polygonMode} &ndash; the triangle rendering mode. See {@code VkPolygonMode}.</li>
+ * <li>{@code cullMode} &ndash; the triangle facing direction used for primitive culling. See {@code VkCullModeFlagBits}.</li>
+ * <li>{@code frontFace} &ndash; the front-facing triangle orientation to be used for culling. See {@code VkFrontFace}.</li>
+ * <li>{@code depthBiasEnable} &ndash; controls whether to bias fragment depth values.</li>
+ * <li>{@code depthBiasConstantFactor} &ndash; a scalar factor controlling the constant depth value added to each fragment.</li>
+ * <li>{@code depthBiasClamp} &ndash; the maximum (or minimum) depth bias of a fragment.</li>
+ * <li>{@code depthBiasSlopeFactor} &ndash; a scalar factor applied to a fragment&#8217;s slope in depth bias calculations.</li>
+ * <li>{@code lineWidth} &ndash; the width of rasterized line segments.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

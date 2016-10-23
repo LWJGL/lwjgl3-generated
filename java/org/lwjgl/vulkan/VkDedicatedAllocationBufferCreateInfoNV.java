@@ -14,27 +14,27 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkDedicatedAllocationBufferCreateInfoNV.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkDedicatedAllocationBufferCreateInfoNV">Vulkan Specification</a>
- * 
- * <p>This structure <b>may</b> be included in the {@code pNext} list of a {@link VkBufferCreateInfo} structure. It includes an enable controlling whether the buffer
- * will have a dedicated memory allocation bound to it.</p>
+ * Specify that a buffer is bound to a dedicated memory resource.
  * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
+ * <li>If {@code dedicatedAllocation} is {@link VK10#VK_TRUE TRUE}, {@link VkBufferCreateInfo}{@code ::flags} <b>must</b> not include {@link VK10#VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT}, {@link VK10#VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT BUFFER_CREATE_SPARSE_RESIDENCY_BIT}, or {@link VK10#VK_BUFFER_CREATE_SPARSE_ALIASED_BIT BUFFER_CREATE_SPARSE_ALIASED_BIT}</li>
+ * </ul>
+ * 
+ * <h5>Valid Usage (Implicit)</h5>
+ * 
+ * <ul>
  * <li>{@code sType} <b>must</b> be {@link NVDedicatedAllocation#VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_BUFFER_CREATE_INFO_NV STRUCTURE_TYPE_DEDICATED_ALLOCATION_BUFFER_CREATE_INFO_NV}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
- * <li>If {@code dedicatedAllocation} is {@link VK10#VK_TRUE TRUE}, {@link VkBufferCreateInfo}{@code ::flags} <b>must</b> not include {@link VK10#VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT},
- * {@link VK10#VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT BUFFER_CREATE_SPARSE_RESIDENCY_BIT}, or {@link VK10#VK_BUFFER_CREATE_SPARSE_ALIASED_BIT BUFFER_CREATE_SPARSE_ALIASED_BIT}</li>
  * </ul>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure. Must be: {@link NVDedicatedAllocation#VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_BUFFER_CREATE_INFO_NV STRUCTURE_TYPE_DEDICATED_ALLOCATION_BUFFER_CREATE_INFO_NV}</li>
- * <li>{@code pNext} &ndash; reserved for use by extensions</li>
- * <li>{@code dedicatedAllocation} &ndash; if {@link VK10#VK_TRUE TRUE}, the buffer will have a dedicated memory allocation bound to it</li>
+ * <li>{@code sType} &ndash; the type of this structure.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
+ * <li>{@code dedicatedAllocation} &ndash; indicates whether the buffer will have a dedicated allocation bound to it.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

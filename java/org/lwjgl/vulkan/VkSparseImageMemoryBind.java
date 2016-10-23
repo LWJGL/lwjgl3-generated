@@ -14,47 +14,43 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkSparseImageMemoryBind.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkSparseImageMemoryBind">Vulkan Specification</a>
- * 
- * <p>Describes a memory binding to a sparse image block of a {@code VkImage} object.</p>
+ * Structure specifying sparse image memory bind.
  * 
  * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>If the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-sparseResidencyAliased">sparse aliased residency</a> feature is not enabled, and if any other resources are bound to ranges of {@code memory}, the range of {@code memory} being bound <b>must</b> not overlap with those bound ranges</li>
+ * <li>{@code memory} and {@code memoryOffset} <b>must</b> match the memory requirements of the calling command&#8217;s {@code image}, as described in section <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#resources-association">the “Resource Memory Association” section</a></li>
+ * <li>{@code subresource} <b>must</b> be a valid image subresource for {@code image} (see <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#resources-image-views">the “Image Views” section</a>)</li>
+ * <li>{@code offset.x} <b>must</b> be a multiple of the sparse image block width ({@link VkSparseImageFormatProperties}{@code ::imageGranularity}.width) of the image</li>
+ * <li>{@code extent.width} <b>must</b> either be a multiple of the sparse image block width of the image, or else {@code extent.width} + {@code offset.x} <b>must</b> equal the width of the image subresource</li>
+ * <li>{@code offset.y} <b>must</b> be a multiple of the sparse image block height ({@link VkSparseImageFormatProperties}{@code ::imageGranularity}.height) of the image</li>
+ * <li>{@code extent.height} <b>must</b> either be a multiple of the sparse image block height of the image, or else {@code extent.height} + {@code offset.y} <b>must</b> equal the height of the image subresource</li>
+ * <li>{@code offset.z} <b>must</b> be a multiple of the sparse image block depth ({@link VkSparseImageFormatProperties}{@code ::imageGranularity}.depth) of the image</li>
+ * <li>{@code extent.depth} <b>must</b> either be a multiple of the sparse image block depth of the image, or else {@code extent.depth} + {@code offset.z} <b>must</b> equal the depth of the image subresource</li>
+ * </ul>
+ * 
+ * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code subresource} <b>must</b> be a valid {@link VkImageSubresource} structure</li>
  * <li>If {@code memory} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
  * <li>{@code flags} <b>must</b> be a valid combination of {@code VkSparseMemoryBindFlagBits} values</li>
- * <li>If the sparse aliased residency feature is not enabled, and if any other resources are bound to ranges of {@code memory}, the range of
- * {@code memory} being bound <b>must</b> not overlap with those bound ranges</li>
- * <li>{@code memory} and {@code memoryOffset} <b>must</b> match the memory requirements of the calling command's {@code image}</li>
- * <li>{@code subresource} <b>must</b> be a valid image subresource for {@code image}</li>
- * <li>{@code offset.x} <b>must</b> be a multiple of the sparse image block width ({@link VkSparseImageFormatProperties}{@code ::imageGranularity}.width) of the image</li>
- * <li>{@code extent.width} <b>must</b> either be a multiple of the sparse image block width of the image, or else {@code extent.width} + {@code offset.x} <b>must</b>
- * equal the width of the image subresource</li>
- * <li>{@code offset.y} <b>must</b> be a multiple of the sparse image block height ({@link VkSparseImageFormatProperties}{@code ::imageGranularity}.height) of the
- * image</li>
- * <li>{@code extent.height} <b>must</b> either be a multiple of the sparse image block height of the image, or else {@code extent.height} + {@code offset.y}
- * <b>must</b> equal the height of the image subresource</li>
- * <li>{@code offset.z} <b>must</b> be a multiple of the sparse image block depth ({@link VkSparseImageFormatProperties}{@code ::imageGranularity}.depth) of the image</li>
- * <li>{@code extent.depth} <b>must</b> either be a multiple of the sparse image block depth of the image, or else {@code extent.depth} + {@code offset.z} <b>must</b>
- * equal the depth of the image subresource</li>
  * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkExtent3D}, {@link VkImageSubresource}, {@link VkOffset3D}, {@link VkSparseImageMemoryBindInfo}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code subresource} &ndash; the {@code aspectMask} and region of interest in the image</li>
- * <li>{@code offset} &ndash; the coordinates of the first texel within the image subresource to bind</li>
- * <li>{@code extent} &ndash; 
- * the size in texels of the region within the image subresource to bind. The extent must be a multiple of the sparse image block dimensions, except when
- * binding sparse image blocks along the edge of an image subresource it can instead be such that any coordinate of {@code offset + extent} equals the
- * corresponding dimensions of the image subresource.</li>
- * <li>{@code memory} &ndash; 
- * the {@code VkDeviceMemory} object that the sparse image blocks of the image are bound to. If memory is {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, the sparse image blocks are
- * unbound.</li>
+ * <li>{@code subresource} &ndash; the aspectMask and region of interest in the image.</li>
+ * <li>{@code offset} &ndash; are the coordinates of the first texel within the image subresource to bind.</li>
+ * <li>{@code extent} &ndash; the size in texels of the region within the image subresource to bind. The extent <b>must</b> be a multiple of the sparse image block dimensions, except when binding sparse image blocks along the edge of an image subresource it <b>can</b> instead be such that any coordinate of <code>offset + extent</code> equals the corresponding dimensions of the image subresource.</li>
+ * <li>{@code memory} &ndash; the {@code VkDeviceMemory} object that the sparse image blocks of the image are bound to. If {@code memory} is {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, the sparse image blocks are unbound.</li>
  * <li>{@code memoryOffset} &ndash; an offset into {@code VkDeviceMemory} object. If {@code memory} is {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, this value is ignored.</li>
- * <li>{@code flags} &ndash; sparse memory binding flags. One or more of:<br><table><tr><td>{@link VK10#VK_SPARSE_MEMORY_BIND_METADATA_BIT SPARSE_MEMORY_BIND_METADATA_BIT}</td></tr></table></li>
+ * <li>{@code flags} &ndash; are sparse memory binding flags.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

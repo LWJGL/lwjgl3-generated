@@ -15,12 +15,9 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkXlibSurfaceCreateFlagsKHR.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkXlibSurfaceCreateFlagsKHR">Vulkan Specification</a>
+ * Structure specifying parameters of a newly created Xlib surface object.
  * 
- * <p>Contains information about how a surface for a X11 window should be created.</p>
- * 
- * <h5>Valid Usage</h5>
+ * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHRXlibSurface#VK_STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR}</li>
@@ -29,14 +26,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code dpy} <b>must</b> be a pointer to a {@code Display} value</li>
  * </ul>
  * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link KHRXlibSurface#vkCreateXlibSurfaceKHR CreateXlibSurfaceKHR}</p>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure. Must be: {@link KHRXlibSurface#VK_STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR}</li>
- * <li>{@code pNext} &ndash; reserved for use by extensions</li>
- * <li>{@code flags} &ndash; reserved for future use</li>
- * <li>{@code dpy} &ndash; a pointer to an Xlib Display connection to the X server</li>
- * <li>{@code window} &ndash; an Xlib Window to associate the surface with</li>
+ * <li>{@code sType} &ndash; the type of this structure and <b>must</b> be {@link KHRXlibSurface#VK_STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR}.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
+ * <li>{@code flags} &ndash; reserved for future use.</li>
+ * <li>{@code dpy} &ndash; a pointer to an Xlib {@code Display} connection to the X server.</li>
+ * <li>{@code window} &ndash; an Xlib {@code Window} to associate the surface with.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

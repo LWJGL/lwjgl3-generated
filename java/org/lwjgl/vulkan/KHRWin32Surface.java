@@ -11,10 +11,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-/**
- * The {@code VK_KHR_win32_surface} extension is an instance extension. It provides a mechanism to create a {@code VkSurfaceKHR} object (defined by the
- * {@code VK_KHR_surface} extension) that refers to a Win32 {@code HWND}, as well as a query to determine support for rendering to the windows desktop.
- */
+/** The {@code VK_KHR_win32_surface} extension is an instance extension. It provides a mechanism to create a {@code VkSurfaceKHR} object (defined by the {@code VK_KHR_surface} extension) that refers to a Win32 {@code HWND}, as well as a query to determine support for rendering to the windows desktop. */
 public class KHRWin32Surface {
 
 	/** The extension specification version. */
@@ -23,7 +20,7 @@ public class KHRWin32Surface {
 	/** The extension name. */
 	public static final String VK_KHR_WIN32_SURFACE_EXTENSION_NAME = "VK_KHR_win32_surface";
 
-	/** VkStructureType */
+	/** Extends {@code VkStructureType}. */
 	public static final int VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR = 1000009000;
 
 	protected KHRWin32Surface() {
@@ -50,9 +47,19 @@ public class KHRWin32Surface {
 	}
 
 	/**
-	 * Creates a {@code VkSurfaceKHR} object for a Win32 window.
+	 * Create a {@code VkSurfaceKHR} object for an Win32 native window.
 	 * 
-	 * <h5>Valid Usage</h5>
+	 * <h5>C Specification</h5>
+	 * 
+	 * <p>To create a {@code VkSurfaceKHR} object for a Win32 window, call:</p>
+	 * 
+	 * <pre><code>VkResult vkCreateWin32SurfaceKHR(
+    VkInstance                                  instance,
+    const VkWin32SurfaceCreateInfoKHR*          pCreateInfo,
+    const VkAllocationCallbacks*                pAllocator,
+    VkSurfaceKHR*                               pSurface);</code></pre>
+	 * 
+	 * <h5>Valid Usage (Implicit)</h5>
 	 * 
 	 * <ul>
 	 * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
@@ -61,13 +68,28 @@ public class KHRWin32Surface {
 	 * <li>{@code pSurface} <b>must</b> be a pointer to a {@code VkSurfaceKHR} handle</li>
 	 * </ul>
 	 * 
-	 * <p>With Win32, {@code minImageExtent}, {@code maxImageExtent}, and {@code currentExtent} are the window size. Therefore, a swapchain’s {@code imageExtent}
-	 * <b>must</b> match the window’s size.</p>
+	 * <h5>Return Codes</h5>
+	 * 
+	 * <dl>
+	 * <dt>On success, this command returns</dt>
+	 * <dd><ul>
+	 * <li>{@link VK10#VK_SUCCESS SUCCESS}</li>
+	 * </ul></dd>
+	 * <dt>On failure, this command returns</dt>
+	 * <dd><ul>
+	 * <li>{@link VK10#VK_ERROR_OUT_OF_HOST_MEMORY ERROR_OUT_OF_HOST_MEMORY}</li>
+	 * <li>{@link VK10#VK_ERROR_OUT_OF_DEVICE_MEMORY ERROR_OUT_OF_DEVICE_MEMORY}</li>
+	 * </ul></dd>
+	 * </dl>
+	 * 
+	 * <h5>See Also</h5>
+	 * 
+	 * <p>{@link VkAllocationCallbacks}, {@link VkWin32SurfaceCreateInfoKHR}</p>
 	 *
-	 * @param instance    the instance to associate the surface with
-	 * @param pCreateInfo a pointer to an instance of the {@link VkWin32SurfaceCreateInfoKHR} structure containing parameters affecting the creation of the surface object
-	 * @param pAllocator  controls host memory allocation
-	 * @param pSurface    points to a {@code VkSurfaceKHR} handle in which the created surface object is returned
+	 * @param instance    the instance to associate the surface with.
+	 * @param pCreateInfo a pointer to an instance of the {@link VkWin32SurfaceCreateInfoKHR} structure containing parameters affecting the creation of the surface object.
+	 * @param pAllocator  the allocator used for host memory allocated for the surface object when there is no more specific allocator available (see <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a>).
+	 * @param pSurface    points to a {@code VkSurfaceKHR} handle in which the created surface object is returned.
 	 */
 	public static int vkCreateWin32SurfaceKHR(VkInstance instance, VkWin32SurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSurface) {
 		if ( CHECKS )
@@ -78,20 +100,34 @@ public class KHRWin32Surface {
 	// --- [ vkGetPhysicalDeviceWin32PresentationSupportKHR ] ---
 
 	/**
-	 * Determines whether a queue family of a physical device supports presentation to the Microsoft Windows desktop.
+	 * query queue family support for presentation on a Win32 display.
+	 * 
+	 * <h5>C Specification</h5>
+	 * 
+	 * <p>To determine whether a queue family of a physical device supports presentation to the Microsoft Windows desktop, call:</p>
+	 * 
+	 * <pre><code>VkBool32 vkGetPhysicalDeviceWin32PresentationSupportKHR(
+    VkPhysicalDevice                            physicalDevice,
+    uint32_t                                    queueFamilyIndex);</code></pre>
+	 * 
+	 * <h5>Description</h5>
 	 * 
 	 * <p>This platform-specific function <b>can</b> be called prior to creating a surface.</p>
 	 * 
 	 * <h5>Valid Usage</h5>
 	 * 
 	 * <ul>
+	 * <li>{@code queueFamilyIndex} <b>must</b> be less than {@code pQueueFamilyPropertyCount} returned by {@link VK10#vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties} for the given {@code physicalDevice}</li>
+	 * </ul>
+	 * 
+	 * <h5>Valid Usage (Implicit)</h5>
+	 * 
+	 * <ul>
 	 * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-	 * <li>{@code queueFamilyIndex} <b>must</b> be less than {@code pQueueFamilyPropertyCount} returned by {@link VK10#vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties} for the given
-	 * {@code physicalDevice}</li>
 	 * </ul>
 	 *
-	 * @param physicalDevice   the physical device
-	 * @param queueFamilyIndex the queue family index
+	 * @param physicalDevice   the physical device.
+	 * @param queueFamilyIndex the queue family index.
 	 */
 	public static boolean vkGetPhysicalDeviceWin32PresentationSupportKHR(VkPhysicalDevice physicalDevice, int queueFamilyIndex) {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceWin32PresentationSupportKHR;

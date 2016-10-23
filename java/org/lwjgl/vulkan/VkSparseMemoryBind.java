@@ -14,19 +14,28 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkSparseMemoryBind.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkSparseMemoryBind">Vulkan Specification</a>
+ * Structure specifying a sparse memory bind operation.
  * 
- * <p>Describes a sparse memory binding.</p>
+ * <h5>Description</h5>
+ * 
+ * <p>The <em>binding range</em> <code>[resourceOffset, resourceOffset {plus} size)</code> has different constraints based on {@code flags}. If {@code flags} contains {@link VK10#VK_SPARSE_MEMORY_BIND_METADATA_BIT SPARSE_MEMORY_BIND_METADATA_BIT}, the binding range <b>must</b> be within the mip tail region of the metadata aspect. This metadata region is defined by:</p>
+ * 
+ * <dl>
+ * <dd><code>metadataRegion = [base, base + imageMipTailSize)</code></dd>
+ * <dd><code>base = imageMipTailOffset + imageMipTailStride &#x00d7; n</code></dd>
+ * </dl>
+ * 
+ * <p>and {@code imageMipTailOffset}, {@code imageMipTailSize}, and {@code imageMipTailStride} values are from the {@link VkSparseImageMemoryRequirements} corresponding to the metadata aspect of the image, and <code>n</code> is a valid array layer index for the image,</p>
+ * 
+ * <p>{@code imageMipTailStride} is considered to be zero for aspects where {@link VkSparseImageMemoryRequirements}{@code ::formatProperties}.flags contains {@link VK10#VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT}.</p>
+ * 
+ * <p>If {@code flags} does not contain {@link VK10#VK_SPARSE_MEMORY_BIND_METADATA_BIT SPARSE_MEMORY_BIND_METADATA_BIT}, the binding range <b>must</b> be within the range <code>[0,{@link VkMemoryRequirements}::size)</code>.</p>
  * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>If {@code memory} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
- * <li>{@code flags} <b>must</b> be a valid combination of {@code VkSparseMemoryBindFlagBits} values</li>
- * <li>If {@code memory} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code memory} and {@code memoryOffset} <b>must</b> match the memory requirements of the resource</li>
- * <li>If {@code memory} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code memory} <b>must</b> not have been created with a memory type that reports
- * {@link VK10#VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT} bit set</li>
+ * <li>If {@code memory} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code memory} and {@code memoryOffset} <b>must</b> match the memory requirements of the resource, as described in section <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#resources-association">the “Resource Memory Association” section</a></li>
+ * <li>If {@code memory} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code memory} <b>must</b> not have been created with a memory type that reports {@link VK10#VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT} bit set</li>
  * <li>{@code size} <b>must</b> be greater than 0</li>
  * <li>{@code resourceOffset} <b>must</b> be less than the size of the resource</li>
  * <li>{@code size} <b>must</b> be less than or equal to the size of the resource minus {@code resourceOffset}</li>
@@ -34,14 +43,33 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code size} <b>must</b> be less than or equal to the size of {@code memory} minus {@code memoryOffset}</li>
  * </ul>
  * 
+ * <h5>Valid Usage (Implicit)</h5>
+ * 
+ * <ul>
+ * <li>If {@code memory} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
+ * <li>{@code flags} <b>must</b> be a valid combination of {@code VkSparseMemoryBindFlagBits} values</li>
+ * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkSparseBufferMemoryBindInfo}, {@link VkSparseImageOpaqueMemoryBindInfo}</p>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code resourceOffset} &ndash; the offset into the resource</li>
- * <li>{@code size} &ndash; the size of the memory region to be bound</li>
- * <li>{@code memory} &ndash; the {@code VkDeviceMemory} object that the range of the resource is bound to</li>
- * <li>{@code memoryOffset} &ndash; the offset into the {@code VkDeviceMemory} object to bind the resource range to</li>
- * <li>{@code flags} &ndash; are sparse memory binding flags. One or more of:<br><table><tr><td>{@link VK10#VK_SPARSE_MEMORY_BIND_METADATA_BIT SPARSE_MEMORY_BIND_METADATA_BIT}</td></tr></table></li>
+ * <li>{@code resourceOffset} &ndash; the offset into the resource.</li>
+ * <li>{@code size} &ndash; the size of the memory region to be bound.</li>
+ * <li>{@code memory} &ndash; the {@code VkDeviceMemory} object that the range of the resource is bound to. If {@code memory} is {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, the range is unbound.</li>
+ * <li>{@code memoryOffset} &ndash; the offset into the {@code VkDeviceMemory} object to bind the resource range to. If {@code memory} is {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, this value is ignored.</li>
+ * <li>{@code flags} &ndash; a bitmask specifying usage of the binding operation. Bits which <b>can</b> be set include:
+ * 
+ * <pre><code>typedef enum VkSparseMemoryBindFlagBits {
+    VK_SPARSE_MEMORY_BIND_METADATA_BIT = 0x00000001,
+} VkSparseMemoryBindFlagBits;</code></pre>
+ * 
+ * <ul>
+ * <li>{@link VK10#VK_SPARSE_MEMORY_BIND_METADATA_BIT SPARSE_MEMORY_BIND_METADATA_BIT} indicates that the memory being bound is only for the metadata aspect.</li>
+ * </ul></li>
  * </ul>
  * 
  * <h3>Layout</h3>

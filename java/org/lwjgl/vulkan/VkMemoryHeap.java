@@ -12,16 +12,21 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkMemoryHeap.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkMemoryHeap">Vulkan Specification</a>
- * 
- * <p>Contains information about a memory heap.</p>
+ * Structure specifying a memory heap.
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code size} &ndash; the total memory size in bytes in the heap</li>
- * <li>{@code flags} &ndash; a bitmask of {@code VkMemoryHeapFlagBits} attribute flags for the heap. One or more of:<br><table><tr><td>{@link VK10#VK_MEMORY_HEAP_DEVICE_LOCAL_BIT MEMORY_HEAP_DEVICE_LOCAL_BIT}</td></tr></table></li>
+ * <li>{@code size} &ndash; the total memory size in bytes in the heap.</li>
+ * <li>{@code flags} &ndash; a bitmask of attribute flags for the heap. The bits specified in {@code flags} are:
+ * 
+ * <pre><code>typedef enum VkMemoryHeapFlagBits {
+    VK_MEMORY_HEAP_DEVICE_LOCAL_BIT = 0x00000001,
+} VkMemoryHeapFlagBits;</code></pre>
+ * 
+ * <ul>
+ * <li>if {@code flags} contains {@link VK10#VK_MEMORY_HEAP_DEVICE_LOCAL_BIT MEMORY_HEAP_DEVICE_LOCAL_BIT}, it means the heap corresponds to device local memory. Device local memory <b>may</b> have different performance characteristics than host local memory, and <b>may</b> support different memory property flags.</li>
+ * </ul></li>
  * </ul>
  * 
  * <h3>Layout</h3>

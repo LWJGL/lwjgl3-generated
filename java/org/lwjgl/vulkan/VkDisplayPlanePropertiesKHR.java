@@ -14,22 +14,13 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkDisplayPlanePropertiesKHR.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkDisplayPlanePropertiesKHR">Vulkan Specification</a>
- * 
- * <p>Describes properties of a display plane.</p>
- * 
- * <h5>Valid Usage</h5>
- * 
- * <ul>
- * <li>{@code currentDisplay} <b>must</b> be a valid {@code VkDisplayKHR} handle</li>
- * </ul>
+ * Structure describing display plane properties.
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code currentDisplay} &ndash; the handle of the display the plane is currently associated with. If the plane is not currently attached to any displays, this will be {@link VK10#VK_NULL_HANDLE NULL_HANDLE}.</li>
- * <li>{@code currentStackIndex} &ndash; the current z-order of the plane</li>
+ * <li>{@code currentDisplay} &ndash; the handle of the display the plane is currently associated with. If the plane is not currently attached to any displays, this will be {@code VK_NULL_HANDLE}.</li>
+ * <li>{@code currentStackIndex} &ndash; the current z-order of the plane. This will be between 0 and the value returned by {@link KHRDisplay#vkGetPhysicalDeviceDisplayPlanePropertiesKHR GetPhysicalDeviceDisplayPlanePropertiesKHR}() in {@code pPropertyCount}.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

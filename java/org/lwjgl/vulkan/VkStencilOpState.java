@@ -14,12 +14,9 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkStencilOpState.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkStencilOpState">Vulkan Specification</a>
+ * Structure specifying stencil operation state.
  * 
- * <p>Contains information about the stencil test as part of graphics pipeline creation.</p>
- * 
- * <h5>Valid Usage</h5>
+ * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code failOp} <b>must</b> be a valid {@code VkStencilOp} value</li>
@@ -28,16 +25,20 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code compareOp} <b>must</b> be a valid {@code VkCompareOp} value</li>
  * </ul>
  * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkPipelineDepthStencilStateCreateInfo}</p>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code failOp} &ndash; the action performed on samples that fail the stencil test. One of:<br><table><tr><td>{@link VK10#VK_STENCIL_OP_DECREMENT_AND_CLAMP STENCIL_OP_DECREMENT_AND_CLAMP}</td><td>{@link VK10#VK_STENCIL_OP_DECREMENT_AND_WRAP STENCIL_OP_DECREMENT_AND_WRAP}</td><td>{@link VK10#VK_STENCIL_OP_INCREMENT_AND_CLAMP STENCIL_OP_INCREMENT_AND_CLAMP}</td></tr><tr><td>{@link VK10#VK_STENCIL_OP_INCREMENT_AND_WRAP STENCIL_OP_INCREMENT_AND_WRAP}</td><td>{@link VK10#VK_STENCIL_OP_INVERT STENCIL_OP_INVERT}</td><td>{@link VK10#VK_STENCIL_OP_KEEP STENCIL_OP_KEEP}</td></tr><tr><td>{@link VK10#VK_STENCIL_OP_REPLACE STENCIL_OP_REPLACE}</td><td>{@link VK10#VK_STENCIL_OP_ZERO STENCIL_OP_ZERO}</td></tr></table></li>
- * <li>{@code passOp} &ndash; the action performed on samples that pass both the depth and stencil tests</li>
- * <li>{@code depthFailOp} &ndash; the action performed on samples that pass the stencil test and fail the depth test</li>
- * <li>{@code compareOp} &ndash; the comparison operator used in the stencil test. One of:<br><table><tr><td>{@link VK10#VK_COMPARE_OP_ALWAYS COMPARE_OP_ALWAYS}</td><td>{@link VK10#VK_COMPARE_OP_EQUAL COMPARE_OP_EQUAL}</td><td>{@link VK10#VK_COMPARE_OP_GREATER COMPARE_OP_GREATER}</td><td>{@link VK10#VK_COMPARE_OP_GREATER_OR_EQUAL COMPARE_OP_GREATER_OR_EQUAL}</td></tr><tr><td>{@link VK10#VK_COMPARE_OP_LESS COMPARE_OP_LESS}</td><td>{@link VK10#VK_COMPARE_OP_LESS_OR_EQUAL COMPARE_OP_LESS_OR_EQUAL}</td><td>{@link VK10#VK_COMPARE_OP_NEVER COMPARE_OP_NEVER}</td><td>{@link VK10#VK_COMPARE_OP_NOT_EQUAL COMPARE_OP_NOT_EQUAL}</td></tr></table></li>
- * <li>{@code compareMask} &ndash; selects the bits of the unsigned integer stencil values participating in the stencil test</li>
- * <li>{@code writeMask} &ndash; selects the bits of the unsigned integer stencil values updated by the stencil test in the stencil framebuffer attachment</li>
- * <li>{@code reference} &ndash; an integer reference value that is used in the unsigned stencil comparison</li>
+ * <li>{@code failOp} &ndash; the action performed on samples that fail the stencil test.</li>
+ * <li>{@code passOp} &ndash; the action performed on samples that pass both the depth and stencil tests.</li>
+ * <li>{@code depthFailOp} &ndash; the action performed on samples that pass the stencil test and fail the depth test.</li>
+ * <li>{@code compareOp} &ndash; the comparison operator used in the stencil test.</li>
+ * <li>{@code compareMask} &ndash; selects the bits of the unsigned integer stencil values participating in the stencil test.</li>
+ * <li>{@code writeMask} &ndash; selects the bits of the unsigned integer stencil values updated by the stencil test in the stencil framebuffer attachment.</li>
+ * <li>{@code reference} &ndash; an integer reference value that is used in the unsigned stencil comparison.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

@@ -15,17 +15,24 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkClearColorValue.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkClearColorValue">Vulkan Specification</a>
+ * Structure specifying a clear color value.
  * 
- * <p>Specifies the color image clear values to use when clearing a color image or attachment.</p>
+ * <h5>Description</h5>
+ * 
+ * <p>The four array elements of the clear color map to R, G, B, and A components of image formats, in order.</p>
+ * 
+ * <p>If the image has more than one sample, the same value is written to all samples for any pixels being cleared.</p>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkClearValue}, {@link VK10#vkCmdClearColorImage CmdClearColorImage}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code float32} &ndash; used for floating point, unorm, snorm, uscaled, packed float, and sRGB formats</li>
- * <li>{@code int32} &ndash; used for signed integer formats</li>
- * <li>{@code uint32} &ndash; used for unsigned integer formats</li>
+ * <li>{@code float32} &ndash; are the color clear values when the format of the image or attachment is one of the formats in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-numericformat">Interpretation of Numeric Format</a> table other than signed integer (etext:SINT) or unsigned integer (etext:UINT). Floating point values are automatically converted to the format of the image, with the clear value being treated as linear if the image is sRGB.</li>
+ * <li>{@code int32} &ndash; are the color clear values when the format of the image or attachment is signed integer (etext:SINT). Signed integer values are converted to the format of the image by casting to the smaller type (with negative 32-bit values mapping to negative values in the smaller type). If the integer clear value is not representable in the target type (e.g. would overflow in conversion to that type), the clear value is undefined.</li>
+ * <li>{@code uint32} &ndash; are the color clear values when the format of the image or attachment is unsigned integer (etext:UINT). Unsigned integer values are converted to the format of the image by casting to the integer type with fewer bits.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

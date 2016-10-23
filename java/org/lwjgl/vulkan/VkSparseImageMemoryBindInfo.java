@@ -15,12 +15,9 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkSparseImageMemoryBindInfo.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkSparseImageMemoryBindInfo">Vulkan Specification</a>
+ * Structure specifying sparse image memory bind info.
  * 
- * <p>Describes a memory binding to a sparse image block of a {@code VkImage} object.</p>
- * 
- * <h5>Valid Usage</h5>
+ * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
@@ -28,11 +25,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code bindCount} <b>must</b> be greater than 0</li>
  * </ul>
  * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkBindSparseInfo}, {@link VkSparseImageMemoryBind}</p>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
  * <li>{@code image} &ndash; the {@code VkImage} object to be bound</li>
- * <li>{@code bindCount} &ndash; the number of {@code VkSparseImageMemoryBind} structures in {@code pBinds} array</li>
+ * <li>{@code bindCount} &ndash; the number of {@link VkSparseImageMemoryBind} structures in pBinds array</li>
  * <li>{@code pBinds} &ndash; a pointer to array of {@link VkSparseImageMemoryBind} structures</li>
  * </ul>
  * 

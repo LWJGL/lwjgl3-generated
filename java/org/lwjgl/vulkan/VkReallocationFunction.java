@@ -10,16 +10,36 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Instances of this class may be set to the {@code pfnReallocation} member of the {@link VkAllocationCallbacks} struct.
+ * Application-defined memory reallocation function.
  * 
- * <p>The function must alter the size of the allocation {@code pOriginal}, either by shrinking or growing it, to accommodate the new size.</p>
+ * <h5>C Specification</h5>
  * 
- * <p>If {@code pOriginal} is {@code NULL}, then {@code pfnReallocation} <b>must</b> behave similarly to {@link VkAllocationFunction}. If size is zero, then
- * {@code pfnReallocation} must behave similarly to {@link VkFreeFunction}. The contents of the original allocation from bytes zero to
- * {@code min(original size, new size) − 1} <b>must</b> be preserved in the new allocation. If the new allocation is larger than the old allocation, then the
- * contents of the additional space are undefined. If {@code pOriginal} is non-{@code NULL}, alignment <b>must</b> be equal to the originally requested alignment. If
- * satisfying these requirements involves creating a new allocation, then the old allocation <b>must</b> be freed. If this function fails, it <b>must</b> return {@code NULL}
- * and not free the old allocation.</p>
+ * <p>The type of {@code pfnReallocation} is:</p>
+ * 
+ * <pre><code>typedef void* (VKAPI_PTR *PFN_vkReallocationFunction)(
+    void*                                       pUserData,
+    void*                                       pOriginal,
+    size_t                                      size,
+    size_t                                      alignment,
+    VkSystemAllocationScope                     allocationScope);</code></pre>
+ * 
+ * <h5>Description</h5>
+ * 
+ * <p>{@code pfnReallocation} <b>must</b> return an allocation with enough space for {@code size} bytes, and the contents of the original allocation from bytes zero to <code>min(original size, new size) - 1</code> <b>must</b> be preserved in the returned allocation. If {@code size} is larger than the old size, the contents of the additional space are undefined. If satisfying these requirements involves creating a new allocation, then the old allocation <b>should</b> be freed.</p>
+ * 
+ * <p>If {@code pOriginal} is {@code NULL}, then {@code pfnReallocation} <b>must</b> behave equivalently to a call to {@link VkAllocationFunction} with the same parameter values (without {@code pOriginal}).</p>
+ * 
+ * <p>If {@code size} is zero, then {@code pfnReallocation} <b>must</b> behave equivalently to a call to {@link VkFreeFunction} with the same {@code pUserData} parameter value, and {@code pMemory} equal to {@code pOriginal}.</p>
+ * 
+ * <p>If {@code pOriginal} is non-{@code NULL}, the implementation <b>must</b> ensure that {@code alignment} is equal to the {@code alignment} used to originally allocate {@code pOriginal}.</p>
+ * 
+ * <p>If this function fails and {@code pOriginal} is non-{@code NULL} the application <b>must</b> not free the old allocation.</p>
+ * 
+ * <p>{@code pfnReallocation} <b>must</b> follow the same <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vkAllocationFunction_return_rules"> rules for return values as tname:PFN_vkAllocationFunction</a>.</p>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkAllocationCallbacks}</p>
  */
 public abstract class VkReallocationFunction extends Callback implements VkReallocationFunctionI {
 

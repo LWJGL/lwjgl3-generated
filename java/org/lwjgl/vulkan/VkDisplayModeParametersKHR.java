@@ -14,16 +14,24 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkDisplayModeParametersKHR.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkDisplayModeParametersKHR">Vulkan Specification</a>
+ * Structure describing display parameters associated with a display mode.
  * 
- * <p>Describes the display parameters associated a display mode.</p>
+ * <h5>Description</h5>
+ * 
+ * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+ * 
+ * <p>For example, a 60Hz display mode would report a {@code refreshRate} of 60,000.</p>
+ * </div>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkDisplayModeCreateInfoKHR}, {@link VkDisplayModePropertiesKHR}, {@link VkExtent2D}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code visibleRegion} &ndash; the 2D extents of the visible region</li>
- * <li>{@code refreshRate} &ndash; a {@code uint32_t} that is the number of times the display is refreshed each second multiplied by 1000</li>
+ * <li>{@code visibleRegion} &ndash; the 2D extents of the visible region.</li>
+ * <li>{@code refreshRate} &ndash; a {@code uint32_t} that is the number of times the display is refreshed each second multiplied by 1000.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

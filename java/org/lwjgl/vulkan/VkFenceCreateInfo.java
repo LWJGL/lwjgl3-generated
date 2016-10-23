@@ -14,12 +14,9 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkFenceCreateInfo.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkFenceCreateInfo">Vulkan Specification</a>
+ * Structure specifying parameters of a newly created fence.
  * 
- * <p>Contains information about how a fence object should be created.</p>
- * 
- * <h5>Valid Usage</h5>
+ * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_FENCE_CREATE_INFO STRUCTURE_TYPE_FENCE_CREATE_INFO}</li>
@@ -27,12 +24,20 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code flags} <b>must</b> be a valid combination of {@code VkFenceCreateFlagBits} values</li>
  * </ul>
  * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VK10#vkCreateFence CreateFence}</p>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_FENCE_CREATE_INFO STRUCTURE_TYPE_FENCE_CREATE_INFO}</li>
- * <li>{@code pNext} &ndash; reserved for use by extensions</li>
- * <li>{@code flags} &ndash; contains {@code VkFenceCreateFlags} flags defining the initial state and behavior of the fence. One or more of:<br><table><tr><td>{@link VK10#VK_FENCE_CREATE_SIGNALED_BIT FENCE_CREATE_SIGNALED_BIT}</td></tr></table></li>
+ * <li>{@code flags} &ndash; defines the initial state and behavior of the fence. Bits which <b>can</b> be set include:
+ * 
+ * <pre><code>typedef enum VkFenceCreateFlagBits {
+    VK_FENCE_CREATE_SIGNALED_BIT = 0x00000001,
+} VkFenceCreateFlagBits;</code></pre>
+ * 
+ * <p>If {@code flags} contains {@link VK10#VK_FENCE_CREATE_SIGNALED_BIT FENCE_CREATE_SIGNALED_BIT} then the fence object is created in the signaled state. Otherwise it is created in the unsignaled state.</p></li>
  * </ul>
  * 
  * <h3>Layout</h3>

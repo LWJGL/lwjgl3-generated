@@ -10,9 +10,21 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /**
- * Instances of this interface may be set to the {@code pfnInternalFree} member of the {@link VkAllocationCallbacks} struct.
+ * Application-defined memory free notification function.
  * 
- * <p>This is a purely informational callback.</p>
+ * <h5>C Specification</h5>
+ * 
+ * <p>The type of {@code pfnInternalFree} is:</p>
+ * 
+ * <pre><code>typedef void (VKAPI_PTR *PFN_vkInternalFreeNotification)(
+    void*                                       pUserData,
+    size_t                                      size,
+    VkInternalAllocationType                    allocationType,
+    VkSystemAllocationScope                     allocationScope);</code></pre>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkAllocationCallbacks}</p>
  */
 @FunctionalInterface
 public interface VkInternalFreeNotificationI extends CallbackI.V {
@@ -33,12 +45,12 @@ public interface VkInternalFreeNotificationI extends CallbackI.V {
 	}
 
 	/**
-	 * Will be called by the Vulkan implementation when an internal deallocation occurs.
+	 * Application-defined memory free notification function.
 	 *
-	 * @param pUserData       the value specified for {@link VkAllocationCallbacks}{@code .pUserData} in the allocator specified by the application
-	 * @param size            the requested size of an allocation
-	 * @param allocationType  the requested type of an allocation
-	 * @param allocationScope a {@code VkSystemAllocationScope} value specifying the scope of the lifetime of the allocation
+	 * @param pUserData       the value specified for {@link VkAllocationCallbacks}{@code ::pUserData} in the allocator specified by the application.
+	 * @param size            the requested size of an allocation.
+	 * @param allocationType  the requested type of an allocation.
+	 * @param allocationScope a {@code VkSystemAllocationScope} value specifying the allocation scope of the lifetime of the allocation, as described <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-host-allocation-scope">here</a>.
 	 */
 	void invoke(long pUserData, long size, int allocationType, int allocationScope);
 

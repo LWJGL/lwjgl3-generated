@@ -15,32 +15,37 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkSpecializationInfo.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkSpecializationInfo">Vulkan Specification</a>
+ * Structure specifying specialization info.
  * 
- * <p>Contains information about specialization constants.</p>
+ * <h5>Description</h5>
  * 
- * <p>Specialization constants are a mechanism whereby constants in a SPIR-V module can have their constant value specified at the time the
- * {@code VkPipeline} is created. This allows a SPIR-V module to have constants that can be modified while executing an application that uses the Vulkan
- * API.</p>
+ * <p>{@code pMapEntries} points to a structure of type {@link VkSpecializationMapEntry}.</p>
  * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>If {@code mapEntryCount} is not 0, {@code pMapEntries} <b>must</b> be a pointer to an array of {@code mapEntryCount} valid {@link VkSpecializationMapEntry}
- * structures</li>
- * <li>If {@code dataSize} is not 0, {@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
  * <li>The {@code offset} member of any given element of {@code pMapEntries} <b>must</b> be less than {@code dataSize}</li>
  * <li>For any given element of {@code pMapEntries}, {@code size} <b>must</b> be less than or equal to {@code dataSize} minus {@code offset}</li>
  * </ul>
  * 
+ * <h5>Valid Usage (Implicit)</h5>
+ * 
+ * <ul>
+ * <li>If {@code mapEntryCount} is not 0, {@code pMapEntries} <b>must</b> be a pointer to an array of {@code mapEntryCount} valid {@link VkSpecializationMapEntry} structures</li>
+ * <li>If {@code dataSize} is not 0, {@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
+ * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkPipelineShaderStageCreateInfo}, {@link VkSpecializationMapEntry}</p>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code mapEntryCount} &ndash; the number of entries in the {@code pMapEntries} array</li>
- * <li>{@code pMapEntries} &ndash; a pointer to an array of {@link VkSpecializationMapEntry} which maps constant IDs to offsets in {@code pData}</li>
- * <li>{@code dataSize} &ndash; the byte size of the {@code pData} buffer</li>
- * <li>{@code pData} &ndash; contains the actual constant values to specialize with</li>
+ * <li>{@code mapEntryCount} &ndash; the number of entries in the {@code pMapEntries} array.</li>
+ * <li>{@code pMapEntries} &ndash; a pointer to an array of {@link VkSpecializationMapEntry} which maps constant IDs to offsets in {@code pData}.</li>
+ * <li>{@code dataSize} &ndash; the byte size of the {@code pData} buffer.</li>
+ * <li>{@code pData} &ndash; contains the actual constant values to specialize with.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

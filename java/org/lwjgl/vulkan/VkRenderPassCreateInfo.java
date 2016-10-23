@@ -15,51 +15,45 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkRenderPassCreateInfo.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkRenderPassCreateInfo">Vulkan Specification</a>
- * 
- * <p>Contains information about how a render pass should be created.</p>
+ * Structure specifying parameters of a newly created render pass.
  * 
  * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>If any two subpasses operate on attachments with overlapping ranges of the same {@code VkDeviceMemory} object, and at least one subpass writes to that area of {@code VkDeviceMemory}, a subpass dependency <b>must</b> be included (either directly or via some intermediate subpasses) between them</li>
+ * <li>If the {@code attachment} member of any element of {@code pInputAttachments}, {@code pColorAttachments}, {@code pResolveAttachments} or {@code pDepthStencilAttachment}, or the attachment indexed by any element of {@code pPreserveAttachments} in any given element of {@code pSubpasses} is bound to a range of a {@code VkDeviceMemory} object that overlaps with any other attachment in any subpass (including the same subpass), the {@link VkAttachmentDescription} structures describing them <b>must</b> include {@link VK10#VK_ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT} in {@code flags}</li>
+ * <li>If the {@code attachment} member of any element of {@code pInputAttachments}, {@code pColorAttachments}, {@code pResolveAttachments} or {@code pDepthStencilAttachment}, or any element of {@code pPreserveAttachments} in any given element of {@code pSubpasses} is not {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED}, it <b>must</b> be less than {@code attachmentCount}</li>
+ * <li>The value of any element of the {@code pPreserveAttachments} member in any given element of {@code pSubpasses} <b>must</b> not be {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED}</li>
+ * </ul>
+ * 
+ * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code flags} <b>must</b> be 0</li>
- * <li>If {@code attachmentCount} is not 0, {@code pAttachments} <b>must</b> be a pointer to an array of {@code attachmentCount} valid {@link VkAttachmentDescription}
- * structures</li>
+ * <li>If {@code attachmentCount} is not 0, {@code pAttachments} <b>must</b> be a pointer to an array of {@code attachmentCount} valid {@link VkAttachmentDescription} structures</li>
  * <li>{@code pSubpasses} <b>must</b> be a pointer to an array of {@code subpassCount} valid {@link VkSubpassDescription} structures</li>
- * <li>If {@code dependencyCount} is not 0, {@code pDependencies} <b>must</b> be a pointer to an array of {@code dependencyCount} valid {@link VkSubpassDependency}
- * structures</li>
+ * <li>If {@code dependencyCount} is not 0, {@code pDependencies} <b>must</b> be a pointer to an array of {@code dependencyCount} valid {@link VkSubpassDependency} structures</li>
  * <li>{@code subpassCount} <b>must</b> be greater than 0</li>
- * <li>If any two subpasses operate on attachments with overlapping ranges of the same {@code VkDeviceMemory} object, and at least one subpass writes to
- * that area of {@code VkDeviceMemory}, a subpass dependency <b>must</b> be included (either directly or via some intermediate subpasses) between them</li>
- * <li>If the {@code attachment} member of any element of {@code pInputAttachments}, {@code pColorAttachments}, {@code pResolveAttachments} or
- * {@code pDepthStencilAttachment}, or the attachment indexed by any element of {@code pPreserveAttachments} in any given element of
- * {@code pSubpasses} is bound to a range of a {@code VkDeviceMemory} object that overlaps with any other attachment in any subpass (including the
- * same subpass), the {@link VkAttachmentDescription} structures describing them <b>must</b> include {@link VK10#VK_ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT} in {@code flags}</li>
- * <li>If the {@code attachment} member of any element of {@code pInputAttachments}, {@code pColorAttachments}, {@code pResolveAttachments} or
- * {@code pDepthStencilAttachment}, or any element of {@code pPreserveAttachments} in any given element of {@code pSubpasses} is not
- * {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED}, it <b>must</b> be less than {@code attachmentCount}</li>
- * <li>The value of any element of the {@code pPreserveAttachments} member in any given element of {@code pSubpasses} <b>must</b> not be {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED}</li>
  * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkAttachmentDescription}, {@link VkSubpassDependency}, {@link VkSubpassDescription}, {@link VK10#vkCreateRenderPass CreateRenderPass}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO}</li>
- * <li>{@code pNext} &ndash; reserved for use by extensions</li>
- * <li>{@code flags} &ndash; reserved for future use</li>
- * <li>{@code attachmentCount} &ndash; the number of attachments used by this render pass, or zero indicating no attachments</li>
- * <li>{@code pAttachments} &ndash; 
- * points to an array of {@code attachmentCount} number of {@link VkAttachmentDescription} structures describing properties of the attachments, or {@code NULL} if
- * {@code attachmentCount} is zero</li>
- * <li>{@code subpassCount} &ndash; the number of subpasses to create for this render pass</li>
- * <li>{@code pSubpasses} &ndash; points to an array of {@code subpassCount} number of {@link VkSubpassDescription} structures describing properties of the subpasses</li>
- * <li>{@code dependencyCount} &ndash; the number of dependencies between pairs of subpasses, or zero indicating no dependencies</li>
- * <li>{@code pDependencies} &ndash; 
- * points to an array of {@code dependencyCount} number of {@link VkSubpassDependency} structures describing dependencies between pairs of subpasses, or {@code NULL}
- * if {@code dependencyCount} is zero</li>
+ * <li>{@code sType} &ndash; the type of this structure.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
+ * <li>{@code flags} &ndash; reserved for future use.</li>
+ * <li>{@code attachmentCount} &ndash; the number of attachments used by this render pass, or zero indicating no attachments. Attachments are referred to by zero-based indices in the range [0,{@code attachmentCount}).</li>
+ * <li>{@code pAttachments} &ndash; points to an array of {@code attachmentCount} number of {@link VkAttachmentDescription} structures describing properties of the attachments, or {@code NULL} if {@code attachmentCount} is zero.</li>
+ * <li>{@code subpassCount} &ndash; the number of subpasses to create for this render pass. Subpasses are referred to by zero-based indices in the range [0,{@code subpassCount}). A render pass <b>must</b> have at least one subpass.</li>
+ * <li>{@code pSubpasses} &ndash; points to an array of {@code subpassCount} number of {@link VkSubpassDescription} structures describing properties of the subpasses.</li>
+ * <li>{@code dependencyCount} &ndash; the number of dependencies between pairs of subpasses, or zero indicating no dependencies.</li>
+ * <li>{@code pDependencies} &ndash; points to an array of {@code dependencyCount} number of {@link VkSubpassDependency} structures describing dependencies between pairs of subpasses, or {@code NULL} if {@code dependencyCount} is zero.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

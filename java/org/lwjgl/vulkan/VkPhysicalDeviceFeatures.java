@@ -14,85 +14,196 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPhysicalDeviceFeatures.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPhysicalDeviceFeatures">Vulkan Specification</a>
+ * Structure describing the fine-grained features that can be supported by an implementation.
  * 
- * <p>Contains a feature flag for each of the fine-grained features that may be supported by an implementation.</p>
+ * <h5>Description</h5>
+ * 
+ * <ul>
+ * <li>{@code robustBufferAccess} indicates that accesses to buffers are bounds-checked against the range of the buffer descriptor (as determined by {@link VkDescriptorBufferInfo}{@code ::range}, {@link VkBufferViewCreateInfo}{@code ::range}, or the size of the buffer). Out of bounds accesses <b>must</b> not cause application termination, and the effects of shader loads, stores, and atomics <b>must</b> conform to an implementation-dependent behavior as described below.
+ * 
+ * <ul>
+ * <li>A buffer access is considered to be out of bounds if any of the following are true:
+ * 
+ * <ul>
+ * <li>The pointer was formed by {@code OpImageTexelPointer} and the coordinate is less than zero or greater than or equal to the number of whole elements in the bound range.</li>
+ * <li>The pointer was not formed by {@code OpImageTexelPointer} and the object pointed to is not wholly contained within the bound range.
+ * 
+ * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+ * 
+ * <p>If a SPIR-V {@code OpLoad} instruction loads a structure and the tail end of the structure is out of bounds, then all members of the structure are considered out of bounds even if the members at the end are not statically used.</p>
+ * </div>
+ * </li>
+ * <li>If any buffer access in a given SPIR-V block is determined to be out of bounds, then any other access of the same type (load, store, or atomic) in the same SPIR-V block that accesses an address less than 16 bytes away from the out of bounds address <b>may</b> also be considered out of bounds.</li>
+ * </ul>
+ * </li>
+ * <li>Out-of-bounds buffer loads will return any of the following values:
+ * 
+ * <ul>
+ * <li>Values from anywhere within the memory range(s) bound to the buffer (possibly including bytes of memory past the end of the buffer, up to the end of the bound range).</li>
+ * <li>Zero values, or <code>(0,0,0,x)</code> vectors for vector reads where x is a valid value represented in the type of the vector components and <b>may</b> be any of:
+ * 
+ * <ul>
+ * <li>0, 1, or the maximum representable positive integer value, for signed or unsigned integer components</li>
+ * <li>0.0 or 1.0, for floating-point components</li>
+ * </ul>
+ * </li>
+ * </ul>
+ * </li>
+ * <li>Out-of-bounds writes <b>may</b> modify values within the memory range(s) bound to the buffer, but <b>must</b> not modify any other memory.</li>
+ * <li>Out-of-bounds atomics <b>may</b> modify values within the memory range(s) bound to the buffer, but <b>must</b> not modify any other memory, and return an undefined value.</li>
+ * <li>Vertex input attributes are considered out of bounds if the address of the attribute plus the size of the attribute is greater than the size of the bound buffer. Further, if any vertex input attribute using a specific vertex input binding is out of bounds, then all vertex input attributes using that vertex input binding for that vertex shader invocation are considered out of bounds.
+ * 
+ * <ul>
+ * <li>If a vertex input attribute is out of bounds, it will be assigned one of the following values:
+ * 
+ * <ul>
+ * <li>Values from anywhere within the memory range(s) bound to the buffer, converted according to the format of the attribute.</li>
+ * <li>Zero values, format converted according to the format of the attribute.</li>
+ * <li>Zero values, or <code>(0,0,0,x)</code> vectors, as described above.</li>
+ * </ul>
+ * </li>
+ * </ul>
+ * </li>
+ * <li>If {@code robustBufferAccess} is not enabled, out of bounds accesses <b>may</b> corrupt any memory within the process and cause undefined behavior up to and including application termination.</li>
+ * </ul>
+ * </li>
+ * <li>{@code fullDrawIndexUint32} indicates the full 32-bit range of indices is supported for indexed draw calls when using a {@code VkIndexType} of {@link VK10#VK_INDEX_TYPE_UINT32 INDEX_TYPE_UINT32}. {@code maxDrawIndexedIndexValue} is the maximum index value that <b>may</b> be used (aside from the primitive restart index, which is always 2<sup>32</sup>-1 when the {@code VkIndexType} is {@link VK10#VK_INDEX_TYPE_UINT32 INDEX_TYPE_UINT32}). If this feature is supported, {@code maxDrawIndexedIndexValue} <b>must</b> be 2<sup>32</sup>-1; otherwise it <b>must</b> be no smaller than 2<sup>24</sup>-1. See <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-limits-maxDrawIndexedIndexValue">maxDrawIndexedIndexValue</a>.</li>
+ * <li>{@code imageCubeArray} indicates whether image views with a {@code VkImageViewType} of {@link VK10#VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY} <b>can</b> be created, and that the corresponding {@code SampledCubeArray} and {@code ImageCubeArray} SPIR-V capabilities <b>can</b> be used in shader code.</li>
+ * <li>{@code independentBlend} indicates whether the {@link VkPipelineColorBlendAttachmentState} settings are controlled independently per-attachment. If this feature is not enabled, the {@link VkPipelineColorBlendAttachmentState} settings for all color attachments <b>must</b> be identical. Otherwise, a different {@link VkPipelineColorBlendAttachmentState} <b>can</b> be provided for each bound color attachment.</li>
+ * <li>{@code geometryShader} indicates whether geometry shaders are supported. If this feature is not enabled, the {@link VK10#VK_SHADER_STAGE_GEOMETRY_BIT SHADER_STAGE_GEOMETRY_BIT} and {@link VK10#VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT} enum values <b>must</b> not be used. This also indicates whether shader modules <b>can</b> declare the {@code Geometry} capability.</li>
+ * <li>{@code tessellationShader} indicates whether tessellation control and evaluation shaders are supported. If this feature is not enabled, the {@link VK10#VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT SHADER_STAGE_TESSELLATION_CONTROL_BIT}, {@link VK10#VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT SHADER_STAGE_TESSELLATION_EVALUATION_BIT}, {@link VK10#VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT}, {@link VK10#VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}, and {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_TESSELLATION_STATE_CREATE_INFO} enum values <b>must</b> not be used. This also indicates whether shader modules <b>can</b> declare the {@code Tessellation} capability.</li>
+ * <li>{@code sampleRateShading} indicates whether per-sample shading and multisample interpolation are supported. If this feature is not enabled, the {@code sampleShadingEnable} member of the {@link VkPipelineMultisampleStateCreateInfo} structure <b>must</b> be set to {@link VK10#VK_FALSE FALSE} and the {@code minSampleShading} member is ignored. This also indicates whether shader modules <b>can</b> declare the {@code SampleRateShading} capability.</li>
+ * <li>{@code dualSrcBlend} indicates whether blend operations which take two sources are supported. If this feature is not enabled, the {@link VK10#VK_BLEND_FACTOR_SRC1_COLOR BLEND_FACTOR_SRC1_COLOR}, {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR BLEND_FACTOR_ONE_MINUS_SRC1_COLOR}, {@link VK10#VK_BLEND_FACTOR_SRC1_ALPHA BLEND_FACTOR_SRC1_ALPHA}, and {@link VK10#VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA} enum values <b>must</b> not be used as source or destination blending factors. See <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#framebuffer-dsb">the “Dual-Source Blending” section</a>.</li>
+ * <li>{@code logicOp} indicates whether logic operations are supported. If this feature is not enabled, the {@code logicOpEnable} member of the {@link VkPipelineColorBlendStateCreateInfo} structure <b>must</b> be set to {@link VK10#VK_FALSE FALSE}, and the {@code logicOp} member is ignored.</li>
+ * <li>{@code multiDrawIndirect} indicates whether multiple draw indirect is supported. If this feature is not enabled, the {@code drawCount} parameter to the {@link VK10#vkCmdDrawIndirect CmdDrawIndirect} and {@link VK10#vkCmdDrawIndexedIndirect CmdDrawIndexedIndirect} commands <b>must</b> be 0 or 1. The {@code maxDrawIndirectCount} member of the {@link VkPhysicalDeviceLimits} structure <b>must</b> also be 1 if this feature is not supported. See <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-limits-maxDrawIndirectCount">maxDrawIndirectCount</a>.</li>
+ * <li>{@code drawIndirectFirstInstance} indicates whether indirect draw calls support the {@code firstInstance} parameter. If this feature is not enabled, the {@code firstInstance} member of all {@link VkDrawIndirectCommand} and {@link VkDrawIndexedIndirectCommand} structures that are provided to the {@link VK10#vkCmdDrawIndirect CmdDrawIndirect} and {@link VK10#vkCmdDrawIndexedIndirect CmdDrawIndexedIndirect} commands <b>must</b> be 0.</li>
+ * <li>{@code depthClamp} indicates whether depth clamping is supported. If this feature is not enabled, the {@code depthClampEnable} member of the {@link VkPipelineRasterizationStateCreateInfo} structure <b>must</b> be set to {@link VK10#VK_FALSE FALSE}. Otherwise, setting {@code depthClampEnable} to {@link VK10#VK_TRUE TRUE} will enable depth clamping.</li>
+ * <li>{@code depthBiasClamp} indicates whether depth bias clamping is supported. If this feature is not enabled, the {@code depthBiasClamp} member of the {@link VkPipelineRasterizationStateCreateInfo} structure <b>must</b> be set to 0.0 unless the {@link VK10#VK_DYNAMIC_STATE_DEPTH_BIAS DYNAMIC_STATE_DEPTH_BIAS} dynamic state is enabled, and the {@code depthBiasClamp} parameter to {@link VK10#vkCmdSetDepthBias CmdSetDepthBias} <b>must</b> be set to 0.0.</li>
+ * <li>{@code fillModeNonSolid} indicates whether point and wireframe fill modes are supported. If this feature is not enabled, the {@link VK10#VK_POLYGON_MODE_POINT POLYGON_MODE_POINT} and {@link VK10#VK_POLYGON_MODE_LINE POLYGON_MODE_LINE} enum values <b>must</b> not be used.</li>
+ * <li>{@code depthBounds} indicates whether depth bounds tests are supported. If this feature is not enabled, the {@code depthBoundsTestEnable} member of the {@link VkPipelineDepthStencilStateCreateInfo} structure <b>must</b> be set to {@link VK10#VK_FALSE FALSE}. When {@code depthBoundsTestEnable} is set to {@link VK10#VK_FALSE FALSE}, the {@code minDepthBounds} and {@code maxDepthBounds} members of the {@link VkPipelineDepthStencilStateCreateInfo} structure are ignored.</li>
+ * <li>{@code wideLines} indicates whether lines with width other than 1.0 are supported. If this feature is not enabled, the {@code lineWidth} member of the {@link VkPipelineRasterizationStateCreateInfo} structure <b>must</b> be set to 1.0 unless the {@link VK10#VK_DYNAMIC_STATE_LINE_WIDTH DYNAMIC_STATE_LINE_WIDTH} dynamic state is enabled, and the {@code lineWidth} parameter to {@link VK10#vkCmdSetLineWidth CmdSetLineWidth} <b>must</b> be set to 1.0. When this feature is supported, the range and granularity of supported line widths are indicated by the {@code lineWidthRange} and {@code lineWidthGranularity} members of the {@link VkPhysicalDeviceLimits} structure, respectively.</li>
+ * <li>{@code largePoints} indicates whether points with size greater than 1.0 are supported. If this feature is not enabled, only a point size of 1.0 written by a shader is supported. The range and granularity of supported point sizes are indicated by the {@code pointSizeRange} and {@code pointSizeGranularity} members of the {@link VkPhysicalDeviceLimits} structure, respectively.</li>
+ * <li>{@code alphaToOne} indicates whether the implementation is able to replace the alpha value of the color fragment output from the fragment shader with the maximum representable alpha value for fixed-point colors or 1.0 for floating-point colors. If this feature is not enabled, then the {@code alphaToOneEnable} member of the {@link VkPipelineMultisampleStateCreateInfo} structure <b>must</b> be set to {@link VK10#VK_FALSE FALSE}. Otherwise setting {@code alphaToOneEnable} to {@link VK10#VK_TRUE TRUE} will enable alpha-to-one behavior.</li>
+ * <li>{@code multiViewport} indicates whether more than one viewport is supported. If this feature is not enabled, the {@code viewportCount} and {@code scissorCount} members of the {@link VkPipelineViewportStateCreateInfo} structure <b>must</b> be set to 1. Similarly, the {@code viewportCount} parameter to the {@link VK10#vkCmdSetViewport CmdSetViewport} command and the {@code scissorCount} parameter to the {@link VK10#vkCmdSetScissor CmdSetScissor} command <b>must</b> be 1, and the {@code firstViewport} parameter to the {@link VK10#vkCmdSetViewport CmdSetViewport} command and the {@code firstScissor} parameter to the {@link VK10#vkCmdSetScissor CmdSetScissor} command <b>must</b> be 0.</li>
+ * <li>{@code samplerAnisotropy} indicates whether anisotropic filtering is supported. If this feature is not enabled, the {@code maxAnisotropy} member of the {@link VkSamplerCreateInfo} structure <b>must</b> be 1.0.</li>
+ * <li>{@code textureCompressionETC2} indicates whether the ETC2 and EAC compressed texture formats are supported. If this feature is not enabled, the following formats <b>must</b> not be used to create images:
+ * 
+ * <ul>
+ * <li>{@link VK10#VK_FORMAT_ETC2_R8G8B8_UNORM_BLOCK FORMAT_ETC2_R8G8B8_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ETC2_R8G8B8_SRGB_BLOCK FORMAT_ETC2_R8G8B8_SRGB_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ETC2_R8G8B8A1_UNORM_BLOCK FORMAT_ETC2_R8G8B8A1_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ETC2_R8G8B8A1_SRGB_BLOCK FORMAT_ETC2_R8G8B8A1_SRGB_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ETC2_R8G8B8A8_UNORM_BLOCK FORMAT_ETC2_R8G8B8A8_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ETC2_R8G8B8A8_SRGB_BLOCK FORMAT_ETC2_R8G8B8A8_SRGB_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_EAC_R11_UNORM_BLOCK FORMAT_EAC_R11_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_EAC_R11_SNORM_BLOCK FORMAT_EAC_R11_SNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_EAC_R11G11_UNORM_BLOCK FORMAT_EAC_R11G11_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_EAC_R11G11_SNORM_BLOCK FORMAT_EAC_R11G11_SNORM_BLOCK}</li>
+ * </ul>
+ * 
+ * <p>{@link VK10#vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties} is used to check for the supported properties of individual formats.</p>
+ * </li>
+ * <li>{@code textureCompressionASTC_LDR} indicates whether the ASTC LDR compressed texture formats are supported. If this feature is not enabled, the following formats <b>must</b> not be used to create images:
+ * 
+ * <ul>
+ * <li>{@link VK10#VK_FORMAT_ASTC_4x4_UNORM_BLOCK FORMAT_ASTC_4x4_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_4x4_SRGB_BLOCK FORMAT_ASTC_4x4_SRGB_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_5x4_UNORM_BLOCK FORMAT_ASTC_5x4_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_5x4_SRGB_BLOCK FORMAT_ASTC_5x4_SRGB_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_5x5_UNORM_BLOCK FORMAT_ASTC_5x5_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_5x5_SRGB_BLOCK FORMAT_ASTC_5x5_SRGB_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_6x5_UNORM_BLOCK FORMAT_ASTC_6x5_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_6x5_SRGB_BLOCK FORMAT_ASTC_6x5_SRGB_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_6x6_UNORM_BLOCK FORMAT_ASTC_6x6_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_6x6_SRGB_BLOCK FORMAT_ASTC_6x6_SRGB_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_8x5_UNORM_BLOCK FORMAT_ASTC_8x5_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_8x5_SRGB_BLOCK FORMAT_ASTC_8x5_SRGB_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_8x6_UNORM_BLOCK FORMAT_ASTC_8x6_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_8x6_SRGB_BLOCK FORMAT_ASTC_8x6_SRGB_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_8x8_UNORM_BLOCK FORMAT_ASTC_8x8_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_8x8_SRGB_BLOCK FORMAT_ASTC_8x8_SRGB_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_10x5_UNORM_BLOCK FORMAT_ASTC_10x5_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_10x5_SRGB_BLOCK FORMAT_ASTC_10x5_SRGB_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_10x6_UNORM_BLOCK FORMAT_ASTC_10x6_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_10x6_SRGB_BLOCK FORMAT_ASTC_10x6_SRGB_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_10x8_UNORM_BLOCK FORMAT_ASTC_10x8_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_10x8_SRGB_BLOCK FORMAT_ASTC_10x8_SRGB_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_10x10_UNORM_BLOCK FORMAT_ASTC_10x10_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_10x10_SRGB_BLOCK FORMAT_ASTC_10x10_SRGB_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_12x10_UNORM_BLOCK FORMAT_ASTC_12x10_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_12x10_SRGB_BLOCK FORMAT_ASTC_12x10_SRGB_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_12x12_UNORM_BLOCK FORMAT_ASTC_12x12_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_ASTC_12x12_SRGB_BLOCK FORMAT_ASTC_12x12_SRGB_BLOCK}</li>
+ * </ul>
+ * 
+ * <p>{@link VK10#vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties} is used to check for the supported properties of individual formats.</p>
+ * </li>
+ * <li>{@code textureCompressionBC} indicates whether the BC compressed texture formats are supported. If this feature is not enabled, the following formats <b>must</b> not be used to create images:
+ * 
+ * <ul>
+ * <li>{@link VK10#VK_FORMAT_BC1_RGB_UNORM_BLOCK FORMAT_BC1_RGB_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_BC1_RGB_SRGB_BLOCK FORMAT_BC1_RGB_SRGB_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_BC1_RGBA_UNORM_BLOCK FORMAT_BC1_RGBA_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_BC1_RGBA_SRGB_BLOCK FORMAT_BC1_RGBA_SRGB_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_BC2_UNORM_BLOCK FORMAT_BC2_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_BC2_SRGB_BLOCK FORMAT_BC2_SRGB_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_BC3_UNORM_BLOCK FORMAT_BC3_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_BC3_SRGB_BLOCK FORMAT_BC3_SRGB_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_BC4_UNORM_BLOCK FORMAT_BC4_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_BC4_SNORM_BLOCK FORMAT_BC4_SNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_BC5_UNORM_BLOCK FORMAT_BC5_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_BC5_SNORM_BLOCK FORMAT_BC5_SNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_BC6H_UFLOAT_BLOCK FORMAT_BC6H_UFLOAT_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_BC6H_SFLOAT_BLOCK FORMAT_BC6H_SFLOAT_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_BC7_UNORM_BLOCK FORMAT_BC7_UNORM_BLOCK}</li>
+ * <li>{@link VK10#VK_FORMAT_BC7_SRGB_BLOCK FORMAT_BC7_SRGB_BLOCK}</li>
+ * </ul>
+ * 
+ * <p>{@link VK10#vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties} is used to check for the supported properties of individual formats.</p>
+ * </li>
+ * <li>{@code occlusionQueryPrecise} indicates whether occlusion queries returning actual sample counts are supported. Occlusion queries are created in a {@code VkQueryPool} by specifying the {@code queryType} of {@link VK10#VK_QUERY_TYPE_OCCLUSION QUERY_TYPE_OCCLUSION} in the {@link VkQueryPoolCreateInfo} structure which is passed to {@link VK10#vkCreateQueryPool CreateQueryPool}. If this feature is enabled, queries of this type <b>can</b> enable {@link VK10#VK_QUERY_CONTROL_PRECISE_BIT QUERY_CONTROL_PRECISE_BIT} in the {@code flags} parameter to {@link VK10#vkCmdBeginQuery CmdBeginQuery}. If this feature is not supported, the implementation supports only boolean occlusion queries. When any samples are passed, boolean queries will return a non-zero result value, otherwise a result value of zero is returned. When this feature is enabled and {@link VK10#VK_QUERY_CONTROL_PRECISE_BIT QUERY_CONTROL_PRECISE_BIT} is set, occlusion queries will report the actual number of samples passed.</li>
+ * <li>{@code pipelineStatisticsQuery} indicates whether the pipeline statistics queries are supported. If this feature is not enabled, queries of type {@link VK10#VK_QUERY_TYPE_PIPELINE_STATISTICS QUERY_TYPE_PIPELINE_STATISTICS} <b>cannot</b> be created, and none of the {@code VkQueryPipelineStatisticFlagBits} bits <b>can</b> be set in the {@code pipelineStatistics} member of the {@link VkQueryPoolCreateInfo} structure.</li>
+ * <li>{@code vertexPipelineStoresAndAtomics} indicates whether storage buffers and images support stores and atomic operations in the vertex, tessellation, and geometry shader stages. If this feature is not enabled, all storage image, storage texel buffers, and storage buffer variables used by these stages in shader modules <b>must</b> be decorated with the {@code NonWriteable} decoration (or the {@code readonly} memory qualifier in GLSL).</li>
+ * <li>{@code fragmentStoresAndAtomics} indicates whether storage buffers and images support stores and atomic operations in the fragment shader stage. If this feature is not enabled, all storage image, storage texel buffers, and storage buffer variables used by the fragment stage in shader modules <b>must</b> be decorated with the {@code NonWriteable} decoration (or the {@code readonly} memory qualifier in GLSL).</li>
+ * <li>{@code shaderTessellationAndGeometryPointSize} indicates whether the {@code PointSize} built-in decoration is available in the tessellation control, tessellation evaluation, and geometry shader stages. If this feature is not enabled, members decorated with the {@code PointSize} built-in decoration <b>must</b> not be read from or written to and all points written from a tessellation or geometry shader will have a size of 1.0. This also indicates whether shader modules <b>can</b> declare the {@code TessellationPointSize} capability for tessellation control and evaluation shaders, or if the shader modules <b>can</b> declare the {@code GeometryPointSize} capability for geometry shaders. An implementation supporting this feature <b>must</b> also support one or both of the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-tessellationShader">{@code tessellationShader}</a> or <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-geometryShader">{@code geometryShader}</a> features.</li>
+ * <li>{@code shaderImageGatherExtended} indicates whether the extended set of image gather instructions are available in shader code. If this feature is not enabled, the {@code OpImage}*{@code Gather} instructions do not support the {@code Offset} and {@code ConstOffsets} operands. This also indicates whether shader modules <b>can</b> declare the {@code ImageGatherExtended} capability.</li>
+ * <li>{@code shaderStorageImageExtendedFormats} indicates whether the extended storage image formats are available in shader code. If this feature is not enabled, the formats requiring the {@code StorageImageExtendedFormats} capability are not supported for storage images. This also indicates whether shader modules <b>can</b> declare the {@code StorageImageExtendedFormats} capability.</li>
+ * <li>{@code shaderStorageImageMultisample} indicates whether multisampled storage images are supported. If this feature is not enabled, images that are created with a {@code usage} that includes {@link VK10#VK_IMAGE_USAGE_STORAGE_BIT IMAGE_USAGE_STORAGE_BIT} <b>must</b> be created with {@code samples} equal to {@link VK10#VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}. This also indicates whether shader modules <b>can</b> declare the {@code StorageImageMultisample} capability.</li>
+ * <li>{@code shaderStorageImageReadWithoutFormat} indicates whether storage images require a format qualifier to be specified when reading from storage images. If this feature is not enabled, the {@code OpImageRead} instruction <b>must</b> not have an {@code OpTypeImage} of {@code Unknown}. This also indicates whether shader modules <b>can</b> declare the {@code StorageImageReadWithoutFormat} capability.</li>
+ * <li>{@code shaderStorageImageWriteWithoutFormat} indicates whether storage images require a format qualifier to be specified when writing to storage images. If this feature is not enabled, the {@code OpImageWrite} instruction <b>must</b> not have an {@code OpTypeImage} of {@code Unknown}. This also indicates whether shader modules <b>can</b> declare the {@code StorageImageWriteWithoutFormat} capability.</li>
+ * <li>{@code shaderUniformBufferArrayDynamicIndexing} indicates whether arrays of uniform buffers <b>can</b> be indexed by <em>dynamically uniform</em> integer expressions in shader code. If this feature is not enabled, resources with a descriptor type of {@link VK10#VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER DESCRIPTOR_TYPE_UNIFORM_BUFFER} or {@link VK10#VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC} <b>must</b> be indexed only by constant integral expressions when aggregated into arrays in shader code. This also indicates whether shader modules <b>can</b> declare the {@code UniformBufferArrayDynamicIndexing} capability.</li>
+ * <li>{@code shaderSampledImageArrayDynamicIndexing} indicates whether arrays of samplers or sampled images <b>can</b> be indexed by dynamically uniform integer expressions in shader code. If this feature is not enabled, resources with a descriptor type of {@link VK10#VK_DESCRIPTOR_TYPE_SAMPLER DESCRIPTOR_TYPE_SAMPLER}, {@link VK10#VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER}, or {@link VK10#VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE DESCRIPTOR_TYPE_SAMPLED_IMAGE} <b>must</b> be indexed only by constant integral expressions when aggregated into arrays in shader code. This also indicates whether shader modules <b>can</b> declare the {@code SampledImageArrayDynamicIndexing} capability.</li>
+ * <li>{@code shaderStorageBufferArrayDynamicIndexing} indicates whether arrays of storage buffers <b>can</b> be indexed by dynamically uniform integer expressions in shader code. If this feature is not enabled, resources with a descriptor type of {@link VK10#VK_DESCRIPTOR_TYPE_STORAGE_BUFFER DESCRIPTOR_TYPE_STORAGE_BUFFER} or {@link VK10#VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC} <b>must</b> be indexed only by constant integral expressions when aggregated into arrays in shader code. This also indicates whether shader modules <b>can</b> declare the {@code StorageBufferArrayDynamicIndexing} capability.</li>
+ * <li>{@code shaderStorageImageArrayDynamicIndexing} indicates whether arrays of storage images <b>can</b> be indexed by dynamically uniform integer expressions in shader code. If this feature is not enabled, resources with a descriptor type of {@link VK10#VK_DESCRIPTOR_TYPE_STORAGE_IMAGE DESCRIPTOR_TYPE_STORAGE_IMAGE} <b>must</b> be indexed only by constant integral expressions when aggregated into arrays in shader code. This also indicates whether shader modules <b>can</b> declare the {@code StorageImageArrayDynamicIndexing} capability.</li>
+ * <li>{@code shaderClipDistance} indicates whether clip distances are supported in shader code. If this feature is not enabled, any members decorated with the {@code ClipDistance} built-in decoration <b>must</b> not be read from or written to in shader modules. This also indicates whether shader modules <b>can</b> declare the {@code ClipDistance} capability.</li>
+ * <li>{@code shaderCullDistance} indicates whether cull distances are supported in shader code. If this feature is not enabled, any members decorated with the {@code CullDistance} built-in decoration <b>must</b> not be read from or written to in shader modules. This also indicates whether shader modules <b>can</b> declare the {@code CullDistance} capability.</li>
+ * <li>{@code shaderFloat64} indicates whether 64-bit floats (doubles) are supported in shader code. If this feature is not enabled, 64-bit floating-point types <b>must</b> not be used in shader code. This also indicates whether shader modules <b>can</b> declare the {@code Float64} capability.</li>
+ * <li>{@code shaderInt64} indicates whether 64-bit integers (signed and unsigned) are supported in shader code. If this feature is not enabled, 64-bit integer types <b>must</b> not be used in shader code. This also indicates whether shader modules <b>can</b> declare the {@code Int64} capability.</li>
+ * <li>{@code shaderInt16} indicates whether 16-bit integers (signed and unsigned) are supported in shader code. If this feature is not enabled, 16-bit integer types <b>must</b> not be used in shader code. This also indicates whether shader modules <b>can</b> declare the {@code Int16} capability.</li>
+ * <li>{@code shaderResourceResidency} indicates whether image operations that return resource residency information are supported in shader code. If this feature is not enabled, the {@code OpImageSparse}* instructions <b>must</b> not be used in shader code. This also indicates whether shader modules <b>can</b> declare the {@code SparseResidency} capability. The feature requires at least one of the ptext:sparseResidency* features to be supported.</li>
+ * <li>{@code shaderResourceMinLod} indicates whether image operations that specify the minimum resource level-of-detail (LOD) are supported in shader code. If this feature is not enabled, the {@code MinLod} image operand <b>must</b> not be used in shader code. This also indicates whether shader modules <b>can</b> declare the {@code MinLod} capability.</li>
+ * <li>{@code sparseBinding} indicates whether resource memory <b>can</b> be managed at opaque sparse block level instead of at the object level. If this feature is not enabled, resource memory <b>must</b> be bound only on a per-object basis using the {@link VK10#vkBindBufferMemory BindBufferMemory} and {@link VK10#vkBindImageMemory BindImageMemory} commands. In this case, buffers and images <b>must</b> not be created with {@link VK10#VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT} and {@link VK10#VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT} set in the {@code flags} member of the {@link VkBufferCreateInfo} and {@link VkImageCreateInfo} structures, respectively. Otherwise resource memory <b>can</b> be managed as described in <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#sparsememory-sparseresourcefeatures">Sparse Resource Features</a>.</li>
+ * <li>{@code sparseResidencyBuffer} indicates whether the device <b>can</b> access partially resident buffers. If this feature is not enabled, buffers <b>must</b> not be created with {@link VK10#VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT BUFFER_CREATE_SPARSE_RESIDENCY_BIT} set in the {@code flags} member of the {@link VkBufferCreateInfo} structure.</li>
+ * <li>{@code sparseResidencyImage2D} indicates whether the device <b>can</b> access partially resident 2D images with 1 sample per pixel. If this feature is not enabled, images with an {@code imageType} of {@link VK10#VK_IMAGE_TYPE_2D IMAGE_TYPE_2D} and {@code samples} set to {@link VK10#VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT} <b>must</b> not be created with {@link VK10#VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT} set in the {@code flags} member of the {@link VkImageCreateInfo} structure.</li>
+ * <li>{@code sparseResidencyImage3D} indicates whether the device <b>can</b> access partially resident 3D images. If this feature is not enabled, images with an {@code imageType} of {@link VK10#VK_IMAGE_TYPE_3D IMAGE_TYPE_3D} <b>must</b> not be created with {@link VK10#VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT} set in the {@code flags} member of the {@link VkImageCreateInfo} structure.</li>
+ * <li>{@code sparseResidency2Samples} indicates whether the physical device <b>can</b> access partially resident 2D images with 2 samples per pixel. If this feature is not enabled, images with an {@code imageType} of {@link VK10#VK_IMAGE_TYPE_2D IMAGE_TYPE_2D} and {@code samples} set to {@link VK10#VK_SAMPLE_COUNT_2_BIT SAMPLE_COUNT_2_BIT} <b>must</b> not be created with {@link VK10#VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT} set in the {@code flags} member of the {@link VkImageCreateInfo} structure.</li>
+ * <li>{@code sparseResidency4Samples} indicates whether the physical device <b>can</b> access partially resident 2D images with 4 samples per pixel. If this feature is not enabled, images with an {@code imageType} of {@link VK10#VK_IMAGE_TYPE_2D IMAGE_TYPE_2D} and {@code samples} set to {@link VK10#VK_SAMPLE_COUNT_4_BIT SAMPLE_COUNT_4_BIT} <b>must</b> not be created with {@link VK10#VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT} set in the {@code flags} member of the {@link VkImageCreateInfo} structure.</li>
+ * <li>{@code sparseResidency8Samples} indicates whether the physical device <b>can</b> access partially resident 2D images with 8 samples per pixel. If this feature is not enabled, images with an {@code imageType} of {@link VK10#VK_IMAGE_TYPE_2D IMAGE_TYPE_2D} and {@code samples} set to {@link VK10#VK_SAMPLE_COUNT_8_BIT SAMPLE_COUNT_8_BIT} <b>must</b> not be created with {@link VK10#VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT} set in the {@code flags} member of the {@link VkImageCreateInfo} structure.</li>
+ * <li>{@code sparseResidency16Samples} indicates whether the physical device <b>can</b> access partially resident 2D images with 16 samples per pixel. If this feature is not enabled, images with an {@code imageType} of {@link VK10#VK_IMAGE_TYPE_2D IMAGE_TYPE_2D} and {@code samples} set to {@link VK10#VK_SAMPLE_COUNT_16_BIT SAMPLE_COUNT_16_BIT} <b>must</b> not be created with {@link VK10#VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT} set in the {@code flags} member of the {@link VkImageCreateInfo} structure.</li>
+ * <li>{@code sparseResidencyAliased} indicates whether the physical device <b>can</b> correctly access data aliased into multiple locations. If this feature is not enabled, the {@link VK10#VK_BUFFER_CREATE_SPARSE_ALIASED_BIT BUFFER_CREATE_SPARSE_ALIASED_BIT} and {@link VK10#VK_IMAGE_CREATE_SPARSE_ALIASED_BIT IMAGE_CREATE_SPARSE_ALIASED_BIT} enum values <b>must</b> not be used in {@code flags} members of the {@link VkBufferCreateInfo} and {@link VkImageCreateInfo} structures, respectively.</li>
+ * <li>{@code variableMultisampleRate} indicates whether all pipelines that will be bound to a command buffer during a subpass with no attachments <b>must</b> have the same value for {@link VkPipelineMultisampleStateCreateInfo}{@code ::rasterizationSamples}. If set to {@link VK10#VK_TRUE TRUE}, the implementation supports variable multisample rates in a subpass with no attachments. If set to {@link VK10#VK_FALSE FALSE}, then all pipelines bound in such a subpass <b>must</b> have the same multisample rate. This has no effect in situations where a subpass uses any attachments.</li>
+ * <li>{@code inheritedQueries} indicates whether a secondary command buffer <b>may</b> be executed while a query is active.</li>
+ * </ul>
  * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>If any member of this structure is {@link VK10#VK_FALSE FALSE}, as returned by {@link VK10#vkGetPhysicalDeviceFeatures GetPhysicalDeviceFeatures}, then it <b>must</b> be {@link VK10#VK_FALSE FALSE} when passed as part of the
- * {@link VkDeviceCreateInfo} struct when creating a device</li>
+ * <li>If any member of this structure is {@link VK10#VK_FALSE FALSE}, as returned by {@link VK10#vkGetPhysicalDeviceFeatures GetPhysicalDeviceFeatures}, then it <b>must</b> be {@link VK10#VK_FALSE FALSE} when passed as part of the {@link VkDeviceCreateInfo} struct when creating a device</li>
  * </ul>
  * 
- * <h3>Member documentation</h3>
+ * <h5>See Also</h5>
  * 
- * <ul>
- * <li>{@code robustBufferAccess} &ndash; indicates that out of bounds accesses to buffers via shader operations are well-defined</li>
- * <li>{@code fullDrawIndexUint32} &ndash; indicates the full 32-bit range of indices is supported for indexed draw calls when using a VkIndexType of {@link VK10#VK_INDEX_TYPE_UINT32 INDEX_TYPE_UINT32}</li>
- * <li>{@code imageCubeArray} &ndash; 
- * indicates whether image views with a {@code VkImageViewType} of {@link VK10#VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY} <b>can</b> be created, and that the corresponding
- * <b>SampledCubeArray</b> and <b>ImageCubeArray</b> SPIR-V capabilities <b>can</b> be used in shader code</li>
- * <li>{@code independentBlend} &ndash; indicates whether the {@link VkPipelineColorBlendAttachmentState} settings are controlled independently per-attachment</li>
- * <li>{@code geometryShader} &ndash; indicates whether geometry shaders are supported</li>
- * <li>{@code tessellationShader} &ndash; indicates whether tessellation control and evaluation shaders are supported</li>
- * <li>{@code sampleRateShading} &ndash; indicates whether per-sample shading and multisample interpolation are supported</li>
- * <li>{@code dualSrcBlend} &ndash; indicates whether blend operations which take two sources are supported</li>
- * <li>{@code logicOp} &ndash; indicates whether logic operations are supported</li>
- * <li>{@code multiDrawIndirect} &ndash; indicates whether multiple draw indirect is supported</li>
- * <li>{@code drawIndirectFirstInstance} &ndash; indicates whether indirect draw calls support the {@code firstInstance} parameter</li>
- * <li>{@code depthClamp} &ndash; indicates whether depth clamping is supported</li>
- * <li>{@code depthBiasClamp} &ndash; indicates whether depth bias clamping is supported</li>
- * <li>{@code fillModeNonSolid} &ndash; indicates whether point and wireframe fill modes are supported</li>
- * <li>{@code depthBounds} &ndash; indicates whether depth bounds tests are supported</li>
- * <li>{@code wideLines} &ndash; indicates whether lines with width other than 1.0 are supported</li>
- * <li>{@code largePoints} &ndash; indicates whether points with size greater than 1.0 are supported</li>
- * <li>{@code alphaToOne} &ndash; 
- * indicates whether the implementation is able to replace the alpha value of the color fragment output from the fragment shader with the maximum
- * representable alpha value for fixed-point colors or 1.0 for floating-point colors</li>
- * <li>{@code multiViewport} &ndash; indicates whether more than one viewport is supported</li>
- * <li>{@code samplerAnisotropy} &ndash; indicates whether anisotropic filtering is supported</li>
- * <li>{@code textureCompressionETC2} &ndash; indicates whether the ETC2 and EAC compressed texture formats are supported</li>
- * <li>{@code textureCompressionASTC_LDR} &ndash; indicates whether the ASTC LDR compressed texture formats are supported</li>
- * <li>{@code textureCompressionBC} &ndash; indicates whether the BC compressed texture formats are supported</li>
- * <li>{@code occlusionQueryPrecise} &ndash; indicates whether occlusion queries returning actual sample counts are supported</li>
- * <li>{@code pipelineStatisticsQuery} &ndash; indicates whether the pipeline statistics queries are supported</li>
- * <li>{@code vertexPipelineStoresAndAtomics} &ndash; indicates whether storage buffers and images support stores and atomic operations in the vertex, tessellation, and geometry shader stages</li>
- * <li>{@code fragmentStoresAndAtomics} &ndash; indicates whether storage buffers and images support stores and atomic operations in the fragment shader stage</li>
- * <li>{@code shaderTessellationAndGeometryPointSize} &ndash; 
- * indicates whether the {@code PointSize} built-in decoration is available in the tessellation control, tessellation evaluation, and geometry shader
- * stages</li>
- * <li>{@code shaderImageGatherExtended} &ndash; indicates whether the extended set of image gather instructions are available in shader code</li>
- * <li>{@code shaderStorageImageExtendedFormats} &ndash; indicates whether the extended storage image formats are available in shader code</li>
- * <li>{@code shaderStorageImageMultisample} &ndash; indicates whether multisampled storage images are supported</li>
- * <li>{@code shaderStorageImageReadWithoutFormat} &ndash; indicates whether storage images require a format qualifier to be specified when reading from storage images</li>
- * <li>{@code shaderStorageImageWriteWithoutFormat} &ndash; indicates whether storage images require a format qualifier to be specified when writing to storage images</li>
- * <li>{@code shaderUniformBufferArrayDynamicIndexing} &ndash; indicates whether arrays of uniform buffers <b>can</b> be indexed by dynamically uniform integer expressions in shader code</li>
- * <li>{@code shaderSampledImageArrayDynamicIndexing} &ndash; indicates whether arrays of samplers or sampled images <b>can</b> be indexed by dynamically uniform integer expressions in shader code</li>
- * <li>{@code shaderStorageBufferArrayDynamicIndexing} &ndash; indicates whether arrays of storage buffers <b>can</b> be indexed by dynamically uniform integer expressions in shader code</li>
- * <li>{@code shaderStorageImageArrayDynamicIndexing} &ndash; indicates whether arrays of storage images <b>can</b> be indexed by dynamically uniform integer expressions in shader code</li>
- * <li>{@code shaderClipDistance} &ndash; indicates whether clip distances are supported in shader code</li>
- * <li>{@code shaderCullDistance} &ndash; indicates whether cull distances are supported in shader code</li>
- * <li>{@code shaderFloat64} &ndash; indicates whether 64-bit floats (doubles) are supported in shader code</li>
- * <li>{@code shaderInt64} &ndash; indicates whether 64-bit integers (signed and unsigned) are supported in shader code</li>
- * <li>{@code shaderInt16} &ndash; indicates whether 16-bit integers (signed and unsigned) are supported in shader code</li>
- * <li>{@code shaderResourceResidency} &ndash; indicates whether image operations that return resource residency information are supported in shader code</li>
- * <li>{@code shaderResourceMinLod} &ndash; indicates whether image operations that specify the minimum resource level-of-detail (LOD) are supported in shader code</li>
- * <li>{@code sparseBinding} &ndash; indicates whether resource memory <b>can</b> be managed at opaque sparse block level instead of at the object level</li>
- * <li>{@code sparseResidencyBuffer} &ndash; indicates whether the device <b>can</b> access partially resident buffers</li>
- * <li>{@code sparseResidencyImage2D} &ndash; indicates whether the device <b>can</b> access partially resident 2D images with 1 sample per pixel</li>
- * <li>{@code sparseResidencyImage3D} &ndash; indicates whether the device <b>can</b> access partially resident 3D images</li>
- * <li>{@code sparseResidency2Samples} &ndash; indicates whether the physical device <b>can</b> access partially resident 2D images with 2 samples per pixel</li>
- * <li>{@code sparseResidency4Samples} &ndash; indicates whether the physical device <b>can</b> access partially resident 2D images with 4 samples per pixel</li>
- * <li>{@code sparseResidency8Samples} &ndash; indicates whether the physical device <b>can</b> access partially resident 2D images with 8 samples per pixel</li>
- * <li>{@code sparseResidency16Samples} &ndash; indicates whether the physical device <b>can</b> access partially resident 2D images with 16 samples per pixel</li>
- * <li>{@code sparseResidencyAliased} &ndash; indicates whether the physical device <b>can</b> correctly access data aliased into multiple locations</li>
- * <li>{@code variableMultisampleRate} &ndash; 
- * indicates whether all pipelines that will be bound to a command buffer during a subpass with no attachments must have the same value for
- * {@link VkPipelineMultisampleStateCreateInfo}{@code ::rasterizationSamples}</li>
- * <li>{@code inheritedQueries} &ndash; indicates whether a secondary command buffer may be executed while a query is active</li>
- * </ul>
+ * <p>{@link VkDeviceCreateInfo}, {@link VK10#vkGetPhysicalDeviceFeatures GetPhysicalDeviceFeatures}</p>
  * 
  * <h3>Layout</h3>
  * 

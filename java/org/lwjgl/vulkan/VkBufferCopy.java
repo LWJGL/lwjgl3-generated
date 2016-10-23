@@ -14,17 +14,14 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkBufferCopy.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkBufferCopy">Vulkan Specification</a>
- * 
- * <p>Specifies a buffer regions to copy.</p>
+ * Structure specifying a buffer copy operation.
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code srcOffset} &ndash; the starting offset in bytes from the start of {@code srcBuffer}</li>
- * <li>{@code dstOffset} &ndash; the starting offset in bytes from the start of {@code dstBuffer}</li>
- * <li>{@code size} &ndash; the number of bytes to copy</li>
+ * <li>{@code srcOffset} &ndash; the starting offset in bytes from the start of {@code srcBuffer}.</li>
+ * <li>{@code dstOffset} &ndash; the starting offset in bytes from the start of {@code dstBuffer}.</li>
+ * <li>{@code size} &ndash; the number of bytes to copy.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

@@ -15,10 +15,9 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * When creating a Vulkan instance for which you wish to disable validation checks, add a {@code VkValidationFlagsEXT} structure to the {@code pNext}
- * chain of the {@link VkInstanceCreateInfo} structure, specifying the checks to be disabled.
+ * Specify validation checks to disable for a Vulkan instance.
  * 
- * <h5>Valid Usage</h5>
+ * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link EXTValidationFlags#VK_STRUCTURE_TYPE_VALIDATION_FLAGS_EXT STRUCTURE_TYPE_VALIDATION_FLAGS_EXT}</li>
@@ -30,10 +29,18 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure. Must be: {@link EXTValidationFlags#VK_STRUCTURE_TYPE_VALIDATION_FLAGS_EXT STRUCTURE_TYPE_VALIDATION_FLAGS_EXT}</li>
- * <li>{@code pNext} &ndash; reserved for use by extensions</li>
- * <li>{@code disabledValidationCheckCount} &ndash; the number of checks to disable</li>
- * <li>{@code pDisabledValidationChecks} &ndash; a pointer to an array of values specifying the validation checks to be disabled. One or more of:<br><table><tr><td>{@link EXTValidationFlags#VK_VALIDATION_CHECK_ALL_EXT VALIDATION_CHECK_ALL_EXT}</td></tr></table></li>
+ * <li>{@code sType} &ndash; the type of this structure.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
+ * <li>{@code disabledValidationCheckCount} &ndash; the number of checks to disable.</li>
+ * <li>{@code pDisabledValidationChecks} &ndash; a pointer to an array of values specifying the validation checks to be disabled. Checks which <b>may</b> be specified include:
+ * 
+ * <pre><code>typedef enum VkValidationCheckEXT {
+    VK_VALIDATION_CHECK_ALL_EXT = 0,
+} VkValidationCheckEXT;</code></pre>
+ * 
+ * <ul>
+ * <li>{@link EXTValidationFlags#VK_VALIDATION_CHECK_ALL_EXT VALIDATION_CHECK_ALL_EXT} disables all validation checks.</li>
+ * </ul></li>
  * </ul>
  * 
  * <h3>Layout</h3>

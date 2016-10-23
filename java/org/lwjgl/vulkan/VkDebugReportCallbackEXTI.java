@@ -10,13 +10,36 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /**
- * Instances of this interface may be set to the {@code pfnCallback} member of the {@link VkDebugReportCallbackCreateInfoEXT} struct.
+ * Application-defined debug report callback function.
  * 
- * <p>A callback will be made for issues that match any bit set in its flags. The callback will come directly from the component that detected the event,
- * unless some other layer intercepts the calls for its own purposes (filter them in different way, log to system error log, etc.) An application may
- * receive multiple callbacks if multiple {@code VkDebugReportCallbackEXT} objects were created. A callback will always be executed in the same thread as
- * the originating Vulkan call. A callback may be called from multiple threads simultaneously (if the application is making Vulkan calls from multiple
- * threads).</p>
+ * <h5>C Specification</h5>
+ * 
+ * <p>The prototype for the callback function implemented by the application is:</p>
+ * 
+ * <pre><code>typedef VkBool32 (VKAPI_PTR *PFN_vkDebugReportCallbackEXT)(
+    VkDebugReportFlagsEXT                       flags,
+    VkDebugReportObjectTypeEXT                  objectType,
+    uint64_t                                    object,
+    size_t                                      location,
+    int32_t                                     messageCode,
+    const char*                                 pLayerPrefix,
+    const char*                                 pMessage,
+    void*                                       pUserData);</code></pre>
+ * 
+ * <h5>Description</h5>
+ * 
+ * <p>The callback returns a {@code VkBool32} that indicates to the calling layer if the Vulkan call <b>should</b> be aborted or not. Applications <b>should</b> always return {@link VK10#VK_FALSE FALSE} so that they see the same behavior with and without validation layers enabled.</p>
+ * 
+ * <p>If the application returns {@link VK10#VK_TRUE TRUE} from its callback and the Vulkan call being aborted returns a {@code VkResult}, the layer will return {@link EXTDebugReport#VK_ERROR_VALIDATION_FAILED_EXT ERROR_VALIDATION_FAILED_EXT}.</p>
+ * 
+ * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+ * 
+ * <p>The primary expected use of {@link EXTDebugReport#VK_ERROR_VALIDATION_FAILED_EXT ERROR_VALIDATION_FAILED_EXT} is for validation layer testing. It is not expected that an application would see this error code during normal use of the validation layers.</p>
+ * </div>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkDebugReportCallbackCreateInfoEXT}</p>
  */
 @FunctionalInterface
 public interface VkDebugReportCallbackEXTI extends CallbackI.I {
@@ -41,19 +64,16 @@ public interface VkDebugReportCallbackEXTI extends CallbackI.I {
 	}
 
 	/**
-	 * Will be called by the Vulkan implementation for events of interest to the application.
+	 * Application-defined debug report callback function.
 	 *
-	 * @param flags        indicates the {@code VkDebugReportFlagBitsEXT} that triggered this callback
-	 * @param objectType   the type of object being used / created at the time the event was triggered.
-	 * @param object       gives the object where the issue was detected. {@code object} may be {@link VK10#VK_NULL_HANDLE NULL_HANDLE} if there is no object associated with the event.
-	 * @param location     location is a component (layer, driver, loader) defined value that indicates the "location" of the trigger. This is an optional value.
-	 * @param messageCode  a layer defined value indicating what test triggered this callback
-	 * @param pLayerPrefix abbreviation of the component making the callback
-	 * @param pMessage     a null terminated string detailing the trigger conditions
-	 * @param pUserData    the user data given when the {@code DebugReportCallback} was created
-	 *
-	 * @return a {@code VkBool32} that indicates to the calling layer if the Vulkan call should be aborted or not. Applications should always return {@link VK10#VK_FALSE FALSE} so that
-	 *         they see the same behavior with and without validation layers enabled.
+	 * @param flags        indicates the {@code VkDebugReportFlagBitsEXT} that triggered this callback.
+	 * @param objectType   a {@code VkDebugReportObjectTypeEXT} specifying the type of object being used or created at the time the event was triggered.
+	 * @param object       gives the object where the issue was detected. {@code object} may be {@link #NULL_OBJECT} if there is no object associated with the event.
+	 * @param location     a component (layer, driver, loader) defined value that indicates the <em>location</em> of the trigger. This is an optional value.
+	 * @param messageCode  a layer-defined value indicating what test triggered this callback.
+	 * @param pLayerPrefix the abbreviation of the component making the callback.
+	 * @param pMessage     a null-terminated string detailing the trigger conditions.
+	 * @param pUserData    the user data given when the DebugReportCallback was created.
 	 */
 	int invoke(int flags, int objectType, long object, long location, int messageCode, long pLayerPrefix, long pMessage, long pUserData);
 

@@ -14,22 +14,27 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkClearValue.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkClearValue">Vulkan Specification</a>
+ * Structure specifying a clear value.
  * 
- * <p>Specifies the color or depth/stencil value to clear an attachment to.</p>
+ * <h5>Description</h5>
  * 
- * <h5>Valid Usage</h5>
+ * <p>This union is used where part of the API requires either color or depth/stencil clear values, depending on the attachment, and defines the initial clear values in the {@link VkRenderPassBeginInfo} structure.</p>
+ * 
+ * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code depthStencil} <b>must</b> be a valid {@link VkClearDepthStencilValue} structure</li>
  * </ul>
  * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkClearAttachment}, {@link VkClearColorValue}, {@link VkClearDepthStencilValue}, {@link VkRenderPassBeginInfo}</p>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code color} &ndash; the color image clear values to use when clearing a color image or attachment</li>
- * <li>{@code depthStencil} &ndash; the depth and stencil clear values to use when clearing a depth/stencil image or attachment</li>
+ * <li>{@code color} &ndash; specifies the color image clear values to use when clearing a color image or attachment.</li>
+ * <li>{@code depthStencil} &ndash; specifies the depth and stencil clear values to use when clearing a depth/stencil image or attachment.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

@@ -14,41 +14,32 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkSurfaceCapabilitiesKHR.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkSurfaceCapabilitiesKHR">Vulkan Specification</a>
+ * Structure describing capabilities of a surface.
  * 
- * <p>Contains the basic capabilities of a surface.</p>
+ * <h5>Description</h5>
  * 
- * <h5>Valid Usage</h5>
+ * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
  * 
- * <ul>
- * <li>{@code supportedTransforms} <b>must</b> be a valid combination of {@code VkSurfaceTransformFlagBitsKHR} values</li>
- * <li>{@code currentTransform} <b>must</b> be a valid {@code VkSurfaceTransformFlagBitsKHR} value</li>
- * <li>{@code supportedCompositeAlpha} <b>must</b> be a valid combination of {@code VkCompositeAlphaFlagBitsKHR} values</li>
- * <li>{@code supportedUsageFlags} <b>must</b> be a valid combination of {@code VkImageUsageFlagBits} values</li>
- * </ul>
+ * <p>Formulas such as <code>min(N, maxImageCount)</code> are not correct, since {@code maxImageCount} <b>may</b> be zero.</p>
+ * </div>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkExtent2D}, {@link KHRSurface#vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code minImageCount} &ndash; the minimum number of images the specified device supports for a swapchain created for the surface</li>
- * <li>{@code maxImageCount} &ndash; 
- * the maximum number of images the specified device supports for a swapchain created for the surface. A value of 0 means that there is no limit on the
- * number of images, though there <b>may</b> be limits related to the total amount of memory used by swapchain images.</li>
- * <li>{@code currentExtent} &ndash; 
- * the current width and height of the surface, or the special value {@code (0xFFFFFFFF,0xFFFFFFFF)} indicating that the surface size will be determined
- * by the extent of a swapchain targeting the surface</li>
- * <li>{@code minImageExtent} &ndash; the smallest valid swapchain extent for the surface on the specified device</li>
- * <li>{@code maxImageExtent} &ndash; the largest valid swapchain extent for the surface on the specified device</li>
- * <li>{@code maxImageArrayLayers} &ndash; the maximum number of layers swapchain images can have for a swapchain created for this device and surface</li>
- * <li>{@code supportedTransforms} &ndash; a bitfield of {@code VkSurfaceTransformFlagBitsKHR}, describing the presentation transforms supported for the surface on the specified device. One or more of:<br><table><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_BIT_KHR SURFACE_TRANSFORM_HORIZONTAL_MIRROR_BIT_KHR}</td></tr><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_180_BIT_KHR SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_180_BIT_KHR}</td></tr><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_270_BIT_KHR SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_270_BIT_KHR}</td></tr><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_90_BIT_KHR SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_90_BIT_KHR}</td></tr><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR SURFACE_TRANSFORM_IDENTITY_BIT_KHR}</td></tr><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_INHERIT_BIT_KHR SURFACE_TRANSFORM_INHERIT_BIT_KHR}</td></tr><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_ROTATE_180_BIT_KHR SURFACE_TRANSFORM_ROTATE_180_BIT_KHR}</td></tr><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_ROTATE_270_BIT_KHR SURFACE_TRANSFORM_ROTATE_270_BIT_KHR}</td></tr><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_ROTATE_90_BIT_KHR SURFACE_TRANSFORM_ROTATE_90_BIT_KHR}</td></tr></table></li>
- * <li>{@code currentTransform} &ndash; a bitfield of {@code VkSurfaceTransformFlagBitsKHR}, describing the surface’s current transform relative to the presentation engine’s natural
- * orientation. One of:<br><table><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_BIT_KHR SURFACE_TRANSFORM_HORIZONTAL_MIRROR_BIT_KHR}</td></tr><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_180_BIT_KHR SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_180_BIT_KHR}</td></tr><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_270_BIT_KHR SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_270_BIT_KHR}</td></tr><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_90_BIT_KHR SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_90_BIT_KHR}</td></tr><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR SURFACE_TRANSFORM_IDENTITY_BIT_KHR}</td></tr><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_INHERIT_BIT_KHR SURFACE_TRANSFORM_INHERIT_BIT_KHR}</td></tr><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_ROTATE_180_BIT_KHR SURFACE_TRANSFORM_ROTATE_180_BIT_KHR}</td></tr><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_ROTATE_270_BIT_KHR SURFACE_TRANSFORM_ROTATE_270_BIT_KHR}</td></tr><tr><td>{@link KHRSurface#VK_SURFACE_TRANSFORM_ROTATE_90_BIT_KHR SURFACE_TRANSFORM_ROTATE_90_BIT_KHR}</td></tr></table></li>
- * <li>{@code supportedCompositeAlpha} &ndash; a bitfield of {@code VkCompositeAlphaFlagBitsKHR}, representing the alpha compositing modes supported by the presentation engine for the surface on the
- * specified device. Opaque composition can be achieved in any alpha compositing mode by either using a swapchain image format that has no alpha
- * component, or by ensuring that all pixels in the swapchain images have an alpha value of 1.0. One or more of:<br><table><tr><td>{@link KHRSurface#VK_COMPOSITE_ALPHA_INHERIT_BIT_KHR COMPOSITE_ALPHA_INHERIT_BIT_KHR}</td><td>{@link KHRSurface#VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR COMPOSITE_ALPHA_OPAQUE_BIT_KHR}</td></tr><tr><td>{@link KHRSurface#VK_COMPOSITE_ALPHA_POST_MULTIPLIED_BIT_KHR COMPOSITE_ALPHA_POST_MULTIPLIED_BIT_KHR}</td><td>{@link KHRSurface#VK_COMPOSITE_ALPHA_PRE_MULTIPLIED_BIT_KHR COMPOSITE_ALPHA_PRE_MULTIPLIED_BIT_KHR}</td></tr></table></li>
- * <li>{@code supportedUsageFlags} &ndash; a bitfield of {@code VkImageUsageFlagBits} representing the ways the application can use the presentable images of a swapchain created for the surface
- * on the specified device. {@link VK10#VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT} must be included in the set but implementations may support additional usages. One or more of:<br><table><tr><td>{@link VK10#VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT}</td><td>{@link VK10#VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT}</td></tr><tr><td>{@link VK10#VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT}</td><td>{@link VK10#VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT}</td></tr><tr><td>{@link VK10#VK_IMAGE_USAGE_STORAGE_BIT IMAGE_USAGE_STORAGE_BIT}</td><td>{@link VK10#VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT}</td></tr><tr><td>{@link VK10#VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT}</td><td>{@link VK10#VK_IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT}</td></tr></table></li>
+ * <li>{@code minImageCount} &ndash; the minimum number of images the specified device supports for a swapchain created for the surface.</li>
+ * <li>{@code maxImageCount} &ndash; the maximum number of images the specified device supports for a swapchain created for the surface. A value of 0 means that there is no limit on the number of images, though there <b>may</b> be limits related to the total amount of memory used by swapchain images.</li>
+ * <li>{@code currentExtent} &ndash; the current width and height of the surface, or the special value <code>(0xFFFFFFFF, 0xFFFFFFFF)</code> indicating that the surface size will be determined by the extent of a swapchain targeting the surface.</li>
+ * <li>{@code minImageExtent} &ndash; contains the smallest valid swapchain extent for the surface on the specified device.</li>
+ * <li>{@code maxImageExtent} &ndash; contains the largest valid swapchain extent for the surface on the specified device.</li>
+ * <li>{@code maxImageArrayLayers} &ndash; the maximum number of layers swapchain images <b>can</b> have for a swapchain created for this device and surface.</li>
+ * <li>{@code supportedTransforms} &ndash; a bitmask of {@code VkSurfaceTransformFlagBitsKHR}, describing the presentation transforms supported for the surface on the specified device.</li>
+ * <li>{@code currentTransform} &ndash; a bitmask of {@code VkSurfaceTransformFlagBitsKHR}, describing the surface&#8217;s current transform relative to the presentation engine&#8217;s natural orientation.</li>
+ * <li>{@code supportedCompositeAlpha} &ndash; a bitmask of {@code VkCompositeAlphaFlagBitsKHR}, representing the alpha compositing modes supported by the presentation engine for the surface on the specified device. Opaque composition <b>can</b> be achieved in any alpha compositing mode by either using a swapchain image format that has no alpha component, or by ensuring that all pixels in the swapchain images have an alpha value of 1.0.</li>
+ * <li>{@code supportedUsageFlags} &ndash; a bitmask of {@code VkImageUsageFlagBits} representing the ways the application <b>can</b> use the presentable images of a swapchain created for the surface on the specified device. {@link VK10#VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT} <b>must</b> be included in the set but implementations <b>may</b> support additional usages.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

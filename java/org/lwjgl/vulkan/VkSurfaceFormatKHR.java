@@ -14,23 +14,13 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkSurfaceFormatKHR.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkSurfaceFormatKHR">Vulkan Specification</a>
- * 
- * <p>Describes a surface format.</p>
- * 
- * <h5>Valid Usage</h5>
- * 
- * <ul>
- * <li>{@code format} <b>must</b> be a valid {@code VkFormat} value</li>
- * <li>{@code colorSpace} <b>must</b> be a valid {@code VkColorSpaceKHR} value</li>
- * </ul>
+ * Structure describing a supported swapchain format-color space pair.
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code format} &ndash; a {@code VkFormat} that is compatible with the surface</li>
- * <li>{@code colorSpace} &ndash; a presentation {@code VkColorSpaceKHR} that is compatible with the surface. Must be:<br><table><tr><td>{@link KHRSurface#VK_COLOR_SPACE_SRGB_NONLINEAR_KHR COLOR_SPACE_SRGB_NONLINEAR_KHR}</td></tr></table></li>
+ * <li>{@code format} &ndash; a {@code VkFormat} that is compatible with the specified surface.</li>
+ * <li>{@code colorSpace} &ndash; a presentation {@code VkColorSpaceKHR} that is compatible with the surface.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

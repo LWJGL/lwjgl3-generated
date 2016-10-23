@@ -14,27 +14,43 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkCommandPoolCreateInfo.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkCommandPoolCreateInfo">Vulkan Specification</a>
- * 
- * <p>Contains information about how a command pool should be created.</p>
+ * Structure specifying parameters of a newly created command pool.
  * 
  * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code queueFamilyIndex} <b>must</b> be the index of a queue family available in the calling command&#8217;s {@code device} parameter</li>
+ * </ul>
+ * 
+ * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code flags} <b>must</b> be a valid combination of {@code VkCommandPoolCreateFlagBits} values</li>
- * <li>{@code queueFamilyIndex} <b>must</b> be the index of a queue family available in the calling command's {@code device} parameter</li>
  * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VK10#vkCreateCommandPool CreateCommandPool}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO}</li>
- * <li>{@code pNext} &ndash; reserved for use by extensions</li>
- * <li>{@code flags} &ndash; a bitmask indicating usage behavior for the pool and command buffers allocated from it. One or more of:<br><table><tr><td>{@link VK10#VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT}</td><td>{@link VK10#VK_COMMAND_POOL_CREATE_TRANSIENT_BIT COMMAND_POOL_CREATE_TRANSIENT_BIT}</td></tr></table></li>
- * <li>{@code queueFamilyIndex} &ndash; designates a queue family</li>
+ * <li>{@code sType} &ndash; the type of this structure.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
+ * <li>{@code flags} &ndash; a bitmask indicating usage behavior for the pool and command buffers allocated from it. Bits which <b>can</b> be set include:
+ * 
+ * <pre><code>typedef enum VkCommandPoolCreateFlagBits {
+    VK_COMMAND_POOL_CREATE_TRANSIENT_BIT = 0x00000001,
+    VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT = 0x00000002,
+} VkCommandPoolCreateFlagBits;</code></pre>
+ * 
+ * <ul>
+ * <li>{@link VK10#VK_COMMAND_POOL_CREATE_TRANSIENT_BIT COMMAND_POOL_CREATE_TRANSIENT_BIT} indicates that command buffers allocated from the pool will be short-lived, meaning that they will be reset or freed in a relatively short timeframe. This flag <b>may</b> be used by the implementation to control memory allocation behavior within the pool.</li>
+ * <li>{@link VK10#VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT} controls whether command buffers allocated from the pool <b>can</b> be individually reset. If this flag is set, individual command buffers allocated from the pool <b>can</b> be reset either explicitly, by calling {@link VK10#vkResetCommandBuffer ResetCommandBuffer}, or implicitly, by calling {@link VK10#vkBeginCommandBuffer BeginCommandBuffer} on an executable command buffer. If this flag is not set, then {@link VK10#vkResetCommandBuffer ResetCommandBuffer} and {@link VK10#vkBeginCommandBuffer BeginCommandBuffer} (on an executable command buffer) <b>must</b> not be called on the command buffers allocated from the pool, and they <b>can</b> only be reset in bulk by calling {@link VK10#vkResetCommandPool ResetCommandPool}.</li>
+ * </ul></li>
+ * <li>{@code queueFamilyIndex} &ndash; designates a queue family as described in section <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#devsandqueues-queueprops">Queue Family Properties</a>. All command buffers allocated from this command pool <b>must</b> be submitted on queues from the same queue family.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

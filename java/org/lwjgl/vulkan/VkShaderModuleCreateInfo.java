@@ -15,41 +15,40 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkShaderModuleCreateInfo.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkShaderModuleCreateInfo">Vulkan Specification</a>
- * 
- * <p>Contains information about how a shader module should be created.</p>
+ * Structure specifying parameters of a newly created shader module.
  * 
  * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code codeSize} <b>must</b> be greater than 0</li>
+ * <li>{@code codeSize} <b>must</b> be a multiple of 4. If the {@code VK_NV_glsl_shader extension} is enabled and {@code pCode} references GLSL code {@code codeSize} can be a multiple of 1</li>
+ * <li>{@code pCode} <b>must</b> point to valid SPIR-V code, formatted and packed as described by the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#spirv-spec">Khronos SPIR-V Specification</a>. If the {@code VK_NV_glsl_shader} extension is enabled {@code pCode} can instead reference valid GLSL code and <b>must</b> be written to the {@code GL_KHR_vulkan_glsl} extension specification</li>
+ * <li>{@code pCode} <b>must</b> adhere to the validation rules described by the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#spirvenv-module-validation">Validation Rules within a Module</a> section of the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#spirvenv-capabilities">SPIR-V Environment</a> appendix. If the {@code VK_NV_glsl_shader} extension is enabled {@code pCode} can be valid GLSL code with respect to the {@code GL_KHR_vulkan_glsl} GLSL extension specification</li>
+ * <li>{@code pCode} <b>must</b> declare the {@code Shader} capability for SPIR-V code</li>
+ * <li>{@code pCode} <b>must</b> not declare any capability that is not supported by the API, as described by the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#spirvenv-module-validation">Capabilities</a> section of the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#spirvenv-capabilities">SPIR-V Environment</a> appendix</li>
+ * <li>If {@code pCode} declares any of the capabilities that are listed as not required by the implementation, the relevant feature <b>must</b> be enabled, as listed in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#spirvenv-capabilities-table">SPIR-V Environment</a> appendix</li>
+ * </ul>
+ * 
+ * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code flags} <b>must</b> be 0</li>
- * <li>{@code pCode} <b>must</b> be a pointer to an array of {@code codeSize / 4} {@code uint32_t} values</li>
- * <li>{@code codeSize} <b>must</b> be greater than 0</li>
- * <li>{@code codeSize} <b>must</b> be a multiple of 4. If the +VK_NV_glsl_shader extension+ is enabled and {@code pCode} references GLSL code {@code codeSize}
- * can be a multiple of 1</li>
- * <li>{@code pCode} <b>must</b> point to valid SPIR-V code, formatted and packed as described by the Khronos SPIR-V Specification. If the
- * {@code VK_NV_glsl_shader} extension is enabled {@code pCode} can instead reference valid GLSL code and <b>must</b> be written to the
- * {@code GL_KHR_vulkan_glsl} extension specification</li>
- * <li>{@code pCode} <b>must</b> adhere to the validation rules described by the Validation Rules within a Module section of the SPIR-V Environment appendix. If
- * the {@code VK_NV_glsl_shader} extension is enabled {@code pCode} can be valid GLSL code with respect to the {@code GL_KHR_vulkan_glsl} GLSL
- * extension specification</li>
- * <li>{@code pCode} <b>must</b> declare the {@code Shader} capability for SPIR-V code</li>
- * <li>{@code pCode} <b>must</b> not declare any capability that is not supported by the API, as described by the Capabilities section of the SPIR-V Environment
- * appendix</li>
- * <li>If {@code pCode} declares any of the capabilities that are listed as not required by the implementation, the relevant feature <b>must</b> be enabled, as
- * listed in the SPIR-V Environment appendix</li>
+ * <li>{@code pCode} <b>must</b> be a pointer to an array of <code>codeSize / 4</code> {@code uint32_t} values</li>
  * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VK10#vkCreateShaderModule CreateShaderModule}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO}</li>
- * <li>{@code pNext} &ndash; reserved for use by extensions</li>
- * <li>{@code flags} &ndash; reserved for future use</li>
- * <li>{@code codeSize} &ndash; the size, in bytes, of the code pointed to by {@code pCode}</li>
+ * <li>{@code sType} &ndash; the type of this structure.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
+ * <li>{@code flags} &ndash; reserved for future use.</li>
+ * <li>{@code codeSize} &ndash; the size, in bytes, of the code pointed to by {@code pCode}.</li>
  * <li>{@code pCode} &ndash; points to code that is used to create the shader module</li>
  * </ul>
  * 

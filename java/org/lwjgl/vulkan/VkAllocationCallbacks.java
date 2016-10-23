@@ -15,36 +15,30 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkAllocationCallbacks.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#memory-allocation">Vulkan Specification</a>
- * 
- * <p>Contains pointers to callback functions that are used to create, reallocate and free host memory allocations on behalf of a Vulkan implementation.</p>
+ * Structure containing callback function pointers for memory allocation.
  * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>{@code pfnAllocation} <b>must</b> be a pointer to a valid user-defined PFN_vkAllocationFunction</li>
- * <li>{@code pfnReallocation} <b>must</b> be a pointer to a valid user-defined PFN_vkReallocationFunction</li>
- * <li>{@code pfnFree} <b>must</b> be a pointer to a valid user-defined PFN_vkFreeFunction</li>
+ * <li>{@code pfnAllocation} <b>must</b> be a pointer to a valid user-defined {@link VkAllocationFunction}</li>
+ * <li>{@code pfnReallocation} <b>must</b> be a pointer to a valid user-defined {@link VkReallocationFunction}</li>
+ * <li>{@code pfnFree} <b>must</b> be a pointer to a valid user-defined {@link VkFreeFunction}</li>
  * <li>If either of {@code pfnInternalAllocation} or {@code pfnInternalFree} is not {@code NULL}, both <b>must</b> be valid callbacks</li>
  * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkAllocationFunction}, {@link VkFreeFunction}, {@link VkInternalAllocationNotification}, {@link VkInternalFreeNotification}, {@link VkReallocationFunction}, {@link VK10#vkAllocateMemory AllocateMemory}, {@link #CreateAndroidSurfaceKHR}, {@link VK10#vkCreateBuffer CreateBuffer}, {@link VK10#vkCreateBufferView CreateBufferView}, {@link VK10#vkCreateCommandPool CreateCommandPool}, {@link VK10#vkCreateComputePipelines CreateComputePipelines}, {@link EXTDebugReport#vkCreateDebugReportCallbackEXT CreateDebugReportCallbackEXT}, {@link VK10#vkCreateDescriptorPool CreateDescriptorPool}, {@link VK10#vkCreateDescriptorSetLayout CreateDescriptorSetLayout}, {@link VK10#vkCreateDevice CreateDevice}, {@link KHRDisplay#vkCreateDisplayModeKHR CreateDisplayModeKHR}, {@link KHRDisplay#vkCreateDisplayPlaneSurfaceKHR CreateDisplayPlaneSurfaceKHR}, {@link VK10#vkCreateEvent CreateEvent}, {@link VK10#vkCreateFence CreateFence}, {@link VK10#vkCreateFramebuffer CreateFramebuffer}, {@link VK10#vkCreateGraphicsPipelines CreateGraphicsPipelines}, {@link VK10#vkCreateImage CreateImage}, {@link VK10#vkCreateImageView CreateImageView}, {@link VK10#vkCreateInstance CreateInstance}, {@link #CreateMirSurfaceKHR}, {@link VK10#vkCreatePipelineCache CreatePipelineCache}, {@link VK10#vkCreatePipelineLayout CreatePipelineLayout}, {@link VK10#vkCreateQueryPool CreateQueryPool}, {@link VK10#vkCreateRenderPass CreateRenderPass}, {@link VK10#vkCreateSampler CreateSampler}, {@link VK10#vkCreateSemaphore CreateSemaphore}, {@link VK10#vkCreateShaderModule CreateShaderModule}, {@link KHRDisplaySwapchain#vkCreateSharedSwapchainsKHR CreateSharedSwapchainsKHR}, {@link KHRSwapchain#vkCreateSwapchainKHR CreateSwapchainKHR}, {@link #CreateWaylandSurfaceKHR}, {@link KHRWin32Surface#vkCreateWin32SurfaceKHR CreateWin32SurfaceKHR}, {@link #CreateXcbSurfaceKHR}, {@link KHRXlibSurface#vkCreateXlibSurfaceKHR CreateXlibSurfaceKHR}, {@link VK10#vkDestroyBuffer DestroyBuffer}, {@link VK10#vkDestroyBufferView DestroyBufferView}, {@link VK10#vkDestroyCommandPool DestroyCommandPool}, {@link EXTDebugReport#vkDestroyDebugReportCallbackEXT DestroyDebugReportCallbackEXT}, {@link VK10#vkDestroyDescriptorPool DestroyDescriptorPool}, {@link VK10#vkDestroyDescriptorSetLayout DestroyDescriptorSetLayout}, {@link VK10#vkDestroyDevice DestroyDevice}, {@link VK10#vkDestroyEvent DestroyEvent}, {@link VK10#vkDestroyFence DestroyFence}, {@link VK10#vkDestroyFramebuffer DestroyFramebuffer}, {@link VK10#vkDestroyImage DestroyImage}, {@link VK10#vkDestroyImageView DestroyImageView}, {@link VK10#vkDestroyInstance DestroyInstance}, {@link VK10#vkDestroyPipeline DestroyPipeline}, {@link VK10#vkDestroyPipelineCache DestroyPipelineCache}, {@link VK10#vkDestroyPipelineLayout DestroyPipelineLayout}, {@link VK10#vkDestroyQueryPool DestroyQueryPool}, {@link VK10#vkDestroyRenderPass DestroyRenderPass}, {@link VK10#vkDestroySampler DestroySampler}, {@link VK10#vkDestroySemaphore DestroySemaphore}, {@link VK10#vkDestroyShaderModule DestroyShaderModule}, {@link KHRSurface#vkDestroySurfaceKHR DestroySurfaceKHR}, {@link KHRSwapchain#vkDestroySwapchainKHR DestroySwapchainKHR}, {@link VK10#vkFreeMemory FreeMemory}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code pUserData} &ndash; 
- * a value to be interpreted by the implementation of the callbacks. When any of the callbacks in {@code VkAllocationCallbacks} are called, the Vulkan
- * implementation will pass this value as the first parameter to the callback. This value <b>can</b> vary each time an allocator is passed into a command, even
- * when the same object takes an allocator in multiple commands.</li>
- * <li>{@code pfnAllocation} &ndash; a pointer to an application-defined memory allocation function of type {@code PFN_vkAllocationFunction}</li>
- * <li>{@code pfnReallocation} &ndash; a pointer to an application-defined memory reallocation function of type {@code PFN_vkReallocationFunction}</li>
- * <li>{@code pfnFree} &ndash; a pointer to an application-defined memory free function of type {@code PFN_vkFreeFunction}</li>
- * <li>{@code pfnInternalAllocation} &ndash; 
- * a pointer to an application-defined function that is called by the implementation when the implementation makes internal allocations, and it is of type
- * {@code PFN_vkInternalAllocationNotification}</li>
- * <li>{@code pfnInternalFree} &ndash; 
- * a pointer to an application-defined function that is called by the implementation when the implementation frees internal allocations, and it is of type
- * {@code PFN_vkInternalFreeNotification}</li>
+ * <li>{@code pUserData} &ndash; a value to be interpreted by the implementation of the callbacks. When any of the callbacks in {@link VkAllocationCallbacks} are called, the Vulkan implementation will pass this value as the first parameter to the callback. This value <b>can</b> vary each time an allocator is passed into a command, even when the same object takes an allocator in multiple commands.</li>
+ * <li>{@code pfnAllocation} &ndash; a pointer to an application-defined memory allocation function of type {@link VkAllocationFunction}.</li>
+ * <li>{@code pfnReallocation} &ndash; a pointer to an application-defined memory reallocation function of type {@link VkReallocationFunction}.</li>
+ * <li>{@code pfnFree} &ndash; a pointer to an application-defined memory free function of type {@link VkFreeFunction}.</li>
+ * <li>{@code pfnInternalAllocation} &ndash; a pointer to an application-defined function that is called by the implementation when the implementation makes internal allocations, and it is of type {@link VkInternalAllocationNotification}.</li>
+ * <li>{@code pfnInternalFree} &ndash; a pointer to an application-defined function that is called by the implementation when the implementation frees internal allocations, and it is of type {@link VkInternalFreeNotification}.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

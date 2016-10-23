@@ -14,17 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkRect2D.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkRect2D">Vulkan Specification</a>
- * 
- * <p>Describes a 2D rectangular region.</p>
- * 
- * <h3>Member documentation</h3>
- * 
- * <ul>
- * <li>{@code offset} &ndash; the region offset</li>
- * <li>{@code extent} &ndash; the region extent</li>
- * </ul>
+ * Structure specifying a two-dimensional subregion.
  * 
  * <h3>Layout</h3>
  * 

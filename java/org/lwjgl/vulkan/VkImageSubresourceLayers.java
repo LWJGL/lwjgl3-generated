@@ -14,30 +14,35 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkImageSubresourceLayers.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkImageSubresourceLayers">Vulkan Specification</a>
- * 
- * <p>Specifies an image subresource of an image.</p>
+ * Structure specifying a image subresource layers.
  * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>{@code aspectMask} <b>must</b> be a valid combination of {@code VkImageAspectFlagBits} values</li>
- * <li>{@code aspectMask} <b>must</b> not be 0</li>
  * <li>If {@code aspectMask} contains {@link VK10#VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT}, it <b>must</b> not contain either of {@link VK10#VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT} or {@link VK10#VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT}</li>
  * <li>{@code aspectMask} <b>must</b> not contain {@link VK10#VK_IMAGE_ASPECT_METADATA_BIT IMAGE_ASPECT_METADATA_BIT}</li>
- * <li>{@code mipLevel} <b>must</b> be less than the {@code mipLevels} specified in {@code VkImageCreateInfo} when the image was created</li>
- * <li>{@code baseArrayLayer + layerCount} <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@code VkImageCreateInfo} when
- * the image was created</li>
+ * <li>{@code mipLevel} <b>must</b> be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when the image was created</li>
+ * <li><code>(baseArrayLayer + layerCount)</code> <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when the image was created</li>
  * </ul>
+ * 
+ * <h5>Valid Usage (Implicit)</h5>
+ * 
+ * <ul>
+ * <li>{@code aspectMask} <b>must</b> be a valid combination of {@code VkImageAspectFlagBits} values</li>
+ * <li>{@code aspectMask} <b>must</b> not be 0</li>
+ * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkBufferImageCopy}, {@link VkImageBlit}, {@link VkImageCopy}, {@link VkImageResolve}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code aspectMask} &ndash; a combination of {@code VkImageAspectFlagBits}, selecting the color, depth and/or stencil aspects. One or more of:<br><table><tr><td>{@link VK10#VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT}</td><td>{@link VK10#VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT}</td><td>{@link VK10#VK_IMAGE_ASPECT_METADATA_BIT IMAGE_ASPECT_METADATA_BIT}</td></tr><tr><td>{@link VK10#VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT}</td></tr></table></li>
- * <li>{@code mipLevel} &ndash; the mipmap level</li>
- * <li>{@code baseArrayLayer} &ndash; the starting layer</li>
- * <li>{@code layerCount} &ndash; the number of layers</li>
+ * <li>{@code aspectMask} &ndash; a combination of {@code VkImageAspectFlagBits}, selecting the color, depth and/or stencil aspects to be copied.</li>
+ * <li>{@code mipLevel} &ndash; the mipmap level to copy from.</li>
+ * <li>{@code baseArrayLayer} &ndash; {@code baseArrayLayer} and {@code layerCount} are the starting layer and number of layers to copy.</li>
+ * <li>{@code layerCount} &ndash; see {@code baseArrayLayer}</li>
  * </ul>
  * 
  * <h3>Layout</h3>

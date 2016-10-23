@@ -14,25 +14,41 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkVertexInputBindingDescription.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkVertexInputBindingDescription">Vulkan Specification</a>
- * 
- * <p>Describes a vertex input binding.</p>
+ * Structure specifying vertex input binding description.
  * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>{@code inputRate} <b>must</b> be a valid {@code VkVertexInputRate} value</li>
  * <li>{@code binding} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxVertexInputBindings}</li>
  * <li>{@code stride} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxVertexInputBindingStride}</li>
  * </ul>
  * 
+ * <h5>Valid Usage (Implicit)</h5>
+ * 
+ * <ul>
+ * <li>{@code inputRate} <b>must</b> be a valid {@code VkVertexInputRate} value</li>
+ * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkPipelineVertexInputStateCreateInfo}</p>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code binding} &ndash; the binding number that this structure describes</li>
- * <li>{@code stride} &ndash; the distance in bytes between two consecutive elements within the buffer</li>
- * <li>{@code inputRate} &ndash; a {@code VkVertexInputRate} value that specifies whether vertex attribute addressing is a function of the vertex index or of the instance index. One of:<br><table><tr><td>{@link VK10#VK_VERTEX_INPUT_RATE_INSTANCE VERTEX_INPUT_RATE_INSTANCE}</td><td>{@link VK10#VK_VERTEX_INPUT_RATE_VERTEX VERTEX_INPUT_RATE_VERTEX}</td></tr></table></li>
+ * <li>{@code binding} &ndash; the binding number that this structure describes.</li>
+ * <li>{@code stride} &ndash; the distance in bytes between two consecutive elements within the buffer.</li>
+ * <li>{@code inputRate} &ndash; specifies whether vertex attribute addressing is a function of the vertex index or of the instance index. Possible values include:
+ * 
+ * <pre><code>typedef enum VkVertexInputRate {
+    VK_VERTEX_INPUT_RATE_VERTEX = 0,
+    VK_VERTEX_INPUT_RATE_INSTANCE = 1,
+} VkVertexInputRate;</code></pre>
+ * 
+ * <ul>
+ * <li>{@link VK10#VK_VERTEX_INPUT_RATE_VERTEX VERTEX_INPUT_RATE_VERTEX} indicates that vertex attribute addressing is a function of the vertex index.</li>
+ * <li>{@link VK10#VK_VERTEX_INPUT_RATE_INSTANCE VERTEX_INPUT_RATE_INSTANCE} indicates that vertex attribute addressing is a function of the instance index.</li>
+ * </ul></li>
  * </ul>
  * 
  * <h3>Layout</h3>

@@ -14,12 +14,19 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkCopyDescriptorSet.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkCopyDescriptorSet">Vulkan Specification</a>
- * 
- * <p>Describes descriptor sets to copy between.</p>
+ * Structure specifying a copy descriptor set operation.
  * 
  * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code srcBinding} <b>must</b> be a valid binding within {@code srcSet}</li>
+ * <li>The sum of {@code srcArrayElement} and {@code descriptorCount} <b>must</b> be less than or equal to the number of array elements in the descriptor set binding specified by {@code srcBinding}, and all applicable consecutive bindings, as described by <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-updates-consecutive">consecutive binding updates</a></li>
+ * <li>{@code dstBinding} <b>must</b> be a valid binding within {@code dstSet}</li>
+ * <li>The sum of {@code dstArrayElement} and {@code descriptorCount} <b>must</b> be less than or equal to the number of array elements in the descriptor set binding specified by {@code dstBinding}, and all applicable consecutive bindings, as described by <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-updates-consecutive">consecutive binding updates</a></li>
+ * <li>If {@code srcSet} is equal to {@code dstSet}, then the source and destination ranges of descriptors <b>must</b> not overlap, where the ranges <b>may</b> include array elements from consecutive bindings as described by <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-updates-consecutive">consecutive binding updates</a></li>
+ * </ul>
+ * 
+ * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_COPY_DESCRIPTOR_SET STRUCTURE_TYPE_COPY_DESCRIPTOR_SET}</li>
@@ -27,30 +34,24 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code srcSet} <b>must</b> be a valid {@code VkDescriptorSet} handle</li>
  * <li>{@code dstSet} <b>must</b> be a valid {@code VkDescriptorSet} handle</li>
  * <li>Both of {@code dstSet}, and {@code srcSet} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
- * <li>{@code srcBinding} <b>must</b> be a valid binding within {@code srcSet}</li>
- * <li>The sum of {@code srcArrayElement} and {@code descriptorCount} <b>must</b> be less than or equal to the number of array elements in the descriptor set
- * binding specified by {@code srcBinding}, and all applicable consecutive bindings</li>
- * <li>{@code dstBinding} <b>must</b> be a valid binding within {@code dstSet}</li>
- * <li>The sum of {@code dstArrayElement} and {@code descriptorCount} <b>must</b> be less than or equal to the number of array elements in the descriptor set
- * binding specified by {@code dstBinding}, and all applicable consecutive bindings</li>
- * <li>If {@code srcSet} is equal to {@code dstSet}, then the source and destination ranges of descriptors <b>must</b> not overlap, where the ranges <b>may</b>
- * include array elements from consecutive bindings</li>
  * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VK10#vkUpdateDescriptorSets UpdateDescriptorSets}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_COPY_DESCRIPTOR_SET STRUCTURE_TYPE_COPY_DESCRIPTOR_SET}</li>
- * <li>{@code pNext} &ndash; reserved for use by extensions</li>
- * <li>{@code srcSet} &ndash; the source set</li>
- * <li>{@code srcBinding} &ndash; the source binding</li>
- * <li>{@code srcArrayElement} &ndash; the source array element</li>
- * <li>{@code dstSet} &ndash; the destination set</li>
- * <li>{@code dstBinding} &ndash; the destination binding</li>
- * <li>{@code dstArrayElement} &ndash; the destination array element</li>
- * <li>{@code descriptorCount} &ndash; 
- * the number of descriptors to copy from the source to destination. If {@code descriptorCount} is greater than the number of remaining array elements in
- * the source or destination binding, those affect consecutive bindings in a manner similar to {@link VkWriteDescriptorSet}.</li>
+ * <li>{@code sType} &ndash; the type of this structure.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
+ * <li>{@code srcSet} &ndash; {@code srcSet}, {@code srcBinding}, and {@code srcArrayElement} are the source set, binding, and array element, respectively.</li>
+ * <li>{@code srcBinding} &ndash; see {@code srcSet}</li>
+ * <li>{@code srcArrayElement} &ndash; see {@code srcSet}</li>
+ * <li>{@code dstSet} &ndash; {@code dstSet}, {@code dstBinding}, and {@code dstArrayElement} are the destination set, binding, and array element, respectively.</li>
+ * <li>{@code dstBinding} &ndash; see {@code dstSet}</li>
+ * <li>{@code dstArrayElement} &ndash; see {@code dstSet}</li>
+ * <li>{@code descriptorCount} &ndash; the number of descriptors to copy from the source to destination. If {@code descriptorCount} is greater than the number of remaining array elements in the source or destination binding, those affect consecutive bindings in a manner similar to {@link VkWriteDescriptorSet} above.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

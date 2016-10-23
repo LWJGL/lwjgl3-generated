@@ -15,46 +15,42 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPresentInfoKHR.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPresentInfoKHR">Vulkan Specification</a>
- * 
- * <p>Specifies the parameters of an image presentation.</p>
+ * Structure describing parameters of a queue presentation.
  * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
+ * <li>Any given element of {@code pImageIndices} <b>must</b> be the index of a presentable image acquired from the swapchain specified by the corresponding element of the {@code pSwapchains} array</li>
+ * <li>Any given element of {@code VkSemaphore} in {@code pWaitSemaphores} <b>must</b> refer to a prior signal of that {@code VkSemaphore} that will not be consumed by any other wait on that semaphore</li>
+ * </ul>
+ * 
+ * <h5>Valid Usage (Implicit)</h5>
+ * 
+ * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHRSwapchain#VK_STRUCTURE_TYPE_PRESENT_INFO_KHR STRUCTURE_TYPE_PRESENT_INFO_KHR}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
- * <li>If {@code waitSemaphoreCount} is not 0, and {@code pWaitSemaphores} is not {@code NULL}, {@code pWaitSemaphores} <b>must</b> be a pointer to an array of
- * {@code waitSemaphoreCount} valid {@code VkSemaphore} handles</li>
+ * <li>If {@code waitSemaphoreCount} is not 0, and {@code pWaitSemaphores} is not {@code NULL}, {@code pWaitSemaphores} <b>must</b> be a pointer to an array of {@code waitSemaphoreCount} valid {@code VkSemaphore} handles</li>
  * <li>{@code pSwapchains} <b>must</b> be a pointer to an array of {@code swapchainCount} valid {@code VkSwapchainKHR} handles</li>
  * <li>{@code pImageIndices} <b>must</b> be a pointer to an array of {@code swapchainCount} {@code uint32_t} values</li>
  * <li>If {@code pResults} is not {@code NULL}, {@code pResults} <b>must</b> be a pointer to an array of {@code swapchainCount} {@code VkResult} values</li>
  * <li>{@code swapchainCount} <b>must</b> be greater than 0</li>
- * <li>Any given element of {@code pImageIndices} <b>must</b> be the index of a presentable image acquired from the swapchain specified by the corresponding
- * element of the {@code pSwapchains} array</li>
- * <li>Any given element of {@code VkSemaphore} in {@code pWaitSemaphores} <b>must</b> refer to a prior signal of that {@code VkSemaphore} that will not be
- * consumed by any other wait on that semaphore</li>
  * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link KHRSwapchain#vkQueuePresentKHR QueuePresentKHR}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure. Must be: {@link KHRSwapchain#VK_STRUCTURE_TYPE_PRESENT_INFO_KHR STRUCTURE_TYPE_PRESENT_INFO_KHR}</li>
- * <li>{@code pNext} &ndash; reserved for use by extensions</li>
- * <li>{@code waitSemaphoreCount} &ndash; the number of semaphores to wait for before issuing the present request. The number may be zero.</li>
- * <li>{@code pWaitSemaphores} &ndash; 
- * if non-{@code NULL}, is an array of {@code VkSemaphore} objects with {@code waitSemaphoreCount} entries, and specifies the semaphores to wait for before
- * issuing the present request</li>
- * <li>{@code swapchainCount} &ndash; the number of swapchains being presented to by this command</li>
- * <li>{@code pSwapchains} &ndash; an array of {@code VkSwapchainKHR} objects with {@code swapchainCount} entries. A given swapchain must not appear in this list more than once.</li>
- * <li>{@code pImageIndices} &ndash; 
- * an array of indices into the array of each swapchain’s presentable images, with {@code swapchainCount} entries. Each entry in this array identifies the
- * image to present on the corresponding entry in the {@code pSwapchains} array.</li>
- * <li>{@code pResults} &ndash; 
- * an array of {@code VkResult} typed elements with {@code swapchainCount} entries. Applications that don’t need per-swapchain results can use {@code NULL} for
- * {@code pResults}. If non-{@code NULL}, each entry in {@code pResults} will be set to the {@code VkResult} for presenting the swapchain corresponding to the
- * same index in {@code pSwapchains}.</li>
+ * <li>{@code sType} &ndash; the type of this structure and <b>must</b> be {@link KHRSwapchain#VK_STRUCTURE_TYPE_PRESENT_INFO_KHR STRUCTURE_TYPE_PRESENT_INFO_KHR}.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
+ * <li>{@code waitSemaphoreCount} &ndash; the number of semaphores to wait for before issuing the present request. The number <b>may</b> be zero.</li>
+ * <li>{@code pWaitSemaphores} &ndash; if not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, is an array of {@code VkSemaphore} objects with {@code waitSemaphoreCount} entries, and specifies the semaphores to wait for before issuing the present request.</li>
+ * <li>{@code swapchainCount} &ndash; the number of swapchains being presented to by this command.</li>
+ * <li>{@code pSwapchains} &ndash; an array of {@code VkSwapchainKHR} objects with {@code swapchainCount} entries. A given swapchain <b>must</b> not appear in this list more than once.</li>
+ * <li>{@code pImageIndices} &ndash; an array of indices into the array of each swapchain&#8217;s presentable images, with {@code swapchainCount} entries. Each entry in this array identifies the image to present on the corresponding entry in the {@code pSwapchains} array.</li>
+ * <li>{@code pResults} &ndash; an array of {@code VkResult} typed elements with {@code swapchainCount} entries. Applications that do not need per-swapchain results <b>can</b> use {@code NULL} for {@code pResults}. If non-{@code NULL}, each entry in {@code pResults} will be set to the {@code VkResult} for presenting the swapchain corresponding to the same index in {@code pSwapchains}.</li>
  * </ul>
  * 
  * <h3>Layout</h3>
@@ -151,6 +147,8 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
 	public VkPresentInfoKHR sType(int value) { nsType(address(), value); return this; }
 	/** Sets the specified value to the {@code pNext} field. */
 	public VkPresentInfoKHR pNext(long value) { npNext(address(), value); return this; }
+	/** Sets the specified value to the {@code waitSemaphoreCount} field. */
+	public VkPresentInfoKHR waitSemaphoreCount(int value) { nwaitSemaphoreCount(address(), value); return this; }
 	/** Sets the address of the specified {@link LongBuffer} to the {@code pWaitSemaphores} field. */
 	public VkPresentInfoKHR pWaitSemaphores(LongBuffer value) { npWaitSemaphores(address(), value); return this; }
 	/** Sets the specified value to the {@code swapchainCount} field. */
@@ -166,6 +164,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
 	public VkPresentInfoKHR set(
 		int sType,
 		long pNext,
+		int waitSemaphoreCount,
 		LongBuffer pWaitSemaphores,
 		int swapchainCount,
 		LongBuffer pSwapchains,
@@ -174,6 +173,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
 	) {
 		sType(sType);
 		pNext(pNext);
+		waitSemaphoreCount(waitSemaphoreCount);
 		pWaitSemaphores(pWaitSemaphores);
 		swapchainCount(swapchainCount);
 		pSwapchains(pSwapchains);
@@ -369,8 +369,6 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		if ( nwaitSemaphoreCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkPresentInfoKHR.PWAITSEMAPHORES));
 		checkPointer(memGetAddress(struct + VkPresentInfoKHR.PSWAPCHAINS));
 		checkPointer(memGetAddress(struct + VkPresentInfoKHR.PIMAGEINDICES));
 	}
@@ -449,6 +447,8 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
 		public VkPresentInfoKHR.Buffer sType(int value) { VkPresentInfoKHR.nsType(address(), value); return this; }
 		/** Sets the specified value to the {@code pNext} field. */
 		public VkPresentInfoKHR.Buffer pNext(long value) { VkPresentInfoKHR.npNext(address(), value); return this; }
+		/** Sets the specified value to the {@code waitSemaphoreCount} field. */
+		public VkPresentInfoKHR.Buffer waitSemaphoreCount(int value) { VkPresentInfoKHR.nwaitSemaphoreCount(address(), value); return this; }
 		/** Sets the address of the specified {@link LongBuffer} to the {@code pWaitSemaphores} field. */
 		public VkPresentInfoKHR.Buffer pWaitSemaphores(LongBuffer value) { VkPresentInfoKHR.npWaitSemaphores(address(), value); return this; }
 		/** Sets the specified value to the {@code swapchainCount} field. */

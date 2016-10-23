@@ -14,17 +14,86 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkFormatProperties.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkFormatProperties">Vulkan Specification</a>
+ * Structure specifying image format properties.
  * 
- * <p>Contains physical device properties for a {@code VkFormat}.</p>
+ * <h5>Description</h5>
+ * 
+ * <p>Supported features are described as a set of {@code VkFormatFeatureFlagBits}:</p>
+ * 
+ * <pre><code>typedef enum VkFormatFeatureFlagBits {
+    VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT = 0x00000001,
+    VK_FORMAT_FEATURE_STORAGE_IMAGE_BIT = 0x00000002,
+    VK_FORMAT_FEATURE_STORAGE_IMAGE_ATOMIC_BIT = 0x00000004,
+    VK_FORMAT_FEATURE_UNIFORM_TEXEL_BUFFER_BIT = 0x00000008,
+    VK_FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_BIT = 0x00000010,
+    VK_FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_ATOMIC_BIT = 0x00000020,
+    VK_FORMAT_FEATURE_VERTEX_BUFFER_BIT = 0x00000040,
+    VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT = 0x00000080,
+    VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BLEND_BIT = 0x00000100,
+    VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT = 0x00000200,
+    VK_FORMAT_FEATURE_BLIT_SRC_BIT = 0x00000400,
+    VK_FORMAT_FEATURE_BLIT_DST_BIT = 0x00000800,
+    VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT = 0x00001000,
+    VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG = 0x00002000,
+} VkFormatFeatureFlagBits;</code></pre>
+ * 
+ * <p>The {@code linearTilingFeatures} and {@code optimalTilingFeatures} members of the {@link VkFormatProperties} structure describe what features are supported by {@link VK10#VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR} and {@link VK10#VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL} images, respectively.</p>
+ * 
+ * <p>The following bits <b>may</b> be set in {@code linearTilingFeatures} and {@code optimalTilingFeatures}, indicating they are supported by images or image views created with the queried {@link VK10#vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}{@code ::format}:</p>
+ * 
+ * <dl>
+ * <dt>{@link VK10#VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT FORMAT_FEATURE_SAMPLED_IMAGE_BIT}</dt>
+ * <dd>{@code VkImageView} <b>can</b> be sampled from. See <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-sampledimage">sampled images</a> section.</dd>
+ * <dt>{@link VK10#VK_FORMAT_FEATURE_STORAGE_IMAGE_BIT FORMAT_FEATURE_STORAGE_IMAGE_BIT}</dt>
+ * <dd>{@code VkImageView} <b>can</b> be used as storage image. See <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-storageimage">storage images</a> section.</dd>
+ * <dt>{@link VK10#VK_FORMAT_FEATURE_STORAGE_IMAGE_ATOMIC_BIT FORMAT_FEATURE_STORAGE_IMAGE_ATOMIC_BIT}</dt>
+ * <dd>{@code VkImageView} <b>can</b> be used as storage image that supports atomic operations.</dd>
+ * <dt>{@link VK10#VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT}</dt>
+ * <dd>{@code VkImageView} <b>can</b> be used as a framebuffer color attachment and as an input attachment.</dd>
+ * <dt>{@link VK10#VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BLEND_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BLEND_BIT}</dt>
+ * <dd>{@code VkImageView} <b>can</b> be used as a framebuffer color attachment that supports blending and as an input attachment.</dd>
+ * <dt>{@link VK10#VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT}</dt>
+ * <dd>{@code VkImageView} <b>can</b> be used as a framebuffer depth/stencil attachment and as an input attachment.</dd>
+ * <dt>{@link VK10#VK_FORMAT_FEATURE_BLIT_SRC_BIT FORMAT_FEATURE_BLIT_SRC_BIT}</dt>
+ * <dd>{@code VkImage} <b>can</b> be used as {@code srcImage} for the {@link VK10#vkCmdBlitImage CmdBlitImage} command.</dd>
+ * <dt>{@link VK10#VK_FORMAT_FEATURE_BLIT_DST_BIT FORMAT_FEATURE_BLIT_DST_BIT}</dt>
+ * <dd>{@code VkImage} <b>can</b> be used as {@code dstImage} for the {@link VK10#vkCmdBlitImage CmdBlitImage} command.</dd>
+ * <dt>{@link VK10#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT}</dt>
+ * <dd>If the format being queried is a depth/stencil format, this bit only     indicates that the depth aspect (not the stencil aspect) of an image of     this format supports linear filtering, and that linear filtering of the     depth aspect is supported whether depth compare is enabled in the     sampler or not.     If this bit is not present, linear filtering with depth compare disabled     is unsupported and linear filtering with depth compare enabled is     supported, but <b>may</b> compute the filtered value in an     implementation-dependent manner which differs from the normal rules of     linear filtering.     The resulting value <b>must</b> be in the range <code>[0,1]</code> and <b>should</b> be     proportional to, or a weighted average of, the number of comparison     passes or failures.</dd>
+ * <dt>{@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG}</dt>
+ * <dd>{@code VkImage} <b>can</b> be used with a sampler that has either of {@code magFilter} or {@code minFilter} set to {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG}, or be the source image for a blit with {@code filter} set to {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG}. This bit <b>must</b> only be exposed for formats that also support the {@link VK10#VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT FORMAT_FEATURE_SAMPLED_IMAGE_BIT}. If the format being queried is a depth/stencil format, this only indicates that the depth aspect is cubic filterable.</dd>
+ * </dl>
+ * 
+ * <p>The following features <b>may</b> appear in {@code bufferFeatures}, indicating they are supported by buffers or buffer views created with the queried {@link VK10#vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}{@code ::format}:</p>
+ * 
+ * <dl>
+ * <dt>{@link VK10#VK_FORMAT_FEATURE_UNIFORM_TEXEL_BUFFER_BIT FORMAT_FEATURE_UNIFORM_TEXEL_BUFFER_BIT}</dt>
+ * <dd>Format <b>can</b> be used to create a {@code VkBufferView} that <b>can</b> be bound to a {@link VK10#VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER} descriptor.</dd>
+ * <dt>{@link VK10#VK_FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_BIT FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_BIT}</dt>
+ * <dd>Format <b>can</b> be used to create a {@code VkBufferView} that <b>can</b> be bound to a {@link VK10#VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER} descriptor.</dd>
+ * <dt>{@link VK10#VK_FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_ATOMIC_BIT FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_ATOMIC_BIT}</dt>
+ * <dd>Atomic operations are supported on {@link VK10#VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER} with this format.</dd>
+ * <dt>{@link VK10#VK_FORMAT_FEATURE_VERTEX_BUFFER_BIT FORMAT_FEATURE_VERTEX_BUFFER_BIT}</dt>
+ * <dd>Format <b>can</b> be used as a vertex attribute format ({@link VkVertexInputAttributeDescription}{@code ::format}).</dd>
+ * </dl>
+ * 
+ * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+ * 
+ * <p>If no format feature flags are supported, then the only possible use would be image transfers - which alone are not useful. As such, if no format feature flags are supported, the format itself is not supported, and images of that format cannot be created.</p>
+ * </div>
+ * 
+ * <p>If {@code format} is a block-compression format, then buffers <b>must</b> not support any features for the format.</p>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VK10#vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code linearTilingFeatures} &ndash; what features are supported by {@link VK10#VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR} images. One or more of:<br><table><tr><td>{@link VK10#VK_FORMAT_FEATURE_BLIT_DST_BIT FORMAT_FEATURE_BLIT_DST_BIT}</td><td>{@link VK10#VK_FORMAT_FEATURE_BLIT_SRC_BIT FORMAT_FEATURE_BLIT_SRC_BIT}</td></tr><tr><td>{@link VK10#VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT}</td><td>{@link VK10#VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BLEND_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BLEND_BIT}</td></tr><tr><td>{@link VK10#VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT}</td><td>{@link VK10#VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT FORMAT_FEATURE_SAMPLED_IMAGE_BIT}</td></tr><tr><td>{@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG}</td><td>{@link VK10#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT}</td></tr><tr><td>{@link VK10#VK_FORMAT_FEATURE_STORAGE_IMAGE_ATOMIC_BIT FORMAT_FEATURE_STORAGE_IMAGE_ATOMIC_BIT}</td><td>{@link VK10#VK_FORMAT_FEATURE_STORAGE_IMAGE_BIT FORMAT_FEATURE_STORAGE_IMAGE_BIT}</td></tr><tr><td>{@link VK10#VK_FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_ATOMIC_BIT FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_ATOMIC_BIT}</td><td>{@link VK10#VK_FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_BIT FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_BIT}</td></tr><tr><td>{@link VK10#VK_FORMAT_FEATURE_UNIFORM_TEXEL_BUFFER_BIT FORMAT_FEATURE_UNIFORM_TEXEL_BUFFER_BIT}</td><td>{@link VK10#VK_FORMAT_FEATURE_VERTEX_BUFFER_BIT FORMAT_FEATURE_VERTEX_BUFFER_BIT}</td></tr></table></li>
- * <li>{@code optimalTilingFeatures} &ndash; what features are supported by {@link VK10#VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL} images</li>
- * <li>{@code bufferFeatures} &ndash; what features are supported by buffers</li>
+ * <li>{@code linearTilingFeatures} &ndash; describes the features supported by {@link VK10#VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR}.</li>
+ * <li>{@code optimalTilingFeatures} &ndash; describes the features supported by {@link VK10#VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}.</li>
+ * <li>{@code bufferFeatures} &ndash; describes the features supported by buffers.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

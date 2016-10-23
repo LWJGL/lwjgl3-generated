@@ -12,18 +12,29 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkMemoryType.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkMemoryType">Vulkan Specification</a>
- * 
- * <p>Contains information about a memory type.</p>
+ * Structure specifying memory type.
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code propertyFlags} &ndash; a bitmask of {@code VkMemoryPropertyFlagBits} properties for this memory type. One or more of:<br><table><tr><td>{@link VK10#VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT MEMORY_PROPERTY_DEVICE_LOCAL_BIT}</td><td>{@link VK10#VK_MEMORY_PROPERTY_HOST_CACHED_BIT MEMORY_PROPERTY_HOST_CACHED_BIT}</td></tr><tr><td>{@link VK10#VK_MEMORY_PROPERTY_HOST_COHERENT_BIT MEMORY_PROPERTY_HOST_COHERENT_BIT}</td><td>{@link VK10#VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT MEMORY_PROPERTY_HOST_VISIBLE_BIT}</td></tr><tr><td>{@link VK10#VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT}</td></tr></table></li>
- * <li>{@code heapIndex} &ndash; 
- * describes which memory heap this memory type corresponds to, and <b>must</b> be less than {@code memoryHeapCount} from the {@link VkPhysicalDeviceMemoryProperties}
- * structure</li>
+ * <li>{@code propertyFlags} &ndash; a bitmask of properties for this memory type. The bits specified in {@code propertyFlags} are:
+ * 
+ * <pre><code>typedef enum VkMemoryPropertyFlagBits {
+    VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT = 0x00000001,
+    VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT = 0x00000002,
+    VK_MEMORY_PROPERTY_HOST_COHERENT_BIT = 0x00000004,
+    VK_MEMORY_PROPERTY_HOST_CACHED_BIT = 0x00000008,
+    VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT = 0x00000010,
+} VkMemoryPropertyFlagBits;</code></pre>
+ * 
+ * <ul>
+ * <li>if {@code propertyFlags} has the {@link VK10#VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT MEMORY_PROPERTY_DEVICE_LOCAL_BIT} bit set, memory allocated with this type is the most efficient for device access. This property will only be set for memory types belonging to heaps with the {@link VK10#VK_MEMORY_HEAP_DEVICE_LOCAL_BIT MEMORY_HEAP_DEVICE_LOCAL_BIT} set.</li>
+ * <li>if {@code propertyFlags} has the {@link VK10#VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT MEMORY_PROPERTY_HOST_VISIBLE_BIT} bit set, memory allocated with this type <b>can</b> be mapped for host access using {@link VK10#vkMapMemory MapMemory}.</li>
+ * <li>if {@code propertyFlags} has the {@link VK10#VK_MEMORY_PROPERTY_HOST_COHERENT_BIT MEMORY_PROPERTY_HOST_COHERENT_BIT} bit set, host cache management commands {@link VK10#vkFlushMappedMemoryRanges FlushMappedMemoryRanges} and {@link VK10#vkInvalidateMappedMemoryRanges InvalidateMappedMemoryRanges} are not needed to make host writes visible to the device or device writes visible to the host, respectively.</li>
+ * <li>if {@code propertyFlags} has the {@link VK10#VK_MEMORY_PROPERTY_HOST_CACHED_BIT MEMORY_PROPERTY_HOST_CACHED_BIT} bit set, memory allocated with this type is cached on the host. Host memory accesses to uncached memory are slower than to cached memory, however uncached memory is always host coherent.</li>
+ * <li>if {@code propertyFlags} has the {@link VK10#VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT} bit set, the memory type only allows device access to the memory. Memory types <b>must</b> not have both {@link VK10#VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT} and {@link VK10#VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT MEMORY_PROPERTY_HOST_VISIBLE_BIT} set. Additionally, the object&#8217;s backing memory <b>may</b> be provided by the implementation lazily as specified in <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-device-lazy_allocation">Lazily Allocated Memory</a>.</li>
+ * </ul></li>
+ * <li>{@code heapIndex} &ndash; describes which memory heap this memory type corresponds to, and <b>must</b> be less than {@code memoryHeapCount} from the {@link VkPhysicalDeviceMemoryProperties} structure.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

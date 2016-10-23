@@ -13,30 +13,27 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
+import static org.lwjgl.vulkan.VK10.*;
+
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkLayerProperties.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkLayerProperties">Vulkan Specification</a>
- * 
- * <p>Contains information about an instance layer.</p>
+ * Structure specifying layer properties.
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code layerName} &ndash; 
- * a null-terminated UTF-8 string specifying the name of the layer. Use this name in the {@code ppEnabledLayerNames} array passed in the
- * {@link VkInstanceCreateInfo} structure to enable this layer for an instance.</li>
- * <li>{@code specVersion} &ndash; the Vulkan version the layer was written to</li>
- * <li>{@code implementationVersion} &ndash; the version of this layer</li>
- * <li>{@code description} &ndash; a null-terminated UTF-8 string providing additional details that can be used by the application to identify the layer</li>
+ * <li>{@code layerName} &ndash; a null-terminated UTF-8 string specifying the name of the layer. Use this name in the {@code ppEnabledLayerNames} array passed in the {@link VkInstanceCreateInfo} structure to enable this layer for an instance.</li>
+ * <li>{@code specVersion} &ndash; the Vulkan version the layer was written to, encoded as described in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#fundamentals-versionnum">API Version Numbers and Semantics</a> section.</li>
+ * <li>{@code implementationVersion} &ndash; the version of this layer. It is an integer, increasing with backward compatible changes.</li>
+ * <li>{@code description} &ndash; a null-terminated UTF-8 string providing additional details that <b>can</b> be used by the application to identify the layer.</li>
  * </ul>
  * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct VkLayerProperties {
-    char layerName[256];
+    char layerName[VK_MAX_EXTENSION_NAME_SIZE];
     uint32_t specVersion;
     uint32_t implementationVersion;
-    char description[256];
+    char description[VK_MAX_DESCRIPTION_SIZE];
 }</code></pre>
  */
 public class VkLayerProperties extends Struct implements NativeResource {
@@ -55,10 +52,10 @@ public class VkLayerProperties extends Struct implements NativeResource {
 
 	static {
 		Layout layout = __struct(
-			__array(1, 256),
+			__array(1, VK_MAX_EXTENSION_NAME_SIZE),
 			__member(4),
 			__member(4),
-			__array(1, 256)
+			__array(1, VK_MAX_DESCRIPTION_SIZE)
 		);
 
 		SIZEOF = layout.getSize();
@@ -230,7 +227,7 @@ public class VkLayerProperties extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** Unsafe version of {@link #layerName}. */
-	public static ByteBuffer nlayerName(long struct) { return memByteBuffer(struct + VkLayerProperties.LAYERNAME, 256); }
+	public static ByteBuffer nlayerName(long struct) { return memByteBuffer(struct + VkLayerProperties.LAYERNAME, VK_MAX_EXTENSION_NAME_SIZE); }
 	/** Unsafe version of {@link #layerNameString}. */
 	public static String nlayerNameString(long struct) { return memUTF8(struct + VkLayerProperties.LAYERNAME); }
 	/** Unsafe version of {@link #specVersion}. */
@@ -238,7 +235,7 @@ public class VkLayerProperties extends Struct implements NativeResource {
 	/** Unsafe version of {@link #implementationVersion}. */
 	public static int nimplementationVersion(long struct) { return memGetInt(struct + VkLayerProperties.IMPLEMENTATIONVERSION); }
 	/** Unsafe version of {@link #description}. */
-	public static ByteBuffer ndescription(long struct) { return memByteBuffer(struct + VkLayerProperties.DESCRIPTION, 256); }
+	public static ByteBuffer ndescription(long struct) { return memByteBuffer(struct + VkLayerProperties.DESCRIPTION, VK_MAX_DESCRIPTION_SIZE); }
 	/** Unsafe version of {@link #descriptionString}. */
 	public static String ndescriptionString(long struct) { return memUTF8(struct + VkLayerProperties.DESCRIPTION); }
 

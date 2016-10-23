@@ -16,23 +16,34 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.vulkan.VK10.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkPhysicalDeviceProperties.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkPhysicalDeviceProperties">Vulkan Specification</a>
+ * Structure specifying physical device properties.
  * 
- * <p>Contains general properties of a physical device.</p>
+ * <h5>Description</h5>
+ * 
+ * <p>The {@code vendorID} and {@code deviceID} fields are provided to allow applications to adapt to device characteristics that are not adequately exposed by other Vulkan queries. These <b>may</b> include performance profiles, hardware errata, or other characteristics. In PCI-based implementations, the low sixteen bits of {@code vendorID} and {@code deviceID} <b>must</b> contain (respectively) the PCI vendor and device IDs associated with the hardware device, and the remaining bits <b>must</b> be set to zero. In non-PCI implementations, the choice of what values to return <b>may</b> be dictated by operating system or platform policies. It is otherwise at the discretion of the implementer, subject to the following constraints and guidelines:</p>
+ * 
+ * <ul>
+ * <li>For purposes of physical device identification, the <em>vendor</em> of a physical device is the entity responsible for the most salient characteristics of the hardware represented by the physical device handle. In the case of a discrete GPU, this <b>should</b> be the GPU chipset vendor. In the case of a GPU or other accelerator integrated into a system-on-chip (SoC), this <b>should</b> be the supplier of the silicon IP used to create the GPU or other accelerator.</li>
+ * <li>If the vendor of the physical device has a valid PCI vendor ID issued by <a href="https://pcisig.com/">PCI-SIG</a>, that ID <b>should</b> be used to construct {@code vendorID} as described above for PCI-based implementations. Implementations that do not return a PCI vendor ID in {@code vendorID} <b>must</b> return a valid Khronos vendor ID, obtained as described in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vulkan-styleguide">Vulkan Documentation and Extensions</a> document in the section “Registering a Vendor ID with Khronos”. Khronos vendor IDs are allocated starting at 0x10000, to distinguish them from the PCI vendor ID namespace.</li>
+ * <li>The vendor of the physical device is responsible for selecting {@code deviceID}. The value selected <b>should</b> uniquely identify both the device version and any major configuration options (for example, core count in the case of multicore devices). The same device ID <b>should</b> be used for all physical implementations of that device version and configuration. For example, all uses of a specific silicon IP GPU version and configuration <b>should</b> use the same device ID, even if those uses occur in different SoCs.</li>
+ * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkPhysicalDeviceLimits}, {@link VkPhysicalDeviceSparseProperties}, {@link VK10#vkGetPhysicalDeviceProperties GetPhysicalDeviceProperties}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code apiVersion} &ndash; the version of Vulkan supported by the device</li>
- * <li>{@code driverVersion} &ndash; the vendor-specified version of the driver</li>
- * <li>{@code vendorID} &ndash; a unique identifier for the vendor of the physical device</li>
- * <li>{@code deviceID} &ndash; a unique identifier for the physical device among devices available from the vendor</li>
- * <li>{@code deviceType} &ndash; a {@code VkPhysicalDeviceType} specifying the type of device. One of:<br><table><tr><td>{@link VK10#VK_PHYSICAL_DEVICE_TYPE_CPU PHYSICAL_DEVICE_TYPE_CPU}</td><td>{@link VK10#VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU PHYSICAL_DEVICE_TYPE_DISCRETE_GPU}</td></tr><tr><td>{@link VK10#VK_PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU}</td><td>{@link VK10#VK_PHYSICAL_DEVICE_TYPE_OTHER PHYSICAL_DEVICE_TYPE_OTHER}</td></tr><tr><td>{@link VK10#VK_PHYSICAL_DEVICE_TYPE_VIRTUAL_GPU PHYSICAL_DEVICE_TYPE_VIRTUAL_GPU}</td></tr></table></li>
- * <li>{@code deviceName} &ndash; a null-terminated UTF-8 string containing the name of the device</li>
- * <li>{@code pipelineCacheUUID} &ndash; an array of size {@code VK_UUID_SIZE}, containing 8-bit values that represent a universally unique identifier for the device</li>
- * <li>{@code limits} &ndash; the {@link VkPhysicalDeviceLimits} structure which specifies device-specific limits of the physical device</li>
- * <li>{@code sparseProperties} &ndash; the {@link VkPhysicalDeviceSparseProperties} structure which specifies various sparse related properties of the physical device</li>
+ * <li>{@code apiVersion} &ndash; the version of Vulkan supported by the device, encoded as described in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#fundamentals-versionnum">API Version Numbers and Semantics</a> section.</li>
+ * <li>{@code driverVersion} &ndash; the vendor-specified version of the driver.</li>
+ * <li>{@code vendorID} &ndash; a unique identifier for the <em>vendor</em> (see below) of the physical device.</li>
+ * <li>{@code deviceID} &ndash; a unique identifier for the physical device among devices available from the vendor.</li>
+ * <li>{@code deviceType} &ndash; a {@code VkPhysicalDeviceType} specifying the type of device.</li>
+ * <li>{@code deviceName} &ndash; a null-terminated UTF-8 string containing the name of the device.</li>
+ * <li>{@code pipelineCacheUUID} &ndash; an array of size {@link VK10#VK_UUID_SIZE UUID_SIZE}, containing 8-bit values that represent a universally unique identifier for the device.</li>
+ * <li>{@code limits} &ndash; the {@link VkPhysicalDeviceLimits} structure which specifies device-specific limits of the physical device. See <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-limits">Limits</a> for details.</li>
+ * <li>{@code sparseProperties} &ndash; the {@link VkPhysicalDeviceSparseProperties} structure which specifies various sparse related properties of the physical device. See <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#sparsememory-physicalprops">Sparse Properties</a> for details.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

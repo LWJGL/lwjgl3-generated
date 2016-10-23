@@ -14,28 +14,33 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0/man/html/VkMemoryAllocateInfo.html">Khronos Reference Page</a><br>
- * <a href="https://www.khronos.org/registry/vulkan/specs/1.0-wsi_extensions/xhtml/vkspec.html#VkMemoryAllocateInfo">Vulkan Specification</a>
- * 
- * <p>Describes parameters of a memory allocation.</p>
+ * Structure containing parameters of a memory allocation.
  * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}, or a pointer to a valid instance of {@code VkDedicatedAllocationMemoryAllocateInfoNV}</li>
- * <li>{@code allocationSize} <b>must</b> be less than or equal to the amount of memory available to the {@code VkMemoryHeap} specified by
- * {@code memoryTypeIndex} and the calling command's {@code VkDevice}</li>
+ * <li>{@code allocationSize} <b>must</b> be less than or equal to the amount of memory available to the {@link VkMemoryHeap} specified by {@code memoryTypeIndex} and the calling command&#8217;s {@code VkDevice}</li>
  * <li>{@code allocationSize} <b>must</b> be greater than 0</li>
  * </ul>
+ * 
+ * <h5>Valid Usage (Implicit)</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}, or a pointer to a valid instance of {@link VkDedicatedAllocationMemoryAllocateInfoNV}</li>
+ * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VK10#vkAllocateMemory AllocateMemory}</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure. Must be: {@link VK10#VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO}</li>
- * <li>{@code pNext} &ndash; reserved for use by extensions</li>
+ * <li>{@code sType} &ndash; the type of this structure.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code allocationSize} &ndash; the size of the allocation in bytes</li>
- * <li>{@code memoryTypeIndex} &ndash; the memory type index, which selects the properties of the memory to be allocated, as well as the heap the memory will come from</li>
+ * <li>{@code memoryTypeIndex} &ndash; the memory type index, which selects the properties of the memory to be allocated, as well as the heap the memory will come from.</li>
  * </ul>
  * 
  * <h3>Layout</h3>
