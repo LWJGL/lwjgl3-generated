@@ -419,9 +419,9 @@ public class VkPipelineRasterizationStateCreateInfo extends Struct implements Na
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkPipelineRasterizationStateCreateInfo.PNEXT, value); }
 	/** Unsafe version of {@link #flags(int) flags}. */
 	public static void nflags(long struct, int value) { memPutInt(struct + VkPipelineRasterizationStateCreateInfo.FLAGS, value); }
-	/** Unsafe version of {@link #depthClampEnable(int) depthClampEnable}. */
+	/** Unsafe version of {@link #depthClampEnable(boolean) depthClampEnable}. */
 	public static void ndepthClampEnable(long struct, int value) { memPutInt(struct + VkPipelineRasterizationStateCreateInfo.DEPTHCLAMPENABLE, value); }
-	/** Unsafe version of {@link #rasterizerDiscardEnable(int) rasterizerDiscardEnable}. */
+	/** Unsafe version of {@link #rasterizerDiscardEnable(boolean) rasterizerDiscardEnable}. */
 	public static void nrasterizerDiscardEnable(long struct, int value) { memPutInt(struct + VkPipelineRasterizationStateCreateInfo.RASTERIZERDISCARDENABLE, value); }
 	/** Unsafe version of {@link #polygonMode(int) polygonMode}. */
 	public static void npolygonMode(long struct, int value) { memPutInt(struct + VkPipelineRasterizationStateCreateInfo.POLYGONMODE, value); }
@@ -429,7 +429,7 @@ public class VkPipelineRasterizationStateCreateInfo extends Struct implements Na
 	public static void ncullMode(long struct, int value) { memPutInt(struct + VkPipelineRasterizationStateCreateInfo.CULLMODE, value); }
 	/** Unsafe version of {@link #frontFace(int) frontFace}. */
 	public static void nfrontFace(long struct, int value) { memPutInt(struct + VkPipelineRasterizationStateCreateInfo.FRONTFACE, value); }
-	/** Unsafe version of {@link #depthBiasEnable(int) depthBiasEnable}. */
+	/** Unsafe version of {@link #depthBiasEnable(boolean) depthBiasEnable}. */
 	public static void ndepthBiasEnable(long struct, int value) { memPutInt(struct + VkPipelineRasterizationStateCreateInfo.DEPTHBIASENABLE, value); }
 	/** Unsafe version of {@link #depthBiasConstantFactor(float) depthBiasConstantFactor}. */
 	public static void ndepthBiasConstantFactor(long struct, float value) { memPutFloat(struct + VkPipelineRasterizationStateCreateInfo.DEPTHBIASCONSTANTFACTOR, value); }

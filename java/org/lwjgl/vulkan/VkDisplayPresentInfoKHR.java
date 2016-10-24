@@ -314,7 +314,7 @@ public class VkDisplayPresentInfoKHR extends Struct implements NativeResource {
 	public static void nsrcRect(long struct, VkRect2D value) { memCopy(value.address(), struct + VkDisplayPresentInfoKHR.SRCRECT, VkRect2D.SIZEOF); }
 	/** Unsafe version of {@link #dstRect(VkRect2D) dstRect}. */
 	public static void ndstRect(long struct, VkRect2D value) { memCopy(value.address(), struct + VkDisplayPresentInfoKHR.DSTRECT, VkRect2D.SIZEOF); }
-	/** Unsafe version of {@link #persistent(int) persistent}. */
+	/** Unsafe version of {@link #persistent(boolean) persistent}. */
 	public static void npersistent(long struct, int value) { memPutInt(struct + VkDisplayPresentInfoKHR.PERSISTENT, value); }
 
 	// -----------------------------------

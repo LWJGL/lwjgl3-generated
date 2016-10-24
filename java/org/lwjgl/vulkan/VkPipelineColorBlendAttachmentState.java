@@ -347,7 +347,7 @@ public class VkPipelineColorBlendAttachmentState extends Struct implements Nativ
 	/** Unsafe version of {@link #colorWriteMask}. */
 	public static int ncolorWriteMask(long struct) { return memGetInt(struct + VkPipelineColorBlendAttachmentState.COLORWRITEMASK); }
 
-	/** Unsafe version of {@link #blendEnable(int) blendEnable}. */
+	/** Unsafe version of {@link #blendEnable(boolean) blendEnable}. */
 	public static void nblendEnable(long struct, int value) { memPutInt(struct + VkPipelineColorBlendAttachmentState.BLENDENABLE, value); }
 	/** Unsafe version of {@link #srcColorBlendFactor(int) srcColorBlendFactor}. */
 	public static void nsrcColorBlendFactor(long struct, int value) { memPutInt(struct + VkPipelineColorBlendAttachmentState.SRCCOLORBLENDFACTOR, value); }

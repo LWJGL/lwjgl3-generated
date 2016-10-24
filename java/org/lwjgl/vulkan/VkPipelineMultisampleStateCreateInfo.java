@@ -369,15 +369,15 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
 	public static void nflags(long struct, int value) { memPutInt(struct + VkPipelineMultisampleStateCreateInfo.FLAGS, value); }
 	/** Unsafe version of {@link #rasterizationSamples(int) rasterizationSamples}. */
 	public static void nrasterizationSamples(long struct, int value) { memPutInt(struct + VkPipelineMultisampleStateCreateInfo.RASTERIZATIONSAMPLES, value); }
-	/** Unsafe version of {@link #sampleShadingEnable(int) sampleShadingEnable}. */
+	/** Unsafe version of {@link #sampleShadingEnable(boolean) sampleShadingEnable}. */
 	public static void nsampleShadingEnable(long struct, int value) { memPutInt(struct + VkPipelineMultisampleStateCreateInfo.SAMPLESHADINGENABLE, value); }
 	/** Unsafe version of {@link #minSampleShading(float) minSampleShading}. */
 	public static void nminSampleShading(long struct, float value) { memPutFloat(struct + VkPipelineMultisampleStateCreateInfo.MINSAMPLESHADING, value); }
 	/** Unsafe version of {@link #pSampleMask(IntBuffer) pSampleMask}. */
 	public static void npSampleMask(long struct, IntBuffer value) { memPutAddress(struct + VkPipelineMultisampleStateCreateInfo.PSAMPLEMASK, memAddressSafe(value)); }
-	/** Unsafe version of {@link #alphaToCoverageEnable(int) alphaToCoverageEnable}. */
+	/** Unsafe version of {@link #alphaToCoverageEnable(boolean) alphaToCoverageEnable}. */
 	public static void nalphaToCoverageEnable(long struct, int value) { memPutInt(struct + VkPipelineMultisampleStateCreateInfo.ALPHATOCOVERAGEENABLE, value); }
-	/** Unsafe version of {@link #alphaToOneEnable(int) alphaToOneEnable}. */
+	/** Unsafe version of {@link #alphaToOneEnable(boolean) alphaToOneEnable}. */
 	public static void nalphaToOneEnable(long struct, int value) { memPutInt(struct + VkPipelineMultisampleStateCreateInfo.ALPHATOONEENABLE, value); }
 
 	// -----------------------------------

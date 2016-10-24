@@ -357,7 +357,7 @@ public class VkCommandBufferInheritanceInfo extends Struct implements NativeReso
 	public static void nsubpass(long struct, int value) { memPutInt(struct + VkCommandBufferInheritanceInfo.SUBPASS, value); }
 	/** Unsafe version of {@link #framebuffer(long) framebuffer}. */
 	public static void nframebuffer(long struct, long value) { memPutLong(struct + VkCommandBufferInheritanceInfo.FRAMEBUFFER, value); }
-	/** Unsafe version of {@link #occlusionQueryEnable(int) occlusionQueryEnable}. */
+	/** Unsafe version of {@link #occlusionQueryEnable(boolean) occlusionQueryEnable}. */
 	public static void nocclusionQueryEnable(long struct, int value) { memPutInt(struct + VkCommandBufferInheritanceInfo.OCCLUSIONQUERYENABLE, value); }
 	/** Unsafe version of {@link #queryFlags(int) queryFlags}. */
 	public static void nqueryFlags(long struct, int value) { memPutInt(struct + VkCommandBufferInheritanceInfo.QUERYFLAGS, value); }

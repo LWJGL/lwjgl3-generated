@@ -316,7 +316,7 @@ public class VkPipelineInputAssemblyStateCreateInfo extends Struct implements Na
 	public static void nflags(long struct, int value) { memPutInt(struct + VkPipelineInputAssemblyStateCreateInfo.FLAGS, value); }
 	/** Unsafe version of {@link #topology(int) topology}. */
 	public static void ntopology(long struct, int value) { memPutInt(struct + VkPipelineInputAssemblyStateCreateInfo.TOPOLOGY, value); }
-	/** Unsafe version of {@link #primitiveRestartEnable(int) primitiveRestartEnable}. */
+	/** Unsafe version of {@link #primitiveRestartEnable(boolean) primitiveRestartEnable}. */
 	public static void nprimitiveRestartEnable(long struct, int value) { memPutInt(struct + VkPipelineInputAssemblyStateCreateInfo.PRIMITIVERESTARTENABLE, value); }
 
 	// -----------------------------------

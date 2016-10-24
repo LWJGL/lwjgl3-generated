@@ -358,7 +358,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkPipelineColorBlendStateCreateInfo.PNEXT, value); }
 	/** Unsafe version of {@link #flags(int) flags}. */
 	public static void nflags(long struct, int value) { memPutInt(struct + VkPipelineColorBlendStateCreateInfo.FLAGS, value); }
-	/** Unsafe version of {@link #logicOpEnable(int) logicOpEnable}. */
+	/** Unsafe version of {@link #logicOpEnable(boolean) logicOpEnable}. */
 	public static void nlogicOpEnable(long struct, int value) { memPutInt(struct + VkPipelineColorBlendStateCreateInfo.LOGICOPENABLE, value); }
 	/** Unsafe version of {@link #logicOp(int) logicOp}. */
 	public static void nlogicOp(long struct, int value) { memPutInt(struct + VkPipelineColorBlendStateCreateInfo.LOGICOP, value); }

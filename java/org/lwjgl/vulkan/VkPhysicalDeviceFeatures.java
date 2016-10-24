@@ -1062,115 +1062,115 @@ public class VkPhysicalDeviceFeatures extends Struct implements NativeResource {
 	/** Unsafe version of {@link #inheritedQueries}. */
 	public static int ninheritedQueries(long struct) { return memGetInt(struct + VkPhysicalDeviceFeatures.INHERITEDQUERIES); }
 
-	/** Unsafe version of {@link #robustBufferAccess(int) robustBufferAccess}. */
+	/** Unsafe version of {@link #robustBufferAccess(boolean) robustBufferAccess}. */
 	public static void nrobustBufferAccess(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.ROBUSTBUFFERACCESS, value); }
-	/** Unsafe version of {@link #fullDrawIndexUint32(int) fullDrawIndexUint32}. */
+	/** Unsafe version of {@link #fullDrawIndexUint32(boolean) fullDrawIndexUint32}. */
 	public static void nfullDrawIndexUint32(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.FULLDRAWINDEXUINT32, value); }
-	/** Unsafe version of {@link #imageCubeArray(int) imageCubeArray}. */
+	/** Unsafe version of {@link #imageCubeArray(boolean) imageCubeArray}. */
 	public static void nimageCubeArray(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.IMAGECUBEARRAY, value); }
-	/** Unsafe version of {@link #independentBlend(int) independentBlend}. */
+	/** Unsafe version of {@link #independentBlend(boolean) independentBlend}. */
 	public static void nindependentBlend(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.INDEPENDENTBLEND, value); }
-	/** Unsafe version of {@link #geometryShader(int) geometryShader}. */
+	/** Unsafe version of {@link #geometryShader(boolean) geometryShader}. */
 	public static void ngeometryShader(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.GEOMETRYSHADER, value); }
-	/** Unsafe version of {@link #tessellationShader(int) tessellationShader}. */
+	/** Unsafe version of {@link #tessellationShader(boolean) tessellationShader}. */
 	public static void ntessellationShader(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.TESSELLATIONSHADER, value); }
-	/** Unsafe version of {@link #sampleRateShading(int) sampleRateShading}. */
+	/** Unsafe version of {@link #sampleRateShading(boolean) sampleRateShading}. */
 	public static void nsampleRateShading(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SAMPLERATESHADING, value); }
-	/** Unsafe version of {@link #dualSrcBlend(int) dualSrcBlend}. */
+	/** Unsafe version of {@link #dualSrcBlend(boolean) dualSrcBlend}. */
 	public static void ndualSrcBlend(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.DUALSRCBLEND, value); }
-	/** Unsafe version of {@link #logicOp(int) logicOp}. */
+	/** Unsafe version of {@link #logicOp(boolean) logicOp}. */
 	public static void nlogicOp(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.LOGICOP, value); }
-	/** Unsafe version of {@link #multiDrawIndirect(int) multiDrawIndirect}. */
+	/** Unsafe version of {@link #multiDrawIndirect(boolean) multiDrawIndirect}. */
 	public static void nmultiDrawIndirect(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.MULTIDRAWINDIRECT, value); }
-	/** Unsafe version of {@link #drawIndirectFirstInstance(int) drawIndirectFirstInstance}. */
+	/** Unsafe version of {@link #drawIndirectFirstInstance(boolean) drawIndirectFirstInstance}. */
 	public static void ndrawIndirectFirstInstance(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.DRAWINDIRECTFIRSTINSTANCE, value); }
-	/** Unsafe version of {@link #depthClamp(int) depthClamp}. */
+	/** Unsafe version of {@link #depthClamp(boolean) depthClamp}. */
 	public static void ndepthClamp(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.DEPTHCLAMP, value); }
-	/** Unsafe version of {@link #depthBiasClamp(int) depthBiasClamp}. */
+	/** Unsafe version of {@link #depthBiasClamp(boolean) depthBiasClamp}. */
 	public static void ndepthBiasClamp(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.DEPTHBIASCLAMP, value); }
-	/** Unsafe version of {@link #fillModeNonSolid(int) fillModeNonSolid}. */
+	/** Unsafe version of {@link #fillModeNonSolid(boolean) fillModeNonSolid}. */
 	public static void nfillModeNonSolid(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.FILLMODENONSOLID, value); }
-	/** Unsafe version of {@link #depthBounds(int) depthBounds}. */
+	/** Unsafe version of {@link #depthBounds(boolean) depthBounds}. */
 	public static void ndepthBounds(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.DEPTHBOUNDS, value); }
-	/** Unsafe version of {@link #wideLines(int) wideLines}. */
+	/** Unsafe version of {@link #wideLines(boolean) wideLines}. */
 	public static void nwideLines(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.WIDELINES, value); }
-	/** Unsafe version of {@link #largePoints(int) largePoints}. */
+	/** Unsafe version of {@link #largePoints(boolean) largePoints}. */
 	public static void nlargePoints(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.LARGEPOINTS, value); }
-	/** Unsafe version of {@link #alphaToOne(int) alphaToOne}. */
+	/** Unsafe version of {@link #alphaToOne(boolean) alphaToOne}. */
 	public static void nalphaToOne(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.ALPHATOONE, value); }
-	/** Unsafe version of {@link #multiViewport(int) multiViewport}. */
+	/** Unsafe version of {@link #multiViewport(boolean) multiViewport}. */
 	public static void nmultiViewport(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.MULTIVIEWPORT, value); }
-	/** Unsafe version of {@link #samplerAnisotropy(int) samplerAnisotropy}. */
+	/** Unsafe version of {@link #samplerAnisotropy(boolean) samplerAnisotropy}. */
 	public static void nsamplerAnisotropy(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SAMPLERANISOTROPY, value); }
-	/** Unsafe version of {@link #textureCompressionETC2(int) textureCompressionETC2}. */
+	/** Unsafe version of {@link #textureCompressionETC2(boolean) textureCompressionETC2}. */
 	public static void ntextureCompressionETC2(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.TEXTURECOMPRESSIONETC2, value); }
-	/** Unsafe version of {@link #textureCompressionASTC_LDR(int) textureCompressionASTC_LDR}. */
+	/** Unsafe version of {@link #textureCompressionASTC_LDR(boolean) textureCompressionASTC_LDR}. */
 	public static void ntextureCompressionASTC_LDR(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.TEXTURECOMPRESSIONASTC_LDR, value); }
-	/** Unsafe version of {@link #textureCompressionBC(int) textureCompressionBC}. */
+	/** Unsafe version of {@link #textureCompressionBC(boolean) textureCompressionBC}. */
 	public static void ntextureCompressionBC(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.TEXTURECOMPRESSIONBC, value); }
-	/** Unsafe version of {@link #occlusionQueryPrecise(int) occlusionQueryPrecise}. */
+	/** Unsafe version of {@link #occlusionQueryPrecise(boolean) occlusionQueryPrecise}. */
 	public static void nocclusionQueryPrecise(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.OCCLUSIONQUERYPRECISE, value); }
-	/** Unsafe version of {@link #pipelineStatisticsQuery(int) pipelineStatisticsQuery}. */
+	/** Unsafe version of {@link #pipelineStatisticsQuery(boolean) pipelineStatisticsQuery}. */
 	public static void npipelineStatisticsQuery(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.PIPELINESTATISTICSQUERY, value); }
-	/** Unsafe version of {@link #vertexPipelineStoresAndAtomics(int) vertexPipelineStoresAndAtomics}. */
+	/** Unsafe version of {@link #vertexPipelineStoresAndAtomics(boolean) vertexPipelineStoresAndAtomics}. */
 	public static void nvertexPipelineStoresAndAtomics(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.VERTEXPIPELINESTORESANDATOMICS, value); }
-	/** Unsafe version of {@link #fragmentStoresAndAtomics(int) fragmentStoresAndAtomics}. */
+	/** Unsafe version of {@link #fragmentStoresAndAtomics(boolean) fragmentStoresAndAtomics}. */
 	public static void nfragmentStoresAndAtomics(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.FRAGMENTSTORESANDATOMICS, value); }
-	/** Unsafe version of {@link #shaderTessellationAndGeometryPointSize(int) shaderTessellationAndGeometryPointSize}. */
+	/** Unsafe version of {@link #shaderTessellationAndGeometryPointSize(boolean) shaderTessellationAndGeometryPointSize}. */
 	public static void nshaderTessellationAndGeometryPointSize(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERTESSELLATIONANDGEOMETRYPOINTSIZE, value); }
-	/** Unsafe version of {@link #shaderImageGatherExtended(int) shaderImageGatherExtended}. */
+	/** Unsafe version of {@link #shaderImageGatherExtended(boolean) shaderImageGatherExtended}. */
 	public static void nshaderImageGatherExtended(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERIMAGEGATHEREXTENDED, value); }
-	/** Unsafe version of {@link #shaderStorageImageExtendedFormats(int) shaderStorageImageExtendedFormats}. */
+	/** Unsafe version of {@link #shaderStorageImageExtendedFormats(boolean) shaderStorageImageExtendedFormats}. */
 	public static void nshaderStorageImageExtendedFormats(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERSTORAGEIMAGEEXTENDEDFORMATS, value); }
-	/** Unsafe version of {@link #shaderStorageImageMultisample(int) shaderStorageImageMultisample}. */
+	/** Unsafe version of {@link #shaderStorageImageMultisample(boolean) shaderStorageImageMultisample}. */
 	public static void nshaderStorageImageMultisample(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERSTORAGEIMAGEMULTISAMPLE, value); }
-	/** Unsafe version of {@link #shaderStorageImageReadWithoutFormat(int) shaderStorageImageReadWithoutFormat}. */
+	/** Unsafe version of {@link #shaderStorageImageReadWithoutFormat(boolean) shaderStorageImageReadWithoutFormat}. */
 	public static void nshaderStorageImageReadWithoutFormat(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERSTORAGEIMAGEREADWITHOUTFORMAT, value); }
-	/** Unsafe version of {@link #shaderStorageImageWriteWithoutFormat(int) shaderStorageImageWriteWithoutFormat}. */
+	/** Unsafe version of {@link #shaderStorageImageWriteWithoutFormat(boolean) shaderStorageImageWriteWithoutFormat}. */
 	public static void nshaderStorageImageWriteWithoutFormat(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERSTORAGEIMAGEWRITEWITHOUTFORMAT, value); }
-	/** Unsafe version of {@link #shaderUniformBufferArrayDynamicIndexing(int) shaderUniformBufferArrayDynamicIndexing}. */
+	/** Unsafe version of {@link #shaderUniformBufferArrayDynamicIndexing(boolean) shaderUniformBufferArrayDynamicIndexing}. */
 	public static void nshaderUniformBufferArrayDynamicIndexing(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERUNIFORMBUFFERARRAYDYNAMICINDEXING, value); }
-	/** Unsafe version of {@link #shaderSampledImageArrayDynamicIndexing(int) shaderSampledImageArrayDynamicIndexing}. */
+	/** Unsafe version of {@link #shaderSampledImageArrayDynamicIndexing(boolean) shaderSampledImageArrayDynamicIndexing}. */
 	public static void nshaderSampledImageArrayDynamicIndexing(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERSAMPLEDIMAGEARRAYDYNAMICINDEXING, value); }
-	/** Unsafe version of {@link #shaderStorageBufferArrayDynamicIndexing(int) shaderStorageBufferArrayDynamicIndexing}. */
+	/** Unsafe version of {@link #shaderStorageBufferArrayDynamicIndexing(boolean) shaderStorageBufferArrayDynamicIndexing}. */
 	public static void nshaderStorageBufferArrayDynamicIndexing(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERSTORAGEBUFFERARRAYDYNAMICINDEXING, value); }
-	/** Unsafe version of {@link #shaderStorageImageArrayDynamicIndexing(int) shaderStorageImageArrayDynamicIndexing}. */
+	/** Unsafe version of {@link #shaderStorageImageArrayDynamicIndexing(boolean) shaderStorageImageArrayDynamicIndexing}. */
 	public static void nshaderStorageImageArrayDynamicIndexing(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERSTORAGEIMAGEARRAYDYNAMICINDEXING, value); }
-	/** Unsafe version of {@link #shaderClipDistance(int) shaderClipDistance}. */
+	/** Unsafe version of {@link #shaderClipDistance(boolean) shaderClipDistance}. */
 	public static void nshaderClipDistance(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERCLIPDISTANCE, value); }
-	/** Unsafe version of {@link #shaderCullDistance(int) shaderCullDistance}. */
+	/** Unsafe version of {@link #shaderCullDistance(boolean) shaderCullDistance}. */
 	public static void nshaderCullDistance(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERCULLDISTANCE, value); }
-	/** Unsafe version of {@link #shaderFloat64(int) shaderFloat64}. */
+	/** Unsafe version of {@link #shaderFloat64(boolean) shaderFloat64}. */
 	public static void nshaderFloat64(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERFLOAT64, value); }
-	/** Unsafe version of {@link #shaderInt64(int) shaderInt64}. */
+	/** Unsafe version of {@link #shaderInt64(boolean) shaderInt64}. */
 	public static void nshaderInt64(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERINT64, value); }
-	/** Unsafe version of {@link #shaderInt16(int) shaderInt16}. */
+	/** Unsafe version of {@link #shaderInt16(boolean) shaderInt16}. */
 	public static void nshaderInt16(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERINT16, value); }
-	/** Unsafe version of {@link #shaderResourceResidency(int) shaderResourceResidency}. */
+	/** Unsafe version of {@link #shaderResourceResidency(boolean) shaderResourceResidency}. */
 	public static void nshaderResourceResidency(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERRESOURCERESIDENCY, value); }
-	/** Unsafe version of {@link #shaderResourceMinLod(int) shaderResourceMinLod}. */
+	/** Unsafe version of {@link #shaderResourceMinLod(boolean) shaderResourceMinLod}. */
 	public static void nshaderResourceMinLod(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SHADERRESOURCEMINLOD, value); }
-	/** Unsafe version of {@link #sparseBinding(int) sparseBinding}. */
+	/** Unsafe version of {@link #sparseBinding(boolean) sparseBinding}. */
 	public static void nsparseBinding(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SPARSEBINDING, value); }
-	/** Unsafe version of {@link #sparseResidencyBuffer(int) sparseResidencyBuffer}. */
+	/** Unsafe version of {@link #sparseResidencyBuffer(boolean) sparseResidencyBuffer}. */
 	public static void nsparseResidencyBuffer(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SPARSERESIDENCYBUFFER, value); }
-	/** Unsafe version of {@link #sparseResidencyImage2D(int) sparseResidencyImage2D}. */
+	/** Unsafe version of {@link #sparseResidencyImage2D(boolean) sparseResidencyImage2D}. */
 	public static void nsparseResidencyImage2D(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SPARSERESIDENCYIMAGE2D, value); }
-	/** Unsafe version of {@link #sparseResidencyImage3D(int) sparseResidencyImage3D}. */
+	/** Unsafe version of {@link #sparseResidencyImage3D(boolean) sparseResidencyImage3D}. */
 	public static void nsparseResidencyImage3D(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SPARSERESIDENCYIMAGE3D, value); }
-	/** Unsafe version of {@link #sparseResidency2Samples(int) sparseResidency2Samples}. */
+	/** Unsafe version of {@link #sparseResidency2Samples(boolean) sparseResidency2Samples}. */
 	public static void nsparseResidency2Samples(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SPARSERESIDENCY2SAMPLES, value); }
-	/** Unsafe version of {@link #sparseResidency4Samples(int) sparseResidency4Samples}. */
+	/** Unsafe version of {@link #sparseResidency4Samples(boolean) sparseResidency4Samples}. */
 	public static void nsparseResidency4Samples(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SPARSERESIDENCY4SAMPLES, value); }
-	/** Unsafe version of {@link #sparseResidency8Samples(int) sparseResidency8Samples}. */
+	/** Unsafe version of {@link #sparseResidency8Samples(boolean) sparseResidency8Samples}. */
 	public static void nsparseResidency8Samples(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SPARSERESIDENCY8SAMPLES, value); }
-	/** Unsafe version of {@link #sparseResidency16Samples(int) sparseResidency16Samples}. */
+	/** Unsafe version of {@link #sparseResidency16Samples(boolean) sparseResidency16Samples}. */
 	public static void nsparseResidency16Samples(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SPARSERESIDENCY16SAMPLES, value); }
-	/** Unsafe version of {@link #sparseResidencyAliased(int) sparseResidencyAliased}. */
+	/** Unsafe version of {@link #sparseResidencyAliased(boolean) sparseResidencyAliased}. */
 	public static void nsparseResidencyAliased(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.SPARSERESIDENCYALIASED, value); }
-	/** Unsafe version of {@link #variableMultisampleRate(int) variableMultisampleRate}. */
+	/** Unsafe version of {@link #variableMultisampleRate(boolean) variableMultisampleRate}. */
 	public static void nvariableMultisampleRate(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.VARIABLEMULTISAMPLERATE, value); }
-	/** Unsafe version of {@link #inheritedQueries(int) inheritedQueries}. */
+	/** Unsafe version of {@link #inheritedQueries(boolean) inheritedQueries}. */
 	public static void ninheritedQueries(long struct, int value) { memPutInt(struct + VkPhysicalDeviceFeatures.INHERITEDQUERIES, value); }
 
 	// -----------------------------------

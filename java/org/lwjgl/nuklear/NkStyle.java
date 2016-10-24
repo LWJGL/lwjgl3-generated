@@ -501,7 +501,7 @@ public class NkStyle extends Struct implements NativeResource {
 	public static void ncursor_active(long struct, NkCursor value) { memPutAddress(struct + NkStyle.CURSOR_ACTIVE, addressSafe(value)); }
 	/** Unsafe version of {@link #cursor_last(NkCursor) cursor_last}. */
 	public static void ncursor_last(long struct, NkCursor value) { memPutAddress(struct + NkStyle.CURSOR_LAST, addressSafe(value)); }
-	/** Unsafe version of {@link #cursor_visible(int) cursor_visible}. */
+	/** Unsafe version of {@link #cursor_visible(boolean) cursor_visible}. */
 	public static void ncursor_visible(long struct, int value) { memPutInt(struct + NkStyle.CURSOR_VISIBLE, value); }
 	/** Unsafe version of {@link #text(NkStyleText) text}. */
 	public static void ntext(long struct, NkStyleText value) { memCopy(value.address(), struct + NkStyle.TEXT, NkStyleText.SIZEOF); }

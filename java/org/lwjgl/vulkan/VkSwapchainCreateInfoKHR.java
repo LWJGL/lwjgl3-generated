@@ -536,7 +536,7 @@ public class VkSwapchainCreateInfoKHR extends Struct implements NativeResource {
 	public static void ncompositeAlpha(long struct, int value) { memPutInt(struct + VkSwapchainCreateInfoKHR.COMPOSITEALPHA, value); }
 	/** Unsafe version of {@link #presentMode(int) presentMode}. */
 	public static void npresentMode(long struct, int value) { memPutInt(struct + VkSwapchainCreateInfoKHR.PRESENTMODE, value); }
-	/** Unsafe version of {@link #clipped(int) clipped}. */
+	/** Unsafe version of {@link #clipped(boolean) clipped}. */
 	public static void nclipped(long struct, int value) { memPutInt(struct + VkSwapchainCreateInfoKHR.CLIPPED, value); }
 	/** Unsafe version of {@link #oldSwapchain(long) oldSwapchain}. */
 	public static void noldSwapchain(long struct, long value) { memPutLong(struct + VkSwapchainCreateInfoKHR.OLDSWAPCHAIN, value); }

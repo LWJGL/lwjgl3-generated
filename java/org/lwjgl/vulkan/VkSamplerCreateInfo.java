@@ -590,11 +590,11 @@ public class VkSamplerCreateInfo extends Struct implements NativeResource {
 	public static void naddressModeW(long struct, int value) { memPutInt(struct + VkSamplerCreateInfo.ADDRESSMODEW, value); }
 	/** Unsafe version of {@link #mipLodBias(float) mipLodBias}. */
 	public static void nmipLodBias(long struct, float value) { memPutFloat(struct + VkSamplerCreateInfo.MIPLODBIAS, value); }
-	/** Unsafe version of {@link #anisotropyEnable(int) anisotropyEnable}. */
+	/** Unsafe version of {@link #anisotropyEnable(boolean) anisotropyEnable}. */
 	public static void nanisotropyEnable(long struct, int value) { memPutInt(struct + VkSamplerCreateInfo.ANISOTROPYENABLE, value); }
 	/** Unsafe version of {@link #maxAnisotropy(float) maxAnisotropy}. */
 	public static void nmaxAnisotropy(long struct, float value) { memPutFloat(struct + VkSamplerCreateInfo.MAXANISOTROPY, value); }
-	/** Unsafe version of {@link #compareEnable(int) compareEnable}. */
+	/** Unsafe version of {@link #compareEnable(boolean) compareEnable}. */
 	public static void ncompareEnable(long struct, int value) { memPutInt(struct + VkSamplerCreateInfo.COMPAREENABLE, value); }
 	/** Unsafe version of {@link #compareOp(int) compareOp}. */
 	public static void ncompareOp(long struct, int value) { memPutInt(struct + VkSamplerCreateInfo.COMPAREOP, value); }
@@ -604,7 +604,7 @@ public class VkSamplerCreateInfo extends Struct implements NativeResource {
 	public static void nmaxLod(long struct, float value) { memPutFloat(struct + VkSamplerCreateInfo.MAXLOD, value); }
 	/** Unsafe version of {@link #borderColor(int) borderColor}. */
 	public static void nborderColor(long struct, int value) { memPutInt(struct + VkSamplerCreateInfo.BORDERCOLOR, value); }
-	/** Unsafe version of {@link #unnormalizedCoordinates(int) unnormalizedCoordinates}. */
+	/** Unsafe version of {@link #unnormalizedCoordinates(boolean) unnormalizedCoordinates}. */
 	public static void nunnormalizedCoordinates(long struct, int value) { memPutInt(struct + VkSamplerCreateInfo.UNNORMALIZEDCOORDINATES, value); }
 
 	// -----------------------------------

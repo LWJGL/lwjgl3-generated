@@ -274,7 +274,7 @@ public class VkDedicatedAllocationBufferCreateInfoNV extends Struct implements N
 	public static void nsType(long struct, int value) { memPutInt(struct + VkDedicatedAllocationBufferCreateInfoNV.STYPE, value); }
 	/** Unsafe version of {@link #pNext(long) pNext}. */
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkDedicatedAllocationBufferCreateInfoNV.PNEXT, value); }
-	/** Unsafe version of {@link #dedicatedAllocation(int) dedicatedAllocation}. */
+	/** Unsafe version of {@link #dedicatedAllocation(boolean) dedicatedAllocation}. */
 	public static void ndedicatedAllocation(long struct, int value) { memPutInt(struct + VkDedicatedAllocationBufferCreateInfoNV.DEDICATEDALLOCATION, value); }
 
 	// -----------------------------------

@@ -401,15 +401,15 @@ public class VkPipelineDepthStencilStateCreateInfo extends Struct implements Nat
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkPipelineDepthStencilStateCreateInfo.PNEXT, value); }
 	/** Unsafe version of {@link #flags(int) flags}. */
 	public static void nflags(long struct, int value) { memPutInt(struct + VkPipelineDepthStencilStateCreateInfo.FLAGS, value); }
-	/** Unsafe version of {@link #depthTestEnable(int) depthTestEnable}. */
+	/** Unsafe version of {@link #depthTestEnable(boolean) depthTestEnable}. */
 	public static void ndepthTestEnable(long struct, int value) { memPutInt(struct + VkPipelineDepthStencilStateCreateInfo.DEPTHTESTENABLE, value); }
-	/** Unsafe version of {@link #depthWriteEnable(int) depthWriteEnable}. */
+	/** Unsafe version of {@link #depthWriteEnable(boolean) depthWriteEnable}. */
 	public static void ndepthWriteEnable(long struct, int value) { memPutInt(struct + VkPipelineDepthStencilStateCreateInfo.DEPTHWRITEENABLE, value); }
 	/** Unsafe version of {@link #depthCompareOp(int) depthCompareOp}. */
 	public static void ndepthCompareOp(long struct, int value) { memPutInt(struct + VkPipelineDepthStencilStateCreateInfo.DEPTHCOMPAREOP, value); }
-	/** Unsafe version of {@link #depthBoundsTestEnable(int) depthBoundsTestEnable}. */
+	/** Unsafe version of {@link #depthBoundsTestEnable(boolean) depthBoundsTestEnable}. */
 	public static void ndepthBoundsTestEnable(long struct, int value) { memPutInt(struct + VkPipelineDepthStencilStateCreateInfo.DEPTHBOUNDSTESTENABLE, value); }
-	/** Unsafe version of {@link #stencilTestEnable(int) stencilTestEnable}. */
+	/** Unsafe version of {@link #stencilTestEnable(boolean) stencilTestEnable}. */
 	public static void nstencilTestEnable(long struct, int value) { memPutInt(struct + VkPipelineDepthStencilStateCreateInfo.STENCILTESTENABLE, value); }
 	/** Unsafe version of {@link #front(VkStencilOpState) front}. */
 	public static void nfront(long struct, VkStencilOpState value) { memCopy(value.address(), struct + VkPipelineDepthStencilStateCreateInfo.FRONT, VkStencilOpState.SIZEOF); }

@@ -281,7 +281,7 @@ public class VkDedicatedAllocationImageCreateInfoNV extends Struct implements Na
 	public static void nsType(long struct, int value) { memPutInt(struct + VkDedicatedAllocationImageCreateInfoNV.STYPE, value); }
 	/** Unsafe version of {@link #pNext(long) pNext}. */
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkDedicatedAllocationImageCreateInfoNV.PNEXT, value); }
-	/** Unsafe version of {@link #dedicatedAllocation(int) dedicatedAllocation}. */
+	/** Unsafe version of {@link #dedicatedAllocation(boolean) dedicatedAllocation}. */
 	public static void ndedicatedAllocation(long struct, int value) { memPutInt(struct + VkDedicatedAllocationImageCreateInfoNV.DEDICATEDALLOCATION, value); }
 
 	// -----------------------------------
