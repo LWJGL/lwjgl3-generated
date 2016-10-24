@@ -146,8 +146,10 @@ public class VKCapabilities {
 		vkGetImageSparseMemoryRequirements,
 		vkGetImageSubresourceLayout,
 		vkGetInstanceProcAddr,
+		vkGetMemoryWin32HandleNV,
 		vkGetPhysicalDeviceDisplayPlanePropertiesKHR,
 		vkGetPhysicalDeviceDisplayPropertiesKHR,
+		vkGetPhysicalDeviceExternalImageFormatPropertiesNV,
 		vkGetPhysicalDeviceFeatures,
 		vkGetPhysicalDeviceFormatProperties,
 		vkGetPhysicalDeviceImageFormatProperties,
@@ -230,8 +232,16 @@ public class VKCapabilities {
 	public final boolean VK_KHR_xlib_surface;
 	/** When true, {@link NVDedicatedAllocation} is supported. */
 	public final boolean VK_NV_dedicated_allocation;
+	/** When true, {@link NVExternalMemory} is supported. */
+	public final boolean VK_NV_external_memory;
+	/** When true, {@link NVExternalMemoryCapabilities} is supported. */
+	public final boolean VK_NV_external_memory_capabilities;
+	/** When true, {@link NVExternalMemoryWin32} is supported. */
+	public final boolean VK_NV_external_memory_win32;
 	/** When true, {@link NVGLSLShader} is supported. */
 	public final boolean VK_NV_glsl_shader;
+	/** When true, {@link NVWin32KeyedMutex} is supported. */
+	public final boolean VK_NV_win32_keyed_mutex;
 
 	VKCapabilities(FunctionProvider provider, int apiVersion, Set<String> ext) {
 		this.apiVersion = apiVersion;
@@ -370,8 +380,10 @@ public class VKCapabilities {
 		vkGetImageSparseMemoryRequirements = provider.getFunctionAddress("vkGetImageSparseMemoryRequirements");
 		vkGetImageSubresourceLayout = provider.getFunctionAddress("vkGetImageSubresourceLayout");
 		vkGetInstanceProcAddr = provider.getFunctionAddress("vkGetInstanceProcAddr");
+		vkGetMemoryWin32HandleNV = provider.getFunctionAddress("vkGetMemoryWin32HandleNV");
 		vkGetPhysicalDeviceDisplayPlanePropertiesKHR = provider.getFunctionAddress("vkGetPhysicalDeviceDisplayPlanePropertiesKHR");
 		vkGetPhysicalDeviceDisplayPropertiesKHR = provider.getFunctionAddress("vkGetPhysicalDeviceDisplayPropertiesKHR");
+		vkGetPhysicalDeviceExternalImageFormatPropertiesNV = provider.getFunctionAddress("vkGetPhysicalDeviceExternalImageFormatPropertiesNV");
 		vkGetPhysicalDeviceFeatures = provider.getFunctionAddress("vkGetPhysicalDeviceFeatures");
 		vkGetPhysicalDeviceFormatProperties = provider.getFunctionAddress("vkGetPhysicalDeviceFormatProperties");
 		vkGetPhysicalDeviceImageFormatProperties = provider.getFunctionAddress("vkGetPhysicalDeviceImageFormatProperties");
@@ -428,7 +440,11 @@ public class VKCapabilities {
 		VK_KHR_win32_surface = ext.contains("VK_KHR_win32_surface") && VK.checkExtension("VK_KHR_win32_surface", KHRWin32Surface.isAvailable(this));
 		VK_KHR_xlib_surface = ext.contains("VK_KHR_xlib_surface") && VK.checkExtension("VK_KHR_xlib_surface", KHRXlibSurface.isAvailable(this));
 		VK_NV_dedicated_allocation = ext.contains("VK_NV_dedicated_allocation");
+		VK_NV_external_memory = ext.contains("VK_NV_external_memory");
+		VK_NV_external_memory_capabilities = ext.contains("VK_NV_external_memory_capabilities") && VK.checkExtension("VK_NV_external_memory_capabilities", NVExternalMemoryCapabilities.isAvailable(this));
+		VK_NV_external_memory_win32 = ext.contains("VK_NV_external_memory_win32") && VK.checkExtension("VK_NV_external_memory_win32", NVExternalMemoryWin32.isAvailable(this));
 		VK_NV_glsl_shader = ext.contains("VK_NV_glsl_shader");
+		VK_NV_win32_keyed_mutex = ext.contains("VK_NV_win32_keyed_mutex");
 	}
 
 }

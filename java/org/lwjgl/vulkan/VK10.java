@@ -609,7 +609,7 @@ public class VK10 {
 	 * 
 	 * <h5>See Also</h5>
 	 * 
-	 * <p>{@link VkAttachmentDescription}, {@link VkBufferViewCreateInfo}, {@link VkImageCreateInfo}, {@link VkImageViewCreateInfo}, {@link VkSurfaceFormatKHR}, {@link VkSwapchainCreateInfoKHR}, {@link VkVertexInputAttributeDescription}, {@link #vkGetPhysicalDeviceExternalImageFormatPropertiesNV GetPhysicalDeviceExternalImageFormatPropertiesNV}, {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}, {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
+	 * <p>{@link VkAttachmentDescription}, {@link VkBufferViewCreateInfo}, {@link VkImageCreateInfo}, {@link VkImageViewCreateInfo}, {@link VkSurfaceFormatKHR}, {@link VkSwapchainCreateInfoKHR}, {@link VkVertexInputAttributeDescription}, {@link NVExternalMemoryCapabilities#vkGetPhysicalDeviceExternalImageFormatPropertiesNV GetPhysicalDeviceExternalImageFormatPropertiesNV}, {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}, {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
 	 */
 	public static final int
 		VK_FORMAT_UNDEFINED                  = 0,
@@ -839,7 +839,7 @@ public class VK10 {
 	 * 
 	 * <h5>See Also</h5>
 	 * 
-	 * <p>{@link VkImageCreateInfo}, {@link #vkGetPhysicalDeviceExternalImageFormatPropertiesNV GetPhysicalDeviceExternalImageFormatPropertiesNV}, {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
+	 * <p>{@link VkImageCreateInfo}, {@link NVExternalMemoryCapabilities#vkGetPhysicalDeviceExternalImageFormatPropertiesNV GetPhysicalDeviceExternalImageFormatPropertiesNV}, {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
 	 */
 	public static final int
 		VK_IMAGE_TYPE_1D = 0,
@@ -855,7 +855,7 @@ public class VK10 {
 	 * 
 	 * <h5>See Also</h5>
 	 * 
-	 * <p>{@link VkImageCreateInfo}, {@link #vkGetPhysicalDeviceExternalImageFormatPropertiesNV GetPhysicalDeviceExternalImageFormatPropertiesNV}, {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
+	 * <p>{@link VkImageCreateInfo}, {@link NVExternalMemoryCapabilities#vkGetPhysicalDeviceExternalImageFormatPropertiesNV GetPhysicalDeviceExternalImageFormatPropertiesNV}, {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
 	 */
 	public static final int
 		VK_IMAGE_TILING_OPTIMAL = 0,

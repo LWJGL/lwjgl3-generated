@@ -14,6 +14,8 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
+import org.lwjgl.system.windows.*;
+
 /**
  * Structure specifying parameters of a newly created Win32 surface object.
  * 
