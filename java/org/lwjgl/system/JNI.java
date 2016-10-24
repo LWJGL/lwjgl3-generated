@@ -36,7 +36,7 @@ public final class JNI {
 
 	// Pointer API
 
-	public static native byte invokePB(long __functionAddress, long param0);
+	public static native byte invokePB(long __functionAddress, byte param0, long param1);
 	public static native double invokeD(long __functionAddress);
 	public static native double invokeD(long __functionAddress, int param0);
 	public static native float invokeF(long __functionAddress, int param0);
@@ -59,9 +59,13 @@ public final class JNI {
 	public static native int invokePI(long __functionAddress, long param0, short param1);
 	public static native int invokeI(long __functionAddress, short param0);
 	public static native int invokePI(long __functionAddress, short param0, byte param1, long param2);
-	public static native int invokePI(long __functionAddress, short param0, long param1);
+	public static native int invokePI(long __functionAddress, short param0, long param1, byte param2);
 	public static native int invokeI(long __functionAddress, boolean param0);
 	public static native long invokeJ(long __functionAddress);
+	public static native long invokeJJ(long __functionAddress, long param0);
+	public static native long invokeJJJ(long __functionAddress, long param0, long param1);
+	public static native long invokeJJJJ(long __functionAddress, long param0, long param1, long param2);
+	public static native long invokeJJJJJ(long __functionAddress, long param0, long param1, long param2, long param3);
 	public static native long invokeP(long __functionAddress);
 	public static native long invokeP(long __functionAddress, int param0);
 	public static native long invokeP(long __functionAddress, int param0, int param1);
@@ -197,6 +201,7 @@ public final class JNI {
 	public static native int callI(long __functionAddress);
 	public static native int callI(long __functionAddress, int param0);
 	public static native int callI(long __functionAddress, int param0, int param1);
+	public static native int callI(long __functionAddress, int param0, int param1, int param2);
 	public static native int callPI(long __functionAddress, int param0, int param1, int param2, int param3, int param4, long param5);
 	public static native int callPI(long __functionAddress, int param0, int param1, int param2, int param3, long param4);
 	public static native int callPI(long __functionAddress, int param0, int param1, long param2);
@@ -215,6 +220,7 @@ public final class JNI {
 	public static native int callPPI(long __functionAddress, long param0, int param1, int param2, int param3, float param4, float param5, int param6, long param7);
 	public static native int callPI(long __functionAddress, long param0, int param1, int param2, int param3, int param4);
 	public static native int callPI(long __functionAddress, long param0, int param1, int param2, int param3, int param4, int param5, int param6);
+	public static native int callPPI(long __functionAddress, long param0, int param1, int param2, int param3, int param4, int param5, int param6, long param7);
 	public static native int callPPI(long __functionAddress, long param0, int param1, int param2, int param3, int param4, int param5, int param6, long param7, int param8, int param9, int param10, int param11, int param12, int param13, int param14, int param15, int param16);
 	public static native int callPPI(long __functionAddress, long param0, int param1, int param2, int param3, int param4, int param5, long param6);
 	public static native int callPPI(long __functionAddress, long param0, int param1, int param2, int param3, long param4);
@@ -536,6 +542,7 @@ public final class JNI {
 	public static native void callPJJJV(long __functionAddress, long param0, long param1, long param2, long param3, int param4);
 	public static native void callPPPPV(long __functionAddress, long param0, long param1, long param2, long param3, int param4);
 	public static native void callPJJJPV(long __functionAddress, long param0, long param1, long param2, long param3, long param4);
+	public static native void callPJJJJV(long __functionAddress, long param0, long param1, long param2, long param3, long param4, int param5, int param6);
 	public static native void callV(long __functionAddress, short param0);
 	public static native void callV(long __functionAddress, short param0, short param1);
 	public static native void callV(long __functionAddress, short param0, short param1, short param2);
@@ -554,16 +561,16 @@ public final class JNI {
 
 	// Array API
 
-	public static native byte invokePB(long __functionAddress, int[] param0);
+	public static native byte invokePB(long __functionAddress, byte param0, int[] param1);
 	public static native int invokePPI(long __functionAddress, int param0, int[] param1, int param2, int[] param3, int param4, boolean param5);
 	public static native int invokePPI(long __functionAddress, int param0, short[] param1, int param2, short[] param3, int param4, boolean param5);
 	public static native int invokePPPPI(long __functionAddress, long param0, long param1, long param2, long[] param3);
 	public static native int invokePI(long __functionAddress, short param0, byte param1, float[] param2);
 	public static native int invokePI(long __functionAddress, short param0, byte param1, int[] param2);
 	public static native int invokePI(long __functionAddress, short param0, byte param1, short[] param2);
-	public static native int invokePI(long __functionAddress, short param0, float[] param1);
-	public static native int invokePI(long __functionAddress, short param0, int[] param1);
-	public static native int invokePI(long __functionAddress, short param0, short[] param1);
+	public static native int invokePI(long __functionAddress, short param0, float[] param1, byte param2);
+	public static native int invokePI(long __functionAddress, short param0, int[] param1, byte param2);
+	public static native int invokePI(long __functionAddress, short param0, short[] param1, byte param2);
 	public static native int invokePI(long __functionAddress, float[] param0, short param1);
 	public static native long invokePPP(long __functionAddress, long param0, int[] param1);
 	public static native long invokePP(long __functionAddress, double[] param0, int param1);

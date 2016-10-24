@@ -182,6 +182,8 @@ public final class ALCapabilities {
 	public final boolean AL_SOFT_deferred_updates;
 	/** When true, {@link SOFTDirectChannels} is supported. */
 	public final boolean AL_SOFT_direct_channels;
+	/** When true, {@link SOFTGainClampEx} is supported. */
+	public final boolean AL_SOFT_gain_clamp_ex;
 	/** When true, {@link SOFTLoopPoints} is supported. */
 	public final boolean AL_SOFT_loop_points;
 	/** When true, {@link SOFTMSADPCM} is supported. */
@@ -336,6 +338,7 @@ public final class ALCapabilities {
 		AL_SOFT_block_alignment = ext.contains("AL_SOFT_block_alignment");
 		AL_SOFT_deferred_updates = ext.contains("AL_SOFT_deferred_updates") && AL.checkExtension("AL_SOFT_deferred_updates", SOFTDeferredUpdates.isAvailable(this));
 		AL_SOFT_direct_channels = ext.contains("AL_SOFT_direct_channels");
+		AL_SOFT_gain_clamp_ex = ext.contains("AL_SOFT_gain_clamp_ex");
 		AL_SOFT_loop_points = ext.contains("AL_SOFT_loop_points");
 		AL_SOFT_MSADPCM = ext.contains("AL_SOFT_MSADPCM");
 		AL_SOFT_source_latency = ext.contains("AL_SOFT_source_latency") && AL.checkExtension("AL_SOFT_source_latency", SOFTSourceLatency.isAvailable(this));

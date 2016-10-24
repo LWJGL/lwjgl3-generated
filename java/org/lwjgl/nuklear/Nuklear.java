@@ -3416,6 +3416,21 @@ public class Nuklear {
 		}
 	}
 
+	// --- [ nk_edit_focus ] ---
+
+	/** Unsafe version of: {@link #nk_edit_focus edit_focus} */
+	public static native void nnk_edit_focus(long ctx, int flags);
+
+	/**
+	 * 
+	 *
+	 * @param ctx   the nuklear context
+	 * @param flags one of:<br><table><tr><td>{@link #NK_EDIT_DEFAULT EDIT_DEFAULT}</td><td>{@link #NK_EDIT_READ_ONLY EDIT_READ_ONLY}</td><td>{@link #NK_EDIT_AUTO_SELECT EDIT_AUTO_SELECT}</td><td>{@link #NK_EDIT_SIG_ENTER EDIT_SIG_ENTER}</td></tr><tr><td>{@link #NK_EDIT_ALLOW_TAB EDIT_ALLOW_TAB}</td><td>{@link #NK_EDIT_NO_CURSOR EDIT_NO_CURSOR}</td><td>{@link #NK_EDIT_SELECTABLE EDIT_SELECTABLE}</td><td>{@link #NK_EDIT_CLIPBOARD EDIT_CLIPBOARD}</td></tr><tr><td>{@link #NK_EDIT_CTRL_ENTER_NEWLINE EDIT_CTRL_ENTER_NEWLINE}</td><td>{@link #NK_EDIT_NO_HORIZONTAL_SCROLL EDIT_NO_HORIZONTAL_SCROLL}</td><td>{@link #NK_EDIT_ALWAYS_INSERT_MODE EDIT_ALWAYS_INSERT_MODE}</td><td>{@link #NK_EDIT_MULTILINE EDIT_MULTILINE}</td></tr><tr><td>{@link #NK_EDIT_GOTO_END_ON_ACTIVATE EDIT_GOTO_END_ON_ACTIVATE}</td></tr></table>
+	 */
+	public static void nk_edit_focus(NkContext ctx, int flags) {
+		nnk_edit_focus(ctx.address(), flags);
+	}
+
 	// --- [ nk_edit_string ] ---
 
 	/** Unsafe version of: {@link #nk_edit_string edit_string} */

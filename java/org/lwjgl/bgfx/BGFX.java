@@ -22,7 +22,7 @@ import static org.lwjgl.system.Pointer.*;
 public class BGFX {
 
 	/** API version */
-	public static final int BGFX_API_VERSION = 26;
+	public static final int BGFX_API_VERSION = 28;
 
 	/** Invalid handle */
 	public static final short BGFX_INVALID_HANDLE = (short)0xFFFF;
@@ -330,7 +330,7 @@ public class BGFX {
 	/** Caps */
 	public static final long
 		BGFX_CAPS_ALPHA_TO_COVERAGE      = 0x1L,
-		BGFX_CAPS_BLEND_INDEPENDENT      = 0x3L,
+		BGFX_CAPS_BLEND_INDEPENDENT      = 0x2L,
 		BGFX_CAPS_COMPUTE                = 0x4L,
 		BGFX_CAPS_CONSERVATIVE_RASTER    = 0x8L,
 		BGFX_CAPS_DRAW_INDIRECT          = 0x10L,
@@ -347,7 +347,7 @@ public class BGFX {
 		BGFX_CAPS_TEXTURE_2D_ARRAY       = 0x8000L,
 		BGFX_CAPS_TEXTURE_3D             = 0x10000L,
 		BGFX_CAPS_TEXTURE_BLIT           = 0x20000L,
-		BGFX_CAPS_TEXTURE_COMPARE_ALL    = 0x40000L,
+		BGFX_CAPS_TEXTURE_COMPARE_ALL    = 0xC0000L,
 		BGFX_CAPS_TEXTURE_COMPARE_LEQUAL = 0x80000L,
 		BGFX_CAPS_TEXTURE_CUBE_ARRAY     = 0x100000L,
 		BGFX_CAPS_TEXTURE_READ_BACK      = 0x200000L,
@@ -2322,9 +2322,9 @@ public class BGFX {
 	// --- [ bgfx_read_texture ] ---
 
 	/** Unsafe version of: {@link #bgfx_read_texture read_texture} */
-	public static int nbgfx_read_texture(short _handle, long _data) {
+	public static int nbgfx_read_texture(short _handle, long _data, byte _mip) {
 		long __functionAddress = Functions.read_texture;
-		return invokePI(__functionAddress, _handle, _data);
+		return invokePI(__functionAddress, _handle, _data, _mip);
 	}
 
 	/**
@@ -2334,26 +2334,27 @@ public class BGFX {
 	 *
 	 * @param _handle texture handle
 	 * @param _data   destination buffer
+	 * @param _mip    mip level
 	 *
 	 * @return frame number when the result will be available
 	 */
-	public static int bgfx_read_texture(short _handle, ByteBuffer _data) {
-		return nbgfx_read_texture(_handle, memAddress(_data));
+	public static int bgfx_read_texture(short _handle, ByteBuffer _data, int _mip) {
+		return nbgfx_read_texture(_handle, memAddress(_data), (byte)_mip);
 	}
 
 	/** ShortBuffer version of: {@link #bgfx_read_texture read_texture} */
-	public static int bgfx_read_texture(short _handle, ShortBuffer _data) {
-		return nbgfx_read_texture(_handle, memAddress(_data));
+	public static int bgfx_read_texture(short _handle, ShortBuffer _data, int _mip) {
+		return nbgfx_read_texture(_handle, memAddress(_data), (byte)_mip);
 	}
 
 	/** IntBuffer version of: {@link #bgfx_read_texture read_texture} */
-	public static int bgfx_read_texture(short _handle, IntBuffer _data) {
-		return nbgfx_read_texture(_handle, memAddress(_data));
+	public static int bgfx_read_texture(short _handle, IntBuffer _data, int _mip) {
+		return nbgfx_read_texture(_handle, memAddress(_data), (byte)_mip);
 	}
 
 	/** FloatBuffer version of: {@link #bgfx_read_texture read_texture} */
-	public static int bgfx_read_texture(short _handle, FloatBuffer _data) {
-		return nbgfx_read_texture(_handle, memAddress(_data));
+	public static int bgfx_read_texture(short _handle, FloatBuffer _data, int _mip) {
+		return nbgfx_read_texture(_handle, memAddress(_data), (byte)_mip);
 	}
 
 	// --- [ bgfx_read_frame_buffer ] ---
@@ -4019,21 +4020,21 @@ public class BGFX {
 	}
 
 	/** short[] version of: {@link #bgfx_read_texture read_texture} */
-	public static int bgfx_read_texture(short _handle, short[] _data) {
+	public static int bgfx_read_texture(short _handle, short[] _data, int _mip) {
 		long __functionAddress = Functions.read_texture;
-		return invokePI(__functionAddress, _handle, _data);
+		return invokePI(__functionAddress, _handle, _data, (byte)_mip);
 	}
 
 	/** int[] version of: {@link #bgfx_read_texture read_texture} */
-	public static int bgfx_read_texture(short _handle, int[] _data) {
+	public static int bgfx_read_texture(short _handle, int[] _data, int _mip) {
 		long __functionAddress = Functions.read_texture;
-		return invokePI(__functionAddress, _handle, _data);
+		return invokePI(__functionAddress, _handle, _data, (byte)_mip);
 	}
 
 	/** float[] version of: {@link #bgfx_read_texture read_texture} */
-	public static int bgfx_read_texture(short _handle, float[] _data) {
+	public static int bgfx_read_texture(short _handle, float[] _data, int _mip) {
 		long __functionAddress = Functions.read_texture;
-		return invokePI(__functionAddress, _handle, _data);
+		return invokePI(__functionAddress, _handle, _data, (byte)_mip);
 	}
 
 	/** short[] version of: {@link #bgfx_read_frame_buffer read_frame_buffer} */

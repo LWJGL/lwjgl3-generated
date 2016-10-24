@@ -270,7 +270,7 @@ public class GLFW {
 	 * examples:</p>
 	 * 
 	 * <p>Some pre-installed Windows graphics drivers do not support OpenGL. AMD only supports OpenGL ES via EGL, while Nvidia and Intel only support it via a
-	 * WGL or GLX extension. OS X does not provide OpenGL ES at all. The Mesa EGL, OpenGL and OpenGL ES libraries do not interface with the Nvidia binary
+	 * WGL or GLX extension. macOS does not provide OpenGL ES at all. The Mesa EGL, OpenGL and OpenGL ES libraries do not interface with the Nvidia binary
 	 * driver. Older graphics drivers do not support Vulkan.</p>
 	 */
 	public static final int GLFW_API_UNAVAILABLE = 0x10006;
@@ -516,7 +516,7 @@ public class GLFW {
 	 * <p>Notes:</p>
 	 * 
 	 * <ul>
-	 * <li><b>Mac OS X</b>: The EGL API is not available on this platform and requests to use it will fail.</li>
+	 * <li><b>macOS</b>: The EGL API is not available on this platform and requests to use it will fail.</li>
 	 * <li><b>Wayland, Mir</b>: The EGL API <i>is</i> the native context creation API, so this hint will have no effect.</li>
 	 * <li>An OpenGL extension loader library that assumes it knows which context creation API is used on a given platform may fail if you change this
 	 * hint. This can be resolved by having it load via {@link #glfwGetProcAddress GetProcAddress}, which always uses the selected API.</li>
@@ -681,7 +681,7 @@ public class GLFW {
 	 * 
 	 * <ul>
 	 * <li>This function must only be called from the main thread.</li>
-	 * <li><b>Mac OS X</b>: This function will change the current directory of the application to the `Contents/Resources` subdirectory of the application's
+	 * <li><b>macOS</b>: This function will change the current directory of the application to the `Contents/Resources` subdirectory of the application's
 	 * bundle, if present.</li>
 	 * </ul>
 	 *
@@ -1275,18 +1275,18 @@ public class GLFW {
 	 * <li><b>Windows</b>: If the executable has an icon resource named {@code GLFW_ICON}, it will be set as the initial icon for the window. If no such icon
 	 * is present, the {@code IDI_WINLOGO} icon will be used instead. To set a different icon, see {@link #glfwSetWindowIcon SetWindowIcon}.</li>
 	 * <li><b>Windows</b>: The context to share resources with may not be current on any other thread.</li>
-	 * <li><b>OS X</b>: The GLFW window has no icon, as it is not a document window, but the dock icon will be the same as the application bundle's
+	 * <li><b>macOS</b>: The GLFW window has no icon, as it is not a document window, but the dock icon will be the same as the application bundle's
 	 * icon. Also, the first time a window is opened the menu bar is populated with common commands like Hide, Quit and About. The (minimal) about dialog
 	 * uses information from the application's bundle. For more information on bundles, see the
 	 * <a href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac
 	 * Developer Library.</li>
-	 * <li><b>OS X</b>: The first time a window is created the menu bar is populated with common commands like Hide, Quit and About. The About entry opens a
+	 * <li><b>macOS</b>: The first time a window is created the menu bar is populated with common commands like Hide, Quit and About. The About entry opens a
 	 * minimal about dialog with information from the application's bundle. The menu bar can be disabled with a
 	 * <a href="http://www.glfw.org/docs/latest/compile.html#compile_options_osx">compile-time option</a>.</li>
-	 * <li><b>OS X</b>: On OS X 10.10 and later the window frame will not be rendered at full resolution on Retina displays unless the
+	 * <li><b>macOS</b>: On macOS 10.10 and later the window frame will not be rendered at full resolution on Retina displays unless the
 	 * {@code NSHighResolutionCapable} key is enabled in the application bundle's {@code Info.plist}. For more information, see
 	 * <a href="https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html">High
-	 * Resolution Guidelines for OS X</a> in the Mac Developer Library.</li>
+	 * Resolution Guidelines for macOS</a> in the Mac Developer Library.</li>
 	 * <li><b>X11</b>: There is no mechanism for setting the window icon yet.</li>
 	 * <li><b>X11</b>: Some window managers will not respect the placement of initially hidden windows.</li>
 	 * <li><b>X11</b>: Due to the asynchronous nature of X11, it may take a moment for a window to reach its requested state. This means you may not be able
@@ -1351,18 +1351,18 @@ public class GLFW {
 	 * <li><b>Windows</b>: If the executable has an icon resource named {@code GLFW_ICON}, it will be set as the initial icon for the window. If no such icon
 	 * is present, the {@code IDI_WINLOGO} icon will be used instead. To set a different icon, see {@link #glfwSetWindowIcon SetWindowIcon}.</li>
 	 * <li><b>Windows</b>: The context to share resources with may not be current on any other thread.</li>
-	 * <li><b>OS X</b>: The GLFW window has no icon, as it is not a document window, but the dock icon will be the same as the application bundle's
+	 * <li><b>macOS</b>: The GLFW window has no icon, as it is not a document window, but the dock icon will be the same as the application bundle's
 	 * icon. Also, the first time a window is opened the menu bar is populated with common commands like Hide, Quit and About. The (minimal) about dialog
 	 * uses information from the application's bundle. For more information on bundles, see the
 	 * <a href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac
 	 * Developer Library.</li>
-	 * <li><b>OS X</b>: The first time a window is created the menu bar is populated with common commands like Hide, Quit and About. The About entry opens a
+	 * <li><b>macOS</b>: The first time a window is created the menu bar is populated with common commands like Hide, Quit and About. The About entry opens a
 	 * minimal about dialog with information from the application's bundle. The menu bar can be disabled with a
 	 * <a href="http://www.glfw.org/docs/latest/compile.html#compile_options_osx">compile-time option</a>.</li>
-	 * <li><b>OS X</b>: On OS X 10.10 and later the window frame will not be rendered at full resolution on Retina displays unless the
+	 * <li><b>macOS</b>: On macOS 10.10 and later the window frame will not be rendered at full resolution on Retina displays unless the
 	 * {@code NSHighResolutionCapable} key is enabled in the application bundle's {@code Info.plist}. For more information, see
 	 * <a href="https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html">High
-	 * Resolution Guidelines for OS X</a> in the Mac Developer Library.</li>
+	 * Resolution Guidelines for macOS</a> in the Mac Developer Library.</li>
 	 * <li><b>X11</b>: There is no mechanism for setting the window icon yet.</li>
 	 * <li><b>X11</b>: Some window managers will not respect the placement of initially hidden windows.</li>
 	 * <li><b>X11</b>: Due to the asynchronous nature of X11, it may take a moment for a window to reach its requested state. This means you may not be able
@@ -1469,7 +1469,7 @@ public class GLFW {
 	 * 
 	 * <p>This function must only be called from the main thread.</p>
 	 * 
-	 * <p><b>OS X</b>: The window title will not be updated until the next time you process events.</p>
+	 * <p><b>macOS</b>: The window title will not be updated until the next time you process events.</p>
 	 *
 	 * @param window the window whose title to change
 	 * @param title  the UTF-8 encoded window title
@@ -1487,7 +1487,7 @@ public class GLFW {
 	 * 
 	 * <p>This function must only be called from the main thread.</p>
 	 * 
-	 * <p><b>OS X</b>: The window title will not be updated until the next time you process events.</p>
+	 * <p><b>macOS</b>: The window title will not be updated until the next time you process events.</p>
 	 *
 	 * @param window the window whose title to change
 	 * @param title  the UTF-8 encoded window title
@@ -1531,7 +1531,7 @@ public class GLFW {
 	 * 
 	 * <p>The specified image data is copied before this function returns.</p>
 	 * 
-	 * <p><b>OS X</b>: The GLFW window has no icon, as it is not a document window, so this function does nothing. The dock icon will be the same as the
+	 * <p><b>macOS</b>: The GLFW window has no icon, as it is not a document window, so this function does nothing. The dock icon will be the same as the
 	 * application bundle's icon. For more information on bundles, see the
 	 * <a href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac Developer
 	 * Library.</p>
@@ -2108,7 +2108,7 @@ public class GLFW {
 	 * 
 	 * <ul>
 	 * <li>This function must only be called from the main thread.</li>
-	 * <li><b>Mac OS X:</b> Selecting Quit from the application menu will trigger the close callback for all windows.</li>
+	 * <li><b>macOS:</b> Selecting Quit from the application menu will trigger the close callback for all windows.</li>
 	 * </ul>
 	 *
 	 * @param window the window whose callback to set
@@ -2793,7 +2793,7 @@ public class GLFW {
 	 * was pressed or released, see the key callback instead.</p>
 	 * 
 	 * <p>The character callback behaves as system text input normally does and will not be called if modifier keys are held down that would prevent normal text
-	 * input on that platform, for example a Super (Command) key on OS X or Alt key on Windows. There is {@link #glfwSetCharModsCallback SetCharModsCallback} that receives these events.</p>
+	 * input on that platform, for example a Super (Command) key on macOS or Alt key on Windows. There is {@link #glfwSetCharModsCallback SetCharModsCallback} that receives these events.</p>
 	 * 
 	 * <p>This function must only be called from the main thread.</p>
 	 *
@@ -2987,15 +2987,15 @@ public class GLFW {
 	 * 
 	 * <p>This function must only be called from the main thread.</p>
 	 *
-	 * @param joy joystick to query
+	 * @param jid joystick to query
 	 *
 	 * @return {@link #GLFW_TRUE TRUE} if the joystick is present, or {@link #GLFW_FALSE FALSE} otherwise
 	 *
 	 * @since version 3.0
 	 */
-	public static boolean glfwJoystickPresent(int joy) {
+	public static boolean glfwJoystickPresent(int jid) {
 		long __functionAddress = Functions.JoystickPresent;
-		return invokeI(__functionAddress, joy) != 0;
+		return invokeI(__functionAddress, jid) != 0;
 	}
 
 	// --- [ glfwGetJoystickAxes ] ---
@@ -3005,9 +3005,9 @@ public class GLFW {
 	 *
 	 * @param count where to store the number of axis values in the returned array. This is set to zero if an error occurred.
 	 */
-	public static long nglfwGetJoystickAxes(int joy, long count) {
+	public static long nglfwGetJoystickAxes(int jid, long count) {
 		long __functionAddress = Functions.GetJoystickAxes;
-		return invokePP(__functionAddress, joy, count);
+		return invokePP(__functionAddress, jid, count);
 	}
 
 	/**
@@ -3021,17 +3021,17 @@ public class GLFW {
 	 * 
 	 * <p>This function must only be called from the main thread.</p>
 	 *
-	 * @param joy the joystick to query
+	 * @param jid the joystick to query
 	 *
 	 * @return an array of axis values, or {@code NULL} if the joystick is not present
 	 *
 	 * @since version 2.2
 	 */
-	public static FloatBuffer glfwGetJoystickAxes(int joy) {
+	public static FloatBuffer glfwGetJoystickAxes(int jid) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		IntBuffer count = stack.callocInt(1);
 		try {
-			long __result = nglfwGetJoystickAxes(joy, memAddress(count));
+			long __result = nglfwGetJoystickAxes(jid, memAddress(count));
 			return memFloatBuffer(__result, count.get(0));
 		} finally {
 			stack.setPointer(stackPointer);
@@ -3045,9 +3045,9 @@ public class GLFW {
 	 *
 	 * @param count where to store the number of button states in the returned array. This is set to zero if an error occurred.
 	 */
-	public static long nglfwGetJoystickButtons(int joy, long count) {
+	public static long nglfwGetJoystickButtons(int jid, long count) {
 		long __functionAddress = Functions.GetJoystickButtons;
-		return invokePP(__functionAddress, joy, count);
+		return invokePP(__functionAddress, jid, count);
 	}
 
 	/**
@@ -3061,17 +3061,17 @@ public class GLFW {
 	 * 
 	 * <p>This function must only be called from the main thread.</p>
 	 *
-	 * @param joy the joystick to query
+	 * @param jid the joystick to query
 	 *
 	 * @return an array of button states, or {@code NULL} if the joystick is not present
 	 *
 	 * @since version 2.2
 	 */
-	public static ByteBuffer glfwGetJoystickButtons(int joy) {
+	public static ByteBuffer glfwGetJoystickButtons(int jid) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		IntBuffer count = stack.callocInt(1);
 		try {
-			long __result = nglfwGetJoystickButtons(joy, memAddress(count));
+			long __result = nglfwGetJoystickButtons(jid, memAddress(count));
 			return memByteBuffer(__result, count.get(0));
 		} finally {
 			stack.setPointer(stackPointer);
@@ -3081,9 +3081,9 @@ public class GLFW {
 	// --- [ glfwGetJoystickName ] ---
 
 	/** Unsafe version of: {@link #glfwGetJoystickName GetJoystickName} */
-	public static long nglfwGetJoystickName(int joy) {
+	public static long nglfwGetJoystickName(int jid) {
 		long __functionAddress = Functions.GetJoystickName;
-		return invokeP(__functionAddress, joy);
+		return invokeP(__functionAddress, jid);
 	}
 
 	/**
@@ -3097,14 +3097,14 @@ public class GLFW {
 	 * 
 	 * <p>This function must only be called from the main thread.</p>
 	 *
-	 * @param joy the joystick to query
+	 * @param jid the joystick to query
 	 *
 	 * @return the UTF-8 encoded name of the joystick, or {@code NULL} if the joystick is not present
 	 *
 	 * @since version 3.0
 	 */
-	public static String glfwGetJoystickName(int joy) {
-		long __result = nglfwGetJoystickName(joy);
+	public static String glfwGetJoystickName(int jid) {
+		long __result = nglfwGetJoystickName(jid);
 		return memUTF8(__result);
 	}
 

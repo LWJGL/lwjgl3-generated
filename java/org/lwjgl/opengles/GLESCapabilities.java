@@ -689,6 +689,7 @@ public final class GLESCapabilities {
 		glTexSubImage3D,
 		glTexSubImage3DNV,
 		glTexSubImage3DOES,
+		glTextureBarrierNV,
 		glTextureStorage1DEXT,
 		glTextureStorage2DEXT,
 		glTextureStorage3DEXT,
@@ -1608,6 +1609,8 @@ public final class GLESCapabilities {
 	public final boolean GL_NV_sRGB_formats;
 	/** When true, {@link NVTextureArray} is supported. */
 	public final boolean GL_NV_texture_array;
+	/** When true, {@link NVTextureBarrier} is supported. */
+	public final boolean GL_NV_texture_barrier;
 	/** When true, {@link NVTextureBorderClamp} is supported. */
 	public final boolean GL_NV_texture_border_clamp;
 	/** When true, {@link NVTextureCompressionS3TC} is supported. */
@@ -2634,6 +2637,7 @@ public final class GLESCapabilities {
 		glTexSubImage3D = provider.getFunctionAddress("glTexSubImage3D");
 		glTexSubImage3DNV = provider.getFunctionAddress("glTexSubImage3DNV");
 		glTexSubImage3DOES = provider.getFunctionAddress("glTexSubImage3DOES");
+		glTextureBarrierNV = provider.getFunctionAddress("glTextureBarrierNV");
 		glTextureStorage1DEXT = provider.getFunctionAddress("glTextureStorage1DEXT");
 		glTextureStorage2DEXT = provider.getFunctionAddress("glTextureStorage2DEXT");
 		glTextureStorage3DEXT = provider.getFunctionAddress("glTextureStorage3DEXT");
@@ -2918,6 +2922,7 @@ public final class GLESCapabilities {
 		GL_NV_shadow_samplers_cube = ext.contains("GL_NV_shadow_samplers_cube");
 		GL_NV_sRGB_formats = ext.contains("GL_NV_sRGB_formats");
 		GL_NV_texture_array = ext.contains("GL_NV_texture_array") && GLES.checkExtension("GL_NV_texture_array", NVTextureArray.isAvailable(this));
+		GL_NV_texture_barrier = ext.contains("GL_NV_texture_barrier") && GLES.checkExtension("GL_NV_texture_barrier", NVTextureBarrier.isAvailable(this));
 		GL_NV_texture_border_clamp = ext.contains("GL_NV_texture_border_clamp");
 		GL_NV_texture_compression_s3tc = ext.contains("GL_NV_texture_compression_s3tc");
 		GL_NV_texture_compression_s3tc_update = ext.contains("GL_NV_texture_compression_s3tc_update");

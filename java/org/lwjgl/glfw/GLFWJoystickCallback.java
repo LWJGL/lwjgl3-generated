@@ -56,8 +56,8 @@ public abstract class GLFWJoystickCallback extends Callback implements GLFWJoyst
 		}
 
 		@Override
-		public void invoke(int joy, int event) {
-			delegate.invoke(joy, event);
+		public void invoke(int jid, int event) {
+			delegate.invoke(jid, event);
 		}
 
 	}

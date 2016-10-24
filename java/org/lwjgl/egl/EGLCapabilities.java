@@ -275,6 +275,8 @@ public class EGLCapabilities {
 	public final boolean EGL_KHR_client_get_all_proc_addresses;
 	/** When true, {@link KHRConfigAttribs} is supported. */
 	public final boolean EGL_KHR_config_attribs;
+	/** When true, {@link KHRContextFlushControl} is supported. */
+	public final boolean EGL_KHR_context_flush_control;
 	/** When true, {@link KHRCreateContext} is supported. */
 	public final boolean EGL_KHR_create_context;
 	/** When true, {@link KHRCreateContextNoError} is supported. */
@@ -849,6 +851,7 @@ public class EGLCapabilities {
 		EGL_KHR_cl_event2 = ext.contains("EGL_KHR_cl_event2") && EGL.checkExtension("EGL_KHR_cl_event2", KHRCLEvent2.isAvailable(this));
 		EGL_KHR_client_get_all_proc_addresses = ext.contains("EGL_KHR_client_get_all_proc_addresses");
 		EGL_KHR_config_attribs = ext.contains("EGL_KHR_config_attribs");
+		EGL_KHR_context_flush_control = ext.contains("EGL_KHR_context_flush_control");
 		EGL_KHR_create_context = ext.contains("EGL_KHR_create_context");
 		EGL_KHR_create_context_no_error = ext.contains("EGL_KHR_create_context_no_error");
 		EGL_KHR_debug = ext.contains("EGL_KHR_debug") && EGL.checkExtension("EGL_KHR_debug", KHRDebug.isAvailable(this));

@@ -20,10 +20,11 @@ DISABLE_WARNINGS()
 #ifdef LWJGL_WINDOWS
 	#define NK_BUTTON_TRIGGER_ON_RELEASE
 #endif
+#define NK_ZERO_COMMAND_MEMORY
 #define NK_ASSERT(expr)
 #define NK_IMPLEMENTATION
 #define NK_MEMSET memset
-#define NK_MEMCOPY memcpy
+#define NK_MEMCPY memcpy
 #define NK_SQRT sqrt
 #define NK_SIN sinf
 #define NK_COS cosf
@@ -811,6 +812,12 @@ JNIEXPORT jdouble JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1propertyd(JNIEnv *
 	const char *name = (const char *)(intptr_t)nameAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jdouble)nk_propertyd(ctx, name, min, val, max, step, inc_per_pixel);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1edit_1focus(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint flags) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	UNUSED_PARAMS(__env, clazz)
+	nk_edit_focus(ctx, flags);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1edit_1string__JIJJIJ(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint flags, jlong memoryAddress, jlong lenAddress, jint max, jlong filterAddress) {
