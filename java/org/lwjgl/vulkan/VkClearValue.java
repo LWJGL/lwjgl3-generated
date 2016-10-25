@@ -20,7 +20,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>This union is used where part of the API requires either color or depth/stencil clear values, depending on the attachment, and defines the initial clear values in the {@link VkRenderPassBeginInfo} structure.</p>
  * 
- * <h5>Valid Usage (Implicit)</h5>
+ * <h5>Valid Usage</h5>
  * 
  * <ul>
  * <li>{@code depthStencil} <b>must</b> be a valid {@link VkClearDepthStencilValue} structure</li>

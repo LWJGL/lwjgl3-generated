@@ -220,6 +220,24 @@ public class VKCapabilities {
 	public final boolean VK_KHR_display;
 	/** When true, {@link KHRDisplaySwapchain} is supported. */
 	public final boolean VK_KHR_display_swapchain;
+	/** When true, {@link KHRExtension72} is supported. */
+	public final boolean VK_KHR_extension_72;
+	/** When true, {@link KHRExtension73} is supported. */
+	public final boolean VK_KHR_extension_73;
+	/** When true, {@link KHRExtension74} is supported. */
+	public final boolean VK_KHR_extension_74;
+	/** When true, {@link KHRExtension75} is supported. */
+	public final boolean VK_KHR_extension_75;
+	/** When true, {@link KHRExtension76} is supported. */
+	public final boolean VK_KHR_extension_76;
+	/** When true, {@link KHRExtension77} is supported. */
+	public final boolean VK_KHR_extension_77;
+	/** When true, {@link KHRExtension78} is supported. */
+	public final boolean VK_KHR_extension_78;
+	/** When true, {@link KHRExtension79} is supported. */
+	public final boolean VK_KHR_extension_79;
+	/** When true, {@link KHRExtension80} is supported. */
+	public final boolean VK_KHR_extension_80;
 	/** When true, {@link KHRSamplerMirrorClampToEdge} is supported. */
 	public final boolean VK_KHR_sampler_mirror_clamp_to_edge;
 	/** When true, {@link KHRSurface} is supported. */
@@ -434,6 +452,15 @@ public class VKCapabilities {
 		VK_IMG_format_pvrtc = ext.contains("VK_IMG_format_pvrtc");
 		VK_KHR_display = ext.contains("VK_KHR_display") && VK.checkExtension("VK_KHR_display", KHRDisplay.isAvailable(this));
 		VK_KHR_display_swapchain = ext.contains("VK_KHR_display_swapchain") && VK.checkExtension("VK_KHR_display_swapchain", KHRDisplaySwapchain.isAvailable(this));
+		VK_KHR_extension_72 = ext.contains("VK_KHR_extension_72");
+		VK_KHR_extension_73 = ext.contains("VK_KHR_extension_73");
+		VK_KHR_extension_74 = ext.contains("VK_KHR_extension_74");
+		VK_KHR_extension_75 = ext.contains("VK_KHR_extension_75");
+		VK_KHR_extension_76 = ext.contains("VK_KHR_extension_76");
+		VK_KHR_extension_77 = ext.contains("VK_KHR_extension_77");
+		VK_KHR_extension_78 = ext.contains("VK_KHR_extension_78");
+		VK_KHR_extension_79 = ext.contains("VK_KHR_extension_79");
+		VK_KHR_extension_80 = ext.contains("VK_KHR_extension_80");
 		VK_KHR_sampler_mirror_clamp_to_edge = ext.contains("VK_KHR_sampler_mirror_clamp_to_edge");
 		VK_KHR_surface = ext.contains("VK_KHR_surface") && VK.checkExtension("VK_KHR_surface", KHRSurface.isAvailable(this));
 		VK_KHR_swapchain = ext.contains("VK_KHR_swapchain") && VK.checkExtension("VK_KHR_swapchain", KHRSwapchain.isAvailable(this));

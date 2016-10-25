@@ -287,12 +287,9 @@ public class EXTDebugReport {
 	 * <h5>Valid Usage</h5>
 	 * 
 	 * <ul>
-	 * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
-	 * <li>{@code flags} <b>must</b> be a combination of one or more of {@code VkDebugReportFlagBitsEXT}</li>
-	 * <li>{@code objectType} <b>must</b> be one of {@code VkDebugReportObjectTypeEXT}, {@link #VK_DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT} if {@code object} is {@code NULL}</li>
 	 * <li>{@code object} <b>may</b> be a Vulkan object</li>
 	 * <li>{@code pLayerPrefix} <b>must</b> be a {@code NULL} terminated string</li>
-	 * <li>{@code pMsg} <b>must</b> be a {@code NULL} terminated string</li>
+	 * <li>{@code pMessage} <b>must</b> be a {@code NULL} terminated string</li>
 	 * </ul>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
@@ -347,12 +344,9 @@ public class EXTDebugReport {
 	 * <h5>Valid Usage</h5>
 	 * 
 	 * <ul>
-	 * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
-	 * <li>{@code flags} <b>must</b> be a combination of one or more of {@code VkDebugReportFlagBitsEXT}</li>
-	 * <li>{@code objectType} <b>must</b> be one of {@code VkDebugReportObjectTypeEXT}, {@link #VK_DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT} if {@code object} is {@code NULL}</li>
 	 * <li>{@code object} <b>may</b> be a Vulkan object</li>
 	 * <li>{@code pLayerPrefix} <b>must</b> be a {@code NULL} terminated string</li>
-	 * <li>{@code pMsg} <b>must</b> be a {@code NULL} terminated string</li>
+	 * <li>{@code pMessage} <b>must</b> be a {@code NULL} terminated string</li>
 	 * </ul>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>

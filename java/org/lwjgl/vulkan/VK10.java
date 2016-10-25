@@ -1360,6 +1360,8 @@ public class VK10 {
 	 * 
 	 * <p>Once a queue family has used a range or image subresource of an {@link #VK_SHARING_MODE_EXCLUSIVE SHARING_MODE_EXCLUSIVE} resource, its contents are undefined to other queue families unless ownership is transferred. The contents <b>may</b> also become undefined for other reasons, e.g. as a result of writes to an image subresource that aliases the same memory. A queue family <b>can</b> take ownership of a range or image subresource without an ownership transfer in the same way as for a resource that was just created, however doing so means any contents written by other queue families or via incompatible aliases are undefined.</p>
 	 * 
+	 * <p>Ranges of buffers and image subresources of image objects created using {@link #VK_SHARING_MODE_CONCURRENT SHARING_MODE_CONCURRENT} <b>must</b> only be accessed by queues from the queue families specified through the {@code queueFamilyIndexCount} and {@code pQueueFamilyIndices} members of the corresponding create info structures.</p>
+	 * 
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@link VkBufferCreateInfo}, {@link VkImageCreateInfo}, {@link VkSwapchainCreateInfoKHR}</p>
@@ -9211,13 +9213,13 @@ public class VK10 {
 	 * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_VIEWPORT DYNAMIC_STATE_VIEWPORT} dynamic state enabled</li>
 	 * <li>{@code firstViewport} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxViewports}</li>
 	 * <li>The sum of {@code firstViewport} and {@code viewportCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceLimits}{@code ::maxViewports}, inclusive</li>
+	 * <li>{@code pViewports} <b>must</b> be a pointer to an array of {@code viewportCount} valid {@link VkViewport} structures</li>
 	 * </ul>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
 	 * 
 	 * <ul>
 	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
-	 * <li>{@code pViewports} <b>must</b> be a pointer to an array of {@code viewportCount} valid {@link VkViewport} structures</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
 	 * <li>{@code viewportCount} <b>must</b> be greater than 0</li>
