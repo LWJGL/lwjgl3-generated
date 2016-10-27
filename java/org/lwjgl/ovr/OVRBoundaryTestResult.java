@@ -19,10 +19,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code IsTriggering} &ndash; True, if the boundary system is being triggered and visible</li>
+ * <li>{@code IsTriggering} &ndash; True if the boundary system is being triggered. Note that due to fade in/out effects this may not exactly match visibility.</li>
  * <li>{@code ClosestDistance} &ndash; Distance to the closest play area or outer boundary surface</li>
- * <li>{@code ClosestPoint} &ndash; Closest point in the surface</li>
- * <li>{@code ClosestPointNormal} &ndash; Normal of the closest point</li>
+ * <li>{@code ClosestPoint} &ndash; Closest point on the boundary surface</li>
+ * <li>{@code ClosestPointNormal} &ndash; Unit surface normal of the closest boundary surface</li>
  * </ul>
  * 
  * <h3>Layout</h3>

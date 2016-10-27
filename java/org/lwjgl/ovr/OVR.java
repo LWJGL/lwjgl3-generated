@@ -339,10 +339,11 @@ public class OVR {
 		ovrTrackedDevice_Touch  = 0x6,
 		ovrTrackedDevice_All    = 0xFFFF;
 
-	/** Boundary types that specified while using the boundary system. ({@code ovrBoundaryType}) */
-	public static final int
-		ovrBoundary_Outer    = 0x1,
-		ovrBoundary_PlayArea = 0x100;
+	/** Outer boundary - closely represents user setup walls */
+	public static final int ovrBoundary_Outer = 0x1;
+
+	/** Play area - safe rectangular area inside outer boundary which can optionally be used to restrict user interactions and motion. */
+	public static final int ovrBoundary_PlayArea = 0x100;
 
 	/** Names for the left and right hand array indexes. ({@code ovrHandType}) */
 	public static final int
@@ -945,8 +946,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 * 
 	 * <p>Note: {@code ovr_SetControllerVibration} cannot be used interchangeably with {@link #ovr_SubmitControllerVibration SubmitControllerVibration}.</p>
 	 * 
-	 * <p>This method should be called periodically, vibration lasts for a maximum of 2.5 seconds. It's recommended to call this method once a second, calls will
-	 * be rejected if called too frequently (over 30hz).</p>
+	 * <p>This method should be called periodically, vibration lasts for a maximum of 2.5 seconds.</p>
 	 *
 	 * @param session        an {@code ovrSession} previously returned by {@link #ovr_Create Create}
 	 * @param controllerType the controller to set the vibration to
@@ -1122,7 +1122,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 *
 	 * @param session             an {@code ovrSession} previously returned by {@link #ovr_Create Create}
 	 * @param boundaryType        the boundary type. One of:<br><table><tr><td>{@link #ovrBoundary_Outer Boundary_Outer}</td><td>{@link #ovrBoundary_PlayArea Boundary_PlayArea}</td></tr></table>
-	 * @param outFloorPoints      an array of 3D points (in clockwise order) defining the boundary at floor height (up to 256)
+	 * @param outFloorPoints      an array of 3D points (in clockwise order) defining the boundary at floor height (can be {@code NULL} to retrieve only the number of points)
 	 * @param outFloorPointsCount the number of 3D points returned in the array
 	 *
 	 * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
