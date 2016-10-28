@@ -16,7 +16,16 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class XXHash {
 
-	/** Error codes. */
+	/**
+	 * Error codes.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #XXH_OK OK}</li>
+	 * <li>{@link #XXH_ERROR ERROR}</li>
+	 * </ul>
+	 */
 	public static final int
 		XXH_OK    = 0,
 		XXH_ERROR = 1;

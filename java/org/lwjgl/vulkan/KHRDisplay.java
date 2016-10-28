@@ -20,7 +20,16 @@ public class KHRDisplay {
 	/** The extension name. */
 	public static final String VK_KHR_DISPLAY_EXTENSION_NAME = "VK_KHR_display";
 
-	/** Extends {@code VkStructureType}. */
+	/**
+	 * Extends {@code VkStructureType}.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_STRUCTURE_TYPE_DISPLAY_MODE_CREATE_INFO_KHR STRUCTURE_TYPE_DISPLAY_MODE_CREATE_INFO_KHR}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR}</li>
+	 * </ul>
+	 */
 	public static final int
 		VK_STRUCTURE_TYPE_DISPLAY_MODE_CREATE_INFO_KHR    = 1000002000,
 		VK_STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR = 1000002001;

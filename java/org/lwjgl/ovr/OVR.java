@@ -24,34 +24,66 @@ public class OVR {
 		ovrTrue  = 1;
 
 	/**
+	 * Initialization flags. ({@code ovrInitFlags})
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrInit_Debug Init_Debug} - 
 	 * When a debug library is requested, a slower debugging version of the library will run which can be used to help solve problems in the library and
 	 * debug application code.
-	 */
-	public static final int ovrInit_Debug = 0x1;
-
-	/**
+	 * </li>
+	 * <li>{@link #ovrInit_RequestVersion Init_RequestVersion} - 
 	 * When a version is requested, the LibOVR runtime respects the {@code RequestedMinorVersion} field and verifies that the
 	 * {@code RequestedMinorVersion} is supported.
 	 * 
 	 * <p>When a version is requested, the LibOVR runtime respects the {@code RequestedMinorVersion} field and verifies that the
 	 * {@code RequestedMinorVersion} is supported. Normally when you specify this flag you simply use {@link OVRVersion#OVR_MINOR_VERSION MINOR_VERSION} for
 	 * {@link OVRInitParams}{@code ::RequestedMinorVersion}, though you could use a lower version than {@link OVRVersion#OVR_MINOR_VERSION MINOR_VERSION} to specify previous version behavior.</p>
+	 * </li>
+	 * <li>{@link #ovrInit_WritableBits Init_WritableBits} - These bits are writable by user code.</li>
+	 * </ul>
 	 */
-	public static final int ovrInit_RequestVersion = 0x4;
+	public static final int
+		ovrInit_Debug          = 0x1,
+		ovrInit_RequestVersion = 0x4,
+		ovrInit_WritableBits   = 0xFFFFFF;
 
-	/** These bits are writable by user code. */
-	public static final int ovrInit_WritableBits = 0xFFFFFF;
+	/**
+	 * Logging levels. ({@code ovrLogLevel})
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrLogLevel_Debug LogLevel_Debug} - Debug-level log event.</li>
+	 * <li>{@link #ovrLogLevel_Info LogLevel_Info} - Info-level log event.</li>
+	 * <li>{@link #ovrLogLevel_Error LogLevel_Error} - Error-level log event.</li>
+	 * </ul>
+	 */
+	public static final int
+		ovrLogLevel_Debug = 0,
+		ovrLogLevel_Info  = 1,
+		ovrLogLevel_Error = 2;
 
-	/** Debug-level log event. */
-	public static final int ovrLogLevel_Debug = 0;
-
-	/** Info-level log event. */
-	public static final int ovrLogLevel_Info = 1;
-
-	/** Error-level log event. */
-	public static final int ovrLogLevel_Error = 2;
-
-	/** HMD types. ({@code ovrHmdType}) */
+	/**
+	 * HMD types. ({@code ovrHmdType})
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrHmd_None Hmd_None}</li>
+	 * <li>{@link #ovrHmd_DK1 Hmd_DK1}</li>
+	 * <li>{@link #ovrHmd_DKHD Hmd_DKHD}</li>
+	 * <li>{@link #ovrHmd_DK2 Hmd_DK2}</li>
+	 * <li>{@link #ovrHmd_CB Hmd_CB}</li>
+	 * <li>{@link #ovrHmd_Other Hmd_Other}</li>
+	 * <li>{@link #ovrHmd_E3_2015 Hmd_E3_2015}</li>
+	 * <li>{@link #ovrHmd_ES06 Hmd_ES06}</li>
+	 * <li>{@link #ovrHmd_ES09 Hmd_ES09}</li>
+	 * <li>{@link #ovrHmd_ES11 Hmd_ES11}</li>
+	 * <li>{@link #ovrHmd_CV1 Hmd_CV1}</li>
+	 * </ul>
+	 */
 	public static final int
 		ovrHmd_None    = 0,
 		ovrHmd_DK1     = 3,
@@ -65,28 +97,60 @@ public class OVR {
 		ovrHmd_ES11    = 13,
 		ovrHmd_CV1     = 14;
 
-	/** (read only) Specifies that the HMD is a virtual debug device. */
+	/**
+	 * HMD capability bits reported by device. ({@code ovrHmdCaps})
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrHmdCap_DebugDevice HmdCap_DebugDevice} - (read only) Specifies that the HMD is a virtual debug device.</li>
+	 * </ul>
+	 */
 	public static final int ovrHmdCap_DebugDevice = 0x10;
 
-	/** Supports orientation tracking (IMU). */
-	public static final int ovrTrackingCap_Orientation = 0x10;
-
-	/** Supports yaw drift correction via a magnetometer or other means. */
-	public static final int ovrTrackingCap_MagYawCorrection = 0x20;
-
-	/** Supports positional tracking. */
-	public static final int ovrTrackingCap_Position = 0x40;
-
-	/** The left eye, from the viewer's perspective. */
-	public static final int ovrEye_Left = 0;
-
-	/** The right eye, from the viewer's perspective. */
-	public static final int ovrEye_Right = 1;
-
-	/** Count of enumerated elements. */
-	public static final int ovrEye_Count = 2;
+	/**
+	 * Tracking capability bits reported by the device. ({@code ovrTrackingCaps})
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrTrackingCap_Orientation TrackingCap_Orientation} - Supports orientation tracking (IMU).</li>
+	 * <li>{@link #ovrTrackingCap_MagYawCorrection TrackingCap_MagYawCorrection} - Supports yaw drift correction via a magnetometer or other means.</li>
+	 * <li>{@link #ovrTrackingCap_Position TrackingCap_Position} - Supports positional tracking.</li>
+	 * </ul>
+	 */
+	public static final int
+		ovrTrackingCap_Orientation      = 0x10,
+		ovrTrackingCap_MagYawCorrection = 0x20,
+		ovrTrackingCap_Position         = 0x40;
 
 	/**
+	 * Specifies which eye is being used for rendering. ({@code ovrEyeType})
+	 * 
+	 * <p>This type explicitly does not include a third "NoStereo" monoscopic option, as such is not required for an HMD-centered API.</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrEye_Left Eye_Left} - The left eye, from the viewer's perspective.</li>
+	 * <li>{@link #ovrEye_Right Eye_Right} - The right eye, from the viewer's perspective.</li>
+	 * <li>{@link #ovrEye_Count Eye_Count} - Count of enumerated elements.</li>
+	 * </ul>
+	 */
+	public static final int
+		ovrEye_Left  = 0,
+		ovrEye_Right = 1,
+		ovrEye_Count = 2;
+
+	/**
+	 * Specifies the coordinate system ovrTrackingState returns tracking poses in. ({@code ovrTrackingOrigin})
+	 * 
+	 * <p>Used with {@link #ovr_SetTrackingOriginType SetTrackingOriginType}.</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrTrackingOrigin_EyeLevel TrackingOrigin_EyeLevel} - 
 	 * Tracking system origin reported at eye (HMD) height.
 	 * 
 	 * <p>Prefer using this origin when your application requires matching user's current physical head pose to a virtual head pose without any regards to a
@@ -94,62 +158,129 @@ public class OVR {
 	 * an offset transform from the profile calibrated or recentered HMD pose. It is recommended that apps using this origin type call
 	 * {@link #ovr_RecenterTrackingOrigin RecenterTrackingOrigin} prior to starting the VR experience, but notify the user before doing so to make sure the user is in a comfortable pose,
 	 * facing a comfortable direction.</p>
-	 */
-	public static final int ovrTrackingOrigin_EyeLevel = 0;
-
-	/**
+	 * </li>
+	 * <li>{@link #ovrTrackingOrigin_FloorLevel TrackingOrigin_FloorLevel} - 
 	 * Tracking system origin reported at floor height.
 	 * 
 	 * <p>Prefer using this origin when your application requires the physical floor height to match the virtual floor height, such as standing experiences.
 	 * When used, all poses in {@link OVRTrackingState} are reported as an offset transform from the profile calibrated floor pose. Calling
 	 * {@link #ovr_RecenterTrackingOrigin RecenterTrackingOrigin} will recenter the X & Z axes as well as yaw, but the Y-axis (i.e. height) will continue to be reported using the floor
 	 * height as the origin for all poses.</p>
+	 * </li>
+	 * </ul>
 	 */
-	public static final int ovrTrackingOrigin_FloorLevel = 1;
+	public static final int
+		ovrTrackingOrigin_EyeLevel   = 0,
+		ovrTrackingOrigin_FloorLevel = 1;
 
-	/** Orientation is currently tracked (connected and in use). */
-	public static final int ovrStatus_OrientationTracked = 0x1;
+	/**
+	 * Bit flags describing the current status of sensor tracking. ({@code ovrStatusBits}
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrStatus_OrientationTracked Status_OrientationTracked} - Orientation is currently tracked (connected and in use).</li>
+	 * <li>{@link #ovrStatus_PositionTracked Status_PositionTracked} - Position is currently tracked (false if out of range).</li>
+	 * </ul>
+	 */
+	public static final int
+		ovrStatus_OrientationTracked = 0x1,
+		ovrStatus_PositionTracked    = 0x2;
 
-	/** Position is currently tracked (false if out of range). */
-	public static final int ovrStatus_PositionTracked = 0x2;
+	/**
+	 * Specifies sensor flags. ({@code ovrTrackerFlags})
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrTracker_Connected Tracker_Connected} - The sensor is present, else the sensor is absent or offline.</li>
+	 * <li>{@link #ovrTracker_PoseTracked Tracker_PoseTracked} - The sensor has a valid pose, else the pose is unavailable. This will only be set if ovrTracker_Connected is set.</li>
+	 * </ul>
+	 */
+	public static final int
+		ovrTracker_Connected   = 0x20,
+		ovrTracker_PoseTracked = 0x4;
 
-	/** The sensor is present, else the sensor is absent or offline. */
-	public static final int ovrTracker_Connected = 0x20;
-
-	/** The sensor has a valid pose, else the pose is unavailable. This will only be set if ovrTracker_Connected is set. */
-	public static final int ovrTracker_PoseTracked = 0x4;
-
-	/** 2D textures */
-	public static final int ovrTexture_2D = 0;
-
-	/** External 2D texture. Not used on PC */
-	public static final int ovrTexture_2D_External = 1;
-
-	/** Cube maps. Not currently supported on PC. */
-	public static final int ovrTexture_Cube = 2;
+	/**
+	 * The type of texture resource. ({@code ovrTextureType})
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrTexture_2D Texture_2D} - 2D textures</li>
+	 * <li>{@link #ovrTexture_2D_External Texture_2D_External} - External 2D texture. Not used on PC</li>
+	 * <li>{@link #ovrTexture_Cube Texture_Cube} - Cube maps. Not currently supported on PC.</li>
+	 * </ul>
+	 */
+	public static final int
+		ovrTexture_2D          = 0,
+		ovrTexture_2D_External = 1,
+		ovrTexture_Cube        = 2;
 
 	/**
 	 * The bindings required for texture swap chain. ({@code ovrTextureBindFlags})
 	 * 
 	 * <p>All texture swap chains are automatically bindable as shader input resources since the Oculus runtime needs this to read them.</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrTextureBind_None TextureBind_None}</li>
+	 * <li>{@link #ovrTextureBind_DX_RenderTarget TextureBind_DX_RenderTarget} - The application can write into the chain with pixel shader</li>
+	 * <li>{@link #ovrTextureBind_DX_UnorderedAccess TextureBind_DX_UnorderedAccess} - The application can write to the chain with compute shader</li>
+	 * <li>{@link #ovrTextureBind_DX_DepthStencil TextureBind_DX_DepthStencil} - The chain buffers can be bound as depth and/or stencil buffers</li>
+	 * </ul>
 	 */
-	public static final int ovrTextureBind_None = 0;
+	public static final int
+		ovrTextureBind_None               = 0,
+		ovrTextureBind_DX_RenderTarget    = 0x1,
+		ovrTextureBind_DX_UnorderedAccess = 0x2,
+		ovrTextureBind_DX_DepthStencil    = 0x4;
 
-	/** The application can write into the chain with pixel shader */
-	public static final int ovrTextureBind_DX_RenderTarget = 0x1;
-
-	/** The application can write to the chain with compute shader */
-	public static final int ovrTextureBind_DX_UnorderedAccess = 0x2;
-
-	/** The chain buffers can be bound as depth and/or stencil buffers */
-	public static final int ovrTextureBind_DX_DepthStencil = 0x4;
-
-	/** The format of a texture. ({@code ovrTextureFormat}) */
+	/**
+	 * The format of a texture. ({@code ovrTextureFormat})
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #OVR_FORMAT_UNKNOWN OVR_FORMAT_UNKNOWN}</li>
+	 * <li>{@link #OVR_FORMAT_B5G6R5_UNORM OVR_FORMAT_B5G6R5_UNORM} - Not currently supported on PC. Would require a DirectX 11.1 device.</li>
+	 * <li>{@link #OVR_FORMAT_B5G5R5A1_UNORM OVR_FORMAT_B5G5R5A1_UNORM} - Not currently supported on PC. Would require a DirectX 11.1 device.</li>
+	 * <li>{@link #OVR_FORMAT_B4G4R4A4_UNORM OVR_FORMAT_B4G4R4A4_UNORM} - Not currently supported on PC. Would require a DirectX 11.1 device.</li>
+	 * <li>{@link #OVR_FORMAT_R8G8B8A8_UNORM OVR_FORMAT_R8G8B8A8_UNORM}</li>
+	 * <li>{@link #OVR_FORMAT_R8G8B8A8_UNORM_SRGB OVR_FORMAT_R8G8B8A8_UNORM_SRGB}</li>
+	 * <li>{@link #OVR_FORMAT_B8G8R8A8_UNORM OVR_FORMAT_B8G8R8A8_UNORM}</li>
+	 * <li>{@link #OVR_FORMAT_B8G8R8A8_UNORM_SRGB OVR_FORMAT_B8G8R8A8_UNORM_SRGB} - Not supported for OpenGL applications.</li>
+	 * <li>{@link #OVR_FORMAT_B8G8R8X8_UNORM OVR_FORMAT_B8G8R8X8_UNORM} - Not supported for OpenGL applications.</li>
+	 * <li>{@link #OVR_FORMAT_B8G8R8X8_UNORM_SRGB OVR_FORMAT_B8G8R8X8_UNORM_SRGB} - Not supported for OpenGL applications.</li>
+	 * <li>{@link #OVR_FORMAT_R16G16B16A16_FLOAT OVR_FORMAT_R16G16B16A16_FLOAT}</li>
+	 * <li>{@link #OVR_FORMAT_D16_UNORM OVR_FORMAT_D16_UNORM}</li>
+	 * <li>{@link #OVR_FORMAT_D24_UNORM_S8_UINT OVR_FORMAT_D24_UNORM_S8_UINT}</li>
+	 * <li>{@link #OVR_FORMAT_D32_FLOAT OVR_FORMAT_D32_FLOAT}</li>
+	 * <li>{@link #OVR_FORMAT_D32_FLOAT_S8X24_UINT OVR_FORMAT_D32_FLOAT_S8X24_UINT}</li>
+	 * <li>{@link #OVR_FORMAT_BC1_UNORM OVR_FORMAT_BC1_UNORM}</li>
+	 * <li>{@link #OVR_FORMAT_BC1_UNORM_SRGB OVR_FORMAT_BC1_UNORM_SRGB}</li>
+	 * <li>{@link #OVR_FORMAT_BC2_UNORM OVR_FORMAT_BC2_UNORM}</li>
+	 * <li>{@link #OVR_FORMAT_BC2_UNORM_SRGB OVR_FORMAT_BC2_UNORM_SRGB}</li>
+	 * <li>{@link #OVR_FORMAT_BC3_UNORM OVR_FORMAT_BC3_UNORM}</li>
+	 * <li>{@link #OVR_FORMAT_BC3_UNORM_SRGB OVR_FORMAT_BC3_UNORM_SRGB}</li>
+	 * <li>{@link #OVR_FORMAT_BC6H_UF16 OVR_FORMAT_BC6H_UF16}</li>
+	 * <li>{@link #OVR_FORMAT_BC6H_SF16 OVR_FORMAT_BC6H_SF16}</li>
+	 * <li>{@link #OVR_FORMAT_BC7_UNORM OVR_FORMAT_BC7_UNORM}</li>
+	 * <li>{@link #OVR_FORMAT_BC7_UNORM_SRGB OVR_FORMAT_BC7_UNORM_SRGB}</li>
+	 * </ul>
+	 */
 	public static final int
 		OVR_FORMAT_UNKNOWN              = 0,
+		OVR_FORMAT_B5G6R5_UNORM         = 1,
+		OVR_FORMAT_B5G5R5A1_UNORM       = 2,
+		OVR_FORMAT_B4G4R4A4_UNORM       = 3,
 		OVR_FORMAT_R8G8B8A8_UNORM       = 4,
 		OVR_FORMAT_R8G8B8A8_UNORM_SRGB  = 5,
 		OVR_FORMAT_B8G8R8A8_UNORM       = 6,
+		OVR_FORMAT_B8G8R8A8_UNORM_SRGB  = 7,
+		OVR_FORMAT_B8G8R8X8_UNORM       = 8,
+		OVR_FORMAT_B8G8R8X8_UNORM_SRGB  = 9,
 		OVR_FORMAT_R16G16B16A16_FLOAT   = 10,
 		OVR_FORMAT_D16_UNORM            = 11,
 		OVR_FORMAT_D24_UNORM_S8_UINT    = 12,
@@ -166,172 +297,174 @@ public class OVR {
 		OVR_FORMAT_BC7_UNORM            = 23,
 		OVR_FORMAT_BC7_UNORM_SRGB       = 24;
 
-	/** Not currently supported on PC. Would require a DirectX 11.1 device. */
-	public static final int OVR_FORMAT_B5G6R5_UNORM = 1;
-
-	/** Not currently supported on PC. Would require a DirectX 11.1 device. */
-	public static final int OVR_FORMAT_B5G5R5A1_UNORM = 2;
-
-	/** Not currently supported on PC. Would require a DirectX 11.1 device. */
-	public static final int OVR_FORMAT_B4G4R4A4_UNORM = 3;
-
-	/** Not supported for OpenGL applications. */
-	public static final int OVR_FORMAT_B8G8R8A8_UNORM_SRGB = 7;
-
-	/** Not supported for OpenGL applications. */
-	public static final int OVR_FORMAT_B8G8R8X8_UNORM = 8;
-
-	/** Not supported for OpenGL applications. */
-	public static final int OVR_FORMAT_B8G8R8X8_UNORM_SRGB = 9;
-
-	/** Misc flags overriding particular behaviors of a texture swap chain. ({@code ovrTextureFlags}) */
-	public static final int ovrTextureMisc_None = 0;
-
 	/**
+	 * Misc flags overriding particular behaviors of a texture swap chain. ({@code ovrTextureFlags})
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrTextureMisc_None TextureMisc_None}</li>
+	 * <li>{@link #ovrTextureMisc_DX_Typeless TextureMisc_DX_Typeless} - 
 	 * DX only: The underlying texture is created with a TYPELESS equivalent of the format specified in the texture desc. The SDK will still access the
 	 * texture using the format specified in the texture desc, but the app can create views with different formats if this is specified.
-	 */
-	public static final int ovrTextureMisc_DX_Typeless = 0x1;
-
-	/** DX only: Allow generation of the mip chain on the GPU via the GenerateMips call. This flag requires that RenderTarget binding also be specified. */
-	public static final int ovrTextureMisc_AllowGenerateMips = 0x2;
-
-	/**
+	 * </li>
+	 * <li>{@link #ovrTextureMisc_AllowGenerateMips TextureMisc_AllowGenerateMips} - DX only: Allow generation of the mip chain on the GPU via the GenerateMips call. This flag requires that RenderTarget binding also be specified.</li>
+	 * <li>{@link #ovrTextureMisc_ProtectedContent TextureMisc_ProtectedContent} - 
 	 * Texture swap chain contains protected content, and requires HDCP connection in order to display to HMD. Also prevents mirroring or other
 	 * redirection of any frame containing this contents
+	 * </li>
+	 * </ul>
 	 */
-	public static final int ovrTextureMisc_ProtectedContent = 0x4;
+	public static final int
+		ovrTextureMisc_None              = 0,
+		ovrTextureMisc_DX_Typeless       = 0x1,
+		ovrTextureMisc_AllowGenerateMips = 0x2,
+		ovrTextureMisc_ProtectedContent  = 0x4;
 
-	/** Button A */
-	public static final int ovrButton_A = 0x1;
+	/**
+	 * Button input types. ({@code ovrTouch})
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrButton_A Button_A} - Button A</li>
+	 * <li>{@link #ovrButton_B Button_B} - Button B</li>
+	 * <li>{@link #ovrButton_RThumb Button_RThumb} - Button RThumb</li>
+	 * <li>{@link #ovrButton_RShoulder Button_RShoulder} - Button RShoulder</li>
+	 * <li>{@link #ovrButton_X Button_X} - Button X</li>
+	 * <li>{@link #ovrButton_Y Button_Y} - Button Y</li>
+	 * <li>{@link #ovrButton_LThumb Button_LThumb} - Button LThumb</li>
+	 * <li>{@link #ovrButton_LShoulder Button_LShoulder} - Button LShoulder</li>
+	 * <li>{@link #ovrButton_Up Button_Up} - Button Up</li>
+	 * <li>{@link #ovrButton_Down Button_Down} - Button Down</li>
+	 * <li>{@link #ovrButton_Left Button_Left} - Button Left</li>
+	 * <li>{@link #ovrButton_Right Button_Right} - Button Right</li>
+	 * <li>{@link #ovrButton_Enter Button_Enter} - Button Enter</li>
+	 * <li>{@link #ovrButton_Back Button_Back} - Button Back</li>
+	 * <li>{@link #ovrButton_VolUp Button_VolUp} - Button VolUp</li>
+	 * <li>{@link #ovrButton_VolDown Button_VolDown} - Button VolDown</li>
+	 * <li>{@link #ovrButton_Home Button_Home} - Button Home</li>
+	 * <li>{@link #ovrButton_Private Button_Private}</li>
+	 * <li>{@link #ovrButton_RMask Button_RMask} - Bit mask of all buttons on the right Touch controller</li>
+	 * <li>{@link #ovrButton_LMask Button_LMask} - Bit mask of all buttons on the left Touch controller</li>
+	 * </ul>
+	 */
+	public static final int
+		ovrButton_A         = 0x1,
+		ovrButton_B         = 0x2,
+		ovrButton_RThumb    = 0x4,
+		ovrButton_RShoulder = 0x8,
+		ovrButton_X         = 0x100,
+		ovrButton_Y         = 0x200,
+		ovrButton_LThumb    = 0x400,
+		ovrButton_LShoulder = 0x800,
+		ovrButton_Up        = 0x10000,
+		ovrButton_Down      = 0x20000,
+		ovrButton_Left      = 0x40000,
+		ovrButton_Right     = 0x80000,
+		ovrButton_Enter     = 0x100000,
+		ovrButton_Back      = 0x200000,
+		ovrButton_VolUp     = 0x400000,
+		ovrButton_VolDown   = 0x800000,
+		ovrButton_Home      = 0x1000000,
+		ovrButton_Private   = ovrButton_VolUp | ovrButton_VolDown | ovrButton_Home,
+		ovrButton_RMask     = ovrButton_A | ovrButton_B | ovrButton_RThumb | ovrButton_RShoulder,
+		ovrButton_LMask     = ovrButton_X | ovrButton_Y | ovrButton_LThumb | ovrButton_LShoulder | ovrButton_Enter;
 
-	/** Button B */
-	public static final int ovrButton_B = 0x2;
+	/**
+	 * Touch input types.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrTouch_A Touch_A} - Touch A</li>
+	 * <li>{@link #ovrTouch_B Touch_B} - Touch B</li>
+	 * <li>{@link #ovrTouch_RThumb Touch_RThumb} - Touch RThumb</li>
+	 * <li>{@link #ovrTouch_RThumbRest Touch_RThumbRest} - Touch RThumbRest</li>
+	 * <li>{@link #ovrTouch_RIndexTrigger Touch_RIndexTrigger} - Touch RIndexTrigger</li>
+	 * <li>{@link #ovrTouch_RButtonMask Touch_RButtonMask} - Bit mask of all the button touches on the right controller</li>
+	 * <li>{@link #ovrTouch_X Touch_X} - Touch X</li>
+	 * <li>{@link #ovrTouch_Y Touch_Y} - Touch Y</li>
+	 * <li>{@link #ovrTouch_LThumb Touch_LThumb} - Touch LThumb</li>
+	 * <li>{@link #ovrTouch_LThumbRest Touch_LThumbRest} - Touch LThumbRest</li>
+	 * <li>{@link #ovrTouch_LIndexTrigger Touch_LIndexTrigger} - Touch LIndexTrigger</li>
+	 * <li>{@link #ovrTouch_LButtonMask Touch_LButtonMask} - Bit mask of all the button touches on the left controller</li>
+	 * <li>{@link #ovrTouch_RIndexPointing Touch_RIndexPointing} - TouchRIndexPointing</li>
+	 * <li>{@link #ovrTouch_RThumbUp Touch_RThumbUp} - Touch RThumbUp</li>
+	 * <li>{@link #ovrTouch_RPoseMask Touch_RPoseMask} - Bit mask of all right controller poses</li>
+	 * <li>{@link #ovrTouch_LIndexPointing Touch_LIndexPointing} - Touch LIndexPointing</li>
+	 * <li>{@link #ovrTouch_LThumbUp Touch_LThumbUp} - Touch LThumbUp</li>
+	 * <li>{@link #ovrTouch_LPoseMask Touch_LPoseMask} - Bit mask of all left controller poses.</li>
+	 * </ul>
+	 */
+	public static final int
+		ovrTouch_A              = ovrButton_A,
+		ovrTouch_B              = ovrButton_B,
+		ovrTouch_RThumb         = ovrButton_RThumb,
+		ovrTouch_RThumbRest     = 0x8,
+		ovrTouch_RIndexTrigger  = 0x10,
+		ovrTouch_RButtonMask    = ovrTouch_A | ovrTouch_B | ovrTouch_RThumb | ovrTouch_RThumbRest | ovrTouch_RIndexTrigger,
+		ovrTouch_X              = ovrButton_X,
+		ovrTouch_Y              = ovrButton_Y,
+		ovrTouch_LThumb         = ovrButton_LThumb,
+		ovrTouch_LThumbRest     = 0x800,
+		ovrTouch_LIndexTrigger  = 0x1000,
+		ovrTouch_LButtonMask    = ovrTouch_X | ovrTouch_Y | ovrTouch_LThumb | ovrTouch_LThumbRest | ovrTouch_LIndexTrigger,
+		ovrTouch_RIndexPointing = 0x20,
+		ovrTouch_RThumbUp       = 0x40,
+		ovrTouch_RPoseMask      = ovrTouch_RIndexPointing | ovrTouch_RThumbUp,
+		ovrTouch_LIndexPointing = 0x2000,
+		ovrTouch_LThumbUp       = 0x4000,
+		ovrTouch_LPoseMask      = ovrTouch_LIndexPointing | ovrTouch_LThumbUp;
 
-	/** Button RThumb */
-	public static final int ovrButton_RThumb = 0x4;
-
-	/** Button RShoulder */
-	public static final int ovrButton_RShoulder = 0x8;
-
-	/** Button X */
-	public static final int ovrButton_X = 0x100;
-
-	/** Button Y */
-	public static final int ovrButton_Y = 0x200;
-
-	/** Button LThumb */
-	public static final int ovrButton_LThumb = 0x400;
-
-	/** Button LShoulder */
-	public static final int ovrButton_LShoulder = 0x800;
-
-	/** Button Up */
-	public static final int ovrButton_Up = 0x10000;
-
-	/** Button Down */
-	public static final int ovrButton_Down = 0x20000;
-
-	/** Button Left */
-	public static final int ovrButton_Left = 0x40000;
-
-	/** Button Right */
-	public static final int ovrButton_Right = 0x80000;
-
-	/** Button Enter */
-	public static final int ovrButton_Enter = 0x100000;
-
-	/** Button Back */
-	public static final int ovrButton_Back = 0x200000;
-
-	/** Button VolUp */
-	public static final int ovrButton_VolUp = 0x400000;
-
-	/** Button VolDown */
-	public static final int ovrButton_VolDown = 0x800000;
-
-	/** Button Home */
-	public static final int ovrButton_Home = 0x1000000;
-
-	/** Bit mask of all buttons on the right Touch controller */
-	public static final int ovrButton_RMask = ovrButton_A | ovrButton_B | ovrButton_RThumb | ovrButton_RShoulder;
-
-	/** Bit mask of all buttons on the left Touch controller */
-	public static final int ovrButton_LMask = ovrButton_X | ovrButton_Y | ovrButton_LThumb | ovrButton_LShoulder | ovrButton_Enter;
-
-	/** Button input types. ({@code ovrTouch}) */
-	public static final int ovrButton_Private = ovrButton_VolUp | ovrButton_VolDown | ovrButton_Home;
-
-	/** Touch A */
-	public static final int ovrTouch_A = ovrButton_A;
-
-	/** Touch B */
-	public static final int ovrTouch_B = ovrButton_B;
-
-	/** Touch RThumb */
-	public static final int ovrTouch_RThumb = ovrButton_RThumb;
-
-	/** Touch RThumbRest */
-	public static final int ovrTouch_RThumbRest = 0x8;
-
-	/** Touch RIndexTrigger */
-	public static final int ovrTouch_RIndexTrigger = 0x10;
-
-	/** Bit mask of all the button touches on the right controller */
-	public static final int ovrTouch_RButtonMask = ovrTouch_A | ovrTouch_B | ovrTouch_RThumb | ovrTouch_RThumbRest | ovrTouch_RIndexTrigger;
-
-	/** Touch X */
-	public static final int ovrTouch_X = ovrButton_X;
-
-	/** Touch Y */
-	public static final int ovrTouch_Y = ovrButton_Y;
-
-	/** Touch LThumb */
-	public static final int ovrTouch_LThumb = ovrButton_LThumb;
-
-	/** Touch LThumbRest */
-	public static final int ovrTouch_LThumbRest = 0x800;
-
-	/** Touch LIndexTrigger */
-	public static final int ovrTouch_LIndexTrigger = 0x1000;
-
-	/** Bit mask of all the button touches on the left controller */
-	public static final int ovrTouch_LButtonMask = ovrTouch_X | ovrTouch_Y | ovrTouch_LThumb | ovrTouch_LThumbRest | ovrTouch_LIndexTrigger;
-
-	/** TouchRIndexPointing */
-	public static final int ovrTouch_RIndexPointing = 0x20;
-
-	/** Touch RThumbUp */
-	public static final int ovrTouch_RThumbUp = 0x40;
-
-	/** Bit mask of all right controller poses */
-	public static final int ovrTouch_RPoseMask = ovrTouch_RIndexPointing | ovrTouch_RThumbUp;
-
-	/** Touch LIndexPointing */
-	public static final int ovrTouch_LIndexPointing = 0x2000;
-
-	/** Touch LThumbUp */
-	public static final int ovrTouch_LThumbUp = 0x4000;
-
-	/** Bit mask of all left controller poses. */
-	public static final int ovrTouch_LPoseMask = ovrTouch_LIndexPointing | ovrTouch_LThumbUp;
-
-	/** Which controller is connected; multiple can be connected at once. ({@code ovrControllerType}) */
+	/**
+	 * Which controller is connected; multiple can be connected at once. ({@code ovrControllerType})
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrControllerType_None ControllerType_None}</li>
+	 * <li>{@link #ovrControllerType_LTouch ControllerType_LTouch}</li>
+	 * <li>{@link #ovrControllerType_RTouch ControllerType_RTouch}</li>
+	 * <li>{@link #ovrControllerType_Touch ControllerType_Touch}</li>
+	 * <li>{@link #ovrControllerType_Remote ControllerType_Remote}</li>
+	 * <li>{@link #ovrControllerType_XBox ControllerType_XBox}</li>
+	 * <li>{@link #ovrControllerType_Active ControllerType_Active} - Operate on or query whichever controller is active.</li>
+	 * </ul>
+	 */
 	public static final int
 		ovrControllerType_None   = 0x0,
 		ovrControllerType_LTouch = 0x1,
 		ovrControllerType_RTouch = 0x2,
 		ovrControllerType_Touch  = 0x3,
 		ovrControllerType_Remote = 0x4,
-		ovrControllerType_XBox   = 0x10;
+		ovrControllerType_XBox   = 0x10,
+		ovrControllerType_Active = 0xFF;
 
-	/** Operate on or query whichever controller is active. */
-	public static final int ovrControllerType_Active = 0xFF;
-
-	/** Enqueue buffer for later playback */
+	/**
+	 * Haptics buffer submit mode. ({@code ovrHapticsBufferSubmitMode})
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrHapticsBufferSubmit_Enqueue HapticsBufferSubmit_Enqueue} - Enqueue buffer for later playback</li>
+	 * </ul>
+	 */
 	public static final int ovrHapticsBufferSubmit_Enqueue = 0;
 
-	/** Position tracked devices. ({@code ovrTrackedDeviceType}) */
+	/**
+	 * Position tracked devices. ({@code ovrTrackedDeviceType})
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrTrackedDevice_HMD TrackedDevice_HMD}</li>
+	 * <li>{@link #ovrTrackedDevice_LTouch TrackedDevice_LTouch}</li>
+	 * <li>{@link #ovrTrackedDevice_RTouch TrackedDevice_RTouch}</li>
+	 * <li>{@link #ovrTrackedDevice_Touch TrackedDevice_Touch}</li>
+	 * <li>{@link #ovrTrackedDevice_All TrackedDevice_All}</li>
+	 * </ul>
+	 */
 	public static final int
 		ovrTrackedDevice_HMD    = 0x1,
 		ovrTrackedDevice_LTouch = 0x2,
@@ -339,89 +472,167 @@ public class OVR {
 		ovrTrackedDevice_Touch  = 0x6,
 		ovrTrackedDevice_All    = 0xFFFF;
 
-	/** Outer boundary - closely represents user setup walls */
-	public static final int ovrBoundary_Outer = 0x1;
+	/**
+	 * Boundary types that specified while using the boundary system. ({@code ovrBoundaryType})
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrBoundary_Outer Boundary_Outer} - Outer boundary - closely represents user setup walls</li>
+	 * <li>{@link #ovrBoundary_PlayArea Boundary_PlayArea} - Play area - safe rectangular area inside outer boundary which can optionally be used to restrict user interactions and motion.</li>
+	 * </ul>
+	 */
+	public static final int
+		ovrBoundary_Outer    = 0x1,
+		ovrBoundary_PlayArea = 0x100;
 
-	/** Play area - safe rectangular area inside outer boundary which can optionally be used to restrict user interactions and motion. */
-	public static final int ovrBoundary_PlayArea = 0x100;
-
-	/** Names for the left and right hand array indexes. ({@code ovrHandType}) */
+	/**
+	 * Names for the left and right hand array indexes. ({@code ovrHandType})
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrHand_Left Hand_Left}</li>
+	 * <li>{@link #ovrHand_Right Hand_Right}</li>
+	 * <li>{@link #ovrHand_Count Hand_Count}</li>
+	 * </ul>
+	 */
 	public static final int
 		ovrHand_Left  = 0x0,
 		ovrHand_Right = 0x1,
 		ovrHand_Count = 0x2;
 
-	/** Maximum number of frames of performance stats provided back to the caller of {@link #ovr_GetPerfStats GetPerfStats}. */
+	/**
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrMaxProvidedFrameStats MaxProvidedFrameStats} - Maximum number of frames of performance stats provided back to the caller of {@link #ovr_GetPerfStats GetPerfStats}.</li>
+	 * </ul>
+	 */
 	public static final int ovrMaxProvidedFrameStats = 0x5;
 
 	/** Specifies the maximum number of layers supported by {@link #ovr_SubmitFrame SubmitFrame}. */
 	public static final int ovrMaxLayerCount = 16;
 
-	/** Layer is disabled. */
-	public static final int ovrLayerType_Disabled = 0;
-
-	/** Described by {@link OVRLayerEyeFov}. */
-	public static final int ovrLayerType_EyeFov = 1;
-
-	/** Described by {@link OVRLayerQuad}. */
-	public static final int ovrLayerType_Quad = 3;
-
-	/** Described by {@link OVRLayerEyeMatrix}. */
-	public static final int ovrLayerType_EyeMatrix = 5;
+	/**
+	 * Describes layer types that can be passed to {@link #ovr_SubmitFrame SubmitFrame}. ({@code ovrLayerType})
+	 * 
+	 * <p>Each layer type has an associated struct, such as {@link OVRLayerEyeFov}.</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrLayerType_Disabled LayerType_Disabled} - Layer is disabled.</li>
+	 * <li>{@link #ovrLayerType_EyeFov LayerType_EyeFov} - Described by {@link OVRLayerEyeFov}.</li>
+	 * <li>{@link #ovrLayerType_Quad LayerType_Quad} - Described by {@link OVRLayerQuad}.</li>
+	 * <li>{@link #ovrLayerType_EyeMatrix LayerType_EyeMatrix} - Described by {@link OVRLayerEyeMatrix}.</li>
+	 * </ul>
+	 */
+	public static final int
+		ovrLayerType_Disabled  = 0,
+		ovrLayerType_EyeFov    = 1,
+		ovrLayerType_Quad      = 3,
+		ovrLayerType_EyeMatrix = 5;
 
 	/**
+	 * Identifies flags used by {@link OVRLayerHeader} and which are passed to {@link #ovr_SubmitFrame SubmitFrame}. ({@code ovrLayerFlags})
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrLayerFlag_HighQuality LayerFlag_HighQuality} - 
 	 * Enables 4x anisotropic sampling during the composition of the layer. The benefits are mostly visible at the periphery for high-frequency &amp;
 	 * high-contrast visuals. For best results consider combining this flag with an {@code ovrTextureSwapChain} that has mipmaps and instead of using
 	 * arbitrary sized textures, prefer texture sizes that are powers-of-two. Actual rendered viewport and doesn't necessarily have to fill the whole
 	 * texture.
-	 */
-	public static final int ovrLayerFlag_HighQuality = 0x1;
-
-	/** the opposite is TopLeft. Generally this is false for D3D, true for OpenGL. */
-	public static final int ovrLayerFlag_TextureOriginAtBottomLeft = 0x2;
-
-	/**
+	 * </li>
+	 * <li>{@link #ovrLayerFlag_TextureOriginAtBottomLeft LayerFlag_TextureOriginAtBottomLeft} - the opposite is TopLeft. Generally this is false for D3D, true for OpenGL.</li>
+	 * <li>{@link #ovrLayerFlag_HeadLocked LayerFlag_HeadLocked} - 
 	 * Mark this surface as "headlocked", which means it is specified relative to the HMD and moves with it, rather than being specified relative to
 	 * sensor/torso space and remaining still while the head moves. What used to be {@code ovrLayerType_QuadHeadLocked} is now {@link #ovrLayerType_Quad LayerType_Quad} plus this
 	 * flag. However the flag can be applied to any layer type to achieve a similar effect.
+	 * </li>
+	 * </ul>
 	 */
-	public static final int ovrLayerFlag_HeadLocked = 0x4;
+	public static final int
+		ovrLayerFlag_HighQuality               = 0x1,
+		ovrLayerFlag_TextureOriginAtBottomLeft = 0x2,
+		ovrLayerFlag_HeadLocked                = 0x4;
 
-	/** Turns off the performance HUD */
-	public static final int ovrPerfHud_Off = 0;
+	/**
+	 * Performance HUD enables the HMD user to see information critical to the real-time operation of the VR application such as latency timing, and CPU & GPU
+	 * performance metrics.
+	 * 
+	 * <p>App can toggle performance HUD modes as such:</p>
+	 * 
+	 * <pre><code>ovrPerfHudMode PerfHudMode = ovrPerfHud_LatencyTiming;
+ovr_SetInt(session, OVR_PERF_HUD_MODE, (int)PerfHudMode);</code></pre>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrPerfHud_Off PerfHud_Off} - Turns off the performance HUD</li>
+	 * <li>{@link #ovrPerfHud_PerfSummary PerfHud_PerfSummary} - Shows performance summary and headroom</li>
+	 * <li>{@link #ovrPerfHud_LatencyTiming PerfHud_LatencyTiming} - Shows latency related timing info</li>
+	 * <li>{@link #ovrPerfHud_AppRenderTiming PerfHud_AppRenderTiming} - Shows render timing info for application</li>
+	 * <li>{@link #ovrPerfHud_CompRenderTiming PerfHud_CompRenderTiming} - Shows render timing info for OVR compositor</li>
+	 * <li>{@link #ovrPerfHud_VersionInfo PerfHud_VersionInfo} - Shows SDK & HMD version Info</li>
+	 * </ul>
+	 */
+	public static final int
+		ovrPerfHud_Off              = 0,
+		ovrPerfHud_PerfSummary      = 1,
+		ovrPerfHud_LatencyTiming    = 2,
+		ovrPerfHud_AppRenderTiming  = 3,
+		ovrPerfHud_CompRenderTiming = 4,
+		ovrPerfHud_VersionInfo      = 5;
 
-	/** Shows performance summary and headroom */
-	public static final int ovrPerfHud_PerfSummary = 1;
+	/**
+	 * Layer HUD enables the HMD user to see information about a layer.
+	 * 
+	 * <p>App can toggle layer HUD modes as such:</p>
+	 * 
+	 * <pre><code>ovrLayerHudMode LayerHudMode = ovrLayerHud_Info;
+ovr_SetInt(Hmd, OVR_LAYER_HUD_MODE, (int)LayerHudMode);</code></pre>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrLayerHud_Off LayerHud_Off} - Turns off the layer HUD</li>
+	 * <li>{@link #ovrLayerHud_Info LayerHud_Info} - Shows info about a specific layer</li>
+	 * </ul>
+	 */
+	public static final int
+		ovrLayerHud_Off  = 0,
+		ovrLayerHud_Info = 1;
 
-	/** Shows latency related timing info */
-	public static final int ovrPerfHud_LatencyTiming = 2;
-
-	/** Shows render timing info for application */
-	public static final int ovrPerfHud_AppRenderTiming = 3;
-
-	/** Shows render timing info for OVR compositor */
-	public static final int ovrPerfHud_CompRenderTiming = 4;
-
-	/** Shows SDK & HMD version Info */
-	public static final int ovrPerfHud_VersionInfo = 5;
-
-	/** Turns off the layer HUD */
-	public static final int ovrLayerHud_Off = 0;
-
-	/** Shows info about a specific layer */
-	public static final int ovrLayerHud_Info = 1;
-
-	/** Turns off the Stereo Debug HUD */
-	public static final int ovrDebugHudStereo_Off = 0;
-
-	/** Renders Quad in world for Stereo Debugging */
-	public static final int ovrDebugHudStereo_Quad = 1;
-
-	/** Renders Quad+crosshair in world for Stereo Debugging */
-	public static final int ovrDebugHudStereo_QuadWithCrosshair = 2;
-
-	/** Renders screen-space crosshair at infinity for Stereo Debugging */
-	public static final int ovrDebugHudStereo_CrosshairAtInfinity = 3;
+	/**
+	 * Debug HUD is provided to help developers gauge and debug the fidelity of their app's stereo rendering characteristics. Using the provided quad and
+	 * crosshair guides, the developer can verify various aspects such as VR tracking units (e.g. meters), stereo camera-parallax properties (e.g. making sure
+	 * objects at infinity are rendered with the proper separation), measuring VR geometry sizes and distances and more.
+	 * 
+	 * <p>App can toggle the debug HUD modes as such:</p>
+	 * 
+	 * <pre><code>ovrDebugHudStereoMode DebugHudMode = ovrDebugHudStereo_QuadWithCrosshair;
+ovr_SetInt(session, OVR_DEBUG_HUD_STEREO_MODE, (int)DebugHudMode);</code></pre>
+	 * 
+	 * <p>The app can modify the visual properties of the stereo guide (i.e. quad, crosshair) using the {@link #ovr_SetFloatArray SetFloatArray} function. For a list of tweakable
+	 * properties, see the {@code OVR_DEBUG_HUD_STEREO_GUIDE_*} keys in {@link OVRKeys}.</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrDebugHudStereo_Off DebugHudStereo_Off} - Turns off the Stereo Debug HUD</li>
+	 * <li>{@link #ovrDebugHudStereo_Quad DebugHudStereo_Quad} - Renders Quad in world for Stereo Debugging</li>
+	 * <li>{@link #ovrDebugHudStereo_QuadWithCrosshair DebugHudStereo_QuadWithCrosshair} - Renders Quad+crosshair in world for Stereo Debugging</li>
+	 * <li>{@link #ovrDebugHudStereo_CrosshairAtInfinity DebugHudStereo_CrosshairAtInfinity} - Renders screen-space crosshair at infinity for Stereo Debugging</li>
+	 * </ul>
+	 */
+	public static final int
+		ovrDebugHudStereo_Off                 = 0,
+		ovrDebugHudStereo_Quad                = 1,
+		ovrDebugHudStereo_QuadWithCrosshair   = 2,
+		ovrDebugHudStereo_CrosshairAtInfinity = 3;
 
 	static { LibOVR.initialize(); }
 

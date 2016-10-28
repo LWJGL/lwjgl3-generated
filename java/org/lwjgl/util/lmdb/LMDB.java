@@ -204,62 +204,53 @@ public class LMDB {
 	/** Omit free space from copy, and renumber all pages sequentially. */
 	public static final int MDB_CP_COMPACT = 0x1;
 
-	/** Position at first key/data item. */
-	public static final int MDB_FIRST = 0;
-
-	/** Position at first data item of current key. Only for {@link #MDB_DUPSORT DUPSORT}. */
-	public static final int MDB_FIRST_DUP = 1;
-
-	/** Position at key/data pair. Only for {@link #MDB_DUPSORT DUPSORT}. */
-	public static final int MDB_GET_BOTH = 2;
-
-	/** position at key, nearest data. Only for {@link #MDB_DUPSORT DUPSORT}. */
-	public static final int MDB_GET_BOTH_RANGE = 3;
-
-	/** Return key/data at current cursor position. */
-	public static final int MDB_GET_CURRENT = 4;
-
-	/** Return key and up to a page of duplicate data items from current cursor position. Move cursor to prepare for {@link #MDB_NEXT_MULTIPLE NEXT_MULTIPLE}. Only for {@link #MDB_DUPFIXED DUPFIXED}. */
-	public static final int MDB_GET_MULTIPLE = 5;
-
-	/** Position at last key/data item. */
-	public static final int MDB_LAST = 6;
-
-	/** Position at last data item of current key. Only for {@link #MDB_DUPSORT DUPSORT}. */
-	public static final int MDB_LAST_DUP = 7;
-
-	/** Position at next data item. */
-	public static final int MDB_NEXT = 8;
-
-	/** Position at next data item of current key. Only for {@link #MDB_DUPSORT DUPSORT}. */
-	public static final int MDB_NEXT_DUP = 9;
-
-	/** Return key and up to a page of duplicate data items from next cursor position. Move cursor to prepare for {@link #MDB_NEXT_MULTIPLE NEXT_MULTIPLE}. Only for {@link #MDB_DUPFIXED DUPFIXED}. */
-	public static final int MDB_NEXT_MULTIPLE = 10;
-
-	/** Position at first data item of next key. */
-	public static final int MDB_NEXT_NODUP = 11;
-
-	/** Position at previous data item. */
-	public static final int MDB_PREV = 12;
-
-	/** Position at previous data item of current key. Only for {@link #MDB_DUPSORT DUPSORT}. */
-	public static final int MDB_PREV_DUP = 13;
-
-	/** Position at last data item of previous key. */
-	public static final int MDB_PREV_NODUP = 14;
-
-	/** Position at specified key. */
-	public static final int MDB_SET = 15;
-
-	/** Position at specified key, return key + data. */
-	public static final int MDB_SET_KEY = 16;
-
-	/** Position at first key greater than or equal to specified key. */
-	public static final int MDB_SET_RANGE = 17;
-
-	/** Position at previous page and return key and up to a page of duplicate data items. Only for {@link #MDB_DUPFIXED DUPFIXED}. */
-	public static final int MDB_PREV_MULTIPLE = 18;
+	/**
+	 * MDB_cursor_op
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #MDB_FIRST FIRST} - Position at first key/data item.</li>
+	 * <li>{@link #MDB_FIRST_DUP FIRST_DUP} - Position at first data item of current key. Only for {@link #MDB_DUPSORT DUPSORT}.</li>
+	 * <li>{@link #MDB_GET_BOTH GET_BOTH} - Position at key/data pair. Only for {@link #MDB_DUPSORT DUPSORT}.</li>
+	 * <li>{@link #MDB_GET_BOTH_RANGE GET_BOTH_RANGE} - position at key, nearest data. Only for {@link #MDB_DUPSORT DUPSORT}.</li>
+	 * <li>{@link #MDB_GET_CURRENT GET_CURRENT} - Return key/data at current cursor position.</li>
+	 * <li>{@link #MDB_GET_MULTIPLE GET_MULTIPLE} - Return key and up to a page of duplicate data items from current cursor position. Move cursor to prepare for {@link #MDB_NEXT_MULTIPLE NEXT_MULTIPLE}. Only for {@link #MDB_DUPFIXED DUPFIXED}.</li>
+	 * <li>{@link #MDB_LAST LAST} - Position at last key/data item.</li>
+	 * <li>{@link #MDB_LAST_DUP LAST_DUP} - Position at last data item of current key. Only for {@link #MDB_DUPSORT DUPSORT}.</li>
+	 * <li>{@link #MDB_NEXT NEXT} - Position at next data item.</li>
+	 * <li>{@link #MDB_NEXT_DUP NEXT_DUP} - Position at next data item of current key. Only for {@link #MDB_DUPSORT DUPSORT}.</li>
+	 * <li>{@link #MDB_NEXT_MULTIPLE NEXT_MULTIPLE} - Return key and up to a page of duplicate data items from next cursor position. Move cursor to prepare for {@link #MDB_NEXT_MULTIPLE NEXT_MULTIPLE}. Only for {@link #MDB_DUPFIXED DUPFIXED}.</li>
+	 * <li>{@link #MDB_NEXT_NODUP NEXT_NODUP} - Position at first data item of next key.</li>
+	 * <li>{@link #MDB_PREV PREV} - Position at previous data item.</li>
+	 * <li>{@link #MDB_PREV_DUP PREV_DUP} - Position at previous data item of current key. Only for {@link #MDB_DUPSORT DUPSORT}.</li>
+	 * <li>{@link #MDB_PREV_NODUP PREV_NODUP} - Position at last data item of previous key.</li>
+	 * <li>{@link #MDB_SET SET} - Position at specified key.</li>
+	 * <li>{@link #MDB_SET_KEY SET_KEY} - Position at specified key, return key + data.</li>
+	 * <li>{@link #MDB_SET_RANGE SET_RANGE} - Position at first key greater than or equal to specified key.</li>
+	 * <li>{@link #MDB_PREV_MULTIPLE PREV_MULTIPLE} - Position at previous page and return key and up to a page of duplicate data items. Only for {@link #MDB_DUPFIXED DUPFIXED}.</li>
+	 * </ul>
+	 */
+	public static final int
+		MDB_FIRST          = 0,
+		MDB_FIRST_DUP      = 1,
+		MDB_GET_BOTH       = 2,
+		MDB_GET_BOTH_RANGE = 3,
+		MDB_GET_CURRENT    = 4,
+		MDB_GET_MULTIPLE   = 5,
+		MDB_LAST           = 6,
+		MDB_LAST_DUP       = 7,
+		MDB_NEXT           = 8,
+		MDB_NEXT_DUP       = 9,
+		MDB_NEXT_MULTIPLE  = 10,
+		MDB_NEXT_NODUP     = 11,
+		MDB_PREV           = 12,
+		MDB_PREV_DUP       = 13,
+		MDB_PREV_NODUP     = 14,
+		MDB_SET            = 15,
+		MDB_SET_KEY        = 16,
+		MDB_SET_RANGE      = 17,
+		MDB_PREV_MULTIPLE  = 18;
 
 	/** Successful result. */
 	public static final int MDB_SUCCESS = 0;

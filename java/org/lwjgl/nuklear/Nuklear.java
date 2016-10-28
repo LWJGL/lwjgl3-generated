@@ -77,80 +77,230 @@ public class Nuklear {
 		NK_UNDEFINED                = -1.0f,
 		NK_SCROLLBAR_HIDING_TIMEOUT = 4.0f;
 
-	/** Boolean values. */
+	/**
+	 * Boolean values.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #nk_false nk_false}</li>
+	 * <li>{@link #nk_true nk_true}</li>
+	 * </ul>
+	 */
 	public static final int
 		nk_false = 0,
 		nk_true  = 1;
 
-	/** nk_heading */
+	/**
+	 * nk_heading
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_UP UP}</li>
+	 * <li>{@link #NK_RIGHT RIGHT}</li>
+	 * <li>{@link #NK_DOWN DOWN}</li>
+	 * <li>{@link #NK_LEFT LEFT}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_UP    = 0,
 		NK_RIGHT = 1,
 		NK_DOWN  = 2,
 		NK_LEFT  = 3;
 
-	/** nk_button_behavior */
+	/**
+	 * nk_button_behavior
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</li>
+	 * <li>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_BUTTON_DEFAULT  = 0,
 		NK_BUTTON_REPEATER = 1;
 
-	/** nk_modify */
+	/**
+	 * nk_modify
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_FIXED FIXED}</li>
+	 * <li>{@link #NK_MODIFIABLE MODIFIABLE}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_FIXED      = nk_false,
 		NK_MODIFIABLE = nk_true;
 
-	/** nk_orientation */
+	/**
+	 * nk_orientation
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_VERTICAL VERTICAL}</li>
+	 * <li>{@link #NK_HORIZONTAL HORIZONTAL}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_VERTICAL   = 0,
 		NK_HORIZONTAL = 1;
 
-	/** nk_collapse_states */
+	/**
+	 * nk_collapse_states
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_MINIMIZED MINIMIZED}</li>
+	 * <li>{@link #NK_MAXIMIZED MAXIMIZED}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_MINIMIZED = nk_false,
 		NK_MAXIMIZED = nk_true;
 
-	/** nk_show_states */
+	/**
+	 * nk_show_states
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_HIDDEN HIDDEN}</li>
+	 * <li>{@link #NK_SHOWN SHOWN}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_HIDDEN = nk_false,
 		NK_SHOWN  = nk_true;
 
-	/** nk_chart_type */
+	/**
+	 * nk_chart_type
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_CHART_LINES CHART_LINES}</li>
+	 * <li>{@link #NK_CHART_COLUMN CHART_COLUMN}</li>
+	 * <li>{@link #NK_CHART_MAX CHART_MAX}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_CHART_LINES  = 0,
 		NK_CHART_COLUMN = 1,
 		NK_CHART_MAX    = 2;
 
-	/** nk_chart_event */
+	/**
+	 * nk_chart_event
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_CHART_HOVERING CHART_HOVERING}</li>
+	 * <li>{@link #NK_CHART_CLICKED CHART_CLICKED}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_CHART_HOVERING = 0x1,
 		NK_CHART_CLICKED  = 0x2;
 
-	/** nk_color_format */
+	/**
+	 * nk_color_format
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_RGB RGB}</li>
+	 * <li>{@link #NK_RGBA RGBA}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_RGB  = 0,
 		NK_RGBA = 1;
 
-	/** nk_popup_type */
+	/**
+	 * nk_popup_type
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_POPUP_STATIC POPUP_STATIC}</li>
+	 * <li>{@link #NK_POPUP_DYNAMIC POPUP_DYNAMIC}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_POPUP_STATIC  = 0,
 		NK_POPUP_DYNAMIC = 1;
 
-	/** nk_layout_format */
+	/**
+	 * nk_layout_format
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_DYNAMIC DYNAMIC}</li>
+	 * <li>{@link #NK_STATIC STATIC}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_DYNAMIC = 0,
 		NK_STATIC  = 1;
 
-	/** nk_tree_type */
+	/**
+	 * nk_tree_type
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_TREE_NODE TREE_NODE}</li>
+	 * <li>{@link #NK_TREE_TAB TREE_TAB}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_TREE_NODE = 0,
 		NK_TREE_TAB  = 1;
 
-	/** nk_anti_aliasing */
+	/**
+	 * nk_anti_aliasing
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_ANTI_ALIASING_OFF ANTI_ALIASING_OFF}</li>
+	 * <li>{@link #NK_ANTI_ALIASING_ON ANTI_ALIASING_ON}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_ANTI_ALIASING_OFF = 0,
 		NK_ANTI_ALIASING_ON  = 1;
 
-	/** nk_symbol_type */
+	/**
+	 * nk_symbol_type
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_SYMBOL_NONE SYMBOL_NONE}</li>
+	 * <li>{@link #NK_SYMBOL_X SYMBOL_X}</li>
+	 * <li>{@link #NK_SYMBOL_UNDERSCORE SYMBOL_UNDERSCORE}</li>
+	 * <li>{@link #NK_SYMBOL_CIRCLE_SOLID SYMBOL_CIRCLE_SOLID}</li>
+	 * <li>{@link #NK_SYMBOL_CIRCLE_OUTLINE SYMBOL_CIRCLE_OUTLINE}</li>
+	 * <li>{@link #NK_SYMBOL_RECT_SOLID SYMBOL_RECT_SOLID}</li>
+	 * <li>{@link #NK_SYMBOL_RECT_OUTLINE SYMBOL_RECT_OUTLINE}</li>
+	 * <li>{@link #NK_SYMBOL_TRIANGLE_UP SYMBOL_TRIANGLE_UP}</li>
+	 * <li>{@link #NK_SYMBOL_TRIANGLE_DOWN SYMBOL_TRIANGLE_DOWN}</li>
+	 * <li>{@link #NK_SYMBOL_TRIANGLE_LEFT SYMBOL_TRIANGLE_LEFT}</li>
+	 * <li>{@link #NK_SYMBOL_TRIANGLE_RIGHT SYMBOL_TRIANGLE_RIGHT}</li>
+	 * <li>{@link #NK_SYMBOL_PLUS SYMBOL_PLUS}</li>
+	 * <li>{@link #NK_SYMBOL_MINUS SYMBOL_MINUS}</li>
+	 * <li>{@link #NK_SYMBOL_MAX SYMBOL_MAX}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_SYMBOL_NONE           = 0,
 		NK_SYMBOL_X              = 1,
@@ -167,7 +317,44 @@ public class Nuklear {
 		NK_SYMBOL_MINUS          = 12,
 		NK_SYMBOL_MAX            = 13;
 
-	/** nk_keys */
+	/**
+	 * nk_keys
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_KEY_NONE KEY_NONE}</li>
+	 * <li>{@link #NK_KEY_SHIFT KEY_SHIFT}</li>
+	 * <li>{@link #NK_KEY_CTRL KEY_CTRL}</li>
+	 * <li>{@link #NK_KEY_DEL KEY_DEL}</li>
+	 * <li>{@link #NK_KEY_ENTER KEY_ENTER}</li>
+	 * <li>{@link #NK_KEY_TAB KEY_TAB}</li>
+	 * <li>{@link #NK_KEY_BACKSPACE KEY_BACKSPACE}</li>
+	 * <li>{@link #NK_KEY_COPY KEY_COPY}</li>
+	 * <li>{@link #NK_KEY_CUT KEY_CUT}</li>
+	 * <li>{@link #NK_KEY_PASTE KEY_PASTE}</li>
+	 * <li>{@link #NK_KEY_UP KEY_UP}</li>
+	 * <li>{@link #NK_KEY_DOWN KEY_DOWN}</li>
+	 * <li>{@link #NK_KEY_LEFT KEY_LEFT}</li>
+	 * <li>{@link #NK_KEY_RIGHT KEY_RIGHT}</li>
+	 * <li>{@link #NK_KEY_TEXT_INSERT_MODE KEY_TEXT_INSERT_MODE}</li>
+	 * <li>{@link #NK_KEY_TEXT_REPLACE_MODE KEY_TEXT_REPLACE_MODE}</li>
+	 * <li>{@link #NK_KEY_TEXT_RESET_MODE KEY_TEXT_RESET_MODE}</li>
+	 * <li>{@link #NK_KEY_TEXT_LINE_START KEY_TEXT_LINE_START}</li>
+	 * <li>{@link #NK_KEY_TEXT_LINE_END KEY_TEXT_LINE_END}</li>
+	 * <li>{@link #NK_KEY_TEXT_START KEY_TEXT_START}</li>
+	 * <li>{@link #NK_KEY_TEXT_END KEY_TEXT_END}</li>
+	 * <li>{@link #NK_KEY_TEXT_UNDO KEY_TEXT_UNDO}</li>
+	 * <li>{@link #NK_KEY_TEXT_REDO KEY_TEXT_REDO}</li>
+	 * <li>{@link #NK_KEY_TEXT_WORD_LEFT KEY_TEXT_WORD_LEFT}</li>
+	 * <li>{@link #NK_KEY_TEXT_WORD_RIGHT KEY_TEXT_WORD_RIGHT}</li>
+	 * <li>{@link #NK_KEY_SCROLL_START KEY_SCROLL_START}</li>
+	 * <li>{@link #NK_KEY_SCROLL_END KEY_SCROLL_END}</li>
+	 * <li>{@link #NK_KEY_SCROLL_DOWN KEY_SCROLL_DOWN}</li>
+	 * <li>{@link #NK_KEY_SCROLL_UP KEY_SCROLL_UP}</li>
+	 * <li>{@link #NK_KEY_MAX KEY_MAX}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_KEY_NONE              = 0,
 		NK_KEY_SHIFT             = 1,
@@ -200,14 +387,61 @@ public class Nuklear {
 		NK_KEY_SCROLL_UP         = 28,
 		NK_KEY_MAX               = 29;
 
-	/** nk_buttons */
+	/**
+	 * nk_buttons
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_BUTTON_LEFT BUTTON_LEFT}</li>
+	 * <li>{@link #NK_BUTTON_MIDDLE BUTTON_MIDDLE}</li>
+	 * <li>{@link #NK_BUTTON_RIGHT BUTTON_RIGHT}</li>
+	 * <li>{@link #NK_BUTTON_MAX BUTTON_MAX}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_BUTTON_LEFT   = 0,
 		NK_BUTTON_MIDDLE = 1,
 		NK_BUTTON_RIGHT  = 2,
 		NK_BUTTON_MAX    = 3;
 
-	/** nk_style_colors */
+	/**
+	 * nk_style_colors
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_COLOR_TEXT COLOR_TEXT}</li>
+	 * <li>{@link #NK_COLOR_WINDOW COLOR_WINDOW}</li>
+	 * <li>{@link #NK_COLOR_HEADER COLOR_HEADER}</li>
+	 * <li>{@link #NK_COLOR_BORDER COLOR_BORDER}</li>
+	 * <li>{@link #NK_COLOR_BUTTON COLOR_BUTTON}</li>
+	 * <li>{@link #NK_COLOR_BUTTON_HOVER COLOR_BUTTON_HOVER}</li>
+	 * <li>{@link #NK_COLOR_BUTTON_ACTIVE COLOR_BUTTON_ACTIVE}</li>
+	 * <li>{@link #NK_COLOR_TOGGLE COLOR_TOGGLE}</li>
+	 * <li>{@link #NK_COLOR_TOGGLE_HOVER COLOR_TOGGLE_HOVER}</li>
+	 * <li>{@link #NK_COLOR_TOGGLE_CURSOR COLOR_TOGGLE_CURSOR}</li>
+	 * <li>{@link #NK_COLOR_SELECT COLOR_SELECT}</li>
+	 * <li>{@link #NK_COLOR_SELECT_ACTIVE COLOR_SELECT_ACTIVE}</li>
+	 * <li>{@link #NK_COLOR_SLIDER COLOR_SLIDER}</li>
+	 * <li>{@link #NK_COLOR_SLIDER_CURSOR COLOR_SLIDER_CURSOR}</li>
+	 * <li>{@link #NK_COLOR_SLIDER_CURSOR_HOVER COLOR_SLIDER_CURSOR_HOVER}</li>
+	 * <li>{@link #NK_COLOR_SLIDER_CURSOR_ACTIVE COLOR_SLIDER_CURSOR_ACTIVE}</li>
+	 * <li>{@link #NK_COLOR_PROPERTY COLOR_PROPERTY}</li>
+	 * <li>{@link #NK_COLOR_EDIT COLOR_EDIT}</li>
+	 * <li>{@link #NK_COLOR_EDIT_CURSOR COLOR_EDIT_CURSOR}</li>
+	 * <li>{@link #NK_COLOR_COMBO COLOR_COMBO}</li>
+	 * <li>{@link #NK_COLOR_CHART COLOR_CHART}</li>
+	 * <li>{@link #NK_COLOR_CHART_COLOR COLOR_CHART_COLOR}</li>
+	 * <li>{@link #NK_COLOR_CHART_COLOR_HIGHLIGHT COLOR_CHART_COLOR_HIGHLIGHT}</li>
+	 * <li>{@link #NK_COLOR_SCROLLBAR COLOR_SCROLLBAR}</li>
+	 * <li>{@link #NK_COLOR_SCROLLBAR_CURSOR COLOR_SCROLLBAR_CURSOR}</li>
+	 * <li>{@link #NK_COLOR_SCROLLBAR_CURSOR_HOVER COLOR_SCROLLBAR_CURSOR_HOVER}</li>
+	 * <li>{@link #NK_COLOR_SCROLLBAR_CURSOR_ACTIVE COLOR_SCROLLBAR_CURSOR_ACTIVE}</li>
+	 * <li>{@link #NK_COLOR_TAB_HEADER COLOR_TAB_HEADER}</li>
+	 * <li>{@link #NK_COLOR_COUNT COLOR_COUNT}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_COLOR_TEXT                    = 0,
 		NK_COLOR_WINDOW                  = 1,
@@ -239,7 +473,22 @@ public class Nuklear {
 		NK_COLOR_TAB_HEADER              = 27,
 		NK_COLOR_COUNT                   = 28;
 
-	/** nk_style_cursor */
+	/**
+	 * nk_style_cursor
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_CURSOR_ARROW CURSOR_ARROW}</li>
+	 * <li>{@link #NK_CURSOR_TEXT CURSOR_TEXT}</li>
+	 * <li>{@link #NK_CURSOR_MOVE CURSOR_MOVE}</li>
+	 * <li>{@link #NK_CURSOR_RESIZE_VERTICAL CURSOR_RESIZE_VERTICAL}</li>
+	 * <li>{@link #NK_CURSOR_RESIZE_HORIZONTAL CURSOR_RESIZE_HORIZONTAL}</li>
+	 * <li>{@link #NK_CURSOR_RESIZE_TOP_LEFT_DOWN_RIGHT CURSOR_RESIZE_TOP_LEFT_DOWN_RIGHT}</li>
+	 * <li>{@link #NK_CURSOR_RESIZE_TOP_RIGHT_DOWN_LEFT CURSOR_RESIZE_TOP_RIGHT_DOWN_LEFT}</li>
+	 * <li>{@link #NK_CURSOR_COUNT CURSOR_COUNT}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_CURSOR_ARROW                      = 0,
 		NK_CURSOR_TEXT                       = 1,
@@ -250,40 +499,62 @@ public class Nuklear {
 		NK_CURSOR_RESIZE_TOP_RIGHT_DOWN_LEFT = 6,
 		NK_CURSOR_COUNT                      = 7;
 
-	/** The widget cannot be seen and is completely out of view */
-	public static final int NK_WIDGET_INVALID = 0;
+	/**
+	 * nk_widget_layout_states
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_WIDGET_INVALID WIDGET_INVALID} - The widget cannot be seen and is completely out of view</li>
+	 * <li>{@link #NK_WIDGET_VALID WIDGET_VALID} - The widget is completely inside the window and can be updated and drawn</li>
+	 * <li>{@link #NK_WIDGET_ROM WIDGET_ROM} - The widget is partially visible and cannot be updated</li>
+	 * </ul>
+	 */
+	public static final int
+		NK_WIDGET_INVALID = 0,
+		NK_WIDGET_VALID   = 1,
+		NK_WIDGET_ROM     = 2;
 
-	/** The widget is completely inside the window and can be updated and drawn */
-	public static final int NK_WIDGET_VALID = 1;
+	/**
+	 * nk_widget_states
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_WIDGET_STATE_MODIFIED WIDGET_STATE_MODIFIED}</li>
+	 * <li>{@link #NK_WIDGET_STATE_INACTIVE WIDGET_STATE_INACTIVE} - widget is neither active nor hovered</li>
+	 * <li>{@link #NK_WIDGET_STATE_ENTERED WIDGET_STATE_ENTERED} - widget has been hovered on the current frame</li>
+	 * <li>{@link #NK_WIDGET_STATE_HOVER WIDGET_STATE_HOVER} - widget is being hovered</li>
+	 * <li>{@link #NK_WIDGET_STATE_ACTIVED WIDGET_STATE_ACTIVED} - widget is currently activated</li>
+	 * <li>{@link #NK_WIDGET_STATE_LEFT WIDGET_STATE_LEFT} - widget is from this frame on not hovered anymore</li>
+	 * <li>{@link #NK_WIDGET_STATE_HOVERED WIDGET_STATE_HOVERED} - widget is being hovered</li>
+	 * <li>{@link #NK_WIDGET_STATE_ACTIVE WIDGET_STATE_ACTIVE} - widget is currently activated</li>
+	 * </ul>
+	 */
+	public static final int
+		NK_WIDGET_STATE_MODIFIED = 1 << 1,
+		NK_WIDGET_STATE_INACTIVE = 1 << 2,
+		NK_WIDGET_STATE_ENTERED  = 1 << 3,
+		NK_WIDGET_STATE_HOVER    = 1 << 4,
+		NK_WIDGET_STATE_ACTIVED  = 1 << 5,
+		NK_WIDGET_STATE_LEFT     = 1 << 6,
+		NK_WIDGET_STATE_HOVERED  = NK_WIDGET_STATE_HOVER|NK_WIDGET_STATE_MODIFIED,
+		NK_WIDGET_STATE_ACTIVE   = NK_WIDGET_STATE_ACTIVED|NK_WIDGET_STATE_MODIFIED;
 
-	/** The widget is partially visible and cannot be updated */
-	public static final int NK_WIDGET_ROM = 2;
-
-	/** nk_widget_states */
-	public static final int NK_WIDGET_STATE_MODIFIED = 1 << 1;
-
-	/** widget is neither active nor hovered */
-	public static final int NK_WIDGET_STATE_INACTIVE = 1 << 2;
-
-	/** widget has been hovered on the current frame */
-	public static final int NK_WIDGET_STATE_ENTERED = 1 << 3;
-
-	/** widget is being hovered */
-	public static final int NK_WIDGET_STATE_HOVER = 1 << 4;
-
-	/** widget is currently activated */
-	public static final int NK_WIDGET_STATE_ACTIVED = 1 << 5;
-
-	/** widget is from this frame on not hovered anymore */
-	public static final int NK_WIDGET_STATE_LEFT = 1 << 6;
-
-	/** widget is being hovered */
-	public static final int NK_WIDGET_STATE_HOVERED = NK_WIDGET_STATE_HOVER|NK_WIDGET_STATE_MODIFIED;
-
-	/** widget is currently activated */
-	public static final int NK_WIDGET_STATE_ACTIVE = NK_WIDGET_STATE_ACTIVED|NK_WIDGET_STATE_MODIFIED;
-
-	/** nk_text_align */
+	/**
+	 * nk_text_align
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_TEXT_ALIGN_LEFT TEXT_ALIGN_LEFT}</li>
+	 * <li>{@link #NK_TEXT_ALIGN_CENTERED TEXT_ALIGN_CENTERED}</li>
+	 * <li>{@link #NK_TEXT_ALIGN_RIGHT TEXT_ALIGN_RIGHT}</li>
+	 * <li>{@link #NK_TEXT_ALIGN_TOP TEXT_ALIGN_TOP}</li>
+	 * <li>{@link #NK_TEXT_ALIGN_MIDDLE TEXT_ALIGN_MIDDLE}</li>
+	 * <li>{@link #NK_TEXT_ALIGN_BOTTOM TEXT_ALIGN_BOTTOM}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_TEXT_ALIGN_LEFT     = 0x1,
 		NK_TEXT_ALIGN_CENTERED = 0x2,
@@ -292,13 +563,43 @@ public class Nuklear {
 		NK_TEXT_ALIGN_MIDDLE   = 0x10,
 		NK_TEXT_ALIGN_BOTTOM   = 0x20;
 
-	/** nk_text_alignment */
+	/**
+	 * nk_text_alignment
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_TEXT_LEFT TEXT_LEFT}</li>
+	 * <li>{@link #NK_TEXT_CENTERED TEXT_CENTERED}</li>
+	 * <li>{@link #NK_TEXT_RIGHT TEXT_RIGHT}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_TEXT_LEFT     = NK_TEXT_ALIGN_MIDDLE|NK_TEXT_ALIGN_LEFT,
 		NK_TEXT_CENTERED = NK_TEXT_ALIGN_MIDDLE|NK_TEXT_ALIGN_CENTERED,
 		NK_TEXT_RIGHT    = NK_TEXT_ALIGN_MIDDLE|NK_TEXT_ALIGN_RIGHT;
 
-	/** nk_edit_flags */
+	/**
+	 * nk_edit_flags
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_EDIT_DEFAULT EDIT_DEFAULT}</li>
+	 * <li>{@link #NK_EDIT_READ_ONLY EDIT_READ_ONLY}</li>
+	 * <li>{@link #NK_EDIT_AUTO_SELECT EDIT_AUTO_SELECT}</li>
+	 * <li>{@link #NK_EDIT_SIG_ENTER EDIT_SIG_ENTER}</li>
+	 * <li>{@link #NK_EDIT_ALLOW_TAB EDIT_ALLOW_TAB}</li>
+	 * <li>{@link #NK_EDIT_NO_CURSOR EDIT_NO_CURSOR}</li>
+	 * <li>{@link #NK_EDIT_SELECTABLE EDIT_SELECTABLE}</li>
+	 * <li>{@link #NK_EDIT_CLIPBOARD EDIT_CLIPBOARD}</li>
+	 * <li>{@link #NK_EDIT_CTRL_ENTER_NEWLINE EDIT_CTRL_ENTER_NEWLINE}</li>
+	 * <li>{@link #NK_EDIT_NO_HORIZONTAL_SCROLL EDIT_NO_HORIZONTAL_SCROLL}</li>
+	 * <li>{@link #NK_EDIT_ALWAYS_INSERT_MODE EDIT_ALWAYS_INSERT_MODE}</li>
+	 * <li>{@link #NK_EDIT_MULTILINE EDIT_MULTILINE}</li>
+	 * <li>{@link #NK_EDIT_GOTO_END_ON_ACTIVATE EDIT_GOTO_END_ON_ACTIVATE}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_EDIT_DEFAULT              = 0x0,
 		NK_EDIT_READ_ONLY            = 1 << 0,
@@ -314,89 +615,186 @@ public class Nuklear {
 		NK_EDIT_MULTILINE            = 1 << 11,
 		NK_EDIT_GOTO_END_ON_ACTIVATE = 1 << 12;
 
-	/** nk_edit_types */
+	/**
+	 * nk_edit_types
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_EDIT_SIMPLE EDIT_SIMPLE}</li>
+	 * <li>{@link #NK_EDIT_FIELD EDIT_FIELD}</li>
+	 * <li>{@link #NK_EDIT_BOX EDIT_BOX}</li>
+	 * <li>{@link #NK_EDIT_EDITOR EDIT_EDITOR}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_EDIT_SIMPLE = NK_EDIT_ALWAYS_INSERT_MODE,
 		NK_EDIT_FIELD  = NK_EDIT_SIMPLE|NK_EDIT_SELECTABLE|NK_EDIT_CLIPBOARD,
 		NK_EDIT_BOX    = NK_EDIT_ALWAYS_INSERT_MODE|NK_EDIT_SELECTABLE|NK_EDIT_MULTILINE|NK_EDIT_ALLOW_TAB|NK_EDIT_CLIPBOARD,
 		NK_EDIT_EDITOR = NK_EDIT_SELECTABLE|NK_EDIT_MULTILINE|NK_EDIT_ALLOW_TAB|NK_EDIT_CLIPBOARD;
 
-	/** edit widget is currently being modified */
-	public static final int NK_EDIT_ACTIVE = 1 << 0;
+	/**
+	 * nk_edit_events
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_EDIT_ACTIVE EDIT_ACTIVE} - edit widget is currently being modified</li>
+	 * <li>{@link #NK_EDIT_INACTIVE EDIT_INACTIVE} - edit widget is not active and is not being modified</li>
+	 * <li>{@link #NK_EDIT_ACTIVATED EDIT_ACTIVATED} - edit widget went from state inactive to state active</li>
+	 * <li>{@link #NK_EDIT_DEACTIVATED EDIT_DEACTIVATED} - edit widget went from state active to state inactive</li>
+	 * <li>{@link #NK_EDIT_COMMITED EDIT_COMMITED} - edit widget has received an enter and lost focus</li>
+	 * </ul>
+	 */
+	public static final int
+		NK_EDIT_ACTIVE      = 1 << 0,
+		NK_EDIT_INACTIVE    = 1 << 1,
+		NK_EDIT_ACTIVATED   = 1 << 2,
+		NK_EDIT_DEACTIVATED = 1 << 3,
+		NK_EDIT_COMMITED    = 1 << 4;
 
-	/** edit widget is not active and is not being modified */
-	public static final int NK_EDIT_INACTIVE = 1 << 1;
+	/**
+	 * nk_panel_flags
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_WINDOW_BORDER WINDOW_BORDER} - Draws a border around the window to visually separate the window * from the background</li>
+	 * <li>{@link #NK_WINDOW_MOVABLE WINDOW_MOVABLE} - The movable flag indicates that a window can be moved by user input or * by dragging the window header</li>
+	 * <li>{@link #NK_WINDOW_SCALABLE WINDOW_SCALABLE} - The scalable flag indicates that a window can be scaled by user input * by dragging a scaler icon at the button of the window</li>
+	 * <li>{@link #NK_WINDOW_CLOSABLE WINDOW_CLOSABLE} - adds a closable icon into the header</li>
+	 * <li>{@link #NK_WINDOW_MINIMIZABLE WINDOW_MINIMIZABLE} - adds a minimize icon into the header</li>
+	 * <li>{@link #NK_WINDOW_NO_SCROLLBAR WINDOW_NO_SCROLLBAR} - Removes the scrollbar from the window</li>
+	 * <li>{@link #NK_WINDOW_TITLE WINDOW_TITLE} - Forces a header at the top at the window showing the title</li>
+	 * <li>{@link #NK_WINDOW_SCROLL_AUTO_HIDE WINDOW_SCROLL_AUTO_HIDE} - Automatically hides the window scrollbar if no user interaction</li>
+	 * <li>{@link #NK_WINDOW_BACKGROUND WINDOW_BACKGROUND} - Keep window always in the background</li>
+	 * </ul>
+	 */
+	public static final int
+		NK_WINDOW_BORDER           = 1 << 0,
+		NK_WINDOW_MOVABLE          = 1 << 1,
+		NK_WINDOW_SCALABLE         = 1 << 2,
+		NK_WINDOW_CLOSABLE         = 1 << 3,
+		NK_WINDOW_MINIMIZABLE      = 1 << 4,
+		NK_WINDOW_NO_SCROLLBAR     = 1 << 5,
+		NK_WINDOW_TITLE            = 1 << 6,
+		NK_WINDOW_SCROLL_AUTO_HIDE = 1 << 7,
+		NK_WINDOW_BACKGROUND       = 1 << 8;
 
-	/** edit widget went from state inactive to state active */
-	public static final int NK_EDIT_ACTIVATED = 1 << 2;
-
-	/** edit widget went from state active to state inactive */
-	public static final int NK_EDIT_DEACTIVATED = 1 << 3;
-
-	/** edit widget has received an enter and lost focus */
-	public static final int NK_EDIT_COMMITED = 1 << 4;
-
-	/** Draws a border around the window to visually separate the window * from the background */
-	public static final int NK_WINDOW_BORDER = 1 << 0;
-
-	/** The movable flag indicates that a window can be moved by user input or * by dragging the window header */
-	public static final int NK_WINDOW_MOVABLE = 1 << 1;
-
-	/** The scalable flag indicates that a window can be scaled by user input * by dragging a scaler icon at the button of the window */
-	public static final int NK_WINDOW_SCALABLE = 1 << 2;
-
-	/** adds a closable icon into the header */
-	public static final int NK_WINDOW_CLOSABLE = 1 << 3;
-
-	/** adds a minimize icon into the header */
-	public static final int NK_WINDOW_MINIMIZABLE = 1 << 4;
-
-	/** Removes the scrollbar from the window */
-	public static final int NK_WINDOW_NO_SCROLLBAR = 1 << 5;
-
-	/** Forces a header at the top at the window showing the title */
-	public static final int NK_WINDOW_TITLE = 1 << 6;
-
-	/** Automatically hides the window scrollbar if no user interaction */
-	public static final int NK_WINDOW_SCROLL_AUTO_HIDE = 1 << 7;
-
-	/** Keep window always in the background */
-	public static final int NK_WINDOW_BACKGROUND = 1 << 8;
-
-	/** nk_allocation_type */
+	/**
+	 * nk_allocation_type
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_BUFFER_FIXED BUFFER_FIXED}</li>
+	 * <li>{@link #NK_BUFFER_DYNAMIC BUFFER_DYNAMIC}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_BUFFER_FIXED   = 0,
 		NK_BUFFER_DYNAMIC = 1;
 
-	/** nk_buffer_allocation_type */
+	/**
+	 * nk_buffer_allocation_type
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_BUFFER_FRONT BUFFER_FRONT}</li>
+	 * <li>{@link #NK_BUFFER_BACK BUFFER_BACK}</li>
+	 * <li>{@link #NK_BUFFER_MAX BUFFER_MAX}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_BUFFER_FRONT = 0,
 		NK_BUFFER_BACK  = 1,
 		NK_BUFFER_MAX   = 2;
 
-	/** nk_text_edit_type */
+	/**
+	 * nk_text_edit_type
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_TEXT_EDIT_SINGLE_LINE TEXT_EDIT_SINGLE_LINE}</li>
+	 * <li>{@link #NK_TEXT_EDIT_MULTI_LINE TEXT_EDIT_MULTI_LINE}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_TEXT_EDIT_SINGLE_LINE = 0,
 		NK_TEXT_EDIT_MULTI_LINE  = 1;
 
-	/** nk_text_edit_mode */
+	/**
+	 * nk_text_edit_mode
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_TEXT_EDIT_MODE_VIEW TEXT_EDIT_MODE_VIEW}</li>
+	 * <li>{@link #NK_TEXT_EDIT_MODE_INSERT TEXT_EDIT_MODE_INSERT}</li>
+	 * <li>{@link #NK_TEXT_EDIT_MODE_REPLACE TEXT_EDIT_MODE_REPLACE}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_TEXT_EDIT_MODE_VIEW    = 0,
 		NK_TEXT_EDIT_MODE_INSERT  = 1,
 		NK_TEXT_EDIT_MODE_REPLACE = 2;
 
-	/** texture coordinates inside font glyphs are clamped between 0-1 */
-	public static final int NK_COORD_UV = 0;
+	/**
+	 * nk_font_coord_type
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_COORD_UV COORD_UV} - texture coordinates inside font glyphs are clamped between 0-1</li>
+	 * <li>{@link #NK_COORD_PIXEL COORD_PIXEL} - texture coordinates inside font glyphs are in absolute pixel</li>
+	 * </ul>
+	 */
+	public static final int
+		NK_COORD_UV    = 0,
+		NK_COORD_PIXEL = 1;
 
-	/** texture coordinates inside font glyphs are in absolute pixel */
-	public static final int NK_COORD_PIXEL = 1;
-
-	/** nk_font_atlas_format */
+	/**
+	 * nk_font_atlas_format
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_FONT_ATLAS_ALPHA8 FONT_ATLAS_ALPHA8}</li>
+	 * <li>{@link #NK_FONT_ATLAS_RGBA32 FONT_ATLAS_RGBA32}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_FONT_ATLAS_ALPHA8 = 0,
 		NK_FONT_ATLAS_RGBA32 = 1;
 
-	/** nk_command_type */
+	/**
+	 * nk_command_type
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_COMMAND_NOP COMMAND_NOP}</li>
+	 * <li>{@link #NK_COMMAND_SCISSOR COMMAND_SCISSOR}</li>
+	 * <li>{@link #NK_COMMAND_LINE COMMAND_LINE}</li>
+	 * <li>{@link #NK_COMMAND_CURVE COMMAND_CURVE}</li>
+	 * <li>{@link #NK_COMMAND_RECT COMMAND_RECT}</li>
+	 * <li>{@link #NK_COMMAND_RECT_FILLED COMMAND_RECT_FILLED}</li>
+	 * <li>{@link #NK_COMMAND_RECT_MULTI_COLOR COMMAND_RECT_MULTI_COLOR}</li>
+	 * <li>{@link #NK_COMMAND_CIRCLE COMMAND_CIRCLE}</li>
+	 * <li>{@link #NK_COMMAND_CIRCLE_FILLED COMMAND_CIRCLE_FILLED}</li>
+	 * <li>{@link #NK_COMMAND_ARC COMMAND_ARC}</li>
+	 * <li>{@link #NK_COMMAND_ARC_FILLED COMMAND_ARC_FILLED}</li>
+	 * <li>{@link #NK_COMMAND_TRIANGLE COMMAND_TRIANGLE}</li>
+	 * <li>{@link #NK_COMMAND_TRIANGLE_FILLED COMMAND_TRIANGLE_FILLED}</li>
+	 * <li>{@link #NK_COMMAND_POLYGON COMMAND_POLYGON}</li>
+	 * <li>{@link #NK_COMMAND_POLYGON_FILLED COMMAND_POLYGON_FILLED}</li>
+	 * <li>{@link #NK_COMMAND_POLYLINE COMMAND_POLYLINE}</li>
+	 * <li>{@link #NK_COMMAND_TEXT COMMAND_TEXT}</li>
+	 * <li>{@link #NK_COMMAND_IMAGE COMMAND_IMAGE}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_COMMAND_NOP              = 0,
 		NK_COMMAND_SCISSOR          = 1,
@@ -417,25 +815,79 @@ public class Nuklear {
 		NK_COMMAND_TEXT             = 16,
 		NK_COMMAND_IMAGE            = 17;
 
-	/** nk_command_clipping */
+	/**
+	 * nk_command_clipping
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_CLIPPING_OFF CLIPPING_OFF}</li>
+	 * <li>{@link #NK_CLIPPING_ON CLIPPING_ON}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_CLIPPING_OFF = nk_false,
 		NK_CLIPPING_ON  = nk_true;
 
-	/** build up path has no connection back to the beginning */
-	public static final int NK_STROKE_OPEN = nk_false;
+	/**
+	 * nk_draw_list_stroke
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_STROKE_OPEN STROKE_OPEN} - build up path has no connection back to the beginning</li>
+	 * <li>{@link #NK_STROKE_CLOSED STROKE_CLOSED} - build up path has a connection back to the beginning</li>
+	 * </ul>
+	 */
+	public static final int
+		NK_STROKE_OPEN   = nk_false,
+		NK_STROKE_CLOSED = nk_true;
 
-	/** build up path has a connection back to the beginning */
-	public static final int NK_STROKE_CLOSED = nk_true;
-
-	/** nk_draw_vertex_layout_attribute */
+	/**
+	 * nk_draw_vertex_layout_attribute
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_VERTEX_POSITION VERTEX_POSITION}</li>
+	 * <li>{@link #NK_VERTEX_COLOR VERTEX_COLOR}</li>
+	 * <li>{@link #NK_VERTEX_TEXCOORD VERTEX_TEXCOORD}</li>
+	 * <li>{@link #NK_VERTEX_ATTRIBUTE_COUNT VERTEX_ATTRIBUTE_COUNT}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_VERTEX_POSITION        = 0,
 		NK_VERTEX_COLOR           = 1,
 		NK_VERTEX_TEXCOORD        = 2,
 		NK_VERTEX_ATTRIBUTE_COUNT = 3;
 
-	/** nk_draw_vertex_layout_format */
+	/**
+	 * nk_draw_vertex_layout_format
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_FORMAT_SCHAR FORMAT_SCHAR}</li>
+	 * <li>{@link #NK_FORMAT_SSHORT FORMAT_SSHORT}</li>
+	 * <li>{@link #NK_FORMAT_SINT FORMAT_SINT}</li>
+	 * <li>{@link #NK_FORMAT_UCHAR FORMAT_UCHAR}</li>
+	 * <li>{@link #NK_FORMAT_USHORT FORMAT_USHORT}</li>
+	 * <li>{@link #NK_FORMAT_UINT FORMAT_UINT}</li>
+	 * <li>{@link #NK_FORMAT_FLOAT FORMAT_FLOAT}</li>
+	 * <li>{@link #NK_FORMAT_DOUBLE FORMAT_DOUBLE}</li>
+	 * <li>{@link #NK_FORMAT_R8G8B8 FORMAT_R8G8B8}</li>
+	 * <li>{@link #NK_FORMAT_R16G15B16 FORMAT_R16G15B16}</li>
+	 * <li>{@link #NK_FORMAT_R32G32B32 FORMAT_R32G32B32}</li>
+	 * <li>{@link #NK_FORMAT_R8G8B8A8 FORMAT_R8G8B8A8}</li>
+	 * <li>{@link #NK_FORMAT_R16G15B16A16 FORMAT_R16G15B16A16}</li>
+	 * <li>{@link #NK_FORMAT_R32G32B32A32 FORMAT_R32G32B32A32}</li>
+	 * <li>{@link #NK_FORMAT_R32G32B32A32_FLOAT FORMAT_R32G32B32A32_FLOAT}</li>
+	 * <li>{@link #NK_FORMAT_R32G32B32A32_DOUBLE FORMAT_R32G32B32A32_DOUBLE}</li>
+	 * <li>{@link #NK_FORMAT_RGB32 FORMAT_RGB32}</li>
+	 * <li>{@link #NK_FORMAT_RGBA32 FORMAT_RGBA32}</li>
+	 * <li>{@link #NK_FORMAT_COUNT FORMAT_COUNT}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_FORMAT_SCHAR               = 0,
 		NK_FORMAT_SSHORT              = 1,
@@ -457,17 +909,49 @@ public class Nuklear {
 		NK_FORMAT_RGBA32              = 17,
 		NK_FORMAT_COUNT               = 18;
 
-	/** nk_style_item_type */
+	/**
+	 * nk_style_item_type
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_STYLE_ITEM_COLOR STYLE_ITEM_COLOR}</li>
+	 * <li>{@link #NK_STYLE_ITEM_IMAGE STYLE_ITEM_IMAGE}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_STYLE_ITEM_COLOR = 0,
 		NK_STYLE_ITEM_IMAGE = 1;
 
-	/** nk_style_header_align */
+	/**
+	 * nk_style_header_align
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_HEADER_LEFT HEADER_LEFT}</li>
+	 * <li>{@link #NK_HEADER_RIGHT HEADER_RIGHT}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_HEADER_LEFT  = 0,
 		NK_HEADER_RIGHT = 1;
 
-	/** nk_panel_type */
+	/**
+	 * nk_panel_type
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_PANEL_WINDOW PANEL_WINDOW}</li>
+	 * <li>{@link #NK_PANEL_GROUP PANEL_GROUP}</li>
+	 * <li>{@link #NK_PANEL_POPUP PANEL_POPUP}</li>
+	 * <li>{@link #NK_PANEL_CONTEXTUAL PANEL_CONTEXTUAL}</li>
+	 * <li>{@link #NK_PANEL_COMBO PANEL_COMBO}</li>
+	 * <li>{@link #NK_PANEL_MENU PANEL_MENU}</li>
+	 * <li>{@link #NK_PANEL_TOOLTIP PANEL_TOOLTIP}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_PANEL_WINDOW     = 1 << 0,
 		NK_PANEL_GROUP      = 1 << 1,
@@ -477,32 +961,45 @@ public class Nuklear {
 		NK_PANEL_MENU       = 1 << 6,
 		NK_PANEL_TOOLTIP    = 1 << 7;
 
-	/** nk_panel_set */
+	/**
+	 * nk_panel_set
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_PANEL_SET_NONBLOCK PANEL_SET_NONBLOCK}</li>
+	 * <li>{@link #NK_PANEL_SET_POPUP PANEL_SET_POPUP}</li>
+	 * <li>{@link #NK_PANEL_SET_SUB PANEL_SET_SUB}</li>
+	 * </ul>
+	 */
 	public static final int
 		NK_PANEL_SET_NONBLOCK = NK_PANEL_CONTEXTUAL|NK_PANEL_COMBO|NK_PANEL_MENU|NK_PANEL_TOOLTIP,
 		NK_PANEL_SET_POPUP    = NK_PANEL_SET_NONBLOCK|NK_PANEL_POPUP,
 		NK_PANEL_SET_SUB      = NK_PANEL_SET_POPUP|NK_PANEL_GROUP;
 
-	/** nk_window_flags */
-	public static final int NK_WINDOW_PRIVATE = 1 << 10;
-
-	/** special window type growing up in height while being filled to a certain maximum height */
-	public static final int NK_WINDOW_DYNAMIC = NK_WINDOW_PRIVATE;
-
-	/** sets the window into a read only mode and does not allow input changes */
-	public static final int NK_WINDOW_ROM = 1 << 11;
-
-	/** Hides the window and stops any window interaction and drawing can be set by user input or by closing the window */
-	public static final int NK_WINDOW_HIDDEN = 1 << 12;
-
-	/** Directly closes and frees the window at the end of the frame */
-	public static final int NK_WINDOW_CLOSED = 1 << 13;
-
-	/** marks the window as minimized */
-	public static final int NK_WINDOW_MINIMIZED = 1 << 14;
-
-	/** Removes the read only mode at the end of the window */
-	public static final int NK_WINDOW_REMOVE_ROM = 1 << 15;
+	/**
+	 * nk_window_flags
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NK_WINDOW_PRIVATE WINDOW_PRIVATE}</li>
+	 * <li>{@link #NK_WINDOW_DYNAMIC WINDOW_DYNAMIC} - special window type growing up in height while being filled to a certain maximum height</li>
+	 * <li>{@link #NK_WINDOW_ROM WINDOW_ROM} - sets the window into a read only mode and does not allow input changes</li>
+	 * <li>{@link #NK_WINDOW_HIDDEN WINDOW_HIDDEN} - Hides the window and stops any window interaction and drawing can be set by user input or by closing the window</li>
+	 * <li>{@link #NK_WINDOW_CLOSED WINDOW_CLOSED} - Directly closes and frees the window at the end of the frame</li>
+	 * <li>{@link #NK_WINDOW_MINIMIZED WINDOW_MINIMIZED} - marks the window as minimized</li>
+	 * <li>{@link #NK_WINDOW_REMOVE_ROM WINDOW_REMOVE_ROM} - Removes the read only mode at the end of the window</li>
+	 * </ul>
+	 */
+	public static final int
+		NK_WINDOW_PRIVATE    = 1 << 10,
+		NK_WINDOW_DYNAMIC    = NK_WINDOW_PRIVATE,
+		NK_WINDOW_ROM        = 1 << 11,
+		NK_WINDOW_HIDDEN     = 1 << 12,
+		NK_WINDOW_CLOSED     = 1 << 13,
+		NK_WINDOW_MINIMIZED  = 1 << 14,
+		NK_WINDOW_REMOVE_ROM = 1 << 15;
 
 	static { Library.loadSystem(Platform.mapLibraryNameBundled("lwjgl_nuklear")); }
 

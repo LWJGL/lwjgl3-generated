@@ -9,185 +9,146 @@ package org.lwjgl.ovr;
 /** LibOVR error code declarations. */
 public class OVRErrorCode {
 
-	/** This is a general success result. */
-	public static final int ovrSuccess = 0;
-
 	/**
+	 * Success codes ({@code ovrSuccessType}). Success is a value greater or equal to 0, while all error types are negative values.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrSuccess Success} - This is a general success result.</li>
+	 * <li>{@link #ovrSuccess_NotVisible Success_NotVisible} - 
 	 * Returned from a call to {@link OVR#ovr_SubmitFrame SubmitFrame}. The call succeeded, but what the app rendered will not be visible on the HMD. Ideally the app should
 	 * continue calling {@link OVR#ovr_SubmitFrame SubmitFrame}, but not do any rendering. When the result becomes {@link #ovrSuccess Success}, rendering should continue as usual.
+	 * </li>
+	 * <li>{@link #ovrSuccess_BoundaryInvalid Success_BoundaryInvalid} - Boundary is invalid due to sensor change or was not setup.</li>
+	 * <li>{@link #ovrSuccess_DeviceUnavailable Success_DeviceUnavailable} - Device is not available for the requested operation.</li>
+	 * </ul>
 	 */
-	public static final int ovrSuccess_NotVisible = 1000;
+	public static final int
+		ovrSuccess                   = 0,
+		ovrSuccess_NotVisible        = 1000,
+		ovrSuccess_BoundaryInvalid   = 1001,
+		ovrSuccess_DeviceUnavailable = 1001;
 
-	/** Boundary is invalid due to sensor change or was not setup. */
-	public static final int ovrSuccess_BoundaryInvalid = 1001;
-
-	/** Device is not available for the requested operation. */
-	public static final int ovrSuccess_DeviceUnavailable = 1001;
-
-	/** Failure to allocate memory. */
-	public static final int ovrError_MemoryAllocationFailure = -1000;
-
-	/** Invalid ovrSession parameter provided. */
-	public static final int ovrError_InvalidSession = -1002;
-
-	/** The operation timed out. */
-	public static final int ovrError_Timeout = -1003;
-
-	/** The system or component has not been initialized. */
-	public static final int ovrError_NotInitialized = -1004;
-
-	/** Invalid parameter provided. See error info or log for details. */
-	public static final int ovrError_InvalidParameter = -1005;
-
-	/** Generic service error. See error info or log for details. */
-	public static final int ovrError_ServiceError = -1006;
-
-	/** The given HMD doesn't exist. */
-	public static final int ovrError_NoHmd = -1007;
-
-	/** Function call is not supported on this hardware/software */
-	public static final int ovrError_Unsupported = -1009;
-
-	/** Specified device type isn't available. */
-	public static final int ovrError_DeviceUnavailable = -1010;
-
-	/** The headset was in an invalid orientation for the requested operation (e.g. vertically oriented during {@link OVR#ovr_RecenterTrackingOrigin}). */
-	public static final int ovrError_InvalidHeadsetOrientation = -1011;
-
-	/** The client failed to call {@link OVR#ovr_Destroy} on an active session before calling {@link OVR#ovr_Shutdown}. Or the client crashed. */
-	public static final int ovrError_ClientSkippedDestroy = -1012;
-
-	/** The client failed to call {@link OVR#ovr_Shutdown} or the client crashed. */
-	public static final int ovrError_ClientSkippedShutdown = -1013;
-
-	/** The service watchdog discovered a deadlock. */
-	public static final int ovrError_ServiceDeadlockDetected = -1014;
-
-	/** Function call is invalid for object's current state. */
-	public static final int ovrError_InvalidOperation = -1015;
-
-	/** Failure to find the specified audio device. */
-	public static final int ovrError_AudioDeviceNotFound = -2001;
-
-	/** Generic COM error. */
-	public static final int ovrError_AudioComError = -2002;
-
-	/** Generic initialization error. */
-	public static final int ovrError_Initialize = -3000;
-
-	/** Couldn't load LibOVRRT. */
-	public static final int ovrError_LibLoad = -3001;
-
-	/** LibOVRRT version incompatibility. */
-	public static final int ovrError_LibVersion = -3002;
-
-	/** Couldn't connect to the OVR Service. */
-	public static final int ovrError_ServiceConnection = -3003;
-
-	/** OVR Service version incompatibility. */
-	public static final int ovrError_ServiceVersion = -3004;
-
-	/** The operating system version is incompatible. */
-	public static final int ovrError_IncompatibleOS = -3005;
-
-	/** Unable to initialize the HMD display. */
-	public static final int ovrError_DisplayInit = -3006;
-
-	/** Unable to start the server. Is it already running? */
-	public static final int ovrError_ServerStart = -3007;
-
-	/** Attempting to re-initialize with a different version. */
-	public static final int ovrError_Reinitialization = -3008;
-
-	/** Chosen rendering adapters between client and service do not match */
-	public static final int ovrError_MismatchedAdapters = -3009;
-
-	/** Calling application has leaked resources */
-	public static final int ovrError_LeakingResources = -3010;
-
-	/** Client version too old to connect to service */
-	public static final int ovrError_ClientVersion = -3011;
-
-	/** The operating system is out of date. */
-	public static final int ovrError_OutOfDateOS = -3012;
-
-	/** The graphics driver is out of date. */
-	public static final int ovrError_OutOfDateGfxDriver = -3013;
-
-	/** The graphics hardware is not supported */
-	public static final int ovrError_IncompatibleGPU = -3014;
-
-	/** No valid VR display system found. */
-	public static final int ovrError_NoValidVRDisplaySystem = -3015;
-
-	/** Feature or API is obsolete and no longer supported. */
-	public static final int ovrError_Obsolete = -3016;
-
-	/** No supported VR display system found, but disabled or driverless adapter found. */
-	public static final int ovrError_DisabledOrDefaultAdapter = -3017;
-
-	/** The system is using hybrid graphics (Optimus, etc...), which is not support. */
-	public static final int ovrError_HybridGraphicsNotSupported = -3018;
-
-	/** Initialization of the DisplayManager failed. */
-	public static final int ovrError_DisplayManagerInit = -3019;
-
-	/** Failed to get the interface for an attached tracker */
-	public static final int ovrError_TrackerDriverInit = -3020;
-
-	/** LibOVRRT signature check failure. */
-	public static final int ovrError_LibSignCheck = -3021;
-
-	/** LibOVRRT path failure. */
-	public static final int ovrError_LibPath = -3022;
-
-	/** LibOVRRT symbol resolution failure. */
-	public static final int ovrError_LibSymbols = -3023;
-
-	/** Requested async work not yet complete. */
-	public static final int ovrError_Incomplete = -5000;
-
-	/** Requested async work was abandoned and result is incomplete. */
-	public static final int ovrError_Abandoned = -5001;
-
-	/** In the event of a system-wide graphics reset or cable unplug this is returned to the app. */
-	public static final int ovrError_DisplayLost = -6000;
-
-	/** {@link OVR#ovr_CommitTextureSwapChain CommitTextureSwapChain} was called too many times on a texture swapchain without calling submit to use the chain. */
-	public static final int ovrError_TextureSwapChainFull = -6001;
-
-	/** The {@code ovrTextureSwapChain} is in an incomplete or inconsistent state. Ensure {@link OVR#ovr_CommitTextureSwapChain CommitTextureSwapChain} was called at least once first. */
-	public static final int ovrError_TextureSwapChainInvalid = -6002;
-
-	/** Graphics device has been reset (TDR, etc...) */
-	public static final int ovrError_GraphicsDeviceReset = -6003;
-
-	/** HMD removed from the display adapter */
-	public static final int ovrError_DisplayRemoved = -6004;
-
-	/** Content protection is not available for the display */
-	public static final int ovrError_ContentProtectionNotAvailable = -6005;
-
-	/** Application declared itself as an invisible type and is not allowed to submit frames. */
-	public static final int ovrError_ApplicationInvisible = -6006;
-
-	/** The given request is disallowed under the current conditions. */
-	public static final int ovrError_Disallowed = -6007;
-
-	/** Display portion of HMD is plugged into an incompatible port (ex: IGP) */
-	public static final int ovrError_DisplayPluggedIncorrectly = -6008;
-
-	/** A runtime exception occurred. The application is required to shutdown LibOVR and re-initialize it before this error state will be cleared. */
-	public static final int ovrError_RuntimeException = -7000;
-
-	/** Result of a missing calibration block. */
-	public static final int ovrError_NoCalibration = -9000;
-
-	/** Result of an old calibration block. */
-	public static final int ovrError_OldVersion = -9001;
-
-	/** Result of a bad calibration block due to lengths. */
-	public static final int ovrError_MisformattedBlock = -9002;
+	/**
+	 * Error codes ({@code ovrErrorType})
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrError_MemoryAllocationFailure Error_MemoryAllocationFailure} - Failure to allocate memory.</li>
+	 * <li>{@link #ovrError_InvalidSession Error_InvalidSession} - Invalid ovrSession parameter provided.</li>
+	 * <li>{@link #ovrError_Timeout Error_Timeout} - The operation timed out.</li>
+	 * <li>{@link #ovrError_NotInitialized Error_NotInitialized} - The system or component has not been initialized.</li>
+	 * <li>{@link #ovrError_InvalidParameter Error_InvalidParameter} - Invalid parameter provided. See error info or log for details.</li>
+	 * <li>{@link #ovrError_ServiceError Error_ServiceError} - Generic service error. See error info or log for details.</li>
+	 * <li>{@link #ovrError_NoHmd Error_NoHmd} - The given HMD doesn't exist.</li>
+	 * <li>{@link #ovrError_Unsupported Error_Unsupported} - Function call is not supported on this hardware/software</li>
+	 * <li>{@link #ovrError_DeviceUnavailable Error_DeviceUnavailable} - Specified device type isn't available.</li>
+	 * <li>{@link #ovrError_InvalidHeadsetOrientation Error_InvalidHeadsetOrientation} - The headset was in an invalid orientation for the requested operation (e.g. vertically oriented during {@link OVR#ovr_RecenterTrackingOrigin}).</li>
+	 * <li>{@link #ovrError_ClientSkippedDestroy Error_ClientSkippedDestroy} - The client failed to call {@link OVR#ovr_Destroy} on an active session before calling {@link OVR#ovr_Shutdown}. Or the client crashed.</li>
+	 * <li>{@link #ovrError_ClientSkippedShutdown Error_ClientSkippedShutdown} - The client failed to call {@link OVR#ovr_Shutdown} or the client crashed.</li>
+	 * <li>{@link #ovrError_ServiceDeadlockDetected Error_ServiceDeadlockDetected} - The service watchdog discovered a deadlock.</li>
+	 * <li>{@link #ovrError_InvalidOperation Error_InvalidOperation} - Function call is invalid for object's current state.</li>
+	 * <li>{@link #ovrError_AudioDeviceNotFound Error_AudioDeviceNotFound} - Failure to find the specified audio device.</li>
+	 * <li>{@link #ovrError_AudioComError Error_AudioComError} - Generic COM error.</li>
+	 * <li>{@link #ovrError_Initialize Error_Initialize} - Generic initialization error.</li>
+	 * <li>{@link #ovrError_LibLoad Error_LibLoad} - Couldn't load LibOVRRT.</li>
+	 * <li>{@link #ovrError_LibVersion Error_LibVersion} - LibOVRRT version incompatibility.</li>
+	 * <li>{@link #ovrError_ServiceConnection Error_ServiceConnection} - Couldn't connect to the OVR Service.</li>
+	 * <li>{@link #ovrError_ServiceVersion Error_ServiceVersion} - OVR Service version incompatibility.</li>
+	 * <li>{@link #ovrError_IncompatibleOS Error_IncompatibleOS} - The operating system version is incompatible.</li>
+	 * <li>{@link #ovrError_DisplayInit Error_DisplayInit} - Unable to initialize the HMD display.</li>
+	 * <li>{@link #ovrError_ServerStart Error_ServerStart} - Unable to start the server. Is it already running?</li>
+	 * <li>{@link #ovrError_Reinitialization Error_Reinitialization} - Attempting to re-initialize with a different version.</li>
+	 * <li>{@link #ovrError_MismatchedAdapters Error_MismatchedAdapters} - Chosen rendering adapters between client and service do not match</li>
+	 * <li>{@link #ovrError_LeakingResources Error_LeakingResources} - Calling application has leaked resources</li>
+	 * <li>{@link #ovrError_ClientVersion Error_ClientVersion} - Client version too old to connect to service</li>
+	 * <li>{@link #ovrError_OutOfDateOS Error_OutOfDateOS} - The operating system is out of date.</li>
+	 * <li>{@link #ovrError_OutOfDateGfxDriver Error_OutOfDateGfxDriver} - The graphics driver is out of date.</li>
+	 * <li>{@link #ovrError_IncompatibleGPU Error_IncompatibleGPU} - The graphics hardware is not supported</li>
+	 * <li>{@link #ovrError_NoValidVRDisplaySystem Error_NoValidVRDisplaySystem} - No valid VR display system found.</li>
+	 * <li>{@link #ovrError_Obsolete Error_Obsolete} - Feature or API is obsolete and no longer supported.</li>
+	 * <li>{@link #ovrError_DisabledOrDefaultAdapter Error_DisabledOrDefaultAdapter} - No supported VR display system found, but disabled or driverless adapter found.</li>
+	 * <li>{@link #ovrError_HybridGraphicsNotSupported Error_HybridGraphicsNotSupported} - The system is using hybrid graphics (Optimus, etc...), which is not support.</li>
+	 * <li>{@link #ovrError_DisplayManagerInit Error_DisplayManagerInit} - Initialization of the DisplayManager failed.</li>
+	 * <li>{@link #ovrError_TrackerDriverInit Error_TrackerDriverInit} - Failed to get the interface for an attached tracker</li>
+	 * <li>{@link #ovrError_LibSignCheck Error_LibSignCheck} - LibOVRRT signature check failure.</li>
+	 * <li>{@link #ovrError_LibPath Error_LibPath} - LibOVRRT path failure.</li>
+	 * <li>{@link #ovrError_LibSymbols Error_LibSymbols} - LibOVRRT symbol resolution failure.</li>
+	 * <li>{@link #ovrError_Incomplete Error_Incomplete} - Requested async work not yet complete.</li>
+	 * <li>{@link #ovrError_Abandoned Error_Abandoned} - Requested async work was abandoned and result is incomplete.</li>
+	 * <li>{@link #ovrError_DisplayLost Error_DisplayLost} - In the event of a system-wide graphics reset or cable unplug this is returned to the app.</li>
+	 * <li>{@link #ovrError_TextureSwapChainFull Error_TextureSwapChainFull} - {@link OVR#ovr_CommitTextureSwapChain CommitTextureSwapChain} was called too many times on a texture swapchain without calling submit to use the chain.</li>
+	 * <li>{@link #ovrError_TextureSwapChainInvalid Error_TextureSwapChainInvalid} - The {@code ovrTextureSwapChain} is in an incomplete or inconsistent state. Ensure {@link OVR#ovr_CommitTextureSwapChain CommitTextureSwapChain} was called at least once first.</li>
+	 * <li>{@link #ovrError_GraphicsDeviceReset Error_GraphicsDeviceReset} - Graphics device has been reset (TDR, etc...)</li>
+	 * <li>{@link #ovrError_DisplayRemoved Error_DisplayRemoved} - HMD removed from the display adapter</li>
+	 * <li>{@link #ovrError_ContentProtectionNotAvailable Error_ContentProtectionNotAvailable} - Content protection is not available for the display</li>
+	 * <li>{@link #ovrError_ApplicationInvisible Error_ApplicationInvisible} - Application declared itself as an invisible type and is not allowed to submit frames.</li>
+	 * <li>{@link #ovrError_Disallowed Error_Disallowed} - The given request is disallowed under the current conditions.</li>
+	 * <li>{@link #ovrError_DisplayPluggedIncorrectly Error_DisplayPluggedIncorrectly} - Display portion of HMD is plugged into an incompatible port (ex: IGP)</li>
+	 * <li>{@link #ovrError_RuntimeException Error_RuntimeException} - A runtime exception occurred. The application is required to shutdown LibOVR and re-initialize it before this error state will be cleared.</li>
+	 * <li>{@link #ovrError_NoCalibration Error_NoCalibration} - Result of a missing calibration block.</li>
+	 * <li>{@link #ovrError_OldVersion Error_OldVersion} - Result of an old calibration block.</li>
+	 * <li>{@link #ovrError_MisformattedBlock Error_MisformattedBlock} - Result of a bad calibration block due to lengths.</li>
+	 * </ul>
+	 */
+	public static final int
+		ovrError_MemoryAllocationFailure       = -1000,
+		ovrError_InvalidSession                = -1002,
+		ovrError_Timeout                       = -1003,
+		ovrError_NotInitialized                = -1004,
+		ovrError_InvalidParameter              = -1005,
+		ovrError_ServiceError                  = -1006,
+		ovrError_NoHmd                         = -1007,
+		ovrError_Unsupported                   = -1009,
+		ovrError_DeviceUnavailable             = -1010,
+		ovrError_InvalidHeadsetOrientation     = -1011,
+		ovrError_ClientSkippedDestroy          = -1012,
+		ovrError_ClientSkippedShutdown         = -1013,
+		ovrError_ServiceDeadlockDetected       = -1014,
+		ovrError_InvalidOperation              = -1015,
+		ovrError_AudioDeviceNotFound           = -2001,
+		ovrError_AudioComError                 = -2002,
+		ovrError_Initialize                    = -3000,
+		ovrError_LibLoad                       = -3001,
+		ovrError_LibVersion                    = -3002,
+		ovrError_ServiceConnection             = -3003,
+		ovrError_ServiceVersion                = -3004,
+		ovrError_IncompatibleOS                = -3005,
+		ovrError_DisplayInit                   = -3006,
+		ovrError_ServerStart                   = -3007,
+		ovrError_Reinitialization              = -3008,
+		ovrError_MismatchedAdapters            = -3009,
+		ovrError_LeakingResources              = -3010,
+		ovrError_ClientVersion                 = -3011,
+		ovrError_OutOfDateOS                   = -3012,
+		ovrError_OutOfDateGfxDriver            = -3013,
+		ovrError_IncompatibleGPU               = -3014,
+		ovrError_NoValidVRDisplaySystem        = -3015,
+		ovrError_Obsolete                      = -3016,
+		ovrError_DisabledOrDefaultAdapter      = -3017,
+		ovrError_HybridGraphicsNotSupported    = -3018,
+		ovrError_DisplayManagerInit            = -3019,
+		ovrError_TrackerDriverInit             = -3020,
+		ovrError_LibSignCheck                  = -3021,
+		ovrError_LibPath                       = -3022,
+		ovrError_LibSymbols                    = -3023,
+		ovrError_Incomplete                    = -5000,
+		ovrError_Abandoned                     = -5001,
+		ovrError_DisplayLost                   = -6000,
+		ovrError_TextureSwapChainFull          = -6001,
+		ovrError_TextureSwapChainInvalid       = -6002,
+		ovrError_GraphicsDeviceReset           = -6003,
+		ovrError_DisplayRemoved                = -6004,
+		ovrError_ContentProtectionNotAvailable = -6005,
+		ovrError_ApplicationInvisible          = -6006,
+		ovrError_Disallowed                    = -6007,
+		ovrError_DisplayPluggedIncorrectly     = -6008,
+		ovrError_RuntimeException              = -7000,
+		ovrError_NoCalibration                 = -9000,
+		ovrError_OldVersion                    = -9001,
+		ovrError_MisformattedBlock             = -9002;
 
 	static { LibOVR.initialize(); }
 

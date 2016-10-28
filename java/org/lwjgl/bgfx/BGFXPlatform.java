@@ -11,7 +11,18 @@ import static org.lwjgl.system.JNI.*;
 /** Native bindings to the C platform API of the <a href="https://github.com/bkaradzic/bgfx">bgfx</a> library. */
 public class BGFXPlatform {
 
-	/** Render frame. ({@code bgfx_renderer_frame_t}) */
+	/**
+	 * Render frame. ({@code bgfx_renderer_frame_t})
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #BGFX_RENDER_FRAME_NO_CONTEXT RENDER_FRAME_NO_CONTEXT}</li>
+	 * <li>{@link #BGFX_RENDER_FRAME_RENDER RENDER_FRAME_RENDER}</li>
+	 * <li>{@link #BGFX_RENDER_FRAME_EXITING RENDER_FRAME_EXITING}</li>
+	 * <li>{@link #BGFX_RENDER_FRAME_COUNT RENDER_FRAME_COUNT}</li>
+	 * </ul>
+	 */
 	public static final int
 		BGFX_RENDER_FRAME_NO_CONTEXT = 0,
 		BGFX_RENDER_FRAME_RENDER     = 1,

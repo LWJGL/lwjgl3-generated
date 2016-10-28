@@ -20,7 +20,16 @@ public class KHRSwapchain {
 	/** The extension name. */
 	public static final String VK_KHR_SWAPCHAIN_EXTENSION_NAME = "VK_KHR_swapchain";
 
-	/** Extends {@code VkStructureType}. */
+	/**
+	 * Extends {@code VkStructureType}.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_PRESENT_INFO_KHR STRUCTURE_TYPE_PRESENT_INFO_KHR}</li>
+	 * </ul>
+	 */
 	public static final int
 		VK_STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR = 1000001000,
 		VK_STRUCTURE_TYPE_PRESENT_INFO_KHR          = 1000001001;
@@ -28,7 +37,16 @@ public class KHRSwapchain {
 	/** Extends {@code VkImageLayout}. */
 	public static final int VK_IMAGE_LAYOUT_PRESENT_SRC_KHR = 1000001002;
 
-	/** Extends {@code VkResult}. */
+	/**
+	 * Extends {@code VkResult}.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_SUBOPTIMAL_KHR SUBOPTIMAL_KHR}</li>
+	 * <li>{@link #VK_ERROR_OUT_OF_DATE_KHR ERROR_OUT_OF_DATE_KHR}</li>
+	 * </ul>
+	 */
 	public static final int
 		VK_SUBOPTIMAL_KHR        = 1000001003,
 		VK_ERROR_OUT_OF_DATE_KHR = -1000001004;

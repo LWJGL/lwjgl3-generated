@@ -125,6 +125,60 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@link VkAndroidSurfaceCreateInfoKHR}, {@link VkApplicationInfo}, {@link VkBindSparseInfo}, {@link VkBufferCreateInfo}, {@link VkBufferMemoryBarrier}, {@link VkBufferViewCreateInfo}, {@link VkCommandBufferAllocateInfo}, {@link VkCommandBufferBeginInfo}, {@link VkCommandBufferInheritanceInfo}, {@link VkCommandPoolCreateInfo}, {@link VkComputePipelineCreateInfo}, {@link VkCopyDescriptorSet}, {@link VkDebugMarkerMarkerInfoEXT}, {@link VkDebugMarkerObjectNameInfoEXT}, {@link VkDebugMarkerObjectTagInfoEXT}, {@link VkDebugReportCallbackCreateInfoEXT}, {@link VkDedicatedAllocationBufferCreateInfoNV}, {@link VkDedicatedAllocationImageCreateInfoNV}, {@link VkDedicatedAllocationMemoryAllocateInfoNV}, {@link VkDescriptorPoolCreateInfo}, {@link VkDescriptorSetAllocateInfo}, {@link VkDescriptorSetLayoutCreateInfo}, {@link VkDeviceCreateInfo}, {@link VkDeviceQueueCreateInfo}, {@link VkDisplayModeCreateInfoKHR}, {@link VkDisplayPresentInfoKHR}, {@link VkDisplaySurfaceCreateInfoKHR}, {@link VkEventCreateInfo}, {@link VkExportMemoryAllocateInfoNV}, {@link VkExportMemoryWin32HandleInfoNV}, {@link VkExternalMemoryImageCreateInfoNV}, {@link VkFenceCreateInfo}, {@link VkFramebufferCreateInfo}, {@link VkGraphicsPipelineCreateInfo}, {@link VkImageCreateInfo}, {@link VkImageMemoryBarrier}, {@link VkImageViewCreateInfo}, {@link VkImportMemoryWin32HandleInfoNV}, {@link VkInstanceCreateInfo}, {@link VkMappedMemoryRange}, {@link VkMemoryAllocateInfo}, {@link VkMemoryBarrier}, {@link VkMirSurfaceCreateInfoKHR}, {@link VkPipelineCacheCreateInfo}, {@link VkPipelineColorBlendStateCreateInfo}, {@link VkPipelineDepthStencilStateCreateInfo}, {@link VkPipelineDynamicStateCreateInfo}, {@link VkPipelineInputAssemblyStateCreateInfo}, {@link VkPipelineLayoutCreateInfo}, {@link VkPipelineMultisampleStateCreateInfo}, {@link VkPipelineRasterizationStateCreateInfo}, {@link VkPipelineRasterizationStateRasterizationOrderAMD}, {@link VkPipelineShaderStageCreateInfo}, {@link VkPipelineTessellationStateCreateInfo}, {@link VkPipelineVertexInputStateCreateInfo}, {@link VkPipelineViewportStateCreateInfo}, {@link VkPresentInfoKHR}, {@link VkQueryPoolCreateInfo}, {@link VkRenderPassBeginInfo}, {@link VkRenderPassCreateInfo}, {@link VkSamplerCreateInfo}, {@link VkSemaphoreCreateInfo}, {@link VkShaderModuleCreateInfo}, {@link VkSubmitInfo}, {@link VkSwapchainCreateInfoKHR}, {@link VkValidationFlagsEXT}, {@link VkWaylandSurfaceCreateInfoKHR}, {@link VkWin32KeyedMutexAcquireReleaseInfoNV}, {@link VkWin32SurfaceCreateInfoKHR}, {@link VkWriteDescriptorSet}, {@link VkXcbSurfaceCreateInfoKHR}, {@link VkXlibSurfaceCreateInfoKHR}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_STRUCTURE_TYPE_APPLICATION_INFO STRUCTURE_TYPE_APPLICATION_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO STRUCTURE_TYPE_INSTANCE_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO STRUCTURE_TYPE_DEVICE_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_SUBMIT_INFO STRUCTURE_TYPE_SUBMIT_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_MAPPED_MEMORY_RANGE STRUCTURE_TYPE_MAPPED_MEMORY_RANGE}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_BIND_SPARSE_INFO STRUCTURE_TYPE_BIND_SPARSE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_FENCE_CREATE_INFO STRUCTURE_TYPE_FENCE_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_EVENT_CREATE_INFO STRUCTURE_TYPE_EVENT_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_QUERY_POOL_CREATE_INFO STRUCTURE_TYPE_QUERY_POOL_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO STRUCTURE_TYPE_BUFFER_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_BUFFER_VIEW_CREATE_INFO STRUCTURE_TYPE_BUFFER_VIEW_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO STRUCTURE_TYPE_IMAGE_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_PIPELINE_CACHE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_CACHE_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_TESSELLATION_STATE_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_VIEWPORT_STATE_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_CREATE_INFO STRUCTURE_TYPE_COMPUTE_PIPELINE_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO STRUCTURE_TYPE_SAMPLER_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_COPY_DESCRIPTOR_SET STRUCTURE_TYPE_COPY_DESCRIPTOR_SET}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_INFO STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_MEMORY_BARRIER STRUCTURE_TYPE_MEMORY_BARRIER}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_LOADER_INSTANCE_CREATE_INFO STRUCTURE_TYPE_LOADER_INSTANCE_CREATE_INFO}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_LOADER_DEVICE_CREATE_INFO STRUCTURE_TYPE_LOADER_DEVICE_CREATE_INFO}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_STRUCTURE_TYPE_APPLICATION_INFO                          = 0,
@@ -814,6 +868,24 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@code VkFormatFeatureFlags}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT FORMAT_FEATURE_SAMPLED_IMAGE_BIT}</li>
+	 * <li>{@link #VK_FORMAT_FEATURE_STORAGE_IMAGE_BIT FORMAT_FEATURE_STORAGE_IMAGE_BIT}</li>
+	 * <li>{@link #VK_FORMAT_FEATURE_STORAGE_IMAGE_ATOMIC_BIT FORMAT_FEATURE_STORAGE_IMAGE_ATOMIC_BIT}</li>
+	 * <li>{@link #VK_FORMAT_FEATURE_UNIFORM_TEXEL_BUFFER_BIT FORMAT_FEATURE_UNIFORM_TEXEL_BUFFER_BIT}</li>
+	 * <li>{@link #VK_FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_BIT FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_BIT}</li>
+	 * <li>{@link #VK_FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_ATOMIC_BIT FORMAT_FEATURE_STORAGE_TEXEL_BUFFER_ATOMIC_BIT}</li>
+	 * <li>{@link #VK_FORMAT_FEATURE_VERTEX_BUFFER_BIT FORMAT_FEATURE_VERTEX_BUFFER_BIT}</li>
+	 * <li>{@link #VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT}</li>
+	 * <li>{@link #VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BLEND_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BLEND_BIT}</li>
+	 * <li>{@link #VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT}</li>
+	 * <li>{@link #VK_FORMAT_FEATURE_BLIT_SRC_BIT FORMAT_FEATURE_BLIT_SRC_BIT}</li>
+	 * <li>{@link #VK_FORMAT_FEATURE_BLIT_DST_BIT FORMAT_FEATURE_BLIT_DST_BIT}</li>
+	 * <li>{@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT               = 0x1,
@@ -840,6 +912,14 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@link VkImageCreateInfo}, {@link NVExternalMemoryCapabilities#vkGetPhysicalDeviceExternalImageFormatPropertiesNV GetPhysicalDeviceExternalImageFormatPropertiesNV}, {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_IMAGE_TYPE_1D IMAGE_TYPE_1D}</li>
+	 * <li>{@link #VK_IMAGE_TYPE_2D IMAGE_TYPE_2D}</li>
+	 * <li>{@link #VK_IMAGE_TYPE_3D IMAGE_TYPE_3D}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_IMAGE_TYPE_1D = 0,
@@ -939,6 +1019,18 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@link VkAttachmentDescription}, {@link VkImageCreateInfo}, {@link VkPipelineMultisampleStateCreateInfo}, {@code VkSampleCountFlags}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
+	 * <li>{@link #VK_SAMPLE_COUNT_2_BIT SAMPLE_COUNT_2_BIT}</li>
+	 * <li>{@link #VK_SAMPLE_COUNT_4_BIT SAMPLE_COUNT_4_BIT}</li>
+	 * <li>{@link #VK_SAMPLE_COUNT_8_BIT SAMPLE_COUNT_8_BIT}</li>
+	 * <li>{@link #VK_SAMPLE_COUNT_16_BIT SAMPLE_COUNT_16_BIT}</li>
+	 * <li>{@link #VK_SAMPLE_COUNT_32_BIT SAMPLE_COUNT_32_BIT}</li>
+	 * <li>{@link #VK_SAMPLE_COUNT_64_BIT SAMPLE_COUNT_64_BIT}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_SAMPLE_COUNT_1_BIT  = 0x1,
@@ -991,6 +1083,15 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@code VkQueueFlags}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_QUEUE_GRAPHICS_BIT QUEUE_GRAPHICS_BIT}</li>
+	 * <li>{@link #VK_QUEUE_COMPUTE_BIT QUEUE_COMPUTE_BIT}</li>
+	 * <li>{@link #VK_QUEUE_TRANSFER_BIT QUEUE_TRANSFER_BIT}</li>
+	 * <li>{@link #VK_QUEUE_SPARSE_BINDING_BIT QUEUE_SPARSE_BINDING_BIT}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_QUEUE_GRAPHICS_BIT       = 0x1,
@@ -1014,6 +1115,16 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@code VkMemoryPropertyFlags}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT MEMORY_PROPERTY_DEVICE_LOCAL_BIT}</li>
+	 * <li>{@link #VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT MEMORY_PROPERTY_HOST_VISIBLE_BIT}</li>
+	 * <li>{@link #VK_MEMORY_PROPERTY_HOST_COHERENT_BIT MEMORY_PROPERTY_HOST_COHERENT_BIT}</li>
+	 * <li>{@link #VK_MEMORY_PROPERTY_HOST_CACHED_BIT MEMORY_PROPERTY_HOST_CACHED_BIT}</li>
+	 * <li>{@link #VK_MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT MEMORY_PROPERTY_LAZILY_ALLOCATED_BIT}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT     = 0x1,
@@ -1112,6 +1223,15 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@code VkImageAspectFlags}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT}</li>
+	 * <li>{@link #VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT}</li>
+	 * <li>{@link #VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT}</li>
+	 * <li>{@link #VK_IMAGE_ASPECT_METADATA_BIT IMAGE_ASPECT_METADATA_BIT}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_IMAGE_ASPECT_COLOR_BIT    = 0x1,
@@ -1135,6 +1255,14 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@code VkSparseImageFormatFlags}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT}</li>
+	 * <li>{@link #VK_SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT}</li>
+	 * <li>{@link #VK_SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT         = 0x1,
@@ -1195,6 +1323,14 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@link VkQueryPoolCreateInfo}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_QUERY_TYPE_OCCLUSION QUERY_TYPE_OCCLUSION}</li>
+	 * <li>{@link #VK_QUERY_TYPE_PIPELINE_STATISTICS QUERY_TYPE_PIPELINE_STATISTICS}</li>
+	 * <li>{@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_QUERY_TYPE_OCCLUSION           = 0,
@@ -1272,6 +1408,15 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@code VkQueryResultFlags}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT}</li>
+	 * <li>{@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT}</li>
+	 * <li>{@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT}</li>
+	 * <li>{@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_QUERY_RESULT_64_BIT                = 0x1,
@@ -1295,6 +1440,14 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@code VkBufferCreateFlags}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT}</li>
+	 * <li>{@link #VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT BUFFER_CREATE_SPARSE_RESIDENCY_BIT}</li>
+	 * <li>{@link #VK_BUFFER_CREATE_SPARSE_ALIASED_BIT BUFFER_CREATE_SPARSE_ALIASED_BIT}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_BUFFER_CREATE_SPARSE_BINDING_BIT   = 0x1,
@@ -1317,6 +1470,20 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@code VkBufferUsageFlags}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_BUFFER_USAGE_TRANSFER_SRC_BIT BUFFER_USAGE_TRANSFER_SRC_BIT}</li>
+	 * <li>{@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT}</li>
+	 * <li>{@link #VK_BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT}</li>
+	 * <li>{@link #VK_BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT}</li>
+	 * <li>{@link #VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT BUFFER_USAGE_UNIFORM_BUFFER_BIT}</li>
+	 * <li>{@link #VK_BUFFER_USAGE_STORAGE_BUFFER_BIT BUFFER_USAGE_STORAGE_BUFFER_BIT}</li>
+	 * <li>{@link #VK_BUFFER_USAGE_INDEX_BUFFER_BIT BUFFER_USAGE_INDEX_BUFFER_BIT}</li>
+	 * <li>{@link #VK_BUFFER_USAGE_VERTEX_BUFFER_BIT BUFFER_USAGE_VERTEX_BUFFER_BIT}</li>
+	 * <li>{@link #VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT BUFFER_USAGE_INDIRECT_BUFFER_BIT}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_BUFFER_USAGE_TRANSFER_SRC_BIT         = 0x1,
@@ -1419,6 +1586,18 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@link VkImageViewCreateInfo}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_IMAGE_VIEW_TYPE_1D IMAGE_VIEW_TYPE_1D}</li>
+	 * <li>{@link #VK_IMAGE_VIEW_TYPE_2D IMAGE_VIEW_TYPE_2D}</li>
+	 * <li>{@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}</li>
+	 * <li>{@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}</li>
+	 * <li>{@link #VK_IMAGE_VIEW_TYPE_1D_ARRAY IMAGE_VIEW_TYPE_1D_ARRAY}</li>
+	 * <li>{@link #VK_IMAGE_VIEW_TYPE_2D_ARRAY IMAGE_VIEW_TYPE_2D_ARRAY}</li>
+	 * <li>{@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_IMAGE_VIEW_TYPE_1D         = 0,
@@ -1445,6 +1624,18 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@link VkComponentMapping}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_COMPONENT_SWIZZLE_IDENTITY COMPONENT_SWIZZLE_IDENTITY}</li>
+	 * <li>{@link #VK_COMPONENT_SWIZZLE_ZERO COMPONENT_SWIZZLE_ZERO}</li>
+	 * <li>{@link #VK_COMPONENT_SWIZZLE_ONE COMPONENT_SWIZZLE_ONE}</li>
+	 * <li>{@link #VK_COMPONENT_SWIZZLE_R COMPONENT_SWIZZLE_R}</li>
+	 * <li>{@link #VK_COMPONENT_SWIZZLE_G COMPONENT_SWIZZLE_G}</li>
+	 * <li>{@link #VK_COMPONENT_SWIZZLE_B COMPONENT_SWIZZLE_B}</li>
+	 * <li>{@link #VK_COMPONENT_SWIZZLE_A COMPONENT_SWIZZLE_A}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_COMPONENT_SWIZZLE_IDENTITY = 0,
@@ -1471,6 +1662,14 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@code VkPipelineCreateFlags}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT}</li>
+	 * <li>{@link #VK_PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT}</li>
+	 * <li>{@link #VK_PIPELINE_CREATE_DERIVATIVE_BIT PIPELINE_CREATE_DERIVATIVE_BIT}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT = 0x1,
@@ -1493,6 +1692,19 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@link VkPipelineShaderStageCreateInfo}, {@code VkShaderStageFlags}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_SHADER_STAGE_VERTEX_BIT SHADER_STAGE_VERTEX_BIT}</li>
+	 * <li>{@link #VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT SHADER_STAGE_TESSELLATION_CONTROL_BIT}</li>
+	 * <li>{@link #VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT SHADER_STAGE_TESSELLATION_EVALUATION_BIT}</li>
+	 * <li>{@link #VK_SHADER_STAGE_GEOMETRY_BIT SHADER_STAGE_GEOMETRY_BIT}</li>
+	 * <li>{@link #VK_SHADER_STAGE_FRAGMENT_BIT SHADER_STAGE_FRAGMENT_BIT}</li>
+	 * <li>{@link #VK_SHADER_STAGE_COMPUTE_BIT SHADER_STAGE_COMPUTE_BIT}</li>
+	 * <li>{@link #VK_SHADER_STAGE_ALL_GRAPHICS SHADER_STAGE_ALL_GRAPHICS}</li>
+	 * <li>{@link #VK_SHADER_STAGE_ALL SHADER_STAGE_ALL}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_SHADER_STAGE_VERTEX_BIT                  = 0x1,
@@ -1520,6 +1732,13 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@link VkVertexInputBindingDescription}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_VERTEX_INPUT_RATE_VERTEX VERTEX_INPUT_RATE_VERTEX}</li>
+	 * <li>{@link #VK_VERTEX_INPUT_RATE_INSTANCE VERTEX_INPUT_RATE_INSTANCE}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_VERTEX_INPUT_RATE_VERTEX   = 0,
@@ -1531,6 +1750,22 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@link VkPipelineInputAssemblyStateCreateInfo}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_PRIMITIVE_TOPOLOGY_POINT_LIST PRIMITIVE_TOPOLOGY_POINT_LIST}</li>
+	 * <li>{@link #VK_PRIMITIVE_TOPOLOGY_LINE_LIST PRIMITIVE_TOPOLOGY_LINE_LIST}</li>
+	 * <li>{@link #VK_PRIMITIVE_TOPOLOGY_LINE_STRIP PRIMITIVE_TOPOLOGY_LINE_STRIP}</li>
+	 * <li>{@link #VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST PRIMITIVE_TOPOLOGY_TRIANGLE_LIST}</li>
+	 * <li>{@link #VK_PRIMITIVE_TOPOLOGY_TRIANGLE_STRIP PRIMITIVE_TOPOLOGY_TRIANGLE_STRIP}</li>
+	 * <li>{@link #VK_PRIMITIVE_TOPOLOGY_TRIANGLE_FAN PRIMITIVE_TOPOLOGY_TRIANGLE_FAN}</li>
+	 * <li>{@link #VK_PRIMITIVE_TOPOLOGY_LINE_LIST_WITH_ADJACENCY PRIMITIVE_TOPOLOGY_LINE_LIST_WITH_ADJACENCY}</li>
+	 * <li>{@link #VK_PRIMITIVE_TOPOLOGY_LINE_STRIP_WITH_ADJACENCY PRIMITIVE_TOPOLOGY_LINE_STRIP_WITH_ADJACENCY}</li>
+	 * <li>{@link #VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST_WITH_ADJACENCY PRIMITIVE_TOPOLOGY_TRIANGLE_LIST_WITH_ADJACENCY}</li>
+	 * <li>{@link #VK_PRIMITIVE_TOPOLOGY_TRIANGLE_STRIP_WITH_ADJACENCY PRIMITIVE_TOPOLOGY_TRIANGLE_STRIP_WITH_ADJACENCY}</li>
+	 * <li>{@link #VK_PRIMITIVE_TOPOLOGY_PATCH_LIST PRIMITIVE_TOPOLOGY_PATCH_LIST}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_PRIMITIVE_TOPOLOGY_POINT_LIST                    = 0,
@@ -1906,6 +2141,13 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@link VkSamplerCreateInfo}, {@link #vkCmdBlitImage CmdBlitImage}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_FILTER_NEAREST FILTER_NEAREST}</li>
+	 * <li>{@link #VK_FILTER_LINEAR FILTER_LINEAR}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_FILTER_NEAREST = 0,
@@ -1927,6 +2169,13 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@link VkSamplerCreateInfo}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_SAMPLER_MIPMAP_MODE_NEAREST SAMPLER_MIPMAP_MODE_NEAREST}</li>
+	 * <li>{@link #VK_SAMPLER_MIPMAP_MODE_LINEAR SAMPLER_MIPMAP_MODE_LINEAR}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_SAMPLER_MIPMAP_MODE_NEAREST = 0,
@@ -1948,6 +2197,15 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@link VkSamplerCreateInfo}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_SAMPLER_ADDRESS_MODE_REPEAT SAMPLER_ADDRESS_MODE_REPEAT}</li>
+	 * <li>{@link #VK_SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT}</li>
+	 * <li>{@link #VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE}</li>
+	 * <li>{@link #VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_SAMPLER_ADDRESS_MODE_REPEAT          = 0,
@@ -1971,6 +2229,17 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@link VkSamplerCreateInfo}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK BORDER_COLOR_FLOAT_TRANSPARENT_BLACK}</li>
+	 * <li>{@link #VK_BORDER_COLOR_INT_TRANSPARENT_BLACK BORDER_COLOR_INT_TRANSPARENT_BLACK}</li>
+	 * <li>{@link #VK_BORDER_COLOR_FLOAT_OPAQUE_BLACK BORDER_COLOR_FLOAT_OPAQUE_BLACK}</li>
+	 * <li>{@link #VK_BORDER_COLOR_INT_OPAQUE_BLACK BORDER_COLOR_INT_OPAQUE_BLACK}</li>
+	 * <li>{@link #VK_BORDER_COLOR_FLOAT_OPAQUE_WHITE BORDER_COLOR_FLOAT_OPAQUE_WHITE}</li>
+	 * <li>{@link #VK_BORDER_COLOR_INT_OPAQUE_WHITE BORDER_COLOR_INT_OPAQUE_WHITE}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_BORDER_COLOR_FLOAT_TRANSPARENT_BLACK = 0,
@@ -2062,6 +2331,14 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@link VkAttachmentDescription}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_ATTACHMENT_LOAD_OP_LOAD ATTACHMENT_LOAD_OP_LOAD}</li>
+	 * <li>{@link #VK_ATTACHMENT_LOAD_OP_CLEAR ATTACHMENT_LOAD_OP_CLEAR}</li>
+	 * <li>{@link #VK_ATTACHMENT_LOAD_OP_DONT_CARE ATTACHMENT_LOAD_OP_DONT_CARE}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_ATTACHMENT_LOAD_OP_LOAD      = 0,
@@ -2084,6 +2361,13 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@link VkAttachmentDescription}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_ATTACHMENT_STORE_OP_STORE ATTACHMENT_STORE_OP_STORE}</li>
+	 * <li>{@link #VK_ATTACHMENT_STORE_OP_DONT_CARE ATTACHMENT_STORE_OP_DONT_CARE}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_ATTACHMENT_STORE_OP_STORE     = 0,
@@ -2105,6 +2389,13 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@link VkSubpassDescription}, {@link #vkCmdBindDescriptorSets CmdBindDescriptorSets}, {@link #vkCmdBindPipeline CmdBindPipeline}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS}</li>
+	 * <li>{@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_PIPELINE_BIND_POINT_GRAPHICS = 0,
@@ -2126,6 +2417,28 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@code VkAccessFlags}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_ACCESS_INDIRECT_COMMAND_READ_BIT ACCESS_INDIRECT_COMMAND_READ_BIT}</li>
+	 * <li>{@link #VK_ACCESS_INDEX_READ_BIT ACCESS_INDEX_READ_BIT}</li>
+	 * <li>{@link #VK_ACCESS_VERTEX_ATTRIBUTE_READ_BIT ACCESS_VERTEX_ATTRIBUTE_READ_BIT}</li>
+	 * <li>{@link #VK_ACCESS_UNIFORM_READ_BIT ACCESS_UNIFORM_READ_BIT}</li>
+	 * <li>{@link #VK_ACCESS_INPUT_ATTACHMENT_READ_BIT ACCESS_INPUT_ATTACHMENT_READ_BIT}</li>
+	 * <li>{@link #VK_ACCESS_SHADER_READ_BIT ACCESS_SHADER_READ_BIT}</li>
+	 * <li>{@link #VK_ACCESS_SHADER_WRITE_BIT ACCESS_SHADER_WRITE_BIT}</li>
+	 * <li>{@link #VK_ACCESS_COLOR_ATTACHMENT_READ_BIT ACCESS_COLOR_ATTACHMENT_READ_BIT}</li>
+	 * <li>{@link #VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT ACCESS_COLOR_ATTACHMENT_WRITE_BIT}</li>
+	 * <li>{@link #VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT}</li>
+	 * <li>{@link #VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT}</li>
+	 * <li>{@link #VK_ACCESS_TRANSFER_READ_BIT ACCESS_TRANSFER_READ_BIT}</li>
+	 * <li>{@link #VK_ACCESS_TRANSFER_WRITE_BIT ACCESS_TRANSFER_WRITE_BIT}</li>
+	 * <li>{@link #VK_ACCESS_HOST_READ_BIT ACCESS_HOST_READ_BIT}</li>
+	 * <li>{@link #VK_ACCESS_HOST_WRITE_BIT ACCESS_HOST_WRITE_BIT}</li>
+	 * <li>{@link #VK_ACCESS_MEMORY_READ_BIT ACCESS_MEMORY_READ_BIT}</li>
+	 * <li>{@link #VK_ACCESS_MEMORY_WRITE_BIT ACCESS_MEMORY_WRITE_BIT}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_ACCESS_INDIRECT_COMMAND_READ_BIT          = 0x1,
@@ -2181,6 +2494,13 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@code VkCommandPoolCreateFlags}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_COMMAND_POOL_CREATE_TRANSIENT_BIT COMMAND_POOL_CREATE_TRANSIENT_BIT}</li>
+	 * <li>{@link #VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_COMMAND_POOL_CREATE_TRANSIENT_BIT            = 0x1,
@@ -2221,6 +2541,13 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@link VkCommandBufferAllocateInfo}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_COMMAND_BUFFER_LEVEL_PRIMARY COMMAND_BUFFER_LEVEL_PRIMARY}</li>
+	 * <li>{@link #VK_COMMAND_BUFFER_LEVEL_SECONDARY COMMAND_BUFFER_LEVEL_SECONDARY}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_COMMAND_BUFFER_LEVEL_PRIMARY   = 0,
@@ -2242,6 +2569,14 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@code VkCommandBufferUsageFlags}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT}</li>
+	 * <li>{@link #VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT}</li>
+	 * <li>{@link #VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT      = 0x1,
@@ -2302,6 +2637,14 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@code VkStencilFaceFlags}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_STENCIL_FACE_FRONT_BIT STENCIL_FACE_FRONT_BIT}</li>
+	 * <li>{@link #VK_STENCIL_FACE_BACK_BIT STENCIL_FACE_BACK_BIT}</li>
+	 * <li>{@link #VK_STENCIL_FRONT_AND_BACK STENCIL_FRONT_AND_BACK}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_STENCIL_FACE_FRONT_BIT = 0x1,
@@ -2324,6 +2667,13 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@link #vkCmdBindIndexBuffer CmdBindIndexBuffer}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_INDEX_TYPE_UINT16 INDEX_TYPE_UINT16}</li>
+	 * <li>{@link #VK_INDEX_TYPE_UINT32 INDEX_TYPE_UINT32}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_INDEX_TYPE_UINT16 = 0,
@@ -2345,6 +2695,13 @@ public class VK10 {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@link #vkCmdBeginRenderPass CmdBeginRenderPass}, {@link #vkCmdNextSubpass CmdNextSubpass}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_SUBPASS_CONTENTS_INLINE SUBPASS_CONTENTS_INLINE}</li>
+	 * <li>{@link #VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_SUBPASS_CONTENTS_INLINE                    = 0,

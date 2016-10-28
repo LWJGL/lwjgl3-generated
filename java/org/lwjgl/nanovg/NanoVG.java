@@ -108,19 +108,47 @@ public class NanoVG {
 	/** PI */
 	public static final float NVG_PI = 3.1415927f;
 
-	/** Winding for solid shapes */
-	public static final int NVG_CCW = 0x1;
+	/**
+	 * Winding order.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NVG_CCW CCW} - Winding for solid shapes</li>
+	 * <li>{@link #NVG_CW CW} - Winding for holes</li>
+	 * </ul>
+	 */
+	public static final int
+		NVG_CCW = 0x1,
+		NVG_CW  = 0x2;
 
-	/** Winding for holes */
-	public static final int NVG_CW = 0x2;
+	/**
+	 * Solidity.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NVG_SOLID SOLID} - CCW</li>
+	 * <li>{@link #NVG_HOLE HOLE} - CW</li>
+	 * </ul>
+	 */
+	public static final int
+		NVG_SOLID = 0x1,
+		NVG_HOLE  = 0x2;
 
-	/** CCW */
-	public static final int NVG_SOLID = 0x1;
-
-	/** CW */
-	public static final int NVG_HOLE = 0x2;
-
-	/** Line caps and joins. */
+	/**
+	 * Line caps and joins.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NVG_BUTT BUTT}</li>
+	 * <li>{@link #NVG_ROUND ROUND}</li>
+	 * <li>{@link #NVG_SQUARE SQUARE}</li>
+	 * <li>{@link #NVG_BEVEL BEVEL}</li>
+	 * <li>{@link #NVG_MITER MITER}</li>
+	 * </ul>
+	 */
 	public static final int
 		NVG_BUTT   = 0,
 		NVG_ROUND  = 1,
@@ -128,28 +156,49 @@ public class NanoVG {
 		NVG_BEVEL  = 3,
 		NVG_MITER  = 4;
 
-	/** Default, align text horizontally to left. */
-	public static final int NVG_ALIGN_LEFT = 1<<0;
+	/**
+	 * Alignments.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NVG_ALIGN_LEFT ALIGN_LEFT} - Default, align text horizontally to left.</li>
+	 * <li>{@link #NVG_ALIGN_CENTER ALIGN_CENTER} - Align text horizontally to center.</li>
+	 * <li>{@link #NVG_ALIGN_RIGHT ALIGN_RIGHT} - Align text horizontally to right.</li>
+	 * <li>{@link #NVG_ALIGN_TOP ALIGN_TOP} - Align text vertically to top.</li>
+	 * <li>{@link #NVG_ALIGN_MIDDLE ALIGN_MIDDLE} - Align text vertically to middle.</li>
+	 * <li>{@link #NVG_ALIGN_BOTTOM ALIGN_BOTTOM} - Align text vertically to bottom.</li>
+	 * <li>{@link #NVG_ALIGN_BASELINE ALIGN_BASELINE} - Default, align text vertically to baseline.</li>
+	 * </ul>
+	 */
+	public static final int
+		NVG_ALIGN_LEFT     = 1<<0,
+		NVG_ALIGN_CENTER   = 1<<1,
+		NVG_ALIGN_RIGHT    = 1<<2,
+		NVG_ALIGN_TOP      = 1<<3,
+		NVG_ALIGN_MIDDLE   = 1<<4,
+		NVG_ALIGN_BOTTOM   = 1<<5,
+		NVG_ALIGN_BASELINE = 1<<6;
 
-	/** Align text horizontally to center. */
-	public static final int NVG_ALIGN_CENTER = 1<<1;
-
-	/** Align text horizontally to right. */
-	public static final int NVG_ALIGN_RIGHT = 1<<2;
-
-	/** Align text vertically to top. */
-	public static final int NVG_ALIGN_TOP = 1<<3;
-
-	/** Align text vertically to middle. */
-	public static final int NVG_ALIGN_MIDDLE = 1<<4;
-
-	/** Align text vertically to bottom. */
-	public static final int NVG_ALIGN_BOTTOM = 1<<5;
-
-	/** Default, align text vertically to baseline. */
-	public static final int NVG_ALIGN_BASELINE = 1<<6;
-
-	/** Blend factors. */
+	/**
+	 * Blend factors.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NVG_ZERO ZERO}</li>
+	 * <li>{@link #NVG_ONE ONE}</li>
+	 * <li>{@link #NVG_SRC_COLOR SRC_COLOR}</li>
+	 * <li>{@link #NVG_ONE_MINUS_SRC_COLOR ONE_MINUS_SRC_COLOR}</li>
+	 * <li>{@link #NVG_DST_COLOR DST_COLOR}</li>
+	 * <li>{@link #NVG_ONE_MINUS_DST_COLOR ONE_MINUS_DST_COLOR}</li>
+	 * <li>{@link #NVG_SRC_ALPHA SRC_ALPHA}</li>
+	 * <li>{@link #NVG_ONE_MINUS_SRC_ALPHA ONE_MINUS_SRC_ALPHA}</li>
+	 * <li>{@link #NVG_DST_ALPHA DST_ALPHA}</li>
+	 * <li>{@link #NVG_ONE_MINUS_DST_ALPHA ONE_MINUS_DST_ALPHA}</li>
+	 * <li>{@link #NVG_SRC_ALPHA_SATURATE SRC_ALPHA_SATURATE}</li>
+	 * </ul>
+	 */
 	public static final int
 		NVG_ZERO                = 1<<0,
 		NVG_ONE                 = 1<<1,
@@ -163,7 +212,25 @@ public class NanoVG {
 		NVG_ONE_MINUS_DST_ALPHA = 1<<9,
 		NVG_SRC_ALPHA_SATURATE  = 1<<10;
 
-	/** Composite operations. */
+	/**
+	 * Composite operations.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NVG_SOURCE_OVER SOURCE_OVER}</li>
+	 * <li>{@link #NVG_SOURCE_IN SOURCE_IN}</li>
+	 * <li>{@link #NVG_SOURCE_OUT SOURCE_OUT}</li>
+	 * <li>{@link #NVG_ATOP ATOP}</li>
+	 * <li>{@link #NVG_DESTINATION_OVER DESTINATION_OVER}</li>
+	 * <li>{@link #NVG_DESTINATION_IN DESTINATION_IN}</li>
+	 * <li>{@link #NVG_DESTINATION_OUT DESTINATION_OUT}</li>
+	 * <li>{@link #NVG_DESTINATION_ATOP DESTINATION_ATOP}</li>
+	 * <li>{@link #NVG_LIGHTER LIGHTER}</li>
+	 * <li>{@link #NVG_COPY COPY}</li>
+	 * <li>{@link #NVG_XOR XOR}</li>
+	 * </ul>
+	 */
 	public static final int
 		NVG_SOURCE_OVER      = 0,
 		NVG_SOURCE_IN        = 1,
@@ -177,20 +244,25 @@ public class NanoVG {
 		NVG_COPY             = 9,
 		NVG_XOR              = 10;
 
-	/** Generate mipmaps during creation of the image. */
-	public static final int NVG_IMAGE_GENERATE_MIPMAPS = 1<<0;
-
-	/** Repeat image in X direction. */
-	public static final int NVG_IMAGE_REPEATX = 1<<1;
-
-	/** Repeat image in Y direction. */
-	public static final int NVG_IMAGE_REPEATY = 1<<2;
-
-	/** Flips (inverses) image in Y direction when rendered. */
-	public static final int NVG_IMAGE_FLIPY = 1<<3;
-
-	/** Image data has premultiplied alpha. */
-	public static final int NVG_IMAGE_PREMULTIPLIED = 1<<4;
+	/**
+	 * Image flags.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NVG_IMAGE_GENERATE_MIPMAPS IMAGE_GENERATE_MIPMAPS} - Generate mipmaps during creation of the image.</li>
+	 * <li>{@link #NVG_IMAGE_REPEATX IMAGE_REPEATX} - Repeat image in X direction.</li>
+	 * <li>{@link #NVG_IMAGE_REPEATY IMAGE_REPEATY} - Repeat image in Y direction.</li>
+	 * <li>{@link #NVG_IMAGE_FLIPY IMAGE_FLIPY} - Flips (inverses) image in Y direction when rendered.</li>
+	 * <li>{@link #NVG_IMAGE_PREMULTIPLIED IMAGE_PREMULTIPLIED} - Image data has premultiplied alpha.</li>
+	 * </ul>
+	 */
+	public static final int
+		NVG_IMAGE_GENERATE_MIPMAPS = 1<<0,
+		NVG_IMAGE_REPEATX          = 1<<1,
+		NVG_IMAGE_REPEATY          = 1<<2,
+		NVG_IMAGE_FLIPY            = 1<<3,
+		NVG_IMAGE_PREMULTIPLIED    = 1<<4;
 
 	static { LibNanoVG.initialize(); }
 

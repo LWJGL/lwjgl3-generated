@@ -72,37 +72,72 @@ public class STBImageResize {
 	/** The specified alpha channel should be handled as gamma-corrected value even when doing sRGB operations. */
 	public static final int STBIR_FLAG_ALPHA_USES_COLORSPACE = -1;
 
-	/** Edge wrap mode. */
+	/**
+	 * Edge wrap mode.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #STBIR_EDGE_CLAMP EDGE_CLAMP}</li>
+	 * <li>{@link #STBIR_EDGE_REFLECT EDGE_REFLECT}</li>
+	 * <li>{@link #STBIR_EDGE_WRAP EDGE_WRAP}</li>
+	 * <li>{@link #STBIR_EDGE_ZERO EDGE_ZERO}</li>
+	 * </ul>
+	 */
 	public static final int
 		STBIR_EDGE_CLAMP   = 0x1,
 		STBIR_EDGE_REFLECT = 0x2,
 		STBIR_EDGE_WRAP    = 0x3,
 		STBIR_EDGE_ZERO    = 0x4;
 
-	/** Use same filter type that easy-to-use API chooses. */
-	public static final int STBIR_FILTER_DEFAULT = 0;
+	/**
+	 * Filters.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #STBIR_FILTER_DEFAULT FILTER_DEFAULT} - Use same filter type that easy-to-use API chooses.</li>
+	 * <li>{@link #STBIR_FILTER_BOX FILTER_BOX} - A trapezoid w/1-pixel wide ramps, same result as box for integer scale ratios.</li>
+	 * <li>{@link #STBIR_FILTER_TRIANGLE FILTER_TRIANGLE} - On upsampling, produces same results as bilinear texture filtering.</li>
+	 * <li>{@link #STBIR_FILTER_CUBICBSPLINE FILTER_CUBICBSPLINE} - The cubic b-spline (aka Mitchell-Netrevalli with B=1,C=0), gaussian-esque.</li>
+	 * <li>{@link #STBIR_FILTER_CATMULLROM FILTER_CATMULLROM} - An interpolating cubic spline.</li>
+	 * <li>{@link #STBIR_FILTER_MITCHELL FILTER_MITCHELL} - Mitchell-Netrevalli filter with B=1/3, C=1/3.</li>
+	 * </ul>
+	 */
+	public static final int
+		STBIR_FILTER_DEFAULT      = 0,
+		STBIR_FILTER_BOX          = 1,
+		STBIR_FILTER_TRIANGLE     = 2,
+		STBIR_FILTER_CUBICBSPLINE = 3,
+		STBIR_FILTER_CATMULLROM   = 4,
+		STBIR_FILTER_MITCHELL     = 5;
 
-	/** A trapezoid w/1-pixel wide ramps, same result as box for integer scale ratios. */
-	public static final int STBIR_FILTER_BOX = 1;
-
-	/** On upsampling, produces same results as bilinear texture filtering. */
-	public static final int STBIR_FILTER_TRIANGLE = 2;
-
-	/** The cubic b-spline (aka Mitchell-Netrevalli with B=1,C=0), gaussian-esque. */
-	public static final int STBIR_FILTER_CUBICBSPLINE = 3;
-
-	/** An interpolating cubic spline. */
-	public static final int STBIR_FILTER_CATMULLROM = 4;
-
-	/** Mitchell-Netrevalli filter with B=1/3, C=1/3. */
-	public static final int STBIR_FILTER_MITCHELL = 5;
-
-	/** Colorspace. */
+	/**
+	 * Colorspace.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #STBIR_COLORSPACE_LINEAR COLORSPACE_LINEAR}</li>
+	 * <li>{@link #STBIR_COLORSPACE_SRGB COLORSPACE_SRGB}</li>
+	 * </ul>
+	 */
 	public static final int
 		STBIR_COLORSPACE_LINEAR = 0,
 		STBIR_COLORSPACE_SRGB   = 1;
 
-	/** Data type. */
+	/**
+	 * Data type.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #STBIR_TYPE_UINT8 TYPE_UINT8}</li>
+	 * <li>{@link #STBIR_TYPE_UINT16 TYPE_UINT16}</li>
+	 * <li>{@link #STBIR_TYPE_UINT32 TYPE_UINT32}</li>
+	 * <li>{@link #STBIR_TYPE_FLOAT TYPE_FLOAT}</li>
+	 * </ul>
+	 */
 	public static final int
 		STBIR_TYPE_UINT8  = 0,
 		STBIR_TYPE_UINT16 = 1,

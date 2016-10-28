@@ -98,11 +98,21 @@ stbi_ldr_to_hdr_gamma(2.2f);</code></pre>
  */
 public class STBImage {
 
-	/** Default component count, used as an argument to {@code req_comp}. */
-	public static final int STBI_default = 0;
-
-	/** Component count. */
+	/**
+	 * Component count.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #STBI_default default} - Default component count, used as an argument to {@code req_comp}.</li>
+	 * <li>{@link #STBI_grey grey}</li>
+	 * <li>{@link #STBI_grey_alpha grey_alpha}</li>
+	 * <li>{@link #STBI_rgb rgb}</li>
+	 * <li>{@link #STBI_rgb_alpha rgb_alpha}</li>
+	 * </ul>
+	 */
 	public static final int
+		STBI_default    = 0,
 		STBI_grey       = 1,
 		STBI_grey_alpha = 2,
 		STBI_rgb        = 3,

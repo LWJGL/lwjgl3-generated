@@ -24,7 +24,16 @@ public class KHRSurface {
 	/** The extension name. */
 	public static final String VK_KHR_SURFACE_EXTENSION_NAME = "VK_KHR_surface";
 
-	/** Extends {@code VkResult}. */
+	/**
+	 * Extends {@code VkResult}.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_ERROR_SURFACE_LOST_KHR ERROR_SURFACE_LOST_KHR}</li>
+	 * <li>{@link #VK_ERROR_NATIVE_WINDOW_IN_USE_KHR ERROR_NATIVE_WINDOW_IN_USE_KHR}</li>
+	 * </ul>
+	 */
 	public static final int
 		VK_ERROR_SURFACE_LOST_KHR         = -1000000000,
 		VK_ERROR_NATIVE_WINDOW_IN_USE_KHR = -1000000001;

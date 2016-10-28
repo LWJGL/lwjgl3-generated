@@ -50,7 +50,34 @@ import org.lwjgl.system.libc.Stdlib;
  */
 public class STBVorbis {
 
-	/** Error code. */
+	/**
+	 * Error code.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VORBIS__no_error _no_error}</li>
+	 * <li>{@link #VORBIS_need_more_data need_more_data}</li>
+	 * <li>{@link #VORBIS_invalid_api_mixing invalid_api_mixing}</li>
+	 * <li>{@link #VORBIS_outofmem outofmem}</li>
+	 * <li>{@link #VORBIS_feature_not_supported feature_not_supported}</li>
+	 * <li>{@link #VORBIS_too_many_channels too_many_channels}</li>
+	 * <li>{@link #VORBIS_file_open_failure file_open_failure}</li>
+	 * <li>{@link #VORBIS_seek_without_length seek_without_length}</li>
+	 * <li>{@link #VORBIS_unexpected_eof unexpected_eof}</li>
+	 * <li>{@link #VORBIS_seek_invalid seek_invalid}</li>
+	 * <li>{@link #VORBIS_invalid_setup invalid_setup}</li>
+	 * <li>{@link #VORBIS_invalid_stream invalid_stream}</li>
+	 * <li>{@link #VORBIS_missing_capture_pattern missing_capture_pattern}</li>
+	 * <li>{@link #VORBIS_invalid_stream_structure_version invalid_stream_structure_version}</li>
+	 * <li>{@link #VORBIS_continued_packet_flag_invalid continued_packet_flag_invalid}</li>
+	 * <li>{@link #VORBIS_incorrect_stream_serial_number incorrect_stream_serial_number}</li>
+	 * <li>{@link #VORBIS_invalid_first_page invalid_first_page}</li>
+	 * <li>{@link #VORBIS_bad_packet_type bad_packet_type}</li>
+	 * <li>{@link #VORBIS_cant_find_last_page cant_find_last_page}</li>
+	 * <li>{@link #VORBIS_seek_failed seek_failed}</li>
+	 * </ul>
+	 */
 	public static final int
 		VORBIS__no_error                        = 0,
 		VORBIS_need_more_data                   = 1,

@@ -11,19 +11,34 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Implementation of the NanoVG API using OpenGL 3.0. */
 public class NanoVGGL3 {
 
-	/** Flag indicating if geometry based anti-aliasing is used (may not be needed when using MSAA). */
-	public static final int NVG_ANTIALIAS = 1<<0;
-
 	/**
+	 * Create flags.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NVG_ANTIALIAS ANTIALIAS} - Flag indicating if geometry based anti-aliasing is used (may not be needed when using MSAA).</li>
+	 * <li>{@link #NVG_STENCIL_STROKES STENCIL_STROKES} - 
 	 * Flag indicating if strokes should be drawn using stencil buffer. The rendering will be a little slower, but path overlaps (i.e.
 	 * self-intersecting or sharp turns) will be drawn just once.
+	 * </li>
+	 * <li>{@link #NVG_DEBUG DEBUG} - Flag indicating that additional debug checks are done.</li>
+	 * </ul>
 	 */
-	public static final int NVG_STENCIL_STROKES = 1<<1;
+	public static final int
+		NVG_ANTIALIAS       = 1<<0,
+		NVG_STENCIL_STROKES = 1<<1,
+		NVG_DEBUG           = 1<<2;
 
-	/** Flag indicating that additional debug checks are done. */
-	public static final int NVG_DEBUG = 1<<2;
-
-	/** Do not delete GL texture handle. */
+	/**
+	 * These are additional flags on top of NVGimageFlags.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NVG_IMAGE_NODELETE IMAGE_NODELETE} - Do not delete GL texture handle.</li>
+	 * </ul>
+	 */
 	public static final int NVG_IMAGE_NODELETE = 1<<16;
 
 	static { LibNanoVG.initialize(); }

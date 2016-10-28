@@ -11,125 +11,95 @@ import org.lwjgl.system.*;
 /** Native bindings to errno.h. */
 public class Errno {
 
-	/** Operation not permitted */
-	public static final int EPERM = 0x1;
-
-	/** No such file or directory */
-	public static final int ENOENT = 0x2;
-
-	/** No such process */
-	public static final int ESRCH = 0x3;
-
-	/** Interrupted function */
-	public static final int EINTR = 0x4;
-
-	/** I/O error */
-	public static final int EIO = 0x5;
-
-	/** No such device or address */
-	public static final int ENXIO = 0x6;
-
-	/** Argument list too long */
-	public static final int E2BIG = 0x7;
-
-	/** Exec format error */
-	public static final int ENOEXEC = 0x8;
-
-	/** Bad file number */
-	public static final int EBADF = 0x9;
-
-	/** No spawned processes */
-	public static final int ECHILD = 0xA;
-
-	/** No more processes or not enough memory or maximum nesting level reached */
-	public static final int EAGAIN = 0xB;
-
-	/** Not enough memory */
-	public static final int ENOMEM = 0xC;
-
-	/** Permission denied */
-	public static final int EACCES = 0xD;
-
-	/** Bad address */
-	public static final int EFAULT = 0xE;
-
-	/** Device or resource busy */
-	public static final int EBUSY = 0x10;
-
-	/** File exists */
-	public static final int EEXIST = 0x11;
-
-	/** Cross-device link */
-	public static final int EXDEV = 0x12;
-
-	/** No such device */
-	public static final int ENODEV = 0x13;
-
-	/** Not a directory */
-	public static final int ENOTDIR = 0x14;
-
-	/** Is a directory */
-	public static final int EISDIR = 0x15;
-
-	/** Invalid argument */
-	public static final int EINVAL = 0x16;
-
-	/** Too many files open in system */
-	public static final int ENFILE = 0x17;
-
-	/** Too many open files */
-	public static final int EMFILE = 0x18;
-
-	/** Inappropriate I/O control operation */
-	public static final int ENOTTY = 0x19;
-
-	/** File too large */
-	public static final int EFBIG = 0x1B;
-
-	/** No space left on device */
-	public static final int ENOSPC = 0x1C;
-
-	/** Invalid seek */
-	public static final int ESPIPE = 0x1D;
-
-	/** Read-only file system */
-	public static final int EROFS = 0x1E;
-
-	/** Too many links */
-	public static final int EMLINK = 0x1F;
-
-	/** Broken pipe */
-	public static final int EPIPE = 0x20;
-
-	/** Math argument */
-	public static final int EDOM = 0x21;
-
-	/** Result too large */
-	public static final int ERANGE = 0x22;
-
-	/** Resource deadlock would occur */
-	public static final int EDEADLK = 0x24;
-
-	/** Same as EDEADLK for compatibility with older Microsoft C versions */
-	public static final int EDEADLOCK = 0x24;
-
-	/** Filename too long */
-	public static final int ENAMETOOLONG = 0x26;
-
-	/** No locks available */
-	public static final int ENOLCK = 0x27;
-
-	/** Function not supported */
-	public static final int ENOSYS = 0x28;
-
-	/** Directory not empty */
-	public static final int ENOTEMPTY = 0x29;
-
-	/** Illegal byte sequence */
-	public static final int EILSEQ = 0x2A;
-
-	/** String was truncated */
-	public static final int STRUNCATE = 0x50;
+	/**
+	 * Standard error codes.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #EPERM EPERM} - Operation not permitted</li>
+	 * <li>{@link #ENOENT ENOENT} - No such file or directory</li>
+	 * <li>{@link #ESRCH ESRCH} - No such process</li>
+	 * <li>{@link #EINTR EINTR} - Interrupted function</li>
+	 * <li>{@link #EIO EIO} - I/O error</li>
+	 * <li>{@link #ENXIO ENXIO} - No such device or address</li>
+	 * <li>{@link #E2BIG E2BIG} - Argument list too long</li>
+	 * <li>{@link #ENOEXEC ENOEXEC} - Exec format error</li>
+	 * <li>{@link #EBADF EBADF} - Bad file number</li>
+	 * <li>{@link #ECHILD ECHILD} - No spawned processes</li>
+	 * <li>{@link #EAGAIN EAGAIN} - No more processes or not enough memory or maximum nesting level reached</li>
+	 * <li>{@link #ENOMEM ENOMEM} - Not enough memory</li>
+	 * <li>{@link #EACCES EACCES} - Permission denied</li>
+	 * <li>{@link #EFAULT EFAULT} - Bad address</li>
+	 * <li>{@link #EBUSY EBUSY} - Device or resource busy</li>
+	 * <li>{@link #EEXIST EEXIST} - File exists</li>
+	 * <li>{@link #EXDEV EXDEV} - Cross-device link</li>
+	 * <li>{@link #ENODEV ENODEV} - No such device</li>
+	 * <li>{@link #ENOTDIR ENOTDIR} - Not a directory</li>
+	 * <li>{@link #EISDIR EISDIR} - Is a directory</li>
+	 * <li>{@link #EINVAL EINVAL} - Invalid argument</li>
+	 * <li>{@link #ENFILE ENFILE} - Too many files open in system</li>
+	 * <li>{@link #EMFILE EMFILE} - Too many open files</li>
+	 * <li>{@link #ENOTTY ENOTTY} - Inappropriate I/O control operation</li>
+	 * <li>{@link #EFBIG EFBIG} - File too large</li>
+	 * <li>{@link #ENOSPC ENOSPC} - No space left on device</li>
+	 * <li>{@link #ESPIPE ESPIPE} - Invalid seek</li>
+	 * <li>{@link #EROFS EROFS} - Read-only file system</li>
+	 * <li>{@link #EMLINK EMLINK} - Too many links</li>
+	 * <li>{@link #EPIPE EPIPE} - Broken pipe</li>
+	 * <li>{@link #EDOM EDOM} - Math argument</li>
+	 * <li>{@link #ERANGE ERANGE} - Result too large</li>
+	 * <li>{@link #EDEADLK EDEADLK} - Resource deadlock would occur</li>
+	 * <li>{@link #EDEADLOCK EDEADLOCK} - Same as EDEADLK for compatibility with older Microsoft C versions</li>
+	 * <li>{@link #ENAMETOOLONG ENAMETOOLONG} - Filename too long</li>
+	 * <li>{@link #ENOLCK ENOLCK} - No locks available</li>
+	 * <li>{@link #ENOSYS ENOSYS} - Function not supported</li>
+	 * <li>{@link #ENOTEMPTY ENOTEMPTY} - Directory not empty</li>
+	 * <li>{@link #EILSEQ EILSEQ} - Illegal byte sequence</li>
+	 * <li>{@link #STRUNCATE STRUNCATE} - String was truncated</li>
+	 * </ul>
+	 */
+	public static final int
+		EPERM        = 0x1,
+		ENOENT       = 0x2,
+		ESRCH        = 0x3,
+		EINTR        = 0x4,
+		EIO          = 0x5,
+		ENXIO        = 0x6,
+		E2BIG        = 0x7,
+		ENOEXEC      = 0x8,
+		EBADF        = 0x9,
+		ECHILD       = 0xA,
+		EAGAIN       = 0xB,
+		ENOMEM       = 0xC,
+		EACCES       = 0xD,
+		EFAULT       = 0xE,
+		EBUSY        = 0x10,
+		EEXIST       = 0x11,
+		EXDEV        = 0x12,
+		ENODEV       = 0x13,
+		ENOTDIR      = 0x14,
+		EISDIR       = 0x15,
+		EINVAL       = 0x16,
+		ENFILE       = 0x17,
+		EMFILE       = 0x18,
+		ENOTTY       = 0x19,
+		EFBIG        = 0x1B,
+		ENOSPC       = 0x1C,
+		ESPIPE       = 0x1D,
+		EROFS        = 0x1E,
+		EMLINK       = 0x1F,
+		EPIPE        = 0x20,
+		EDOM         = 0x21,
+		ERANGE       = 0x22,
+		EDEADLK      = 0x24,
+		EDEADLOCK    = 0x24,
+		ENAMETOOLONG = 0x26,
+		ENOLCK       = 0x27,
+		ENOSYS       = 0x28,
+		ENOTEMPTY    = 0x29,
+		EILSEQ       = 0x2A,
+		STRUNCATE    = 0x50;
 
 	static { Library.initialize(); }
 

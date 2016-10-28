@@ -314,62 +314,64 @@ public class GLFW {
 	public static final int GLFW_NO_WINDOW_CONTEXT = 0x1000A;
 
 	/**
-	 * {@link #glfwWindowHint WindowHint}: Specifies whether the windowed mode window will be given input focus when created. This hint is ignored for full screen and
+	 * Window attributes.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #GLFW_FOCUSED FOCUSED} - 
+	 * {@code WindowHint}: Specifies whether the windowed mode window will be given input focus when created. This hint is ignored for full screen and
 	 * initially hidden windows.
 	 * 
-	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates whether the specified window has input focus.</p>
-	 */
-	public static final int GLFW_FOCUSED = 0x20001;
-
-	/** {@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates whether the specified window is iconified, whether by the user or with {@link #glfwIconifyWindow IconifyWindow}. */
-	public static final int GLFW_ICONIFIED = 0x20002;
-
-	/**
-	 * {@link #glfwWindowHint WindowHint}: Specifies whether the windowed mode window will be resizable <i>by the user</i>. The window will still be resizable using the
+	 * <p>{@code GetWindowAttrib}: Indicates whether the specified window has input focus.</p>
+	 * </li>
+	 * <li>{@link #GLFW_ICONIFIED ICONIFIED} - {@code GetWindowAttrib}: Indicates whether the specified window is iconified, whether by the user or with {@link #glfwIconifyWindow IconifyWindow}.</li>
+	 * <li>{@link #GLFW_RESIZABLE RESIZABLE} - 
+	 * {@code WindowHint}: Specifies whether the windowed mode window will be resizable <i>by the user</i>. The window will still be resizable using the
 	 * {@link #glfwSetWindowSize SetWindowSize} function. This hint is ignored for full screen windows.
 	 * 
-	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates whether the specified window is resizable <i>by the user</i>.</p>
-	 */
-	public static final int GLFW_RESIZABLE = 0x20003;
-
-	/**
-	 * {@link #glfwWindowHint WindowHint}: Specifies whether the windowed mode window will be initially visible. This hint is ignored for full screen windows. Windows created
+	 * <p>{@code GetWindowAttrib}: Indicates whether the specified window is resizable <i>by the user</i>.</p>
+	 * </li>
+	 * <li>{@link #GLFW_VISIBLE VISIBLE} - 
+	 * {@code WindowHint}: Specifies whether the windowed mode window will be initially visible. This hint is ignored for full screen windows. Windows created
 	 * hidden are completely invisible to the user until shown. This can be useful if you need to set up your window further before showing it, for
 	 * example moving it to a specific location.
 	 * 
-	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates whether the specified window is visible. Window visibility can be controlled with {@link #glfwShowWindow ShowWindow} and {@link #glfwHideWindow HideWindow}.</p>
-	 */
-	public static final int GLFW_VISIBLE = 0x20004;
-
-	/**
-	 * {@link #glfwWindowHint WindowHint}: Specifies whether the windowed mode window will have window decorations such as a border, a close widget, etc. An undecorated window
+	 * <p>{@code GetWindowAttrib}: Indicates whether the specified window is visible. Window visibility can be controlled with {@link #glfwShowWindow ShowWindow} and {@link #glfwHideWindow HideWindow}.</p>
+	 * </li>
+	 * <li>{@link #GLFW_DECORATED DECORATED} - 
+	 * {@code WindowHint}: Specifies whether the windowed mode window will have window decorations such as a border, a close widget, etc. An undecorated window
 	 * may still allow the user to generate close events on some platforms. This hint is ignored for full screen windows.
 	 * 
-	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates whether the specified window has decorations such as a border, a close widget, etc.</p>
-	 */
-	public static final int GLFW_DECORATED = 0x20005;
-
-	/**
-	 * {@link #glfwWindowHint WindowHint}: Specifies whether the full screen window will automatically iconify and restore the previous video mode on input focus loss. This
+	 * <p>{@code GetWindowAttrib}: Indicates whether the specified window has decorations such as a border, a close widget, etc.</p>
+	 * </li>
+	 * <li>{@link #GLFW_AUTO_ICONIFY AUTO_ICONIFY} - 
+	 * {@code WindowHint}: Specifies whether the full screen window will automatically iconify and restore the previous video mode on input focus loss. This
 	 * hint is ignored for windowed mode windows.
-	 */
-	public static final int GLFW_AUTO_ICONIFY = 0x20006;
-
-	/**
-	 * {@link #glfwWindowHint WindowHint}: Specifies whether the windowed mode window will be floating above other regular windows, also called topmost or always-on-top. This
+	 * </li>
+	 * <li>{@link #GLFW_FLOATING FLOATING} - 
+	 * {@code WindowHint}: Specifies whether the windowed mode window will be floating above other regular windows, also called topmost or always-on-top. This
 	 * is intended primarily for debugging purposes and cannot be used to implement proper full screen windows. This hint is ignored for full screen
 	 * windows.
 	 * 
-	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates whether the specified window is floating, also called topmost or always-on-top.</p>
-	 */
-	public static final int GLFW_FLOATING = 0x20007;
-
-	/**
-	 * {@link #glfwWindowHint WindowHint}: Specifies whether the windowed mode window will be maximized when created. This hint is ignored for full screen windows.
+	 * <p>{@code GetWindowAttrib}: Indicates whether the specified window is floating, also called topmost or always-on-top.</p>
+	 * </li>
+	 * <li>{@link #GLFW_MAXIMIZED MAXIMIZED} - 
+	 * {@code WindowHint}: Specifies whether the windowed mode window will be maximized when created. This hint is ignored for full screen windows.
 	 * 
-	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates whether the specified window is maximized, whether by the user or {@link #glfwMaximizeWindow MaximizeWindow}.</p>
+	 * <p>{@code GetWindowAttrib}: Indicates whether the specified window is maximized, whether by the user or {@link #glfwMaximizeWindow MaximizeWindow}.</p>
+	 * </li>
+	 * </ul>
 	 */
-	public static final int GLFW_MAXIMIZED = 0x20008;
+	public static final int
+		GLFW_FOCUSED      = 0x20001,
+		GLFW_ICONIFIED    = 0x20002,
+		GLFW_RESIZABLE    = 0x20003,
+		GLFW_VISIBLE      = 0x20004,
+		GLFW_DECORATED    = 0x20005,
+		GLFW_AUTO_ICONIFY = 0x20006,
+		GLFW_FLOATING     = 0x20007,
+		GLFW_MAXIMIZED    = 0x20008;
 
 	/** Input options. */
 	public static final int
@@ -420,15 +422,19 @@ public class GLFW {
 		GLFW_DOUBLEBUFFER     = 0x21010;
 
 	/**
-	 * {@link #glfwWindowHint WindowHint}: Specifies which client API to create the context for. Possible values are {@link #GLFW_OPENGL_API OPENGL_API}, {@link #GLFW_OPENGL_ES_API OPENGL_ES_API} and {@link #GLFW_NO_API NO_API}. This is a hard
+	 * Client API hints.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #GLFW_CLIENT_API CLIENT_API} - 
+	 * {@code WindowHint}: Specifies which client API to create the context for. Possible values are {@link #GLFW_OPENGL_API OPENGL_API}, {@link #GLFW_OPENGL_ES_API OPENGL_ES_API} and {@link #GLFW_NO_API NO_API}. This is a hard
 	 * constraint.
 	 * 
-	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates the client API provided by the window's context; either {@link #GLFW_OPENGL_API OPENGL_API}, {@link #GLFW_OPENGL_ES_API OPENGL_ES_API} or {@link #GLFW_NO_API NO_API}.</p>
-	 */
-	public static final int GLFW_CLIENT_API = 0x22001;
-
-	/**
-	 * {@link #glfwWindowHint WindowHint}: Specifies the client API major version that the created context must be compatible with. The exact behavior of this hint depends on
+	 * <p>{@code GetWindowAttrib}: Indicates the client API provided by the window's context; either {@link #GLFW_OPENGL_API OPENGL_API}, {@link #GLFW_OPENGL_ES_API OPENGL_ES_API} or {@link #GLFW_NO_API NO_API}.</p>
+	 * </li>
+	 * <li>{@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR} - 
+	 * {@code WindowHint}: Specifies the client API major version that the created context must be compatible with. The exact behavior of this hint depends on
 	 * the requested client API.
 	 * 
 	 * <p>Notes:</p>
@@ -444,73 +450,55 @@ public class GLFW {
 	 * versa. This is because OpenGL ES 3.x is backward compatible with 2.0, but OpenGL ES 2.0 is not backward compatible with 1.x.</li>
 	 * </ul>
 	 * 
-	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicate the client API major version of the window's context.</p>
-	 */
-	public static final int GLFW_CONTEXT_VERSION_MAJOR = 0x22002;
-
-	/**
-	 * {@link #glfwWindowHint WindowHint}: Specifies the client API minor version that the created context must be compatible with. The exact behavior of this hint depends on
+	 * <p>{@code GetWindowAttrib}: Indicate the client API major version of the window's context.</p>
+	 * </li>
+	 * <li>{@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR} - 
+	 * {@code WindowHint}: Specifies the client API minor version that the created context must be compatible with. The exact behavior of this hint depends on
 	 * the requested client API.
 	 * 
-	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicate the client API minor version of the window's context.</p>
-	 */
-	public static final int GLFW_CONTEXT_VERSION_MINOR = 0x22003;
-
-	/** {@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates the client API version of the window's context. */
-	public static final int GLFW_CONTEXT_REVISION = 0x22004;
-
-	/**
-	 * {@link #glfwWindowHint WindowHint}: Specifies the robustness strategy to be used by the context. This can be one of {@link #GLFW_NO_RESET_NOTIFICATION NO_RESET_NOTIFICATION} or {@link #GLFW_LOSE_CONTEXT_ON_RESET LOSE_CONTEXT_ON_RESET}, or
+	 * <p>{@code GetWindowAttrib}: Indicate the client API minor version of the window's context.</p>
+	 * </li>
+	 * <li>{@link #GLFW_CONTEXT_REVISION CONTEXT_REVISION} - {@code GetWindowAttrib}: Indicates the client API version of the window's context.</li>
+	 * <li>{@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS} - 
+	 * {@code WindowHint}: Specifies the robustness strategy to be used by the context. This can be one of {@link #GLFW_NO_RESET_NOTIFICATION NO_RESET_NOTIFICATION} or {@link #GLFW_LOSE_CONTEXT_ON_RESET LOSE_CONTEXT_ON_RESET}, or
 	 * {@link #GLFW_NO_ROBUSTNESS NO_ROBUSTNESS} to not request a robustness strategy.
 	 * 
-	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates the robustness strategy used by the context. This is {@link #GLFW_LOSE_CONTEXT_ON_RESET LOSE_CONTEXT_ON_RESET} or {@link #GLFW_NO_RESET_NOTIFICATION NO_RESET_NOTIFICATION} if the window's
+	 * <p>{@code GetWindowAttrib}: Indicates the robustness strategy used by the context. This is {@link #GLFW_LOSE_CONTEXT_ON_RESET LOSE_CONTEXT_ON_RESET} or {@link #GLFW_NO_RESET_NOTIFICATION NO_RESET_NOTIFICATION} if the window's
 	 * context supports robustness, or {@link #GLFW_NO_ROBUSTNESS NO_ROBUSTNESS} otherwise.</p>
-	 */
-	public static final int GLFW_CONTEXT_ROBUSTNESS = 0x22005;
-
-	/**
-	 * {@link #glfwWindowHint WindowHint}: Specifies whether the OpenGL context should be forward-compatible, i.e. one where all functionality deprecated in the requested
+	 * </li>
+	 * <li>{@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT} - 
+	 * {@code WindowHint}: Specifies whether the OpenGL context should be forward-compatible, i.e. one where all functionality deprecated in the requested
 	 * version of OpenGL is removed. This must only be used if the requested OpenGL version is 3.0 or above. If OpenGL ES is requested, this hint is
 	 * ignored.
 	 * 
-	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates if the window's context is an OpenGL forward-compatible one.</p>
-	 */
-	public static final int GLFW_OPENGL_FORWARD_COMPAT = 0x22006;
-
-	/**
-	 * {@link #glfwWindowHint WindowHint}: Specifies whether to create a debug OpenGL context, which may have additional error and performance issue reporting functionality.
+	 * <p>{@code GetWindowAttrib}: Indicates if the window's context is an OpenGL forward-compatible one.</p>
+	 * </li>
+	 * <li>{@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT} - 
+	 * {@code WindowHint}: Specifies whether to create a debug OpenGL context, which may have additional error and performance issue reporting functionality.
 	 * If OpenGL ES is requested, this hint is ignored.
 	 * 
-	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates if the window's context is an OpenGL debug context.</p>
-	 */
-	public static final int GLFW_OPENGL_DEBUG_CONTEXT = 0x22007;
-
-	/**
-	 * {@link #glfwWindowHint WindowHint}: Specifies which OpenGL profile to create the context for. Possible values are one of {@link #GLFW_OPENGL_CORE_PROFILE OPENGL_CORE_PROFILE} or {@link #GLFW_OPENGL_COMPAT_PROFILE OPENGL_COMPAT_PROFILE},
+	 * <p>{@code GetWindowAttrib}: Indicates if the window's context is an OpenGL debug context.</p>
+	 * </li>
+	 * <li>{@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE} - 
+	 * {@code WindowHint}: Specifies which OpenGL profile to create the context for. Possible values are one of {@link #GLFW_OPENGL_CORE_PROFILE OPENGL_CORE_PROFILE} or {@link #GLFW_OPENGL_COMPAT_PROFILE OPENGL_COMPAT_PROFILE},
 	 * or {@link #GLFW_OPENGL_ANY_PROFILE OPENGL_ANY_PROFILE} to not request a specific profile. If requesting an OpenGL version below 3.2, {@link #GLFW_OPENGL_ANY_PROFILE OPENGL_ANY_PROFILE} must be used. If OpenGL ES
 	 * is requested, this hint is ignored.
 	 * 
-	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates the OpenGL profile used by the context. This is {@link #GLFW_OPENGL_CORE_PROFILE OPENGL_CORE_PROFILE} or {@link #GLFW_OPENGL_COMPAT_PROFILE OPENGL_COMPAT_PROFILE} if the context uses a
+	 * <p>{@code GetWindowAttrib}: Indicates the OpenGL profile used by the context. This is {@link #GLFW_OPENGL_CORE_PROFILE OPENGL_CORE_PROFILE} or {@link #GLFW_OPENGL_COMPAT_PROFILE OPENGL_COMPAT_PROFILE} if the context uses a
 	 * known profile, or {@link #GLFW_OPENGL_ANY_PROFILE OPENGL_ANY_PROFILE} if the OpenGL profile is unknown or the context is an OpenGL ES context. Note that the returned profile may
 	 * not match the profile bits of the context flags, as GLFW will try other means of detecting the profile when no bits are set.</p>
-	 */
-	public static final int GLFW_OPENGL_PROFILE = 0x22008;
-
-	/**
-	 * {@link #glfwWindowHint WindowHint}: Specifies the release behavior to be used by the context. If the behavior is {@link #GLFW_ANY_RELEASE_BEHAVIOR ANY_RELEASE_BEHAVIOR}, the default behavior of the
+	 * </li>
+	 * <li>{@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR} - 
+	 * {@code WindowHint}: Specifies the release behavior to be used by the context. If the behavior is {@link #GLFW_ANY_RELEASE_BEHAVIOR ANY_RELEASE_BEHAVIOR}, the default behavior of the
 	 * context creation API will be used. If the behavior is {@link #GLFW_RELEASE_BEHAVIOR_FLUSH RELEASE_BEHAVIOR_FLUSH}, the pipeline will be flushed whenever the context is released from
 	 * being the current one. If the behavior is {@link #GLFW_RELEASE_BEHAVIOR_NONE RELEASE_BEHAVIOR_NONE}, the pipeline will not be flushed on release.
-	 */
-	public static final int GLFW_CONTEXT_RELEASE_BEHAVIOR = 0x22009;
-
-	/**
-	 * {@link #glfwWindowHint WindowHint}: Specifies whether errors should be generated by the context. If enabled, situations that would have generated errors instead cause
+	 * </li>
+	 * <li>{@link #GLFW_CONTEXT_NO_ERROR CONTEXT_NO_ERROR} - 
+	 * {@code WindowHint}: Specifies whether errors should be generated by the context. If enabled, situations that would have generated errors instead cause
 	 * undefined behavior.
-	 */
-	public static final int GLFW_CONTEXT_NO_ERROR = 0x2200A;
-
-	/**
-	 * {@link #glfwWindowHint WindowHint}: Specifies which context creation API to use to create the context. Possible values are {@link #GLFW_NATIVE_CONTEXT_API NATIVE_CONTEXT_API} and {@link #GLFW_EGL_CONTEXT_API EGL_CONTEXT_API}.
+	 * </li>
+	 * <li>{@link #GLFW_CONTEXT_CREATION_API CONTEXT_CREATION_API} - 
+	 * {@code WindowHint}: Specifies which context creation API to use to create the context. Possible values are {@link #GLFW_NATIVE_CONTEXT_API NATIVE_CONTEXT_API} and {@link #GLFW_EGL_CONTEXT_API EGL_CONTEXT_API}.
 	 * This is a hard constraint. If no client API is requested, this hint is ignored.
 	 * 
 	 * <p>Notes:</p>
@@ -522,9 +510,22 @@ public class GLFW {
 	 * hint. This can be resolved by having it load via {@link #glfwGetProcAddress GetProcAddress}, which always uses the selected API.</li>
 	 * </ul>
 	 * 
-	 * <p>{@link #glfwGetWindowAttrib GetWindowAttrib}: Indicates the context creation API used to create the window's context; either {@link #GLFW_NATIVE_CONTEXT_API NATIVE_CONTEXT_API} or {@link #GLFW_EGL_CONTEXT_API EGL_CONTEXT_API}.</p>
+	 * <p>{@code GetWindowAttrib}: Indicates the context creation API used to create the window's context; either {@link #GLFW_NATIVE_CONTEXT_API NATIVE_CONTEXT_API} or {@link #GLFW_EGL_CONTEXT_API EGL_CONTEXT_API}.</p>
+	 * </li>
+	 * </ul>
 	 */
-	public static final int GLFW_CONTEXT_CREATION_API = 0x2200B;
+	public static final int
+		GLFW_CLIENT_API               = 0x22001,
+		GLFW_CONTEXT_VERSION_MAJOR    = 0x22002,
+		GLFW_CONTEXT_VERSION_MINOR    = 0x22003,
+		GLFW_CONTEXT_REVISION         = 0x22004,
+		GLFW_CONTEXT_ROBUSTNESS       = 0x22005,
+		GLFW_OPENGL_FORWARD_COMPAT    = 0x22006,
+		GLFW_OPENGL_DEBUG_CONTEXT     = 0x22007,
+		GLFW_OPENGL_PROFILE           = 0x22008,
+		GLFW_CONTEXT_RELEASE_BEHAVIOR = 0x22009,
+		GLFW_CONTEXT_NO_ERROR         = 0x2200A,
+		GLFW_CONTEXT_CREATION_API     = 0x2200B;
 
 	/** Values for the {@link #GLFW_CLIENT_API CLIENT_API} hint. */
 	public static final int

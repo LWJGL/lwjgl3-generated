@@ -52,6 +52,13 @@ public final class AMDRasterizationOrder {
 	 * <h5>See Also</h5>
 	 * 
 	 * <p>{@link VkPipelineRasterizationStateRasterizationOrderAMD}</p>
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_RASTERIZATION_ORDER_STRICT_AMD RASTERIZATION_ORDER_STRICT_AMD}</li>
+	 * <li>{@link #VK_RASTERIZATION_ORDER_RELAXED_AMD RASTERIZATION_ORDER_RELAXED_AMD}</li>
+	 * </ul>
 	 */
 	public static final int
 		VK_RASTERIZATION_ORDER_STRICT_AMD  = 0,

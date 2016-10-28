@@ -16,7 +16,17 @@ package org.lwjgl.stb;
  */
 public class STBRectPack {
 
-	/** Packing heuristics */
+	/**
+	 * Packing heuristics
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #STBRP_HEURISTIC_Skyline_default HEURISTIC_Skyline_default}</li>
+	 * <li>{@link #STBRP_HEURISTIC_Skyline_BL_sortHeight HEURISTIC_Skyline_BL_sortHeight}</li>
+	 * <li>{@link #STBRP_HEURISTIC_Skyline_BF_sortHeight HEURISTIC_Skyline_BF_sortHeight}</li>
+	 * </ul>
+	 */
 	public static final int
 		STBRP_HEURISTIC_Skyline_default       = 0,
 		STBRP_HEURISTIC_Skyline_BL_sortHeight = STBRP_HEURISTIC_Skyline_default,

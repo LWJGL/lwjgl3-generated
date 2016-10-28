@@ -60,14 +60,21 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class NativeFileDialog {
 
-	/** Programmatic error. */
-	public static final int NFD_ERROR = 0;
-
-	/** User pressed okay, or successful return. */
-	public static final int NFD_OKAY = 1;
-
-	/** User pressed cancel. */
-	public static final int NFD_CANCEL = 2;
+	/**
+	 * Result values.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #NFD_ERROR ERROR} - Programmatic error.</li>
+	 * <li>{@link #NFD_OKAY OKAY} - User pressed okay, or successful return.</li>
+	 * <li>{@link #NFD_CANCEL CANCEL} - User pressed cancel.</li>
+	 * </ul>
+	 */
+	public static final int
+		NFD_ERROR  = 0,
+		NFD_OKAY   = 1,
+		NFD_CANCEL = 2;
 
 	static { LibNFD.initialize(); }
 

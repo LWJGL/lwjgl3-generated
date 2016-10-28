@@ -14,7 +14,16 @@ public final class NVExternalMemory {
 	/** The extension name. */
 	public static final String VK_NV_EXTERNAL_MEMORY_EXTENSION_NAME = "VK_NV_external_memory";
 
-	/** Extends {@code VkStructureType}. */
+	/**
+	 * Extends {@code VkStructureType}.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_NV STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_NV}</li>
+	 * <li>{@link #VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_NV STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_NV}</li>
+	 * </ul>
+	 */
 	public static final int
 		VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_NV = 1000056000,
 		VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_NV       = 1000056001;
