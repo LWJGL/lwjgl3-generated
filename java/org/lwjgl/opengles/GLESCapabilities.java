@@ -79,7 +79,7 @@ public final class GLESCapabilities {
 		glClearPixelLocalStorageuiEXT,
 		glClearStencil,
 		glClearTexImageEXT,
-		glClearTexSubImage,
+		glClearTexSubImageEXT,
 		glClientWaitSync,
 		glClientWaitSyncAPPLE,
 		glColorMask,
@@ -2027,7 +2027,7 @@ public final class GLESCapabilities {
 		glClearPixelLocalStorageuiEXT = provider.getFunctionAddress("glClearPixelLocalStorageuiEXT");
 		glClearStencil = provider.getFunctionAddress("glClearStencil");
 		glClearTexImageEXT = provider.getFunctionAddress("glClearTexImageEXT");
-		glClearTexSubImage = provider.getFunctionAddress("glClearTexSubImage");
+		glClearTexSubImageEXT = provider.getFunctionAddress("glClearTexSubImageEXT");
 		glClientWaitSync = provider.getFunctionAddress("glClientWaitSync");
 		glClientWaitSyncAPPLE = provider.getFunctionAddress("glClientWaitSyncAPPLE");
 		glColorMask = provider.getFunctionAddress("glColorMask");

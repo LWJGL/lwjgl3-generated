@@ -9,7 +9,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Instances of this class may be passed to the {@link #nk_combo_callback} and {@link #nk_combobox_callback} functions. */
+/** Instances of this class may be passed to the {@link Nuklear#nk_combo_callback combo_callback} and {@link Nuklear#nk_combobox_callback combobox_callback} functions. */
 public abstract class NkItemGetter extends Callback implements NkItemGetterI {
 
 	/** Creates a {@code NkItemGetter} instance from the specified function pointer. */

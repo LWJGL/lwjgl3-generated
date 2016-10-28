@@ -39,7 +39,7 @@ public class EXTClearTexture {
 
 	static boolean isAvailable(GLESCapabilities caps) {
 		return checkFunctions(
-			caps.glClearTexImageEXT, caps.glClearTexSubImage
+			caps.glClearTexImageEXT, caps.glClearTexSubImageEXT
 		);
 	}
 
@@ -71,32 +71,32 @@ public class EXTClearTexture {
 		nglClearTexImageEXT(texture, level, format, type, memAddressSafe(data));
 	}
 
-	// --- [ glClearTexSubImage ] ---
+	// --- [ glClearTexSubImageEXT ] ---
 
-	public static void nglClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long data) {
-		long __functionAddress = GLES.getCapabilities().glClearTexSubImage;
+	public static void nglClearTexSubImageEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long data) {
+		long __functionAddress = GLES.getCapabilities().glClearTexSubImageEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
 	}
 
-	public static void glClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer data) {
-		nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
+	public static void glClearTexSubImageEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer data) {
+		nglClearTexSubImageEXT(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
 	}
 
-	/** ShortBuffer version of: {@link #glClearTexSubImage ClearTexSubImage} */
-	public static void glClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ShortBuffer data) {
-		nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
+	/** ShortBuffer version of: {@link #glClearTexSubImageEXT ClearTexSubImageEXT} */
+	public static void glClearTexSubImageEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ShortBuffer data) {
+		nglClearTexSubImageEXT(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
 	}
 
-	/** IntBuffer version of: {@link #glClearTexSubImage ClearTexSubImage} */
-	public static void glClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntBuffer data) {
-		nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
+	/** IntBuffer version of: {@link #glClearTexSubImageEXT ClearTexSubImageEXT} */
+	public static void glClearTexSubImageEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntBuffer data) {
+		nglClearTexSubImageEXT(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
 	}
 
-	/** FloatBuffer version of: {@link #glClearTexSubImage ClearTexSubImage} */
-	public static void glClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, FloatBuffer data) {
-		nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
+	/** FloatBuffer version of: {@link #glClearTexSubImageEXT ClearTexSubImageEXT} */
+	public static void glClearTexSubImageEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, FloatBuffer data) {
+		nglClearTexSubImageEXT(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
 	}
 
 	/** short[] version of: {@link #glClearTexImageEXT ClearTexImageEXT} */
@@ -123,25 +123,25 @@ public class EXTClearTexture {
 		callPV(__functionAddress, texture, level, format, type, data);
 	}
 
-	/** short[] version of: {@link #glClearTexSubImage ClearTexSubImage} */
-	public static void glClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short[] data) {
-		long __functionAddress = GLES.getCapabilities().glClearTexSubImage;
+	/** short[] version of: {@link #glClearTexSubImageEXT ClearTexSubImageEXT} */
+	public static void glClearTexSubImageEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short[] data) {
+		long __functionAddress = GLES.getCapabilities().glClearTexSubImageEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
 	}
 
-	/** int[] version of: {@link #glClearTexSubImage ClearTexSubImage} */
-	public static void glClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int[] data) {
-		long __functionAddress = GLES.getCapabilities().glClearTexSubImage;
+	/** int[] version of: {@link #glClearTexSubImageEXT ClearTexSubImageEXT} */
+	public static void glClearTexSubImageEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int[] data) {
+		long __functionAddress = GLES.getCapabilities().glClearTexSubImageEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
 	}
 
-	/** float[] version of: {@link #glClearTexSubImage ClearTexSubImage} */
-	public static void glClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float[] data) {
-		long __functionAddress = GLES.getCapabilities().glClearTexSubImage;
+	/** float[] version of: {@link #glClearTexSubImageEXT ClearTexSubImageEXT} */
+	public static void glClearTexSubImageEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float[] data) {
+		long __functionAddress = GLES.getCapabilities().glClearTexSubImageEXT;
 		if ( CHECKS )
 			checkFunctionAddress(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);

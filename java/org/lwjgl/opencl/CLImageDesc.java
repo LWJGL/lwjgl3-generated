@@ -21,13 +21,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code image_type} &ndash; describes the image type</li>
  * <li>{@code image_width} &ndash; 
- * the width of the image in pixels. For a 2D image and image array, the image width must be &le; {@link CL10#CL_DEVICE_IMAGE2D_MAX_WIDTH}. For a 3D image, the
- * image width must be &le; {@link CL10#CL_DEVICE_IMAGE3D_MAX_WIDTH}. For a 1D image buffer, the image width must be &le; {@link CL12#CL_DEVICE_IMAGE_MAX_BUFFER_SIZE DEVICE_IMAGE_MAX_BUFFER_SIZE}.
- * For a 1D image and 1D image array, the image width must be &le; {@link CL10#CL_DEVICE_IMAGE2D_MAX_WIDTH}.</li>
+ * the width of the image in pixels. For a 2D image and image array, the image width must be &le; {@link CL10#CL_DEVICE_IMAGE2D_MAX_WIDTH DEVICE_IMAGE2D_MAX_WIDTH}. For a 3D image, the
+ * image width must be &le; {@link CL10#CL_DEVICE_IMAGE3D_MAX_WIDTH DEVICE_IMAGE3D_MAX_WIDTH}. For a 1D image buffer, the image width must be &le; {@link CL12#CL_DEVICE_IMAGE_MAX_BUFFER_SIZE DEVICE_IMAGE_MAX_BUFFER_SIZE}.
+ * For a 1D image and 1D image array, the image width must be &le; {@link CL10#CL_DEVICE_IMAGE2D_MAX_WIDTH DEVICE_IMAGE2D_MAX_WIDTH}.</li>
  * <li>{@code image_height} &ndash; 
  * the height of the image in pixels. This is only used if the image is a 2D, 3D or 2D image array. For a 2D image or image array, the image height must
- * be &le; {@link CL10#CL_DEVICE_IMAGE2D_MAX_HEIGHT}. For a 3D image, the image height must be &le; {@link CL10#CL_DEVICE_IMAGE3D_MAX_HEIGHT}.</li>
- * <li>{@code image_depth} &ndash; the depth of the image in pixels. This is only used if the image is a 3D image and must be a value &ge; 1 and &le; {@link CL10#CL_DEVICE_IMAGE3D_MAX_DEPTH}.</li>
+ * be &le; {@link CL10#CL_DEVICE_IMAGE2D_MAX_HEIGHT DEVICE_IMAGE2D_MAX_HEIGHT}. For a 3D image, the image height must be &le; {@link CL10#CL_DEVICE_IMAGE3D_MAX_HEIGHT DEVICE_IMAGE3D_MAX_HEIGHT}.</li>
+ * <li>{@code image_depth} &ndash; the depth of the image in pixels. This is only used if the image is a 3D image and must be a value &ge; 1 and &le; {@link CL10#CL_DEVICE_IMAGE3D_MAX_DEPTH DEVICE_IMAGE3D_MAX_DEPTH}.</li>
  * <li>{@code image_array_size} &ndash; 
  * the number of images in the image array. This is only used if the image is a 1D or 2D image array. The values for {@code image_array_size}, if
  * specified, must be a value &ge; 1 and &le; {@link CL12#CL_DEVICE_IMAGE_MAX_ARRAY_SIZE DEVICE_IMAGE_MAX_ARRAY_SIZE}.
@@ -46,7 +46,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code num_mip_levels} &ndash; must be 0</li>
  * <li>{@code num_samples} &ndash; must be 0</li>
  * <li>{@code buffer} &ndash; 
- * refers to a valid buffer memory object if {@code image_type} is {@link CL10#CL_MEM_OBJECT_IMAGE1D_BUFFER}. Otherwise it must be {@code NULL}. For a 1D image buffer
+ * refers to a valid buffer memory object if {@code image_type} is {@link CL12#CL_MEM_OBJECT_IMAGE1D_BUFFER MEM_OBJECT_IMAGE1D_BUFFER}. Otherwise it must be {@code NULL}. For a 1D image buffer
  * object, the image pixels are taken from the buffer object's data store. When the contents of a buffer object's data store are modified, those changes
  * are reflected in the contents of the 1D image buffer object and vice-versa at corresponding sychronization points. The {@code image_width * size} of
  * element in bytes must be &le; size of buffer object data store.</li>

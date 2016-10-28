@@ -2245,7 +2245,7 @@ public final class GLCapabilities {
 	 * 
 	 * <p>This extension further extends the capabilities of these extensions with additional sub-group operations.</p>
 	 * 
-	 * <p>Requires {@link  ARB_shader_group_vote}, {@link  ARB_shader_ballot} and {@link ARBGPUShaderInt64 ARB_gpu_shader_int64} or {@link AMDGPUShaderInt64 AMD_gpu_shader_int64}.</p>
+	 * <p>Requires {@link #GL_ARB_shader_group_vote ARB_shader_group_vote}, {@link #GL_ARB_shader_ballot ARB_shader_ballot} and {@link ARBGPUShaderInt64 ARB_gpu_shader_int64} or {@link AMDGPUShaderInt64 AMD_gpu_shader_int64}.</p>
 	 */
 	public final boolean GL_AMD_shader_ballot;
 	/**
@@ -3752,7 +3752,7 @@ shadow2DRectProjGradARB(
 	 * is also added to specify the viewport mask for the second view. A new layout-qualifier "secondary_view_offset" is added for built-in output "gl_Layer"
 	 * which allows for the geometry from each view to be sent to different layers for rendering.</p>
 	 * 
-	 * <p>Requires {@link \#GL_NV_viewport_array2 NV_viewport_array2}.</p>
+	 * <p>Requires {@link #GL_NV_viewport_array2 NV_viewport_array2}.</p>
 	 */
 	public final boolean GL_NV_stereo_view_rendering;
 	/** When true, {@link NVTexgenReflection} is supported. */

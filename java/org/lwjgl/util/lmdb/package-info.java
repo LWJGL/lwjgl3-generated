@@ -33,14 +33,14 @@
  * <li>Only the database owner should normally use the database on BSD systems or when otherwise configured with {@code MDB_USE_POSIX_SEM}. Multiple users
  * can cause startup to fail later, as noted above.</li>
  * <li>There is normally no pure read-only mode, since readers need write access to locks and lock file. Exceptions: On read-only filesystems or with the
- * {@link LMDB#MDB_NOLOCK NOLOCK} flag described under {@link LMDB#mdb_env_open env_open}.</li>
+ * {@link org.lwjgl.util.lmdb.LMDB#MDB_NOLOCK NOLOCK} flag described under {@link org.lwjgl.util.lmdb.LMDB#mdb_env_open env_open}.</li>
  * <li>An LMDB configuration will often reserve considerable unused memory address space and maybe file size for future growth. This does not use actual
  * memory or disk space, but users may need to understand the difference so they won't be scared off.</li>
  * <li>By default, in versions before 0.9.10, unused portions of the data file might receive garbage data from memory freed by other code. (This does not
- * happen when using the {@link LMDB#MDB_WRITEMAP WRITEMAP} flag.) As of 0.9.10 the default behavior is to initialize such memory before writing to the data file. Since there
- * may be a slight performance cost due to this initialization, applications may disable it using the {@link LMDB#MDB_NOMEMINIT NOMEMINIT} flag. Applications handling sensitive
- * data which must not be written should not use this flag. This flag is irrelevant when using {@link LMDB#MDB_WRITEMAP WRITEMAP}.</li>
- * <li>A thread can only use one transaction at a time, plus any child transactions. Each transaction belongs to one thread. The {@link LMDB#MDB_NOTLS NOTLS} flag changes this
+ * happen when using the {@link org.lwjgl.util.lmdb.LMDB#MDB_WRITEMAP WRITEMAP} flag.) As of 0.9.10 the default behavior is to initialize such memory before writing to the data file. Since there
+ * may be a slight performance cost due to this initialization, applications may disable it using the {@link org.lwjgl.util.lmdb.LMDB#MDB_NOMEMINIT NOMEMINIT} flag. Applications handling sensitive
+ * data which must not be written should not use this flag. This flag is irrelevant when using {@link org.lwjgl.util.lmdb.LMDB#MDB_WRITEMAP WRITEMAP}.</li>
+ * <li>A thread can only use one transaction at a time, plus any child transactions. Each transaction belongs to one thread. The {@link org.lwjgl.util.lmdb.LMDB#MDB_NOTLS NOTLS} flag changes this
  * for read-only transactions.</li>
  * <li>Use an {@code MDB_env*} in the process which opened it, without {@code fork()}ing.</li>
  * <li>Do not have open an LMDB database twice in the same process at the same time. Not even from a plain {@code open()} call - {@code close()}ing it
@@ -70,9 +70,9 @@
  * just to find an empty slot in the reader table. The slot's address is saved in thread-specific data so that subsequent read transactions started by the
  * same thread need no further locking to proceed.</p>
  * 
- * <p>If {@link LMDB#MDB_NOTLS NOTLS} is set, the slot address is not saved in thread-specific data.</p>
+ * <p>If {@link org.lwjgl.util.lmdb.LMDB#MDB_NOTLS NOTLS} is set, the slot address is not saved in thread-specific data.</p>
  * 
- * <p>No reader table is used if the database is on a read-only filesystem, or if {@link LMDB#MDB_NOLOCK NOLOCK} is set.</p>
+ * <p>No reader table is used if the database is on a read-only filesystem, or if {@link org.lwjgl.util.lmdb.LMDB#MDB_NOLOCK NOLOCK} is set.</p>
  * 
  * <p>Since the database uses multi-version concurrency control, readers don't actually need any locking. This table is used to keep track of which readers
  * are using data from which old transactions, so that we'll know when a particular old transaction is no longer in use. Old transactions that have

@@ -9,7 +9,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link #nk_plot_function} function. */
+/** Instances of this interface may be passed to the {@link Nuklear#nk_plot_function plot_function} function. */
 @FunctionalInterface
 public interface NkValueGetterI extends CallbackI.F {
 

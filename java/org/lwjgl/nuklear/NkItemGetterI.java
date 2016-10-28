@@ -9,7 +9,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link #nk_combo_callback} and {@link #nk_combobox_callback} functions. */
+/** Instances of this interface may be passed to the {@link Nuklear#nk_combo_callback combo_callback} and {@link Nuklear#nk_combobox_callback combobox_callback} functions. */
 @FunctionalInterface
 public interface NkItemGetterI extends CallbackI.F {
 
