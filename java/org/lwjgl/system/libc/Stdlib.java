@@ -91,32 +91,62 @@ public class Stdlib {
 		nfree(memAddressSafe(ptr));
 	}
 
-	/** ShortBuffer version of: {@link #free} */
+	/**
+	 * Frees the memory space pointed to by {@code ptr}, which must have been returned by a previous call to {@link #malloc}, {@link #calloc}, or {@link #realloc}. Otherwise,
+	 * or if {@code free(ptr)} has already been called before, undefined behavior occurs. If ptr is {@code NULL}, no operation is performed.
+	 *
+	 * @param ptr the memory space to free
+	 */
 	public static void free(ShortBuffer ptr) {
 		nfree(memAddressSafe(ptr));
 	}
 
-	/** IntBuffer version of: {@link #free} */
+	/**
+	 * Frees the memory space pointed to by {@code ptr}, which must have been returned by a previous call to {@link #malloc}, {@link #calloc}, or {@link #realloc}. Otherwise,
+	 * or if {@code free(ptr)} has already been called before, undefined behavior occurs. If ptr is {@code NULL}, no operation is performed.
+	 *
+	 * @param ptr the memory space to free
+	 */
 	public static void free(IntBuffer ptr) {
 		nfree(memAddressSafe(ptr));
 	}
 
-	/** LongBuffer version of: {@link #free} */
+	/**
+	 * Frees the memory space pointed to by {@code ptr}, which must have been returned by a previous call to {@link #malloc}, {@link #calloc}, or {@link #realloc}. Otherwise,
+	 * or if {@code free(ptr)} has already been called before, undefined behavior occurs. If ptr is {@code NULL}, no operation is performed.
+	 *
+	 * @param ptr the memory space to free
+	 */
 	public static void free(LongBuffer ptr) {
 		nfree(memAddressSafe(ptr));
 	}
 
-	/** FloatBuffer version of: {@link #free} */
+	/**
+	 * Frees the memory space pointed to by {@code ptr}, which must have been returned by a previous call to {@link #malloc}, {@link #calloc}, or {@link #realloc}. Otherwise,
+	 * or if {@code free(ptr)} has already been called before, undefined behavior occurs. If ptr is {@code NULL}, no operation is performed.
+	 *
+	 * @param ptr the memory space to free
+	 */
 	public static void free(FloatBuffer ptr) {
 		nfree(memAddressSafe(ptr));
 	}
 
-	/** DoubleBuffer version of: {@link #free} */
+	/**
+	 * Frees the memory space pointed to by {@code ptr}, which must have been returned by a previous call to {@link #malloc}, {@link #calloc}, or {@link #realloc}. Otherwise,
+	 * or if {@code free(ptr)} has already been called before, undefined behavior occurs. If ptr is {@code NULL}, no operation is performed.
+	 *
+	 * @param ptr the memory space to free
+	 */
 	public static void free(DoubleBuffer ptr) {
 		nfree(memAddressSafe(ptr));
 	}
 
-	/** PointerBuffer version of: {@link #free} */
+	/**
+	 * Frees the memory space pointed to by {@code ptr}, which must have been returned by a previous call to {@link #malloc}, {@link #calloc}, or {@link #realloc}. Otherwise,
+	 * or if {@code free(ptr)} has already been called before, undefined behavior occurs. If ptr is {@code NULL}, no operation is performed.
+	 *
+	 * @param ptr the memory space to free
+	 */
 	public static void free(PointerBuffer ptr) {
 		nfree(memAddressSafe(ptr));
 	}
@@ -152,32 +182,56 @@ public class Stdlib {
 		naligned_free(memAddressSafe(ptr));
 	}
 
-	/** ShortBuffer version of: {@link #aligned_free} */
+	/**
+	 * Frees a block of memory that was allocated with {@link #aligned_alloc}. If ptr is {@code NULL}, no operation is performed.
+	 *
+	 * @param ptr the aligned block of memory to free
+	 */
 	public static void aligned_free(ShortBuffer ptr) {
 		naligned_free(memAddressSafe(ptr));
 	}
 
-	/** IntBuffer version of: {@link #aligned_free} */
+	/**
+	 * Frees a block of memory that was allocated with {@link #aligned_alloc}. If ptr is {@code NULL}, no operation is performed.
+	 *
+	 * @param ptr the aligned block of memory to free
+	 */
 	public static void aligned_free(IntBuffer ptr) {
 		naligned_free(memAddressSafe(ptr));
 	}
 
-	/** LongBuffer version of: {@link #aligned_free} */
+	/**
+	 * Frees a block of memory that was allocated with {@link #aligned_alloc}. If ptr is {@code NULL}, no operation is performed.
+	 *
+	 * @param ptr the aligned block of memory to free
+	 */
 	public static void aligned_free(LongBuffer ptr) {
 		naligned_free(memAddressSafe(ptr));
 	}
 
-	/** FloatBuffer version of: {@link #aligned_free} */
+	/**
+	 * Frees a block of memory that was allocated with {@link #aligned_alloc}. If ptr is {@code NULL}, no operation is performed.
+	 *
+	 * @param ptr the aligned block of memory to free
+	 */
 	public static void aligned_free(FloatBuffer ptr) {
 		naligned_free(memAddressSafe(ptr));
 	}
 
-	/** DoubleBuffer version of: {@link #aligned_free} */
+	/**
+	 * Frees a block of memory that was allocated with {@link #aligned_alloc}. If ptr is {@code NULL}, no operation is performed.
+	 *
+	 * @param ptr the aligned block of memory to free
+	 */
 	public static void aligned_free(DoubleBuffer ptr) {
 		naligned_free(memAddressSafe(ptr));
 	}
 
-	/** PointerBuffer version of: {@link #aligned_free} */
+	/**
+	 * Frees a block of memory that was allocated with {@link #aligned_alloc}. If ptr is {@code NULL}, no operation is performed.
+	 *
+	 * @param ptr the aligned block of memory to free
+	 */
 	public static void aligned_free(PointerBuffer ptr) {
 		naligned_free(memAddressSafe(ptr));
 	}

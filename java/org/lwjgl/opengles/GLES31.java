@@ -256,7 +256,6 @@ public class GLES31 {
 		nglDrawArraysIndirect(mode, indirect);
 	}
 
-	/** IntBuffer version of: {@link #glDrawArraysIndirect DrawArraysIndirect} */
 	public static void glDrawArraysIndirect(int mode, IntBuffer indirect) {
 		if ( CHECKS )
 			checkBuffer(indirect, (4 * 4) >> 2);
@@ -282,7 +281,6 @@ public class GLES31 {
 		nglDrawElementsIndirect(mode, type, indirect);
 	}
 
-	/** IntBuffer version of: {@link #glDrawElementsIndirect DrawElementsIndirect} */
 	public static void glDrawElementsIndirect(int mode, int type, IntBuffer indirect) {
 		if ( CHECKS )
 			checkBuffer(indirect, (5 * 4) >> 2);
@@ -1227,7 +1225,7 @@ public class GLES31 {
 		callV(__functionAddress, bindingindex, divisor);
 	}
 
-	/** int[] version of: {@link #glDrawArraysIndirect DrawArraysIndirect} */
+	/** Array version of: {@link #glDrawArraysIndirect DrawArraysIndirect} */
 	public static void glDrawArraysIndirect(int mode, int[] indirect) {
 		long __functionAddress = GLES.getCapabilities().glDrawArraysIndirect;
 		if ( CHECKS ) {
@@ -1237,7 +1235,7 @@ public class GLES31 {
 		callPV(__functionAddress, mode, indirect);
 	}
 
-	/** int[] version of: {@link #glDrawElementsIndirect DrawElementsIndirect} */
+	/** Array version of: {@link #glDrawElementsIndirect DrawElementsIndirect} */
 	public static void glDrawElementsIndirect(int mode, int type, int[] indirect) {
 		long __functionAddress = GLES.getCapabilities().glDrawElementsIndirect;
 		if ( CHECKS ) {

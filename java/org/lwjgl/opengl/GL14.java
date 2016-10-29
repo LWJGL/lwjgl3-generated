@@ -330,7 +330,11 @@ public class GL14 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFogCoordPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * ShortBuffer version of: {@link #glFogCoordPointer FogCoordPointer}
+	 * Specifies the location and organization of a fog coordinate array.
+	 *
+	 * @param type    the data type of the values stored in the array. One of:<br><table><tr><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link GL11#GL_FLOAT FLOAT}</td><td>{@link GL11#GL_DOUBLE DOUBLE}</td></tr></table>
+	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
+	 * @param pointer the fog coordinate array data
 	 */
 	public static void glFogCoordPointer(int type, int stride, ShortBuffer pointer) {
 		nglFogCoordPointer(type, stride, memAddress(pointer));
@@ -339,7 +343,11 @@ public class GL14 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFogCoordPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * FloatBuffer version of: {@link #glFogCoordPointer FogCoordPointer}
+	 * Specifies the location and organization of a fog coordinate array.
+	 *
+	 * @param type    the data type of the values stored in the array. One of:<br><table><tr><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link GL11#GL_FLOAT FLOAT}</td><td>{@link GL11#GL_DOUBLE DOUBLE}</td></tr></table>
+	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
+	 * @param pointer the fog coordinate array data
 	 */
 	public static void glFogCoordPointer(int type, int stride, FloatBuffer pointer) {
 		nglFogCoordPointer(type, stride, memAddress(pointer));
@@ -857,7 +865,12 @@ public class GL14 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColorPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * ShortBuffer version of: {@link #glSecondaryColorPointer SecondaryColorPointer}
+	 * Specifies the location and organization of a secondary color array.
+	 *
+	 * @param size    the number of values per vertex that are stored in the array, as well as their component ordering. Must be:<br><table><tr><td>3</td></tr></table>
+	 * @param type    the data type of the values stored in the array. One of:<br><table><tr><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_SHORT SHORT}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td></tr><tr><td>{@link GL11#GL_FLOAT FLOAT}</td><td>{@link GL11#GL_DOUBLE DOUBLE}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td><td>{@link GL33#GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td></tr></table>
+	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
+	 * @param pointer the secondary color array data
 	 */
 	public static void glSecondaryColorPointer(int size, int type, int stride, ShortBuffer pointer) {
 		nglSecondaryColorPointer(size, type, stride, memAddress(pointer));
@@ -866,7 +879,12 @@ public class GL14 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColorPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * IntBuffer version of: {@link #glSecondaryColorPointer SecondaryColorPointer}
+	 * Specifies the location and organization of a secondary color array.
+	 *
+	 * @param size    the number of values per vertex that are stored in the array, as well as their component ordering. Must be:<br><table><tr><td>3</td></tr></table>
+	 * @param type    the data type of the values stored in the array. One of:<br><table><tr><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_SHORT SHORT}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td></tr><tr><td>{@link GL11#GL_FLOAT FLOAT}</td><td>{@link GL11#GL_DOUBLE DOUBLE}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td><td>{@link GL33#GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td></tr></table>
+	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
+	 * @param pointer the secondary color array data
 	 */
 	public static void glSecondaryColorPointer(int size, int type, int stride, IntBuffer pointer) {
 		nglSecondaryColorPointer(size, type, stride, memAddress(pointer));
@@ -875,7 +893,12 @@ public class GL14 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColorPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * FloatBuffer version of: {@link #glSecondaryColorPointer SecondaryColorPointer}
+	 * Specifies the location and organization of a secondary color array.
+	 *
+	 * @param size    the number of values per vertex that are stored in the array, as well as their component ordering. Must be:<br><table><tr><td>3</td></tr></table>
+	 * @param type    the data type of the values stored in the array. One of:<br><table><tr><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_SHORT SHORT}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td></tr><tr><td>{@link GL11#GL_FLOAT FLOAT}</td><td>{@link GL11#GL_DOUBLE DOUBLE}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td><td>{@link GL33#GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td></tr></table>
+	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
+	 * @param pointer the secondary color array data
 	 */
 	public static void glSecondaryColorPointer(int size, int type, int stride, FloatBuffer pointer) {
 		nglSecondaryColorPointer(size, type, stride, memAddress(pointer));
@@ -1255,7 +1278,7 @@ public class GL14 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFogCoordPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * short[] version of: {@link #glFogCoordPointer FogCoordPointer}
+	 * Array version of: {@link #glFogCoordPointer FogCoordPointer}
 	 */
 	public static void glFogCoordPointer(int type, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glFogCoordPointer;
@@ -1267,7 +1290,7 @@ public class GL14 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glFogCoordPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * float[] version of: {@link #glFogCoordPointer FogCoordPointer}
+	 * Array version of: {@link #glFogCoordPointer FogCoordPointer}
 	 */
 	public static void glFogCoordPointer(int type, int stride, float[] pointer) {
 		long __functionAddress = GL.getCapabilities().glFogCoordPointer;
@@ -1419,7 +1442,7 @@ public class GL14 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColorPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * short[] version of: {@link #glSecondaryColorPointer SecondaryColorPointer}
+	 * Array version of: {@link #glSecondaryColorPointer SecondaryColorPointer}
 	 */
 	public static void glSecondaryColorPointer(int size, int type, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColorPointer;
@@ -1431,7 +1454,7 @@ public class GL14 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColorPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * int[] version of: {@link #glSecondaryColorPointer SecondaryColorPointer}
+	 * Array version of: {@link #glSecondaryColorPointer SecondaryColorPointer}
 	 */
 	public static void glSecondaryColorPointer(int size, int type, int stride, int[] pointer) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColorPointer;
@@ -1443,7 +1466,7 @@ public class GL14 {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man2/html/glSecondaryColorPointer.xhtml">OpenGL SDK Reference</a> - <em>This function is deprecated and unavailable in the Core profile</em></p>
 	 * 
-	 * float[] version of: {@link #glSecondaryColorPointer SecondaryColorPointer}
+	 * Array version of: {@link #glSecondaryColorPointer SecondaryColorPointer}
 	 */
 	public static void glSecondaryColorPointer(int size, int type, int stride, float[] pointer) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColorPointer;

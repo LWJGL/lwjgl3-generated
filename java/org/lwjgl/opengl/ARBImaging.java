@@ -255,17 +255,44 @@ public class ARBImaging {
 		nglColorTable(target, internalformat, width, format, type, table);
 	}
 
-	/** ShortBuffer version of: {@link #glColorTable ColorTable} */
+	/**
+	 * Specifies a color lookup table.
+	 *
+	 * @param target         the color table target. One of:<br><table><tr><td>{@link #GL_COLOR_TABLE COLOR_TABLE}</td><td>{@link #GL_POST_CONVOLUTION_COLOR_TABLE POST_CONVOLUTION_COLOR_TABLE}</td><td>{@link #GL_POST_COLOR_MATRIX_COLOR_TABLE POST_COLOR_MATRIX_COLOR_TABLE}</td></tr><tr><td>{@link #GL_PROXY_COLOR_TABLE PROXY_COLOR_TABLE}</td><td>{@link #GL_PROXY_POST_CONVOLUTION_COLOR_TABLE PROXY_POST_CONVOLUTION_COLOR_TABLE}</td><td>{@link #GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE PROXY_POST_COLOR_MATRIX_COLOR_TABLE}</td></tr></table>
+	 * @param internalformat the color table internal format. One of:<br><table><tr><td>{@link GL11#GL_RGB RGB}</td><td>{@link GL11#GL_RGBA RGBA}</td><td>{@link GL30#GL_RG8 RG8}</td><td>{@link GL31#GL_RG8_SNORM RG8_SNORM}</td><td>{@link GL11#GL_R3_G3_B2 R3_G3_B2}</td><td>{@link GL11#GL_RGB4 RGB4}</td><td>{@link GL11#GL_RGB5 RGB5}</td><td>{@link GL41#GL_RGB565 RGB565}</td></tr><tr><td>{@link GL11#GL_RGB8 RGB8}</td><td>{@link GL31#GL_RGB8_SNORM RGB8_SNORM}</td><td>{@link GL11#GL_RGB10 RGB10}</td><td>{@link GL11#GL_RGB12 RGB12}</td><td>{@link GL11#GL_RGB16 RGB16}</td><td>{@link GL31#GL_RGB16_SNORM RGB16_SNORM}</td><td>{@link GL11#GL_RGBA2 RGBA2}</td><td>{@link GL11#GL_RGBA4 RGBA4}</td></tr><tr><td>{@link GL11#GL_RGB5_A1 RGB5_A1}</td><td>{@link GL11#GL_RGBA8 RGBA8}</td><td>{@link GL31#GL_RGBA8_SNORM RGBA8_SNORM}</td><td>{@link GL11#GL_RGB10_A2 RGB10_A2}</td><td>{@link GL11#GL_RGBA12 RGBA12}</td><td>{@link GL11#GL_RGBA16 RGBA16}</td><td>{@link GL31#GL_RGBA16_SNORM RGBA16_SNORM}</td><td>{@link GL21#GL_SRGB8 SRGB8}</td></tr><tr><td>{@link GL21#GL_SRGB8_ALPHA8 SRGB8_ALPHA8}</td><td>{@link GL30#GL_RGB16F RGB16F}</td><td>{@link GL30#GL_RGBA16F RGBA16F}</td><td>{@link GL30#GL_RGB32F RGB32F}</td><td>{@link GL30#GL_RGBA32F RGBA32F}</td><td>{@link GL30#GL_R11F_G11F_B10F R11F_G11F_B10F}</td><td>{@link GL11#GL_ALPHA ALPHA}</td><td>{@link GL11#GL_LUMINANCE LUMINANCE}</td></tr><tr><td>{@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}</td><td>{@link GL11#GL_INTENSITY INTENSITY}</td><td>{@link GL11#GL_ALPHA4 ALPHA4}</td><td>{@link GL11#GL_ALPHA8 ALPHA8}</td><td>{@link GL11#GL_ALPHA12 ALPHA12}</td><td>{@link GL11#GL_ALPHA16 ALPHA16}</td><td>{@link GL11#GL_LUMINANCE4 LUMINANCE4}</td><td>{@link GL11#GL_LUMINANCE8 LUMINANCE8}</td></tr><tr><td>{@link GL11#GL_LUMINANCE12 LUMINANCE12}</td><td>{@link GL11#GL_LUMINANCE16 LUMINANCE16}</td><td>{@link GL11#GL_LUMINANCE4_ALPHA4 LUMINANCE4_ALPHA4}</td><td>{@link GL11#GL_LUMINANCE6_ALPHA2 LUMINANCE6_ALPHA2}</td><td>{@link GL11#GL_LUMINANCE8_ALPHA8 LUMINANCE8_ALPHA8}</td><td>{@link GL11#GL_LUMINANCE12_ALPHA4 LUMINANCE12_ALPHA4}</td><td>{@link GL11#GL_LUMINANCE12_ALPHA12 LUMINANCE12_ALPHA12}</td><td>{@link GL11#GL_LUMINANCE16_ALPHA16 LUMINANCE16_ALPHA16}</td></tr><tr><td>{@link GL11#GL_INTENSITY4 INTENSITY4}</td><td>{@link GL11#GL_INTENSITY8 INTENSITY8}</td><td>{@link GL11#GL_INTENSITY12 INTENSITY12}</td><td>{@link GL11#GL_INTENSITY16 INTENSITY16}</td><td>{@link GL21#GL_SLUMINANCE SLUMINANCE}</td><td>{@link GL21#GL_SLUMINANCE8_ALPHA8 SLUMINANCE8_ALPHA8}</td></tr></table>
+	 * @param width          the color table width
+	 * @param format         the color data format. One of:<br><table><tr><td>{@link GL11#GL_RED RED}</td><td>{@link GL11#GL_GREEN GREEN}</td><td>{@link GL11#GL_BLUE BLUE}</td><td>{@link GL11#GL_ALPHA ALPHA}</td><td>{@link GL11#GL_RGB RGB}</td><td>{@link GL11#GL_RGBA RGBA}</td><td>{@link GL12#GL_BGR BGR}</td><td>{@link GL12#GL_BGRA BGRA}</td><td>{@link GL11#GL_LUMINANCE LUMINANCE}</td><td>{@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}</td></tr></table>
+	 * @param type           the color data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
+	 * @param table          the color table data
+	 */
 	public static void glColorTable(int target, int internalformat, int width, int format, int type, ShortBuffer table) {
 		nglColorTable(target, internalformat, width, format, type, memAddress(table));
 	}
 
-	/** IntBuffer version of: {@link #glColorTable ColorTable} */
+	/**
+	 * Specifies a color lookup table.
+	 *
+	 * @param target         the color table target. One of:<br><table><tr><td>{@link #GL_COLOR_TABLE COLOR_TABLE}</td><td>{@link #GL_POST_CONVOLUTION_COLOR_TABLE POST_CONVOLUTION_COLOR_TABLE}</td><td>{@link #GL_POST_COLOR_MATRIX_COLOR_TABLE POST_COLOR_MATRIX_COLOR_TABLE}</td></tr><tr><td>{@link #GL_PROXY_COLOR_TABLE PROXY_COLOR_TABLE}</td><td>{@link #GL_PROXY_POST_CONVOLUTION_COLOR_TABLE PROXY_POST_CONVOLUTION_COLOR_TABLE}</td><td>{@link #GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE PROXY_POST_COLOR_MATRIX_COLOR_TABLE}</td></tr></table>
+	 * @param internalformat the color table internal format. One of:<br><table><tr><td>{@link GL11#GL_RGB RGB}</td><td>{@link GL11#GL_RGBA RGBA}</td><td>{@link GL30#GL_RG8 RG8}</td><td>{@link GL31#GL_RG8_SNORM RG8_SNORM}</td><td>{@link GL11#GL_R3_G3_B2 R3_G3_B2}</td><td>{@link GL11#GL_RGB4 RGB4}</td><td>{@link GL11#GL_RGB5 RGB5}</td><td>{@link GL41#GL_RGB565 RGB565}</td></tr><tr><td>{@link GL11#GL_RGB8 RGB8}</td><td>{@link GL31#GL_RGB8_SNORM RGB8_SNORM}</td><td>{@link GL11#GL_RGB10 RGB10}</td><td>{@link GL11#GL_RGB12 RGB12}</td><td>{@link GL11#GL_RGB16 RGB16}</td><td>{@link GL31#GL_RGB16_SNORM RGB16_SNORM}</td><td>{@link GL11#GL_RGBA2 RGBA2}</td><td>{@link GL11#GL_RGBA4 RGBA4}</td></tr><tr><td>{@link GL11#GL_RGB5_A1 RGB5_A1}</td><td>{@link GL11#GL_RGBA8 RGBA8}</td><td>{@link GL31#GL_RGBA8_SNORM RGBA8_SNORM}</td><td>{@link GL11#GL_RGB10_A2 RGB10_A2}</td><td>{@link GL11#GL_RGBA12 RGBA12}</td><td>{@link GL11#GL_RGBA16 RGBA16}</td><td>{@link GL31#GL_RGBA16_SNORM RGBA16_SNORM}</td><td>{@link GL21#GL_SRGB8 SRGB8}</td></tr><tr><td>{@link GL21#GL_SRGB8_ALPHA8 SRGB8_ALPHA8}</td><td>{@link GL30#GL_RGB16F RGB16F}</td><td>{@link GL30#GL_RGBA16F RGBA16F}</td><td>{@link GL30#GL_RGB32F RGB32F}</td><td>{@link GL30#GL_RGBA32F RGBA32F}</td><td>{@link GL30#GL_R11F_G11F_B10F R11F_G11F_B10F}</td><td>{@link GL11#GL_ALPHA ALPHA}</td><td>{@link GL11#GL_LUMINANCE LUMINANCE}</td></tr><tr><td>{@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}</td><td>{@link GL11#GL_INTENSITY INTENSITY}</td><td>{@link GL11#GL_ALPHA4 ALPHA4}</td><td>{@link GL11#GL_ALPHA8 ALPHA8}</td><td>{@link GL11#GL_ALPHA12 ALPHA12}</td><td>{@link GL11#GL_ALPHA16 ALPHA16}</td><td>{@link GL11#GL_LUMINANCE4 LUMINANCE4}</td><td>{@link GL11#GL_LUMINANCE8 LUMINANCE8}</td></tr><tr><td>{@link GL11#GL_LUMINANCE12 LUMINANCE12}</td><td>{@link GL11#GL_LUMINANCE16 LUMINANCE16}</td><td>{@link GL11#GL_LUMINANCE4_ALPHA4 LUMINANCE4_ALPHA4}</td><td>{@link GL11#GL_LUMINANCE6_ALPHA2 LUMINANCE6_ALPHA2}</td><td>{@link GL11#GL_LUMINANCE8_ALPHA8 LUMINANCE8_ALPHA8}</td><td>{@link GL11#GL_LUMINANCE12_ALPHA4 LUMINANCE12_ALPHA4}</td><td>{@link GL11#GL_LUMINANCE12_ALPHA12 LUMINANCE12_ALPHA12}</td><td>{@link GL11#GL_LUMINANCE16_ALPHA16 LUMINANCE16_ALPHA16}</td></tr><tr><td>{@link GL11#GL_INTENSITY4 INTENSITY4}</td><td>{@link GL11#GL_INTENSITY8 INTENSITY8}</td><td>{@link GL11#GL_INTENSITY12 INTENSITY12}</td><td>{@link GL11#GL_INTENSITY16 INTENSITY16}</td><td>{@link GL21#GL_SLUMINANCE SLUMINANCE}</td><td>{@link GL21#GL_SLUMINANCE8_ALPHA8 SLUMINANCE8_ALPHA8}</td></tr></table>
+	 * @param width          the color table width
+	 * @param format         the color data format. One of:<br><table><tr><td>{@link GL11#GL_RED RED}</td><td>{@link GL11#GL_GREEN GREEN}</td><td>{@link GL11#GL_BLUE BLUE}</td><td>{@link GL11#GL_ALPHA ALPHA}</td><td>{@link GL11#GL_RGB RGB}</td><td>{@link GL11#GL_RGBA RGBA}</td><td>{@link GL12#GL_BGR BGR}</td><td>{@link GL12#GL_BGRA BGRA}</td><td>{@link GL11#GL_LUMINANCE LUMINANCE}</td><td>{@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}</td></tr></table>
+	 * @param type           the color data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
+	 * @param table          the color table data
+	 */
 	public static void glColorTable(int target, int internalformat, int width, int format, int type, IntBuffer table) {
 		nglColorTable(target, internalformat, width, format, type, memAddress(table));
 	}
 
-	/** FloatBuffer version of: {@link #glColorTable ColorTable} */
+	/**
+	 * Specifies a color lookup table.
+	 *
+	 * @param target         the color table target. One of:<br><table><tr><td>{@link #GL_COLOR_TABLE COLOR_TABLE}</td><td>{@link #GL_POST_CONVOLUTION_COLOR_TABLE POST_CONVOLUTION_COLOR_TABLE}</td><td>{@link #GL_POST_COLOR_MATRIX_COLOR_TABLE POST_COLOR_MATRIX_COLOR_TABLE}</td></tr><tr><td>{@link #GL_PROXY_COLOR_TABLE PROXY_COLOR_TABLE}</td><td>{@link #GL_PROXY_POST_CONVOLUTION_COLOR_TABLE PROXY_POST_CONVOLUTION_COLOR_TABLE}</td><td>{@link #GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE PROXY_POST_COLOR_MATRIX_COLOR_TABLE}</td></tr></table>
+	 * @param internalformat the color table internal format. One of:<br><table><tr><td>{@link GL11#GL_RGB RGB}</td><td>{@link GL11#GL_RGBA RGBA}</td><td>{@link GL30#GL_RG8 RG8}</td><td>{@link GL31#GL_RG8_SNORM RG8_SNORM}</td><td>{@link GL11#GL_R3_G3_B2 R3_G3_B2}</td><td>{@link GL11#GL_RGB4 RGB4}</td><td>{@link GL11#GL_RGB5 RGB5}</td><td>{@link GL41#GL_RGB565 RGB565}</td></tr><tr><td>{@link GL11#GL_RGB8 RGB8}</td><td>{@link GL31#GL_RGB8_SNORM RGB8_SNORM}</td><td>{@link GL11#GL_RGB10 RGB10}</td><td>{@link GL11#GL_RGB12 RGB12}</td><td>{@link GL11#GL_RGB16 RGB16}</td><td>{@link GL31#GL_RGB16_SNORM RGB16_SNORM}</td><td>{@link GL11#GL_RGBA2 RGBA2}</td><td>{@link GL11#GL_RGBA4 RGBA4}</td></tr><tr><td>{@link GL11#GL_RGB5_A1 RGB5_A1}</td><td>{@link GL11#GL_RGBA8 RGBA8}</td><td>{@link GL31#GL_RGBA8_SNORM RGBA8_SNORM}</td><td>{@link GL11#GL_RGB10_A2 RGB10_A2}</td><td>{@link GL11#GL_RGBA12 RGBA12}</td><td>{@link GL11#GL_RGBA16 RGBA16}</td><td>{@link GL31#GL_RGBA16_SNORM RGBA16_SNORM}</td><td>{@link GL21#GL_SRGB8 SRGB8}</td></tr><tr><td>{@link GL21#GL_SRGB8_ALPHA8 SRGB8_ALPHA8}</td><td>{@link GL30#GL_RGB16F RGB16F}</td><td>{@link GL30#GL_RGBA16F RGBA16F}</td><td>{@link GL30#GL_RGB32F RGB32F}</td><td>{@link GL30#GL_RGBA32F RGBA32F}</td><td>{@link GL30#GL_R11F_G11F_B10F R11F_G11F_B10F}</td><td>{@link GL11#GL_ALPHA ALPHA}</td><td>{@link GL11#GL_LUMINANCE LUMINANCE}</td></tr><tr><td>{@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}</td><td>{@link GL11#GL_INTENSITY INTENSITY}</td><td>{@link GL11#GL_ALPHA4 ALPHA4}</td><td>{@link GL11#GL_ALPHA8 ALPHA8}</td><td>{@link GL11#GL_ALPHA12 ALPHA12}</td><td>{@link GL11#GL_ALPHA16 ALPHA16}</td><td>{@link GL11#GL_LUMINANCE4 LUMINANCE4}</td><td>{@link GL11#GL_LUMINANCE8 LUMINANCE8}</td></tr><tr><td>{@link GL11#GL_LUMINANCE12 LUMINANCE12}</td><td>{@link GL11#GL_LUMINANCE16 LUMINANCE16}</td><td>{@link GL11#GL_LUMINANCE4_ALPHA4 LUMINANCE4_ALPHA4}</td><td>{@link GL11#GL_LUMINANCE6_ALPHA2 LUMINANCE6_ALPHA2}</td><td>{@link GL11#GL_LUMINANCE8_ALPHA8 LUMINANCE8_ALPHA8}</td><td>{@link GL11#GL_LUMINANCE12_ALPHA4 LUMINANCE12_ALPHA4}</td><td>{@link GL11#GL_LUMINANCE12_ALPHA12 LUMINANCE12_ALPHA12}</td><td>{@link GL11#GL_LUMINANCE16_ALPHA16 LUMINANCE16_ALPHA16}</td></tr><tr><td>{@link GL11#GL_INTENSITY4 INTENSITY4}</td><td>{@link GL11#GL_INTENSITY8 INTENSITY8}</td><td>{@link GL11#GL_INTENSITY12 INTENSITY12}</td><td>{@link GL11#GL_INTENSITY16 INTENSITY16}</td><td>{@link GL21#GL_SLUMINANCE SLUMINANCE}</td><td>{@link GL21#GL_SLUMINANCE8_ALPHA8 SLUMINANCE8_ALPHA8}</td></tr></table>
+	 * @param width          the color table width
+	 * @param format         the color data format. One of:<br><table><tr><td>{@link GL11#GL_RED RED}</td><td>{@link GL11#GL_GREEN GREEN}</td><td>{@link GL11#GL_BLUE BLUE}</td><td>{@link GL11#GL_ALPHA ALPHA}</td><td>{@link GL11#GL_RGB RGB}</td><td>{@link GL11#GL_RGBA RGBA}</td><td>{@link GL12#GL_BGR BGR}</td><td>{@link GL12#GL_BGRA BGRA}</td><td>{@link GL11#GL_LUMINANCE LUMINANCE}</td><td>{@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}</td></tr></table>
+	 * @param type           the color data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
+	 * @param table          the color table data
+	 */
 	public static void glColorTable(int target, int internalformat, int width, int format, int type, FloatBuffer table) {
 		nglColorTable(target, internalformat, width, format, type, memAddress(table));
 	}
@@ -368,17 +395,38 @@ public class ARBImaging {
 		nglGetColorTable(target, format, type, table);
 	}
 
-	/** ShortBuffer version of: {@link #glGetColorTable GetColorTable} */
+	/**
+	 * Returns the current contents of a color table.
+	 *
+	 * @param target the color table target. One of:<br><table><tr><td>{@link #GL_COLOR_TABLE COLOR_TABLE}</td><td>{@link #GL_POST_CONVOLUTION_COLOR_TABLE POST_CONVOLUTION_COLOR_TABLE}</td><td>{@link #GL_POST_COLOR_MATRIX_COLOR_TABLE POST_COLOR_MATRIX_COLOR_TABLE}</td></tr></table>
+	 * @param format the color data format. One of:<br><table><tr><td>{@link GL11#GL_RED RED}</td><td>{@link GL11#GL_GREEN GREEN}</td><td>{@link GL11#GL_BLUE BLUE}</td><td>{@link GL11#GL_ALPHA ALPHA}</td><td>{@link GL11#GL_RGB RGB}</td><td>{@link GL11#GL_RGBA RGBA}</td><td>{@link GL12#GL_BGR BGR}</td><td>{@link GL12#GL_BGRA BGRA}</td><td>{@link GL11#GL_LUMINANCE LUMINANCE}</td><td>{@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}</td></tr></table>
+	 * @param type   the color data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
+	 * @param table  the color table data
+	 */
 	public static void glGetColorTable(int target, int format, int type, ShortBuffer table) {
 		nglGetColorTable(target, format, type, memAddress(table));
 	}
 
-	/** IntBuffer version of: {@link #glGetColorTable GetColorTable} */
+	/**
+	 * Returns the current contents of a color table.
+	 *
+	 * @param target the color table target. One of:<br><table><tr><td>{@link #GL_COLOR_TABLE COLOR_TABLE}</td><td>{@link #GL_POST_CONVOLUTION_COLOR_TABLE POST_CONVOLUTION_COLOR_TABLE}</td><td>{@link #GL_POST_COLOR_MATRIX_COLOR_TABLE POST_COLOR_MATRIX_COLOR_TABLE}</td></tr></table>
+	 * @param format the color data format. One of:<br><table><tr><td>{@link GL11#GL_RED RED}</td><td>{@link GL11#GL_GREEN GREEN}</td><td>{@link GL11#GL_BLUE BLUE}</td><td>{@link GL11#GL_ALPHA ALPHA}</td><td>{@link GL11#GL_RGB RGB}</td><td>{@link GL11#GL_RGBA RGBA}</td><td>{@link GL12#GL_BGR BGR}</td><td>{@link GL12#GL_BGRA BGRA}</td><td>{@link GL11#GL_LUMINANCE LUMINANCE}</td><td>{@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}</td></tr></table>
+	 * @param type   the color data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
+	 * @param table  the color table data
+	 */
 	public static void glGetColorTable(int target, int format, int type, IntBuffer table) {
 		nglGetColorTable(target, format, type, memAddress(table));
 	}
 
-	/** FloatBuffer version of: {@link #glGetColorTable GetColorTable} */
+	/**
+	 * Returns the current contents of a color table.
+	 *
+	 * @param target the color table target. One of:<br><table><tr><td>{@link #GL_COLOR_TABLE COLOR_TABLE}</td><td>{@link #GL_POST_CONVOLUTION_COLOR_TABLE POST_CONVOLUTION_COLOR_TABLE}</td><td>{@link #GL_POST_COLOR_MATRIX_COLOR_TABLE POST_COLOR_MATRIX_COLOR_TABLE}</td></tr></table>
+	 * @param format the color data format. One of:<br><table><tr><td>{@link GL11#GL_RED RED}</td><td>{@link GL11#GL_GREEN GREEN}</td><td>{@link GL11#GL_BLUE BLUE}</td><td>{@link GL11#GL_ALPHA ALPHA}</td><td>{@link GL11#GL_RGB RGB}</td><td>{@link GL11#GL_RGBA RGBA}</td><td>{@link GL12#GL_BGR BGR}</td><td>{@link GL12#GL_BGRA BGRA}</td><td>{@link GL11#GL_LUMINANCE LUMINANCE}</td><td>{@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}</td></tr></table>
+	 * @param type   the color data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
+	 * @param table  the color table data
+	 */
 	public static void glGetColorTable(int target, int format, int type, FloatBuffer table) {
 		nglGetColorTable(target, format, type, memAddress(table));
 	}
@@ -1234,7 +1282,7 @@ public class ARBImaging {
 		callV(__functionAddress, mode);
 	}
 
-	/** short[] version of: {@link #glColorTable ColorTable} */
+	/** Array version of: {@link #glColorTable ColorTable} */
 	public static void glColorTable(int target, int internalformat, int width, int format, int type, short[] table) {
 		long __functionAddress = GL.getCapabilities().glColorTable;
 		if ( CHECKS )
@@ -1242,7 +1290,7 @@ public class ARBImaging {
 		callPV(__functionAddress, target, internalformat, width, format, type, table);
 	}
 
-	/** int[] version of: {@link #glColorTable ColorTable} */
+	/** Array version of: {@link #glColorTable ColorTable} */
 	public static void glColorTable(int target, int internalformat, int width, int format, int type, int[] table) {
 		long __functionAddress = GL.getCapabilities().glColorTable;
 		if ( CHECKS )
@@ -1250,7 +1298,7 @@ public class ARBImaging {
 		callPV(__functionAddress, target, internalformat, width, format, type, table);
 	}
 
-	/** float[] version of: {@link #glColorTable ColorTable} */
+	/** Array version of: {@link #glColorTable ColorTable} */
 	public static void glColorTable(int target, int internalformat, int width, int format, int type, float[] table) {
 		long __functionAddress = GL.getCapabilities().glColorTable;
 		if ( CHECKS )
@@ -1278,7 +1326,7 @@ public class ARBImaging {
 		callPV(__functionAddress, target, pname, params);
 	}
 
-	/** short[] version of: {@link #glGetColorTable GetColorTable} */
+	/** Array version of: {@link #glGetColorTable GetColorTable} */
 	public static void glGetColorTable(int target, int format, int type, short[] table) {
 		long __functionAddress = GL.getCapabilities().glGetColorTable;
 		if ( CHECKS )
@@ -1286,7 +1334,7 @@ public class ARBImaging {
 		callPV(__functionAddress, target, format, type, table);
 	}
 
-	/** int[] version of: {@link #glGetColorTable GetColorTable} */
+	/** Array version of: {@link #glGetColorTable GetColorTable} */
 	public static void glGetColorTable(int target, int format, int type, int[] table) {
 		long __functionAddress = GL.getCapabilities().glGetColorTable;
 		if ( CHECKS )
@@ -1294,7 +1342,7 @@ public class ARBImaging {
 		callPV(__functionAddress, target, format, type, table);
 	}
 
-	/** float[] version of: {@link #glGetColorTable GetColorTable} */
+	/** Array version of: {@link #glGetColorTable GetColorTable} */
 	public static void glGetColorTable(int target, int format, int type, float[] table) {
 		long __functionAddress = GL.getCapabilities().glGetColorTable;
 		if ( CHECKS )

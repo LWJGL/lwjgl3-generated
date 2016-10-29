@@ -1199,12 +1199,30 @@ public class BGFX {
 		return nbgfx_topology_convert(_conversion, memAddressSafe(_dst), remainingSafe(_dst), memAddress(_indices), _indices.remaining() >> (_index32 ? 2 : 1), _index32);
 	}
 
-	/** ShortBuffer version of: {@link #bgfx_topology_convert topology_convert} */
+	/**
+	 * Converts index buffer for use with different primitive topologies.
+	 *
+	 * @param _conversion conversion type. One of:<br><table><tr><td>{@link #BGFX_TOPOLOGY_CONVERT_TRI_LIST_FLIP_WINDING TOPOLOGY_CONVERT_TRI_LIST_FLIP_WINDING}</td><td>{@link #BGFX_TOPOLOGY_CONVERT_TRI_LIST_TO_LINE_LIST TOPOLOGY_CONVERT_TRI_LIST_TO_LINE_LIST}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_CONVERT_TRI_STRIP_TO_TRI_LIST TOPOLOGY_CONVERT_TRI_STRIP_TO_TRI_LIST}</td><td>{@link #BGFX_TOPOLOGY_CONVERT_LINE_STRIP_TO_LINE_LIST TOPOLOGY_CONVERT_LINE_STRIP_TO_LINE_LIST}</td></tr></table>
+	 * @param _dst        destination index buffer. If this argument it {@code NULL} function will return number of indices after conversion
+	 * @param _indices    source indices
+	 * @param _index32    set to `true` if input indices are 32-bit
+	 *
+	 * @return number of output indices after conversion
+	 */
 	public static int bgfx_topology_convert(int _conversion, ShortBuffer _dst, ShortBuffer _indices, boolean _index32) {
 		return nbgfx_topology_convert(_conversion, memAddressSafe(_dst), remainingSafe(_dst) << 1, memAddress(_indices), _indices.remaining(), _index32);
 	}
 
-	/** IntBuffer version of: {@link #bgfx_topology_convert topology_convert} */
+	/**
+	 * Converts index buffer for use with different primitive topologies.
+	 *
+	 * @param _conversion conversion type. One of:<br><table><tr><td>{@link #BGFX_TOPOLOGY_CONVERT_TRI_LIST_FLIP_WINDING TOPOLOGY_CONVERT_TRI_LIST_FLIP_WINDING}</td><td>{@link #BGFX_TOPOLOGY_CONVERT_TRI_LIST_TO_LINE_LIST TOPOLOGY_CONVERT_TRI_LIST_TO_LINE_LIST}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_CONVERT_TRI_STRIP_TO_TRI_LIST TOPOLOGY_CONVERT_TRI_STRIP_TO_TRI_LIST}</td><td>{@link #BGFX_TOPOLOGY_CONVERT_LINE_STRIP_TO_LINE_LIST TOPOLOGY_CONVERT_LINE_STRIP_TO_LINE_LIST}</td></tr></table>
+	 * @param _dst        destination index buffer. If this argument it {@code NULL} function will return number of indices after conversion
+	 * @param _indices    source indices
+	 * @param _index32    set to `true` if input indices are 32-bit
+	 *
+	 * @return number of output indices after conversion
+	 */
 	public static int bgfx_topology_convert(int _conversion, IntBuffer _dst, IntBuffer _indices, boolean _index32) {
 		return nbgfx_topology_convert(_conversion, memAddressSafe(_dst), remainingSafe(_dst) << 2, memAddress(_indices), _indices.remaining(), _index32);
 	}
@@ -1243,7 +1261,18 @@ public class BGFX {
 		nbgfx_topology_sort_tri_list(_sort, memAddress(_dst), _dst.remaining(), memAddress(_dir), memAddress(_pos), memAddress(_vertices), _stride, memAddress(_indices), _indices.remaining() >> (_index32 ? 2 : 1), _index32);
 	}
 
-	/** ShortBuffer version of: {@link #bgfx_topology_sort_tri_list topology_sort_tri_list} */
+	/**
+	 * Sorts indices.
+	 *
+	 * @param _sort     sort order. One of:<br><table><tr><td>{@link #BGFX_TOPOLOGY_SORT_DIRECTION_FRONT_TO_BACK_MIN TOPOLOGY_SORT_DIRECTION_FRONT_TO_BACK_MIN}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_SORT_DIRECTION_FRONT_TO_BACK_AVG TOPOLOGY_SORT_DIRECTION_FRONT_TO_BACK_AVG}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_SORT_DIRECTION_FRONT_TO_BACK_MAX TOPOLOGY_SORT_DIRECTION_FRONT_TO_BACK_MAX}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_SORT_DIRECTION_BACK_TO_FRONT_MIN TOPOLOGY_SORT_DIRECTION_BACK_TO_FRONT_MIN}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_SORT_DIRECTION_BACK_TO_FRONT_AVG TOPOLOGY_SORT_DIRECTION_BACK_TO_FRONT_AVG}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_SORT_DIRECTION_BACK_TO_FRONT_MAX TOPOLOGY_SORT_DIRECTION_BACK_TO_FRONT_MAX}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_SORT_DISTANCE_FRONT_TO_BACK_MIN TOPOLOGY_SORT_DISTANCE_FRONT_TO_BACK_MIN}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_SORT_DISTANCE_FRONT_TO_BACK_AVG TOPOLOGY_SORT_DISTANCE_FRONT_TO_BACK_AVG}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_SORT_DISTANCE_FRONT_TO_BACK_MAX TOPOLOGY_SORT_DISTANCE_FRONT_TO_BACK_MAX}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_SORT_DISTANCE_BACK_TO_FRONT_MIN TOPOLOGY_SORT_DISTANCE_BACK_TO_FRONT_MIN}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_SORT_DISTANCE_BACK_TO_FRONT_AVG TOPOLOGY_SORT_DISTANCE_BACK_TO_FRONT_AVG}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_SORT_DISTANCE_BACK_TO_FRONT_MAX TOPOLOGY_SORT_DISTANCE_BACK_TO_FRONT_MAX}</td></tr></table>
+	 * @param _dst      destination index buffer
+	 * @param _dir      direction (vector must be normalized)
+	 * @param _pos      position
+	 * @param _vertices pointer to first vertex represented as float x, y, z. Must contain at least number of vertices referenced by index buffer.
+	 * @param _stride   vertex stride
+	 * @param _indices  source indices
+	 * @param _index32  set to `true` if input indices are 32-bit
+	 */
 	public static void bgfx_topology_sort_tri_list(int _sort, ShortBuffer _dst, FloatBuffer _dir, FloatBuffer _pos, ByteBuffer _vertices, int _stride, ShortBuffer _indices, boolean _index32) {
 		if ( CHECKS ) {
 			checkBuffer(_dir, 3);
@@ -1252,7 +1281,18 @@ public class BGFX {
 		nbgfx_topology_sort_tri_list(_sort, memAddress(_dst), _dst.remaining() << 1, memAddress(_dir), memAddress(_pos), memAddress(_vertices), _stride, memAddress(_indices), _indices.remaining(), _index32);
 	}
 
-	/** IntBuffer version of: {@link #bgfx_topology_sort_tri_list topology_sort_tri_list} */
+	/**
+	 * Sorts indices.
+	 *
+	 * @param _sort     sort order. One of:<br><table><tr><td>{@link #BGFX_TOPOLOGY_SORT_DIRECTION_FRONT_TO_BACK_MIN TOPOLOGY_SORT_DIRECTION_FRONT_TO_BACK_MIN}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_SORT_DIRECTION_FRONT_TO_BACK_AVG TOPOLOGY_SORT_DIRECTION_FRONT_TO_BACK_AVG}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_SORT_DIRECTION_FRONT_TO_BACK_MAX TOPOLOGY_SORT_DIRECTION_FRONT_TO_BACK_MAX}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_SORT_DIRECTION_BACK_TO_FRONT_MIN TOPOLOGY_SORT_DIRECTION_BACK_TO_FRONT_MIN}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_SORT_DIRECTION_BACK_TO_FRONT_AVG TOPOLOGY_SORT_DIRECTION_BACK_TO_FRONT_AVG}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_SORT_DIRECTION_BACK_TO_FRONT_MAX TOPOLOGY_SORT_DIRECTION_BACK_TO_FRONT_MAX}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_SORT_DISTANCE_FRONT_TO_BACK_MIN TOPOLOGY_SORT_DISTANCE_FRONT_TO_BACK_MIN}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_SORT_DISTANCE_FRONT_TO_BACK_AVG TOPOLOGY_SORT_DISTANCE_FRONT_TO_BACK_AVG}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_SORT_DISTANCE_FRONT_TO_BACK_MAX TOPOLOGY_SORT_DISTANCE_FRONT_TO_BACK_MAX}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_SORT_DISTANCE_BACK_TO_FRONT_MIN TOPOLOGY_SORT_DISTANCE_BACK_TO_FRONT_MIN}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_SORT_DISTANCE_BACK_TO_FRONT_AVG TOPOLOGY_SORT_DISTANCE_BACK_TO_FRONT_AVG}</td></tr><tr><td>{@link #BGFX_TOPOLOGY_SORT_DISTANCE_BACK_TO_FRONT_MAX TOPOLOGY_SORT_DISTANCE_BACK_TO_FRONT_MAX}</td></tr></table>
+	 * @param _dst      destination index buffer
+	 * @param _dir      direction (vector must be normalized)
+	 * @param _pos      position
+	 * @param _vertices pointer to first vertex represented as float x, y, z. Must contain at least number of vertices referenced by index buffer.
+	 * @param _stride   vertex stride
+	 * @param _indices  source indices
+	 * @param _index32  set to `true` if input indices are 32-bit
+	 */
 	public static void bgfx_topology_sort_tri_list(int _sort, IntBuffer _dst, FloatBuffer _dir, FloatBuffer _pos, ByteBuffer _vertices, int _stride, IntBuffer _indices, boolean _index32) {
 		if ( CHECKS ) {
 			checkBuffer(_dir, 3);
@@ -1287,7 +1327,15 @@ public class BGFX {
 		nbgfx_image_swizzle_bgra8(_width, _height, _pitch, memAddress(_src), memAddress(_dst));
 	}
 
-	/** IntBuffer version of: {@link #bgfx_image_swizzle_bgra8 image_swizzle_bgra8} */
+	/**
+	 * Swizzles RGBA8 image to BGRA8.
+	 *
+	 * @param _width  width of input image (pixels)
+	 * @param _height height of input image (pixels)
+	 * @param _pitch  pitch of input image (bytes)
+	 * @param _src    source image
+	 * @param _dst    destination image. Must be the same size as input image. {@code _dst} might be pointer to the same memory as {@code _src}.
+	 */
 	public static void bgfx_image_swizzle_bgra8(int _width, int _height, int _pitch, IntBuffer _src, IntBuffer _dst) {
 		int bytes = _height * _pitch * 4;
 		if ( CHECKS ) {
@@ -1323,7 +1371,15 @@ public class BGFX {
 		nbgfx_image_rgba8_downsample_2x2(_width, _height, _pitch, memAddress(_src), memAddress(_dst));
 	}
 
-	/** IntBuffer version of: {@link #bgfx_image_rgba8_downsample_2x2 image_rgba8_downsample_2x2} */
+	/**
+	 * Downsamples RGBA8 image with 2x2 pixel average filter.
+	 *
+	 * @param _width  width of input image (pixels)
+	 * @param _height height of input image (pixels)
+	 * @param _pitch  pitch of input image (bytes)
+	 * @param _src    source image
+	 * @param _dst    destination image. Must be at least quarter size of input image. {@code _dst} might be pointer to the same memory as {@code _src}.
+	 */
 	public static void bgfx_image_rgba8_downsample_2x2(int _width, int _height, int _pitch, IntBuffer _src, IntBuffer _dst) {
 		int bytes = _height * _pitch * 4;
 		if ( CHECKS ) {
@@ -1527,37 +1583,61 @@ public class BGFX {
 		return BGFXMemory.create(__result);
 	}
 
-	/** ShortBuffer version of: {@link #bgfx_copy copy} */
+	/**
+	 * Allocates buffer and copies data into it. Data will be freed inside bgfx.
+	 *
+	 * @param _data the source data
+	 */
 	public static BGFXMemory bgfx_copy(ShortBuffer _data) {
 		long __result = nbgfx_copy(memAddress(_data), _data.remaining() << 1);
 		return BGFXMemory.create(__result);
 	}
 
-	/** IntBuffer version of: {@link #bgfx_copy copy} */
+	/**
+	 * Allocates buffer and copies data into it. Data will be freed inside bgfx.
+	 *
+	 * @param _data the source data
+	 */
 	public static BGFXMemory bgfx_copy(IntBuffer _data) {
 		long __result = nbgfx_copy(memAddress(_data), _data.remaining() << 2);
 		return BGFXMemory.create(__result);
 	}
 
-	/** LongBuffer version of: {@link #bgfx_copy copy} */
+	/**
+	 * Allocates buffer and copies data into it. Data will be freed inside bgfx.
+	 *
+	 * @param _data the source data
+	 */
 	public static BGFXMemory bgfx_copy(LongBuffer _data) {
 		long __result = nbgfx_copy(memAddress(_data), _data.remaining() << 3);
 		return BGFXMemory.create(__result);
 	}
 
-	/** FloatBuffer version of: {@link #bgfx_copy copy} */
+	/**
+	 * Allocates buffer and copies data into it. Data will be freed inside bgfx.
+	 *
+	 * @param _data the source data
+	 */
 	public static BGFXMemory bgfx_copy(FloatBuffer _data) {
 		long __result = nbgfx_copy(memAddress(_data), _data.remaining() << 2);
 		return BGFXMemory.create(__result);
 	}
 
-	/** DoubleBuffer version of: {@link #bgfx_copy copy} */
+	/**
+	 * Allocates buffer and copies data into it. Data will be freed inside bgfx.
+	 *
+	 * @param _data the source data
+	 */
 	public static BGFXMemory bgfx_copy(DoubleBuffer _data) {
 		long __result = nbgfx_copy(memAddress(_data), _data.remaining() << 3);
 		return BGFXMemory.create(__result);
 	}
 
-	/** PointerBuffer version of: {@link #bgfx_copy copy} */
+	/**
+	 * Allocates buffer and copies data into it. Data will be freed inside bgfx.
+	 *
+	 * @param _data the source data
+	 */
 	public static BGFXMemory bgfx_copy(PointerBuffer _data) {
 		long __result = nbgfx_copy(memAddress(_data), _data.remaining() << POINTER_SHIFT);
 		return BGFXMemory.create(__result);
@@ -1587,37 +1667,73 @@ public class BGFX {
 		return BGFXMemory.create(__result);
 	}
 
-	/** ShortBuffer version of: {@link #bgfx_make_ref make_ref} */
+	/**
+	 * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+	 * 
+	 * <p>You must make sure data is available for at least 2 {@link #bgfx_frame frame} calls.</p>
+	 *
+	 * @param _data the data to reference
+	 */
 	public static BGFXMemory bgfx_make_ref(ShortBuffer _data) {
 		long __result = nbgfx_make_ref(memAddress(_data), _data.remaining() << 1);
 		return BGFXMemory.create(__result);
 	}
 
-	/** IntBuffer version of: {@link #bgfx_make_ref make_ref} */
+	/**
+	 * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+	 * 
+	 * <p>You must make sure data is available for at least 2 {@link #bgfx_frame frame} calls.</p>
+	 *
+	 * @param _data the data to reference
+	 */
 	public static BGFXMemory bgfx_make_ref(IntBuffer _data) {
 		long __result = nbgfx_make_ref(memAddress(_data), _data.remaining() << 2);
 		return BGFXMemory.create(__result);
 	}
 
-	/** LongBuffer version of: {@link #bgfx_make_ref make_ref} */
+	/**
+	 * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+	 * 
+	 * <p>You must make sure data is available for at least 2 {@link #bgfx_frame frame} calls.</p>
+	 *
+	 * @param _data the data to reference
+	 */
 	public static BGFXMemory bgfx_make_ref(LongBuffer _data) {
 		long __result = nbgfx_make_ref(memAddress(_data), _data.remaining() << 3);
 		return BGFXMemory.create(__result);
 	}
 
-	/** FloatBuffer version of: {@link #bgfx_make_ref make_ref} */
+	/**
+	 * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+	 * 
+	 * <p>You must make sure data is available for at least 2 {@link #bgfx_frame frame} calls.</p>
+	 *
+	 * @param _data the data to reference
+	 */
 	public static BGFXMemory bgfx_make_ref(FloatBuffer _data) {
 		long __result = nbgfx_make_ref(memAddress(_data), _data.remaining() << 2);
 		return BGFXMemory.create(__result);
 	}
 
-	/** DoubleBuffer version of: {@link #bgfx_make_ref make_ref} */
+	/**
+	 * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+	 * 
+	 * <p>You must make sure data is available for at least 2 {@link #bgfx_frame frame} calls.</p>
+	 *
+	 * @param _data the data to reference
+	 */
 	public static BGFXMemory bgfx_make_ref(DoubleBuffer _data) {
 		long __result = nbgfx_make_ref(memAddress(_data), _data.remaining() << 3);
 		return BGFXMemory.create(__result);
 	}
 
-	/** PointerBuffer version of: {@link #bgfx_make_ref make_ref} */
+	/**
+	 * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+	 * 
+	 * <p>You must make sure data is available for at least 2 {@link #bgfx_frame frame} calls.</p>
+	 *
+	 * @param _data the data to reference
+	 */
 	public static BGFXMemory bgfx_make_ref(PointerBuffer _data) {
 		long __result = nbgfx_make_ref(memAddress(_data), _data.remaining() << POINTER_SHIFT);
 		return BGFXMemory.create(__result);
@@ -1650,37 +1766,91 @@ public class BGFX {
 		return BGFXMemory.create(__result);
 	}
 
-	/** ShortBuffer version of: {@link #bgfx_make_ref_release make_ref_release} */
+	/**
+	 * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+	 * 
+	 * <p>The {@code bgfx_release_fn_t} function pointer will release this memory after it's consumed. The {@code bgfx_release_fn_t} function must be able to be
+	 * called from any thread.</p>
+	 *
+	 * @param _data      the data to reference
+	 * @param _releaseFn the release function
+	 * @param _userData  user data to pass to {@code _releaseFn}
+	 */
 	public static BGFXMemory bgfx_make_ref_release(ShortBuffer _data, BGFXReleaseFunctionCallbackI _releaseFn, long _userData) {
 		long __result = nbgfx_make_ref_release(memAddress(_data), _data.remaining() << 1, memAddressSafe(_releaseFn), _userData);
 		return BGFXMemory.create(__result);
 	}
 
-	/** IntBuffer version of: {@link #bgfx_make_ref_release make_ref_release} */
+	/**
+	 * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+	 * 
+	 * <p>The {@code bgfx_release_fn_t} function pointer will release this memory after it's consumed. The {@code bgfx_release_fn_t} function must be able to be
+	 * called from any thread.</p>
+	 *
+	 * @param _data      the data to reference
+	 * @param _releaseFn the release function
+	 * @param _userData  user data to pass to {@code _releaseFn}
+	 */
 	public static BGFXMemory bgfx_make_ref_release(IntBuffer _data, BGFXReleaseFunctionCallbackI _releaseFn, long _userData) {
 		long __result = nbgfx_make_ref_release(memAddress(_data), _data.remaining() << 2, memAddressSafe(_releaseFn), _userData);
 		return BGFXMemory.create(__result);
 	}
 
-	/** LongBuffer version of: {@link #bgfx_make_ref_release make_ref_release} */
+	/**
+	 * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+	 * 
+	 * <p>The {@code bgfx_release_fn_t} function pointer will release this memory after it's consumed. The {@code bgfx_release_fn_t} function must be able to be
+	 * called from any thread.</p>
+	 *
+	 * @param _data      the data to reference
+	 * @param _releaseFn the release function
+	 * @param _userData  user data to pass to {@code _releaseFn}
+	 */
 	public static BGFXMemory bgfx_make_ref_release(LongBuffer _data, BGFXReleaseFunctionCallbackI _releaseFn, long _userData) {
 		long __result = nbgfx_make_ref_release(memAddress(_data), _data.remaining() << 3, memAddressSafe(_releaseFn), _userData);
 		return BGFXMemory.create(__result);
 	}
 
-	/** FloatBuffer version of: {@link #bgfx_make_ref_release make_ref_release} */
+	/**
+	 * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+	 * 
+	 * <p>The {@code bgfx_release_fn_t} function pointer will release this memory after it's consumed. The {@code bgfx_release_fn_t} function must be able to be
+	 * called from any thread.</p>
+	 *
+	 * @param _data      the data to reference
+	 * @param _releaseFn the release function
+	 * @param _userData  user data to pass to {@code _releaseFn}
+	 */
 	public static BGFXMemory bgfx_make_ref_release(FloatBuffer _data, BGFXReleaseFunctionCallbackI _releaseFn, long _userData) {
 		long __result = nbgfx_make_ref_release(memAddress(_data), _data.remaining() << 2, memAddressSafe(_releaseFn), _userData);
 		return BGFXMemory.create(__result);
 	}
 
-	/** DoubleBuffer version of: {@link #bgfx_make_ref_release make_ref_release} */
+	/**
+	 * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+	 * 
+	 * <p>The {@code bgfx_release_fn_t} function pointer will release this memory after it's consumed. The {@code bgfx_release_fn_t} function must be able to be
+	 * called from any thread.</p>
+	 *
+	 * @param _data      the data to reference
+	 * @param _releaseFn the release function
+	 * @param _userData  user data to pass to {@code _releaseFn}
+	 */
 	public static BGFXMemory bgfx_make_ref_release(DoubleBuffer _data, BGFXReleaseFunctionCallbackI _releaseFn, long _userData) {
 		long __result = nbgfx_make_ref_release(memAddress(_data), _data.remaining() << 3, memAddressSafe(_releaseFn), _userData);
 		return BGFXMemory.create(__result);
 	}
 
-	/** PointerBuffer version of: {@link #bgfx_make_ref_release make_ref_release} */
+	/**
+	 * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+	 * 
+	 * <p>The {@code bgfx_release_fn_t} function pointer will release this memory after it's consumed. The {@code bgfx_release_fn_t} function must be able to be
+	 * called from any thread.</p>
+	 *
+	 * @param _data      the data to reference
+	 * @param _releaseFn the release function
+	 * @param _userData  user data to pass to {@code _releaseFn}
+	 */
 	public static BGFXMemory bgfx_make_ref_release(PointerBuffer _data, BGFXReleaseFunctionCallbackI _releaseFn, long _userData) {
 		long __result = nbgfx_make_ref_release(memAddress(_data), _data.remaining() << POINTER_SHIFT, memAddressSafe(_releaseFn), _userData);
 		return BGFXMemory.create(__result);
@@ -2574,17 +2744,47 @@ public class BGFX {
 		return nbgfx_read_texture(_handle, memAddress(_data), (byte)_mip);
 	}
 
-	/** ShortBuffer version of: {@link #bgfx_read_texture read_texture} */
+	/**
+	 * Reads back texture content.
+	 * 
+	 * <p>Texture must be created with {@link #BGFX_TEXTURE_READ_BACK TEXTURE_READ_BACK} flag. Availability depends on {@link #BGFX_CAPS_TEXTURE_READ_BACK CAPS_TEXTURE_READ_BACK}.</p>
+	 *
+	 * @param _handle texture handle
+	 * @param _data   destination buffer
+	 * @param _mip    mip level
+	 *
+	 * @return frame number when the result will be available
+	 */
 	public static int bgfx_read_texture(short _handle, ShortBuffer _data, int _mip) {
 		return nbgfx_read_texture(_handle, memAddress(_data), (byte)_mip);
 	}
 
-	/** IntBuffer version of: {@link #bgfx_read_texture read_texture} */
+	/**
+	 * Reads back texture content.
+	 * 
+	 * <p>Texture must be created with {@link #BGFX_TEXTURE_READ_BACK TEXTURE_READ_BACK} flag. Availability depends on {@link #BGFX_CAPS_TEXTURE_READ_BACK CAPS_TEXTURE_READ_BACK}.</p>
+	 *
+	 * @param _handle texture handle
+	 * @param _data   destination buffer
+	 * @param _mip    mip level
+	 *
+	 * @return frame number when the result will be available
+	 */
 	public static int bgfx_read_texture(short _handle, IntBuffer _data, int _mip) {
 		return nbgfx_read_texture(_handle, memAddress(_data), (byte)_mip);
 	}
 
-	/** FloatBuffer version of: {@link #bgfx_read_texture read_texture} */
+	/**
+	 * Reads back texture content.
+	 * 
+	 * <p>Texture must be created with {@link #BGFX_TEXTURE_READ_BACK TEXTURE_READ_BACK} flag. Availability depends on {@link #BGFX_CAPS_TEXTURE_READ_BACK CAPS_TEXTURE_READ_BACK}.</p>
+	 *
+	 * @param _handle texture handle
+	 * @param _data   destination buffer
+	 * @param _mip    mip level
+	 *
+	 * @return frame number when the result will be available
+	 */
 	public static int bgfx_read_texture(short _handle, FloatBuffer _data, int _mip) {
 		return nbgfx_read_texture(_handle, memAddress(_data), (byte)_mip);
 	}
@@ -2612,17 +2812,47 @@ public class BGFX {
 		return nbgfx_read_frame_buffer(_handle, (byte)_attachment, memAddress(_data));
 	}
 
-	/** ShortBuffer version of: {@link #bgfx_read_frame_buffer read_frame_buffer} */
+	/**
+	 * Reads back texture content.
+	 * 
+	 * <p>Texture must be created with {@link #BGFX_TEXTURE_READ_BACK TEXTURE_READ_BACK} flag. Availability depends on {@link #BGFX_CAPS_TEXTURE_READ_BACK CAPS_TEXTURE_READ_BACK}.</p>
+	 *
+	 * @param _handle     frame buffer handle
+	 * @param _attachment frame buffer attachment index
+	 * @param _data       destination buffer
+	 *
+	 * @return frame number when the result will be available
+	 */
 	public static int bgfx_read_frame_buffer(short _handle, int _attachment, ShortBuffer _data) {
 		return nbgfx_read_frame_buffer(_handle, (byte)_attachment, memAddress(_data));
 	}
 
-	/** IntBuffer version of: {@link #bgfx_read_frame_buffer read_frame_buffer} */
+	/**
+	 * Reads back texture content.
+	 * 
+	 * <p>Texture must be created with {@link #BGFX_TEXTURE_READ_BACK TEXTURE_READ_BACK} flag. Availability depends on {@link #BGFX_CAPS_TEXTURE_READ_BACK CAPS_TEXTURE_READ_BACK}.</p>
+	 *
+	 * @param _handle     frame buffer handle
+	 * @param _attachment frame buffer attachment index
+	 * @param _data       destination buffer
+	 *
+	 * @return frame number when the result will be available
+	 */
 	public static int bgfx_read_frame_buffer(short _handle, int _attachment, IntBuffer _data) {
 		return nbgfx_read_frame_buffer(_handle, (byte)_attachment, memAddress(_data));
 	}
 
-	/** FloatBuffer version of: {@link #bgfx_read_frame_buffer read_frame_buffer} */
+	/**
+	 * Reads back texture content.
+	 * 
+	 * <p>Texture must be created with {@link #BGFX_TEXTURE_READ_BACK TEXTURE_READ_BACK} flag. Availability depends on {@link #BGFX_CAPS_TEXTURE_READ_BACK CAPS_TEXTURE_READ_BACK}.</p>
+	 *
+	 * @param _handle     frame buffer handle
+	 * @param _attachment frame buffer attachment index
+	 * @param _data       destination buffer
+	 *
+	 * @return frame number when the result will be available
+	 */
 	public static int bgfx_read_frame_buffer(short _handle, int _attachment, FloatBuffer _data) {
 		return nbgfx_read_frame_buffer(_handle, (byte)_attachment, memAddress(_data));
 	}
@@ -3134,7 +3364,13 @@ public class BGFX {
 		nbgfx_set_view_transform((byte)_id, memAddressSafe(_view), memAddressSafe(_proj));
 	}
 
-	/** FloatBuffer version of: {@link #bgfx_set_view_transform set_view_transform} */
+	/**
+	 * Sets view view and projection matrices, all draw primitives in this view will use these matrices.
+	 *
+	 * @param _id   view id
+	 * @param _view view matrix
+	 * @param _proj projection matrix
+	 */
 	public static void bgfx_set_view_transform(int _id, FloatBuffer _view, FloatBuffer _proj) {
 		if ( CHECKS ) {
 			checkBufferSafe(_view, 64 >> 2);
@@ -3169,7 +3405,15 @@ public class BGFX {
 		nbgfx_set_view_transform_stereo((byte)_id, memAddressSafe(_view), memAddressSafe(_projL), (byte)_flags, memAddressSafe(_projR));
 	}
 
-	/** FloatBuffer version of: {@link #bgfx_set_view_transform_stereo set_view_transform_stereo} */
+	/**
+	 * Sets view view and projection matrices, all draw primitives in this view will use these matrices.
+	 *
+	 * @param _id    view id
+	 * @param _view  project matrix
+	 * @param _projL projection matrix for left eye in stereo mode
+	 * @param _flags view flags. One of:<br><table><tr><td>{@link #BGFX_VIEW_NONE VIEW_NONE}</td><td>{@link #BGFX_VIEW_STEREO VIEW_STEREO}</td></tr></table>
+	 * @param _projR projection matrix for right eye in stereo mode
+	 */
 	public static void bgfx_set_view_transform_stereo(int _id, FloatBuffer _view, FloatBuffer _projL, int _flags, FloatBuffer _projR) {
 		if ( CHECKS ) {
 			checkBufferSafe(_view, 64 >> 2);
@@ -3357,7 +3601,13 @@ public class BGFX {
 		return nbgfx_set_transform(memAddress(_mtx), (short)(_mtx.remaining() >> 6));
 	}
 
-	/** FloatBuffer version of: {@link #bgfx_set_transform set_transform} */
+	/**
+	 * Sets model matrix for draw primitive. If it is not called model will be rendered with identity model matrix.
+	 *
+	 * @param _mtx pointer to first matrix in array
+	 *
+	 * @return index into matrix cache in case the same model matrix has to be used for other draw primitive call
+	 */
 	public static int bgfx_set_transform(FloatBuffer _mtx) {
 		return nbgfx_set_transform(memAddress(_mtx), (short)(_mtx.remaining() >> 4));
 	}
@@ -3419,27 +3669,57 @@ public class BGFX {
 		nbgfx_set_uniform(_handle, memAddress(_value), (short)_num);
 	}
 
-	/** ShortBuffer version of: {@link #bgfx_set_uniform set_uniform} */
+	/**
+	 * Sets shader uniform parameter for draw primitive.
+	 *
+	 * @param _handle uniform
+	 * @param _value  pointer to uniform data
+	 * @param _num    number of elements. Passing {@code UINT16_MAX} will use the {@code _num} passed on uniform creation.
+	 */
 	public static void bgfx_set_uniform(short _handle, ShortBuffer _value, int _num) {
 		nbgfx_set_uniform(_handle, memAddress(_value), (short)_num);
 	}
 
-	/** IntBuffer version of: {@link #bgfx_set_uniform set_uniform} */
+	/**
+	 * Sets shader uniform parameter for draw primitive.
+	 *
+	 * @param _handle uniform
+	 * @param _value  pointer to uniform data
+	 * @param _num    number of elements. Passing {@code UINT16_MAX} will use the {@code _num} passed on uniform creation.
+	 */
 	public static void bgfx_set_uniform(short _handle, IntBuffer _value, int _num) {
 		nbgfx_set_uniform(_handle, memAddress(_value), (short)_num);
 	}
 
-	/** LongBuffer version of: {@link #bgfx_set_uniform set_uniform} */
+	/**
+	 * Sets shader uniform parameter for draw primitive.
+	 *
+	 * @param _handle uniform
+	 * @param _value  pointer to uniform data
+	 * @param _num    number of elements. Passing {@code UINT16_MAX} will use the {@code _num} passed on uniform creation.
+	 */
 	public static void bgfx_set_uniform(short _handle, LongBuffer _value, int _num) {
 		nbgfx_set_uniform(_handle, memAddress(_value), (short)_num);
 	}
 
-	/** FloatBuffer version of: {@link #bgfx_set_uniform set_uniform} */
+	/**
+	 * Sets shader uniform parameter for draw primitive.
+	 *
+	 * @param _handle uniform
+	 * @param _value  pointer to uniform data
+	 * @param _num    number of elements. Passing {@code UINT16_MAX} will use the {@code _num} passed on uniform creation.
+	 */
 	public static void bgfx_set_uniform(short _handle, FloatBuffer _value, int _num) {
 		nbgfx_set_uniform(_handle, memAddress(_value), (short)_num);
 	}
 
-	/** DoubleBuffer version of: {@link #bgfx_set_uniform set_uniform} */
+	/**
+	 * Sets shader uniform parameter for draw primitive.
+	 *
+	 * @param _handle uniform
+	 * @param _value  pointer to uniform data
+	 * @param _num    number of elements. Passing {@code UINT16_MAX} will use the {@code _num} passed on uniform creation.
+	 */
 	public static void bgfx_set_uniform(short _handle, DoubleBuffer _value, int _num) {
 		nbgfx_set_uniform(_handle, memAddress(_value), (short)_num);
 	}
@@ -4140,13 +4420,13 @@ public class BGFX {
 		return invokePPPS(__functionAddress, _output, _decl.address(), memAddress(_data), (short)_output.length, _epsilon);
 	}
 
-	/** short[] version of: {@link #bgfx_topology_convert topology_convert} */
+	/** Array version of: {@link #bgfx_topology_convert topology_convert} */
 	public static int bgfx_topology_convert(int _conversion, short[] _dst, short[] _indices, boolean _index32) {
 		long __functionAddress = Functions.topology_convert;
 		return invokePPI(__functionAddress, _conversion, _dst, lengthSafe(_dst) << 1, _indices, _indices.length >> (_index32 ? 2 : 1), _index32);
 	}
 
-	/** int[] version of: {@link #bgfx_topology_convert topology_convert} */
+	/** Array version of: {@link #bgfx_topology_convert topology_convert} */
 	public static int bgfx_topology_convert(int _conversion, int[] _dst, int[] _indices, boolean _index32) {
 		long __functionAddress = Functions.topology_convert;
 		return invokePPI(__functionAddress, _conversion, _dst, lengthSafe(_dst) << 2, _indices, _indices.length >> (_index32 ? 2 : 1), _index32);
@@ -4162,7 +4442,7 @@ public class BGFX {
 		invokePPPPPV(__functionAddress, _sort, memAddress(_dst), _dst.remaining(), _dir, _pos, memAddress(_vertices), _stride, memAddress(_indices), _indices.remaining() >> (_index32 ? 2 : 1), _index32);
 	}
 
-	/** short[] version of: {@link #bgfx_topology_sort_tri_list topology_sort_tri_list} */
+	/** Array version of: {@link #bgfx_topology_sort_tri_list topology_sort_tri_list} */
 	public static void bgfx_topology_sort_tri_list(int _sort, short[] _dst, float[] _dir, float[] _pos, ByteBuffer _vertices, int _stride, short[] _indices, boolean _index32) {
 		long __functionAddress = Functions.topology_sort_tri_list;
 		if ( CHECKS ) {
@@ -4172,7 +4452,7 @@ public class BGFX {
 		invokePPPPPV(__functionAddress, _sort, _dst, _dst.length << 1, _dir, _pos, memAddress(_vertices), _stride, _indices, _indices.length >> (_index32 ? 2 : 1), _index32);
 	}
 
-	/** int[] version of: {@link #bgfx_topology_sort_tri_list topology_sort_tri_list} */
+	/** Array version of: {@link #bgfx_topology_sort_tri_list topology_sort_tri_list} */
 	public static void bgfx_topology_sort_tri_list(int _sort, int[] _dst, float[] _dir, float[] _pos, ByteBuffer _vertices, int _stride, int[] _indices, boolean _index32) {
 		long __functionAddress = Functions.topology_sort_tri_list;
 		if ( CHECKS ) {
@@ -4182,7 +4462,7 @@ public class BGFX {
 		invokePPPPPV(__functionAddress, _sort, _dst, _dst.length << 2, _dir, _pos, memAddress(_vertices), _stride, _indices, _indices.length >> (_index32 ? 2 : 1), _index32);
 	}
 
-	/** int[] version of: {@link #bgfx_image_swizzle_bgra8 image_swizzle_bgra8} */
+	/** Array version of: {@link #bgfx_image_swizzle_bgra8 image_swizzle_bgra8} */
 	public static void bgfx_image_swizzle_bgra8(int _width, int _height, int _pitch, int[] _src, int[] _dst) {
 		long __functionAddress = Functions.image_swizzle_bgra8;
 		int bytes = _height * _pitch * 4;
@@ -4193,7 +4473,7 @@ public class BGFX {
 		invokePPV(__functionAddress, _width, _height, _pitch, _src, _dst);
 	}
 
-	/** int[] version of: {@link #bgfx_image_rgba8_downsample_2x2 image_rgba8_downsample_2x2} */
+	/** Array version of: {@link #bgfx_image_rgba8_downsample_2x2 image_rgba8_downsample_2x2} */
 	public static void bgfx_image_rgba8_downsample_2x2(int _width, int _height, int _pitch, int[] _src, int[] _dst) {
 		long __functionAddress = Functions.image_rgba8_downsample_2x2;
 		int bytes = _height * _pitch * 4;
@@ -4210,35 +4490,35 @@ public class BGFX {
 		return invokePB(__functionAddress, (byte)_enum.length, _enum);
 	}
 
-	/** short[] version of: {@link #bgfx_copy copy} */
+	/** Array version of: {@link #bgfx_copy copy} */
 	public static BGFXMemory bgfx_copy(short[] _data) {
 		long __functionAddress = Functions.copy;
 		long __result = invokePP(__functionAddress, _data, _data.length << 1);
 		return BGFXMemory.create(__result);
 	}
 
-	/** int[] version of: {@link #bgfx_copy copy} */
+	/** Array version of: {@link #bgfx_copy copy} */
 	public static BGFXMemory bgfx_copy(int[] _data) {
 		long __functionAddress = Functions.copy;
 		long __result = invokePP(__functionAddress, _data, _data.length << 2);
 		return BGFXMemory.create(__result);
 	}
 
-	/** long[] version of: {@link #bgfx_copy copy} */
+	/** Array version of: {@link #bgfx_copy copy} */
 	public static BGFXMemory bgfx_copy(long[] _data) {
 		long __functionAddress = Functions.copy;
 		long __result = invokePP(__functionAddress, _data, _data.length << 3);
 		return BGFXMemory.create(__result);
 	}
 
-	/** float[] version of: {@link #bgfx_copy copy} */
+	/** Array version of: {@link #bgfx_copy copy} */
 	public static BGFXMemory bgfx_copy(float[] _data) {
 		long __functionAddress = Functions.copy;
 		long __result = invokePP(__functionAddress, _data, _data.length << 2);
 		return BGFXMemory.create(__result);
 	}
 
-	/** double[] version of: {@link #bgfx_copy copy} */
+	/** Array version of: {@link #bgfx_copy copy} */
 	public static BGFXMemory bgfx_copy(double[] _data) {
 		long __functionAddress = Functions.copy;
 		long __result = invokePP(__functionAddress, _data, _data.length << 3);
@@ -4251,37 +4531,37 @@ public class BGFX {
 		return invokePS(__functionAddress, _handle, _uniforms, (short)_uniforms.length);
 	}
 
-	/** short[] version of: {@link #bgfx_read_texture read_texture} */
+	/** Array version of: {@link #bgfx_read_texture read_texture} */
 	public static int bgfx_read_texture(short _handle, short[] _data, int _mip) {
 		long __functionAddress = Functions.read_texture;
 		return invokePI(__functionAddress, _handle, _data, (byte)_mip);
 	}
 
-	/** int[] version of: {@link #bgfx_read_texture read_texture} */
+	/** Array version of: {@link #bgfx_read_texture read_texture} */
 	public static int bgfx_read_texture(short _handle, int[] _data, int _mip) {
 		long __functionAddress = Functions.read_texture;
 		return invokePI(__functionAddress, _handle, _data, (byte)_mip);
 	}
 
-	/** float[] version of: {@link #bgfx_read_texture read_texture} */
+	/** Array version of: {@link #bgfx_read_texture read_texture} */
 	public static int bgfx_read_texture(short _handle, float[] _data, int _mip) {
 		long __functionAddress = Functions.read_texture;
 		return invokePI(__functionAddress, _handle, _data, (byte)_mip);
 	}
 
-	/** short[] version of: {@link #bgfx_read_frame_buffer read_frame_buffer} */
+	/** Array version of: {@link #bgfx_read_frame_buffer read_frame_buffer} */
 	public static int bgfx_read_frame_buffer(short _handle, int _attachment, short[] _data) {
 		long __functionAddress = Functions.read_frame_buffer;
 		return invokePI(__functionAddress, _handle, (byte)_attachment, _data);
 	}
 
-	/** int[] version of: {@link #bgfx_read_frame_buffer read_frame_buffer} */
+	/** Array version of: {@link #bgfx_read_frame_buffer read_frame_buffer} */
 	public static int bgfx_read_frame_buffer(short _handle, int _attachment, int[] _data) {
 		long __functionAddress = Functions.read_frame_buffer;
 		return invokePI(__functionAddress, _handle, (byte)_attachment, _data);
 	}
 
-	/** float[] version of: {@link #bgfx_read_frame_buffer read_frame_buffer} */
+	/** Array version of: {@link #bgfx_read_frame_buffer read_frame_buffer} */
 	public static int bgfx_read_frame_buffer(short _handle, int _attachment, float[] _data) {
 		long __functionAddress = Functions.read_frame_buffer;
 		return invokePI(__functionAddress, _handle, (byte)_attachment, _data);
@@ -4301,7 +4581,7 @@ public class BGFX {
 		invokePV(__functionAddress, (byte)_index, _rgba);
 	}
 
-	/** float[] version of: {@link #bgfx_set_view_transform set_view_transform} */
+	/** Array version of: {@link #bgfx_set_view_transform set_view_transform} */
 	public static void bgfx_set_view_transform(int _id, float[] _view, float[] _proj) {
 		long __functionAddress = Functions.set_view_transform;
 		if ( CHECKS ) {
@@ -4311,7 +4591,7 @@ public class BGFX {
 		invokePPV(__functionAddress, (byte)_id, _view, _proj);
 	}
 
-	/** float[] version of: {@link #bgfx_set_view_transform_stereo set_view_transform_stereo} */
+	/** Array version of: {@link #bgfx_set_view_transform_stereo set_view_transform_stereo} */
 	public static void bgfx_set_view_transform_stereo(int _id, float[] _view, float[] _projL, int _flags, float[] _projR) {
 		long __functionAddress = Functions.set_view_transform_stereo;
 		if ( CHECKS ) {
@@ -4322,37 +4602,37 @@ public class BGFX {
 		invokePPPV(__functionAddress, (byte)_id, _view, _projL, (byte)_flags, _projR);
 	}
 
-	/** float[] version of: {@link #bgfx_set_transform set_transform} */
+	/** Array version of: {@link #bgfx_set_transform set_transform} */
 	public static int bgfx_set_transform(float[] _mtx) {
 		long __functionAddress = Functions.set_transform;
 		return invokePI(__functionAddress, _mtx, (short)_mtx.length);
 	}
 
-	/** short[] version of: {@link #bgfx_set_uniform set_uniform} */
+	/** Array version of: {@link #bgfx_set_uniform set_uniform} */
 	public static void bgfx_set_uniform(short _handle, short[] _value, int _num) {
 		long __functionAddress = Functions.set_uniform;
 		invokePV(__functionAddress, _handle, _value, (short)_num);
 	}
 
-	/** int[] version of: {@link #bgfx_set_uniform set_uniform} */
+	/** Array version of: {@link #bgfx_set_uniform set_uniform} */
 	public static void bgfx_set_uniform(short _handle, int[] _value, int _num) {
 		long __functionAddress = Functions.set_uniform;
 		invokePV(__functionAddress, _handle, _value, (short)_num);
 	}
 
-	/** long[] version of: {@link #bgfx_set_uniform set_uniform} */
+	/** Array version of: {@link #bgfx_set_uniform set_uniform} */
 	public static void bgfx_set_uniform(short _handle, long[] _value, int _num) {
 		long __functionAddress = Functions.set_uniform;
 		invokePV(__functionAddress, _handle, _value, (short)_num);
 	}
 
-	/** float[] version of: {@link #bgfx_set_uniform set_uniform} */
+	/** Array version of: {@link #bgfx_set_uniform set_uniform} */
 	public static void bgfx_set_uniform(short _handle, float[] _value, int _num) {
 		long __functionAddress = Functions.set_uniform;
 		invokePV(__functionAddress, _handle, _value, (short)_num);
 	}
 
-	/** double[] version of: {@link #bgfx_set_uniform set_uniform} */
+	/** Array version of: {@link #bgfx_set_uniform set_uniform} */
 	public static void bgfx_set_uniform(short _handle, double[] _value, int _num) {
 		long __functionAddress = Functions.set_uniform;
 		invokePV(__functionAddress, _handle, _value, (short)_num);

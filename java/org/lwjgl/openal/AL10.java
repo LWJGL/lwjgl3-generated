@@ -1326,17 +1326,77 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 		nalBufferData(bufferName, format, memAddress(data), data.remaining(), frequency);
 	}
 
-	/** ShortBuffer version of: {@link #alBufferData BufferData} */
+	/**
+	 * Sets the sample data of the specified buffer.
+	 * 
+	 * <p>The data specified is copied to an internal software, or if possible, hardware buffer. The implementation is free to apply decompression, conversion,
+	 * resampling, and filtering as needed.</p>
+	 * 
+	 * <p>8-bit data is expressed as an unsigned value over the range 0 to 255, 128 being an audio output level of zero.</p>
+	 * 
+	 * <p>16-bit data is expressed as a signed value over the range -32768 to 32767, 0 being an audio output level of zero. Byte order for 16-bit values is
+	 * determined by the native format of the CPU.</p>
+	 * 
+	 * <p>Stereo data is expressed in an interleaved format, left channel sample followed by the right channel sample.</p>
+	 * 
+	 * <p>Buffers containing audio data with more than one channel will be played without 3D spatialization features – these formats are normally used for
+	 * background music.</p>
+	 *
+	 * @param bufferName the buffer to modify
+	 * @param format     the data format. One of:<br><table><tr><td>{@link #AL_FORMAT_MONO8 FORMAT_MONO8}</td><td>{@link #AL_FORMAT_MONO16 FORMAT_MONO16}</td><td>{@link #AL_FORMAT_STEREO8 FORMAT_STEREO8}</td><td>{@link #AL_FORMAT_STEREO16 FORMAT_STEREO16}</td></tr></table>
+	 * @param data       the sample data
+	 * @param frequency  the data frequency
+	 */
 	public static void alBufferData(int bufferName, int format, ShortBuffer data, int frequency) {
 		nalBufferData(bufferName, format, memAddress(data), data.remaining() << 1, frequency);
 	}
 
-	/** IntBuffer version of: {@link #alBufferData BufferData} */
+	/**
+	 * Sets the sample data of the specified buffer.
+	 * 
+	 * <p>The data specified is copied to an internal software, or if possible, hardware buffer. The implementation is free to apply decompression, conversion,
+	 * resampling, and filtering as needed.</p>
+	 * 
+	 * <p>8-bit data is expressed as an unsigned value over the range 0 to 255, 128 being an audio output level of zero.</p>
+	 * 
+	 * <p>16-bit data is expressed as a signed value over the range -32768 to 32767, 0 being an audio output level of zero. Byte order for 16-bit values is
+	 * determined by the native format of the CPU.</p>
+	 * 
+	 * <p>Stereo data is expressed in an interleaved format, left channel sample followed by the right channel sample.</p>
+	 * 
+	 * <p>Buffers containing audio data with more than one channel will be played without 3D spatialization features – these formats are normally used for
+	 * background music.</p>
+	 *
+	 * @param bufferName the buffer to modify
+	 * @param format     the data format. One of:<br><table><tr><td>{@link #AL_FORMAT_MONO8 FORMAT_MONO8}</td><td>{@link #AL_FORMAT_MONO16 FORMAT_MONO16}</td><td>{@link #AL_FORMAT_STEREO8 FORMAT_STEREO8}</td><td>{@link #AL_FORMAT_STEREO16 FORMAT_STEREO16}</td></tr></table>
+	 * @param data       the sample data
+	 * @param frequency  the data frequency
+	 */
 	public static void alBufferData(int bufferName, int format, IntBuffer data, int frequency) {
 		nalBufferData(bufferName, format, memAddress(data), data.remaining() << 2, frequency);
 	}
 
-	/** FloatBuffer version of: {@link #alBufferData BufferData} */
+	/**
+	 * Sets the sample data of the specified buffer.
+	 * 
+	 * <p>The data specified is copied to an internal software, or if possible, hardware buffer. The implementation is free to apply decompression, conversion,
+	 * resampling, and filtering as needed.</p>
+	 * 
+	 * <p>8-bit data is expressed as an unsigned value over the range 0 to 255, 128 being an audio output level of zero.</p>
+	 * 
+	 * <p>16-bit data is expressed as a signed value over the range -32768 to 32767, 0 being an audio output level of zero. Byte order for 16-bit values is
+	 * determined by the native format of the CPU.</p>
+	 * 
+	 * <p>Stereo data is expressed in an interleaved format, left channel sample followed by the right channel sample.</p>
+	 * 
+	 * <p>Buffers containing audio data with more than one channel will be played without 3D spatialization features – these formats are normally used for
+	 * background music.</p>
+	 *
+	 * @param bufferName the buffer to modify
+	 * @param format     the data format. One of:<br><table><tr><td>{@link #AL_FORMAT_MONO8 FORMAT_MONO8}</td><td>{@link #AL_FORMAT_MONO16 FORMAT_MONO16}</td><td>{@link #AL_FORMAT_STEREO8 FORMAT_STEREO8}</td><td>{@link #AL_FORMAT_STEREO16 FORMAT_STEREO16}</td></tr></table>
+	 * @param data       the sample data
+	 * @param frequency  the data frequency
+	 */
 	public static void alBufferData(int bufferName, int format, FloatBuffer data, int frequency) {
 		nalBufferData(bufferName, format, memAddress(data), data.remaining() << 2, frequency);
 	}
@@ -1655,19 +1715,19 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 		invokePV(__functionAddress, bufferName, paramName, value);
 	}
 
-	/** short[] version of: {@link #alBufferData BufferData} */
+	/** Array version of: {@link #alBufferData BufferData} */
 	public static void alBufferData(int bufferName, int format, short[] data, int frequency) {
 		long __functionAddress = AL.getCapabilities().alBufferData;
 		invokePV(__functionAddress, bufferName, format, data, data.length << 1, frequency);
 	}
 
-	/** int[] version of: {@link #alBufferData BufferData} */
+	/** Array version of: {@link #alBufferData BufferData} */
 	public static void alBufferData(int bufferName, int format, int[] data, int frequency) {
 		long __functionAddress = AL.getCapabilities().alBufferData;
 		invokePV(__functionAddress, bufferName, format, data, data.length << 2, frequency);
 	}
 
-	/** float[] version of: {@link #alBufferData BufferData} */
+	/** Array version of: {@link #alBufferData BufferData} */
 	public static void alBufferData(int bufferName, int format, float[] data, int frequency) {
 		long __functionAddress = AL.getCapabilities().alBufferData;
 		invokePV(__functionAddress, bufferName, format, data, data.length << 2, frequency);

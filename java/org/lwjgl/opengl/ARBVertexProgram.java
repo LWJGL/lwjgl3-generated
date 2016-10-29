@@ -944,17 +944,44 @@ public class ARBVertexProgram {
 		nglVertexAttribPointerARB(index, size, type, normalized, stride, pointer);
 	}
 
-	/** ShortBuffer version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
+	/**
+	 * Specifies the location and organization of a vertex attribute array.
+	 *
+	 * @param index      the vertex attribute index
+	 * @param size       the vertex attribute number of components. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
+	 * @param type       the data type of the values stored in the array. One of:<br><table><tr><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_SHORT SHORT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link NVHalfFloat#GL_HALF_FLOAT_NV HALF_FLOAT_NV}</td></tr><tr><td>{@link GL11#GL_FLOAT FLOAT}</td><td>{@link GL11#GL_DOUBLE DOUBLE}</td></tr></table>
+	 * @param normalized if {@link GL11#GL_TRUE TRUE}, fixed-point types are normalized when converted to floating-point
+	 * @param stride     the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
+	 * @param pointer    the vertex attribute array data
+	 */
 	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, ShortBuffer pointer) {
 		nglVertexAttribPointerARB(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
-	/** IntBuffer version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
+	/**
+	 * Specifies the location and organization of a vertex attribute array.
+	 *
+	 * @param index      the vertex attribute index
+	 * @param size       the vertex attribute number of components. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
+	 * @param type       the data type of the values stored in the array. One of:<br><table><tr><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_SHORT SHORT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link NVHalfFloat#GL_HALF_FLOAT_NV HALF_FLOAT_NV}</td></tr><tr><td>{@link GL11#GL_FLOAT FLOAT}</td><td>{@link GL11#GL_DOUBLE DOUBLE}</td></tr></table>
+	 * @param normalized if {@link GL11#GL_TRUE TRUE}, fixed-point types are normalized when converted to floating-point
+	 * @param stride     the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
+	 * @param pointer    the vertex attribute array data
+	 */
 	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, IntBuffer pointer) {
 		nglVertexAttribPointerARB(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
-	/** FloatBuffer version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
+	/**
+	 * Specifies the location and organization of a vertex attribute array.
+	 *
+	 * @param index      the vertex attribute index
+	 * @param size       the vertex attribute number of components. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
+	 * @param type       the data type of the values stored in the array. One of:<br><table><tr><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_SHORT SHORT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link NVHalfFloat#GL_HALF_FLOAT_NV HALF_FLOAT_NV}</td></tr><tr><td>{@link GL11#GL_FLOAT FLOAT}</td><td>{@link GL11#GL_DOUBLE DOUBLE}</td></tr></table>
+	 * @param normalized if {@link GL11#GL_TRUE TRUE}, fixed-point types are normalized when converted to floating-point
+	 * @param stride     the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
+	 * @param pointer    the vertex attribute array data
+	 */
 	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, FloatBuffer pointer) {
 		nglVertexAttribPointerARB(index, size, type, normalized, stride, memAddress(pointer));
 	}
@@ -1766,7 +1793,7 @@ public class ARBVertexProgram {
 		callPV(__functionAddress, index, v);
 	}
 
-	/** short[] version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
+	/** Array version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
 	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribPointerARB;
 		if ( CHECKS )
@@ -1774,7 +1801,7 @@ public class ARBVertexProgram {
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
-	/** int[] version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
+	/** Array version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
 	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, int[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribPointerARB;
 		if ( CHECKS )
@@ -1782,7 +1809,7 @@ public class ARBVertexProgram {
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
-	/** float[] version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
+	/** Array version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
 	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, float[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribPointerARB;
 		if ( CHECKS )

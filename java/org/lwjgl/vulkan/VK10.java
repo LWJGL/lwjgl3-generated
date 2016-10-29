@@ -6572,12 +6572,234 @@ public class VK10 {
 		return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, pData.remaining(), memAddress(pData), stride, flags);
 	}
 
-	/** IntBuffer version of: {@link #vkGetQueryPoolResults GetQueryPoolResults} */
+	/**
+	 * Copy results of queries in a query pool to a host memory region.
+	 * 
+	 * <h5>C Specification</h5>
+	 * 
+	 * <p>To retrieve status and results for a set of queries, call:</p>
+	 * 
+	 * <pre><code>VkResult vkGetQueryPoolResults(
+    VkDevice                                    device,
+    VkQueryPool                                 queryPool,
+    uint32_t                                    firstQuery,
+    uint32_t                                    queryCount,
+    size_t                                      dataSize,
+    void*                                       pData,
+    VkDeviceSize                                stride,
+    VkQueryResultFlags                          flags);</code></pre>
+	 * 
+	 * <h5>Description</h5>
+	 * 
+	 * <p>If no bits are set in {@code flags}, and all requested queries are in the available state, results are written as an array of 32-bit unsigned integer values. The behavior when not all queries are available, is described <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#queries-wait-bit-not-set"> below</a>.</p>
+	 * 
+	 * <p>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is not set and the result overflows a 32-bit value, the value <b>may</b> either wrap or saturate. Similarly, if {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is set and the result overflows a 64-bit value, the value <b>may</b> either wrap or saturate.</p>
+	 * 
+	 * <p>If {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} is set, Vulkan will wait for each query to be in the available state before retrieving the numerical results for that query. In this case, {@link #vkGetQueryPoolResults GetQueryPoolResults} is guaranteed to succeed and return {@link #VK_SUCCESS SUCCESS} if the queries become available in a finite time (i.e. if they have been issued and not reset). If queries will never finish (e.g. due to being reset but not issued), then {@link #vkGetQueryPoolResults GetQueryPoolResults} <b>may</b> not return in finite time.</p>
+	 * 
+	 * <p>If {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} and {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} are both not set then no result values are written to {@code pData} for queries that are in the unavailable state at the time of the call, and {@link #vkGetQueryPoolResults GetQueryPoolResults} returns {@link #VK_NOT_READY NOT_READY}. However, availability state is still written to {@code pData} for those queries if {@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT} is set.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>Applications <b>must</b> take care to ensure that use of the {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} bit has the desired effect.</p>
+	 * 
+	 * <p>For example, if a query has been used previously and a command buffer records the commands {@link #vkCmdResetQueryPool CmdResetQueryPool}, {@link #vkCmdBeginQuery CmdBeginQuery}, and {@link #vkCmdEndQuery CmdEndQuery} for that query, then the query will remain in the available state until the {@link #vkCmdResetQueryPool CmdResetQueryPool} command executes on a queue. Applications <b>can</b> use fences or events to ensure that a query has already been reset before checking for its results or availability status. Otherwise, a stale value could be returned from a previous use of the query.</p>
+	 * 
+	 * <p>The above also applies when {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} is used in combination with {@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT}. In this case, the returned availability status <b>may</b> reflect the result of a previous use of the query unless the {@link #vkCmdResetQueryPool CmdResetQueryPool} command has been executed since the last use of the query.</p>
+	 * </div>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>Applications <b>can</b> double-buffer query pool usage, with a pool per frame, and reset queries at the end of the frame in which they are read.</p>
+	 * </div>
+	 * 
+	 * <p>If {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} is set, {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} is not set, and the query's status is unavailable, an intermediate result value between zero and the final result value is written to {@code pData} for that query.</p>
+	 * 
+	 * <p>{@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} <b>must</b> not be used if the pool's {@code queryType} is {@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}.</p>
+	 * 
+	 * <p>If {@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT} is set, the final integer value written for each query is non-zero if the query's status was available or zero if the status was unavailable. When {@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT} is used, implementations <b>must</b> guarantee that if they return a non-zero availability value then the numerical results <b>must</b> be valid, assuming the results are not reset by a subsequent command.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>Satisfying this guarantee <b>may</b> require careful ordering by the application, e.g. to read the availability status before reading the results.</p>
+	 * </div>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code firstQuery} <b>must</b> be less than the number of queries in {@code queryPool}</li>
+	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is not set in {@code flags} then {@code pData} and {@code stride} <b>must</b> be multiples of 4</li>
+	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is set in {@code flags} then {@code pData} and {@code stride} <b>must</b> be multiples of 8</li>
+	 * <li>The sum of {@code firstQuery} and {@code queryCount} <b>must</b> be less than or equal to the number of queries in {@code queryPool}</li>
+	 * <li>{@code dataSize} <b>must</b> be large enough to contain the result of each query, as described <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#queries-operation-memorylayout">here</a></li>
+	 * <li>If the {@code queryType} used to create {@code queryPool} was {@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}, {@code flags} <b>must</b> not contain {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT}</li>
+	 * </ul>
+	 * 
+	 * <h5>Valid Usage (Implicit)</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code queryPool} <b>must</b> be a valid {@code VkQueryPool} handle</li>
+	 * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
+	 * <li>{@code flags} <b>must</b> be a valid combination of {@code VkQueryResultFlagBits} values</li>
+	 * <li>{@code dataSize} <b>must</b> be greater than 0</li>
+	 * <li>{@code queryPool} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
+	 * </ul>
+	 * 
+	 * <h5>Return Codes</h5>
+	 * 
+	 * <dl>
+	 * <dt>On success, this command returns</dt>
+	 * <dd><ul>
+	 * <li>{@link #VK_SUCCESS SUCCESS}</li>
+	 * <li>{@link #VK_NOT_READY NOT_READY}</li>
+	 * </ul></dd>
+	 * <dt>On failure, this command returns</dt>
+	 * <dd><ul>
+	 * <li>{@link #VK_ERROR_OUT_OF_HOST_MEMORY ERROR_OUT_OF_HOST_MEMORY}</li>
+	 * <li>{@link #VK_ERROR_OUT_OF_DEVICE_MEMORY ERROR_OUT_OF_DEVICE_MEMORY}</li>
+	 * <li>{@link #VK_ERROR_DEVICE_LOST ERROR_DEVICE_LOST}</li>
+	 * </ul></dd>
+	 * </dl>
+	 *
+	 * @param device     the logical device that owns the query pool.
+	 * @param queryPool  the query pool managing the queries containing the desired results.
+	 * @param firstQuery the initial query index.
+	 * @param queryCount the number of queries. {@code firstQuery} and {@code queryCount} together define a range of queries.
+	 * @param pData      a pointer to a user-allocated buffer where the results will be written
+	 * @param stride     the stride in bytes between results for individual queries within {@code pData}.
+	 * @param flags      a bitmask of {@code VkQueryResultFlagBits} specifying how and when results are returned. Bits which <b>can</b> be set include:
+	 *                   
+	 *                   <pre><code>typedef enum VkQueryResultFlagBits {
+    VK_QUERY_RESULT_64_BIT = 0x00000001,
+    VK_QUERY_RESULT_WAIT_BIT = 0x00000002,
+    VK_QUERY_RESULT_WITH_AVAILABILITY_BIT = 0x00000004,
+    VK_QUERY_RESULT_PARTIAL_BIT = 0x00000008,
+} VkQueryResultFlagBits;</code></pre>
+	 *                   
+	 *                   <ul>
+	 *                   <li>{@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} indicates the results will be written as an array of 64-bit unsigned integer values. If this bit is not set, the results will be written as an array of 32-bit unsigned integer values.</li>
+	 *                   <li>{@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} indicates that Vulkan will wait for each query&#8217;s status to become available before retrieving its results.</li>
+	 *                   <li>{@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT} indicates that the availability status accompanies the results.</li>
+	 *                   <li>{@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} indicates that returning partial results is acceptable.</li>
+	 *                   </ul>
+	 */
 	public static int vkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, IntBuffer pData, long stride, int flags) {
 		return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, pData.remaining() << 2, memAddress(pData), stride, flags);
 	}
 
-	/** LongBuffer version of: {@link #vkGetQueryPoolResults GetQueryPoolResults} */
+	/**
+	 * Copy results of queries in a query pool to a host memory region.
+	 * 
+	 * <h5>C Specification</h5>
+	 * 
+	 * <p>To retrieve status and results for a set of queries, call:</p>
+	 * 
+	 * <pre><code>VkResult vkGetQueryPoolResults(
+    VkDevice                                    device,
+    VkQueryPool                                 queryPool,
+    uint32_t                                    firstQuery,
+    uint32_t                                    queryCount,
+    size_t                                      dataSize,
+    void*                                       pData,
+    VkDeviceSize                                stride,
+    VkQueryResultFlags                          flags);</code></pre>
+	 * 
+	 * <h5>Description</h5>
+	 * 
+	 * <p>If no bits are set in {@code flags}, and all requested queries are in the available state, results are written as an array of 32-bit unsigned integer values. The behavior when not all queries are available, is described <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#queries-wait-bit-not-set"> below</a>.</p>
+	 * 
+	 * <p>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is not set and the result overflows a 32-bit value, the value <b>may</b> either wrap or saturate. Similarly, if {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is set and the result overflows a 64-bit value, the value <b>may</b> either wrap or saturate.</p>
+	 * 
+	 * <p>If {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} is set, Vulkan will wait for each query to be in the available state before retrieving the numerical results for that query. In this case, {@link #vkGetQueryPoolResults GetQueryPoolResults} is guaranteed to succeed and return {@link #VK_SUCCESS SUCCESS} if the queries become available in a finite time (i.e. if they have been issued and not reset). If queries will never finish (e.g. due to being reset but not issued), then {@link #vkGetQueryPoolResults GetQueryPoolResults} <b>may</b> not return in finite time.</p>
+	 * 
+	 * <p>If {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} and {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} are both not set then no result values are written to {@code pData} for queries that are in the unavailable state at the time of the call, and {@link #vkGetQueryPoolResults GetQueryPoolResults} returns {@link #VK_NOT_READY NOT_READY}. However, availability state is still written to {@code pData} for those queries if {@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT} is set.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>Applications <b>must</b> take care to ensure that use of the {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} bit has the desired effect.</p>
+	 * 
+	 * <p>For example, if a query has been used previously and a command buffer records the commands {@link #vkCmdResetQueryPool CmdResetQueryPool}, {@link #vkCmdBeginQuery CmdBeginQuery}, and {@link #vkCmdEndQuery CmdEndQuery} for that query, then the query will remain in the available state until the {@link #vkCmdResetQueryPool CmdResetQueryPool} command executes on a queue. Applications <b>can</b> use fences or events to ensure that a query has already been reset before checking for its results or availability status. Otherwise, a stale value could be returned from a previous use of the query.</p>
+	 * 
+	 * <p>The above also applies when {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} is used in combination with {@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT}. In this case, the returned availability status <b>may</b> reflect the result of a previous use of the query unless the {@link #vkCmdResetQueryPool CmdResetQueryPool} command has been executed since the last use of the query.</p>
+	 * </div>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>Applications <b>can</b> double-buffer query pool usage, with a pool per frame, and reset queries at the end of the frame in which they are read.</p>
+	 * </div>
+	 * 
+	 * <p>If {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} is set, {@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} is not set, and the query's status is unavailable, an intermediate result value between zero and the final result value is written to {@code pData} for that query.</p>
+	 * 
+	 * <p>{@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} <b>must</b> not be used if the pool's {@code queryType} is {@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}.</p>
+	 * 
+	 * <p>If {@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT} is set, the final integer value written for each query is non-zero if the query's status was available or zero if the status was unavailable. When {@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT} is used, implementations <b>must</b> guarantee that if they return a non-zero availability value then the numerical results <b>must</b> be valid, assuming the results are not reset by a subsequent command.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>Satisfying this guarantee <b>may</b> require careful ordering by the application, e.g. to read the availability status before reading the results.</p>
+	 * </div>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code firstQuery} <b>must</b> be less than the number of queries in {@code queryPool}</li>
+	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is not set in {@code flags} then {@code pData} and {@code stride} <b>must</b> be multiples of 4</li>
+	 * <li>If {@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} is set in {@code flags} then {@code pData} and {@code stride} <b>must</b> be multiples of 8</li>
+	 * <li>The sum of {@code firstQuery} and {@code queryCount} <b>must</b> be less than or equal to the number of queries in {@code queryPool}</li>
+	 * <li>{@code dataSize} <b>must</b> be large enough to contain the result of each query, as described <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#queries-operation-memorylayout">here</a></li>
+	 * <li>If the {@code queryType} used to create {@code queryPool} was {@link #VK_QUERY_TYPE_TIMESTAMP QUERY_TYPE_TIMESTAMP}, {@code flags} <b>must</b> not contain {@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT}</li>
+	 * </ul>
+	 * 
+	 * <h5>Valid Usage (Implicit)</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+	 * <li>{@code queryPool} <b>must</b> be a valid {@code VkQueryPool} handle</li>
+	 * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
+	 * <li>{@code flags} <b>must</b> be a valid combination of {@code VkQueryResultFlagBits} values</li>
+	 * <li>{@code dataSize} <b>must</b> be greater than 0</li>
+	 * <li>{@code queryPool} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
+	 * </ul>
+	 * 
+	 * <h5>Return Codes</h5>
+	 * 
+	 * <dl>
+	 * <dt>On success, this command returns</dt>
+	 * <dd><ul>
+	 * <li>{@link #VK_SUCCESS SUCCESS}</li>
+	 * <li>{@link #VK_NOT_READY NOT_READY}</li>
+	 * </ul></dd>
+	 * <dt>On failure, this command returns</dt>
+	 * <dd><ul>
+	 * <li>{@link #VK_ERROR_OUT_OF_HOST_MEMORY ERROR_OUT_OF_HOST_MEMORY}</li>
+	 * <li>{@link #VK_ERROR_OUT_OF_DEVICE_MEMORY ERROR_OUT_OF_DEVICE_MEMORY}</li>
+	 * <li>{@link #VK_ERROR_DEVICE_LOST ERROR_DEVICE_LOST}</li>
+	 * </ul></dd>
+	 * </dl>
+	 *
+	 * @param device     the logical device that owns the query pool.
+	 * @param queryPool  the query pool managing the queries containing the desired results.
+	 * @param firstQuery the initial query index.
+	 * @param queryCount the number of queries. {@code firstQuery} and {@code queryCount} together define a range of queries.
+	 * @param pData      a pointer to a user-allocated buffer where the results will be written
+	 * @param stride     the stride in bytes between results for individual queries within {@code pData}.
+	 * @param flags      a bitmask of {@code VkQueryResultFlagBits} specifying how and when results are returned. Bits which <b>can</b> be set include:
+	 *                   
+	 *                   <pre><code>typedef enum VkQueryResultFlagBits {
+    VK_QUERY_RESULT_64_BIT = 0x00000001,
+    VK_QUERY_RESULT_WAIT_BIT = 0x00000002,
+    VK_QUERY_RESULT_WITH_AVAILABILITY_BIT = 0x00000004,
+    VK_QUERY_RESULT_PARTIAL_BIT = 0x00000008,
+} VkQueryResultFlagBits;</code></pre>
+	 *                   
+	 *                   <ul>
+	 *                   <li>{@link #VK_QUERY_RESULT_64_BIT QUERY_RESULT_64_BIT} indicates the results will be written as an array of 64-bit unsigned integer values. If this bit is not set, the results will be written as an array of 32-bit unsigned integer values.</li>
+	 *                   <li>{@link #VK_QUERY_RESULT_WAIT_BIT QUERY_RESULT_WAIT_BIT} indicates that Vulkan will wait for each query&#8217;s status to become available before retrieving its results.</li>
+	 *                   <li>{@link #VK_QUERY_RESULT_WITH_AVAILABILITY_BIT QUERY_RESULT_WITH_AVAILABILITY_BIT} indicates that the availability status accompanies the results.</li>
+	 *                   <li>{@link #VK_QUERY_RESULT_PARTIAL_BIT QUERY_RESULT_PARTIAL_BIT} indicates that returning partial results is acceptable.</li>
+	 *                   </ul>
+	 */
 	public static int vkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, LongBuffer pData, long stride, int flags) {
 		return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, pData.remaining() << 3, memAddress(pData), stride, flags);
 	}
@@ -11421,27 +11643,342 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 		nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining(), memAddress(pData));
 	}
 
-	/** ShortBuffer version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
+	/**
+	 * Update a buffer's contents from host memory.
+	 * 
+	 * <h5>C Specification</h5>
+	 * 
+	 * <p>To update buffer data inline in a command buffer, call:</p>
+	 * 
+	 * <pre><code>void vkCmdUpdateBuffer(
+    VkCommandBuffer                             commandBuffer,
+    VkBuffer                                    dstBuffer,
+    VkDeviceSize                                dstOffset,
+    VkDeviceSize                                dataSize,
+    const void*                                 pData);</code></pre>
+	 * 
+	 * <h5>Description</h5>
+	 * 
+	 * <p>{@code dataSize} <b>must</b> be less than or equal to 65536 bytes. For larger updates, applications <b>can</b> use buffer to buffer <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies-buffers">copies</a>.</p>
+	 * 
+	 * <p>The source data is copied from the user pointer to the command buffer when the command is called.</p>
+	 * 
+	 * <p>{@link #vkCmdUpdateBuffer CmdUpdateBuffer} is only allowed outside of a render pass. This command is treated as “transfer” operation, for the purposes of synchronization barriers. The {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} <b>must</b> be specified in {@code usage} of {@link VkBufferCreateInfo} in order for the buffer to be compatible with {@link #vkCmdUpdateBuffer CmdUpdateBuffer}.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code dstOffset} <b>must</b> be less than the size of {@code dstBuffer}</li>
+	 * <li>{@code dataSize} <b>must</b> be less than or equal to the size of {@code dstBuffer} minus {@code dstOffset}</li>
+	 * <li>{@code dstBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} usage flag</li>
+	 * <li>{@code dstOffset} <b>must</b> be a multiple of 4</li>
+	 * <li>{@code dataSize} <b>must</b> be less than or equal to 65536</li>
+	 * <li>{@code dataSize} <b>must</b> be a multiple of 4</li>
+	 * </ul>
+	 * 
+	 * <h5>Valid Usage (Implicit)</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
+	 * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
+	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
+	 * <li>{@code dataSize} <b>must</b> be greater than 0</li>
+	 * <li>Both of {@code commandBuffer}, and {@code dstBuffer} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 * 
+	 * <h5>Command Properties</h5>
+	 * 
+	 * <table class="lwjgl">
+	 * <thead><tr><th>Command Buffer Levels</th><th>Render Pass Scope</th><th>Supported Queue Types</th></tr></thead>
+	 * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>TRANSFER GRAPHICS COMPUTE</td></tr></tbody>
+	 * </table>
+	 *
+	 * @param commandBuffer the command buffer into which the command will be recorded.
+	 * @param dstBuffer     a handle to the buffer to be updated.
+	 * @param dstOffset     the byte offset into the buffer to start updating, and <b>must</b> be a multiple of 4.
+	 * @param pData         a pointer to the source data for the buffer update, and <b>must</b> be at least {@code dataSize} bytes in size.
+	 */
 	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, ShortBuffer pData) {
 		nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining() << 1, memAddress(pData));
 	}
 
-	/** IntBuffer version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
+	/**
+	 * Update a buffer's contents from host memory.
+	 * 
+	 * <h5>C Specification</h5>
+	 * 
+	 * <p>To update buffer data inline in a command buffer, call:</p>
+	 * 
+	 * <pre><code>void vkCmdUpdateBuffer(
+    VkCommandBuffer                             commandBuffer,
+    VkBuffer                                    dstBuffer,
+    VkDeviceSize                                dstOffset,
+    VkDeviceSize                                dataSize,
+    const void*                                 pData);</code></pre>
+	 * 
+	 * <h5>Description</h5>
+	 * 
+	 * <p>{@code dataSize} <b>must</b> be less than or equal to 65536 bytes. For larger updates, applications <b>can</b> use buffer to buffer <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies-buffers">copies</a>.</p>
+	 * 
+	 * <p>The source data is copied from the user pointer to the command buffer when the command is called.</p>
+	 * 
+	 * <p>{@link #vkCmdUpdateBuffer CmdUpdateBuffer} is only allowed outside of a render pass. This command is treated as “transfer” operation, for the purposes of synchronization barriers. The {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} <b>must</b> be specified in {@code usage} of {@link VkBufferCreateInfo} in order for the buffer to be compatible with {@link #vkCmdUpdateBuffer CmdUpdateBuffer}.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code dstOffset} <b>must</b> be less than the size of {@code dstBuffer}</li>
+	 * <li>{@code dataSize} <b>must</b> be less than or equal to the size of {@code dstBuffer} minus {@code dstOffset}</li>
+	 * <li>{@code dstBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} usage flag</li>
+	 * <li>{@code dstOffset} <b>must</b> be a multiple of 4</li>
+	 * <li>{@code dataSize} <b>must</b> be less than or equal to 65536</li>
+	 * <li>{@code dataSize} <b>must</b> be a multiple of 4</li>
+	 * </ul>
+	 * 
+	 * <h5>Valid Usage (Implicit)</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
+	 * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
+	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
+	 * <li>{@code dataSize} <b>must</b> be greater than 0</li>
+	 * <li>Both of {@code commandBuffer}, and {@code dstBuffer} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 * 
+	 * <h5>Command Properties</h5>
+	 * 
+	 * <table class="lwjgl">
+	 * <thead><tr><th>Command Buffer Levels</th><th>Render Pass Scope</th><th>Supported Queue Types</th></tr></thead>
+	 * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>TRANSFER GRAPHICS COMPUTE</td></tr></tbody>
+	 * </table>
+	 *
+	 * @param commandBuffer the command buffer into which the command will be recorded.
+	 * @param dstBuffer     a handle to the buffer to be updated.
+	 * @param dstOffset     the byte offset into the buffer to start updating, and <b>must</b> be a multiple of 4.
+	 * @param pData         a pointer to the source data for the buffer update, and <b>must</b> be at least {@code dataSize} bytes in size.
+	 */
 	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, IntBuffer pData) {
 		nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining() << 2, memAddress(pData));
 	}
 
-	/** LongBuffer version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
+	/**
+	 * Update a buffer's contents from host memory.
+	 * 
+	 * <h5>C Specification</h5>
+	 * 
+	 * <p>To update buffer data inline in a command buffer, call:</p>
+	 * 
+	 * <pre><code>void vkCmdUpdateBuffer(
+    VkCommandBuffer                             commandBuffer,
+    VkBuffer                                    dstBuffer,
+    VkDeviceSize                                dstOffset,
+    VkDeviceSize                                dataSize,
+    const void*                                 pData);</code></pre>
+	 * 
+	 * <h5>Description</h5>
+	 * 
+	 * <p>{@code dataSize} <b>must</b> be less than or equal to 65536 bytes. For larger updates, applications <b>can</b> use buffer to buffer <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies-buffers">copies</a>.</p>
+	 * 
+	 * <p>The source data is copied from the user pointer to the command buffer when the command is called.</p>
+	 * 
+	 * <p>{@link #vkCmdUpdateBuffer CmdUpdateBuffer} is only allowed outside of a render pass. This command is treated as “transfer” operation, for the purposes of synchronization barriers. The {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} <b>must</b> be specified in {@code usage} of {@link VkBufferCreateInfo} in order for the buffer to be compatible with {@link #vkCmdUpdateBuffer CmdUpdateBuffer}.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code dstOffset} <b>must</b> be less than the size of {@code dstBuffer}</li>
+	 * <li>{@code dataSize} <b>must</b> be less than or equal to the size of {@code dstBuffer} minus {@code dstOffset}</li>
+	 * <li>{@code dstBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} usage flag</li>
+	 * <li>{@code dstOffset} <b>must</b> be a multiple of 4</li>
+	 * <li>{@code dataSize} <b>must</b> be less than or equal to 65536</li>
+	 * <li>{@code dataSize} <b>must</b> be a multiple of 4</li>
+	 * </ul>
+	 * 
+	 * <h5>Valid Usage (Implicit)</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
+	 * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
+	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
+	 * <li>{@code dataSize} <b>must</b> be greater than 0</li>
+	 * <li>Both of {@code commandBuffer}, and {@code dstBuffer} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 * 
+	 * <h5>Command Properties</h5>
+	 * 
+	 * <table class="lwjgl">
+	 * <thead><tr><th>Command Buffer Levels</th><th>Render Pass Scope</th><th>Supported Queue Types</th></tr></thead>
+	 * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>TRANSFER GRAPHICS COMPUTE</td></tr></tbody>
+	 * </table>
+	 *
+	 * @param commandBuffer the command buffer into which the command will be recorded.
+	 * @param dstBuffer     a handle to the buffer to be updated.
+	 * @param dstOffset     the byte offset into the buffer to start updating, and <b>must</b> be a multiple of 4.
+	 * @param pData         a pointer to the source data for the buffer update, and <b>must</b> be at least {@code dataSize} bytes in size.
+	 */
 	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, LongBuffer pData) {
 		nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining() << 3, memAddress(pData));
 	}
 
-	/** FloatBuffer version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
+	/**
+	 * Update a buffer's contents from host memory.
+	 * 
+	 * <h5>C Specification</h5>
+	 * 
+	 * <p>To update buffer data inline in a command buffer, call:</p>
+	 * 
+	 * <pre><code>void vkCmdUpdateBuffer(
+    VkCommandBuffer                             commandBuffer,
+    VkBuffer                                    dstBuffer,
+    VkDeviceSize                                dstOffset,
+    VkDeviceSize                                dataSize,
+    const void*                                 pData);</code></pre>
+	 * 
+	 * <h5>Description</h5>
+	 * 
+	 * <p>{@code dataSize} <b>must</b> be less than or equal to 65536 bytes. For larger updates, applications <b>can</b> use buffer to buffer <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies-buffers">copies</a>.</p>
+	 * 
+	 * <p>The source data is copied from the user pointer to the command buffer when the command is called.</p>
+	 * 
+	 * <p>{@link #vkCmdUpdateBuffer CmdUpdateBuffer} is only allowed outside of a render pass. This command is treated as “transfer” operation, for the purposes of synchronization barriers. The {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} <b>must</b> be specified in {@code usage} of {@link VkBufferCreateInfo} in order for the buffer to be compatible with {@link #vkCmdUpdateBuffer CmdUpdateBuffer}.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code dstOffset} <b>must</b> be less than the size of {@code dstBuffer}</li>
+	 * <li>{@code dataSize} <b>must</b> be less than or equal to the size of {@code dstBuffer} minus {@code dstOffset}</li>
+	 * <li>{@code dstBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} usage flag</li>
+	 * <li>{@code dstOffset} <b>must</b> be a multiple of 4</li>
+	 * <li>{@code dataSize} <b>must</b> be less than or equal to 65536</li>
+	 * <li>{@code dataSize} <b>must</b> be a multiple of 4</li>
+	 * </ul>
+	 * 
+	 * <h5>Valid Usage (Implicit)</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
+	 * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
+	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
+	 * <li>{@code dataSize} <b>must</b> be greater than 0</li>
+	 * <li>Both of {@code commandBuffer}, and {@code dstBuffer} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 * 
+	 * <h5>Command Properties</h5>
+	 * 
+	 * <table class="lwjgl">
+	 * <thead><tr><th>Command Buffer Levels</th><th>Render Pass Scope</th><th>Supported Queue Types</th></tr></thead>
+	 * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>TRANSFER GRAPHICS COMPUTE</td></tr></tbody>
+	 * </table>
+	 *
+	 * @param commandBuffer the command buffer into which the command will be recorded.
+	 * @param dstBuffer     a handle to the buffer to be updated.
+	 * @param dstOffset     the byte offset into the buffer to start updating, and <b>must</b> be a multiple of 4.
+	 * @param pData         a pointer to the source data for the buffer update, and <b>must</b> be at least {@code dataSize} bytes in size.
+	 */
 	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, FloatBuffer pData) {
 		nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining() << 2, memAddress(pData));
 	}
 
-	/** DoubleBuffer version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
+	/**
+	 * Update a buffer's contents from host memory.
+	 * 
+	 * <h5>C Specification</h5>
+	 * 
+	 * <p>To update buffer data inline in a command buffer, call:</p>
+	 * 
+	 * <pre><code>void vkCmdUpdateBuffer(
+    VkCommandBuffer                             commandBuffer,
+    VkBuffer                                    dstBuffer,
+    VkDeviceSize                                dstOffset,
+    VkDeviceSize                                dataSize,
+    const void*                                 pData);</code></pre>
+	 * 
+	 * <h5>Description</h5>
+	 * 
+	 * <p>{@code dataSize} <b>must</b> be less than or equal to 65536 bytes. For larger updates, applications <b>can</b> use buffer to buffer <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies-buffers">copies</a>.</p>
+	 * 
+	 * <p>The source data is copied from the user pointer to the command buffer when the command is called.</p>
+	 * 
+	 * <p>{@link #vkCmdUpdateBuffer CmdUpdateBuffer} is only allowed outside of a render pass. This command is treated as “transfer” operation, for the purposes of synchronization barriers. The {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} <b>must</b> be specified in {@code usage} of {@link VkBufferCreateInfo} in order for the buffer to be compatible with {@link #vkCmdUpdateBuffer CmdUpdateBuffer}.</p>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code dstOffset} <b>must</b> be less than the size of {@code dstBuffer}</li>
+	 * <li>{@code dataSize} <b>must</b> be less than or equal to the size of {@code dstBuffer} minus {@code dstOffset}</li>
+	 * <li>{@code dstBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} usage flag</li>
+	 * <li>{@code dstOffset} <b>must</b> be a multiple of 4</li>
+	 * <li>{@code dataSize} <b>must</b> be less than or equal to 65536</li>
+	 * <li>{@code dataSize} <b>must</b> be a multiple of 4</li>
+	 * </ul>
+	 * 
+	 * <h5>Valid Usage (Implicit)</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
+	 * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
+	 * <li>This command <b>must</b> only be called outside of a render pass instance</li>
+	 * <li>{@code dataSize} <b>must</b> be greater than 0</li>
+	 * <li>Both of {@code commandBuffer}, and {@code dstBuffer} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 * 
+	 * <h5>Command Properties</h5>
+	 * 
+	 * <table class="lwjgl">
+	 * <thead><tr><th>Command Buffer Levels</th><th>Render Pass Scope</th><th>Supported Queue Types</th></tr></thead>
+	 * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>TRANSFER GRAPHICS COMPUTE</td></tr></tbody>
+	 * </table>
+	 *
+	 * @param commandBuffer the command buffer into which the command will be recorded.
+	 * @param dstBuffer     a handle to the buffer to be updated.
+	 * @param dstOffset     the byte offset into the buffer to start updating, and <b>must</b> be a multiple of 4.
+	 * @param pData         a pointer to the source data for the buffer update, and <b>must</b> be at least {@code dataSize} bytes in size.
+	 */
 	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, DoubleBuffer pData) {
 		nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining() << 3, memAddress(pData));
 	}
@@ -12819,27 +13356,312 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 		nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining(), memAddress(pValues));
 	}
 
-	/** ShortBuffer version of: {@link #vkCmdPushConstants CmdPushConstants} */
+	/**
+	 * Update the values of push constants.
+	 * 
+	 * <h5>C Specification</h5>
+	 * 
+	 * <p>To update push constants, call:</p>
+	 * 
+	 * <pre><code>void vkCmdPushConstants(
+    VkCommandBuffer                             commandBuffer,
+    VkPipelineLayout                            layout,
+    VkShaderStageFlags                          stageFlags,
+    uint32_t                                    offset,
+    uint32_t                                    size,
+    const void*                                 pValues);</code></pre>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code stageFlags} <b>must</b> match exactly the shader stages used in {@code layout} for the range specified by {@code offset} and {@code size}</li>
+	 * <li>{@code offset} <b>must</b> be a multiple of 4</li>
+	 * <li>{@code size} <b>must</b> be a multiple of 4</li>
+	 * <li>{@code offset} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxPushConstantsSize}</li>
+	 * <li>{@code size} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxPushConstantsSize} minus {@code offset}</li>
+	 * </ul>
+	 * 
+	 * <h5>Valid Usage (Implicit)</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code layout} <b>must</b> be a valid {@code VkPipelineLayout} handle</li>
+	 * <li>{@code stageFlags} <b>must</b> be a valid combination of {@code VkShaderStageFlagBits} values</li>
+	 * <li>{@code stageFlags} <b>must</b> not be 0</li>
+	 * <li>{@code pValues} <b>must</b> be a pointer to an array of {@code size} bytes</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
+	 * <li>{@code size} <b>must</b> be greater than 0</li>
+	 * <li>Both of {@code commandBuffer}, and {@code layout} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 * 
+	 * <h5>Command Properties</h5>
+	 * 
+	 * <table class="lwjgl">
+	 * <thead><tr><th>Command Buffer Levels</th><th>Render Pass Scope</th><th>Supported Queue Types</th></tr></thead>
+	 * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>GRAPHICS COMPUTE</td></tr></tbody>
+	 * </table>
+	 *
+	 * @param commandBuffer the command buffer in which the push constant update will be recorded.
+	 * @param layout        the pipeline layout used to program the push constant updates.
+	 * @param stageFlags    a bitmask of {@code VkShaderStageFlagBits} specifying the shader stages that will use the push constants in the updated range.
+	 * @param offset        the start offset of the push constant range to update, in units of bytes.
+	 * @param pValues       an array of {@code size} bytes containing the new push constant values.
+	 */
 	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, ShortBuffer pValues) {
 		nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining() << 1, memAddress(pValues));
 	}
 
-	/** IntBuffer version of: {@link #vkCmdPushConstants CmdPushConstants} */
+	/**
+	 * Update the values of push constants.
+	 * 
+	 * <h5>C Specification</h5>
+	 * 
+	 * <p>To update push constants, call:</p>
+	 * 
+	 * <pre><code>void vkCmdPushConstants(
+    VkCommandBuffer                             commandBuffer,
+    VkPipelineLayout                            layout,
+    VkShaderStageFlags                          stageFlags,
+    uint32_t                                    offset,
+    uint32_t                                    size,
+    const void*                                 pValues);</code></pre>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code stageFlags} <b>must</b> match exactly the shader stages used in {@code layout} for the range specified by {@code offset} and {@code size}</li>
+	 * <li>{@code offset} <b>must</b> be a multiple of 4</li>
+	 * <li>{@code size} <b>must</b> be a multiple of 4</li>
+	 * <li>{@code offset} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxPushConstantsSize}</li>
+	 * <li>{@code size} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxPushConstantsSize} minus {@code offset}</li>
+	 * </ul>
+	 * 
+	 * <h5>Valid Usage (Implicit)</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code layout} <b>must</b> be a valid {@code VkPipelineLayout} handle</li>
+	 * <li>{@code stageFlags} <b>must</b> be a valid combination of {@code VkShaderStageFlagBits} values</li>
+	 * <li>{@code stageFlags} <b>must</b> not be 0</li>
+	 * <li>{@code pValues} <b>must</b> be a pointer to an array of {@code size} bytes</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
+	 * <li>{@code size} <b>must</b> be greater than 0</li>
+	 * <li>Both of {@code commandBuffer}, and {@code layout} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 * 
+	 * <h5>Command Properties</h5>
+	 * 
+	 * <table class="lwjgl">
+	 * <thead><tr><th>Command Buffer Levels</th><th>Render Pass Scope</th><th>Supported Queue Types</th></tr></thead>
+	 * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>GRAPHICS COMPUTE</td></tr></tbody>
+	 * </table>
+	 *
+	 * @param commandBuffer the command buffer in which the push constant update will be recorded.
+	 * @param layout        the pipeline layout used to program the push constant updates.
+	 * @param stageFlags    a bitmask of {@code VkShaderStageFlagBits} specifying the shader stages that will use the push constants in the updated range.
+	 * @param offset        the start offset of the push constant range to update, in units of bytes.
+	 * @param pValues       an array of {@code size} bytes containing the new push constant values.
+	 */
 	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, IntBuffer pValues) {
 		nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining() << 2, memAddress(pValues));
 	}
 
-	/** LongBuffer version of: {@link #vkCmdPushConstants CmdPushConstants} */
+	/**
+	 * Update the values of push constants.
+	 * 
+	 * <h5>C Specification</h5>
+	 * 
+	 * <p>To update push constants, call:</p>
+	 * 
+	 * <pre><code>void vkCmdPushConstants(
+    VkCommandBuffer                             commandBuffer,
+    VkPipelineLayout                            layout,
+    VkShaderStageFlags                          stageFlags,
+    uint32_t                                    offset,
+    uint32_t                                    size,
+    const void*                                 pValues);</code></pre>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code stageFlags} <b>must</b> match exactly the shader stages used in {@code layout} for the range specified by {@code offset} and {@code size}</li>
+	 * <li>{@code offset} <b>must</b> be a multiple of 4</li>
+	 * <li>{@code size} <b>must</b> be a multiple of 4</li>
+	 * <li>{@code offset} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxPushConstantsSize}</li>
+	 * <li>{@code size} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxPushConstantsSize} minus {@code offset}</li>
+	 * </ul>
+	 * 
+	 * <h5>Valid Usage (Implicit)</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code layout} <b>must</b> be a valid {@code VkPipelineLayout} handle</li>
+	 * <li>{@code stageFlags} <b>must</b> be a valid combination of {@code VkShaderStageFlagBits} values</li>
+	 * <li>{@code stageFlags} <b>must</b> not be 0</li>
+	 * <li>{@code pValues} <b>must</b> be a pointer to an array of {@code size} bytes</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
+	 * <li>{@code size} <b>must</b> be greater than 0</li>
+	 * <li>Both of {@code commandBuffer}, and {@code layout} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 * 
+	 * <h5>Command Properties</h5>
+	 * 
+	 * <table class="lwjgl">
+	 * <thead><tr><th>Command Buffer Levels</th><th>Render Pass Scope</th><th>Supported Queue Types</th></tr></thead>
+	 * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>GRAPHICS COMPUTE</td></tr></tbody>
+	 * </table>
+	 *
+	 * @param commandBuffer the command buffer in which the push constant update will be recorded.
+	 * @param layout        the pipeline layout used to program the push constant updates.
+	 * @param stageFlags    a bitmask of {@code VkShaderStageFlagBits} specifying the shader stages that will use the push constants in the updated range.
+	 * @param offset        the start offset of the push constant range to update, in units of bytes.
+	 * @param pValues       an array of {@code size} bytes containing the new push constant values.
+	 */
 	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, LongBuffer pValues) {
 		nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining() << 3, memAddress(pValues));
 	}
 
-	/** FloatBuffer version of: {@link #vkCmdPushConstants CmdPushConstants} */
+	/**
+	 * Update the values of push constants.
+	 * 
+	 * <h5>C Specification</h5>
+	 * 
+	 * <p>To update push constants, call:</p>
+	 * 
+	 * <pre><code>void vkCmdPushConstants(
+    VkCommandBuffer                             commandBuffer,
+    VkPipelineLayout                            layout,
+    VkShaderStageFlags                          stageFlags,
+    uint32_t                                    offset,
+    uint32_t                                    size,
+    const void*                                 pValues);</code></pre>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code stageFlags} <b>must</b> match exactly the shader stages used in {@code layout} for the range specified by {@code offset} and {@code size}</li>
+	 * <li>{@code offset} <b>must</b> be a multiple of 4</li>
+	 * <li>{@code size} <b>must</b> be a multiple of 4</li>
+	 * <li>{@code offset} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxPushConstantsSize}</li>
+	 * <li>{@code size} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxPushConstantsSize} minus {@code offset}</li>
+	 * </ul>
+	 * 
+	 * <h5>Valid Usage (Implicit)</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code layout} <b>must</b> be a valid {@code VkPipelineLayout} handle</li>
+	 * <li>{@code stageFlags} <b>must</b> be a valid combination of {@code VkShaderStageFlagBits} values</li>
+	 * <li>{@code stageFlags} <b>must</b> not be 0</li>
+	 * <li>{@code pValues} <b>must</b> be a pointer to an array of {@code size} bytes</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
+	 * <li>{@code size} <b>must</b> be greater than 0</li>
+	 * <li>Both of {@code commandBuffer}, and {@code layout} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 * 
+	 * <h5>Command Properties</h5>
+	 * 
+	 * <table class="lwjgl">
+	 * <thead><tr><th>Command Buffer Levels</th><th>Render Pass Scope</th><th>Supported Queue Types</th></tr></thead>
+	 * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>GRAPHICS COMPUTE</td></tr></tbody>
+	 * </table>
+	 *
+	 * @param commandBuffer the command buffer in which the push constant update will be recorded.
+	 * @param layout        the pipeline layout used to program the push constant updates.
+	 * @param stageFlags    a bitmask of {@code VkShaderStageFlagBits} specifying the shader stages that will use the push constants in the updated range.
+	 * @param offset        the start offset of the push constant range to update, in units of bytes.
+	 * @param pValues       an array of {@code size} bytes containing the new push constant values.
+	 */
 	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, FloatBuffer pValues) {
 		nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining() << 2, memAddress(pValues));
 	}
 
-	/** DoubleBuffer version of: {@link #vkCmdPushConstants CmdPushConstants} */
+	/**
+	 * Update the values of push constants.
+	 * 
+	 * <h5>C Specification</h5>
+	 * 
+	 * <p>To update push constants, call:</p>
+	 * 
+	 * <pre><code>void vkCmdPushConstants(
+    VkCommandBuffer                             commandBuffer,
+    VkPipelineLayout                            layout,
+    VkShaderStageFlags                          stageFlags,
+    uint32_t                                    offset,
+    uint32_t                                    size,
+    const void*                                 pValues);</code></pre>
+	 * 
+	 * <h5>Valid Usage</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code stageFlags} <b>must</b> match exactly the shader stages used in {@code layout} for the range specified by {@code offset} and {@code size}</li>
+	 * <li>{@code offset} <b>must</b> be a multiple of 4</li>
+	 * <li>{@code size} <b>must</b> be a multiple of 4</li>
+	 * <li>{@code offset} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxPushConstantsSize}</li>
+	 * <li>{@code size} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxPushConstantsSize} minus {@code offset}</li>
+	 * </ul>
+	 * 
+	 * <h5>Valid Usage (Implicit)</h5>
+	 * 
+	 * <ul>
+	 * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+	 * <li>{@code layout} <b>must</b> be a valid {@code VkPipelineLayout} handle</li>
+	 * <li>{@code stageFlags} <b>must</b> be a valid combination of {@code VkShaderStageFlagBits} values</li>
+	 * <li>{@code stageFlags} <b>must</b> not be 0</li>
+	 * <li>{@code pValues} <b>must</b> be a pointer to an array of {@code size} bytes</li>
+	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
+	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
+	 * <li>{@code size} <b>must</b> be greater than 0</li>
+	 * <li>Both of {@code commandBuffer}, and {@code layout} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 * 
+	 * <h5>Command Properties</h5>
+	 * 
+	 * <table class="lwjgl">
+	 * <thead><tr><th>Command Buffer Levels</th><th>Render Pass Scope</th><th>Supported Queue Types</th></tr></thead>
+	 * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>GRAPHICS COMPUTE</td></tr></tbody>
+	 * </table>
+	 *
+	 * @param commandBuffer the command buffer in which the push constant update will be recorded.
+	 * @param layout        the pipeline layout used to program the push constant updates.
+	 * @param stageFlags    a bitmask of {@code VkShaderStageFlagBits} specifying the shader stages that will use the push constants in the updated range.
+	 * @param offset        the start offset of the push constant range to update, in units of bytes.
+	 * @param pValues       an array of {@code size} bytes containing the new push constant values.
+	 */
 	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, DoubleBuffer pValues) {
 		nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining() << 3, memAddress(pValues));
 	}
@@ -13425,13 +14247,13 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pQueryPool);
 	}
 
-	/** int[] version of: {@link #vkGetQueryPoolResults GetQueryPoolResults} */
+	/** Array version of: {@link #vkGetQueryPoolResults GetQueryPoolResults} */
 	public static int vkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, int[] pData, long stride, int flags) {
 		long __functionAddress = device.getCapabilities().vkGetQueryPoolResults;
 		return callPJPPJI(__functionAddress, device.address(), queryPool, firstQuery, queryCount, (long)(pData.length << 2), pData, stride, flags);
 	}
 
-	/** long[] version of: {@link #vkGetQueryPoolResults GetQueryPoolResults} */
+	/** Array version of: {@link #vkGetQueryPoolResults GetQueryPoolResults} */
 	public static int vkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, long[] pData, long stride, int flags) {
 		long __functionAddress = device.getCapabilities().vkGetQueryPoolResults;
 		return callPJPPJI(__functionAddress, device.address(), queryPool, firstQuery, queryCount, (long)(pData.length << 3), pData, stride, flags);
@@ -13642,31 +14464,31 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 		callPPPV(__functionAddress, commandBuffer.address(), firstBinding, pBuffers.length, pBuffers, pOffsets);
 	}
 
-	/** short[] version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
+	/** Array version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
 	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, short[] pData) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdUpdateBuffer;
 		callPJJJPV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, (long)(pData.length << 1), pData);
 	}
 
-	/** int[] version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
+	/** Array version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
 	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, int[] pData) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdUpdateBuffer;
 		callPJJJPV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, (long)(pData.length << 2), pData);
 	}
 
-	/** long[] version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
+	/** Array version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
 	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, long[] pData) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdUpdateBuffer;
 		callPJJJPV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, (long)(pData.length << 3), pData);
 	}
 
-	/** float[] version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
+	/** Array version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
 	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, float[] pData) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdUpdateBuffer;
 		callPJJJPV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, (long)(pData.length << 2), pData);
 	}
 
-	/** double[] version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
+	/** Array version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
 	public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, double[] pData) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdUpdateBuffer;
 		callPJJJPV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, (long)(pData.length << 3), pData);
@@ -13678,31 +14500,31 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 		callPPPPPV(__functionAddress, commandBuffer.address(), pEvents.length, pEvents, srcStageMask, dstStageMask, remainingSafe(pMemoryBarriers), memAddressSafe(pMemoryBarriers), remainingSafe(pBufferMemoryBarriers), memAddressSafe(pBufferMemoryBarriers), remainingSafe(pImageMemoryBarriers), memAddressSafe(pImageMemoryBarriers));
 	}
 
-	/** short[] version of: {@link #vkCmdPushConstants CmdPushConstants} */
+	/** Array version of: {@link #vkCmdPushConstants CmdPushConstants} */
 	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, short[] pValues) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdPushConstants;
 		callPJPV(__functionAddress, commandBuffer.address(), layout, stageFlags, offset, pValues.length << 1, pValues);
 	}
 
-	/** int[] version of: {@link #vkCmdPushConstants CmdPushConstants} */
+	/** Array version of: {@link #vkCmdPushConstants CmdPushConstants} */
 	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, int[] pValues) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdPushConstants;
 		callPJPV(__functionAddress, commandBuffer.address(), layout, stageFlags, offset, pValues.length << 2, pValues);
 	}
 
-	/** long[] version of: {@link #vkCmdPushConstants CmdPushConstants} */
+	/** Array version of: {@link #vkCmdPushConstants CmdPushConstants} */
 	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, long[] pValues) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdPushConstants;
 		callPJPV(__functionAddress, commandBuffer.address(), layout, stageFlags, offset, pValues.length << 3, pValues);
 	}
 
-	/** float[] version of: {@link #vkCmdPushConstants CmdPushConstants} */
+	/** Array version of: {@link #vkCmdPushConstants CmdPushConstants} */
 	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, float[] pValues) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdPushConstants;
 		callPJPV(__functionAddress, commandBuffer.address(), layout, stageFlags, offset, pValues.length << 2, pValues);
 	}
 
-	/** double[] version of: {@link #vkCmdPushConstants CmdPushConstants} */
+	/** Array version of: {@link #vkCmdPushConstants CmdPushConstants} */
 	public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, double[] pValues) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdPushConstants;
 		callPJPV(__functionAddress, commandBuffer.address(), layout, stageFlags, offset, pValues.length << 3, pValues);

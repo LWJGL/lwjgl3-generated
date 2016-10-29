@@ -129,14 +129,12 @@ public class AMDPerformanceMonitor {
 		nglGetPerfMonitorCounterInfoAMD(group, counter, pname, memAddress(data));
 	}
 
-	/** IntBuffer version of: {@link #glGetPerfMonitorCounterInfoAMD GetPerfMonitorCounterInfoAMD} */
 	public static void glGetPerfMonitorCounterInfoAMD(int group, int counter, int pname, IntBuffer data) {
 		if ( CHECKS )
 			checkBuffer(data, 4 >> 2);
 		nglGetPerfMonitorCounterInfoAMD(group, counter, pname, memAddress(data));
 	}
 
-	/** FloatBuffer version of: {@link #glGetPerfMonitorCounterInfoAMD GetPerfMonitorCounterInfoAMD} */
 	public static void glGetPerfMonitorCounterInfoAMD(int group, int counter, int pname, FloatBuffer data) {
 		if ( CHECKS )
 			checkBuffer(data, 4 >> 2);
@@ -277,7 +275,7 @@ public class AMDPerformanceMonitor {
 		callPPV(__functionAddress, group, counter, remainingSafe(counterString), length, memAddressSafe(counterString));
 	}
 
-	/** int[] version of: {@link #glGetPerfMonitorCounterInfoAMD GetPerfMonitorCounterInfoAMD} */
+	/** Array version of: {@link #glGetPerfMonitorCounterInfoAMD GetPerfMonitorCounterInfoAMD} */
 	public static void glGetPerfMonitorCounterInfoAMD(int group, int counter, int pname, int[] data) {
 		long __functionAddress = GLES.getCapabilities().glGetPerfMonitorCounterInfoAMD;
 		if ( CHECKS ) {
@@ -287,7 +285,7 @@ public class AMDPerformanceMonitor {
 		callPV(__functionAddress, group, counter, pname, data);
 	}
 
-	/** float[] version of: {@link #glGetPerfMonitorCounterInfoAMD GetPerfMonitorCounterInfoAMD} */
+	/** Array version of: {@link #glGetPerfMonitorCounterInfoAMD GetPerfMonitorCounterInfoAMD} */
 	public static void glGetPerfMonitorCounterInfoAMD(int group, int counter, int pname, float[] data) {
 		long __functionAddress = GLES.getCapabilities().glGetPerfMonitorCounterInfoAMD;
 		if ( CHECKS ) {

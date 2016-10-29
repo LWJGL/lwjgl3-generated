@@ -54,7 +54,6 @@ public class EXTMultiDrawIndirect {
 		nglMultiDrawArraysIndirectEXT(mode, indirect, drawcount, stride);
 	}
 
-	/** IntBuffer version of: {@link #glMultiDrawArraysIndirectEXT MultiDrawArraysIndirectEXT} */
 	public static void glMultiDrawArraysIndirectEXT(int mode, IntBuffer indirect, int drawcount, int stride) {
 		if ( CHECKS )
 			checkBuffer(indirect, (drawcount * (stride == 0 ? (4 * 4) : stride)) >> 2);
@@ -80,14 +79,13 @@ public class EXTMultiDrawIndirect {
 		nglMultiDrawElementsIndirectEXT(mode, type, indirect, drawcount, stride);
 	}
 
-	/** IntBuffer version of: {@link #glMultiDrawElementsIndirectEXT MultiDrawElementsIndirectEXT} */
 	public static void glMultiDrawElementsIndirectEXT(int mode, int type, IntBuffer indirect, int drawcount, int stride) {
 		if ( CHECKS )
 			checkBuffer(indirect, (drawcount * (stride == 0 ? (5 * 4) : stride)) >> 2);
 		nglMultiDrawElementsIndirectEXT(mode, type, memAddress(indirect), drawcount, stride);
 	}
 
-	/** int[] version of: {@link #glMultiDrawArraysIndirectEXT MultiDrawArraysIndirectEXT} */
+	/** Array version of: {@link #glMultiDrawArraysIndirectEXT MultiDrawArraysIndirectEXT} */
 	public static void glMultiDrawArraysIndirectEXT(int mode, int[] indirect, int drawcount, int stride) {
 		long __functionAddress = GLES.getCapabilities().glMultiDrawArraysIndirectEXT;
 		if ( CHECKS ) {
@@ -97,7 +95,7 @@ public class EXTMultiDrawIndirect {
 		callPV(__functionAddress, mode, indirect, drawcount, stride);
 	}
 
-	/** int[] version of: {@link #glMultiDrawElementsIndirectEXT MultiDrawElementsIndirectEXT} */
+	/** Array version of: {@link #glMultiDrawElementsIndirectEXT MultiDrawElementsIndirectEXT} */
 	public static void glMultiDrawElementsIndirectEXT(int mode, int type, int[] indirect, int drawcount, int stride) {
 		long __functionAddress = GLES.getCapabilities().glMultiDrawElementsIndirectEXT;
 		if ( CHECKS ) {

@@ -88,14 +88,25 @@ public class QCOMEXTHostPtr {
 		return nclGetDeviceImageInfoQCOM(device, image_width, image_height, image_format.address(), param_name, remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
-	/** IntBuffer version of: {@link #clGetDeviceImageInfoQCOM GetDeviceImageInfoQCOM} */
+	/**
+	 * An application that creates OpenCL image objects with the {@link #CL_MEM_EXT_HOST_PTR_QCOM MEM_EXT_HOST_PTR_QCOM} flag can invoke this function to query the required row pitch, slice
+	 * pitch and alignment for a particular device.
+	 *
+	 * @param device               a valid device
+	 * @param image_width          width of the image in image elements (pixels)
+	 * @param image_height         height of the image in image elements (pixels)
+	 * @param image_format         format of the image
+	 * @param param_name           the parameter to query. One of:<br><table><tr><td>{@link CL10#CL_IMAGE_ROW_PITCH IMAGE_ROW_PITCH}</td><td>{@link CL10#CL_IMAGE_SLICE_PITCH IMAGE_SLICE_PITCH}</td><td>{@link #CL_IMAGE_ROW_ALIGNMENT_QCOM IMAGE_ROW_ALIGNMENT_QCOM}</td></tr><tr><td>{@link #CL_IMAGE_SLICE_ALIGNMENT_QCOM IMAGE_SLICE_ALIGNMENT_QCOM}</td></tr></table>
+	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
+	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
+	 */
 	public static int clGetDeviceImageInfoQCOM(long device, long image_width, long image_height, CLImageFormat image_format, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			checkBufferSafe(param_value_size_ret, 1);
 		return nclGetDeviceImageInfoQCOM(device, image_width, image_height, image_format.address(), param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
-	/** int[] version of: {@link #clGetDeviceImageInfoQCOM GetDeviceImageInfoQCOM} */
+	/** Array version of: {@link #clGetDeviceImageInfoQCOM GetDeviceImageInfoQCOM} */
 	public static int clGetDeviceImageInfoQCOM(long device, long image_width, long image_height, CLImageFormat image_format, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetDeviceImageInfoQCOM;
 		if ( CHECKS ) {

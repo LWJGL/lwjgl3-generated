@@ -199,32 +199,56 @@ public class JEmalloc {
 		nje_free(memAddressSafe(ptr));
 	}
 
-	/** ShortBuffer version of: {@link #je_free free} */
+	/**
+	 * Causes the allocated memory referenced by {@code ptr} to be made available for future allocations. If {@code ptr} is {@code NULL}, no action occurs.
+	 *
+	 * @param ptr the allocated memory to free
+	 */
 	public static void je_free(ShortBuffer ptr) {
 		nje_free(memAddressSafe(ptr));
 	}
 
-	/** IntBuffer version of: {@link #je_free free} */
+	/**
+	 * Causes the allocated memory referenced by {@code ptr} to be made available for future allocations. If {@code ptr} is {@code NULL}, no action occurs.
+	 *
+	 * @param ptr the allocated memory to free
+	 */
 	public static void je_free(IntBuffer ptr) {
 		nje_free(memAddressSafe(ptr));
 	}
 
-	/** LongBuffer version of: {@link #je_free free} */
+	/**
+	 * Causes the allocated memory referenced by {@code ptr} to be made available for future allocations. If {@code ptr} is {@code NULL}, no action occurs.
+	 *
+	 * @param ptr the allocated memory to free
+	 */
 	public static void je_free(LongBuffer ptr) {
 		nje_free(memAddressSafe(ptr));
 	}
 
-	/** FloatBuffer version of: {@link #je_free free} */
+	/**
+	 * Causes the allocated memory referenced by {@code ptr} to be made available for future allocations. If {@code ptr} is {@code NULL}, no action occurs.
+	 *
+	 * @param ptr the allocated memory to free
+	 */
 	public static void je_free(FloatBuffer ptr) {
 		nje_free(memAddressSafe(ptr));
 	}
 
-	/** DoubleBuffer version of: {@link #je_free free} */
+	/**
+	 * Causes the allocated memory referenced by {@code ptr} to be made available for future allocations. If {@code ptr} is {@code NULL}, no action occurs.
+	 *
+	 * @param ptr the allocated memory to free
+	 */
 	public static void je_free(DoubleBuffer ptr) {
 		nje_free(memAddressSafe(ptr));
 	}
 
-	/** PointerBuffer version of: {@link #je_free free} */
+	/**
+	 * Causes the allocated memory referenced by {@code ptr} to be made available for future allocations. If {@code ptr} is {@code NULL}, no action occurs.
+	 *
+	 * @param ptr the allocated memory to free
+	 */
 	public static void je_free(PointerBuffer ptr) {
 		nje_free(memAddressSafe(ptr));
 	}
@@ -329,32 +353,62 @@ public class JEmalloc {
 		nje_dallocx(memAddress(ptr), flags);
 	}
 
-	/** ShortBuffer version of: {@link #je_dallocx dallocx} */
+	/**
+	 * Causes the memory referenced by {@code ptr} to be made available for future allocations.
+	 *
+	 * @param ptr   the allocated memory to deallocate
+	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+	 */
 	public static void je_dallocx(ShortBuffer ptr, int flags) {
 		nje_dallocx(memAddress(ptr), flags);
 	}
 
-	/** IntBuffer version of: {@link #je_dallocx dallocx} */
+	/**
+	 * Causes the memory referenced by {@code ptr} to be made available for future allocations.
+	 *
+	 * @param ptr   the allocated memory to deallocate
+	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+	 */
 	public static void je_dallocx(IntBuffer ptr, int flags) {
 		nje_dallocx(memAddress(ptr), flags);
 	}
 
-	/** LongBuffer version of: {@link #je_dallocx dallocx} */
+	/**
+	 * Causes the memory referenced by {@code ptr} to be made available for future allocations.
+	 *
+	 * @param ptr   the allocated memory to deallocate
+	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+	 */
 	public static void je_dallocx(LongBuffer ptr, int flags) {
 		nje_dallocx(memAddress(ptr), flags);
 	}
 
-	/** FloatBuffer version of: {@link #je_dallocx dallocx} */
+	/**
+	 * Causes the memory referenced by {@code ptr} to be made available for future allocations.
+	 *
+	 * @param ptr   the allocated memory to deallocate
+	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+	 */
 	public static void je_dallocx(FloatBuffer ptr, int flags) {
 		nje_dallocx(memAddress(ptr), flags);
 	}
 
-	/** DoubleBuffer version of: {@link #je_dallocx dallocx} */
+	/**
+	 * Causes the memory referenced by {@code ptr} to be made available for future allocations.
+	 *
+	 * @param ptr   the allocated memory to deallocate
+	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+	 */
 	public static void je_dallocx(DoubleBuffer ptr, int flags) {
 		nje_dallocx(memAddress(ptr), flags);
 	}
 
-	/** PointerBuffer version of: {@link #je_dallocx dallocx} */
+	/**
+	 * Causes the memory referenced by {@code ptr} to be made available for future allocations.
+	 *
+	 * @param ptr   the allocated memory to deallocate
+	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+	 */
 	public static void je_dallocx(PointerBuffer ptr, int flags) {
 		nje_dallocx(memAddress(ptr), flags);
 	}
@@ -381,32 +435,62 @@ public class JEmalloc {
 		nje_sdallocx(memAddress(ptr), ptr.remaining(), flags);
 	}
 
-	/** ShortBuffer version of: {@link #je_sdallocx sdallocx} */
+	/**
+	 * Sized version of {@link #je_dallocx dallocx}. The primary optimization over {@code dallocx()} is the removal of a metadata read, which often suffers an L1 cache miss.
+	 *
+	 * @param ptr   the allocated memory to deallocate
+	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+	 */
 	public static void je_sdallocx(ShortBuffer ptr, int flags) {
 		nje_sdallocx(memAddress(ptr), ptr.remaining() << 1, flags);
 	}
 
-	/** IntBuffer version of: {@link #je_sdallocx sdallocx} */
+	/**
+	 * Sized version of {@link #je_dallocx dallocx}. The primary optimization over {@code dallocx()} is the removal of a metadata read, which often suffers an L1 cache miss.
+	 *
+	 * @param ptr   the allocated memory to deallocate
+	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+	 */
 	public static void je_sdallocx(IntBuffer ptr, int flags) {
 		nje_sdallocx(memAddress(ptr), ptr.remaining() << 2, flags);
 	}
 
-	/** LongBuffer version of: {@link #je_sdallocx sdallocx} */
+	/**
+	 * Sized version of {@link #je_dallocx dallocx}. The primary optimization over {@code dallocx()} is the removal of a metadata read, which often suffers an L1 cache miss.
+	 *
+	 * @param ptr   the allocated memory to deallocate
+	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+	 */
 	public static void je_sdallocx(LongBuffer ptr, int flags) {
 		nje_sdallocx(memAddress(ptr), ptr.remaining() << 3, flags);
 	}
 
-	/** FloatBuffer version of: {@link #je_sdallocx sdallocx} */
+	/**
+	 * Sized version of {@link #je_dallocx dallocx}. The primary optimization over {@code dallocx()} is the removal of a metadata read, which often suffers an L1 cache miss.
+	 *
+	 * @param ptr   the allocated memory to deallocate
+	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+	 */
 	public static void je_sdallocx(FloatBuffer ptr, int flags) {
 		nje_sdallocx(memAddress(ptr), ptr.remaining() << 2, flags);
 	}
 
-	/** DoubleBuffer version of: {@link #je_sdallocx sdallocx} */
+	/**
+	 * Sized version of {@link #je_dallocx dallocx}. The primary optimization over {@code dallocx()} is the removal of a metadata read, which often suffers an L1 cache miss.
+	 *
+	 * @param ptr   the allocated memory to deallocate
+	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+	 */
 	public static void je_sdallocx(DoubleBuffer ptr, int flags) {
 		nje_sdallocx(memAddress(ptr), ptr.remaining() << 3, flags);
 	}
 
-	/** PointerBuffer version of: {@link #je_sdallocx sdallocx} */
+	/**
+	 * Sized version of {@link #je_dallocx dallocx}. The primary optimization over {@code dallocx()} is the removal of a metadata read, which often suffers an L1 cache miss.
+	 *
+	 * @param ptr   the allocated memory to deallocate
+	 * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+	 */
 	public static void je_sdallocx(PointerBuffer ptr, int flags) {
 		nje_sdallocx(memAddress(ptr), ptr.remaining() << POINTER_SHIFT, flags);
 	}

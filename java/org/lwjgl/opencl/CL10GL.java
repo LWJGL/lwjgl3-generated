@@ -367,7 +367,25 @@ public class CL10GL {
 		return nclGetGLTextureInfo(memobj, param_name, remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
-	/** IntBuffer version of: {@link #clGetGLTextureInfo GetGLTextureInfo} */
+	/**
+	 * Returns additional information about the GL texture object associated with {@code memobj}.
+	 *
+	 * @param memobj               
+	 * @param param_name           specifies what additional information about the GL texture object associated with {@code memobj} to query. One of:<br><table><tr><td>{@link #CL_GL_TEXTURE_TARGET GL_TEXTURE_TARGET}</td><td>{@link #CL_GL_MIPMAP_LEVEL GL_MIPMAP_LEVEL}</td><td>{@link KHRGLMSAASharing#CL_GL_NUM_SAMPLES GL_NUM_SAMPLES}</td></tr></table>
+	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
+	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
+	 *
+	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_MEM_OBJECT INVALID_MEM_OBJECT} if {@code memobj} is not a valid OpenCL memory object.</li>
+	 *         <li>{@link #CL_INVALID_GL_OBJECT INVALID_GL_OBJECT} if there is no GL texture object associated with {@code memobj}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value_size} is &lt; size of return
+	 *         type and {@code param_value} is not {@code NULL}, or if {@code param_value} and {@code param_value_size_ret} are {@code NULL}.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
 	public static int clGetGLTextureInfo(long memobj, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			checkBufferSafe(param_value_size_ret, 1);
@@ -644,7 +662,7 @@ public class CL10GL {
 		return callPPPI(__functionAddress, memobj, gl_object_type, gl_object_name);
 	}
 
-	/** int[] version of: {@link #clGetGLTextureInfo GetGLTextureInfo} */
+	/** Array version of: {@link #clGetGLTextureInfo GetGLTextureInfo} */
 	public static int clGetGLTextureInfo(long memobj, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetGLTextureInfo;
 		if ( CHECKS ) {

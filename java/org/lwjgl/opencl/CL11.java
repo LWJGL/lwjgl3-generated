@@ -287,7 +287,80 @@ public class CL11 {
 		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** ShortBuffer version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
+	/**
+	 * Enqueues a command to read a 2D or 3D rectangular region from a buffer object to host memory.
+	 * 
+	 * <p>Calling {@code clEnqueueReadBufferRect} to read a region of the buffer object with the {@code ptr} argument value set to {@code host_ptr} and
+	 * {@code host_origin}, {@code buffer_origin} values are the same, where {@code host_ptr} is a pointer to the memory region specified when the buffer
+	 * object being read is created with {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, must meet the following requirements in order to avoid undefined behavior:</p>
+	 * 
+	 * <ul>
+	 * <li>All commands that use this buffer object or a memory object (buffer or image) created from this buffer object have finished execution before the
+	 * read command begins execution.</li>
+	 * <li>The buffer object or memory objects created from this buffer object are not mapped.</li>
+	 * <li>The buffer object or memory objects created from this buffer object are not used by any command-queue until the read command has finished execution.</li>
+	 * </ul>
+	 *
+	 * @param command_queue      the command-queue in which the read command will be queued. {@code command_queue} and {@code buffer} must be created with the same OpenCL context.
+	 * @param buffer             a valid buffer object
+	 * @param blocking_read      indicates if the read operation is <em>blocking</em> or <em>nonblocking</em>.
+	 *                           
+	 *                           <p>If {@code blocking_read} is {@link CL10#CL_TRUE TRUE} i.e. the read command is blocking, {@code clEnqueueReadBufferRect} does not return until the buffer data has
+	 *                           been read and copied into memory pointed to by {@code ptr}.</p>
+	 *                           
+	 *                           <p>If {@code blocking_read} is {@link CL10#CL_FALSE FALSE} i.e. the read command is non-blocking, {@code clEnqueueReadBufferRect} queues a non-blocking read command and
+	 *                           returns. The contents of the buffer that {@code ptr} points to cannot be used until the read command has completed. The {@code event} argument
+	 *                           returns an event object which can be used to query the execution status of the read command. When the read command has completed, the contents of
+	 *                           the buffer that {@code ptr} points to can be used by the application.</p>
+	 * @param buffer_offset      the {@code (x, y, z)} offset in the memory region associated with {@code buffer}. For a 2D rectangle region, the z value given by {@code buffer_origin[2]}
+	 *                           should be 0. The offset in bytes is computed as <code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>.
+	 * @param host_offset        the {@code (x, y, z)} offset in the memory region pointed to by {@code ptr}. For a 2D rectangle region, the z value given by {@code host_origin[2]}
+	 *                           should be 0. The offset in bytes is computed as <code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>.
+	 * @param region             the (width in bytes, height in rows, depth in slices) of the 2D or 3D rectangle being read or written. For a 2D rectangle copy, the depth value
+	 *                           given by {@code region[2]} should be 1. The values in region cannot be 0.
+	 * @param buffer_row_pitch   the length of each row in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_row_pitch} is 0,
+	 *                           {@code buffer_row_pitch} is computed as {@code region[0]}.
+	 * @param buffer_slice_pitch the length of each 2D slice in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_slice_pitch} is 0,
+	 *                           {@code buffer_slice_pitch} is computed as {@code region[1] * buffer_row_pitch}.
+	 * @param host_row_pitch     the length of each row in bytes to be used for the memory region pointed to by {@code ptr}. If {@code host_row_pitch} is 0, {@code host_row_pitch}
+	 *                           is computed as {@code region[0]}.
+	 * @param host_slice_pitch   the length of each 2D slice in bytes to be used for the memory region pointed to by {@code ptr}. If {@code host_slice_pitch} is 0,
+	 *                           {@code host_slice_pitch} is computed as {@code region[1] * host_row_pitch}.
+	 * @param ptr                the pointer to buffer in host memory where data is to be read into
+	 * @param event_wait_list    a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
+	 *                           does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
+	 *                           {@code event_wait_list} and {@code command_queue} must be the same.
+	 * @param event              Returns an event object that identifies this particular command and can be used to query or queue a wait for this particular command to complete.
+	 *                           {@code event} can be {@code NULL} in which case it will not be possible for the application to query the status of this command or queue a wait for this command to
+	 *                           complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
+	 *                           {@code event_wait_list} array.
+	 *
+	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code buffer} are not the same or if the context associated
+	 *         with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
+	 *         <li>{@link CL10#CL_INVALID_MEM_OBJECT INVALID_MEM_OBJECT} if {@code buffer} is not a valid buffer object.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if the region being read specified by {@code (buffer_origin, region, buffer_row_pitch, buffer_slice_pitch)} is out of bounds.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code ptr} is a {@code NULL} value.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if any {@code region} array element is 0.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code buffer_row_pitch} is not 0 and is less than {@code region[0]}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code host_row_pitch} is not 0 and is less than {@code region[0]}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code buffer_slice_pitch} is not 0 and is less than {@code region[1] * buffer_row_pitch} and not a multiple of {@code buffer_row_pitch}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code host_slice_pitch} is not 0 and is less than {@code region[1] * host_row_pitch} and not a multiple of {@code host_row_pitch}.</li>
+	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
+	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
+	 *         <li>{@link #CL_MISALIGNED_SUB_BUFFER_OFFSET MISALIGNED_SUB_BUFFER_OFFSET} if {@code buffer} is a sub-buffer object and offset specified when the sub-buffer object is created is
+	 *         not aligned to {@link CL10#CL_DEVICE_MEM_BASE_ADDR_ALIGN DEVICE_MEM_BASE_ADDR_ALIGN} value for device associated with queue.</li>
+	 *         <li>{@link #CL_EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST} if the read operation is blocking and the execution status of any of the events in
+	 *         {@code event_wait_list} is a negative integer value.</li>
+	 *         <li>{@link CL10#CL_MEM_OBJECT_ALLOCATION_FAILURE MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with {@code buffer}.</li>
+	 *         <li>{@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} if {@code clEnqueueReadBufferRect} is called on buffer which has been created with {@link CL12#CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY} or {@link CL12#CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
 	public static int clEnqueueReadBufferRect(long command_queue, long buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
 			checkBuffer(buffer_offset, 3);
@@ -298,7 +371,80 @@ public class CL11 {
 		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** IntBuffer version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
+	/**
+	 * Enqueues a command to read a 2D or 3D rectangular region from a buffer object to host memory.
+	 * 
+	 * <p>Calling {@code clEnqueueReadBufferRect} to read a region of the buffer object with the {@code ptr} argument value set to {@code host_ptr} and
+	 * {@code host_origin}, {@code buffer_origin} values are the same, where {@code host_ptr} is a pointer to the memory region specified when the buffer
+	 * object being read is created with {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, must meet the following requirements in order to avoid undefined behavior:</p>
+	 * 
+	 * <ul>
+	 * <li>All commands that use this buffer object or a memory object (buffer or image) created from this buffer object have finished execution before the
+	 * read command begins execution.</li>
+	 * <li>The buffer object or memory objects created from this buffer object are not mapped.</li>
+	 * <li>The buffer object or memory objects created from this buffer object are not used by any command-queue until the read command has finished execution.</li>
+	 * </ul>
+	 *
+	 * @param command_queue      the command-queue in which the read command will be queued. {@code command_queue} and {@code buffer} must be created with the same OpenCL context.
+	 * @param buffer             a valid buffer object
+	 * @param blocking_read      indicates if the read operation is <em>blocking</em> or <em>nonblocking</em>.
+	 *                           
+	 *                           <p>If {@code blocking_read} is {@link CL10#CL_TRUE TRUE} i.e. the read command is blocking, {@code clEnqueueReadBufferRect} does not return until the buffer data has
+	 *                           been read and copied into memory pointed to by {@code ptr}.</p>
+	 *                           
+	 *                           <p>If {@code blocking_read} is {@link CL10#CL_FALSE FALSE} i.e. the read command is non-blocking, {@code clEnqueueReadBufferRect} queues a non-blocking read command and
+	 *                           returns. The contents of the buffer that {@code ptr} points to cannot be used until the read command has completed. The {@code event} argument
+	 *                           returns an event object which can be used to query the execution status of the read command. When the read command has completed, the contents of
+	 *                           the buffer that {@code ptr} points to can be used by the application.</p>
+	 * @param buffer_offset      the {@code (x, y, z)} offset in the memory region associated with {@code buffer}. For a 2D rectangle region, the z value given by {@code buffer_origin[2]}
+	 *                           should be 0. The offset in bytes is computed as <code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>.
+	 * @param host_offset        the {@code (x, y, z)} offset in the memory region pointed to by {@code ptr}. For a 2D rectangle region, the z value given by {@code host_origin[2]}
+	 *                           should be 0. The offset in bytes is computed as <code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>.
+	 * @param region             the (width in bytes, height in rows, depth in slices) of the 2D or 3D rectangle being read or written. For a 2D rectangle copy, the depth value
+	 *                           given by {@code region[2]} should be 1. The values in region cannot be 0.
+	 * @param buffer_row_pitch   the length of each row in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_row_pitch} is 0,
+	 *                           {@code buffer_row_pitch} is computed as {@code region[0]}.
+	 * @param buffer_slice_pitch the length of each 2D slice in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_slice_pitch} is 0,
+	 *                           {@code buffer_slice_pitch} is computed as {@code region[1] * buffer_row_pitch}.
+	 * @param host_row_pitch     the length of each row in bytes to be used for the memory region pointed to by {@code ptr}. If {@code host_row_pitch} is 0, {@code host_row_pitch}
+	 *                           is computed as {@code region[0]}.
+	 * @param host_slice_pitch   the length of each 2D slice in bytes to be used for the memory region pointed to by {@code ptr}. If {@code host_slice_pitch} is 0,
+	 *                           {@code host_slice_pitch} is computed as {@code region[1] * host_row_pitch}.
+	 * @param ptr                the pointer to buffer in host memory where data is to be read into
+	 * @param event_wait_list    a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
+	 *                           does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
+	 *                           {@code event_wait_list} and {@code command_queue} must be the same.
+	 * @param event              Returns an event object that identifies this particular command and can be used to query or queue a wait for this particular command to complete.
+	 *                           {@code event} can be {@code NULL} in which case it will not be possible for the application to query the status of this command or queue a wait for this command to
+	 *                           complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
+	 *                           {@code event_wait_list} array.
+	 *
+	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code buffer} are not the same or if the context associated
+	 *         with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
+	 *         <li>{@link CL10#CL_INVALID_MEM_OBJECT INVALID_MEM_OBJECT} if {@code buffer} is not a valid buffer object.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if the region being read specified by {@code (buffer_origin, region, buffer_row_pitch, buffer_slice_pitch)} is out of bounds.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code ptr} is a {@code NULL} value.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if any {@code region} array element is 0.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code buffer_row_pitch} is not 0 and is less than {@code region[0]}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code host_row_pitch} is not 0 and is less than {@code region[0]}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code buffer_slice_pitch} is not 0 and is less than {@code region[1] * buffer_row_pitch} and not a multiple of {@code buffer_row_pitch}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code host_slice_pitch} is not 0 and is less than {@code region[1] * host_row_pitch} and not a multiple of {@code host_row_pitch}.</li>
+	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
+	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
+	 *         <li>{@link #CL_MISALIGNED_SUB_BUFFER_OFFSET MISALIGNED_SUB_BUFFER_OFFSET} if {@code buffer} is a sub-buffer object and offset specified when the sub-buffer object is created is
+	 *         not aligned to {@link CL10#CL_DEVICE_MEM_BASE_ADDR_ALIGN DEVICE_MEM_BASE_ADDR_ALIGN} value for device associated with queue.</li>
+	 *         <li>{@link #CL_EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST} if the read operation is blocking and the execution status of any of the events in
+	 *         {@code event_wait_list} is a negative integer value.</li>
+	 *         <li>{@link CL10#CL_MEM_OBJECT_ALLOCATION_FAILURE MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with {@code buffer}.</li>
+	 *         <li>{@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} if {@code clEnqueueReadBufferRect} is called on buffer which has been created with {@link CL12#CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY} or {@link CL12#CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
 	public static int clEnqueueReadBufferRect(long command_queue, long buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
 			checkBuffer(buffer_offset, 3);
@@ -309,7 +455,80 @@ public class CL11 {
 		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** FloatBuffer version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
+	/**
+	 * Enqueues a command to read a 2D or 3D rectangular region from a buffer object to host memory.
+	 * 
+	 * <p>Calling {@code clEnqueueReadBufferRect} to read a region of the buffer object with the {@code ptr} argument value set to {@code host_ptr} and
+	 * {@code host_origin}, {@code buffer_origin} values are the same, where {@code host_ptr} is a pointer to the memory region specified when the buffer
+	 * object being read is created with {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, must meet the following requirements in order to avoid undefined behavior:</p>
+	 * 
+	 * <ul>
+	 * <li>All commands that use this buffer object or a memory object (buffer or image) created from this buffer object have finished execution before the
+	 * read command begins execution.</li>
+	 * <li>The buffer object or memory objects created from this buffer object are not mapped.</li>
+	 * <li>The buffer object or memory objects created from this buffer object are not used by any command-queue until the read command has finished execution.</li>
+	 * </ul>
+	 *
+	 * @param command_queue      the command-queue in which the read command will be queued. {@code command_queue} and {@code buffer} must be created with the same OpenCL context.
+	 * @param buffer             a valid buffer object
+	 * @param blocking_read      indicates if the read operation is <em>blocking</em> or <em>nonblocking</em>.
+	 *                           
+	 *                           <p>If {@code blocking_read} is {@link CL10#CL_TRUE TRUE} i.e. the read command is blocking, {@code clEnqueueReadBufferRect} does not return until the buffer data has
+	 *                           been read and copied into memory pointed to by {@code ptr}.</p>
+	 *                           
+	 *                           <p>If {@code blocking_read} is {@link CL10#CL_FALSE FALSE} i.e. the read command is non-blocking, {@code clEnqueueReadBufferRect} queues a non-blocking read command and
+	 *                           returns. The contents of the buffer that {@code ptr} points to cannot be used until the read command has completed. The {@code event} argument
+	 *                           returns an event object which can be used to query the execution status of the read command. When the read command has completed, the contents of
+	 *                           the buffer that {@code ptr} points to can be used by the application.</p>
+	 * @param buffer_offset      the {@code (x, y, z)} offset in the memory region associated with {@code buffer}. For a 2D rectangle region, the z value given by {@code buffer_origin[2]}
+	 *                           should be 0. The offset in bytes is computed as <code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>.
+	 * @param host_offset        the {@code (x, y, z)} offset in the memory region pointed to by {@code ptr}. For a 2D rectangle region, the z value given by {@code host_origin[2]}
+	 *                           should be 0. The offset in bytes is computed as <code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>.
+	 * @param region             the (width in bytes, height in rows, depth in slices) of the 2D or 3D rectangle being read or written. For a 2D rectangle copy, the depth value
+	 *                           given by {@code region[2]} should be 1. The values in region cannot be 0.
+	 * @param buffer_row_pitch   the length of each row in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_row_pitch} is 0,
+	 *                           {@code buffer_row_pitch} is computed as {@code region[0]}.
+	 * @param buffer_slice_pitch the length of each 2D slice in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_slice_pitch} is 0,
+	 *                           {@code buffer_slice_pitch} is computed as {@code region[1] * buffer_row_pitch}.
+	 * @param host_row_pitch     the length of each row in bytes to be used for the memory region pointed to by {@code ptr}. If {@code host_row_pitch} is 0, {@code host_row_pitch}
+	 *                           is computed as {@code region[0]}.
+	 * @param host_slice_pitch   the length of each 2D slice in bytes to be used for the memory region pointed to by {@code ptr}. If {@code host_slice_pitch} is 0,
+	 *                           {@code host_slice_pitch} is computed as {@code region[1] * host_row_pitch}.
+	 * @param ptr                the pointer to buffer in host memory where data is to be read into
+	 * @param event_wait_list    a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
+	 *                           does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
+	 *                           {@code event_wait_list} and {@code command_queue} must be the same.
+	 * @param event              Returns an event object that identifies this particular command and can be used to query or queue a wait for this particular command to complete.
+	 *                           {@code event} can be {@code NULL} in which case it will not be possible for the application to query the status of this command or queue a wait for this command to
+	 *                           complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
+	 *                           {@code event_wait_list} array.
+	 *
+	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code buffer} are not the same or if the context associated
+	 *         with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
+	 *         <li>{@link CL10#CL_INVALID_MEM_OBJECT INVALID_MEM_OBJECT} if {@code buffer} is not a valid buffer object.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if the region being read specified by {@code (buffer_origin, region, buffer_row_pitch, buffer_slice_pitch)} is out of bounds.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code ptr} is a {@code NULL} value.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if any {@code region} array element is 0.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code buffer_row_pitch} is not 0 and is less than {@code region[0]}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code host_row_pitch} is not 0 and is less than {@code region[0]}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code buffer_slice_pitch} is not 0 and is less than {@code region[1] * buffer_row_pitch} and not a multiple of {@code buffer_row_pitch}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code host_slice_pitch} is not 0 and is less than {@code region[1] * host_row_pitch} and not a multiple of {@code host_row_pitch}.</li>
+	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
+	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
+	 *         <li>{@link #CL_MISALIGNED_SUB_BUFFER_OFFSET MISALIGNED_SUB_BUFFER_OFFSET} if {@code buffer} is a sub-buffer object and offset specified when the sub-buffer object is created is
+	 *         not aligned to {@link CL10#CL_DEVICE_MEM_BASE_ADDR_ALIGN DEVICE_MEM_BASE_ADDR_ALIGN} value for device associated with queue.</li>
+	 *         <li>{@link #CL_EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST} if the read operation is blocking and the execution status of any of the events in
+	 *         {@code event_wait_list} is a negative integer value.</li>
+	 *         <li>{@link CL10#CL_MEM_OBJECT_ALLOCATION_FAILURE MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with {@code buffer}.</li>
+	 *         <li>{@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} if {@code clEnqueueReadBufferRect} is called on buffer which has been created with {@link CL12#CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY} or {@link CL12#CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
 	public static int clEnqueueReadBufferRect(long command_queue, long buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
 			checkBuffer(buffer_offset, 3);
@@ -320,7 +539,80 @@ public class CL11 {
 		return nclEnqueueReadBufferRect(command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** DoubleBuffer version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
+	/**
+	 * Enqueues a command to read a 2D or 3D rectangular region from a buffer object to host memory.
+	 * 
+	 * <p>Calling {@code clEnqueueReadBufferRect} to read a region of the buffer object with the {@code ptr} argument value set to {@code host_ptr} and
+	 * {@code host_origin}, {@code buffer_origin} values are the same, where {@code host_ptr} is a pointer to the memory region specified when the buffer
+	 * object being read is created with {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, must meet the following requirements in order to avoid undefined behavior:</p>
+	 * 
+	 * <ul>
+	 * <li>All commands that use this buffer object or a memory object (buffer or image) created from this buffer object have finished execution before the
+	 * read command begins execution.</li>
+	 * <li>The buffer object or memory objects created from this buffer object are not mapped.</li>
+	 * <li>The buffer object or memory objects created from this buffer object are not used by any command-queue until the read command has finished execution.</li>
+	 * </ul>
+	 *
+	 * @param command_queue      the command-queue in which the read command will be queued. {@code command_queue} and {@code buffer} must be created with the same OpenCL context.
+	 * @param buffer             a valid buffer object
+	 * @param blocking_read      indicates if the read operation is <em>blocking</em> or <em>nonblocking</em>.
+	 *                           
+	 *                           <p>If {@code blocking_read} is {@link CL10#CL_TRUE TRUE} i.e. the read command is blocking, {@code clEnqueueReadBufferRect} does not return until the buffer data has
+	 *                           been read and copied into memory pointed to by {@code ptr}.</p>
+	 *                           
+	 *                           <p>If {@code blocking_read} is {@link CL10#CL_FALSE FALSE} i.e. the read command is non-blocking, {@code clEnqueueReadBufferRect} queues a non-blocking read command and
+	 *                           returns. The contents of the buffer that {@code ptr} points to cannot be used until the read command has completed. The {@code event} argument
+	 *                           returns an event object which can be used to query the execution status of the read command. When the read command has completed, the contents of
+	 *                           the buffer that {@code ptr} points to can be used by the application.</p>
+	 * @param buffer_offset      the {@code (x, y, z)} offset in the memory region associated with {@code buffer}. For a 2D rectangle region, the z value given by {@code buffer_origin[2]}
+	 *                           should be 0. The offset in bytes is computed as <code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>.
+	 * @param host_offset        the {@code (x, y, z)} offset in the memory region pointed to by {@code ptr}. For a 2D rectangle region, the z value given by {@code host_origin[2]}
+	 *                           should be 0. The offset in bytes is computed as <code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>.
+	 * @param region             the (width in bytes, height in rows, depth in slices) of the 2D or 3D rectangle being read or written. For a 2D rectangle copy, the depth value
+	 *                           given by {@code region[2]} should be 1. The values in region cannot be 0.
+	 * @param buffer_row_pitch   the length of each row in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_row_pitch} is 0,
+	 *                           {@code buffer_row_pitch} is computed as {@code region[0]}.
+	 * @param buffer_slice_pitch the length of each 2D slice in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_slice_pitch} is 0,
+	 *                           {@code buffer_slice_pitch} is computed as {@code region[1] * buffer_row_pitch}.
+	 * @param host_row_pitch     the length of each row in bytes to be used for the memory region pointed to by {@code ptr}. If {@code host_row_pitch} is 0, {@code host_row_pitch}
+	 *                           is computed as {@code region[0]}.
+	 * @param host_slice_pitch   the length of each 2D slice in bytes to be used for the memory region pointed to by {@code ptr}. If {@code host_slice_pitch} is 0,
+	 *                           {@code host_slice_pitch} is computed as {@code region[1] * host_row_pitch}.
+	 * @param ptr                the pointer to buffer in host memory where data is to be read into
+	 * @param event_wait_list    a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
+	 *                           does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
+	 *                           {@code event_wait_list} and {@code command_queue} must be the same.
+	 * @param event              Returns an event object that identifies this particular command and can be used to query or queue a wait for this particular command to complete.
+	 *                           {@code event} can be {@code NULL} in which case it will not be possible for the application to query the status of this command or queue a wait for this command to
+	 *                           complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
+	 *                           {@code event_wait_list} array.
+	 *
+	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code buffer} are not the same or if the context associated
+	 *         with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
+	 *         <li>{@link CL10#CL_INVALID_MEM_OBJECT INVALID_MEM_OBJECT} if {@code buffer} is not a valid buffer object.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if the region being read specified by {@code (buffer_origin, region, buffer_row_pitch, buffer_slice_pitch)} is out of bounds.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code ptr} is a {@code NULL} value.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if any {@code region} array element is 0.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code buffer_row_pitch} is not 0 and is less than {@code region[0]}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code host_row_pitch} is not 0 and is less than {@code region[0]}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code buffer_slice_pitch} is not 0 and is less than {@code region[1] * buffer_row_pitch} and not a multiple of {@code buffer_row_pitch}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code host_slice_pitch} is not 0 and is less than {@code region[1] * host_row_pitch} and not a multiple of {@code host_row_pitch}.</li>
+	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
+	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
+	 *         <li>{@link #CL_MISALIGNED_SUB_BUFFER_OFFSET MISALIGNED_SUB_BUFFER_OFFSET} if {@code buffer} is a sub-buffer object and offset specified when the sub-buffer object is created is
+	 *         not aligned to {@link CL10#CL_DEVICE_MEM_BASE_ADDR_ALIGN DEVICE_MEM_BASE_ADDR_ALIGN} value for device associated with queue.</li>
+	 *         <li>{@link #CL_EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST} if the read operation is blocking and the execution status of any of the events in
+	 *         {@code event_wait_list} is a negative integer value.</li>
+	 *         <li>{@link CL10#CL_MEM_OBJECT_ALLOCATION_FAILURE MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with {@code buffer}.</li>
+	 *         <li>{@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} if {@code clEnqueueReadBufferRect} is called on buffer which has been created with {@link CL12#CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY} or {@link CL12#CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
 	public static int clEnqueueReadBufferRect(long command_queue, long buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
 			checkBuffer(buffer_offset, 3);
@@ -432,7 +724,80 @@ public class CL11 {
 		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** ShortBuffer version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
+	/**
+	 * Enqueues a command to write a 2D or 3D rectangular region to a buffer object from host memory.
+	 * 
+	 * <p>Calling {@code clEnqueueWriteBufferRect} to update the latest bits in a region of the buffer object with the {@code ptr} argument value set to
+	 * {@code host_ptr} and {@code host_origin}, {@code buffer_origin} values are the same, where {@code host_ptr} is a pointer to the memory region specified
+	 * when the buffer object being written is created with {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, must meet the following requirements in order to avoid undefined
+	 * behavior:</p>
+	 * 
+	 * <ul>
+	 * <li>The host memory region given by {@code (buffer_origin region)} contains the latest bits when the enqueued write command begins execution.</li>
+	 * <li>The buffer object or memory objects created from this buffer object are not mapped.</li>
+	 * <li>The buffer object or memory objects created from this buffer object are not used by any command-queue until the write command has finished execution.</li>
+	 * </ul>
+	 *
+	 * @param command_queue      the command-queue in which the write command will be queued. {@code command_queue} and {@code buffer} must be created with the same OpenCL context.
+	 * @param buffer             a valid buffer object
+	 * @param blocking_write     indicates if the write operation is <em>blocking</em> or <em>nonblocking</em>.
+	 *                           
+	 *                           <p>If {@code blocking_write} is {@link CL10#CL_TRUE TRUE}, the OpenCL implementation copies the data referred to by {@code ptr} and enqueues the write operation in the
+	 *                           command-queue. The memory pointed to by {@code ptr} can be reused by the application after the {@code clEnqueueWriteBufferRect} call returns.</p>
+	 *                           
+	 *                           <p>If {@code blocking_write} is {@link CL10#CL_FALSE FALSE}, the OpenCL implementation will use {@code ptr} to perform a non-blocking write. As the write is non-blocking
+	 *                           the implementation can return immediately. The memory pointed to by {@code ptr} cannot be reused by the application after the call returns. The
+	 *                           {@code event} argument returns an event object which can be used to query the execution status of the write command. When the write command has
+	 *                           completed, the memory pointed to by {@code ptr} can then be reused by the application.</p>
+	 * @param buffer_offset      the {@code (x, y, z)} offset in the memory region associated with {@code buffer}. For a 2D rectangle region, the z value given by {@code buffer_origin[2]}
+	 *                           should be 0. The offset in bytes is computed as <code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>.
+	 * @param host_offset        the {@code (x, y, z)} offset in the memory region pointed to by {@code ptr}. For a 2D rectangle region, the z value given by {@code host_origin[2]}
+	 *                           should be 0. The offset in bytes is computed as <code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>.
+	 * @param region             the (width in bytes, height in rows, depth in slices) of the 2D or 3D rectangle being read or written. For a 2D rectangle copy, the depth value
+	 *                           given by {@code region[2]} should be 1. The values in region cannot be 0.
+	 * @param buffer_row_pitch   the length of each row in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_row_pitch} is 0,
+	 *                           {@code buffer_row_pitch} is computed as {@code region[0]}.
+	 * @param buffer_slice_pitch the length of each 2D slice in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_slice_pitch} is 0,
+	 *                           {@code buffer_slice_pitch} is computed as {@code region[1] * buffer_row_pitch}.
+	 * @param host_row_pitch     the length of each row in bytes to be used for the memory region pointed to by {@code ptr}. If {@code host_row_pitch} is 0, {@code host_row_pitch}
+	 *                           is computed as {@code region[0]}.
+	 * @param host_slice_pitch   the length of each 2D slice in bytes to be used for the memory region pointed to by {@code ptr}. If {@code host_slice_pitch} is 0,
+	 *                           {@code host_slice_pitch} is computed as {@code region[1] * host_row_pitch}.
+	 * @param ptr                the pointer to buffer in host memory where data is to be written from
+	 * @param event_wait_list    a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
+	 *                           does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
+	 *                           {@code event_wait_list} and {@code command_queue} must be the same.
+	 * @param event              Returns an event object that identifies this particular command and can be used to query or queue a wait for this particular command to complete.
+	 *                           {@code event} can be {@code NULL} in which case it will not be possible for the application to query the status of this command or queue a wait for this command to
+	 *                           complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
+	 *                           {@code event_wait_list} array.
+	 *
+	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code buffer} are not the same or if the context associated
+	 *         with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
+	 *         <li>{@link CL10#CL_INVALID_MEM_OBJECT INVALID_MEM_OBJECT} if {@code buffer} is not a valid buffer object.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if the region being written specified by {@code (buffer_origin, region, buffer_row_pitch, buffer_slice_pitch)} is out of bounds.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code ptr} is a {@code NULL} value.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if any {@code region} array element is 0.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code buffer_row_pitch} is not 0 and is less than {@code region[0]}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code host_row_pitch} is not 0 and is less than {@code region[0]}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code buffer_slice_pitch} is not 0 and is less than {@code region[1] * buffer_row_pitch} and not a multiple of {@code buffer_row_pitch}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code host_slice_pitch} is not 0 and is less than {@code region[1] * host_row_pitch} and not a multiple of {@code host_row_pitch}.</li>
+	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
+	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
+	 *         <li>{@link #CL_MISALIGNED_SUB_BUFFER_OFFSET MISALIGNED_SUB_BUFFER_OFFSET} if {@code buffer} is a sub-buffer object and offset specified when the sub-buffer object is created is
+	 *         not aligned to {@link CL10#CL_DEVICE_MEM_BASE_ADDR_ALIGN DEVICE_MEM_BASE_ADDR_ALIGN} value for device associated with queue.</li>
+	 *         <li>{@link #CL_EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST} if the write operation is blocking and the execution status of any of the events in
+	 *         {@code event_wait_list} is a negative integer value.</li>
+	 *         <li>{@link CL10#CL_MEM_OBJECT_ALLOCATION_FAILURE MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with {@code buffer}.</li>
+	 *         <li>{@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} if {@code clEnqueueWriteBufferRect} is called on buffer which has been created with {@link CL12#CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY} or {@link CL12#CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
 	public static int clEnqueueWriteBufferRect(long command_queue, long buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
 			checkBuffer(buffer_offset, 3);
@@ -443,7 +808,80 @@ public class CL11 {
 		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** IntBuffer version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
+	/**
+	 * Enqueues a command to write a 2D or 3D rectangular region to a buffer object from host memory.
+	 * 
+	 * <p>Calling {@code clEnqueueWriteBufferRect} to update the latest bits in a region of the buffer object with the {@code ptr} argument value set to
+	 * {@code host_ptr} and {@code host_origin}, {@code buffer_origin} values are the same, where {@code host_ptr} is a pointer to the memory region specified
+	 * when the buffer object being written is created with {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, must meet the following requirements in order to avoid undefined
+	 * behavior:</p>
+	 * 
+	 * <ul>
+	 * <li>The host memory region given by {@code (buffer_origin region)} contains the latest bits when the enqueued write command begins execution.</li>
+	 * <li>The buffer object or memory objects created from this buffer object are not mapped.</li>
+	 * <li>The buffer object or memory objects created from this buffer object are not used by any command-queue until the write command has finished execution.</li>
+	 * </ul>
+	 *
+	 * @param command_queue      the command-queue in which the write command will be queued. {@code command_queue} and {@code buffer} must be created with the same OpenCL context.
+	 * @param buffer             a valid buffer object
+	 * @param blocking_write     indicates if the write operation is <em>blocking</em> or <em>nonblocking</em>.
+	 *                           
+	 *                           <p>If {@code blocking_write} is {@link CL10#CL_TRUE TRUE}, the OpenCL implementation copies the data referred to by {@code ptr} and enqueues the write operation in the
+	 *                           command-queue. The memory pointed to by {@code ptr} can be reused by the application after the {@code clEnqueueWriteBufferRect} call returns.</p>
+	 *                           
+	 *                           <p>If {@code blocking_write} is {@link CL10#CL_FALSE FALSE}, the OpenCL implementation will use {@code ptr} to perform a non-blocking write. As the write is non-blocking
+	 *                           the implementation can return immediately. The memory pointed to by {@code ptr} cannot be reused by the application after the call returns. The
+	 *                           {@code event} argument returns an event object which can be used to query the execution status of the write command. When the write command has
+	 *                           completed, the memory pointed to by {@code ptr} can then be reused by the application.</p>
+	 * @param buffer_offset      the {@code (x, y, z)} offset in the memory region associated with {@code buffer}. For a 2D rectangle region, the z value given by {@code buffer_origin[2]}
+	 *                           should be 0. The offset in bytes is computed as <code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>.
+	 * @param host_offset        the {@code (x, y, z)} offset in the memory region pointed to by {@code ptr}. For a 2D rectangle region, the z value given by {@code host_origin[2]}
+	 *                           should be 0. The offset in bytes is computed as <code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>.
+	 * @param region             the (width in bytes, height in rows, depth in slices) of the 2D or 3D rectangle being read or written. For a 2D rectangle copy, the depth value
+	 *                           given by {@code region[2]} should be 1. The values in region cannot be 0.
+	 * @param buffer_row_pitch   the length of each row in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_row_pitch} is 0,
+	 *                           {@code buffer_row_pitch} is computed as {@code region[0]}.
+	 * @param buffer_slice_pitch the length of each 2D slice in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_slice_pitch} is 0,
+	 *                           {@code buffer_slice_pitch} is computed as {@code region[1] * buffer_row_pitch}.
+	 * @param host_row_pitch     the length of each row in bytes to be used for the memory region pointed to by {@code ptr}. If {@code host_row_pitch} is 0, {@code host_row_pitch}
+	 *                           is computed as {@code region[0]}.
+	 * @param host_slice_pitch   the length of each 2D slice in bytes to be used for the memory region pointed to by {@code ptr}. If {@code host_slice_pitch} is 0,
+	 *                           {@code host_slice_pitch} is computed as {@code region[1] * host_row_pitch}.
+	 * @param ptr                the pointer to buffer in host memory where data is to be written from
+	 * @param event_wait_list    a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
+	 *                           does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
+	 *                           {@code event_wait_list} and {@code command_queue} must be the same.
+	 * @param event              Returns an event object that identifies this particular command and can be used to query or queue a wait for this particular command to complete.
+	 *                           {@code event} can be {@code NULL} in which case it will not be possible for the application to query the status of this command or queue a wait for this command to
+	 *                           complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
+	 *                           {@code event_wait_list} array.
+	 *
+	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code buffer} are not the same or if the context associated
+	 *         with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
+	 *         <li>{@link CL10#CL_INVALID_MEM_OBJECT INVALID_MEM_OBJECT} if {@code buffer} is not a valid buffer object.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if the region being written specified by {@code (buffer_origin, region, buffer_row_pitch, buffer_slice_pitch)} is out of bounds.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code ptr} is a {@code NULL} value.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if any {@code region} array element is 0.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code buffer_row_pitch} is not 0 and is less than {@code region[0]}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code host_row_pitch} is not 0 and is less than {@code region[0]}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code buffer_slice_pitch} is not 0 and is less than {@code region[1] * buffer_row_pitch} and not a multiple of {@code buffer_row_pitch}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code host_slice_pitch} is not 0 and is less than {@code region[1] * host_row_pitch} and not a multiple of {@code host_row_pitch}.</li>
+	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
+	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
+	 *         <li>{@link #CL_MISALIGNED_SUB_BUFFER_OFFSET MISALIGNED_SUB_BUFFER_OFFSET} if {@code buffer} is a sub-buffer object and offset specified when the sub-buffer object is created is
+	 *         not aligned to {@link CL10#CL_DEVICE_MEM_BASE_ADDR_ALIGN DEVICE_MEM_BASE_ADDR_ALIGN} value for device associated with queue.</li>
+	 *         <li>{@link #CL_EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST} if the write operation is blocking and the execution status of any of the events in
+	 *         {@code event_wait_list} is a negative integer value.</li>
+	 *         <li>{@link CL10#CL_MEM_OBJECT_ALLOCATION_FAILURE MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with {@code buffer}.</li>
+	 *         <li>{@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} if {@code clEnqueueWriteBufferRect} is called on buffer which has been created with {@link CL12#CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY} or {@link CL12#CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
 	public static int clEnqueueWriteBufferRect(long command_queue, long buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
 			checkBuffer(buffer_offset, 3);
@@ -454,7 +892,80 @@ public class CL11 {
 		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** FloatBuffer version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
+	/**
+	 * Enqueues a command to write a 2D or 3D rectangular region to a buffer object from host memory.
+	 * 
+	 * <p>Calling {@code clEnqueueWriteBufferRect} to update the latest bits in a region of the buffer object with the {@code ptr} argument value set to
+	 * {@code host_ptr} and {@code host_origin}, {@code buffer_origin} values are the same, where {@code host_ptr} is a pointer to the memory region specified
+	 * when the buffer object being written is created with {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, must meet the following requirements in order to avoid undefined
+	 * behavior:</p>
+	 * 
+	 * <ul>
+	 * <li>The host memory region given by {@code (buffer_origin region)} contains the latest bits when the enqueued write command begins execution.</li>
+	 * <li>The buffer object or memory objects created from this buffer object are not mapped.</li>
+	 * <li>The buffer object or memory objects created from this buffer object are not used by any command-queue until the write command has finished execution.</li>
+	 * </ul>
+	 *
+	 * @param command_queue      the command-queue in which the write command will be queued. {@code command_queue} and {@code buffer} must be created with the same OpenCL context.
+	 * @param buffer             a valid buffer object
+	 * @param blocking_write     indicates if the write operation is <em>blocking</em> or <em>nonblocking</em>.
+	 *                           
+	 *                           <p>If {@code blocking_write} is {@link CL10#CL_TRUE TRUE}, the OpenCL implementation copies the data referred to by {@code ptr} and enqueues the write operation in the
+	 *                           command-queue. The memory pointed to by {@code ptr} can be reused by the application after the {@code clEnqueueWriteBufferRect} call returns.</p>
+	 *                           
+	 *                           <p>If {@code blocking_write} is {@link CL10#CL_FALSE FALSE}, the OpenCL implementation will use {@code ptr} to perform a non-blocking write. As the write is non-blocking
+	 *                           the implementation can return immediately. The memory pointed to by {@code ptr} cannot be reused by the application after the call returns. The
+	 *                           {@code event} argument returns an event object which can be used to query the execution status of the write command. When the write command has
+	 *                           completed, the memory pointed to by {@code ptr} can then be reused by the application.</p>
+	 * @param buffer_offset      the {@code (x, y, z)} offset in the memory region associated with {@code buffer}. For a 2D rectangle region, the z value given by {@code buffer_origin[2]}
+	 *                           should be 0. The offset in bytes is computed as <code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>.
+	 * @param host_offset        the {@code (x, y, z)} offset in the memory region pointed to by {@code ptr}. For a 2D rectangle region, the z value given by {@code host_origin[2]}
+	 *                           should be 0. The offset in bytes is computed as <code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>.
+	 * @param region             the (width in bytes, height in rows, depth in slices) of the 2D or 3D rectangle being read or written. For a 2D rectangle copy, the depth value
+	 *                           given by {@code region[2]} should be 1. The values in region cannot be 0.
+	 * @param buffer_row_pitch   the length of each row in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_row_pitch} is 0,
+	 *                           {@code buffer_row_pitch} is computed as {@code region[0]}.
+	 * @param buffer_slice_pitch the length of each 2D slice in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_slice_pitch} is 0,
+	 *                           {@code buffer_slice_pitch} is computed as {@code region[1] * buffer_row_pitch}.
+	 * @param host_row_pitch     the length of each row in bytes to be used for the memory region pointed to by {@code ptr}. If {@code host_row_pitch} is 0, {@code host_row_pitch}
+	 *                           is computed as {@code region[0]}.
+	 * @param host_slice_pitch   the length of each 2D slice in bytes to be used for the memory region pointed to by {@code ptr}. If {@code host_slice_pitch} is 0,
+	 *                           {@code host_slice_pitch} is computed as {@code region[1] * host_row_pitch}.
+	 * @param ptr                the pointer to buffer in host memory where data is to be written from
+	 * @param event_wait_list    a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
+	 *                           does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
+	 *                           {@code event_wait_list} and {@code command_queue} must be the same.
+	 * @param event              Returns an event object that identifies this particular command and can be used to query or queue a wait for this particular command to complete.
+	 *                           {@code event} can be {@code NULL} in which case it will not be possible for the application to query the status of this command or queue a wait for this command to
+	 *                           complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
+	 *                           {@code event_wait_list} array.
+	 *
+	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code buffer} are not the same or if the context associated
+	 *         with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
+	 *         <li>{@link CL10#CL_INVALID_MEM_OBJECT INVALID_MEM_OBJECT} if {@code buffer} is not a valid buffer object.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if the region being written specified by {@code (buffer_origin, region, buffer_row_pitch, buffer_slice_pitch)} is out of bounds.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code ptr} is a {@code NULL} value.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if any {@code region} array element is 0.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code buffer_row_pitch} is not 0 and is less than {@code region[0]}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code host_row_pitch} is not 0 and is less than {@code region[0]}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code buffer_slice_pitch} is not 0 and is less than {@code region[1] * buffer_row_pitch} and not a multiple of {@code buffer_row_pitch}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code host_slice_pitch} is not 0 and is less than {@code region[1] * host_row_pitch} and not a multiple of {@code host_row_pitch}.</li>
+	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
+	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
+	 *         <li>{@link #CL_MISALIGNED_SUB_BUFFER_OFFSET MISALIGNED_SUB_BUFFER_OFFSET} if {@code buffer} is a sub-buffer object and offset specified when the sub-buffer object is created is
+	 *         not aligned to {@link CL10#CL_DEVICE_MEM_BASE_ADDR_ALIGN DEVICE_MEM_BASE_ADDR_ALIGN} value for device associated with queue.</li>
+	 *         <li>{@link #CL_EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST} if the write operation is blocking and the execution status of any of the events in
+	 *         {@code event_wait_list} is a negative integer value.</li>
+	 *         <li>{@link CL10#CL_MEM_OBJECT_ALLOCATION_FAILURE MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with {@code buffer}.</li>
+	 *         <li>{@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} if {@code clEnqueueWriteBufferRect} is called on buffer which has been created with {@link CL12#CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY} or {@link CL12#CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
 	public static int clEnqueueWriteBufferRect(long command_queue, long buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
 			checkBuffer(buffer_offset, 3);
@@ -465,7 +976,80 @@ public class CL11 {
 		return nclEnqueueWriteBufferRect(command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** DoubleBuffer version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
+	/**
+	 * Enqueues a command to write a 2D or 3D rectangular region to a buffer object from host memory.
+	 * 
+	 * <p>Calling {@code clEnqueueWriteBufferRect} to update the latest bits in a region of the buffer object with the {@code ptr} argument value set to
+	 * {@code host_ptr} and {@code host_origin}, {@code buffer_origin} values are the same, where {@code host_ptr} is a pointer to the memory region specified
+	 * when the buffer object being written is created with {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, must meet the following requirements in order to avoid undefined
+	 * behavior:</p>
+	 * 
+	 * <ul>
+	 * <li>The host memory region given by {@code (buffer_origin region)} contains the latest bits when the enqueued write command begins execution.</li>
+	 * <li>The buffer object or memory objects created from this buffer object are not mapped.</li>
+	 * <li>The buffer object or memory objects created from this buffer object are not used by any command-queue until the write command has finished execution.</li>
+	 * </ul>
+	 *
+	 * @param command_queue      the command-queue in which the write command will be queued. {@code command_queue} and {@code buffer} must be created with the same OpenCL context.
+	 * @param buffer             a valid buffer object
+	 * @param blocking_write     indicates if the write operation is <em>blocking</em> or <em>nonblocking</em>.
+	 *                           
+	 *                           <p>If {@code blocking_write} is {@link CL10#CL_TRUE TRUE}, the OpenCL implementation copies the data referred to by {@code ptr} and enqueues the write operation in the
+	 *                           command-queue. The memory pointed to by {@code ptr} can be reused by the application after the {@code clEnqueueWriteBufferRect} call returns.</p>
+	 *                           
+	 *                           <p>If {@code blocking_write} is {@link CL10#CL_FALSE FALSE}, the OpenCL implementation will use {@code ptr} to perform a non-blocking write. As the write is non-blocking
+	 *                           the implementation can return immediately. The memory pointed to by {@code ptr} cannot be reused by the application after the call returns. The
+	 *                           {@code event} argument returns an event object which can be used to query the execution status of the write command. When the write command has
+	 *                           completed, the memory pointed to by {@code ptr} can then be reused by the application.</p>
+	 * @param buffer_offset      the {@code (x, y, z)} offset in the memory region associated with {@code buffer}. For a 2D rectangle region, the z value given by {@code buffer_origin[2]}
+	 *                           should be 0. The offset in bytes is computed as <code>buffer_origin[2] * buffer_slice_pitch + buffer_origin[1] * buffer_row_pitch + buffer_origin[0]</code>.
+	 * @param host_offset        the {@code (x, y, z)} offset in the memory region pointed to by {@code ptr}. For a 2D rectangle region, the z value given by {@code host_origin[2]}
+	 *                           should be 0. The offset in bytes is computed as <code>host_origin[2] * host_slice_pitch + host_origin[1] * host_row_pitch + host_origin[0]</code>.
+	 * @param region             the (width in bytes, height in rows, depth in slices) of the 2D or 3D rectangle being read or written. For a 2D rectangle copy, the depth value
+	 *                           given by {@code region[2]} should be 1. The values in region cannot be 0.
+	 * @param buffer_row_pitch   the length of each row in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_row_pitch} is 0,
+	 *                           {@code buffer_row_pitch} is computed as {@code region[0]}.
+	 * @param buffer_slice_pitch the length of each 2D slice in bytes to be used for the memory region associated with {@code buffer}. If {@code buffer_slice_pitch} is 0,
+	 *                           {@code buffer_slice_pitch} is computed as {@code region[1] * buffer_row_pitch}.
+	 * @param host_row_pitch     the length of each row in bytes to be used for the memory region pointed to by {@code ptr}. If {@code host_row_pitch} is 0, {@code host_row_pitch}
+	 *                           is computed as {@code region[0]}.
+	 * @param host_slice_pitch   the length of each 2D slice in bytes to be used for the memory region pointed to by {@code ptr}. If {@code host_slice_pitch} is 0,
+	 *                           {@code host_slice_pitch} is computed as {@code region[1] * host_row_pitch}.
+	 * @param ptr                the pointer to buffer in host memory where data is to be written from
+	 * @param event_wait_list    a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
+	 *                           does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
+	 *                           {@code event_wait_list} and {@code command_queue} must be the same.
+	 * @param event              Returns an event object that identifies this particular command and can be used to query or queue a wait for this particular command to complete.
+	 *                           {@code event} can be {@code NULL} in which case it will not be possible for the application to query the status of this command or queue a wait for this command to
+	 *                           complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
+	 *                           {@code event_wait_list} array.
+	 *
+	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code buffer} are not the same or if the context associated
+	 *         with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
+	 *         <li>{@link CL10#CL_INVALID_MEM_OBJECT INVALID_MEM_OBJECT} if {@code buffer} is not a valid buffer object.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if the region being written specified by {@code (buffer_origin, region, buffer_row_pitch, buffer_slice_pitch)} is out of bounds.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code ptr} is a {@code NULL} value.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if any {@code region} array element is 0.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code buffer_row_pitch} is not 0 and is less than {@code region[0]}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code host_row_pitch} is not 0 and is less than {@code region[0]}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code buffer_slice_pitch} is not 0 and is less than {@code region[1] * buffer_row_pitch} and not a multiple of {@code buffer_row_pitch}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code host_slice_pitch} is not 0 and is less than {@code region[1] * host_row_pitch} and not a multiple of {@code host_row_pitch}.</li>
+	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
+	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
+	 *         <li>{@link #CL_MISALIGNED_SUB_BUFFER_OFFSET MISALIGNED_SUB_BUFFER_OFFSET} if {@code buffer} is a sub-buffer object and offset specified when the sub-buffer object is created is
+	 *         not aligned to {@link CL10#CL_DEVICE_MEM_BASE_ADDR_ALIGN DEVICE_MEM_BASE_ADDR_ALIGN} value for device associated with queue.</li>
+	 *         <li>{@link #CL_EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST EXEC_STATUS_ERROR_FOR_EVENTS_IN_WAIT_LIST} if the write operation is blocking and the execution status of any of the events in
+	 *         {@code event_wait_list} is a negative integer value.</li>
+	 *         <li>{@link CL10#CL_MEM_OBJECT_ALLOCATION_FAILURE MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with {@code buffer}.</li>
+	 *         <li>{@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} if {@code clEnqueueWriteBufferRect} is called on buffer which has been created with {@link CL12#CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY} or {@link CL12#CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
 	public static int clEnqueueWriteBufferRect(long command_queue, long buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
 			checkBuffer(buffer_offset, 3);
@@ -730,7 +1314,7 @@ clReleaseMemObject(buf2);</code></pre>
 		return callPJPPP(__functionAddress, buffer, flags, buffer_create_type, memAddress(buffer_create_info), errcode_ret);
 	}
 
-	/** short[] version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
+	/** Array version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
 	public static int clEnqueueReadBufferRect(long command_queue, long buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, short[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadBufferRect;
 		if ( CHECKS ) {
@@ -745,7 +1329,7 @@ clReleaseMemObject(buf2);</code></pre>
 		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** int[] version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
+	/** Array version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
 	public static int clEnqueueReadBufferRect(long command_queue, long buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, int[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadBufferRect;
 		if ( CHECKS ) {
@@ -760,7 +1344,7 @@ clReleaseMemObject(buf2);</code></pre>
 		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** float[] version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
+	/** Array version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
 	public static int clEnqueueReadBufferRect(long command_queue, long buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, float[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadBufferRect;
 		if ( CHECKS ) {
@@ -775,7 +1359,7 @@ clReleaseMemObject(buf2);</code></pre>
 		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** double[] version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
+	/** Array version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect} */
 	public static int clEnqueueReadBufferRect(long command_queue, long buffer, int blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, double[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadBufferRect;
 		if ( CHECKS ) {
@@ -790,7 +1374,7 @@ clReleaseMemObject(buf2);</code></pre>
 		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** short[] version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
+	/** Array version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
 	public static int clEnqueueWriteBufferRect(long command_queue, long buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, short[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteBufferRect;
 		if ( CHECKS ) {
@@ -805,7 +1389,7 @@ clReleaseMemObject(buf2);</code></pre>
 		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** int[] version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
+	/** Array version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
 	public static int clEnqueueWriteBufferRect(long command_queue, long buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, int[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteBufferRect;
 		if ( CHECKS ) {
@@ -820,7 +1404,7 @@ clReleaseMemObject(buf2);</code></pre>
 		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** float[] version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
+	/** Array version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
 	public static int clEnqueueWriteBufferRect(long command_queue, long buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, float[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteBufferRect;
 		if ( CHECKS ) {
@@ -835,7 +1419,7 @@ clReleaseMemObject(buf2);</code></pre>
 		return callPPPPPPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, memAddress(buffer_offset), memAddress(host_offset), memAddress(region), buffer_row_pitch, buffer_slice_pitch, host_row_pitch, host_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
-	/** double[] version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
+	/** Array version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect} */
 	public static int clEnqueueWriteBufferRect(long command_queue, long buffer, int blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, double[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteBufferRect;
 		if ( CHECKS ) {

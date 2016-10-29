@@ -636,7 +636,11 @@ public class X11 {
 		return nXFree(memAddress(data));
 	}
 
-	/** PointerBuffer version of: {@link #XFree} */
+	/**
+	 * Free in-memory data that was created by an Xlib function.
+	 *
+	 * @param data the data that is to be freed
+	 */
 	public static int XFree(PointerBuffer data) {
 		return nXFree(memAddress(data));
 	}

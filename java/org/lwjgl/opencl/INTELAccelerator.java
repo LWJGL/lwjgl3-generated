@@ -203,14 +203,48 @@ public class INTELAccelerator {
 		return nclGetAcceleratorInfoINTEL(accelerator, param_name, remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
-	/** IntBuffer version of: {@link #clGetAcceleratorInfoINTEL GetAcceleratorInfoINTEL} */
+	/**
+	 * Returns information about the accelerator object.
+	 *
+	 * @param accelerator          the accelerator object being queried
+	 * @param param_name           the information to query. One of:<br><table><tr><td>{@link #CL_ACCELERATOR_DESCRIPTOR_INTEL ACCELERATOR_DESCRIPTOR_INTEL}</td><td>{@link #CL_ACCELERATOR_REFERENCE_COUNT_INTEL ACCELERATOR_REFERENCE_COUNT_INTEL}</td></tr><tr><td>{@link #CL_ACCELERATOR_CONTEXT_INTEL ACCELERATOR_CONTEXT_INTEL}</td><td>{@link #CL_ACCELERATOR_TYPE_INTEL ACCELERATOR_TYPE_INTEL}</td></tr></table>
+	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
+	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
+	 *
+	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is not valid or if size in bytes specified by {@code param_value_size} is &lt; size of return type and
+	 *         {@code param_value} is not {@code NULL}.</li>
+	 *         <li>{@link #CL_INVALID_ACCELERATOR_INTEL INVALID_ACCELERATOR_INTEL} if accelerator is a not a valid accelerator object.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
 	public static int clGetAcceleratorInfoINTEL(long accelerator, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			checkBufferSafe(param_value_size_ret, 1);
 		return nclGetAcceleratorInfoINTEL(accelerator, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
-	/** PointerBuffer version of: {@link #clGetAcceleratorInfoINTEL GetAcceleratorInfoINTEL} */
+	/**
+	 * Returns information about the accelerator object.
+	 *
+	 * @param accelerator          the accelerator object being queried
+	 * @param param_name           the information to query. One of:<br><table><tr><td>{@link #CL_ACCELERATOR_DESCRIPTOR_INTEL ACCELERATOR_DESCRIPTOR_INTEL}</td><td>{@link #CL_ACCELERATOR_REFERENCE_COUNT_INTEL ACCELERATOR_REFERENCE_COUNT_INTEL}</td></tr><tr><td>{@link #CL_ACCELERATOR_CONTEXT_INTEL ACCELERATOR_CONTEXT_INTEL}</td><td>{@link #CL_ACCELERATOR_TYPE_INTEL ACCELERATOR_TYPE_INTEL}</td></tr></table>
+	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
+	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
+	 *
+	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is not valid or if size in bytes specified by {@code param_value_size} is &lt; size of return type and
+	 *         {@code param_value} is not {@code NULL}.</li>
+	 *         <li>{@link #CL_INVALID_ACCELERATOR_INTEL INVALID_ACCELERATOR_INTEL} if accelerator is a not a valid accelerator object.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
 	public static int clGetAcceleratorInfoINTEL(long accelerator, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			checkBufferSafe(param_value_size_ret, 1);
@@ -228,7 +262,7 @@ public class INTELAccelerator {
 		return callPPPPP(__functionAddress, context, accelerator_type, (long)descriptor.remaining(), memAddress(descriptor), errcode_ret);
 	}
 
-	/** int[] version of: {@link #clGetAcceleratorInfoINTEL GetAcceleratorInfoINTEL} */
+	/** Array version of: {@link #clGetAcceleratorInfoINTEL GetAcceleratorInfoINTEL} */
 	public static int clGetAcceleratorInfoINTEL(long accelerator, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetAcceleratorInfoINTEL;
 		if ( CHECKS ) {

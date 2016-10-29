@@ -476,21 +476,225 @@ public class CL12 {
 		return nclCreateImage(context, flags, image_format.address(), image_desc.address(), memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
 	}
 
-	/** ShortBuffer version of: {@link #clCreateImage CreateImage} */
+	/**
+	 * Creates a 1D image, 1D image buffer, 1D image array, 2D image, 2D image array or 3D image object.
+	 * 
+	 * <p>For a 3D image or 2D image array, the image data specified by {@code host_ptr} is stored as a linear sequence of adjacent 2D image slices or 2D images
+	 * respectively. Each 2D image is a linear sequence of adjacent scanlines. Each scanline is a linear sequence of image elements.</p>
+	 * 
+	 * <p>For a 2D image, the image data specified by {@code host_ptr} is stored as a linear sequence of adjacent scanlines. Each scanline is a linear sequence of
+	 * image elements.</p>
+	 * 
+	 * <p>For a 1D image array, the image data specified by {@code host_ptr} is stored as a linear sequence of adjacent 1D images respectively. Each 1D image or
+	 * 1D image buffer is a single scanline which is a linear sequence of adjacent elements.</p>
+	 *
+	 * @param context      a valid OpenCL context on which the image object is to be created
+	 * @param flags        a bit-field that is used to specify allocation and usage information about the image memory object being created.
+	 *                     
+	 *                     <p>For all image types except {@link #CL_MEM_OBJECT_IMAGE1D_BUFFER MEM_OBJECT_IMAGE1D_BUFFER}, if value specified for {@code flags} is 0, the default is used which is
+	 *                     {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}.</p>
+	 *                     
+	 *                     <p>For {@link #CL_MEM_OBJECT_IMAGE1D_BUFFER MEM_OBJECT_IMAGE1D_BUFFER} image type, if the {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY} or {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}
+	 *                     values are not specified in {@code flags}, they are inherited from the corresponding memory access qualifers associated with buffer. The
+	 *                     {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, {@link CL10#CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR} and {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR} values cannot be specified in {@code flags}
+	 *                     but are inherited from the corresponding memory access qualifiers associated with buffer. If {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR} is specified in the
+	 *                     memory access qualifier values associated with buffer it does not imply any additional copies when the sub-buffer is created from buffer. If the
+	 *                     {@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY} or {@link #CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS} values are not specified in {@code flags}, they
+	 *                     are inherited from the corresponding memory access qualifiers associated with buffer. One of:<br></p><table><tr><td>{@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}</td><td>{@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}</td><td>{@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}</td><td>{@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}</td><td>{@link CL10#CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR}</td></tr><tr><td>{@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR}</td><td>{@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}</td><td>{@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}</td><td>{@link #CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}</td></tr></table>
+	 * @param image_format a pointer to a {@link CLImageFormat} structure that describes format properties of the image to be allocated
+	 * @param image_desc   a pointer to a {@link CLImageDesc} structure that describes type and dimensions of the image to be allocated
+	 * @param host_ptr     a pointer to the image data that may already be allocated by the application. Refer to table below for a description of how large the buffer that
+	 *                     {@code host_ptr} points to must be.
+	 *                     
+	 *                     <table class=lwjgl>
+	 *                     <tr><th>ImageType</th><th>Size of buffer that {@code host_ptr} points to</th></tr>
+	 *                     <tr><td>{@link #CL_MEM_OBJECT_IMAGE1D MEM_OBJECT_IMAGE1D}</td><td>&#x2265; {@code image_row_pitch}</td></tr>
+	 *                     <tr><td>{@link #CL_MEM_OBJECT_IMAGE1D_BUFFER MEM_OBJECT_IMAGE1D_BUFFER}</td><td>&#x2265; {@code image_row_pitch}</td></tr>
+	 *                     <tr><td>{@link CL10#CL_MEM_OBJECT_IMAGE2D MEM_OBJECT_IMAGE2D}</td><td>&#x2265; {@code image_row_pitch * image_height}</td></tr>
+	 *                     <tr><td>{@link CL10#CL_MEM_OBJECT_IMAGE3D MEM_OBJECT_IMAGE3D}</td><td>&#x2265; {@code image_slice_pitch * image_depth}</td></tr>
+	 *                     <tr><td>{@link #CL_MEM_OBJECT_IMAGE1D_ARRAY MEM_OBJECT_IMAGE1D_ARRAY}</td><td>&#x2265; {@code image_slice_pitch * image_array_size}</td></tr>
+	 *                     <tr><td>{@link #CL_MEM_OBJECT_IMAGE2D_ARRAY MEM_OBJECT_IMAGE2D_ARRAY}</td><td>&#x2265; {@code image_slice_pitch * image_array_size}</td></tr>
+	 *                     </table>
+	 * @param errcode_ret  will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
+	 *
+	 * @return a valid non-zero image object and the {@code errcode_ret} is set to {@link CL10#CL_SUCCESS SUCCESS} if the image object is created successfully. Otherwise, it returns a {@code NULL}
+	 *         value with one of the following error values returned in {@code errcode_ret}:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if values specified in {@code flags} are not valid.</li>
+	 *         <li>{@link CL10#CL_INVALID_IMAGE_FORMAT_DESCRIPTOR INVALID_IMAGE_FORMAT_DESCRIPTOR} if values specified in {@code image_format} are not valid or if {@code image_format} is {@code NULL}.</li>
+	 *         <li>{@link CL10#CL_INVALID_IMAGE_FORMAT_DESCRIPTOR INVALID_IMAGE_FORMAT_DESCRIPTOR} if a 2D image is created from a buffer and the row pitch and base address alignment does not follow the rules
+	 *         described for creating a 2D image from a buffer.</li>
+	 *         <li>{@link CL10#CL_INVALID_IMAGE_FORMAT_DESCRIPTOR INVALID_IMAGE_FORMAT_DESCRIPTOR} if a 2D image is created from a 2D image object and the rules described above are not followed.</li>
+	 *         <li>{@link #CL_INVALID_IMAGE_DESCRIPTOR INVALID_IMAGE_DESCRIPTOR} if values specified in {@code image_desc} are not valid or if {@code image_desc} is {@code NULL}.</li>
+	 *         <li>{@link CL10#CL_INVALID_IMAGE_SIZE INVALID_IMAGE_SIZE} if image dimensions specified in {@code image_desc} exceed the maximum image dimensions for all devices in context.</li>
+	 *         <li>{@link CL10#CL_INVALID_HOST_PTR INVALID_HOST_PTR} if {@code host_ptr} is {@code NULL} and {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR} or {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR} are set in flags or if {@code host_ptr} is not
+	 *         {@code NULL} but {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR} or {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR} are not set in flags.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if an image buffer is being created and the buffer object was created with {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} and flags specifies
+	 *         {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE} or {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}, or if the buffer object was created with {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY} and flags specifies {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE} or
+	 *         {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, or if flags specifies {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR} or {@link CL10#CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR} or {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if an image buffer is being created or an image is being created from another memory object (image or buffer) and the
+	 *         {@code mem_object} object was created with {@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY} and flags specifies {@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}, or if {@code mem_object} was created with
+	 *         {@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY} and flags specifies {@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, or if {@code mem_object} was created with {@link #CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS} and flags specifies
+	 *         {@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY} or {@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}.</li>
+	 *         <li>{@link CL10#CL_IMAGE_FORMAT_NOT_SUPPORTED IMAGE_FORMAT_NOT_SUPPORTED} if the {@code image_format} is not supported.</li>
+	 *         <li>{@link CL10#CL_MEM_OBJECT_ALLOCATION_FAILURE MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for image object.</li>
+	 *         <li>{@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} if there are no devices in context that support images.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
 	public static long clCreateImage(long context, long flags, CLImageFormat image_format, CLImageDesc image_desc, ShortBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( CHECKS )
 			checkBufferSafe(errcode_ret, 1);
 		return nclCreateImage(context, flags, image_format.address(), image_desc.address(), memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
 	}
 
-	/** IntBuffer version of: {@link #clCreateImage CreateImage} */
+	/**
+	 * Creates a 1D image, 1D image buffer, 1D image array, 2D image, 2D image array or 3D image object.
+	 * 
+	 * <p>For a 3D image or 2D image array, the image data specified by {@code host_ptr} is stored as a linear sequence of adjacent 2D image slices or 2D images
+	 * respectively. Each 2D image is a linear sequence of adjacent scanlines. Each scanline is a linear sequence of image elements.</p>
+	 * 
+	 * <p>For a 2D image, the image data specified by {@code host_ptr} is stored as a linear sequence of adjacent scanlines. Each scanline is a linear sequence of
+	 * image elements.</p>
+	 * 
+	 * <p>For a 1D image array, the image data specified by {@code host_ptr} is stored as a linear sequence of adjacent 1D images respectively. Each 1D image or
+	 * 1D image buffer is a single scanline which is a linear sequence of adjacent elements.</p>
+	 *
+	 * @param context      a valid OpenCL context on which the image object is to be created
+	 * @param flags        a bit-field that is used to specify allocation and usage information about the image memory object being created.
+	 *                     
+	 *                     <p>For all image types except {@link #CL_MEM_OBJECT_IMAGE1D_BUFFER MEM_OBJECT_IMAGE1D_BUFFER}, if value specified for {@code flags} is 0, the default is used which is
+	 *                     {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}.</p>
+	 *                     
+	 *                     <p>For {@link #CL_MEM_OBJECT_IMAGE1D_BUFFER MEM_OBJECT_IMAGE1D_BUFFER} image type, if the {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY} or {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}
+	 *                     values are not specified in {@code flags}, they are inherited from the corresponding memory access qualifers associated with buffer. The
+	 *                     {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, {@link CL10#CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR} and {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR} values cannot be specified in {@code flags}
+	 *                     but are inherited from the corresponding memory access qualifiers associated with buffer. If {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR} is specified in the
+	 *                     memory access qualifier values associated with buffer it does not imply any additional copies when the sub-buffer is created from buffer. If the
+	 *                     {@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY} or {@link #CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS} values are not specified in {@code flags}, they
+	 *                     are inherited from the corresponding memory access qualifiers associated with buffer. One of:<br></p><table><tr><td>{@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}</td><td>{@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}</td><td>{@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}</td><td>{@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}</td><td>{@link CL10#CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR}</td></tr><tr><td>{@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR}</td><td>{@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}</td><td>{@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}</td><td>{@link #CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}</td></tr></table>
+	 * @param image_format a pointer to a {@link CLImageFormat} structure that describes format properties of the image to be allocated
+	 * @param image_desc   a pointer to a {@link CLImageDesc} structure that describes type and dimensions of the image to be allocated
+	 * @param host_ptr     a pointer to the image data that may already be allocated by the application. Refer to table below for a description of how large the buffer that
+	 *                     {@code host_ptr} points to must be.
+	 *                     
+	 *                     <table class=lwjgl>
+	 *                     <tr><th>ImageType</th><th>Size of buffer that {@code host_ptr} points to</th></tr>
+	 *                     <tr><td>{@link #CL_MEM_OBJECT_IMAGE1D MEM_OBJECT_IMAGE1D}</td><td>&#x2265; {@code image_row_pitch}</td></tr>
+	 *                     <tr><td>{@link #CL_MEM_OBJECT_IMAGE1D_BUFFER MEM_OBJECT_IMAGE1D_BUFFER}</td><td>&#x2265; {@code image_row_pitch}</td></tr>
+	 *                     <tr><td>{@link CL10#CL_MEM_OBJECT_IMAGE2D MEM_OBJECT_IMAGE2D}</td><td>&#x2265; {@code image_row_pitch * image_height}</td></tr>
+	 *                     <tr><td>{@link CL10#CL_MEM_OBJECT_IMAGE3D MEM_OBJECT_IMAGE3D}</td><td>&#x2265; {@code image_slice_pitch * image_depth}</td></tr>
+	 *                     <tr><td>{@link #CL_MEM_OBJECT_IMAGE1D_ARRAY MEM_OBJECT_IMAGE1D_ARRAY}</td><td>&#x2265; {@code image_slice_pitch * image_array_size}</td></tr>
+	 *                     <tr><td>{@link #CL_MEM_OBJECT_IMAGE2D_ARRAY MEM_OBJECT_IMAGE2D_ARRAY}</td><td>&#x2265; {@code image_slice_pitch * image_array_size}</td></tr>
+	 *                     </table>
+	 * @param errcode_ret  will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
+	 *
+	 * @return a valid non-zero image object and the {@code errcode_ret} is set to {@link CL10#CL_SUCCESS SUCCESS} if the image object is created successfully. Otherwise, it returns a {@code NULL}
+	 *         value with one of the following error values returned in {@code errcode_ret}:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if values specified in {@code flags} are not valid.</li>
+	 *         <li>{@link CL10#CL_INVALID_IMAGE_FORMAT_DESCRIPTOR INVALID_IMAGE_FORMAT_DESCRIPTOR} if values specified in {@code image_format} are not valid or if {@code image_format} is {@code NULL}.</li>
+	 *         <li>{@link CL10#CL_INVALID_IMAGE_FORMAT_DESCRIPTOR INVALID_IMAGE_FORMAT_DESCRIPTOR} if a 2D image is created from a buffer and the row pitch and base address alignment does not follow the rules
+	 *         described for creating a 2D image from a buffer.</li>
+	 *         <li>{@link CL10#CL_INVALID_IMAGE_FORMAT_DESCRIPTOR INVALID_IMAGE_FORMAT_DESCRIPTOR} if a 2D image is created from a 2D image object and the rules described above are not followed.</li>
+	 *         <li>{@link #CL_INVALID_IMAGE_DESCRIPTOR INVALID_IMAGE_DESCRIPTOR} if values specified in {@code image_desc} are not valid or if {@code image_desc} is {@code NULL}.</li>
+	 *         <li>{@link CL10#CL_INVALID_IMAGE_SIZE INVALID_IMAGE_SIZE} if image dimensions specified in {@code image_desc} exceed the maximum image dimensions for all devices in context.</li>
+	 *         <li>{@link CL10#CL_INVALID_HOST_PTR INVALID_HOST_PTR} if {@code host_ptr} is {@code NULL} and {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR} or {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR} are set in flags or if {@code host_ptr} is not
+	 *         {@code NULL} but {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR} or {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR} are not set in flags.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if an image buffer is being created and the buffer object was created with {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} and flags specifies
+	 *         {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE} or {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}, or if the buffer object was created with {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY} and flags specifies {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE} or
+	 *         {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, or if flags specifies {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR} or {@link CL10#CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR} or {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if an image buffer is being created or an image is being created from another memory object (image or buffer) and the
+	 *         {@code mem_object} object was created with {@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY} and flags specifies {@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}, or if {@code mem_object} was created with
+	 *         {@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY} and flags specifies {@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, or if {@code mem_object} was created with {@link #CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS} and flags specifies
+	 *         {@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY} or {@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}.</li>
+	 *         <li>{@link CL10#CL_IMAGE_FORMAT_NOT_SUPPORTED IMAGE_FORMAT_NOT_SUPPORTED} if the {@code image_format} is not supported.</li>
+	 *         <li>{@link CL10#CL_MEM_OBJECT_ALLOCATION_FAILURE MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for image object.</li>
+	 *         <li>{@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} if there are no devices in context that support images.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
 	public static long clCreateImage(long context, long flags, CLImageFormat image_format, CLImageDesc image_desc, IntBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( CHECKS )
 			checkBufferSafe(errcode_ret, 1);
 		return nclCreateImage(context, flags, image_format.address(), image_desc.address(), memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
 	}
 
-	/** FloatBuffer version of: {@link #clCreateImage CreateImage} */
+	/**
+	 * Creates a 1D image, 1D image buffer, 1D image array, 2D image, 2D image array or 3D image object.
+	 * 
+	 * <p>For a 3D image or 2D image array, the image data specified by {@code host_ptr} is stored as a linear sequence of adjacent 2D image slices or 2D images
+	 * respectively. Each 2D image is a linear sequence of adjacent scanlines. Each scanline is a linear sequence of image elements.</p>
+	 * 
+	 * <p>For a 2D image, the image data specified by {@code host_ptr} is stored as a linear sequence of adjacent scanlines. Each scanline is a linear sequence of
+	 * image elements.</p>
+	 * 
+	 * <p>For a 1D image array, the image data specified by {@code host_ptr} is stored as a linear sequence of adjacent 1D images respectively. Each 1D image or
+	 * 1D image buffer is a single scanline which is a linear sequence of adjacent elements.</p>
+	 *
+	 * @param context      a valid OpenCL context on which the image object is to be created
+	 * @param flags        a bit-field that is used to specify allocation and usage information about the image memory object being created.
+	 *                     
+	 *                     <p>For all image types except {@link #CL_MEM_OBJECT_IMAGE1D_BUFFER MEM_OBJECT_IMAGE1D_BUFFER}, if value specified for {@code flags} is 0, the default is used which is
+	 *                     {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}.</p>
+	 *                     
+	 *                     <p>For {@link #CL_MEM_OBJECT_IMAGE1D_BUFFER MEM_OBJECT_IMAGE1D_BUFFER} image type, if the {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}, {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY} or {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}
+	 *                     values are not specified in {@code flags}, they are inherited from the corresponding memory access qualifers associated with buffer. The
+	 *                     {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}, {@link CL10#CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR} and {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR} values cannot be specified in {@code flags}
+	 *                     but are inherited from the corresponding memory access qualifiers associated with buffer. If {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR} is specified in the
+	 *                     memory access qualifier values associated with buffer it does not imply any additional copies when the sub-buffer is created from buffer. If the
+	 *                     {@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, {@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY} or {@link #CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS} values are not specified in {@code flags}, they
+	 *                     are inherited from the corresponding memory access qualifiers associated with buffer. One of:<br></p><table><tr><td>{@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE}</td><td>{@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}</td><td>{@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}</td><td>{@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR}</td><td>{@link CL10#CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR}</td></tr><tr><td>{@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR}</td><td>{@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}</td><td>{@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}</td><td>{@link #CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS}</td></tr></table>
+	 * @param image_format a pointer to a {@link CLImageFormat} structure that describes format properties of the image to be allocated
+	 * @param image_desc   a pointer to a {@link CLImageDesc} structure that describes type and dimensions of the image to be allocated
+	 * @param host_ptr     a pointer to the image data that may already be allocated by the application. Refer to table below for a description of how large the buffer that
+	 *                     {@code host_ptr} points to must be.
+	 *                     
+	 *                     <table class=lwjgl>
+	 *                     <tr><th>ImageType</th><th>Size of buffer that {@code host_ptr} points to</th></tr>
+	 *                     <tr><td>{@link #CL_MEM_OBJECT_IMAGE1D MEM_OBJECT_IMAGE1D}</td><td>&#x2265; {@code image_row_pitch}</td></tr>
+	 *                     <tr><td>{@link #CL_MEM_OBJECT_IMAGE1D_BUFFER MEM_OBJECT_IMAGE1D_BUFFER}</td><td>&#x2265; {@code image_row_pitch}</td></tr>
+	 *                     <tr><td>{@link CL10#CL_MEM_OBJECT_IMAGE2D MEM_OBJECT_IMAGE2D}</td><td>&#x2265; {@code image_row_pitch * image_height}</td></tr>
+	 *                     <tr><td>{@link CL10#CL_MEM_OBJECT_IMAGE3D MEM_OBJECT_IMAGE3D}</td><td>&#x2265; {@code image_slice_pitch * image_depth}</td></tr>
+	 *                     <tr><td>{@link #CL_MEM_OBJECT_IMAGE1D_ARRAY MEM_OBJECT_IMAGE1D_ARRAY}</td><td>&#x2265; {@code image_slice_pitch * image_array_size}</td></tr>
+	 *                     <tr><td>{@link #CL_MEM_OBJECT_IMAGE2D_ARRAY MEM_OBJECT_IMAGE2D_ARRAY}</td><td>&#x2265; {@code image_slice_pitch * image_array_size}</td></tr>
+	 *                     </table>
+	 * @param errcode_ret  will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
+	 *
+	 * @return a valid non-zero image object and the {@code errcode_ret} is set to {@link CL10#CL_SUCCESS SUCCESS} if the image object is created successfully. Otherwise, it returns a {@code NULL}
+	 *         value with one of the following error values returned in {@code errcode_ret}:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid context.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if values specified in {@code flags} are not valid.</li>
+	 *         <li>{@link CL10#CL_INVALID_IMAGE_FORMAT_DESCRIPTOR INVALID_IMAGE_FORMAT_DESCRIPTOR} if values specified in {@code image_format} are not valid or if {@code image_format} is {@code NULL}.</li>
+	 *         <li>{@link CL10#CL_INVALID_IMAGE_FORMAT_DESCRIPTOR INVALID_IMAGE_FORMAT_DESCRIPTOR} if a 2D image is created from a buffer and the row pitch and base address alignment does not follow the rules
+	 *         described for creating a 2D image from a buffer.</li>
+	 *         <li>{@link CL10#CL_INVALID_IMAGE_FORMAT_DESCRIPTOR INVALID_IMAGE_FORMAT_DESCRIPTOR} if a 2D image is created from a 2D image object and the rules described above are not followed.</li>
+	 *         <li>{@link #CL_INVALID_IMAGE_DESCRIPTOR INVALID_IMAGE_DESCRIPTOR} if values specified in {@code image_desc} are not valid or if {@code image_desc} is {@code NULL}.</li>
+	 *         <li>{@link CL10#CL_INVALID_IMAGE_SIZE INVALID_IMAGE_SIZE} if image dimensions specified in {@code image_desc} exceed the maximum image dimensions for all devices in context.</li>
+	 *         <li>{@link CL10#CL_INVALID_HOST_PTR INVALID_HOST_PTR} if {@code host_ptr} is {@code NULL} and {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR} or {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR} are set in flags or if {@code host_ptr} is not
+	 *         {@code NULL} but {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR} or {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR} are not set in flags.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if an image buffer is being created and the buffer object was created with {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY} and flags specifies
+	 *         {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE} or {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY}, or if the buffer object was created with {@link CL10#CL_MEM_READ_ONLY MEM_READ_ONLY} and flags specifies {@link CL10#CL_MEM_READ_WRITE MEM_READ_WRITE} or
+	 *         {@link CL10#CL_MEM_WRITE_ONLY MEM_WRITE_ONLY}, or if flags specifies {@link CL10#CL_MEM_USE_HOST_PTR MEM_USE_HOST_PTR} or {@link CL10#CL_MEM_ALLOC_HOST_PTR MEM_ALLOC_HOST_PTR} or {@link CL10#CL_MEM_COPY_HOST_PTR MEM_COPY_HOST_PTR}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if an image buffer is being created or an image is being created from another memory object (image or buffer) and the
+	 *         {@code mem_object} object was created with {@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY} and flags specifies {@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY}, or if {@code mem_object} was created with
+	 *         {@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY} and flags specifies {@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}, or if {@code mem_object} was created with {@link #CL_MEM_HOST_NO_ACCESS MEM_HOST_NO_ACCESS} and flags specifies
+	 *         {@link #CL_MEM_HOST_READ_ONLY MEM_HOST_READ_ONLY} or {@link #CL_MEM_HOST_WRITE_ONLY MEM_HOST_WRITE_ONLY}.</li>
+	 *         <li>{@link CL10#CL_IMAGE_FORMAT_NOT_SUPPORTED IMAGE_FORMAT_NOT_SUPPORTED} if the {@code image_format} is not supported.</li>
+	 *         <li>{@link CL10#CL_MEM_OBJECT_ALLOCATION_FAILURE MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for image object.</li>
+	 *         <li>{@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} if there are no devices in context that support images.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
 	public static long clCreateImage(long context, long flags, CLImageFormat image_format, CLImageDesc image_desc, FloatBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( CHECKS )
 			checkBufferSafe(errcode_ret, 1);
@@ -1180,14 +1384,56 @@ public class CL12 {
 		return nclGetKernelArgInfo(kernel, arg_indx, param_name, remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
-	/** IntBuffer version of: {@link #clGetKernelArgInfo GetKernelArgInfo} */
+	/**
+	 * Returns information about the arguments of a kernel. Kernel argument information is only available if the program object associated with kernel is
+	 * created with {@link CL10#clCreateProgramWithSource CreateProgramWithSource} and the program executable is built with the {@code -cl-kernel-arg-info} option specified in options
+	 * argument to {@link CL10#clBuildProgram BuildProgram} or {@link #clCompileProgram CompileProgram}.
+	 *
+	 * @param kernel               specifies the kernel object being queried
+	 * @param arg_indx             the argument index. Arguments to the kernel are referred by indices that go from 0 for the leftmost argument to {@code n - 1}, where {@code n} is
+	 *                             the total number of arguments declared by a kernel.
+	 * @param param_name           the argument information to query. One of:<br><table><tr><td>{@link #CL_KERNEL_ARG_ADDRESS_QUALIFIER KERNEL_ARG_ADDRESS_QUALIFIER}</td><td>{@link #CL_KERNEL_ARG_ACCESS_QUALIFIER KERNEL_ARG_ACCESS_QUALIFIER}</td><td>{@link #CL_KERNEL_ARG_TYPE_NAME KERNEL_ARG_TYPE_NAME}</td></tr><tr><td>{@link #CL_KERNEL_ARG_TYPE_QUALIFIER KERNEL_ARG_TYPE_QUALIFIER}</td><td>{@link #CL_KERNEL_ARG_NAME KERNEL_ARG_NAME}</td></tr></table>
+	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
+	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
+	 *
+	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_ARG_INDEX INVALID_ARG_INDEX} if {@code arg_indx} is not a valid argument index.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value} size is &lt; size of return
+	 *         type and {@code param_value} is not {@code NULL}.</li>
+	 *         <li>{@link #CL_KERNEL_ARG_INFO_NOT_AVAILABLE KERNEL_ARG_INFO_NOT_AVAILABLE} if the argument information is not available for {@code kernel}.</li>
+	 *         <li>{@link CL10#CL_INVALID_KERNEL INVALID_KERNEL} if {@code kernel} is a not a valid kernel object.</li>
+	 *         </ul>
+	 */
 	public static int clGetKernelArgInfo(long kernel, int arg_indx, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			checkBufferSafe(param_value_size_ret, 1);
 		return nclGetKernelArgInfo(kernel, arg_indx, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
-	/** LongBuffer version of: {@link #clGetKernelArgInfo GetKernelArgInfo} */
+	/**
+	 * Returns information about the arguments of a kernel. Kernel argument information is only available if the program object associated with kernel is
+	 * created with {@link CL10#clCreateProgramWithSource CreateProgramWithSource} and the program executable is built with the {@code -cl-kernel-arg-info} option specified in options
+	 * argument to {@link CL10#clBuildProgram BuildProgram} or {@link #clCompileProgram CompileProgram}.
+	 *
+	 * @param kernel               specifies the kernel object being queried
+	 * @param arg_indx             the argument index. Arguments to the kernel are referred by indices that go from 0 for the leftmost argument to {@code n - 1}, where {@code n} is
+	 *                             the total number of arguments declared by a kernel.
+	 * @param param_name           the argument information to query. One of:<br><table><tr><td>{@link #CL_KERNEL_ARG_ADDRESS_QUALIFIER KERNEL_ARG_ADDRESS_QUALIFIER}</td><td>{@link #CL_KERNEL_ARG_ACCESS_QUALIFIER KERNEL_ARG_ACCESS_QUALIFIER}</td><td>{@link #CL_KERNEL_ARG_TYPE_NAME KERNEL_ARG_TYPE_NAME}</td></tr><tr><td>{@link #CL_KERNEL_ARG_TYPE_QUALIFIER KERNEL_ARG_TYPE_QUALIFIER}</td><td>{@link #CL_KERNEL_ARG_NAME KERNEL_ARG_NAME}</td></tr></table>
+	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
+	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
+	 *
+	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_ARG_INDEX INVALID_ARG_INDEX} if {@code arg_indx} is not a valid argument index.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value} size is &lt; size of return
+	 *         type and {@code param_value} is not {@code NULL}.</li>
+	 *         <li>{@link #CL_KERNEL_ARG_INFO_NOT_AVAILABLE KERNEL_ARG_INFO_NOT_AVAILABLE} if the argument information is not available for {@code kernel}.</li>
+	 *         <li>{@link CL10#CL_INVALID_KERNEL INVALID_KERNEL} if {@code kernel} is a not a valid kernel object.</li>
+	 *         </ul>
+	 */
 	public static int clGetKernelArgInfo(long kernel, int arg_indx, int param_name, LongBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			checkBufferSafe(param_value_size_ret, 1);
@@ -1516,7 +1762,7 @@ public class CL12 {
 		return callPJPPPPP(__functionAddress, context, flags, image_format.address(), image_desc.address(), memAddressSafe(host_ptr), errcode_ret);
 	}
 
-	/** short[] version of: {@link #clCreateImage CreateImage} */
+	/** Array version of: {@link #clCreateImage CreateImage} */
 	public static long clCreateImage(long context, long flags, CLImageFormat image_format, CLImageDesc image_desc, short[] host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateImage;
 		if ( CHECKS ) {
@@ -1527,7 +1773,7 @@ public class CL12 {
 		return callPJPPPPP(__functionAddress, context, flags, image_format.address(), image_desc.address(), host_ptr, errcode_ret);
 	}
 
-	/** int[] version of: {@link #clCreateImage CreateImage} */
+	/** Array version of: {@link #clCreateImage CreateImage} */
 	public static long clCreateImage(long context, long flags, CLImageFormat image_format, CLImageDesc image_desc, int[] host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateImage;
 		if ( CHECKS ) {
@@ -1538,7 +1784,7 @@ public class CL12 {
 		return callPJPPPPP(__functionAddress, context, flags, image_format.address(), image_desc.address(), host_ptr, errcode_ret);
 	}
 
-	/** float[] version of: {@link #clCreateImage CreateImage} */
+	/** Array version of: {@link #clCreateImage CreateImage} */
 	public static long clCreateImage(long context, long flags, CLImageFormat image_format, CLImageDesc image_desc, float[] host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateImage;
 		if ( CHECKS ) {
@@ -1578,7 +1824,7 @@ public class CL12 {
 		}
 	}
 
-	/** int[] version of: {@link #clGetKernelArgInfo GetKernelArgInfo} */
+	/** Array version of: {@link #clGetKernelArgInfo GetKernelArgInfo} */
 	public static int clGetKernelArgInfo(long kernel, int arg_indx, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetKernelArgInfo;
 		if ( CHECKS ) {
@@ -1589,7 +1835,7 @@ public class CL12 {
 		return callPPPPI(__functionAddress, kernel, arg_indx, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
 
-	/** long[] version of: {@link #clGetKernelArgInfo GetKernelArgInfo} */
+	/** Array version of: {@link #clGetKernelArgInfo GetKernelArgInfo} */
 	public static int clGetKernelArgInfo(long kernel, int arg_indx, int param_name, long[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetKernelArgInfo;
 		if ( CHECKS ) {

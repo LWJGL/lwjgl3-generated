@@ -160,22 +160,43 @@ public class SOFTLoopback {
 		nalcRenderSamplesSOFT(device, memAddress(buffer), samples);
 	}
 
-	/** ShortBuffer version of: {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
+	/**
+	 * The state of various objects on loopback devices (including processed buffers and source offsets) is processed only when new samples are rendered. To
+	 * render samples, use this function.
+	 *
+	 * @param device  the loopback device which samples are rendered from, using its contexts and associated buffers and sources
+	 * @param buffer  the buffer to write to
+	 * @param samples the number of sample frames to render
+	 */
 	public static void alcRenderSamplesSOFT(long device, ShortBuffer buffer, int samples) {
 		nalcRenderSamplesSOFT(device, memAddress(buffer), samples);
 	}
 
-	/** IntBuffer version of: {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
+	/**
+	 * The state of various objects on loopback devices (including processed buffers and source offsets) is processed only when new samples are rendered. To
+	 * render samples, use this function.
+	 *
+	 * @param device  the loopback device which samples are rendered from, using its contexts and associated buffers and sources
+	 * @param buffer  the buffer to write to
+	 * @param samples the number of sample frames to render
+	 */
 	public static void alcRenderSamplesSOFT(long device, IntBuffer buffer, int samples) {
 		nalcRenderSamplesSOFT(device, memAddress(buffer), samples);
 	}
 
-	/** FloatBuffer version of: {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
+	/**
+	 * The state of various objects on loopback devices (including processed buffers and source offsets) is processed only when new samples are rendered. To
+	 * render samples, use this function.
+	 *
+	 * @param device  the loopback device which samples are rendered from, using its contexts and associated buffers and sources
+	 * @param buffer  the buffer to write to
+	 * @param samples the number of sample frames to render
+	 */
 	public static void alcRenderSamplesSOFT(long device, FloatBuffer buffer, int samples) {
 		nalcRenderSamplesSOFT(device, memAddress(buffer), samples);
 	}
 
-	/** short[] version of: {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
+	/** Array version of: {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
 	public static void alcRenderSamplesSOFT(long device, short[] buffer, int samples) {
 		long __functionAddress = ALC.getICD().alcRenderSamplesSOFT;
 		if ( CHECKS ) {
@@ -185,7 +206,7 @@ public class SOFTLoopback {
 		invokePPV(__functionAddress, device, buffer, samples);
 	}
 
-	/** int[] version of: {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
+	/** Array version of: {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
 	public static void alcRenderSamplesSOFT(long device, int[] buffer, int samples) {
 		long __functionAddress = ALC.getICD().alcRenderSamplesSOFT;
 		if ( CHECKS ) {
@@ -195,7 +216,7 @@ public class SOFTLoopback {
 		invokePPV(__functionAddress, device, buffer, samples);
 	}
 
-	/** float[] version of: {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
+	/** Array version of: {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
 	public static void alcRenderSamplesSOFT(long device, float[] buffer, int samples) {
 		long __functionAddress = ALC.getICD().alcRenderSamplesSOFT;
 		if ( CHECKS ) {

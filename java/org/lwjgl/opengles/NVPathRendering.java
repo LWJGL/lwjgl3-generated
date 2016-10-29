@@ -369,12 +369,26 @@ public class NVPathRendering {
 		nglPathCommandsNV(path, commands.remaining(), memAddress(commands), coords.remaining() >> GLESChecks.typeToByteShift(coordType), coordType, memAddress(coords));
 	}
 
-	/** ShortBuffer version of: {@link #glPathCommandsNV PathCommandsNV} */
+	/**
+	 * 
+	 *
+	 * @param path      
+	 * @param commands  
+	 * @param coordType one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
+	 * @param coords    
+	 */
 	public static void glPathCommandsNV(int path, ByteBuffer commands, int coordType, ShortBuffer coords) {
 		nglPathCommandsNV(path, commands.remaining(), memAddress(commands), coords.remaining(), coordType, memAddress(coords));
 	}
 
-	/** FloatBuffer version of: {@link #glPathCommandsNV PathCommandsNV} */
+	/**
+	 * 
+	 *
+	 * @param path      
+	 * @param commands  
+	 * @param coordType one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
+	 * @param coords    
+	 */
 	public static void glPathCommandsNV(int path, ByteBuffer commands, int coordType, FloatBuffer coords) {
 		nglPathCommandsNV(path, commands.remaining(), memAddress(commands), coords.remaining(), coordType, memAddress(coords));
 	}
@@ -400,12 +414,24 @@ public class NVPathRendering {
 		nglPathCoordsNV(path, coords.remaining() >> GLESChecks.typeToByteShift(coordType), coordType, memAddress(coords));
 	}
 
-	/** ShortBuffer version of: {@link #glPathCoordsNV PathCoordsNV} */
+	/**
+	 * 
+	 *
+	 * @param path      
+	 * @param coordType one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
+	 * @param coords    
+	 */
 	public static void glPathCoordsNV(int path, int coordType, ShortBuffer coords) {
 		nglPathCoordsNV(path, coords.remaining(), coordType, memAddress(coords));
 	}
 
-	/** FloatBuffer version of: {@link #glPathCoordsNV PathCoordsNV} */
+	/**
+	 * 
+	 *
+	 * @param path      
+	 * @param coordType one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
+	 * @param coords    
+	 */
 	public static void glPathCoordsNV(int path, int coordType, FloatBuffer coords) {
 		nglPathCoordsNV(path, coords.remaining(), coordType, memAddress(coords));
 	}
@@ -434,12 +460,30 @@ public class NVPathRendering {
 		nglPathSubCommandsNV(path, commandStart, commandsToDelete, commands.remaining(), memAddress(commands), coords.remaining() >> GLESChecks.typeToByteShift(coordType), coordType, memAddress(coords));
 	}
 
-	/** ShortBuffer version of: {@link #glPathSubCommandsNV PathSubCommandsNV} */
+	/**
+	 * 
+	 *
+	 * @param path             
+	 * @param commandStart     
+	 * @param commandsToDelete 
+	 * @param commands         
+	 * @param coordType        one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
+	 * @param coords           
+	 */
 	public static void glPathSubCommandsNV(int path, int commandStart, int commandsToDelete, ByteBuffer commands, int coordType, ShortBuffer coords) {
 		nglPathSubCommandsNV(path, commandStart, commandsToDelete, commands.remaining(), memAddress(commands), coords.remaining(), coordType, memAddress(coords));
 	}
 
-	/** FloatBuffer version of: {@link #glPathSubCommandsNV PathSubCommandsNV} */
+	/**
+	 * 
+	 *
+	 * @param path             
+	 * @param commandStart     
+	 * @param commandsToDelete 
+	 * @param commands         
+	 * @param coordType        one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
+	 * @param coords           
+	 */
 	public static void glPathSubCommandsNV(int path, int commandStart, int commandsToDelete, ByteBuffer commands, int coordType, FloatBuffer coords) {
 		nglPathSubCommandsNV(path, commandStart, commandsToDelete, commands.remaining(), memAddress(commands), coords.remaining(), coordType, memAddress(coords));
 	}
@@ -466,12 +510,26 @@ public class NVPathRendering {
 		nglPathSubCoordsNV(path, coordStart, coords.remaining() >> GLESChecks.typeToByteShift(coordType), coordType, memAddress(coords));
 	}
 
-	/** ShortBuffer version of: {@link #glPathSubCoordsNV PathSubCoordsNV} */
+	/**
+	 * 
+	 *
+	 * @param path       
+	 * @param coordStart 
+	 * @param coordType  one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
+	 * @param coords     
+	 */
 	public static void glPathSubCoordsNV(int path, int coordStart, int coordType, ShortBuffer coords) {
 		nglPathSubCoordsNV(path, coordStart, coords.remaining(), coordType, memAddress(coords));
 	}
 
-	/** FloatBuffer version of: {@link #glPathSubCoordsNV PathSubCoordsNV} */
+	/**
+	 * 
+	 *
+	 * @param path       
+	 * @param coordStart 
+	 * @param coordType  one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
+	 * @param coords     
+	 */
 	public static void glPathSubCoordsNV(int path, int coordStart, int coordType, FloatBuffer coords) {
 		nglPathSubCoordsNV(path, coordStart, coords.remaining(), coordType, memAddress(coords));
 	}
@@ -1511,7 +1569,7 @@ public class NVPathRendering {
 		nglGetProgramResourcefvNV(program, programInterface, index, props.remaining(), memAddress(props), params.remaining(), memAddressSafe(length), memAddress(params));
 	}
 
-	/** short[] version of: {@link #glPathCommandsNV PathCommandsNV} */
+	/** Array version of: {@link #glPathCommandsNV PathCommandsNV} */
 	public static void glPathCommandsNV(int path, ByteBuffer commands, int coordType, short[] coords) {
 		long __functionAddress = GLES.getCapabilities().glPathCommandsNV;
 		if ( CHECKS )
@@ -1519,7 +1577,7 @@ public class NVPathRendering {
 		callPPV(__functionAddress, path, commands.remaining(), memAddress(commands), coords.length, coordType, coords);
 	}
 
-	/** float[] version of: {@link #glPathCommandsNV PathCommandsNV} */
+	/** Array version of: {@link #glPathCommandsNV PathCommandsNV} */
 	public static void glPathCommandsNV(int path, ByteBuffer commands, int coordType, float[] coords) {
 		long __functionAddress = GLES.getCapabilities().glPathCommandsNV;
 		if ( CHECKS )
@@ -1527,7 +1585,7 @@ public class NVPathRendering {
 		callPPV(__functionAddress, path, commands.remaining(), memAddress(commands), coords.length, coordType, coords);
 	}
 
-	/** short[] version of: {@link #glPathCoordsNV PathCoordsNV} */
+	/** Array version of: {@link #glPathCoordsNV PathCoordsNV} */
 	public static void glPathCoordsNV(int path, int coordType, short[] coords) {
 		long __functionAddress = GLES.getCapabilities().glPathCoordsNV;
 		if ( CHECKS )
@@ -1535,7 +1593,7 @@ public class NVPathRendering {
 		callPV(__functionAddress, path, coords.length, coordType, coords);
 	}
 
-	/** float[] version of: {@link #glPathCoordsNV PathCoordsNV} */
+	/** Array version of: {@link #glPathCoordsNV PathCoordsNV} */
 	public static void glPathCoordsNV(int path, int coordType, float[] coords) {
 		long __functionAddress = GLES.getCapabilities().glPathCoordsNV;
 		if ( CHECKS )
@@ -1543,7 +1601,7 @@ public class NVPathRendering {
 		callPV(__functionAddress, path, coords.length, coordType, coords);
 	}
 
-	/** short[] version of: {@link #glPathSubCommandsNV PathSubCommandsNV} */
+	/** Array version of: {@link #glPathSubCommandsNV PathSubCommandsNV} */
 	public static void glPathSubCommandsNV(int path, int commandStart, int commandsToDelete, ByteBuffer commands, int coordType, short[] coords) {
 		long __functionAddress = GLES.getCapabilities().glPathSubCommandsNV;
 		if ( CHECKS )
@@ -1551,7 +1609,7 @@ public class NVPathRendering {
 		callPPV(__functionAddress, path, commandStart, commandsToDelete, commands.remaining(), memAddress(commands), coords.length, coordType, coords);
 	}
 
-	/** float[] version of: {@link #glPathSubCommandsNV PathSubCommandsNV} */
+	/** Array version of: {@link #glPathSubCommandsNV PathSubCommandsNV} */
 	public static void glPathSubCommandsNV(int path, int commandStart, int commandsToDelete, ByteBuffer commands, int coordType, float[] coords) {
 		long __functionAddress = GLES.getCapabilities().glPathSubCommandsNV;
 		if ( CHECKS )
@@ -1559,7 +1617,7 @@ public class NVPathRendering {
 		callPPV(__functionAddress, path, commandStart, commandsToDelete, commands.remaining(), memAddress(commands), coords.length, coordType, coords);
 	}
 
-	/** short[] version of: {@link #glPathSubCoordsNV PathSubCoordsNV} */
+	/** Array version of: {@link #glPathSubCoordsNV PathSubCoordsNV} */
 	public static void glPathSubCoordsNV(int path, int coordStart, int coordType, short[] coords) {
 		long __functionAddress = GLES.getCapabilities().glPathSubCoordsNV;
 		if ( CHECKS )
@@ -1567,7 +1625,7 @@ public class NVPathRendering {
 		callPV(__functionAddress, path, coordStart, coords.length, coordType, coords);
 	}
 
-	/** float[] version of: {@link #glPathSubCoordsNV PathSubCoordsNV} */
+	/** Array version of: {@link #glPathSubCoordsNV PathSubCoordsNV} */
 	public static void glPathSubCoordsNV(int path, int coordStart, int coordType, float[] coords) {
 		long __functionAddress = GLES.getCapabilities().glPathSubCoordsNV;
 		if ( CHECKS )

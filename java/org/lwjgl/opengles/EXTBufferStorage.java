@@ -68,27 +68,23 @@ public class EXTBufferStorage {
 		nglBufferStorageEXT(target, size, NULL, flags);
 	}
 
-	/** ByteBuffer version of: {@link #glBufferStorageEXT BufferStorageEXT} */
 	public static void glBufferStorageEXT(int target, ByteBuffer data, int flags) {
 		nglBufferStorageEXT(target, data.remaining(), memAddress(data), flags);
 	}
 
-	/** ShortBuffer version of: {@link #glBufferStorageEXT BufferStorageEXT} */
 	public static void glBufferStorageEXT(int target, ShortBuffer data, int flags) {
 		nglBufferStorageEXT(target, data.remaining() << 1, memAddress(data), flags);
 	}
 
-	/** IntBuffer version of: {@link #glBufferStorageEXT BufferStorageEXT} */
 	public static void glBufferStorageEXT(int target, IntBuffer data, int flags) {
 		nglBufferStorageEXT(target, data.remaining() << 2, memAddress(data), flags);
 	}
 
-	/** FloatBuffer version of: {@link #glBufferStorageEXT BufferStorageEXT} */
 	public static void glBufferStorageEXT(int target, FloatBuffer data, int flags) {
 		nglBufferStorageEXT(target, data.remaining() << 2, memAddress(data), flags);
 	}
 
-	/** short[] version of: {@link #glBufferStorageEXT BufferStorageEXT} */
+	/** Array version of: {@link #glBufferStorageEXT BufferStorageEXT} */
 	public static void glBufferStorageEXT(int target, short[] data, int flags) {
 		long __functionAddress = GLES.getCapabilities().glBufferStorageEXT;
 		if ( CHECKS )
@@ -96,7 +92,7 @@ public class EXTBufferStorage {
 		callPPV(__functionAddress, target, (long)(data.length << 1), data, flags);
 	}
 
-	/** int[] version of: {@link #glBufferStorageEXT BufferStorageEXT} */
+	/** Array version of: {@link #glBufferStorageEXT BufferStorageEXT} */
 	public static void glBufferStorageEXT(int target, int[] data, int flags) {
 		long __functionAddress = GLES.getCapabilities().glBufferStorageEXT;
 		if ( CHECKS )
@@ -104,7 +100,7 @@ public class EXTBufferStorage {
 		callPPV(__functionAddress, target, (long)(data.length << 2), data, flags);
 	}
 
-	/** float[] version of: {@link #glBufferStorageEXT BufferStorageEXT} */
+	/** Array version of: {@link #glBufferStorageEXT BufferStorageEXT} */
 	public static void glBufferStorageEXT(int target, float[] data, int flags) {
 		long __functionAddress = GLES.getCapabilities().glBufferStorageEXT;
 		if ( CHECKS )

@@ -466,22 +466,18 @@ public class GLES20 {
 		nglBufferData(target, size, NULL, usage);
 	}
 
-	/** ByteBuffer version of: {@link #glBufferData BufferData} */
 	public static void glBufferData(int target, ByteBuffer data, int usage) {
 		nglBufferData(target, data.remaining(), memAddress(data), usage);
 	}
 
-	/** ShortBuffer version of: {@link #glBufferData BufferData} */
 	public static void glBufferData(int target, ShortBuffer data, int usage) {
 		nglBufferData(target, data.remaining() << 1, memAddress(data), usage);
 	}
 
-	/** IntBuffer version of: {@link #glBufferData BufferData} */
 	public static void glBufferData(int target, IntBuffer data, int usage) {
 		nglBufferData(target, data.remaining() << 2, memAddress(data), usage);
 	}
 
-	/** FloatBuffer version of: {@link #glBufferData BufferData} */
 	public static void glBufferData(int target, FloatBuffer data, int usage) {
 		nglBufferData(target, data.remaining() << 2, memAddress(data), usage);
 	}
@@ -497,17 +493,14 @@ public class GLES20 {
 		nglBufferSubData(target, offset, data.remaining(), memAddress(data));
 	}
 
-	/** ShortBuffer version of: {@link #glBufferSubData BufferSubData} */
 	public static void glBufferSubData(int target, long offset, ShortBuffer data) {
 		nglBufferSubData(target, offset, data.remaining() << 1, memAddress(data));
 	}
 
-	/** IntBuffer version of: {@link #glBufferSubData BufferSubData} */
 	public static void glBufferSubData(int target, long offset, IntBuffer data) {
 		nglBufferSubData(target, offset, data.remaining() << 2, memAddress(data));
 	}
 
-	/** FloatBuffer version of: {@link #glBufferSubData BufferSubData} */
 	public static void glBufferSubData(int target, long offset, FloatBuffer data) {
 		nglBufferSubData(target, offset, data.remaining() << 2, memAddress(data));
 	}
@@ -1692,17 +1685,14 @@ public class GLES20 {
 		nglReadPixels(x, y, width, height, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glReadPixels ReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, ShortBuffer pixels) {
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glReadPixels ReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, IntBuffer pixels) {
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glReadPixels ReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, FloatBuffer pixels) {
 		nglReadPixels(x, y, width, height, format, type, memAddress(pixels));
 	}
@@ -1838,17 +1828,14 @@ public class GLES20 {
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glTexImage2D TexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, ShortBuffer pixels) {
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glTexImage2D TexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, IntBuffer pixels) {
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glTexImage2D TexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, FloatBuffer pixels) {
 		nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
@@ -1908,17 +1895,14 @@ public class GLES20 {
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, ShortBuffer pixels) {
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, IntBuffer pixels) {
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, FloatBuffer pixels) {
 		nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
@@ -2209,17 +2193,14 @@ public class GLES20 {
 		nglVertexAttribPointer(index, size, type, normalized, stride, pointer);
 	}
 
-	/** ShortBuffer version of: {@link #glVertexAttribPointer VertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, ShortBuffer pointer) {
 		nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
-	/** IntBuffer version of: {@link #glVertexAttribPointer VertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, IntBuffer pointer) {
 		nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
 	}
 
-	/** FloatBuffer version of: {@link #glVertexAttribPointer VertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, FloatBuffer pointer) {
 		nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
 	}
@@ -2231,37 +2212,37 @@ public class GLES20 {
 		callV(__functionAddress, x, y, width, height);
 	}
 
-	/** short[] version of: {@link #glBufferData BufferData} */
+	/** Array version of: {@link #glBufferData BufferData} */
 	public static void glBufferData(int target, short[] data, int usage) {
 		long __functionAddress = GLES.getCapabilities().glBufferData;
 		callPPV(__functionAddress, target, (long)(data.length << 1), data, usage);
 	}
 
-	/** int[] version of: {@link #glBufferData BufferData} */
+	/** Array version of: {@link #glBufferData BufferData} */
 	public static void glBufferData(int target, int[] data, int usage) {
 		long __functionAddress = GLES.getCapabilities().glBufferData;
 		callPPV(__functionAddress, target, (long)(data.length << 2), data, usage);
 	}
 
-	/** float[] version of: {@link #glBufferData BufferData} */
+	/** Array version of: {@link #glBufferData BufferData} */
 	public static void glBufferData(int target, float[] data, int usage) {
 		long __functionAddress = GLES.getCapabilities().glBufferData;
 		callPPV(__functionAddress, target, (long)(data.length << 2), data, usage);
 	}
 
-	/** short[] version of: {@link #glBufferSubData BufferSubData} */
+	/** Array version of: {@link #glBufferSubData BufferSubData} */
 	public static void glBufferSubData(int target, long offset, short[] data) {
 		long __functionAddress = GLES.getCapabilities().glBufferSubData;
 		callPPPV(__functionAddress, target, offset, (long)(data.length << 1), data);
 	}
 
-	/** int[] version of: {@link #glBufferSubData BufferSubData} */
+	/** Array version of: {@link #glBufferSubData BufferSubData} */
 	public static void glBufferSubData(int target, long offset, int[] data) {
 		long __functionAddress = GLES.getCapabilities().glBufferSubData;
 		callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
 	}
 
-	/** float[] version of: {@link #glBufferSubData BufferSubData} */
+	/** Array version of: {@link #glBufferSubData BufferSubData} */
 	public static void glBufferSubData(int target, long offset, float[] data) {
 		long __functionAddress = GLES.getCapabilities().glBufferSubData;
 		callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
@@ -2483,19 +2464,19 @@ public class GLES20 {
 		callPV(__functionAddress, index, pname, params);
 	}
 
-	/** short[] version of: {@link #glReadPixels ReadPixels} */
+	/** Array version of: {@link #glReadPixels ReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, short[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadPixels;
 		callPV(__functionAddress, x, y, width, height, format, type, pixels);
 	}
 
-	/** int[] version of: {@link #glReadPixels ReadPixels} */
+	/** Array version of: {@link #glReadPixels ReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, int[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadPixels;
 		callPV(__functionAddress, x, y, width, height, format, type, pixels);
 	}
 
-	/** float[] version of: {@link #glReadPixels ReadPixels} */
+	/** Array version of: {@link #glReadPixels ReadPixels} */
 	public static void glReadPixels(int x, int y, int width, int height, int format, int type, float[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadPixels;
 		callPV(__functionAddress, x, y, width, height, format, type, pixels);
@@ -2515,19 +2496,19 @@ public class GLES20 {
 		callPPV(__functionAddress, shader, string.remaining(), memAddress(string), length);
 	}
 
-	/** short[] version of: {@link #glTexImage2D TexImage2D} */
+	/** Array version of: {@link #glTexImage2D TexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, short[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexImage2D;
 		callPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
-	/** int[] version of: {@link #glTexImage2D TexImage2D} */
+	/** Array version of: {@link #glTexImage2D TexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, int[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexImage2D;
 		callPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
-	/** float[] version of: {@link #glTexImage2D TexImage2D} */
+	/** Array version of: {@link #glTexImage2D TexImage2D} */
 	public static void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, float[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexImage2D;
 		callPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
@@ -2549,19 +2530,19 @@ public class GLES20 {
 		callPV(__functionAddress, target, pname, params);
 	}
 
-	/** short[] version of: {@link #glTexSubImage2D TexSubImage2D} */
+	/** Array version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, short[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexSubImage2D;
 		callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
-	/** int[] version of: {@link #glTexSubImage2D TexSubImage2D} */
+	/** Array version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, int[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexSubImage2D;
 		callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
-	/** float[] version of: {@link #glTexSubImage2D TexSubImage2D} */
+	/** Array version of: {@link #glTexSubImage2D TexSubImage2D} */
 	public static void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, float[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexSubImage2D;
 		callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
@@ -2665,19 +2646,19 @@ public class GLES20 {
 		callPV(__functionAddress, index, v);
 	}
 
-	/** short[] version of: {@link #glVertexAttribPointer VertexAttribPointer} */
+	/** Array version of: {@link #glVertexAttribPointer VertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, short[] pointer) {
 		long __functionAddress = GLES.getCapabilities().glVertexAttribPointer;
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
-	/** int[] version of: {@link #glVertexAttribPointer VertexAttribPointer} */
+	/** Array version of: {@link #glVertexAttribPointer VertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, int[] pointer) {
 		long __functionAddress = GLES.getCapabilities().glVertexAttribPointer;
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
-	/** float[] version of: {@link #glVertexAttribPointer VertexAttribPointer} */
+	/** Array version of: {@link #glVertexAttribPointer VertexAttribPointer} */
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, float[] pointer) {
 		long __functionAddress = GLES.getCapabilities().glVertexAttribPointer;
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);

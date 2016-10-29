@@ -85,7 +85,19 @@ public class APPLEGLSharing {
 		return nclGetGLContextInfoAPPLE(context, platform_gl_ctx, param_name, remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
-	/** PointerBuffer version of: {@link #clGetGLContextInfoAPPLE GetGLContextInfoAPPLE} */
+	/**
+	 * Provides a query mechanism to retrieve OpenGL context specific information from an OpenCL context to help identify device specific mappings and usage.
+	 * 
+	 * <p>For example, one possible usage would be to allow the client to map a CGL virtual screen index to an appropriate CL device id to insure that the
+	 * rendering device and the compute device are the same, thus guaranteeing any shared OpenGL memory that is attached o a CL memory object remains resident
+	 * on the active device.</p>
+	 *
+	 * @param context              the context being queried
+	 * @param platform_gl_ctx      the OpenGL context handle
+	 * @param param_name           a constant that specifies the GL context information to query. One of:<br><table><tr><td>{@link #CL_CGL_DEVICES_FOR_SUPPORTED_VIRTUAL_SCREENS_APPLE CGL_DEVICES_FOR_SUPPORTED_VIRTUAL_SCREENS_APPLE}</td></tr><tr><td>{@link #CL_CGL_DEVICE_FOR_CURRENT_VIRTUAL_SCREEN_APPLE CGL_DEVICE_FOR_CURRENT_VIRTUAL_SCREEN_APPLE}</td></tr></table>
+	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
+	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
+	 */
 	public static int clGetGLContextInfoAPPLE(long context, long platform_gl_ctx, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			checkBufferSafe(param_value_size_ret, 1);

@@ -56,17 +56,14 @@ public class EXTClearTexture {
 		nglClearTexImageEXT(texture, level, format, type, memAddressSafe(data));
 	}
 
-	/** ShortBuffer version of: {@link #glClearTexImageEXT ClearTexImageEXT} */
 	public static void glClearTexImageEXT(int texture, int level, int format, int type, ShortBuffer data) {
 		nglClearTexImageEXT(texture, level, format, type, memAddressSafe(data));
 	}
 
-	/** IntBuffer version of: {@link #glClearTexImageEXT ClearTexImageEXT} */
 	public static void glClearTexImageEXT(int texture, int level, int format, int type, IntBuffer data) {
 		nglClearTexImageEXT(texture, level, format, type, memAddressSafe(data));
 	}
 
-	/** FloatBuffer version of: {@link #glClearTexImageEXT ClearTexImageEXT} */
 	public static void glClearTexImageEXT(int texture, int level, int format, int type, FloatBuffer data) {
 		nglClearTexImageEXT(texture, level, format, type, memAddressSafe(data));
 	}
@@ -84,22 +81,19 @@ public class EXTClearTexture {
 		nglClearTexSubImageEXT(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
 	}
 
-	/** ShortBuffer version of: {@link #glClearTexSubImageEXT ClearTexSubImageEXT} */
 	public static void glClearTexSubImageEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ShortBuffer data) {
 		nglClearTexSubImageEXT(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
 	}
 
-	/** IntBuffer version of: {@link #glClearTexSubImageEXT ClearTexSubImageEXT} */
 	public static void glClearTexSubImageEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntBuffer data) {
 		nglClearTexSubImageEXT(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
 	}
 
-	/** FloatBuffer version of: {@link #glClearTexSubImageEXT ClearTexSubImageEXT} */
 	public static void glClearTexSubImageEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, FloatBuffer data) {
 		nglClearTexSubImageEXT(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
 	}
 
-	/** short[] version of: {@link #glClearTexImageEXT ClearTexImageEXT} */
+	/** Array version of: {@link #glClearTexImageEXT ClearTexImageEXT} */
 	public static void glClearTexImageEXT(int texture, int level, int format, int type, short[] data) {
 		long __functionAddress = GLES.getCapabilities().glClearTexImageEXT;
 		if ( CHECKS )
@@ -107,7 +101,7 @@ public class EXTClearTexture {
 		callPV(__functionAddress, texture, level, format, type, data);
 	}
 
-	/** int[] version of: {@link #glClearTexImageEXT ClearTexImageEXT} */
+	/** Array version of: {@link #glClearTexImageEXT ClearTexImageEXT} */
 	public static void glClearTexImageEXT(int texture, int level, int format, int type, int[] data) {
 		long __functionAddress = GLES.getCapabilities().glClearTexImageEXT;
 		if ( CHECKS )
@@ -115,7 +109,7 @@ public class EXTClearTexture {
 		callPV(__functionAddress, texture, level, format, type, data);
 	}
 
-	/** float[] version of: {@link #glClearTexImageEXT ClearTexImageEXT} */
+	/** Array version of: {@link #glClearTexImageEXT ClearTexImageEXT} */
 	public static void glClearTexImageEXT(int texture, int level, int format, int type, float[] data) {
 		long __functionAddress = GLES.getCapabilities().glClearTexImageEXT;
 		if ( CHECKS )
@@ -123,7 +117,7 @@ public class EXTClearTexture {
 		callPV(__functionAddress, texture, level, format, type, data);
 	}
 
-	/** short[] version of: {@link #glClearTexSubImageEXT ClearTexSubImageEXT} */
+	/** Array version of: {@link #glClearTexSubImageEXT ClearTexSubImageEXT} */
 	public static void glClearTexSubImageEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short[] data) {
 		long __functionAddress = GLES.getCapabilities().glClearTexSubImageEXT;
 		if ( CHECKS )
@@ -131,7 +125,7 @@ public class EXTClearTexture {
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
 	}
 
-	/** int[] version of: {@link #glClearTexSubImageEXT ClearTexSubImageEXT} */
+	/** Array version of: {@link #glClearTexSubImageEXT ClearTexSubImageEXT} */
 	public static void glClearTexSubImageEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int[] data) {
 		long __functionAddress = GLES.getCapabilities().glClearTexSubImageEXT;
 		if ( CHECKS )
@@ -139,7 +133,7 @@ public class EXTClearTexture {
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
 	}
 
-	/** float[] version of: {@link #glClearTexSubImageEXT ClearTexSubImageEXT} */
+	/** Array version of: {@link #glClearTexSubImageEXT ClearTexSubImageEXT} */
 	public static void glClearTexSubImageEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float[] data) {
 		long __functionAddress = GLES.getCapabilities().glClearTexSubImageEXT;
 		if ( CHECKS )

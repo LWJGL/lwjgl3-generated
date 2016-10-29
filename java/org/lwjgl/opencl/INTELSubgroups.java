@@ -93,7 +93,18 @@ public class INTELSubgroups {
 		return nclGetKernelSubGroupInfoKHR(kernel, device, param_name, input_value.remaining(), memAddress(input_value), remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
-	/** PointerBuffer version of: {@link #clGetKernelSubGroupInfoKHR GetKernelSubGroupInfoKHR} */
+	/**
+	 * Returns information about a kernel object.
+	 *
+	 * @param kernel               the kernel object being queried
+	 * @param device               identifies a specific device in the list of devices associated with {@code kernel}. The list of devices is the list of devices in the OpenCL
+	 *                             context that is associated with {@code kernel}. If the list of devices associated with {@code kernel} is a single device, {@code device} can be a
+	 *                             {@code NULL} value.
+	 * @param param_name           specifies the information to query. One of:<br><table><tr><td>{@link #CL_KERNEL_MAX_SUB_GROUP_SIZE_FOR_NDRANGE_KHR KERNEL_MAX_SUB_GROUP_SIZE_FOR_NDRANGE_KHR}</td><td>{@link #CL_KERNEL_SUB_GROUP_COUNT_FOR_NDRANGE_KHR KERNEL_SUB_GROUP_COUNT_FOR_NDRANGE_KHR}</td></tr></table>
+	 * @param input_value          a pointer to memory where the appropriate parameterization of the query is passed from. If {@code input_value} is {@code NULL} it is ignored.
+	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
+	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
+	 */
 	public static int clGetKernelSubGroupInfoKHR(long kernel, long device, int param_name, ByteBuffer input_value, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			checkBufferSafe(param_value_size_ret, 1);

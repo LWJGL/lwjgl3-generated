@@ -304,7 +304,31 @@ public class CL21 {
 		return nclGetKernelSubGroupInfo(kernel, device, param_name, remainingSafe(input_value), memAddressSafe(input_value), remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
-	/** PointerBuffer version of: {@link #clGetKernelSubGroupInfo GetKernelSubGroupInfo} */
+	/**
+	 * Returns information about the kernel object.
+	 *
+	 * @param kernel               the kernel object being queried
+	 * @param device               a specific device in the list of devices associated with {@code kernel}. The list of devices is the list of devices in the OpenCL context that is
+	 *                             associated with {@code kernel}. If the list of devices associated with kernel is a single device, device can be a {@code NULL} value.
+	 * @param param_name           the information to query. One of:<br><table><tr><td>{@link #CL_KERNEL_MAX_NUM_SUB_GROUPS KERNEL_MAX_NUM_SUB_GROUPS}</td><td>{@link #CL_KERNEL_COMPILE_NUM_SUB_GROUPS KERNEL_COMPILE_NUM_SUB_GROUPS}</td></tr><tr><td>{@link #CL_KERNEL_MAX_SUB_GROUP_SIZE_FOR_NDRANGE KERNEL_MAX_SUB_GROUP_SIZE_FOR_NDRANGE}</td><td>{@link #CL_KERNEL_SUB_GROUP_COUNT_FOR_NDRANGE KERNEL_SUB_GROUP_COUNT_FOR_NDRANGE}</td></tr><tr><td>{@link #CL_KERNEL_LOCAL_SIZE_FOR_SUB_GROUP_COUNT KERNEL_LOCAL_SIZE_FOR_SUB_GROUP_COUNT}</td></tr></table>
+	 * @param input_value          a pointer to memory where the appropriate parameterization of the query is passed from. If {@code input_value} is {@code NULL}, it is ignored.
+	 * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
+	 * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
+	 *
+	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_DEVICE INVALID_DEVICE} if {@code device} is not in the list of devices associated with {@code kernel} or if {@code device} is {@code NULL} but there is more than
+	 *         one device associated with {@code kernel}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is not valid, or if size in bytes specified by {@code param_value} is &lt size of return type and
+	 *         {@code param_value} is not {@code NULL}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code param_name} is {@link #CL_KERNEL_SUB_GROUP_SIZE_FOR_NDRANGE KERNEL_SUB_GROUP_SIZE_FOR_NDRANGE} and the size in bytes specified by {@code input_value_size} is not valid
+	 *         or if {@code input_value} is {@code NULL}.</li>
+	 *         <li>{@link CL10#CL_INVALID_KERNEL INVALID_KERNEL} if {@code kernel} is not a valid kernel object.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
 	public static int clGetKernelSubGroupInfo(long kernel, long device, int param_name, ByteBuffer input_value, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
 			checkBufferSafe(param_value_size_ret, 1);

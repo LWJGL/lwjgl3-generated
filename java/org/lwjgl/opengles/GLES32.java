@@ -1318,17 +1318,47 @@ public class GLES32 {
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining(), memAddress(pixels));
 	}
 
-	/** ShortBuffer version of: {@link #glReadnPixels ReadnPixels} */
+	/**
+	 * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
+	 *
+	 * @param x      the left pixel coordinate
+	 * @param y      the lower pixel coordinate
+	 * @param width  the number of pixels to read in the x-dimension
+	 * @param height the number of pixels to read in the y-dimension
+	 * @param format the pixel format
+	 * @param type   the pixel type
+	 * @param pixels a buffer in which to place the returned pixel data
+	 */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, ShortBuffer pixels) {
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 1, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glReadnPixels ReadnPixels} */
+	/**
+	 * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
+	 *
+	 * @param x      the left pixel coordinate
+	 * @param y      the lower pixel coordinate
+	 * @param width  the number of pixels to read in the x-dimension
+	 * @param height the number of pixels to read in the y-dimension
+	 * @param format the pixel format
+	 * @param type   the pixel type
+	 * @param pixels a buffer in which to place the returned pixel data
+	 */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, IntBuffer pixels) {
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glReadnPixels ReadnPixels} */
+	/**
+	 * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
+	 *
+	 * @param x      the left pixel coordinate
+	 * @param y      the lower pixel coordinate
+	 * @param width  the number of pixels to read in the x-dimension
+	 * @param height the number of pixels to read in the y-dimension
+	 * @param format the pixel format
+	 * @param type   the pixel type
+	 * @param pixels a buffer in which to place the returned pixel data
+	 */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, FloatBuffer pixels) {
 		nglReadnPixels(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
@@ -1743,7 +1773,7 @@ public class GLES32 {
 		callPPPV(__functionAddress, ptr, label.remaining(), length, memAddress(label));
 	}
 
-	/** short[] version of: {@link #glReadnPixels ReadnPixels} */
+	/** Array version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, short[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixels;
 		if ( CHECKS )
@@ -1751,7 +1781,7 @@ public class GLES32 {
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 1, pixels);
 	}
 
-	/** int[] version of: {@link #glReadnPixels ReadnPixels} */
+	/** Array version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, int[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixels;
 		if ( CHECKS )
@@ -1759,7 +1789,7 @@ public class GLES32 {
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
 	}
 
-	/** float[] version of: {@link #glReadnPixels ReadnPixels} */
+	/** Array version of: {@link #glReadnPixels ReadnPixels} */
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, float[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixels;
 		if ( CHECKS )

@@ -65,17 +65,14 @@ public class OESTexture3D {
 		nglTexImage3DOES(target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glTexImage3DOES TexImage3DOES} */
 	public static void glTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ShortBuffer pixels) {
 		nglTexImage3DOES(target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glTexImage3DOES TexImage3DOES} */
 	public static void glTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, IntBuffer pixels) {
 		nglTexImage3DOES(target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glTexImage3DOES TexImage3DOES} */
 	public static void glTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, FloatBuffer pixels) {
 		nglTexImage3DOES(target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
@@ -97,17 +94,14 @@ public class OESTexture3D {
 		nglTexSubImage3DOES(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glTexSubImage3DOES TexSubImage3DOES} */
 	public static void glTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ShortBuffer pixels) {
 		nglTexSubImage3DOES(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glTexSubImage3DOES TexSubImage3DOES} */
 	public static void glTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntBuffer pixels) {
 		nglTexSubImage3DOES(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glTexSubImage3DOES TexSubImage3DOES} */
 	public static void glTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, FloatBuffer pixels) {
 		nglTexSubImage3DOES(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
@@ -164,7 +158,7 @@ public class OESTexture3D {
 		callV(__functionAddress, target, attachment, textarget, texture, level, zoffset);
 	}
 
-	/** short[] version of: {@link #glTexImage3DOES TexImage3DOES} */
+	/** Array version of: {@link #glTexImage3DOES TexImage3DOES} */
 	public static void glTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, short[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexImage3DOES;
 		if ( CHECKS )
@@ -172,7 +166,7 @@ public class OESTexture3D {
 		callPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
-	/** int[] version of: {@link #glTexImage3DOES TexImage3DOES} */
+	/** Array version of: {@link #glTexImage3DOES TexImage3DOES} */
 	public static void glTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, int[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexImage3DOES;
 		if ( CHECKS )
@@ -180,7 +174,7 @@ public class OESTexture3D {
 		callPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
-	/** float[] version of: {@link #glTexImage3DOES TexImage3DOES} */
+	/** Array version of: {@link #glTexImage3DOES TexImage3DOES} */
 	public static void glTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, float[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexImage3DOES;
 		if ( CHECKS )
@@ -188,7 +182,7 @@ public class OESTexture3D {
 		callPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
-	/** short[] version of: {@link #glTexSubImage3DOES TexSubImage3DOES} */
+	/** Array version of: {@link #glTexSubImage3DOES TexSubImage3DOES} */
 	public static void glTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexSubImage3DOES;
 		if ( CHECKS )
@@ -196,7 +190,7 @@ public class OESTexture3D {
 		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
-	/** int[] version of: {@link #glTexSubImage3DOES TexSubImage3DOES} */
+	/** Array version of: {@link #glTexSubImage3DOES TexSubImage3DOES} */
 	public static void glTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexSubImage3DOES;
 		if ( CHECKS )
@@ -204,7 +198,7 @@ public class OESTexture3D {
 		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
-	/** float[] version of: {@link #glTexSubImage3DOES TexSubImage3DOES} */
+	/** Array version of: {@link #glTexSubImage3DOES TexSubImage3DOES} */
 	public static void glTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexSubImage3DOES;
 		if ( CHECKS )

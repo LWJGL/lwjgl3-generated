@@ -103,22 +103,18 @@ public class NVGPUMulticast {
 		nglMulticastBufferSubDataNV(gpuMask, buffer, offset, data.remaining(), memAddress(data));
 	}
 
-	/** ShortBuffer version of: {@link #glMulticastBufferSubDataNV MulticastBufferSubDataNV} */
 	public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, ShortBuffer data) {
 		nglMulticastBufferSubDataNV(gpuMask, buffer, offset, data.remaining() << 1, memAddress(data));
 	}
 
-	/** IntBuffer version of: {@link #glMulticastBufferSubDataNV MulticastBufferSubDataNV} */
 	public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, IntBuffer data) {
 		nglMulticastBufferSubDataNV(gpuMask, buffer, offset, data.remaining() << 2, memAddress(data));
 	}
 
-	/** FloatBuffer version of: {@link #glMulticastBufferSubDataNV MulticastBufferSubDataNV} */
 	public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, FloatBuffer data) {
 		nglMulticastBufferSubDataNV(gpuMask, buffer, offset, data.remaining() << 2, memAddress(data));
 	}
 
-	/** DoubleBuffer version of: {@link #glMulticastBufferSubDataNV MulticastBufferSubDataNV} */
 	public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, DoubleBuffer data) {
 		nglMulticastBufferSubDataNV(gpuMask, buffer, offset, data.remaining() << 3, memAddress(data));
 	}
@@ -285,7 +281,7 @@ public class NVGPUMulticast {
 		}
 	}
 
-	/** short[] version of: {@link #glMulticastBufferSubDataNV MulticastBufferSubDataNV} */
+	/** Array version of: {@link #glMulticastBufferSubDataNV MulticastBufferSubDataNV} */
 	public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, short[] data) {
 		long __functionAddress = GL.getCapabilities().glMulticastBufferSubDataNV;
 		if ( CHECKS )
@@ -293,7 +289,7 @@ public class NVGPUMulticast {
 		callPPPV(__functionAddress, gpuMask, buffer, offset, (long)(data.length << 1), data);
 	}
 
-	/** int[] version of: {@link #glMulticastBufferSubDataNV MulticastBufferSubDataNV} */
+	/** Array version of: {@link #glMulticastBufferSubDataNV MulticastBufferSubDataNV} */
 	public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, int[] data) {
 		long __functionAddress = GL.getCapabilities().glMulticastBufferSubDataNV;
 		if ( CHECKS )
@@ -301,7 +297,7 @@ public class NVGPUMulticast {
 		callPPPV(__functionAddress, gpuMask, buffer, offset, (long)(data.length << 2), data);
 	}
 
-	/** float[] version of: {@link #glMulticastBufferSubDataNV MulticastBufferSubDataNV} */
+	/** Array version of: {@link #glMulticastBufferSubDataNV MulticastBufferSubDataNV} */
 	public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, float[] data) {
 		long __functionAddress = GL.getCapabilities().glMulticastBufferSubDataNV;
 		if ( CHECKS )
@@ -309,7 +305,7 @@ public class NVGPUMulticast {
 		callPPPV(__functionAddress, gpuMask, buffer, offset, (long)(data.length << 2), data);
 	}
 
-	/** double[] version of: {@link #glMulticastBufferSubDataNV MulticastBufferSubDataNV} */
+	/** Array version of: {@link #glMulticastBufferSubDataNV MulticastBufferSubDataNV} */
 	public static void glMulticastBufferSubDataNV(int gpuMask, int buffer, long offset, double[] data) {
 		long __functionAddress = GL.getCapabilities().glMulticastBufferSubDataNV;
 		if ( CHECKS )

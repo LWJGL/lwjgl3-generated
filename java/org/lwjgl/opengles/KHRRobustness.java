@@ -171,17 +171,47 @@ public class KHRRobustness {
 		nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining(), memAddress(pixels));
 	}
 
-	/** ShortBuffer version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
+	/**
+	 * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
+	 *
+	 * @param x      the left pixel coordinate
+	 * @param y      the lower pixel coordinate
+	 * @param width  the number of pixels to read in the x-dimension
+	 * @param height the number of pixels to read in the y-dimension
+	 * @param format the pixel format
+	 * @param type   the pixel type
+	 * @param pixels a buffer in which to place the returned pixel data
+	 */
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, ShortBuffer pixels) {
 		nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining() << 1, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
+	/**
+	 * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
+	 *
+	 * @param x      the left pixel coordinate
+	 * @param y      the lower pixel coordinate
+	 * @param width  the number of pixels to read in the x-dimension
+	 * @param height the number of pixels to read in the y-dimension
+	 * @param format the pixel format
+	 * @param type   the pixel type
+	 * @param pixels a buffer in which to place the returned pixel data
+	 */
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, IntBuffer pixels) {
 		nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
+	/**
+	 * Behaves identically to {@link GLES20#glReadPixels ReadPixels} except that it does not write more than {@code bufSize} bytes into {@code data}
+	 *
+	 * @param x      the left pixel coordinate
+	 * @param y      the lower pixel coordinate
+	 * @param width  the number of pixels to read in the x-dimension
+	 * @param height the number of pixels to read in the y-dimension
+	 * @param format the pixel format
+	 * @param type   the pixel type
+	 * @param pixels a buffer in which to place the returned pixel data
+	 */
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, FloatBuffer pixels) {
 		nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
 	}
@@ -312,7 +342,7 @@ public class KHRRobustness {
 		}
 	}
 
-	/** short[] version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
+	/** Array version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, short[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixelsKHR;
 		if ( CHECKS )
@@ -320,7 +350,7 @@ public class KHRRobustness {
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 1, pixels);
 	}
 
-	/** int[] version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
+	/** Array version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixelsKHR;
 		if ( CHECKS )
@@ -328,7 +358,7 @@ public class KHRRobustness {
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
 	}
 
-	/** float[] version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
+	/** Array version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, float[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixelsKHR;
 		if ( CHECKS )

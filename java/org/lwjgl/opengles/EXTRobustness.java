@@ -103,17 +103,14 @@ public class EXTRobustness {
 		nglReadnPixelsEXT(x, y, width, height, format, type, data.remaining(), memAddress(data));
 	}
 
-	/** ShortBuffer version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, ShortBuffer data) {
 		nglReadnPixelsEXT(x, y, width, height, format, type, data.remaining() << 1, memAddress(data));
 	}
 
-	/** IntBuffer version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, IntBuffer data) {
 		nglReadnPixelsEXT(x, y, width, height, format, type, data.remaining() << 2, memAddress(data));
 	}
 
-	/** FloatBuffer version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, FloatBuffer data) {
 		nglReadnPixelsEXT(x, y, width, height, format, type, data.remaining() << 2, memAddress(data));
 	}
@@ -166,7 +163,7 @@ public class EXTRobustness {
 		}
 	}
 
-	/** short[] version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
+	/** Array version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, short[] data) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixelsEXT;
 		if ( CHECKS )
@@ -174,7 +171,7 @@ public class EXTRobustness {
 		callPV(__functionAddress, x, y, width, height, format, type, data.length << 1, data);
 	}
 
-	/** int[] version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
+	/** Array version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int[] data) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixelsEXT;
 		if ( CHECKS )
@@ -182,7 +179,7 @@ public class EXTRobustness {
 		callPV(__functionAddress, x, y, width, height, format, type, data.length << 2, data);
 	}
 
-	/** float[] version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
+	/** Array version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
 	public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, float[] data) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixelsEXT;
 		if ( CHECKS )

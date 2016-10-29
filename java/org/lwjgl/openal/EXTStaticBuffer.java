@@ -56,22 +56,43 @@ public class EXTStaticBuffer {
 		nalBufferDataStatic(buffer, format, memAddress(data), data.remaining(), freq);
 	}
 
-	/** ShortBuffer version of: {@link #alBufferDataStatic BufferDataStatic} */
+	/**
+	 * Sets the sample data of the specified buffer.
+	 *
+	 * @param buffer the buffer handle
+	 * @param format the data format
+	 * @param data   the sample data
+	 * @param freq   the data frequency
+	 */
 	public static void alBufferDataStatic(int buffer, int format, ShortBuffer data, int freq) {
 		nalBufferDataStatic(buffer, format, memAddress(data), data.remaining() << 1, freq);
 	}
 
-	/** IntBuffer version of: {@link #alBufferDataStatic BufferDataStatic} */
+	/**
+	 * Sets the sample data of the specified buffer.
+	 *
+	 * @param buffer the buffer handle
+	 * @param format the data format
+	 * @param data   the sample data
+	 * @param freq   the data frequency
+	 */
 	public static void alBufferDataStatic(int buffer, int format, IntBuffer data, int freq) {
 		nalBufferDataStatic(buffer, format, memAddress(data), data.remaining() << 2, freq);
 	}
 
-	/** FloatBuffer version of: {@link #alBufferDataStatic BufferDataStatic} */
+	/**
+	 * Sets the sample data of the specified buffer.
+	 *
+	 * @param buffer the buffer handle
+	 * @param format the data format
+	 * @param data   the sample data
+	 * @param freq   the data frequency
+	 */
 	public static void alBufferDataStatic(int buffer, int format, FloatBuffer data, int freq) {
 		nalBufferDataStatic(buffer, format, memAddress(data), data.remaining() << 2, freq);
 	}
 
-	/** short[] version of: {@link #alBufferDataStatic BufferDataStatic} */
+	/** Array version of: {@link #alBufferDataStatic BufferDataStatic} */
 	public static void alBufferDataStatic(int buffer, int format, short[] data, int freq) {
 		long __functionAddress = AL.getCapabilities().alBufferDataStatic;
 		if ( CHECKS )
@@ -79,7 +100,7 @@ public class EXTStaticBuffer {
 		invokePV(__functionAddress, buffer, format, data, data.length << 1, freq);
 	}
 
-	/** int[] version of: {@link #alBufferDataStatic BufferDataStatic} */
+	/** Array version of: {@link #alBufferDataStatic BufferDataStatic} */
 	public static void alBufferDataStatic(int buffer, int format, int[] data, int freq) {
 		long __functionAddress = AL.getCapabilities().alBufferDataStatic;
 		if ( CHECKS )
@@ -87,7 +108,7 @@ public class EXTStaticBuffer {
 		invokePV(__functionAddress, buffer, format, data, data.length << 2, freq);
 	}
 
-	/** float[] version of: {@link #alBufferDataStatic BufferDataStatic} */
+	/** Array version of: {@link #alBufferDataStatic BufferDataStatic} */
 	public static void alBufferDataStatic(int buffer, int format, float[] data, int freq) {
 		long __functionAddress = AL.getCapabilities().alBufferDataStatic;
 		if ( CHECKS )

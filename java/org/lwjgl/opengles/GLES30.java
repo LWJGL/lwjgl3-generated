@@ -428,17 +428,14 @@ public class GLES30 {
 		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glTexImage3D TexImage3D} */
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ShortBuffer pixels) {
 		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glTexImage3D TexImage3D} */
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, IntBuffer pixels) {
 		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glTexImage3D TexImage3D} */
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, FloatBuffer pixels) {
 		nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
@@ -460,17 +457,14 @@ public class GLES30 {
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glTexSubImage3D TexSubImage3D} */
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ShortBuffer pixels) {
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glTexSubImage3D TexSubImage3D} */
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntBuffer pixels) {
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glTexSubImage3D TexSubImage3D} */
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, FloatBuffer pixels) {
 		nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
@@ -1065,12 +1059,10 @@ public class GLES30 {
 		nglVertexAttribIPointer(index, size, type, stride, pointer);
 	}
 
-	/** ShortBuffer version of: {@link #glVertexAttribIPointer VertexAttribIPointer} */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, ShortBuffer pointer) {
 		nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer));
 	}
 
-	/** IntBuffer version of: {@link #glVertexAttribIPointer VertexAttribIPointer} */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, IntBuffer pointer) {
 		nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer));
 	}
@@ -2100,7 +2092,7 @@ public class GLES30 {
 		}
 	}
 
-	/** short[] version of: {@link #glTexImage3D TexImage3D} */
+	/** Array version of: {@link #glTexImage3D TexImage3D} */
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, short[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexImage3D;
 		if ( CHECKS )
@@ -2108,7 +2100,7 @@ public class GLES30 {
 		callPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
-	/** int[] version of: {@link #glTexImage3D TexImage3D} */
+	/** Array version of: {@link #glTexImage3D TexImage3D} */
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, int[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexImage3D;
 		if ( CHECKS )
@@ -2116,7 +2108,7 @@ public class GLES30 {
 		callPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
-	/** float[] version of: {@link #glTexImage3D TexImage3D} */
+	/** Array version of: {@link #glTexImage3D TexImage3D} */
 	public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, float[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexImage3D;
 		if ( CHECKS )
@@ -2124,7 +2116,7 @@ public class GLES30 {
 		callPV(__functionAddress, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
-	/** short[] version of: {@link #glTexSubImage3D TexSubImage3D} */
+	/** Array version of: {@link #glTexSubImage3D TexSubImage3D} */
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexSubImage3D;
 		if ( CHECKS )
@@ -2132,7 +2124,7 @@ public class GLES30 {
 		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
-	/** int[] version of: {@link #glTexSubImage3D TexSubImage3D} */
+	/** Array version of: {@link #glTexSubImage3D TexSubImage3D} */
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexSubImage3D;
 		if ( CHECKS )
@@ -2140,7 +2132,7 @@ public class GLES30 {
 		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
-	/** float[] version of: {@link #glTexSubImage3D TexSubImage3D} */
+	/** Array version of: {@link #glTexSubImage3D TexSubImage3D} */
 	public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexSubImage3D;
 		if ( CHECKS )
@@ -2278,7 +2270,7 @@ public class GLES30 {
 		callPPPPV(__functionAddress, program, index, name.remaining(), length, size, type, memAddress(name));
 	}
 
-	/** short[] version of: {@link #glVertexAttribIPointer VertexAttribIPointer} */
+	/** Array version of: {@link #glVertexAttribIPointer VertexAttribIPointer} */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, short[] pointer) {
 		long __functionAddress = GLES.getCapabilities().glVertexAttribIPointer;
 		if ( CHECKS )
@@ -2286,7 +2278,7 @@ public class GLES30 {
 		callPV(__functionAddress, index, size, type, stride, pointer);
 	}
 
-	/** int[] version of: {@link #glVertexAttribIPointer VertexAttribIPointer} */
+	/** Array version of: {@link #glVertexAttribIPointer VertexAttribIPointer} */
 	public static void glVertexAttribIPointer(int index, int size, int type, int stride, int[] pointer) {
 		long __functionAddress = GLES.getCapabilities().glVertexAttribIPointer;
 		if ( CHECKS )

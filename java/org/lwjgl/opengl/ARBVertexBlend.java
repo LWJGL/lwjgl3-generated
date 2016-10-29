@@ -317,17 +317,38 @@ public class ARBVertexBlend {
 		nglWeightPointerARB(size, type, stride, pointer);
 	}
 
-	/** ShortBuffer version of: {@link #glWeightPointerARB WeightPointerARB} */
+	/**
+	 * Specifies the location and organization of a weight array.
+	 *
+	 * @param size    the number of values per vertex that are stored in the array. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
+	 * @param type    the data type of the values stored in the array. One of:<br><table><tr><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_SHORT SHORT}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_FLOAT FLOAT}</td><td>{@link GL11#GL_DOUBLE DOUBLE}</td></tr></table>
+	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
+	 * @param pointer the weight data
+	 */
 	public static void glWeightPointerARB(int size, int type, int stride, ShortBuffer pointer) {
 		nglWeightPointerARB(size, type, stride, memAddress(pointer));
 	}
 
-	/** IntBuffer version of: {@link #glWeightPointerARB WeightPointerARB} */
+	/**
+	 * Specifies the location and organization of a weight array.
+	 *
+	 * @param size    the number of values per vertex that are stored in the array. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
+	 * @param type    the data type of the values stored in the array. One of:<br><table><tr><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_SHORT SHORT}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_FLOAT FLOAT}</td><td>{@link GL11#GL_DOUBLE DOUBLE}</td></tr></table>
+	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
+	 * @param pointer the weight data
+	 */
 	public static void glWeightPointerARB(int size, int type, int stride, IntBuffer pointer) {
 		nglWeightPointerARB(size, type, stride, memAddress(pointer));
 	}
 
-	/** FloatBuffer version of: {@link #glWeightPointerARB WeightPointerARB} */
+	/**
+	 * Specifies the location and organization of a weight array.
+	 *
+	 * @param size    the number of values per vertex that are stored in the array. Must be a value between 1 and {@link #GL_MAX_VERTEX_UNITS_ARB MAX_VERTEX_UNITS_ARB}.
+	 * @param type    the data type of the values stored in the array. One of:<br><table><tr><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_SHORT SHORT}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_FLOAT FLOAT}</td><td>{@link GL11#GL_DOUBLE DOUBLE}</td></tr></table>
+	 * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
+	 * @param pointer the weight data
+	 */
 	public static void glWeightPointerARB(int size, int type, int stride, FloatBuffer pointer) {
 		nglWeightPointerARB(size, type, stride, memAddress(pointer));
 	}
@@ -394,7 +415,7 @@ public class ARBVertexBlend {
 		callPV(__functionAddress, weights.length, weights);
 	}
 
-	/** short[] version of: {@link #glWeightPointerARB WeightPointerARB} */
+	/** Array version of: {@link #glWeightPointerARB WeightPointerARB} */
 	public static void glWeightPointerARB(int size, int type, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glWeightPointerARB;
 		if ( CHECKS )
@@ -402,7 +423,7 @@ public class ARBVertexBlend {
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
-	/** int[] version of: {@link #glWeightPointerARB WeightPointerARB} */
+	/** Array version of: {@link #glWeightPointerARB WeightPointerARB} */
 	public static void glWeightPointerARB(int size, int type, int stride, int[] pointer) {
 		long __functionAddress = GL.getCapabilities().glWeightPointerARB;
 		if ( CHECKS )
@@ -410,7 +431,7 @@ public class ARBVertexBlend {
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
-	/** float[] version of: {@link #glWeightPointerARB WeightPointerARB} */
+	/** Array version of: {@link #glWeightPointerARB WeightPointerARB} */
 	public static void glWeightPointerARB(int size, int type, int stride, float[] pointer) {
 		long __functionAddress = GL.getCapabilities().glWeightPointerARB;
 		if ( CHECKS )

@@ -77,17 +77,14 @@ public class NVTextureArray {
 		nglTexImage3DNV(target, level, internalFormat, width, height, depth, border, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glTexImage3DNV TexImage3DNV} */
 	public static void glTexImage3DNV(int target, int level, int internalFormat, int width, int height, int depth, int border, int format, int type, ShortBuffer pixels) {
 		nglTexImage3DNV(target, level, internalFormat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glTexImage3DNV TexImage3DNV} */
 	public static void glTexImage3DNV(int target, int level, int internalFormat, int width, int height, int depth, int border, int format, int type, IntBuffer pixels) {
 		nglTexImage3DNV(target, level, internalFormat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glTexImage3DNV TexImage3DNV} */
 	public static void glTexImage3DNV(int target, int level, int internalFormat, int width, int height, int depth, int border, int format, int type, FloatBuffer pixels) {
 		nglTexImage3DNV(target, level, internalFormat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
@@ -109,17 +106,14 @@ public class NVTextureArray {
 		nglTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glTexSubImage3DNV TexSubImage3DNV} */
 	public static void glTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ShortBuffer pixels) {
 		nglTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glTexSubImage3DNV TexSubImage3DNV} */
 	public static void glTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntBuffer pixels) {
 		nglTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glTexSubImage3DNV TexSubImage3DNV} */
 	public static void glTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, FloatBuffer pixels) {
 		nglTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
@@ -176,7 +170,7 @@ public class NVTextureArray {
 		callV(__functionAddress, target, attachment, texture, level, layer);
 	}
 
-	/** short[] version of: {@link #glTexImage3DNV TexImage3DNV} */
+	/** Array version of: {@link #glTexImage3DNV TexImage3DNV} */
 	public static void glTexImage3DNV(int target, int level, int internalFormat, int width, int height, int depth, int border, int format, int type, short[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexImage3DNV;
 		if ( CHECKS )
@@ -184,7 +178,7 @@ public class NVTextureArray {
 		callPV(__functionAddress, target, level, internalFormat, width, height, depth, border, format, type, pixels);
 	}
 
-	/** int[] version of: {@link #glTexImage3DNV TexImage3DNV} */
+	/** Array version of: {@link #glTexImage3DNV TexImage3DNV} */
 	public static void glTexImage3DNV(int target, int level, int internalFormat, int width, int height, int depth, int border, int format, int type, int[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexImage3DNV;
 		if ( CHECKS )
@@ -192,7 +186,7 @@ public class NVTextureArray {
 		callPV(__functionAddress, target, level, internalFormat, width, height, depth, border, format, type, pixels);
 	}
 
-	/** float[] version of: {@link #glTexImage3DNV TexImage3DNV} */
+	/** Array version of: {@link #glTexImage3DNV TexImage3DNV} */
 	public static void glTexImage3DNV(int target, int level, int internalFormat, int width, int height, int depth, int border, int format, int type, float[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexImage3DNV;
 		if ( CHECKS )
@@ -200,7 +194,7 @@ public class NVTextureArray {
 		callPV(__functionAddress, target, level, internalFormat, width, height, depth, border, format, type, pixels);
 	}
 
-	/** short[] version of: {@link #glTexSubImage3DNV TexSubImage3DNV} */
+	/** Array version of: {@link #glTexSubImage3DNV TexSubImage3DNV} */
 	public static void glTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexSubImage3DNV;
 		if ( CHECKS )
@@ -208,7 +202,7 @@ public class NVTextureArray {
 		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
-	/** int[] version of: {@link #glTexSubImage3DNV TexSubImage3DNV} */
+	/** Array version of: {@link #glTexSubImage3DNV TexSubImage3DNV} */
 	public static void glTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexSubImage3DNV;
 		if ( CHECKS )
@@ -216,7 +210,7 @@ public class NVTextureArray {
 		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
-	/** float[] version of: {@link #glTexSubImage3DNV TexSubImage3DNV} */
+	/** Array version of: {@link #glTexSubImage3DNV TexSubImage3DNV} */
 	public static void glTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glTexSubImage3DNV;
 		if ( CHECKS )

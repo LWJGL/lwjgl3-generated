@@ -557,12 +557,32 @@ public class EXTGPUShader4 {
 		nglVertexAttribIPointerEXT(index, size, type, stride, pointer);
 	}
 
-	/** ShortBuffer version of: {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
+	/**
+	 * Specifies the location and organization of a pure integer vertex attribute array.
+	 *
+	 * @param index   the index of the pure integer generic vertex attribute to be modified
+	 * @param size    the number of values per vertex that are stored in the array. The initial value is 4. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
+	 * @param type    the data type of each component in the array. One of:<br><table><tr><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_SHORT SHORT}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
+	 * @param stride  the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
+	 *                the array. The initial value is 0.
+	 * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
+	 *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
+	 */
 	public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, ShortBuffer pointer) {
 		nglVertexAttribIPointerEXT(index, size, type, stride, memAddress(pointer));
 	}
 
-	/** IntBuffer version of: {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
+	/**
+	 * Specifies the location and organization of a pure integer vertex attribute array.
+	 *
+	 * @param index   the index of the pure integer generic vertex attribute to be modified
+	 * @param size    the number of values per vertex that are stored in the array. The initial value is 4. One of:<br><table><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>{@link GL12#GL_BGRA BGRA}</td></tr></table>
+	 * @param type    the data type of each component in the array. One of:<br><table><tr><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_SHORT SHORT}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
+	 * @param stride  the byte offset between consecutive generic vertex attributes. If stride is 0, the generic vertex attributes are understood to be tightly packed in
+	 *                the array. The initial value is 0.
+	 * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
+	 *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
+	 */
 	public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, IntBuffer pointer) {
 		nglVertexAttribIPointerEXT(index, size, type, stride, memAddress(pointer));
 	}
@@ -911,7 +931,7 @@ public class EXTGPUShader4 {
 		callPV(__functionAddress, index, v);
 	}
 
-	/** short[] version of: {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
+	/** Array version of: {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
 	public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribIPointerEXT;
 		if ( CHECKS )
@@ -919,7 +939,7 @@ public class EXTGPUShader4 {
 		callPV(__functionAddress, index, size, type, stride, pointer);
 	}
 
-	/** int[] version of: {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
+	/** Array version of: {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
 	public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, int[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribIPointerEXT;
 		if ( CHECKS )

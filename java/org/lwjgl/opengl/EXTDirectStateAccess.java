@@ -532,22 +532,18 @@ public class EXTDirectStateAccess {
 		nglTextureImage1DEXT(texture, target, level, internalformat, width, border, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glTextureImage1DEXT TextureImage1DEXT} */
 	public static void glTextureImage1DEXT(int texture, int target, int level, int internalformat, int width, int border, int format, int type, ShortBuffer pixels) {
 		nglTextureImage1DEXT(texture, target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glTextureImage1DEXT TextureImage1DEXT} */
 	public static void glTextureImage1DEXT(int texture, int target, int level, int internalformat, int width, int border, int format, int type, IntBuffer pixels) {
 		nglTextureImage1DEXT(texture, target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glTextureImage1DEXT TextureImage1DEXT} */
 	public static void glTextureImage1DEXT(int texture, int target, int level, int internalformat, int width, int border, int format, int type, FloatBuffer pixels) {
 		nglTextureImage1DEXT(texture, target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glTextureImage1DEXT TextureImage1DEXT} */
 	public static void glTextureImage1DEXT(int texture, int target, int level, int internalformat, int width, int border, int format, int type, DoubleBuffer pixels) {
 		nglTextureImage1DEXT(texture, target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
 	}
@@ -569,22 +565,18 @@ public class EXTDirectStateAccess {
 		nglTextureImage2DEXT(texture, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glTextureImage2DEXT TextureImage2DEXT} */
 	public static void glTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, ShortBuffer pixels) {
 		nglTextureImage2DEXT(texture, target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glTextureImage2DEXT TextureImage2DEXT} */
 	public static void glTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, IntBuffer pixels) {
 		nglTextureImage2DEXT(texture, target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glTextureImage2DEXT TextureImage2DEXT} */
 	public static void glTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, FloatBuffer pixels) {
 		nglTextureImage2DEXT(texture, target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glTextureImage2DEXT TextureImage2DEXT} */
 	public static void glTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, DoubleBuffer pixels) {
 		nglTextureImage2DEXT(texture, target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
@@ -606,22 +598,18 @@ public class EXTDirectStateAccess {
 		nglTextureSubImage1DEXT(texture, target, level, xoffset, width, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glTextureSubImage1DEXT TextureSubImage1DEXT} */
 	public static void glTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int width, int format, int type, ShortBuffer pixels) {
 		nglTextureSubImage1DEXT(texture, target, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glTextureSubImage1DEXT TextureSubImage1DEXT} */
 	public static void glTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int width, int format, int type, IntBuffer pixels) {
 		nglTextureSubImage1DEXT(texture, target, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glTextureSubImage1DEXT TextureSubImage1DEXT} */
 	public static void glTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int width, int format, int type, FloatBuffer pixels) {
 		nglTextureSubImage1DEXT(texture, target, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glTextureSubImage1DEXT TextureSubImage1DEXT} */
 	public static void glTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int width, int format, int type, DoubleBuffer pixels) {
 		nglTextureSubImage1DEXT(texture, target, level, xoffset, width, format, type, memAddress(pixels));
 	}
@@ -643,22 +631,18 @@ public class EXTDirectStateAccess {
 		nglTextureSubImage2DEXT(texture, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glTextureSubImage2DEXT TextureSubImage2DEXT} */
 	public static void glTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, ShortBuffer pixels) {
 		nglTextureSubImage2DEXT(texture, target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glTextureSubImage2DEXT TextureSubImage2DEXT} */
 	public static void glTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, IntBuffer pixels) {
 		nglTextureSubImage2DEXT(texture, target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glTextureSubImage2DEXT TextureSubImage2DEXT} */
 	public static void glTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, FloatBuffer pixels) {
 		nglTextureSubImage2DEXT(texture, target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glTextureSubImage2DEXT TextureSubImage2DEXT} */
 	public static void glTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, DoubleBuffer pixels) {
 		nglTextureSubImage2DEXT(texture, target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
@@ -716,22 +700,18 @@ public class EXTDirectStateAccess {
 		nglGetTextureImageEXT(texture, target, level, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glGetTextureImageEXT GetTextureImageEXT} */
 	public static void glGetTextureImageEXT(int texture, int target, int level, int format, int type, ShortBuffer pixels) {
 		nglGetTextureImageEXT(texture, target, level, format, type, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glGetTextureImageEXT GetTextureImageEXT} */
 	public static void glGetTextureImageEXT(int texture, int target, int level, int format, int type, IntBuffer pixels) {
 		nglGetTextureImageEXT(texture, target, level, format, type, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glGetTextureImageEXT GetTextureImageEXT} */
 	public static void glGetTextureImageEXT(int texture, int target, int level, int format, int type, FloatBuffer pixels) {
 		nglGetTextureImageEXT(texture, target, level, format, type, memAddress(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glGetTextureImageEXT GetTextureImageEXT} */
 	public static void glGetTextureImageEXT(int texture, int target, int level, int format, int type, DoubleBuffer pixels) {
 		nglGetTextureImageEXT(texture, target, level, format, type, memAddress(pixels));
 	}
@@ -857,22 +837,18 @@ public class EXTDirectStateAccess {
 		nglTextureImage3DEXT(texture, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glTextureImage3DEXT TextureImage3DEXT} */
 	public static void glTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ShortBuffer pixels) {
 		nglTextureImage3DEXT(texture, target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glTextureImage3DEXT TextureImage3DEXT} */
 	public static void glTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, IntBuffer pixels) {
 		nglTextureImage3DEXT(texture, target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glTextureImage3DEXT TextureImage3DEXT} */
 	public static void glTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, FloatBuffer pixels) {
 		nglTextureImage3DEXT(texture, target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glTextureImage3DEXT TextureImage3DEXT} */
 	public static void glTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, DoubleBuffer pixels) {
 		nglTextureImage3DEXT(texture, target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
@@ -894,22 +870,18 @@ public class EXTDirectStateAccess {
 		nglTextureSubImage3DEXT(texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glTextureSubImage3DEXT TextureSubImage3DEXT} */
 	public static void glTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ShortBuffer pixels) {
 		nglTextureSubImage3DEXT(texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glTextureSubImage3DEXT TextureSubImage3DEXT} */
 	public static void glTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntBuffer pixels) {
 		nglTextureSubImage3DEXT(texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glTextureSubImage3DEXT TextureSubImage3DEXT} */
 	public static void glTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, FloatBuffer pixels) {
 		nglTextureSubImage3DEXT(texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glTextureSubImage3DEXT TextureSubImage3DEXT} */
 	public static void glTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, DoubleBuffer pixels) {
 		nglTextureSubImage3DEXT(texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
@@ -949,17 +921,14 @@ public class EXTDirectStateAccess {
 		nglMultiTexCoordPointerEXT(texunit, size, type, stride, pointer);
 	}
 
-	/** ShortBuffer version of: {@link #glMultiTexCoordPointerEXT MultiTexCoordPointerEXT} */
 	public static void glMultiTexCoordPointerEXT(int texunit, int size, int type, int stride, ShortBuffer pointer) {
 		nglMultiTexCoordPointerEXT(texunit, size, type, stride, memAddress(pointer));
 	}
 
-	/** IntBuffer version of: {@link #glMultiTexCoordPointerEXT MultiTexCoordPointerEXT} */
 	public static void glMultiTexCoordPointerEXT(int texunit, int size, int type, int stride, IntBuffer pointer) {
 		nglMultiTexCoordPointerEXT(texunit, size, type, stride, memAddress(pointer));
 	}
 
-	/** FloatBuffer version of: {@link #glMultiTexCoordPointerEXT MultiTexCoordPointerEXT} */
 	public static void glMultiTexCoordPointerEXT(int texunit, int size, int type, int stride, FloatBuffer pointer) {
 		nglMultiTexCoordPointerEXT(texunit, size, type, stride, memAddress(pointer));
 	}
@@ -1279,22 +1248,18 @@ public class EXTDirectStateAccess {
 		nglMultiTexImage1DEXT(texunit, target, level, internalformat, width, border, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glMultiTexImage1DEXT MultiTexImage1DEXT} */
 	public static void glMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int width, int border, int format, int type, ShortBuffer pixels) {
 		nglMultiTexImage1DEXT(texunit, target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glMultiTexImage1DEXT MultiTexImage1DEXT} */
 	public static void glMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int width, int border, int format, int type, IntBuffer pixels) {
 		nglMultiTexImage1DEXT(texunit, target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glMultiTexImage1DEXT MultiTexImage1DEXT} */
 	public static void glMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int width, int border, int format, int type, FloatBuffer pixels) {
 		nglMultiTexImage1DEXT(texunit, target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glMultiTexImage1DEXT MultiTexImage1DEXT} */
 	public static void glMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int width, int border, int format, int type, DoubleBuffer pixels) {
 		nglMultiTexImage1DEXT(texunit, target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
 	}
@@ -1316,22 +1281,18 @@ public class EXTDirectStateAccess {
 		nglMultiTexImage2DEXT(texunit, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glMultiTexImage2DEXT MultiTexImage2DEXT} */
 	public static void glMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, ShortBuffer pixels) {
 		nglMultiTexImage2DEXT(texunit, target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glMultiTexImage2DEXT MultiTexImage2DEXT} */
 	public static void glMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, IntBuffer pixels) {
 		nglMultiTexImage2DEXT(texunit, target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glMultiTexImage2DEXT MultiTexImage2DEXT} */
 	public static void glMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, FloatBuffer pixels) {
 		nglMultiTexImage2DEXT(texunit, target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glMultiTexImage2DEXT MultiTexImage2DEXT} */
 	public static void glMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, DoubleBuffer pixels) {
 		nglMultiTexImage2DEXT(texunit, target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
 	}
@@ -1353,22 +1314,18 @@ public class EXTDirectStateAccess {
 		nglMultiTexSubImage1DEXT(texunit, target, level, xoffset, width, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glMultiTexSubImage1DEXT MultiTexSubImage1DEXT} */
 	public static void glMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int width, int format, int type, ShortBuffer pixels) {
 		nglMultiTexSubImage1DEXT(texunit, target, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glMultiTexSubImage1DEXT MultiTexSubImage1DEXT} */
 	public static void glMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int width, int format, int type, IntBuffer pixels) {
 		nglMultiTexSubImage1DEXT(texunit, target, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glMultiTexSubImage1DEXT MultiTexSubImage1DEXT} */
 	public static void glMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int width, int format, int type, FloatBuffer pixels) {
 		nglMultiTexSubImage1DEXT(texunit, target, level, xoffset, width, format, type, memAddress(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glMultiTexSubImage1DEXT MultiTexSubImage1DEXT} */
 	public static void glMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int width, int format, int type, DoubleBuffer pixels) {
 		nglMultiTexSubImage1DEXT(texunit, target, level, xoffset, width, format, type, memAddress(pixels));
 	}
@@ -1390,22 +1347,18 @@ public class EXTDirectStateAccess {
 		nglMultiTexSubImage2DEXT(texunit, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glMultiTexSubImage2DEXT MultiTexSubImage2DEXT} */
 	public static void glMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, ShortBuffer pixels) {
 		nglMultiTexSubImage2DEXT(texunit, target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glMultiTexSubImage2DEXT MultiTexSubImage2DEXT} */
 	public static void glMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, IntBuffer pixels) {
 		nglMultiTexSubImage2DEXT(texunit, target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glMultiTexSubImage2DEXT MultiTexSubImage2DEXT} */
 	public static void glMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, FloatBuffer pixels) {
 		nglMultiTexSubImage2DEXT(texunit, target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glMultiTexSubImage2DEXT MultiTexSubImage2DEXT} */
 	public static void glMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, DoubleBuffer pixels) {
 		nglMultiTexSubImage2DEXT(texunit, target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
 	}
@@ -1463,22 +1416,18 @@ public class EXTDirectStateAccess {
 		nglGetMultiTexImageEXT(texunit, target, level, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glGetMultiTexImageEXT GetMultiTexImageEXT} */
 	public static void glGetMultiTexImageEXT(int texunit, int target, int level, int format, int type, ShortBuffer pixels) {
 		nglGetMultiTexImageEXT(texunit, target, level, format, type, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glGetMultiTexImageEXT GetMultiTexImageEXT} */
 	public static void glGetMultiTexImageEXT(int texunit, int target, int level, int format, int type, IntBuffer pixels) {
 		nglGetMultiTexImageEXT(texunit, target, level, format, type, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glGetMultiTexImageEXT GetMultiTexImageEXT} */
 	public static void glGetMultiTexImageEXT(int texunit, int target, int level, int format, int type, FloatBuffer pixels) {
 		nglGetMultiTexImageEXT(texunit, target, level, format, type, memAddress(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glGetMultiTexImageEXT GetMultiTexImageEXT} */
 	public static void glGetMultiTexImageEXT(int texunit, int target, int level, int format, int type, DoubleBuffer pixels) {
 		nglGetMultiTexImageEXT(texunit, target, level, format, type, memAddress(pixels));
 	}
@@ -1604,22 +1553,18 @@ public class EXTDirectStateAccess {
 		nglMultiTexImage3DEXT(texunit, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glMultiTexImage3DEXT MultiTexImage3DEXT} */
 	public static void glMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ShortBuffer pixels) {
 		nglMultiTexImage3DEXT(texunit, target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glMultiTexImage3DEXT MultiTexImage3DEXT} */
 	public static void glMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, IntBuffer pixels) {
 		nglMultiTexImage3DEXT(texunit, target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glMultiTexImage3DEXT MultiTexImage3DEXT} */
 	public static void glMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, FloatBuffer pixels) {
 		nglMultiTexImage3DEXT(texunit, target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glMultiTexImage3DEXT MultiTexImage3DEXT} */
 	public static void glMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, DoubleBuffer pixels) {
 		nglMultiTexImage3DEXT(texunit, target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
 	}
@@ -1641,22 +1586,18 @@ public class EXTDirectStateAccess {
 		nglMultiTexSubImage3DEXT(texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
-	/** ShortBuffer version of: {@link #glMultiTexSubImage3DEXT MultiTexSubImage3DEXT} */
 	public static void glMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ShortBuffer pixels) {
 		nglMultiTexSubImage3DEXT(texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
-	/** IntBuffer version of: {@link #glMultiTexSubImage3DEXT MultiTexSubImage3DEXT} */
 	public static void glMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntBuffer pixels) {
 		nglMultiTexSubImage3DEXT(texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
-	/** FloatBuffer version of: {@link #glMultiTexSubImage3DEXT MultiTexSubImage3DEXT} */
 	public static void glMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, FloatBuffer pixels) {
 		nglMultiTexSubImage3DEXT(texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
 
-	/** DoubleBuffer version of: {@link #glMultiTexSubImage3DEXT MultiTexSubImage3DEXT} */
 	public static void glMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, DoubleBuffer pixels) {
 		nglMultiTexSubImage3DEXT(texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
 	}
@@ -2391,27 +2332,22 @@ public class EXTDirectStateAccess {
 		nglNamedBufferDataEXT(buffer, size, NULL, usage);
 	}
 
-	/** ByteBuffer version of: {@link #glNamedBufferDataEXT NamedBufferDataEXT} */
 	public static void glNamedBufferDataEXT(int buffer, ByteBuffer data, int usage) {
 		nglNamedBufferDataEXT(buffer, data.remaining(), memAddress(data), usage);
 	}
 
-	/** ShortBuffer version of: {@link #glNamedBufferDataEXT NamedBufferDataEXT} */
 	public static void glNamedBufferDataEXT(int buffer, ShortBuffer data, int usage) {
 		nglNamedBufferDataEXT(buffer, data.remaining() << 1, memAddress(data), usage);
 	}
 
-	/** IntBuffer version of: {@link #glNamedBufferDataEXT NamedBufferDataEXT} */
 	public static void glNamedBufferDataEXT(int buffer, IntBuffer data, int usage) {
 		nglNamedBufferDataEXT(buffer, data.remaining() << 2, memAddress(data), usage);
 	}
 
-	/** FloatBuffer version of: {@link #glNamedBufferDataEXT NamedBufferDataEXT} */
 	public static void glNamedBufferDataEXT(int buffer, FloatBuffer data, int usage) {
 		nglNamedBufferDataEXT(buffer, data.remaining() << 2, memAddress(data), usage);
 	}
 
-	/** DoubleBuffer version of: {@link #glNamedBufferDataEXT NamedBufferDataEXT} */
 	public static void glNamedBufferDataEXT(int buffer, DoubleBuffer data, int usage) {
 		nglNamedBufferDataEXT(buffer, data.remaining() << 3, memAddress(data), usage);
 	}
@@ -2429,22 +2365,18 @@ public class EXTDirectStateAccess {
 		nglNamedBufferSubDataEXT(buffer, offset, data.remaining(), memAddress(data));
 	}
 
-	/** ShortBuffer version of: {@link #glNamedBufferSubDataEXT NamedBufferSubDataEXT} */
 	public static void glNamedBufferSubDataEXT(int buffer, long offset, ShortBuffer data) {
 		nglNamedBufferSubDataEXT(buffer, offset, data.remaining() << 1, memAddress(data));
 	}
 
-	/** IntBuffer version of: {@link #glNamedBufferSubDataEXT NamedBufferSubDataEXT} */
 	public static void glNamedBufferSubDataEXT(int buffer, long offset, IntBuffer data) {
 		nglNamedBufferSubDataEXT(buffer, offset, data.remaining() << 2, memAddress(data));
 	}
 
-	/** FloatBuffer version of: {@link #glNamedBufferSubDataEXT NamedBufferSubDataEXT} */
 	public static void glNamedBufferSubDataEXT(int buffer, long offset, FloatBuffer data) {
 		nglNamedBufferSubDataEXT(buffer, offset, data.remaining() << 2, memAddress(data));
 	}
 
-	/** DoubleBuffer version of: {@link #glNamedBufferSubDataEXT NamedBufferSubDataEXT} */
 	public static void glNamedBufferSubDataEXT(int buffer, long offset, DoubleBuffer data) {
 		nglNamedBufferSubDataEXT(buffer, offset, data.remaining() << 3, memAddress(data));
 	}
@@ -2522,22 +2454,18 @@ public class EXTDirectStateAccess {
 		nglGetNamedBufferSubDataEXT(buffer, offset, data.remaining(), memAddress(data));
 	}
 
-	/** ShortBuffer version of: {@link #glGetNamedBufferSubDataEXT GetNamedBufferSubDataEXT} */
 	public static void glGetNamedBufferSubDataEXT(int buffer, long offset, ShortBuffer data) {
 		nglGetNamedBufferSubDataEXT(buffer, offset, data.remaining() << 1, memAddress(data));
 	}
 
-	/** IntBuffer version of: {@link #glGetNamedBufferSubDataEXT GetNamedBufferSubDataEXT} */
 	public static void glGetNamedBufferSubDataEXT(int buffer, long offset, IntBuffer data) {
 		nglGetNamedBufferSubDataEXT(buffer, offset, data.remaining() << 2, memAddress(data));
 	}
 
-	/** FloatBuffer version of: {@link #glGetNamedBufferSubDataEXT GetNamedBufferSubDataEXT} */
 	public static void glGetNamedBufferSubDataEXT(int buffer, long offset, FloatBuffer data) {
 		nglGetNamedBufferSubDataEXT(buffer, offset, data.remaining() << 2, memAddress(data));
 	}
 
-	/** DoubleBuffer version of: {@link #glGetNamedBufferSubDataEXT GetNamedBufferSubDataEXT} */
 	public static void glGetNamedBufferSubDataEXT(int buffer, long offset, DoubleBuffer data) {
 		nglGetNamedBufferSubDataEXT(buffer, offset, data.remaining() << 3, memAddress(data));
 	}
@@ -3802,7 +3730,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, pname, param);
 	}
 
-	/** short[] version of: {@link #glTextureImage1DEXT TextureImage1DEXT} */
+	/** Array version of: {@link #glTextureImage1DEXT TextureImage1DEXT} */
 	public static void glTextureImage1DEXT(int texture, int target, int level, int internalformat, int width, int border, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureImage1DEXT;
 		if ( CHECKS )
@@ -3810,7 +3738,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, internalformat, width, border, format, type, pixels);
 	}
 
-	/** int[] version of: {@link #glTextureImage1DEXT TextureImage1DEXT} */
+	/** Array version of: {@link #glTextureImage1DEXT TextureImage1DEXT} */
 	public static void glTextureImage1DEXT(int texture, int target, int level, int internalformat, int width, int border, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureImage1DEXT;
 		if ( CHECKS )
@@ -3818,7 +3746,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, internalformat, width, border, format, type, pixels);
 	}
 
-	/** float[] version of: {@link #glTextureImage1DEXT TextureImage1DEXT} */
+	/** Array version of: {@link #glTextureImage1DEXT TextureImage1DEXT} */
 	public static void glTextureImage1DEXT(int texture, int target, int level, int internalformat, int width, int border, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureImage1DEXT;
 		if ( CHECKS )
@@ -3826,7 +3754,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, internalformat, width, border, format, type, pixels);
 	}
 
-	/** double[] version of: {@link #glTextureImage1DEXT TextureImage1DEXT} */
+	/** Array version of: {@link #glTextureImage1DEXT TextureImage1DEXT} */
 	public static void glTextureImage1DEXT(int texture, int target, int level, int internalformat, int width, int border, int format, int type, double[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureImage1DEXT;
 		if ( CHECKS )
@@ -3834,7 +3762,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, internalformat, width, border, format, type, pixels);
 	}
 
-	/** short[] version of: {@link #glTextureImage2DEXT TextureImage2DEXT} */
+	/** Array version of: {@link #glTextureImage2DEXT TextureImage2DEXT} */
 	public static void glTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureImage2DEXT;
 		if ( CHECKS )
@@ -3842,7 +3770,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
-	/** int[] version of: {@link #glTextureImage2DEXT TextureImage2DEXT} */
+	/** Array version of: {@link #glTextureImage2DEXT TextureImage2DEXT} */
 	public static void glTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureImage2DEXT;
 		if ( CHECKS )
@@ -3850,7 +3778,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
-	/** float[] version of: {@link #glTextureImage2DEXT TextureImage2DEXT} */
+	/** Array version of: {@link #glTextureImage2DEXT TextureImage2DEXT} */
 	public static void glTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureImage2DEXT;
 		if ( CHECKS )
@@ -3858,7 +3786,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
-	/** double[] version of: {@link #glTextureImage2DEXT TextureImage2DEXT} */
+	/** Array version of: {@link #glTextureImage2DEXT TextureImage2DEXT} */
 	public static void glTextureImage2DEXT(int texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, double[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureImage2DEXT;
 		if ( CHECKS )
@@ -3866,7 +3794,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
-	/** short[] version of: {@link #glTextureSubImage1DEXT TextureSubImage1DEXT} */
+	/** Array version of: {@link #glTextureSubImage1DEXT TextureSubImage1DEXT} */
 	public static void glTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int width, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage1DEXT;
 		if ( CHECKS )
@@ -3874,7 +3802,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, xoffset, width, format, type, pixels);
 	}
 
-	/** int[] version of: {@link #glTextureSubImage1DEXT TextureSubImage1DEXT} */
+	/** Array version of: {@link #glTextureSubImage1DEXT TextureSubImage1DEXT} */
 	public static void glTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int width, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage1DEXT;
 		if ( CHECKS )
@@ -3882,7 +3810,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, xoffset, width, format, type, pixels);
 	}
 
-	/** float[] version of: {@link #glTextureSubImage1DEXT TextureSubImage1DEXT} */
+	/** Array version of: {@link #glTextureSubImage1DEXT TextureSubImage1DEXT} */
 	public static void glTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int width, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage1DEXT;
 		if ( CHECKS )
@@ -3890,7 +3818,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, xoffset, width, format, type, pixels);
 	}
 
-	/** double[] version of: {@link #glTextureSubImage1DEXT TextureSubImage1DEXT} */
+	/** Array version of: {@link #glTextureSubImage1DEXT TextureSubImage1DEXT} */
 	public static void glTextureSubImage1DEXT(int texture, int target, int level, int xoffset, int width, int format, int type, double[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage1DEXT;
 		if ( CHECKS )
@@ -3898,7 +3826,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, xoffset, width, format, type, pixels);
 	}
 
-	/** short[] version of: {@link #glTextureSubImage2DEXT TextureSubImage2DEXT} */
+	/** Array version of: {@link #glTextureSubImage2DEXT TextureSubImage2DEXT} */
 	public static void glTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage2DEXT;
 		if ( CHECKS )
@@ -3906,7 +3834,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
-	/** int[] version of: {@link #glTextureSubImage2DEXT TextureSubImage2DEXT} */
+	/** Array version of: {@link #glTextureSubImage2DEXT TextureSubImage2DEXT} */
 	public static void glTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage2DEXT;
 		if ( CHECKS )
@@ -3914,7 +3842,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
-	/** float[] version of: {@link #glTextureSubImage2DEXT TextureSubImage2DEXT} */
+	/** Array version of: {@link #glTextureSubImage2DEXT TextureSubImage2DEXT} */
 	public static void glTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage2DEXT;
 		if ( CHECKS )
@@ -3922,7 +3850,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
-	/** double[] version of: {@link #glTextureSubImage2DEXT TextureSubImage2DEXT} */
+	/** Array version of: {@link #glTextureSubImage2DEXT TextureSubImage2DEXT} */
 	public static void glTextureSubImage2DEXT(int texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, double[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage2DEXT;
 		if ( CHECKS )
@@ -3930,7 +3858,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
-	/** short[] version of: {@link #glGetTextureImageEXT GetTextureImageEXT} */
+	/** Array version of: {@link #glGetTextureImageEXT GetTextureImageEXT} */
 	public static void glGetTextureImageEXT(int texture, int target, int level, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glGetTextureImageEXT;
 		if ( CHECKS )
@@ -3938,7 +3866,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, format, type, pixels);
 	}
 
-	/** int[] version of: {@link #glGetTextureImageEXT GetTextureImageEXT} */
+	/** Array version of: {@link #glGetTextureImageEXT GetTextureImageEXT} */
 	public static void glGetTextureImageEXT(int texture, int target, int level, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glGetTextureImageEXT;
 		if ( CHECKS )
@@ -3946,7 +3874,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, format, type, pixels);
 	}
 
-	/** float[] version of: {@link #glGetTextureImageEXT GetTextureImageEXT} */
+	/** Array version of: {@link #glGetTextureImageEXT GetTextureImageEXT} */
 	public static void glGetTextureImageEXT(int texture, int target, int level, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glGetTextureImageEXT;
 		if ( CHECKS )
@@ -3954,7 +3882,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, format, type, pixels);
 	}
 
-	/** double[] version of: {@link #glGetTextureImageEXT GetTextureImageEXT} */
+	/** Array version of: {@link #glGetTextureImageEXT GetTextureImageEXT} */
 	public static void glGetTextureImageEXT(int texture, int target, int level, int format, int type, double[] pixels) {
 		long __functionAddress = GL.getCapabilities().glGetTextureImageEXT;
 		if ( CHECKS )
@@ -4002,7 +3930,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, pname, params);
 	}
 
-	/** short[] version of: {@link #glTextureImage3DEXT TextureImage3DEXT} */
+	/** Array version of: {@link #glTextureImage3DEXT TextureImage3DEXT} */
 	public static void glTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureImage3DEXT;
 		if ( CHECKS )
@@ -4010,7 +3938,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
-	/** int[] version of: {@link #glTextureImage3DEXT TextureImage3DEXT} */
+	/** Array version of: {@link #glTextureImage3DEXT TextureImage3DEXT} */
 	public static void glTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureImage3DEXT;
 		if ( CHECKS )
@@ -4018,7 +3946,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
-	/** float[] version of: {@link #glTextureImage3DEXT TextureImage3DEXT} */
+	/** Array version of: {@link #glTextureImage3DEXT TextureImage3DEXT} */
 	public static void glTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureImage3DEXT;
 		if ( CHECKS )
@@ -4026,7 +3954,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
-	/** double[] version of: {@link #glTextureImage3DEXT TextureImage3DEXT} */
+	/** Array version of: {@link #glTextureImage3DEXT TextureImage3DEXT} */
 	public static void glTextureImage3DEXT(int texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, double[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureImage3DEXT;
 		if ( CHECKS )
@@ -4034,7 +3962,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
-	/** short[] version of: {@link #glTextureSubImage3DEXT TextureSubImage3DEXT} */
+	/** Array version of: {@link #glTextureSubImage3DEXT TextureSubImage3DEXT} */
 	public static void glTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage3DEXT;
 		if ( CHECKS )
@@ -4042,7 +3970,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
-	/** int[] version of: {@link #glTextureSubImage3DEXT TextureSubImage3DEXT} */
+	/** Array version of: {@link #glTextureSubImage3DEXT TextureSubImage3DEXT} */
 	public static void glTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage3DEXT;
 		if ( CHECKS )
@@ -4050,7 +3978,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
-	/** float[] version of: {@link #glTextureSubImage3DEXT TextureSubImage3DEXT} */
+	/** Array version of: {@link #glTextureSubImage3DEXT TextureSubImage3DEXT} */
 	public static void glTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage3DEXT;
 		if ( CHECKS )
@@ -4058,7 +3986,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
-	/** double[] version of: {@link #glTextureSubImage3DEXT TextureSubImage3DEXT} */
+	/** Array version of: {@link #glTextureSubImage3DEXT TextureSubImage3DEXT} */
 	public static void glTextureSubImage3DEXT(int texture, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, double[] pixels) {
 		long __functionAddress = GL.getCapabilities().glTextureSubImage3DEXT;
 		if ( CHECKS )
@@ -4066,7 +3994,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
-	/** short[] version of: {@link #glMultiTexCoordPointerEXT MultiTexCoordPointerEXT} */
+	/** Array version of: {@link #glMultiTexCoordPointerEXT MultiTexCoordPointerEXT} */
 	public static void glMultiTexCoordPointerEXT(int texunit, int size, int type, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoordPointerEXT;
 		if ( CHECKS )
@@ -4074,7 +4002,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, size, type, stride, pointer);
 	}
 
-	/** int[] version of: {@link #glMultiTexCoordPointerEXT MultiTexCoordPointerEXT} */
+	/** Array version of: {@link #glMultiTexCoordPointerEXT MultiTexCoordPointerEXT} */
 	public static void glMultiTexCoordPointerEXT(int texunit, int size, int type, int stride, int[] pointer) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoordPointerEXT;
 		if ( CHECKS )
@@ -4082,7 +4010,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, size, type, stride, pointer);
 	}
 
-	/** float[] version of: {@link #glMultiTexCoordPointerEXT MultiTexCoordPointerEXT} */
+	/** Array version of: {@link #glMultiTexCoordPointerEXT MultiTexCoordPointerEXT} */
 	public static void glMultiTexCoordPointerEXT(int texunit, int size, int type, int stride, float[] pointer) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoordPointerEXT;
 		if ( CHECKS )
@@ -4210,7 +4138,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, pname, param);
 	}
 
-	/** short[] version of: {@link #glMultiTexImage1DEXT MultiTexImage1DEXT} */
+	/** Array version of: {@link #glMultiTexImage1DEXT MultiTexImage1DEXT} */
 	public static void glMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int width, int border, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glMultiTexImage1DEXT;
 		if ( CHECKS )
@@ -4218,7 +4146,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, internalformat, width, border, format, type, pixels);
 	}
 
-	/** int[] version of: {@link #glMultiTexImage1DEXT MultiTexImage1DEXT} */
+	/** Array version of: {@link #glMultiTexImage1DEXT MultiTexImage1DEXT} */
 	public static void glMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int width, int border, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glMultiTexImage1DEXT;
 		if ( CHECKS )
@@ -4226,7 +4154,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, internalformat, width, border, format, type, pixels);
 	}
 
-	/** float[] version of: {@link #glMultiTexImage1DEXT MultiTexImage1DEXT} */
+	/** Array version of: {@link #glMultiTexImage1DEXT MultiTexImage1DEXT} */
 	public static void glMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int width, int border, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glMultiTexImage1DEXT;
 		if ( CHECKS )
@@ -4234,7 +4162,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, internalformat, width, border, format, type, pixels);
 	}
 
-	/** double[] version of: {@link #glMultiTexImage1DEXT MultiTexImage1DEXT} */
+	/** Array version of: {@link #glMultiTexImage1DEXT MultiTexImage1DEXT} */
 	public static void glMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int width, int border, int format, int type, double[] pixels) {
 		long __functionAddress = GL.getCapabilities().glMultiTexImage1DEXT;
 		if ( CHECKS )
@@ -4242,7 +4170,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, internalformat, width, border, format, type, pixels);
 	}
 
-	/** short[] version of: {@link #glMultiTexImage2DEXT MultiTexImage2DEXT} */
+	/** Array version of: {@link #glMultiTexImage2DEXT MultiTexImage2DEXT} */
 	public static void glMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glMultiTexImage2DEXT;
 		if ( CHECKS )
@@ -4250,7 +4178,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
-	/** int[] version of: {@link #glMultiTexImage2DEXT MultiTexImage2DEXT} */
+	/** Array version of: {@link #glMultiTexImage2DEXT MultiTexImage2DEXT} */
 	public static void glMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glMultiTexImage2DEXT;
 		if ( CHECKS )
@@ -4258,7 +4186,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
-	/** float[] version of: {@link #glMultiTexImage2DEXT MultiTexImage2DEXT} */
+	/** Array version of: {@link #glMultiTexImage2DEXT MultiTexImage2DEXT} */
 	public static void glMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glMultiTexImage2DEXT;
 		if ( CHECKS )
@@ -4266,7 +4194,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
-	/** double[] version of: {@link #glMultiTexImage2DEXT MultiTexImage2DEXT} */
+	/** Array version of: {@link #glMultiTexImage2DEXT MultiTexImage2DEXT} */
 	public static void glMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, double[] pixels) {
 		long __functionAddress = GL.getCapabilities().glMultiTexImage2DEXT;
 		if ( CHECKS )
@@ -4274,7 +4202,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, internalformat, width, height, border, format, type, pixels);
 	}
 
-	/** short[] version of: {@link #glMultiTexSubImage1DEXT MultiTexSubImage1DEXT} */
+	/** Array version of: {@link #glMultiTexSubImage1DEXT MultiTexSubImage1DEXT} */
 	public static void glMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int width, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glMultiTexSubImage1DEXT;
 		if ( CHECKS )
@@ -4282,7 +4210,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, xoffset, width, format, type, pixels);
 	}
 
-	/** int[] version of: {@link #glMultiTexSubImage1DEXT MultiTexSubImage1DEXT} */
+	/** Array version of: {@link #glMultiTexSubImage1DEXT MultiTexSubImage1DEXT} */
 	public static void glMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int width, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glMultiTexSubImage1DEXT;
 		if ( CHECKS )
@@ -4290,7 +4218,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, xoffset, width, format, type, pixels);
 	}
 
-	/** float[] version of: {@link #glMultiTexSubImage1DEXT MultiTexSubImage1DEXT} */
+	/** Array version of: {@link #glMultiTexSubImage1DEXT MultiTexSubImage1DEXT} */
 	public static void glMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int width, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glMultiTexSubImage1DEXT;
 		if ( CHECKS )
@@ -4298,7 +4226,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, xoffset, width, format, type, pixels);
 	}
 
-	/** double[] version of: {@link #glMultiTexSubImage1DEXT MultiTexSubImage1DEXT} */
+	/** Array version of: {@link #glMultiTexSubImage1DEXT MultiTexSubImage1DEXT} */
 	public static void glMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int width, int format, int type, double[] pixels) {
 		long __functionAddress = GL.getCapabilities().glMultiTexSubImage1DEXT;
 		if ( CHECKS )
@@ -4306,7 +4234,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, xoffset, width, format, type, pixels);
 	}
 
-	/** short[] version of: {@link #glMultiTexSubImage2DEXT MultiTexSubImage2DEXT} */
+	/** Array version of: {@link #glMultiTexSubImage2DEXT MultiTexSubImage2DEXT} */
 	public static void glMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glMultiTexSubImage2DEXT;
 		if ( CHECKS )
@@ -4314,7 +4242,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
-	/** int[] version of: {@link #glMultiTexSubImage2DEXT MultiTexSubImage2DEXT} */
+	/** Array version of: {@link #glMultiTexSubImage2DEXT MultiTexSubImage2DEXT} */
 	public static void glMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glMultiTexSubImage2DEXT;
 		if ( CHECKS )
@@ -4322,7 +4250,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
-	/** float[] version of: {@link #glMultiTexSubImage2DEXT MultiTexSubImage2DEXT} */
+	/** Array version of: {@link #glMultiTexSubImage2DEXT MultiTexSubImage2DEXT} */
 	public static void glMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glMultiTexSubImage2DEXT;
 		if ( CHECKS )
@@ -4330,7 +4258,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
-	/** double[] version of: {@link #glMultiTexSubImage2DEXT MultiTexSubImage2DEXT} */
+	/** Array version of: {@link #glMultiTexSubImage2DEXT MultiTexSubImage2DEXT} */
 	public static void glMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, double[] pixels) {
 		long __functionAddress = GL.getCapabilities().glMultiTexSubImage2DEXT;
 		if ( CHECKS )
@@ -4338,7 +4266,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, xoffset, yoffset, width, height, format, type, pixels);
 	}
 
-	/** short[] version of: {@link #glGetMultiTexImageEXT GetMultiTexImageEXT} */
+	/** Array version of: {@link #glGetMultiTexImageEXT GetMultiTexImageEXT} */
 	public static void glGetMultiTexImageEXT(int texunit, int target, int level, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glGetMultiTexImageEXT;
 		if ( CHECKS )
@@ -4346,7 +4274,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, format, type, pixels);
 	}
 
-	/** int[] version of: {@link #glGetMultiTexImageEXT GetMultiTexImageEXT} */
+	/** Array version of: {@link #glGetMultiTexImageEXT GetMultiTexImageEXT} */
 	public static void glGetMultiTexImageEXT(int texunit, int target, int level, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glGetMultiTexImageEXT;
 		if ( CHECKS )
@@ -4354,7 +4282,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, format, type, pixels);
 	}
 
-	/** float[] version of: {@link #glGetMultiTexImageEXT GetMultiTexImageEXT} */
+	/** Array version of: {@link #glGetMultiTexImageEXT GetMultiTexImageEXT} */
 	public static void glGetMultiTexImageEXT(int texunit, int target, int level, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glGetMultiTexImageEXT;
 		if ( CHECKS )
@@ -4362,7 +4290,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, format, type, pixels);
 	}
 
-	/** double[] version of: {@link #glGetMultiTexImageEXT GetMultiTexImageEXT} */
+	/** Array version of: {@link #glGetMultiTexImageEXT GetMultiTexImageEXT} */
 	public static void glGetMultiTexImageEXT(int texunit, int target, int level, int format, int type, double[] pixels) {
 		long __functionAddress = GL.getCapabilities().glGetMultiTexImageEXT;
 		if ( CHECKS )
@@ -4410,7 +4338,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, pname, params);
 	}
 
-	/** short[] version of: {@link #glMultiTexImage3DEXT MultiTexImage3DEXT} */
+	/** Array version of: {@link #glMultiTexImage3DEXT MultiTexImage3DEXT} */
 	public static void glMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glMultiTexImage3DEXT;
 		if ( CHECKS )
@@ -4418,7 +4346,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
-	/** int[] version of: {@link #glMultiTexImage3DEXT MultiTexImage3DEXT} */
+	/** Array version of: {@link #glMultiTexImage3DEXT MultiTexImage3DEXT} */
 	public static void glMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glMultiTexImage3DEXT;
 		if ( CHECKS )
@@ -4426,7 +4354,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
-	/** float[] version of: {@link #glMultiTexImage3DEXT MultiTexImage3DEXT} */
+	/** Array version of: {@link #glMultiTexImage3DEXT MultiTexImage3DEXT} */
 	public static void glMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glMultiTexImage3DEXT;
 		if ( CHECKS )
@@ -4434,7 +4362,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
-	/** double[] version of: {@link #glMultiTexImage3DEXT MultiTexImage3DEXT} */
+	/** Array version of: {@link #glMultiTexImage3DEXT MultiTexImage3DEXT} */
 	public static void glMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, double[] pixels) {
 		long __functionAddress = GL.getCapabilities().glMultiTexImage3DEXT;
 		if ( CHECKS )
@@ -4442,7 +4370,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, internalformat, width, height, depth, border, format, type, pixels);
 	}
 
-	/** short[] version of: {@link #glMultiTexSubImage3DEXT MultiTexSubImage3DEXT} */
+	/** Array version of: {@link #glMultiTexSubImage3DEXT MultiTexSubImage3DEXT} */
 	public static void glMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glMultiTexSubImage3DEXT;
 		if ( CHECKS )
@@ -4450,7 +4378,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
-	/** int[] version of: {@link #glMultiTexSubImage3DEXT MultiTexSubImage3DEXT} */
+	/** Array version of: {@link #glMultiTexSubImage3DEXT MultiTexSubImage3DEXT} */
 	public static void glMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glMultiTexSubImage3DEXT;
 		if ( CHECKS )
@@ -4458,7 +4386,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
-	/** float[] version of: {@link #glMultiTexSubImage3DEXT MultiTexSubImage3DEXT} */
+	/** Array version of: {@link #glMultiTexSubImage3DEXT MultiTexSubImage3DEXT} */
 	public static void glMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glMultiTexSubImage3DEXT;
 		if ( CHECKS )
@@ -4466,7 +4394,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 	}
 
-	/** double[] version of: {@link #glMultiTexSubImage3DEXT MultiTexSubImage3DEXT} */
+	/** Array version of: {@link #glMultiTexSubImage3DEXT MultiTexSubImage3DEXT} */
 	public static void glMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, double[] pixels) {
 		long __functionAddress = GL.getCapabilities().glMultiTexSubImage3DEXT;
 		if ( CHECKS )
@@ -4614,7 +4542,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, matrixMode, m);
 	}
 
-	/** short[] version of: {@link #glNamedBufferDataEXT NamedBufferDataEXT} */
+	/** Array version of: {@link #glNamedBufferDataEXT NamedBufferDataEXT} */
 	public static void glNamedBufferDataEXT(int buffer, short[] data, int usage) {
 		long __functionAddress = GL.getCapabilities().glNamedBufferDataEXT;
 		if ( CHECKS )
@@ -4622,7 +4550,7 @@ public class EXTDirectStateAccess {
 		callPPV(__functionAddress, buffer, (long)(data.length << 1), data, usage);
 	}
 
-	/** int[] version of: {@link #glNamedBufferDataEXT NamedBufferDataEXT} */
+	/** Array version of: {@link #glNamedBufferDataEXT NamedBufferDataEXT} */
 	public static void glNamedBufferDataEXT(int buffer, int[] data, int usage) {
 		long __functionAddress = GL.getCapabilities().glNamedBufferDataEXT;
 		if ( CHECKS )
@@ -4630,7 +4558,7 @@ public class EXTDirectStateAccess {
 		callPPV(__functionAddress, buffer, (long)(data.length << 2), data, usage);
 	}
 
-	/** float[] version of: {@link #glNamedBufferDataEXT NamedBufferDataEXT} */
+	/** Array version of: {@link #glNamedBufferDataEXT NamedBufferDataEXT} */
 	public static void glNamedBufferDataEXT(int buffer, float[] data, int usage) {
 		long __functionAddress = GL.getCapabilities().glNamedBufferDataEXT;
 		if ( CHECKS )
@@ -4638,7 +4566,7 @@ public class EXTDirectStateAccess {
 		callPPV(__functionAddress, buffer, (long)(data.length << 2), data, usage);
 	}
 
-	/** double[] version of: {@link #glNamedBufferDataEXT NamedBufferDataEXT} */
+	/** Array version of: {@link #glNamedBufferDataEXT NamedBufferDataEXT} */
 	public static void glNamedBufferDataEXT(int buffer, double[] data, int usage) {
 		long __functionAddress = GL.getCapabilities().glNamedBufferDataEXT;
 		if ( CHECKS )
@@ -4646,7 +4574,7 @@ public class EXTDirectStateAccess {
 		callPPV(__functionAddress, buffer, (long)(data.length << 3), data, usage);
 	}
 
-	/** short[] version of: {@link #glNamedBufferSubDataEXT NamedBufferSubDataEXT} */
+	/** Array version of: {@link #glNamedBufferSubDataEXT NamedBufferSubDataEXT} */
 	public static void glNamedBufferSubDataEXT(int buffer, long offset, short[] data) {
 		long __functionAddress = GL.getCapabilities().glNamedBufferSubDataEXT;
 		if ( CHECKS )
@@ -4654,7 +4582,7 @@ public class EXTDirectStateAccess {
 		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 1), data);
 	}
 
-	/** int[] version of: {@link #glNamedBufferSubDataEXT NamedBufferSubDataEXT} */
+	/** Array version of: {@link #glNamedBufferSubDataEXT NamedBufferSubDataEXT} */
 	public static void glNamedBufferSubDataEXT(int buffer, long offset, int[] data) {
 		long __functionAddress = GL.getCapabilities().glNamedBufferSubDataEXT;
 		if ( CHECKS )
@@ -4662,7 +4590,7 @@ public class EXTDirectStateAccess {
 		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
 	}
 
-	/** float[] version of: {@link #glNamedBufferSubDataEXT NamedBufferSubDataEXT} */
+	/** Array version of: {@link #glNamedBufferSubDataEXT NamedBufferSubDataEXT} */
 	public static void glNamedBufferSubDataEXT(int buffer, long offset, float[] data) {
 		long __functionAddress = GL.getCapabilities().glNamedBufferSubDataEXT;
 		if ( CHECKS )
@@ -4670,7 +4598,7 @@ public class EXTDirectStateAccess {
 		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
 	}
 
-	/** double[] version of: {@link #glNamedBufferSubDataEXT NamedBufferSubDataEXT} */
+	/** Array version of: {@link #glNamedBufferSubDataEXT NamedBufferSubDataEXT} */
 	public static void glNamedBufferSubDataEXT(int buffer, long offset, double[] data) {
 		long __functionAddress = GL.getCapabilities().glNamedBufferSubDataEXT;
 		if ( CHECKS )
@@ -4688,7 +4616,7 @@ public class EXTDirectStateAccess {
 		callPV(__functionAddress, buffer, pname, params);
 	}
 
-	/** short[] version of: {@link #glGetNamedBufferSubDataEXT GetNamedBufferSubDataEXT} */
+	/** Array version of: {@link #glGetNamedBufferSubDataEXT GetNamedBufferSubDataEXT} */
 	public static void glGetNamedBufferSubDataEXT(int buffer, long offset, short[] data) {
 		long __functionAddress = GL.getCapabilities().glGetNamedBufferSubDataEXT;
 		if ( CHECKS )
@@ -4696,7 +4624,7 @@ public class EXTDirectStateAccess {
 		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 1), data);
 	}
 
-	/** int[] version of: {@link #glGetNamedBufferSubDataEXT GetNamedBufferSubDataEXT} */
+	/** Array version of: {@link #glGetNamedBufferSubDataEXT GetNamedBufferSubDataEXT} */
 	public static void glGetNamedBufferSubDataEXT(int buffer, long offset, int[] data) {
 		long __functionAddress = GL.getCapabilities().glGetNamedBufferSubDataEXT;
 		if ( CHECKS )
@@ -4704,7 +4632,7 @@ public class EXTDirectStateAccess {
 		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
 	}
 
-	/** float[] version of: {@link #glGetNamedBufferSubDataEXT GetNamedBufferSubDataEXT} */
+	/** Array version of: {@link #glGetNamedBufferSubDataEXT GetNamedBufferSubDataEXT} */
 	public static void glGetNamedBufferSubDataEXT(int buffer, long offset, float[] data) {
 		long __functionAddress = GL.getCapabilities().glGetNamedBufferSubDataEXT;
 		if ( CHECKS )
@@ -4712,7 +4640,7 @@ public class EXTDirectStateAccess {
 		callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
 	}
 
-	/** double[] version of: {@link #glGetNamedBufferSubDataEXT GetNamedBufferSubDataEXT} */
+	/** Array version of: {@link #glGetNamedBufferSubDataEXT GetNamedBufferSubDataEXT} */
 	public static void glGetNamedBufferSubDataEXT(int buffer, long offset, double[] data) {
 		long __functionAddress = GL.getCapabilities().glGetNamedBufferSubDataEXT;
 		if ( CHECKS )
