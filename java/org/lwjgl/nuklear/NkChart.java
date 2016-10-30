@@ -15,12 +15,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_chart {
-    {@link NkChartSlot struct nk_chart_slot} slots[4];
     int slot;
     float x;
     float y;
     float w;
     float h;
+    {@link NkChartSlot struct nk_chart_slot} slots[4];
 }</code></pre>
  */
 public class NkChart extends Struct {
@@ -32,32 +32,32 @@ public class NkChart extends Struct {
 
 	/** The struct member offsets. */
 	public static final int
-		SLOTS,
 		SLOT,
 		X,
 		Y,
 		W,
-		H;
+		H,
+		SLOTS;
 
 	static {
 		Layout layout = __struct(
-			__array(NkChartSlot.SIZEOF, NkChartSlot.ALIGNOF, 4),
 			__member(4),
 			__member(4),
 			__member(4),
 			__member(4),
-			__member(4)
+			__member(4),
+			__array(NkChartSlot.SIZEOF, NkChartSlot.ALIGNOF, 4)
 		);
 
 		SIZEOF = layout.getSize();
 		ALIGNOF = layout.getAlignment();
 
-		SLOTS = layout.offsetof(0);
-		SLOT = layout.offsetof(1);
-		X = layout.offsetof(2);
-		Y = layout.offsetof(3);
-		W = layout.offsetof(4);
-		H = layout.offsetof(5);
+		SLOT = layout.offsetof(0);
+		X = layout.offsetof(1);
+		Y = layout.offsetof(2);
+		W = layout.offsetof(3);
+		H = layout.offsetof(4);
+		SLOTS = layout.offsetof(5);
 	}
 
 	NkChart(long address, ByteBuffer container) {
@@ -77,10 +77,6 @@ public class NkChart extends Struct {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	/** Returns a {@link NkChartSlot}.Buffer view of the {@code slots} field. */
-	public NkChartSlot.Buffer slots() { return nslots(address()); }
-	/** Returns a {@link NkChartSlot} view of the struct at the specified index of the {@code slots} field. */
-	public NkChartSlot slots(int index) { return nslots(address(), index); }
 	/** Returns the value of the {@code slot} field. */
 	public int slot() { return nslot(address()); }
 	/** Returns the value of the {@code x} field. */
@@ -91,6 +87,10 @@ public class NkChart extends Struct {
 	public float w() { return nw(address()); }
 	/** Returns the value of the {@code h} field. */
 	public float h() { return nh(address()); }
+	/** Returns a {@link NkChartSlot}.Buffer view of the {@code slots} field. */
+	public NkChartSlot.Buffer slots() { return nslots(address()); }
+	/** Returns a {@link NkChartSlot} view of the struct at the specified index of the {@code slots} field. */
+	public NkChartSlot slots(int index) { return nslots(address(), index); }
 
 	// -----------------------------------
 
@@ -111,14 +111,6 @@ public class NkChart extends Struct {
 
 	// -----------------------------------
 
-	/** Unsafe version of {@link #slots}. */
-	public static NkChartSlot.Buffer nslots(long struct) {
-		return NkChartSlot.create(struct + NkChart.SLOTS, 4);
-	}
-	/** Unsafe version of {@link #slots(int) slots}. */
-	public static NkChartSlot nslots(long struct, int index) {
-		return NkChartSlot.create(struct + NkChart.SLOTS + index * NkChartSlot.SIZEOF);
-	}
 	/** Unsafe version of {@link #slot}. */
 	public static int nslot(long struct) { return memGetInt(struct + NkChart.SLOT); }
 	/** Unsafe version of {@link #x}. */
@@ -129,6 +121,14 @@ public class NkChart extends Struct {
 	public static float nw(long struct) { return memGetFloat(struct + NkChart.W); }
 	/** Unsafe version of {@link #h}. */
 	public static float nh(long struct) { return memGetFloat(struct + NkChart.H); }
+	/** Unsafe version of {@link #slots}. */
+	public static NkChartSlot.Buffer nslots(long struct) {
+		return NkChartSlot.create(struct + NkChart.SLOTS, 4);
+	}
+	/** Unsafe version of {@link #slots(int) slots}. */
+	public static NkChartSlot nslots(long struct, int index) {
+		return NkChartSlot.create(struct + NkChart.SLOTS + index * NkChartSlot.SIZEOF);
+	}
 
 	// -----------------------------------
 
@@ -172,10 +172,6 @@ public class NkChart extends Struct {
 			return SIZEOF;
 		}
 
-		/** Returns a {@link NkChartSlot}.Buffer view of the {@code slots} field. */
-		public NkChartSlot.Buffer slots() { return NkChart.nslots(address()); }
-		/** Returns a {@link NkChartSlot} view of the struct at the specified index of the {@code slots} field. */
-		public NkChartSlot slots(int index) { return NkChart.nslots(address(), index); }
 		/** Returns the value of the {@code slot} field. */
 		public int slot() { return NkChart.nslot(address()); }
 		/** Returns the value of the {@code x} field. */
@@ -186,6 +182,10 @@ public class NkChart extends Struct {
 		public float w() { return NkChart.nw(address()); }
 		/** Returns the value of the {@code h} field. */
 		public float h() { return NkChart.nh(address()); }
+		/** Returns a {@link NkChartSlot}.Buffer view of the {@code slots} field. */
+		public NkChartSlot.Buffer slots() { return NkChart.nslots(address()); }
+		/** Returns a {@link NkChartSlot} view of the struct at the specified index of the {@code slots} field. */
+		public NkChartSlot slots(int index) { return NkChart.nslots(address(), index); }
 
 	}
 
