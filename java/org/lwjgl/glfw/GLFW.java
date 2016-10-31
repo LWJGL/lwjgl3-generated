@@ -29,10 +29,10 @@ public class GLFW {
 	public static final int GLFW_VERSION_MAJOR = 3;
 
 	/** The minor version number of the GLFW library. This is incremented when features are added to the API but it remains backward-compatible. */
-	public static final int GLFW_VERSION_MINOR = 2;
+	public static final int GLFW_VERSION_MINOR = 3;
 
 	/** The revision number of the GLFW library. This is incremented when a bug fix release is made that does not contain any API changes. */
-	public static final int GLFW_VERSION_REVISION = 1;
+	public static final int GLFW_VERSION_REVISION = 0;
 
 	/** Boolean values. */
 	public static final int
@@ -627,6 +627,7 @@ public class GLFW {
 			GetInputMode               = apiGetFunctionAddress(GLFW, "glfwGetInputMode"),
 			SetInputMode               = apiGetFunctionAddress(GLFW, "glfwSetInputMode"),
 			GetKeyName                 = apiGetFunctionAddress(GLFW, "glfwGetKeyName"),
+			GetKeyScancode             = apiGetFunctionAddress(GLFW, "glfwGetKeyScancode"),
 			GetKey                     = apiGetFunctionAddress(GLFW, "glfwGetKey"),
 			GetMouseButton             = apiGetFunctionAddress(GLFW, "glfwGetMouseButton"),
 			GetCursorPos               = apiGetFunctionAddress(GLFW, "glfwGetCursorPos"),
@@ -1255,6 +1256,9 @@ public class GLFW {
 	 * screen windows, including the creation of so called <i>windowed full screen</i> or <i>borderless full screen</i> windows, see
 	 * <a href="http://www.glfw.org/docs/latest/window.html#window_windowed_full_screen">full screen</a>.</p>
 	 * 
+	 * <p>Once you have created the window, you can switch it between windowed and full screen mode with {@link #glfwSetWindowMonitor SetWindowMonitor}. If the window has an OpenGL or
+	 * OpenGL ES context, it will be unaffected.</p>
+	 * 
 	 * <p>By default, newly created windows use the placement recommended by the window system. To create the window at a specific position, make it initially
 	 * invisible using the {@link #GLFW_VISIBLE VISIBLE} window hint, set its <a href="http://www.glfw.org/docs/latest/window.html#window_pos">position</a> and then
 	 * <a href="http://www.glfw.org/docs/latest/window.html#window_hide">show</a> it.</p>
@@ -1330,6 +1334,9 @@ public class GLFW {
 	 * iconified, the supported video mode most closely matching the desired video mode is set for the specified monitor. For more information about full
 	 * screen windows, including the creation of so called <i>windowed full screen</i> or <i>borderless full screen</i> windows, see
 	 * <a href="http://www.glfw.org/docs/latest/window.html#window_windowed_full_screen">full screen</a>.</p>
+	 * 
+	 * <p>Once you have created the window, you can switch it between windowed and full screen mode with {@link #glfwSetWindowMonitor SetWindowMonitor}. If the window has an OpenGL or
+	 * OpenGL ES context, it will be unaffected.</p>
 	 * 
 	 * <p>By default, newly created windows use the placement recommended by the window system. To create the window at a specific position, make it initially
 	 * invisible using the {@link #GLFW_VISIBLE VISIBLE} window hint, set its <a href="http://www.glfw.org/docs/latest/window.html#window_pos">position</a> and then
@@ -2504,6 +2511,28 @@ public class GLFW {
 		return memUTF8(__result);
 	}
 
+	// --- [ glfwGetKeyScancode ] ---
+
+	/**
+	 * Returns the platform dependent scancode of the specified key.
+	 * 
+	 * <p>This function returns the platform dependent scancode of the specified key. This is intended for platform specific default keybindings.</p>
+	 * 
+	 * <p>If the key is {@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN} or does not exist on the keyboard this method will return {@code -1}.</p>
+	 * 
+	 * <p>This function may be called from any thread.</p>
+	 *
+	 * @param key the key to query, or {@link #GLFW_KEY_UNKNOWN KEY_UNKNOWN}
+	 *
+	 * @return the platform dependent scancode for the key, or {@code -1} if an errror occurred
+	 *
+	 * @since version 3.3
+	 */
+	public static int glfwGetKeyScancode(int key) {
+		long __functionAddress = Functions.GetKeyScancode;
+		return invokeI(__functionAddress, key);
+	}
+
 	// --- [ glfwGetKey ] ---
 
 	/**
@@ -3004,7 +3033,7 @@ public class GLFW {
 	/**
 	 * Unsafe version of: {@link #glfwGetJoystickAxes GetJoystickAxes}
 	 *
-	 * @param count where to store the number of axis values in the returned array. This is set to zero if an error occurred.
+	 * @param count where to store the number of axis values in the returned array. This is set to zero if the joystick is not present or an error occurred.
 	 */
 	public static long nglfwGetJoystickAxes(int jid, long count) {
 		long __functionAddress = Functions.GetJoystickAxes;
@@ -3044,7 +3073,7 @@ public class GLFW {
 	/**
 	 * Unsafe version of: {@link #glfwGetJoystickButtons GetJoystickButtons}
 	 *
-	 * @param count where to store the number of button states in the returned array. This is set to zero if an error occurred.
+	 * @param count where to store the number of button states in the returned array. This is set to zero if the joystick is not present or an error occurred.
 	 */
 	public static long nglfwGetJoystickButtons(int jid, long count) {
 		long __functionAddress = Functions.GetJoystickButtons;
