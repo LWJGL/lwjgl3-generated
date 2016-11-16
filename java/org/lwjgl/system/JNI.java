@@ -58,7 +58,6 @@ public final class JNI {
 	public static native int invokePPPPPPI(long __functionAddress, long param0, long param1, long param2, long param3, long param4, long param5);
 	public static native int invokePI(long __functionAddress, long param0, short param1);
 	public static native int invokeI(long __functionAddress, short param0);
-	public static native int invokePI(long __functionAddress, short param0, byte param1, long param2);
 	public static native int invokePI(long __functionAddress, short param0, long param1, byte param2);
 	public static native int invokeI(long __functionAddress, boolean param0);
 	public static native long invokeJ(long __functionAddress);
@@ -101,6 +100,7 @@ public final class JNI {
 	public static native short invokePPS(long __functionAddress, long param0, long param1, short param2);
 	public static native short invokePS(long __functionAddress, long param0, short param1);
 	public static native short invokePS(long __functionAddress, long param0, short param1, short param2, int param3);
+	public static native short invokeS(long __functionAddress, short param0, byte param1);
 	public static native short invokePS(long __functionAddress, short param0, long param1, short param2);
 	public static native short invokeS(long __functionAddress, short param0, short param1, int param2, int param3);
 	public static native short invokeS(long __functionAddress, short param0, short param1, short param2, short param3);
@@ -116,12 +116,10 @@ public final class JNI {
 	public static native void invokePPV(long __functionAddress, byte param0, long param1, long param2);
 	public static native void invokePPPV(long __functionAddress, byte param0, long param1, long param2, byte param3, long param4);
 	public static native void invokeV(long __functionAddress, byte param0, short param1);
-	public static native void invokeV(long __functionAddress, byte param0, short param1, byte param2, short param3, short param4, short param5, short param6, byte param7, byte param8, short param9, short param10, short param11, short param12, short param13, short param14);
 	public static native void invokeV(long __functionAddress, byte param0, short param1, byte param2, short param3, short param4, short param5, short param6, byte param7, short param8, short param9, short param10, short param11, short param12, short param13);
 	public static native void invokeV(long __functionAddress, byte param0, short param1, float param2, byte param3, byte param4, byte param5, byte param6, byte param7, byte param8, byte param9, byte param10, byte param11);
 	public static native void invokeV(long __functionAddress, byte param0, short param1, int param2);
 	public static native void invokeV(long __functionAddress, byte param0, short param1, int param2, float param3, byte param4);
-	public static native void invokeV(long __functionAddress, byte param0, short param1, short param2, byte param3, int param4);
 	public static native void invokeV(long __functionAddress, byte param0, short param1, short param2, byte param3, int param4, int param5);
 	public static native void invokeV(long __functionAddress, byte param0, short param1, short param2, int param3);
 	public static native void invokeV(long __functionAddress, byte param0, short param1, short param2, short param3, short param4);
@@ -178,6 +176,7 @@ public final class JNI {
 	public static native void invokePV(long __functionAddress, short param0, byte param1, short param2, short param3, short param4, short param5, short param6, short param7, long param8);
 	public static native void invokeV(long __functionAddress, short param0, int param1, int param2);
 	public static native void invokePV(long __functionAddress, short param0, int param1, long param2);
+	public static native void invokePV(long __functionAddress, short param0, long param1);
 	public static native void invokePV(long __functionAddress, short param0, long param1, short param2);
 	public static native void invokePV(long __functionAddress, short param0, short param1, byte param2, byte param3, short param4, short param5, short param6, short param7, long param8, short param9);
 	public static native void invokePV(long __functionAddress, short param0, short param1, byte param2, long param3);
@@ -565,9 +564,6 @@ public final class JNI {
 	public static native int invokePPI(long __functionAddress, int param0, int[] param1, int param2, int[] param3, int param4, boolean param5);
 	public static native int invokePPI(long __functionAddress, int param0, short[] param1, int param2, short[] param3, int param4, boolean param5);
 	public static native int invokePPPPI(long __functionAddress, long param0, long param1, long param2, long[] param3);
-	public static native int invokePI(long __functionAddress, short param0, byte param1, float[] param2);
-	public static native int invokePI(long __functionAddress, short param0, byte param1, int[] param2);
-	public static native int invokePI(long __functionAddress, short param0, byte param1, short[] param2);
 	public static native int invokePI(long __functionAddress, short param0, float[] param1, byte param2);
 	public static native int invokePI(long __functionAddress, short param0, int[] param1, byte param2);
 	public static native int invokePI(long __functionAddress, short param0, short[] param1, byte param2);

@@ -19,13 +19,23 @@ import org.lwjgl.system.windows.*;
 /**
  * import Win32 memory created on the same physical device.
  * 
+ * <h5>Description</h5>
+ * 
+ * <p>If {@code handleType} is 0, this structure is ignored by consumers of the {@link VkMemoryAllocateInfo} structure it is chained from.</p>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code handleType} <b>must</b> not have more than one bit set.</li>
+ * <li>{@code handle} <b>must</b> be a valid handle to memory, obtained as specified by {@code handleType}.</li>
+ * </ul>
+ * 
  * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link NVExternalMemoryWin32#VK_STRUCTURE_TYPE_IMPORT_MEMORY_WIN32_HANDLE_INFO_NV STRUCTURE_TYPE_IMPORT_MEMORY_WIN32_HANDLE_INFO_NV}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code handleType} <b>must</b> be a valid combination of {@code VkExternalMemoryHandleTypeFlagBitsNV} values</li>
- * <li>{@code handleType} <b>must</b> not be 0</li>
  * </ul>
  * 
  * <h3>Member documentation</h3>
@@ -40,14 +50,14 @@ import org.lwjgl.system.windows.*;
     VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_NV = 0x00000002,
     VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_BIT_NV = 0x00000004,
     VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_KMT_BIT_NV = 0x00000008,
-} VkExternalMemoryHandleTypeFlagBitsNV;</code></pre></li>
- * <li>{@code handle} &ndash; a Windows {@code HANDLE} referring to the memory.
+} VkExternalMemoryHandleTypeFlagBitsNV;</code></pre>
  * 
  * <ul>
- * <li>if {@code handleType} is {@link NVExternalMemoryCapabilities#VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV} or {@link NVExternalMemoryCapabilities#VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_NV}, {@code handle} <b>must</b> be a valid handle returned by {@link NVExternalMemoryWin32#vkGetMemoryWin32HandleNV GetMemoryWin32HandleNV} or, in the case of {@link NVExternalMemoryCapabilities#VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV}, a handle duplicated from such a handle using {@code DuplicateHandle()}.</li>
- * <li>if {@code handleType} is {@link NVExternalMemoryCapabilities#VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_BIT_NV}, {@code handle} <b>must</b> be a valid NT handle returned by {@code IDXGIResource1::ftext:CreateSharedHandle()} or a handle duplicated from such a handle using {@code DuplicateHandle()}.</li>
- * <li>if {@code handleType} is {@link NVExternalMemoryCapabilities#VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_KMT_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_KMT_BIT_NV}, {@code handle} <b>must</b> be a valid handle returned by {@code IDXGIResource::GetSharedHandle()}.</li>
+ * <li>if {@code handleType} is {@link NVExternalMemoryCapabilities#VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV} or {@link NVExternalMemoryCapabilities#VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_NV}, the handle is one returned by {@link NVExternalMemoryWin32#vkGetMemoryWin32HandleNV GetMemoryWin32HandleNV} or, in the case of {@link NVExternalMemoryCapabilities#VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV}, one duplicated from such a handle using {@code DuplicateHandle()}.</li>
+ * <li>if {@code handleType} is {@link NVExternalMemoryCapabilities#VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_BIT_NV}, the handle is a valid NT handle returned by {@code IDXGIResource1::ftext:CreateSharedHandle()}, or a handle duplicated from such a handle using {@code DuplicateHandle()}.</li>
+ * <li>if {@code handleType} is {@link NVExternalMemoryCapabilities#VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_KMT_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_KMT_BIT_NV}, the handle is one returned by {@code IDXGIResource::GetSharedHandle()}.</li>
  * </ul></li>
+ * <li>{@code handle} &ndash; a Windows {@code HANDLE} referring to the memory.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

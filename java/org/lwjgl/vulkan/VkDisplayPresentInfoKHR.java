@@ -42,7 +42,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure and <b>must</b> be {@link KHRDisplaySwapchain#VK_STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR}.</li>
+ * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code srcRect} &ndash; a rectangular region of pixels to present. It <b>must</b> be a subset of the image being presented. If {@link VkDisplayPresentInfoKHR} is not specified, this region will be assumed to be the entire presentable image.</li>
  * <li>{@code dstRect} &ndash; a rectangular region within the visible region of the swapchain&#8217;s display mode. If {@link VkDisplayPresentInfoKHR} is not specified, this region will be assumed to be the entire visible region of the visible region of the swapchain&#8217;s mode. If the specified rectangle is a subset of the display mode&#8217;s visible region, content from display planes below the swapchain&#8217;s plane will be visible outside the rectangle. If there are no planes below the swapchain&#8217;s, the area outside the specified rectangle will be black. If portions of the specified rectangle are outside of the display&#8217;s visible region, pixels mapping only to those portions of the rectangle will be discarded.</li>

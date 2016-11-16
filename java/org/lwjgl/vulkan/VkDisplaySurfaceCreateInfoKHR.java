@@ -51,7 +51,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure and <b>must</b> be {@link KHRDisplay#VK_STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR}.</li>
+ * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code flags} &ndash; reserved for future use, and <b>must</b> be zero.</li>
  * <li>{@code displayMode} &ndash; the mode to use when displaying this surface.</li>

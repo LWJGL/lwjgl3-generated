@@ -38,7 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure and <b>must</b> be {@link EXTDebugMarker#VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_TAG_INFO_EXT STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_TAG_INFO_EXT}.</li>
+ * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code objectType} &ndash; a {@code VkDebugReportObjectTypeEXT} specifying the type of the object to be named.</li>
  * <li>{@code object} &ndash; the object to be tagged.</li>

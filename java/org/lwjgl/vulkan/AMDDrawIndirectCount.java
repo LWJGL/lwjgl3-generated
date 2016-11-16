@@ -93,6 +93,7 @@ public class AMDDrawIndirectCount {
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -183,6 +184,7 @@ public class AMDDrawIndirectCount {
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>

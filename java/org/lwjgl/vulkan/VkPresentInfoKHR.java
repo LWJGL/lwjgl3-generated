@@ -43,7 +43,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure and <b>must</b> be {@link KHRSwapchain#VK_STRUCTURE_TYPE_PRESENT_INFO_KHR STRUCTURE_TYPE_PRESENT_INFO_KHR}.</li>
+ * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code waitSemaphoreCount} &ndash; the number of semaphores to wait for before issuing the present request. The number <b>may</b> be zero.</li>
  * <li>{@code pWaitSemaphores} &ndash; if not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, is an array of {@code VkSemaphore} objects with {@code waitSemaphoreCount} entries, and specifies the semaphores to wait for before issuing the present request.</li>

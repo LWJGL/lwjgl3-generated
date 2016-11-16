@@ -9544,6 +9544,7 @@ public class VK10 {
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Return Codes</h5>
@@ -9605,6 +9606,7 @@ public class VK10 {
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Return Codes</h5>
@@ -9732,6 +9734,7 @@ public class VK10 {
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -9808,6 +9811,7 @@ public class VK10 {
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -9885,6 +9889,7 @@ public class VK10 {
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -9938,6 +9943,7 @@ public class VK10 {
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -10023,6 +10029,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -10079,6 +10086,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -10131,6 +10139,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -10183,6 +10192,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -10247,6 +10257,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -10299,6 +10310,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -10391,6 +10403,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -10449,6 +10462,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -10528,6 +10542,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -10604,6 +10619,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -10686,6 +10702,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -10771,6 +10788,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -10855,6 +10873,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -10927,6 +10946,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -10999,6 +11019,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -11078,6 +11099,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -11196,6 +11218,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -11366,6 +11389,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -11454,6 +11478,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -11540,6 +11565,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -11625,6 +11651,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -11693,6 +11720,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -11761,6 +11789,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -11829,6 +11858,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -11897,6 +11927,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -11965,6 +11996,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -12029,6 +12061,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -12109,6 +12142,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -12180,6 +12214,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -12258,6 +12293,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -12325,6 +12361,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -12403,6 +12440,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -12496,6 +12534,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -12580,6 +12619,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -12641,6 +12681,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -12698,6 +12739,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -12800,6 +12842,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -12908,6 +12951,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -12983,6 +13027,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -13043,6 +13088,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -13102,6 +13148,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -13171,6 +13218,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -13259,6 +13307,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -13337,6 +13386,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -13399,6 +13449,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -13461,6 +13512,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -13523,6 +13575,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -13585,6 +13638,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -13647,6 +13701,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -13719,6 +13774,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -13789,6 +13845,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -13842,6 +13899,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -13924,6 +13982,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
@@ -13994,6 +14053,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	 * 
 	 * <ul>
 	 * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>

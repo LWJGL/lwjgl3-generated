@@ -211,6 +211,12 @@ public class EXTDebugMarker {
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * </ul>
 	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 * 
 	 * <h5>Command Properties</h5>
 	 * 
 	 * <table class="lwjgl">
@@ -262,6 +268,12 @@ public class EXTDebugMarker {
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
 	 * </ul>
 	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
+	 * </ul>
+	 * 
 	 * <h5>Command Properties</h5>
 	 * 
 	 * <table class="lwjgl">
@@ -308,6 +320,12 @@ public class EXTDebugMarker {
 	 * <li>{@code pMarkerInfo} <b>must</b> be a pointer to a {@link VkDebugMarkerMarkerInfoEXT} structure</li>
 	 * <li>{@code commandBuffer} <b>must</b> be in the recording state</li>
 	 * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
+	 * </ul>
+	 * 
+	 * <h5>Host Synchronization</h5>
+	 * 
+	 * <ul>
+	 * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
 	 * </ul>
 	 * 
 	 * <h5>Command Properties</h5>
