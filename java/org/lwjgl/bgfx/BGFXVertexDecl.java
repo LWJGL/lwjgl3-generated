@@ -279,13 +279,19 @@ public class BGFXVertexDecl extends Struct implements NativeResource {
 		return memShortBuffer(struct + BGFXVertexDecl.OFFSET, BGFX_ATTRIB_COUNT);
 	}
 	/** Unsafe version of {@link #offset(int) offset}. */
-	public static short noffset(long struct, int index) { return memGetShort(struct + BGFXVertexDecl.OFFSET + index * 2); }
+	public static short noffset(long struct, int index) {
+		if ( CHECKS ) check(index, BGFX_ATTRIB_COUNT);
+		return memGetShort(struct + BGFXVertexDecl.OFFSET + index * 2);
+	}
 	/** Unsafe version of {@link #attributes}. */
 	public static ShortBuffer nattributes(long struct) {
 		return memShortBuffer(struct + BGFXVertexDecl.ATTRIBUTES, BGFX_ATTRIB_COUNT);
 	}
 	/** Unsafe version of {@link #attributes(int) attributes}. */
-	public static short nattributes(long struct, int index) { return memGetShort(struct + BGFXVertexDecl.ATTRIBUTES + index * 2); }
+	public static short nattributes(long struct, int index) {
+		if ( CHECKS ) check(index, BGFX_ATTRIB_COUNT);
+		return memGetShort(struct + BGFXVertexDecl.ATTRIBUTES + index * 2);
+	}
 
 	/** Unsafe version of {@link #hash(int) hash}. */
 	public static void nhash(long struct, int value) { memPutInt(struct + BGFXVertexDecl.HASH, value); }
@@ -297,14 +303,20 @@ public class BGFXVertexDecl extends Struct implements NativeResource {
 		memCopy(memAddress(value), struct + BGFXVertexDecl.OFFSET, value.remaining() * 2);
 	}
 	/** Unsafe version of {@link #offset(int, short) offset}. */
-	public static void noffset(long struct, int index, short value) { memPutShort(struct + BGFXVertexDecl.OFFSET + index * 2, value); }
+	public static void noffset(long struct, int index, short value) {
+		if ( CHECKS ) check(index, BGFX_ATTRIB_COUNT);
+		memPutShort(struct + BGFXVertexDecl.OFFSET + index * 2, value);
+	}
 	/** Unsafe version of {@link #attributes(ShortBuffer) attributes}. */
 	public static void nattributes(long struct, ShortBuffer value) {
 		if ( CHECKS ) checkBufferGT(value, BGFX_ATTRIB_COUNT);
 		memCopy(memAddress(value), struct + BGFXVertexDecl.ATTRIBUTES, value.remaining() * 2);
 	}
 	/** Unsafe version of {@link #attributes(int, short) attributes}. */
-	public static void nattributes(long struct, int index, short value) { memPutShort(struct + BGFXVertexDecl.ATTRIBUTES + index * 2, value); }
+	public static void nattributes(long struct, int index, short value) {
+		if ( CHECKS ) check(index, BGFX_ATTRIB_COUNT);
+		memPutShort(struct + BGFXVertexDecl.ATTRIBUTES + index * 2, value);
+	}
 
 	// -----------------------------------
 

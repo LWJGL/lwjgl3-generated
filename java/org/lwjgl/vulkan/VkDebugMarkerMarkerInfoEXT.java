@@ -293,7 +293,10 @@ public class VkDebugMarkerMarkerInfoEXT extends Struct implements NativeResource
 		return memFloatBuffer(struct + VkDebugMarkerMarkerInfoEXT.COLOR, 4);
 	}
 	/** Unsafe version of {@link #color(int) color}. */
-	public static float ncolor(long struct, int index) { return memGetFloat(struct + VkDebugMarkerMarkerInfoEXT.COLOR + index * 4); }
+	public static float ncolor(long struct, int index) {
+		if ( CHECKS ) check(index, 4);
+		return memGetFloat(struct + VkDebugMarkerMarkerInfoEXT.COLOR + index * 4);
+	}
 
 	/** Unsafe version of {@link #sType(int) sType}. */
 	public static void nsType(long struct, int value) { memPutInt(struct + VkDebugMarkerMarkerInfoEXT.STYPE, value); }
@@ -310,7 +313,10 @@ public class VkDebugMarkerMarkerInfoEXT extends Struct implements NativeResource
 		memCopy(memAddress(value), struct + VkDebugMarkerMarkerInfoEXT.COLOR, value.remaining() * 4);
 	}
 	/** Unsafe version of {@link #color(int, float) color}. */
-	public static void ncolor(long struct, int index, float value) { memPutFloat(struct + VkDebugMarkerMarkerInfoEXT.COLOR + index * 4, value); }
+	public static void ncolor(long struct, int index, float value) {
+		if ( CHECKS ) check(index, 4);
+		memPutFloat(struct + VkDebugMarkerMarkerInfoEXT.COLOR + index * 4, value);
+	}
 
 	/**
 	 * Validates pointer members that should not be {@code NULL}.

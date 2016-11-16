@@ -265,19 +265,28 @@ public class VkClearColorValue extends Struct implements NativeResource {
 		return memFloatBuffer(struct + VkClearColorValue.FLOAT32, 4);
 	}
 	/** Unsafe version of {@link #float32(int) float32}. */
-	public static float nfloat32(long struct, int index) { return memGetFloat(struct + VkClearColorValue.FLOAT32 + index * 4); }
+	public static float nfloat32(long struct, int index) {
+		if ( CHECKS ) check(index, 4);
+		return memGetFloat(struct + VkClearColorValue.FLOAT32 + index * 4);
+	}
 	/** Unsafe version of {@link #int32}. */
 	public static IntBuffer nint32(long struct) {
 		return memIntBuffer(struct + VkClearColorValue.INT32, 4);
 	}
 	/** Unsafe version of {@link #int32(int) int32}. */
-	public static int nint32(long struct, int index) { return memGetInt(struct + VkClearColorValue.INT32 + index * 4); }
+	public static int nint32(long struct, int index) {
+		if ( CHECKS ) check(index, 4);
+		return memGetInt(struct + VkClearColorValue.INT32 + index * 4);
+	}
 	/** Unsafe version of {@link #uint32}. */
 	public static IntBuffer nuint32(long struct) {
 		return memIntBuffer(struct + VkClearColorValue.UINT32, 4);
 	}
 	/** Unsafe version of {@link #uint32(int) uint32}. */
-	public static int nuint32(long struct, int index) { return memGetInt(struct + VkClearColorValue.UINT32 + index * 4); }
+	public static int nuint32(long struct, int index) {
+		if ( CHECKS ) check(index, 4);
+		return memGetInt(struct + VkClearColorValue.UINT32 + index * 4);
+	}
 
 	/** Unsafe version of {@link #float32(FloatBuffer) float32}. */
 	public static void nfloat32(long struct, FloatBuffer value) {
@@ -285,21 +294,30 @@ public class VkClearColorValue extends Struct implements NativeResource {
 		memCopy(memAddress(value), struct + VkClearColorValue.FLOAT32, value.remaining() * 4);
 	}
 	/** Unsafe version of {@link #float32(int, float) float32}. */
-	public static void nfloat32(long struct, int index, float value) { memPutFloat(struct + VkClearColorValue.FLOAT32 + index * 4, value); }
+	public static void nfloat32(long struct, int index, float value) {
+		if ( CHECKS ) check(index, 4);
+		memPutFloat(struct + VkClearColorValue.FLOAT32 + index * 4, value);
+	}
 	/** Unsafe version of {@link #int32(IntBuffer) int32}. */
 	public static void nint32(long struct, IntBuffer value) {
 		if ( CHECKS ) checkBufferGT(value, 4);
 		memCopy(memAddress(value), struct + VkClearColorValue.INT32, value.remaining() * 4);
 	}
 	/** Unsafe version of {@link #int32(int, int) int32}. */
-	public static void nint32(long struct, int index, int value) { memPutInt(struct + VkClearColorValue.INT32 + index * 4, value); }
+	public static void nint32(long struct, int index, int value) {
+		if ( CHECKS ) check(index, 4);
+		memPutInt(struct + VkClearColorValue.INT32 + index * 4, value);
+	}
 	/** Unsafe version of {@link #uint32(IntBuffer) uint32}. */
 	public static void nuint32(long struct, IntBuffer value) {
 		if ( CHECKS ) checkBufferGT(value, 4);
 		memCopy(memAddress(value), struct + VkClearColorValue.UINT32, value.remaining() * 4);
 	}
 	/** Unsafe version of {@link #uint32(int, int) uint32}. */
-	public static void nuint32(long struct, int index, int value) { memPutInt(struct + VkClearColorValue.UINT32 + index * 4, value); }
+	public static void nuint32(long struct, int index, int value) {
+		if ( CHECKS ) check(index, 4);
+		memPutInt(struct + VkClearColorValue.UINT32 + index * 4, value);
+	}
 
 	// -----------------------------------
 

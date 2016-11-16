@@ -251,7 +251,10 @@ public class NkImage extends Struct implements NativeResource {
 		return memShortBuffer(struct + NkImage.REGION, 4);
 	}
 	/** Unsafe version of {@link #region(int) region}. */
-	public static short nregion(long struct, int index) { return memGetShort(struct + NkImage.REGION + index * 2); }
+	public static short nregion(long struct, int index) {
+		if ( CHECKS ) check(index, 4);
+		return memGetShort(struct + NkImage.REGION + index * 2);
+	}
 
 	/** Unsafe version of {@link #handle(NkHandle) handle}. */
 	public static void nhandle(long struct, NkHandle value) { memCopy(value.address(), struct + NkImage.HANDLE, NkHandle.SIZEOF); }
@@ -265,7 +268,10 @@ public class NkImage extends Struct implements NativeResource {
 		memCopy(memAddress(value), struct + NkImage.REGION, value.remaining() * 2);
 	}
 	/** Unsafe version of {@link #region(int, short) region}. */
-	public static void nregion(long struct, int index, short value) { memPutShort(struct + NkImage.REGION + index * 2, value); }
+	public static void nregion(long struct, int index, short value) {
+		if ( CHECKS ) check(index, 4);
+		memPutShort(struct + NkImage.REGION + index * 2, value);
+	}
 
 	// -----------------------------------
 

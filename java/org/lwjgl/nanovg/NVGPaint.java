@@ -308,13 +308,19 @@ public class NVGPaint extends Struct implements NativeResource {
 		return memFloatBuffer(struct + NVGPaint.XFORM, 6);
 	}
 	/** Unsafe version of {@link #xform(int) xform}. */
-	public static float nxform(long struct, int index) { return memGetFloat(struct + NVGPaint.XFORM + index * 4); }
+	public static float nxform(long struct, int index) {
+		if ( CHECKS ) check(index, 6);
+		return memGetFloat(struct + NVGPaint.XFORM + index * 4);
+	}
 	/** Unsafe version of {@link #extent}. */
 	public static FloatBuffer nextent(long struct) {
 		return memFloatBuffer(struct + NVGPaint.EXTENT, 2);
 	}
 	/** Unsafe version of {@link #extent(int) extent}. */
-	public static float nextent(long struct, int index) { return memGetFloat(struct + NVGPaint.EXTENT + index * 4); }
+	public static float nextent(long struct, int index) {
+		if ( CHECKS ) check(index, 2);
+		return memGetFloat(struct + NVGPaint.EXTENT + index * 4);
+	}
 	/** Unsafe version of {@link #radius}. */
 	public static float nradius(long struct) { return memGetFloat(struct + NVGPaint.RADIUS); }
 	/** Unsafe version of {@link #feather}. */
@@ -332,14 +338,20 @@ public class NVGPaint extends Struct implements NativeResource {
 		memCopy(memAddress(value), struct + NVGPaint.XFORM, value.remaining() * 4);
 	}
 	/** Unsafe version of {@link #xform(int, float) xform}. */
-	public static void nxform(long struct, int index, float value) { memPutFloat(struct + NVGPaint.XFORM + index * 4, value); }
+	public static void nxform(long struct, int index, float value) {
+		if ( CHECKS ) check(index, 6);
+		memPutFloat(struct + NVGPaint.XFORM + index * 4, value);
+	}
 	/** Unsafe version of {@link #extent(FloatBuffer) extent}. */
 	public static void nextent(long struct, FloatBuffer value) {
 		if ( CHECKS ) checkBufferGT(value, 2);
 		memCopy(memAddress(value), struct + NVGPaint.EXTENT, value.remaining() * 4);
 	}
 	/** Unsafe version of {@link #extent(int, float) extent}. */
-	public static void nextent(long struct, int index, float value) { memPutFloat(struct + NVGPaint.EXTENT + index * 4, value); }
+	public static void nextent(long struct, int index, float value) {
+		if ( CHECKS ) check(index, 2);
+		memPutFloat(struct + NVGPaint.EXTENT + index * 4, value);
+	}
 	/** Unsafe version of {@link #radius(float) radius}. */
 	public static void nradius(long struct, float value) { memPutFloat(struct + NVGPaint.RADIUS, value); }
 	/** Unsafe version of {@link #feather(float) feather}. */

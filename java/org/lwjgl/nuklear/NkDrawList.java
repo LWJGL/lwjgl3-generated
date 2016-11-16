@@ -10,6 +10,7 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -273,6 +274,7 @@ public class NkDrawList extends Struct implements NativeResource {
 	}
 	/** Unsafe version of {@link #circle_vtx(int) circle_vtx}. */
 	public static NkVec2 ncircle_vtx(long struct, int index) {
+		if ( CHECKS ) check(index, 12);
 		return NkVec2.create(struct + NkDrawList.CIRCLE_VTX + index * NkVec2.SIZEOF);
 	}
 	/** Unsafe version of {@link #config}. */

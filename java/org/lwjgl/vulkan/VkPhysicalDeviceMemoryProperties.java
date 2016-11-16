@@ -10,6 +10,7 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -293,6 +294,7 @@ public class VkPhysicalDeviceMemoryProperties extends Struct implements NativeRe
 	}
 	/** Unsafe version of {@link #memoryTypes(int) memoryTypes}. */
 	public static VkMemoryType nmemoryTypes(long struct, int index) {
+		if ( CHECKS ) check(index, VK_MAX_MEMORY_TYPES);
 		return VkMemoryType.create(struct + VkPhysicalDeviceMemoryProperties.MEMORYTYPES + index * VkMemoryType.SIZEOF);
 	}
 	/** Unsafe version of {@link #memoryHeapCount}. */
@@ -303,6 +305,7 @@ public class VkPhysicalDeviceMemoryProperties extends Struct implements NativeRe
 	}
 	/** Unsafe version of {@link #memoryHeaps(int) memoryHeaps}. */
 	public static VkMemoryHeap nmemoryHeaps(long struct, int index) {
+		if ( CHECKS ) check(index, VK_MAX_MEMORY_HEAPS);
 		return VkMemoryHeap.create(struct + VkPhysicalDeviceMemoryProperties.MEMORYHEAPS + index * VkMemoryHeap.SIZEOF);
 	}
 

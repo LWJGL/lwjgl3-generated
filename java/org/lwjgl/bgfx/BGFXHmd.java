@@ -9,6 +9,7 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -129,6 +130,7 @@ public class BGFXHmd extends Struct {
 	}
 	/** Unsafe version of {@link #eye(int) eye}. */
 	public static BGFXHmdEye neye(long struct, int index) {
+		if ( CHECKS ) check(index, 2);
 		return BGFXHmdEye.create(struct + BGFXHmd.EYE + index * BGFXHmdEye.SIZEOF);
 	}
 	/** Unsafe version of {@link #width}. */

@@ -9,6 +9,7 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 import static org.lwjgl.nuklear.Nuklear.*;
@@ -103,6 +104,7 @@ public class NkKeyboard extends Struct {
 	}
 	/** Unsafe version of {@link #keys(int) keys}. */
 	public static NkKey nkeys(long struct, int index) {
+		if ( CHECKS ) check(index, NK_KEY_MAX);
 		return NkKey.create(struct + NkKeyboard.KEYS + index * NkKey.SIZEOF);
 	}
 	/** Unsafe version of {@link #text}. */
@@ -110,7 +112,10 @@ public class NkKeyboard extends Struct {
 		return memByteBuffer(struct + NkKeyboard.TEXT, NK_INPUT_MAX);
 	}
 	/** Unsafe version of {@link #text(int) text}. */
-	public static byte ntext(long struct, int index) { return memGetByte(struct + NkKeyboard.TEXT + index * 1); }
+	public static byte ntext(long struct, int index) {
+		if ( CHECKS ) check(index, NK_INPUT_MAX);
+		return memGetByte(struct + NkKeyboard.TEXT + index * 1);
+	}
 	/** Unsafe version of {@link #text_len}. */
 	public static int ntext_len(long struct) { return memGetInt(struct + NkKeyboard.TEXT_LEN); }
 

@@ -273,7 +273,10 @@ public class NVGColor extends Struct implements NativeResource {
 		return memFloatBuffer(struct + NVGColor.RGBA, 4);
 	}
 	/** Unsafe version of {@link #rgba(int) rgba}. */
-	public static float nrgba(long struct, int index) { return memGetFloat(struct + NVGColor.RGBA + index * 4); }
+	public static float nrgba(long struct, int index) {
+		if ( CHECKS ) check(index, 4);
+		return memGetFloat(struct + NVGColor.RGBA + index * 4);
+	}
 	/** Unsafe version of {@link #r}. */
 	public static float nr(long struct) { return memGetFloat(struct + NVGColor.R); }
 	/** Unsafe version of {@link #g}. */
@@ -289,7 +292,10 @@ public class NVGColor extends Struct implements NativeResource {
 		memCopy(memAddress(value), struct + NVGColor.RGBA, value.remaining() * 4);
 	}
 	/** Unsafe version of {@link #rgba(int, float) rgba}. */
-	public static void nrgba(long struct, int index, float value) { memPutFloat(struct + NVGColor.RGBA + index * 4, value); }
+	public static void nrgba(long struct, int index, float value) {
+		if ( CHECKS ) check(index, 4);
+		memPutFloat(struct + NVGColor.RGBA + index * 4, value);
+	}
 	/** Unsafe version of {@link #r(float) r}. */
 	public static void nr(long struct, float value) { memPutFloat(struct + NVGColor.R, value); }
 	/** Unsafe version of {@link #g(float) g}. */

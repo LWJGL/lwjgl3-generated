@@ -10,6 +10,7 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -356,6 +357,7 @@ public class OVRHmdDesc extends Struct implements NativeResource {
 	}
 	/** Unsafe version of {@link #DefaultEyeFov(int) DefaultEyeFov}. */
 	public static OVRFovPort nDefaultEyeFov(long struct, int index) {
+		if ( CHECKS ) check(index, ovrEye_Count);
 		return OVRFovPort.create(struct + OVRHmdDesc.DEFAULTEYEFOV + index * OVRFovPort.SIZEOF);
 	}
 	/** Unsafe version of {@link #MaxEyeFov}. */
@@ -364,6 +366,7 @@ public class OVRHmdDesc extends Struct implements NativeResource {
 	}
 	/** Unsafe version of {@link #MaxEyeFov(int) MaxEyeFov}. */
 	public static OVRFovPort nMaxEyeFov(long struct, int index) {
+		if ( CHECKS ) check(index, ovrEye_Count);
 		return OVRFovPort.create(struct + OVRHmdDesc.MAXEYEFOV + index * OVRFovPort.SIZEOF);
 	}
 	/** Unsafe version of {@link #Resolution}. */

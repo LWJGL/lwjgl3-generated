@@ -330,6 +330,7 @@ public class VkImageBlit extends Struct implements NativeResource {
 	}
 	/** Unsafe version of {@link #srcOffsets(int) srcOffsets}. */
 	public static VkOffset3D nsrcOffsets(long struct, int index) {
+		if ( CHECKS ) check(index, 2);
 		return VkOffset3D.create(struct + VkImageBlit.SRCOFFSETS + index * VkOffset3D.SIZEOF);
 	}
 	/** Unsafe version of {@link #dstSubresource}. */
@@ -340,6 +341,7 @@ public class VkImageBlit extends Struct implements NativeResource {
 	}
 	/** Unsafe version of {@link #dstOffsets(int) dstOffsets}. */
 	public static VkOffset3D ndstOffsets(long struct, int index) {
+		if ( CHECKS ) check(index, 2);
 		return VkOffset3D.create(struct + VkImageBlit.DSTOFFSETS + index * VkOffset3D.SIZEOF);
 	}
 
@@ -351,7 +353,10 @@ public class VkImageBlit extends Struct implements NativeResource {
 		memCopy(value.address(), struct + VkImageBlit.SRCOFFSETS, value.remaining() * VkOffset3D.SIZEOF);
 	}
 	/** Unsafe version of {@link #srcOffsets(int, VkOffset3D) srcOffsets}. */
-	public static void nsrcOffsets(long struct, int index, VkOffset3D value) { memCopy(value.address(), struct + VkImageBlit.SRCOFFSETS + index * VkOffset3D.SIZEOF, VkOffset3D.SIZEOF); }
+	public static void nsrcOffsets(long struct, int index, VkOffset3D value) {
+		if ( CHECKS ) check(index, 2);
+		memCopy(value.address(), struct + VkImageBlit.SRCOFFSETS + index * VkOffset3D.SIZEOF, VkOffset3D.SIZEOF);
+	}
 	/** Unsafe version of {@link #dstSubresource(VkImageSubresourceLayers) dstSubresource}. */
 	public static void ndstSubresource(long struct, VkImageSubresourceLayers value) { memCopy(value.address(), struct + VkImageBlit.DSTSUBRESOURCE, VkImageSubresourceLayers.SIZEOF); }
 	/** Unsafe version of {@link #dstOffsets(VkOffset3D.Buffer) dstOffsets}. */
@@ -360,7 +365,10 @@ public class VkImageBlit extends Struct implements NativeResource {
 		memCopy(value.address(), struct + VkImageBlit.DSTOFFSETS, value.remaining() * VkOffset3D.SIZEOF);
 	}
 	/** Unsafe version of {@link #dstOffsets(int, VkOffset3D) dstOffsets}. */
-	public static void ndstOffsets(long struct, int index, VkOffset3D value) { memCopy(value.address(), struct + VkImageBlit.DSTOFFSETS + index * VkOffset3D.SIZEOF, VkOffset3D.SIZEOF); }
+	public static void ndstOffsets(long struct, int index, VkOffset3D value) {
+		if ( CHECKS ) check(index, 2);
+		memCopy(value.address(), struct + VkImageBlit.DSTOFFSETS + index * VkOffset3D.SIZEOF, VkOffset3D.SIZEOF);
+	}
 
 	// -----------------------------------
 

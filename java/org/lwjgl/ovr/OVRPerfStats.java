@@ -10,6 +10,7 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -252,6 +253,7 @@ public class OVRPerfStats extends Struct implements NativeResource {
 	}
 	/** Unsafe version of {@link #FrameStats(int) FrameStats}. */
 	public static OVRPerfStatsPerCompositorFrame nFrameStats(long struct, int index) {
+		if ( CHECKS ) check(index, ovrMaxProvidedFrameStats);
 		return OVRPerfStatsPerCompositorFrame.create(struct + OVRPerfStats.FRAMESTATS + index * OVRPerfStatsPerCompositorFrame.SIZEOF);
 	}
 	/** Unsafe version of {@link #FrameStatsCount}. */

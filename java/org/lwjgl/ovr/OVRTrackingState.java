@@ -10,6 +10,7 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -251,6 +252,7 @@ public class OVRTrackingState extends Struct implements NativeResource {
 	}
 	/** Unsafe version of {@link #HandPoses(int) HandPoses}. */
 	public static OVRPoseStatef nHandPoses(long struct, int index) {
+		if ( CHECKS ) check(index, 2);
 		return OVRPoseStatef.create(struct + OVRTrackingState.HANDPOSES + index * OVRPoseStatef.SIZEOF);
 	}
 	/** Unsafe version of {@link #HandStatusFlags}. */
@@ -258,7 +260,10 @@ public class OVRTrackingState extends Struct implements NativeResource {
 		return memIntBuffer(struct + OVRTrackingState.HANDSTATUSFLAGS, 2);
 	}
 	/** Unsafe version of {@link #HandStatusFlags(int) HandStatusFlags}. */
-	public static int nHandStatusFlags(long struct, int index) { return memGetInt(struct + OVRTrackingState.HANDSTATUSFLAGS + index * 4); }
+	public static int nHandStatusFlags(long struct, int index) {
+		if ( CHECKS ) check(index, 2);
+		return memGetInt(struct + OVRTrackingState.HANDSTATUSFLAGS + index * 4);
+	}
 	/** Unsafe version of {@link #CalibratedOrigin}. */
 	public static OVRPosef nCalibratedOrigin(long struct) { return OVRPosef.create(struct + OVRTrackingState.CALIBRATEDORIGIN); }
 

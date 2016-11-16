@@ -261,6 +261,7 @@ public class OVRViewScaleDesc extends Struct implements NativeResource {
 	}
 	/** Unsafe version of {@link #HmdToEyeOffset(int) HmdToEyeOffset}. */
 	public static OVRVector3f nHmdToEyeOffset(long struct, int index) {
+		if ( CHECKS ) check(index, ovrEye_Count);
 		return OVRVector3f.create(struct + OVRViewScaleDesc.HMDTOEYEOFFSET + index * OVRVector3f.SIZEOF);
 	}
 	/** Unsafe version of {@link #HmdSpaceToWorldScaleInMeters}. */
@@ -272,7 +273,10 @@ public class OVRViewScaleDesc extends Struct implements NativeResource {
 		memCopy(value.address(), struct + OVRViewScaleDesc.HMDTOEYEOFFSET, value.remaining() * OVRVector3f.SIZEOF);
 	}
 	/** Unsafe version of {@link #HmdToEyeOffset(int, OVRVector3f) HmdToEyeOffset}. */
-	public static void nHmdToEyeOffset(long struct, int index, OVRVector3f value) { memCopy(value.address(), struct + OVRViewScaleDesc.HMDTOEYEOFFSET + index * OVRVector3f.SIZEOF, OVRVector3f.SIZEOF); }
+	public static void nHmdToEyeOffset(long struct, int index, OVRVector3f value) {
+		if ( CHECKS ) check(index, ovrEye_Count);
+		memCopy(value.address(), struct + OVRViewScaleDesc.HMDTOEYEOFFSET + index * OVRVector3f.SIZEOF, OVRVector3f.SIZEOF);
+	}
 	/** Unsafe version of {@link #HmdSpaceToWorldScaleInMeters(float) HmdSpaceToWorldScaleInMeters}. */
 	public static void nHmdSpaceToWorldScaleInMeters(long struct, float value) { memPutFloat(struct + OVRViewScaleDesc.HMDSPACETOWORLDSCALEINMETERS, value); }
 

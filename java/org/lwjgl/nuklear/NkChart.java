@@ -9,6 +9,7 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -127,6 +128,7 @@ public class NkChart extends Struct {
 	}
 	/** Unsafe version of {@link #slots(int) slots}. */
 	public static NkChartSlot nslots(long struct, int index) {
+		if ( CHECKS ) check(index, 4);
 		return NkChartSlot.create(struct + NkChart.SLOTS + index * NkChartSlot.SIZEOF);
 	}
 

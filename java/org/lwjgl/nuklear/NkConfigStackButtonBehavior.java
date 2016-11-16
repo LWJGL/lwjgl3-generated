@@ -9,6 +9,7 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -95,6 +96,7 @@ class NkConfigStackButtonBehavior extends Struct {
 	}
 	/** Unsafe version of {@link #elements(int) elements}. */
 	public static NkConfigStackButtonBehaviorElement nelements(long struct, int index) {
+		if ( CHECKS ) check(index, 8);
 		return NkConfigStackButtonBehaviorElement.create(struct + NkConfigStackButtonBehavior.ELEMENTS + index * NkConfigStackButtonBehaviorElement.SIZEOF);
 	}
 

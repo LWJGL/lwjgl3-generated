@@ -9,6 +9,7 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 import static org.lwjgl.nuklear.Nuklear.NK_BUTTON_MAX;
@@ -131,6 +132,7 @@ public class NkMouse extends Struct {
 	}
 	/** Unsafe version of {@link #buttons(int) buttons}. */
 	public static NkMouseButton nbuttons(long struct, int index) {
+		if ( CHECKS ) check(index, NK_BUTTON_MAX);
 		return NkMouseButton.create(struct + NkMouse.BUTTONS + index * NkMouseButton.SIZEOF);
 	}
 	/** Unsafe version of {@link #pos}. */

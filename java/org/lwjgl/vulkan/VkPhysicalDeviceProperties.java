@@ -10,6 +10,7 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -294,7 +295,10 @@ public class VkPhysicalDeviceProperties extends Struct implements NativeResource
 		return memByteBuffer(struct + VkPhysicalDeviceProperties.PIPELINECACHEUUID, VK_UUID_SIZE);
 	}
 	/** Unsafe version of {@link #pipelineCacheUUID(int) pipelineCacheUUID}. */
-	public static byte npipelineCacheUUID(long struct, int index) { return memGetByte(struct + VkPhysicalDeviceProperties.PIPELINECACHEUUID + index * 1); }
+	public static byte npipelineCacheUUID(long struct, int index) {
+		if ( CHECKS ) check(index, VK_UUID_SIZE);
+		return memGetByte(struct + VkPhysicalDeviceProperties.PIPELINECACHEUUID + index * 1);
+	}
 	/** Unsafe version of {@link #limits}. */
 	public static VkPhysicalDeviceLimits nlimits(long struct) { return VkPhysicalDeviceLimits.create(struct + VkPhysicalDeviceProperties.LIMITS); }
 	/** Unsafe version of {@link #sparseProperties}. */

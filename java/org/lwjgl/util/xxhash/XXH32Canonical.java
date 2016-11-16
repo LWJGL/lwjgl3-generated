@@ -10,6 +10,7 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -206,7 +207,10 @@ public class XXH32Canonical extends Struct implements NativeResource {
 		return memByteBuffer(struct + XXH32Canonical.DIGEST, 4);
 	}
 	/** Unsafe version of {@link #digest(int) digest}. */
-	public static byte ndigest(long struct, int index) { return memGetByte(struct + XXH32Canonical.DIGEST + index * 1); }
+	public static byte ndigest(long struct, int index) {
+		if ( CHECKS ) check(index, 4);
+		return memGetByte(struct + XXH32Canonical.DIGEST + index * 1);
+	}
 
 	// -----------------------------------
 

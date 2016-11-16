@@ -9,6 +9,7 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 import static org.lwjgl.nuklear.Nuklear.NK_MAX_NUMBER_BUFFER;
@@ -140,7 +141,10 @@ public class NkPropertyState extends Struct {
 		return memByteBuffer(struct + NkPropertyState.BUFFER, NK_MAX_NUMBER_BUFFER);
 	}
 	/** Unsafe version of {@link #buffer(int) buffer}. */
-	public static byte nbuffer(long struct, int index) { return memGetByte(struct + NkPropertyState.BUFFER + index * 1); }
+	public static byte nbuffer(long struct, int index) {
+		if ( CHECKS ) check(index, NK_MAX_NUMBER_BUFFER);
+		return memGetByte(struct + NkPropertyState.BUFFER + index * 1);
+	}
 	/** Unsafe version of {@link #length}. */
 	public static int nlength(long struct) { return memGetInt(struct + NkPropertyState.LENGTH); }
 	/** Unsafe version of {@link #cursor}. */

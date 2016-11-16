@@ -9,6 +9,7 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -975,7 +976,10 @@ public class VkPhysicalDeviceLimits extends Struct {
 		return memIntBuffer(struct + VkPhysicalDeviceLimits.MAXCOMPUTEWORKGROUPCOUNT, 3);
 	}
 	/** Unsafe version of {@link #maxComputeWorkGroupCount(int) maxComputeWorkGroupCount}. */
-	public static int nmaxComputeWorkGroupCount(long struct, int index) { return memGetInt(struct + VkPhysicalDeviceLimits.MAXCOMPUTEWORKGROUPCOUNT + index * 4); }
+	public static int nmaxComputeWorkGroupCount(long struct, int index) {
+		if ( CHECKS ) check(index, 3);
+		return memGetInt(struct + VkPhysicalDeviceLimits.MAXCOMPUTEWORKGROUPCOUNT + index * 4);
+	}
 	/** Unsafe version of {@link #maxComputeWorkGroupInvocations}. */
 	public static int nmaxComputeWorkGroupInvocations(long struct) { return memGetInt(struct + VkPhysicalDeviceLimits.MAXCOMPUTEWORKGROUPINVOCATIONS); }
 	/** Unsafe version of {@link #maxComputeWorkGroupSize}. */
@@ -983,7 +987,10 @@ public class VkPhysicalDeviceLimits extends Struct {
 		return memIntBuffer(struct + VkPhysicalDeviceLimits.MAXCOMPUTEWORKGROUPSIZE, 3);
 	}
 	/** Unsafe version of {@link #maxComputeWorkGroupSize(int) maxComputeWorkGroupSize}. */
-	public static int nmaxComputeWorkGroupSize(long struct, int index) { return memGetInt(struct + VkPhysicalDeviceLimits.MAXCOMPUTEWORKGROUPSIZE + index * 4); }
+	public static int nmaxComputeWorkGroupSize(long struct, int index) {
+		if ( CHECKS ) check(index, 3);
+		return memGetInt(struct + VkPhysicalDeviceLimits.MAXCOMPUTEWORKGROUPSIZE + index * 4);
+	}
 	/** Unsafe version of {@link #subPixelPrecisionBits}. */
 	public static int nsubPixelPrecisionBits(long struct) { return memGetInt(struct + VkPhysicalDeviceLimits.SUBPIXELPRECISIONBITS); }
 	/** Unsafe version of {@link #subTexelPrecisionBits}. */
@@ -1005,13 +1012,19 @@ public class VkPhysicalDeviceLimits extends Struct {
 		return memIntBuffer(struct + VkPhysicalDeviceLimits.MAXVIEWPORTDIMENSIONS, 2);
 	}
 	/** Unsafe version of {@link #maxViewportDimensions(int) maxViewportDimensions}. */
-	public static int nmaxViewportDimensions(long struct, int index) { return memGetInt(struct + VkPhysicalDeviceLimits.MAXVIEWPORTDIMENSIONS + index * 4); }
+	public static int nmaxViewportDimensions(long struct, int index) {
+		if ( CHECKS ) check(index, 2);
+		return memGetInt(struct + VkPhysicalDeviceLimits.MAXVIEWPORTDIMENSIONS + index * 4);
+	}
 	/** Unsafe version of {@link #viewportBoundsRange}. */
 	public static FloatBuffer nviewportBoundsRange(long struct) {
 		return memFloatBuffer(struct + VkPhysicalDeviceLimits.VIEWPORTBOUNDSRANGE, 2);
 	}
 	/** Unsafe version of {@link #viewportBoundsRange(int) viewportBoundsRange}. */
-	public static float nviewportBoundsRange(long struct, int index) { return memGetFloat(struct + VkPhysicalDeviceLimits.VIEWPORTBOUNDSRANGE + index * 4); }
+	public static float nviewportBoundsRange(long struct, int index) {
+		if ( CHECKS ) check(index, 2);
+		return memGetFloat(struct + VkPhysicalDeviceLimits.VIEWPORTBOUNDSRANGE + index * 4);
+	}
 	/** Unsafe version of {@link #viewportSubPixelBits}. */
 	public static int nviewportSubPixelBits(long struct) { return memGetInt(struct + VkPhysicalDeviceLimits.VIEWPORTSUBPIXELBITS); }
 	/** Unsafe version of {@link #minMemoryMapAlignment}. */
@@ -1081,13 +1094,19 @@ public class VkPhysicalDeviceLimits extends Struct {
 		return memFloatBuffer(struct + VkPhysicalDeviceLimits.POINTSIZERANGE, 2);
 	}
 	/** Unsafe version of {@link #pointSizeRange(int) pointSizeRange}. */
-	public static float npointSizeRange(long struct, int index) { return memGetFloat(struct + VkPhysicalDeviceLimits.POINTSIZERANGE + index * 4); }
+	public static float npointSizeRange(long struct, int index) {
+		if ( CHECKS ) check(index, 2);
+		return memGetFloat(struct + VkPhysicalDeviceLimits.POINTSIZERANGE + index * 4);
+	}
 	/** Unsafe version of {@link #lineWidthRange}. */
 	public static FloatBuffer nlineWidthRange(long struct) {
 		return memFloatBuffer(struct + VkPhysicalDeviceLimits.LINEWIDTHRANGE, 2);
 	}
 	/** Unsafe version of {@link #lineWidthRange(int) lineWidthRange}. */
-	public static float nlineWidthRange(long struct, int index) { return memGetFloat(struct + VkPhysicalDeviceLimits.LINEWIDTHRANGE + index * 4); }
+	public static float nlineWidthRange(long struct, int index) {
+		if ( CHECKS ) check(index, 2);
+		return memGetFloat(struct + VkPhysicalDeviceLimits.LINEWIDTHRANGE + index * 4);
+	}
 	/** Unsafe version of {@link #pointSizeGranularity}. */
 	public static float npointSizeGranularity(long struct) { return memGetFloat(struct + VkPhysicalDeviceLimits.POINTSIZEGRANULARITY); }
 	/** Unsafe version of {@link #lineWidthGranularity}. */

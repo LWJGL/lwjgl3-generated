@@ -9,6 +9,7 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 import static org.lwjgl.bgfx.BGFX.BGFX_TEXTURE_FORMAT_COUNT;
@@ -176,6 +177,7 @@ public class BGFXCaps extends Struct {
 	}
 	/** Unsafe version of {@link #gpu(int) gpu}. */
 	public static BGFXCapsGPU ngpu(long struct, int index) {
+		if ( CHECKS ) check(index, 4);
 		return BGFXCapsGPU.create(struct + BGFXCaps.GPU + index * BGFXCapsGPU.SIZEOF);
 	}
 	/** Unsafe version of {@link #limits}. */
@@ -185,7 +187,10 @@ public class BGFXCaps extends Struct {
 		return memShortBuffer(struct + BGFXCaps.FORMATS, BGFX_TEXTURE_FORMAT_COUNT);
 	}
 	/** Unsafe version of {@link #formats(int) formats}. */
-	public static short nformats(long struct, int index) { return memGetShort(struct + BGFXCaps.FORMATS + index * 2); }
+	public static short nformats(long struct, int index) {
+		if ( CHECKS ) check(index, BGFX_TEXTURE_FORMAT_COUNT);
+		return memGetShort(struct + BGFXCaps.FORMATS + index * 2);
+	}
 
 	// -----------------------------------
 

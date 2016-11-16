@@ -10,6 +10,7 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -261,6 +262,7 @@ public class NkBuffer extends Struct implements NativeResource {
 	}
 	/** Unsafe version of {@link #marker(int) marker}. */
 	public static NkBufferMarker nmarker(long struct, int index) {
+		if ( CHECKS ) check(index, 2);
 		return NkBufferMarker.create(struct + NkBuffer.MARKER + index * NkBufferMarker.SIZEOF);
 	}
 	/** Unsafe version of {@link #pool}. */

@@ -9,6 +9,7 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -95,6 +96,7 @@ class NkConfigStackVec2 extends Struct {
 	}
 	/** Unsafe version of {@link #elements(int) elements}. */
 	public static NkConfigStackVec2Element nelements(long struct, int index) {
+		if ( CHECKS ) check(index, 16);
 		return NkConfigStackVec2Element.create(struct + NkConfigStackVec2.ELEMENTS + index * NkConfigStackVec2Element.SIZEOF);
 	}
 

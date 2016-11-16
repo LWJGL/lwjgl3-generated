@@ -10,6 +10,7 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -246,7 +247,10 @@ public class CLDeviceTopologyAMD extends Struct implements NativeResource {
 		return memIntBuffer(struct + CLDeviceTopologyAMD.RAW_DATA, 5);
 	}
 	/** Unsafe version of {@link #raw_data(int) raw_data}. */
-	public static int nraw_data(long struct, int index) { return memGetInt(struct + CLDeviceTopologyAMD.RAW_DATA + index * 4); }
+	public static int nraw_data(long struct, int index) {
+		if ( CHECKS ) check(index, 5);
+		return memGetInt(struct + CLDeviceTopologyAMD.RAW_DATA + index * 4);
+	}
 	/** Unsafe version of {@link #pcie_type}. */
 	public static int npcie_type(long struct) { return memGetInt(struct + CLDeviceTopologyAMD.PCIE_TYPE); }
 	/** Unsafe version of {@link #pcie_bus}. */

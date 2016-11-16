@@ -315,13 +315,17 @@ public class OVRLayerEyeFov extends Struct implements NativeResource {
 		return memPointerBuffer(struct + OVRLayerEyeFov.COLORTEXTURE, ovrEye_Count);
 	}
 	/** Unsafe version of {@link #ColorTexture(int) ColorTexture}. */
-	public static long nColorTexture(long struct, int index) { return memGetAddress(struct + OVRLayerEyeFov.COLORTEXTURE + index * 2147483647); }
+	public static long nColorTexture(long struct, int index) {
+		if ( CHECKS ) check(index, ovrEye_Count);
+		return memGetAddress(struct + OVRLayerEyeFov.COLORTEXTURE + index * POINTER_SIZE);
+	}
 	/** Unsafe version of {@link #Viewport}. */
 	public static OVRRecti.Buffer nViewport(long struct) {
 		return OVRRecti.create(struct + OVRLayerEyeFov.VIEWPORT, ovrEye_Count);
 	}
 	/** Unsafe version of {@link #Viewport(int) Viewport}. */
 	public static OVRRecti nViewport(long struct, int index) {
+		if ( CHECKS ) check(index, ovrEye_Count);
 		return OVRRecti.create(struct + OVRLayerEyeFov.VIEWPORT + index * OVRRecti.SIZEOF);
 	}
 	/** Unsafe version of {@link #Fov}. */
@@ -330,6 +334,7 @@ public class OVRLayerEyeFov extends Struct implements NativeResource {
 	}
 	/** Unsafe version of {@link #Fov(int) Fov}. */
 	public static OVRFovPort nFov(long struct, int index) {
+		if ( CHECKS ) check(index, ovrEye_Count);
 		return OVRFovPort.create(struct + OVRLayerEyeFov.FOV + index * OVRFovPort.SIZEOF);
 	}
 	/** Unsafe version of {@link #RenderPose}. */
@@ -338,6 +343,7 @@ public class OVRLayerEyeFov extends Struct implements NativeResource {
 	}
 	/** Unsafe version of {@link #RenderPose(int) RenderPose}. */
 	public static OVRPosef nRenderPose(long struct, int index) {
+		if ( CHECKS ) check(index, ovrEye_Count);
 		return OVRPosef.create(struct + OVRLayerEyeFov.RENDERPOSE + index * OVRPosef.SIZEOF);
 	}
 	/** Unsafe version of {@link #SensorSampleTime}. */
@@ -351,28 +357,40 @@ public class OVRLayerEyeFov extends Struct implements NativeResource {
 		memCopy(memAddress(value), struct + OVRLayerEyeFov.COLORTEXTURE, value.remaining() * POINTER_SIZE);
 	}
 	/** Unsafe version of {@link #ColorTexture(int, long) ColorTexture}. */
-	public static void nColorTexture(long struct, int index, long value) { memPutAddress(struct + OVRLayerEyeFov.COLORTEXTURE + index * POINTER_SIZE, value); }
+	public static void nColorTexture(long struct, int index, long value) {
+		if ( CHECKS ) check(index, ovrEye_Count);
+		memPutAddress(struct + OVRLayerEyeFov.COLORTEXTURE + index * POINTER_SIZE, value);
+	}
 	/** Unsafe version of {@link #Viewport(OVRRecti.Buffer) Viewport}. */
 	public static void nViewport(long struct, OVRRecti.Buffer value) {
 		if ( CHECKS ) checkBufferGT(value, ovrEye_Count);
 		memCopy(value.address(), struct + OVRLayerEyeFov.VIEWPORT, value.remaining() * OVRRecti.SIZEOF);
 	}
 	/** Unsafe version of {@link #Viewport(int, OVRRecti) Viewport}. */
-	public static void nViewport(long struct, int index, OVRRecti value) { memCopy(value.address(), struct + OVRLayerEyeFov.VIEWPORT + index * OVRRecti.SIZEOF, OVRRecti.SIZEOF); }
+	public static void nViewport(long struct, int index, OVRRecti value) {
+		if ( CHECKS ) check(index, ovrEye_Count);
+		memCopy(value.address(), struct + OVRLayerEyeFov.VIEWPORT + index * OVRRecti.SIZEOF, OVRRecti.SIZEOF);
+	}
 	/** Unsafe version of {@link #Fov(OVRFovPort.Buffer) Fov}. */
 	public static void nFov(long struct, OVRFovPort.Buffer value) {
 		if ( CHECKS ) checkBufferGT(value, ovrEye_Count);
 		memCopy(value.address(), struct + OVRLayerEyeFov.FOV, value.remaining() * OVRFovPort.SIZEOF);
 	}
 	/** Unsafe version of {@link #Fov(int, OVRFovPort) Fov}. */
-	public static void nFov(long struct, int index, OVRFovPort value) { memCopy(value.address(), struct + OVRLayerEyeFov.FOV + index * OVRFovPort.SIZEOF, OVRFovPort.SIZEOF); }
+	public static void nFov(long struct, int index, OVRFovPort value) {
+		if ( CHECKS ) check(index, ovrEye_Count);
+		memCopy(value.address(), struct + OVRLayerEyeFov.FOV + index * OVRFovPort.SIZEOF, OVRFovPort.SIZEOF);
+	}
 	/** Unsafe version of {@link #RenderPose(OVRPosef.Buffer) RenderPose}. */
 	public static void nRenderPose(long struct, OVRPosef.Buffer value) {
 		if ( CHECKS ) checkBufferGT(value, ovrEye_Count);
 		memCopy(value.address(), struct + OVRLayerEyeFov.RENDERPOSE, value.remaining() * OVRPosef.SIZEOF);
 	}
 	/** Unsafe version of {@link #RenderPose(int, OVRPosef) RenderPose}. */
-	public static void nRenderPose(long struct, int index, OVRPosef value) { memCopy(value.address(), struct + OVRLayerEyeFov.RENDERPOSE + index * OVRPosef.SIZEOF, OVRPosef.SIZEOF); }
+	public static void nRenderPose(long struct, int index, OVRPosef value) {
+		if ( CHECKS ) check(index, ovrEye_Count);
+		memCopy(value.address(), struct + OVRLayerEyeFov.RENDERPOSE + index * OVRPosef.SIZEOF, OVRPosef.SIZEOF);
+	}
 	/** Unsafe version of {@link #SensorSampleTime(double) SensorSampleTime}. */
 	public static void nSensorSampleTime(long struct, double value) { memPutDouble(struct + OVRLayerEyeFov.SENSORSAMPLETIME, value); }
 

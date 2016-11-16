@@ -316,7 +316,10 @@ public class XXH64State extends Struct implements NativeResource {
 		return memLongBuffer(struct + XXH64State.MEM64, 4);
 	}
 	/** Unsafe version of {@link #mem64(int) mem64}. */
-	public static long nmem64(long struct, int index) { return memGetLong(struct + XXH64State.MEM64 + index * 8); }
+	public static long nmem64(long struct, int index) {
+		if ( CHECKS ) check(index, 4);
+		return memGetLong(struct + XXH64State.MEM64 + index * 8);
+	}
 	/** Unsafe version of {@link #memsize}. */
 	public static int nmemsize(long struct) { return memGetInt(struct + XXH64State.MEMSIZE); }
 	/** Unsafe version of {@link #reserved}. */
@@ -324,7 +327,10 @@ public class XXH64State extends Struct implements NativeResource {
 		return memIntBuffer(struct + XXH64State.RESERVED, 2);
 	}
 	/** Unsafe version of {@link #reserved(int) reserved}. */
-	public static int nreserved(long struct, int index) { return memGetInt(struct + XXH64State.RESERVED + index * 4); }
+	public static int nreserved(long struct, int index) {
+		if ( CHECKS ) check(index, 2);
+		return memGetInt(struct + XXH64State.RESERVED + index * 4);
+	}
 
 	/** Unsafe version of {@link #total_len(long) total_len}. */
 	public static void ntotal_len(long struct, long value) { memPutLong(struct + XXH64State.TOTAL_LEN, value); }
@@ -342,7 +348,10 @@ public class XXH64State extends Struct implements NativeResource {
 		memCopy(memAddress(value), struct + XXH64State.MEM64, value.remaining() * 8);
 	}
 	/** Unsafe version of {@link #mem64(int, long) mem64}. */
-	public static void nmem64(long struct, int index, long value) { memPutLong(struct + XXH64State.MEM64 + index * 8, value); }
+	public static void nmem64(long struct, int index, long value) {
+		if ( CHECKS ) check(index, 4);
+		memPutLong(struct + XXH64State.MEM64 + index * 8, value);
+	}
 	/** Unsafe version of {@link #memsize(int) memsize}. */
 	public static void nmemsize(long struct, int value) { memPutInt(struct + XXH64State.MEMSIZE, value); }
 	/** Unsafe version of {@link #reserved(IntBuffer) reserved}. */
@@ -351,7 +360,10 @@ public class XXH64State extends Struct implements NativeResource {
 		memCopy(memAddress(value), struct + XXH64State.RESERVED, value.remaining() * 4);
 	}
 	/** Unsafe version of {@link #reserved(int, int) reserved}. */
-	public static void nreserved(long struct, int index, int value) { memPutInt(struct + XXH64State.RESERVED + index * 4, value); }
+	public static void nreserved(long struct, int index, int value) {
+		if ( CHECKS ) check(index, 2);
+		memPutInt(struct + XXH64State.RESERVED + index * 4, value);
+	}
 
 	// -----------------------------------
 

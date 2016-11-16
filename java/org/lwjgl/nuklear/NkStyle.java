@@ -445,6 +445,7 @@ public class NkStyle extends Struct implements NativeResource {
 	}
 	/** Unsafe version of {@link #cursors(int) cursors}. */
 	public static NkCursor ncursors(long struct, int index) {
+		if ( CHECKS ) check(index, NK_CURSOR_COUNT);
 		return NkCursor.create(memGetAddress(struct + NkStyle.CURSORS + index * POINTER_SIZE));
 	}
 	/** Unsafe version of {@link #cursor_active}. */
@@ -496,7 +497,10 @@ public class NkStyle extends Struct implements NativeResource {
 		memCopy(memAddress(value), struct + NkStyle.CURSORS, value.remaining() * POINTER_SIZE);
 	}
 	/** Unsafe version of {@link #cursors(int, NkCursor) cursors}. */
-	public static void ncursors(long struct, int index, NkCursor value) { memPutAddress(struct + NkStyle.CURSORS + index * POINTER_SIZE, addressSafe(value)); }
+	public static void ncursors(long struct, int index, NkCursor value) {
+		if ( CHECKS ) check(index, NK_CURSOR_COUNT);
+		memPutAddress(struct + NkStyle.CURSORS + index * POINTER_SIZE, addressSafe(value));
+	}
 	/** Unsafe version of {@link #cursor_active(NkCursor) cursor_active}. */
 	public static void ncursor_active(long struct, NkCursor value) { memPutAddress(struct + NkStyle.CURSOR_ACTIVE, addressSafe(value)); }
 	/** Unsafe version of {@link #cursor_last(NkCursor) cursor_last}. */

@@ -10,6 +10,7 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -208,7 +209,10 @@ public class OVRGraphicsLuid extends Struct implements NativeResource {
 		return memByteBuffer(struct + OVRGraphicsLuid.RESERVED, 8);
 	}
 	/** Unsafe version of {@link #Reserved(int) Reserved}. */
-	public static byte nReserved(long struct, int index) { return memGetByte(struct + OVRGraphicsLuid.RESERVED + index * 1); }
+	public static byte nReserved(long struct, int index) {
+		if ( CHECKS ) check(index, 8);
+		return memGetByte(struct + OVRGraphicsLuid.RESERVED + index * 1);
+	}
 
 	// -----------------------------------
 

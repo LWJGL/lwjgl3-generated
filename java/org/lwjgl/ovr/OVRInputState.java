@@ -10,6 +10,7 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -297,19 +298,26 @@ public class OVRInputState extends Struct implements NativeResource {
 		return memFloatBuffer(struct + OVRInputState.INDEXTRIGGER, ovrHand_Count);
 	}
 	/** Unsafe version of {@link #IndexTrigger(int) IndexTrigger}. */
-	public static float nIndexTrigger(long struct, int index) { return memGetFloat(struct + OVRInputState.INDEXTRIGGER + index * 4); }
+	public static float nIndexTrigger(long struct, int index) {
+		if ( CHECKS ) check(index, ovrHand_Count);
+		return memGetFloat(struct + OVRInputState.INDEXTRIGGER + index * 4);
+	}
 	/** Unsafe version of {@link #HandTrigger}. */
 	public static FloatBuffer nHandTrigger(long struct) {
 		return memFloatBuffer(struct + OVRInputState.HANDTRIGGER, ovrHand_Count);
 	}
 	/** Unsafe version of {@link #HandTrigger(int) HandTrigger}. */
-	public static float nHandTrigger(long struct, int index) { return memGetFloat(struct + OVRInputState.HANDTRIGGER + index * 4); }
+	public static float nHandTrigger(long struct, int index) {
+		if ( CHECKS ) check(index, ovrHand_Count);
+		return memGetFloat(struct + OVRInputState.HANDTRIGGER + index * 4);
+	}
 	/** Unsafe version of {@link #Thumbstick}. */
 	public static OVRVector2f.Buffer nThumbstick(long struct) {
 		return OVRVector2f.create(struct + OVRInputState.THUMBSTICK, ovrHand_Count);
 	}
 	/** Unsafe version of {@link #Thumbstick(int) Thumbstick}. */
 	public static OVRVector2f nThumbstick(long struct, int index) {
+		if ( CHECKS ) check(index, ovrHand_Count);
 		return OVRVector2f.create(struct + OVRInputState.THUMBSTICK + index * OVRVector2f.SIZEOF);
 	}
 	/** Unsafe version of {@link #ControllerType}. */
@@ -319,19 +327,28 @@ public class OVRInputState extends Struct implements NativeResource {
 		return memFloatBuffer(struct + OVRInputState.INDEXTRIGGERNODEADZONE, ovrHand_Count);
 	}
 	/** Unsafe version of {@link #IndexTriggerNoDeadzone(int) IndexTriggerNoDeadzone}. */
-	public static float nIndexTriggerNoDeadzone(long struct, int index) { return memGetFloat(struct + OVRInputState.INDEXTRIGGERNODEADZONE + index * 4); }
+	public static float nIndexTriggerNoDeadzone(long struct, int index) {
+		if ( CHECKS ) check(index, ovrHand_Count);
+		return memGetFloat(struct + OVRInputState.INDEXTRIGGERNODEADZONE + index * 4);
+	}
 	/** Unsafe version of {@link #HandTriggerNoDeadzone}. */
 	public static FloatBuffer nHandTriggerNoDeadzone(long struct) {
 		return memFloatBuffer(struct + OVRInputState.HANDTRIGGERNODEADZONE, ovrHand_Count);
 	}
 	/** Unsafe version of {@link #HandTriggerNoDeadzone(int) HandTriggerNoDeadzone}. */
-	public static float nHandTriggerNoDeadzone(long struct, int index) { return memGetFloat(struct + OVRInputState.HANDTRIGGERNODEADZONE + index * 4); }
+	public static float nHandTriggerNoDeadzone(long struct, int index) {
+		if ( CHECKS ) check(index, ovrHand_Count);
+		return memGetFloat(struct + OVRInputState.HANDTRIGGERNODEADZONE + index * 4);
+	}
 	/** Unsafe version of {@link #ThumbstickNoDeadzone}. */
 	public static FloatBuffer nThumbstickNoDeadzone(long struct) {
 		return memFloatBuffer(struct + OVRInputState.THUMBSTICKNODEADZONE, ovrHand_Count);
 	}
 	/** Unsafe version of {@link #ThumbstickNoDeadzone(int) ThumbstickNoDeadzone}. */
-	public static float nThumbstickNoDeadzone(long struct, int index) { return memGetFloat(struct + OVRInputState.THUMBSTICKNODEADZONE + index * 4); }
+	public static float nThumbstickNoDeadzone(long struct, int index) {
+		if ( CHECKS ) check(index, ovrHand_Count);
+		return memGetFloat(struct + OVRInputState.THUMBSTICKNODEADZONE + index * 4);
+	}
 
 	// -----------------------------------
 
