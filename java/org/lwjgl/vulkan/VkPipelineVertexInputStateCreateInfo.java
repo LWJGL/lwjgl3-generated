@@ -348,9 +348,9 @@ public class VkPipelineVertexInputStateCreateInfo extends Struct implements Nati
 	 */
 	public static void validate(long struct) {
 		if ( nvertexBindingDescriptionCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkPipelineVertexInputStateCreateInfo.PVERTEXBINDINGDESCRIPTIONS));
+			check(memGetAddress(struct + VkPipelineVertexInputStateCreateInfo.PVERTEXBINDINGDESCRIPTIONS));
 		if ( nvertexAttributeDescriptionCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkPipelineVertexInputStateCreateInfo.PVERTEXATTRIBUTEDESCRIPTIONS));
+			check(memGetAddress(struct + VkPipelineVertexInputStateCreateInfo.PVERTEXATTRIBUTEDESCRIPTIONS));
 	}
 
 	/**

@@ -62,7 +62,7 @@ public class GLFWNativeX11 {
 	public static long glfwGetX11Adapter(long monitor) {
 		long __functionAddress = Functions.GetX11Adapter;
 		if ( CHECKS )
-			checkPointer(monitor);
+			check(monitor);
 		return invokePP(__functionAddress, monitor);
 	}
 
@@ -82,7 +82,7 @@ public class GLFWNativeX11 {
 	public static long glfwGetX11Monitor(long monitor) {
 		long __functionAddress = Functions.GetX11Monitor;
 		if ( CHECKS )
-			checkPointer(monitor);
+			check(monitor);
 		return invokePP(__functionAddress, monitor);
 	}
 
@@ -102,7 +102,7 @@ public class GLFWNativeX11 {
 	public static long glfwGetX11Window(long window) {
 		long __functionAddress = Functions.GetX11Window;
 		if ( CHECKS )
-			checkPointer(window);
+			check(window);
 		return invokePP(__functionAddress, window);
 	}
 

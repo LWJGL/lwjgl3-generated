@@ -123,7 +123,7 @@ public class KHRRobustness {
 	public static int glGetGraphicsResetStatus() {
 		long __functionAddress = GL.getCapabilities().glGetGraphicsResetStatus;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callI(__functionAddress);
 	}
 
@@ -137,7 +137,7 @@ public class KHRRobustness {
 	public static void nglReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
 		long __functionAddress = GL.getCapabilities().glReadnPixels;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, bufSize, pixels);
 	}
 
@@ -227,7 +227,7 @@ public class KHRRobustness {
 	public static void nglGetnUniformfv(int program, int location, int bufSize, long params) {
 		long __functionAddress = GL.getCapabilities().glGetnUniformfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
@@ -269,7 +269,7 @@ public class KHRRobustness {
 	public static void nglGetnUniformiv(int program, int location, int bufSize, long params) {
 		long __functionAddress = GL.getCapabilities().glGetnUniformiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
@@ -311,7 +311,7 @@ public class KHRRobustness {
 	public static void nglGetnUniformuiv(int program, int location, int bufSize, long params) {
 		long __functionAddress = GL.getCapabilities().glGetnUniformuiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
@@ -347,7 +347,7 @@ public class KHRRobustness {
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glReadnPixels;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 1, pixels);
 	}
 
@@ -355,7 +355,7 @@ public class KHRRobustness {
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glReadnPixels;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
 	}
 
@@ -363,7 +363,7 @@ public class KHRRobustness {
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glReadnPixels;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
 	}
 
@@ -371,7 +371,7 @@ public class KHRRobustness {
 	public static void glGetnUniformfv(int program, int location, float[] params) {
 		long __functionAddress = GL.getCapabilities().glGetnUniformfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);
 	}
 
@@ -379,7 +379,7 @@ public class KHRRobustness {
 	public static void glGetnUniformiv(int program, int location, float[] params) {
 		long __functionAddress = GL.getCapabilities().glGetnUniformiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);
 	}
 
@@ -387,7 +387,7 @@ public class KHRRobustness {
 	public static void glGetnUniformuiv(int program, int location, float[] params) {
 		long __functionAddress = GL.getCapabilities().glGetnUniformuiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);
 	}
 

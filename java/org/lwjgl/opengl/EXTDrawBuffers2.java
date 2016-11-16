@@ -43,7 +43,7 @@ public class EXTDrawBuffers2 {
 	public static void glColorMaskIndexedEXT(int index, boolean r, boolean g, boolean b, boolean a) {
 		long __functionAddress = GL.getCapabilities().glColorMaskIndexedEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, r, g, b, a);
 	}
 
@@ -52,13 +52,13 @@ public class EXTDrawBuffers2 {
 	public static void nglGetBooleanIndexedvEXT(int target, int index, long data) {
 		long __functionAddress = GL.getCapabilities().glGetBooleanIndexedvEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, index, data);
 	}
 
 	public static void glGetBooleanIndexedvEXT(int target, int index, ByteBuffer data) {
 		if ( CHECKS )
-			checkBuffer(data, 1);
+			check(data, 1);
 		nglGetBooleanIndexedvEXT(target, index, memAddress(data));
 	}
 
@@ -78,13 +78,13 @@ public class EXTDrawBuffers2 {
 	public static void nglGetIntegerIndexedvEXT(int target, int index, long data) {
 		long __functionAddress = GL.getCapabilities().glGetIntegerIndexedvEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, index, data);
 	}
 
 	public static void glGetIntegerIndexedvEXT(int target, int index, IntBuffer data) {
 		if ( CHECKS )
-			checkBuffer(data, 1);
+			check(data, 1);
 		nglGetIntegerIndexedvEXT(target, index, memAddress(data));
 	}
 
@@ -104,7 +104,7 @@ public class EXTDrawBuffers2 {
 	public static void glEnableIndexedEXT(int target, int index) {
 		long __functionAddress = GL.getCapabilities().glEnableIndexedEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, index);
 	}
 
@@ -113,7 +113,7 @@ public class EXTDrawBuffers2 {
 	public static void glDisableIndexedEXT(int target, int index) {
 		long __functionAddress = GL.getCapabilities().glDisableIndexedEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, index);
 	}
 
@@ -122,7 +122,7 @@ public class EXTDrawBuffers2 {
 	public static boolean glIsEnabledIndexedEXT(int target, int index) {
 		long __functionAddress = GL.getCapabilities().glIsEnabledIndexedEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callZ(__functionAddress, target, index);
 	}
 
@@ -130,8 +130,8 @@ public class EXTDrawBuffers2 {
 	public static void glGetIntegerIndexedvEXT(int target, int index, int[] data) {
 		long __functionAddress = GL.getCapabilities().glGetIntegerIndexedvEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, 1);
+			check(__functionAddress);
+			check(data, 1);
 		}
 		callPV(__functionAddress, target, index, data);
 	}

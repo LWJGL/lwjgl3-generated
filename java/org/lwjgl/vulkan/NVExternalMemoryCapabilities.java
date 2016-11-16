@@ -85,7 +85,7 @@ public class NVExternalMemoryCapabilities {
 	public static int nvkGetPhysicalDeviceExternalImageFormatPropertiesNV(VkPhysicalDevice physicalDevice, int format, int type, int tiling, int usage, int flags, int externalHandleType, long pExternalImageFormatProperties) {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceExternalImageFormatPropertiesNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPPI(__functionAddress, physicalDevice.address(), format, type, tiling, usage, flags, externalHandleType, pExternalImageFormatProperties);
 	}
 

@@ -266,7 +266,7 @@ public class BGFXUniformInfo extends Struct implements NativeResource {
 	public static void nname(long struct, ByteBuffer value) {
 		if ( CHECKS ) {
 			checkNT1(value);
-			checkBufferGT(value, 256);
+			checkGT(value, 256);
 		}
 		memCopy(memAddress(value), struct + BGFXUniformInfo.NAME, value.remaining());
 	}

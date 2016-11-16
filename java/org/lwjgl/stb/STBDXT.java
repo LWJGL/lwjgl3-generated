@@ -48,7 +48,7 @@ public class STBDXT {
 	 */
 	public static void stb_compress_dxt_block(ByteBuffer dest, ByteBuffer src, boolean alpha, int mode) {
 		if ( CHECKS )
-			checkBuffer(src, 64);
+			check(src, 64);
 		nstb_compress_dxt_block(memAddress(dest), memAddress(src), alpha ? 1 : 0, mode);
 	}
 

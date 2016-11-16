@@ -64,8 +64,8 @@ public class QCOMEXTHostPtr {
 	public static int nclGetDeviceImageInfoQCOM(long device, long image_width, long image_height, long image_format, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetDeviceImageInfoQCOM;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
+			check(__functionAddress);
+			check(device);
 		}
 		return callPPPPPPPI(__functionAddress, device, image_width, image_height, image_format, param_name, param_value_size, param_value, param_value_size_ret);
 	}
@@ -84,7 +84,7 @@ public class QCOMEXTHostPtr {
 	 */
 	public static int clGetDeviceImageInfoQCOM(long device, long image_width, long image_height, CLImageFormat image_format, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetDeviceImageInfoQCOM(device, image_width, image_height, image_format.address(), param_name, remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -102,7 +102,7 @@ public class QCOMEXTHostPtr {
 	 */
 	public static int clGetDeviceImageInfoQCOM(long device, long image_width, long image_height, CLImageFormat image_format, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetDeviceImageInfoQCOM(device, image_width, image_height, image_format.address(), param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -110,9 +110,9 @@ public class QCOMEXTHostPtr {
 	public static int clGetDeviceImageInfoQCOM(long device, long image_width, long image_height, CLImageFormat image_format, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetDeviceImageInfoQCOM;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
-			checkBufferSafe(param_value_size_ret, 1);
+			check(__functionAddress);
+			check(device);
+			checkSafe(param_value_size_ret, 1);
 		}
 		return callPPPPPPPI(__functionAddress, device, image_width, image_height, image_format.address(), param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}

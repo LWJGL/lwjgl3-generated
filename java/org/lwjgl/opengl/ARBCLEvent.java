@@ -58,9 +58,9 @@ public class ARBCLEvent {
 	public static long glCreateSyncFromCLeventARB(long context, long event, int flags) {
 		long __functionAddress = GL.getCapabilities().glCreateSyncFromCLeventARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
-			checkPointer(event);
+			check(__functionAddress);
+			check(context);
+			check(event);
 		}
 		return callPPP(__functionAddress, context, event, flags);
 	}

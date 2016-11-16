@@ -295,7 +295,7 @@ public class EGLClientPixmapHI extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + EGLClientPixmapHI.PDATA));
+		check(memGetAddress(struct + EGLClientPixmapHI.PDATA));
 	}
 
 	/**

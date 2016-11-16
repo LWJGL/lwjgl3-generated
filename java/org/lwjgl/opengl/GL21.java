@@ -84,7 +84,7 @@ public class GL21 {
 	public static void nglUniformMatrix2x3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix2x3fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -111,7 +111,7 @@ public class GL21 {
 	public static void nglUniformMatrix3x2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix3x2fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -138,7 +138,7 @@ public class GL21 {
 	public static void nglUniformMatrix2x4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix2x4fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -165,7 +165,7 @@ public class GL21 {
 	public static void nglUniformMatrix4x2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix4x2fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -192,7 +192,7 @@ public class GL21 {
 	public static void nglUniformMatrix3x4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix3x4fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -219,7 +219,7 @@ public class GL21 {
 	public static void nglUniformMatrix4x3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix4x3fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -244,7 +244,7 @@ public class GL21 {
 	public static void glUniformMatrix2x3fv(int location, boolean transpose, float[] value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix2x3fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 6, transpose, value);
 	}
 
@@ -256,7 +256,7 @@ public class GL21 {
 	public static void glUniformMatrix3x2fv(int location, boolean transpose, float[] value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix3x2fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 6, transpose, value);
 	}
 
@@ -268,7 +268,7 @@ public class GL21 {
 	public static void glUniformMatrix2x4fv(int location, boolean transpose, float[] value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix2x4fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 3, transpose, value);
 	}
 
@@ -280,7 +280,7 @@ public class GL21 {
 	public static void glUniformMatrix4x2fv(int location, boolean transpose, float[] value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix4x2fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 3, transpose, value);
 	}
 
@@ -292,7 +292,7 @@ public class GL21 {
 	public static void glUniformMatrix3x4fv(int location, boolean transpose, float[] value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix3x4fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 12, transpose, value);
 	}
 
@@ -304,7 +304,7 @@ public class GL21 {
 	public static void glUniformMatrix4x3fv(int location, boolean transpose, float[] value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix4x3fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 12, transpose, value);
 	}
 

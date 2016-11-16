@@ -134,7 +134,7 @@ public class ARBSparseTexture {
 	public static void glTexPageCommitmentARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit) {
 		long __functionAddress = GL.getCapabilities().glTexPageCommitmentARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, commit);
 	}
 
@@ -156,7 +156,7 @@ public class ARBSparseTexture {
 	public static void glTexturePageCommitmentEXT(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, boolean commit) {
 		long __functionAddress = GL.getCapabilities().glTexturePageCommitmentEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, commit);
 	}
 

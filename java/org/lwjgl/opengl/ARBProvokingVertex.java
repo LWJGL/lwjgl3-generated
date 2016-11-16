@@ -61,7 +61,7 @@ public class ARBProvokingVertex {
 	public static void glProvokingVertex(int mode) {
 		long __functionAddress = GL.getCapabilities().glProvokingVertex;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, mode);
 	}
 

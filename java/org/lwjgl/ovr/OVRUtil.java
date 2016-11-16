@@ -143,8 +143,8 @@ public class OVRUtil {
 	 */
 	public static void ovr_CalcEyePoses(OVRPosef headPose, OVRVector3f.Buffer HmdToEyeOffset, OVRPosef.Buffer outEyePoses) {
 		if ( CHECKS ) {
-			checkBuffer(HmdToEyeOffset, 2);
-			checkBuffer(outEyePoses, 2);
+			check(HmdToEyeOffset, 2);
+			check(outEyePoses, 2);
 		}
 		novr_CalcEyePoses(headPose.address(), HmdToEyeOffset.address(), outEyePoses.address());
 	}
@@ -172,9 +172,9 @@ public class OVRUtil {
 	 */
 	public static void ovr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, OVRVector3f.Buffer hmdToEyeOffset, OVRPosef.Buffer outEyePoses, DoubleBuffer outSensorSampleTime) {
 		if ( CHECKS ) {
-			checkPointer(session);
-			checkBuffer(hmdToEyeOffset, 2);
-			checkBuffer(outEyePoses, 2);
+			check(session);
+			check(hmdToEyeOffset, 2);
+			check(outEyePoses, 2);
 		}
 		novr_GetEyePoses(session, frameIndex, latencyMarker, hmdToEyeOffset.address(), outEyePoses.address(), memAddressSafe(outSensorSampleTime));
 	}
@@ -204,9 +204,9 @@ public class OVRUtil {
 	/** Array version of: {@link #ovr_GetEyePoses _GetEyePoses} */
 	public static void ovr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, OVRVector3f.Buffer hmdToEyeOffset, OVRPosef.Buffer outEyePoses, double[] outSensorSampleTime) {
 		if ( CHECKS ) {
-			checkPointer(session);
-			checkBuffer(hmdToEyeOffset, 2);
-			checkBuffer(outEyePoses, 2);
+			check(session);
+			check(hmdToEyeOffset, 2);
+			check(outEyePoses, 2);
 		}
 		novr_GetEyePoses(session, frameIndex, latencyMarker, hmdToEyeOffset.address(), outEyePoses.address(), outSensorSampleTime);
 	}

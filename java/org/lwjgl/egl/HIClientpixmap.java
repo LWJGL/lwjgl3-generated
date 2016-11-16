@@ -33,9 +33,9 @@ public class HIClientpixmap {
 	public static long neglCreatePixmapSurfaceHI(long dpy, long config, long pixmap) {
 		long __functionAddress = EGL.getCapabilities().eglCreatePixmapSurfaceHI;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(config);
+			check(__functionAddress);
+			check(dpy);
+			check(config);
 			EGLClientPixmapHI.validate(pixmap);
 		}
 		return callPPPP(__functionAddress, dpy, config, pixmap);

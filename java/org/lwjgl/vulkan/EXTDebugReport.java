@@ -187,7 +187,7 @@ public class EXTDebugReport {
 	public static int nvkCreateDebugReportCallbackEXT(VkInstance instance, long pCreateInfo, long pAllocator, long pCallback) {
 		long __functionAddress = instance.getCapabilities().vkCreateDebugReportCallbackEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 			VkDebugReportCallbackCreateInfoEXT.validate(pCreateInfo);
 			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
 		}
@@ -242,7 +242,7 @@ public class EXTDebugReport {
 	 */
 	public static int vkCreateDebugReportCallbackEXT(VkInstance instance, VkDebugReportCallbackCreateInfoEXT pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pCallback) {
 		if ( CHECKS )
-			checkBuffer(pCallback, 1);
+			check(pCallback, 1);
 		return nvkCreateDebugReportCallbackEXT(instance, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pCallback));
 	}
 
@@ -252,7 +252,7 @@ public class EXTDebugReport {
 	public static void nvkDestroyDebugReportCallbackEXT(VkInstance instance, long callback, long pAllocator) {
 		long __functionAddress = instance.getCapabilities().vkDestroyDebugReportCallbackEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
 		}
 		callPJPV(__functionAddress, instance.address(), callback, pAllocator);
@@ -310,7 +310,7 @@ public class EXTDebugReport {
 	public static void nvkDebugReportMessageEXT(VkInstance instance, int flags, int objectType, long object, long location, int messageCode, long pLayerPrefix, long pMessage) {
 		long __functionAddress = instance.getCapabilities().vkDebugReportMessageEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPJPPPV(__functionAddress, instance.address(), flags, objectType, object, location, messageCode, pLayerPrefix, pMessage);
 	}
 
@@ -435,8 +435,8 @@ public class EXTDebugReport {
 	public static int vkCreateDebugReportCallbackEXT(VkInstance instance, VkDebugReportCallbackCreateInfoEXT pCreateInfo, VkAllocationCallbacks pAllocator, long[] pCallback) {
 		long __functionAddress = instance.getCapabilities().vkCreateDebugReportCallbackEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(pCallback, 1);
+			check(__functionAddress);
+			check(pCallback, 1);
 			VkDebugReportCallbackCreateInfoEXT.validate(pCreateInfo.address());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}

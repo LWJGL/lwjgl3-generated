@@ -267,7 +267,7 @@ public class SECURITY_ATTRIBUTES extends Struct implements NativeResource {
 	/** Unsafe version of {@link #nLength(int) nLength}. */
 	public static void nnLength(long struct, int value) { memPutInt(struct + SECURITY_ATTRIBUTES.NLENGTH, value); }
 	/** Unsafe version of {@link #lpSecurityDescriptor(long) lpSecurityDescriptor}. */
-	public static void nlpSecurityDescriptor(long struct, long value) { memPutAddress(struct + SECURITY_ATTRIBUTES.LPSECURITYDESCRIPTOR, checkPointer(value)); }
+	public static void nlpSecurityDescriptor(long struct, long value) { memPutAddress(struct + SECURITY_ATTRIBUTES.LPSECURITYDESCRIPTOR, check(value)); }
 	/** Unsafe version of {@link #bInheritHandle(boolean) bInheritHandle}. */
 	public static void nbInheritHandle(long struct, int value) { memPutInt(struct + SECURITY_ATTRIBUTES.BINHERITHANDLE, value); }
 
@@ -277,7 +277,7 @@ public class SECURITY_ATTRIBUTES extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + SECURITY_ATTRIBUTES.LPSECURITYDESCRIPTOR));
+		check(memGetAddress(struct + SECURITY_ATTRIBUTES.LPSECURITYDESCRIPTOR));
 	}
 
 	/**

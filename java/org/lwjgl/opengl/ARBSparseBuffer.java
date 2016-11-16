@@ -50,7 +50,7 @@ public class ARBSparseBuffer {
 	public static void glBufferPageCommitmentARB(int target, long offset, long size, boolean commit) {
 		long __functionAddress = GL.getCapabilities().glBufferPageCommitmentARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, target, offset, size, commit);
 	}
 
@@ -67,7 +67,7 @@ public class ARBSparseBuffer {
 	public static void glNamedBufferPageCommitmentEXT(int buffer, long offset, long size, boolean commit) {
 		long __functionAddress = GL.getCapabilities().glNamedBufferPageCommitmentEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, buffer, offset, size, commit);
 	}
 
@@ -84,7 +84,7 @@ public class ARBSparseBuffer {
 	public static void glNamedBufferPageCommitmentARB(int buffer, long offset, long size, boolean commit) {
 		long __functionAddress = GL.getCapabilities().glNamedBufferPageCommitmentARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, buffer, offset, size, commit);
 	}
 

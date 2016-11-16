@@ -50,7 +50,7 @@ public class NVExternalMemoryWin32 {
 	public static int nvkGetMemoryWin32HandleNV(VkDevice device, long memory, int handleType, long pHandle) {
 		long __functionAddress = device.getCapabilities().vkGetMemoryWin32HandleNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPJPI(__functionAddress, device.address(), memory, handleType, pHandle);
 	}
 

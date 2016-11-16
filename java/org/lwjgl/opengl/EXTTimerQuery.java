@@ -51,13 +51,13 @@ public class EXTTimerQuery {
 	public static void nglGetQueryObjecti64vEXT(int id, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjecti64vEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, id, pname, params);
 	}
 
 	public static void glGetQueryObjecti64vEXT(int id, int pname, LongBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetQueryObjecti64vEXT(id, pname, memAddress(params));
 	}
 
@@ -77,13 +77,13 @@ public class EXTTimerQuery {
 	public static void nglGetQueryObjectui64vEXT(int id, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjectui64vEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, id, pname, params);
 	}
 
 	public static void glGetQueryObjectui64vEXT(int id, int pname, LongBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetQueryObjectui64vEXT(id, pname, memAddress(params));
 	}
 
@@ -102,8 +102,8 @@ public class EXTTimerQuery {
 	public static void glGetQueryObjecti64vEXT(int id, int pname, long[] params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjecti64vEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, id, pname, params);
 	}
@@ -112,8 +112,8 @@ public class EXTTimerQuery {
 	public static void glGetQueryObjectui64vEXT(int id, int pname, long[] params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjectui64vEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, id, pname, params);
 	}

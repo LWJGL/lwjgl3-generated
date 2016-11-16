@@ -70,7 +70,7 @@ class MemoryAccessJNI {
 	 */
 	static byte getByte(long ptr) {
 		if ( CHECKS )
-			checkPointer(ptr);
+			check(ptr);
 		return ngetByte(ptr);
 	}
 
@@ -86,7 +86,7 @@ class MemoryAccessJNI {
 	 */
 	static short getShort(long ptr) {
 		if ( CHECKS )
-			checkPointer(ptr);
+			check(ptr);
 		return ngetShort(ptr);
 	}
 
@@ -102,7 +102,7 @@ class MemoryAccessJNI {
 	 */
 	static int getInt(long ptr) {
 		if ( CHECKS )
-			checkPointer(ptr);
+			check(ptr);
 		return ngetInt(ptr);
 	}
 
@@ -118,7 +118,7 @@ class MemoryAccessJNI {
 	 */
 	static long getLong(long ptr) {
 		if ( CHECKS )
-			checkPointer(ptr);
+			check(ptr);
 		return ngetLong(ptr);
 	}
 
@@ -134,7 +134,7 @@ class MemoryAccessJNI {
 	 */
 	static float getFloat(long ptr) {
 		if ( CHECKS )
-			checkPointer(ptr);
+			check(ptr);
 		return ngetFloat(ptr);
 	}
 
@@ -150,7 +150,7 @@ class MemoryAccessJNI {
 	 */
 	static double getDouble(long ptr) {
 		if ( CHECKS )
-			checkPointer(ptr);
+			check(ptr);
 		return ngetDouble(ptr);
 	}
 
@@ -166,7 +166,7 @@ class MemoryAccessJNI {
 	 */
 	static long getAddress(long ptr) {
 		if ( CHECKS )
-			checkPointer(ptr);
+			check(ptr);
 		return ngetAddress(ptr);
 	}
 
@@ -183,7 +183,7 @@ class MemoryAccessJNI {
 	 */
 	static void putByte(long ptr, byte value) {
 		if ( CHECKS )
-			checkPointer(ptr);
+			check(ptr);
 		nputByte(ptr, value);
 	}
 
@@ -200,7 +200,7 @@ class MemoryAccessJNI {
 	 */
 	static void putShort(long ptr, short value) {
 		if ( CHECKS )
-			checkPointer(ptr);
+			check(ptr);
 		nputShort(ptr, value);
 	}
 
@@ -217,7 +217,7 @@ class MemoryAccessJNI {
 	 */
 	static void putInt(long ptr, int value) {
 		if ( CHECKS )
-			checkPointer(ptr);
+			check(ptr);
 		nputInt(ptr, value);
 	}
 
@@ -234,7 +234,7 @@ class MemoryAccessJNI {
 	 */
 	static void putLong(long ptr, long value) {
 		if ( CHECKS )
-			checkPointer(ptr);
+			check(ptr);
 		nputLong(ptr, value);
 	}
 
@@ -251,7 +251,7 @@ class MemoryAccessJNI {
 	 */
 	static void putFloat(long ptr, float value) {
 		if ( CHECKS )
-			checkPointer(ptr);
+			check(ptr);
 		nputFloat(ptr, value);
 	}
 
@@ -268,7 +268,7 @@ class MemoryAccessJNI {
 	 */
 	static void putDouble(long ptr, double value) {
 		if ( CHECKS )
-			checkPointer(ptr);
+			check(ptr);
 		nputDouble(ptr, value);
 	}
 
@@ -285,7 +285,7 @@ class MemoryAccessJNI {
 	 */
 	static void putAddress(long ptr, long value) {
 		if ( CHECKS )
-			checkPointer(ptr);
+			check(ptr);
 		nputAddress(ptr, value);
 	}
 

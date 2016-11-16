@@ -801,7 +801,7 @@ public class GL11 {
 	public static void glAccum(int op, float value) {
 		long __functionAddress = GL.getCapabilities().glAccum;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, op, value);
 	}
 
@@ -820,7 +820,7 @@ public class GL11 {
 	public static void glAlphaFunc(int func, float ref) {
 		long __functionAddress = GL.getCapabilities().glAlphaFunc;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, func, ref);
 	}
 
@@ -834,7 +834,7 @@ public class GL11 {
 	public static boolean nglAreTexturesResident(int n, long textures, long residences) {
 		long __functionAddress = GL.getCapabilities().glAreTexturesResident;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPPZ(__functionAddress, n, textures, residences);
 	}
 
@@ -850,7 +850,7 @@ public class GL11 {
 	 */
 	public static boolean glAreTexturesResident(IntBuffer textures, ByteBuffer residences) {
 		if ( CHECKS )
-			checkBuffer(residences, textures.remaining());
+			check(residences, textures.remaining());
 		return nglAreTexturesResident(textures.remaining(), memAddress(textures), memAddress(residences));
 	}
 
@@ -865,7 +865,7 @@ public class GL11 {
 	 */
 	public static boolean glAreTexturesResident(int texture, ByteBuffer residences) {
 		if ( CHECKS )
-			checkBuffer(residences, 1);
+			check(residences, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			IntBuffer textures = stack.ints(texture);
@@ -901,7 +901,7 @@ public class GL11 {
 	public static void glBegin(int mode) {
 		long __functionAddress = GL.getCapabilities().glBegin;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, mode);
 	}
 
@@ -930,7 +930,7 @@ public class GL11 {
 	public static void nglBitmap(int w, int h, float xOrig, float yOrig, float xInc, float yInc, long data) {
 		long __functionAddress = GL.getCapabilities().glBitmap;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, w, h, xOrig, yOrig, xInc, yInc, data);
 	}
 
@@ -997,7 +997,7 @@ public class GL11 {
 	public static void glCallList(int list) {
 		long __functionAddress = GL.getCapabilities().glCallList;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, list);
 	}
 
@@ -1012,7 +1012,7 @@ public class GL11 {
 	public static void nglCallLists(int n, int type, long lists) {
 		long __functionAddress = GL.getCapabilities().glCallLists;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, type, lists);
 	}
 
@@ -1091,7 +1091,7 @@ public class GL11 {
 	public static void glClearAccum(float red, float green, float blue, float alpha) {
 		long __functionAddress = GL.getCapabilities().glClearAccum;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue, alpha);
 	}
 
@@ -1141,7 +1141,7 @@ public class GL11 {
 	public static void glClearIndex(float index) {
 		long __functionAddress = GL.getCapabilities().glClearIndex;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index);
 	}
 
@@ -1197,7 +1197,7 @@ public class GL11 {
 	public static void glColor3b(byte red, byte green, byte blue) {
 		long __functionAddress = GL.getCapabilities().glColor3b;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue);
 	}
 
@@ -1215,7 +1215,7 @@ public class GL11 {
 	public static void glColor3s(short red, short green, short blue) {
 		long __functionAddress = GL.getCapabilities().glColor3s;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue);
 	}
 
@@ -1233,7 +1233,7 @@ public class GL11 {
 	public static void glColor3i(int red, int green, int blue) {
 		long __functionAddress = GL.getCapabilities().glColor3i;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue);
 	}
 
@@ -1251,7 +1251,7 @@ public class GL11 {
 	public static void glColor3f(float red, float green, float blue) {
 		long __functionAddress = GL.getCapabilities().glColor3f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue);
 	}
 
@@ -1269,7 +1269,7 @@ public class GL11 {
 	public static void glColor3d(double red, double green, double blue) {
 		long __functionAddress = GL.getCapabilities().glColor3d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue);
 	}
 
@@ -1287,7 +1287,7 @@ public class GL11 {
 	public static void glColor3ub(byte red, byte green, byte blue) {
 		long __functionAddress = GL.getCapabilities().glColor3ub;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue);
 	}
 
@@ -1305,7 +1305,7 @@ public class GL11 {
 	public static void glColor3us(short red, short green, short blue) {
 		long __functionAddress = GL.getCapabilities().glColor3us;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue);
 	}
 
@@ -1323,7 +1323,7 @@ public class GL11 {
 	public static void glColor3ui(int red, int green, int blue) {
 		long __functionAddress = GL.getCapabilities().glColor3ui;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue);
 	}
 
@@ -1333,7 +1333,7 @@ public class GL11 {
 	public static void nglColor3bv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor3bv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -1346,7 +1346,7 @@ public class GL11 {
 	 */
 	public static void glColor3bv(ByteBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglColor3bv(memAddress(v));
 	}
 
@@ -1356,7 +1356,7 @@ public class GL11 {
 	public static void nglColor3sv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor3sv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -1369,7 +1369,7 @@ public class GL11 {
 	 */
 	public static void glColor3sv(ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglColor3sv(memAddress(v));
 	}
 
@@ -1379,7 +1379,7 @@ public class GL11 {
 	public static void nglColor3iv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor3iv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -1392,7 +1392,7 @@ public class GL11 {
 	 */
 	public static void glColor3iv(IntBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglColor3iv(memAddress(v));
 	}
 
@@ -1402,7 +1402,7 @@ public class GL11 {
 	public static void nglColor3fv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor3fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -1415,7 +1415,7 @@ public class GL11 {
 	 */
 	public static void glColor3fv(FloatBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglColor3fv(memAddress(v));
 	}
 
@@ -1425,7 +1425,7 @@ public class GL11 {
 	public static void nglColor3dv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor3dv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -1438,7 +1438,7 @@ public class GL11 {
 	 */
 	public static void glColor3dv(DoubleBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglColor3dv(memAddress(v));
 	}
 
@@ -1448,7 +1448,7 @@ public class GL11 {
 	public static void nglColor3ubv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor3ubv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -1461,7 +1461,7 @@ public class GL11 {
 	 */
 	public static void glColor3ubv(ByteBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglColor3ubv(memAddress(v));
 	}
 
@@ -1471,7 +1471,7 @@ public class GL11 {
 	public static void nglColor3usv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor3usv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -1484,7 +1484,7 @@ public class GL11 {
 	 */
 	public static void glColor3usv(ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglColor3usv(memAddress(v));
 	}
 
@@ -1494,7 +1494,7 @@ public class GL11 {
 	public static void nglColor3uiv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor3uiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -1507,7 +1507,7 @@ public class GL11 {
 	 */
 	public static void glColor3uiv(IntBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglColor3uiv(memAddress(v));
 	}
 
@@ -1526,7 +1526,7 @@ public class GL11 {
 	public static void glColor4b(byte red, byte green, byte blue, byte alpha) {
 		long __functionAddress = GL.getCapabilities().glColor4b;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue, alpha);
 	}
 
@@ -1545,7 +1545,7 @@ public class GL11 {
 	public static void glColor4s(short red, short green, short blue, short alpha) {
 		long __functionAddress = GL.getCapabilities().glColor4s;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue, alpha);
 	}
 
@@ -1564,7 +1564,7 @@ public class GL11 {
 	public static void glColor4i(int red, int green, int blue, int alpha) {
 		long __functionAddress = GL.getCapabilities().glColor4i;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue, alpha);
 	}
 
@@ -1583,7 +1583,7 @@ public class GL11 {
 	public static void glColor4f(float red, float green, float blue, float alpha) {
 		long __functionAddress = GL.getCapabilities().glColor4f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue, alpha);
 	}
 
@@ -1602,7 +1602,7 @@ public class GL11 {
 	public static void glColor4d(double red, double green, double blue, double alpha) {
 		long __functionAddress = GL.getCapabilities().glColor4d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue, alpha);
 	}
 
@@ -1621,7 +1621,7 @@ public class GL11 {
 	public static void glColor4ub(byte red, byte green, byte blue, byte alpha) {
 		long __functionAddress = GL.getCapabilities().glColor4ub;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue, alpha);
 	}
 
@@ -1640,7 +1640,7 @@ public class GL11 {
 	public static void glColor4us(short red, short green, short blue, short alpha) {
 		long __functionAddress = GL.getCapabilities().glColor4us;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue, alpha);
 	}
 
@@ -1659,7 +1659,7 @@ public class GL11 {
 	public static void glColor4ui(int red, int green, int blue, int alpha) {
 		long __functionAddress = GL.getCapabilities().glColor4ui;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue, alpha);
 	}
 
@@ -1669,7 +1669,7 @@ public class GL11 {
 	public static void nglColor4bv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor4bv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -1682,7 +1682,7 @@ public class GL11 {
 	 */
 	public static void glColor4bv(ByteBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglColor4bv(memAddress(v));
 	}
 
@@ -1692,7 +1692,7 @@ public class GL11 {
 	public static void nglColor4sv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor4sv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -1705,7 +1705,7 @@ public class GL11 {
 	 */
 	public static void glColor4sv(ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglColor4sv(memAddress(v));
 	}
 
@@ -1715,7 +1715,7 @@ public class GL11 {
 	public static void nglColor4iv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor4iv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -1728,7 +1728,7 @@ public class GL11 {
 	 */
 	public static void glColor4iv(IntBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglColor4iv(memAddress(v));
 	}
 
@@ -1738,7 +1738,7 @@ public class GL11 {
 	public static void nglColor4fv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor4fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -1751,7 +1751,7 @@ public class GL11 {
 	 */
 	public static void glColor4fv(FloatBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglColor4fv(memAddress(v));
 	}
 
@@ -1761,7 +1761,7 @@ public class GL11 {
 	public static void nglColor4dv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor4dv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -1774,7 +1774,7 @@ public class GL11 {
 	 */
 	public static void glColor4dv(DoubleBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglColor4dv(memAddress(v));
 	}
 
@@ -1784,7 +1784,7 @@ public class GL11 {
 	public static void nglColor4ubv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor4ubv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -1797,7 +1797,7 @@ public class GL11 {
 	 */
 	public static void glColor4ubv(ByteBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglColor4ubv(memAddress(v));
 	}
 
@@ -1807,7 +1807,7 @@ public class GL11 {
 	public static void nglColor4usv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor4usv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -1820,7 +1820,7 @@ public class GL11 {
 	 */
 	public static void glColor4usv(ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglColor4usv(memAddress(v));
 	}
 
@@ -1830,7 +1830,7 @@ public class GL11 {
 	public static void nglColor4uiv(long v) {
 		long __functionAddress = GL.getCapabilities().glColor4uiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -1843,7 +1843,7 @@ public class GL11 {
 	 */
 	public static void glColor4uiv(IntBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglColor4uiv(memAddress(v));
 	}
 
@@ -1879,7 +1879,7 @@ public class GL11 {
 	public static void glColorMaterial(int face, int mode) {
 		long __functionAddress = GL.getCapabilities().glColorMaterial;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, face, mode);
 	}
 
@@ -1889,7 +1889,7 @@ public class GL11 {
 	public static void nglColorPointer(int size, int type, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glColorPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -2011,7 +2011,7 @@ public class GL11 {
 	public static void glDeleteLists(int list, int range) {
 		long __functionAddress = GL.getCapabilities().glDeleteLists;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, list, range);
 	}
 
@@ -2070,7 +2070,7 @@ public class GL11 {
 	public static void glDisableClientState(int array) {
 		long __functionAddress = GL.getCapabilities().glDisableClientState;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, array);
 	}
 
@@ -2203,7 +2203,7 @@ public class GL11 {
 	public static void nglDrawPixels(int width, int height, int format, int type, long pixels) {
 		long __functionAddress = GL.getCapabilities().glDrawPixels;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, width, height, format, type, pixels);
 	}
 
@@ -2300,7 +2300,7 @@ public class GL11 {
 	public static void glEdgeFlag(boolean flag) {
 		long __functionAddress = GL.getCapabilities().glEdgeFlag;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, flag);
 	}
 
@@ -2310,7 +2310,7 @@ public class GL11 {
 	public static void nglEdgeFlagv(long flag) {
 		long __functionAddress = GL.getCapabilities().glEdgeFlagv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, flag);
 	}
 
@@ -2323,7 +2323,7 @@ public class GL11 {
 	 */
 	public static void glEdgeFlagv(ByteBuffer flag) {
 		if ( CHECKS )
-			checkBuffer(flag, 1);
+			check(flag, 1);
 		nglEdgeFlagv(memAddress(flag));
 	}
 
@@ -2333,7 +2333,7 @@ public class GL11 {
 	public static void nglEdgeFlagPointer(int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glEdgeFlagPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, stride, pointer);
 	}
 
@@ -2373,7 +2373,7 @@ public class GL11 {
 	public static void glEnableClientState(int array) {
 		long __functionAddress = GL.getCapabilities().glEnableClientState;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, array);
 	}
 
@@ -2387,7 +2387,7 @@ public class GL11 {
 	public static void glEnd() {
 		long __functionAddress = GL.getCapabilities().glEnd;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -2403,7 +2403,7 @@ public class GL11 {
 	public static void glEvalCoord1f(float u) {
 		long __functionAddress = GL.getCapabilities().glEvalCoord1f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, u);
 	}
 
@@ -2413,7 +2413,7 @@ public class GL11 {
 	public static void nglEvalCoord1fv(long u) {
 		long __functionAddress = GL.getCapabilities().glEvalCoord1fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, u);
 	}
 
@@ -2440,7 +2440,7 @@ public class GL11 {
 	public static void glEvalCoord1d(double u) {
 		long __functionAddress = GL.getCapabilities().glEvalCoord1d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, u);
 	}
 
@@ -2450,7 +2450,7 @@ public class GL11 {
 	public static void nglEvalCoord1dv(long u) {
 		long __functionAddress = GL.getCapabilities().glEvalCoord1dv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, u);
 	}
 
@@ -2478,7 +2478,7 @@ public class GL11 {
 	public static void glEvalCoord2f(float u, float v) {
 		long __functionAddress = GL.getCapabilities().glEvalCoord2f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, u, v);
 	}
 
@@ -2488,7 +2488,7 @@ public class GL11 {
 	public static void nglEvalCoord2fv(long u) {
 		long __functionAddress = GL.getCapabilities().glEvalCoord2fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, u);
 	}
 
@@ -2516,7 +2516,7 @@ public class GL11 {
 	public static void glEvalCoord2d(double u, double v) {
 		long __functionAddress = GL.getCapabilities().glEvalCoord2d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, u, v);
 	}
 
@@ -2526,7 +2526,7 @@ public class GL11 {
 	public static void nglEvalCoord2dv(long u) {
 		long __functionAddress = GL.getCapabilities().glEvalCoord2dv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, u);
 	}
 
@@ -2555,7 +2555,7 @@ public class GL11 {
 	public static void glEvalMesh1(int mode, int i1, int i2) {
 		long __functionAddress = GL.getCapabilities().glEvalMesh1;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, mode, i1, i2);
 	}
 
@@ -2575,7 +2575,7 @@ public class GL11 {
 	public static void glEvalMesh2(int mode, int i1, int i2, int j1, int j2) {
 		long __functionAddress = GL.getCapabilities().glEvalMesh2;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, mode, i1, i2, j1, j2);
 	}
 
@@ -2591,7 +2591,7 @@ public class GL11 {
 	public static void glEvalPoint1(int i) {
 		long __functionAddress = GL.getCapabilities().glEvalPoint1;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, i);
 	}
 
@@ -2608,7 +2608,7 @@ public class GL11 {
 	public static void glEvalPoint2(int i, int j) {
 		long __functionAddress = GL.getCapabilities().glEvalPoint2;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, i, j);
 	}
 
@@ -2622,7 +2622,7 @@ public class GL11 {
 	public static void nglFeedbackBuffer(int size, int type, long buffer) {
 		long __functionAddress = GL.getCapabilities().glFeedbackBuffer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, type, buffer);
 	}
 
@@ -2676,7 +2676,7 @@ public class GL11 {
 	public static void glFogi(int pname, int param) {
 		long __functionAddress = GL.getCapabilities().glFogi;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, pname, param);
 	}
 
@@ -2686,7 +2686,7 @@ public class GL11 {
 	public static void nglFogiv(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glFogiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, pname, params);
 	}
 
@@ -2700,7 +2700,7 @@ public class GL11 {
 	 */
 	public static void glFogiv(int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglFogiv(pname, memAddress(params));
 	}
 
@@ -2717,7 +2717,7 @@ public class GL11 {
 	public static void glFogf(int pname, float param) {
 		long __functionAddress = GL.getCapabilities().glFogf;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, pname, param);
 	}
 
@@ -2727,7 +2727,7 @@ public class GL11 {
 	public static void nglFogfv(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glFogfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, pname, params);
 	}
 
@@ -2741,7 +2741,7 @@ public class GL11 {
 	 */
 	public static void glFogfv(int pname, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglFogfv(pname, memAddress(params));
 	}
 
@@ -2776,7 +2776,7 @@ public class GL11 {
 	public static int glGenLists(int s) {
 		long __functionAddress = GL.getCapabilities().glGenLists;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callI(__functionAddress, s);
 	}
 
@@ -2890,7 +2890,7 @@ public class GL11 {
 	 */
 	public static void glGetClipPlane(int plane, DoubleBuffer equation) {
 		if ( CHECKS )
-			checkBuffer(equation, 4);
+			check(equation, 4);
 		nglGetClipPlane(plane, memAddress(equation));
 	}
 
@@ -2916,7 +2916,7 @@ public class GL11 {
 	 */
 	public static void glGetBooleanv(int pname, ByteBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetBooleanv(pname, memAddress(params));
 	}
 
@@ -2964,7 +2964,7 @@ public class GL11 {
 	 */
 	public static void glGetFloatv(int pname, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetFloatv(pname, memAddress(params));
 	}
 
@@ -3012,7 +3012,7 @@ public class GL11 {
 	 */
 	public static void glGetIntegerv(int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetIntegerv(pname, memAddress(params));
 	}
 
@@ -3060,7 +3060,7 @@ public class GL11 {
 	 */
 	public static void glGetDoublev(int pname, DoubleBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetDoublev(pname, memAddress(params));
 	}
 
@@ -3107,7 +3107,7 @@ public class GL11 {
 	public static void nglGetLightiv(int light, int pname, long data) {
 		long __functionAddress = GL.getCapabilities().glGetLightiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, light, pname, data);
 	}
 
@@ -3122,7 +3122,7 @@ public class GL11 {
 	 */
 	public static void glGetLightiv(int light, int pname, IntBuffer data) {
 		if ( CHECKS )
-			checkBuffer(data, 4);
+			check(data, 4);
 		nglGetLightiv(light, pname, memAddress(data));
 	}
 
@@ -3151,7 +3151,7 @@ public class GL11 {
 	public static void nglGetLightfv(int light, int pname, long data) {
 		long __functionAddress = GL.getCapabilities().glGetLightfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, light, pname, data);
 	}
 
@@ -3166,7 +3166,7 @@ public class GL11 {
 	 */
 	public static void glGetLightfv(int light, int pname, FloatBuffer data) {
 		if ( CHECKS )
-			checkBuffer(data, 4);
+			check(data, 4);
 		nglGetLightfv(light, pname, memAddress(data));
 	}
 
@@ -3195,7 +3195,7 @@ public class GL11 {
 	public static void nglGetMapiv(int target, int query, long data) {
 		long __functionAddress = GL.getCapabilities().glGetMapiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, query, data);
 	}
 
@@ -3210,7 +3210,7 @@ public class GL11 {
 	 */
 	public static void glGetMapiv(int target, int query, IntBuffer data) {
 		if ( CHECKS )
-			checkBuffer(data, 4);
+			check(data, 4);
 		nglGetMapiv(target, query, memAddress(data));
 	}
 
@@ -3239,7 +3239,7 @@ public class GL11 {
 	public static void nglGetMapfv(int target, int query, long data) {
 		long __functionAddress = GL.getCapabilities().glGetMapfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, query, data);
 	}
 
@@ -3254,7 +3254,7 @@ public class GL11 {
 	 */
 	public static void glGetMapfv(int target, int query, FloatBuffer data) {
 		if ( CHECKS )
-			checkBuffer(data, 4);
+			check(data, 4);
 		nglGetMapfv(target, query, memAddress(data));
 	}
 
@@ -3283,7 +3283,7 @@ public class GL11 {
 	public static void nglGetMapdv(int target, int query, long data) {
 		long __functionAddress = GL.getCapabilities().glGetMapdv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, query, data);
 	}
 
@@ -3298,7 +3298,7 @@ public class GL11 {
 	 */
 	public static void glGetMapdv(int target, int query, DoubleBuffer data) {
 		if ( CHECKS )
-			checkBuffer(data, 4);
+			check(data, 4);
 		nglGetMapdv(target, query, memAddress(data));
 	}
 
@@ -3327,7 +3327,7 @@ public class GL11 {
 	public static void nglGetMaterialiv(int face, int pname, long data) {
 		long __functionAddress = GL.getCapabilities().glGetMaterialiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, face, pname, data);
 	}
 
@@ -3350,7 +3350,7 @@ public class GL11 {
 	public static void nglGetMaterialfv(int face, int pname, long data) {
 		long __functionAddress = GL.getCapabilities().glGetMaterialfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, face, pname, data);
 	}
 
@@ -3373,7 +3373,7 @@ public class GL11 {
 	public static void nglGetPixelMapfv(int map, long data) {
 		long __functionAddress = GL.getCapabilities().glGetPixelMapfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, map, data);
 	}
 
@@ -3387,7 +3387,7 @@ public class GL11 {
 	 */
 	public static void glGetPixelMapfv(int map, FloatBuffer data) {
 		if ( CHECKS )
-			checkBuffer(data, 32);
+			check(data, 32);
 		nglGetPixelMapfv(map, memAddress(data));
 	}
 
@@ -3409,7 +3409,7 @@ public class GL11 {
 	public static void nglGetPixelMapusv(int map, long data) {
 		long __functionAddress = GL.getCapabilities().glGetPixelMapusv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, map, data);
 	}
 
@@ -3423,7 +3423,7 @@ public class GL11 {
 	 */
 	public static void glGetPixelMapusv(int map, ShortBuffer data) {
 		if ( CHECKS )
-			checkBuffer(data, 32);
+			check(data, 32);
 		nglGetPixelMapusv(map, memAddress(data));
 	}
 
@@ -3445,7 +3445,7 @@ public class GL11 {
 	public static void nglGetPixelMapuiv(int map, long data) {
 		long __functionAddress = GL.getCapabilities().glGetPixelMapuiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, map, data);
 	}
 
@@ -3459,7 +3459,7 @@ public class GL11 {
 	 */
 	public static void glGetPixelMapuiv(int map, IntBuffer data) {
 		if ( CHECKS )
-			checkBuffer(data, 32);
+			check(data, 32);
 		nglGetPixelMapuiv(map, memAddress(data));
 	}
 
@@ -3493,7 +3493,7 @@ public class GL11 {
 	 */
 	public static void glGetPointerv(int pname, PointerBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetPointerv(pname, memAddress(params));
 	}
 
@@ -3521,7 +3521,7 @@ public class GL11 {
 	public static void nglGetPolygonStipple(long pattern) {
 		long __functionAddress = GL.getCapabilities().glGetPolygonStipple;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, pattern);
 	}
 
@@ -3534,7 +3534,7 @@ public class GL11 {
 	 */
 	public static void glGetPolygonStipple(ByteBuffer pattern) {
 		if ( CHECKS )
-			checkBuffer(pattern, 128);
+			check(pattern, 128);
 		nglGetPolygonStipple(memAddress(pattern));
 	}
 
@@ -3588,7 +3588,7 @@ public class GL11 {
 	 */
 	public static void glGetTexEnviv(int env, int pname, IntBuffer data) {
 		if ( CHECKS )
-			checkBuffer(data, 1);
+			check(data, 1);
 		nglGetTexEnviv(env, pname, memAddress(data));
 	}
 
@@ -3630,7 +3630,7 @@ public class GL11 {
 	 */
 	public static void glGetTexEnvfv(int env, int pname, FloatBuffer data) {
 		if ( CHECKS )
-			checkBuffer(data, 1);
+			check(data, 1);
 		nglGetTexEnvfv(env, pname, memAddress(data));
 	}
 
@@ -3659,7 +3659,7 @@ public class GL11 {
 	public static void nglGetTexGeniv(int coord, int pname, long data) {
 		long __functionAddress = GL.getCapabilities().glGetTexGeniv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coord, pname, data);
 	}
 
@@ -3674,7 +3674,7 @@ public class GL11 {
 	 */
 	public static void glGetTexGeniv(int coord, int pname, IntBuffer data) {
 		if ( CHECKS )
-			checkBuffer(data, 1);
+			check(data, 1);
 		nglGetTexGeniv(coord, pname, memAddress(data));
 	}
 
@@ -3703,7 +3703,7 @@ public class GL11 {
 	public static void nglGetTexGenfv(int coord, int pname, long data) {
 		long __functionAddress = GL.getCapabilities().glGetTexGenfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coord, pname, data);
 	}
 
@@ -3718,7 +3718,7 @@ public class GL11 {
 	 */
 	public static void glGetTexGenfv(int coord, int pname, FloatBuffer data) {
 		if ( CHECKS )
-			checkBuffer(data, 4);
+			check(data, 4);
 		nglGetTexGenfv(coord, pname, memAddress(data));
 	}
 
@@ -3747,7 +3747,7 @@ public class GL11 {
 	public static void nglGetTexGendv(int coord, int pname, long data) {
 		long __functionAddress = GL.getCapabilities().glGetTexGendv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coord, pname, data);
 	}
 
@@ -3762,7 +3762,7 @@ public class GL11 {
 	 */
 	public static void glGetTexGendv(int coord, int pname, DoubleBuffer data) {
 		if ( CHECKS )
-			checkBuffer(data, 4);
+			check(data, 4);
 		nglGetTexGendv(coord, pname, memAddress(data));
 	}
 
@@ -3903,7 +3903,7 @@ public class GL11 {
 	 */
 	public static void glGetTexLevelParameteriv(int target, int level, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetTexLevelParameteriv(target, level, pname, memAddress(params));
 	}
 
@@ -3947,7 +3947,7 @@ public class GL11 {
 	 */
 	public static void glGetTexLevelParameterfv(int target, int level, int pname, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetTexLevelParameterfv(target, level, pname, memAddress(params));
 	}
 
@@ -3990,7 +3990,7 @@ public class GL11 {
 	 */
 	public static void glGetTexParameteriv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetTexParameteriv(target, pname, memAddress(params));
 	}
 
@@ -4032,7 +4032,7 @@ public class GL11 {
 	 */
 	public static void glGetTexParameterfv(int target, int pname, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetTexParameterfv(target, pname, memAddress(params));
 	}
 
@@ -4083,7 +4083,7 @@ public class GL11 {
 	public static void glIndexi(int index) {
 		long __functionAddress = GL.getCapabilities().glIndexi;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index);
 	}
 
@@ -4099,7 +4099,7 @@ public class GL11 {
 	public static void glIndexub(byte index) {
 		long __functionAddress = GL.getCapabilities().glIndexub;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index);
 	}
 
@@ -4115,7 +4115,7 @@ public class GL11 {
 	public static void glIndexs(short index) {
 		long __functionAddress = GL.getCapabilities().glIndexs;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index);
 	}
 
@@ -4131,7 +4131,7 @@ public class GL11 {
 	public static void glIndexf(float index) {
 		long __functionAddress = GL.getCapabilities().glIndexf;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index);
 	}
 
@@ -4147,7 +4147,7 @@ public class GL11 {
 	public static void glIndexd(double index) {
 		long __functionAddress = GL.getCapabilities().glIndexd;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index);
 	}
 
@@ -4157,7 +4157,7 @@ public class GL11 {
 	public static void nglIndexiv(long index) {
 		long __functionAddress = GL.getCapabilities().glIndexiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index);
 	}
 
@@ -4170,7 +4170,7 @@ public class GL11 {
 	 */
 	public static void glIndexiv(IntBuffer index) {
 		if ( CHECKS )
-			checkBuffer(index, 1);
+			check(index, 1);
 		nglIndexiv(memAddress(index));
 	}
 
@@ -4180,7 +4180,7 @@ public class GL11 {
 	public static void nglIndexubv(long index) {
 		long __functionAddress = GL.getCapabilities().glIndexubv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index);
 	}
 
@@ -4193,7 +4193,7 @@ public class GL11 {
 	 */
 	public static void glIndexubv(ByteBuffer index) {
 		if ( CHECKS )
-			checkBuffer(index, 1);
+			check(index, 1);
 		nglIndexubv(memAddress(index));
 	}
 
@@ -4203,7 +4203,7 @@ public class GL11 {
 	public static void nglIndexsv(long index) {
 		long __functionAddress = GL.getCapabilities().glIndexsv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index);
 	}
 
@@ -4216,7 +4216,7 @@ public class GL11 {
 	 */
 	public static void glIndexsv(ShortBuffer index) {
 		if ( CHECKS )
-			checkBuffer(index, 1);
+			check(index, 1);
 		nglIndexsv(memAddress(index));
 	}
 
@@ -4226,7 +4226,7 @@ public class GL11 {
 	public static void nglIndexfv(long index) {
 		long __functionAddress = GL.getCapabilities().glIndexfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index);
 	}
 
@@ -4239,7 +4239,7 @@ public class GL11 {
 	 */
 	public static void glIndexfv(FloatBuffer index) {
 		if ( CHECKS )
-			checkBuffer(index, 1);
+			check(index, 1);
 		nglIndexfv(memAddress(index));
 	}
 
@@ -4249,7 +4249,7 @@ public class GL11 {
 	public static void nglIndexdv(long index) {
 		long __functionAddress = GL.getCapabilities().glIndexdv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index);
 	}
 
@@ -4262,7 +4262,7 @@ public class GL11 {
 	 */
 	public static void glIndexdv(DoubleBuffer index) {
 		if ( CHECKS )
-			checkBuffer(index, 1);
+			check(index, 1);
 		nglIndexdv(memAddress(index));
 	}
 
@@ -4280,7 +4280,7 @@ public class GL11 {
 	public static void glIndexMask(int mask) {
 		long __functionAddress = GL.getCapabilities().glIndexMask;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, mask);
 	}
 
@@ -4294,7 +4294,7 @@ public class GL11 {
 	public static void nglIndexPointer(int type, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glIndexPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, type, stride, pointer);
 	}
 
@@ -4370,7 +4370,7 @@ public class GL11 {
 	public static void glInitNames() {
 		long __functionAddress = GL.getCapabilities().glInitNames;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -4486,7 +4486,7 @@ public class GL11 {
 	public static boolean glIsList(int list) {
 		long __functionAddress = GL.getCapabilities().glIsList;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callZ(__functionAddress, list);
 	}
 
@@ -4517,7 +4517,7 @@ public class GL11 {
 	public static void glLightModeli(int pname, int param) {
 		long __functionAddress = GL.getCapabilities().glLightModeli;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, pname, param);
 	}
 
@@ -4534,7 +4534,7 @@ public class GL11 {
 	public static void glLightModelf(int pname, float param) {
 		long __functionAddress = GL.getCapabilities().glLightModelf;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, pname, param);
 	}
 
@@ -4544,7 +4544,7 @@ public class GL11 {
 	public static void nglLightModeliv(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glLightModeliv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, pname, params);
 	}
 
@@ -4558,7 +4558,7 @@ public class GL11 {
 	 */
 	public static void glLightModeliv(int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglLightModeliv(pname, memAddress(params));
 	}
 
@@ -4568,7 +4568,7 @@ public class GL11 {
 	public static void nglLightModelfv(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glLightModelfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, pname, params);
 	}
 
@@ -4582,7 +4582,7 @@ public class GL11 {
 	 */
 	public static void glLightModelfv(int pname, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglLightModelfv(pname, memAddress(params));
 	}
 
@@ -4600,7 +4600,7 @@ public class GL11 {
 	public static void glLighti(int light, int pname, int param) {
 		long __functionAddress = GL.getCapabilities().glLighti;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, light, pname, param);
 	}
 
@@ -4618,7 +4618,7 @@ public class GL11 {
 	public static void glLightf(int light, int pname, float param) {
 		long __functionAddress = GL.getCapabilities().glLightf;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, light, pname, param);
 	}
 
@@ -4628,7 +4628,7 @@ public class GL11 {
 	public static void nglLightiv(int light, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glLightiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, light, pname, params);
 	}
 
@@ -4643,7 +4643,7 @@ public class GL11 {
 	 */
 	public static void glLightiv(int light, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglLightiv(light, pname, memAddress(params));
 	}
 
@@ -4653,7 +4653,7 @@ public class GL11 {
 	public static void nglLightfv(int light, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glLightfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, light, pname, params);
 	}
 
@@ -4668,7 +4668,7 @@ public class GL11 {
 	 */
 	public static void glLightfv(int light, int pname, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglLightfv(light, pname, memAddress(params));
 	}
 
@@ -4687,7 +4687,7 @@ public class GL11 {
 	public static void glLineStipple(int factor, short pattern) {
 		long __functionAddress = GL.getCapabilities().glLineStipple;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, factor, pattern);
 	}
 
@@ -4717,7 +4717,7 @@ public class GL11 {
 	public static void glListBase(int base) {
 		long __functionAddress = GL.getCapabilities().glListBase;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, base);
 	}
 
@@ -4727,7 +4727,7 @@ public class GL11 {
 	public static void nglLoadMatrixf(long m) {
 		long __functionAddress = GL.getCapabilities().glLoadMatrixf;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, m);
 	}
 
@@ -4752,7 +4752,7 @@ public class GL11 {
 	 */
 	public static void glLoadMatrixf(FloatBuffer m) {
 		if ( CHECKS )
-			checkBuffer(m, 16);
+			check(m, 16);
 		nglLoadMatrixf(memAddress(m));
 	}
 
@@ -4762,7 +4762,7 @@ public class GL11 {
 	public static void nglLoadMatrixd(long m) {
 		long __functionAddress = GL.getCapabilities().glLoadMatrixd;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, m);
 	}
 
@@ -4775,7 +4775,7 @@ public class GL11 {
 	 */
 	public static void glLoadMatrixd(DoubleBuffer m) {
 		if ( CHECKS )
-			checkBuffer(m, 16);
+			check(m, 16);
 		nglLoadMatrixd(memAddress(m));
 	}
 
@@ -4798,7 +4798,7 @@ public class GL11 {
 	public static void glLoadIdentity() {
 		long __functionAddress = GL.getCapabilities().glLoadIdentity;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -4814,7 +4814,7 @@ public class GL11 {
 	public static void glLoadName(int name) {
 		long __functionAddress = GL.getCapabilities().glLoadName;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, name);
 	}
 
@@ -4838,7 +4838,7 @@ public class GL11 {
 	public static void nglMap1f(int target, float u1, float u2, int stride, int order, long points) {
 		long __functionAddress = GL.getCapabilities().glMap1f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, u1, u2, stride, order, points);
 	}
 
@@ -4857,7 +4857,7 @@ public class GL11 {
 	 */
 	public static void glMap1f(int target, float u1, float u2, int stride, int order, FloatBuffer points) {
 		if ( CHECKS )
-			checkBuffer(points, order * stride);
+			check(points, order * stride);
 		nglMap1f(target, u1, u2, stride, order, memAddress(points));
 	}
 
@@ -4867,7 +4867,7 @@ public class GL11 {
 	public static void nglMap1d(int target, double u1, double u2, int stride, int order, long points) {
 		long __functionAddress = GL.getCapabilities().glMap1d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, u1, u2, stride, order, points);
 	}
 
@@ -4885,7 +4885,7 @@ public class GL11 {
 	 */
 	public static void glMap1d(int target, double u1, double u2, int stride, int order, DoubleBuffer points) {
 		if ( CHECKS )
-			checkBuffer(points, stride * order);
+			check(points, stride * order);
 		nglMap1d(target, u1, u2, stride, order, memAddress(points));
 	}
 
@@ -4895,7 +4895,7 @@ public class GL11 {
 	public static void nglMap2f(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, long points) {
 		long __functionAddress = GL.getCapabilities().glMap2f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
 	}
 
@@ -4917,7 +4917,7 @@ public class GL11 {
 	 */
 	public static void glMap2f(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, FloatBuffer points) {
 		if ( CHECKS )
-			checkBuffer(points, ustride * uorder * vstride * vorder);
+			check(points, ustride * uorder * vstride * vorder);
 		nglMap2f(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, memAddress(points));
 	}
 
@@ -4927,7 +4927,7 @@ public class GL11 {
 	public static void nglMap2d(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, long points) {
 		long __functionAddress = GL.getCapabilities().glMap2d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
 	}
 
@@ -4949,7 +4949,7 @@ public class GL11 {
 	 */
 	public static void glMap2d(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, DoubleBuffer points) {
 		if ( CHECKS )
-			checkBuffer(points, ustride * uorder * vstride * vorder);
+			check(points, ustride * uorder * vstride * vorder);
 		nglMap2d(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, memAddress(points));
 	}
 
@@ -4967,7 +4967,7 @@ public class GL11 {
 	public static void glMapGrid1f(int n, float u1, float u2) {
 		long __functionAddress = GL.getCapabilities().glMapGrid1f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, n, u1, u2);
 	}
 
@@ -4985,7 +4985,7 @@ public class GL11 {
 	public static void glMapGrid1d(int n, double u1, double u2) {
 		long __functionAddress = GL.getCapabilities().glMapGrid1d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, n, u1, u2);
 	}
 
@@ -5006,7 +5006,7 @@ public class GL11 {
 	public static void glMapGrid2f(int un, float u1, float u2, int vn, float v1, float v2) {
 		long __functionAddress = GL.getCapabilities().glMapGrid2f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, un, u1, u2, vn, v1, v2);
 	}
 
@@ -5027,7 +5027,7 @@ public class GL11 {
 	public static void glMapGrid2d(int un, double u1, double u2, int vn, double v1, double v2) {
 		long __functionAddress = GL.getCapabilities().glMapGrid2d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, un, u1, u2, vn, v1, v2);
 	}
 
@@ -5045,7 +5045,7 @@ public class GL11 {
 	public static void glMateriali(int face, int pname, int param) {
 		long __functionAddress = GL.getCapabilities().glMateriali;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, face, pname, param);
 	}
 
@@ -5063,7 +5063,7 @@ public class GL11 {
 	public static void glMaterialf(int face, int pname, float param) {
 		long __functionAddress = GL.getCapabilities().glMaterialf;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, face, pname, param);
 	}
 
@@ -5073,7 +5073,7 @@ public class GL11 {
 	public static void nglMaterialiv(int face, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glMaterialiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, face, pname, params);
 	}
 
@@ -5088,7 +5088,7 @@ public class GL11 {
 	 */
 	public static void glMaterialiv(int face, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglMaterialiv(face, pname, memAddress(params));
 	}
 
@@ -5098,7 +5098,7 @@ public class GL11 {
 	public static void nglMaterialfv(int face, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glMaterialfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, face, pname, params);
 	}
 
@@ -5113,7 +5113,7 @@ public class GL11 {
 	 */
 	public static void glMaterialfv(int face, int pname, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglMaterialfv(face, pname, memAddress(params));
 	}
 
@@ -5129,7 +5129,7 @@ public class GL11 {
 	public static void glMatrixMode(int mode) {
 		long __functionAddress = GL.getCapabilities().glMatrixMode;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, mode);
 	}
 
@@ -5139,7 +5139,7 @@ public class GL11 {
 	public static void nglMultMatrixf(long m) {
 		long __functionAddress = GL.getCapabilities().glMultMatrixf;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, m);
 	}
 
@@ -5152,7 +5152,7 @@ public class GL11 {
 	 */
 	public static void glMultMatrixf(FloatBuffer m) {
 		if ( CHECKS )
-			checkBuffer(m, 16);
+			check(m, 16);
 		nglMultMatrixf(memAddress(m));
 	}
 
@@ -5162,7 +5162,7 @@ public class GL11 {
 	public static void nglMultMatrixd(long m) {
 		long __functionAddress = GL.getCapabilities().glMultMatrixd;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, m);
 	}
 
@@ -5175,7 +5175,7 @@ public class GL11 {
 	 */
 	public static void glMultMatrixd(DoubleBuffer m) {
 		if ( CHECKS )
-			checkBuffer(m, 16);
+			check(m, 16);
 		nglMultMatrixd(memAddress(m));
 	}
 
@@ -5208,7 +5208,7 @@ public class GL11 {
 	public static void glFrustum(double l, double r, double b, double t, double n, double f) {
 		long __functionAddress = GL.getCapabilities().glFrustum;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, l, r, b, t, n, f);
 	}
 
@@ -5225,7 +5225,7 @@ public class GL11 {
 	public static void glNewList(int n, int mode) {
 		long __functionAddress = GL.getCapabilities().glNewList;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, n, mode);
 	}
 
@@ -5240,7 +5240,7 @@ public class GL11 {
 	public static void glEndList() {
 		long __functionAddress = GL.getCapabilities().glEndList;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -5258,7 +5258,7 @@ public class GL11 {
 	public static void glNormal3f(float nx, float ny, float nz) {
 		long __functionAddress = GL.getCapabilities().glNormal3f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, nx, ny, nz);
 	}
 
@@ -5276,7 +5276,7 @@ public class GL11 {
 	public static void glNormal3b(byte nx, byte ny, byte nz) {
 		long __functionAddress = GL.getCapabilities().glNormal3b;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, nx, ny, nz);
 	}
 
@@ -5294,7 +5294,7 @@ public class GL11 {
 	public static void glNormal3s(short nx, short ny, short nz) {
 		long __functionAddress = GL.getCapabilities().glNormal3s;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, nx, ny, nz);
 	}
 
@@ -5312,7 +5312,7 @@ public class GL11 {
 	public static void glNormal3i(int nx, int ny, int nz) {
 		long __functionAddress = GL.getCapabilities().glNormal3i;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, nx, ny, nz);
 	}
 
@@ -5330,7 +5330,7 @@ public class GL11 {
 	public static void glNormal3d(double nx, double ny, double nz) {
 		long __functionAddress = GL.getCapabilities().glNormal3d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, nx, ny, nz);
 	}
 
@@ -5340,7 +5340,7 @@ public class GL11 {
 	public static void nglNormal3fv(long v) {
 		long __functionAddress = GL.getCapabilities().glNormal3fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -5353,7 +5353,7 @@ public class GL11 {
 	 */
 	public static void glNormal3fv(FloatBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglNormal3fv(memAddress(v));
 	}
 
@@ -5363,7 +5363,7 @@ public class GL11 {
 	public static void nglNormal3bv(long v) {
 		long __functionAddress = GL.getCapabilities().glNormal3bv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -5376,7 +5376,7 @@ public class GL11 {
 	 */
 	public static void glNormal3bv(ByteBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglNormal3bv(memAddress(v));
 	}
 
@@ -5386,7 +5386,7 @@ public class GL11 {
 	public static void nglNormal3sv(long v) {
 		long __functionAddress = GL.getCapabilities().glNormal3sv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -5399,7 +5399,7 @@ public class GL11 {
 	 */
 	public static void glNormal3sv(ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglNormal3sv(memAddress(v));
 	}
 
@@ -5409,7 +5409,7 @@ public class GL11 {
 	public static void nglNormal3iv(long v) {
 		long __functionAddress = GL.getCapabilities().glNormal3iv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -5422,7 +5422,7 @@ public class GL11 {
 	 */
 	public static void glNormal3iv(IntBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglNormal3iv(memAddress(v));
 	}
 
@@ -5432,7 +5432,7 @@ public class GL11 {
 	public static void nglNormal3dv(long v) {
 		long __functionAddress = GL.getCapabilities().glNormal3dv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -5445,7 +5445,7 @@ public class GL11 {
 	 */
 	public static void glNormal3dv(DoubleBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglNormal3dv(memAddress(v));
 	}
 
@@ -5455,7 +5455,7 @@ public class GL11 {
 	public static void nglNormalPointer(int type, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glNormalPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, type, stride, pointer);
 	}
 
@@ -5553,7 +5553,7 @@ public class GL11 {
 	public static void glOrtho(double l, double r, double b, double t, double n, double f) {
 		long __functionAddress = GL.getCapabilities().glOrtho;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, l, r, b, t, n, f);
 	}
 
@@ -5571,7 +5571,7 @@ public class GL11 {
 	public static void glPassThrough(float token) {
 		long __functionAddress = GL.getCapabilities().glPassThrough;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, token);
 	}
 
@@ -5585,7 +5585,7 @@ public class GL11 {
 	public static void nglPixelMapfv(int map, int size, long values) {
 		long __functionAddress = GL.getCapabilities().glPixelMapfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, map, size, values);
 	}
 
@@ -5624,7 +5624,7 @@ public class GL11 {
 	public static void nglPixelMapusv(int map, int size, long values) {
 		long __functionAddress = GL.getCapabilities().glPixelMapusv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, map, size, values);
 	}
 
@@ -5663,7 +5663,7 @@ public class GL11 {
 	public static void nglPixelMapuiv(int map, int size, long values) {
 		long __functionAddress = GL.getCapabilities().glPixelMapuiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, map, size, values);
 	}
 
@@ -5735,7 +5735,7 @@ public class GL11 {
 	public static void glPixelTransferi(int pname, int param) {
 		long __functionAddress = GL.getCapabilities().glPixelTransferi;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, pname, param);
 	}
 
@@ -5752,7 +5752,7 @@ public class GL11 {
 	public static void glPixelTransferf(int pname, float param) {
 		long __functionAddress = GL.getCapabilities().glPixelTransferf;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, pname, param);
 	}
 
@@ -5777,7 +5777,7 @@ public class GL11 {
 	public static void glPixelZoom(float xfactor, float yfactor) {
 		long __functionAddress = GL.getCapabilities().glPixelZoom;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, xfactor, yfactor);
 	}
 
@@ -5839,7 +5839,7 @@ public class GL11 {
 	public static void nglPolygonStipple(long pattern) {
 		long __functionAddress = GL.getCapabilities().glPolygonStipple;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, pattern);
 	}
 
@@ -5898,7 +5898,7 @@ public class GL11 {
 	public static void glPushAttrib(int mask) {
 		long __functionAddress = GL.getCapabilities().glPushAttrib;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, mask);
 	}
 
@@ -5921,7 +5921,7 @@ public class GL11 {
 	public static void glPushClientAttrib(int mask) {
 		long __functionAddress = GL.getCapabilities().glPushClientAttrib;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, mask);
 	}
 
@@ -5935,7 +5935,7 @@ public class GL11 {
 	public static void glPopAttrib() {
 		long __functionAddress = GL.getCapabilities().glPopAttrib;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -5949,7 +5949,7 @@ public class GL11 {
 	public static void glPopClientAttrib() {
 		long __functionAddress = GL.getCapabilities().glPopClientAttrib;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -5963,7 +5963,7 @@ public class GL11 {
 	public static void glPopMatrix() {
 		long __functionAddress = GL.getCapabilities().glPopMatrix;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -5977,7 +5977,7 @@ public class GL11 {
 	public static void glPopName() {
 		long __functionAddress = GL.getCapabilities().glPopName;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -5991,7 +5991,7 @@ public class GL11 {
 	public static void nglPrioritizeTextures(int n, long textures, long priorities) {
 		long __functionAddress = GL.getCapabilities().glPrioritizeTextures;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, n, textures, priorities);
 	}
 
@@ -6006,7 +6006,7 @@ public class GL11 {
 	 */
 	public static void glPrioritizeTextures(IntBuffer textures, FloatBuffer priorities) {
 		if ( CHECKS )
-			checkBuffer(priorities, textures.remaining());
+			check(priorities, textures.remaining());
 		nglPrioritizeTextures(textures.remaining(), memAddress(textures), memAddress(priorities));
 	}
 
@@ -6020,7 +6020,7 @@ public class GL11 {
 	public static void glPushMatrix() {
 		long __functionAddress = GL.getCapabilities().glPushMatrix;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -6036,7 +6036,7 @@ public class GL11 {
 	public static void glPushName(int name) {
 		long __functionAddress = GL.getCapabilities().glPushName;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, name);
 	}
 
@@ -6059,7 +6059,7 @@ public class GL11 {
 	public static void glRasterPos2i(int x, int y) {
 		long __functionAddress = GL.getCapabilities().glRasterPos2i;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y);
 	}
 
@@ -6076,7 +6076,7 @@ public class GL11 {
 	public static void glRasterPos2s(short x, short y) {
 		long __functionAddress = GL.getCapabilities().glRasterPos2s;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y);
 	}
 
@@ -6093,7 +6093,7 @@ public class GL11 {
 	public static void glRasterPos2f(float x, float y) {
 		long __functionAddress = GL.getCapabilities().glRasterPos2f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y);
 	}
 
@@ -6110,7 +6110,7 @@ public class GL11 {
 	public static void glRasterPos2d(double x, double y) {
 		long __functionAddress = GL.getCapabilities().glRasterPos2d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y);
 	}
 
@@ -6120,7 +6120,7 @@ public class GL11 {
 	public static void nglRasterPos2iv(long coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos2iv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
 
@@ -6133,7 +6133,7 @@ public class GL11 {
 	 */
 	public static void glRasterPos2iv(IntBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 2);
+			check(coords, 2);
 		nglRasterPos2iv(memAddress(coords));
 	}
 
@@ -6143,7 +6143,7 @@ public class GL11 {
 	public static void nglRasterPos2sv(long coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos2sv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
 
@@ -6156,7 +6156,7 @@ public class GL11 {
 	 */
 	public static void glRasterPos2sv(ShortBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 2);
+			check(coords, 2);
 		nglRasterPos2sv(memAddress(coords));
 	}
 
@@ -6166,7 +6166,7 @@ public class GL11 {
 	public static void nglRasterPos2fv(long coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos2fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
 
@@ -6179,7 +6179,7 @@ public class GL11 {
 	 */
 	public static void glRasterPos2fv(FloatBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 2);
+			check(coords, 2);
 		nglRasterPos2fv(memAddress(coords));
 	}
 
@@ -6189,7 +6189,7 @@ public class GL11 {
 	public static void nglRasterPos2dv(long coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos2dv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
 
@@ -6202,7 +6202,7 @@ public class GL11 {
 	 */
 	public static void glRasterPos2dv(DoubleBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 2);
+			check(coords, 2);
 		nglRasterPos2dv(memAddress(coords));
 	}
 
@@ -6220,7 +6220,7 @@ public class GL11 {
 	public static void glRasterPos3i(int x, int y, int z) {
 		long __functionAddress = GL.getCapabilities().glRasterPos3i;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z);
 	}
 
@@ -6238,7 +6238,7 @@ public class GL11 {
 	public static void glRasterPos3s(short x, short y, short z) {
 		long __functionAddress = GL.getCapabilities().glRasterPos3s;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z);
 	}
 
@@ -6256,7 +6256,7 @@ public class GL11 {
 	public static void glRasterPos3f(float x, float y, float z) {
 		long __functionAddress = GL.getCapabilities().glRasterPos3f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z);
 	}
 
@@ -6274,7 +6274,7 @@ public class GL11 {
 	public static void glRasterPos3d(double x, double y, double z) {
 		long __functionAddress = GL.getCapabilities().glRasterPos3d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z);
 	}
 
@@ -6284,7 +6284,7 @@ public class GL11 {
 	public static void nglRasterPos3iv(long coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos3iv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
 
@@ -6297,7 +6297,7 @@ public class GL11 {
 	 */
 	public static void glRasterPos3iv(IntBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 3);
+			check(coords, 3);
 		nglRasterPos3iv(memAddress(coords));
 	}
 
@@ -6307,7 +6307,7 @@ public class GL11 {
 	public static void nglRasterPos3sv(long coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos3sv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
 
@@ -6320,7 +6320,7 @@ public class GL11 {
 	 */
 	public static void glRasterPos3sv(ShortBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 3);
+			check(coords, 3);
 		nglRasterPos3sv(memAddress(coords));
 	}
 
@@ -6330,7 +6330,7 @@ public class GL11 {
 	public static void nglRasterPos3fv(long coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos3fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
 
@@ -6343,7 +6343,7 @@ public class GL11 {
 	 */
 	public static void glRasterPos3fv(FloatBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 3);
+			check(coords, 3);
 		nglRasterPos3fv(memAddress(coords));
 	}
 
@@ -6353,7 +6353,7 @@ public class GL11 {
 	public static void nglRasterPos3dv(long coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos3dv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
 
@@ -6366,7 +6366,7 @@ public class GL11 {
 	 */
 	public static void glRasterPos3dv(DoubleBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 3);
+			check(coords, 3);
 		nglRasterPos3dv(memAddress(coords));
 	}
 
@@ -6385,7 +6385,7 @@ public class GL11 {
 	public static void glRasterPos4i(int x, int y, int z, int w) {
 		long __functionAddress = GL.getCapabilities().glRasterPos4i;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z, w);
 	}
 
@@ -6404,7 +6404,7 @@ public class GL11 {
 	public static void glRasterPos4s(short x, short y, short z, short w) {
 		long __functionAddress = GL.getCapabilities().glRasterPos4s;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z, w);
 	}
 
@@ -6423,7 +6423,7 @@ public class GL11 {
 	public static void glRasterPos4f(float x, float y, float z, float w) {
 		long __functionAddress = GL.getCapabilities().glRasterPos4f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z, w);
 	}
 
@@ -6442,7 +6442,7 @@ public class GL11 {
 	public static void glRasterPos4d(double x, double y, double z, double w) {
 		long __functionAddress = GL.getCapabilities().glRasterPos4d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z, w);
 	}
 
@@ -6452,7 +6452,7 @@ public class GL11 {
 	public static void nglRasterPos4iv(long coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos4iv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
 
@@ -6465,7 +6465,7 @@ public class GL11 {
 	 */
 	public static void glRasterPos4iv(IntBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 4);
+			check(coords, 4);
 		nglRasterPos4iv(memAddress(coords));
 	}
 
@@ -6475,7 +6475,7 @@ public class GL11 {
 	public static void nglRasterPos4sv(long coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos4sv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
 
@@ -6488,7 +6488,7 @@ public class GL11 {
 	 */
 	public static void glRasterPos4sv(ShortBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 4);
+			check(coords, 4);
 		nglRasterPos4sv(memAddress(coords));
 	}
 
@@ -6498,7 +6498,7 @@ public class GL11 {
 	public static void nglRasterPos4fv(long coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos4fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
 
@@ -6511,7 +6511,7 @@ public class GL11 {
 	 */
 	public static void glRasterPos4fv(FloatBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 4);
+			check(coords, 4);
 		nglRasterPos4fv(memAddress(coords));
 	}
 
@@ -6521,7 +6521,7 @@ public class GL11 {
 	public static void nglRasterPos4dv(long coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos4dv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
 
@@ -6534,7 +6534,7 @@ public class GL11 {
 	 */
 	public static void glRasterPos4dv(DoubleBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 4);
+			check(coords, 4);
 		nglRasterPos4dv(memAddress(coords));
 	}
 
@@ -6696,7 +6696,7 @@ public class GL11 {
 	public static void glRecti(int x1, int y1, int x2, int y2) {
 		long __functionAddress = GL.getCapabilities().glRecti;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x1, y1, x2, y2);
 	}
 
@@ -6715,7 +6715,7 @@ public class GL11 {
 	public static void glRects(short x1, short y1, short x2, short y2) {
 		long __functionAddress = GL.getCapabilities().glRects;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x1, y1, x2, y2);
 	}
 
@@ -6734,7 +6734,7 @@ public class GL11 {
 	public static void glRectf(float x1, float y1, float x2, float y2) {
 		long __functionAddress = GL.getCapabilities().glRectf;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x1, y1, x2, y2);
 	}
 
@@ -6753,7 +6753,7 @@ public class GL11 {
 	public static void glRectd(double x1, double y1, double x2, double y2) {
 		long __functionAddress = GL.getCapabilities().glRectd;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x1, y1, x2, y2);
 	}
 
@@ -6763,7 +6763,7 @@ public class GL11 {
 	public static void nglRectiv(long v1, long v2) {
 		long __functionAddress = GL.getCapabilities().glRectiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, v1, v2);
 	}
 
@@ -6777,8 +6777,8 @@ public class GL11 {
 	 */
 	public static void glRectiv(IntBuffer v1, IntBuffer v2) {
 		if ( CHECKS ) {
-			checkBuffer(v1, 2);
-			checkBuffer(v2, 2);
+			check(v1, 2);
+			check(v2, 2);
 		}
 		nglRectiv(memAddress(v1), memAddress(v2));
 	}
@@ -6789,7 +6789,7 @@ public class GL11 {
 	public static void nglRectsv(long v1, long v2) {
 		long __functionAddress = GL.getCapabilities().glRectsv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, v1, v2);
 	}
 
@@ -6803,8 +6803,8 @@ public class GL11 {
 	 */
 	public static void glRectsv(ShortBuffer v1, ShortBuffer v2) {
 		if ( CHECKS ) {
-			checkBuffer(v1, 2);
-			checkBuffer(v2, 2);
+			check(v1, 2);
+			check(v2, 2);
 		}
 		nglRectsv(memAddress(v1), memAddress(v2));
 	}
@@ -6815,7 +6815,7 @@ public class GL11 {
 	public static void nglRectfv(long v1, long v2) {
 		long __functionAddress = GL.getCapabilities().glRectfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, v1, v2);
 	}
 
@@ -6829,8 +6829,8 @@ public class GL11 {
 	 */
 	public static void glRectfv(FloatBuffer v1, FloatBuffer v2) {
 		if ( CHECKS ) {
-			checkBuffer(v1, 2);
-			checkBuffer(v2, 2);
+			check(v1, 2);
+			check(v2, 2);
 		}
 		nglRectfv(memAddress(v1), memAddress(v2));
 	}
@@ -6841,7 +6841,7 @@ public class GL11 {
 	public static void nglRectdv(long v1, long v2) {
 		long __functionAddress = GL.getCapabilities().glRectdv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, v1, v2);
 	}
 
@@ -6855,8 +6855,8 @@ public class GL11 {
 	 */
 	public static void glRectdv(DoubleBuffer v1, DoubleBuffer v2) {
 		if ( CHECKS ) {
-			checkBuffer(v1, 2);
-			checkBuffer(v2, 2);
+			check(v1, 2);
+			check(v2, 2);
 		}
 		nglRectdv(memAddress(v1), memAddress(v2));
 	}
@@ -6873,7 +6873,7 @@ public class GL11 {
 	public static int glRenderMode(int mode) {
 		long __functionAddress = GL.getCapabilities().glRenderMode;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callI(__functionAddress, mode);
 	}
 
@@ -6913,7 +6913,7 @@ public class GL11 {
 	public static void glRotatef(float angle, float x, float y, float z) {
 		long __functionAddress = GL.getCapabilities().glRotatef;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, angle, x, y, z);
 	}
 
@@ -6932,7 +6932,7 @@ public class GL11 {
 	public static void glRotated(double angle, double x, double y, double z) {
 		long __functionAddress = GL.getCapabilities().glRotated;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, angle, x, y, z);
 	}
 
@@ -6959,7 +6959,7 @@ public class GL11 {
 	public static void glScalef(float x, float y, float z) {
 		long __functionAddress = GL.getCapabilities().glScalef;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z);
 	}
 
@@ -6977,7 +6977,7 @@ public class GL11 {
 	public static void glScaled(double x, double y, double z) {
 		long __functionAddress = GL.getCapabilities().glScaled;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z);
 	}
 
@@ -7011,7 +7011,7 @@ public class GL11 {
 	public static void nglSelectBuffer(int size, long buffer) {
 		long __functionAddress = GL.getCapabilities().glSelectBuffer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, buffer);
 	}
 
@@ -7042,7 +7042,7 @@ public class GL11 {
 	public static void glShadeModel(int mode) {
 		long __functionAddress = GL.getCapabilities().glShadeModel;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, mode);
 	}
 
@@ -7120,7 +7120,7 @@ public class GL11 {
 	public static void glTexCoord1f(float s) {
 		long __functionAddress = GL.getCapabilities().glTexCoord1f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, s);
 	}
 
@@ -7136,7 +7136,7 @@ public class GL11 {
 	public static void glTexCoord1s(short s) {
 		long __functionAddress = GL.getCapabilities().glTexCoord1s;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, s);
 	}
 
@@ -7152,7 +7152,7 @@ public class GL11 {
 	public static void glTexCoord1i(int s) {
 		long __functionAddress = GL.getCapabilities().glTexCoord1i;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, s);
 	}
 
@@ -7168,7 +7168,7 @@ public class GL11 {
 	public static void glTexCoord1d(double s) {
 		long __functionAddress = GL.getCapabilities().glTexCoord1d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, s);
 	}
 
@@ -7178,7 +7178,7 @@ public class GL11 {
 	public static void nglTexCoord1fv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord1fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -7191,7 +7191,7 @@ public class GL11 {
 	 */
 	public static void glTexCoord1fv(FloatBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 1);
+			check(v, 1);
 		nglTexCoord1fv(memAddress(v));
 	}
 
@@ -7201,7 +7201,7 @@ public class GL11 {
 	public static void nglTexCoord1sv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord1sv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -7214,7 +7214,7 @@ public class GL11 {
 	 */
 	public static void glTexCoord1sv(ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 1);
+			check(v, 1);
 		nglTexCoord1sv(memAddress(v));
 	}
 
@@ -7224,7 +7224,7 @@ public class GL11 {
 	public static void nglTexCoord1iv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord1iv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -7237,7 +7237,7 @@ public class GL11 {
 	 */
 	public static void glTexCoord1iv(IntBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 1);
+			check(v, 1);
 		nglTexCoord1iv(memAddress(v));
 	}
 
@@ -7247,7 +7247,7 @@ public class GL11 {
 	public static void nglTexCoord1dv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord1dv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -7260,7 +7260,7 @@ public class GL11 {
 	 */
 	public static void glTexCoord1dv(DoubleBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 1);
+			check(v, 1);
 		nglTexCoord1dv(memAddress(v));
 	}
 
@@ -7277,7 +7277,7 @@ public class GL11 {
 	public static void glTexCoord2f(float s, float t) {
 		long __functionAddress = GL.getCapabilities().glTexCoord2f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, s, t);
 	}
 
@@ -7294,7 +7294,7 @@ public class GL11 {
 	public static void glTexCoord2s(short s, short t) {
 		long __functionAddress = GL.getCapabilities().glTexCoord2s;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, s, t);
 	}
 
@@ -7311,7 +7311,7 @@ public class GL11 {
 	public static void glTexCoord2i(int s, int t) {
 		long __functionAddress = GL.getCapabilities().glTexCoord2i;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, s, t);
 	}
 
@@ -7328,7 +7328,7 @@ public class GL11 {
 	public static void glTexCoord2d(double s, double t) {
 		long __functionAddress = GL.getCapabilities().glTexCoord2d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, s, t);
 	}
 
@@ -7338,7 +7338,7 @@ public class GL11 {
 	public static void nglTexCoord2fv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord2fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -7351,7 +7351,7 @@ public class GL11 {
 	 */
 	public static void glTexCoord2fv(FloatBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 2);
+			check(v, 2);
 		nglTexCoord2fv(memAddress(v));
 	}
 
@@ -7361,7 +7361,7 @@ public class GL11 {
 	public static void nglTexCoord2sv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord2sv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -7374,7 +7374,7 @@ public class GL11 {
 	 */
 	public static void glTexCoord2sv(ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 2);
+			check(v, 2);
 		nglTexCoord2sv(memAddress(v));
 	}
 
@@ -7384,7 +7384,7 @@ public class GL11 {
 	public static void nglTexCoord2iv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord2iv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -7397,7 +7397,7 @@ public class GL11 {
 	 */
 	public static void glTexCoord2iv(IntBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 2);
+			check(v, 2);
 		nglTexCoord2iv(memAddress(v));
 	}
 
@@ -7407,7 +7407,7 @@ public class GL11 {
 	public static void nglTexCoord2dv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord2dv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -7420,7 +7420,7 @@ public class GL11 {
 	 */
 	public static void glTexCoord2dv(DoubleBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 2);
+			check(v, 2);
 		nglTexCoord2dv(memAddress(v));
 	}
 
@@ -7438,7 +7438,7 @@ public class GL11 {
 	public static void glTexCoord3f(float s, float t, float r) {
 		long __functionAddress = GL.getCapabilities().glTexCoord3f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, s, t, r);
 	}
 
@@ -7456,7 +7456,7 @@ public class GL11 {
 	public static void glTexCoord3s(short s, short t, short r) {
 		long __functionAddress = GL.getCapabilities().glTexCoord3s;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, s, t, r);
 	}
 
@@ -7474,7 +7474,7 @@ public class GL11 {
 	public static void glTexCoord3i(int s, int t, int r) {
 		long __functionAddress = GL.getCapabilities().glTexCoord3i;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, s, t, r);
 	}
 
@@ -7492,7 +7492,7 @@ public class GL11 {
 	public static void glTexCoord3d(double s, double t, double r) {
 		long __functionAddress = GL.getCapabilities().glTexCoord3d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, s, t, r);
 	}
 
@@ -7502,7 +7502,7 @@ public class GL11 {
 	public static void nglTexCoord3fv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord3fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -7515,7 +7515,7 @@ public class GL11 {
 	 */
 	public static void glTexCoord3fv(FloatBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglTexCoord3fv(memAddress(v));
 	}
 
@@ -7525,7 +7525,7 @@ public class GL11 {
 	public static void nglTexCoord3sv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord3sv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -7538,7 +7538,7 @@ public class GL11 {
 	 */
 	public static void glTexCoord3sv(ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglTexCoord3sv(memAddress(v));
 	}
 
@@ -7548,7 +7548,7 @@ public class GL11 {
 	public static void nglTexCoord3iv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord3iv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -7561,7 +7561,7 @@ public class GL11 {
 	 */
 	public static void glTexCoord3iv(IntBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglTexCoord3iv(memAddress(v));
 	}
 
@@ -7571,7 +7571,7 @@ public class GL11 {
 	public static void nglTexCoord3dv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord3dv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -7584,7 +7584,7 @@ public class GL11 {
 	 */
 	public static void glTexCoord3dv(DoubleBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglTexCoord3dv(memAddress(v));
 	}
 
@@ -7603,7 +7603,7 @@ public class GL11 {
 	public static void glTexCoord4f(float s, float t, float r, float q) {
 		long __functionAddress = GL.getCapabilities().glTexCoord4f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, s, t, r, q);
 	}
 
@@ -7622,7 +7622,7 @@ public class GL11 {
 	public static void glTexCoord4s(short s, short t, short r, short q) {
 		long __functionAddress = GL.getCapabilities().glTexCoord4s;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, s, t, r, q);
 	}
 
@@ -7641,7 +7641,7 @@ public class GL11 {
 	public static void glTexCoord4i(int s, int t, int r, int q) {
 		long __functionAddress = GL.getCapabilities().glTexCoord4i;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, s, t, r, q);
 	}
 
@@ -7660,7 +7660,7 @@ public class GL11 {
 	public static void glTexCoord4d(double s, double t, double r, double q) {
 		long __functionAddress = GL.getCapabilities().glTexCoord4d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, s, t, r, q);
 	}
 
@@ -7670,7 +7670,7 @@ public class GL11 {
 	public static void nglTexCoord4fv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord4fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -7683,7 +7683,7 @@ public class GL11 {
 	 */
 	public static void glTexCoord4fv(FloatBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglTexCoord4fv(memAddress(v));
 	}
 
@@ -7693,7 +7693,7 @@ public class GL11 {
 	public static void nglTexCoord4sv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord4sv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -7706,7 +7706,7 @@ public class GL11 {
 	 */
 	public static void glTexCoord4sv(ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglTexCoord4sv(memAddress(v));
 	}
 
@@ -7716,7 +7716,7 @@ public class GL11 {
 	public static void nglTexCoord4iv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord4iv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -7729,7 +7729,7 @@ public class GL11 {
 	 */
 	public static void glTexCoord4iv(IntBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglTexCoord4iv(memAddress(v));
 	}
 
@@ -7739,7 +7739,7 @@ public class GL11 {
 	public static void nglTexCoord4dv(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord4dv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -7752,7 +7752,7 @@ public class GL11 {
 	 */
 	public static void glTexCoord4dv(DoubleBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglTexCoord4dv(memAddress(v));
 	}
 
@@ -7762,7 +7762,7 @@ public class GL11 {
 	public static void nglTexCoordPointer(int size, int type, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glTexCoordPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -7872,7 +7872,7 @@ public class GL11 {
 	 */
 	public static void glTexEnviv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglTexEnviv(target, pname, memAddress(params));
 	}
 
@@ -7911,7 +7911,7 @@ public class GL11 {
 	 */
 	public static void glTexEnvfv(int target, int pname, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglTexEnvfv(target, pname, memAddress(params));
 	}
 
@@ -7937,7 +7937,7 @@ public class GL11 {
 	public static void glTexGeni(int coord, int pname, int param) {
 		long __functionAddress = GL.getCapabilities().glTexGeni;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, coord, pname, param);
 	}
 
@@ -7947,7 +7947,7 @@ public class GL11 {
 	public static void nglTexGeniv(int coord, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glTexGeniv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coord, pname, params);
 	}
 
@@ -7962,7 +7962,7 @@ public class GL11 {
 	 */
 	public static void glTexGeniv(int coord, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglTexGeniv(coord, pname, memAddress(params));
 	}
 
@@ -7980,7 +7980,7 @@ public class GL11 {
 	public static void glTexGenf(int coord, int pname, float param) {
 		long __functionAddress = GL.getCapabilities().glTexGenf;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, coord, pname, param);
 	}
 
@@ -7990,7 +7990,7 @@ public class GL11 {
 	public static void nglTexGenfv(int coord, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glTexGenfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coord, pname, params);
 	}
 
@@ -8005,7 +8005,7 @@ public class GL11 {
 	 */
 	public static void glTexGenfv(int coord, int pname, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglTexGenfv(coord, pname, memAddress(params));
 	}
 
@@ -8023,7 +8023,7 @@ public class GL11 {
 	public static void glTexGend(int coord, int pname, double param) {
 		long __functionAddress = GL.getCapabilities().glTexGend;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, coord, pname, param);
 	}
 
@@ -8033,7 +8033,7 @@ public class GL11 {
 	public static void nglTexGendv(int coord, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glTexGendv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coord, pname, params);
 	}
 
@@ -8048,7 +8048,7 @@ public class GL11 {
 	 */
 	public static void glTexGendv(int coord, int pname, DoubleBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglTexGendv(coord, pname, memAddress(params));
 	}
 
@@ -8428,7 +8428,7 @@ public class GL11 {
 	 */
 	public static void glTexParameteriv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglTexParameteriv(target, pname, memAddress(params));
 	}
 
@@ -8467,7 +8467,7 @@ public class GL11 {
 	 */
 	public static void glTexParameterfv(int target, int pname, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglTexParameterfv(target, pname, memAddress(params));
 	}
 
@@ -8732,7 +8732,7 @@ public class GL11 {
 	public static void glTranslatef(float x, float y, float z) {
 		long __functionAddress = GL.getCapabilities().glTranslatef;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z);
 	}
 
@@ -8750,7 +8750,7 @@ public class GL11 {
 	public static void glTranslated(double x, double y, double z) {
 		long __functionAddress = GL.getCapabilities().glTranslated;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z);
 	}
 
@@ -8768,7 +8768,7 @@ public class GL11 {
 	public static void glVertex2f(float x, float y) {
 		long __functionAddress = GL.getCapabilities().glVertex2f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y);
 	}
 
@@ -8785,7 +8785,7 @@ public class GL11 {
 	public static void glVertex2s(short x, short y) {
 		long __functionAddress = GL.getCapabilities().glVertex2s;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y);
 	}
 
@@ -8802,7 +8802,7 @@ public class GL11 {
 	public static void glVertex2i(int x, int y) {
 		long __functionAddress = GL.getCapabilities().glVertex2i;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y);
 	}
 
@@ -8819,7 +8819,7 @@ public class GL11 {
 	public static void glVertex2d(double x, double y) {
 		long __functionAddress = GL.getCapabilities().glVertex2d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y);
 	}
 
@@ -8829,7 +8829,7 @@ public class GL11 {
 	public static void nglVertex2fv(long coords) {
 		long __functionAddress = GL.getCapabilities().glVertex2fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
 
@@ -8842,7 +8842,7 @@ public class GL11 {
 	 */
 	public static void glVertex2fv(FloatBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 2);
+			check(coords, 2);
 		nglVertex2fv(memAddress(coords));
 	}
 
@@ -8852,7 +8852,7 @@ public class GL11 {
 	public static void nglVertex2sv(long coords) {
 		long __functionAddress = GL.getCapabilities().glVertex2sv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
 
@@ -8865,7 +8865,7 @@ public class GL11 {
 	 */
 	public static void glVertex2sv(ShortBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 2);
+			check(coords, 2);
 		nglVertex2sv(memAddress(coords));
 	}
 
@@ -8875,7 +8875,7 @@ public class GL11 {
 	public static void nglVertex2iv(long coords) {
 		long __functionAddress = GL.getCapabilities().glVertex2iv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
 
@@ -8888,7 +8888,7 @@ public class GL11 {
 	 */
 	public static void glVertex2iv(IntBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 2);
+			check(coords, 2);
 		nglVertex2iv(memAddress(coords));
 	}
 
@@ -8898,7 +8898,7 @@ public class GL11 {
 	public static void nglVertex2dv(long coords) {
 		long __functionAddress = GL.getCapabilities().glVertex2dv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
 
@@ -8911,7 +8911,7 @@ public class GL11 {
 	 */
 	public static void glVertex2dv(DoubleBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 2);
+			check(coords, 2);
 		nglVertex2dv(memAddress(coords));
 	}
 
@@ -8930,7 +8930,7 @@ public class GL11 {
 	public static void glVertex3f(float x, float y, float z) {
 		long __functionAddress = GL.getCapabilities().glVertex3f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z);
 	}
 
@@ -8948,7 +8948,7 @@ public class GL11 {
 	public static void glVertex3s(short x, short y, short z) {
 		long __functionAddress = GL.getCapabilities().glVertex3s;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z);
 	}
 
@@ -8966,7 +8966,7 @@ public class GL11 {
 	public static void glVertex3i(int x, int y, int z) {
 		long __functionAddress = GL.getCapabilities().glVertex3i;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z);
 	}
 
@@ -8984,7 +8984,7 @@ public class GL11 {
 	public static void glVertex3d(double x, double y, double z) {
 		long __functionAddress = GL.getCapabilities().glVertex3d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z);
 	}
 
@@ -8994,7 +8994,7 @@ public class GL11 {
 	public static void nglVertex3fv(long coords) {
 		long __functionAddress = GL.getCapabilities().glVertex3fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
 
@@ -9007,7 +9007,7 @@ public class GL11 {
 	 */
 	public static void glVertex3fv(FloatBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 3);
+			check(coords, 3);
 		nglVertex3fv(memAddress(coords));
 	}
 
@@ -9017,7 +9017,7 @@ public class GL11 {
 	public static void nglVertex3sv(long coords) {
 		long __functionAddress = GL.getCapabilities().glVertex3sv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
 
@@ -9030,7 +9030,7 @@ public class GL11 {
 	 */
 	public static void glVertex3sv(ShortBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 3);
+			check(coords, 3);
 		nglVertex3sv(memAddress(coords));
 	}
 
@@ -9040,7 +9040,7 @@ public class GL11 {
 	public static void nglVertex3iv(long coords) {
 		long __functionAddress = GL.getCapabilities().glVertex3iv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
 
@@ -9053,7 +9053,7 @@ public class GL11 {
 	 */
 	public static void glVertex3iv(IntBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 3);
+			check(coords, 3);
 		nglVertex3iv(memAddress(coords));
 	}
 
@@ -9063,7 +9063,7 @@ public class GL11 {
 	public static void nglVertex3dv(long coords) {
 		long __functionAddress = GL.getCapabilities().glVertex3dv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
 
@@ -9076,7 +9076,7 @@ public class GL11 {
 	 */
 	public static void glVertex3dv(DoubleBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 3);
+			check(coords, 3);
 		nglVertex3dv(memAddress(coords));
 	}
 
@@ -9095,7 +9095,7 @@ public class GL11 {
 	public static void glVertex4f(float x, float y, float z, float w) {
 		long __functionAddress = GL.getCapabilities().glVertex4f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z, w);
 	}
 
@@ -9114,7 +9114,7 @@ public class GL11 {
 	public static void glVertex4s(short x, short y, short z, short w) {
 		long __functionAddress = GL.getCapabilities().glVertex4s;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z, w);
 	}
 
@@ -9133,7 +9133,7 @@ public class GL11 {
 	public static void glVertex4i(int x, int y, int z, int w) {
 		long __functionAddress = GL.getCapabilities().glVertex4i;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z, w);
 	}
 
@@ -9152,7 +9152,7 @@ public class GL11 {
 	public static void glVertex4d(double x, double y, double z, double w) {
 		long __functionAddress = GL.getCapabilities().glVertex4d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z, w);
 	}
 
@@ -9162,7 +9162,7 @@ public class GL11 {
 	public static void nglVertex4fv(long coords) {
 		long __functionAddress = GL.getCapabilities().glVertex4fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
 
@@ -9175,7 +9175,7 @@ public class GL11 {
 	 */
 	public static void glVertex4fv(FloatBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 4);
+			check(coords, 4);
 		nglVertex4fv(memAddress(coords));
 	}
 
@@ -9185,7 +9185,7 @@ public class GL11 {
 	public static void nglVertex4sv(long coords) {
 		long __functionAddress = GL.getCapabilities().glVertex4sv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
 
@@ -9198,7 +9198,7 @@ public class GL11 {
 	 */
 	public static void glVertex4sv(ShortBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 4);
+			check(coords, 4);
 		nglVertex4sv(memAddress(coords));
 	}
 
@@ -9208,7 +9208,7 @@ public class GL11 {
 	public static void nglVertex4iv(long coords) {
 		long __functionAddress = GL.getCapabilities().glVertex4iv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
 
@@ -9221,7 +9221,7 @@ public class GL11 {
 	 */
 	public static void glVertex4iv(IntBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 4);
+			check(coords, 4);
 		nglVertex4iv(memAddress(coords));
 	}
 
@@ -9231,7 +9231,7 @@ public class GL11 {
 	public static void nglVertex4dv(long coords) {
 		long __functionAddress = GL.getCapabilities().glVertex4dv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coords);
 	}
 
@@ -9244,7 +9244,7 @@ public class GL11 {
 	 */
 	public static void glVertex4dv(DoubleBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 4);
+			check(coords, 4);
 		nglVertex4dv(memAddress(coords));
 	}
 
@@ -9254,7 +9254,7 @@ public class GL11 {
 	public static void nglVertexPointer(int size, int type, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -9364,8 +9364,8 @@ public class GL11 {
 	public static boolean glAreTexturesResident(int[] textures, ByteBuffer residences) {
 		long __functionAddress = GL.getCapabilities().glAreTexturesResident;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(residences, textures.length);
+			check(__functionAddress);
+			check(residences, textures.length);
 		}
 		return callPPZ(__functionAddress, textures.length, textures, memAddress(residences));
 	}
@@ -9388,8 +9388,8 @@ public class GL11 {
 	public static void glColor3sv(short[] v) {
 		long __functionAddress = GL.getCapabilities().glColor3sv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -9402,8 +9402,8 @@ public class GL11 {
 	public static void glColor3iv(int[] v) {
 		long __functionAddress = GL.getCapabilities().glColor3iv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -9416,8 +9416,8 @@ public class GL11 {
 	public static void glColor3fv(float[] v) {
 		long __functionAddress = GL.getCapabilities().glColor3fv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -9430,8 +9430,8 @@ public class GL11 {
 	public static void glColor3dv(double[] v) {
 		long __functionAddress = GL.getCapabilities().glColor3dv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -9444,8 +9444,8 @@ public class GL11 {
 	public static void glColor3usv(short[] v) {
 		long __functionAddress = GL.getCapabilities().glColor3usv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -9458,8 +9458,8 @@ public class GL11 {
 	public static void glColor3uiv(int[] v) {
 		long __functionAddress = GL.getCapabilities().glColor3uiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -9472,8 +9472,8 @@ public class GL11 {
 	public static void glColor4sv(short[] v) {
 		long __functionAddress = GL.getCapabilities().glColor4sv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -9486,8 +9486,8 @@ public class GL11 {
 	public static void glColor4iv(int[] v) {
 		long __functionAddress = GL.getCapabilities().glColor4iv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -9500,8 +9500,8 @@ public class GL11 {
 	public static void glColor4fv(float[] v) {
 		long __functionAddress = GL.getCapabilities().glColor4fv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -9514,8 +9514,8 @@ public class GL11 {
 	public static void glColor4dv(double[] v) {
 		long __functionAddress = GL.getCapabilities().glColor4dv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -9528,8 +9528,8 @@ public class GL11 {
 	public static void glColor4usv(short[] v) {
 		long __functionAddress = GL.getCapabilities().glColor4usv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -9542,8 +9542,8 @@ public class GL11 {
 	public static void glColor4uiv(int[] v) {
 		long __functionAddress = GL.getCapabilities().glColor4uiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -9556,7 +9556,7 @@ public class GL11 {
 	public static void glColorPointer(int size, int type, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glColorPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -9568,7 +9568,7 @@ public class GL11 {
 	public static void glColorPointer(int size, int type, int stride, int[] pointer) {
 		long __functionAddress = GL.getCapabilities().glColorPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -9580,7 +9580,7 @@ public class GL11 {
 	public static void glColorPointer(int size, int type, int stride, float[] pointer) {
 		long __functionAddress = GL.getCapabilities().glColorPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -9592,7 +9592,7 @@ public class GL11 {
 	public static void glDrawPixels(int width, int height, int format, int type, short[] pixels) {
 		long __functionAddress = GL.getCapabilities().glDrawPixels;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, width, height, format, type, pixels);
 	}
 
@@ -9604,7 +9604,7 @@ public class GL11 {
 	public static void glDrawPixels(int width, int height, int format, int type, int[] pixels) {
 		long __functionAddress = GL.getCapabilities().glDrawPixels;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, width, height, format, type, pixels);
 	}
 
@@ -9616,7 +9616,7 @@ public class GL11 {
 	public static void glDrawPixels(int width, int height, int format, int type, float[] pixels) {
 		long __functionAddress = GL.getCapabilities().glDrawPixels;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, width, height, format, type, pixels);
 	}
 
@@ -9628,7 +9628,7 @@ public class GL11 {
 	public static void glEvalCoord1fv(float[] u) {
 		long __functionAddress = GL.getCapabilities().glEvalCoord1fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, u);
 	}
 
@@ -9640,7 +9640,7 @@ public class GL11 {
 	public static void glEvalCoord1dv(double[] u) {
 		long __functionAddress = GL.getCapabilities().glEvalCoord1dv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, u);
 	}
 
@@ -9652,7 +9652,7 @@ public class GL11 {
 	public static void glEvalCoord2fv(float[] u) {
 		long __functionAddress = GL.getCapabilities().glEvalCoord2fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, u);
 	}
 
@@ -9664,7 +9664,7 @@ public class GL11 {
 	public static void glEvalCoord2dv(double[] u) {
 		long __functionAddress = GL.getCapabilities().glEvalCoord2dv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, u);
 	}
 
@@ -9676,7 +9676,7 @@ public class GL11 {
 	public static void glFeedbackBuffer(int type, float[] buffer) {
 		long __functionAddress = GL.getCapabilities().glFeedbackBuffer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, buffer.length, type, buffer);
 	}
 
@@ -9688,8 +9688,8 @@ public class GL11 {
 	public static void glFogiv(int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glFogiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, pname, params);
 	}
@@ -9702,8 +9702,8 @@ public class GL11 {
 	public static void glFogfv(int pname, float[] params) {
 		long __functionAddress = GL.getCapabilities().glFogfv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, pname, params);
 	}
@@ -9736,7 +9736,7 @@ public class GL11 {
 	public static void glGetClipPlane(int plane, double[] equation) {
 		long __functionAddress = GL.getCapabilities().glGetClipPlane;
 		if ( CHECKS )
-			checkBuffer(equation, 4);
+			check(equation, 4);
 		callPV(__functionAddress, plane, equation);
 	}
 
@@ -9748,7 +9748,7 @@ public class GL11 {
 	public static void glGetFloatv(int pname, float[] params) {
 		long __functionAddress = GL.getCapabilities().glGetFloatv;
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		callPV(__functionAddress, pname, params);
 	}
 
@@ -9760,7 +9760,7 @@ public class GL11 {
 	public static void glGetIntegerv(int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetIntegerv;
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		callPV(__functionAddress, pname, params);
 	}
 
@@ -9772,7 +9772,7 @@ public class GL11 {
 	public static void glGetDoublev(int pname, double[] params) {
 		long __functionAddress = GL.getCapabilities().glGetDoublev;
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		callPV(__functionAddress, pname, params);
 	}
 
@@ -9784,8 +9784,8 @@ public class GL11 {
 	public static void glGetLightiv(int light, int pname, int[] data) {
 		long __functionAddress = GL.getCapabilities().glGetLightiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, 4);
+			check(__functionAddress);
+			check(data, 4);
 		}
 		callPV(__functionAddress, light, pname, data);
 	}
@@ -9798,8 +9798,8 @@ public class GL11 {
 	public static void glGetLightfv(int light, int pname, float[] data) {
 		long __functionAddress = GL.getCapabilities().glGetLightfv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, 4);
+			check(__functionAddress);
+			check(data, 4);
 		}
 		callPV(__functionAddress, light, pname, data);
 	}
@@ -9812,8 +9812,8 @@ public class GL11 {
 	public static void glGetMapiv(int target, int query, int[] data) {
 		long __functionAddress = GL.getCapabilities().glGetMapiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, 4);
+			check(__functionAddress);
+			check(data, 4);
 		}
 		callPV(__functionAddress, target, query, data);
 	}
@@ -9826,8 +9826,8 @@ public class GL11 {
 	public static void glGetMapfv(int target, int query, float[] data) {
 		long __functionAddress = GL.getCapabilities().glGetMapfv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, 4);
+			check(__functionAddress);
+			check(data, 4);
 		}
 		callPV(__functionAddress, target, query, data);
 	}
@@ -9840,8 +9840,8 @@ public class GL11 {
 	public static void glGetMapdv(int target, int query, double[] data) {
 		long __functionAddress = GL.getCapabilities().glGetMapdv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, 4);
+			check(__functionAddress);
+			check(data, 4);
 		}
 		callPV(__functionAddress, target, query, data);
 	}
@@ -9854,7 +9854,7 @@ public class GL11 {
 	public static void glGetMaterialiv(int face, int pname, int[] data) {
 		long __functionAddress = GL.getCapabilities().glGetMaterialiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, face, pname, data);
 	}
 
@@ -9866,7 +9866,7 @@ public class GL11 {
 	public static void glGetMaterialfv(int face, int pname, float[] data) {
 		long __functionAddress = GL.getCapabilities().glGetMaterialfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, face, pname, data);
 	}
 
@@ -9878,8 +9878,8 @@ public class GL11 {
 	public static void glGetPixelMapfv(int map, float[] data) {
 		long __functionAddress = GL.getCapabilities().glGetPixelMapfv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, 32);
+			check(__functionAddress);
+			check(data, 32);
 		}
 		callPV(__functionAddress, map, data);
 	}
@@ -9892,8 +9892,8 @@ public class GL11 {
 	public static void glGetPixelMapusv(int map, short[] data) {
 		long __functionAddress = GL.getCapabilities().glGetPixelMapusv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, 32);
+			check(__functionAddress);
+			check(data, 32);
 		}
 		callPV(__functionAddress, map, data);
 	}
@@ -9906,8 +9906,8 @@ public class GL11 {
 	public static void glGetPixelMapuiv(int map, int[] data) {
 		long __functionAddress = GL.getCapabilities().glGetPixelMapuiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, 32);
+			check(__functionAddress);
+			check(data, 32);
 		}
 		callPV(__functionAddress, map, data);
 	}
@@ -9920,7 +9920,7 @@ public class GL11 {
 	public static void glGetTexEnviv(int env, int pname, int[] data) {
 		long __functionAddress = GL.getCapabilities().glGetTexEnviv;
 		if ( CHECKS )
-			checkBuffer(data, 1);
+			check(data, 1);
 		callPV(__functionAddress, env, pname, data);
 	}
 
@@ -9932,7 +9932,7 @@ public class GL11 {
 	public static void glGetTexEnvfv(int env, int pname, float[] data) {
 		long __functionAddress = GL.getCapabilities().glGetTexEnvfv;
 		if ( CHECKS )
-			checkBuffer(data, 1);
+			check(data, 1);
 		callPV(__functionAddress, env, pname, data);
 	}
 
@@ -9944,8 +9944,8 @@ public class GL11 {
 	public static void glGetTexGeniv(int coord, int pname, int[] data) {
 		long __functionAddress = GL.getCapabilities().glGetTexGeniv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, 1);
+			check(__functionAddress);
+			check(data, 1);
 		}
 		callPV(__functionAddress, coord, pname, data);
 	}
@@ -9958,8 +9958,8 @@ public class GL11 {
 	public static void glGetTexGenfv(int coord, int pname, float[] data) {
 		long __functionAddress = GL.getCapabilities().glGetTexGenfv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, 4);
+			check(__functionAddress);
+			check(data, 4);
 		}
 		callPV(__functionAddress, coord, pname, data);
 	}
@@ -9972,8 +9972,8 @@ public class GL11 {
 	public static void glGetTexGendv(int coord, int pname, double[] data) {
 		long __functionAddress = GL.getCapabilities().glGetTexGendv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, 4);
+			check(__functionAddress);
+			check(data, 4);
 		}
 		callPV(__functionAddress, coord, pname, data);
 	}
@@ -10026,7 +10026,7 @@ public class GL11 {
 	public static void glGetTexLevelParameteriv(int target, int level, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetTexLevelParameteriv;
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		callPV(__functionAddress, target, level, pname, params);
 	}
 
@@ -10038,7 +10038,7 @@ public class GL11 {
 	public static void glGetTexLevelParameterfv(int target, int level, int pname, float[] params) {
 		long __functionAddress = GL.getCapabilities().glGetTexLevelParameterfv;
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		callPV(__functionAddress, target, level, pname, params);
 	}
 
@@ -10050,7 +10050,7 @@ public class GL11 {
 	public static void glGetTexParameteriv(int target, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetTexParameteriv;
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		callPV(__functionAddress, target, pname, params);
 	}
 
@@ -10062,7 +10062,7 @@ public class GL11 {
 	public static void glGetTexParameterfv(int target, int pname, float[] params) {
 		long __functionAddress = GL.getCapabilities().glGetTexParameterfv;
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		callPV(__functionAddress, target, pname, params);
 	}
 
@@ -10074,8 +10074,8 @@ public class GL11 {
 	public static void glIndexiv(int[] index) {
 		long __functionAddress = GL.getCapabilities().glIndexiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(index, 1);
+			check(__functionAddress);
+			check(index, 1);
 		}
 		callPV(__functionAddress, index);
 	}
@@ -10088,8 +10088,8 @@ public class GL11 {
 	public static void glIndexsv(short[] index) {
 		long __functionAddress = GL.getCapabilities().glIndexsv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(index, 1);
+			check(__functionAddress);
+			check(index, 1);
 		}
 		callPV(__functionAddress, index);
 	}
@@ -10102,8 +10102,8 @@ public class GL11 {
 	public static void glIndexfv(float[] index) {
 		long __functionAddress = GL.getCapabilities().glIndexfv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(index, 1);
+			check(__functionAddress);
+			check(index, 1);
 		}
 		callPV(__functionAddress, index);
 	}
@@ -10116,8 +10116,8 @@ public class GL11 {
 	public static void glIndexdv(double[] index) {
 		long __functionAddress = GL.getCapabilities().glIndexdv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(index, 1);
+			check(__functionAddress);
+			check(index, 1);
 		}
 		callPV(__functionAddress, index);
 	}
@@ -10170,8 +10170,8 @@ public class GL11 {
 	public static void glLightModeliv(int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glLightModeliv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 4);
+			check(__functionAddress);
+			check(params, 4);
 		}
 		callPV(__functionAddress, pname, params);
 	}
@@ -10184,8 +10184,8 @@ public class GL11 {
 	public static void glLightModelfv(int pname, float[] params) {
 		long __functionAddress = GL.getCapabilities().glLightModelfv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 4);
+			check(__functionAddress);
+			check(params, 4);
 		}
 		callPV(__functionAddress, pname, params);
 	}
@@ -10198,8 +10198,8 @@ public class GL11 {
 	public static void glLightiv(int light, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glLightiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 4);
+			check(__functionAddress);
+			check(params, 4);
 		}
 		callPV(__functionAddress, light, pname, params);
 	}
@@ -10212,8 +10212,8 @@ public class GL11 {
 	public static void glLightfv(int light, int pname, float[] params) {
 		long __functionAddress = GL.getCapabilities().glLightfv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 4);
+			check(__functionAddress);
+			check(params, 4);
 		}
 		callPV(__functionAddress, light, pname, params);
 	}
@@ -10226,8 +10226,8 @@ public class GL11 {
 	public static void glLoadMatrixf(float[] m) {
 		long __functionAddress = GL.getCapabilities().glLoadMatrixf;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(m, 16);
+			check(__functionAddress);
+			check(m, 16);
 		}
 		callPV(__functionAddress, m);
 	}
@@ -10240,8 +10240,8 @@ public class GL11 {
 	public static void glLoadMatrixd(double[] m) {
 		long __functionAddress = GL.getCapabilities().glLoadMatrixd;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(m, 16);
+			check(__functionAddress);
+			check(m, 16);
 		}
 		callPV(__functionAddress, m);
 	}
@@ -10254,8 +10254,8 @@ public class GL11 {
 	public static void glMap1f(int target, float u1, float u2, int stride, int order, float[] points) {
 		long __functionAddress = GL.getCapabilities().glMap1f;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(points, order * stride);
+			check(__functionAddress);
+			check(points, order * stride);
 		}
 		callPV(__functionAddress, target, u1, u2, stride, order, points);
 	}
@@ -10268,8 +10268,8 @@ public class GL11 {
 	public static void glMap1d(int target, double u1, double u2, int stride, int order, double[] points) {
 		long __functionAddress = GL.getCapabilities().glMap1d;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(points, stride * order);
+			check(__functionAddress);
+			check(points, stride * order);
 		}
 		callPV(__functionAddress, target, u1, u2, stride, order, points);
 	}
@@ -10282,8 +10282,8 @@ public class GL11 {
 	public static void glMap2f(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, float[] points) {
 		long __functionAddress = GL.getCapabilities().glMap2f;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(points, ustride * uorder * vstride * vorder);
+			check(__functionAddress);
+			check(points, ustride * uorder * vstride * vorder);
 		}
 		callPV(__functionAddress, target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
 	}
@@ -10296,8 +10296,8 @@ public class GL11 {
 	public static void glMap2d(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, double[] points) {
 		long __functionAddress = GL.getCapabilities().glMap2d;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(points, ustride * uorder * vstride * vorder);
+			check(__functionAddress);
+			check(points, ustride * uorder * vstride * vorder);
 		}
 		callPV(__functionAddress, target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
 	}
@@ -10310,8 +10310,8 @@ public class GL11 {
 	public static void glMaterialiv(int face, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glMaterialiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 4);
+			check(__functionAddress);
+			check(params, 4);
 		}
 		callPV(__functionAddress, face, pname, params);
 	}
@@ -10324,8 +10324,8 @@ public class GL11 {
 	public static void glMaterialfv(int face, int pname, float[] params) {
 		long __functionAddress = GL.getCapabilities().glMaterialfv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 4);
+			check(__functionAddress);
+			check(params, 4);
 		}
 		callPV(__functionAddress, face, pname, params);
 	}
@@ -10338,8 +10338,8 @@ public class GL11 {
 	public static void glMultMatrixf(float[] m) {
 		long __functionAddress = GL.getCapabilities().glMultMatrixf;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(m, 16);
+			check(__functionAddress);
+			check(m, 16);
 		}
 		callPV(__functionAddress, m);
 	}
@@ -10352,8 +10352,8 @@ public class GL11 {
 	public static void glMultMatrixd(double[] m) {
 		long __functionAddress = GL.getCapabilities().glMultMatrixd;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(m, 16);
+			check(__functionAddress);
+			check(m, 16);
 		}
 		callPV(__functionAddress, m);
 	}
@@ -10366,8 +10366,8 @@ public class GL11 {
 	public static void glNormal3fv(float[] v) {
 		long __functionAddress = GL.getCapabilities().glNormal3fv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -10380,8 +10380,8 @@ public class GL11 {
 	public static void glNormal3sv(short[] v) {
 		long __functionAddress = GL.getCapabilities().glNormal3sv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -10394,8 +10394,8 @@ public class GL11 {
 	public static void glNormal3iv(int[] v) {
 		long __functionAddress = GL.getCapabilities().glNormal3iv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -10408,8 +10408,8 @@ public class GL11 {
 	public static void glNormal3dv(double[] v) {
 		long __functionAddress = GL.getCapabilities().glNormal3dv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -10422,7 +10422,7 @@ public class GL11 {
 	public static void glNormalPointer(int type, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glNormalPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, type, stride, pointer);
 	}
 
@@ -10434,7 +10434,7 @@ public class GL11 {
 	public static void glNormalPointer(int type, int stride, int[] pointer) {
 		long __functionAddress = GL.getCapabilities().glNormalPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, type, stride, pointer);
 	}
 
@@ -10446,7 +10446,7 @@ public class GL11 {
 	public static void glNormalPointer(int type, int stride, float[] pointer) {
 		long __functionAddress = GL.getCapabilities().glNormalPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, type, stride, pointer);
 	}
 
@@ -10458,7 +10458,7 @@ public class GL11 {
 	public static void glPixelMapfv(int map, float[] values) {
 		long __functionAddress = GL.getCapabilities().glPixelMapfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, map, values.length, values);
 	}
 
@@ -10470,7 +10470,7 @@ public class GL11 {
 	public static void glPixelMapusv(int map, short[] values) {
 		long __functionAddress = GL.getCapabilities().glPixelMapusv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, map, values.length, values);
 	}
 
@@ -10482,7 +10482,7 @@ public class GL11 {
 	public static void glPixelMapuiv(int map, int[] values) {
 		long __functionAddress = GL.getCapabilities().glPixelMapuiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, map, values.length, values);
 	}
 
@@ -10494,8 +10494,8 @@ public class GL11 {
 	public static void glPrioritizeTextures(int[] textures, float[] priorities) {
 		long __functionAddress = GL.getCapabilities().glPrioritizeTextures;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(priorities, textures.length);
+			check(__functionAddress);
+			check(priorities, textures.length);
 		}
 		callPPV(__functionAddress, textures.length, textures, priorities);
 	}
@@ -10508,8 +10508,8 @@ public class GL11 {
 	public static void glRasterPos2iv(int[] coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos2iv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 2);
+			check(__functionAddress);
+			check(coords, 2);
 		}
 		callPV(__functionAddress, coords);
 	}
@@ -10522,8 +10522,8 @@ public class GL11 {
 	public static void glRasterPos2sv(short[] coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos2sv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 2);
+			check(__functionAddress);
+			check(coords, 2);
 		}
 		callPV(__functionAddress, coords);
 	}
@@ -10536,8 +10536,8 @@ public class GL11 {
 	public static void glRasterPos2fv(float[] coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos2fv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 2);
+			check(__functionAddress);
+			check(coords, 2);
 		}
 		callPV(__functionAddress, coords);
 	}
@@ -10550,8 +10550,8 @@ public class GL11 {
 	public static void glRasterPos2dv(double[] coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos2dv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 2);
+			check(__functionAddress);
+			check(coords, 2);
 		}
 		callPV(__functionAddress, coords);
 	}
@@ -10564,8 +10564,8 @@ public class GL11 {
 	public static void glRasterPos3iv(int[] coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos3iv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 3);
+			check(__functionAddress);
+			check(coords, 3);
 		}
 		callPV(__functionAddress, coords);
 	}
@@ -10578,8 +10578,8 @@ public class GL11 {
 	public static void glRasterPos3sv(short[] coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos3sv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 3);
+			check(__functionAddress);
+			check(coords, 3);
 		}
 		callPV(__functionAddress, coords);
 	}
@@ -10592,8 +10592,8 @@ public class GL11 {
 	public static void glRasterPos3fv(float[] coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos3fv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 3);
+			check(__functionAddress);
+			check(coords, 3);
 		}
 		callPV(__functionAddress, coords);
 	}
@@ -10606,8 +10606,8 @@ public class GL11 {
 	public static void glRasterPos3dv(double[] coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos3dv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 3);
+			check(__functionAddress);
+			check(coords, 3);
 		}
 		callPV(__functionAddress, coords);
 	}
@@ -10620,8 +10620,8 @@ public class GL11 {
 	public static void glRasterPos4iv(int[] coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos4iv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 4);
+			check(__functionAddress);
+			check(coords, 4);
 		}
 		callPV(__functionAddress, coords);
 	}
@@ -10634,8 +10634,8 @@ public class GL11 {
 	public static void glRasterPos4sv(short[] coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos4sv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 4);
+			check(__functionAddress);
+			check(coords, 4);
 		}
 		callPV(__functionAddress, coords);
 	}
@@ -10648,8 +10648,8 @@ public class GL11 {
 	public static void glRasterPos4fv(float[] coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos4fv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 4);
+			check(__functionAddress);
+			check(coords, 4);
 		}
 		callPV(__functionAddress, coords);
 	}
@@ -10662,8 +10662,8 @@ public class GL11 {
 	public static void glRasterPos4dv(double[] coords) {
 		long __functionAddress = GL.getCapabilities().glRasterPos4dv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 4);
+			check(__functionAddress);
+			check(coords, 4);
 		}
 		callPV(__functionAddress, coords);
 	}
@@ -10706,9 +10706,9 @@ public class GL11 {
 	public static void glRectiv(int[] v1, int[] v2) {
 		long __functionAddress = GL.getCapabilities().glRectiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v1, 2);
-			checkBuffer(v2, 2);
+			check(__functionAddress);
+			check(v1, 2);
+			check(v2, 2);
 		}
 		callPPV(__functionAddress, v1, v2);
 	}
@@ -10721,9 +10721,9 @@ public class GL11 {
 	public static void glRectsv(short[] v1, short[] v2) {
 		long __functionAddress = GL.getCapabilities().glRectsv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v1, 2);
-			checkBuffer(v2, 2);
+			check(__functionAddress);
+			check(v1, 2);
+			check(v2, 2);
 		}
 		callPPV(__functionAddress, v1, v2);
 	}
@@ -10736,9 +10736,9 @@ public class GL11 {
 	public static void glRectfv(float[] v1, float[] v2) {
 		long __functionAddress = GL.getCapabilities().glRectfv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v1, 2);
-			checkBuffer(v2, 2);
+			check(__functionAddress);
+			check(v1, 2);
+			check(v2, 2);
 		}
 		callPPV(__functionAddress, v1, v2);
 	}
@@ -10751,9 +10751,9 @@ public class GL11 {
 	public static void glRectdv(double[] v1, double[] v2) {
 		long __functionAddress = GL.getCapabilities().glRectdv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v1, 2);
-			checkBuffer(v2, 2);
+			check(__functionAddress);
+			check(v1, 2);
+			check(v2, 2);
 		}
 		callPPV(__functionAddress, v1, v2);
 	}
@@ -10766,7 +10766,7 @@ public class GL11 {
 	public static void glSelectBuffer(int[] buffer) {
 		long __functionAddress = GL.getCapabilities().glSelectBuffer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, buffer.length, buffer);
 	}
 
@@ -10778,8 +10778,8 @@ public class GL11 {
 	public static void glTexCoord1fv(float[] v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord1fv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 1);
+			check(__functionAddress);
+			check(v, 1);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -10792,8 +10792,8 @@ public class GL11 {
 	public static void glTexCoord1sv(short[] v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord1sv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 1);
+			check(__functionAddress);
+			check(v, 1);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -10806,8 +10806,8 @@ public class GL11 {
 	public static void glTexCoord1iv(int[] v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord1iv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 1);
+			check(__functionAddress);
+			check(v, 1);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -10820,8 +10820,8 @@ public class GL11 {
 	public static void glTexCoord1dv(double[] v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord1dv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 1);
+			check(__functionAddress);
+			check(v, 1);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -10834,8 +10834,8 @@ public class GL11 {
 	public static void glTexCoord2fv(float[] v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord2fv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 2);
+			check(__functionAddress);
+			check(v, 2);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -10848,8 +10848,8 @@ public class GL11 {
 	public static void glTexCoord2sv(short[] v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord2sv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 2);
+			check(__functionAddress);
+			check(v, 2);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -10862,8 +10862,8 @@ public class GL11 {
 	public static void glTexCoord2iv(int[] v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord2iv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 2);
+			check(__functionAddress);
+			check(v, 2);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -10876,8 +10876,8 @@ public class GL11 {
 	public static void glTexCoord2dv(double[] v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord2dv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 2);
+			check(__functionAddress);
+			check(v, 2);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -10890,8 +10890,8 @@ public class GL11 {
 	public static void glTexCoord3fv(float[] v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord3fv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -10904,8 +10904,8 @@ public class GL11 {
 	public static void glTexCoord3sv(short[] v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord3sv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -10918,8 +10918,8 @@ public class GL11 {
 	public static void glTexCoord3iv(int[] v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord3iv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -10932,8 +10932,8 @@ public class GL11 {
 	public static void glTexCoord3dv(double[] v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord3dv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -10946,8 +10946,8 @@ public class GL11 {
 	public static void glTexCoord4fv(float[] v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord4fv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -10960,8 +10960,8 @@ public class GL11 {
 	public static void glTexCoord4sv(short[] v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord4sv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -10974,8 +10974,8 @@ public class GL11 {
 	public static void glTexCoord4iv(int[] v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord4iv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -10988,8 +10988,8 @@ public class GL11 {
 	public static void glTexCoord4dv(double[] v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord4dv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -11002,7 +11002,7 @@ public class GL11 {
 	public static void glTexCoordPointer(int size, int type, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glTexCoordPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -11014,7 +11014,7 @@ public class GL11 {
 	public static void glTexCoordPointer(int size, int type, int stride, int[] pointer) {
 		long __functionAddress = GL.getCapabilities().glTexCoordPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -11026,7 +11026,7 @@ public class GL11 {
 	public static void glTexCoordPointer(int size, int type, int stride, float[] pointer) {
 		long __functionAddress = GL.getCapabilities().glTexCoordPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -11038,7 +11038,7 @@ public class GL11 {
 	public static void glTexEnviv(int target, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glTexEnviv;
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		callPV(__functionAddress, target, pname, params);
 	}
 
@@ -11050,7 +11050,7 @@ public class GL11 {
 	public static void glTexEnvfv(int target, int pname, float[] params) {
 		long __functionAddress = GL.getCapabilities().glTexEnvfv;
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		callPV(__functionAddress, target, pname, params);
 	}
 
@@ -11062,8 +11062,8 @@ public class GL11 {
 	public static void glTexGeniv(int coord, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glTexGeniv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 4);
+			check(__functionAddress);
+			check(params, 4);
 		}
 		callPV(__functionAddress, coord, pname, params);
 	}
@@ -11076,8 +11076,8 @@ public class GL11 {
 	public static void glTexGenfv(int coord, int pname, float[] params) {
 		long __functionAddress = GL.getCapabilities().glTexGenfv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 4);
+			check(__functionAddress);
+			check(params, 4);
 		}
 		callPV(__functionAddress, coord, pname, params);
 	}
@@ -11090,8 +11090,8 @@ public class GL11 {
 	public static void glTexGendv(int coord, int pname, double[] params) {
 		long __functionAddress = GL.getCapabilities().glTexGendv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 4);
+			check(__functionAddress);
+			check(params, 4);
 		}
 		callPV(__functionAddress, coord, pname, params);
 	}
@@ -11184,7 +11184,7 @@ public class GL11 {
 	public static void glTexParameteriv(int target, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glTexParameteriv;
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		callPV(__functionAddress, target, pname, params);
 	}
 
@@ -11196,7 +11196,7 @@ public class GL11 {
 	public static void glTexParameterfv(int target, int pname, float[] params) {
 		long __functionAddress = GL.getCapabilities().glTexParameterfv;
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		callPV(__functionAddress, target, pname, params);
 	}
 
@@ -11288,8 +11288,8 @@ public class GL11 {
 	public static void glVertex2fv(float[] coords) {
 		long __functionAddress = GL.getCapabilities().glVertex2fv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 2);
+			check(__functionAddress);
+			check(coords, 2);
 		}
 		callPV(__functionAddress, coords);
 	}
@@ -11302,8 +11302,8 @@ public class GL11 {
 	public static void glVertex2sv(short[] coords) {
 		long __functionAddress = GL.getCapabilities().glVertex2sv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 2);
+			check(__functionAddress);
+			check(coords, 2);
 		}
 		callPV(__functionAddress, coords);
 	}
@@ -11316,8 +11316,8 @@ public class GL11 {
 	public static void glVertex2iv(int[] coords) {
 		long __functionAddress = GL.getCapabilities().glVertex2iv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 2);
+			check(__functionAddress);
+			check(coords, 2);
 		}
 		callPV(__functionAddress, coords);
 	}
@@ -11330,8 +11330,8 @@ public class GL11 {
 	public static void glVertex2dv(double[] coords) {
 		long __functionAddress = GL.getCapabilities().glVertex2dv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 2);
+			check(__functionAddress);
+			check(coords, 2);
 		}
 		callPV(__functionAddress, coords);
 	}
@@ -11344,8 +11344,8 @@ public class GL11 {
 	public static void glVertex3fv(float[] coords) {
 		long __functionAddress = GL.getCapabilities().glVertex3fv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 3);
+			check(__functionAddress);
+			check(coords, 3);
 		}
 		callPV(__functionAddress, coords);
 	}
@@ -11358,8 +11358,8 @@ public class GL11 {
 	public static void glVertex3sv(short[] coords) {
 		long __functionAddress = GL.getCapabilities().glVertex3sv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 3);
+			check(__functionAddress);
+			check(coords, 3);
 		}
 		callPV(__functionAddress, coords);
 	}
@@ -11372,8 +11372,8 @@ public class GL11 {
 	public static void glVertex3iv(int[] coords) {
 		long __functionAddress = GL.getCapabilities().glVertex3iv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 3);
+			check(__functionAddress);
+			check(coords, 3);
 		}
 		callPV(__functionAddress, coords);
 	}
@@ -11386,8 +11386,8 @@ public class GL11 {
 	public static void glVertex3dv(double[] coords) {
 		long __functionAddress = GL.getCapabilities().glVertex3dv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 3);
+			check(__functionAddress);
+			check(coords, 3);
 		}
 		callPV(__functionAddress, coords);
 	}
@@ -11400,8 +11400,8 @@ public class GL11 {
 	public static void glVertex4fv(float[] coords) {
 		long __functionAddress = GL.getCapabilities().glVertex4fv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 4);
+			check(__functionAddress);
+			check(coords, 4);
 		}
 		callPV(__functionAddress, coords);
 	}
@@ -11414,8 +11414,8 @@ public class GL11 {
 	public static void glVertex4sv(short[] coords) {
 		long __functionAddress = GL.getCapabilities().glVertex4sv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 4);
+			check(__functionAddress);
+			check(coords, 4);
 		}
 		callPV(__functionAddress, coords);
 	}
@@ -11428,8 +11428,8 @@ public class GL11 {
 	public static void glVertex4iv(int[] coords) {
 		long __functionAddress = GL.getCapabilities().glVertex4iv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 4);
+			check(__functionAddress);
+			check(coords, 4);
 		}
 		callPV(__functionAddress, coords);
 	}
@@ -11442,8 +11442,8 @@ public class GL11 {
 	public static void glVertex4dv(double[] coords) {
 		long __functionAddress = GL.getCapabilities().glVertex4dv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 4);
+			check(__functionAddress);
+			check(coords, 4);
 		}
 		callPV(__functionAddress, coords);
 	}
@@ -11456,7 +11456,7 @@ public class GL11 {
 	public static void glVertexPointer(int size, int type, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -11468,7 +11468,7 @@ public class GL11 {
 	public static void glVertexPointer(int size, int type, int stride, int[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -11480,7 +11480,7 @@ public class GL11 {
 	public static void glVertexPointer(int size, int type, int stride, float[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 

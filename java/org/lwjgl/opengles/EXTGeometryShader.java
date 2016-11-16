@@ -121,7 +121,7 @@ public class EXTGeometryShader {
 	public static void glFramebufferTextureEXT(int target, int attachment, int texture, int level) {
 		long __functionAddress = GLES.getCapabilities().glFramebufferTextureEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, attachment, texture, level);
 	}
 

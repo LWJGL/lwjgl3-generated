@@ -28,7 +28,7 @@ public class WGLNVVertexArrayRange {
 	public static long nwglAllocateMemoryNV(int size, float readfreq, float writefreq, float priority) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglAllocateMemoryNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callP(__functionAddress, size, readfreq, writefreq, priority);
 	}
 
@@ -42,7 +42,7 @@ public class WGLNVVertexArrayRange {
 	public static void nwglFreeMemoryNV(long pointer) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglFreeMemoryNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, pointer);
 	}
 

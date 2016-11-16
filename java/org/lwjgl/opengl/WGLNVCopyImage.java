@@ -55,9 +55,9 @@ public class WGLNVCopyImage {
 	public static boolean wglCopyImageSubDataNV(long srcRC, int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, long dstRC, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglCopyImageSubDataNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(srcRC);
-			checkPointer(dstRC);
+			check(__functionAddress);
+			check(srcRC);
+			check(dstRC);
 		}
 		return callPPI(__functionAddress, srcRC, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstRC, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth) != 0;
 	}

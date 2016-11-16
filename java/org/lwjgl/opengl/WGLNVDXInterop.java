@@ -49,9 +49,9 @@ public class WGLNVDXInterop {
 	public static boolean wglDXSetResourceShareHandleNV(long dxObject, long shareHandle) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglDXSetResourceShareHandleNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dxObject);
-			checkPointer(shareHandle);
+			check(__functionAddress);
+			check(dxObject);
+			check(shareHandle);
 		}
 		return callPPI(__functionAddress, dxObject, shareHandle) != 0;
 	}
@@ -66,8 +66,8 @@ public class WGLNVDXInterop {
 	public static long wglDXOpenDeviceNV(long dxDevice) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglDXOpenDeviceNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dxDevice);
+			check(__functionAddress);
+			check(dxDevice);
 		}
 		return callPP(__functionAddress, dxDevice);
 	}
@@ -77,8 +77,8 @@ public class WGLNVDXInterop {
 	public static boolean wglDXCloseDeviceNV(long device) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglDXCloseDeviceNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
+			check(__functionAddress);
+			check(device);
 		}
 		return callPI(__functionAddress, device) != 0;
 	}
@@ -97,9 +97,9 @@ public class WGLNVDXInterop {
 	public static long wglDXRegisterObjectNV(long device, long dxResource, int name, int type, int access) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglDXRegisterObjectNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
-			checkPointer(dxResource);
+			check(__functionAddress);
+			check(device);
+			check(dxResource);
 		}
 		return callPPP(__functionAddress, device, dxResource, name, type, access);
 	}
@@ -109,9 +109,9 @@ public class WGLNVDXInterop {
 	public static boolean wglDXUnregisterObjectNV(long device, long object) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglDXUnregisterObjectNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
-			checkPointer(object);
+			check(__functionAddress);
+			check(device);
+			check(object);
 		}
 		return callPPI(__functionAddress, device, object) != 0;
 	}
@@ -127,8 +127,8 @@ public class WGLNVDXInterop {
 	public static boolean wglDXObjectAccessNV(long object, int access) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglDXObjectAccessNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(object);
+			check(__functionAddress);
+			check(object);
 		}
 		return callPI(__functionAddress, object, access) != 0;
 	}
@@ -143,8 +143,8 @@ public class WGLNVDXInterop {
 	public static int nwglDXLockObjectsNV(long device, int count, long objects) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglDXLockObjectsNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
+			check(__functionAddress);
+			check(device);
 		}
 		return callPPI(__functionAddress, device, count, objects);
 	}
@@ -176,8 +176,8 @@ public class WGLNVDXInterop {
 	public static int nwglDXUnlockObjectsNV(long device, int count, long objects) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglDXUnlockObjectsNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
+			check(__functionAddress);
+			check(device);
 		}
 		return callPPI(__functionAddress, device, count, objects);
 	}

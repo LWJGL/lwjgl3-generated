@@ -82,7 +82,7 @@ public class OESDrawElementsBaseVertex {
 	public static void nglDrawElementsBaseVertexOES(int mode, int count, int type, long indices, int basevertex) {
 		long __functionAddress = GLES.getCapabilities().glDrawElementsBaseVertexOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, mode, count, type, indices, basevertex);
 	}
 
@@ -111,7 +111,7 @@ public class OESDrawElementsBaseVertex {
 	public static void nglDrawRangeElementsBaseVertexOES(int mode, int start, int end, int count, int type, long indices, int basevertex) {
 		long __functionAddress = GLES.getCapabilities().glDrawRangeElementsBaseVertexOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, mode, start, end, count, type, indices, basevertex);
 	}
 
@@ -140,7 +140,7 @@ public class OESDrawElementsBaseVertex {
 	public static void nglDrawElementsInstancedBaseVertexOES(int mode, int count, int type, long indices, int instancecount, int basevertex) {
 		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedBaseVertexOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, mode, count, type, indices, instancecount, basevertex);
 	}
 
@@ -169,14 +169,14 @@ public class OESDrawElementsBaseVertex {
 	public static void nglMultiDrawElementsBaseVertexOES(int mode, long count, int type, long indices, int primcount, long basevertex) {
 		long __functionAddress = GLES.getCapabilities().glMultiDrawElementsBaseVertexOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPPV(__functionAddress, mode, count, type, indices, primcount, basevertex);
 	}
 
 	public static void glMultiDrawElementsBaseVertexOES(int mode, IntBuffer count, int type, PointerBuffer indices, IntBuffer basevertex) {
 		if ( CHECKS ) {
-			checkBuffer(indices, count.remaining());
-			checkBuffer(basevertex, count.remaining());
+			check(indices, count.remaining());
+			check(basevertex, count.remaining());
 		}
 		nglMultiDrawElementsBaseVertexOES(mode, memAddress(count), type, memAddress(indices), count.remaining(), memAddress(basevertex));
 	}
@@ -185,9 +185,9 @@ public class OESDrawElementsBaseVertex {
 	public static void glMultiDrawElementsBaseVertexOES(int mode, int[] count, int type, PointerBuffer indices, int[] basevertex) {
 		long __functionAddress = GLES.getCapabilities().glMultiDrawElementsBaseVertexOES;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(indices, count.length);
-			checkBuffer(basevertex, count.length);
+			check(__functionAddress);
+			check(indices, count.length);
+			check(basevertex, count.length);
 		}
 		callPPPV(__functionAddress, mode, count, type, memAddress(indices), count.length, basevertex);
 	}

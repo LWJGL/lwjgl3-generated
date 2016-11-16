@@ -270,8 +270,8 @@ public class ObjCPropertyAttribute extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + ObjCPropertyAttribute.NAME));
-		checkPointer(memGetAddress(struct + ObjCPropertyAttribute.VALUE));
+		check(memGetAddress(struct + ObjCPropertyAttribute.NAME));
+		check(memGetAddress(struct + ObjCPropertyAttribute.VALUE));
 	}
 
 	/**

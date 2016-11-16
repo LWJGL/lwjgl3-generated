@@ -28,7 +28,7 @@ public class WGLEXTExtensionsString {
 	public static long nwglGetExtensionsStringEXT() {
 		long __functionAddress = GL.getCapabilitiesWGL().wglGetExtensionsStringEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callP(__functionAddress);
 	}
 

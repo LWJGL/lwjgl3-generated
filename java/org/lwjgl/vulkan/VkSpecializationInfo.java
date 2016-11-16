@@ -301,9 +301,9 @@ public class VkSpecializationInfo extends Struct implements NativeResource {
 	 */
 	public static void validate(long struct) {
 		if ( nmapEntryCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkSpecializationInfo.PMAPENTRIES));
+			check(memGetAddress(struct + VkSpecializationInfo.PMAPENTRIES));
 		if ( ndataSize(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkSpecializationInfo.PDATA));
+			check(memGetAddress(struct + VkSpecializationInfo.PDATA));
 	}
 
 	/**

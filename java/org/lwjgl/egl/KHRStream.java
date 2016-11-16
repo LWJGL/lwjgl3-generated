@@ -80,8 +80,8 @@ public class KHRStream {
 	public static long neglCreateStreamKHR(long dpy, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateStreamKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
+			check(__functionAddress);
+			check(dpy);
 		}
 		return callPPP(__functionAddress, dpy, attrib_list);
 	}
@@ -97,9 +97,9 @@ public class KHRStream {
 	public static boolean eglDestroyStreamKHR(long dpy, long stream) {
 		long __functionAddress = EGL.getCapabilities().eglDestroyStreamKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(stream);
+			check(__functionAddress);
+			check(dpy);
+			check(stream);
 		}
 		return callPPI(__functionAddress, dpy, stream) != 0;
 	}
@@ -109,9 +109,9 @@ public class KHRStream {
 	public static boolean eglStreamAttribKHR(long dpy, long stream, int attribute, int value) {
 		long __functionAddress = EGL.getCapabilities().eglStreamAttribKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(stream);
+			check(__functionAddress);
+			check(dpy);
+			check(stream);
 		}
 		return callPPI(__functionAddress, dpy, stream, attribute, value) != 0;
 	}
@@ -121,16 +121,16 @@ public class KHRStream {
 	public static int neglQueryStreamKHR(long dpy, long stream, int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglQueryStreamKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(stream);
+			check(__functionAddress);
+			check(dpy);
+			check(stream);
 		}
 		return callPPPI(__functionAddress, dpy, stream, attribute, value);
 	}
 
 	public static boolean eglQueryStreamKHR(long dpy, long stream, int attribute, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		return neglQueryStreamKHR(dpy, stream, attribute, memAddress(value)) != 0;
 	}
 
@@ -139,16 +139,16 @@ public class KHRStream {
 	public static int neglQueryStreamu64KHR(long dpy, long stream, int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglQueryStreamu64KHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(stream);
+			check(__functionAddress);
+			check(dpy);
+			check(stream);
 		}
 		return callPPPI(__functionAddress, dpy, stream, attribute, value);
 	}
 
 	public static boolean eglQueryStreamu64KHR(long dpy, long stream, int attribute, LongBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		return neglQueryStreamu64KHR(dpy, stream, attribute, memAddress(value)) != 0;
 	}
 
@@ -156,8 +156,8 @@ public class KHRStream {
 	public static long eglCreateStreamKHR(long dpy, int[] attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateStreamKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
+			check(__functionAddress);
+			check(dpy);
 			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		}
 		return callPPP(__functionAddress, dpy, attrib_list);
@@ -167,10 +167,10 @@ public class KHRStream {
 	public static boolean eglQueryStreamKHR(long dpy, long stream, int attribute, int[] value) {
 		long __functionAddress = EGL.getCapabilities().eglQueryStreamKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(stream);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(dpy);
+			check(stream);
+			check(value, 1);
 		}
 		return callPPPI(__functionAddress, dpy, stream, attribute, value) != 0;
 	}
@@ -179,10 +179,10 @@ public class KHRStream {
 	public static boolean eglQueryStreamu64KHR(long dpy, long stream, int attribute, long[] value) {
 		long __functionAddress = EGL.getCapabilities().eglQueryStreamu64KHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(stream);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(dpy);
+			check(stream);
+			check(value, 1);
 		}
 		return callPPPI(__functionAddress, dpy, stream, attribute, value) != 0;
 	}

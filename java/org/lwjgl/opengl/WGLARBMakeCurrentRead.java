@@ -65,10 +65,10 @@ public class WGLARBMakeCurrentRead {
 	public static boolean wglMakeContextCurrentARB(long drawDC, long readDC, long hglrc) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglMakeContextCurrentARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(drawDC);
-			checkPointer(readDC);
-			checkPointer(hglrc);
+			check(__functionAddress);
+			check(drawDC);
+			check(readDC);
+			check(hglrc);
 		}
 		return callPPPI(__functionAddress, drawDC, readDC, hglrc) != 0;
 	}
@@ -79,7 +79,7 @@ public class WGLARBMakeCurrentRead {
 	public static long wglGetCurrentReadDCARB() {
 		long __functionAddress = GL.getCapabilitiesWGL().wglGetCurrentReadDCARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callP(__functionAddress);
 	}
 

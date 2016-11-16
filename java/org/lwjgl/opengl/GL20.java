@@ -208,7 +208,7 @@ public class GL20 {
 	public static int glCreateProgram() {
 		long __functionAddress = GL.getCapabilities().glCreateProgram;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callI(__functionAddress);
 	}
 
@@ -224,7 +224,7 @@ public class GL20 {
 	public static void glDeleteProgram(int program) {
 		long __functionAddress = GL.getCapabilities().glDeleteProgram;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, program);
 	}
 
@@ -241,7 +241,7 @@ public class GL20 {
 	public static boolean glIsProgram(int program) {
 		long __functionAddress = GL.getCapabilities().glIsProgram;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callZ(__functionAddress, program);
 	}
 
@@ -257,7 +257,7 @@ public class GL20 {
 	public static int glCreateShader(int type) {
 		long __functionAddress = GL.getCapabilities().glCreateShader;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callI(__functionAddress, type);
 	}
 
@@ -273,7 +273,7 @@ public class GL20 {
 	public static void glDeleteShader(int shader) {
 		long __functionAddress = GL.getCapabilities().glDeleteShader;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, shader);
 	}
 
@@ -290,7 +290,7 @@ public class GL20 {
 	public static boolean glIsShader(int shader) {
 		long __functionAddress = GL.getCapabilities().glIsShader;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callZ(__functionAddress, shader);
 	}
 
@@ -318,7 +318,7 @@ public class GL20 {
 	public static void glAttachShader(int program, int shader) {
 		long __functionAddress = GL.getCapabilities().glAttachShader;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, program, shader);
 	}
 
@@ -335,7 +335,7 @@ public class GL20 {
 	public static void glDetachShader(int program, int shader) {
 		long __functionAddress = GL.getCapabilities().glDetachShader;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, program, shader);
 	}
 
@@ -349,7 +349,7 @@ public class GL20 {
 	public static void nglShaderSource(int shader, int count, long strings, long length) {
 		long __functionAddress = GL.getCapabilities().glShaderSource;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, shader, count, strings, length);
 	}
 
@@ -369,7 +369,7 @@ public class GL20 {
 	 */
 	public static void glShaderSource(int shader, PointerBuffer strings, IntBuffer length) {
 		if ( CHECKS )
-			checkBufferSafe(length, strings.remaining());
+			checkSafe(length, strings.remaining());
 		nglShaderSource(shader, strings.remaining(), memAddress(strings), memAddressSafe(length));
 	}
 
@@ -432,7 +432,7 @@ public class GL20 {
 	public static void glCompileShader(int shader) {
 		long __functionAddress = GL.getCapabilities().glCompileShader;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, shader);
 	}
 
@@ -448,7 +448,7 @@ public class GL20 {
 	public static void glLinkProgram(int program) {
 		long __functionAddress = GL.getCapabilities().glLinkProgram;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, program);
 	}
 
@@ -464,7 +464,7 @@ public class GL20 {
 	public static void glUseProgram(int program) {
 		long __functionAddress = GL.getCapabilities().glUseProgram;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, program);
 	}
 
@@ -480,7 +480,7 @@ public class GL20 {
 	public static void glValidateProgram(int program) {
 		long __functionAddress = GL.getCapabilities().glValidateProgram;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, program);
 	}
 
@@ -497,7 +497,7 @@ public class GL20 {
 	public static void glUniform1f(int location, float v0) {
 		long __functionAddress = GL.getCapabilities().glUniform1f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, location, v0);
 	}
 
@@ -515,7 +515,7 @@ public class GL20 {
 	public static void glUniform2f(int location, float v0, float v1) {
 		long __functionAddress = GL.getCapabilities().glUniform2f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, location, v0, v1);
 	}
 
@@ -534,7 +534,7 @@ public class GL20 {
 	public static void glUniform3f(int location, float v0, float v1, float v2) {
 		long __functionAddress = GL.getCapabilities().glUniform3f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, location, v0, v1, v2);
 	}
 
@@ -554,7 +554,7 @@ public class GL20 {
 	public static void glUniform4f(int location, float v0, float v1, float v2, float v3) {
 		long __functionAddress = GL.getCapabilities().glUniform4f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, location, v0, v1, v2, v3);
 	}
 
@@ -571,7 +571,7 @@ public class GL20 {
 	public static void glUniform1i(int location, int v0) {
 		long __functionAddress = GL.getCapabilities().glUniform1i;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, location, v0);
 	}
 
@@ -589,7 +589,7 @@ public class GL20 {
 	public static void glUniform2i(int location, int v0, int v1) {
 		long __functionAddress = GL.getCapabilities().glUniform2i;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, location, v0, v1);
 	}
 
@@ -608,7 +608,7 @@ public class GL20 {
 	public static void glUniform3i(int location, int v0, int v1, int v2) {
 		long __functionAddress = GL.getCapabilities().glUniform3i;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, location, v0, v1, v2);
 	}
 
@@ -628,7 +628,7 @@ public class GL20 {
 	public static void glUniform4i(int location, int v0, int v1, int v2, int v3) {
 		long __functionAddress = GL.getCapabilities().glUniform4i;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, location, v0, v1, v2, v3);
 	}
 
@@ -642,7 +642,7 @@ public class GL20 {
 	public static void nglUniform1fv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform1fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, value);
 	}
 
@@ -668,7 +668,7 @@ public class GL20 {
 	public static void nglUniform2fv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform2fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, value);
 	}
 
@@ -694,7 +694,7 @@ public class GL20 {
 	public static void nglUniform3fv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform3fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, value);
 	}
 
@@ -720,7 +720,7 @@ public class GL20 {
 	public static void nglUniform4fv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform4fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, value);
 	}
 
@@ -746,7 +746,7 @@ public class GL20 {
 	public static void nglUniform1iv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform1iv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, value);
 	}
 
@@ -772,7 +772,7 @@ public class GL20 {
 	public static void nglUniform2iv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform2iv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, value);
 	}
 
@@ -798,7 +798,7 @@ public class GL20 {
 	public static void nglUniform3iv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform3iv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, value);
 	}
 
@@ -824,7 +824,7 @@ public class GL20 {
 	public static void nglUniform4iv(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform4iv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, value);
 	}
 
@@ -850,7 +850,7 @@ public class GL20 {
 	public static void nglUniformMatrix2fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix2fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -877,7 +877,7 @@ public class GL20 {
 	public static void nglUniformMatrix3fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix3fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -904,7 +904,7 @@ public class GL20 {
 	public static void nglUniformMatrix4fv(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix4fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -927,7 +927,7 @@ public class GL20 {
 	public static void nglGetShaderiv(int shader, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetShaderiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, shader, pname, params);
 	}
 
@@ -942,7 +942,7 @@ public class GL20 {
 	 */
 	public static void glGetShaderiv(int shader, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetShaderiv(shader, pname, memAddress(params));
 	}
 
@@ -971,7 +971,7 @@ public class GL20 {
 	public static void nglGetProgramiv(int program, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetProgramiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, pname, params);
 	}
 
@@ -986,7 +986,7 @@ public class GL20 {
 	 */
 	public static void glGetProgramiv(int program, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetProgramiv(program, pname, memAddress(params));
 	}
 
@@ -1019,7 +1019,7 @@ public class GL20 {
 	public static void nglGetShaderInfoLog(int shader, int maxLength, long length, long infoLog) {
 		long __functionAddress = GL.getCapabilities().glGetShaderInfoLog;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, shader, maxLength, length, infoLog);
 	}
 
@@ -1034,7 +1034,7 @@ public class GL20 {
 	 */
 	public static void glGetShaderInfoLog(int shader, IntBuffer length, ByteBuffer infoLog) {
 		if ( CHECKS )
-			checkBufferSafe(length, 1);
+			checkSafe(length, 1);
 		nglGetShaderInfoLog(shader, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog));
 	}
 
@@ -1090,7 +1090,7 @@ public class GL20 {
 	public static void nglGetProgramInfoLog(int program, int maxLength, long length, long infoLog) {
 		long __functionAddress = GL.getCapabilities().glGetProgramInfoLog;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, program, maxLength, length, infoLog);
 	}
 
@@ -1105,7 +1105,7 @@ public class GL20 {
 	 */
 	public static void glGetProgramInfoLog(int program, IntBuffer length, ByteBuffer infoLog) {
 		if ( CHECKS )
-			checkBufferSafe(length, 1);
+			checkSafe(length, 1);
 		nglGetProgramInfoLog(program, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog));
 	}
 
@@ -1161,7 +1161,7 @@ public class GL20 {
 	public static void nglGetAttachedShaders(int program, int maxCount, long count, long shaders) {
 		long __functionAddress = GL.getCapabilities().glGetAttachedShaders;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, program, maxCount, count, shaders);
 	}
 
@@ -1176,7 +1176,7 @@ public class GL20 {
 	 */
 	public static void glGetAttachedShaders(int program, IntBuffer count, IntBuffer shaders) {
 		if ( CHECKS )
-			checkBufferSafe(count, 1);
+			checkSafe(count, 1);
 		nglGetAttachedShaders(program, shaders.remaining(), memAddressSafe(count), memAddress(shaders));
 	}
 
@@ -1186,7 +1186,7 @@ public class GL20 {
 	public static int nglGetUniformLocation(int program, long name) {
 		long __functionAddress = GL.getCapabilities().glGetUniformLocation;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPI(__functionAddress, program, name);
 	}
 
@@ -1232,7 +1232,7 @@ public class GL20 {
 	public static void nglGetActiveUniform(int program, int index, int maxLength, long length, long size, long type, long name) {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniform;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPPPV(__functionAddress, program, index, maxLength, length, size, type, name);
 	}
 
@@ -1250,9 +1250,9 @@ public class GL20 {
 	 */
 	public static void glGetActiveUniform(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
 		if ( CHECKS ) {
-			checkBufferSafe(length, 1);
-			checkBuffer(size, 1);
-			checkBuffer(type, 1);
+			checkSafe(length, 1);
+			check(size, 1);
+			check(type, 1);
 		}
 		nglGetActiveUniform(program, index, name.remaining(), memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name));
 	}
@@ -1270,8 +1270,8 @@ public class GL20 {
 	 */
 	public static String glGetActiveUniform(int program, int index, int maxLength, IntBuffer size, IntBuffer type) {
 		if ( CHECKS ) {
-			checkBuffer(size, 1);
-			checkBuffer(type, 1);
+			check(size, 1);
+			check(type, 1);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1297,8 +1297,8 @@ public class GL20 {
 	public static String glGetActiveUniform(int program, int index, IntBuffer size, IntBuffer type) {
 		int maxLength = glGetProgrami(program, GL_ACTIVE_UNIFORM_MAX_LENGTH);
 		if ( CHECKS ) {
-			checkBuffer(size, 1);
-			checkBuffer(type, 1);
+			check(size, 1);
+			check(type, 1);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1317,7 +1317,7 @@ public class GL20 {
 	public static void nglGetUniformfv(int program, int location, long params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, params);
 	}
 
@@ -1332,7 +1332,7 @@ public class GL20 {
 	 */
 	public static void glGetUniformfv(int program, int location, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetUniformfv(program, location, memAddress(params));
 	}
 
@@ -1361,7 +1361,7 @@ public class GL20 {
 	public static void nglGetUniformiv(int program, int location, long params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, params);
 	}
 
@@ -1376,7 +1376,7 @@ public class GL20 {
 	 */
 	public static void glGetUniformiv(int program, int location, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetUniformiv(program, location, memAddress(params));
 	}
 
@@ -1409,7 +1409,7 @@ public class GL20 {
 	public static void nglGetShaderSource(int shader, int maxLength, long length, long source) {
 		long __functionAddress = GL.getCapabilities().glGetShaderSource;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, shader, maxLength, length, source);
 	}
 
@@ -1424,7 +1424,7 @@ public class GL20 {
 	 */
 	public static void glGetShaderSource(int shader, IntBuffer length, ByteBuffer source) {
 		if ( CHECKS )
-			checkBufferSafe(length, 1);
+			checkSafe(length, 1);
 		nglGetShaderSource(shader, source.remaining(), memAddressSafe(length), memAddress(source));
 	}
 
@@ -1483,7 +1483,7 @@ public class GL20 {
 	public static void glVertexAttrib1f(int index, float v0) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, v0);
 	}
 
@@ -1500,7 +1500,7 @@ public class GL20 {
 	public static void glVertexAttrib1s(int index, short v0) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1s;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, v0);
 	}
 
@@ -1517,7 +1517,7 @@ public class GL20 {
 	public static void glVertexAttrib1d(int index, double v0) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, v0);
 	}
 
@@ -1535,7 +1535,7 @@ public class GL20 {
 	public static void glVertexAttrib2f(int index, float v0, float v1) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, v0, v1);
 	}
 
@@ -1553,7 +1553,7 @@ public class GL20 {
 	public static void glVertexAttrib2s(int index, short v0, short v1) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2s;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, v0, v1);
 	}
 
@@ -1571,7 +1571,7 @@ public class GL20 {
 	public static void glVertexAttrib2d(int index, double v0, double v1) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, v0, v1);
 	}
 
@@ -1590,7 +1590,7 @@ public class GL20 {
 	public static void glVertexAttrib3f(int index, float v0, float v1, float v2) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, v0, v1, v2);
 	}
 
@@ -1609,7 +1609,7 @@ public class GL20 {
 	public static void glVertexAttrib3s(int index, short v0, short v1, short v2) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3s;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, v0, v1, v2);
 	}
 
@@ -1628,7 +1628,7 @@ public class GL20 {
 	public static void glVertexAttrib3d(int index, double v0, double v1, double v2) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, v0, v1, v2);
 	}
 
@@ -1648,7 +1648,7 @@ public class GL20 {
 	public static void glVertexAttrib4f(int index, float v0, float v1, float v2, float v3) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, v0, v1, v2, v3);
 	}
 
@@ -1668,7 +1668,7 @@ public class GL20 {
 	public static void glVertexAttrib4s(int index, short v0, short v1, short v2, short v3) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4s;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, v0, v1, v2, v3);
 	}
 
@@ -1688,7 +1688,7 @@ public class GL20 {
 	public static void glVertexAttrib4d(int index, double v0, double v1, double v2, double v3) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, v0, v1, v2, v3);
 	}
 
@@ -1708,7 +1708,7 @@ public class GL20 {
 	public static void glVertexAttrib4Nub(int index, byte x, byte y, byte z, byte w) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nub;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, x, y, z, w);
 	}
 
@@ -1718,7 +1718,7 @@ public class GL20 {
 	public static void nglVertexAttrib1fv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -1732,7 +1732,7 @@ public class GL20 {
 	 */
 	public static void glVertexAttrib1fv(int index, FloatBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 1);
+			check(v, 1);
 		nglVertexAttrib1fv(index, memAddress(v));
 	}
 
@@ -1742,7 +1742,7 @@ public class GL20 {
 	public static void nglVertexAttrib1sv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1sv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -1756,7 +1756,7 @@ public class GL20 {
 	 */
 	public static void glVertexAttrib1sv(int index, ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 1);
+			check(v, 1);
 		nglVertexAttrib1sv(index, memAddress(v));
 	}
 
@@ -1766,7 +1766,7 @@ public class GL20 {
 	public static void nglVertexAttrib1dv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1dv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -1780,7 +1780,7 @@ public class GL20 {
 	 */
 	public static void glVertexAttrib1dv(int index, DoubleBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 1);
+			check(v, 1);
 		nglVertexAttrib1dv(index, memAddress(v));
 	}
 
@@ -1790,7 +1790,7 @@ public class GL20 {
 	public static void nglVertexAttrib2fv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -1804,7 +1804,7 @@ public class GL20 {
 	 */
 	public static void glVertexAttrib2fv(int index, FloatBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 2);
+			check(v, 2);
 		nglVertexAttrib2fv(index, memAddress(v));
 	}
 
@@ -1814,7 +1814,7 @@ public class GL20 {
 	public static void nglVertexAttrib2sv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2sv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -1828,7 +1828,7 @@ public class GL20 {
 	 */
 	public static void glVertexAttrib2sv(int index, ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 2);
+			check(v, 2);
 		nglVertexAttrib2sv(index, memAddress(v));
 	}
 
@@ -1838,7 +1838,7 @@ public class GL20 {
 	public static void nglVertexAttrib2dv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2dv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -1852,7 +1852,7 @@ public class GL20 {
 	 */
 	public static void glVertexAttrib2dv(int index, DoubleBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 2);
+			check(v, 2);
 		nglVertexAttrib2dv(index, memAddress(v));
 	}
 
@@ -1862,7 +1862,7 @@ public class GL20 {
 	public static void nglVertexAttrib3fv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -1876,7 +1876,7 @@ public class GL20 {
 	 */
 	public static void glVertexAttrib3fv(int index, FloatBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglVertexAttrib3fv(index, memAddress(v));
 	}
 
@@ -1886,7 +1886,7 @@ public class GL20 {
 	public static void nglVertexAttrib3sv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3sv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -1900,7 +1900,7 @@ public class GL20 {
 	 */
 	public static void glVertexAttrib3sv(int index, ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglVertexAttrib3sv(index, memAddress(v));
 	}
 
@@ -1910,7 +1910,7 @@ public class GL20 {
 	public static void nglVertexAttrib3dv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3dv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -1924,7 +1924,7 @@ public class GL20 {
 	 */
 	public static void glVertexAttrib3dv(int index, DoubleBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglVertexAttrib3dv(index, memAddress(v));
 	}
 
@@ -1934,7 +1934,7 @@ public class GL20 {
 	public static void nglVertexAttrib4fv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -1948,7 +1948,7 @@ public class GL20 {
 	 */
 	public static void glVertexAttrib4fv(int index, FloatBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4fv(index, memAddress(v));
 	}
 
@@ -1958,7 +1958,7 @@ public class GL20 {
 	public static void nglVertexAttrib4sv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4sv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -1972,7 +1972,7 @@ public class GL20 {
 	 */
 	public static void glVertexAttrib4sv(int index, ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4sv(index, memAddress(v));
 	}
 
@@ -1982,7 +1982,7 @@ public class GL20 {
 	public static void nglVertexAttrib4dv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4dv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -1996,7 +1996,7 @@ public class GL20 {
 	 */
 	public static void glVertexAttrib4dv(int index, DoubleBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4dv(index, memAddress(v));
 	}
 
@@ -2006,7 +2006,7 @@ public class GL20 {
 	public static void nglVertexAttrib4iv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4iv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -2020,7 +2020,7 @@ public class GL20 {
 	 */
 	public static void glVertexAttrib4iv(int index, IntBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4iv(index, memAddress(v));
 	}
 
@@ -2030,7 +2030,7 @@ public class GL20 {
 	public static void nglVertexAttrib4bv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4bv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -2044,7 +2044,7 @@ public class GL20 {
 	 */
 	public static void glVertexAttrib4bv(int index, ByteBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4bv(index, memAddress(v));
 	}
 
@@ -2054,7 +2054,7 @@ public class GL20 {
 	public static void nglVertexAttrib4ubv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4ubv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -2068,7 +2068,7 @@ public class GL20 {
 	 */
 	public static void glVertexAttrib4ubv(int index, ByteBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4ubv(index, memAddress(v));
 	}
 
@@ -2078,7 +2078,7 @@ public class GL20 {
 	public static void nglVertexAttrib4usv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4usv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -2092,7 +2092,7 @@ public class GL20 {
 	 */
 	public static void glVertexAttrib4usv(int index, ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4usv(index, memAddress(v));
 	}
 
@@ -2102,7 +2102,7 @@ public class GL20 {
 	public static void nglVertexAttrib4uiv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4uiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -2116,7 +2116,7 @@ public class GL20 {
 	 */
 	public static void glVertexAttrib4uiv(int index, IntBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4uiv(index, memAddress(v));
 	}
 
@@ -2126,7 +2126,7 @@ public class GL20 {
 	public static void nglVertexAttrib4Nbv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nbv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -2140,7 +2140,7 @@ public class GL20 {
 	 */
 	public static void glVertexAttrib4Nbv(int index, ByteBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4Nbv(index, memAddress(v));
 	}
 
@@ -2150,7 +2150,7 @@ public class GL20 {
 	public static void nglVertexAttrib4Nsv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nsv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -2164,7 +2164,7 @@ public class GL20 {
 	 */
 	public static void glVertexAttrib4Nsv(int index, ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4Nsv(index, memAddress(v));
 	}
 
@@ -2174,7 +2174,7 @@ public class GL20 {
 	public static void nglVertexAttrib4Niv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4Niv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -2188,7 +2188,7 @@ public class GL20 {
 	 */
 	public static void glVertexAttrib4Niv(int index, IntBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4Niv(index, memAddress(v));
 	}
 
@@ -2198,7 +2198,7 @@ public class GL20 {
 	public static void nglVertexAttrib4Nubv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nubv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -2212,7 +2212,7 @@ public class GL20 {
 	 */
 	public static void glVertexAttrib4Nubv(int index, ByteBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4Nubv(index, memAddress(v));
 	}
 
@@ -2222,7 +2222,7 @@ public class GL20 {
 	public static void nglVertexAttrib4Nusv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nusv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -2236,7 +2236,7 @@ public class GL20 {
 	 */
 	public static void glVertexAttrib4Nusv(int index, ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4Nusv(index, memAddress(v));
 	}
 
@@ -2246,7 +2246,7 @@ public class GL20 {
 	public static void nglVertexAttrib4Nuiv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nuiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -2260,7 +2260,7 @@ public class GL20 {
 	 */
 	public static void glVertexAttrib4Nuiv(int index, IntBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4Nuiv(index, memAddress(v));
 	}
 
@@ -2270,7 +2270,7 @@ public class GL20 {
 	public static void nglVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
@@ -2376,7 +2376,7 @@ public class GL20 {
 	public static void glEnableVertexAttribArray(int index) {
 		long __functionAddress = GL.getCapabilities().glEnableVertexAttribArray;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index);
 	}
 
@@ -2392,7 +2392,7 @@ public class GL20 {
 	public static void glDisableVertexAttribArray(int index) {
 		long __functionAddress = GL.getCapabilities().glDisableVertexAttribArray;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index);
 	}
 
@@ -2402,7 +2402,7 @@ public class GL20 {
 	public static void nglBindAttribLocation(int program, int index, long name) {
 		long __functionAddress = GL.getCapabilities().glBindAttribLocation;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, index, name);
 	}
 
@@ -2450,7 +2450,7 @@ public class GL20 {
 	public static void nglGetActiveAttrib(int program, int index, int maxLength, long length, long size, long type, long name) {
 		long __functionAddress = GL.getCapabilities().glGetActiveAttrib;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPPPV(__functionAddress, program, index, maxLength, length, size, type, name);
 	}
 
@@ -2469,9 +2469,9 @@ public class GL20 {
 	 */
 	public static void glGetActiveAttrib(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
 		if ( CHECKS ) {
-			checkBufferSafe(length, 1);
-			checkBuffer(size, 1);
-			checkBuffer(type, 1);
+			checkSafe(length, 1);
+			check(size, 1);
+			check(type, 1);
 		}
 		nglGetActiveAttrib(program, index, name.remaining(), memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name));
 	}
@@ -2489,8 +2489,8 @@ public class GL20 {
 	 */
 	public static String glGetActiveAttrib(int program, int index, int maxLength, IntBuffer size, IntBuffer type) {
 		if ( CHECKS ) {
-			checkBuffer(size, 1);
-			checkBuffer(type, 1);
+			check(size, 1);
+			check(type, 1);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2516,8 +2516,8 @@ public class GL20 {
 	public static String glGetActiveAttrib(int program, int index, IntBuffer size, IntBuffer type) {
 		int maxLength = glGetProgrami(program, GL_ACTIVE_ATTRIBUTE_MAX_LENGTH);
 		if ( CHECKS ) {
-			checkBuffer(size, 1);
-			checkBuffer(type, 1);
+			check(size, 1);
+			check(type, 1);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2536,7 +2536,7 @@ public class GL20 {
 	public static int nglGetAttribLocation(int program, long name) {
 		long __functionAddress = GL.getCapabilities().glGetAttribLocation;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPI(__functionAddress, program, name);
 	}
 
@@ -2578,7 +2578,7 @@ public class GL20 {
 	public static void nglGetVertexAttribiv(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, pname, params);
 	}
 
@@ -2593,7 +2593,7 @@ public class GL20 {
 	 */
 	public static void glGetVertexAttribiv(int index, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetVertexAttribiv(index, pname, memAddress(params));
 	}
 
@@ -2622,7 +2622,7 @@ public class GL20 {
 	public static void nglGetVertexAttribfv(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, pname, params);
 	}
 
@@ -2637,7 +2637,7 @@ public class GL20 {
 	 */
 	public static void glGetVertexAttribfv(int index, int pname, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglGetVertexAttribfv(index, pname, memAddress(params));
 	}
 
@@ -2647,7 +2647,7 @@ public class GL20 {
 	public static void nglGetVertexAttribdv(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribdv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, pname, params);
 	}
 
@@ -2662,7 +2662,7 @@ public class GL20 {
 	 */
 	public static void glGetVertexAttribdv(int index, int pname, DoubleBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglGetVertexAttribdv(index, pname, memAddress(params));
 	}
 
@@ -2672,7 +2672,7 @@ public class GL20 {
 	public static void nglGetVertexAttribPointerv(int index, int pname, long pointer) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribPointerv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, pname, pointer);
 	}
 
@@ -2687,7 +2687,7 @@ public class GL20 {
 	 */
 	public static void glGetVertexAttribPointerv(int index, int pname, PointerBuffer pointer) {
 		if ( CHECKS )
-			checkBuffer(pointer, 1);
+			check(pointer, 1);
 		nglGetVertexAttribPointerv(index, pname, memAddress(pointer));
 	}
 
@@ -2720,7 +2720,7 @@ public class GL20 {
 	public static void nglDrawBuffers(int n, long bufs) {
 		long __functionAddress = GL.getCapabilities().glDrawBuffers;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, bufs);
 	}
 
@@ -2763,7 +2763,7 @@ public class GL20 {
 	public static void glBlendEquationSeparate(int modeRGB, int modeAlpha) {
 		long __functionAddress = GL.getCapabilities().glBlendEquationSeparate;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, modeRGB, modeAlpha);
 	}
 
@@ -2783,7 +2783,7 @@ public class GL20 {
 	public static void glStencilOpSeparate(int face, int sfail, int dpfail, int dppass) {
 		long __functionAddress = GL.getCapabilities().glStencilOpSeparate;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, face, sfail, dpfail, dppass);
 	}
 
@@ -2803,7 +2803,7 @@ public class GL20 {
 	public static void glStencilFuncSeparate(int face, int func, int ref, int mask) {
 		long __functionAddress = GL.getCapabilities().glStencilFuncSeparate;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, face, func, ref, mask);
 	}
 
@@ -2820,7 +2820,7 @@ public class GL20 {
 	public static void glStencilMaskSeparate(int face, int mask) {
 		long __functionAddress = GL.getCapabilities().glStencilMaskSeparate;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, face, mask);
 	}
 
@@ -2832,8 +2832,8 @@ public class GL20 {
 	public static void glShaderSource(int shader, PointerBuffer strings, int[] length) {
 		long __functionAddress = GL.getCapabilities().glShaderSource;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(length, strings.remaining());
+			check(__functionAddress);
+			checkSafe(length, strings.remaining());
 		}
 		callPPV(__functionAddress, shader, strings.remaining(), memAddress(strings), length);
 	}
@@ -2846,7 +2846,7 @@ public class GL20 {
 	public static void glUniform1fv(int location, float[] value) {
 		long __functionAddress = GL.getCapabilities().glUniform1fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length, value);
 	}
 
@@ -2858,7 +2858,7 @@ public class GL20 {
 	public static void glUniform2fv(int location, float[] value) {
 		long __functionAddress = GL.getCapabilities().glUniform2fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 1, value);
 	}
 
@@ -2870,7 +2870,7 @@ public class GL20 {
 	public static void glUniform3fv(int location, float[] value) {
 		long __functionAddress = GL.getCapabilities().glUniform3fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 3, value);
 	}
 
@@ -2882,7 +2882,7 @@ public class GL20 {
 	public static void glUniform4fv(int location, float[] value) {
 		long __functionAddress = GL.getCapabilities().glUniform4fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 2, value);
 	}
 
@@ -2894,7 +2894,7 @@ public class GL20 {
 	public static void glUniform1iv(int location, int[] value) {
 		long __functionAddress = GL.getCapabilities().glUniform1iv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length, value);
 	}
 
@@ -2906,7 +2906,7 @@ public class GL20 {
 	public static void glUniform2iv(int location, int[] value) {
 		long __functionAddress = GL.getCapabilities().glUniform2iv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 1, value);
 	}
 
@@ -2918,7 +2918,7 @@ public class GL20 {
 	public static void glUniform3iv(int location, int[] value) {
 		long __functionAddress = GL.getCapabilities().glUniform3iv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 3, value);
 	}
 
@@ -2930,7 +2930,7 @@ public class GL20 {
 	public static void glUniform4iv(int location, int[] value) {
 		long __functionAddress = GL.getCapabilities().glUniform4iv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 2, value);
 	}
 
@@ -2942,7 +2942,7 @@ public class GL20 {
 	public static void glUniformMatrix2fv(int location, boolean transpose, float[] value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix2fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 2, transpose, value);
 	}
 
@@ -2954,7 +2954,7 @@ public class GL20 {
 	public static void glUniformMatrix3fv(int location, boolean transpose, float[] value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix3fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 9, transpose, value);
 	}
 
@@ -2966,7 +2966,7 @@ public class GL20 {
 	public static void glUniformMatrix4fv(int location, boolean transpose, float[] value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix4fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 4, transpose, value);
 	}
 
@@ -2978,8 +2978,8 @@ public class GL20 {
 	public static void glGetShaderiv(int shader, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetShaderiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, shader, pname, params);
 	}
@@ -2992,8 +2992,8 @@ public class GL20 {
 	public static void glGetProgramiv(int program, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetProgramiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, program, pname, params);
 	}
@@ -3006,8 +3006,8 @@ public class GL20 {
 	public static void glGetShaderInfoLog(int shader, int[] length, ByteBuffer infoLog) {
 		long __functionAddress = GL.getCapabilities().glGetShaderInfoLog;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(length, 1);
+			check(__functionAddress);
+			checkSafe(length, 1);
 		}
 		callPPV(__functionAddress, shader, infoLog.remaining(), length, memAddress(infoLog));
 	}
@@ -3020,8 +3020,8 @@ public class GL20 {
 	public static void glGetProgramInfoLog(int program, int[] length, ByteBuffer infoLog) {
 		long __functionAddress = GL.getCapabilities().glGetProgramInfoLog;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(length, 1);
+			check(__functionAddress);
+			checkSafe(length, 1);
 		}
 		callPPV(__functionAddress, program, infoLog.remaining(), length, memAddress(infoLog));
 	}
@@ -3034,8 +3034,8 @@ public class GL20 {
 	public static void glGetAttachedShaders(int program, int[] count, int[] shaders) {
 		long __functionAddress = GL.getCapabilities().glGetAttachedShaders;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(count, 1);
+			check(__functionAddress);
+			checkSafe(count, 1);
 		}
 		callPPV(__functionAddress, program, shaders.length, count, shaders);
 	}
@@ -3048,10 +3048,10 @@ public class GL20 {
 	public static void glGetActiveUniform(int program, int index, int[] length, int[] size, int[] type, ByteBuffer name) {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniform;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(length, 1);
-			checkBuffer(size, 1);
-			checkBuffer(type, 1);
+			check(__functionAddress);
+			checkSafe(length, 1);
+			check(size, 1);
+			check(type, 1);
 		}
 		callPPPPV(__functionAddress, program, index, name.remaining(), length, size, type, memAddress(name));
 	}
@@ -3064,8 +3064,8 @@ public class GL20 {
 	public static void glGetUniformfv(int program, int location, float[] params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformfv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, program, location, params);
 	}
@@ -3078,8 +3078,8 @@ public class GL20 {
 	public static void glGetUniformiv(int program, int location, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, program, location, params);
 	}
@@ -3092,8 +3092,8 @@ public class GL20 {
 	public static void glGetShaderSource(int shader, int[] length, ByteBuffer source) {
 		long __functionAddress = GL.getCapabilities().glGetShaderSource;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(length, 1);
+			check(__functionAddress);
+			checkSafe(length, 1);
 		}
 		callPPV(__functionAddress, shader, source.remaining(), length, memAddress(source));
 	}
@@ -3106,8 +3106,8 @@ public class GL20 {
 	public static void glVertexAttrib1fv(int index, float[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1fv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 1);
+			check(__functionAddress);
+			check(v, 1);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -3120,8 +3120,8 @@ public class GL20 {
 	public static void glVertexAttrib1sv(int index, short[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1sv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 1);
+			check(__functionAddress);
+			check(v, 1);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -3134,8 +3134,8 @@ public class GL20 {
 	public static void glVertexAttrib1dv(int index, double[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1dv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 1);
+			check(__functionAddress);
+			check(v, 1);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -3148,8 +3148,8 @@ public class GL20 {
 	public static void glVertexAttrib2fv(int index, float[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2fv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 2);
+			check(__functionAddress);
+			check(v, 2);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -3162,8 +3162,8 @@ public class GL20 {
 	public static void glVertexAttrib2sv(int index, short[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2sv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 2);
+			check(__functionAddress);
+			check(v, 2);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -3176,8 +3176,8 @@ public class GL20 {
 	public static void glVertexAttrib2dv(int index, double[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2dv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 2);
+			check(__functionAddress);
+			check(v, 2);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -3190,8 +3190,8 @@ public class GL20 {
 	public static void glVertexAttrib3fv(int index, float[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3fv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -3204,8 +3204,8 @@ public class GL20 {
 	public static void glVertexAttrib3sv(int index, short[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3sv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -3218,8 +3218,8 @@ public class GL20 {
 	public static void glVertexAttrib3dv(int index, double[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3dv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -3232,8 +3232,8 @@ public class GL20 {
 	public static void glVertexAttrib4fv(int index, float[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4fv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -3246,8 +3246,8 @@ public class GL20 {
 	public static void glVertexAttrib4sv(int index, short[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4sv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -3260,8 +3260,8 @@ public class GL20 {
 	public static void glVertexAttrib4dv(int index, double[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4dv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -3274,8 +3274,8 @@ public class GL20 {
 	public static void glVertexAttrib4iv(int index, int[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4iv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -3288,8 +3288,8 @@ public class GL20 {
 	public static void glVertexAttrib4usv(int index, short[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4usv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -3302,8 +3302,8 @@ public class GL20 {
 	public static void glVertexAttrib4uiv(int index, int[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4uiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -3316,8 +3316,8 @@ public class GL20 {
 	public static void glVertexAttrib4Nsv(int index, short[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nsv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -3330,8 +3330,8 @@ public class GL20 {
 	public static void glVertexAttrib4Niv(int index, int[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4Niv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -3344,8 +3344,8 @@ public class GL20 {
 	public static void glVertexAttrib4Nusv(int index, short[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nusv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -3358,8 +3358,8 @@ public class GL20 {
 	public static void glVertexAttrib4Nuiv(int index, int[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4Nuiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -3372,7 +3372,7 @@ public class GL20 {
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
@@ -3384,7 +3384,7 @@ public class GL20 {
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, int[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
@@ -3396,7 +3396,7 @@ public class GL20 {
 	public static void glVertexAttribPointer(int index, int size, int type, boolean normalized, int stride, float[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
@@ -3408,10 +3408,10 @@ public class GL20 {
 	public static void glGetActiveAttrib(int program, int index, int[] length, int[] size, int[] type, ByteBuffer name) {
 		long __functionAddress = GL.getCapabilities().glGetActiveAttrib;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(length, 1);
-			checkBuffer(size, 1);
-			checkBuffer(type, 1);
+			check(__functionAddress);
+			checkSafe(length, 1);
+			check(size, 1);
+			check(type, 1);
 		}
 		callPPPPV(__functionAddress, program, index, name.remaining(), length, size, type, memAddress(name));
 	}
@@ -3424,8 +3424,8 @@ public class GL20 {
 	public static void glGetVertexAttribiv(int index, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, index, pname, params);
 	}
@@ -3438,8 +3438,8 @@ public class GL20 {
 	public static void glGetVertexAttribfv(int index, int pname, float[] params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribfv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 4);
+			check(__functionAddress);
+			check(params, 4);
 		}
 		callPV(__functionAddress, index, pname, params);
 	}
@@ -3452,8 +3452,8 @@ public class GL20 {
 	public static void glGetVertexAttribdv(int index, int pname, double[] params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribdv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 4);
+			check(__functionAddress);
+			check(params, 4);
 		}
 		callPV(__functionAddress, index, pname, params);
 	}
@@ -3466,7 +3466,7 @@ public class GL20 {
 	public static void glDrawBuffers(int[] bufs) {
 		long __functionAddress = GL.getCapabilities().glDrawBuffers;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, bufs.length, bufs);
 	}
 

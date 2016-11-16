@@ -348,7 +348,7 @@ public class VkDescriptorPoolCreateInfo extends Struct implements NativeResource
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + VkDescriptorPoolCreateInfo.PPOOLSIZES));
+		check(memGetAddress(struct + VkDescriptorPoolCreateInfo.PPOOLSIZES));
 	}
 
 	/**

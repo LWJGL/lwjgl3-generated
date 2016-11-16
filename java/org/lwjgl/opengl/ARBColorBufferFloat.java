@@ -65,7 +65,7 @@ public class ARBColorBufferFloat {
 	public static void glClampColorARB(int target, int clamp) {
 		long __functionAddress = GL.getCapabilities().glClampColorARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, clamp);
 	}
 

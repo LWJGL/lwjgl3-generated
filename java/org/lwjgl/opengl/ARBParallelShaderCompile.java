@@ -52,7 +52,7 @@ public class ARBParallelShaderCompile {
 	public static void glMaxShaderCompilerThreadsARB(int count) {
 		long __functionAddress = GL.getCapabilities().glMaxShaderCompilerThreadsARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, count);
 	}
 

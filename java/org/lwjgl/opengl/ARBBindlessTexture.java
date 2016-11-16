@@ -72,7 +72,7 @@ public class ARBBindlessTexture {
 	public static long glGetTextureHandleARB(int texture) {
 		long __functionAddress = GL.getCapabilities().glGetTextureHandleARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callJ(__functionAddress, texture);
 	}
 
@@ -112,7 +112,7 @@ public class ARBBindlessTexture {
 	public static long glGetTextureSamplerHandleARB(int texture, int sampler) {
 		long __functionAddress = GL.getCapabilities().glGetTextureSamplerHandleARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callJ(__functionAddress, texture, sampler);
 	}
 
@@ -131,7 +131,7 @@ public class ARBBindlessTexture {
 	public static void glMakeTextureHandleResidentARB(long handle) {
 		long __functionAddress = GL.getCapabilities().glMakeTextureHandleResidentARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJV(__functionAddress, handle);
 	}
 
@@ -148,7 +148,7 @@ public class ARBBindlessTexture {
 	public static void glMakeTextureHandleNonResidentARB(long handle) {
 		long __functionAddress = GL.getCapabilities().glMakeTextureHandleNonResidentARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJV(__functionAddress, handle);
 	}
 
@@ -199,7 +199,7 @@ public class ARBBindlessTexture {
 	public static long glGetImageHandleARB(int texture, int level, boolean layered, int layer, int format) {
 		long __functionAddress = GL.getCapabilities().glGetImageHandleARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callJ(__functionAddress, texture, level, layered, layer, format);
 	}
 
@@ -223,7 +223,7 @@ public class ARBBindlessTexture {
 	public static void glMakeImageHandleResidentARB(long handle, int access) {
 		long __functionAddress = GL.getCapabilities().glMakeImageHandleResidentARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJV(__functionAddress, handle, access);
 	}
 
@@ -237,7 +237,7 @@ public class ARBBindlessTexture {
 	public static void glMakeImageHandleNonResidentARB(long handle) {
 		long __functionAddress = GL.getCapabilities().glMakeImageHandleNonResidentARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJV(__functionAddress, handle);
 	}
 
@@ -252,7 +252,7 @@ public class ARBBindlessTexture {
 	public static void glUniformHandleui64ARB(int location, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformHandleui64ARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJV(__functionAddress, location, value);
 	}
 
@@ -266,7 +266,7 @@ public class ARBBindlessTexture {
 	public static void nglUniformHandleui64vARB(int location, int count, long values) {
 		long __functionAddress = GL.getCapabilities().glUniformHandleui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, values);
 	}
 
@@ -292,7 +292,7 @@ public class ARBBindlessTexture {
 	public static void glProgramUniformHandleui64ARB(int program, int location, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformHandleui64ARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJV(__functionAddress, program, location, value);
 	}
 
@@ -306,7 +306,7 @@ public class ARBBindlessTexture {
 	public static void nglProgramUniformHandleui64vARB(int program, int location, int count, long values) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformHandleui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, count, values);
 	}
 
@@ -331,7 +331,7 @@ public class ARBBindlessTexture {
 	public static boolean glIsTextureHandleResidentARB(long handle) {
 		long __functionAddress = GL.getCapabilities().glIsTextureHandleResidentARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callJZ(__functionAddress, handle);
 	}
 
@@ -345,7 +345,7 @@ public class ARBBindlessTexture {
 	public static boolean glIsImageHandleResidentARB(long handle) {
 		long __functionAddress = GL.getCapabilities().glIsImageHandleResidentARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callJZ(__functionAddress, handle);
 	}
 
@@ -360,7 +360,7 @@ public class ARBBindlessTexture {
 	public static void glVertexAttribL1ui64ARB(int index, long x) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL1ui64ARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJV(__functionAddress, index, x);
 	}
 
@@ -370,7 +370,7 @@ public class ARBBindlessTexture {
 	public static void nglVertexAttribL1ui64vARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL1ui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -390,7 +390,7 @@ public class ARBBindlessTexture {
 	public static void nglGetVertexAttribLui64vARB(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribLui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, pname, params);
 	}
 
@@ -403,7 +403,7 @@ public class ARBBindlessTexture {
 	 */
 	public static void glGetVertexAttribLui64vARB(int index, int pname, LongBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetVertexAttribLui64vARB(index, pname, memAddress(params));
 	}
 
@@ -428,7 +428,7 @@ public class ARBBindlessTexture {
 	public static void glUniformHandleui64vARB(int location, long[] values) {
 		long __functionAddress = GL.getCapabilities().glUniformHandleui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, values.length, values);
 	}
 
@@ -436,7 +436,7 @@ public class ARBBindlessTexture {
 	public static void glProgramUniformHandleui64vARB(int program, int location, long[] values) {
 		long __functionAddress = GL.getCapabilities().glProgramUniformHandleui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, values.length, values);
 	}
 
@@ -444,7 +444,7 @@ public class ARBBindlessTexture {
 	public static void glVertexAttribL1ui64vARB(int index, long[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL1ui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -452,8 +452,8 @@ public class ARBBindlessTexture {
 	public static void glGetVertexAttribLui64vARB(int index, int pname, long[] params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribLui64vARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, index, pname, params);
 	}

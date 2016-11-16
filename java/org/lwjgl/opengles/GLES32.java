@@ -438,7 +438,7 @@ public class GLES32 {
 	public static void glBlendBarrier() {
 		long __functionAddress = GLES.getCapabilities().glBlendBarrier;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -447,7 +447,7 @@ public class GLES32 {
 	public static void glCopyImageSubData(int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth) {
 		long __functionAddress = GLES.getCapabilities().glCopyImageSubData;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
 	}
 
@@ -461,7 +461,7 @@ public class GLES32 {
 	public static void nglDebugMessageControl(int source, int type, int severity, int count, long ids, boolean enabled) {
 		long __functionAddress = GLES.getCapabilities().glDebugMessageControl;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, source, type, severity, count, ids, enabled);
 	}
 
@@ -554,7 +554,7 @@ public class GLES32 {
 	public static void nglDebugMessageInsert(int source, int type, int id, int severity, int length, long message) {
 		long __functionAddress = GLES.getCapabilities().glDebugMessageInsert;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, source, type, id, severity, length, message);
 	}
 
@@ -615,7 +615,7 @@ public class GLES32 {
 	public static void nglDebugMessageCallback(long callback, long userParam) {
 		long __functionAddress = GLES.getCapabilities().glDebugMessageCallback;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, callback, userParam);
 	}
 
@@ -664,7 +664,7 @@ public class GLES32 {
 	public static int nglGetDebugMessageLog(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
 		long __functionAddress = GLES.getCapabilities().glGetDebugMessageLog;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPPPPPPI(__functionAddress, count, bufsize, sources, types, ids, severities, lengths, messageLog);
 	}
 
@@ -702,11 +702,11 @@ public class GLES32 {
 	 */
 	public static int glGetDebugMessageLog(int count, IntBuffer sources, IntBuffer types, IntBuffer ids, IntBuffer severities, IntBuffer lengths, ByteBuffer messageLog) {
 		if ( CHECKS ) {
-			checkBufferSafe(sources, count);
-			checkBufferSafe(types, count);
-			checkBufferSafe(ids, count);
-			checkBufferSafe(severities, count);
-			checkBufferSafe(lengths, count);
+			checkSafe(sources, count);
+			checkSafe(types, count);
+			checkSafe(ids, count);
+			checkSafe(severities, count);
+			checkSafe(lengths, count);
 		}
 		return nglGetDebugMessageLog(count, remainingSafe(messageLog), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
 	}
@@ -716,13 +716,13 @@ public class GLES32 {
 	public static void nglGetPointerv(int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetPointerv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, pname, params);
 	}
 
 	public static void glGetPointerv(int pname, PointerBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetPointerv(pname, memAddress(params));
 	}
 
@@ -747,7 +747,7 @@ public class GLES32 {
 	public static void nglPushDebugGroup(int source, int id, int length, long message) {
 		long __functionAddress = GLES.getCapabilities().glPushDebugGroup;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, source, id, length, message);
 	}
 
@@ -815,7 +815,7 @@ public class GLES32 {
 	public static void glPopDebugGroup() {
 		long __functionAddress = GLES.getCapabilities().glPopDebugGroup;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -829,7 +829,7 @@ public class GLES32 {
 	public static void nglObjectLabel(int identifier, int name, int length, long label) {
 		long __functionAddress = GLES.getCapabilities().glObjectLabel;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, identifier, name, length, label);
 	}
 
@@ -872,7 +872,7 @@ public class GLES32 {
 	public static void nglGetObjectLabel(int identifier, int name, int bufSize, long length, long label) {
 		long __functionAddress = GLES.getCapabilities().glGetObjectLabel;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, identifier, name, bufSize, length, label);
 	}
 
@@ -886,7 +886,7 @@ public class GLES32 {
 	 */
 	public static void glGetObjectLabel(int identifier, int name, IntBuffer length, ByteBuffer label) {
 		if ( CHECKS )
-			checkBufferSafe(length, 1);
+			checkSafe(length, 1);
 		nglGetObjectLabel(identifier, name, label.remaining(), memAddressSafe(length), memAddress(label));
 	}
 
@@ -938,8 +938,8 @@ public class GLES32 {
 	public static void nglObjectPtrLabel(long ptr, int length, long label) {
 		long __functionAddress = GLES.getCapabilities().glObjectPtrLabel;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(ptr);
+			check(__functionAddress);
+			check(ptr);
 		}
 		callPPV(__functionAddress, ptr, length, label);
 	}
@@ -981,8 +981,8 @@ public class GLES32 {
 	public static void nglGetObjectPtrLabel(long ptr, int bufSize, long length, long label) {
 		long __functionAddress = GLES.getCapabilities().glGetObjectPtrLabel;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(ptr);
+			check(__functionAddress);
+			check(ptr);
 		}
 		callPPPV(__functionAddress, ptr, bufSize, length, label);
 	}
@@ -996,7 +996,7 @@ public class GLES32 {
 	 */
 	public static void glGetObjectPtrLabel(long ptr, IntBuffer length, ByteBuffer label) {
 		if ( CHECKS )
-			checkBufferSafe(length, 1);
+			checkSafe(length, 1);
 		nglGetObjectPtrLabel(ptr, label.remaining(), memAddressSafe(length), memAddress(label));
 	}
 
@@ -1041,7 +1041,7 @@ public class GLES32 {
 	public static void glEnablei(int target, int index) {
 		long __functionAddress = GLES.getCapabilities().glEnablei;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, index);
 	}
 
@@ -1050,7 +1050,7 @@ public class GLES32 {
 	public static void glDisablei(int target, int index) {
 		long __functionAddress = GLES.getCapabilities().glDisablei;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, index);
 	}
 
@@ -1059,7 +1059,7 @@ public class GLES32 {
 	public static void glBlendEquationi(int buf, int mode) {
 		long __functionAddress = GLES.getCapabilities().glBlendEquationi;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, buf, mode);
 	}
 
@@ -1068,7 +1068,7 @@ public class GLES32 {
 	public static void glBlendEquationSeparatei(int buf, int modeRGB, int modeAlpha) {
 		long __functionAddress = GLES.getCapabilities().glBlendEquationSeparatei;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, buf, modeRGB, modeAlpha);
 	}
 
@@ -1077,7 +1077,7 @@ public class GLES32 {
 	public static void glBlendFunci(int buf, int src, int dst) {
 		long __functionAddress = GLES.getCapabilities().glBlendFunci;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, buf, src, dst);
 	}
 
@@ -1086,7 +1086,7 @@ public class GLES32 {
 	public static void glBlendFuncSeparatei(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
 		long __functionAddress = GLES.getCapabilities().glBlendFuncSeparatei;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 	}
 
@@ -1095,7 +1095,7 @@ public class GLES32 {
 	public static void glColorMaski(int index, boolean r, boolean g, boolean b, boolean a) {
 		long __functionAddress = GLES.getCapabilities().glColorMaski;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, r, g, b, a);
 	}
 
@@ -1104,7 +1104,7 @@ public class GLES32 {
 	public static boolean glIsEnabledi(int target, int index) {
 		long __functionAddress = GLES.getCapabilities().glIsEnabledi;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callZ(__functionAddress, target, index);
 	}
 
@@ -1113,7 +1113,7 @@ public class GLES32 {
 	public static void nglDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex) {
 		long __functionAddress = GLES.getCapabilities().glDrawElementsBaseVertex;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, mode, count, type, indices, basevertex);
 	}
 
@@ -1142,7 +1142,7 @@ public class GLES32 {
 	public static void nglDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex) {
 		long __functionAddress = GLES.getCapabilities().glDrawRangeElementsBaseVertex;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, mode, start, end, count, type, indices, basevertex);
 	}
 
@@ -1171,7 +1171,7 @@ public class GLES32 {
 	public static void nglDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int instancecount, int basevertex) {
 		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedBaseVertex;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, mode, count, type, indices, instancecount, basevertex);
 	}
 
@@ -1200,7 +1200,7 @@ public class GLES32 {
 	public static void glFramebufferTexture(int target, int attachment, int texture, int level) {
 		long __functionAddress = GLES.getCapabilities().glFramebufferTexture;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, attachment, texture, level);
 	}
 
@@ -1225,7 +1225,7 @@ public class GLES32 {
 	public static void glPrimitiveBoundingBox(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW) {
 		long __functionAddress = GLES.getCapabilities().glPrimitiveBoundingBox;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, minX, minY, minZ, minW, maxX, maxY, maxZ, maxW);
 	}
 
@@ -1269,7 +1269,7 @@ public class GLES32 {
 	public static int glGetGraphicsResetStatus() {
 		long __functionAddress = GLES.getCapabilities().glGetGraphicsResetStatus;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callI(__functionAddress);
 	}
 
@@ -1283,7 +1283,7 @@ public class GLES32 {
 	public static void nglReadnPixels(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixels;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, bufSize, pixels);
 	}
 
@@ -1373,7 +1373,7 @@ public class GLES32 {
 	public static void nglGetnUniformfv(int program, int location, int bufSize, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetnUniformfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
@@ -1415,7 +1415,7 @@ public class GLES32 {
 	public static void nglGetnUniformiv(int program, int location, int bufSize, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetnUniformiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
@@ -1457,7 +1457,7 @@ public class GLES32 {
 	public static void nglGetnUniformuiv(int program, int location, int bufSize, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetnUniformuiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
@@ -1494,7 +1494,7 @@ public class GLES32 {
 	public static void glMinSampleShading(float value) {
 		long __functionAddress = GLES.getCapabilities().glMinSampleShading;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, value);
 	}
 
@@ -1503,7 +1503,7 @@ public class GLES32 {
 	public static void glPatchParameteri(int pname, int value) {
 		long __functionAddress = GLES.getCapabilities().glPatchParameteri;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, pname, value);
 	}
 
@@ -1512,7 +1512,7 @@ public class GLES32 {
 	public static void nglTexParameterIiv(int target, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glTexParameterIiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, pname, params);
 	}
 
@@ -1535,7 +1535,7 @@ public class GLES32 {
 	public static void nglTexParameterIuiv(int target, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glTexParameterIuiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, pname, params);
 	}
 
@@ -1558,13 +1558,13 @@ public class GLES32 {
 	public static void nglGetTexParameterIiv(int target, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetTexParameterIiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetTexParameterIiv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetTexParameterIiv(target, pname, memAddress(params));
 	}
 
@@ -1584,13 +1584,13 @@ public class GLES32 {
 	public static void nglGetTexParameterIuiv(int target, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetTexParameterIuiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetTexParameterIuiv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetTexParameterIuiv(target, pname, memAddress(params));
 	}
 
@@ -1610,7 +1610,7 @@ public class GLES32 {
 	public static void nglSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glSamplerParameterIiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -1633,7 +1633,7 @@ public class GLES32 {
 	public static void nglSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glSamplerParameterIuiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -1656,13 +1656,13 @@ public class GLES32 {
 	public static void nglGetSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetSamplerParameterIiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
 	public static void glGetSamplerParameterIiv(int sampler, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
 
@@ -1682,13 +1682,13 @@ public class GLES32 {
 	public static void nglGetSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetSamplerParameterIuiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
 	public static void glGetSamplerParameterIuiv(int sampler, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}
 
@@ -1708,7 +1708,7 @@ public class GLES32 {
 	public static void glTexBuffer(int target, int internalformat, int buffer) {
 		long __functionAddress = GLES.getCapabilities().glTexBuffer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, internalformat, buffer);
 	}
 
@@ -1717,7 +1717,7 @@ public class GLES32 {
 	public static void glTexBufferRange(int target, int internalformat, int buffer, long offset, long size) {
 		long __functionAddress = GLES.getCapabilities().glTexBufferRange;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, target, internalformat, buffer, offset, size);
 	}
 
@@ -1726,7 +1726,7 @@ public class GLES32 {
 	public static void glTexStorage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
 		long __functionAddress = GLES.getCapabilities().glTexStorage3DMultisample;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
@@ -1734,7 +1734,7 @@ public class GLES32 {
 	public static void glDebugMessageControl(int source, int type, int severity, int[] ids, boolean enabled) {
 		long __functionAddress = GLES.getCapabilities().glDebugMessageControl;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, source, type, severity, ids.length, ids, enabled);
 	}
 
@@ -1742,12 +1742,12 @@ public class GLES32 {
 	public static int glGetDebugMessageLog(int count, int[] sources, int[] types, int[] ids, int[] severities, int[] lengths, ByteBuffer messageLog) {
 		long __functionAddress = GLES.getCapabilities().glGetDebugMessageLog;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(sources, count);
-			checkBufferSafe(types, count);
-			checkBufferSafe(ids, count);
-			checkBufferSafe(severities, count);
-			checkBufferSafe(lengths, count);
+			check(__functionAddress);
+			checkSafe(sources, count);
+			checkSafe(types, count);
+			checkSafe(ids, count);
+			checkSafe(severities, count);
+			checkSafe(lengths, count);
 		}
 		return callPPPPPPI(__functionAddress, count, remainingSafe(messageLog), sources, types, ids, severities, lengths, memAddressSafe(messageLog));
 	}
@@ -1756,8 +1756,8 @@ public class GLES32 {
 	public static void glGetObjectLabel(int identifier, int name, int[] length, ByteBuffer label) {
 		long __functionAddress = GLES.getCapabilities().glGetObjectLabel;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(length, 1);
+			check(__functionAddress);
+			checkSafe(length, 1);
 		}
 		callPPV(__functionAddress, identifier, name, label.remaining(), length, memAddress(label));
 	}
@@ -1766,9 +1766,9 @@ public class GLES32 {
 	public static void glGetObjectPtrLabel(long ptr, int[] length, ByteBuffer label) {
 		long __functionAddress = GLES.getCapabilities().glGetObjectPtrLabel;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(ptr);
-			checkBufferSafe(length, 1);
+			check(__functionAddress);
+			check(ptr);
+			checkSafe(length, 1);
 		}
 		callPPPV(__functionAddress, ptr, label.remaining(), length, memAddress(label));
 	}
@@ -1777,7 +1777,7 @@ public class GLES32 {
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, short[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixels;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 1, pixels);
 	}
 
@@ -1785,7 +1785,7 @@ public class GLES32 {
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, int[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixels;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
 	}
 
@@ -1793,7 +1793,7 @@ public class GLES32 {
 	public static void glReadnPixels(int x, int y, int width, int height, int format, int type, float[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixels;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
 	}
 
@@ -1801,7 +1801,7 @@ public class GLES32 {
 	public static void glGetnUniformfv(int program, int location, float[] params) {
 		long __functionAddress = GLES.getCapabilities().glGetnUniformfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);
 	}
 
@@ -1809,7 +1809,7 @@ public class GLES32 {
 	public static void glGetnUniformiv(int program, int location, float[] params) {
 		long __functionAddress = GLES.getCapabilities().glGetnUniformiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);
 	}
 
@@ -1817,7 +1817,7 @@ public class GLES32 {
 	public static void glGetnUniformuiv(int program, int location, float[] params) {
 		long __functionAddress = GLES.getCapabilities().glGetnUniformuiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);
 	}
 
@@ -1825,7 +1825,7 @@ public class GLES32 {
 	public static void glTexParameterIiv(int target, int pname, int[] params) {
 		long __functionAddress = GLES.getCapabilities().glTexParameterIiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, pname, params);
 	}
 
@@ -1833,7 +1833,7 @@ public class GLES32 {
 	public static void glTexParameterIuiv(int target, int pname, int[] params) {
 		long __functionAddress = GLES.getCapabilities().glTexParameterIuiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, pname, params);
 	}
 
@@ -1841,8 +1841,8 @@ public class GLES32 {
 	public static void glGetTexParameterIiv(int target, int pname, int[] params) {
 		long __functionAddress = GLES.getCapabilities().glGetTexParameterIiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, target, pname, params);
 	}
@@ -1851,8 +1851,8 @@ public class GLES32 {
 	public static void glGetTexParameterIuiv(int target, int pname, int[] params) {
 		long __functionAddress = GLES.getCapabilities().glGetTexParameterIuiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, target, pname, params);
 	}
@@ -1861,7 +1861,7 @@ public class GLES32 {
 	public static void glSamplerParameterIiv(int sampler, int pname, int[] params) {
 		long __functionAddress = GLES.getCapabilities().glSamplerParameterIiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -1869,7 +1869,7 @@ public class GLES32 {
 	public static void glSamplerParameterIuiv(int sampler, int pname, int[] params) {
 		long __functionAddress = GLES.getCapabilities().glSamplerParameterIuiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -1877,8 +1877,8 @@ public class GLES32 {
 	public static void glGetSamplerParameterIiv(int sampler, int pname, int[] params) {
 		long __functionAddress = GLES.getCapabilities().glGetSamplerParameterIiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, sampler, pname, params);
 	}
@@ -1887,8 +1887,8 @@ public class GLES32 {
 	public static void glGetSamplerParameterIuiv(int sampler, int pname, int[] params) {
 		long __functionAddress = GLES.getCapabilities().glGetSamplerParameterIuiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, sampler, pname, params);
 	}

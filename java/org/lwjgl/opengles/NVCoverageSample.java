@@ -74,7 +74,7 @@ public class NVCoverageSample {
 	public static void glCoverageMaskNV(boolean mask) {
 		long __functionAddress = GLES.getCapabilities().glCoverageMaskNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, mask);
 	}
 
@@ -83,7 +83,7 @@ public class NVCoverageSample {
 	public static void glCoverageOperationNV(int operation) {
 		long __functionAddress = GLES.getCapabilities().glCoverageOperationNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, operation);
 	}
 

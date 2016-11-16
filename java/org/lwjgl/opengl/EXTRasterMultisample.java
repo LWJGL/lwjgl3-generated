@@ -81,7 +81,7 @@ public class EXTRasterMultisample {
 	public static void glRasterSamplesEXT(int samples, boolean fixedsamplelocations) {
 		long __functionAddress = GL.getCapabilities().glRasterSamplesEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, samples, fixedsamplelocations);
 	}
 

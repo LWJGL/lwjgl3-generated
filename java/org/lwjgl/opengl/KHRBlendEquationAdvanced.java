@@ -92,7 +92,7 @@ public class KHRBlendEquationAdvanced {
 	public static void glBlendBarrierKHR() {
 		long __functionAddress = GL.getCapabilities().glBlendBarrierKHR;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress);
 	}
 

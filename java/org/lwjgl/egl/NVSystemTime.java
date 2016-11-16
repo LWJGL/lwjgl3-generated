@@ -32,7 +32,7 @@ public class NVSystemTime {
 	public static long eglGetSystemTimeFrequencyNV() {
 		long __functionAddress = EGL.getCapabilities().eglGetSystemTimeFrequencyNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callJ(__functionAddress);
 	}
 
@@ -41,7 +41,7 @@ public class NVSystemTime {
 	public static long eglGetSystemTimeNV() {
 		long __functionAddress = EGL.getCapabilities().eglGetSystemTimeNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callJ(__functionAddress);
 	}
 

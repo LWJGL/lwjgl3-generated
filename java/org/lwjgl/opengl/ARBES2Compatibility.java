@@ -66,7 +66,7 @@ public class ARBES2Compatibility {
 	public static void glReleaseShaderCompiler() {
 		long __functionAddress = GL.getCapabilities().glReleaseShaderCompiler;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -81,7 +81,7 @@ public class ARBES2Compatibility {
 	public static void nglShaderBinary(int count, long shaders, int binaryformat, long binary, int length) {
 		long __functionAddress = GL.getCapabilities().glShaderBinary;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, count, shaders, binaryformat, binary, length);
 	}
 
@@ -102,7 +102,7 @@ public class ARBES2Compatibility {
 	public static void nglGetShaderPrecisionFormat(int shadertype, int precisiontype, long range, long precision) {
 		long __functionAddress = GL.getCapabilities().glGetShaderPrecisionFormat;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, shadertype, precisiontype, range, precision);
 	}
 
@@ -116,8 +116,8 @@ public class ARBES2Compatibility {
 	 */
 	public static void glGetShaderPrecisionFormat(int shadertype, int precisiontype, IntBuffer range, IntBuffer precision) {
 		if ( CHECKS ) {
-			checkBuffer(range, 2);
-			checkBuffer(precision, 1);
+			check(range, 2);
+			check(precision, 1);
 		}
 		nglGetShaderPrecisionFormat(shadertype, precisiontype, memAddress(range), memAddress(precision));
 	}
@@ -131,7 +131,7 @@ public class ARBES2Compatibility {
 	 */
 	public static int glGetShaderPrecisionFormat(int shadertype, int precisiontype, IntBuffer range) {
 		if ( CHECKS )
-			checkBuffer(range, 2);
+			check(range, 2);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			IntBuffer precision = stack.callocInt(1);
@@ -153,7 +153,7 @@ public class ARBES2Compatibility {
 	public static void glDepthRangef(float zNear, float zFar) {
 		long __functionAddress = GL.getCapabilities().glDepthRangef;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, zNear, zFar);
 	}
 
@@ -167,7 +167,7 @@ public class ARBES2Compatibility {
 	public static void glClearDepthf(float depth) {
 		long __functionAddress = GL.getCapabilities().glClearDepthf;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, depth);
 	}
 
@@ -175,7 +175,7 @@ public class ARBES2Compatibility {
 	public static void glShaderBinary(int[] shaders, int binaryformat, ByteBuffer binary) {
 		long __functionAddress = GL.getCapabilities().glShaderBinary;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, shaders.length, shaders, binaryformat, memAddress(binary), binary.remaining());
 	}
 
@@ -183,9 +183,9 @@ public class ARBES2Compatibility {
 	public static void glGetShaderPrecisionFormat(int shadertype, int precisiontype, int[] range, int[] precision) {
 		long __functionAddress = GL.getCapabilities().glGetShaderPrecisionFormat;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(range, 2);
-			checkBuffer(precision, 1);
+			check(__functionAddress);
+			check(range, 2);
+			check(precision, 1);
 		}
 		callPPV(__functionAddress, shadertype, precisiontype, range, precision);
 	}

@@ -46,7 +46,7 @@ public class INTELFramebufferCMAA {
 	public static void glApplyFramebufferAttachmentCMAAINTEL() {
 		long __functionAddress = GL.getCapabilities().glApplyFramebufferAttachmentCMAAINTEL;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress);
 	}
 

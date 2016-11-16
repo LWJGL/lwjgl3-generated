@@ -225,7 +225,7 @@ public class GLFWVulkan {
 	public static int nglfwCreateWindowSurface(long instance, long window, long allocator, long surface) {
 		long __functionAddress = Functions.CreateWindowSurface;
 		if ( CHECKS ) {
-			checkPointer(window);
+			check(window);
 			if ( allocator != NULL ) VkAllocationCallbacks.validate(allocator);
 		}
 		return invokePPPPI(__functionAddress, instance, window, allocator, surface);
@@ -262,7 +262,7 @@ public class GLFWVulkan {
 	 */
 	public static int glfwCreateWindowSurface(VkInstance instance, long window, VkAllocationCallbacks allocator, LongBuffer surface) {
 		if ( CHECKS )
-			checkBuffer(surface, 1);
+			check(surface, 1);
 		return nglfwCreateWindowSurface(instance.address(), window, memAddressSafe(allocator), memAddress(surface));
 	}
 
@@ -270,8 +270,8 @@ public class GLFWVulkan {
 	public static int glfwCreateWindowSurface(VkInstance instance, long window, VkAllocationCallbacks allocator, long[] surface) {
 		long __functionAddress = Functions.CreateWindowSurface;
 		if ( CHECKS ) {
-			checkPointer(window);
-			checkBuffer(surface, 1);
+			check(window);
+			check(surface, 1);
 			if ( allocator != null ) VkAllocationCallbacks.validate(allocator.address());
 		}
 		return invokePPPPI(__functionAddress, instance.address(), window, memAddressSafe(allocator), surface);

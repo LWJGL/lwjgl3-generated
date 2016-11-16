@@ -53,8 +53,8 @@ public class DynCallback {
 	public static long dcbNewCallback(ByteBuffer signature, long funcptr, long userdata) {
 		if ( CHECKS ) {
 			checkNT1(signature);
-			checkPointer(funcptr);
-			checkPointer(userdata);
+			check(funcptr);
+			check(userdata);
 		}
 		return ndcbNewCallback(memAddress(signature), funcptr, userdata);
 	}
@@ -70,8 +70,8 @@ public class DynCallback {
 	 */
 	public static long dcbNewCallback(CharSequence signature, long funcptr, long userdata) {
 		if ( CHECKS ) {
-			checkPointer(funcptr);
-			checkPointer(userdata);
+			check(funcptr);
+			check(userdata);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -97,8 +97,8 @@ public class DynCallback {
 	 */
 	public static void dcbInitCallback(long pcb, ByteBuffer signature, long handler, ByteBuffer userdata) {
 		if ( CHECKS ) {
-			checkPointer(pcb);
-			checkPointer(handler);
+			check(pcb);
+			check(handler);
 		}
 		ndcbInitCallback(pcb, memAddress(signature), handler, memAddress(userdata));
 	}
@@ -115,7 +115,7 @@ public class DynCallback {
 	 */
 	public static void dcbFreeCallback(long pcb) {
 		if ( CHECKS )
-			checkPointer(pcb);
+			check(pcb);
 		ndcbFreeCallback(pcb);
 	}
 
@@ -131,7 +131,7 @@ public class DynCallback {
 	 */
 	public static long dcbGetUserData(long pcb) {
 		if ( CHECKS )
-			checkPointer(pcb);
+			check(pcb);
 		return ndcbGetUserData(pcb);
 	}
 
@@ -147,7 +147,7 @@ public class DynCallback {
 	 */
 	public static int dcbArgBool(long args) {
 		if ( CHECKS )
-			checkPointer(args);
+			check(args);
 		return ndcbArgBool(args);
 	}
 
@@ -163,7 +163,7 @@ public class DynCallback {
 	 */
 	public static byte dcbArgChar(long args) {
 		if ( CHECKS )
-			checkPointer(args);
+			check(args);
 		return ndcbArgChar(args);
 	}
 
@@ -179,7 +179,7 @@ public class DynCallback {
 	 */
 	public static short dcbArgShort(long args) {
 		if ( CHECKS )
-			checkPointer(args);
+			check(args);
 		return ndcbArgShort(args);
 	}
 
@@ -195,7 +195,7 @@ public class DynCallback {
 	 */
 	public static int dcbArgInt(long args) {
 		if ( CHECKS )
-			checkPointer(args);
+			check(args);
 		return ndcbArgInt(args);
 	}
 
@@ -211,7 +211,7 @@ public class DynCallback {
 	 */
 	public static int dcbArgLong(long args) {
 		if ( CHECKS )
-			checkPointer(args);
+			check(args);
 		return ndcbArgLong(args);
 	}
 
@@ -227,7 +227,7 @@ public class DynCallback {
 	 */
 	public static long dcbArgLongLong(long args) {
 		if ( CHECKS )
-			checkPointer(args);
+			check(args);
 		return ndcbArgLongLong(args);
 	}
 
@@ -243,7 +243,7 @@ public class DynCallback {
 	 */
 	public static byte dcbArgUChar(long args) {
 		if ( CHECKS )
-			checkPointer(args);
+			check(args);
 		return ndcbArgUChar(args);
 	}
 
@@ -259,7 +259,7 @@ public class DynCallback {
 	 */
 	public static short dcbArgUShort(long args) {
 		if ( CHECKS )
-			checkPointer(args);
+			check(args);
 		return ndcbArgUShort(args);
 	}
 
@@ -275,7 +275,7 @@ public class DynCallback {
 	 */
 	public static int dcbArgUInt(long args) {
 		if ( CHECKS )
-			checkPointer(args);
+			check(args);
 		return ndcbArgUInt(args);
 	}
 
@@ -291,7 +291,7 @@ public class DynCallback {
 	 */
 	public static int dcbArgULong(long args) {
 		if ( CHECKS )
-			checkPointer(args);
+			check(args);
 		return ndcbArgULong(args);
 	}
 
@@ -307,7 +307,7 @@ public class DynCallback {
 	 */
 	public static long dcbArgULongLong(long args) {
 		if ( CHECKS )
-			checkPointer(args);
+			check(args);
 		return ndcbArgULongLong(args);
 	}
 
@@ -323,7 +323,7 @@ public class DynCallback {
 	 */
 	public static float dcbArgFloat(long args) {
 		if ( CHECKS )
-			checkPointer(args);
+			check(args);
 		return ndcbArgFloat(args);
 	}
 
@@ -339,7 +339,7 @@ public class DynCallback {
 	 */
 	public static double dcbArgDouble(long args) {
 		if ( CHECKS )
-			checkPointer(args);
+			check(args);
 		return ndcbArgDouble(args);
 	}
 
@@ -355,7 +355,7 @@ public class DynCallback {
 	 */
 	public static long dcbArgPointer(long args) {
 		if ( CHECKS )
-			checkPointer(args);
+			check(args);
 		return ndcbArgPointer(args);
 	}
 

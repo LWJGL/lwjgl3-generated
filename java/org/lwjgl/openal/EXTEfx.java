@@ -670,7 +670,7 @@ public class EXTEfx {
 	public static void nalGenEffects(int n, long effects) {
 		long __functionAddress = AL.getCapabilities().alGenEffects;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, n, effects);
 	}
 
@@ -705,7 +705,7 @@ public class EXTEfx {
 	public static void nalDeleteEffects(int n, long effects) {
 		long __functionAddress = AL.getCapabilities().alDeleteEffects;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, n, effects);
 	}
 
@@ -739,7 +739,7 @@ public class EXTEfx {
 	public static boolean alIsEffect(int effect) {
 		long __functionAddress = AL.getCapabilities().alIsEffect;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return invokeZ(__functionAddress, effect);
 	}
 
@@ -755,7 +755,7 @@ public class EXTEfx {
 	public static void alEffecti(int effect, int param, int value) {
 		long __functionAddress = AL.getCapabilities().alEffecti;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokeV(__functionAddress, effect, param, value);
 	}
 
@@ -765,7 +765,7 @@ public class EXTEfx {
 	public static void nalEffectiv(int effect, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alEffectiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, effect, param, values);
 	}
 
@@ -792,7 +792,7 @@ public class EXTEfx {
 	public static void alEffectf(int effect, int param, float value) {
 		long __functionAddress = AL.getCapabilities().alEffectf;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokeV(__functionAddress, effect, param, value);
 	}
 
@@ -802,7 +802,7 @@ public class EXTEfx {
 	public static void nalEffectfv(int effect, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alEffectfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, effect, param, values);
 	}
 
@@ -823,7 +823,7 @@ public class EXTEfx {
 	public static void nalGetEffecti(int effect, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetEffecti;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, effect, param, value);
 	}
 
@@ -836,7 +836,7 @@ public class EXTEfx {
 	 */
 	public static void alGetEffecti(int effect, int param, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nalGetEffecti(effect, param, memAddress(value));
 	}
 
@@ -863,7 +863,7 @@ public class EXTEfx {
 	public static void nalGetEffectiv(int effect, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetEffectiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, effect, param, values);
 	}
 
@@ -876,7 +876,7 @@ public class EXTEfx {
 	 */
 	public static void alGetEffectiv(int effect, int param, IntBuffer values) {
 		if ( CHECKS )
-			checkBuffer(values, 1);
+			check(values, 1);
 		nalGetEffectiv(effect, param, memAddress(values));
 	}
 
@@ -886,7 +886,7 @@ public class EXTEfx {
 	public static void nalGetEffectf(int effect, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetEffectf;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, effect, param, value);
 	}
 
@@ -899,7 +899,7 @@ public class EXTEfx {
 	 */
 	public static void alGetEffectf(int effect, int param, FloatBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nalGetEffectf(effect, param, memAddress(value));
 	}
 
@@ -926,7 +926,7 @@ public class EXTEfx {
 	public static void nalGetEffectfv(int effect, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetEffectfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, effect, param, values);
 	}
 
@@ -939,7 +939,7 @@ public class EXTEfx {
 	 */
 	public static void alGetEffectfv(int effect, int param, FloatBuffer values) {
 		if ( CHECKS )
-			checkBuffer(values, 1);
+			check(values, 1);
 		nalGetEffectfv(effect, param, memAddress(values));
 	}
 
@@ -953,7 +953,7 @@ public class EXTEfx {
 	public static void nalGenFilters(int n, long filters) {
 		long __functionAddress = AL.getCapabilities().alGenFilters;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, n, filters);
 	}
 
@@ -988,7 +988,7 @@ public class EXTEfx {
 	public static void nalDeleteFilters(int n, long filters) {
 		long __functionAddress = AL.getCapabilities().alDeleteFilters;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, n, filters);
 	}
 
@@ -1022,7 +1022,7 @@ public class EXTEfx {
 	public static boolean alIsFilter(int filter) {
 		long __functionAddress = AL.getCapabilities().alIsFilter;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return invokeZ(__functionAddress, filter);
 	}
 
@@ -1038,7 +1038,7 @@ public class EXTEfx {
 	public static void alFilteri(int filter, int param, int value) {
 		long __functionAddress = AL.getCapabilities().alFilteri;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokeV(__functionAddress, filter, param, value);
 	}
 
@@ -1048,7 +1048,7 @@ public class EXTEfx {
 	public static void nalFilteriv(int filter, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alFilteriv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, filter, param, values);
 	}
 
@@ -1075,7 +1075,7 @@ public class EXTEfx {
 	public static void alFilterf(int filter, int param, float value) {
 		long __functionAddress = AL.getCapabilities().alFilterf;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokeV(__functionAddress, filter, param, value);
 	}
 
@@ -1085,7 +1085,7 @@ public class EXTEfx {
 	public static void nalFilterfv(int filter, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alFilterfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, filter, param, values);
 	}
 
@@ -1106,7 +1106,7 @@ public class EXTEfx {
 	public static void nalGetFilteri(int filter, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetFilteri;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, filter, param, value);
 	}
 
@@ -1119,7 +1119,7 @@ public class EXTEfx {
 	 */
 	public static void alGetFilteri(int filter, int param, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nalGetFilteri(filter, param, memAddress(value));
 	}
 
@@ -1146,7 +1146,7 @@ public class EXTEfx {
 	public static void nalGetFilteriv(int filter, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetFilteriv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, filter, param, values);
 	}
 
@@ -1159,7 +1159,7 @@ public class EXTEfx {
 	 */
 	public static void alGetFilteriv(int filter, int param, IntBuffer values) {
 		if ( CHECKS )
-			checkBuffer(values, 1);
+			check(values, 1);
 		nalGetFilteriv(filter, param, memAddress(values));
 	}
 
@@ -1169,7 +1169,7 @@ public class EXTEfx {
 	public static void nalGetFilterf(int filter, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetFilterf;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, filter, param, value);
 	}
 
@@ -1182,7 +1182,7 @@ public class EXTEfx {
 	 */
 	public static void alGetFilterf(int filter, int param, FloatBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nalGetFilterf(filter, param, memAddress(value));
 	}
 
@@ -1209,7 +1209,7 @@ public class EXTEfx {
 	public static void nalGetFilterfv(int filter, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetFilterfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, filter, param, values);
 	}
 
@@ -1222,7 +1222,7 @@ public class EXTEfx {
 	 */
 	public static void alGetFilterfv(int filter, int param, FloatBuffer values) {
 		if ( CHECKS )
-			checkBuffer(values, 1);
+			check(values, 1);
 		nalGetFilterfv(filter, param, memAddress(values));
 	}
 
@@ -1236,7 +1236,7 @@ public class EXTEfx {
 	public static void nalGenAuxiliaryEffectSlots(int n, long effectSlots) {
 		long __functionAddress = AL.getCapabilities().alGenAuxiliaryEffectSlots;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, n, effectSlots);
 	}
 
@@ -1271,7 +1271,7 @@ public class EXTEfx {
 	public static void nalDeleteAuxiliaryEffectSlots(int n, long effectSlots) {
 		long __functionAddress = AL.getCapabilities().alDeleteAuxiliaryEffectSlots;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, n, effectSlots);
 	}
 
@@ -1305,7 +1305,7 @@ public class EXTEfx {
 	public static boolean alIsAuxiliaryEffectSlot(int effectSlot) {
 		long __functionAddress = AL.getCapabilities().alIsAuxiliaryEffectSlot;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return invokeZ(__functionAddress, effectSlot);
 	}
 
@@ -1321,7 +1321,7 @@ public class EXTEfx {
 	public static void alAuxiliaryEffectSloti(int effectSlot, int param, int value) {
 		long __functionAddress = AL.getCapabilities().alAuxiliaryEffectSloti;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokeV(__functionAddress, effectSlot, param, value);
 	}
 
@@ -1331,7 +1331,7 @@ public class EXTEfx {
 	public static void nalAuxiliaryEffectSlotiv(int effectSlot, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alAuxiliaryEffectSlotiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, effectSlot, param, values);
 	}
 
@@ -1358,7 +1358,7 @@ public class EXTEfx {
 	public static void alAuxiliaryEffectSlotf(int effectSlot, int param, float value) {
 		long __functionAddress = AL.getCapabilities().alAuxiliaryEffectSlotf;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokeV(__functionAddress, effectSlot, param, value);
 	}
 
@@ -1368,7 +1368,7 @@ public class EXTEfx {
 	public static void nalAuxiliaryEffectSlotfv(int effectSlot, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alAuxiliaryEffectSlotfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, effectSlot, param, values);
 	}
 
@@ -1389,7 +1389,7 @@ public class EXTEfx {
 	public static void nalGetAuxiliaryEffectSloti(int effectSlot, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetAuxiliaryEffectSloti;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, effectSlot, param, value);
 	}
 
@@ -1402,7 +1402,7 @@ public class EXTEfx {
 	 */
 	public static void alGetAuxiliaryEffectSloti(int effectSlot, int param, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nalGetAuxiliaryEffectSloti(effectSlot, param, memAddress(value));
 	}
 
@@ -1429,7 +1429,7 @@ public class EXTEfx {
 	public static void nalGetAuxiliaryEffectSlotiv(int effectSlot, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetAuxiliaryEffectSlotiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, effectSlot, param, values);
 	}
 
@@ -1442,7 +1442,7 @@ public class EXTEfx {
 	 */
 	public static void alGetAuxiliaryEffectSlotiv(int effectSlot, int param, IntBuffer values) {
 		if ( CHECKS )
-			checkBuffer(values, 1);
+			check(values, 1);
 		nalGetAuxiliaryEffectSlotiv(effectSlot, param, memAddress(values));
 	}
 
@@ -1452,7 +1452,7 @@ public class EXTEfx {
 	public static void nalGetAuxiliaryEffectSlotf(int effectSlot, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetAuxiliaryEffectSlotf;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, effectSlot, param, value);
 	}
 
@@ -1465,7 +1465,7 @@ public class EXTEfx {
 	 */
 	public static void alGetAuxiliaryEffectSlotf(int effectSlot, int param, FloatBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nalGetAuxiliaryEffectSlotf(effectSlot, param, memAddress(value));
 	}
 
@@ -1492,7 +1492,7 @@ public class EXTEfx {
 	public static void nalGetAuxiliaryEffectSlotfv(int effectSlot, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetAuxiliaryEffectSlotfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, effectSlot, param, values);
 	}
 
@@ -1505,7 +1505,7 @@ public class EXTEfx {
 	 */
 	public static void alGetAuxiliaryEffectSlotfv(int effectSlot, int param, FloatBuffer values) {
 		if ( CHECKS )
-			checkBuffer(values, 1);
+			check(values, 1);
 		nalGetAuxiliaryEffectSlotfv(effectSlot, param, memAddress(values));
 	}
 
@@ -1513,7 +1513,7 @@ public class EXTEfx {
 	public static void alGenEffects(int[] effects) {
 		long __functionAddress = AL.getCapabilities().alGenEffects;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, effects.length, effects);
 	}
 
@@ -1521,7 +1521,7 @@ public class EXTEfx {
 	public static void alDeleteEffects(int[] effects) {
 		long __functionAddress = AL.getCapabilities().alDeleteEffects;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, effects.length, effects);
 	}
 
@@ -1529,7 +1529,7 @@ public class EXTEfx {
 	public static void alEffectiv(int effect, int param, int[] values) {
 		long __functionAddress = AL.getCapabilities().alEffectiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, effect, param, values);
 	}
 
@@ -1537,7 +1537,7 @@ public class EXTEfx {
 	public static void alEffectfv(int effect, int param, float[] values) {
 		long __functionAddress = AL.getCapabilities().alEffectfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, effect, param, values);
 	}
 
@@ -1545,8 +1545,8 @@ public class EXTEfx {
 	public static void alGetEffecti(int effect, int param, int[] value) {
 		long __functionAddress = AL.getCapabilities().alGetEffecti;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(value, 1);
 		}
 		invokePV(__functionAddress, effect, param, value);
 	}
@@ -1555,8 +1555,8 @@ public class EXTEfx {
 	public static void alGetEffectiv(int effect, int param, int[] values) {
 		long __functionAddress = AL.getCapabilities().alGetEffectiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(values, 1);
+			check(__functionAddress);
+			check(values, 1);
 		}
 		invokePV(__functionAddress, effect, param, values);
 	}
@@ -1565,8 +1565,8 @@ public class EXTEfx {
 	public static void alGetEffectf(int effect, int param, float[] value) {
 		long __functionAddress = AL.getCapabilities().alGetEffectf;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(value, 1);
 		}
 		invokePV(__functionAddress, effect, param, value);
 	}
@@ -1575,8 +1575,8 @@ public class EXTEfx {
 	public static void alGetEffectfv(int effect, int param, float[] values) {
 		long __functionAddress = AL.getCapabilities().alGetEffectfv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(values, 1);
+			check(__functionAddress);
+			check(values, 1);
 		}
 		invokePV(__functionAddress, effect, param, values);
 	}
@@ -1585,7 +1585,7 @@ public class EXTEfx {
 	public static void alGenFilters(int[] filters) {
 		long __functionAddress = AL.getCapabilities().alGenFilters;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, filters.length, filters);
 	}
 
@@ -1593,7 +1593,7 @@ public class EXTEfx {
 	public static void alDeleteFilters(int[] filters) {
 		long __functionAddress = AL.getCapabilities().alDeleteFilters;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, filters.length, filters);
 	}
 
@@ -1601,7 +1601,7 @@ public class EXTEfx {
 	public static void alFilteriv(int filter, int param, int[] values) {
 		long __functionAddress = AL.getCapabilities().alFilteriv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, filter, param, values);
 	}
 
@@ -1609,7 +1609,7 @@ public class EXTEfx {
 	public static void alFilterfv(int filter, int param, float[] values) {
 		long __functionAddress = AL.getCapabilities().alFilterfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, filter, param, values);
 	}
 
@@ -1617,8 +1617,8 @@ public class EXTEfx {
 	public static void alGetFilteri(int filter, int param, int[] value) {
 		long __functionAddress = AL.getCapabilities().alGetFilteri;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(value, 1);
 		}
 		invokePV(__functionAddress, filter, param, value);
 	}
@@ -1627,8 +1627,8 @@ public class EXTEfx {
 	public static void alGetFilteriv(int filter, int param, int[] values) {
 		long __functionAddress = AL.getCapabilities().alGetFilteriv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(values, 1);
+			check(__functionAddress);
+			check(values, 1);
 		}
 		invokePV(__functionAddress, filter, param, values);
 	}
@@ -1637,8 +1637,8 @@ public class EXTEfx {
 	public static void alGetFilterf(int filter, int param, float[] value) {
 		long __functionAddress = AL.getCapabilities().alGetFilterf;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(value, 1);
 		}
 		invokePV(__functionAddress, filter, param, value);
 	}
@@ -1647,8 +1647,8 @@ public class EXTEfx {
 	public static void alGetFilterfv(int filter, int param, float[] values) {
 		long __functionAddress = AL.getCapabilities().alGetFilterfv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(values, 1);
+			check(__functionAddress);
+			check(values, 1);
 		}
 		invokePV(__functionAddress, filter, param, values);
 	}
@@ -1657,7 +1657,7 @@ public class EXTEfx {
 	public static void alGenAuxiliaryEffectSlots(int[] effectSlots) {
 		long __functionAddress = AL.getCapabilities().alGenAuxiliaryEffectSlots;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, effectSlots.length, effectSlots);
 	}
 
@@ -1665,7 +1665,7 @@ public class EXTEfx {
 	public static void alDeleteAuxiliaryEffectSlots(int[] effectSlots) {
 		long __functionAddress = AL.getCapabilities().alDeleteAuxiliaryEffectSlots;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, effectSlots.length, effectSlots);
 	}
 
@@ -1673,7 +1673,7 @@ public class EXTEfx {
 	public static void alAuxiliaryEffectSlotiv(int effectSlot, int param, int[] values) {
 		long __functionAddress = AL.getCapabilities().alAuxiliaryEffectSlotiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, effectSlot, param, values);
 	}
 
@@ -1681,7 +1681,7 @@ public class EXTEfx {
 	public static void alAuxiliaryEffectSlotfv(int effectSlot, int param, float[] values) {
 		long __functionAddress = AL.getCapabilities().alAuxiliaryEffectSlotfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, effectSlot, param, values);
 	}
 
@@ -1689,8 +1689,8 @@ public class EXTEfx {
 	public static void alGetAuxiliaryEffectSloti(int effectSlot, int param, int[] value) {
 		long __functionAddress = AL.getCapabilities().alGetAuxiliaryEffectSloti;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(value, 1);
 		}
 		invokePV(__functionAddress, effectSlot, param, value);
 	}
@@ -1699,8 +1699,8 @@ public class EXTEfx {
 	public static void alGetAuxiliaryEffectSlotiv(int effectSlot, int param, int[] values) {
 		long __functionAddress = AL.getCapabilities().alGetAuxiliaryEffectSlotiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(values, 1);
+			check(__functionAddress);
+			check(values, 1);
 		}
 		invokePV(__functionAddress, effectSlot, param, values);
 	}
@@ -1709,8 +1709,8 @@ public class EXTEfx {
 	public static void alGetAuxiliaryEffectSlotf(int effectSlot, int param, float[] value) {
 		long __functionAddress = AL.getCapabilities().alGetAuxiliaryEffectSlotf;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(value, 1);
 		}
 		invokePV(__functionAddress, effectSlot, param, value);
 	}
@@ -1719,8 +1719,8 @@ public class EXTEfx {
 	public static void alGetAuxiliaryEffectSlotfv(int effectSlot, int param, float[] values) {
 		long __functionAddress = AL.getCapabilities().alGetAuxiliaryEffectSlotfv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(values, 1);
+			check(__functionAddress);
+			check(values, 1);
 		}
 		invokePV(__functionAddress, effectSlot, param, values);
 	}

@@ -167,7 +167,7 @@ public class ARBUniformBufferObject {
 	public static void nglGetUniformIndices(int program, int uniformCount, long uniformNames, long uniformIndices) {
 		long __functionAddress = GL.getCapabilities().glGetUniformIndices;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, program, uniformCount, uniformNames, uniformIndices);
 	}
 
@@ -180,7 +180,7 @@ public class ARBUniformBufferObject {
 	 */
 	public static void glGetUniformIndices(int program, PointerBuffer uniformNames, IntBuffer uniformIndices) {
 		if ( CHECKS )
-			checkBuffer(uniformIndices, uniformNames.remaining());
+			check(uniformIndices, uniformNames.remaining());
 		nglGetUniformIndices(program, uniformNames.remaining(), memAddress(uniformNames), memAddress(uniformIndices));
 	}
 
@@ -193,7 +193,7 @@ public class ARBUniformBufferObject {
 	 */
 	public static void glGetUniformIndices(int program, CharSequence[] uniformNames, IntBuffer uniformIndices) {
 		if ( CHECKS )
-			checkBuffer(uniformIndices, uniformNames.length);
+			check(uniformIndices, uniformNames.length);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			long uniformNamesAddress = org.lwjgl.system.APIUtil.apiArray(stack, MemoryUtil::memASCII, uniformNames);
@@ -232,7 +232,7 @@ public class ARBUniformBufferObject {
 	public static void nglGetActiveUniformsiv(int program, int uniformCount, long uniformIndices, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniformsiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, program, uniformCount, uniformIndices, pname, params);
 	}
 
@@ -246,7 +246,7 @@ public class ARBUniformBufferObject {
 	 */
 	public static void glGetActiveUniformsiv(int program, IntBuffer uniformIndices, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, uniformIndices.remaining());
+			check(params, uniformIndices.remaining());
 		nglGetActiveUniformsiv(program, uniformIndices.remaining(), memAddress(uniformIndices), pname, memAddress(params));
 	}
 
@@ -278,7 +278,7 @@ public class ARBUniformBufferObject {
 	public static void nglGetActiveUniformName(int program, int uniformIndex, int bufSize, long length, long uniformName) {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniformName;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, program, uniformIndex, bufSize, length, uniformName);
 	}
 
@@ -292,7 +292,7 @@ public class ARBUniformBufferObject {
 	 */
 	public static void glGetActiveUniformName(int program, int uniformIndex, IntBuffer length, ByteBuffer uniformName) {
 		if ( CHECKS )
-			checkBufferSafe(length, 1);
+			checkSafe(length, 1);
 		nglGetActiveUniformName(program, uniformIndex, uniformName.remaining(), memAddressSafe(length), memAddress(uniformName));
 	}
 
@@ -340,7 +340,7 @@ public class ARBUniformBufferObject {
 	public static int nglGetUniformBlockIndex(int program, long uniformBlockName) {
 		long __functionAddress = GL.getCapabilities().glGetUniformBlockIndex;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPI(__functionAddress, program, uniformBlockName);
 	}
 
@@ -378,7 +378,7 @@ public class ARBUniformBufferObject {
 	public static void nglGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniformBlockiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, uniformBlockIndex, pname, params);
 	}
 
@@ -392,7 +392,7 @@ public class ARBUniformBufferObject {
 	 */
 	public static void glGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetActiveUniformBlockiv(program, uniformBlockIndex, pname, memAddress(params));
 	}
 
@@ -424,7 +424,7 @@ public class ARBUniformBufferObject {
 	public static void nglGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, long length, long uniformBlockName) {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniformBlockName;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, program, uniformBlockIndex, bufSize, length, uniformBlockName);
 	}
 
@@ -438,7 +438,7 @@ public class ARBUniformBufferObject {
 	 */
 	public static void glGetActiveUniformBlockName(int program, int uniformBlockIndex, IntBuffer length, ByteBuffer uniformBlockName) {
 		if ( CHECKS )
-			checkBufferSafe(length, 1);
+			checkSafe(length, 1);
 		nglGetActiveUniformBlockName(program, uniformBlockIndex, uniformBlockName.remaining(), memAddressSafe(length), memAddress(uniformBlockName));
 	}
 
@@ -494,7 +494,7 @@ public class ARBUniformBufferObject {
 	public static void glBindBufferRange(int target, int index, int buffer, long offset, long size) {
 		long __functionAddress = GL.getCapabilities().glBindBufferRange;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, target, index, buffer, offset, size);
 	}
 
@@ -510,7 +510,7 @@ public class ARBUniformBufferObject {
 	public static void glBindBufferBase(int target, int index, int buffer) {
 		long __functionAddress = GL.getCapabilities().glBindBufferBase;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, index, buffer);
 	}
 
@@ -520,7 +520,7 @@ public class ARBUniformBufferObject {
 	public static void nglGetIntegeri_v(int target, int index, long data) {
 		long __functionAddress = GL.getCapabilities().glGetIntegeri_v;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, index, data);
 	}
 
@@ -533,7 +533,7 @@ public class ARBUniformBufferObject {
 	 */
 	public static void glGetIntegeri_v(int target, int index, IntBuffer data) {
 		if ( CHECKS )
-			checkBuffer(data, 1);
+			check(data, 1);
 		nglGetIntegeri_v(target, index, memAddress(data));
 	}
 
@@ -566,7 +566,7 @@ public class ARBUniformBufferObject {
 	public static void glUniformBlockBinding(int program, int uniformBlockIndex, int uniformBlockBinding) {
 		long __functionAddress = GL.getCapabilities().glUniformBlockBinding;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, program, uniformBlockIndex, uniformBlockBinding);
 	}
 
@@ -574,8 +574,8 @@ public class ARBUniformBufferObject {
 	public static void glGetUniformIndices(int program, PointerBuffer uniformNames, int[] uniformIndices) {
 		long __functionAddress = GL.getCapabilities().glGetUniformIndices;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(uniformIndices, uniformNames.remaining());
+			check(__functionAddress);
+			check(uniformIndices, uniformNames.remaining());
 		}
 		callPPV(__functionAddress, program, uniformNames.remaining(), memAddress(uniformNames), uniformIndices);
 	}
@@ -584,8 +584,8 @@ public class ARBUniformBufferObject {
 	public static void glGetActiveUniformsiv(int program, int[] uniformIndices, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniformsiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, uniformIndices.length);
+			check(__functionAddress);
+			check(params, uniformIndices.length);
 		}
 		callPPV(__functionAddress, program, uniformIndices.length, uniformIndices, pname, params);
 	}
@@ -594,8 +594,8 @@ public class ARBUniformBufferObject {
 	public static void glGetActiveUniformName(int program, int uniformIndex, int[] length, ByteBuffer uniformName) {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniformName;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(length, 1);
+			check(__functionAddress);
+			checkSafe(length, 1);
 		}
 		callPPV(__functionAddress, program, uniformIndex, uniformName.remaining(), length, memAddress(uniformName));
 	}
@@ -604,8 +604,8 @@ public class ARBUniformBufferObject {
 	public static void glGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniformBlockiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, program, uniformBlockIndex, pname, params);
 	}
@@ -614,8 +614,8 @@ public class ARBUniformBufferObject {
 	public static void glGetActiveUniformBlockName(int program, int uniformBlockIndex, int[] length, ByteBuffer uniformBlockName) {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniformBlockName;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(length, 1);
+			check(__functionAddress);
+			checkSafe(length, 1);
 		}
 		callPPV(__functionAddress, program, uniformBlockIndex, uniformBlockName.remaining(), length, memAddress(uniformBlockName));
 	}
@@ -624,8 +624,8 @@ public class ARBUniformBufferObject {
 	public static void glGetIntegeri_v(int target, int index, int[] data) {
 		long __functionAddress = GL.getCapabilities().glGetIntegeri_v;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, 1);
+			check(__functionAddress);
+			check(data, 1);
 		}
 		callPV(__functionAddress, target, index, data);
 	}

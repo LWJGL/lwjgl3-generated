@@ -89,7 +89,7 @@ public class ARBTextureBufferObject {
 	public static void glTexBufferARB(int target, int internalformat, int buffer) {
 		long __functionAddress = GL.getCapabilities().glTexBufferARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, internalformat, buffer);
 	}
 

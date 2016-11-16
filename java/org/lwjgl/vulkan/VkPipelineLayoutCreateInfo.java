@@ -355,9 +355,9 @@ public class VkPipelineLayoutCreateInfo extends Struct implements NativeResource
 	 */
 	public static void validate(long struct) {
 		if ( nsetLayoutCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkPipelineLayoutCreateInfo.PSETLAYOUTS));
+			check(memGetAddress(struct + VkPipelineLayoutCreateInfo.PSETLAYOUTS));
 		if ( npushConstantRangeCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkPipelineLayoutCreateInfo.PPUSHCONSTANTRANGES));
+			check(memGetAddress(struct + VkPipelineLayoutCreateInfo.PPUSHCONSTANTRANGES));
 	}
 
 	/**

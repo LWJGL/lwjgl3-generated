@@ -305,7 +305,7 @@ public class VkDebugReportCallbackCreateInfoEXT extends Struct implements Native
 	/** Unsafe version of {@link #flags(int) flags}. */
 	public static void nflags(long struct, int value) { memPutInt(struct + VkDebugReportCallbackCreateInfoEXT.FLAGS, value); }
 	/** Unsafe version of {@link #pfnCallback(VkDebugReportCallbackEXTI) pfnCallback}. */
-	public static void npfnCallback(long struct, long value) { memPutAddress(struct + VkDebugReportCallbackCreateInfoEXT.PFNCALLBACK, checkPointer(value)); }
+	public static void npfnCallback(long struct, long value) { memPutAddress(struct + VkDebugReportCallbackCreateInfoEXT.PFNCALLBACK, check(value)); }
 	/** Unsafe version of {@link #pUserData(long) pUserData}. */
 	public static void npUserData(long struct, long value) { memPutAddress(struct + VkDebugReportCallbackCreateInfoEXT.PUSERDATA, value); }
 
@@ -315,7 +315,7 @@ public class VkDebugReportCallbackCreateInfoEXT extends Struct implements Native
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + VkDebugReportCallbackCreateInfoEXT.PFNCALLBACK));
+		check(memGetAddress(struct + VkDebugReportCallbackCreateInfoEXT.PFNCALLBACK));
 	}
 
 	/**

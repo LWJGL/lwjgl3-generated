@@ -42,7 +42,7 @@ public class EXTDebugMarker {
 	public static void nglInsertEventMarkerEXT(int length, long marker) {
 		long __functionAddress = GL.getCapabilities().glInsertEventMarkerEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, length, marker);
 	}
 
@@ -66,7 +66,7 @@ public class EXTDebugMarker {
 	public static void nglPushGroupMarkerEXT(int length, long marker) {
 		long __functionAddress = GL.getCapabilities().glPushGroupMarkerEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, length, marker);
 	}
 
@@ -90,7 +90,7 @@ public class EXTDebugMarker {
 	public static void glPopGroupMarkerEXT() {
 		long __functionAddress = GL.getCapabilities().glPopGroupMarkerEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress);
 	}
 

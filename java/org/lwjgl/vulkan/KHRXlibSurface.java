@@ -39,7 +39,7 @@ public class KHRXlibSurface {
 	public static int nvkCreateXlibSurfaceKHR(VkInstance instance, long pCreateInfo, long pAllocator, long pSurface) {
 		long __functionAddress = instance.getCapabilities().vkCreateXlibSurfaceKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 			VkXlibSurfaceCreateInfoKHR.validate(pCreateInfo);
 			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
 		}
@@ -93,7 +93,7 @@ public class KHRXlibSurface {
 	 */
 	public static int vkCreateXlibSurfaceKHR(VkInstance instance, VkXlibSurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSurface) {
 		if ( CHECKS )
-			checkBuffer(pSurface, 1);
+			check(pSurface, 1);
 		return nvkCreateXlibSurfaceKHR(instance, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pSurface));
 	}
 
@@ -137,8 +137,8 @@ public class KHRXlibSurface {
 	public static boolean vkGetPhysicalDeviceXlibPresentationSupportKHR(VkPhysicalDevice physicalDevice, int queueFamilyIndex, long dpy, long visualID) {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceXlibPresentationSupportKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
+			check(__functionAddress);
+			check(dpy);
 		}
 		return callPPPI(__functionAddress, physicalDevice.address(), queueFamilyIndex, dpy, visualID) != 0;
 	}
@@ -147,8 +147,8 @@ public class KHRXlibSurface {
 	public static int vkCreateXlibSurfaceKHR(VkInstance instance, VkXlibSurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, long[] pSurface) {
 		long __functionAddress = instance.getCapabilities().vkCreateXlibSurfaceKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(pSurface, 1);
+			check(__functionAddress);
+			check(pSurface, 1);
 			VkXlibSurfaceCreateInfoKHR.validate(pCreateInfo.address());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}

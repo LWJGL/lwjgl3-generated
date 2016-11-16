@@ -43,8 +43,8 @@ public class CL12GL {
 	public static long nclCreateFromGLTexture(long context, long flags, int texture_target, int miplevel, int texture, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateFromGLTexture;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
+			check(__functionAddress);
+			check(context);
 		}
 		return callPJPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
 	}
@@ -99,7 +99,7 @@ public class CL12GL {
 	 */
 	public static long clCreateFromGLTexture(long context, long flags, int texture_target, int miplevel, int texture, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateFromGLTexture(context, flags, texture_target, miplevel, texture, memAddressSafe(errcode_ret));
 	}
 
@@ -107,9 +107,9 @@ public class CL12GL {
 	public static long clCreateFromGLTexture(long context, long flags, int texture_target, int miplevel, int texture, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateFromGLTexture;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
-			checkBufferSafe(errcode_ret, 1);
+			check(__functionAddress);
+			check(context);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPJPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
 	}

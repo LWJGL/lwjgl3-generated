@@ -56,7 +56,7 @@ public class AMDOcclusionQueryEvent {
 	public static void glQueryObjectParameteruiAMD(int target, int id, int pname, int param) {
 		long __functionAddress = GL.getCapabilities().glQueryObjectParameteruiAMD;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, id, pname, param);
 	}
 

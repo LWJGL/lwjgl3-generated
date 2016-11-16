@@ -375,7 +375,7 @@ public class ParShapes {
 	 */
 	public static void par_shapes_compute_aabb(ParShapesMesh mesh, FloatBuffer aabb) {
 		if ( CHECKS )
-			checkBuffer(aabb, 6);
+			check(aabb, 6);
 		npar_shapes_compute_aabb(mesh.address(), memAddress(aabb));
 	}
 
@@ -441,7 +441,7 @@ public class ParShapes {
 	 */
 	public static void par_shapes_rotate(ParShapesMesh mesh, float radians, FloatBuffer axis) {
 		if ( CHECKS )
-			checkBuffer(axis, 3);
+			check(axis, 3);
 		npar_shapes_rotate(mesh.address(), radians, memAddress(axis));
 	}
 
@@ -573,7 +573,7 @@ public class ParShapes {
 	/** Array version of: {@link #par_shapes_compute_aabb compute_aabb} */
 	public static void par_shapes_compute_aabb(ParShapesMesh mesh, float[] aabb) {
 		if ( CHECKS )
-			checkBuffer(aabb, 6);
+			check(aabb, 6);
 		npar_shapes_compute_aabb(mesh.address(), aabb);
 	}
 
@@ -583,7 +583,7 @@ public class ParShapes {
 	/** Array version of: {@link #par_shapes_rotate rotate} */
 	public static void par_shapes_rotate(ParShapesMesh mesh, float radians, float[] axis) {
 		if ( CHECKS )
-			checkBuffer(axis, 3);
+			check(axis, 3);
 		npar_shapes_rotate(mesh.address(), radians, axis);
 	}
 

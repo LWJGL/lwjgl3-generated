@@ -396,13 +396,13 @@ public class WNDCLASSEX extends Struct implements NativeResource {
 	/** Unsafe version of {@link #style(int) style}. */
 	public static void nstyle(long struct, int value) { memPutInt(struct + WNDCLASSEX.STYLE, value); }
 	/** Unsafe version of {@link #lpfnWndProc(WindowProcI) lpfnWndProc}. */
-	public static void nlpfnWndProc(long struct, long value) { memPutAddress(struct + WNDCLASSEX.LPFNWNDPROC, checkPointer(value)); }
+	public static void nlpfnWndProc(long struct, long value) { memPutAddress(struct + WNDCLASSEX.LPFNWNDPROC, check(value)); }
 	/** Unsafe version of {@link #cbClsExtra(int) cbClsExtra}. */
 	public static void ncbClsExtra(long struct, int value) { memPutInt(struct + WNDCLASSEX.CBCLSEXTRA, value); }
 	/** Unsafe version of {@link #cbWndExtra(int) cbWndExtra}. */
 	public static void ncbWndExtra(long struct, int value) { memPutInt(struct + WNDCLASSEX.CBWNDEXTRA, value); }
 	/** Unsafe version of {@link #hInstance(long) hInstance}. */
-	public static void nhInstance(long struct, long value) { memPutAddress(struct + WNDCLASSEX.HINSTANCE, checkPointer(value)); }
+	public static void nhInstance(long struct, long value) { memPutAddress(struct + WNDCLASSEX.HINSTANCE, check(value)); }
 	/** Unsafe version of {@link #hIcon(long) hIcon}. */
 	public static void nhIcon(long struct, long value) { memPutAddress(struct + WNDCLASSEX.HICON, value); }
 	/** Unsafe version of {@link #hCursor(long) hCursor}. */
@@ -428,9 +428,9 @@ public class WNDCLASSEX extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + WNDCLASSEX.LPFNWNDPROC));
-		checkPointer(memGetAddress(struct + WNDCLASSEX.HINSTANCE));
-		checkPointer(memGetAddress(struct + WNDCLASSEX.LPSZCLASSNAME));
+		check(memGetAddress(struct + WNDCLASSEX.LPFNWNDPROC));
+		check(memGetAddress(struct + WNDCLASSEX.HINSTANCE));
+		check(memGetAddress(struct + WNDCLASSEX.LPSZCLASSNAME));
 	}
 
 	/**

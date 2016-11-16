@@ -56,7 +56,7 @@ public class ARBTextureStorage {
 	public static void glTexStorage1D(int target, int levels, int internalformat, int width) {
 		long __functionAddress = GL.getCapabilities().glTexStorage1D;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, levels, internalformat, width);
 	}
 
@@ -74,7 +74,7 @@ public class ARBTextureStorage {
 	public static void glTexStorage2D(int target, int levels, int internalformat, int width, int height) {
 		long __functionAddress = GL.getCapabilities().glTexStorage2D;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, levels, internalformat, width, height);
 	}
 
@@ -93,7 +93,7 @@ public class ARBTextureStorage {
 	public static void glTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth) {
 		long __functionAddress = GL.getCapabilities().glTexStorage3D;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, levels, internalformat, width, height, depth);
 	}
 
@@ -111,7 +111,7 @@ public class ARBTextureStorage {
 	public static void glTextureStorage1DEXT(int texture, int target, int levels, int internalformat, int width) {
 		long __functionAddress = GL.getCapabilities().glTextureStorage1DEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, texture, target, levels, internalformat, width);
 	}
 
@@ -130,7 +130,7 @@ public class ARBTextureStorage {
 	public static void glTextureStorage2DEXT(int texture, int target, int levels, int internalformat, int width, int height) {
 		long __functionAddress = GL.getCapabilities().glTextureStorage2DEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, texture, target, levels, internalformat, width, height);
 	}
 
@@ -150,7 +150,7 @@ public class ARBTextureStorage {
 	public static void glTextureStorage3DEXT(int texture, int target, int levels, int internalformat, int width, int height, int depth) {
 		long __functionAddress = GL.getCapabilities().glTextureStorage3DEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, texture, target, levels, internalformat, width, height, depth);
 	}
 

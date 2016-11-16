@@ -493,7 +493,7 @@ public class NkStyle extends Struct implements NativeResource {
 	public static void nfont(long struct, NkUserFont value) { memPutAddress(struct + NkStyle.FONT, value.address()); }
 	/** Unsafe version of {@link #cursors(PointerBuffer) cursors}. */
 	public static void ncursors(long struct, PointerBuffer value) {
-		if ( CHECKS ) checkBufferGT(value, NK_CURSOR_COUNT);
+		if ( CHECKS ) checkGT(value, NK_CURSOR_COUNT);
 		memCopy(memAddress(value), struct + NkStyle.CURSORS, value.remaining() * POINTER_SIZE);
 	}
 	/** Unsafe version of {@link #cursors(int, NkCursor) cursors}. */
@@ -548,7 +548,7 @@ public class NkStyle extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + NkStyle.FONT));
+		check(memGetAddress(struct + NkStyle.FONT));
 	}
 
 	/**

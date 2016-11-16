@@ -42,7 +42,7 @@ public class GLXEXTImportContext {
 	public static long glXGetCurrentDisplayEXT() {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetCurrentDisplayEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callP(__functionAddress);
 	}
 
@@ -52,9 +52,9 @@ public class GLXEXTImportContext {
 	public static int nglXQueryContextInfoEXT(long display, long context, int attribute, long value) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryContextInfoEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(context);
+			check(__functionAddress);
+			check(display);
+			check(context);
 		}
 		return callPPPI(__functionAddress, display, context, attribute, value);
 	}
@@ -69,7 +69,7 @@ public class GLXEXTImportContext {
 	 */
 	public static int glXQueryContextInfoEXT(long display, long context, int attribute, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		return nglXQueryContextInfoEXT(display, context, attribute, memAddress(value));
 	}
 
@@ -83,8 +83,8 @@ public class GLXEXTImportContext {
 	public static long glXGetContextIDEXT(long context) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetContextIDEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
+			check(__functionAddress);
+			check(context);
 		}
 		return callPP(__functionAddress, context);
 	}
@@ -100,8 +100,8 @@ public class GLXEXTImportContext {
 	public static long glXImportContextEXT(long display, long contextID) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXImportContextEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
+			check(__functionAddress);
+			check(display);
 		}
 		return callPPP(__functionAddress, display, contextID);
 	}
@@ -117,9 +117,9 @@ public class GLXEXTImportContext {
 	public static void glXFreeContextEXT(long display, long context) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXFreeContextEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(context);
+			check(__functionAddress);
+			check(display);
+			check(context);
 		}
 		callPPV(__functionAddress, display, context);
 	}
@@ -128,10 +128,10 @@ public class GLXEXTImportContext {
 	public static int glXQueryContextInfoEXT(long display, long context, int attribute, int[] value) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryContextInfoEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(context);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(display);
+			check(context);
+			check(value, 1);
 		}
 		return callPPPI(__functionAddress, display, context, attribute, value);
 	}

@@ -46,7 +46,7 @@ public class EXTCapture {
 	public static long nalcCaptureOpenDevice(long devicename, int frequency, int format, int buffersize) {
 		long __functionAddress = ALC.getICD().alcCaptureOpenDevice;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return invokePP(__functionAddress, devicename, frequency, format, buffersize);
 	}
 
@@ -98,8 +98,8 @@ public class EXTCapture {
 	public static boolean alcCaptureCloseDevice(long device) {
 		long __functionAddress = ALC.getICD().alcCaptureCloseDevice;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
+			check(__functionAddress);
+			check(device);
 		}
 		return invokePZ(__functionAddress, device);
 	}
@@ -118,8 +118,8 @@ public class EXTCapture {
 	public static void alcCaptureStart(long device) {
 		long __functionAddress = ALC.getICD().alcCaptureStart;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
+			check(__functionAddress);
+			check(device);
 		}
 		invokePV(__functionAddress, device);
 	}
@@ -137,8 +137,8 @@ public class EXTCapture {
 	public static void alcCaptureStop(long device) {
 		long __functionAddress = ALC.getICD().alcCaptureStop;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
+			check(__functionAddress);
+			check(device);
 		}
 		invokePV(__functionAddress, device);
 	}
@@ -153,8 +153,8 @@ public class EXTCapture {
 	public static void nalcCaptureSamples(long device, long buffer, int samples) {
 		long __functionAddress = ALC.getICD().alcCaptureSamples;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
+			check(__functionAddress);
+			check(device);
 		}
 		invokePPV(__functionAddress, device, buffer, samples);
 	}

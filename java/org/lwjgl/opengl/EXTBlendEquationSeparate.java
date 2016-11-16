@@ -45,7 +45,7 @@ public class EXTBlendEquationSeparate {
 	public static void glBlendEquationSeparateEXT(int modeRGB, int modeAlpha) {
 		long __functionAddress = GL.getCapabilities().glBlendEquationSeparateEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, modeRGB, modeAlpha);
 	}
 

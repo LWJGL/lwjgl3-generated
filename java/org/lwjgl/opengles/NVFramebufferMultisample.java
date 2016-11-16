@@ -53,7 +53,7 @@ public class NVFramebufferMultisample {
 	public static void glRenderbufferStorageMultisampleNV(int target, int samples, int internalformat, int width, int height) {
 		long __functionAddress = GLES.getCapabilities().glRenderbufferStorageMultisampleNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, samples, internalformat, width, height);
 	}
 

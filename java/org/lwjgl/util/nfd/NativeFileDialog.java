@@ -101,7 +101,7 @@ public class NativeFileDialog {
 		if ( CHECKS ) {
 			checkNT1Safe(filterList);
 			checkNT1Safe(defaultPath);
-			checkBuffer(outPath, 1);
+			check(outPath, 1);
 		}
 		return nNFD_OpenDialog(memAddressSafe(filterList), memAddressSafe(defaultPath), memAddress(outPath));
 	}
@@ -118,7 +118,7 @@ public class NativeFileDialog {
 	 */
 	public static int NFD_OpenDialog(CharSequence filterList, CharSequence defaultPath, PointerBuffer outPath) {
 		if ( CHECKS )
-			checkBuffer(outPath, 1);
+			check(outPath, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer filterListEncoded = stack.UTF8(filterList);
@@ -192,7 +192,7 @@ public class NativeFileDialog {
 		if ( CHECKS ) {
 			checkNT1Safe(filterList);
 			checkNT1Safe(defaultPath);
-			checkBuffer(outPath, 1);
+			check(outPath, 1);
 		}
 		return nNFD_SaveDialog(memAddressSafe(filterList), memAddressSafe(defaultPath), memAddress(outPath));
 	}
@@ -209,7 +209,7 @@ public class NativeFileDialog {
 	 */
 	public static int NFD_SaveDialog(CharSequence filterList, CharSequence defaultPath, PointerBuffer outPath) {
 		if ( CHECKS )
-			checkBuffer(outPath, 1);
+			check(outPath, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer filterListEncoded = stack.UTF8(filterList);
@@ -237,7 +237,7 @@ public class NativeFileDialog {
 	public static int NFD_PickFolder(ByteBuffer defaultPath, PointerBuffer outPath) {
 		if ( CHECKS ) {
 			checkNT1Safe(defaultPath);
-			checkBuffer(outPath, 1);
+			check(outPath, 1);
 		}
 		return nNFD_PickFolder(memAddressSafe(defaultPath), memAddress(outPath));
 	}
@@ -253,7 +253,7 @@ public class NativeFileDialog {
 	 */
 	public static int NFD_PickFolder(CharSequence defaultPath, PointerBuffer outPath) {
 		if ( CHECKS )
-			checkBuffer(outPath, 1);
+			check(outPath, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer defaultPathEncoded = stack.UTF8(defaultPath);

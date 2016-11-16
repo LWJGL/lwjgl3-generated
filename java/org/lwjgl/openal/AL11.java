@@ -56,7 +56,7 @@ public class AL11 {
 	public static void alListener3i(int paramName, float value1, float value2, float value3) {
 		long __functionAddress = AL.getCapabilities().alListener3i;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokeV(__functionAddress, paramName, value1, value2, value3);
 	}
 
@@ -66,7 +66,7 @@ public class AL11 {
 	public static void nalGetListeneriv(int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetListeneriv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, param, values);
 	}
 
@@ -78,7 +78,7 @@ public class AL11 {
 	 */
 	public static void alGetListeneriv(int param, IntBuffer values) {
 		if ( CHECKS )
-			checkBuffer(values, 1);
+			check(values, 1);
 		nalGetListeneriv(param, memAddress(values));
 	}
 
@@ -96,7 +96,7 @@ public class AL11 {
 	public static void alSource3i(int source, int paramName, int value1, int value2, int value3) {
 		long __functionAddress = AL.getCapabilities().alSource3i;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokeV(__functionAddress, source, paramName, value1, value2, value3);
 	}
 
@@ -106,7 +106,7 @@ public class AL11 {
 	public static void nalListeneriv(int listener, long value) {
 		long __functionAddress = AL.getCapabilities().alListeneriv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, listener, value);
 	}
 
@@ -118,7 +118,7 @@ public class AL11 {
 	 */
 	public static void alListeneriv(int listener, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nalListeneriv(listener, memAddress(value));
 	}
 
@@ -128,7 +128,7 @@ public class AL11 {
 	public static void nalSourceiv(int source, int paramName, long value) {
 		long __functionAddress = AL.getCapabilities().alSourceiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, source, paramName, value);
 	}
 
@@ -141,7 +141,7 @@ public class AL11 {
 	 */
 	public static void alSourceiv(int source, int paramName, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nalSourceiv(source, paramName, memAddress(value));
 	}
 
@@ -157,7 +157,7 @@ public class AL11 {
 	public static void alBufferf(int buffer, int paramName, float value) {
 		long __functionAddress = AL.getCapabilities().alBufferf;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokeV(__functionAddress, buffer, paramName, value);
 	}
 
@@ -175,7 +175,7 @@ public class AL11 {
 	public static void alBuffer3f(int buffer, int paramName, float value1, float value2, float value3) {
 		long __functionAddress = AL.getCapabilities().alBuffer3f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokeV(__functionAddress, buffer, paramName, value1, value2, value3);
 	}
 
@@ -185,7 +185,7 @@ public class AL11 {
 	public static void nalBufferfv(int buffer, int paramName, long value) {
 		long __functionAddress = AL.getCapabilities().alBufferfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, buffer, paramName, value);
 	}
 
@@ -198,7 +198,7 @@ public class AL11 {
 	 */
 	public static void alBufferfv(int buffer, int paramName, FloatBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nalBufferfv(buffer, paramName, memAddress(value));
 	}
 
@@ -214,7 +214,7 @@ public class AL11 {
 	public static void alBufferi(int buffer, int paramName, int value) {
 		long __functionAddress = AL.getCapabilities().alBufferi;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokeV(__functionAddress, buffer, paramName, value);
 	}
 
@@ -232,7 +232,7 @@ public class AL11 {
 	public static void alBuffer3i(int buffer, int paramName, int value1, int value2, int value3) {
 		long __functionAddress = AL.getCapabilities().alBuffer3i;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokeV(__functionAddress, buffer, paramName, value1, value2, value3);
 	}
 
@@ -242,7 +242,7 @@ public class AL11 {
 	public static void nalBufferiv(int buffer, int paramName, long value) {
 		long __functionAddress = AL.getCapabilities().alBufferiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, buffer, paramName, value);
 	}
 
@@ -255,7 +255,7 @@ public class AL11 {
 	 */
 	public static void alBufferiv(int buffer, int paramName, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nalBufferiv(buffer, paramName, memAddress(value));
 	}
 
@@ -265,7 +265,7 @@ public class AL11 {
 	public static void nalGetBufferi(int buffer, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetBufferi;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, buffer, param, value);
 	}
 
@@ -278,7 +278,7 @@ public class AL11 {
 	 */
 	public static void alGetBufferi(int buffer, int param, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nalGetBufferi(buffer, param, memAddress(value));
 	}
 
@@ -305,7 +305,7 @@ public class AL11 {
 	public static void nalGetBufferiv(int buffer, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetBufferiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, buffer, param, values);
 	}
 
@@ -318,7 +318,7 @@ public class AL11 {
 	 */
 	public static void alGetBufferiv(int buffer, int param, IntBuffer values) {
 		if ( CHECKS )
-			checkBuffer(values, 1);
+			check(values, 1);
 		nalGetBufferiv(buffer, param, memAddress(values));
 	}
 
@@ -328,7 +328,7 @@ public class AL11 {
 	public static void nalGetBufferf(int buffer, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetBufferf;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, buffer, param, value);
 	}
 
@@ -341,7 +341,7 @@ public class AL11 {
 	 */
 	public static void alGetBufferf(int buffer, int param, FloatBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nalGetBufferf(buffer, param, memAddress(value));
 	}
 
@@ -368,7 +368,7 @@ public class AL11 {
 	public static void nalGetBufferfv(int buffer, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetBufferfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, buffer, param, values);
 	}
 
@@ -381,7 +381,7 @@ public class AL11 {
 	 */
 	public static void alGetBufferfv(int buffer, int param, FloatBuffer values) {
 		if ( CHECKS )
-			checkBuffer(values, 1);
+			check(values, 1);
 		nalGetBufferfv(buffer, param, memAddress(values));
 	}
 
@@ -395,7 +395,7 @@ public class AL11 {
 	public static void alSpeedOfSound(float value) {
 		long __functionAddress = AL.getCapabilities().alSpeedOfSound;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokeV(__functionAddress, value);
 	}
 
@@ -403,8 +403,8 @@ public class AL11 {
 	public static void alGetListeneriv(int param, int[] values) {
 		long __functionAddress = AL.getCapabilities().alGetListeneriv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(values, 1);
+			check(__functionAddress);
+			check(values, 1);
 		}
 		invokePV(__functionAddress, param, values);
 	}
@@ -413,8 +413,8 @@ public class AL11 {
 	public static void alListeneriv(int listener, int[] value) {
 		long __functionAddress = AL.getCapabilities().alListeneriv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(value, 1);
 		}
 		invokePV(__functionAddress, listener, value);
 	}
@@ -423,8 +423,8 @@ public class AL11 {
 	public static void alSourceiv(int source, int paramName, int[] value) {
 		long __functionAddress = AL.getCapabilities().alSourceiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(value, 1);
 		}
 		invokePV(__functionAddress, source, paramName, value);
 	}
@@ -433,8 +433,8 @@ public class AL11 {
 	public static void alBufferfv(int buffer, int paramName, float[] value) {
 		long __functionAddress = AL.getCapabilities().alBufferfv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(value, 1);
 		}
 		invokePV(__functionAddress, buffer, paramName, value);
 	}
@@ -443,8 +443,8 @@ public class AL11 {
 	public static void alBufferiv(int buffer, int paramName, int[] value) {
 		long __functionAddress = AL.getCapabilities().alBufferiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(value, 1);
 		}
 		invokePV(__functionAddress, buffer, paramName, value);
 	}
@@ -453,8 +453,8 @@ public class AL11 {
 	public static void alGetBufferi(int buffer, int param, int[] value) {
 		long __functionAddress = AL.getCapabilities().alGetBufferi;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(value, 1);
 		}
 		invokePV(__functionAddress, buffer, param, value);
 	}
@@ -463,8 +463,8 @@ public class AL11 {
 	public static void alGetBufferiv(int buffer, int param, int[] values) {
 		long __functionAddress = AL.getCapabilities().alGetBufferiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(values, 1);
+			check(__functionAddress);
+			check(values, 1);
 		}
 		invokePV(__functionAddress, buffer, param, values);
 	}
@@ -473,8 +473,8 @@ public class AL11 {
 	public static void alGetBufferf(int buffer, int param, float[] value) {
 		long __functionAddress = AL.getCapabilities().alGetBufferf;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(value, 1);
 		}
 		invokePV(__functionAddress, buffer, param, value);
 	}
@@ -483,8 +483,8 @@ public class AL11 {
 	public static void alGetBufferfv(int buffer, int param, float[] values) {
 		long __functionAddress = AL.getCapabilities().alGetBufferfv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(values, 1);
+			check(__functionAddress);
+			check(values, 1);
 		}
 		invokePV(__functionAddress, buffer, param, values);
 	}

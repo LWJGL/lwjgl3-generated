@@ -38,9 +38,9 @@ public class NVPostSubBuffer {
 	public static boolean eglPostSubBufferNV(long dpy, long surface, int x, int y, int width, int height) {
 		long __functionAddress = EGL.getCapabilities().eglPostSubBufferNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(surface);
+			check(__functionAddress);
+			check(dpy);
+			check(surface);
 		}
 		return callPPI(__functionAddress, dpy, surface, x, y, width, height) != 0;
 	}

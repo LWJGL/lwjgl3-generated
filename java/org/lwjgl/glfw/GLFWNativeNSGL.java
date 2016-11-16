@@ -43,7 +43,7 @@ public class GLFWNativeNSGL {
 	public static long glfwGetNSGLContext(long window) {
 		long __functionAddress = Functions.GetNSGLContext;
 		if ( CHECKS )
-			checkPointer(window);
+			check(window);
 		return invokePP(__functionAddress, window);
 	}
 

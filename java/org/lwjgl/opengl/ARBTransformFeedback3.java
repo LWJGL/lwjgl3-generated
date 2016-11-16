@@ -77,7 +77,7 @@ public class ARBTransformFeedback3 {
 	public static void glDrawTransformFeedbackStream(int mode, int id, int stream) {
 		long __functionAddress = GL.getCapabilities().glDrawTransformFeedbackStream;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, mode, id, stream);
 	}
 
@@ -93,7 +93,7 @@ public class ARBTransformFeedback3 {
 	public static void glBeginQueryIndexed(int target, int index, int id) {
 		long __functionAddress = GL.getCapabilities().glBeginQueryIndexed;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, index, id);
 	}
 
@@ -108,7 +108,7 @@ public class ARBTransformFeedback3 {
 	public static void glEndQueryIndexed(int target, int index) {
 		long __functionAddress = GL.getCapabilities().glEndQueryIndexed;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, index);
 	}
 
@@ -118,7 +118,7 @@ public class ARBTransformFeedback3 {
 	public static void nglGetQueryIndexediv(int target, int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryIndexediv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, index, pname, params);
 	}
 
@@ -132,7 +132,7 @@ public class ARBTransformFeedback3 {
 	 */
 	public static void glGetQueryIndexediv(int target, int index, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetQueryIndexediv(target, index, pname, memAddress(params));
 	}
 
@@ -158,8 +158,8 @@ public class ARBTransformFeedback3 {
 	public static void glGetQueryIndexediv(int target, int index, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryIndexediv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, target, index, pname, params);
 	}

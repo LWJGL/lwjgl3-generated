@@ -102,8 +102,8 @@ public class GLX13 {
 	public static long nglXGetFBConfigs(long display, int screen, long nelements) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetFBConfigs;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
+			check(__functionAddress);
+			check(display);
 		}
 		return callPPP(__functionAddress, display, screen, nelements);
 	}
@@ -135,8 +135,8 @@ public class GLX13 {
 	public static long nglXChooseFBConfig(long display, int screen, long attrib_list, long nelements) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXChooseFBConfig;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
+			check(__functionAddress);
+			check(display);
 		}
 		return callPPPP(__functionAddress, display, screen, attrib_list, nelements);
 	}
@@ -167,9 +167,9 @@ public class GLX13 {
 	public static int nglXGetFBConfigAttrib(long display, long config, int attribute, long value) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetFBConfigAttrib;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(config);
+			check(__functionAddress);
+			check(display);
+			check(config);
 		}
 		return callPPPI(__functionAddress, display, config, attribute, value);
 	}
@@ -184,7 +184,7 @@ public class GLX13 {
 	 */
 	public static int glXGetFBConfigAttrib(long display, long config, int attribute, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		return nglXGetFBConfigAttrib(display, config, attribute, memAddress(value));
 	}
 
@@ -194,9 +194,9 @@ public class GLX13 {
 	public static long nglXGetVisualFromFBConfig(long display, long config) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetVisualFromFBConfig;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(config);
+			check(__functionAddress);
+			check(display);
+			check(config);
 		}
 		return callPPP(__functionAddress, display, config);
 	}
@@ -218,9 +218,9 @@ public class GLX13 {
 	public static long nglXCreateWindow(long display, long config, long win, long attrib_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateWindow;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(config);
+			check(__functionAddress);
+			check(display);
+			check(config);
 		}
 		return callPPPPP(__functionAddress, display, config, win, attrib_list);
 	}
@@ -245,9 +245,9 @@ public class GLX13 {
 	public static long nglXCreatePixmap(long display, long config, long pixmap, long attrib_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreatePixmap;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(config);
+			check(__functionAddress);
+			check(display);
+			check(config);
 		}
 		return callPPPPP(__functionAddress, display, config, pixmap, attrib_list);
 	}
@@ -277,9 +277,9 @@ public class GLX13 {
 	public static void glXDestroyPixmap(long display, long pixmap) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXDestroyPixmap;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(pixmap);
+			check(__functionAddress);
+			check(display);
+			check(pixmap);
 		}
 		callPPV(__functionAddress, display, pixmap);
 	}
@@ -290,9 +290,9 @@ public class GLX13 {
 	public static long nglXCreatePbuffer(long display, long config, long attrib_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreatePbuffer;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(config);
+			check(__functionAddress);
+			check(display);
+			check(config);
 		}
 		return callPPPP(__functionAddress, display, config, attrib_list);
 	}
@@ -321,9 +321,9 @@ public class GLX13 {
 	public static void glXDestroyPbuffer(long display, long pbuf) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXDestroyPbuffer;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(pbuf);
+			check(__functionAddress);
+			check(display);
+			check(pbuf);
 		}
 		callPPV(__functionAddress, display, pbuf);
 	}
@@ -334,9 +334,9 @@ public class GLX13 {
 	public static void nglXQueryDrawable(long display, long draw, int attribute, long value) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryDrawable;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(draw);
+			check(__functionAddress);
+			check(display);
+			check(draw);
 		}
 		callPPPV(__functionAddress, display, draw, attribute, value);
 	}
@@ -351,7 +351,7 @@ public class GLX13 {
 	 */
 	public static void glXQueryDrawable(long display, long draw, int attribute, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nglXQueryDrawable(display, draw, attribute, memAddress(value));
 	}
 
@@ -369,9 +369,9 @@ public class GLX13 {
 	public static long glXCreateNewContext(long display, long config, int render_type, long share_list, int direct) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateNewContext;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(config);
+			check(__functionAddress);
+			check(display);
+			check(config);
 		}
 		return callPPPP(__functionAddress, display, config, render_type, share_list, direct);
 	}
@@ -389,8 +389,8 @@ public class GLX13 {
 	public static int glXMakeContextCurrent(long display, long draw, long read, long ctx) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXMakeContextCurrent;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
+			check(__functionAddress);
+			check(display);
 		}
 		return callPPPPI(__functionAddress, display, draw, read, ctx);
 	}
@@ -401,7 +401,7 @@ public class GLX13 {
 	public static long glXGetCurrentReadDrawable() {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetCurrentReadDrawable;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callP(__functionAddress);
 	}
 
@@ -411,9 +411,9 @@ public class GLX13 {
 	public static int nglXQueryContext(long display, long ctx, int attribute, long value) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryContext;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(ctx);
+			check(__functionAddress);
+			check(display);
+			check(ctx);
 		}
 		return callPPPI(__functionAddress, display, ctx, attribute, value);
 	}
@@ -428,7 +428,7 @@ public class GLX13 {
 	 */
 	public static int glXQueryContext(long display, long ctx, int attribute, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		return nglXQueryContext(display, ctx, attribute, memAddress(value));
 	}
 
@@ -444,9 +444,9 @@ public class GLX13 {
 	public static void glXSelectEvent(long display, long draw, long event_mask) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXSelectEvent;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(draw);
+			check(__functionAddress);
+			check(display);
+			check(draw);
 		}
 		callPPPV(__functionAddress, display, draw, event_mask);
 	}
@@ -457,9 +457,9 @@ public class GLX13 {
 	public static void nglXGetSelectedEvent(long display, long draw, long event_mask) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetSelectedEvent;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(draw);
+			check(__functionAddress);
+			check(display);
+			check(draw);
 		}
 		callPPPV(__functionAddress, display, draw, event_mask);
 	}
@@ -479,8 +479,8 @@ public class GLX13 {
 	public static PointerBuffer glXChooseFBConfig(long display, int screen, int[] attrib_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXChooseFBConfig;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
+			check(__functionAddress);
+			check(display);
 			checkNTSafe(attrib_list);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -497,10 +497,10 @@ public class GLX13 {
 	public static int glXGetFBConfigAttrib(long display, long config, int attribute, int[] value) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetFBConfigAttrib;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(config);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(display);
+			check(config);
+			check(value, 1);
 		}
 		return callPPPI(__functionAddress, display, config, attribute, value);
 	}
@@ -509,9 +509,9 @@ public class GLX13 {
 	public static long glXCreateWindow(long display, long config, long win, int[] attrib_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateWindow;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(config);
+			check(__functionAddress);
+			check(display);
+			check(config);
 			checkNTSafe(attrib_list);
 		}
 		return callPPPPP(__functionAddress, display, config, win, attrib_list);
@@ -521,9 +521,9 @@ public class GLX13 {
 	public static long glXCreatePixmap(long display, long config, long pixmap, int[] attrib_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreatePixmap;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(config);
+			check(__functionAddress);
+			check(display);
+			check(config);
 			checkNTSafe(attrib_list);
 		}
 		return callPPPPP(__functionAddress, display, config, pixmap, attrib_list);
@@ -533,9 +533,9 @@ public class GLX13 {
 	public static long glXCreatePbuffer(long display, long config, int[] attrib_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreatePbuffer;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(config);
+			check(__functionAddress);
+			check(display);
+			check(config);
 			checkNTSafe(attrib_list);
 		}
 		return callPPPP(__functionAddress, display, config, attrib_list);
@@ -545,10 +545,10 @@ public class GLX13 {
 	public static void glXQueryDrawable(long display, long draw, int attribute, int[] value) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryDrawable;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(draw);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(display);
+			check(draw);
+			check(value, 1);
 		}
 		callPPPV(__functionAddress, display, draw, attribute, value);
 	}
@@ -557,10 +557,10 @@ public class GLX13 {
 	public static int glXQueryContext(long display, long ctx, int attribute, int[] value) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryContext;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(ctx);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(display);
+			check(ctx);
+			check(value, 1);
 		}
 		return callPPPI(__functionAddress, display, ctx, attribute, value);
 	}

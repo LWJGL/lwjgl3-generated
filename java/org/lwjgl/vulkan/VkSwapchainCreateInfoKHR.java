@@ -548,7 +548,7 @@ public class VkSwapchainCreateInfoKHR extends Struct implements NativeResource {
 	 */
 	public static void validate(long struct) {
 		if ( nqueueFamilyIndexCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkSwapchainCreateInfoKHR.PQUEUEFAMILYINDICES));
+			check(memGetAddress(struct + VkSwapchainCreateInfoKHR.PQUEUEFAMILYINDICES));
 	}
 
 	/**

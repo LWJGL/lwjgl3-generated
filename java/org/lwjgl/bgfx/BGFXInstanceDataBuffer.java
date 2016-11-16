@@ -312,7 +312,7 @@ public class BGFXInstanceDataBuffer extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + BGFXInstanceDataBuffer.DATA));
+		check(memGetAddress(struct + BGFXInstanceDataBuffer.DATA));
 	}
 
 	/**

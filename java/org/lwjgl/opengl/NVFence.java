@@ -58,7 +58,7 @@ public class NVFence {
 	public static void nglDeleteFencesNV(int n, long fences) {
 		long __functionAddress = GL.getCapabilities().glDeleteFencesNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, fences);
 	}
 
@@ -81,7 +81,7 @@ public class NVFence {
 	public static void nglGenFencesNV(int n, long fences) {
 		long __functionAddress = GL.getCapabilities().glGenFencesNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, fences);
 	}
 
@@ -105,7 +105,7 @@ public class NVFence {
 	public static boolean glIsFenceNV(int fence) {
 		long __functionAddress = GL.getCapabilities().glIsFenceNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callZ(__functionAddress, fence);
 	}
 
@@ -114,7 +114,7 @@ public class NVFence {
 	public static boolean glTestFenceNV(int fence) {
 		long __functionAddress = GL.getCapabilities().glTestFenceNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callZ(__functionAddress, fence);
 	}
 
@@ -123,13 +123,13 @@ public class NVFence {
 	public static void nglGetFenceivNV(int fence, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetFenceivNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, fence, pname, params);
 	}
 
 	public static void glGetFenceivNV(int fence, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetFenceivNV(fence, pname, memAddress(params));
 	}
 
@@ -149,7 +149,7 @@ public class NVFence {
 	public static void glFinishFenceNV(int fence) {
 		long __functionAddress = GL.getCapabilities().glFinishFenceNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, fence);
 	}
 
@@ -158,7 +158,7 @@ public class NVFence {
 	public static void glSetFenceNV(int fence, int condition) {
 		long __functionAddress = GL.getCapabilities().glSetFenceNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, fence, condition);
 	}
 
@@ -166,7 +166,7 @@ public class NVFence {
 	public static void glDeleteFencesNV(int[] fences) {
 		long __functionAddress = GL.getCapabilities().glDeleteFencesNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, fences.length, fences);
 	}
 
@@ -174,7 +174,7 @@ public class NVFence {
 	public static void glGenFencesNV(int[] fences) {
 		long __functionAddress = GL.getCapabilities().glGenFencesNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, fences.length, fences);
 	}
 
@@ -182,8 +182,8 @@ public class NVFence {
 	public static void glGetFenceivNV(int fence, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetFenceivNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, fence, pname, params);
 	}

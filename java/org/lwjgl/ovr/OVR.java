@@ -882,7 +882,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static int ovr_GetTrackerCount(long session) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		return novr_GetTrackerCount(session);
 	}
 
@@ -903,7 +903,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static OVRTrackerDesc ovr_GetTrackerDesc(long session, int trackerDescIndex, OVRTrackerDesc __result) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		novr_GetTrackerDesc(session, trackerDescIndex, __result.address());
 		return __result;
 	}
@@ -928,7 +928,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static int ovr_Create(PointerBuffer pSession, OVRGraphicsLuid luid) {
 		if ( CHECKS )
-			checkBuffer(pSession, 1);
+			check(pSession, 1);
 		return novr_Create(memAddress(pSession), luid.address());
 	}
 
@@ -944,7 +944,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static void ovr_Destroy(long session) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		novr_Destroy(session);
 	}
 
@@ -961,7 +961,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static int ovr_GetSessionStatus(long session, OVRSessionStatus sessionStatus) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		return novr_GetSessionStatus(session, sessionStatus.address());
 	}
 
@@ -980,7 +980,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static int ovr_SetTrackingOriginType(long session, int origin) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		return novr_SetTrackingOriginType(session, origin);
 	}
 
@@ -996,7 +996,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static int ovr_GetTrackingOriginType(long session) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		return novr_GetTrackingOriginType(session);
 	}
 
@@ -1022,7 +1022,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static int ovr_RecenterTrackingOrigin(long session) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		return novr_RecenterTrackingOrigin(session);
 	}
 
@@ -1041,7 +1041,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static void ovr_ClearShouldRecenterFlag(long session) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		novr_ClearShouldRecenterFlag(session);
 	}
 
@@ -1068,7 +1068,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static OVRTrackingState ovr_GetTrackingState(long session, double absTime, boolean latencyMarker, OVRTrackingState __result) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		novr_GetTrackingState(session, absTime, latencyMarker, __result.address());
 		return __result;
 	}
@@ -1086,7 +1086,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static OVRTrackerPose ovr_GetTrackerPose(long session, int trackerPoseIndex, OVRTrackerPose __result) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		novr_GetTrackerPose(session, trackerPoseIndex, __result.address());
 		return __result;
 	}
@@ -1108,7 +1108,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static int ovr_GetInputState(long session, int controllerType, OVRInputState inputState) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		return novr_GetInputState(session, controllerType, inputState.address());
 	}
 
@@ -1124,7 +1124,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static int ovr_GetConnectedControllerTypes(long session) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		return novr_GetConnectedControllerTypes(session);
 	}
 
@@ -1142,7 +1142,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static OVRTouchHapticsDesc ovr_GetTouchHapticsDesc(long session, int controllerType, OVRTouchHapticsDesc __result) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		novr_GetTouchHapticsDesc(session, controllerType, __result.address());
 		return __result;
 	}
@@ -1173,7 +1173,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static int ovr_SetControllerVibration(long session, int controllerType, float frequency, float amplitude) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		return novr_SetControllerVibration(session, controllerType, frequency, amplitude);
 	}
 
@@ -1200,7 +1200,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static int ovr_SubmitControllerVibration(long session, int controllerType, OVRHapticsBuffer buffer) {
 		if ( CHECKS ) {
-			checkPointer(session);
+			check(session);
 			OVRHapticsBuffer.validate(buffer.address());
 		}
 		return novr_SubmitControllerVibration(session, controllerType, buffer.address());
@@ -1227,7 +1227,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static int ovr_GetControllerVibrationState(long session, int controllerType, OVRHapticsPlaybackState outState) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		return novr_GetControllerVibrationState(session, controllerType, outState.address());
 	}
 
@@ -1256,7 +1256,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static int ovr_TestBoundary(long session, int deviceBitmask, int boundaryType, OVRBoundaryTestResult outTestResult) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		return novr_TestBoundary(session, deviceBitmask, boundaryType, outTestResult.address());
 	}
 
@@ -1282,7 +1282,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static int ovr_TestBoundaryPoint(long session, OVRVector3f point, int singleBoundaryType, OVRBoundaryTestResult outTestResult) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		return novr_TestBoundaryPoint(session, point.address(), singleBoundaryType, outTestResult.address());
 	}
 
@@ -1301,7 +1301,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static int ovr_SetBoundaryLookAndFeel(long session, OVRBoundaryLookAndFeel lookAndFeel) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		return novr_SetBoundaryLookAndFeel(session, lookAndFeel.address());
 	}
 
@@ -1319,7 +1319,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static int ovr_ResetBoundaryLookAndFeel(long session) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		return novr_ResetBoundaryLookAndFeel(session);
 	}
 
@@ -1345,7 +1345,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static int ovr_GetBoundaryGeometry(long session, int boundaryType, OVRVector3f outFloorPoints, IntBuffer outFloorPointsCount) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		return novr_GetBoundaryGeometry(session, boundaryType, memAddressSafe(outFloorPoints), memAddressSafe(outFloorPointsCount));
 	}
 
@@ -1370,7 +1370,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static int ovr_GetBoundaryDimensions(long session, int boundaryType, OVRVector3f outDimensions) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		return novr_GetBoundaryDimensions(session, boundaryType, outDimensions.address());
 	}
 
@@ -1397,7 +1397,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static int ovr_GetBoundaryVisible(long session, ByteBuffer outIsVisible) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		return novr_GetBoundaryVisible(session, memAddress(outIsVisible));
 	}
 
@@ -1416,7 +1416,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static int ovr_RequestBoundaryVisible(long session, boolean visible) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		return novr_RequestBoundaryVisible(session, visible);
 	}
 
@@ -1434,9 +1434,9 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static int ovr_GetTextureSwapChainLength(long session, long chain, IntBuffer out_Length) {
 		if ( CHECKS ) {
-			checkPointer(session);
-			checkPointer(chain);
-			checkBuffer(out_Length, 1);
+			check(session);
+			check(chain);
+			check(out_Length, 1);
 		}
 		return novr_GetTextureSwapChainLength(session, chain, memAddress(out_Length));
 	}
@@ -1455,9 +1455,9 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static int ovr_GetTextureSwapChainCurrentIndex(long session, long chain, IntBuffer out_Index) {
 		if ( CHECKS ) {
-			checkPointer(session);
-			checkPointer(chain);
-			checkBuffer(out_Index, 1);
+			check(session);
+			check(chain);
+			check(out_Index, 1);
 		}
 		return novr_GetTextureSwapChainCurrentIndex(session, chain, memAddress(out_Index));
 	}
@@ -1476,8 +1476,8 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static int ovr_GetTextureSwapChainDesc(long session, long chain, OVRTextureSwapChainDesc out_Desc) {
 		if ( CHECKS ) {
-			checkPointer(session);
-			checkPointer(chain);
+			check(session);
+			check(chain);
 		}
 		return novr_GetTextureSwapChainDesc(session, chain, out_Desc.address());
 	}
@@ -1499,8 +1499,8 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static int ovr_CommitTextureSwapChain(long session, long chain) {
 		if ( CHECKS ) {
-			checkPointer(session);
-			checkPointer(chain);
+			check(session);
+			check(chain);
 		}
 		return novr_CommitTextureSwapChain(session, chain);
 	}
@@ -1518,7 +1518,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static void ovr_DestroyTextureSwapChain(long session, long chain) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		novr_DestroyTextureSwapChain(session, chain);
 	}
 
@@ -1535,7 +1535,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 */
 	public static void ovr_DestroyMirrorTexture(long session, long mirrorTexture) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		novr_DestroyMirrorTexture(session, mirrorTexture);
 	}
 
@@ -1565,7 +1565,7 @@ ovrSizei eyeSizeRight = ovr_GetFovTextureSize(session, ovrEye_Right, hmdDesc.Def
 	 */
 	public static OVRSizei ovr_GetFovTextureSize(long session, int eye, OVRFovPort fov, float pixelsPerDisplayPixel, OVRSizei __result) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		novr_GetFovTextureSize(session, eye, fov.address(), pixelsPerDisplayPixel, __result.address());
 		return __result;
 	}
@@ -1585,7 +1585,7 @@ ovrSizei eyeSizeRight = ovr_GetFovTextureSize(session, ovrEye_Right, hmdDesc.Def
 	 */
 	public static OVREyeRenderDesc ovr_GetRenderDesc(long session, int eyeType, OVRFovPort fov, OVREyeRenderDesc __result) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		novr_GetRenderDesc(session, eyeType, fov.address(), __result.address());
 		return __result;
 	}
@@ -1649,7 +1649,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 */
 	public static int ovr_SubmitFrame(long session, long frameIndex, OVRViewScaleDesc viewScaleDesc, PointerBuffer layerPtrList) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		return novr_SubmitFrame(session, frameIndex, memAddressSafe(viewScaleDesc), memAddress(layerPtrList), layerPtrList.remaining());
 	}
 
@@ -1672,7 +1672,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 */
 	public static int ovr_GetPerfStats(long session, OVRPerfStats outStats) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		return novr_GetPerfStats(session, outStats.address());
 	}
 
@@ -1693,7 +1693,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 */
 	public static int ovr_ResetPerfStats(long session) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		return novr_ResetPerfStats(session);
 	}
 
@@ -1723,7 +1723,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 */
 	public static double ovr_GetPredictedDisplayTime(long session, long frameIndex) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		return novr_GetPredictedDisplayTime(session, frameIndex);
 	}
 
@@ -1754,7 +1754,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 */
 	public static boolean ovr_GetBool(long session, ByteBuffer propertyName, boolean defaultVal) {
 		if ( CHECKS ) {
-			checkPointer(session);
+			check(session);
 			checkNT1(propertyName);
 		}
 		return novr_GetBool(session, memAddress(propertyName), defaultVal);
@@ -1771,7 +1771,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 */
 	public static boolean ovr_GetBool(long session, CharSequence propertyName, boolean defaultVal) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);
@@ -1799,7 +1799,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 */
 	public static boolean ovr_SetBool(long session, ByteBuffer propertyName, boolean value) {
 		if ( CHECKS ) {
-			checkPointer(session);
+			check(session);
 			checkNT1(propertyName);
 		}
 		return novr_SetBool(session, memAddress(propertyName), value);
@@ -1818,7 +1818,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 */
 	public static boolean ovr_SetBool(long session, CharSequence propertyName, boolean value) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);
@@ -1844,7 +1844,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 */
 	public static int ovr_GetInt(long session, ByteBuffer propertyName, int defaultVal) {
 		if ( CHECKS ) {
-			checkPointer(session);
+			check(session);
 			checkNT1(propertyName);
 		}
 		return novr_GetInt(session, memAddress(propertyName), defaultVal);
@@ -1861,7 +1861,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 */
 	public static int ovr_GetInt(long session, CharSequence propertyName, int defaultVal) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);
@@ -1889,7 +1889,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 */
 	public static boolean ovr_SetInt(long session, ByteBuffer propertyName, int value) {
 		if ( CHECKS ) {
-			checkPointer(session);
+			check(session);
 			checkNT1(propertyName);
 		}
 		return novr_SetInt(session, memAddress(propertyName), value);
@@ -1908,7 +1908,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 */
 	public static boolean ovr_SetInt(long session, CharSequence propertyName, int value) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);
@@ -1934,7 +1934,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 */
 	public static float ovr_GetFloat(long session, ByteBuffer propertyName, float defaultVal) {
 		if ( CHECKS ) {
-			checkPointer(session);
+			check(session);
 			checkNT1(propertyName);
 		}
 		return novr_GetFloat(session, memAddress(propertyName), defaultVal);
@@ -1951,7 +1951,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 */
 	public static float ovr_GetFloat(long session, CharSequence propertyName, float defaultVal) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);
@@ -1979,7 +1979,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 */
 	public static boolean ovr_SetFloat(long session, ByteBuffer propertyName, float value) {
 		if ( CHECKS ) {
-			checkPointer(session);
+			check(session);
 			checkNT1(propertyName);
 		}
 		return novr_SetFloat(session, memAddress(propertyName), value);
@@ -1998,7 +1998,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 */
 	public static boolean ovr_SetFloat(long session, CharSequence propertyName, float value) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);
@@ -2028,7 +2028,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 */
 	public static int ovr_GetFloatArray(long session, ByteBuffer propertyName, FloatBuffer values) {
 		if ( CHECKS ) {
-			checkPointer(session);
+			check(session);
 			checkNT1(propertyName);
 		}
 		return novr_GetFloatArray(session, memAddress(propertyName), memAddress(values), values.remaining());
@@ -2045,7 +2045,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 */
 	public static int ovr_GetFloatArray(long session, CharSequence propertyName, FloatBuffer values) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);
@@ -2075,7 +2075,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 */
 	public static boolean ovr_SetFloatArray(long session, ByteBuffer propertyName, FloatBuffer values) {
 		if ( CHECKS ) {
-			checkPointer(session);
+			check(session);
 			checkNT1(propertyName);
 		}
 		return novr_SetFloatArray(session, memAddress(propertyName), memAddress(values), values.remaining());
@@ -2092,7 +2092,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 */
 	public static boolean ovr_SetFloatArray(long session, CharSequence propertyName, FloatBuffer values) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);
@@ -2121,7 +2121,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 */
 	public static String ovr_GetString(long session, ByteBuffer propertyName, ByteBuffer defaultVal) {
 		if ( CHECKS ) {
-			checkPointer(session);
+			check(session);
 			checkNT1(propertyName);
 			checkNT1Safe(defaultVal);
 		}
@@ -2143,7 +2143,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 */
 	public static String ovr_GetString(long session, CharSequence propertyName, CharSequence defaultVal) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);
@@ -2173,7 +2173,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 */
 	public static boolean ovr_SetString(long hmddesc, ByteBuffer propertyName, ByteBuffer value) {
 		if ( CHECKS ) {
-			checkPointer(hmddesc);
+			check(hmddesc);
 			checkNT1(propertyName);
 			checkNT1(value);
 		}
@@ -2193,7 +2193,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	 */
 	public static boolean ovr_SetString(long hmddesc, CharSequence propertyName, CharSequence value) {
 		if ( CHECKS )
-			checkPointer(hmddesc);
+			check(hmddesc);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);
@@ -2210,7 +2210,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	/** Array version of: {@link #ovr_GetBoundaryGeometry GetBoundaryGeometry} */
 	public static int ovr_GetBoundaryGeometry(long session, int boundaryType, OVRVector3f outFloorPoints, int[] outFloorPointsCount) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		return novr_GetBoundaryGeometry(session, boundaryType, memAddressSafe(outFloorPoints), outFloorPointsCount);
 	}
 
@@ -2220,9 +2220,9 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	/** Array version of: {@link #ovr_GetTextureSwapChainLength GetTextureSwapChainLength} */
 	public static int ovr_GetTextureSwapChainLength(long session, long chain, int[] out_Length) {
 		if ( CHECKS ) {
-			checkPointer(session);
-			checkPointer(chain);
-			checkBuffer(out_Length, 1);
+			check(session);
+			check(chain);
+			check(out_Length, 1);
 		}
 		return novr_GetTextureSwapChainLength(session, chain, out_Length);
 	}
@@ -2233,9 +2233,9 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	/** Array version of: {@link #ovr_GetTextureSwapChainCurrentIndex GetTextureSwapChainCurrentIndex} */
 	public static int ovr_GetTextureSwapChainCurrentIndex(long session, long chain, int[] out_Index) {
 		if ( CHECKS ) {
-			checkPointer(session);
-			checkPointer(chain);
-			checkBuffer(out_Index, 1);
+			check(session);
+			check(chain);
+			check(out_Index, 1);
 		}
 		return novr_GetTextureSwapChainCurrentIndex(session, chain, out_Index);
 	}
@@ -2246,7 +2246,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	/** Array version of: {@link #ovr_GetFloatArray GetFloatArray} */
 	public static int ovr_GetFloatArray(long session, ByteBuffer propertyName, float[] values) {
 		if ( CHECKS ) {
-			checkPointer(session);
+			check(session);
 			checkNT1(propertyName);
 		}
 		return novr_GetFloatArray(session, memAddress(propertyName), values, values.length);
@@ -2255,7 +2255,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	/** Array version of: {@link #ovr_GetFloatArray GetFloatArray} */
 	public static int ovr_GetFloatArray(long session, CharSequence propertyName, float[] values) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);
@@ -2271,7 +2271,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	/** Array version of: {@link #ovr_SetFloatArray SetFloatArray} */
 	public static boolean ovr_SetFloatArray(long session, ByteBuffer propertyName, float[] values) {
 		if ( CHECKS ) {
-			checkPointer(session);
+			check(session);
 			checkNT1(propertyName);
 		}
 		return novr_SetFloatArray(session, memAddress(propertyName), values, values.length);
@@ -2280,7 +2280,7 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 	/** Array version of: {@link #ovr_SetFloatArray SetFloatArray} */
 	public static boolean ovr_SetFloatArray(long session, CharSequence propertyName, float[] values) {
 		if ( CHECKS )
-			checkPointer(session);
+			check(session);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);

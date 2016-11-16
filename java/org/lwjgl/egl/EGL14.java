@@ -39,7 +39,7 @@ public class EGL14 {
 	public static long eglGetCurrentContext() {
 		long __functionAddress = EGL.getCapabilities().eglGetCurrentContext;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callP(__functionAddress);
 	}
 

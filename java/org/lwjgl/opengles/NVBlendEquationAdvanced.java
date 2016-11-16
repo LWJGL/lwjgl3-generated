@@ -136,7 +136,7 @@ public class NVBlendEquationAdvanced {
 	public static void glBlendParameteriNV(int pname, int value) {
 		long __functionAddress = GLES.getCapabilities().glBlendParameteriNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, pname, value);
 	}
 
@@ -145,7 +145,7 @@ public class NVBlendEquationAdvanced {
 	public static void glBlendBarrierNV() {
 		long __functionAddress = GLES.getCapabilities().glBlendBarrierNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress);
 	}
 

@@ -168,7 +168,7 @@ color:uint8[4]</code></pre>
 	public static int stb_easy_font_print(float x, float y, ByteBuffer text, ByteBuffer color, ByteBuffer vertex_buffer) {
 		if ( CHECKS ) {
 			checkNT1(text);
-			checkBufferSafe(color, 4);
+			checkSafe(color, 4);
 		}
 		return nstb_easy_font_print(x, y, memAddress(text), memAddressSafe(color), memAddress(vertex_buffer), vertex_buffer.remaining());
 	}
@@ -205,7 +205,7 @@ color:uint8[4]</code></pre>
 	 */
 	public static int stb_easy_font_print(float x, float y, CharSequence text, ByteBuffer color, ByteBuffer vertex_buffer) {
 		if ( CHECKS )
-			checkBufferSafe(color, 4);
+			checkSafe(color, 4);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer textEncoded = stack.ASCII(text);

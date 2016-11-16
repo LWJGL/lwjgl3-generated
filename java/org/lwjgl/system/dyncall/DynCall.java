@@ -126,7 +126,7 @@ public class DynCall {
 	 */
 	public static void dcFree(long vm) {
 		if ( CHECKS )
-			checkPointer(vm);
+			check(vm);
 		ndcFree(vm);
 	}
 
@@ -146,7 +146,7 @@ public class DynCall {
 	 */
 	public static void dcReset(long vm) {
 		if ( CHECKS )
-			checkPointer(vm);
+			check(vm);
 		ndcReset(vm);
 	}
 
@@ -167,7 +167,7 @@ public class DynCall {
 	 */
 	public static void dcMode(long vm, int mode) {
 		if ( CHECKS )
-			checkPointer(vm);
+			check(vm);
 		ndcMode(vm, mode);
 	}
 
@@ -184,7 +184,7 @@ public class DynCall {
 	 */
 	public static void dcArgBool(long vm, int value) {
 		if ( CHECKS )
-			checkPointer(vm);
+			check(vm);
 		ndcArgBool(vm, value);
 	}
 
@@ -201,7 +201,7 @@ public class DynCall {
 	 */
 	public static void dcArgChar(long vm, byte value) {
 		if ( CHECKS )
-			checkPointer(vm);
+			check(vm);
 		ndcArgChar(vm, value);
 	}
 
@@ -218,7 +218,7 @@ public class DynCall {
 	 */
 	public static void dcArgShort(long vm, short value) {
 		if ( CHECKS )
-			checkPointer(vm);
+			check(vm);
 		ndcArgShort(vm, value);
 	}
 
@@ -235,7 +235,7 @@ public class DynCall {
 	 */
 	public static void dcArgInt(long vm, int value) {
 		if ( CHECKS )
-			checkPointer(vm);
+			check(vm);
 		ndcArgInt(vm, value);
 	}
 
@@ -252,7 +252,7 @@ public class DynCall {
 	 */
 	public static void dcArgLong(long vm, int value) {
 		if ( CHECKS )
-			checkPointer(vm);
+			check(vm);
 		ndcArgLong(vm, value);
 	}
 
@@ -269,7 +269,7 @@ public class DynCall {
 	 */
 	public static void dcArgLongLong(long vm, long value) {
 		if ( CHECKS )
-			checkPointer(vm);
+			check(vm);
 		ndcArgLongLong(vm, value);
 	}
 
@@ -286,7 +286,7 @@ public class DynCall {
 	 */
 	public static void dcArgFloat(long vm, float value) {
 		if ( CHECKS )
-			checkPointer(vm);
+			check(vm);
 		ndcArgFloat(vm, value);
 	}
 
@@ -303,7 +303,7 @@ public class DynCall {
 	 */
 	public static void dcArgDouble(long vm, double value) {
 		if ( CHECKS )
-			checkPointer(vm);
+			check(vm);
 		ndcArgDouble(vm, value);
 	}
 
@@ -320,7 +320,7 @@ public class DynCall {
 	 */
 	public static void dcArgPointer(long vm, long value) {
 		if ( CHECKS )
-			checkPointer(vm);
+			check(vm);
 		ndcArgPointer(vm, value);
 	}
 
@@ -338,9 +338,9 @@ public class DynCall {
 	 */
 	public static void dcArgStruct(long vm, long s, long value) {
 		if ( CHECKS ) {
-			checkPointer(vm);
-			checkPointer(s);
-			checkPointer(value);
+			check(vm);
+			check(s);
+			check(value);
 		}
 		ndcArgStruct(vm, s, value);
 	}
@@ -361,8 +361,8 @@ public class DynCall {
 	 */
 	public static void dcCallVoid(long vm, long funcptr) {
 		if ( CHECKS ) {
-			checkPointer(vm);
-			checkPointer(funcptr);
+			check(vm);
+			check(funcptr);
 		}
 		ndcCallVoid(vm, funcptr);
 	}
@@ -383,8 +383,8 @@ public class DynCall {
 	 */
 	public static int dcCallBool(long vm, long funcptr) {
 		if ( CHECKS ) {
-			checkPointer(vm);
-			checkPointer(funcptr);
+			check(vm);
+			check(funcptr);
 		}
 		return ndcCallBool(vm, funcptr);
 	}
@@ -405,8 +405,8 @@ public class DynCall {
 	 */
 	public static byte dcCallChar(long vm, long funcptr) {
 		if ( CHECKS ) {
-			checkPointer(vm);
-			checkPointer(funcptr);
+			check(vm);
+			check(funcptr);
 		}
 		return ndcCallChar(vm, funcptr);
 	}
@@ -427,8 +427,8 @@ public class DynCall {
 	 */
 	public static short dcCallShort(long vm, long funcptr) {
 		if ( CHECKS ) {
-			checkPointer(vm);
-			checkPointer(funcptr);
+			check(vm);
+			check(funcptr);
 		}
 		return ndcCallShort(vm, funcptr);
 	}
@@ -449,8 +449,8 @@ public class DynCall {
 	 */
 	public static int dcCallInt(long vm, long funcptr) {
 		if ( CHECKS ) {
-			checkPointer(vm);
-			checkPointer(funcptr);
+			check(vm);
+			check(funcptr);
 		}
 		return ndcCallInt(vm, funcptr);
 	}
@@ -471,8 +471,8 @@ public class DynCall {
 	 */
 	public static int dcCallLong(long vm, long funcptr) {
 		if ( CHECKS ) {
-			checkPointer(vm);
-			checkPointer(funcptr);
+			check(vm);
+			check(funcptr);
 		}
 		return ndcCallLong(vm, funcptr);
 	}
@@ -493,8 +493,8 @@ public class DynCall {
 	 */
 	public static long dcCallLongLong(long vm, long funcptr) {
 		if ( CHECKS ) {
-			checkPointer(vm);
-			checkPointer(funcptr);
+			check(vm);
+			check(funcptr);
 		}
 		return ndcCallLongLong(vm, funcptr);
 	}
@@ -515,8 +515,8 @@ public class DynCall {
 	 */
 	public static float dcCallFloat(long vm, long funcptr) {
 		if ( CHECKS ) {
-			checkPointer(vm);
-			checkPointer(funcptr);
+			check(vm);
+			check(funcptr);
 		}
 		return ndcCallFloat(vm, funcptr);
 	}
@@ -537,8 +537,8 @@ public class DynCall {
 	 */
 	public static double dcCallDouble(long vm, long funcptr) {
 		if ( CHECKS ) {
-			checkPointer(vm);
-			checkPointer(funcptr);
+			check(vm);
+			check(funcptr);
 		}
 		return ndcCallDouble(vm, funcptr);
 	}
@@ -559,8 +559,8 @@ public class DynCall {
 	 */
 	public static long dcCallPointer(long vm, long funcptr) {
 		if ( CHECKS ) {
-			checkPointer(vm);
-			checkPointer(funcptr);
+			check(vm);
+			check(funcptr);
 		}
 		return ndcCallPointer(vm, funcptr);
 	}
@@ -583,10 +583,10 @@ public class DynCall {
 	 */
 	public static void dcCallStruct(long vm, long funcptr, long s, long returnValue) {
 		if ( CHECKS ) {
-			checkPointer(vm);
-			checkPointer(funcptr);
-			checkPointer(s);
-			checkPointer(returnValue);
+			check(vm);
+			check(funcptr);
+			check(s);
+			check(returnValue);
 		}
 		ndcCallStruct(vm, funcptr, s, returnValue);
 	}
@@ -603,7 +603,7 @@ public class DynCall {
 	 */
 	public static int dcGetError(long vm) {
 		if ( CHECKS )
-			checkPointer(vm);
+			check(vm);
 		return ndcGetError(vm);
 	}
 
@@ -632,7 +632,7 @@ public class DynCall {
 	 */
 	public static void dcStructField(long s, int type, int alignment, long arrayLength) {
 		if ( CHECKS )
-			checkPointer(s);
+			check(s);
 		ndcStructField(s, type, alignment, arrayLength);
 	}
 
@@ -651,7 +651,7 @@ public class DynCall {
 	 */
 	public static void dcSubStruct(long s, long fieldCount, int alignment, long arrayLength) {
 		if ( CHECKS )
-			checkPointer(s);
+			check(s);
 		ndcSubStruct(s, fieldCount, alignment, arrayLength);
 	}
 
@@ -667,7 +667,7 @@ public class DynCall {
 	 */
 	public static void dcCloseStruct(long s) {
 		if ( CHECKS )
-			checkPointer(s);
+			check(s);
 		ndcCloseStruct(s);
 	}
 
@@ -683,7 +683,7 @@ public class DynCall {
 	 */
 	public static long dcStructSize(long s) {
 		if ( CHECKS )
-			checkPointer(s);
+			check(s);
 		return ndcStructSize(s);
 	}
 
@@ -699,7 +699,7 @@ public class DynCall {
 	 */
 	public static long dcStructAlignment(long s) {
 		if ( CHECKS )
-			checkPointer(s);
+			check(s);
 		return ndcStructAlignment(s);
 	}
 
@@ -715,7 +715,7 @@ public class DynCall {
 	 */
 	public static void dcFreeStruct(long s) {
 		if ( CHECKS )
-			checkPointer(s);
+			check(s);
 		ndcFreeStruct(s);
 	}
 

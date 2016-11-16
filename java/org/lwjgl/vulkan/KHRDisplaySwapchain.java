@@ -46,7 +46,7 @@ public class KHRDisplaySwapchain {
 	public static int nvkCreateSharedSwapchainsKHR(VkDevice device, int swapchainCount, long pCreateInfos, long pAllocator, long pSwapchains) {
 		long __functionAddress = device.getCapabilities().vkCreateSharedSwapchainsKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 			VkSwapchainCreateInfoKHR.validate(pCreateInfos, swapchainCount);
 			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
 		}
@@ -118,7 +118,7 @@ public class KHRDisplaySwapchain {
 	 */
 	public static int vkCreateSharedSwapchainsKHR(VkDevice device, VkSwapchainCreateInfoKHR.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, LongBuffer pSwapchains) {
 		if ( CHECKS )
-			checkBuffer(pSwapchains, pCreateInfos.remaining());
+			check(pSwapchains, pCreateInfos.remaining());
 		return nvkCreateSharedSwapchainsKHR(device, pCreateInfos.remaining(), pCreateInfos.address(), memAddressSafe(pAllocator), memAddress(pSwapchains));
 	}
 
@@ -126,8 +126,8 @@ public class KHRDisplaySwapchain {
 	public static int vkCreateSharedSwapchainsKHR(VkDevice device, VkSwapchainCreateInfoKHR.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, long[] pSwapchains) {
 		long __functionAddress = device.getCapabilities().vkCreateSharedSwapchainsKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(pSwapchains, pCreateInfos.remaining());
+			check(__functionAddress);
+			check(pSwapchains, pCreateInfos.remaining());
 			VkSwapchainCreateInfoKHR.validate(pCreateInfos.address(), pCreateInfos.remaining());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}

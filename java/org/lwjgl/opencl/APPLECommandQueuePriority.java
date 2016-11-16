@@ -38,9 +38,9 @@ public class APPLECommandQueuePriority {
 	public static long nclCreateCommandQueueWithPropertiesAPPLE(long context, long device, long properties, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateCommandQueueWithPropertiesAPPLE;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
-			checkPointer(device);
+			check(__functionAddress);
+			check(context);
+			check(device);
 		}
 		return callPPPPP(__functionAddress, context, device, properties, errcode_ret);
 	}
@@ -55,7 +55,7 @@ public class APPLECommandQueuePriority {
 	 */
 	public static long clCreateCommandQueueWithPropertiesAPPLE(long context, long device, PointerBuffer properties, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateCommandQueueWithPropertiesAPPLE(context, device, memAddress(properties), memAddressSafe(errcode_ret));
 	}
 
@@ -63,10 +63,10 @@ public class APPLECommandQueuePriority {
 	public static long clCreateCommandQueueWithPropertiesAPPLE(long context, long device, PointerBuffer properties, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateCommandQueueWithPropertiesAPPLE;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
-			checkPointer(device);
-			checkBufferSafe(errcode_ret, 1);
+			check(__functionAddress);
+			check(context);
+			check(device);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPPPPP(__functionAddress, context, device, memAddress(properties), errcode_ret);
 	}

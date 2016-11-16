@@ -59,7 +59,7 @@ public class ARBSamplerObjects {
 	public static void nglGenSamplers(int count, long samplers) {
 		long __functionAddress = GL.getCapabilities().glGenSamplers;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, count, samplers);
 	}
 
@@ -94,7 +94,7 @@ public class ARBSamplerObjects {
 	public static void nglDeleteSamplers(int count, long samplers) {
 		long __functionAddress = GL.getCapabilities().glDeleteSamplers;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, count, samplers);
 	}
 
@@ -128,7 +128,7 @@ public class ARBSamplerObjects {
 	public static boolean glIsSampler(int sampler) {
 		long __functionAddress = GL.getCapabilities().glIsSampler;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callZ(__functionAddress, sampler);
 	}
 
@@ -143,7 +143,7 @@ public class ARBSamplerObjects {
 	public static void glBindSampler(int unit, int sampler) {
 		long __functionAddress = GL.getCapabilities().glBindSampler;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, unit, sampler);
 	}
 
@@ -159,7 +159,7 @@ public class ARBSamplerObjects {
 	public static void glSamplerParameteri(int sampler, int pname, int param) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameteri;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, sampler, pname, param);
 	}
 
@@ -175,7 +175,7 @@ public class ARBSamplerObjects {
 	public static void glSamplerParameterf(int sampler, int pname, float param) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterf;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, sampler, pname, param);
 	}
 
@@ -185,7 +185,7 @@ public class ARBSamplerObjects {
 	public static void nglSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameteriv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -206,7 +206,7 @@ public class ARBSamplerObjects {
 	public static void nglSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -227,7 +227,7 @@ public class ARBSamplerObjects {
 	public static void nglSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterIiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -248,7 +248,7 @@ public class ARBSamplerObjects {
 	public static void nglSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterIuiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -269,7 +269,7 @@ public class ARBSamplerObjects {
 	public static void nglGetSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameteriv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -282,7 +282,7 @@ public class ARBSamplerObjects {
 	 */
 	public static void glGetSamplerParameteriv(int sampler, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetSamplerParameteriv(sampler, pname, memAddress(params));
 	}
 
@@ -309,7 +309,7 @@ public class ARBSamplerObjects {
 	public static void nglGetSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameterfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -322,7 +322,7 @@ public class ARBSamplerObjects {
 	 */
 	public static void glGetSamplerParameterfv(int sampler, int pname, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetSamplerParameterfv(sampler, pname, memAddress(params));
 	}
 
@@ -349,7 +349,7 @@ public class ARBSamplerObjects {
 	public static void nglGetSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameterIiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -362,7 +362,7 @@ public class ARBSamplerObjects {
 	 */
 	public static void glGetSamplerParameterIiv(int sampler, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
 
@@ -389,7 +389,7 @@ public class ARBSamplerObjects {
 	public static void nglGetSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameterIuiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -402,7 +402,7 @@ public class ARBSamplerObjects {
 	 */
 	public static void glGetSamplerParameterIuiv(int sampler, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}
 
@@ -427,7 +427,7 @@ public class ARBSamplerObjects {
 	public static void glGenSamplers(int[] samplers) {
 		long __functionAddress = GL.getCapabilities().glGenSamplers;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, samplers.length, samplers);
 	}
 
@@ -435,7 +435,7 @@ public class ARBSamplerObjects {
 	public static void glDeleteSamplers(int[] samplers) {
 		long __functionAddress = GL.getCapabilities().glDeleteSamplers;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, samplers.length, samplers);
 	}
 
@@ -443,7 +443,7 @@ public class ARBSamplerObjects {
 	public static void glSamplerParameteriv(int sampler, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameteriv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -451,7 +451,7 @@ public class ARBSamplerObjects {
 	public static void glSamplerParameterfv(int sampler, int pname, float[] params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -459,7 +459,7 @@ public class ARBSamplerObjects {
 	public static void glSamplerParameterIiv(int sampler, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterIiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -467,7 +467,7 @@ public class ARBSamplerObjects {
 	public static void glSamplerParameterIuiv(int sampler, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterIuiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -475,8 +475,8 @@ public class ARBSamplerObjects {
 	public static void glGetSamplerParameteriv(int sampler, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameteriv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, sampler, pname, params);
 	}
@@ -485,8 +485,8 @@ public class ARBSamplerObjects {
 	public static void glGetSamplerParameterfv(int sampler, int pname, float[] params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameterfv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, sampler, pname, params);
 	}
@@ -495,8 +495,8 @@ public class ARBSamplerObjects {
 	public static void glGetSamplerParameterIiv(int sampler, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameterIiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, sampler, pname, params);
 	}
@@ -505,8 +505,8 @@ public class ARBSamplerObjects {
 	public static void glGetSamplerParameterIuiv(int sampler, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameterIuiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, sampler, pname, params);
 	}

@@ -418,7 +418,7 @@ public class VkBufferCreateInfo extends Struct implements NativeResource {
 	 */
 	public static void validate(long struct) {
 		if ( nqueueFamilyIndexCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkBufferCreateInfo.PQUEUEFAMILYINDICES));
+			check(memGetAddress(struct + VkBufferCreateInfo.PQUEUEFAMILYINDICES));
 	}
 
 	/**

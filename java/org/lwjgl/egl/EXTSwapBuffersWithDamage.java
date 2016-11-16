@@ -39,9 +39,9 @@ public class EXTSwapBuffersWithDamage {
 	public static int neglSwapBuffersWithDamageEXT(long dpy, long surface, long rects, int n_rects) {
 		long __functionAddress = EGL.getCapabilities().eglSwapBuffersWithDamageEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(surface);
+			check(__functionAddress);
+			check(dpy);
+			check(surface);
 		}
 		return callPPPI(__functionAddress, dpy, surface, rects, n_rects);
 	}
@@ -54,9 +54,9 @@ public class EXTSwapBuffersWithDamage {
 	public static boolean eglSwapBuffersWithDamageEXT(long dpy, long surface, int[] rects) {
 		long __functionAddress = EGL.getCapabilities().eglSwapBuffersWithDamageEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(surface);
+			check(__functionAddress);
+			check(dpy);
+			check(surface);
 		}
 		return callPPPI(__functionAddress, dpy, surface, rects, lengthSafe(rects)) != 0;
 	}

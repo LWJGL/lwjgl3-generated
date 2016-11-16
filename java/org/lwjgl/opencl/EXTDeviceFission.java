@@ -96,8 +96,8 @@ public class EXTDeviceFission {
 	public static int clReleaseDeviceEXT(long device) {
 		long __functionAddress = CL.getICD().clReleaseDeviceEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
+			check(__functionAddress);
+			check(device);
 		}
 		return callPI(__functionAddress, device);
 	}
@@ -107,8 +107,8 @@ public class EXTDeviceFission {
 	public static int clRetainDeviceEXT(long device) {
 		long __functionAddress = CL.getICD().clRetainDeviceEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
+			check(__functionAddress);
+			check(device);
 		}
 		return callPI(__functionAddress, device);
 	}
@@ -118,8 +118,8 @@ public class EXTDeviceFission {
 	public static int nclCreateSubDevicesEXT(long in_device, long properties, int num_entries, long out_devices, long num_devices) {
 		long __functionAddress = CL.getICD().clCreateSubDevicesEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(in_device);
+			check(__functionAddress);
+			check(in_device);
 		}
 		return callPPPPI(__functionAddress, in_device, properties, num_entries, out_devices, num_devices);
 	}
@@ -127,7 +127,7 @@ public class EXTDeviceFission {
 	public static int clCreateSubDevicesEXT(long in_device, LongBuffer properties, PointerBuffer out_devices, IntBuffer num_devices) {
 		if ( CHECKS ) {
 			checkNT(properties);
-			checkBufferSafe(num_devices, 1);
+			checkSafe(num_devices, 1);
 		}
 		return nclCreateSubDevicesEXT(in_device, memAddress(properties), remainingSafe(out_devices), memAddressSafe(out_devices), memAddressSafe(num_devices));
 	}
@@ -136,10 +136,10 @@ public class EXTDeviceFission {
 	public static int clCreateSubDevicesEXT(long in_device, long[] properties, PointerBuffer out_devices, int[] num_devices) {
 		long __functionAddress = CL.getICD().clCreateSubDevicesEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(in_device);
+			check(__functionAddress);
+			check(in_device);
 			checkNT(properties);
-			checkBufferSafe(num_devices, 1);
+			checkSafe(num_devices, 1);
 		}
 		return callPPPPI(__functionAddress, in_device, properties, remainingSafe(out_devices), memAddressSafe(out_devices), num_devices);
 	}

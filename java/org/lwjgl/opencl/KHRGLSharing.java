@@ -63,7 +63,7 @@ public class KHRGLSharing {
 	public static int nclGetGLContextInfoKHR(long properties, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetGLContextInfoKHR;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPPPPI(__functionAddress, properties, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
@@ -124,7 +124,7 @@ public class KHRGLSharing {
 	public static int clGetGLContextInfoKHR(PointerBuffer properties, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS ) {
 			checkNT(properties);
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		}
 		return nclGetGLContextInfoKHR(memAddress(properties), param_name, remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
@@ -186,7 +186,7 @@ public class KHRGLSharing {
 	public static int clGetGLContextInfoKHR(PointerBuffer properties, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS ) {
 			checkNT(properties);
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		}
 		return nclGetGLContextInfoKHR(memAddress(properties), param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}

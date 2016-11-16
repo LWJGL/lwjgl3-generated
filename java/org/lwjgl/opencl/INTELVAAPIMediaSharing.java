@@ -87,9 +87,9 @@ public class INTELVAAPIMediaSharing {
 	public static int nclGetDeviceIDsFromVA_APIMediaAdapterINTEL(long platform, int media_adapter_type, long media_adapter, int media_adapter_set, int num_entries, long devices, long num_devices) {
 		long __functionAddress = CL.getICD().clGetDeviceIDsFromVA_APIMediaAdapterINTEL;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(platform);
-			checkPointer(media_adapter);
+			check(__functionAddress);
+			check(platform);
+			check(media_adapter);
 		}
 		return callPPPPI(__functionAddress, platform, media_adapter_type, media_adapter, media_adapter_set, num_entries, devices, num_devices);
 	}
@@ -108,7 +108,7 @@ public class INTELVAAPIMediaSharing {
 	 */
 	public static int clGetDeviceIDsFromVA_APIMediaAdapterINTEL(long platform, int media_adapter_type, long media_adapter, int media_adapter_set, PointerBuffer devices, IntBuffer num_devices) {
 		if ( CHECKS )
-			checkBufferSafe(num_devices, 1);
+			checkSafe(num_devices, 1);
 		return nclGetDeviceIDsFromVA_APIMediaAdapterINTEL(platform, media_adapter_type, media_adapter, media_adapter_set, remainingSafe(devices), memAddressSafe(devices), memAddressSafe(num_devices));
 	}
 
@@ -118,8 +118,8 @@ public class INTELVAAPIMediaSharing {
 	public static long nclCreateFromVA_APIMediaSurfaceINTEL(long context, long flags, long surface, int plane, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateFromVA_APIMediaSurfaceINTEL;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
+			check(__functionAddress);
+			check(context);
 		}
 		return callPJPPP(__functionAddress, context, flags, surface, plane, errcode_ret);
 	}
@@ -135,7 +135,7 @@ public class INTELVAAPIMediaSharing {
 	 */
 	public static long clCreateFromVA_APIMediaSurfaceINTEL(long context, long flags, IntBuffer surface, int plane, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateFromVA_APIMediaSurfaceINTEL(context, flags, memAddress(surface), plane, memAddressSafe(errcode_ret));
 	}
 
@@ -150,8 +150,8 @@ public class INTELVAAPIMediaSharing {
 	public static int nclEnqueueAcquireVA_APIMediaSurfacesINTEL(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = CL.getICD().clEnqueueAcquireVA_APIMediaSurfacesINTEL;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(command_queue);
+			check(__functionAddress);
+			check(command_queue);
 		}
 		return callPPPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -183,7 +183,7 @@ public class INTELVAAPIMediaSharing {
 	 */
 	public static int clEnqueueAcquireVA_APIMediaSurfacesINTEL(long command_queue, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			checkBufferSafe(event, 1);
+			checkSafe(event, 1);
 		return nclEnqueueAcquireVA_APIMediaSurfacesINTEL(command_queue, mem_objects.remaining(), memAddress(mem_objects), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -198,8 +198,8 @@ public class INTELVAAPIMediaSharing {
 	public static int nclEnqueueReleaseVA_APIMediaSurfacesINTEL(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = CL.getICD().clEnqueueReleaseVA_APIMediaSurfacesINTEL;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(command_queue);
+			check(__functionAddress);
+			check(command_queue);
 		}
 		return callPPPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -231,7 +231,7 @@ public class INTELVAAPIMediaSharing {
 	 */
 	public static int clEnqueueReleaseVA_APIMediaSurfacesINTEL(long command_queue, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			checkBufferSafe(event, 1);
+			checkSafe(event, 1);
 		return nclEnqueueReleaseVA_APIMediaSurfacesINTEL(command_queue, mem_objects.remaining(), memAddress(mem_objects), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -239,10 +239,10 @@ public class INTELVAAPIMediaSharing {
 	public static int clGetDeviceIDsFromVA_APIMediaAdapterINTEL(long platform, int media_adapter_type, long media_adapter, int media_adapter_set, PointerBuffer devices, int[] num_devices) {
 		long __functionAddress = CL.getICD().clGetDeviceIDsFromVA_APIMediaAdapterINTEL;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(platform);
-			checkPointer(media_adapter);
-			checkBufferSafe(num_devices, 1);
+			check(__functionAddress);
+			check(platform);
+			check(media_adapter);
+			checkSafe(num_devices, 1);
 		}
 		return callPPPPI(__functionAddress, platform, media_adapter_type, media_adapter, media_adapter_set, remainingSafe(devices), memAddressSafe(devices), num_devices);
 	}
@@ -251,9 +251,9 @@ public class INTELVAAPIMediaSharing {
 	public static long clCreateFromVA_APIMediaSurfaceINTEL(long context, long flags, int[] surface, int plane, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateFromVA_APIMediaSurfaceINTEL;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
-			checkBufferSafe(errcode_ret, 1);
+			check(__functionAddress);
+			check(context);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPJPPP(__functionAddress, context, flags, surface, plane, errcode_ret);
 	}

@@ -305,9 +305,9 @@ public class VkWin32SurfaceCreateInfoKHR extends Struct implements NativeResourc
 	/** Unsafe version of {@link #flags(int) flags}. */
 	public static void nflags(long struct, int value) { memPutInt(struct + VkWin32SurfaceCreateInfoKHR.FLAGS, value); }
 	/** Unsafe version of {@link #hinstance(long) hinstance}. */
-	public static void nhinstance(long struct, long value) { memPutAddress(struct + VkWin32SurfaceCreateInfoKHR.HINSTANCE, checkPointer(value)); }
+	public static void nhinstance(long struct, long value) { memPutAddress(struct + VkWin32SurfaceCreateInfoKHR.HINSTANCE, check(value)); }
 	/** Unsafe version of {@link #hwnd(long) hwnd}. */
-	public static void nhwnd(long struct, long value) { memPutAddress(struct + VkWin32SurfaceCreateInfoKHR.HWND, checkPointer(value)); }
+	public static void nhwnd(long struct, long value) { memPutAddress(struct + VkWin32SurfaceCreateInfoKHR.HWND, check(value)); }
 
 	/**
 	 * Validates pointer members that should not be {@code NULL}.
@@ -315,8 +315,8 @@ public class VkWin32SurfaceCreateInfoKHR extends Struct implements NativeResourc
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + VkWin32SurfaceCreateInfoKHR.HINSTANCE));
-		checkPointer(memGetAddress(struct + VkWin32SurfaceCreateInfoKHR.HWND));
+		check(memGetAddress(struct + VkWin32SurfaceCreateInfoKHR.HINSTANCE));
+		check(memGetAddress(struct + VkWin32SurfaceCreateInfoKHR.HWND));
 	}
 
 	/**

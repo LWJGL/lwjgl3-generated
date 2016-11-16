@@ -70,8 +70,8 @@ public class INTELAccelerator {
 	public static long nclCreateAcceleratorINTEL(long context, int accelerator_type, long descriptor_size, long descriptor, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateAcceleratorINTEL;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
+			check(__functionAddress);
+			check(context);
 		}
 		return callPPPPP(__functionAddress, context, accelerator_type, descriptor_size, descriptor, errcode_ret);
 	}
@@ -110,7 +110,7 @@ public class INTELAccelerator {
 	 */
 	public static long clCreateAcceleratorINTEL(long context, int accelerator_type, ByteBuffer descriptor, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateAcceleratorINTEL(context, accelerator_type, descriptor.remaining(), memAddress(descriptor), memAddressSafe(errcode_ret));
 	}
 
@@ -132,8 +132,8 @@ public class INTELAccelerator {
 	public static int clRetainAcceleratorINTEL(long accelerator) {
 		long __functionAddress = CL.getICD().clRetainAcceleratorINTEL;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(accelerator);
+			check(__functionAddress);
+			check(accelerator);
 		}
 		return callPI(__functionAddress, accelerator);
 	}
@@ -157,8 +157,8 @@ public class INTELAccelerator {
 	public static int clReleaseAcceleratorINTEL(long accelerator) {
 		long __functionAddress = CL.getICD().clReleaseAcceleratorINTEL;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(accelerator);
+			check(__functionAddress);
+			check(accelerator);
 		}
 		return callPI(__functionAddress, accelerator);
 	}
@@ -173,8 +173,8 @@ public class INTELAccelerator {
 	public static int nclGetAcceleratorInfoINTEL(long accelerator, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetAcceleratorInfoINTEL;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(accelerator);
+			check(__functionAddress);
+			check(accelerator);
 		}
 		return callPPPPI(__functionAddress, accelerator, param_name, param_value_size, param_value, param_value_size_ret);
 	}
@@ -199,7 +199,7 @@ public class INTELAccelerator {
 	 */
 	public static int clGetAcceleratorInfoINTEL(long accelerator, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetAcceleratorInfoINTEL(accelerator, param_name, remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -223,7 +223,7 @@ public class INTELAccelerator {
 	 */
 	public static int clGetAcceleratorInfoINTEL(long accelerator, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetAcceleratorInfoINTEL(accelerator, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -247,7 +247,7 @@ public class INTELAccelerator {
 	 */
 	public static int clGetAcceleratorInfoINTEL(long accelerator, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetAcceleratorInfoINTEL(accelerator, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -255,9 +255,9 @@ public class INTELAccelerator {
 	public static long clCreateAcceleratorINTEL(long context, int accelerator_type, ByteBuffer descriptor, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateAcceleratorINTEL;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
-			checkBufferSafe(errcode_ret, 1);
+			check(__functionAddress);
+			check(context);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPPPPP(__functionAddress, context, accelerator_type, (long)descriptor.remaining(), memAddress(descriptor), errcode_ret);
 	}
@@ -266,9 +266,9 @@ public class INTELAccelerator {
 	public static int clGetAcceleratorInfoINTEL(long accelerator, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetAcceleratorInfoINTEL;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(accelerator);
-			checkBufferSafe(param_value_size_ret, 1);
+			check(__functionAddress);
+			check(accelerator);
+			checkSafe(param_value_size_ret, 1);
 		}
 		return callPPPPI(__functionAddress, accelerator, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}

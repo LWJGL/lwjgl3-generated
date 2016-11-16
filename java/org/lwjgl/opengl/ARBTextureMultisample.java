@@ -105,7 +105,7 @@ public class ARBTextureMultisample {
 	public static void glTexImage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
 		long __functionAddress = GL.getCapabilities().glTexImage2DMultisample;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
@@ -127,7 +127,7 @@ public class ARBTextureMultisample {
 	public static void glTexImage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
 		long __functionAddress = GL.getCapabilities().glTexImage3DMultisample;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
@@ -137,7 +137,7 @@ public class ARBTextureMultisample {
 	public static void nglGetMultisamplefv(int pname, int index, long val) {
 		long __functionAddress = GL.getCapabilities().glGetMultisamplefv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, pname, index, val);
 	}
 
@@ -150,7 +150,7 @@ public class ARBTextureMultisample {
 	 */
 	public static void glGetMultisamplefv(int pname, int index, FloatBuffer val) {
 		if ( CHECKS )
-			checkBuffer(val, 1);
+			check(val, 1);
 		nglGetMultisamplefv(pname, index, memAddress(val));
 	}
 
@@ -182,7 +182,7 @@ public class ARBTextureMultisample {
 	public static void glSampleMaski(int index, int mask) {
 		long __functionAddress = GL.getCapabilities().glSampleMaski;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, mask);
 	}
 
@@ -190,8 +190,8 @@ public class ARBTextureMultisample {
 	public static void glGetMultisamplefv(int pname, int index, float[] val) {
 		long __functionAddress = GL.getCapabilities().glGetMultisamplefv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(val, 1);
+			check(__functionAddress);
+			check(val, 1);
 		}
 		callPV(__functionAddress, pname, index, val);
 	}

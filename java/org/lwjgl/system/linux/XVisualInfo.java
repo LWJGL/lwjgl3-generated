@@ -361,7 +361,7 @@ public class XVisualInfo extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + XVisualInfo.VISUAL));
+		check(memGetAddress(struct + XVisualInfo.VISUAL));
 	}
 
 	/**

@@ -259,11 +259,11 @@ public class STBIIOCallbacks extends Struct implements NativeResource {
 	public static long neof(long struct) { return memGetAddress(struct + STBIIOCallbacks.EOF); }
 
 	/** Unsafe version of {@link #read(STBIReadCallbackI) read}. */
-	public static void nread(long struct, long value) { memPutAddress(struct + STBIIOCallbacks.READ, checkPointer(value)); }
+	public static void nread(long struct, long value) { memPutAddress(struct + STBIIOCallbacks.READ, check(value)); }
 	/** Unsafe version of {@link #skip(STBISkipCallbackI) skip}. */
-	public static void nskip(long struct, long value) { memPutAddress(struct + STBIIOCallbacks.SKIP, checkPointer(value)); }
+	public static void nskip(long struct, long value) { memPutAddress(struct + STBIIOCallbacks.SKIP, check(value)); }
 	/** Unsafe version of {@link #eof(STBIEOFCallbackI) eof}. */
-	public static void neof(long struct, long value) { memPutAddress(struct + STBIIOCallbacks.EOF, checkPointer(value)); }
+	public static void neof(long struct, long value) { memPutAddress(struct + STBIIOCallbacks.EOF, check(value)); }
 
 	/**
 	 * Validates pointer members that should not be {@code NULL}.
@@ -271,9 +271,9 @@ public class STBIIOCallbacks extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + STBIIOCallbacks.READ));
-		checkPointer(memGetAddress(struct + STBIIOCallbacks.SKIP));
-		checkPointer(memGetAddress(struct + STBIIOCallbacks.EOF));
+		check(memGetAddress(struct + STBIIOCallbacks.READ));
+		check(memGetAddress(struct + STBIIOCallbacks.SKIP));
+		check(memGetAddress(struct + STBIIOCallbacks.EOF));
 	}
 
 	/**

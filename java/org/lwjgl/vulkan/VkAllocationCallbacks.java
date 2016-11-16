@@ -313,11 +313,11 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
 	/** Unsafe version of {@link #pUserData(long) pUserData}. */
 	public static void npUserData(long struct, long value) { memPutAddress(struct + VkAllocationCallbacks.PUSERDATA, value); }
 	/** Unsafe version of {@link #pfnAllocation(VkAllocationFunctionI) pfnAllocation}. */
-	public static void npfnAllocation(long struct, long value) { memPutAddress(struct + VkAllocationCallbacks.PFNALLOCATION, checkPointer(value)); }
+	public static void npfnAllocation(long struct, long value) { memPutAddress(struct + VkAllocationCallbacks.PFNALLOCATION, check(value)); }
 	/** Unsafe version of {@link #pfnReallocation(VkReallocationFunctionI) pfnReallocation}. */
-	public static void npfnReallocation(long struct, long value) { memPutAddress(struct + VkAllocationCallbacks.PFNREALLOCATION, checkPointer(value)); }
+	public static void npfnReallocation(long struct, long value) { memPutAddress(struct + VkAllocationCallbacks.PFNREALLOCATION, check(value)); }
 	/** Unsafe version of {@link #pfnFree(VkFreeFunctionI) pfnFree}. */
-	public static void npfnFree(long struct, long value) { memPutAddress(struct + VkAllocationCallbacks.PFNFREE, checkPointer(value)); }
+	public static void npfnFree(long struct, long value) { memPutAddress(struct + VkAllocationCallbacks.PFNFREE, check(value)); }
 	/** Unsafe version of {@link #pfnInternalAllocation(VkInternalAllocationNotificationI) pfnInternalAllocation}. */
 	public static void npfnInternalAllocation(long struct, long value) { memPutAddress(struct + VkAllocationCallbacks.PFNINTERNALALLOCATION, value); }
 	/** Unsafe version of {@link #pfnInternalFree(VkInternalFreeNotificationI) pfnInternalFree}. */
@@ -329,9 +329,9 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + VkAllocationCallbacks.PFNALLOCATION));
-		checkPointer(memGetAddress(struct + VkAllocationCallbacks.PFNREALLOCATION));
-		checkPointer(memGetAddress(struct + VkAllocationCallbacks.PFNFREE));
+		check(memGetAddress(struct + VkAllocationCallbacks.PFNALLOCATION));
+		check(memGetAddress(struct + VkAllocationCallbacks.PFNREALLOCATION));
+		check(memGetAddress(struct + VkAllocationCallbacks.PFNFREE));
 	}
 
 	/**

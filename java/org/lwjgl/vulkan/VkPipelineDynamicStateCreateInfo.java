@@ -311,7 +311,7 @@ public class VkPipelineDynamicStateCreateInfo extends Struct implements NativeRe
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + VkPipelineDynamicStateCreateInfo.PDYNAMICSTATES));
+		check(memGetAddress(struct + VkPipelineDynamicStateCreateInfo.PDYNAMICSTATES));
 	}
 
 	/**

@@ -37,9 +37,9 @@ public class KHRStreamConsumerGLTexture {
 	public static boolean eglStreamConsumerGLTextureExternalKHR(long dpy, long stream) {
 		long __functionAddress = EGL.getCapabilities().eglStreamConsumerGLTextureExternalKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(stream);
+			check(__functionAddress);
+			check(dpy);
+			check(stream);
 		}
 		return callPPI(__functionAddress, dpy, stream) != 0;
 	}
@@ -49,9 +49,9 @@ public class KHRStreamConsumerGLTexture {
 	public static boolean eglStreamConsumerAcquireKHR(long dpy, long stream) {
 		long __functionAddress = EGL.getCapabilities().eglStreamConsumerAcquireKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(stream);
+			check(__functionAddress);
+			check(dpy);
+			check(stream);
 		}
 		return callPPI(__functionAddress, dpy, stream) != 0;
 	}
@@ -61,9 +61,9 @@ public class KHRStreamConsumerGLTexture {
 	public static boolean eglStreamConsumerReleaseKHR(long dpy, long stream) {
 		long __functionAddress = EGL.getCapabilities().eglStreamConsumerReleaseKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(stream);
+			check(__functionAddress);
+			check(dpy);
+			check(stream);
 		}
 		return callPPI(__functionAddress, dpy, stream) != 0;
 	}

@@ -70,7 +70,7 @@ public class EXTWindowRectangles {
 	public static void nglWindowRectanglesEXT(int mode, int count, long box) {
 		long __functionAddress = GL.getCapabilities().glWindowRectanglesEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, mode, count, box);
 	}
 
@@ -112,7 +112,7 @@ y_i <= yw < y_i+h_i</code></pre>
 	public static void glWindowRectanglesEXT(int mode, int[] box) {
 		long __functionAddress = GL.getCapabilities().glWindowRectanglesEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, mode, lengthSafe(box) >> 2, box);
 	}
 

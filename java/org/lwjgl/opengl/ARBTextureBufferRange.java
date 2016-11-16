@@ -52,7 +52,7 @@ public class ARBTextureBufferRange {
 	public static void glTexBufferRange(int target, int internalformat, int buffer, long offset, long size) {
 		long __functionAddress = GL.getCapabilities().glTexBufferRange;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, target, internalformat, buffer, offset, size);
 	}
 
@@ -71,7 +71,7 @@ public class ARBTextureBufferRange {
 	public static void glTextureBufferRangeEXT(int texture, int target, int internalformat, int buffer, long offset, long size) {
 		long __functionAddress = GL.getCapabilities().glTextureBufferRangeEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, texture, target, internalformat, buffer, offset, size);
 	}
 

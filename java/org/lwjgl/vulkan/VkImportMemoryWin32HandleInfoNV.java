@@ -312,7 +312,7 @@ public class VkImportMemoryWin32HandleInfoNV extends Struct implements NativeRes
 	/** Unsafe version of {@link #handleType(int) handleType}. */
 	public static void nhandleType(long struct, int value) { memPutInt(struct + VkImportMemoryWin32HandleInfoNV.HANDLETYPE, value); }
 	/** Unsafe version of {@link #handle(long) handle}. */
-	public static void nhandle(long struct, long value) { memPutAddress(struct + VkImportMemoryWin32HandleInfoNV.HANDLE, checkPointer(value)); }
+	public static void nhandle(long struct, long value) { memPutAddress(struct + VkImportMemoryWin32HandleInfoNV.HANDLE, check(value)); }
 
 	/**
 	 * Validates pointer members that should not be {@code NULL}.
@@ -320,7 +320,7 @@ public class VkImportMemoryWin32HandleInfoNV extends Struct implements NativeRes
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + VkImportMemoryWin32HandleInfoNV.HANDLE));
+		check(memGetAddress(struct + VkImportMemoryWin32HandleInfoNV.HANDLE));
 	}
 
 	/**

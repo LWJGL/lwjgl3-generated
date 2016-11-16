@@ -55,7 +55,7 @@ public class ARBDrawIndirect {
 	public static void nglDrawArraysIndirect(int mode, long indirect) {
 		long __functionAddress = GL.getCapabilities().glDrawArraysIndirect;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, mode, indirect);
 	}
 
@@ -82,7 +82,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 */
 	public static void glDrawArraysIndirect(int mode, ByteBuffer indirect) {
 		if ( CHECKS )
-			checkBuffer(indirect, 4 * 4);
+			check(indirect, 4 * 4);
 		nglDrawArraysIndirect(mode, memAddress(indirect));
 	}
 
@@ -134,7 +134,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 */
 	public static void glDrawArraysIndirect(int mode, IntBuffer indirect) {
 		if ( CHECKS )
-			checkBuffer(indirect, (4 * 4) >> 2);
+			check(indirect, (4 * 4) >> 2);
 		nglDrawArraysIndirect(mode, memAddress(indirect));
 	}
 
@@ -144,7 +144,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static void nglDrawElementsIndirect(int mode, int type, long indirect) {
 		long __functionAddress = GL.getCapabilities().glDrawElementsIndirect;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, mode, type, indirect);
 	}
 
@@ -185,7 +185,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 */
 	public static void glDrawElementsIndirect(int mode, int type, ByteBuffer indirect) {
 		if ( CHECKS )
-			checkBuffer(indirect, 5 * 4);
+			check(indirect, 5 * 4);
 		nglDrawElementsIndirect(mode, type, memAddress(indirect));
 	}
 
@@ -265,7 +265,7 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	 */
 	public static void glDrawElementsIndirect(int mode, int type, IntBuffer indirect) {
 		if ( CHECKS )
-			checkBuffer(indirect, (5 * 4) >> 2);
+			check(indirect, (5 * 4) >> 2);
 		nglDrawElementsIndirect(mode, type, memAddress(indirect));
 	}
 
@@ -273,8 +273,8 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static void glDrawArraysIndirect(int mode, int[] indirect) {
 		long __functionAddress = GL.getCapabilities().glDrawArraysIndirect;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(indirect, (4 * 4) >> 2);
+			check(__functionAddress);
+			check(indirect, (4 * 4) >> 2);
 		}
 		callPV(__functionAddress, mode, indirect);
 	}
@@ -283,8 +283,8 @@ glDrawArraysInstancedBaseInstance(mode, cmd->first, cmd->count, cmd->primCount, 
 	public static void glDrawElementsIndirect(int mode, int type, int[] indirect) {
 		long __functionAddress = GL.getCapabilities().glDrawElementsIndirect;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(indirect, (5 * 4) >> 2);
+			check(__functionAddress);
+			check(indirect, (5 * 4) >> 2);
 		}
 		callPV(__functionAddress, mode, type, indirect);
 	}

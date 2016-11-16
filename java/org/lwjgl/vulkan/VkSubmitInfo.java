@@ -388,13 +388,13 @@ public class VkSubmitInfo extends Struct implements NativeResource {
 	 */
 	public static void validate(long struct) {
 		if ( nwaitSemaphoreCount(struct) != 0 ) {
-			checkPointer(memGetAddress(struct + VkSubmitInfo.PWAITSEMAPHORES));
-			checkPointer(memGetAddress(struct + VkSubmitInfo.PWAITDSTSTAGEMASK));
+			check(memGetAddress(struct + VkSubmitInfo.PWAITSEMAPHORES));
+			check(memGetAddress(struct + VkSubmitInfo.PWAITDSTSTAGEMASK));
 		}
 		if ( ncommandBufferCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkSubmitInfo.PCOMMANDBUFFERS));
+			check(memGetAddress(struct + VkSubmitInfo.PCOMMANDBUFFERS));
 		if ( nsignalSemaphoreCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkSubmitInfo.PSIGNALSEMAPHORES));
+			check(memGetAddress(struct + VkSubmitInfo.PSIGNALSEMAPHORES));
 	}
 
 	/**

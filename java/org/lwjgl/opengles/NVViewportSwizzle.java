@@ -64,7 +64,7 @@ public class NVViewportSwizzle {
 	public static void glViewportSwizzleNV(int index, int swizzlex, int swizzley, int swizzlez, int swizzlew) {
 		long __functionAddress = GLES.getCapabilities().glViewportSwizzleNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, swizzlex, swizzley, swizzlez, swizzlew);
 	}
 

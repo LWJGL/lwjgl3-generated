@@ -33,15 +33,15 @@ public class NVNativeQuery {
 	public static int neglQueryNativeDisplayNV(long dpy, long display_id) {
 		long __functionAddress = EGL.getCapabilities().eglQueryNativeDisplayNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
+			check(__functionAddress);
+			check(dpy);
 		}
 		return callPPI(__functionAddress, dpy, display_id);
 	}
 
 	public static boolean eglQueryNativeDisplayNV(long dpy, PointerBuffer display_id) {
 		if ( CHECKS )
-			checkBuffer(display_id, 1);
+			check(display_id, 1);
 		return neglQueryNativeDisplayNV(dpy, memAddress(display_id)) != 0;
 	}
 
@@ -50,16 +50,16 @@ public class NVNativeQuery {
 	public static int neglQueryNativeWindowNV(long dpy, long surf, long window) {
 		long __functionAddress = EGL.getCapabilities().eglQueryNativeWindowNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(surf);
+			check(__functionAddress);
+			check(dpy);
+			check(surf);
 		}
 		return callPPPI(__functionAddress, dpy, surf, window);
 	}
 
 	public static boolean eglQueryNativeWindowNV(long dpy, long surf, PointerBuffer window) {
 		if ( CHECKS )
-			checkBuffer(window, 1);
+			check(window, 1);
 		return neglQueryNativeWindowNV(dpy, surf, memAddress(window)) != 0;
 	}
 
@@ -68,16 +68,16 @@ public class NVNativeQuery {
 	public static int neglQueryNativePixmapNV(long dpy, long surf, long pixmap) {
 		long __functionAddress = EGL.getCapabilities().eglQueryNativePixmapNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(surf);
+			check(__functionAddress);
+			check(dpy);
+			check(surf);
 		}
 		return callPPPI(__functionAddress, dpy, surf, pixmap);
 	}
 
 	public static boolean eglQueryNativePixmapNV(long dpy, long surf, PointerBuffer pixmap) {
 		if ( CHECKS )
-			checkBuffer(pixmap, 1);
+			check(pixmap, 1);
 		return neglQueryNativePixmapNV(dpy, surf, memAddress(pixmap)) != 0;
 	}
 

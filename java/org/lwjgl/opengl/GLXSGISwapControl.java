@@ -40,7 +40,7 @@ public class GLXSGISwapControl {
 	public static int glXSwapIntervalSGI(int interval) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXSwapIntervalSGI;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callI(__functionAddress, interval);
 	}
 

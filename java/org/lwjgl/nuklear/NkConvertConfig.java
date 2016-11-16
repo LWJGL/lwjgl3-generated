@@ -378,7 +378,7 @@ public class NkConvertConfig extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + NkConvertConfig.VERTEX_LAYOUT));
+		check(memGetAddress(struct + NkConvertConfig.VERTEX_LAYOUT));
 	}
 
 	/**

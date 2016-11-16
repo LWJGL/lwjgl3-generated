@@ -286,9 +286,9 @@ public class GLFWGammaRamp extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + GLFWGammaRamp.RED));
-		checkPointer(memGetAddress(struct + GLFWGammaRamp.GREEN));
-		checkPointer(memGetAddress(struct + GLFWGammaRamp.BLUE));
+		check(memGetAddress(struct + GLFWGammaRamp.RED));
+		check(memGetAddress(struct + GLFWGammaRamp.GREEN));
+		check(memGetAddress(struct + GLFWGammaRamp.BLUE));
 	}
 
 	/**

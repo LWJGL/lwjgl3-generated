@@ -45,8 +45,8 @@ public class EXTMigrateMemobject {
 	public static int nclEnqueueMigrateMemObjectEXT(long command_queue, int num_mem_objects, long mem_objects, long flags, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = CL.getICD().clEnqueueMigrateMemObjectEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(command_queue);
+			check(__functionAddress);
+			check(command_queue);
 		}
 		return callPPJPPI(__functionAddress, command_queue, num_mem_objects, mem_objects, flags, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -77,7 +77,7 @@ public class EXTMigrateMemobject {
 	 */
 	public static int clEnqueueMigrateMemObjectEXT(long command_queue, PointerBuffer mem_objects, long flags, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			checkBufferSafe(event, 1);
+			checkSafe(event, 1);
 		return nclEnqueueMigrateMemObjectEXT(command_queue, mem_objects.remaining(), memAddress(mem_objects), flags, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 

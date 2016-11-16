@@ -50,7 +50,7 @@ public class ARBInternalformatQuery {
 	public static void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params) {
 		long __functionAddress = GL.getCapabilities().glGetInternalformativ;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, internalformat, pname, bufSize, params);
 	}
 
@@ -88,7 +88,7 @@ public class ARBInternalformatQuery {
 	public static void glGetInternalformativ(int target, int internalformat, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetInternalformativ;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, internalformat, pname, params.length, params);
 	}
 

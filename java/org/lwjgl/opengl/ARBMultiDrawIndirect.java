@@ -42,7 +42,7 @@ public class ARBMultiDrawIndirect {
 	public static void nglMultiDrawArraysIndirect(int mode, long indirect, int primcount, int stride) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawArraysIndirect;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, mode, indirect, primcount, stride);
 	}
 
@@ -76,7 +76,7 @@ for ( i = 0; i < primcount; i++ ) {
 	 */
 	public static void glMultiDrawArraysIndirect(int mode, ByteBuffer indirect, int primcount, int stride) {
 		if ( CHECKS )
-			checkBuffer(indirect, primcount * (stride == 0 ? (4 * 4) : stride));
+			check(indirect, primcount * (stride == 0 ? (4 * 4) : stride));
 		nglMultiDrawArraysIndirect(mode, memAddress(indirect), primcount, stride);
 	}
 
@@ -142,7 +142,7 @@ for ( i = 0; i < primcount; i++ ) {
 	 */
 	public static void glMultiDrawArraysIndirect(int mode, IntBuffer indirect, int primcount, int stride) {
 		if ( CHECKS )
-			checkBuffer(indirect, (primcount * (stride == 0 ? (4 * 4) : stride)) >> 2);
+			check(indirect, (primcount * (stride == 0 ? (4 * 4) : stride)) >> 2);
 		nglMultiDrawArraysIndirect(mode, memAddress(indirect), primcount, stride);
 	}
 
@@ -152,7 +152,7 @@ for ( i = 0; i < primcount; i++ ) {
 	public static void nglMultiDrawElementsIndirect(int mode, int type, long indirect, int primcount, int stride) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawElementsIndirect;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, mode, type, indirect, primcount, stride);
 	}
 
@@ -188,7 +188,7 @@ for ( i = 0; i < primcount; i++ ) {
 	 */
 	public static void glMultiDrawElementsIndirect(int mode, int type, ByteBuffer indirect, int primcount, int stride) {
 		if ( CHECKS )
-			checkBuffer(indirect, primcount * (stride == 0 ? (5 * 4) : stride));
+			check(indirect, primcount * (stride == 0 ? (5 * 4) : stride));
 		nglMultiDrawElementsIndirect(mode, type, memAddress(indirect), primcount, stride);
 	}
 
@@ -258,7 +258,7 @@ for ( i = 0; i < primcount; i++ ) {
 	 */
 	public static void glMultiDrawElementsIndirect(int mode, int type, IntBuffer indirect, int primcount, int stride) {
 		if ( CHECKS )
-			checkBuffer(indirect, (primcount * (stride == 0 ? (5 * 4) : stride)) >> 2);
+			check(indirect, (primcount * (stride == 0 ? (5 * 4) : stride)) >> 2);
 		nglMultiDrawElementsIndirect(mode, type, memAddress(indirect), primcount, stride);
 	}
 
@@ -266,8 +266,8 @@ for ( i = 0; i < primcount; i++ ) {
 	public static void glMultiDrawArraysIndirect(int mode, int[] indirect, int primcount, int stride) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawArraysIndirect;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(indirect, (primcount * (stride == 0 ? (4 * 4) : stride)) >> 2);
+			check(__functionAddress);
+			check(indirect, (primcount * (stride == 0 ? (4 * 4) : stride)) >> 2);
 		}
 		callPV(__functionAddress, mode, indirect, primcount, stride);
 	}
@@ -276,8 +276,8 @@ for ( i = 0; i < primcount; i++ ) {
 	public static void glMultiDrawElementsIndirect(int mode, int type, int[] indirect, int primcount, int stride) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawElementsIndirect;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(indirect, (primcount * (stride == 0 ? (5 * 4) : stride)) >> 2);
+			check(__functionAddress);
+			check(indirect, (primcount * (stride == 0 ? (5 * 4) : stride)) >> 2);
 		}
 		callPV(__functionAddress, mode, type, indirect, primcount, stride);
 	}

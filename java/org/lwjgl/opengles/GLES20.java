@@ -946,17 +946,17 @@ public class GLES20 {
 
 	public static void glGetActiveAttrib(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
 		if ( CHECKS ) {
-			checkBufferSafe(length, 1);
-			checkBuffer(size, 1);
-			checkBuffer(type, 1);
+			checkSafe(length, 1);
+			check(size, 1);
+			check(type, 1);
 		}
 		nglGetActiveAttrib(program, index, name.remaining(), memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name));
 	}
 
 	public static String glGetActiveAttrib(int program, int index, int bufSize, IntBuffer size, IntBuffer type) {
 		if ( CHECKS ) {
-			checkBuffer(size, 1);
-			checkBuffer(type, 1);
+			check(size, 1);
+			check(type, 1);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -972,8 +972,8 @@ public class GLES20 {
 	public static String glGetActiveAttrib(int program, int index, IntBuffer size, IntBuffer type) {
 		int bufSize = glGetProgrami(program, GL_ACTIVE_ATTRIBUTE_MAX_LENGTH);
 		if ( CHECKS ) {
-			checkBuffer(size, 1);
-			checkBuffer(type, 1);
+			check(size, 1);
+			check(type, 1);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -995,17 +995,17 @@ public class GLES20 {
 
 	public static void glGetActiveUniform(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
 		if ( CHECKS ) {
-			checkBufferSafe(length, 1);
-			checkBuffer(size, 1);
-			checkBuffer(type, 1);
+			checkSafe(length, 1);
+			check(size, 1);
+			check(type, 1);
 		}
 		nglGetActiveUniform(program, index, name.remaining(), memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name));
 	}
 
 	public static String glGetActiveUniform(int program, int index, int bufSize, IntBuffer size, IntBuffer type) {
 		if ( CHECKS ) {
-			checkBuffer(size, 1);
-			checkBuffer(type, 1);
+			check(size, 1);
+			check(type, 1);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1021,8 +1021,8 @@ public class GLES20 {
 	public static String glGetActiveUniform(int program, int index, IntBuffer size, IntBuffer type) {
 		int bufSize = glGetProgrami(program, GL_ACTIVE_UNIFORM_MAX_LENGTH);
 		if ( CHECKS ) {
-			checkBuffer(size, 1);
-			checkBuffer(type, 1);
+			check(size, 1);
+			check(type, 1);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1044,7 +1044,7 @@ public class GLES20 {
 
 	public static void glGetAttachedShaders(int program, IntBuffer count, IntBuffer shaders) {
 		if ( CHECKS )
-			checkBufferSafe(count, 1);
+			checkSafe(count, 1);
 		nglGetAttachedShaders(program, shaders.remaining(), memAddressSafe(count), memAddress(shaders));
 	}
 
@@ -1080,7 +1080,7 @@ public class GLES20 {
 
 	public static void glGetBooleanv(int pname, ByteBuffer data) {
 		if ( CHECKS )
-			checkBuffer(data, 1);
+			check(data, 1);
 		nglGetBooleanv(pname, memAddress(data));
 	}
 
@@ -1104,7 +1104,7 @@ public class GLES20 {
 
 	public static void glGetBufferParameteriv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetBufferParameteriv(target, pname, memAddress(params));
 	}
 
@@ -1135,7 +1135,7 @@ public class GLES20 {
 
 	public static void glGetFloatv(int pname, FloatBuffer data) {
 		if ( CHECKS )
-			checkBuffer(data, 1);
+			check(data, 1);
 		nglGetFloatv(pname, memAddress(data));
 	}
 
@@ -1159,7 +1159,7 @@ public class GLES20 {
 
 	public static void glGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, memAddress(params));
 	}
 
@@ -1183,7 +1183,7 @@ public class GLES20 {
 
 	public static void glGetIntegerv(int pname, IntBuffer data) {
 		if ( CHECKS )
-			checkBuffer(data, 1);
+			check(data, 1);
 		nglGetIntegerv(pname, memAddress(data));
 	}
 
@@ -1207,7 +1207,7 @@ public class GLES20 {
 
 	public static void glGetProgramiv(int program, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetProgramiv(program, pname, memAddress(params));
 	}
 
@@ -1231,7 +1231,7 @@ public class GLES20 {
 
 	public static void glGetProgramInfoLog(int program, IntBuffer length, ByteBuffer infoLog) {
 		if ( CHECKS )
-			checkBufferSafe(length, 1);
+			checkSafe(length, 1);
 		nglGetProgramInfoLog(program, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog));
 	}
 
@@ -1271,7 +1271,7 @@ public class GLES20 {
 
 	public static void glGetRenderbufferParameteriv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetRenderbufferParameteriv(target, pname, memAddress(params));
 	}
 
@@ -1295,7 +1295,7 @@ public class GLES20 {
 
 	public static void glGetShaderiv(int shader, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetShaderiv(shader, pname, memAddress(params));
 	}
 
@@ -1319,7 +1319,7 @@ public class GLES20 {
 
 	public static void glGetShaderInfoLog(int shader, IntBuffer length, ByteBuffer infoLog) {
 		if ( CHECKS )
-			checkBufferSafe(length, 1);
+			checkSafe(length, 1);
 		nglGetShaderInfoLog(shader, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog));
 	}
 
@@ -1359,8 +1359,8 @@ public class GLES20 {
 
 	public static void glGetShaderPrecisionFormat(int shadertype, int precisiontype, IntBuffer range, IntBuffer precision) {
 		if ( CHECKS ) {
-			checkBuffer(range, 2);
-			checkBuffer(precision, 2);
+			check(range, 2);
+			check(precision, 2);
 		}
 		nglGetShaderPrecisionFormat(shadertype, precisiontype, memAddress(range), memAddress(precision));
 	}
@@ -1374,7 +1374,7 @@ public class GLES20 {
 
 	public static void glGetShaderSource(int shader, IntBuffer length, ByteBuffer source) {
 		if ( CHECKS )
-			checkBufferSafe(length, 1);
+			checkSafe(length, 1);
 		nglGetShaderSource(shader, source.remaining(), memAddressSafe(length), memAddress(source));
 	}
 
@@ -1426,7 +1426,7 @@ public class GLES20 {
 
 	public static void glGetTexParameterfv(int target, int pname, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetTexParameterfv(target, pname, memAddress(params));
 	}
 
@@ -1450,7 +1450,7 @@ public class GLES20 {
 
 	public static void glGetTexParameteriv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetTexParameteriv(target, pname, memAddress(params));
 	}
 
@@ -1474,7 +1474,7 @@ public class GLES20 {
 
 	public static void glGetUniformfv(int program, int location, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetUniformfv(program, location, memAddress(params));
 	}
 
@@ -1498,7 +1498,7 @@ public class GLES20 {
 
 	public static void glGetUniformiv(int program, int location, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetUniformiv(program, location, memAddress(params));
 	}
 
@@ -1545,7 +1545,7 @@ public class GLES20 {
 
 	public static void glGetVertexAttribfv(int index, int pname, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglGetVertexAttribfv(index, pname, memAddress(params));
 	}
 
@@ -1558,7 +1558,7 @@ public class GLES20 {
 
 	public static void glGetVertexAttribiv(int index, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglGetVertexAttribiv(index, pname, memAddress(params));
 	}
 
@@ -1571,7 +1571,7 @@ public class GLES20 {
 
 	public static void glGetVertexAttribPointerv(int index, int pname, PointerBuffer pointer) {
 		if ( CHECKS )
-			checkBuffer(pointer, 1);
+			check(pointer, 1);
 		nglGetVertexAttribPointerv(index, pname, memAddress(pointer));
 	}
 
@@ -1745,7 +1745,7 @@ public class GLES20 {
 
 	public static void glShaderSource(int shader, PointerBuffer string, IntBuffer length) {
 		if ( CHECKS )
-			checkBufferSafe(length, string.remaining());
+			checkSafe(length, string.remaining());
 		nglShaderSource(shader, string.remaining(), memAddress(string), memAddressSafe(length));
 	}
 
@@ -1856,7 +1856,7 @@ public class GLES20 {
 
 	public static void glTexParameterfv(int target, int pname, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglTexParameterfv(target, pname, memAddress(params));
 	}
 
@@ -1876,7 +1876,7 @@ public class GLES20 {
 
 	public static void glTexParameteriv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglTexParameteriv(target, pname, memAddress(params));
 	}
 
@@ -2114,7 +2114,7 @@ public class GLES20 {
 
 	public static void glVertexAttrib1fv(int index, FloatBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 1);
+			check(v, 1);
 		nglVertexAttrib1fv(index, memAddress(v));
 	}
 
@@ -2134,7 +2134,7 @@ public class GLES20 {
 
 	public static void glVertexAttrib2fv(int index, FloatBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 2);
+			check(v, 2);
 		nglVertexAttrib2fv(index, memAddress(v));
 	}
 
@@ -2154,7 +2154,7 @@ public class GLES20 {
 
 	public static void glVertexAttrib3fv(int index, FloatBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglVertexAttrib3fv(index, memAddress(v));
 	}
 
@@ -2174,7 +2174,7 @@ public class GLES20 {
 
 	public static void glVertexAttrib4fv(int index, FloatBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4fv(index, memAddress(v));
 	}
 
@@ -2300,9 +2300,9 @@ public class GLES20 {
 	public static void glGetActiveAttrib(int program, int index, int[] length, int[] size, int[] type, ByteBuffer name) {
 		long __functionAddress = GLES.getCapabilities().glGetActiveAttrib;
 		if ( CHECKS ) {
-			checkBufferSafe(length, 1);
-			checkBuffer(size, 1);
-			checkBuffer(type, 1);
+			checkSafe(length, 1);
+			check(size, 1);
+			check(type, 1);
 		}
 		callPPPPV(__functionAddress, program, index, name.remaining(), length, size, type, memAddress(name));
 	}
@@ -2311,9 +2311,9 @@ public class GLES20 {
 	public static void glGetActiveUniform(int program, int index, int[] length, int[] size, int[] type, ByteBuffer name) {
 		long __functionAddress = GLES.getCapabilities().glGetActiveUniform;
 		if ( CHECKS ) {
-			checkBufferSafe(length, 1);
-			checkBuffer(size, 1);
-			checkBuffer(type, 1);
+			checkSafe(length, 1);
+			check(size, 1);
+			check(type, 1);
 		}
 		callPPPPV(__functionAddress, program, index, name.remaining(), length, size, type, memAddress(name));
 	}
@@ -2322,7 +2322,7 @@ public class GLES20 {
 	public static void glGetAttachedShaders(int program, int[] count, int[] shaders) {
 		long __functionAddress = GLES.getCapabilities().glGetAttachedShaders;
 		if ( CHECKS )
-			checkBufferSafe(count, 1);
+			checkSafe(count, 1);
 		callPPV(__functionAddress, program, shaders.length, count, shaders);
 	}
 
@@ -2330,7 +2330,7 @@ public class GLES20 {
 	public static void glGetBufferParameteriv(int target, int pname, int[] params) {
 		long __functionAddress = GLES.getCapabilities().glGetBufferParameteriv;
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		callPV(__functionAddress, target, pname, params);
 	}
 
@@ -2338,7 +2338,7 @@ public class GLES20 {
 	public static void glGetFloatv(int pname, float[] data) {
 		long __functionAddress = GLES.getCapabilities().glGetFloatv;
 		if ( CHECKS )
-			checkBuffer(data, 1);
+			check(data, 1);
 		callPV(__functionAddress, pname, data);
 	}
 
@@ -2346,7 +2346,7 @@ public class GLES20 {
 	public static void glGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, int[] params) {
 		long __functionAddress = GLES.getCapabilities().glGetFramebufferAttachmentParameteriv;
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		callPV(__functionAddress, target, attachment, pname, params);
 	}
 
@@ -2354,7 +2354,7 @@ public class GLES20 {
 	public static void glGetIntegerv(int pname, int[] data) {
 		long __functionAddress = GLES.getCapabilities().glGetIntegerv;
 		if ( CHECKS )
-			checkBuffer(data, 1);
+			check(data, 1);
 		callPV(__functionAddress, pname, data);
 	}
 
@@ -2362,7 +2362,7 @@ public class GLES20 {
 	public static void glGetProgramiv(int program, int pname, int[] params) {
 		long __functionAddress = GLES.getCapabilities().glGetProgramiv;
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		callPV(__functionAddress, program, pname, params);
 	}
 
@@ -2370,7 +2370,7 @@ public class GLES20 {
 	public static void glGetProgramInfoLog(int program, int[] length, ByteBuffer infoLog) {
 		long __functionAddress = GLES.getCapabilities().glGetProgramInfoLog;
 		if ( CHECKS )
-			checkBufferSafe(length, 1);
+			checkSafe(length, 1);
 		callPPV(__functionAddress, program, infoLog.remaining(), length, memAddress(infoLog));
 	}
 
@@ -2378,7 +2378,7 @@ public class GLES20 {
 	public static void glGetRenderbufferParameteriv(int target, int pname, int[] params) {
 		long __functionAddress = GLES.getCapabilities().glGetRenderbufferParameteriv;
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		callPV(__functionAddress, target, pname, params);
 	}
 
@@ -2386,7 +2386,7 @@ public class GLES20 {
 	public static void glGetShaderiv(int shader, int pname, int[] params) {
 		long __functionAddress = GLES.getCapabilities().glGetShaderiv;
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		callPV(__functionAddress, shader, pname, params);
 	}
 
@@ -2394,7 +2394,7 @@ public class GLES20 {
 	public static void glGetShaderInfoLog(int shader, int[] length, ByteBuffer infoLog) {
 		long __functionAddress = GLES.getCapabilities().glGetShaderInfoLog;
 		if ( CHECKS )
-			checkBufferSafe(length, 1);
+			checkSafe(length, 1);
 		callPPV(__functionAddress, shader, infoLog.remaining(), length, memAddress(infoLog));
 	}
 
@@ -2402,8 +2402,8 @@ public class GLES20 {
 	public static void glGetShaderPrecisionFormat(int shadertype, int precisiontype, int[] range, int[] precision) {
 		long __functionAddress = GLES.getCapabilities().glGetShaderPrecisionFormat;
 		if ( CHECKS ) {
-			checkBuffer(range, 2);
-			checkBuffer(precision, 2);
+			check(range, 2);
+			check(precision, 2);
 		}
 		callPPV(__functionAddress, shadertype, precisiontype, range, precision);
 	}
@@ -2412,7 +2412,7 @@ public class GLES20 {
 	public static void glGetShaderSource(int shader, int[] length, ByteBuffer source) {
 		long __functionAddress = GLES.getCapabilities().glGetShaderSource;
 		if ( CHECKS )
-			checkBufferSafe(length, 1);
+			checkSafe(length, 1);
 		callPPV(__functionAddress, shader, source.remaining(), length, memAddress(source));
 	}
 
@@ -2420,7 +2420,7 @@ public class GLES20 {
 	public static void glGetTexParameterfv(int target, int pname, float[] params) {
 		long __functionAddress = GLES.getCapabilities().glGetTexParameterfv;
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		callPV(__functionAddress, target, pname, params);
 	}
 
@@ -2428,7 +2428,7 @@ public class GLES20 {
 	public static void glGetTexParameteriv(int target, int pname, int[] params) {
 		long __functionAddress = GLES.getCapabilities().glGetTexParameteriv;
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		callPV(__functionAddress, target, pname, params);
 	}
 
@@ -2436,7 +2436,7 @@ public class GLES20 {
 	public static void glGetUniformfv(int program, int location, float[] params) {
 		long __functionAddress = GLES.getCapabilities().glGetUniformfv;
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		callPV(__functionAddress, program, location, params);
 	}
 
@@ -2444,7 +2444,7 @@ public class GLES20 {
 	public static void glGetUniformiv(int program, int location, int[] params) {
 		long __functionAddress = GLES.getCapabilities().glGetUniformiv;
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		callPV(__functionAddress, program, location, params);
 	}
 
@@ -2452,7 +2452,7 @@ public class GLES20 {
 	public static void glGetVertexAttribfv(int index, int pname, float[] params) {
 		long __functionAddress = GLES.getCapabilities().glGetVertexAttribfv;
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		callPV(__functionAddress, index, pname, params);
 	}
 
@@ -2460,7 +2460,7 @@ public class GLES20 {
 	public static void glGetVertexAttribiv(int index, int pname, int[] params) {
 		long __functionAddress = GLES.getCapabilities().glGetVertexAttribiv;
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		callPV(__functionAddress, index, pname, params);
 	}
 
@@ -2492,7 +2492,7 @@ public class GLES20 {
 	public static void glShaderSource(int shader, PointerBuffer string, int[] length) {
 		long __functionAddress = GLES.getCapabilities().glShaderSource;
 		if ( CHECKS )
-			checkBufferSafe(length, string.remaining());
+			checkSafe(length, string.remaining());
 		callPPV(__functionAddress, shader, string.remaining(), memAddress(string), length);
 	}
 
@@ -2518,7 +2518,7 @@ public class GLES20 {
 	public static void glTexParameterfv(int target, int pname, float[] params) {
 		long __functionAddress = GLES.getCapabilities().glTexParameterfv;
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		callPV(__functionAddress, target, pname, params);
 	}
 
@@ -2526,7 +2526,7 @@ public class GLES20 {
 	public static void glTexParameteriv(int target, int pname, int[] params) {
 		long __functionAddress = GLES.getCapabilities().glTexParameteriv;
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		callPV(__functionAddress, target, pname, params);
 	}
 
@@ -2618,7 +2618,7 @@ public class GLES20 {
 	public static void glVertexAttrib1fv(int index, float[] v) {
 		long __functionAddress = GLES.getCapabilities().glVertexAttrib1fv;
 		if ( CHECKS )
-			checkBuffer(v, 1);
+			check(v, 1);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -2626,7 +2626,7 @@ public class GLES20 {
 	public static void glVertexAttrib2fv(int index, float[] v) {
 		long __functionAddress = GLES.getCapabilities().glVertexAttrib2fv;
 		if ( CHECKS )
-			checkBuffer(v, 2);
+			check(v, 2);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -2634,7 +2634,7 @@ public class GLES20 {
 	public static void glVertexAttrib3fv(int index, float[] v) {
 		long __functionAddress = GLES.getCapabilities().glVertexAttrib3fv;
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -2642,7 +2642,7 @@ public class GLES20 {
 	public static void glVertexAttrib4fv(int index, float[] v) {
 		long __functionAddress = GLES.getCapabilities().glVertexAttrib4fv;
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		callPV(__functionAddress, index, v);
 	}
 

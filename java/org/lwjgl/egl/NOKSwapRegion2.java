@@ -44,9 +44,9 @@ public class NOKSwapRegion2 {
 	public static int neglSwapBuffersRegion2NOK(long dpy, long surface, int numRects, long rects) {
 		long __functionAddress = EGL.getCapabilities().eglSwapBuffersRegion2NOK;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(surface);
+			check(__functionAddress);
+			check(dpy);
+			check(surface);
 		}
 		return callPPPI(__functionAddress, dpy, surface, numRects, rects);
 	}
@@ -59,9 +59,9 @@ public class NOKSwapRegion2 {
 	public static boolean eglSwapBuffersRegion2NOK(long dpy, long surface, int[] rects) {
 		long __functionAddress = EGL.getCapabilities().eglSwapBuffersRegion2NOK;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(surface);
+			check(__functionAddress);
+			check(dpy);
+			check(surface);
 		}
 		return callPPPI(__functionAddress, dpy, surface, lengthSafe(rects), rects) != 0;
 	}

@@ -325,7 +325,7 @@ public class VkDebugMarkerObjectNameInfoEXT extends Struct implements NativeReso
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + VkDebugMarkerObjectNameInfoEXT.POBJECTNAME));
+		check(memGetAddress(struct + VkDebugMarkerObjectNameInfoEXT.POBJECTNAME));
 	}
 
 	/**

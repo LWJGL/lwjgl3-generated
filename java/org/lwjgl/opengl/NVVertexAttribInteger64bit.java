@@ -51,7 +51,7 @@ public class NVVertexAttribInteger64bit {
 	public static void glVertexAttribL1i64NV(int index, long x) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL1i64NV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJV(__functionAddress, index, x);
 	}
 
@@ -60,7 +60,7 @@ public class NVVertexAttribInteger64bit {
 	public static void glVertexAttribL2i64NV(int index, long x, long y) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL2i64NV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJJV(__functionAddress, index, x, y);
 	}
 
@@ -69,7 +69,7 @@ public class NVVertexAttribInteger64bit {
 	public static void glVertexAttribL3i64NV(int index, long x, long y, long z) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL3i64NV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJJJV(__functionAddress, index, x, y, z);
 	}
 
@@ -78,7 +78,7 @@ public class NVVertexAttribInteger64bit {
 	public static void glVertexAttribL4i64NV(int index, long x, long y, long z, long w) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL4i64NV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJJJJV(__functionAddress, index, x, y, z, w);
 	}
 
@@ -87,13 +87,13 @@ public class NVVertexAttribInteger64bit {
 	public static void nglVertexAttribL1i64vNV(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL1i64vNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttribL1i64vNV(int index, LongBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 1);
+			check(v, 1);
 		nglVertexAttribL1i64vNV(index, memAddress(v));
 	}
 
@@ -102,13 +102,13 @@ public class NVVertexAttribInteger64bit {
 	public static void nglVertexAttribL2i64vNV(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL2i64vNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttribL2i64vNV(int index, LongBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 2);
+			check(v, 2);
 		nglVertexAttribL2i64vNV(index, memAddress(v));
 	}
 
@@ -117,13 +117,13 @@ public class NVVertexAttribInteger64bit {
 	public static void nglVertexAttribL3i64vNV(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL3i64vNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttribL3i64vNV(int index, LongBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglVertexAttribL3i64vNV(index, memAddress(v));
 	}
 
@@ -132,13 +132,13 @@ public class NVVertexAttribInteger64bit {
 	public static void nglVertexAttribL4i64vNV(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL4i64vNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttribL4i64vNV(int index, LongBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttribL4i64vNV(index, memAddress(v));
 	}
 
@@ -147,7 +147,7 @@ public class NVVertexAttribInteger64bit {
 	public static void glVertexAttribL1ui64NV(int index, long x) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL1ui64NV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJV(__functionAddress, index, x);
 	}
 
@@ -156,7 +156,7 @@ public class NVVertexAttribInteger64bit {
 	public static void glVertexAttribL2ui64NV(int index, long x, long y) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL2ui64NV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJJV(__functionAddress, index, x, y);
 	}
 
@@ -165,7 +165,7 @@ public class NVVertexAttribInteger64bit {
 	public static void glVertexAttribL3ui64NV(int index, long x, long y, long z) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL3ui64NV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJJJV(__functionAddress, index, x, y, z);
 	}
 
@@ -174,7 +174,7 @@ public class NVVertexAttribInteger64bit {
 	public static void glVertexAttribL4ui64NV(int index, long x, long y, long z, long w) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL4ui64NV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJJJJV(__functionAddress, index, x, y, z, w);
 	}
 
@@ -183,13 +183,13 @@ public class NVVertexAttribInteger64bit {
 	public static void nglVertexAttribL1ui64vNV(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL1ui64vNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttribL1ui64vNV(int index, LongBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 1);
+			check(v, 1);
 		nglVertexAttribL1ui64vNV(index, memAddress(v));
 	}
 
@@ -198,13 +198,13 @@ public class NVVertexAttribInteger64bit {
 	public static void nglVertexAttribL2ui64vNV(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL2ui64vNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttribL2ui64vNV(int index, LongBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 2);
+			check(v, 2);
 		nglVertexAttribL2ui64vNV(index, memAddress(v));
 	}
 
@@ -213,13 +213,13 @@ public class NVVertexAttribInteger64bit {
 	public static void nglVertexAttribL3ui64vNV(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL3ui64vNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttribL3ui64vNV(int index, LongBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglVertexAttribL3ui64vNV(index, memAddress(v));
 	}
 
@@ -228,13 +228,13 @@ public class NVVertexAttribInteger64bit {
 	public static void nglVertexAttribL4ui64vNV(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL4ui64vNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttribL4ui64vNV(int index, LongBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttribL4ui64vNV(index, memAddress(v));
 	}
 
@@ -243,13 +243,13 @@ public class NVVertexAttribInteger64bit {
 	public static void nglGetVertexAttribLi64vNV(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribLi64vNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, pname, params);
 	}
 
 	public static void glGetVertexAttribLi64vNV(int index, int pname, LongBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetVertexAttribLi64vNV(index, pname, memAddress(params));
 	}
 
@@ -269,13 +269,13 @@ public class NVVertexAttribInteger64bit {
 	public static void nglGetVertexAttribLui64vNV(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribLui64vNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, pname, params);
 	}
 
 	public static void glGetVertexAttribLui64vNV(int index, int pname, LongBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetVertexAttribLui64vNV(index, pname, memAddress(params));
 	}
 
@@ -295,7 +295,7 @@ public class NVVertexAttribInteger64bit {
 	public static void glVertexAttribLFormatNV(int index, int size, int type, int stride) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribLFormatNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, size, type, stride);
 	}
 
@@ -303,8 +303,8 @@ public class NVVertexAttribInteger64bit {
 	public static void glVertexAttribL1i64vNV(int index, long[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL1i64vNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 1);
+			check(__functionAddress);
+			check(v, 1);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -313,8 +313,8 @@ public class NVVertexAttribInteger64bit {
 	public static void glVertexAttribL2i64vNV(int index, long[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL2i64vNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 2);
+			check(__functionAddress);
+			check(v, 2);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -323,8 +323,8 @@ public class NVVertexAttribInteger64bit {
 	public static void glVertexAttribL3i64vNV(int index, long[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL3i64vNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -333,8 +333,8 @@ public class NVVertexAttribInteger64bit {
 	public static void glVertexAttribL4i64vNV(int index, long[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL4i64vNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -343,8 +343,8 @@ public class NVVertexAttribInteger64bit {
 	public static void glVertexAttribL1ui64vNV(int index, long[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL1ui64vNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 1);
+			check(__functionAddress);
+			check(v, 1);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -353,8 +353,8 @@ public class NVVertexAttribInteger64bit {
 	public static void glVertexAttribL2ui64vNV(int index, long[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL2ui64vNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 2);
+			check(__functionAddress);
+			check(v, 2);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -363,8 +363,8 @@ public class NVVertexAttribInteger64bit {
 	public static void glVertexAttribL3ui64vNV(int index, long[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL3ui64vNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -373,8 +373,8 @@ public class NVVertexAttribInteger64bit {
 	public static void glVertexAttribL4ui64vNV(int index, long[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL4ui64vNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -383,8 +383,8 @@ public class NVVertexAttribInteger64bit {
 	public static void glGetVertexAttribLi64vNV(int index, int pname, long[] params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribLi64vNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, index, pname, params);
 	}
@@ -393,8 +393,8 @@ public class NVVertexAttribInteger64bit {
 	public static void glGetVertexAttribLui64vNV(int index, int pname, long[] params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribLui64vNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, index, pname, params);
 	}

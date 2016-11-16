@@ -50,7 +50,7 @@ public class ANDROIDCreateNativeClientBuffer {
 	public static long neglCreateNativeClientBufferANDROID(long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateNativeClientBufferANDROID;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPP(__functionAddress, attrib_list);
 	}
 
@@ -72,7 +72,7 @@ public class ANDROIDCreateNativeClientBuffer {
 	public static long eglCreateNativeClientBufferANDROID(int[] attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateNativeClientBufferANDROID;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		}
 		return callPP(__functionAddress, attrib_list);

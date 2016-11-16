@@ -54,7 +54,7 @@ public class ARBGLSPIRV {
 	public static void nglSpecializeShaderARB(int shader, long pEntryPoint, int numSpecializationConstants, long pConstantIndex, long pConstantValue) {
 		long __functionAddress = GL.getCapabilities().glSpecializeShaderARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPPV(__functionAddress, shader, pEntryPoint, numSpecializationConstants, pConstantIndex, pConstantValue);
 	}
 
@@ -69,7 +69,7 @@ public class ARBGLSPIRV {
 	public static void glSpecializeShaderARB(int shader, ByteBuffer pEntryPoint, IntBuffer pConstantIndex, IntBuffer pConstantValue) {
 		if ( CHECKS ) {
 			checkNT1(pEntryPoint);
-			checkBuffer(pConstantValue, pConstantIndex.remaining());
+			check(pConstantValue, pConstantIndex.remaining());
 		}
 		nglSpecializeShaderARB(shader, memAddress(pEntryPoint), pConstantIndex.remaining(), memAddress(pConstantIndex), memAddress(pConstantValue));
 	}
@@ -84,7 +84,7 @@ public class ARBGLSPIRV {
 	 */
 	public static void glSpecializeShaderARB(int shader, CharSequence pEntryPoint, IntBuffer pConstantIndex, IntBuffer pConstantValue) {
 		if ( CHECKS )
-			checkBuffer(pConstantValue, pConstantIndex.remaining());
+			check(pConstantValue, pConstantIndex.remaining());
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer pEntryPointEncoded = stack.UTF8(pEntryPoint);
@@ -98,9 +98,9 @@ public class ARBGLSPIRV {
 	public static void glSpecializeShaderARB(int shader, ByteBuffer pEntryPoint, int[] pConstantIndex, int[] pConstantValue) {
 		long __functionAddress = GL.getCapabilities().glSpecializeShaderARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 			checkNT1(pEntryPoint);
-			checkBuffer(pConstantValue, pConstantIndex.length);
+			check(pConstantValue, pConstantIndex.length);
 		}
 		callPPPV(__functionAddress, shader, memAddress(pEntryPoint), pConstantIndex.length, pConstantIndex, pConstantValue);
 	}
@@ -109,8 +109,8 @@ public class ARBGLSPIRV {
 	public static void glSpecializeShaderARB(int shader, CharSequence pEntryPoint, int[] pConstantIndex, int[] pConstantValue) {
 		long __functionAddress = GL.getCapabilities().glSpecializeShaderARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(pConstantValue, pConstantIndex.length);
+			check(__functionAddress);
+			check(pConstantValue, pConstantIndex.length);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

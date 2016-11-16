@@ -40,7 +40,7 @@ public class NVReadBuffer {
 	public static void glReadBufferNV(int mode) {
 		long __functionAddress = GLES.getCapabilities().glReadBufferNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, mode);
 	}
 

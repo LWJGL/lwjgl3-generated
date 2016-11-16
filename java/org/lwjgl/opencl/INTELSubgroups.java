@@ -69,8 +69,8 @@ public class INTELSubgroups {
 	public static int nclGetKernelSubGroupInfoKHR(long kernel, long device, int param_name, long input_value_size, long input_value, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetKernelSubGroupInfoKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(kernel);
+			check(__functionAddress);
+			check(kernel);
 		}
 		return callPPPPPPPI(__functionAddress, kernel, device, param_name, input_value_size, input_value, param_value_size, param_value, param_value_size_ret);
 	}
@@ -89,7 +89,7 @@ public class INTELSubgroups {
 	 */
 	public static int clGetKernelSubGroupInfoKHR(long kernel, long device, int param_name, ByteBuffer input_value, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetKernelSubGroupInfoKHR(kernel, device, param_name, input_value.remaining(), memAddress(input_value), remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -107,7 +107,7 @@ public class INTELSubgroups {
 	 */
 	public static int clGetKernelSubGroupInfoKHR(long kernel, long device, int param_name, ByteBuffer input_value, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetKernelSubGroupInfoKHR(kernel, device, param_name, input_value.remaining(), memAddress(input_value), remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 

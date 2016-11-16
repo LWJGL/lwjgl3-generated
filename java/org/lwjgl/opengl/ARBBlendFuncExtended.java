@@ -58,7 +58,7 @@ public class ARBBlendFuncExtended {
 	public static void nglBindFragDataLocationIndexed(int program, int colorNumber, int index, long name) {
 		long __functionAddress = GL.getCapabilities().glBindFragDataLocationIndexed;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, colorNumber, index, name);
 	}
 
@@ -100,7 +100,7 @@ public class ARBBlendFuncExtended {
 	public static int nglGetFragDataIndex(int program, long name) {
 		long __functionAddress = GL.getCapabilities().glGetFragDataIndex;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPI(__functionAddress, program, name);
 	}
 

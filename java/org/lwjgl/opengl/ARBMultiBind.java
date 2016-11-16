@@ -53,7 +53,7 @@ public class ARBMultiBind {
 	public static void nglBindBuffersBase(int target, int first, int count, long buffers) {
 		long __functionAddress = GL.getCapabilities().glBindBuffersBase;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, first, count, buffers);
 	}
 
@@ -90,7 +90,7 @@ public class ARBMultiBind {
 	public static void nglBindBuffersRange(int target, int first, int count, long buffers, long offsets, long sizes) {
 		long __functionAddress = GL.getCapabilities().glBindBuffersRange;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPPV(__functionAddress, target, first, count, buffers, offsets, sizes);
 	}
 
@@ -123,8 +123,8 @@ public class ARBMultiBind {
 	 */
 	public static void glBindBuffersRange(int target, int first, IntBuffer buffers, PointerBuffer offsets, PointerBuffer sizes) {
 		if ( CHECKS ) {
-			checkBufferSafe(offsets, remainingSafe(buffers));
-			checkBufferSafe(sizes, remainingSafe(buffers));
+			checkSafe(offsets, remainingSafe(buffers));
+			checkSafe(sizes, remainingSafe(buffers));
 		}
 		nglBindBuffersRange(target, first, remainingSafe(buffers), memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(sizes));
 	}
@@ -139,7 +139,7 @@ public class ARBMultiBind {
 	public static void nglBindTextures(int first, int count, long textures) {
 		long __functionAddress = GL.getCapabilities().glBindTextures;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, first, count, textures);
 	}
 
@@ -195,7 +195,7 @@ public class ARBMultiBind {
 	public static void nglBindSamplers(int first, int count, long samplers) {
 		long __functionAddress = GL.getCapabilities().glBindSamplers;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, first, count, samplers);
 	}
 
@@ -235,7 +235,7 @@ public class ARBMultiBind {
 	public static void nglBindImageTextures(int first, int count, long textures) {
 		long __functionAddress = GL.getCapabilities().glBindImageTextures;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, first, count, textures);
 	}
 
@@ -286,7 +286,7 @@ public class ARBMultiBind {
 	public static void nglBindVertexBuffers(int first, int count, long buffers, long offsets, long strides) {
 		long __functionAddress = GL.getCapabilities().glBindVertexBuffers;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPPV(__functionAddress, first, count, buffers, offsets, strides);
 	}
 
@@ -321,8 +321,8 @@ public class ARBMultiBind {
 	 */
 	public static void glBindVertexBuffers(int first, IntBuffer buffers, PointerBuffer offsets, IntBuffer strides) {
 		if ( CHECKS ) {
-			checkBufferSafe(offsets, remainingSafe(buffers));
-			checkBufferSafe(strides, remainingSafe(buffers));
+			checkSafe(offsets, remainingSafe(buffers));
+			checkSafe(strides, remainingSafe(buffers));
 		}
 		nglBindVertexBuffers(first, remainingSafe(buffers), memAddressSafe(buffers), memAddressSafe(offsets), memAddressSafe(strides));
 	}
@@ -331,7 +331,7 @@ public class ARBMultiBind {
 	public static void glBindBuffersBase(int target, int first, int[] buffers) {
 		long __functionAddress = GL.getCapabilities().glBindBuffersBase;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, first, lengthSafe(buffers), buffers);
 	}
 
@@ -339,9 +339,9 @@ public class ARBMultiBind {
 	public static void glBindBuffersRange(int target, int first, int[] buffers, PointerBuffer offsets, PointerBuffer sizes) {
 		long __functionAddress = GL.getCapabilities().glBindBuffersRange;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(offsets, lengthSafe(buffers));
-			checkBufferSafe(sizes, lengthSafe(buffers));
+			check(__functionAddress);
+			checkSafe(offsets, lengthSafe(buffers));
+			checkSafe(sizes, lengthSafe(buffers));
 		}
 		callPPPV(__functionAddress, target, first, lengthSafe(buffers), buffers, memAddressSafe(offsets), memAddressSafe(sizes));
 	}
@@ -350,7 +350,7 @@ public class ARBMultiBind {
 	public static void glBindTextures(int first, int[] textures) {
 		long __functionAddress = GL.getCapabilities().glBindTextures;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, first, lengthSafe(textures), textures);
 	}
 
@@ -358,7 +358,7 @@ public class ARBMultiBind {
 	public static void glBindSamplers(int first, int[] samplers) {
 		long __functionAddress = GL.getCapabilities().glBindSamplers;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, first, lengthSafe(samplers), samplers);
 	}
 
@@ -366,7 +366,7 @@ public class ARBMultiBind {
 	public static void glBindImageTextures(int first, int[] textures) {
 		long __functionAddress = GL.getCapabilities().glBindImageTextures;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, first, lengthSafe(textures), textures);
 	}
 
@@ -374,9 +374,9 @@ public class ARBMultiBind {
 	public static void glBindVertexBuffers(int first, int[] buffers, PointerBuffer offsets, int[] strides) {
 		long __functionAddress = GL.getCapabilities().glBindVertexBuffers;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(offsets, lengthSafe(buffers));
-			checkBufferSafe(strides, lengthSafe(buffers));
+			check(__functionAddress);
+			checkSafe(offsets, lengthSafe(buffers));
+			checkSafe(strides, lengthSafe(buffers));
 		}
 		callPPPV(__functionAddress, first, lengthSafe(buffers), buffers, memAddressSafe(offsets), strides);
 	}

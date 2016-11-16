@@ -53,8 +53,8 @@ public class EXTPlatformBase {
 	public static long neglGetPlatformDisplayEXT(int platform, long native_display, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglGetPlatformDisplayEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(native_display);
+			check(__functionAddress);
+			check(native_display);
 		}
 		return callPPP(__functionAddress, platform, native_display, attrib_list);
 	}
@@ -70,10 +70,10 @@ public class EXTPlatformBase {
 	public static long neglCreatePlatformWindowSurfaceEXT(long dpy, long config, long native_window, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreatePlatformWindowSurfaceEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(config);
-			checkPointer(native_window);
+			check(__functionAddress);
+			check(dpy);
+			check(config);
+			check(native_window);
 		}
 		return callPPPPP(__functionAddress, dpy, config, native_window, attrib_list);
 	}
@@ -89,10 +89,10 @@ public class EXTPlatformBase {
 	public static long neglCreatePlatformPixmapSurfaceEXT(long dpy, long config, long native_pixmap, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreatePlatformPixmapSurfaceEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(config);
-			checkPointer(native_pixmap);
+			check(__functionAddress);
+			check(dpy);
+			check(config);
+			check(native_pixmap);
 		}
 		return callPPPPP(__functionAddress, dpy, config, native_pixmap, attrib_list);
 	}
@@ -107,8 +107,8 @@ public class EXTPlatformBase {
 	public static long eglGetPlatformDisplayEXT(int platform, long native_display, int[] attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglGetPlatformDisplayEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(native_display);
+			check(__functionAddress);
+			check(native_display);
 			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		}
 		return callPPP(__functionAddress, platform, native_display, attrib_list);
@@ -118,10 +118,10 @@ public class EXTPlatformBase {
 	public static long eglCreatePlatformWindowSurfaceEXT(long dpy, long config, long native_window, int[] attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreatePlatformWindowSurfaceEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(config);
-			checkPointer(native_window);
+			check(__functionAddress);
+			check(dpy);
+			check(config);
+			check(native_window);
 			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		}
 		return callPPPPP(__functionAddress, dpy, config, native_window, attrib_list);
@@ -131,10 +131,10 @@ public class EXTPlatformBase {
 	public static long eglCreatePlatformPixmapSurfaceEXT(long dpy, long config, long native_pixmap, int[] attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreatePlatformPixmapSurfaceEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(config);
-			checkPointer(native_pixmap);
+			check(__functionAddress);
+			check(dpy);
+			check(config);
+			check(native_pixmap);
 			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		}
 		return callPPPPP(__functionAddress, dpy, config, native_pixmap, attrib_list);

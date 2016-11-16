@@ -71,7 +71,7 @@ public class ARBGPUShaderInt64 {
 	public static void glUniform1i64ARB(int location, long x) {
 		long __functionAddress = GL.getCapabilities().glUniform1i64ARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJV(__functionAddress, location, x);
 	}
 
@@ -85,7 +85,7 @@ public class ARBGPUShaderInt64 {
 	public static void nglUniform1i64vARB(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform1i64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, value);
 	}
 
@@ -111,7 +111,7 @@ public class ARBGPUShaderInt64 {
 	public static void glProgramUniform1i64ARB(int program, int location, long x) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform1i64ARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJV(__functionAddress, program, location, x);
 	}
 
@@ -125,7 +125,7 @@ public class ARBGPUShaderInt64 {
 	public static void nglProgramUniform1i64vARB(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform1i64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, count, value);
 	}
 
@@ -152,7 +152,7 @@ public class ARBGPUShaderInt64 {
 	public static void glUniform2i64ARB(int location, long x, long y) {
 		long __functionAddress = GL.getCapabilities().glUniform2i64ARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJJV(__functionAddress, location, x, y);
 	}
 
@@ -166,7 +166,7 @@ public class ARBGPUShaderInt64 {
 	public static void nglUniform2i64vARB(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform2i64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, value);
 	}
 
@@ -193,7 +193,7 @@ public class ARBGPUShaderInt64 {
 	public static void glProgramUniform2i64ARB(int program, int location, long x, long y) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform2i64ARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJJV(__functionAddress, program, location, x, y);
 	}
 
@@ -207,7 +207,7 @@ public class ARBGPUShaderInt64 {
 	public static void nglProgramUniform2i64vARB(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform2i64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, count, value);
 	}
 
@@ -235,7 +235,7 @@ public class ARBGPUShaderInt64 {
 	public static void glUniform3i64ARB(int location, long x, long y, long z) {
 		long __functionAddress = GL.getCapabilities().glUniform3i64ARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJJJV(__functionAddress, location, x, y, z);
 	}
 
@@ -249,7 +249,7 @@ public class ARBGPUShaderInt64 {
 	public static void nglUniform3i64vARB(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform3i64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, value);
 	}
 
@@ -277,7 +277,7 @@ public class ARBGPUShaderInt64 {
 	public static void glProgramUniform3i64ARB(int program, int location, long x, long y, long z) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform3i64ARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJJJV(__functionAddress, program, location, x, y, z);
 	}
 
@@ -291,7 +291,7 @@ public class ARBGPUShaderInt64 {
 	public static void nglProgramUniform3i64vARB(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform3i64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, count, value);
 	}
 
@@ -320,7 +320,7 @@ public class ARBGPUShaderInt64 {
 	public static void glUniform4i64ARB(int location, long x, long y, long z, long w) {
 		long __functionAddress = GL.getCapabilities().glUniform4i64ARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJJJJV(__functionAddress, location, x, y, z, w);
 	}
 
@@ -334,7 +334,7 @@ public class ARBGPUShaderInt64 {
 	public static void nglUniform4i64vARB(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform4i64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, value);
 	}
 
@@ -363,7 +363,7 @@ public class ARBGPUShaderInt64 {
 	public static void glProgramUniform4i64ARB(int program, int location, long x, long y, long z, long w) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform4i64ARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJJJJV(__functionAddress, program, location, x, y, z, w);
 	}
 
@@ -377,7 +377,7 @@ public class ARBGPUShaderInt64 {
 	public static void nglProgramUniform4i64vARB(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform4i64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, count, value);
 	}
 
@@ -403,7 +403,7 @@ public class ARBGPUShaderInt64 {
 	public static void glUniform1ui64ARB(int location, long x) {
 		long __functionAddress = GL.getCapabilities().glUniform1ui64ARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJV(__functionAddress, location, x);
 	}
 
@@ -417,7 +417,7 @@ public class ARBGPUShaderInt64 {
 	public static void nglUniform1ui64vARB(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform1ui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, value);
 	}
 
@@ -443,7 +443,7 @@ public class ARBGPUShaderInt64 {
 	public static void glProgramUniform1ui64ARB(int program, int location, long x) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform1ui64ARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJV(__functionAddress, program, location, x);
 	}
 
@@ -457,7 +457,7 @@ public class ARBGPUShaderInt64 {
 	public static void nglProgramUniform1ui64vARB(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform1ui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, count, value);
 	}
 
@@ -484,7 +484,7 @@ public class ARBGPUShaderInt64 {
 	public static void glUniform2ui64ARB(int location, long x, long y) {
 		long __functionAddress = GL.getCapabilities().glUniform2ui64ARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJJV(__functionAddress, location, x, y);
 	}
 
@@ -498,7 +498,7 @@ public class ARBGPUShaderInt64 {
 	public static void nglUniform2ui64vARB(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform2ui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, value);
 	}
 
@@ -525,7 +525,7 @@ public class ARBGPUShaderInt64 {
 	public static void glProgramUniform2ui64ARB(int program, int location, long x, long y) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform2ui64ARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJJV(__functionAddress, program, location, x, y);
 	}
 
@@ -539,7 +539,7 @@ public class ARBGPUShaderInt64 {
 	public static void nglProgramUniform2ui64vARB(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform2ui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, count, value);
 	}
 
@@ -567,7 +567,7 @@ public class ARBGPUShaderInt64 {
 	public static void glUniform3ui64ARB(int location, long x, long y, long z) {
 		long __functionAddress = GL.getCapabilities().glUniform3ui64ARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJJJV(__functionAddress, location, x, y, z);
 	}
 
@@ -581,7 +581,7 @@ public class ARBGPUShaderInt64 {
 	public static void nglUniform3ui64vARB(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform3ui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, value);
 	}
 
@@ -609,7 +609,7 @@ public class ARBGPUShaderInt64 {
 	public static void glProgramUniform3ui64ARB(int program, int location, long x, long y, long z) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform3ui64ARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJJJV(__functionAddress, program, location, x, y, z);
 	}
 
@@ -623,7 +623,7 @@ public class ARBGPUShaderInt64 {
 	public static void nglProgramUniform3ui64vARB(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform3ui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, count, value);
 	}
 
@@ -652,7 +652,7 @@ public class ARBGPUShaderInt64 {
 	public static void glUniform4ui64ARB(int location, long x, long y, long z, long w) {
 		long __functionAddress = GL.getCapabilities().glUniform4ui64ARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJJJJV(__functionAddress, location, x, y, z, w);
 	}
 
@@ -666,7 +666,7 @@ public class ARBGPUShaderInt64 {
 	public static void nglUniform4ui64vARB(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform4ui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, value);
 	}
 
@@ -695,7 +695,7 @@ public class ARBGPUShaderInt64 {
 	public static void glProgramUniform4ui64ARB(int program, int location, long x, long y, long z, long w) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform4ui64ARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJJJJV(__functionAddress, program, location, x, y, z, w);
 	}
 
@@ -709,7 +709,7 @@ public class ARBGPUShaderInt64 {
 	public static void nglProgramUniform4ui64vARB(int program, int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform4ui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, count, value);
 	}
 
@@ -730,7 +730,7 @@ public class ARBGPUShaderInt64 {
 	public static void nglGetUniformi64vARB(int program, int location, long params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformi64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, params);
 	}
 
@@ -743,7 +743,7 @@ public class ARBGPUShaderInt64 {
 	 */
 	public static void glGetUniformi64vARB(int program, int location, LongBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetUniformi64vARB(program, location, memAddress(params));
 	}
 
@@ -770,7 +770,7 @@ public class ARBGPUShaderInt64 {
 	public static void nglGetUniformui64vARB(int program, int location, long params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, params);
 	}
 
@@ -783,7 +783,7 @@ public class ARBGPUShaderInt64 {
 	 */
 	public static void glGetUniformui64vARB(int program, int location, LongBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetUniformui64vARB(program, location, memAddress(params));
 	}
 
@@ -814,7 +814,7 @@ public class ARBGPUShaderInt64 {
 	public static void nglGetnUniformi64vARB(int program, int location, int bufSize, long params) {
 		long __functionAddress = GL.getCapabilities().glGetnUniformi64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
@@ -856,7 +856,7 @@ public class ARBGPUShaderInt64 {
 	public static void nglGetnUniformui64vARB(int program, int location, int bufSize, long params) {
 		long __functionAddress = GL.getCapabilities().glGetnUniformui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
@@ -892,7 +892,7 @@ public class ARBGPUShaderInt64 {
 	public static void glUniform1i64vARB(int location, long[] value) {
 		long __functionAddress = GL.getCapabilities().glUniform1i64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length, value);
 	}
 
@@ -900,7 +900,7 @@ public class ARBGPUShaderInt64 {
 	public static void glProgramUniform1i64vARB(int program, int location, long[] value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform1i64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length, value);
 	}
 
@@ -908,7 +908,7 @@ public class ARBGPUShaderInt64 {
 	public static void glUniform2i64vARB(int location, long[] value) {
 		long __functionAddress = GL.getCapabilities().glUniform2i64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 1, value);
 	}
 
@@ -916,7 +916,7 @@ public class ARBGPUShaderInt64 {
 	public static void glProgramUniform2i64vARB(int program, int location, long[] value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform2i64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 1, value);
 	}
 
@@ -924,7 +924,7 @@ public class ARBGPUShaderInt64 {
 	public static void glUniform3i64vARB(int location, long[] value) {
 		long __functionAddress = GL.getCapabilities().glUniform3i64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 3, value);
 	}
 
@@ -932,7 +932,7 @@ public class ARBGPUShaderInt64 {
 	public static void glProgramUniform3i64vARB(int program, int location, long[] value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform3i64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 3, value);
 	}
 
@@ -940,7 +940,7 @@ public class ARBGPUShaderInt64 {
 	public static void glUniform4i64vARB(int location, long[] value) {
 		long __functionAddress = GL.getCapabilities().glUniform4i64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 2, value);
 	}
 
@@ -948,7 +948,7 @@ public class ARBGPUShaderInt64 {
 	public static void glProgramUniform4i64vARB(int program, int location, long[] value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform4i64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 2, value);
 	}
 
@@ -956,7 +956,7 @@ public class ARBGPUShaderInt64 {
 	public static void glUniform1ui64vARB(int location, long[] value) {
 		long __functionAddress = GL.getCapabilities().glUniform1ui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length, value);
 	}
 
@@ -964,7 +964,7 @@ public class ARBGPUShaderInt64 {
 	public static void glProgramUniform1ui64vARB(int program, int location, long[] value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform1ui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length, value);
 	}
 
@@ -972,7 +972,7 @@ public class ARBGPUShaderInt64 {
 	public static void glUniform2ui64vARB(int location, long[] value) {
 		long __functionAddress = GL.getCapabilities().glUniform2ui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 1, value);
 	}
 
@@ -980,7 +980,7 @@ public class ARBGPUShaderInt64 {
 	public static void glProgramUniform2ui64vARB(int program, int location, long[] value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform2ui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 1, value);
 	}
 
@@ -988,7 +988,7 @@ public class ARBGPUShaderInt64 {
 	public static void glUniform3ui64vARB(int location, long[] value) {
 		long __functionAddress = GL.getCapabilities().glUniform3ui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 3, value);
 	}
 
@@ -996,7 +996,7 @@ public class ARBGPUShaderInt64 {
 	public static void glProgramUniform3ui64vARB(int program, int location, long[] value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform3ui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length / 3, value);
 	}
 
@@ -1004,7 +1004,7 @@ public class ARBGPUShaderInt64 {
 	public static void glUniform4ui64vARB(int location, long[] value) {
 		long __functionAddress = GL.getCapabilities().glUniform4ui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 2, value);
 	}
 
@@ -1012,7 +1012,7 @@ public class ARBGPUShaderInt64 {
 	public static void glProgramUniform4ui64vARB(int program, int location, long[] value) {
 		long __functionAddress = GL.getCapabilities().glProgramUniform4ui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, value.length >> 2, value);
 	}
 
@@ -1020,8 +1020,8 @@ public class ARBGPUShaderInt64 {
 	public static void glGetUniformi64vARB(int program, int location, long[] params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformi64vARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, program, location, params);
 	}
@@ -1030,8 +1030,8 @@ public class ARBGPUShaderInt64 {
 	public static void glGetUniformui64vARB(int program, int location, long[] params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformui64vARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, program, location, params);
 	}
@@ -1040,7 +1040,7 @@ public class ARBGPUShaderInt64 {
 	public static void glGetnUniformi64vARB(int program, int location, long[] params) {
 		long __functionAddress = GL.getCapabilities().glGetnUniformi64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);
 	}
 
@@ -1048,7 +1048,7 @@ public class ARBGPUShaderInt64 {
 	public static void glGetnUniformui64vARB(int program, int location, long[] params) {
 		long __functionAddress = GL.getCapabilities().glGetnUniformui64vARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);
 	}
 

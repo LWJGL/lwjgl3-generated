@@ -38,7 +38,7 @@ public class APPLEContextLoggingFunctions {
 	public static void nclLogMessagesToSystemLogAPPLE(long errstr, long private_info, long cb, long user_data) {
 		long __functionAddress = CL.getICD().clLogMessagesToSystemLogAPPLE;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPPPV(__functionAddress, errstr, private_info, cb, user_data);
 	}
 
@@ -60,7 +60,7 @@ public class APPLEContextLoggingFunctions {
 	public static void nclLogMessagesToStdoutAPPLE(long errstr, long private_info, long cb, long user_data) {
 		long __functionAddress = CL.getICD().clLogMessagesToStdoutAPPLE;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPPPV(__functionAddress, errstr, private_info, cb, user_data);
 	}
 
@@ -82,7 +82,7 @@ public class APPLEContextLoggingFunctions {
 	public static void nclLogMessagesToStderrAPPLE(long errstr, long private_info, long cb, long user_data) {
 		long __functionAddress = CL.getICD().clLogMessagesToStderrAPPLE;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPPPV(__functionAddress, errstr, private_info, cb, user_data);
 	}
 

@@ -369,7 +369,7 @@ public class OVRLayerEyeMatrix extends Struct implements NativeResource {
 	public static void nHeader(long struct, OVRLayerHeader value) { memCopy(value.address(), struct + OVRLayerEyeMatrix.HEADER, OVRLayerHeader.SIZEOF); }
 	/** Unsafe version of {@link #ColorTexture(PointerBuffer) ColorTexture}. */
 	public static void nColorTexture(long struct, PointerBuffer value) {
-		if ( CHECKS ) checkBufferGT(value, ovrEye_Count);
+		if ( CHECKS ) checkGT(value, ovrEye_Count);
 		memCopy(memAddress(value), struct + OVRLayerEyeMatrix.COLORTEXTURE, value.remaining() * POINTER_SIZE);
 	}
 	/** Unsafe version of {@link #ColorTexture(int, long) ColorTexture}. */
@@ -379,7 +379,7 @@ public class OVRLayerEyeMatrix extends Struct implements NativeResource {
 	}
 	/** Unsafe version of {@link #Viewport(OVRRecti.Buffer) Viewport}. */
 	public static void nViewport(long struct, OVRRecti.Buffer value) {
-		if ( CHECKS ) checkBufferGT(value, ovrEye_Count);
+		if ( CHECKS ) checkGT(value, ovrEye_Count);
 		memCopy(value.address(), struct + OVRLayerEyeMatrix.VIEWPORT, value.remaining() * OVRRecti.SIZEOF);
 	}
 	/** Unsafe version of {@link #Viewport(int, OVRRecti) Viewport}. */
@@ -389,7 +389,7 @@ public class OVRLayerEyeMatrix extends Struct implements NativeResource {
 	}
 	/** Unsafe version of {@link #RenderPose(OVRPosef.Buffer) RenderPose}. */
 	public static void nRenderPose(long struct, OVRPosef.Buffer value) {
-		if ( CHECKS ) checkBufferGT(value, ovrEye_Count);
+		if ( CHECKS ) checkGT(value, ovrEye_Count);
 		memCopy(value.address(), struct + OVRLayerEyeMatrix.RENDERPOSE, value.remaining() * OVRPosef.SIZEOF);
 	}
 	/** Unsafe version of {@link #RenderPose(int, OVRPosef) RenderPose}. */
@@ -399,7 +399,7 @@ public class OVRLayerEyeMatrix extends Struct implements NativeResource {
 	}
 	/** Unsafe version of {@link #Matrix(OVRMatrix4f.Buffer) Matrix}. */
 	public static void nMatrix(long struct, OVRMatrix4f.Buffer value) {
-		if ( CHECKS ) checkBufferGT(value, ovrEye_Count);
+		if ( CHECKS ) checkGT(value, ovrEye_Count);
 		memCopy(value.address(), struct + OVRLayerEyeMatrix.MATRIX, value.remaining() * OVRMatrix4f.SIZEOF);
 	}
 	/** Unsafe version of {@link #Matrix(int, OVRMatrix4f) Matrix}. */
@@ -416,7 +416,7 @@ public class OVRLayerEyeMatrix extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + OVRLayerEyeMatrix.COLORTEXTURE));
+		check(memGetAddress(struct + OVRLayerEyeMatrix.COLORTEXTURE));
 	}
 
 	/**

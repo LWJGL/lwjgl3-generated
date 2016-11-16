@@ -44,7 +44,7 @@ public class GLFWNativeCocoa {
 	public static int glfwGetCocoaMonitor(long monitor) {
 		long __functionAddress = Functions.GetCocoaMonitor;
 		if ( CHECKS )
-			checkPointer(monitor);
+			check(monitor);
 		return invokePI(__functionAddress, monitor);
 	}
 
@@ -64,7 +64,7 @@ public class GLFWNativeCocoa {
 	public static long glfwGetCocoaWindow(long window) {
 		long __functionAddress = Functions.GetCocoaWindow;
 		if ( CHECKS )
-			checkPointer(window);
+			check(window);
 		return invokePP(__functionAddress, window);
 	}
 

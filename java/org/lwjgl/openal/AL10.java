@@ -254,7 +254,7 @@ public class AL10 {
 	 */
 	public static void alGetBooleanv(int paramName, ByteBuffer dest) {
 		if ( CHECKS )
-			checkBuffer(dest, 1);
+			check(dest, 1);
 		nalGetBooleanv(paramName, memAddress(dest));
 	}
 
@@ -274,7 +274,7 @@ public class AL10 {
 	 */
 	public static void alGetIntegerv(int paramName, IntBuffer dest) {
 		if ( CHECKS )
-			checkBuffer(dest, 1);
+			check(dest, 1);
 		nalGetIntegerv(paramName, memAddress(dest));
 	}
 
@@ -294,7 +294,7 @@ public class AL10 {
 	 */
 	public static void alGetFloatv(int paramName, FloatBuffer dest) {
 		if ( CHECKS )
-			checkBuffer(dest, 1);
+			check(dest, 1);
 		nalGetFloatv(paramName, memAddress(dest));
 	}
 
@@ -314,7 +314,7 @@ public class AL10 {
 	 */
 	public static void alGetDoublev(int paramName, DoubleBuffer dest) {
 		if ( CHECKS )
-			checkBuffer(dest, 1);
+			check(dest, 1);
 		nalGetDoublev(paramName, memAddress(dest));
 	}
 
@@ -485,7 +485,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void alListenerfv(int paramName, FloatBuffer values) {
 		if ( CHECKS )
-			checkBuffer(values, 1);
+			check(values, 1);
 		nalListenerfv(paramName, memAddress(values));
 	}
 
@@ -505,7 +505,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void alGetListenerf(int paramName, FloatBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nalGetListenerf(paramName, memAddress(value));
 	}
 
@@ -541,7 +541,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void alGetListeneri(int paramName, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nalGetListeneri(paramName, memAddress(value));
 	}
 
@@ -579,9 +579,9 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void alGetListener3f(int paramName, FloatBuffer value1, FloatBuffer value2, FloatBuffer value3) {
 		if ( CHECKS ) {
-			checkBuffer(value1, 1);
-			checkBuffer(value2, 1);
-			checkBuffer(value3, 1);
+			check(value1, 1);
+			check(value2, 1);
+			check(value3, 1);
 		}
 		nalGetListener3f(paramName, memAddress(value1), memAddress(value2), memAddress(value3));
 	}
@@ -602,7 +602,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void alGetListenerfv(int paramName, FloatBuffer values) {
 		if ( CHECKS )
-			checkBuffer(values, 1);
+			check(values, 1);
 		nalGetListenerfv(paramName, memAddress(values));
 	}
 
@@ -730,7 +730,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void alSourcefv(int source, int param, FloatBuffer values) {
 		if ( CHECKS )
-			checkBuffer(values, 1);
+			check(values, 1);
 		nalSourcefv(source, param, memAddress(values));
 	}
 
@@ -765,7 +765,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void alGetSourcef(int source, int param, FloatBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nalGetSourcef(source, param, memAddress(value));
 	}
 
@@ -805,9 +805,9 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void alGetSource3f(int source, int param, FloatBuffer v1, FloatBuffer v2, FloatBuffer v3) {
 		if ( CHECKS ) {
-			checkBuffer(v1, 1);
-			checkBuffer(v2, 1);
-			checkBuffer(v3, 1);
+			check(v1, 1);
+			check(v2, 1);
+			check(v3, 1);
 		}
 		nalGetSource3f(source, param, memAddress(v1), memAddress(v2), memAddress(v3));
 	}
@@ -829,7 +829,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void alGetSourcefv(int source, int param, FloatBuffer values) {
 		if ( CHECKS )
-			checkBuffer(values, 1);
+			check(values, 1);
 		nalGetSourcefv(source, param, memAddress(values));
 	}
 
@@ -850,7 +850,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void alGetSourcei(int source, int param, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nalGetSourcei(source, param, memAddress(value));
 	}
 
@@ -888,7 +888,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void alGetSourceiv(int source, int param, IntBuffer values) {
 		if ( CHECKS )
-			checkBuffer(values, 1);
+			check(values, 1);
 		nalGetSourceiv(source, param, memAddress(values));
 	}
 
@@ -1230,7 +1230,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void alGetBufferf(int bufferName, int paramName, FloatBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nalGetBufferf(bufferName, paramName, memAddress(value));
 	}
 
@@ -1268,7 +1268,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	 */
 	public static void alGetBufferi(int bufferName, int paramName, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nalGetBufferi(bufferName, paramName, memAddress(value));
 	}
 
@@ -1525,7 +1525,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	public static void alGetIntegerv(int paramName, int[] dest) {
 		long __functionAddress = AL.getCapabilities().alGetIntegerv;
 		if ( CHECKS )
-			checkBuffer(dest, 1);
+			check(dest, 1);
 		invokePV(__functionAddress, paramName, dest);
 	}
 
@@ -1533,7 +1533,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	public static void alGetFloatv(int paramName, float[] dest) {
 		long __functionAddress = AL.getCapabilities().alGetFloatv;
 		if ( CHECKS )
-			checkBuffer(dest, 1);
+			check(dest, 1);
 		invokePV(__functionAddress, paramName, dest);
 	}
 
@@ -1541,7 +1541,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	public static void alGetDoublev(int paramName, double[] dest) {
 		long __functionAddress = AL.getCapabilities().alGetDoublev;
 		if ( CHECKS )
-			checkBuffer(dest, 1);
+			check(dest, 1);
 		invokePV(__functionAddress, paramName, dest);
 	}
 
@@ -1549,7 +1549,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	public static void alListenerfv(int paramName, float[] values) {
 		long __functionAddress = AL.getCapabilities().alListenerfv;
 		if ( CHECKS )
-			checkBuffer(values, 1);
+			check(values, 1);
 		invokePV(__functionAddress, paramName, values);
 	}
 
@@ -1557,7 +1557,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	public static void alGetListenerf(int paramName, float[] value) {
 		long __functionAddress = AL.getCapabilities().alGetListenerf;
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		invokePV(__functionAddress, paramName, value);
 	}
 
@@ -1565,7 +1565,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	public static void alGetListeneri(int paramName, int[] value) {
 		long __functionAddress = AL.getCapabilities().alGetListeneri;
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		invokePV(__functionAddress, paramName, value);
 	}
 
@@ -1573,9 +1573,9 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	public static void alGetListener3f(int paramName, float[] value1, float[] value2, float[] value3) {
 		long __functionAddress = AL.getCapabilities().alGetListener3f;
 		if ( CHECKS ) {
-			checkBuffer(value1, 1);
-			checkBuffer(value2, 1);
-			checkBuffer(value3, 1);
+			check(value1, 1);
+			check(value2, 1);
+			check(value3, 1);
 		}
 		invokePPPV(__functionAddress, paramName, value1, value2, value3);
 	}
@@ -1584,7 +1584,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	public static void alGetListenerfv(int paramName, float[] values) {
 		long __functionAddress = AL.getCapabilities().alGetListenerfv;
 		if ( CHECKS )
-			checkBuffer(values, 1);
+			check(values, 1);
 		invokePV(__functionAddress, paramName, values);
 	}
 
@@ -1604,7 +1604,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	public static void alSourcefv(int source, int param, float[] values) {
 		long __functionAddress = AL.getCapabilities().alSourcefv;
 		if ( CHECKS )
-			checkBuffer(values, 1);
+			check(values, 1);
 		invokePV(__functionAddress, source, param, values);
 	}
 
@@ -1612,7 +1612,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	public static void alGetSourcef(int source, int param, float[] value) {
 		long __functionAddress = AL.getCapabilities().alGetSourcef;
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		invokePV(__functionAddress, source, param, value);
 	}
 
@@ -1620,9 +1620,9 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	public static void alGetSource3f(int source, int param, float[] v1, float[] v2, float[] v3) {
 		long __functionAddress = AL.getCapabilities().alGetSource3f;
 		if ( CHECKS ) {
-			checkBuffer(v1, 1);
-			checkBuffer(v2, 1);
-			checkBuffer(v3, 1);
+			check(v1, 1);
+			check(v2, 1);
+			check(v3, 1);
 		}
 		invokePPPV(__functionAddress, source, param, v1, v2, v3);
 	}
@@ -1631,7 +1631,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	public static void alGetSourcefv(int source, int param, float[] values) {
 		long __functionAddress = AL.getCapabilities().alGetSourcefv;
 		if ( CHECKS )
-			checkBuffer(values, 1);
+			check(values, 1);
 		invokePV(__functionAddress, source, param, values);
 	}
 
@@ -1639,7 +1639,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	public static void alGetSourcei(int source, int param, int[] value) {
 		long __functionAddress = AL.getCapabilities().alGetSourcei;
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		invokePV(__functionAddress, source, param, value);
 	}
 
@@ -1647,7 +1647,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	public static void alGetSourceiv(int source, int param, int[] values) {
 		long __functionAddress = AL.getCapabilities().alGetSourceiv;
 		if ( CHECKS )
-			checkBuffer(values, 1);
+			check(values, 1);
 		invokePV(__functionAddress, source, param, values);
 	}
 
@@ -1703,7 +1703,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	public static void alGetBufferf(int bufferName, int paramName, float[] value) {
 		long __functionAddress = AL.getCapabilities().alGetBufferf;
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		invokePV(__functionAddress, bufferName, paramName, value);
 	}
 
@@ -1711,7 +1711,7 @@ f' = f * (SS * DV - DF*vls) / (SS * DV - DF * vss)</code></pre>
 	public static void alGetBufferi(int bufferName, int paramName, int[] value) {
 		long __functionAddress = AL.getCapabilities().alGetBufferi;
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		invokePV(__functionAddress, bufferName, paramName, value);
 	}
 

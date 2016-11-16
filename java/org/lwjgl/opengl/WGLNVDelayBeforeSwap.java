@@ -63,8 +63,8 @@ public class WGLNVDelayBeforeSwap {
 	public static boolean wglDelayBeforeSwapNV(long hDC, float seconds) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglDelayBeforeSwapNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(hDC);
+			check(__functionAddress);
+			check(hDC);
 		}
 		return callPI(__functionAddress, hDC, seconds) != 0;
 	}

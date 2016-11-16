@@ -42,9 +42,9 @@ public class GLXSGIXSwapGroup {
 	public static void glXJoinSwapGroupSGIX(long display, long drawable, long member) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXJoinSwapGroupSGIX;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(drawable);
+			check(__functionAddress);
+			check(display);
+			check(drawable);
 		}
 		callPPPV(__functionAddress, display, drawable, member);
 	}

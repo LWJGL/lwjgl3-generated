@@ -120,7 +120,7 @@ public class ARBShaderObjects {
 	public static void glDeleteObjectARB(int obj) {
 		long __functionAddress = GL.getCapabilities().glDeleteObjectARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, obj);
 	}
 
@@ -134,7 +134,7 @@ public class ARBShaderObjects {
 	public static int glGetHandleARB(int pname) {
 		long __functionAddress = GL.getCapabilities().glGetHandleARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callI(__functionAddress, pname);
 	}
 
@@ -149,7 +149,7 @@ public class ARBShaderObjects {
 	public static void glDetachObjectARB(int containerObj, int attachedObj) {
 		long __functionAddress = GL.getCapabilities().glDetachObjectARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, containerObj, attachedObj);
 	}
 
@@ -163,7 +163,7 @@ public class ARBShaderObjects {
 	public static int glCreateShaderObjectARB(int shaderType) {
 		long __functionAddress = GL.getCapabilities().glCreateShaderObjectARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callI(__functionAddress, shaderType);
 	}
 
@@ -177,7 +177,7 @@ public class ARBShaderObjects {
 	public static void nglShaderSourceARB(int shaderObj, int count, long string, long length) {
 		long __functionAddress = GL.getCapabilities().glShaderSourceARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, shaderObj, count, string, length);
 	}
 
@@ -196,7 +196,7 @@ public class ARBShaderObjects {
 	 */
 	public static void glShaderSourceARB(int shaderObj, PointerBuffer string, IntBuffer length) {
 		if ( CHECKS )
-			checkBufferSafe(length, string.remaining());
+			checkSafe(length, string.remaining());
 		nglShaderSourceARB(shaderObj, string.remaining(), memAddress(string), memAddressSafe(length));
 	}
 
@@ -261,7 +261,7 @@ public class ARBShaderObjects {
 	public static void glCompileShaderARB(int shaderObj) {
 		long __functionAddress = GL.getCapabilities().glCompileShaderARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, shaderObj);
 	}
 
@@ -278,7 +278,7 @@ public class ARBShaderObjects {
 	public static int glCreateProgramObjectARB() {
 		long __functionAddress = GL.getCapabilities().glCreateProgramObjectARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callI(__functionAddress);
 	}
 
@@ -293,7 +293,7 @@ public class ARBShaderObjects {
 	public static void glAttachObjectARB(int containerObj, int obj) {
 		long __functionAddress = GL.getCapabilities().glAttachObjectARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, containerObj, obj);
 	}
 
@@ -317,7 +317,7 @@ public class ARBShaderObjects {
 	public static void glLinkProgramARB(int programObj) {
 		long __functionAddress = GL.getCapabilities().glLinkProgramARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, programObj);
 	}
 
@@ -342,7 +342,7 @@ public class ARBShaderObjects {
 	public static void glUseProgramObjectARB(int programObj) {
 		long __functionAddress = GL.getCapabilities().glUseProgramObjectARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, programObj);
 	}
 
@@ -368,7 +368,7 @@ public class ARBShaderObjects {
 	public static void glValidateProgramARB(int programObj) {
 		long __functionAddress = GL.getCapabilities().glValidateProgramARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, programObj);
 	}
 
@@ -383,7 +383,7 @@ public class ARBShaderObjects {
 	public static void glUniform1fARB(int location, float v0) {
 		long __functionAddress = GL.getCapabilities().glUniform1fARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, location, v0);
 	}
 
@@ -399,7 +399,7 @@ public class ARBShaderObjects {
 	public static void glUniform2fARB(int location, float v0, float v1) {
 		long __functionAddress = GL.getCapabilities().glUniform2fARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, location, v0, v1);
 	}
 
@@ -416,7 +416,7 @@ public class ARBShaderObjects {
 	public static void glUniform3fARB(int location, float v0, float v1, float v2) {
 		long __functionAddress = GL.getCapabilities().glUniform3fARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, location, v0, v1, v2);
 	}
 
@@ -434,7 +434,7 @@ public class ARBShaderObjects {
 	public static void glUniform4fARB(int location, float v0, float v1, float v2, float v3) {
 		long __functionAddress = GL.getCapabilities().glUniform4fARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, location, v0, v1, v2, v3);
 	}
 
@@ -449,7 +449,7 @@ public class ARBShaderObjects {
 	public static void glUniform1iARB(int location, int v0) {
 		long __functionAddress = GL.getCapabilities().glUniform1iARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, location, v0);
 	}
 
@@ -465,7 +465,7 @@ public class ARBShaderObjects {
 	public static void glUniform2iARB(int location, int v0, int v1) {
 		long __functionAddress = GL.getCapabilities().glUniform2iARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, location, v0, v1);
 	}
 
@@ -482,7 +482,7 @@ public class ARBShaderObjects {
 	public static void glUniform3iARB(int location, int v0, int v1, int v2) {
 		long __functionAddress = GL.getCapabilities().glUniform3iARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, location, v0, v1, v2);
 	}
 
@@ -500,7 +500,7 @@ public class ARBShaderObjects {
 	public static void glUniform4iARB(int location, int v0, int v1, int v2, int v3) {
 		long __functionAddress = GL.getCapabilities().glUniform4iARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, location, v0, v1, v2, v3);
 	}
 
@@ -514,7 +514,7 @@ public class ARBShaderObjects {
 	public static void nglUniform1fvARB(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform1fvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, value);
 	}
 
@@ -538,7 +538,7 @@ public class ARBShaderObjects {
 	public static void nglUniform2fvARB(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform2fvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, value);
 	}
 
@@ -562,7 +562,7 @@ public class ARBShaderObjects {
 	public static void nglUniform3fvARB(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform3fvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, value);
 	}
 
@@ -586,7 +586,7 @@ public class ARBShaderObjects {
 	public static void nglUniform4fvARB(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform4fvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, value);
 	}
 
@@ -610,7 +610,7 @@ public class ARBShaderObjects {
 	public static void nglUniform1ivARB(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform1ivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, value);
 	}
 
@@ -634,7 +634,7 @@ public class ARBShaderObjects {
 	public static void nglUniform2ivARB(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform2ivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, value);
 	}
 
@@ -658,7 +658,7 @@ public class ARBShaderObjects {
 	public static void nglUniform3ivARB(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform3ivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, value);
 	}
 
@@ -682,7 +682,7 @@ public class ARBShaderObjects {
 	public static void nglUniform4ivARB(int location, int count, long value) {
 		long __functionAddress = GL.getCapabilities().glUniform4ivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, value);
 	}
 
@@ -706,7 +706,7 @@ public class ARBShaderObjects {
 	public static void nglUniformMatrix2fvARB(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix2fvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -731,7 +731,7 @@ public class ARBShaderObjects {
 	public static void nglUniformMatrix3fvARB(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix3fvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -756,7 +756,7 @@ public class ARBShaderObjects {
 	public static void nglUniformMatrix4fvARB(int location, int count, boolean transpose, long value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix4fvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, count, transpose, value);
 	}
 
@@ -777,7 +777,7 @@ public class ARBShaderObjects {
 	public static void nglGetObjectParameterfvARB(int obj, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetObjectParameterfvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, obj, pname, params);
 	}
 
@@ -790,7 +790,7 @@ public class ARBShaderObjects {
 	 */
 	public static void glGetObjectParameterfvARB(int obj, int pname, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetObjectParameterfvARB(obj, pname, memAddress(params));
 	}
 
@@ -800,7 +800,7 @@ public class ARBShaderObjects {
 	public static void nglGetObjectParameterivARB(int obj, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetObjectParameterivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, obj, pname, params);
 	}
 
@@ -813,7 +813,7 @@ public class ARBShaderObjects {
 	 */
 	public static void glGetObjectParameterivARB(int obj, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetObjectParameterivARB(obj, pname, memAddress(params));
 	}
 
@@ -844,7 +844,7 @@ public class ARBShaderObjects {
 	public static void nglGetInfoLogARB(int obj, int maxLength, long length, long infoLog) {
 		long __functionAddress = GL.getCapabilities().glGetInfoLogARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, obj, maxLength, length, infoLog);
 	}
 
@@ -869,7 +869,7 @@ public class ARBShaderObjects {
 	 */
 	public static void glGetInfoLogARB(int obj, IntBuffer length, ByteBuffer infoLog) {
 		if ( CHECKS )
-			checkBufferSafe(length, 1);
+			checkSafe(length, 1);
 		nglGetInfoLogARB(obj, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog));
 	}
 
@@ -943,7 +943,7 @@ public class ARBShaderObjects {
 	public static void nglGetAttachedObjectsARB(int containerObj, int maxCount, long count, long obj) {
 		long __functionAddress = GL.getCapabilities().glGetAttachedObjectsARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, containerObj, maxCount, count, obj);
 	}
 
@@ -958,7 +958,7 @@ public class ARBShaderObjects {
 	 */
 	public static void glGetAttachedObjectsARB(int containerObj, IntBuffer count, IntBuffer obj) {
 		if ( CHECKS )
-			checkBufferSafe(count, 1);
+			checkSafe(count, 1);
 		nglGetAttachedObjectsARB(containerObj, obj.remaining(), memAddressSafe(count), memAddress(obj));
 	}
 
@@ -968,7 +968,7 @@ public class ARBShaderObjects {
 	public static int nglGetUniformLocationARB(int programObj, long name) {
 		long __functionAddress = GL.getCapabilities().glGetUniformLocationARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPI(__functionAddress, programObj, name);
 	}
 
@@ -1030,7 +1030,7 @@ public class ARBShaderObjects {
 	public static void nglGetActiveUniformARB(int programObj, int index, int maxLength, long length, long size, long type, long name) {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniformARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPPPV(__functionAddress, programObj, index, maxLength, length, size, type, name);
 	}
 
@@ -1068,9 +1068,9 @@ public class ARBShaderObjects {
 	 */
 	public static void glGetActiveUniformARB(int programObj, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
 		if ( CHECKS ) {
-			checkBufferSafe(length, 1);
-			checkBuffer(size, 1);
-			checkBuffer(type, 1);
+			checkSafe(length, 1);
+			check(size, 1);
+			check(type, 1);
 		}
 		nglGetActiveUniformARB(programObj, index, name.remaining(), memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name));
 	}
@@ -1107,8 +1107,8 @@ public class ARBShaderObjects {
 	 */
 	public static String glGetActiveUniformARB(int programObj, int index, int maxLength, IntBuffer size, IntBuffer type) {
 		if ( CHECKS ) {
-			checkBuffer(size, 1);
-			checkBuffer(type, 1);
+			check(size, 1);
+			check(type, 1);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1153,8 +1153,8 @@ public class ARBShaderObjects {
 	public static String glGetActiveUniformARB(int programObj, int index, IntBuffer size, IntBuffer type) {
 		int maxLength = glGetObjectParameteriARB(programObj, GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB);
 		if ( CHECKS ) {
-			checkBuffer(size, 1);
-			checkBuffer(type, 1);
+			check(size, 1);
+			check(type, 1);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -1173,7 +1173,7 @@ public class ARBShaderObjects {
 	public static void nglGetUniformfvARB(int programObj, int location, long params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformfvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, programObj, location, params);
 	}
 
@@ -1186,7 +1186,7 @@ public class ARBShaderObjects {
 	 */
 	public static void glGetUniformfvARB(int programObj, int location, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetUniformfvARB(programObj, location, memAddress(params));
 	}
 
@@ -1213,7 +1213,7 @@ public class ARBShaderObjects {
 	public static void nglGetUniformivARB(int programObj, int location, long params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, programObj, location, params);
 	}
 
@@ -1226,7 +1226,7 @@ public class ARBShaderObjects {
 	 */
 	public static void glGetUniformivARB(int programObj, int location, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetUniformivARB(programObj, location, memAddress(params));
 	}
 
@@ -1257,7 +1257,7 @@ public class ARBShaderObjects {
 	public static void nglGetShaderSourceARB(int obj, int maxLength, long length, long source) {
 		long __functionAddress = GL.getCapabilities().glGetShaderSourceARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, obj, maxLength, length, source);
 	}
 
@@ -1275,7 +1275,7 @@ public class ARBShaderObjects {
 	 */
 	public static void glGetShaderSourceARB(int obj, IntBuffer length, ByteBuffer source) {
 		if ( CHECKS )
-			checkBufferSafe(length, 1);
+			checkSafe(length, 1);
 		nglGetShaderSourceARB(obj, source.remaining(), memAddressSafe(length), memAddress(source));
 	}
 
@@ -1329,8 +1329,8 @@ public class ARBShaderObjects {
 	public static void glShaderSourceARB(int shaderObj, PointerBuffer string, int[] length) {
 		long __functionAddress = GL.getCapabilities().glShaderSourceARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(length, string.remaining());
+			check(__functionAddress);
+			checkSafe(length, string.remaining());
 		}
 		callPPV(__functionAddress, shaderObj, string.remaining(), memAddress(string), length);
 	}
@@ -1339,7 +1339,7 @@ public class ARBShaderObjects {
 	public static void glUniform1fvARB(int location, float[] value) {
 		long __functionAddress = GL.getCapabilities().glUniform1fvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length, value);
 	}
 
@@ -1347,7 +1347,7 @@ public class ARBShaderObjects {
 	public static void glUniform2fvARB(int location, float[] value) {
 		long __functionAddress = GL.getCapabilities().glUniform2fvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 1, value);
 	}
 
@@ -1355,7 +1355,7 @@ public class ARBShaderObjects {
 	public static void glUniform3fvARB(int location, float[] value) {
 		long __functionAddress = GL.getCapabilities().glUniform3fvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 3, value);
 	}
 
@@ -1363,7 +1363,7 @@ public class ARBShaderObjects {
 	public static void glUniform4fvARB(int location, float[] value) {
 		long __functionAddress = GL.getCapabilities().glUniform4fvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 2, value);
 	}
 
@@ -1371,7 +1371,7 @@ public class ARBShaderObjects {
 	public static void glUniform1ivARB(int location, int[] value) {
 		long __functionAddress = GL.getCapabilities().glUniform1ivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length, value);
 	}
 
@@ -1379,7 +1379,7 @@ public class ARBShaderObjects {
 	public static void glUniform2ivARB(int location, int[] value) {
 		long __functionAddress = GL.getCapabilities().glUniform2ivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 1, value);
 	}
 
@@ -1387,7 +1387,7 @@ public class ARBShaderObjects {
 	public static void glUniform3ivARB(int location, int[] value) {
 		long __functionAddress = GL.getCapabilities().glUniform3ivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 3, value);
 	}
 
@@ -1395,7 +1395,7 @@ public class ARBShaderObjects {
 	public static void glUniform4ivARB(int location, int[] value) {
 		long __functionAddress = GL.getCapabilities().glUniform4ivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 2, value);
 	}
 
@@ -1403,7 +1403,7 @@ public class ARBShaderObjects {
 	public static void glUniformMatrix2fvARB(int location, boolean transpose, float[] value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix2fvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 2, transpose, value);
 	}
 
@@ -1411,7 +1411,7 @@ public class ARBShaderObjects {
 	public static void glUniformMatrix3fvARB(int location, boolean transpose, float[] value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix3fvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length / 9, transpose, value);
 	}
 
@@ -1419,7 +1419,7 @@ public class ARBShaderObjects {
 	public static void glUniformMatrix4fvARB(int location, boolean transpose, float[] value) {
 		long __functionAddress = GL.getCapabilities().glUniformMatrix4fvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, location, value.length >> 4, transpose, value);
 	}
 
@@ -1427,8 +1427,8 @@ public class ARBShaderObjects {
 	public static void glGetObjectParameterfvARB(int obj, int pname, float[] params) {
 		long __functionAddress = GL.getCapabilities().glGetObjectParameterfvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, obj, pname, params);
 	}
@@ -1437,8 +1437,8 @@ public class ARBShaderObjects {
 	public static void glGetObjectParameterivARB(int obj, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetObjectParameterivARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, obj, pname, params);
 	}
@@ -1447,8 +1447,8 @@ public class ARBShaderObjects {
 	public static void glGetInfoLogARB(int obj, int[] length, ByteBuffer infoLog) {
 		long __functionAddress = GL.getCapabilities().glGetInfoLogARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(length, 1);
+			check(__functionAddress);
+			checkSafe(length, 1);
 		}
 		callPPV(__functionAddress, obj, infoLog.remaining(), length, memAddress(infoLog));
 	}
@@ -1457,8 +1457,8 @@ public class ARBShaderObjects {
 	public static void glGetAttachedObjectsARB(int containerObj, int[] count, int[] obj) {
 		long __functionAddress = GL.getCapabilities().glGetAttachedObjectsARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(count, 1);
+			check(__functionAddress);
+			checkSafe(count, 1);
 		}
 		callPPV(__functionAddress, containerObj, obj.length, count, obj);
 	}
@@ -1467,10 +1467,10 @@ public class ARBShaderObjects {
 	public static void glGetActiveUniformARB(int programObj, int index, int[] length, int[] size, int[] type, ByteBuffer name) {
 		long __functionAddress = GL.getCapabilities().glGetActiveUniformARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(length, 1);
-			checkBuffer(size, 1);
-			checkBuffer(type, 1);
+			check(__functionAddress);
+			checkSafe(length, 1);
+			check(size, 1);
+			check(type, 1);
 		}
 		callPPPPV(__functionAddress, programObj, index, name.remaining(), length, size, type, memAddress(name));
 	}
@@ -1479,8 +1479,8 @@ public class ARBShaderObjects {
 	public static void glGetUniformfvARB(int programObj, int location, float[] params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformfvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, programObj, location, params);
 	}
@@ -1489,8 +1489,8 @@ public class ARBShaderObjects {
 	public static void glGetUniformivARB(int programObj, int location, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformivARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, programObj, location, params);
 	}
@@ -1499,8 +1499,8 @@ public class ARBShaderObjects {
 	public static void glGetShaderSourceARB(int obj, int[] length, ByteBuffer source) {
 		long __functionAddress = GL.getCapabilities().glGetShaderSourceARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(length, 1);
+			check(__functionAddress);
+			checkSafe(length, 1);
 		}
 		callPPV(__functionAddress, obj, source.remaining(), length, memAddress(source));
 	}

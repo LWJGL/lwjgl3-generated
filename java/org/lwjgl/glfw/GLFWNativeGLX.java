@@ -44,7 +44,7 @@ public class GLFWNativeGLX {
 	public static long glfwGetGLXContext(long window) {
 		long __functionAddress = Functions.GetGLXContext;
 		if ( CHECKS )
-			checkPointer(window);
+			check(window);
 		return invokePP(__functionAddress, window);
 	}
 
@@ -64,7 +64,7 @@ public class GLFWNativeGLX {
 	public static long glfwGetGLXWindow(long window) {
 		long __functionAddress = Functions.GetGLXWindow;
 		if ( CHECKS )
-			checkPointer(window);
+			check(window);
 		return invokePP(__functionAddress, window);
 	}
 

@@ -318,7 +318,7 @@ public class VkPipelineCacheCreateInfo extends Struct implements NativeResource 
 	 */
 	public static void validate(long struct) {
 		if ( ninitialDataSize(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkPipelineCacheCreateInfo.PINITIALDATA));
+			check(memGetAddress(struct + VkPipelineCacheCreateInfo.PINITIALDATA));
 	}
 
 	/**

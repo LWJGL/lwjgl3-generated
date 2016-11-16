@@ -49,7 +49,7 @@ public class EXTPolygonOffsetClamp {
 	public static void glPolygonOffsetClampEXT(float factor, float units, float clamp) {
 		long __functionAddress = GLES.getCapabilities().glPolygonOffsetClampEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, factor, units, clamp);
 	}
 

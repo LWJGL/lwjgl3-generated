@@ -80,7 +80,7 @@ public class NVFramebufferMixedSamples {
 	public static void glRasterSamplesEXT(int samples, boolean fixedsamplelocations) {
 		long __functionAddress = GLES.getCapabilities().glRasterSamplesEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, samples, fixedsamplelocations);
 	}
 
@@ -89,7 +89,7 @@ public class NVFramebufferMixedSamples {
 	public static void nglCoverageModulationTableNV(int n, long v) {
 		long __functionAddress = GLES.getCapabilities().glCoverageModulationTableNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, v);
 	}
 
@@ -102,7 +102,7 @@ public class NVFramebufferMixedSamples {
 	public static void nglGetCoverageModulationTableNV(int bufsize, long v) {
 		long __functionAddress = GLES.getCapabilities().glGetCoverageModulationTableNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, bufsize, v);
 	}
 
@@ -115,7 +115,7 @@ public class NVFramebufferMixedSamples {
 	public static void glCoverageModulationNV(int components) {
 		long __functionAddress = GLES.getCapabilities().glCoverageModulationNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, components);
 	}
 
@@ -123,7 +123,7 @@ public class NVFramebufferMixedSamples {
 	public static void glCoverageModulationTableNV(float[] v) {
 		long __functionAddress = GLES.getCapabilities().glCoverageModulationTableNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v.length, v);
 	}
 
@@ -131,7 +131,7 @@ public class NVFramebufferMixedSamples {
 	public static void glGetCoverageModulationTableNV(float[] v) {
 		long __functionAddress = GLES.getCapabilities().glGetCoverageModulationTableNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v.length, v);
 	}
 

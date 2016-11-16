@@ -57,8 +57,8 @@ public class KHRReusableSync {
 	public static long neglCreateSyncKHR(long dpy, int type, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateSyncKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
+			check(__functionAddress);
+			check(dpy);
 		}
 		return callPPP(__functionAddress, dpy, type, attrib_list);
 	}
@@ -74,9 +74,9 @@ public class KHRReusableSync {
 	public static boolean eglDestroySyncKHR(long dpy, long sync) {
 		long __functionAddress = EGL.getCapabilities().eglDestroySyncKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(sync);
+			check(__functionAddress);
+			check(dpy);
+			check(sync);
 		}
 		return callPPI(__functionAddress, dpy, sync) != 0;
 	}
@@ -86,9 +86,9 @@ public class KHRReusableSync {
 	public static int eglClientWaitSyncKHR(long dpy, long sync, int flags, long timeout) {
 		long __functionAddress = EGL.getCapabilities().eglClientWaitSyncKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(sync);
+			check(__functionAddress);
+			check(dpy);
+			check(sync);
 		}
 		return callPPJI(__functionAddress, dpy, sync, flags, timeout);
 	}
@@ -98,9 +98,9 @@ public class KHRReusableSync {
 	public static boolean eglSignalSyncKHR(long dpy, long sync, int mode) {
 		long __functionAddress = EGL.getCapabilities().eglSignalSyncKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(sync);
+			check(__functionAddress);
+			check(dpy);
+			check(sync);
 		}
 		return callPPI(__functionAddress, dpy, sync, mode) != 0;
 	}
@@ -110,16 +110,16 @@ public class KHRReusableSync {
 	public static int neglGetSyncAttribKHR(long dpy, long sync, int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglGetSyncAttribKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(sync);
+			check(__functionAddress);
+			check(dpy);
+			check(sync);
 		}
 		return callPPPI(__functionAddress, dpy, sync, attribute, value);
 	}
 
 	public static boolean eglGetSyncAttribKHR(long dpy, long sync, int attribute, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		return neglGetSyncAttribKHR(dpy, sync, attribute, memAddress(value)) != 0;
 	}
 
@@ -127,8 +127,8 @@ public class KHRReusableSync {
 	public static long eglCreateSyncKHR(long dpy, int type, int[] attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateSyncKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
+			check(__functionAddress);
+			check(dpy);
 			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		}
 		return callPPP(__functionAddress, dpy, type, attrib_list);
@@ -138,10 +138,10 @@ public class KHRReusableSync {
 	public static boolean eglGetSyncAttribKHR(long dpy, long sync, int attribute, int[] value) {
 		long __functionAddress = EGL.getCapabilities().eglGetSyncAttribKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(sync);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(dpy);
+			check(sync);
+			check(value, 1);
 		}
 		return callPPPI(__functionAddress, dpy, sync, attribute, value) != 0;
 	}

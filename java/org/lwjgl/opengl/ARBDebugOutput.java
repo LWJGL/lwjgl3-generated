@@ -155,7 +155,7 @@ public class ARBDebugOutput {
 	public static void nglDebugMessageControlARB(int source, int type, int severity, int count, long ids, boolean enabled) {
 		long __functionAddress = GL.getCapabilities().glDebugMessageControlARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, source, type, severity, count, ids, enabled);
 	}
 
@@ -236,7 +236,7 @@ public class ARBDebugOutput {
 	public static void nglDebugMessageInsertARB(int source, int type, int id, int severity, int length, long buf) {
 		long __functionAddress = GL.getCapabilities().glDebugMessageInsertARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, source, type, id, severity, length, buf);
 	}
 
@@ -287,7 +287,7 @@ public class ARBDebugOutput {
 	public static void nglDebugMessageCallbackARB(long callback, long userParam) {
 		long __functionAddress = GL.getCapabilities().glDebugMessageCallbackARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, callback, userParam);
 	}
 
@@ -343,7 +343,7 @@ public class ARBDebugOutput {
 	public static int nglGetDebugMessageLogARB(int count, int bufSize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
 		long __functionAddress = GL.getCapabilities().glGetDebugMessageLogARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPPPPPPI(__functionAddress, count, bufSize, sources, types, ids, severities, lengths, messageLog);
 	}
 
@@ -378,11 +378,11 @@ public class ARBDebugOutput {
 	 */
 	public static int glGetDebugMessageLogARB(int count, IntBuffer sources, IntBuffer types, IntBuffer ids, IntBuffer severities, IntBuffer lengths, ByteBuffer messageLog) {
 		if ( CHECKS ) {
-			checkBufferSafe(sources, count);
-			checkBufferSafe(types, count);
-			checkBufferSafe(ids, count);
-			checkBufferSafe(severities, count);
-			checkBufferSafe(lengths, count);
+			checkSafe(sources, count);
+			checkSafe(types, count);
+			checkSafe(ids, count);
+			checkSafe(severities, count);
+			checkSafe(lengths, count);
 		}
 		return nglGetDebugMessageLogARB(count, remainingSafe(messageLog), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
 	}
@@ -391,7 +391,7 @@ public class ARBDebugOutput {
 	public static void glDebugMessageControlARB(int source, int type, int severity, int[] ids, boolean enabled) {
 		long __functionAddress = GL.getCapabilities().glDebugMessageControlARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, source, type, severity, lengthSafe(ids), ids, enabled);
 	}
 
@@ -399,12 +399,12 @@ public class ARBDebugOutput {
 	public static int glGetDebugMessageLogARB(int count, int[] sources, int[] types, int[] ids, int[] severities, int[] lengths, ByteBuffer messageLog) {
 		long __functionAddress = GL.getCapabilities().glGetDebugMessageLogARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(sources, count);
-			checkBufferSafe(types, count);
-			checkBufferSafe(ids, count);
-			checkBufferSafe(severities, count);
-			checkBufferSafe(lengths, count);
+			check(__functionAddress);
+			checkSafe(sources, count);
+			checkSafe(types, count);
+			checkSafe(ids, count);
+			checkSafe(severities, count);
+			checkSafe(lengths, count);
 		}
 		return callPPPPPPI(__functionAddress, count, remainingSafe(messageLog), sources, types, ids, severities, lengths, memAddressSafe(messageLog));
 	}

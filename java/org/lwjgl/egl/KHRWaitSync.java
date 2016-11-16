@@ -35,9 +35,9 @@ public class KHRWaitSync {
 	public static int eglWaitSyncKHR(long dpy, long sync, int flags) {
 		long __functionAddress = EGL.getCapabilities().eglWaitSyncKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(sync);
+			check(__functionAddress);
+			check(dpy);
+			check(sync);
 		}
 		return callPPI(__functionAddress, dpy, sync, flags);
 	}

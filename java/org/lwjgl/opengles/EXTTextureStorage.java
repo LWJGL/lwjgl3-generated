@@ -73,7 +73,7 @@ public class EXTTextureStorage {
 	public static void glTexStorage1DEXT(int target, int levels, int internalformat, int width) {
 		long __functionAddress = GLES.getCapabilities().glTexStorage1DEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, levels, internalformat, width);
 	}
 
@@ -82,7 +82,7 @@ public class EXTTextureStorage {
 	public static void glTexStorage2DEXT(int target, int levels, int internalformat, int width, int height) {
 		long __functionAddress = GLES.getCapabilities().glTexStorage2DEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, levels, internalformat, width, height);
 	}
 
@@ -91,7 +91,7 @@ public class EXTTextureStorage {
 	public static void glTexStorage3DEXT(int target, int levels, int internalformat, int width, int height, int depth) {
 		long __functionAddress = GLES.getCapabilities().glTexStorage3DEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, levels, internalformat, width, height, depth);
 	}
 
@@ -100,7 +100,7 @@ public class EXTTextureStorage {
 	public static void glTextureStorage1DEXT(int texture, int target, int levels, int internalformat, int width) {
 		long __functionAddress = GLES.getCapabilities().glTextureStorage1DEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, texture, target, levels, internalformat, width);
 	}
 
@@ -109,7 +109,7 @@ public class EXTTextureStorage {
 	public static void glTextureStorage2DEXT(int texture, int target, int levels, int internalformat, int width, int height) {
 		long __functionAddress = GLES.getCapabilities().glTextureStorage2DEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, texture, target, levels, internalformat, width, height);
 	}
 
@@ -118,7 +118,7 @@ public class EXTTextureStorage {
 	public static void glTextureStorage3DEXT(int texture, int target, int levels, int internalformat, int width, int height, int depth) {
 		long __functionAddress = GLES.getCapabilities().glTextureStorage3DEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, texture, target, levels, internalformat, width, height, depth);
 	}
 

@@ -66,7 +66,7 @@ public class NVSampleLocations {
 	public static void nglFramebufferSampleLocationsfvNV(int target, int start, int count, long v) {
 		long __functionAddress = GLES.getCapabilities().glFramebufferSampleLocationsfvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, start, count, v);
 	}
 
@@ -79,7 +79,7 @@ public class NVSampleLocations {
 	public static void nglNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, int count, long v) {
 		long __functionAddress = GLES.getCapabilities().glNamedFramebufferSampleLocationsfvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, framebuffer, start, count, v);
 	}
 
@@ -92,7 +92,7 @@ public class NVSampleLocations {
 	public static void glResolveDepthValuesNV() {
 		long __functionAddress = GLES.getCapabilities().glResolveDepthValuesNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -100,7 +100,7 @@ public class NVSampleLocations {
 	public static void glFramebufferSampleLocationsfvNV(int target, int start, float[] v) {
 		long __functionAddress = GLES.getCapabilities().glFramebufferSampleLocationsfvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, start, v.length, v);
 	}
 
@@ -108,7 +108,7 @@ public class NVSampleLocations {
 	public static void glNamedFramebufferSampleLocationsfvNV(int framebuffer, int start, float[] v) {
 		long __functionAddress = GLES.getCapabilities().glNamedFramebufferSampleLocationsfvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, framebuffer, start, v.length, v);
 	}
 

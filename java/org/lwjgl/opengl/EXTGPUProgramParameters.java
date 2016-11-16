@@ -38,7 +38,7 @@ public class EXTGPUProgramParameters {
 	public static void nglProgramEnvParameters4fvEXT(int target, int index, int count, long params) {
 		long __functionAddress = GL.getCapabilities().glProgramEnvParameters4fvEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, index, count, params);
 	}
 
@@ -51,7 +51,7 @@ public class EXTGPUProgramParameters {
 	public static void nglProgramLocalParameters4fvEXT(int target, int index, int count, long params) {
 		long __functionAddress = GL.getCapabilities().glProgramLocalParameters4fvEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, index, count, params);
 	}
 
@@ -63,7 +63,7 @@ public class EXTGPUProgramParameters {
 	public static void glProgramEnvParameters4fvEXT(int target, int index, float[] params) {
 		long __functionAddress = GL.getCapabilities().glProgramEnvParameters4fvEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, index, params.length >> 2, params);
 	}
 
@@ -71,7 +71,7 @@ public class EXTGPUProgramParameters {
 	public static void glProgramLocalParameters4fvEXT(int target, int index, float[] params) {
 		long __functionAddress = GL.getCapabilities().glProgramLocalParameters4fvEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, index, params.length >> 2, params);
 	}
 

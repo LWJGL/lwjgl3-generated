@@ -77,7 +77,7 @@ public class NVClipSpaceWScaling {
 	public static void glViewportPositionWScaleNV(int index, float xcoeff, float ycoeff) {
 		long __functionAddress = GL.getCapabilities().glViewportPositionWScaleNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, xcoeff, ycoeff);
 	}
 

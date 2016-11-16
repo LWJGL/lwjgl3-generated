@@ -49,7 +49,7 @@ public class ARBTransposeMatrix {
 	public static void nglLoadTransposeMatrixfARB(long m) {
 		long __functionAddress = GL.getCapabilities().glLoadTransposeMatrixfARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, m);
 	}
 
@@ -69,7 +69,7 @@ public class ARBTransposeMatrix {
 	 */
 	public static void glLoadTransposeMatrixfARB(FloatBuffer m) {
 		if ( CHECKS )
-			checkBuffer(m, 16);
+			check(m, 16);
 		nglLoadTransposeMatrixfARB(memAddress(m));
 	}
 
@@ -79,7 +79,7 @@ public class ARBTransposeMatrix {
 	public static void nglLoadTransposeMatrixdARB(long m) {
 		long __functionAddress = GL.getCapabilities().glLoadTransposeMatrixdARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, m);
 	}
 
@@ -90,7 +90,7 @@ public class ARBTransposeMatrix {
 	 */
 	public static void glLoadTransposeMatrixdARB(DoubleBuffer m) {
 		if ( CHECKS )
-			checkBuffer(m, 16);
+			check(m, 16);
 		nglLoadTransposeMatrixdARB(memAddress(m));
 	}
 
@@ -100,7 +100,7 @@ public class ARBTransposeMatrix {
 	public static void nglMultTransposeMatrixfARB(long m) {
 		long __functionAddress = GL.getCapabilities().glMultTransposeMatrixfARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, m);
 	}
 
@@ -111,7 +111,7 @@ public class ARBTransposeMatrix {
 	 */
 	public static void glMultTransposeMatrixfARB(FloatBuffer m) {
 		if ( CHECKS )
-			checkBuffer(m, 16);
+			check(m, 16);
 		nglMultTransposeMatrixfARB(memAddress(m));
 	}
 
@@ -121,7 +121,7 @@ public class ARBTransposeMatrix {
 	public static void nglMultTransposeMatrixdARB(long m) {
 		long __functionAddress = GL.getCapabilities().glMultTransposeMatrixdARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, m);
 	}
 
@@ -132,7 +132,7 @@ public class ARBTransposeMatrix {
 	 */
 	public static void glMultTransposeMatrixdARB(DoubleBuffer m) {
 		if ( CHECKS )
-			checkBuffer(m, 16);
+			check(m, 16);
 		nglMultTransposeMatrixdARB(memAddress(m));
 	}
 
@@ -140,8 +140,8 @@ public class ARBTransposeMatrix {
 	public static void glLoadTransposeMatrixfARB(float[] m) {
 		long __functionAddress = GL.getCapabilities().glLoadTransposeMatrixfARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(m, 16);
+			check(__functionAddress);
+			check(m, 16);
 		}
 		callPV(__functionAddress, m);
 	}
@@ -150,8 +150,8 @@ public class ARBTransposeMatrix {
 	public static void glLoadTransposeMatrixdARB(double[] m) {
 		long __functionAddress = GL.getCapabilities().glLoadTransposeMatrixdARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(m, 16);
+			check(__functionAddress);
+			check(m, 16);
 		}
 		callPV(__functionAddress, m);
 	}
@@ -160,8 +160,8 @@ public class ARBTransposeMatrix {
 	public static void glMultTransposeMatrixfARB(float[] m) {
 		long __functionAddress = GL.getCapabilities().glMultTransposeMatrixfARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(m, 16);
+			check(__functionAddress);
+			check(m, 16);
 		}
 		callPV(__functionAddress, m);
 	}
@@ -170,8 +170,8 @@ public class ARBTransposeMatrix {
 	public static void glMultTransposeMatrixdARB(double[] m) {
 		long __functionAddress = GL.getCapabilities().glMultTransposeMatrixdARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(m, 16);
+			check(__functionAddress);
+			check(m, 16);
 		}
 		callPV(__functionAddress, m);
 	}

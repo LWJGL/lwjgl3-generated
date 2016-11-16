@@ -386,7 +386,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + VkPipelineShaderStageCreateInfo.PNAME));
+		check(memGetAddress(struct + VkPipelineShaderStageCreateInfo.PNAME));
 		long pSpecializationInfo = memGetAddress(struct + VkPipelineShaderStageCreateInfo.PSPECIALIZATIONINFO);
 		if ( pSpecializationInfo != NULL )
 			VkSpecializationInfo.validate(pSpecializationInfo);

@@ -47,7 +47,7 @@ public class Stdio {
 	public static int vsscanf(ByteBuffer buffer, ByteBuffer format, long vlist) {
 		if ( CHECKS ) {
 			checkNT1(format);
-			checkPointer(vlist);
+			check(vlist);
 		}
 		return nvsscanf(memAddress(buffer), memAddress(format), vlist);
 	}
@@ -64,7 +64,7 @@ public class Stdio {
 	 */
 	public static int vsscanf(ByteBuffer buffer, CharSequence format, long vlist) {
 		if ( CHECKS )
-			checkPointer(vlist);
+			check(vlist);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer formatEncoded = stack.ASCII(format);
@@ -112,7 +112,7 @@ public class Stdio {
 	public static int vsnprintf(ByteBuffer buffer, ByteBuffer format, long vlist) {
 		if ( CHECKS ) {
 			checkNT1(format);
-			checkPointer(vlist);
+			check(vlist);
 		}
 		return nvsnprintf(memAddressSafe(buffer), remainingSafe(buffer), memAddress(format), vlist);
 	}
@@ -131,7 +131,7 @@ public class Stdio {
 	 */
 	public static int vsnprintf(ByteBuffer buffer, CharSequence format, long vlist) {
 		if ( CHECKS )
-			checkPointer(vlist);
+			check(vlist);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer formatEncoded = stack.ASCII(format);

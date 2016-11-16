@@ -334,7 +334,7 @@ public class VkDeviceQueueCreateInfo extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + VkDeviceQueueCreateInfo.PQUEUEPRIORITIES));
+		check(memGetAddress(struct + VkDeviceQueueCreateInfo.PQUEUEPRIORITIES));
 	}
 
 	/**

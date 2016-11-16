@@ -3037,7 +3037,7 @@ public class Nuklear {
 	public static boolean nk_checkbox_label(NkContext ctx, ByteBuffer str, IntBuffer active) {
 		if ( CHECKS ) {
 			checkNT1(str);
-			checkBuffer(active, 1);
+			check(active, 1);
 		}
 		return nnk_checkbox_label(ctx.address(), memAddress(str), memAddress(active)) != 0;
 	}
@@ -3051,7 +3051,7 @@ public class Nuklear {
 	 */
 	public static boolean nk_checkbox_label(NkContext ctx, CharSequence str, IntBuffer active) {
 		if ( CHECKS )
-			checkBuffer(active, 1);
+			check(active, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str);
@@ -3075,7 +3075,7 @@ public class Nuklear {
 	 */
 	public static boolean nk_checkbox_text(NkContext ctx, ByteBuffer str, IntBuffer active) {
 		if ( CHECKS )
-			checkBuffer(active, 1);
+			check(active, 1);
 		return nnk_checkbox_text(ctx.address(), memAddress(str), str.remaining(), memAddress(active)) != 0;
 	}
 
@@ -3088,7 +3088,7 @@ public class Nuklear {
 	 */
 	public static boolean nk_checkbox_text(NkContext ctx, CharSequence str, IntBuffer active) {
 		if ( CHECKS )
-			checkBuffer(active, 1);
+			check(active, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
@@ -3115,7 +3115,7 @@ public class Nuklear {
 	public static boolean nk_checkbox_flags_label(NkContext ctx, ByteBuffer str, IntBuffer flags, int value) {
 		if ( CHECKS ) {
 			checkNT1(str);
-			checkBuffer(flags, 1);
+			check(flags, 1);
 		}
 		return nnk_checkbox_flags_label(ctx.address(), memAddress(str), memAddress(flags), value) != 0;
 	}
@@ -3130,7 +3130,7 @@ public class Nuklear {
 	 */
 	public static boolean nk_checkbox_flags_label(NkContext ctx, CharSequence str, IntBuffer flags, int value) {
 		if ( CHECKS )
-			checkBuffer(flags, 1);
+			check(flags, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str);
@@ -3155,7 +3155,7 @@ public class Nuklear {
 	 */
 	public static boolean nk_checkbox_flags_text(NkContext ctx, ByteBuffer str, IntBuffer flags, int value) {
 		if ( CHECKS )
-			checkBuffer(flags, 1);
+			check(flags, 1);
 		return nnk_checkbox_flags_text(ctx.address(), memAddress(str), str.remaining(), memAddress(flags), value) != 0;
 	}
 
@@ -3169,7 +3169,7 @@ public class Nuklear {
 	 */
 	public static boolean nk_checkbox_flags_text(NkContext ctx, CharSequence str, IntBuffer flags, int value) {
 		if ( CHECKS )
-			checkBuffer(flags, 1);
+			check(flags, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
@@ -3195,7 +3195,7 @@ public class Nuklear {
 	public static boolean nk_radio_label(NkContext ctx, ByteBuffer str, IntBuffer active) {
 		if ( CHECKS ) {
 			checkNT1(str);
-			checkBuffer(active, 1);
+			check(active, 1);
 		}
 		return nnk_radio_label(ctx.address(), memAddress(str), memAddress(active)) != 0;
 	}
@@ -3209,7 +3209,7 @@ public class Nuklear {
 	 */
 	public static boolean nk_radio_label(NkContext ctx, CharSequence str, IntBuffer active) {
 		if ( CHECKS )
-			checkBuffer(active, 1);
+			check(active, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str);
@@ -3233,7 +3233,7 @@ public class Nuklear {
 	 */
 	public static boolean nk_radio_text(NkContext ctx, ByteBuffer str, IntBuffer active) {
 		if ( CHECKS )
-			checkBuffer(active, 1);
+			check(active, 1);
 		return nnk_radio_text(ctx.address(), memAddress(str), str.remaining(), memAddress(active)) != 0;
 	}
 
@@ -3246,7 +3246,7 @@ public class Nuklear {
 	 */
 	public static boolean nk_radio_text(NkContext ctx, CharSequence str, IntBuffer active) {
 		if ( CHECKS )
-			checkBuffer(active, 1);
+			check(active, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
@@ -3342,7 +3342,7 @@ public class Nuklear {
 	public static boolean nk_selectable_label(NkContext ctx, ByteBuffer str, int align, IntBuffer value) {
 		if ( CHECKS ) {
 			checkNT1(str);
-			checkBuffer(value, 1);
+			check(value, 1);
 		}
 		return nnk_selectable_label(ctx.address(), memAddress(str), align, memAddress(value)) != 0;
 	}
@@ -3357,7 +3357,7 @@ public class Nuklear {
 	 */
 	public static boolean nk_selectable_label(NkContext ctx, CharSequence str, int align, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str);
@@ -3382,7 +3382,7 @@ public class Nuklear {
 	 */
 	public static boolean nk_selectable_text(NkContext ctx, ByteBuffer str, int align, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		return nnk_selectable_text(ctx.address(), memAddress(str), str.remaining(), align, memAddress(value)) != 0;
 	}
 
@@ -3396,7 +3396,7 @@ public class Nuklear {
 	 */
 	public static boolean nk_selectable_text(NkContext ctx, CharSequence str, int align, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
@@ -3424,7 +3424,7 @@ public class Nuklear {
 	public static boolean nk_selectable_image_label(NkContext ctx, NkImage img, ByteBuffer str, int align, IntBuffer value) {
 		if ( CHECKS ) {
 			checkNT1(str);
-			checkBuffer(value, 1);
+			check(value, 1);
 		}
 		return nnk_selectable_image_label(ctx.address(), memAddressSafe(img), memAddress(str), align, memAddress(value)) != 0;
 	}
@@ -3440,7 +3440,7 @@ public class Nuklear {
 	 */
 	public static boolean nk_selectable_image_label(NkContext ctx, NkImage img, CharSequence str, int align, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str);
@@ -3466,7 +3466,7 @@ public class Nuklear {
 	 */
 	public static boolean nk_selectable_image_text(NkContext ctx, NkImage img, ByteBuffer str, int align, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		return nnk_selectable_image_text(ctx.address(), memAddressSafe(img), memAddress(str), str.remaining(), align, memAddress(value)) != 0;
 	}
 
@@ -3481,7 +3481,7 @@ public class Nuklear {
 	 */
 	public static boolean nk_selectable_image_text(NkContext ctx, NkImage img, CharSequence str, int align, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
@@ -3800,7 +3800,7 @@ public class Nuklear {
 	public static void nk_property_int(NkContext ctx, ByteBuffer name, int min, IntBuffer val, int max, int step, float inc_per_pixel) {
 		if ( CHECKS ) {
 			checkNT1(name);
-			checkBuffer(val, 1);
+			check(val, 1);
 		}
 		nnk_property_int(ctx.address(), memAddress(name), min, memAddress(val), max, step, inc_per_pixel);
 	}
@@ -3818,7 +3818,7 @@ public class Nuklear {
 	 */
 	public static void nk_property_int(NkContext ctx, CharSequence name, int min, IntBuffer val, int max, int step, float inc_per_pixel) {
 		if ( CHECKS )
-			checkBuffer(val, 1);
+			check(val, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.UTF8(name);
@@ -3847,7 +3847,7 @@ public class Nuklear {
 	public static void nk_property_float(NkContext ctx, ByteBuffer name, float min, FloatBuffer val, float max, float step, float inc_per_pixel) {
 		if ( CHECKS ) {
 			checkNT1(name);
-			checkBuffer(val, 1);
+			check(val, 1);
 		}
 		nnk_property_float(ctx.address(), memAddress(name), min, memAddress(val), max, step, inc_per_pixel);
 	}
@@ -3865,7 +3865,7 @@ public class Nuklear {
 	 */
 	public static void nk_property_float(NkContext ctx, CharSequence name, float min, FloatBuffer val, float max, float step, float inc_per_pixel) {
 		if ( CHECKS )
-			checkBuffer(val, 1);
+			check(val, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.UTF8(name);
@@ -3894,7 +3894,7 @@ public class Nuklear {
 	public static void nk_property_double(NkContext ctx, ByteBuffer name, double min, DoubleBuffer val, double max, double step, float inc_per_pixel) {
 		if ( CHECKS ) {
 			checkNT1(name);
-			checkBuffer(val, 1);
+			check(val, 1);
 		}
 		nnk_property_double(ctx.address(), memAddress(name), min, memAddress(val), max, step, inc_per_pixel);
 	}
@@ -3912,7 +3912,7 @@ public class Nuklear {
 	 */
 	public static void nk_property_double(NkContext ctx, CharSequence name, double min, DoubleBuffer val, double max, double step, float inc_per_pixel) {
 		if ( CHECKS )
-			checkBuffer(val, 1);
+			check(val, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.UTF8(name);
@@ -4084,7 +4084,7 @@ public class Nuklear {
 	public static int nk_edit_string(NkContext ctx, int flags, ByteBuffer memory, IntBuffer len, int max, NkPluginFilterI filter) {
 		if ( CHECKS ) {
 			checkNT1(memory);
-			checkBuffer(len, 1);
+			check(len, 1);
 		}
 		return nnk_edit_string(ctx.address(), flags, memAddress(memory), memAddress(len), max, memAddressSafe(filter));
 	}
@@ -4101,7 +4101,7 @@ public class Nuklear {
 	 */
 	public static int nk_edit_string(NkContext ctx, int flags, CharSequence memory, IntBuffer len, int max, NkPluginFilterI filter) {
 		if ( CHECKS )
-			checkBuffer(len, 1);
+			check(len, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer memoryEncoded = stack.UTF8(memory);
@@ -4304,7 +4304,7 @@ public class Nuklear {
 	 */
 	public static void nk_plot(NkContext ctx, int type, FloatBuffer values, int count, int offset) {
 		if ( CHECKS )
-			checkBuffer(values, offset + count);
+			check(values, offset + count);
 		nnk_plot(ctx.address(), type, memAddress(values), count, offset);
 	}
 
@@ -4325,7 +4325,7 @@ public class Nuklear {
 	 */
 	public static void nk_plot_function(NkContext ctx, int type, long userdata, NkValueGetterI value_getter, int count, int offset) {
 		if ( CHECKS )
-			checkPointer(userdata);
+			check(userdata);
 		nnk_plot_function(ctx.address(), type, userdata, value_getter.address(), count, offset);
 	}
 
@@ -4516,7 +4516,7 @@ public class Nuklear {
 	 */
 	public static boolean nk_combo_callback(NkContext ctx, NkItemGetterI item_getter, long userdata, boolean selected, int count, int item_height, NkVec2 size) {
 		if ( CHECKS )
-			checkPointer(userdata);
+			check(userdata);
 		return nnk_combo_callback(ctx.address(), item_getter.address(), userdata, selected ? 1 : 0, count, item_height, size.address()) != 0;
 	}
 
@@ -4536,7 +4536,7 @@ public class Nuklear {
 	 */
 	public static void nk_combobox(NkContext ctx, PointerBuffer items, IntBuffer selected, int item_height, NkVec2 size) {
 		if ( CHECKS )
-			checkBuffer(selected, 1);
+			check(selected, 1);
 		nnk_combobox(ctx.address(), memAddress(items), items.remaining(), memAddress(selected), item_height, size.address());
 	}
 
@@ -4558,7 +4558,7 @@ public class Nuklear {
 	public static void nk_combobox_string(NkContext ctx, ByteBuffer items_separated_by_zeros, IntBuffer selected, int count, int item_height, NkVec2 size) {
 		if ( CHECKS ) {
 			checkNT1(items_separated_by_zeros);
-			checkBuffer(selected, 1);
+			check(selected, 1);
 		}
 		nnk_combobox_string(ctx.address(), memAddress(items_separated_by_zeros), memAddress(selected), count, item_height, size.address());
 	}
@@ -4575,7 +4575,7 @@ public class Nuklear {
 	 */
 	public static void nk_combobox_string(NkContext ctx, CharSequence items_separated_by_zeros, IntBuffer selected, int count, int item_height, NkVec2 size) {
 		if ( CHECKS )
-			checkBuffer(selected, 1);
+			check(selected, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer items_separated_by_zerosEncoded = stack.UTF8(items_separated_by_zeros);
@@ -4604,7 +4604,7 @@ public class Nuklear {
 	public static void nk_combobox_separator(NkContext ctx, ByteBuffer items_separated_by_separator, int separator, IntBuffer selected, int count, int item_height, NkVec2 size) {
 		if ( CHECKS ) {
 			checkNT1(items_separated_by_separator);
-			checkBuffer(selected, 1);
+			check(selected, 1);
 		}
 		nnk_combobox_separator(ctx.address(), memAddress(items_separated_by_separator), separator, memAddress(selected), count, item_height, size.address());
 	}
@@ -4622,7 +4622,7 @@ public class Nuklear {
 	 */
 	public static void nk_combobox_separator(NkContext ctx, CharSequence items_separated_by_separator, int separator, IntBuffer selected, int count, int item_height, NkVec2 size) {
 		if ( CHECKS )
-			checkBuffer(selected, 1);
+			check(selected, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer items_separated_by_separatorEncoded = stack.UTF8(items_separated_by_separator);
@@ -4650,8 +4650,8 @@ public class Nuklear {
 	 */
 	public static void nk_combobox_callback(NkContext ctx, NkItemGetterI item_getter, long userdata, IntBuffer selected, int count, int item_height, NkVec2 size) {
 		if ( CHECKS ) {
-			checkPointer(userdata);
-			checkBuffer(selected, 1);
+			check(userdata);
+			check(selected, 1);
 		}
 		nnk_combobox_callback(ctx.address(), item_getter.address(), userdata, memAddress(selected), count, item_height, size.address());
 	}
@@ -6168,7 +6168,7 @@ public class Nuklear {
 	 */
 	public static void nk_input_glyph(NkContext ctx, ByteBuffer glyph) {
 		if ( CHECKS )
-			checkBuffer(glyph, 4);
+			check(glyph, 4);
 		nnk_input_glyph(ctx.address(), memAddress(glyph));
 	}
 
@@ -6228,7 +6228,7 @@ public class Nuklear {
 	 */
 	public static void nk_style_from_table(NkContext ctx, NkColor.Buffer table) {
 		if ( CHECKS )
-			checkBuffer(table, NK_COLOR_COUNT);
+			check(table, NK_COLOR_COUNT);
 		nnk_style_from_table(ctx.address(), table.address());
 	}
 
@@ -6261,7 +6261,7 @@ public class Nuklear {
 	 */
 	public static void nk_style_load_all_cursors(NkContext ctx, NkCursor.Buffer cursors) {
 		if ( CHECKS )
-			checkBuffer(cursors, NK_CURSOR_COUNT);
+			check(cursors, NK_CURSOR_COUNT);
 		nnk_style_load_all_cursors(ctx.address(), cursors.address());
 	}
 
@@ -6696,7 +6696,7 @@ public class Nuklear {
 
 	public static NkColor nk_rgb_iv(IntBuffer rgb, NkColor __result) {
 		if ( CHECKS )
-			checkBuffer(rgb, 3);
+			check(rgb, 3);
 		nnk_rgb_iv(memAddress(rgb), __result.address());
 		return __result;
 	}
@@ -6707,7 +6707,7 @@ public class Nuklear {
 
 	public static NkColor nk_rgb_bv(ByteBuffer rgb, NkColor __result) {
 		if ( CHECKS )
-			checkBuffer(rgb, 3);
+			check(rgb, 3);
 		nnk_rgb_bv(memAddress(rgb), __result.address());
 		return __result;
 	}
@@ -6727,7 +6727,7 @@ public class Nuklear {
 
 	public static NkColor nk_rgb_fv(FloatBuffer rgb, NkColor __result) {
 		if ( CHECKS )
-			checkBuffer(rgb, 3);
+			check(rgb, 3);
 		nnk_rgb_fv(memAddress(rgb), __result.address());
 		return __result;
 	}
@@ -6738,14 +6738,14 @@ public class Nuklear {
 
 	public static NkColor nk_rgb_hex(ByteBuffer rgb, NkColor __result) {
 		if ( CHECKS )
-			checkBuffer(rgb, 6);
+			check(rgb, 6);
 		nnk_rgb_hex(memAddress(rgb), __result.address());
 		return __result;
 	}
 
 	public static NkColor nk_rgb_hex(CharSequence rgb, NkColor __result) {
 		if ( CHECKS )
-			checkBuffer(rgb, 6);
+			check(rgb, 6);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer rgbEncoded = stack.ASCII(rgb);
@@ -6780,7 +6780,7 @@ public class Nuklear {
 
 	public static NkColor nk_rgba_iv(IntBuffer rgba, NkColor __result) {
 		if ( CHECKS )
-			checkBuffer(rgba, 4);
+			check(rgba, 4);
 		nnk_rgba_iv(memAddress(rgba), __result.address());
 		return __result;
 	}
@@ -6791,7 +6791,7 @@ public class Nuklear {
 
 	public static NkColor nk_rgba_bv(ByteBuffer rgba, NkColor __result) {
 		if ( CHECKS )
-			checkBuffer(rgba, 4);
+			check(rgba, 4);
 		nnk_rgba_bv(memAddress(rgba), __result.address());
 		return __result;
 	}
@@ -6811,7 +6811,7 @@ public class Nuklear {
 
 	public static NkColor nk_rgba_fv(FloatBuffer rgba, NkColor __result) {
 		if ( CHECKS )
-			checkBuffer(rgba, 4);
+			check(rgba, 4);
 		nnk_rgba_fv(memAddress(rgba), __result.address());
 		return __result;
 	}
@@ -6822,14 +6822,14 @@ public class Nuklear {
 
 	public static NkColor nk_rgba_hex(ByteBuffer rgba, NkColor __result) {
 		if ( CHECKS )
-			checkBuffer(rgba, 8);
+			check(rgba, 8);
 		nnk_rgba_hex(memAddress(rgba), __result.address());
 		return __result;
 	}
 
 	public static NkColor nk_rgba_hex(CharSequence rgba, NkColor __result) {
 		if ( CHECKS )
-			checkBuffer(rgba, 8);
+			check(rgba, 8);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer rgbaEncoded = stack.ASCII(rgba);
@@ -6855,7 +6855,7 @@ public class Nuklear {
 
 	public static NkColor nk_hsv_iv(IntBuffer hsv, NkColor __result) {
 		if ( CHECKS )
-			checkBuffer(hsv, 3);
+			check(hsv, 3);
 		nnk_hsv_iv(memAddress(hsv), __result.address());
 		return __result;
 	}
@@ -6866,7 +6866,7 @@ public class Nuklear {
 
 	public static NkColor nk_hsv_bv(ByteBuffer hsv, NkColor __result) {
 		if ( CHECKS )
-			checkBuffer(hsv, 3);
+			check(hsv, 3);
 		nnk_hsv_bv(memAddress(hsv), __result.address());
 		return __result;
 	}
@@ -6886,7 +6886,7 @@ public class Nuklear {
 
 	public static NkColor nk_hsv_fv(FloatBuffer hsv, NkColor __result) {
 		if ( CHECKS )
-			checkBuffer(hsv, 3);
+			check(hsv, 3);
 		nnk_hsv_fv(memAddress(hsv), __result.address());
 		return __result;
 	}
@@ -6906,7 +6906,7 @@ public class Nuklear {
 
 	public static NkColor nk_hsva_iv(IntBuffer hsva, NkColor __result) {
 		if ( CHECKS )
-			checkBuffer(hsva, 4);
+			check(hsva, 4);
 		nnk_hsva_iv(memAddress(hsva), __result.address());
 		return __result;
 	}
@@ -6917,7 +6917,7 @@ public class Nuklear {
 
 	public static NkColor nk_hsva_bv(ByteBuffer hsva, NkColor __result) {
 		if ( CHECKS )
-			checkBuffer(hsva, 4);
+			check(hsva, 4);
 		nnk_hsva_bv(memAddress(hsva), __result.address());
 		return __result;
 	}
@@ -6937,7 +6937,7 @@ public class Nuklear {
 
 	public static NkColor nk_hsva_fv(FloatBuffer hsva, NkColor __result) {
 		if ( CHECKS )
-			checkBuffer(hsva, 4);
+			check(hsva, 4);
 		nnk_hsva_fv(memAddress(hsva), __result.address());
 		return __result;
 	}
@@ -6948,10 +6948,10 @@ public class Nuklear {
 
 	public static void nk_color_f(FloatBuffer r, FloatBuffer g, FloatBuffer b, FloatBuffer a, NkColor color) {
 		if ( CHECKS ) {
-			checkBuffer(r, 1);
-			checkBuffer(g, 1);
-			checkBuffer(b, 1);
-			checkBuffer(a, 1);
+			check(r, 1);
+			check(g, 1);
+			check(b, 1);
+			check(a, 1);
 		}
 		nnk_color_f(memAddress(r), memAddress(g), memAddress(b), memAddress(a), color.address());
 	}
@@ -6962,7 +6962,7 @@ public class Nuklear {
 
 	public static void nk_color_fv(FloatBuffer rgba_out, NkColor color) {
 		if ( CHECKS )
-			checkBuffer(rgba_out, 4);
+			check(rgba_out, 4);
 		nnk_color_fv(memAddress(rgba_out), color.address());
 	}
 
@@ -6972,10 +6972,10 @@ public class Nuklear {
 
 	public static void nk_color_d(DoubleBuffer r, DoubleBuffer g, DoubleBuffer b, DoubleBuffer a, NkColor color) {
 		if ( CHECKS ) {
-			checkBuffer(r, 1);
-			checkBuffer(g, 1);
-			checkBuffer(b, 1);
-			checkBuffer(a, 1);
+			check(r, 1);
+			check(g, 1);
+			check(b, 1);
+			check(a, 1);
 		}
 		nnk_color_d(memAddress(r), memAddress(g), memAddress(b), memAddress(a), color.address());
 	}
@@ -6986,7 +6986,7 @@ public class Nuklear {
 
 	public static void nk_color_dv(DoubleBuffer rgba_out, NkColor color) {
 		if ( CHECKS )
-			checkBuffer(rgba_out, 4);
+			check(rgba_out, 4);
 		nnk_color_dv(memAddress(rgba_out), color.address());
 	}
 
@@ -7004,7 +7004,7 @@ public class Nuklear {
 
 	public static void nk_color_hex_rgba(ByteBuffer output, NkColor color) {
 		if ( CHECKS )
-			checkBuffer(output, 8);
+			check(output, 8);
 		nnk_color_hex_rgba(memAddress(output), color.address());
 	}
 
@@ -7014,7 +7014,7 @@ public class Nuklear {
 
 	public static void nk_color_hex_rgb(ByteBuffer output, NkColor color) {
 		if ( CHECKS )
-			checkBuffer(output, 6);
+			check(output, 6);
 		nnk_color_hex_rgb(memAddress(output), color.address());
 	}
 
@@ -7024,9 +7024,9 @@ public class Nuklear {
 
 	public static void nk_color_hsv_i(IntBuffer out_h, IntBuffer out_s, IntBuffer out_v, NkColor color) {
 		if ( CHECKS ) {
-			checkBuffer(out_h, 1);
-			checkBuffer(out_s, 1);
-			checkBuffer(out_v, 1);
+			check(out_h, 1);
+			check(out_s, 1);
+			check(out_v, 1);
 		}
 		nnk_color_hsv_i(memAddress(out_h), memAddress(out_s), memAddress(out_v), color.address());
 	}
@@ -7037,9 +7037,9 @@ public class Nuklear {
 
 	public static void nk_color_hsv_b(ByteBuffer out_h, ByteBuffer out_s, ByteBuffer out_v, NkColor color) {
 		if ( CHECKS ) {
-			checkBuffer(out_h, 1);
-			checkBuffer(out_s, 1);
-			checkBuffer(out_v, 1);
+			check(out_h, 1);
+			check(out_s, 1);
+			check(out_v, 1);
 		}
 		nnk_color_hsv_b(memAddress(out_h), memAddress(out_s), memAddress(out_v), color.address());
 	}
@@ -7050,7 +7050,7 @@ public class Nuklear {
 
 	public static void nk_color_hsv_iv(IntBuffer hsv_out, NkColor color) {
 		if ( CHECKS )
-			checkBuffer(hsv_out, 3);
+			check(hsv_out, 3);
 		nnk_color_hsv_iv(memAddress(hsv_out), color.address());
 	}
 
@@ -7060,7 +7060,7 @@ public class Nuklear {
 
 	public static void nk_color_hsv_bv(ByteBuffer hsv_out, NkColor color) {
 		if ( CHECKS )
-			checkBuffer(hsv_out, 3);
+			check(hsv_out, 3);
 		nnk_color_hsv_bv(memAddress(hsv_out), color.address());
 	}
 
@@ -7070,9 +7070,9 @@ public class Nuklear {
 
 	public static void nk_color_hsv_f(FloatBuffer out_h, FloatBuffer out_s, FloatBuffer out_v, NkColor color) {
 		if ( CHECKS ) {
-			checkBuffer(out_h, 1);
-			checkBuffer(out_s, 1);
-			checkBuffer(out_v, 1);
+			check(out_h, 1);
+			check(out_s, 1);
+			check(out_v, 1);
 		}
 		nnk_color_hsv_f(memAddress(out_h), memAddress(out_s), memAddress(out_v), color.address());
 	}
@@ -7083,7 +7083,7 @@ public class Nuklear {
 
 	public static void nk_color_hsv_fv(FloatBuffer hsv_out, NkColor color) {
 		if ( CHECKS )
-			checkBuffer(hsv_out, 3);
+			check(hsv_out, 3);
 		nnk_color_hsv_fv(memAddress(hsv_out), color.address());
 	}
 
@@ -7093,10 +7093,10 @@ public class Nuklear {
 
 	public static void nk_color_hsva_i(IntBuffer h, IntBuffer s, IntBuffer v, IntBuffer a, NkColor color) {
 		if ( CHECKS ) {
-			checkBuffer(h, 1);
-			checkBuffer(s, 1);
-			checkBuffer(v, 1);
-			checkBuffer(a, 1);
+			check(h, 1);
+			check(s, 1);
+			check(v, 1);
+			check(a, 1);
 		}
 		nnk_color_hsva_i(memAddress(h), memAddress(s), memAddress(v), memAddress(a), color.address());
 	}
@@ -7107,10 +7107,10 @@ public class Nuklear {
 
 	public static void nk_color_hsva_b(ByteBuffer h, ByteBuffer s, ByteBuffer v, ByteBuffer a, NkColor color) {
 		if ( CHECKS ) {
-			checkBuffer(h, 1);
-			checkBuffer(s, 1);
-			checkBuffer(v, 1);
-			checkBuffer(a, 1);
+			check(h, 1);
+			check(s, 1);
+			check(v, 1);
+			check(a, 1);
 		}
 		nnk_color_hsva_b(memAddress(h), memAddress(s), memAddress(v), memAddress(a), color.address());
 	}
@@ -7121,7 +7121,7 @@ public class Nuklear {
 
 	public static void nk_color_hsva_iv(IntBuffer hsva_out, NkColor color) {
 		if ( CHECKS )
-			checkBuffer(hsva_out, 4);
+			check(hsva_out, 4);
 		nnk_color_hsva_iv(memAddress(hsva_out), color.address());
 	}
 
@@ -7131,7 +7131,7 @@ public class Nuklear {
 
 	public static void nk_color_hsva_bv(ByteBuffer hsva_out, NkColor color) {
 		if ( CHECKS )
-			checkBuffer(hsva_out, 4);
+			check(hsva_out, 4);
 		nnk_color_hsva_bv(memAddress(hsva_out), color.address());
 	}
 
@@ -7141,10 +7141,10 @@ public class Nuklear {
 
 	public static void nk_color_hsva_f(FloatBuffer out_h, FloatBuffer out_s, FloatBuffer out_v, FloatBuffer out_a, NkColor color) {
 		if ( CHECKS ) {
-			checkBuffer(out_h, 1);
-			checkBuffer(out_s, 1);
-			checkBuffer(out_v, 1);
-			checkBuffer(out_a, 1);
+			check(out_h, 1);
+			check(out_s, 1);
+			check(out_v, 1);
+			check(out_a, 1);
 		}
 		nnk_color_hsva_f(memAddress(out_h), memAddress(out_s), memAddress(out_v), memAddress(out_a), color.address());
 	}
@@ -7155,7 +7155,7 @@ public class Nuklear {
 
 	public static void nk_color_hsva_fv(FloatBuffer hsva_out, NkColor color) {
 		if ( CHECKS )
-			checkBuffer(hsva_out, 4);
+			check(hsva_out, 4);
 		nnk_color_hsva_fv(memAddress(hsva_out), color.address());
 	}
 
@@ -7165,7 +7165,7 @@ public class Nuklear {
 
 	public static NkHandle nk_handle_ptr(long ptr, NkHandle __result) {
 		if ( CHECKS )
-			checkPointer(ptr);
+			check(ptr);
 		nnk_handle_ptr(ptr, __result.address());
 		return __result;
 	}
@@ -7194,7 +7194,7 @@ public class Nuklear {
 
 	public static NkImage nk_image_ptr(long ptr, NkImage __result) {
 		if ( CHECKS )
-			checkPointer(ptr);
+			check(ptr);
 		nnk_image_ptr(ptr, __result.address());
 		return __result;
 	}
@@ -7222,7 +7222,7 @@ public class Nuklear {
 
 	public static NkImage nk_subimage_ptr(long ptr, short w, short h, NkRect sub_region, NkImage __result) {
 		if ( CHECKS )
-			checkPointer(ptr);
+			check(ptr);
 		nnk_subimage_ptr(ptr, w, h, sub_region.address(), __result.address());
 		return __result;
 	}
@@ -7295,7 +7295,7 @@ public class Nuklear {
 
 	public static NkVec2 nk_vec2v(FloatBuffer xy, NkVec2 __result) {
 		if ( CHECKS )
-			checkBuffer(xy, 2);
+			check(xy, 2);
 		nnk_vec2v(memAddress(xy), __result.address());
 		return __result;
 	}
@@ -7306,7 +7306,7 @@ public class Nuklear {
 
 	public static NkVec2 nk_vec2iv(IntBuffer xy, NkVec2 __result) {
 		if ( CHECKS )
-			checkBuffer(xy, 2);
+			check(xy, 2);
 		nnk_vec2iv(memAddress(xy), __result.address());
 		return __result;
 	}
@@ -7353,7 +7353,7 @@ public class Nuklear {
 
 	public static NkRect nk_rectv(FloatBuffer xywh, NkRect __result) {
 		if ( CHECKS )
-			checkBuffer(xywh, 4);
+			check(xywh, 4);
 		nnk_rectv(memAddress(xywh), __result.address());
 		return __result;
 	}
@@ -7364,7 +7364,7 @@ public class Nuklear {
 
 	public static NkRect nk_rectiv(IntBuffer xywh, NkRect __result) {
 		if ( CHECKS )
-			checkBuffer(xywh, 4);
+			check(xywh, 4);
 		nnk_rectiv(memAddress(xywh), __result.address());
 		return __result;
 	}
@@ -7578,7 +7578,7 @@ public class Nuklear {
 		if ( CHECKS ) {
 			checkNT1(str);
 			checkNT1(pattern);
-			checkBuffer(out_score, 1);
+			check(out_score, 1);
 		}
 		return nnk_strmatch_fuzzy_string(memAddress(str), memAddress(pattern), memAddress(out_score)) != 0;
 	}
@@ -7593,7 +7593,7 @@ public class Nuklear {
 	 */
 	public static boolean nk_strmatch_fuzzy_string(CharSequence str, CharSequence pattern, IntBuffer out_score) {
 		if ( CHECKS )
-			checkBuffer(out_score, 1);
+			check(out_score, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str);
@@ -7611,14 +7611,14 @@ public class Nuklear {
 	public static int nk_strmatch_fuzzy_text(ByteBuffer txt, ByteBuffer pattern, IntBuffer out_score) {
 		if ( CHECKS ) {
 			checkNT1(pattern);
-			checkBuffer(out_score, 1);
+			check(out_score, 1);
 		}
 		return nnk_strmatch_fuzzy_text(memAddress(txt), txt.remaining(), memAddress(pattern), memAddress(out_score));
 	}
 
 	public static int nk_strmatch_fuzzy_text(CharSequence txt, CharSequence pattern, IntBuffer out_score) {
 		if ( CHECKS )
-			checkBuffer(out_score, 1);
+			check(out_score, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer txtEncoded = stack.UTF8(txt, false);
@@ -7636,7 +7636,7 @@ public class Nuklear {
 
 	public static int nk_utf_decode(ByteBuffer c, IntBuffer u) {
 		if ( CHECKS )
-			checkBuffer(u, 1);
+			check(u, 1);
 		return nnk_utf_decode(memAddress(c), memAddress(u), c.remaining());
 	}
 
@@ -7662,7 +7662,7 @@ public class Nuklear {
 
 	public static ByteBuffer nk_utf_at(ByteBuffer buffer, int index, IntBuffer unicode) {
 		if ( CHECKS )
-			checkBuffer(unicode, 1);
+			check(unicode, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			IntBuffer len = stack.callocInt(1);
@@ -7985,7 +7985,7 @@ public class Nuklear {
 
 	public static ByteBuffer nk_str_at_rune(NkStr s, int pos, IntBuffer unicode) {
 		if ( CHECKS )
-			checkBuffer(unicode, 1);
+			check(unicode, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		IntBuffer len = stack.callocInt(1);
 		try {
@@ -8019,7 +8019,7 @@ public class Nuklear {
 
 	public static ByteBuffer nk_str_at_const(NkStr s, int pos, IntBuffer unicode) {
 		if ( CHECKS )
-			checkBuffer(unicode, 1);
+			check(unicode, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		IntBuffer len = stack.callocInt(1);
 		try {
@@ -8971,7 +8971,7 @@ public class Nuklear {
 	public static boolean nk_checkbox_label(NkContext ctx, ByteBuffer str, int[] active) {
 		if ( CHECKS ) {
 			checkNT1(str);
-			checkBuffer(active, 1);
+			check(active, 1);
 		}
 		return nnk_checkbox_label(ctx.address(), memAddress(str), active) != 0;
 	}
@@ -8979,7 +8979,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_checkbox_label checkbox_label} */
 	public static boolean nk_checkbox_label(NkContext ctx, CharSequence str, int[] active) {
 		if ( CHECKS )
-			checkBuffer(active, 1);
+			check(active, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str);
@@ -8995,14 +8995,14 @@ public class Nuklear {
 	/** Array version of: {@link #nk_checkbox_text checkbox_text} */
 	public static boolean nk_checkbox_text(NkContext ctx, ByteBuffer str, int[] active) {
 		if ( CHECKS )
-			checkBuffer(active, 1);
+			check(active, 1);
 		return nnk_checkbox_text(ctx.address(), memAddress(str), str.remaining(), active) != 0;
 	}
 
 	/** Array version of: {@link #nk_checkbox_text checkbox_text} */
 	public static boolean nk_checkbox_text(NkContext ctx, CharSequence str, int[] active) {
 		if ( CHECKS )
-			checkBuffer(active, 1);
+			check(active, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
@@ -9020,7 +9020,7 @@ public class Nuklear {
 	public static boolean nk_checkbox_flags_label(NkContext ctx, ByteBuffer str, int[] flags, int value) {
 		if ( CHECKS ) {
 			checkNT1(str);
-			checkBuffer(flags, 1);
+			check(flags, 1);
 		}
 		return nnk_checkbox_flags_label(ctx.address(), memAddress(str), flags, value) != 0;
 	}
@@ -9028,7 +9028,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_checkbox_flags_label checkbox_flags_label} */
 	public static boolean nk_checkbox_flags_label(NkContext ctx, CharSequence str, int[] flags, int value) {
 		if ( CHECKS )
-			checkBuffer(flags, 1);
+			check(flags, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str);
@@ -9044,14 +9044,14 @@ public class Nuklear {
 	/** Array version of: {@link #nk_checkbox_flags_text checkbox_flags_text} */
 	public static boolean nk_checkbox_flags_text(NkContext ctx, ByteBuffer str, int[] flags, int value) {
 		if ( CHECKS )
-			checkBuffer(flags, 1);
+			check(flags, 1);
 		return nnk_checkbox_flags_text(ctx.address(), memAddress(str), str.remaining(), flags, value) != 0;
 	}
 
 	/** Array version of: {@link #nk_checkbox_flags_text checkbox_flags_text} */
 	public static boolean nk_checkbox_flags_text(NkContext ctx, CharSequence str, int[] flags, int value) {
 		if ( CHECKS )
-			checkBuffer(flags, 1);
+			check(flags, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
@@ -9069,7 +9069,7 @@ public class Nuklear {
 	public static boolean nk_radio_label(NkContext ctx, ByteBuffer str, int[] active) {
 		if ( CHECKS ) {
 			checkNT1(str);
-			checkBuffer(active, 1);
+			check(active, 1);
 		}
 		return nnk_radio_label(ctx.address(), memAddress(str), active) != 0;
 	}
@@ -9077,7 +9077,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_radio_label radio_label} */
 	public static boolean nk_radio_label(NkContext ctx, CharSequence str, int[] active) {
 		if ( CHECKS )
-			checkBuffer(active, 1);
+			check(active, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str);
@@ -9093,14 +9093,14 @@ public class Nuklear {
 	/** Array version of: {@link #nk_radio_text radio_text} */
 	public static boolean nk_radio_text(NkContext ctx, ByteBuffer str, int[] active) {
 		if ( CHECKS )
-			checkBuffer(active, 1);
+			check(active, 1);
 		return nnk_radio_text(ctx.address(), memAddress(str), str.remaining(), active) != 0;
 	}
 
 	/** Array version of: {@link #nk_radio_text radio_text} */
 	public static boolean nk_radio_text(NkContext ctx, CharSequence str, int[] active) {
 		if ( CHECKS )
-			checkBuffer(active, 1);
+			check(active, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
@@ -9118,7 +9118,7 @@ public class Nuklear {
 	public static boolean nk_selectable_label(NkContext ctx, ByteBuffer str, int align, int[] value) {
 		if ( CHECKS ) {
 			checkNT1(str);
-			checkBuffer(value, 1);
+			check(value, 1);
 		}
 		return nnk_selectable_label(ctx.address(), memAddress(str), align, value) != 0;
 	}
@@ -9126,7 +9126,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_selectable_label selectable_label} */
 	public static boolean nk_selectable_label(NkContext ctx, CharSequence str, int align, int[] value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str);
@@ -9142,14 +9142,14 @@ public class Nuklear {
 	/** Array version of: {@link #nk_selectable_text selectable_text} */
 	public static boolean nk_selectable_text(NkContext ctx, ByteBuffer str, int align, int[] value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		return nnk_selectable_text(ctx.address(), memAddress(str), str.remaining(), align, value) != 0;
 	}
 
 	/** Array version of: {@link #nk_selectable_text selectable_text} */
 	public static boolean nk_selectable_text(NkContext ctx, CharSequence str, int align, int[] value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
@@ -9167,7 +9167,7 @@ public class Nuklear {
 	public static boolean nk_selectable_image_label(NkContext ctx, NkImage img, ByteBuffer str, int align, int[] value) {
 		if ( CHECKS ) {
 			checkNT1(str);
-			checkBuffer(value, 1);
+			check(value, 1);
 		}
 		return nnk_selectable_image_label(ctx.address(), memAddressSafe(img), memAddress(str), align, value) != 0;
 	}
@@ -9175,7 +9175,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_selectable_image_label selectable_image_label} */
 	public static boolean nk_selectable_image_label(NkContext ctx, NkImage img, CharSequence str, int align, int[] value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str);
@@ -9191,14 +9191,14 @@ public class Nuklear {
 	/** Array version of: {@link #nk_selectable_image_text selectable_image_text} */
 	public static boolean nk_selectable_image_text(NkContext ctx, NkImage img, ByteBuffer str, int align, int[] value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		return nnk_selectable_image_text(ctx.address(), memAddressSafe(img), memAddress(str), str.remaining(), align, value) != 0;
 	}
 
 	/** Array version of: {@link #nk_selectable_image_text selectable_image_text} */
 	public static boolean nk_selectable_image_text(NkContext ctx, NkImage img, CharSequence str, int align, int[] value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str, false);
@@ -9232,7 +9232,7 @@ public class Nuklear {
 	public static void nk_property_int(NkContext ctx, ByteBuffer name, int min, int[] val, int max, int step, float inc_per_pixel) {
 		if ( CHECKS ) {
 			checkNT1(name);
-			checkBuffer(val, 1);
+			check(val, 1);
 		}
 		nnk_property_int(ctx.address(), memAddress(name), min, val, max, step, inc_per_pixel);
 	}
@@ -9240,7 +9240,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_property_int property_int} */
 	public static void nk_property_int(NkContext ctx, CharSequence name, int min, int[] val, int max, int step, float inc_per_pixel) {
 		if ( CHECKS )
-			checkBuffer(val, 1);
+			check(val, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.UTF8(name);
@@ -9257,7 +9257,7 @@ public class Nuklear {
 	public static void nk_property_float(NkContext ctx, ByteBuffer name, float min, float[] val, float max, float step, float inc_per_pixel) {
 		if ( CHECKS ) {
 			checkNT1(name);
-			checkBuffer(val, 1);
+			check(val, 1);
 		}
 		nnk_property_float(ctx.address(), memAddress(name), min, val, max, step, inc_per_pixel);
 	}
@@ -9265,7 +9265,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_property_float property_float} */
 	public static void nk_property_float(NkContext ctx, CharSequence name, float min, float[] val, float max, float step, float inc_per_pixel) {
 		if ( CHECKS )
-			checkBuffer(val, 1);
+			check(val, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.UTF8(name);
@@ -9282,7 +9282,7 @@ public class Nuklear {
 	public static void nk_property_double(NkContext ctx, ByteBuffer name, double min, double[] val, double max, double step, float inc_per_pixel) {
 		if ( CHECKS ) {
 			checkNT1(name);
-			checkBuffer(val, 1);
+			check(val, 1);
 		}
 		nnk_property_double(ctx.address(), memAddress(name), min, val, max, step, inc_per_pixel);
 	}
@@ -9290,7 +9290,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_property_double property_double} */
 	public static void nk_property_double(NkContext ctx, CharSequence name, double min, double[] val, double max, double step, float inc_per_pixel) {
 		if ( CHECKS )
-			checkBuffer(val, 1);
+			check(val, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.UTF8(name);
@@ -9307,7 +9307,7 @@ public class Nuklear {
 	public static int nk_edit_string(NkContext ctx, int flags, ByteBuffer memory, int[] len, int max, NkPluginFilterI filter) {
 		if ( CHECKS ) {
 			checkNT1(memory);
-			checkBuffer(len, 1);
+			check(len, 1);
 		}
 		return nnk_edit_string(ctx.address(), flags, memAddress(memory), len, max, memAddressSafe(filter));
 	}
@@ -9315,7 +9315,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_edit_string edit_string} */
 	public static int nk_edit_string(NkContext ctx, int flags, CharSequence memory, int[] len, int max, NkPluginFilterI filter) {
 		if ( CHECKS )
-			checkBuffer(len, 1);
+			check(len, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer memoryEncoded = stack.UTF8(memory);
@@ -9331,7 +9331,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_plot plot} */
 	public static void nk_plot(NkContext ctx, int type, float[] values, int count, int offset) {
 		if ( CHECKS )
-			checkBuffer(values, offset + count);
+			check(values, offset + count);
 		nnk_plot(ctx.address(), type, values, count, offset);
 	}
 
@@ -9341,7 +9341,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_combobox combobox} */
 	public static void nk_combobox(NkContext ctx, PointerBuffer items, int[] selected, int item_height, NkVec2 size) {
 		if ( CHECKS )
-			checkBuffer(selected, 1);
+			check(selected, 1);
 		nnk_combobox(ctx.address(), memAddress(items), items.remaining(), selected, item_height, size.address());
 	}
 
@@ -9352,7 +9352,7 @@ public class Nuklear {
 	public static void nk_combobox_string(NkContext ctx, ByteBuffer items_separated_by_zeros, int[] selected, int count, int item_height, NkVec2 size) {
 		if ( CHECKS ) {
 			checkNT1(items_separated_by_zeros);
-			checkBuffer(selected, 1);
+			check(selected, 1);
 		}
 		nnk_combobox_string(ctx.address(), memAddress(items_separated_by_zeros), selected, count, item_height, size.address());
 	}
@@ -9360,7 +9360,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_combobox_string combobox_string} */
 	public static void nk_combobox_string(NkContext ctx, CharSequence items_separated_by_zeros, int[] selected, int count, int item_height, NkVec2 size) {
 		if ( CHECKS )
-			checkBuffer(selected, 1);
+			check(selected, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer items_separated_by_zerosEncoded = stack.UTF8(items_separated_by_zeros);
@@ -9377,7 +9377,7 @@ public class Nuklear {
 	public static void nk_combobox_separator(NkContext ctx, ByteBuffer items_separated_by_separator, int separator, int[] selected, int count, int item_height, NkVec2 size) {
 		if ( CHECKS ) {
 			checkNT1(items_separated_by_separator);
-			checkBuffer(selected, 1);
+			check(selected, 1);
 		}
 		nnk_combobox_separator(ctx.address(), memAddress(items_separated_by_separator), separator, selected, count, item_height, size.address());
 	}
@@ -9385,7 +9385,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_combobox_separator combobox_separator} */
 	public static void nk_combobox_separator(NkContext ctx, CharSequence items_separated_by_separator, int separator, int[] selected, int count, int item_height, NkVec2 size) {
 		if ( CHECKS )
-			checkBuffer(selected, 1);
+			check(selected, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer items_separated_by_separatorEncoded = stack.UTF8(items_separated_by_separator);
@@ -9401,8 +9401,8 @@ public class Nuklear {
 	/** Array version of: {@link #nk_combobox_callback combobox_callback} */
 	public static void nk_combobox_callback(NkContext ctx, NkItemGetterI item_getter, long userdata, int[] selected, int count, int item_height, NkVec2 size) {
 		if ( CHECKS ) {
-			checkPointer(userdata);
-			checkBuffer(selected, 1);
+			check(userdata);
+			check(selected, 1);
 		}
 		nnk_combobox_callback(ctx.address(), item_getter.address(), userdata, selected, count, item_height, size.address());
 	}
@@ -9429,7 +9429,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_rgb_iv rgb_iv} */
 	public static NkColor nk_rgb_iv(int[] rgb, NkColor __result) {
 		if ( CHECKS )
-			checkBuffer(rgb, 3);
+			check(rgb, 3);
 		nnk_rgb_iv(rgb, __result.address());
 		return __result;
 	}
@@ -9440,7 +9440,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_rgb_fv rgb_fv} */
 	public static NkColor nk_rgb_fv(float[] rgb, NkColor __result) {
 		if ( CHECKS )
-			checkBuffer(rgb, 3);
+			check(rgb, 3);
 		nnk_rgb_fv(rgb, __result.address());
 		return __result;
 	}
@@ -9451,7 +9451,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_rgba_iv rgba_iv} */
 	public static NkColor nk_rgba_iv(int[] rgba, NkColor __result) {
 		if ( CHECKS )
-			checkBuffer(rgba, 4);
+			check(rgba, 4);
 		nnk_rgba_iv(rgba, __result.address());
 		return __result;
 	}
@@ -9462,7 +9462,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_rgba_fv rgba_fv} */
 	public static NkColor nk_rgba_fv(float[] rgba, NkColor __result) {
 		if ( CHECKS )
-			checkBuffer(rgba, 4);
+			check(rgba, 4);
 		nnk_rgba_fv(rgba, __result.address());
 		return __result;
 	}
@@ -9473,7 +9473,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_hsv_iv hsv_iv} */
 	public static NkColor nk_hsv_iv(int[] hsv, NkColor __result) {
 		if ( CHECKS )
-			checkBuffer(hsv, 3);
+			check(hsv, 3);
 		nnk_hsv_iv(hsv, __result.address());
 		return __result;
 	}
@@ -9484,7 +9484,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_hsv_fv hsv_fv} */
 	public static NkColor nk_hsv_fv(float[] hsv, NkColor __result) {
 		if ( CHECKS )
-			checkBuffer(hsv, 3);
+			check(hsv, 3);
 		nnk_hsv_fv(hsv, __result.address());
 		return __result;
 	}
@@ -9495,7 +9495,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_hsva_iv hsva_iv} */
 	public static NkColor nk_hsva_iv(int[] hsva, NkColor __result) {
 		if ( CHECKS )
-			checkBuffer(hsva, 4);
+			check(hsva, 4);
 		nnk_hsva_iv(hsva, __result.address());
 		return __result;
 	}
@@ -9506,7 +9506,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_hsva_fv hsva_fv} */
 	public static NkColor nk_hsva_fv(float[] hsva, NkColor __result) {
 		if ( CHECKS )
-			checkBuffer(hsva, 4);
+			check(hsva, 4);
 		nnk_hsva_fv(hsva, __result.address());
 		return __result;
 	}
@@ -9517,10 +9517,10 @@ public class Nuklear {
 	/** Array version of: {@link #nk_color_f color_f} */
 	public static void nk_color_f(float[] r, float[] g, float[] b, float[] a, NkColor color) {
 		if ( CHECKS ) {
-			checkBuffer(r, 1);
-			checkBuffer(g, 1);
-			checkBuffer(b, 1);
-			checkBuffer(a, 1);
+			check(r, 1);
+			check(g, 1);
+			check(b, 1);
+			check(a, 1);
 		}
 		nnk_color_f(r, g, b, a, color.address());
 	}
@@ -9531,7 +9531,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_color_fv color_fv} */
 	public static void nk_color_fv(float[] rgba_out, NkColor color) {
 		if ( CHECKS )
-			checkBuffer(rgba_out, 4);
+			check(rgba_out, 4);
 		nnk_color_fv(rgba_out, color.address());
 	}
 
@@ -9541,10 +9541,10 @@ public class Nuklear {
 	/** Array version of: {@link #nk_color_d color_d} */
 	public static void nk_color_d(double[] r, double[] g, double[] b, double[] a, NkColor color) {
 		if ( CHECKS ) {
-			checkBuffer(r, 1);
-			checkBuffer(g, 1);
-			checkBuffer(b, 1);
-			checkBuffer(a, 1);
+			check(r, 1);
+			check(g, 1);
+			check(b, 1);
+			check(a, 1);
 		}
 		nnk_color_d(r, g, b, a, color.address());
 	}
@@ -9555,7 +9555,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_color_dv color_dv} */
 	public static void nk_color_dv(double[] rgba_out, NkColor color) {
 		if ( CHECKS )
-			checkBuffer(rgba_out, 4);
+			check(rgba_out, 4);
 		nnk_color_dv(rgba_out, color.address());
 	}
 
@@ -9565,9 +9565,9 @@ public class Nuklear {
 	/** Array version of: {@link #nk_color_hsv_i color_hsv_i} */
 	public static void nk_color_hsv_i(int[] out_h, int[] out_s, int[] out_v, NkColor color) {
 		if ( CHECKS ) {
-			checkBuffer(out_h, 1);
-			checkBuffer(out_s, 1);
-			checkBuffer(out_v, 1);
+			check(out_h, 1);
+			check(out_s, 1);
+			check(out_v, 1);
 		}
 		nnk_color_hsv_i(out_h, out_s, out_v, color.address());
 	}
@@ -9578,7 +9578,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_color_hsv_iv color_hsv_iv} */
 	public static void nk_color_hsv_iv(int[] hsv_out, NkColor color) {
 		if ( CHECKS )
-			checkBuffer(hsv_out, 3);
+			check(hsv_out, 3);
 		nnk_color_hsv_iv(hsv_out, color.address());
 	}
 
@@ -9588,9 +9588,9 @@ public class Nuklear {
 	/** Array version of: {@link #nk_color_hsv_f color_hsv_f} */
 	public static void nk_color_hsv_f(float[] out_h, float[] out_s, float[] out_v, NkColor color) {
 		if ( CHECKS ) {
-			checkBuffer(out_h, 1);
-			checkBuffer(out_s, 1);
-			checkBuffer(out_v, 1);
+			check(out_h, 1);
+			check(out_s, 1);
+			check(out_v, 1);
 		}
 		nnk_color_hsv_f(out_h, out_s, out_v, color.address());
 	}
@@ -9601,7 +9601,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_color_hsv_fv color_hsv_fv} */
 	public static void nk_color_hsv_fv(float[] hsv_out, NkColor color) {
 		if ( CHECKS )
-			checkBuffer(hsv_out, 3);
+			check(hsv_out, 3);
 		nnk_color_hsv_fv(hsv_out, color.address());
 	}
 
@@ -9611,10 +9611,10 @@ public class Nuklear {
 	/** Array version of: {@link #nk_color_hsva_i color_hsva_i} */
 	public static void nk_color_hsva_i(int[] h, int[] s, int[] v, int[] a, NkColor color) {
 		if ( CHECKS ) {
-			checkBuffer(h, 1);
-			checkBuffer(s, 1);
-			checkBuffer(v, 1);
-			checkBuffer(a, 1);
+			check(h, 1);
+			check(s, 1);
+			check(v, 1);
+			check(a, 1);
 		}
 		nnk_color_hsva_i(h, s, v, a, color.address());
 	}
@@ -9625,7 +9625,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_color_hsva_iv color_hsva_iv} */
 	public static void nk_color_hsva_iv(int[] hsva_out, NkColor color) {
 		if ( CHECKS )
-			checkBuffer(hsva_out, 4);
+			check(hsva_out, 4);
 		nnk_color_hsva_iv(hsva_out, color.address());
 	}
 
@@ -9635,10 +9635,10 @@ public class Nuklear {
 	/** Array version of: {@link #nk_color_hsva_f color_hsva_f} */
 	public static void nk_color_hsva_f(float[] out_h, float[] out_s, float[] out_v, float[] out_a, NkColor color) {
 		if ( CHECKS ) {
-			checkBuffer(out_h, 1);
-			checkBuffer(out_s, 1);
-			checkBuffer(out_v, 1);
-			checkBuffer(out_a, 1);
+			check(out_h, 1);
+			check(out_s, 1);
+			check(out_v, 1);
+			check(out_a, 1);
 		}
 		nnk_color_hsva_f(out_h, out_s, out_v, out_a, color.address());
 	}
@@ -9649,7 +9649,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_color_hsva_fv color_hsva_fv} */
 	public static void nk_color_hsva_fv(float[] hsva_out, NkColor color) {
 		if ( CHECKS )
-			checkBuffer(hsva_out, 4);
+			check(hsva_out, 4);
 		nnk_color_hsva_fv(hsva_out, color.address());
 	}
 
@@ -9659,7 +9659,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_vec2v vec2v} */
 	public static NkVec2 nk_vec2v(float[] xy, NkVec2 __result) {
 		if ( CHECKS )
-			checkBuffer(xy, 2);
+			check(xy, 2);
 		nnk_vec2v(xy, __result.address());
 		return __result;
 	}
@@ -9670,7 +9670,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_vec2iv vec2iv} */
 	public static NkVec2 nk_vec2iv(int[] xy, NkVec2 __result) {
 		if ( CHECKS )
-			checkBuffer(xy, 2);
+			check(xy, 2);
 		nnk_vec2iv(xy, __result.address());
 		return __result;
 	}
@@ -9681,7 +9681,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_rectv rectv} */
 	public static NkRect nk_rectv(float[] xywh, NkRect __result) {
 		if ( CHECKS )
-			checkBuffer(xywh, 4);
+			check(xywh, 4);
 		nnk_rectv(xywh, __result.address());
 		return __result;
 	}
@@ -9692,7 +9692,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_rectiv rectiv} */
 	public static NkRect nk_rectiv(int[] xywh, NkRect __result) {
 		if ( CHECKS )
-			checkBuffer(xywh, 4);
+			check(xywh, 4);
 		nnk_rectiv(xywh, __result.address());
 		return __result;
 	}
@@ -9705,7 +9705,7 @@ public class Nuklear {
 		if ( CHECKS ) {
 			checkNT1(str);
 			checkNT1(pattern);
-			checkBuffer(out_score, 1);
+			check(out_score, 1);
 		}
 		return nnk_strmatch_fuzzy_string(memAddress(str), memAddress(pattern), out_score) != 0;
 	}
@@ -9713,7 +9713,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_strmatch_fuzzy_string strmatch_fuzzy_string} */
 	public static boolean nk_strmatch_fuzzy_string(CharSequence str, CharSequence pattern, int[] out_score) {
 		if ( CHECKS )
-			checkBuffer(out_score, 1);
+			check(out_score, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str);
@@ -9731,7 +9731,7 @@ public class Nuklear {
 	public static int nk_strmatch_fuzzy_text(ByteBuffer txt, ByteBuffer pattern, int[] out_score) {
 		if ( CHECKS ) {
 			checkNT1(pattern);
-			checkBuffer(out_score, 1);
+			check(out_score, 1);
 		}
 		return nnk_strmatch_fuzzy_text(memAddress(txt), txt.remaining(), memAddress(pattern), out_score);
 	}
@@ -9739,7 +9739,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_strmatch_fuzzy_text strmatch_fuzzy_text} */
 	public static int nk_strmatch_fuzzy_text(CharSequence txt, CharSequence pattern, int[] out_score) {
 		if ( CHECKS )
-			checkBuffer(out_score, 1);
+			check(out_score, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer txtEncoded = stack.UTF8(txt, false);
@@ -9757,7 +9757,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_utf_decode utf_decode} */
 	public static int nk_utf_decode(ByteBuffer c, int[] u) {
 		if ( CHECKS )
-			checkBuffer(u, 1);
+			check(u, 1);
 		return nnk_utf_decode(memAddress(c), u, c.remaining());
 	}
 
@@ -9767,7 +9767,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_utf_at utf_at} */
 	public static ByteBuffer nk_utf_at(ByteBuffer buffer, int index, int[] unicode) {
 		if ( CHECKS )
-			checkBuffer(unicode, 1);
+			check(unicode, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			IntBuffer len = stack.callocInt(1);
@@ -9818,7 +9818,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_str_at_rune str_at_rune} */
 	public static ByteBuffer nk_str_at_rune(NkStr s, int pos, int[] unicode) {
 		if ( CHECKS )
-			checkBuffer(unicode, 1);
+			check(unicode, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		IntBuffer len = stack.callocInt(1);
 		try {
@@ -9835,7 +9835,7 @@ public class Nuklear {
 	/** Array version of: {@link #nk_str_at_const str_at_const} */
 	public static ByteBuffer nk_str_at_const(NkStr s, int pos, int[] unicode) {
 		if ( CHECKS )
-			checkBuffer(unicode, 1);
+			check(unicode, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		IntBuffer len = stack.callocInt(1);
 		try {

@@ -359,7 +359,7 @@ public class VkRenderPassBeginInfo extends Struct implements NativeResource {
 	 */
 	public static void validate(long struct) {
 		if ( nclearValueCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkRenderPassBeginInfo.PCLEARVALUES));
+			check(memGetAddress(struct + VkRenderPassBeginInfo.PCLEARVALUES));
 	}
 
 	/**

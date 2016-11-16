@@ -264,7 +264,7 @@ public class NkImage extends Struct implements NativeResource {
 	public static void nh(long struct, short value) { memPutShort(struct + NkImage.H, value); }
 	/** Unsafe version of {@link #region(ShortBuffer) region}. */
 	public static void nregion(long struct, ShortBuffer value) {
-		if ( CHECKS ) checkBufferGT(value, 4);
+		if ( CHECKS ) checkGT(value, 4);
 		memCopy(memAddress(value), struct + NkImage.REGION, value.remaining() * 2);
 	}
 	/** Unsafe version of {@link #region(int, short) region}. */

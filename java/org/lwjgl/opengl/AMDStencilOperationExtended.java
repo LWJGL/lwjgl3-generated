@@ -47,7 +47,7 @@ public class AMDStencilOperationExtended {
 	public static void glStencilOpValueAMD(int face, int value) {
 		long __functionAddress = GL.getCapabilities().glStencilOpValueAMD;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, face, value);
 	}
 

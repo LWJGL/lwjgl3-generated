@@ -33,8 +33,8 @@ public class WGLARBExtensionsString {
 	public static long nwglGetExtensionsStringARB(long hdc) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglGetExtensionsStringARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(hdc);
+			check(__functionAddress);
+			check(hdc);
 		}
 		return callPP(__functionAddress, hdc);
 	}

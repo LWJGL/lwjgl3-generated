@@ -61,7 +61,7 @@ public class AMDSparseTexture {
 	public static void glTexStorageSparseAMD(int target, int internalFormat, int width, int height, int depth, int layers, int flags) {
 		long __functionAddress = GL.getCapabilities().glTexStorageSparseAMD;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, internalFormat, width, height, depth, layers, flags);
 	}
 
@@ -70,7 +70,7 @@ public class AMDSparseTexture {
 	public static void glTextureStorageSparseAMD(int texture, int target, int internalFormat, int width, int height, int depth, int layers, int flags) {
 		long __functionAddress = GL.getCapabilities().glTextureStorageSparseAMD;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, texture, target, internalFormat, width, height, depth, layers, flags);
 	}
 

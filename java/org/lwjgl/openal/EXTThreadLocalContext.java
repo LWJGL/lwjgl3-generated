@@ -37,7 +37,7 @@ public class EXTThreadLocalContext {
 	public static boolean alcSetThreadContext(long context) {
 		long __functionAddress = ALC.getICD().alcSetThreadContext;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return invokePZ(__functionAddress, context);
 	}
 
@@ -47,7 +47,7 @@ public class EXTThreadLocalContext {
 	public static long alcGetThreadContext() {
 		long __functionAddress = ALC.getICD().alcGetThreadContext;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return invokeP(__functionAddress);
 	}
 

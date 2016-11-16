@@ -226,7 +226,7 @@ public class ObjCRuntime {
 	public static long object_copy(long obj, long size) {
 		long __functionAddress = Functions.object_copy;
 		if ( CHECKS )
-			checkPointer(obj);
+			check(obj);
 		return invokePPP(__functionAddress, obj, size);
 	}
 
@@ -242,7 +242,7 @@ public class ObjCRuntime {
 	public static long object_dispose(long obj) {
 		long __functionAddress = Functions.object_dispose;
 		if ( CHECKS )
-			checkPointer(obj);
+			check(obj);
 		return invokePP(__functionAddress, obj);
 	}
 
@@ -273,7 +273,7 @@ public class ObjCRuntime {
 	public static long object_setClass(long obj, long cls) {
 		long __functionAddress = Functions.object_setClass;
 		if ( CHECKS )
-			checkPointer(cls);
+			check(cls);
 		return invokePPP(__functionAddress, obj, cls);
 	}
 
@@ -316,7 +316,7 @@ public class ObjCRuntime {
 	public static long object_getIndexedIvars(long obj) {
 		long __functionAddress = Functions.object_getIndexedIvars;
 		if ( CHECKS )
-			checkPointer(obj);
+			check(obj);
 		return invokePP(__functionAddress, obj);
 	}
 
@@ -333,7 +333,7 @@ public class ObjCRuntime {
 	public static long object_getIvar(long obj, long ivar) {
 		long __functionAddress = Functions.object_getIvar;
 		if ( CHECKS )
-			checkPointer(ivar);
+			check(ivar);
 		return invokePPP(__functionAddress, obj, ivar);
 	}
 
@@ -351,9 +351,9 @@ public class ObjCRuntime {
 	public static void object_setIvar(long obj, long ivar, long value) {
 		long __functionAddress = Functions.object_setIvar;
 		if ( CHECKS ) {
-			checkPointer(obj);
-			checkPointer(ivar);
-			checkPointer(value);
+			check(obj);
+			check(ivar);
+			check(value);
 		}
 		invokePPPV(__functionAddress, obj, ivar, value);
 	}
@@ -364,7 +364,7 @@ public class ObjCRuntime {
 	public static long nobject_setInstanceVariable(long obj, long name, long value) {
 		long __functionAddress = Functions.object_setInstanceVariable;
 		if ( CHECKS )
-			checkPointer(obj);
+			check(obj);
 		return invokePPPP(__functionAddress, obj, name, value);
 	}
 
@@ -408,7 +408,7 @@ public class ObjCRuntime {
 	public static long nobject_getInstanceVariable(long obj, long name, long outValue) {
 		long __functionAddress = Functions.object_getInstanceVariable;
 		if ( CHECKS )
-			checkPointer(obj);
+			check(obj);
 		return invokePPPP(__functionAddress, obj, name, outValue);
 	}
 
@@ -755,7 +755,7 @@ public class ObjCRuntime {
 	public static int class_getVersion(long cls) {
 		long __functionAddress = Functions.class_getVersion;
 		if ( CHECKS )
-			checkPointer(cls);
+			check(cls);
 		return invokePI(__functionAddress, cls);
 	}
 
@@ -777,7 +777,7 @@ public class ObjCRuntime {
 	public static void class_setVersion(long cls, int version) {
 		long __functionAddress = Functions.class_setVersion;
 		if ( CHECKS )
-			checkPointer(cls);
+			check(cls);
 		invokePV(__functionAddress, cls, version);
 	}
 
@@ -801,7 +801,7 @@ public class ObjCRuntime {
 	public static long nclass_getInstanceVariable(long cls, long name) {
 		long __functionAddress = Functions.class_getInstanceVariable;
 		if ( CHECKS )
-			checkPointer(cls);
+			check(cls);
 		return invokePPP(__functionAddress, cls, name);
 	}
 
@@ -843,7 +843,7 @@ public class ObjCRuntime {
 	public static long nclass_getClassVariable(long cls, long name) {
 		long __functionAddress = Functions.class_getClassVariable;
 		if ( CHECKS )
-			checkPointer(cls);
+			check(cls);
 		return invokePPP(__functionAddress, cls, name);
 	}
 
@@ -928,8 +928,8 @@ public class ObjCRuntime {
 	public static long class_getInstanceMethod(long cls, long name) {
 		long __functionAddress = Functions.class_getInstanceMethod;
 		if ( CHECKS ) {
-			checkPointer(cls);
-			checkPointer(name);
+			check(cls);
+			check(name);
 		}
 		return invokePPP(__functionAddress, cls, name);
 	}
@@ -950,8 +950,8 @@ public class ObjCRuntime {
 	public static long class_getClassMethod(long cls, long name) {
 		long __functionAddress = Functions.class_getClassMethod;
 		if ( CHECKS ) {
-			checkPointer(cls);
-			checkPointer(name);
+			check(cls);
+			check(name);
 		}
 		return invokePPP(__functionAddress, cls, name);
 	}
@@ -974,7 +974,7 @@ public class ObjCRuntime {
 	public static long class_getMethodImplementation(long cls, long name) {
 		long __functionAddress = Functions.class_getMethodImplementation;
 		if ( CHECKS )
-			checkPointer(name);
+			check(name);
 		return invokePPP(__functionAddress, cls, name);
 	}
 
@@ -993,8 +993,8 @@ public class ObjCRuntime {
 	public static boolean class_respondsToSelector(long cls, long name) {
 		long __functionAddress = Functions.class_respondsToSelector;
 		if ( CHECKS ) {
-			checkPointer(cls);
-			checkPointer(name);
+			check(cls);
+			check(name);
 		}
 		return invokePPZ(__functionAddress, cls, name);
 	}
@@ -1047,8 +1047,8 @@ public class ObjCRuntime {
 	public static boolean class_conformsToProtocol(long cls, long protocol) {
 		long __functionAddress = Functions.class_conformsToProtocol;
 		if ( CHECKS ) {
-			checkPointer(cls);
-			checkPointer(protocol);
+			check(cls);
+			check(protocol);
 		}
 		return invokePPZ(__functionAddress, cls, protocol);
 	}
@@ -1167,7 +1167,7 @@ public class ObjCRuntime {
 	public static long nclass_getIvarLayout(long cls) {
 		long __functionAddress = Functions.class_getIvarLayout;
 		if ( CHECKS )
-			checkPointer(cls);
+			check(cls);
 		return invokePP(__functionAddress, cls);
 	}
 
@@ -1189,7 +1189,7 @@ public class ObjCRuntime {
 	public static long nclass_getWeakIvarLayout(long cls) {
 		long __functionAddress = Functions.class_getWeakIvarLayout;
 		if ( CHECKS )
-			checkPointer(cls);
+			check(cls);
 		return invokePP(__functionAddress, cls);
 	}
 
@@ -1211,9 +1211,9 @@ public class ObjCRuntime {
 	public static boolean nclass_addMethod(long cls, long name, long imp, long types) {
 		long __functionAddress = Functions.class_addMethod;
 		if ( CHECKS ) {
-			checkPointer(cls);
-			checkPointer(name);
-			checkPointer(imp);
+			check(cls);
+			check(name);
+			check(imp);
 		}
 		return invokePPPPZ(__functionAddress, cls, name, imp, types);
 	}
@@ -1298,9 +1298,9 @@ public class ObjCRuntime {
 	public static long nclass_replaceMethod(long cls, long name, long imp, long types) {
 		long __functionAddress = Functions.class_replaceMethod;
 		if ( CHECKS ) {
-			checkPointer(cls);
-			checkPointer(name);
-			checkPointer(imp);
+			check(cls);
+			check(name);
+			check(imp);
 		}
 		return invokePPPPP(__functionAddress, cls, name, imp, types);
 	}
@@ -1373,7 +1373,7 @@ public class ObjCRuntime {
 	public static boolean nclass_addIvar(long cls, long name, long size, byte alignment, long types) {
 		long __functionAddress = Functions.class_addIvar;
 		if ( CHECKS )
-			checkPointer(cls);
+			check(cls);
 		return invokePPPPZ(__functionAddress, cls, name, size, alignment, types);
 	}
 
@@ -1447,8 +1447,8 @@ public class ObjCRuntime {
 	public static boolean class_addProtocol(long cls, long protocol) {
 		long __functionAddress = Functions.class_addProtocol;
 		if ( CHECKS ) {
-			checkPointer(cls);
-			checkPointer(protocol);
+			check(cls);
+			check(protocol);
 		}
 		return invokePPZ(__functionAddress, cls, protocol);
 	}
@@ -1463,7 +1463,7 @@ public class ObjCRuntime {
 	public static boolean nclass_addProperty(long cls, long name, long attributes, int attributeCount) {
 		long __functionAddress = Functions.class_addProperty;
 		if ( CHECKS ) {
-			checkPointer(cls);
+			check(cls);
 			ObjCPropertyAttribute.validate(attributes, attributeCount);
 		}
 		return invokePPPZ(__functionAddress, cls, name, attributes, attributeCount);
@@ -1513,7 +1513,7 @@ public class ObjCRuntime {
 	public static void nclass_replaceProperty(long cls, long name, long attributes, int attributeCount) {
 		long __functionAddress = Functions.class_replaceProperty;
 		if ( CHECKS ) {
-			checkPointer(cls);
+			check(cls);
 			ObjCPropertyAttribute.validate(attributes, attributeCount);
 		}
 		invokePPPV(__functionAddress, cls, name, attributes, attributeCount);
@@ -1555,7 +1555,7 @@ public class ObjCRuntime {
 	public static void nclass_setIvarLayout(long cls, long layout) {
 		long __functionAddress = Functions.class_setIvarLayout;
 		if ( CHECKS )
-			checkPointer(cls);
+			check(cls);
 		invokePPV(__functionAddress, cls, layout);
 	}
 
@@ -1593,7 +1593,7 @@ public class ObjCRuntime {
 	public static void nclass_setWeakIvarLayout(long cls, long layout) {
 		long __functionAddress = Functions.class_setWeakIvarLayout;
 		if ( CHECKS )
-			checkPointer(cls);
+			check(cls);
 		invokePPV(__functionAddress, cls, layout);
 	}
 
@@ -1639,7 +1639,7 @@ public class ObjCRuntime {
 	public static long class_createInstance(long cls, long extraBytes) {
 		long __functionAddress = Functions.class_createInstance;
 		if ( CHECKS )
-			checkPointer(cls);
+			check(cls);
 		return invokePPP(__functionAddress, cls, extraBytes);
 	}
 
@@ -1681,7 +1681,7 @@ public class ObjCRuntime {
 	public static long objc_destructInstance(long obj) {
 		long __functionAddress = Functions.objc_destructInstance;
 		if ( CHECKS )
-			checkPointer(obj);
+			check(obj);
 		return invokePP(__functionAddress, obj);
 	}
 
@@ -1751,7 +1751,7 @@ public class ObjCRuntime {
 	public static void objc_registerClassPair(long cls) {
 		long __functionAddress = Functions.objc_registerClassPair;
 		if ( CHECKS )
-			checkPointer(cls);
+			check(cls);
 		invokePV(__functionAddress, cls);
 	}
 
@@ -1767,7 +1767,7 @@ public class ObjCRuntime {
 	public static void objc_disposeClassPair(long cls) {
 		long __functionAddress = Functions.objc_disposeClassPair;
 		if ( CHECKS )
-			checkPointer(cls);
+			check(cls);
 		invokePV(__functionAddress, cls);
 	}
 
@@ -1785,7 +1785,7 @@ public class ObjCRuntime {
 	public static long method_getName(long m) {
 		long __functionAddress = Functions.method_getName;
 		if ( CHECKS )
-			checkPointer(m);
+			check(m);
 		return invokePP(__functionAddress, m);
 	}
 
@@ -1801,7 +1801,7 @@ public class ObjCRuntime {
 	public static long method_getImplementation(long m) {
 		long __functionAddress = Functions.method_getImplementation;
 		if ( CHECKS )
-			checkPointer(m);
+			check(m);
 		return invokePP(__functionAddress, m);
 	}
 
@@ -1811,7 +1811,7 @@ public class ObjCRuntime {
 	public static long nmethod_getTypeEncoding(long m) {
 		long __functionAddress = Functions.method_getTypeEncoding;
 		if ( CHECKS )
-			checkPointer(m);
+			check(m);
 		return invokePP(__functionAddress, m);
 	}
 
@@ -1839,7 +1839,7 @@ public class ObjCRuntime {
 	public static int method_getNumberOfArguments(long m) {
 		long __functionAddress = Functions.method_getNumberOfArguments;
 		if ( CHECKS )
-			checkPointer(m);
+			check(m);
 		return invokePI(__functionAddress, m);
 	}
 
@@ -1849,7 +1849,7 @@ public class ObjCRuntime {
 	public static long nmethod_copyReturnType(long m) {
 		long __functionAddress = Functions.method_copyReturnType;
 		if ( CHECKS )
-			checkPointer(m);
+			check(m);
 		return invokePP(__functionAddress, m);
 	}
 
@@ -1871,7 +1871,7 @@ public class ObjCRuntime {
 	public static long nmethod_copyArgumentType(long m, int index) {
 		long __functionAddress = Functions.method_copyArgumentType;
 		if ( CHECKS )
-			checkPointer(m);
+			check(m);
 		return invokePP(__functionAddress, m, index);
 	}
 
@@ -1899,7 +1899,7 @@ public class ObjCRuntime {
 	public static void nmethod_getReturnType(long m, long dst, long dst_len) {
 		long __functionAddress = Functions.method_getReturnType;
 		if ( CHECKS )
-			checkPointer(m);
+			check(m);
 		invokePPPV(__functionAddress, m, dst, dst_len);
 	}
 
@@ -1944,7 +1944,7 @@ public class ObjCRuntime {
 	public static void nmethod_getArgumentType(long m, int index, long dst, long dst_len) {
 		long __functionAddress = Functions.method_getArgumentType;
 		if ( CHECKS )
-			checkPointer(m);
+			check(m);
 		invokePPPV(__functionAddress, m, index, dst, dst_len);
 	}
 
@@ -1996,8 +1996,8 @@ public class ObjCRuntime {
 	public static long method_setImplementation(long m, long imp) {
 		long __functionAddress = Functions.method_setImplementation;
 		if ( CHECKS ) {
-			checkPointer(m);
-			checkPointer(imp);
+			check(m);
+			check(imp);
 		}
 		return invokePPP(__functionAddress, m, imp);
 	}
@@ -2013,8 +2013,8 @@ public class ObjCRuntime {
 	public static void method_exchangeImplementations(long m1, long m2) {
 		long __functionAddress = Functions.method_exchangeImplementations;
 		if ( CHECKS ) {
-			checkPointer(m1);
-			checkPointer(m2);
+			check(m1);
+			check(m2);
 		}
 		invokePPV(__functionAddress, m1, m2);
 	}
@@ -2025,7 +2025,7 @@ public class ObjCRuntime {
 	public static long nivar_getName(long v) {
 		long __functionAddress = Functions.ivar_getName;
 		if ( CHECKS )
-			checkPointer(v);
+			check(v);
 		return invokePP(__functionAddress, v);
 	}
 
@@ -2047,7 +2047,7 @@ public class ObjCRuntime {
 	public static long nivar_getTypeEncoding(long v) {
 		long __functionAddress = Functions.ivar_getTypeEncoding;
 		if ( CHECKS )
-			checkPointer(v);
+			check(v);
 		return invokePP(__functionAddress, v);
 	}
 
@@ -2078,7 +2078,7 @@ public class ObjCRuntime {
 	public static long ivar_getOffset(long v) {
 		long __functionAddress = Functions.ivar_getOffset;
 		if ( CHECKS )
-			checkPointer(v);
+			check(v);
 		return invokePP(__functionAddress, v);
 	}
 
@@ -2088,7 +2088,7 @@ public class ObjCRuntime {
 	public static long nproperty_getName(long property) {
 		long __functionAddress = Functions.property_getName;
 		if ( CHECKS )
-			checkPointer(property);
+			check(property);
 		return invokePP(__functionAddress, property);
 	}
 
@@ -2110,7 +2110,7 @@ public class ObjCRuntime {
 	public static long nproperty_getAttributes(long property) {
 		long __functionAddress = Functions.property_getAttributes;
 		if ( CHECKS )
-			checkPointer(property);
+			check(property);
 		return invokePP(__functionAddress, property);
 	}
 
@@ -2136,7 +2136,7 @@ public class ObjCRuntime {
 	public static long nproperty_copyAttributeList(long property, long outCount) {
 		long __functionAddress = Functions.property_copyAttributeList;
 		if ( CHECKS )
-			checkPointer(property);
+			check(property);
 		return invokePPP(__functionAddress, property, outCount);
 	}
 
@@ -2164,7 +2164,7 @@ public class ObjCRuntime {
 	public static long nproperty_copyAttributeValue(long property, long attributeName) {
 		long __functionAddress = Functions.property_copyAttributeValue;
 		if ( CHECKS )
-			checkPointer(property);
+			check(property);
 		return invokePPP(__functionAddress, property, attributeName);
 	}
 
@@ -2296,8 +2296,8 @@ public class ObjCRuntime {
 	public static boolean protocol_conformsToProtocol(long proto, long other) {
 		long __functionAddress = Functions.protocol_conformsToProtocol;
 		if ( CHECKS ) {
-			checkPointer(proto);
-			checkPointer(other);
+			check(proto);
+			check(other);
 		}
 		return invokePPZ(__functionAddress, proto, other);
 	}
@@ -2315,8 +2315,8 @@ public class ObjCRuntime {
 	public static boolean protocol_isEqual(long proto, long other) {
 		long __functionAddress = Functions.protocol_isEqual;
 		if ( CHECKS ) {
-			checkPointer(proto);
-			checkPointer(other);
+			check(proto);
+			check(other);
 		}
 		return invokePPZ(__functionAddress, proto, other);
 	}
@@ -2327,7 +2327,7 @@ public class ObjCRuntime {
 	public static long nprotocol_getName(long p) {
 		long __functionAddress = Functions.protocol_getName;
 		if ( CHECKS )
-			checkPointer(p);
+			check(p);
 		return invokePP(__functionAddress, p);
 	}
 
@@ -2352,8 +2352,8 @@ public class ObjCRuntime {
 	public static void nprotocol_getMethodDescription(long p, long aSel, boolean isRequiredMethod, boolean isInstanceMethod, long __result) {
 		long __functionAddress = Functions.protocol_getMethodDescription;
 		if ( CHECKS ) {
-			checkPointer(p);
-			checkPointer(aSel);
+			check(p);
+			check(aSel);
 		}
 		nprotocol_getMethodDescription(__functionAddress, p, aSel, isRequiredMethod, isInstanceMethod, __result);
 	}
@@ -2385,7 +2385,7 @@ public class ObjCRuntime {
 	public static long nprotocol_copyMethodDescriptionList(long p, boolean isRequiredMethod, boolean isInstanceMethod, long outCount) {
 		long __functionAddress = Functions.protocol_copyMethodDescriptionList;
 		if ( CHECKS )
-			checkPointer(p);
+			check(p);
 		return invokePPP(__functionAddress, p, isRequiredMethod, isInstanceMethod, outCount);
 	}
 
@@ -2420,7 +2420,7 @@ public class ObjCRuntime {
 	public static long nprotocol_getProperty(long proto, long name, boolean isRequiredProperty, boolean isInstanceProperty) {
 		long __functionAddress = Functions.protocol_getProperty;
 		if ( CHECKS )
-			checkPointer(proto);
+			check(proto);
 		return invokePPP(__functionAddress, proto, name, isRequiredProperty, isInstanceProperty);
 	}
 
@@ -2472,7 +2472,7 @@ public class ObjCRuntime {
 	public static long nprotocol_copyPropertyList(long proto, long outCount) {
 		long __functionAddress = Functions.protocol_copyPropertyList;
 		if ( CHECKS )
-			checkPointer(proto);
+			check(proto);
 		return invokePPP(__functionAddress, proto, outCount);
 	}
 
@@ -2507,7 +2507,7 @@ public class ObjCRuntime {
 	public static long nprotocol_copyProtocolList(long proto, long outCount) {
 		long __functionAddress = Functions.protocol_copyProtocolList;
 		if ( CHECKS )
-			checkPointer(proto);
+			check(proto);
 		return invokePPP(__functionAddress, proto, outCount);
 	}
 
@@ -2591,7 +2591,7 @@ public class ObjCRuntime {
 	public static void objc_registerProtocol(long proto) {
 		long __functionAddress = Functions.objc_registerProtocol;
 		if ( CHECKS )
-			checkPointer(proto);
+			check(proto);
 		invokePV(__functionAddress, proto);
 	}
 
@@ -2601,8 +2601,8 @@ public class ObjCRuntime {
 	public static void nprotocol_addMethodDescription(long proto, long name, long types, boolean isRequiredMethod, boolean isInstanceMethod) {
 		long __functionAddress = Functions.protocol_addMethodDescription;
 		if ( CHECKS ) {
-			checkPointer(proto);
-			checkPointer(name);
+			check(proto);
+			check(name);
 		}
 		invokePPPV(__functionAddress, proto, name, types, isRequiredMethod, isInstanceMethod);
 	}
@@ -2663,8 +2663,8 @@ public class ObjCRuntime {
 	public static void protocol_addProtocol(long proto, long addition) {
 		long __functionAddress = Functions.protocol_addProtocol;
 		if ( CHECKS ) {
-			checkPointer(proto);
-			checkPointer(addition);
+			check(proto);
+			check(addition);
 		}
 		invokePPV(__functionAddress, proto, addition);
 	}
@@ -2679,7 +2679,7 @@ public class ObjCRuntime {
 	public static void nprotocol_addProperty(long proto, long name, long attributes, int attributeCount, boolean isRequiredProperty, boolean isInstanceProperty) {
 		long __functionAddress = Functions.protocol_addProperty;
 		if ( CHECKS ) {
-			checkPointer(proto);
+			check(proto);
 			ObjCPropertyAttribute.validate(attributes, attributeCount);
 		}
 		invokePPPV(__functionAddress, proto, name, attributes, attributeCount, isRequiredProperty, isInstanceProperty);
@@ -2763,7 +2763,7 @@ public class ObjCRuntime {
 	public static long nclass_getImageName(long cls) {
 		long __functionAddress = Functions.class_getImageName;
 		if ( CHECKS )
-			checkPointer(cls);
+			check(cls);
 		return invokePP(__functionAddress, cls);
 	}
 
@@ -2836,7 +2836,7 @@ public class ObjCRuntime {
 	public static long nsel_getName(long sel) {
 		long __functionAddress = Functions.sel_getName;
 		if ( CHECKS )
-			checkPointer(sel);
+			check(sel);
 		return invokePP(__functionAddress, sel);
 	}
 
@@ -2953,8 +2953,8 @@ public class ObjCRuntime {
 	public static boolean sel_isEqual(long lhs, long rhs) {
 		long __functionAddress = Functions.sel_isEqual;
 		if ( CHECKS ) {
-			checkPointer(lhs);
-			checkPointer(rhs);
+			check(lhs);
+			check(rhs);
 		}
 		return invokePPZ(__functionAddress, lhs, rhs);
 	}
@@ -2973,7 +2973,7 @@ public class ObjCRuntime {
 	public static void objc_enumerationMutation(long obj) {
 		long __functionAddress = Functions.objc_enumerationMutation;
 		if ( CHECKS )
-			checkPointer(obj);
+			check(obj);
 		invokePV(__functionAddress, obj);
 	}
 
@@ -3007,7 +3007,7 @@ public class ObjCRuntime {
 	public static long imp_implementationWithBlock(long block) {
 		long __functionAddress = Functions.imp_implementationWithBlock;
 		if ( CHECKS )
-			checkPointer(block);
+			check(block);
 		return invokePP(__functionAddress, block);
 	}
 
@@ -3023,7 +3023,7 @@ public class ObjCRuntime {
 	public static long imp_getBlock(long anImp) {
 		long __functionAddress = Functions.imp_getBlock;
 		if ( CHECKS )
-			checkPointer(anImp);
+			check(anImp);
 		return invokePP(__functionAddress, anImp);
 	}
 
@@ -3040,7 +3040,7 @@ public class ObjCRuntime {
 	public static boolean imp_removeBlock(long anImp) {
 		long __functionAddress = Functions.imp_removeBlock;
 		if ( CHECKS )
-			checkPointer(anImp);
+			check(anImp);
 		return invokePZ(__functionAddress, anImp);
 	}
 
@@ -3072,7 +3072,7 @@ public class ObjCRuntime {
 	public static long nobjc_storeWeak(long location, long obj) {
 		long __functionAddress = Functions.objc_storeWeak;
 		if ( CHECKS )
-			checkPointer(obj);
+			check(obj);
 		return invokePPP(__functionAddress, location, obj);
 	}
 
@@ -3103,9 +3103,9 @@ public class ObjCRuntime {
 	public static void objc_setAssociatedObject(long object, long key, long value, long policy) {
 		long __functionAddress = Functions.objc_setAssociatedObject;
 		if ( CHECKS ) {
-			checkPointer(object);
-			checkPointer(key);
-			checkPointer(value);
+			check(object);
+			check(key);
+			check(value);
 		}
 		invokePPPPV(__functionAddress, object, key, value, policy);
 	}
@@ -3123,8 +3123,8 @@ public class ObjCRuntime {
 	public static long objc_getAssociatedObject(long object, long key) {
 		long __functionAddress = Functions.objc_getAssociatedObject;
 		if ( CHECKS ) {
-			checkPointer(object);
-			checkPointer(key);
+			check(object);
+			check(key);
 		}
 		return invokePPP(__functionAddress, object, key);
 	}
@@ -3143,7 +3143,7 @@ public class ObjCRuntime {
 	public static void objc_removeAssociatedObjects(long object) {
 		long __functionAddress = Functions.objc_removeAssociatedObjects;
 		if ( CHECKS )
-			checkPointer(object);
+			check(object);
 		invokePV(__functionAddress, object);
 	}
 

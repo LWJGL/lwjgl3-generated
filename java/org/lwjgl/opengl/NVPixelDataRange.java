@@ -81,7 +81,7 @@ public class NVPixelDataRange {
 	public static void nglPixelDataRangeNV(int target, int length, long pointer) {
 		long __functionAddress = GL.getCapabilities().glPixelDataRangeNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, length, pointer);
 	}
 
@@ -94,7 +94,7 @@ public class NVPixelDataRange {
 	public static void glFlushPixelDataRangeNV(int target) {
 		long __functionAddress = GL.getCapabilities().glFlushPixelDataRangeNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target);
 	}
 

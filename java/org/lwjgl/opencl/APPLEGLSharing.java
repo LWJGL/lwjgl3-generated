@@ -59,9 +59,9 @@ public class APPLEGLSharing {
 	public static int nclGetGLContextInfoAPPLE(long context, long platform_gl_ctx, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetGLContextInfoAPPLE;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
-			checkPointer(platform_gl_ctx);
+			check(__functionAddress);
+			check(context);
+			check(platform_gl_ctx);
 		}
 		return callPPPPPI(__functionAddress, context, platform_gl_ctx, param_name, param_value_size, param_value, param_value_size_ret);
 	}
@@ -81,7 +81,7 @@ public class APPLEGLSharing {
 	 */
 	public static int clGetGLContextInfoAPPLE(long context, long platform_gl_ctx, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetGLContextInfoAPPLE(context, platform_gl_ctx, param_name, remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -100,7 +100,7 @@ public class APPLEGLSharing {
 	 */
 	public static int clGetGLContextInfoAPPLE(long context, long platform_gl_ctx, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetGLContextInfoAPPLE(context, platform_gl_ctx, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 

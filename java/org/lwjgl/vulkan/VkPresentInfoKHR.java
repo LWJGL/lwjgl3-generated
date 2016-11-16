@@ -369,8 +369,8 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + VkPresentInfoKHR.PSWAPCHAINS));
-		checkPointer(memGetAddress(struct + VkPresentInfoKHR.PIMAGEINDICES));
+		check(memGetAddress(struct + VkPresentInfoKHR.PSWAPCHAINS));
+		check(memGetAddress(struct + VkPresentInfoKHR.PIMAGEINDICES));
 	}
 
 	/**

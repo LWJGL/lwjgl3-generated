@@ -49,8 +49,8 @@ public class OVRGL {
 	 */
 	public static int ovr_CreateTextureSwapChainGL(long session, OVRTextureSwapChainDesc desc, PointerBuffer out_TextureSwapChain) {
 		if ( CHECKS ) {
-			checkPointer(session);
-			checkBuffer(out_TextureSwapChain, 1);
+			check(session);
+			check(out_TextureSwapChain, 1);
 		}
 		return novr_CreateTextureSwapChainGL(session, desc.address(), memAddress(out_TextureSwapChain));
 	}
@@ -73,9 +73,9 @@ public class OVRGL {
 	 */
 	public static int ovr_GetTextureSwapChainBufferGL(long session, long chain, int index, IntBuffer out_TexId) {
 		if ( CHECKS ) {
-			checkPointer(session);
-			checkPointer(chain);
-			checkBuffer(out_TexId, 1);
+			check(session);
+			check(chain);
+			check(out_TexId, 1);
 		}
 		return novr_GetTextureSwapChainBufferGL(session, chain, index, memAddress(out_TexId));
 	}
@@ -103,8 +103,8 @@ public class OVRGL {
 	 */
 	public static int ovr_CreateMirrorTextureGL(long session, OVRMirrorTextureDesc desc, PointerBuffer out_MirrorTexture) {
 		if ( CHECKS ) {
-			checkPointer(session);
-			checkBuffer(out_MirrorTexture, 1);
+			check(session);
+			check(out_MirrorTexture, 1);
 		}
 		return novr_CreateMirrorTextureGL(session, desc.address(), memAddress(out_MirrorTexture));
 	}
@@ -125,9 +125,9 @@ public class OVRGL {
 	 */
 	public static int ovr_GetMirrorTextureBufferGL(long session, long mirrorTexture, IntBuffer out_TexId) {
 		if ( CHECKS ) {
-			checkPointer(session);
-			checkPointer(mirrorTexture);
-			checkBuffer(out_TexId, 1);
+			check(session);
+			check(mirrorTexture);
+			check(out_TexId, 1);
 		}
 		return novr_GetMirrorTextureBufferGL(session, mirrorTexture, memAddress(out_TexId));
 	}
@@ -138,9 +138,9 @@ public class OVRGL {
 	/** Array version of: {@link #ovr_GetTextureSwapChainBufferGL GetTextureSwapChainBufferGL} */
 	public static int ovr_GetTextureSwapChainBufferGL(long session, long chain, int index, int[] out_TexId) {
 		if ( CHECKS ) {
-			checkPointer(session);
-			checkPointer(chain);
-			checkBuffer(out_TexId, 1);
+			check(session);
+			check(chain);
+			check(out_TexId, 1);
 		}
 		return novr_GetTextureSwapChainBufferGL(session, chain, index, out_TexId);
 	}
@@ -151,9 +151,9 @@ public class OVRGL {
 	/** Array version of: {@link #ovr_GetMirrorTextureBufferGL GetMirrorTextureBufferGL} */
 	public static int ovr_GetMirrorTextureBufferGL(long session, long mirrorTexture, int[] out_TexId) {
 		if ( CHECKS ) {
-			checkPointer(session);
-			checkPointer(mirrorTexture);
-			checkBuffer(out_TexId, 1);
+			check(session);
+			check(mirrorTexture);
+			check(out_TexId, 1);
 		}
 		return novr_GetMirrorTextureBufferGL(session, mirrorTexture, out_TexId);
 	}

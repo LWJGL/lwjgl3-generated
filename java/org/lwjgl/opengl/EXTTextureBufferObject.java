@@ -62,7 +62,7 @@ public class EXTTextureBufferObject {
 	public static void glTexBufferEXT(int target, int internalformat, int buffer) {
 		long __functionAddress = GL.getCapabilities().glTexBufferEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, internalformat, buffer);
 	}
 

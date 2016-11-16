@@ -179,7 +179,7 @@ public class KHRDebug {
 	public static void nglDebugMessageControl(int source, int type, int severity, int count, long ids, boolean enabled) {
 		long __functionAddress = GL.getCapabilities().glDebugMessageControl;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, source, type, severity, count, ids, enabled);
 	}
 
@@ -270,7 +270,7 @@ public class KHRDebug {
 	public static void nglDebugMessageInsert(int source, int type, int id, int severity, int length, long message) {
 		long __functionAddress = GL.getCapabilities().glDebugMessageInsert;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, source, type, id, severity, length, message);
 	}
 
@@ -331,7 +331,7 @@ public class KHRDebug {
 	public static void nglDebugMessageCallback(long callback, long userParam) {
 		long __functionAddress = GL.getCapabilities().glDebugMessageCallback;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, callback, userParam);
 	}
 
@@ -380,7 +380,7 @@ public class KHRDebug {
 	public static int nglGetDebugMessageLog(int count, int bufsize, long sources, long types, long ids, long severities, long lengths, long messageLog) {
 		long __functionAddress = GL.getCapabilities().glGetDebugMessageLog;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPPPPPPI(__functionAddress, count, bufsize, sources, types, ids, severities, lengths, messageLog);
 	}
 
@@ -419,11 +419,11 @@ public class KHRDebug {
 	 */
 	public static int glGetDebugMessageLog(int count, IntBuffer sources, IntBuffer types, IntBuffer ids, IntBuffer severities, IntBuffer lengths, ByteBuffer messageLog) {
 		if ( CHECKS ) {
-			checkBufferSafe(sources, count);
-			checkBufferSafe(types, count);
-			checkBufferSafe(ids, count);
-			checkBufferSafe(severities, count);
-			checkBufferSafe(lengths, count);
+			checkSafe(sources, count);
+			checkSafe(types, count);
+			checkSafe(ids, count);
+			checkSafe(severities, count);
+			checkSafe(lengths, count);
 		}
 		return nglGetDebugMessageLog(count, remainingSafe(messageLog), memAddressSafe(sources), memAddressSafe(types), memAddressSafe(ids), memAddressSafe(severities), memAddressSafe(lengths), memAddressSafe(messageLog));
 	}
@@ -438,7 +438,7 @@ public class KHRDebug {
 	public static void nglPushDebugGroup(int source, int id, int length, long message) {
 		long __functionAddress = GL.getCapabilities().glPushDebugGroup;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, source, id, length, message);
 	}
 
@@ -503,7 +503,7 @@ public class KHRDebug {
 	public static void glPopDebugGroup() {
 		long __functionAddress = GL.getCapabilities().glPopDebugGroup;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -517,7 +517,7 @@ public class KHRDebug {
 	public static void nglObjectLabel(int identifier, int name, int length, long label) {
 		long __functionAddress = GL.getCapabilities().glObjectLabel;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, identifier, name, length, label);
 	}
 
@@ -560,7 +560,7 @@ public class KHRDebug {
 	public static void nglGetObjectLabel(int identifier, int name, int bufSize, long length, long label) {
 		long __functionAddress = GL.getCapabilities().glGetObjectLabel;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, identifier, name, bufSize, length, label);
 	}
 
@@ -574,7 +574,7 @@ public class KHRDebug {
 	 */
 	public static void glGetObjectLabel(int identifier, int name, IntBuffer length, ByteBuffer label) {
 		if ( CHECKS )
-			checkBufferSafe(length, 1);
+			checkSafe(length, 1);
 		nglGetObjectLabel(identifier, name, label.remaining(), memAddressSafe(length), memAddress(label));
 	}
 
@@ -626,8 +626,8 @@ public class KHRDebug {
 	public static void nglObjectPtrLabel(long ptr, int length, long label) {
 		long __functionAddress = GL.getCapabilities().glObjectPtrLabel;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(ptr);
+			check(__functionAddress);
+			check(ptr);
 		}
 		callPPV(__functionAddress, ptr, length, label);
 	}
@@ -669,8 +669,8 @@ public class KHRDebug {
 	public static void nglGetObjectPtrLabel(long ptr, int bufSize, long length, long label) {
 		long __functionAddress = GL.getCapabilities().glGetObjectPtrLabel;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(ptr);
+			check(__functionAddress);
+			check(ptr);
 		}
 		callPPPV(__functionAddress, ptr, bufSize, length, label);
 	}
@@ -684,7 +684,7 @@ public class KHRDebug {
 	 */
 	public static void glGetObjectPtrLabel(long ptr, IntBuffer length, ByteBuffer label) {
 		if ( CHECKS )
-			checkBufferSafe(length, 1);
+			checkSafe(length, 1);
 		nglGetObjectPtrLabel(ptr, label.remaining(), memAddressSafe(length), memAddress(label));
 	}
 
@@ -728,7 +728,7 @@ public class KHRDebug {
 	public static void glDebugMessageControl(int source, int type, int severity, int[] ids, boolean enabled) {
 		long __functionAddress = GL.getCapabilities().glDebugMessageControl;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, source, type, severity, lengthSafe(ids), ids, enabled);
 	}
 
@@ -736,12 +736,12 @@ public class KHRDebug {
 	public static int glGetDebugMessageLog(int count, int[] sources, int[] types, int[] ids, int[] severities, int[] lengths, ByteBuffer messageLog) {
 		long __functionAddress = GL.getCapabilities().glGetDebugMessageLog;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(sources, count);
-			checkBufferSafe(types, count);
-			checkBufferSafe(ids, count);
-			checkBufferSafe(severities, count);
-			checkBufferSafe(lengths, count);
+			check(__functionAddress);
+			checkSafe(sources, count);
+			checkSafe(types, count);
+			checkSafe(ids, count);
+			checkSafe(severities, count);
+			checkSafe(lengths, count);
 		}
 		return callPPPPPPI(__functionAddress, count, remainingSafe(messageLog), sources, types, ids, severities, lengths, memAddressSafe(messageLog));
 	}
@@ -750,8 +750,8 @@ public class KHRDebug {
 	public static void glGetObjectLabel(int identifier, int name, int[] length, ByteBuffer label) {
 		long __functionAddress = GL.getCapabilities().glGetObjectLabel;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(length, 1);
+			check(__functionAddress);
+			checkSafe(length, 1);
 		}
 		callPPV(__functionAddress, identifier, name, label.remaining(), length, memAddress(label));
 	}
@@ -760,9 +760,9 @@ public class KHRDebug {
 	public static void glGetObjectPtrLabel(long ptr, int[] length, ByteBuffer label) {
 		long __functionAddress = GL.getCapabilities().glGetObjectPtrLabel;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(ptr);
-			checkBufferSafe(length, 1);
+			check(__functionAddress);
+			check(ptr);
+			checkSafe(length, 1);
 		}
 		callPPPV(__functionAddress, ptr, label.remaining(), length, memAddress(label));
 	}

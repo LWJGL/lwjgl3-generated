@@ -68,15 +68,15 @@ public class NVStreamMetadata {
 	public static int neglQueryDisplayAttribNV(long dpy, int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglQueryDisplayAttribNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
+			check(__functionAddress);
+			check(dpy);
 		}
 		return callPPI(__functionAddress, dpy, attribute, value);
 	}
 
 	public static boolean eglQueryDisplayAttribNV(long dpy, int attribute, PointerBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		return neglQueryDisplayAttribNV(dpy, attribute, memAddress(value)) != 0;
 	}
 
@@ -85,9 +85,9 @@ public class NVStreamMetadata {
 	public static int neglSetStreamMetadataNV(long dpy, long stream, int n, int offset, int size, long data) {
 		long __functionAddress = EGL.getCapabilities().eglSetStreamMetadataNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(stream);
+			check(__functionAddress);
+			check(dpy);
+			check(stream);
 		}
 		return callPPPI(__functionAddress, dpy, stream, n, offset, size, data);
 	}
@@ -101,9 +101,9 @@ public class NVStreamMetadata {
 	public static int neglQueryStreamMetadataNV(long dpy, long stream, int name, int n, int offset, int size, long data) {
 		long __functionAddress = EGL.getCapabilities().eglQueryStreamMetadataNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(stream);
+			check(__functionAddress);
+			check(dpy);
+			check(stream);
 		}
 		return callPPPI(__functionAddress, dpy, stream, name, n, offset, size, data);
 	}

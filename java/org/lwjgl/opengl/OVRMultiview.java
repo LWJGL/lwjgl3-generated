@@ -110,7 +110,7 @@ public class OVRMultiview {
 	public static void glFramebufferTextureMultiviewOVR(int target, int attachment, int texture, int level, int baseViewIndex, int numViews) {
 		long __functionAddress = GL.getCapabilities().glFramebufferTextureMultiviewOVR;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, attachment, texture, level, baseViewIndex, numViews);
 	}
 

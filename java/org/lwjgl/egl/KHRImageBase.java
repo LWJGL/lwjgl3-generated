@@ -43,10 +43,10 @@ public class KHRImageBase {
 	public static long neglCreateImageKHR(long dpy, long ctx, int target, long buffer, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateImageKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(ctx);
-			checkPointer(buffer);
+			check(__functionAddress);
+			check(dpy);
+			check(ctx);
+			check(buffer);
 		}
 		return callPPPPP(__functionAddress, dpy, ctx, target, buffer, attrib_list);
 	}
@@ -62,9 +62,9 @@ public class KHRImageBase {
 	public static boolean eglDestroyImageKHR(long dpy, long image) {
 		long __functionAddress = EGL.getCapabilities().eglDestroyImageKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(image);
+			check(__functionAddress);
+			check(dpy);
+			check(image);
 		}
 		return callPPI(__functionAddress, dpy, image) != 0;
 	}
@@ -73,10 +73,10 @@ public class KHRImageBase {
 	public static long eglCreateImageKHR(long dpy, long ctx, int target, long buffer, int[] attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateImageKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(ctx);
-			checkPointer(buffer);
+			check(__functionAddress);
+			check(dpy);
+			check(ctx);
+			check(buffer);
 			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		}
 		return callPPPPP(__functionAddress, dpy, ctx, target, buffer, attrib_list);

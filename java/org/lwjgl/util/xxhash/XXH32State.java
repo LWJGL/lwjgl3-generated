@@ -347,7 +347,7 @@ public class XXH32State extends Struct implements NativeResource {
 	public static void nv4(long struct, int value) { memPutInt(struct + XXH32State.V4, value); }
 	/** Unsafe version of {@link #mem32(IntBuffer) mem32}. */
 	public static void nmem32(long struct, IntBuffer value) {
-		if ( CHECKS ) checkBufferGT(value, 4);
+		if ( CHECKS ) checkGT(value, 4);
 		memCopy(memAddress(value), struct + XXH32State.MEM32, value.remaining() * 4);
 	}
 	/** Unsafe version of {@link #mem32(int, int) mem32}. */

@@ -193,7 +193,7 @@ public class GL14 {
 	public static void glBlendColor(float red, float green, float blue, float alpha) {
 		long __functionAddress = GL.getCapabilities().glBlendColor;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue, alpha);
 	}
 
@@ -209,7 +209,7 @@ public class GL14 {
 	public static void glBlendEquation(int mode) {
 		long __functionAddress = GL.getCapabilities().glBlendEquation;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, mode);
 	}
 
@@ -225,7 +225,7 @@ public class GL14 {
 	public static void glFogCoordf(float coord) {
 		long __functionAddress = GL.getCapabilities().glFogCoordf;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, coord);
 	}
 
@@ -241,7 +241,7 @@ public class GL14 {
 	public static void glFogCoordd(double coord) {
 		long __functionAddress = GL.getCapabilities().glFogCoordd;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, coord);
 	}
 
@@ -251,7 +251,7 @@ public class GL14 {
 	public static void nglFogCoordfv(long coord) {
 		long __functionAddress = GL.getCapabilities().glFogCoordfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coord);
 	}
 
@@ -264,7 +264,7 @@ public class GL14 {
 	 */
 	public static void glFogCoordfv(FloatBuffer coord) {
 		if ( CHECKS )
-			checkBuffer(coord, 1);
+			check(coord, 1);
 		nglFogCoordfv(memAddress(coord));
 	}
 
@@ -274,7 +274,7 @@ public class GL14 {
 	public static void nglFogCoorddv(long coord) {
 		long __functionAddress = GL.getCapabilities().glFogCoorddv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, coord);
 	}
 
@@ -287,7 +287,7 @@ public class GL14 {
 	 */
 	public static void glFogCoorddv(DoubleBuffer coord) {
 		if ( CHECKS )
-			checkBuffer(coord, 1);
+			check(coord, 1);
 		nglFogCoorddv(memAddress(coord));
 	}
 
@@ -297,7 +297,7 @@ public class GL14 {
 	public static void nglFogCoordPointer(int type, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glFogCoordPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, type, stride, pointer);
 	}
 
@@ -363,7 +363,7 @@ public class GL14 {
 	public static void nglMultiDrawArrays(int mode, long first, long count, int primcount) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawArrays;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, mode, first, count, primcount);
 	}
 
@@ -378,7 +378,7 @@ public class GL14 {
 	 */
 	public static void glMultiDrawArrays(int mode, IntBuffer first, IntBuffer count) {
 		if ( CHECKS )
-			checkBuffer(count, first.remaining());
+			check(count, first.remaining());
 		nglMultiDrawArrays(mode, memAddress(first), memAddress(count), first.remaining());
 	}
 
@@ -392,7 +392,7 @@ public class GL14 {
 	public static void nglMultiDrawElements(int mode, long count, int type, long indices, int primcount) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawElements;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
@@ -410,7 +410,7 @@ public class GL14 {
 	 */
 	public static void glMultiDrawElements(int mode, IntBuffer count, int type, PointerBuffer indices) {
 		if ( CHECKS )
-			checkBuffer(indices, count.remaining());
+			check(indices, count.remaining());
 		nglMultiDrawElements(mode, memAddress(count), type, memAddress(indices), count.remaining());
 	}
 
@@ -427,7 +427,7 @@ public class GL14 {
 	public static void glPointParameterf(int pname, float param) {
 		long __functionAddress = GL.getCapabilities().glPointParameterf;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, pname, param);
 	}
 
@@ -444,7 +444,7 @@ public class GL14 {
 	public static void glPointParameteri(int pname, int param) {
 		long __functionAddress = GL.getCapabilities().glPointParameteri;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, pname, param);
 	}
 
@@ -454,7 +454,7 @@ public class GL14 {
 	public static void nglPointParameterfv(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glPointParameterfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, pname, params);
 	}
 
@@ -468,7 +468,7 @@ public class GL14 {
 	 */
 	public static void glPointParameterfv(int pname, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 3);
+			check(params, 3);
 		nglPointParameterfv(pname, memAddress(params));
 	}
 
@@ -478,7 +478,7 @@ public class GL14 {
 	public static void nglPointParameteriv(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glPointParameteriv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, pname, params);
 	}
 
@@ -492,7 +492,7 @@ public class GL14 {
 	 */
 	public static void glPointParameteriv(int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 3);
+			check(params, 3);
 		nglPointParameteriv(pname, memAddress(params));
 	}
 
@@ -510,7 +510,7 @@ public class GL14 {
 	public static void glSecondaryColor3b(byte red, byte green, byte blue) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3b;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue);
 	}
 
@@ -528,7 +528,7 @@ public class GL14 {
 	public static void glSecondaryColor3s(short red, short green, short blue) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3s;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue);
 	}
 
@@ -546,7 +546,7 @@ public class GL14 {
 	public static void glSecondaryColor3i(int red, int green, int blue) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3i;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue);
 	}
 
@@ -564,7 +564,7 @@ public class GL14 {
 	public static void glSecondaryColor3f(float red, float green, float blue) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue);
 	}
 
@@ -582,7 +582,7 @@ public class GL14 {
 	public static void glSecondaryColor3d(double red, double green, double blue) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue);
 	}
 
@@ -600,7 +600,7 @@ public class GL14 {
 	public static void glSecondaryColor3ub(byte red, byte green, byte blue) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3ub;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue);
 	}
 
@@ -618,7 +618,7 @@ public class GL14 {
 	public static void glSecondaryColor3us(short red, short green, short blue) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3us;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue);
 	}
 
@@ -636,7 +636,7 @@ public class GL14 {
 	public static void glSecondaryColor3ui(int red, int green, int blue) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3ui;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue);
 	}
 
@@ -646,7 +646,7 @@ public class GL14 {
 	public static void nglSecondaryColor3bv(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3bv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -659,7 +659,7 @@ public class GL14 {
 	 */
 	public static void glSecondaryColor3bv(ByteBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglSecondaryColor3bv(memAddress(v));
 	}
 
@@ -669,7 +669,7 @@ public class GL14 {
 	public static void nglSecondaryColor3sv(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3sv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -682,7 +682,7 @@ public class GL14 {
 	 */
 	public static void glSecondaryColor3sv(ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglSecondaryColor3sv(memAddress(v));
 	}
 
@@ -692,7 +692,7 @@ public class GL14 {
 	public static void nglSecondaryColor3iv(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3iv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -705,7 +705,7 @@ public class GL14 {
 	 */
 	public static void glSecondaryColor3iv(IntBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglSecondaryColor3iv(memAddress(v));
 	}
 
@@ -715,7 +715,7 @@ public class GL14 {
 	public static void nglSecondaryColor3fv(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -728,7 +728,7 @@ public class GL14 {
 	 */
 	public static void glSecondaryColor3fv(FloatBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglSecondaryColor3fv(memAddress(v));
 	}
 
@@ -738,7 +738,7 @@ public class GL14 {
 	public static void nglSecondaryColor3dv(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3dv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -751,7 +751,7 @@ public class GL14 {
 	 */
 	public static void glSecondaryColor3dv(DoubleBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglSecondaryColor3dv(memAddress(v));
 	}
 
@@ -761,7 +761,7 @@ public class GL14 {
 	public static void nglSecondaryColor3ubv(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3ubv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -774,7 +774,7 @@ public class GL14 {
 	 */
 	public static void glSecondaryColor3ubv(ByteBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglSecondaryColor3ubv(memAddress(v));
 	}
 
@@ -784,7 +784,7 @@ public class GL14 {
 	public static void nglSecondaryColor3usv(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3usv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -797,7 +797,7 @@ public class GL14 {
 	 */
 	public static void glSecondaryColor3usv(ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglSecondaryColor3usv(memAddress(v));
 	}
 
@@ -807,7 +807,7 @@ public class GL14 {
 	public static void nglSecondaryColor3uiv(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3uiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
@@ -820,7 +820,7 @@ public class GL14 {
 	 */
 	public static void glSecondaryColor3uiv(IntBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglSecondaryColor3uiv(memAddress(v));
 	}
 
@@ -830,7 +830,7 @@ public class GL14 {
 	public static void nglSecondaryColorPointer(int size, int type, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColorPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -919,7 +919,7 @@ public class GL14 {
 	public static void glBlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha) {
 		long __functionAddress = GL.getCapabilities().glBlendFuncSeparate;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
 	}
 
@@ -936,7 +936,7 @@ public class GL14 {
 	public static void glWindowPos2i(int x, int y) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2i;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y);
 	}
 
@@ -953,7 +953,7 @@ public class GL14 {
 	public static void glWindowPos2s(short x, short y) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2s;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y);
 	}
 
@@ -970,7 +970,7 @@ public class GL14 {
 	public static void glWindowPos2f(float x, float y) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y);
 	}
 
@@ -987,7 +987,7 @@ public class GL14 {
 	public static void glWindowPos2d(double x, double y) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y);
 	}
 
@@ -997,7 +997,7 @@ public class GL14 {
 	public static void nglWindowPos2iv(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2iv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, p);
 	}
 
@@ -1010,7 +1010,7 @@ public class GL14 {
 	 */
 	public static void glWindowPos2iv(IntBuffer p) {
 		if ( CHECKS )
-			checkBuffer(p, 2);
+			check(p, 2);
 		nglWindowPos2iv(memAddress(p));
 	}
 
@@ -1020,7 +1020,7 @@ public class GL14 {
 	public static void nglWindowPos2sv(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2sv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, p);
 	}
 
@@ -1033,7 +1033,7 @@ public class GL14 {
 	 */
 	public static void glWindowPos2sv(ShortBuffer p) {
 		if ( CHECKS )
-			checkBuffer(p, 2);
+			check(p, 2);
 		nglWindowPos2sv(memAddress(p));
 	}
 
@@ -1043,7 +1043,7 @@ public class GL14 {
 	public static void nglWindowPos2fv(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, p);
 	}
 
@@ -1056,7 +1056,7 @@ public class GL14 {
 	 */
 	public static void glWindowPos2fv(FloatBuffer p) {
 		if ( CHECKS )
-			checkBuffer(p, 2);
+			check(p, 2);
 		nglWindowPos2fv(memAddress(p));
 	}
 
@@ -1066,7 +1066,7 @@ public class GL14 {
 	public static void nglWindowPos2dv(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2dv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, p);
 	}
 
@@ -1079,7 +1079,7 @@ public class GL14 {
 	 */
 	public static void glWindowPos2dv(DoubleBuffer p) {
 		if ( CHECKS )
-			checkBuffer(p, 2);
+			check(p, 2);
 		nglWindowPos2dv(memAddress(p));
 	}
 
@@ -1097,7 +1097,7 @@ public class GL14 {
 	public static void glWindowPos3i(int x, int y, int z) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3i;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z);
 	}
 
@@ -1115,7 +1115,7 @@ public class GL14 {
 	public static void glWindowPos3s(short x, short y, short z) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3s;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z);
 	}
 
@@ -1133,7 +1133,7 @@ public class GL14 {
 	public static void glWindowPos3f(float x, float y, float z) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3f;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z);
 	}
 
@@ -1151,7 +1151,7 @@ public class GL14 {
 	public static void glWindowPos3d(double x, double y, double z) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3d;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z);
 	}
 
@@ -1161,7 +1161,7 @@ public class GL14 {
 	public static void nglWindowPos3iv(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3iv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, p);
 	}
 
@@ -1174,7 +1174,7 @@ public class GL14 {
 	 */
 	public static void glWindowPos3iv(IntBuffer p) {
 		if ( CHECKS )
-			checkBuffer(p, 3);
+			check(p, 3);
 		nglWindowPos3iv(memAddress(p));
 	}
 
@@ -1184,7 +1184,7 @@ public class GL14 {
 	public static void nglWindowPos3sv(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3sv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, p);
 	}
 
@@ -1197,7 +1197,7 @@ public class GL14 {
 	 */
 	public static void glWindowPos3sv(ShortBuffer p) {
 		if ( CHECKS )
-			checkBuffer(p, 3);
+			check(p, 3);
 		nglWindowPos3sv(memAddress(p));
 	}
 
@@ -1207,7 +1207,7 @@ public class GL14 {
 	public static void nglWindowPos3fv(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3fv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, p);
 	}
 
@@ -1220,7 +1220,7 @@ public class GL14 {
 	 */
 	public static void glWindowPos3fv(FloatBuffer p) {
 		if ( CHECKS )
-			checkBuffer(p, 3);
+			check(p, 3);
 		nglWindowPos3fv(memAddress(p));
 	}
 
@@ -1230,7 +1230,7 @@ public class GL14 {
 	public static void nglWindowPos3dv(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3dv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, p);
 	}
 
@@ -1243,7 +1243,7 @@ public class GL14 {
 	 */
 	public static void glWindowPos3dv(DoubleBuffer p) {
 		if ( CHECKS )
-			checkBuffer(p, 3);
+			check(p, 3);
 		nglWindowPos3dv(memAddress(p));
 	}
 
@@ -1255,8 +1255,8 @@ public class GL14 {
 	public static void glFogCoordfv(float[] coord) {
 		long __functionAddress = GL.getCapabilities().glFogCoordfv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coord, 1);
+			check(__functionAddress);
+			check(coord, 1);
 		}
 		callPV(__functionAddress, coord);
 	}
@@ -1269,8 +1269,8 @@ public class GL14 {
 	public static void glFogCoorddv(double[] coord) {
 		long __functionAddress = GL.getCapabilities().glFogCoorddv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coord, 1);
+			check(__functionAddress);
+			check(coord, 1);
 		}
 		callPV(__functionAddress, coord);
 	}
@@ -1283,7 +1283,7 @@ public class GL14 {
 	public static void glFogCoordPointer(int type, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glFogCoordPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, type, stride, pointer);
 	}
 
@@ -1295,7 +1295,7 @@ public class GL14 {
 	public static void glFogCoordPointer(int type, int stride, float[] pointer) {
 		long __functionAddress = GL.getCapabilities().glFogCoordPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, type, stride, pointer);
 	}
 
@@ -1307,8 +1307,8 @@ public class GL14 {
 	public static void glMultiDrawArrays(int mode, int[] first, int[] count) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawArrays;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(count, first.length);
+			check(__functionAddress);
+			check(count, first.length);
 		}
 		callPPV(__functionAddress, mode, first, count, first.length);
 	}
@@ -1321,8 +1321,8 @@ public class GL14 {
 	public static void glMultiDrawElements(int mode, int[] count, int type, PointerBuffer indices) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawElements;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(indices, count.length);
+			check(__functionAddress);
+			check(indices, count.length);
 		}
 		callPPV(__functionAddress, mode, count, type, memAddress(indices), count.length);
 	}
@@ -1335,8 +1335,8 @@ public class GL14 {
 	public static void glPointParameterfv(int pname, float[] params) {
 		long __functionAddress = GL.getCapabilities().glPointParameterfv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 3);
+			check(__functionAddress);
+			check(params, 3);
 		}
 		callPV(__functionAddress, pname, params);
 	}
@@ -1349,8 +1349,8 @@ public class GL14 {
 	public static void glPointParameteriv(int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glPointParameteriv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 3);
+			check(__functionAddress);
+			check(params, 3);
 		}
 		callPV(__functionAddress, pname, params);
 	}
@@ -1363,8 +1363,8 @@ public class GL14 {
 	public static void glSecondaryColor3sv(short[] v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3sv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -1377,8 +1377,8 @@ public class GL14 {
 	public static void glSecondaryColor3iv(int[] v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3iv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -1391,8 +1391,8 @@ public class GL14 {
 	public static void glSecondaryColor3fv(float[] v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3fv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -1405,8 +1405,8 @@ public class GL14 {
 	public static void glSecondaryColor3dv(double[] v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3dv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -1419,8 +1419,8 @@ public class GL14 {
 	public static void glSecondaryColor3usv(short[] v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3usv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -1433,8 +1433,8 @@ public class GL14 {
 	public static void glSecondaryColor3uiv(int[] v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3uiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -1447,7 +1447,7 @@ public class GL14 {
 	public static void glSecondaryColorPointer(int size, int type, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColorPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -1459,7 +1459,7 @@ public class GL14 {
 	public static void glSecondaryColorPointer(int size, int type, int stride, int[] pointer) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColorPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -1471,7 +1471,7 @@ public class GL14 {
 	public static void glSecondaryColorPointer(int size, int type, int stride, float[] pointer) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColorPointer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -1483,8 +1483,8 @@ public class GL14 {
 	public static void glWindowPos2iv(int[] p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2iv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(p, 2);
+			check(__functionAddress);
+			check(p, 2);
 		}
 		callPV(__functionAddress, p);
 	}
@@ -1497,8 +1497,8 @@ public class GL14 {
 	public static void glWindowPos2sv(short[] p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2sv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(p, 2);
+			check(__functionAddress);
+			check(p, 2);
 		}
 		callPV(__functionAddress, p);
 	}
@@ -1511,8 +1511,8 @@ public class GL14 {
 	public static void glWindowPos2fv(float[] p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2fv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(p, 2);
+			check(__functionAddress);
+			check(p, 2);
 		}
 		callPV(__functionAddress, p);
 	}
@@ -1525,8 +1525,8 @@ public class GL14 {
 	public static void glWindowPos2dv(double[] p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2dv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(p, 2);
+			check(__functionAddress);
+			check(p, 2);
 		}
 		callPV(__functionAddress, p);
 	}
@@ -1539,8 +1539,8 @@ public class GL14 {
 	public static void glWindowPos3iv(int[] p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3iv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(p, 3);
+			check(__functionAddress);
+			check(p, 3);
 		}
 		callPV(__functionAddress, p);
 	}
@@ -1553,8 +1553,8 @@ public class GL14 {
 	public static void glWindowPos3sv(short[] p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3sv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(p, 3);
+			check(__functionAddress);
+			check(p, 3);
 		}
 		callPV(__functionAddress, p);
 	}
@@ -1567,8 +1567,8 @@ public class GL14 {
 	public static void glWindowPos3fv(float[] p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3fv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(p, 3);
+			check(__functionAddress);
+			check(p, 3);
 		}
 		callPV(__functionAddress, p);
 	}
@@ -1581,8 +1581,8 @@ public class GL14 {
 	public static void glWindowPos3dv(double[] p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3dv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(p, 3);
+			check(__functionAddress);
+			check(p, 3);
 		}
 		callPV(__functionAddress, p);
 	}

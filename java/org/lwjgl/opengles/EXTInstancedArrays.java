@@ -48,7 +48,7 @@ public class EXTInstancedArrays {
 	public static void glDrawArraysInstancedEXT(int mode, int start, int count, int primcount) {
 		long __functionAddress = GLES.getCapabilities().glDrawArraysInstancedEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, mode, start, count, primcount);
 	}
 
@@ -57,7 +57,7 @@ public class EXTInstancedArrays {
 	public static void nglDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount) {
 		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
@@ -86,7 +86,7 @@ public class EXTInstancedArrays {
 	public static void glVertexAttribDivisorEXT(int index, int divisor) {
 		long __functionAddress = GLES.getCapabilities().glVertexAttribDivisorEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, divisor);
 	}
 

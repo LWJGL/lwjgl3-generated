@@ -55,9 +55,9 @@ public class KHRStreamCrossProcessFD {
 	public static int eglGetStreamFileDescriptorKHR(long dpy, long stream) {
 		long __functionAddress = EGL.getCapabilities().eglGetStreamFileDescriptorKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(stream);
+			check(__functionAddress);
+			check(dpy);
+			check(stream);
 		}
 		return callPPI(__functionAddress, dpy, stream);
 	}
@@ -67,8 +67,8 @@ public class KHRStreamCrossProcessFD {
 	public static long eglCreateStreamFromFileDescriptorKHR(long dpy, int file_descriptor) {
 		long __functionAddress = EGL.getCapabilities().eglCreateStreamFromFileDescriptorKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
+			check(__functionAddress);
+			check(dpy);
 		}
 		return callPP(__functionAddress, dpy, file_descriptor);
 	}

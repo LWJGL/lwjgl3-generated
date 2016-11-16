@@ -337,23 +337,23 @@ public class BGFXCallbackVtbl extends Struct implements NativeResource {
 	public static long ncapture_frame(long struct) { return memGetAddress(struct + BGFXCallbackVtbl.CAPTURE_FRAME); }
 
 	/** Unsafe version of {@link #fatal(BGFXFatalCallbackI) fatal}. */
-	public static void nfatal(long struct, long value) { memPutAddress(struct + BGFXCallbackVtbl.FATAL, checkPointer(value)); }
+	public static void nfatal(long struct, long value) { memPutAddress(struct + BGFXCallbackVtbl.FATAL, check(value)); }
 	/** Unsafe version of {@link #trace_vargs(BGFXTraceVarArgsCallbackI) trace_vargs}. */
-	public static void ntrace_vargs(long struct, long value) { memPutAddress(struct + BGFXCallbackVtbl.TRACE_VARGS, checkPointer(value)); }
+	public static void ntrace_vargs(long struct, long value) { memPutAddress(struct + BGFXCallbackVtbl.TRACE_VARGS, check(value)); }
 	/** Unsafe version of {@link #cache_read_size(BGFXCacheReadSizeCallbackI) cache_read_size}. */
-	public static void ncache_read_size(long struct, long value) { memPutAddress(struct + BGFXCallbackVtbl.CACHE_READ_SIZE, checkPointer(value)); }
+	public static void ncache_read_size(long struct, long value) { memPutAddress(struct + BGFXCallbackVtbl.CACHE_READ_SIZE, check(value)); }
 	/** Unsafe version of {@link #cache_read(BGFXCacheReadCallbackI) cache_read}. */
-	public static void ncache_read(long struct, long value) { memPutAddress(struct + BGFXCallbackVtbl.CACHE_READ, checkPointer(value)); }
+	public static void ncache_read(long struct, long value) { memPutAddress(struct + BGFXCallbackVtbl.CACHE_READ, check(value)); }
 	/** Unsafe version of {@link #cache_write(BGFXCacheWriteCallbackI) cache_write}. */
-	public static void ncache_write(long struct, long value) { memPutAddress(struct + BGFXCallbackVtbl.CACHE_WRITE, checkPointer(value)); }
+	public static void ncache_write(long struct, long value) { memPutAddress(struct + BGFXCallbackVtbl.CACHE_WRITE, check(value)); }
 	/** Unsafe version of {@link #screen_shot(BGFXScreenShotCallbackI) screen_shot}. */
-	public static void nscreen_shot(long struct, long value) { memPutAddress(struct + BGFXCallbackVtbl.SCREEN_SHOT, checkPointer(value)); }
+	public static void nscreen_shot(long struct, long value) { memPutAddress(struct + BGFXCallbackVtbl.SCREEN_SHOT, check(value)); }
 	/** Unsafe version of {@link #capture_begin(BGFXCaptureBeginCallbackI) capture_begin}. */
-	public static void ncapture_begin(long struct, long value) { memPutAddress(struct + BGFXCallbackVtbl.CAPTURE_BEGIN, checkPointer(value)); }
+	public static void ncapture_begin(long struct, long value) { memPutAddress(struct + BGFXCallbackVtbl.CAPTURE_BEGIN, check(value)); }
 	/** Unsafe version of {@link #capture_end(BGFXCaptureEndCallbackI) capture_end}. */
-	public static void ncapture_end(long struct, long value) { memPutAddress(struct + BGFXCallbackVtbl.CAPTURE_END, checkPointer(value)); }
+	public static void ncapture_end(long struct, long value) { memPutAddress(struct + BGFXCallbackVtbl.CAPTURE_END, check(value)); }
 	/** Unsafe version of {@link #capture_frame(BGFXCaptureFrameCallbackI) capture_frame}. */
-	public static void ncapture_frame(long struct, long value) { memPutAddress(struct + BGFXCallbackVtbl.CAPTURE_FRAME, checkPointer(value)); }
+	public static void ncapture_frame(long struct, long value) { memPutAddress(struct + BGFXCallbackVtbl.CAPTURE_FRAME, check(value)); }
 
 	/**
 	 * Validates pointer members that should not be {@code NULL}.
@@ -361,15 +361,15 @@ public class BGFXCallbackVtbl extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + BGFXCallbackVtbl.FATAL));
-		checkPointer(memGetAddress(struct + BGFXCallbackVtbl.TRACE_VARGS));
-		checkPointer(memGetAddress(struct + BGFXCallbackVtbl.CACHE_READ_SIZE));
-		checkPointer(memGetAddress(struct + BGFXCallbackVtbl.CACHE_READ));
-		checkPointer(memGetAddress(struct + BGFXCallbackVtbl.CACHE_WRITE));
-		checkPointer(memGetAddress(struct + BGFXCallbackVtbl.SCREEN_SHOT));
-		checkPointer(memGetAddress(struct + BGFXCallbackVtbl.CAPTURE_BEGIN));
-		checkPointer(memGetAddress(struct + BGFXCallbackVtbl.CAPTURE_END));
-		checkPointer(memGetAddress(struct + BGFXCallbackVtbl.CAPTURE_FRAME));
+		check(memGetAddress(struct + BGFXCallbackVtbl.FATAL));
+		check(memGetAddress(struct + BGFXCallbackVtbl.TRACE_VARGS));
+		check(memGetAddress(struct + BGFXCallbackVtbl.CACHE_READ_SIZE));
+		check(memGetAddress(struct + BGFXCallbackVtbl.CACHE_READ));
+		check(memGetAddress(struct + BGFXCallbackVtbl.CACHE_WRITE));
+		check(memGetAddress(struct + BGFXCallbackVtbl.SCREEN_SHOT));
+		check(memGetAddress(struct + BGFXCallbackVtbl.CAPTURE_BEGIN));
+		check(memGetAddress(struct + BGFXCallbackVtbl.CAPTURE_END));
+		check(memGetAddress(struct + BGFXCallbackVtbl.CAPTURE_FRAME));
 	}
 
 	/**

@@ -67,7 +67,7 @@ public class ARBTransformFeedback2 {
 	public static void glBindTransformFeedback(int target, int id) {
 		long __functionAddress = GL.getCapabilities().glBindTransformFeedback;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, id);
 	}
 
@@ -81,7 +81,7 @@ public class ARBTransformFeedback2 {
 	public static void nglDeleteTransformFeedbacks(int n, long ids) {
 		long __functionAddress = GL.getCapabilities().glDeleteTransformFeedbacks;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, ids);
 	}
 
@@ -115,7 +115,7 @@ public class ARBTransformFeedback2 {
 	public static void nglGenTransformFeedbacks(int n, long ids) {
 		long __functionAddress = GL.getCapabilities().glGenTransformFeedbacks;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, ids);
 	}
 
@@ -150,7 +150,7 @@ public class ARBTransformFeedback2 {
 	public static boolean glIsTransformFeedback(int id) {
 		long __functionAddress = GL.getCapabilities().glIsTransformFeedback;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callZ(__functionAddress, id);
 	}
 
@@ -172,7 +172,7 @@ public class ARBTransformFeedback2 {
 	public static void glPauseTransformFeedback() {
 		long __functionAddress = GL.getCapabilities().glPauseTransformFeedback;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -186,7 +186,7 @@ public class ARBTransformFeedback2 {
 	public static void glResumeTransformFeedback() {
 		long __functionAddress = GL.getCapabilities().glResumeTransformFeedback;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -201,7 +201,7 @@ public class ARBTransformFeedback2 {
 	public static void glDrawTransformFeedback(int mode, int id) {
 		long __functionAddress = GL.getCapabilities().glDrawTransformFeedback;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, mode, id);
 	}
 
@@ -209,7 +209,7 @@ public class ARBTransformFeedback2 {
 	public static void glDeleteTransformFeedbacks(int[] ids) {
 		long __functionAddress = GL.getCapabilities().glDeleteTransformFeedbacks;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, ids.length, ids);
 	}
 
@@ -217,7 +217,7 @@ public class ARBTransformFeedback2 {
 	public static void glGenTransformFeedbacks(int[] ids) {
 		long __functionAddress = GL.getCapabilities().glGenTransformFeedbacks;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, ids.length, ids);
 	}
 

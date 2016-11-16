@@ -312,7 +312,7 @@ public class BGFXTransientVertexBuffer extends Struct implements NativeResource 
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + BGFXTransientVertexBuffer.DATA));
+		check(memGetAddress(struct + BGFXTransientVertexBuffer.DATA));
 	}
 
 	/**

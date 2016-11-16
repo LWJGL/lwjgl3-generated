@@ -45,7 +45,7 @@ public class NVBindlessMultiDrawIndirect {
 	public static void nglMultiDrawArraysIndirectBindlessNV(int mode, long indirect, int drawCount, int stride, int vertexBufferCount) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawArraysIndirectBindlessNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, mode, indirect, drawCount, stride, vertexBufferCount);
 	}
 
@@ -81,7 +81,7 @@ typedef struct {
 	public static void nglMultiDrawElementsIndirectBindlessNV(int mode, int type, long indirect, int drawCount, int stride, int vertexBufferCount) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawElementsIndirectBindlessNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, mode, type, indirect, drawCount, stride, vertexBufferCount);
 	}
 

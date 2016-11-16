@@ -414,11 +414,11 @@ public class VkSubpassDescription extends Struct implements NativeResource {
 	 */
 	public static void validate(long struct) {
 		if ( ninputAttachmentCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkSubpassDescription.PINPUTATTACHMENTS));
+			check(memGetAddress(struct + VkSubpassDescription.PINPUTATTACHMENTS));
 		if ( ncolorAttachmentCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkSubpassDescription.PCOLORATTACHMENTS));
+			check(memGetAddress(struct + VkSubpassDescription.PCOLORATTACHMENTS));
 		if ( npreserveAttachmentCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkSubpassDescription.PPRESERVEATTACHMENTS));
+			check(memGetAddress(struct + VkSubpassDescription.PPRESERVEATTACHMENTS));
 	}
 
 	/**

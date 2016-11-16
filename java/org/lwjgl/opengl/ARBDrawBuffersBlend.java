@@ -52,7 +52,7 @@ public class ARBDrawBuffersBlend {
 	public static void glBlendEquationiARB(int buf, int mode) {
 		long __functionAddress = GL.getCapabilities().glBlendEquationiARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, buf, mode);
 	}
 
@@ -78,7 +78,7 @@ public class ARBDrawBuffersBlend {
 	public static void glBlendEquationSeparateiARB(int buf, int modeRGB, int modeAlpha) {
 		long __functionAddress = GL.getCapabilities().glBlendEquationSeparateiARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, buf, modeRGB, modeAlpha);
 	}
 
@@ -103,7 +103,7 @@ public class ARBDrawBuffersBlend {
 	public static void glBlendFunciARB(int buf, int src, int dst) {
 		long __functionAddress = GL.getCapabilities().glBlendFunciARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, buf, src, dst);
 	}
 
@@ -130,7 +130,7 @@ public class ARBDrawBuffersBlend {
 	public static void glBlendFuncSeparateiARB(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
 		long __functionAddress = GL.getCapabilities().glBlendFuncSeparateiARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 	}
 

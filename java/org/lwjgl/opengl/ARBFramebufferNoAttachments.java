@@ -87,7 +87,7 @@ public class ARBFramebufferNoAttachments {
 	public static void glFramebufferParameteri(int target, int pname, int param) {
 		long __functionAddress = GL.getCapabilities().glFramebufferParameteri;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, pname, param);
 	}
 
@@ -97,7 +97,7 @@ public class ARBFramebufferNoAttachments {
 	public static void nglGetFramebufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetFramebufferParameteriv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, pname, params);
 	}
 
@@ -110,7 +110,7 @@ public class ARBFramebufferNoAttachments {
 	 */
 	public static void glGetFramebufferParameteriv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetFramebufferParameteriv(target, pname, memAddress(params));
 	}
 
@@ -143,7 +143,7 @@ public class ARBFramebufferNoAttachments {
 	public static void glNamedFramebufferParameteriEXT(int framebuffer, int pname, int param) {
 		long __functionAddress = GL.getCapabilities().glNamedFramebufferParameteriEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, framebuffer, pname, param);
 	}
 
@@ -153,7 +153,7 @@ public class ARBFramebufferNoAttachments {
 	public static void nglGetNamedFramebufferParameterivEXT(int framebuffer, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetNamedFramebufferParameterivEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, framebuffer, pname, params);
 	}
 
@@ -166,7 +166,7 @@ public class ARBFramebufferNoAttachments {
 	 */
 	public static void glGetNamedFramebufferParameterivEXT(int framebuffer, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetNamedFramebufferParameterivEXT(framebuffer, pname, memAddress(params));
 	}
 
@@ -191,8 +191,8 @@ public class ARBFramebufferNoAttachments {
 	public static void glGetFramebufferParameteriv(int target, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetFramebufferParameteriv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, target, pname, params);
 	}
@@ -201,8 +201,8 @@ public class ARBFramebufferNoAttachments {
 	public static void glGetNamedFramebufferParameterivEXT(int framebuffer, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetNamedFramebufferParameterivEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, framebuffer, pname, params);
 	}

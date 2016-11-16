@@ -116,7 +116,7 @@ public class ALC10 {
 	public static boolean alcCloseDevice(long deviceHandle) {
 		long __functionAddress = ALC.getICD().alcCloseDevice;
 		if ( CHECKS )
-			checkPointer(deviceHandle);
+			check(deviceHandle);
 		return invokePZ(__functionAddress, deviceHandle);
 	}
 
@@ -126,7 +126,7 @@ public class ALC10 {
 	public static long nalcCreateContext(long deviceHandle, long attrList) {
 		long __functionAddress = ALC.getICD().alcCreateContext;
 		if ( CHECKS )
-			checkPointer(deviceHandle);
+			check(deviceHandle);
 		return invokePPP(__functionAddress, deviceHandle, attrList);
 	}
 
@@ -175,7 +175,7 @@ public class ALC10 {
 	public static void alcProcessContext(long context) {
 		long __functionAddress = ALC.getICD().alcProcessContext;
 		if ( CHECKS )
-			checkPointer(context);
+			check(context);
 		invokePV(__functionAddress, context);
 	}
 
@@ -192,7 +192,7 @@ public class ALC10 {
 	public static void alcSuspendContext(long context) {
 		long __functionAddress = ALC.getICD().alcSuspendContext;
 		if ( CHECKS )
-			checkPointer(context);
+			check(context);
 		invokePV(__functionAddress, context);
 	}
 
@@ -210,7 +210,7 @@ public class ALC10 {
 	public static void alcDestroyContext(long context) {
 		long __functionAddress = ALC.getICD().alcDestroyContext;
 		if ( CHECKS )
-			checkPointer(context);
+			check(context);
 		invokePV(__functionAddress, context);
 	}
 
@@ -232,7 +232,7 @@ public class ALC10 {
 	public static long alcGetContextsDevice(long context) {
 		long __functionAddress = ALC.getICD().alcGetContextsDevice;
 		if ( CHECKS )
-			checkPointer(context);
+			check(context);
 		return invokePP(__functionAddress, context);
 	}
 
@@ -450,7 +450,7 @@ public class ALC10 {
 	public static long alcCreateContext(long deviceHandle, int[] attrList) {
 		long __functionAddress = ALC.getICD().alcCreateContext;
 		if ( CHECKS ) {
-			checkPointer(deviceHandle);
+			check(deviceHandle);
 			checkNTSafe(attrList);
 		}
 		return invokePPP(__functionAddress, deviceHandle, attrList);

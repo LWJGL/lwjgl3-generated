@@ -50,9 +50,9 @@ public class GLXARBCreateContext {
 	public static long nglXCreateContextAttribsARB(long display, long config, long share_context, int direct, long attrib_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateContextAttribsARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(config);
+			check(__functionAddress);
+			check(display);
+			check(config);
 		}
 		return callPPPPP(__functionAddress, display, config, share_context, direct, attrib_list);
 	}
@@ -95,9 +95,9 @@ public class GLXARBCreateContext {
 	public static long glXCreateContextAttribsARB(long display, long config, long share_context, int direct, int[] attrib_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateContextAttribsARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(config);
+			check(__functionAddress);
+			check(display);
+			check(config);
 			checkNTSafe(attrib_list);
 		}
 		return callPPPPP(__functionAddress, display, config, share_context, direct, attrib_list);

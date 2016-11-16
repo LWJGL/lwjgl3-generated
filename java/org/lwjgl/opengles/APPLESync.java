@@ -86,7 +86,7 @@ public class APPLESync {
 	public static long glFenceSyncAPPLE(int condition, int flags) {
 		long __functionAddress = GLES.getCapabilities().glFenceSyncAPPLE;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callP(__functionAddress, condition, flags);
 	}
 
@@ -95,8 +95,8 @@ public class APPLESync {
 	public static boolean glIsSyncAPPLE(long sync) {
 		long __functionAddress = GLES.getCapabilities().glIsSyncAPPLE;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(sync);
+			check(__functionAddress);
+			check(sync);
 		}
 		return callPZ(__functionAddress, sync);
 	}
@@ -106,8 +106,8 @@ public class APPLESync {
 	public static void glDeleteSyncAPPLE(long sync) {
 		long __functionAddress = GLES.getCapabilities().glDeleteSyncAPPLE;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(sync);
+			check(__functionAddress);
+			check(sync);
 		}
 		callPV(__functionAddress, sync);
 	}
@@ -117,8 +117,8 @@ public class APPLESync {
 	public static int glClientWaitSyncAPPLE(long sync, int flags, long timeout) {
 		long __functionAddress = GLES.getCapabilities().glClientWaitSyncAPPLE;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(sync);
+			check(__functionAddress);
+			check(sync);
 		}
 		return callPJI(__functionAddress, sync, flags, timeout);
 	}
@@ -128,8 +128,8 @@ public class APPLESync {
 	public static void glWaitSyncAPPLE(long sync, int flags, long timeout) {
 		long __functionAddress = GLES.getCapabilities().glWaitSyncAPPLE;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(sync);
+			check(__functionAddress);
+			check(sync);
 		}
 		callPJV(__functionAddress, sync, flags, timeout);
 	}
@@ -139,13 +139,13 @@ public class APPLESync {
 	public static void nglGetInteger64vAPPLE(int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetInteger64vAPPLE;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, pname, params);
 	}
 
 	public static void glGetInteger64vAPPLE(int pname, LongBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetInteger64vAPPLE(pname, memAddress(params));
 	}
 
@@ -165,21 +165,21 @@ public class APPLESync {
 	public static void nglGetSyncivAPPLE(long sync, int pname, int bufSize, long length, long values) {
 		long __functionAddress = GLES.getCapabilities().glGetSyncivAPPLE;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(sync);
+			check(__functionAddress);
+			check(sync);
 		}
 		callPPPV(__functionAddress, sync, pname, bufSize, length, values);
 	}
 
 	public static void glGetSyncivAPPLE(long sync, int pname, IntBuffer length, IntBuffer values) {
 		if ( CHECKS )
-			checkBufferSafe(length, 1);
+			checkSafe(length, 1);
 		nglGetSyncivAPPLE(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
 	}
 
 	public static int glGetSynciAPPLE(long sync, int pname, IntBuffer length) {
 		if ( CHECKS )
-			checkBufferSafe(length, 1);
+			checkSafe(length, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			IntBuffer values = stack.callocInt(1);
@@ -194,8 +194,8 @@ public class APPLESync {
 	public static void glGetInteger64vAPPLE(int pname, long[] params) {
 		long __functionAddress = GLES.getCapabilities().glGetInteger64vAPPLE;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, pname, params);
 	}
@@ -204,9 +204,9 @@ public class APPLESync {
 	public static void glGetSyncivAPPLE(long sync, int pname, int[] length, int[] values) {
 		long __functionAddress = GLES.getCapabilities().glGetSyncivAPPLE;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(sync);
-			checkBufferSafe(length, 1);
+			check(__functionAddress);
+			check(sync);
+			checkSafe(length, 1);
 		}
 		callPPPV(__functionAddress, sync, pname, values.length, length, values);
 	}

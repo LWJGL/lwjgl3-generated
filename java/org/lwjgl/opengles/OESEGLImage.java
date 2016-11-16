@@ -37,8 +37,8 @@ public class OESEGLImage {
 	public static void glEGLImageTargetTexture2DOES(int target, long image) {
 		long __functionAddress = GLES.getCapabilities().glEGLImageTargetTexture2DOES;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(image);
+			check(__functionAddress);
+			check(image);
 		}
 		callPV(__functionAddress, target, image);
 	}
@@ -48,8 +48,8 @@ public class OESEGLImage {
 	public static void glEGLImageTargetRenderbufferStorageOES(int target, long image) {
 		long __functionAddress = GLES.getCapabilities().glEGLImageTargetRenderbufferStorageOES;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(image);
+			check(__functionAddress);
+			check(image);
 		}
 		callPV(__functionAddress, target, image);
 	}

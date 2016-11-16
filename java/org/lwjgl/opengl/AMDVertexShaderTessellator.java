@@ -98,7 +98,7 @@ public class AMDVertexShaderTessellator {
 	public static void glTessellationFactorAMD(float factor) {
 		long __functionAddress = GL.getCapabilities().glTessellationFactorAMD;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, factor);
 	}
 
@@ -107,7 +107,7 @@ public class AMDVertexShaderTessellator {
 	public static void glTessellationModeAMD(int mode) {
 		long __functionAddress = GL.getCapabilities().glTessellationModeAMD;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, mode);
 	}
 

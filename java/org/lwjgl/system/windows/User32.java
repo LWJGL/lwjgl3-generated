@@ -1125,7 +1125,7 @@ public class User32 {
 	public static boolean DestroyWindow(long hWnd) {
 		long __functionAddress = Functions.DestroyWindow;
 		if ( CHECKS )
-			checkPointer(hWnd);
+			check(hWnd);
 		return nDestroyWindow(__functionAddress, hWnd) != 0;
 	}
 
@@ -1143,7 +1143,7 @@ public class User32 {
 	public static long DefWindowProc(long hWnd, int Msg, long wParam, long lParam) {
 		long __functionAddress = Functions.DefWindowProc;
 		if ( CHECKS )
-			checkPointer(hWnd);
+			check(hWnd);
 		return callPPPP(__functionAddress, hWnd, Msg, wParam, lParam);
 	}
 
@@ -1160,7 +1160,7 @@ public class User32 {
 	public static boolean ShowWindow(long hWnd, int nCmdShow) {
 		long __functionAddress = Functions.ShowWindow;
 		if ( CHECKS )
-			checkPointer(hWnd);
+			check(hWnd);
 		return callPI(__functionAddress, hWnd, nCmdShow) != 0;
 	}
 
@@ -1176,7 +1176,7 @@ public class User32 {
 	public static boolean UpdateWindow(long hWnd) {
 		long __functionAddress = Functions.UpdateWindow;
 		if ( CHECKS )
-			checkPointer(hWnd);
+			check(hWnd);
 		return callPI(__functionAddress, hWnd) != 0;
 	}
 
@@ -1200,7 +1200,7 @@ public class User32 {
 	public static boolean SetWindowPos(long hWnd, long hWndInsertAfter, int X, int Y, int cx, int cy, int uFlags) {
 		long __functionAddress = Functions.SetWindowPos;
 		if ( CHECKS )
-			checkPointer(hWnd);
+			check(hWnd);
 		return nSetWindowPos(__functionAddress, hWnd, hWndInsertAfter, X, Y, cx, cy, uFlags) != 0;
 	}
 
@@ -1213,7 +1213,7 @@ public class User32 {
 	public static int nSetWindowText(long hWnd, long lpString) {
 		long __functionAddress = Functions.SetWindowText;
 		if ( CHECKS )
-			checkPointer(hWnd);
+			check(hWnd);
 		return nSetWindowTextW(__functionAddress, hWnd, lpString);
 	}
 
@@ -1403,7 +1403,7 @@ public class User32 {
 	public static boolean SendMessage(long hWnd, int Msg, long wParam, long lParam) {
 		long __functionAddress = Functions.SendMessage;
 		if ( CHECKS )
-			checkPointer(hWnd);
+			check(hWnd);
 		return nSendMessageW(__functionAddress, hWnd, Msg, wParam, lParam) != 0;
 	}
 
@@ -1442,7 +1442,7 @@ public class User32 {
 	public static int nGetWindowRect(long hWnd, long lpRect) {
 		long __functionAddress = Functions.GetWindowRect;
 		if ( CHECKS )
-			checkPointer(hWnd);
+			check(hWnd);
 		return nGetWindowRect(__functionAddress, hWnd, lpRect);
 	}
 
@@ -1478,7 +1478,7 @@ public class User32 {
 	public static boolean MoveWindow(long hWnd, int X, int Y, int nWidth, int nHeight, boolean bRepaint) {
 		long __functionAddress = Functions.MoveWindow;
 		if ( CHECKS )
-			checkPointer(hWnd);
+			check(hWnd);
 		return nMoveWindow(__functionAddress, hWnd, X, Y, nWidth, nHeight, bRepaint ? 1 : 0) != 0;
 	}
 
@@ -1491,7 +1491,7 @@ public class User32 {
 	public static int nGetWindowPlacement(long hWnd, long lpwndpl) {
 		long __functionAddress = Functions.GetWindowPlacement;
 		if ( CHECKS )
-			checkPointer(hWnd);
+			check(hWnd);
 		return nGetWindowPlacement(__functionAddress, hWnd, lpwndpl);
 	}
 
@@ -1517,7 +1517,7 @@ public class User32 {
 	public static int nSetWindowPlacement(long hWnd, long lpwndpl) {
 		long __functionAddress = Functions.SetWindowPlacement;
 		if ( CHECKS )
-			checkPointer(hWnd);
+			check(hWnd);
 		return nSetWindowPlacement(__functionAddress, hWnd, lpwndpl);
 	}
 
@@ -1544,7 +1544,7 @@ public class User32 {
 	public static boolean IsWindowVisible(long hWnd) {
 		long __functionAddress = Functions.IsWindowVisible;
 		if ( CHECKS )
-			checkPointer(hWnd);
+			check(hWnd);
 		return callPI(__functionAddress, hWnd) != 0;
 	}
 
@@ -1558,7 +1558,7 @@ public class User32 {
 	public static boolean IsIconic(long hWnd) {
 		long __functionAddress = Functions.IsIconic;
 		if ( CHECKS )
-			checkPointer(hWnd);
+			check(hWnd);
 		return callPI(__functionAddress, hWnd) != 0;
 	}
 
@@ -1572,7 +1572,7 @@ public class User32 {
 	public static boolean IsZoomed(long hWnd) {
 		long __functionAddress = Functions.IsZoomed;
 		if ( CHECKS )
-			checkPointer(hWnd);
+			check(hWnd);
 		return callPI(__functionAddress, hWnd) != 0;
 	}
 
@@ -1587,7 +1587,7 @@ public class User32 {
 	public static boolean BringWindowToTop(long hWnd) {
 		long __functionAddress = Functions.BringWindowToTop;
 		if ( CHECKS )
-			checkPointer(hWnd);
+			check(hWnd);
 		return callPI(__functionAddress, hWnd) != 0;
 	}
 
@@ -1609,7 +1609,7 @@ public class User32 {
 	public static long SetWindowLongPtr(long hWnd, int nIndex, long dwNewLong) {
 		long __functionAddress = Functions.SetWindowLongPtr;
 		if ( CHECKS )
-			checkPointer(hWnd);
+			check(hWnd);
 		return nSetWindowLongPtr(__functionAddress, hWnd, nIndex, dwNewLong);
 	}
 
@@ -1628,7 +1628,7 @@ public class User32 {
 	public static long GetWindowLongPtr(long hWnd, int nIndex) {
 		long __functionAddress = Functions.GetWindowLongPtr;
 		if ( CHECKS )
-			checkPointer(hWnd);
+			check(hWnd);
 		return nGetWindowLongPtr(__functionAddress, hWnd, nIndex);
 	}
 
@@ -1654,7 +1654,7 @@ public class User32 {
 	public static long SetClassLongPtr(long hWnd, int nIndex, long dwNewLong) {
 		long __functionAddress = Functions.SetClassLongPtr;
 		if ( CHECKS )
-			checkPointer(hWnd);
+			check(hWnd);
 		return nSetClassLongPtr(__functionAddress, hWnd, nIndex, dwNewLong);
 	}
 
@@ -1675,7 +1675,7 @@ public class User32 {
 	public static long GetClassLongPtr(long hWnd, int nIndex) {
 		long __functionAddress = Functions.GetClassLongPtr;
 		if ( CHECKS )
-			checkPointer(hWnd);
+			check(hWnd);
 		return nGetClassLongPtr(__functionAddress, hWnd, nIndex);
 	}
 
@@ -1698,7 +1698,7 @@ public class User32 {
 	public static boolean SetLayeredWindowAttributes(long hwnd, int crKey, byte bAlpha, int dwFlags) {
 		long __functionAddress = Functions.SetLayeredWindowAttributes;
 		if ( CHECKS )
-			checkPointer(hwnd);
+			check(hwnd);
 		return nSetLayeredWindowAttributes(__functionAddress, hwnd, crKey, bAlpha, dwFlags) != 0;
 	}
 
@@ -1807,8 +1807,8 @@ public class User32 {
 	public static boolean ReleaseDC(long hWnd, long hDC) {
 		long __functionAddress = Functions.ReleaseDC;
 		if ( CHECKS ) {
-			checkPointer(hWnd);
-			checkPointer(hDC);
+			check(hWnd);
+			check(hDC);
 		}
 		return callPPI(__functionAddress, hWnd, hDC) != 0;
 	}
@@ -1847,8 +1847,8 @@ public class User32 {
 	public static boolean RegisterTouchWindow(long hWnd, int ulFlags) {
 		long __functionAddress = Functions.RegisterTouchWindow;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(hWnd);
+			check(__functionAddress);
+			check(hWnd);
 		}
 		return nRegisterTouchWindow(__functionAddress, hWnd, ulFlags) != 0;
 	}
@@ -1868,8 +1868,8 @@ public class User32 {
 	public static boolean UnregisterTouchWindow(long hWnd) {
 		long __functionAddress = Functions.UnregisterTouchWindow;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(hWnd);
+			check(__functionAddress);
+			check(hWnd);
 		}
 		return nUnregisterTouchWindow(__functionAddress, hWnd) != 0;
 	}
@@ -1880,8 +1880,8 @@ public class User32 {
 	public static int nIsTouchWindow(long hWnd, long pulFlags) {
 		long __functionAddress = Functions.IsTouchWindow;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(hWnd);
+			check(__functionAddress);
+			check(hWnd);
 		}
 		return callPPI(__functionAddress, hWnd, pulFlags);
 	}
@@ -1920,8 +1920,8 @@ public class User32 {
 	public static int nGetTouchInputInfo(long hTouchInput, int cInputs, long pInputs, int cbSize) {
 		long __functionAddress = Functions.GetTouchInputInfo;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(hTouchInput);
+			check(__functionAddress);
+			check(hTouchInput);
 		}
 		return nGetTouchInputInfo(__functionAddress, hTouchInput, cInputs, pInputs, cbSize);
 	}
@@ -1959,8 +1959,8 @@ public class User32 {
 	public static boolean CloseTouchInputHandle(long hTouchInput) {
 		long __functionAddress = Functions.CloseTouchInputHandle;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(hTouchInput);
+			check(__functionAddress);
+			check(hTouchInput);
 		}
 		return nCloseTouchInputHandle(__functionAddress, hTouchInput) != 0;
 	}
@@ -1976,7 +1976,7 @@ public class User32 {
 	public static long MonitorFromWindow(long hWnd, int dwFlags) {
 		long __functionAddress = Functions.MonitorFromWindow;
 		if ( CHECKS )
-			checkPointer(hWnd);
+			check(hWnd);
 		return callPP(__functionAddress, hWnd, dwFlags);
 	}
 
@@ -1986,7 +1986,7 @@ public class User32 {
 	public static int nGetMonitorInfo(long hMonitor, long lpmi) {
 		long __functionAddress = Functions.GetMonitorInfo;
 		if ( CHECKS )
-			checkPointer(hMonitor);
+			check(hMonitor);
 		return callPPI(__functionAddress, hMonitor, lpmi);
 	}
 
@@ -2301,8 +2301,8 @@ public class User32 {
 	public static boolean IsTouchWindow(long hWnd, int[] pulFlags) {
 		long __functionAddress = Functions.IsTouchWindow;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(hWnd);
+			check(__functionAddress);
+			check(hWnd);
 		}
 		return callPPI(__functionAddress, hWnd, pulFlags) != 0;
 	}

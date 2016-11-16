@@ -95,7 +95,7 @@ public class ARBComputeShader {
 	public static void glDispatchCompute(int num_groups_x, int num_groups_y, int num_groups_z) {
 		long __functionAddress = GL.getCapabilities().glDispatchCompute;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, num_groups_x, num_groups_y, num_groups_z);
 	}
 
@@ -123,7 +123,7 @@ glDispatchCompute(cmd->num_groups_x, cmd->num_groups_y, cmd->num_groups_z);</cod
 	public static void glDispatchComputeIndirect(long indirect) {
 		long __functionAddress = GL.getCapabilities().glDispatchComputeIndirect;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, indirect);
 	}
 

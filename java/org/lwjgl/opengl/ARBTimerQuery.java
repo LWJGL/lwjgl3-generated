@@ -63,7 +63,7 @@ public class ARBTimerQuery {
 	public static void glQueryCounter(int id, int target) {
 		long __functionAddress = GL.getCapabilities().glQueryCounter;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, id, target);
 	}
 
@@ -73,7 +73,7 @@ public class ARBTimerQuery {
 	public static void nglGetQueryObjecti64v(int id, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjecti64v;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, id, pname, params);
 	}
 
@@ -86,7 +86,7 @@ public class ARBTimerQuery {
 	 */
 	public static void glGetQueryObjecti64v(int id, int pname, LongBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetQueryObjecti64v(id, pname, memAddress(params));
 	}
 
@@ -113,7 +113,7 @@ public class ARBTimerQuery {
 	public static void nglGetQueryObjectui64v(int id, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjectui64v;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, id, pname, params);
 	}
 
@@ -126,7 +126,7 @@ public class ARBTimerQuery {
 	 */
 	public static void glGetQueryObjectui64v(int id, int pname, LongBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetQueryObjectui64v(id, pname, memAddress(params));
 	}
 
@@ -151,8 +151,8 @@ public class ARBTimerQuery {
 	public static void glGetQueryObjecti64v(int id, int pname, long[] params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjecti64v;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, id, pname, params);
 	}
@@ -161,8 +161,8 @@ public class ARBTimerQuery {
 	public static void glGetQueryObjectui64v(int id, int pname, long[] params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjectui64v;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, id, pname, params);
 	}

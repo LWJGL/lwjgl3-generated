@@ -53,7 +53,7 @@ public class ANGLEFramebufferMultisample {
 	public static void glRenderbufferStorageMultisampleANGLE(int target, int samples, int internalformat, int width, int height) {
 		long __functionAddress = GLES.getCapabilities().glRenderbufferStorageMultisampleANGLE;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, samples, internalformat, width, height);
 	}
 

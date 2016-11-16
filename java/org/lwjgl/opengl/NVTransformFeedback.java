@@ -118,7 +118,7 @@ public class NVTransformFeedback {
 	public static void glBeginTransformFeedbackNV(int primitiveMode) {
 		long __functionAddress = GL.getCapabilities().glBeginTransformFeedbackNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, primitiveMode);
 	}
 
@@ -127,7 +127,7 @@ public class NVTransformFeedback {
 	public static void glEndTransformFeedbackNV() {
 		long __functionAddress = GL.getCapabilities().glEndTransformFeedbackNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -136,7 +136,7 @@ public class NVTransformFeedback {
 	public static void nglTransformFeedbackAttribsNV(int count, long attribs, int bufferMode) {
 		long __functionAddress = GL.getCapabilities().glTransformFeedbackAttribsNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, count, attribs, bufferMode);
 	}
 
@@ -149,7 +149,7 @@ public class NVTransformFeedback {
 	public static void glBindBufferRangeNV(int target, int index, int buffer, long offset, long size) {
 		long __functionAddress = GL.getCapabilities().glBindBufferRangeNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, target, index, buffer, offset, size);
 	}
 
@@ -158,7 +158,7 @@ public class NVTransformFeedback {
 	public static void glBindBufferOffsetNV(int target, int index, int buffer, long offset) {
 		long __functionAddress = GL.getCapabilities().glBindBufferOffsetNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, index, buffer, offset);
 	}
 
@@ -167,7 +167,7 @@ public class NVTransformFeedback {
 	public static void glBindBufferBaseNV(int target, int index, int buffer) {
 		long __functionAddress = GL.getCapabilities().glBindBufferBaseNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, index, buffer);
 	}
 
@@ -176,7 +176,7 @@ public class NVTransformFeedback {
 	public static void nglTransformFeedbackVaryingsNV(int program, int count, long locations, int bufferMode) {
 		long __functionAddress = GL.getCapabilities().glTransformFeedbackVaryingsNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, count, locations, bufferMode);
 	}
 
@@ -189,7 +189,7 @@ public class NVTransformFeedback {
 	public static void nglActiveVaryingNV(int program, long name) {
 		long __functionAddress = GL.getCapabilities().glActiveVaryingNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, name);
 	}
 
@@ -214,7 +214,7 @@ public class NVTransformFeedback {
 	public static int nglGetVaryingLocationNV(int program, long name) {
 		long __functionAddress = GL.getCapabilities().glGetVaryingLocationNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPI(__functionAddress, program, name);
 	}
 
@@ -239,15 +239,15 @@ public class NVTransformFeedback {
 	public static void nglGetActiveVaryingNV(int program, int index, int bufSize, long length, long size, long type, long name) {
 		long __functionAddress = GL.getCapabilities().glGetActiveVaryingNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPPPV(__functionAddress, program, index, bufSize, length, size, type, name);
 	}
 
 	public static void glGetActiveVaryingNV(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
 		if ( CHECKS ) {
-			checkBufferSafe(length, 1);
-			checkBuffer(size, 1);
-			checkBuffer(type, 1);
+			checkSafe(length, 1);
+			check(size, 1);
+			check(type, 1);
 		}
 		nglGetActiveVaryingNV(program, index, name.remaining(), memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name));
 	}
@@ -257,13 +257,13 @@ public class NVTransformFeedback {
 	public static void nglGetTransformFeedbackVaryingNV(int program, int index, long location) {
 		long __functionAddress = GL.getCapabilities().glGetTransformFeedbackVaryingNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, index, location);
 	}
 
 	public static void glGetTransformFeedbackVaryingNV(int program, int index, IntBuffer location) {
 		if ( CHECKS )
-			checkBuffer(location, 1);
+			check(location, 1);
 		nglGetTransformFeedbackVaryingNV(program, index, memAddress(location));
 	}
 
@@ -283,7 +283,7 @@ public class NVTransformFeedback {
 	public static void nglTransformFeedbackStreamAttribsNV(int count, long attribs, int nbuffers, long bufstreams, int bufferMode) {
 		long __functionAddress = GL.getCapabilities().glTransformFeedbackStreamAttribsNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, count, attribs, nbuffers, bufstreams, bufferMode);
 	}
 
@@ -295,7 +295,7 @@ public class NVTransformFeedback {
 	public static void glTransformFeedbackAttribsNV(int[] attribs, int bufferMode) {
 		long __functionAddress = GL.getCapabilities().glTransformFeedbackAttribsNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, attribs.length, attribs, bufferMode);
 	}
 
@@ -303,7 +303,7 @@ public class NVTransformFeedback {
 	public static void glTransformFeedbackVaryingsNV(int program, int[] locations, int bufferMode) {
 		long __functionAddress = GL.getCapabilities().glTransformFeedbackVaryingsNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, locations.length, locations, bufferMode);
 	}
 
@@ -311,10 +311,10 @@ public class NVTransformFeedback {
 	public static void glGetActiveVaryingNV(int program, int index, int[] length, int[] size, int[] type, ByteBuffer name) {
 		long __functionAddress = GL.getCapabilities().glGetActiveVaryingNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(length, 1);
-			checkBuffer(size, 1);
-			checkBuffer(type, 1);
+			check(__functionAddress);
+			checkSafe(length, 1);
+			check(size, 1);
+			check(type, 1);
 		}
 		callPPPPV(__functionAddress, program, index, name.remaining(), length, size, type, memAddress(name));
 	}
@@ -323,8 +323,8 @@ public class NVTransformFeedback {
 	public static void glGetTransformFeedbackVaryingNV(int program, int index, int[] location) {
 		long __functionAddress = GL.getCapabilities().glGetTransformFeedbackVaryingNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(location, 1);
+			check(__functionAddress);
+			check(location, 1);
 		}
 		callPV(__functionAddress, program, index, location);
 	}
@@ -333,7 +333,7 @@ public class NVTransformFeedback {
 	public static void glTransformFeedbackStreamAttribsNV(int[] attribs, int[] bufstreams, int bufferMode) {
 		long __functionAddress = GL.getCapabilities().glTransformFeedbackStreamAttribsNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, attribs.length, attribs, bufstreams.length, bufstreams, bufferMode);
 	}
 

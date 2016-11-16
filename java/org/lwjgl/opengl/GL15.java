@@ -137,7 +137,7 @@ public class GL15 {
 	public static void glBindBuffer(int target, int buffer) {
 		long __functionAddress = GL.getCapabilities().glBindBuffer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, buffer);
 	}
 
@@ -151,7 +151,7 @@ public class GL15 {
 	public static void nglDeleteBuffers(int n, long buffers) {
 		long __functionAddress = GL.getCapabilities().glDeleteBuffers;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, buffers);
 	}
 
@@ -191,7 +191,7 @@ public class GL15 {
 	public static void nglGenBuffers(int n, long buffers) {
 		long __functionAddress = GL.getCapabilities().glGenBuffers;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, buffers);
 	}
 
@@ -234,7 +234,7 @@ public class GL15 {
 	public static boolean glIsBuffer(int buffer) {
 		long __functionAddress = GL.getCapabilities().glIsBuffer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callZ(__functionAddress, buffer);
 	}
 
@@ -248,7 +248,7 @@ public class GL15 {
 	public static void nglBufferData(int target, long size, long data, int usage) {
 		long __functionAddress = GL.getCapabilities().glBufferData;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, target, size, data, usage);
 	}
 
@@ -454,7 +454,7 @@ public class GL15 {
 	public static void nglBufferSubData(int target, long offset, long size, long data) {
 		long __functionAddress = GL.getCapabilities().glBufferSubData;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPPV(__functionAddress, target, offset, size, data);
 	}
 
@@ -533,7 +533,7 @@ public class GL15 {
 	public static void nglGetBufferSubData(int target, long offset, long size, long data) {
 		long __functionAddress = GL.getCapabilities().glGetBufferSubData;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPPV(__functionAddress, target, offset, size, data);
 	}
 
@@ -608,7 +608,7 @@ public class GL15 {
 	public static long nglMapBuffer(int target, int access) {
 		long __functionAddress = GL.getCapabilities().glMapBuffer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callP(__functionAddress, target, access);
 	}
 
@@ -693,7 +693,7 @@ public class GL15 {
 	public static boolean glUnmapBuffer(int target) {
 		long __functionAddress = GL.getCapabilities().glUnmapBuffer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callZ(__functionAddress, target);
 	}
 
@@ -703,7 +703,7 @@ public class GL15 {
 	public static void nglGetBufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetBufferParameteriv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, pname, params);
 	}
 
@@ -718,7 +718,7 @@ public class GL15 {
 	 */
 	public static void glGetBufferParameteriv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetBufferParameteriv(target, pname, memAddress(params));
 	}
 
@@ -747,7 +747,7 @@ public class GL15 {
 	public static void nglGetBufferPointerv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetBufferPointerv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, pname, params);
 	}
 
@@ -762,7 +762,7 @@ public class GL15 {
 	 */
 	public static void glGetBufferPointerv(int target, int pname, PointerBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetBufferPointerv(target, pname, memAddress(params));
 	}
 
@@ -795,7 +795,7 @@ public class GL15 {
 	public static void nglGenQueries(int n, long ids) {
 		long __functionAddress = GL.getCapabilities().glGenQueries;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, ids);
 	}
 
@@ -836,7 +836,7 @@ public class GL15 {
 	public static void nglDeleteQueries(int n, long ids) {
 		long __functionAddress = GL.getCapabilities().glDeleteQueries;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, ids);
 	}
 
@@ -878,7 +878,7 @@ public class GL15 {
 	public static boolean glIsQuery(int id) {
 		long __functionAddress = GL.getCapabilities().glIsQuery;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callZ(__functionAddress, id);
 	}
 
@@ -895,7 +895,7 @@ public class GL15 {
 	public static void glBeginQuery(int target, int id) {
 		long __functionAddress = GL.getCapabilities().glBeginQuery;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, id);
 	}
 
@@ -911,7 +911,7 @@ public class GL15 {
 	public static void glEndQuery(int target) {
 		long __functionAddress = GL.getCapabilities().glEndQuery;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target);
 	}
 
@@ -921,7 +921,7 @@ public class GL15 {
 	public static void nglGetQueryiv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, pname, params);
 	}
 
@@ -936,7 +936,7 @@ public class GL15 {
 	 */
 	public static void glGetQueryiv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetQueryiv(target, pname, memAddress(params));
 	}
 
@@ -965,7 +965,7 @@ public class GL15 {
 	public static void nglGetQueryObjectiv(int id, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjectiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, id, pname, params);
 	}
 
@@ -980,7 +980,7 @@ public class GL15 {
 	 */
 	public static void glGetQueryObjectiv(int id, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetQueryObjectiv(id, pname, memAddress(params));
 	}
 
@@ -1009,7 +1009,7 @@ public class GL15 {
 	public static void nglGetQueryObjectuiv(int id, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjectuiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, id, pname, params);
 	}
 
@@ -1024,7 +1024,7 @@ public class GL15 {
 	 */
 	public static void glGetQueryObjectuiv(int id, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetQueryObjectuiv(id, pname, memAddress(params));
 	}
 
@@ -1055,7 +1055,7 @@ public class GL15 {
 	public static void glDeleteBuffers(int[] buffers) {
 		long __functionAddress = GL.getCapabilities().glDeleteBuffers;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, buffers.length, buffers);
 	}
 
@@ -1067,7 +1067,7 @@ public class GL15 {
 	public static void glGenBuffers(int[] buffers) {
 		long __functionAddress = GL.getCapabilities().glGenBuffers;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, buffers.length, buffers);
 	}
 
@@ -1079,7 +1079,7 @@ public class GL15 {
 	public static void glBufferData(int target, short[] data, int usage) {
 		long __functionAddress = GL.getCapabilities().glBufferData;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, target, (long)(data.length << 1), data, usage);
 	}
 
@@ -1091,7 +1091,7 @@ public class GL15 {
 	public static void glBufferData(int target, int[] data, int usage) {
 		long __functionAddress = GL.getCapabilities().glBufferData;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, target, (long)(data.length << 2), data, usage);
 	}
 
@@ -1103,7 +1103,7 @@ public class GL15 {
 	public static void glBufferData(int target, float[] data, int usage) {
 		long __functionAddress = GL.getCapabilities().glBufferData;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, target, (long)(data.length << 2), data, usage);
 	}
 
@@ -1115,7 +1115,7 @@ public class GL15 {
 	public static void glBufferData(int target, double[] data, int usage) {
 		long __functionAddress = GL.getCapabilities().glBufferData;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, target, (long)(data.length << 3), data, usage);
 	}
 
@@ -1127,7 +1127,7 @@ public class GL15 {
 	public static void glBufferSubData(int target, long offset, short[] data) {
 		long __functionAddress = GL.getCapabilities().glBufferSubData;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPPV(__functionAddress, target, offset, (long)(data.length << 1), data);
 	}
 
@@ -1139,7 +1139,7 @@ public class GL15 {
 	public static void glBufferSubData(int target, long offset, int[] data) {
 		long __functionAddress = GL.getCapabilities().glBufferSubData;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
 	}
 
@@ -1151,7 +1151,7 @@ public class GL15 {
 	public static void glBufferSubData(int target, long offset, float[] data) {
 		long __functionAddress = GL.getCapabilities().glBufferSubData;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
 	}
 
@@ -1163,7 +1163,7 @@ public class GL15 {
 	public static void glBufferSubData(int target, long offset, double[] data) {
 		long __functionAddress = GL.getCapabilities().glBufferSubData;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPPV(__functionAddress, target, offset, (long)(data.length << 3), data);
 	}
 
@@ -1175,7 +1175,7 @@ public class GL15 {
 	public static void glGetBufferSubData(int target, long offset, short[] data) {
 		long __functionAddress = GL.getCapabilities().glGetBufferSubData;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPPV(__functionAddress, target, offset, (long)(data.length << 1), data);
 	}
 
@@ -1187,7 +1187,7 @@ public class GL15 {
 	public static void glGetBufferSubData(int target, long offset, int[] data) {
 		long __functionAddress = GL.getCapabilities().glGetBufferSubData;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
 	}
 
@@ -1199,7 +1199,7 @@ public class GL15 {
 	public static void glGetBufferSubData(int target, long offset, float[] data) {
 		long __functionAddress = GL.getCapabilities().glGetBufferSubData;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
 	}
 
@@ -1211,7 +1211,7 @@ public class GL15 {
 	public static void glGetBufferSubData(int target, long offset, double[] data) {
 		long __functionAddress = GL.getCapabilities().glGetBufferSubData;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPPV(__functionAddress, target, offset, (long)(data.length << 3), data);
 	}
 
@@ -1223,8 +1223,8 @@ public class GL15 {
 	public static void glGetBufferParameteriv(int target, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetBufferParameteriv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, target, pname, params);
 	}
@@ -1237,7 +1237,7 @@ public class GL15 {
 	public static void glGenQueries(int[] ids) {
 		long __functionAddress = GL.getCapabilities().glGenQueries;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, ids.length, ids);
 	}
 
@@ -1249,7 +1249,7 @@ public class GL15 {
 	public static void glDeleteQueries(int[] ids) {
 		long __functionAddress = GL.getCapabilities().glDeleteQueries;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, ids.length, ids);
 	}
 
@@ -1261,8 +1261,8 @@ public class GL15 {
 	public static void glGetQueryiv(int target, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, target, pname, params);
 	}
@@ -1275,8 +1275,8 @@ public class GL15 {
 	public static void glGetQueryObjectiv(int id, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjectiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, id, pname, params);
 	}
@@ -1289,8 +1289,8 @@ public class GL15 {
 	public static void glGetQueryObjectuiv(int id, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjectuiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, id, pname, params);
 	}

@@ -43,9 +43,9 @@ public class GLXSGIXSwapBarrier {
 	public static void glXBindSwapBarrierSGIX(long display, long drawable, int barrier) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXBindSwapBarrierSGIX;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(drawable);
+			check(__functionAddress);
+			check(display);
+			check(drawable);
 		}
 		callPPV(__functionAddress, display, drawable, barrier);
 	}
@@ -56,8 +56,8 @@ public class GLXSGIXSwapBarrier {
 	public static int nglXQueryMaxSwapBarriersSGIX(long display, int screen, long max) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryMaxSwapBarriersSGIX;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
+			check(__functionAddress);
+			check(display);
 		}
 		return callPPI(__functionAddress, display, screen, max);
 	}
@@ -71,7 +71,7 @@ public class GLXSGIXSwapBarrier {
 	 */
 	public static int glXQueryMaxSwapBarriersSGIX(long display, int screen, IntBuffer max) {
 		if ( CHECKS )
-			checkBuffer(max, 1);
+			check(max, 1);
 		return nglXQueryMaxSwapBarriersSGIX(display, screen, memAddress(max));
 	}
 
@@ -79,9 +79,9 @@ public class GLXSGIXSwapBarrier {
 	public static int glXQueryMaxSwapBarriersSGIX(long display, int screen, int[] max) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryMaxSwapBarriersSGIX;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkBuffer(max, 1);
+			check(__functionAddress);
+			check(display);
+			check(max, 1);
 		}
 		return callPPI(__functionAddress, display, screen, max);
 	}

@@ -334,7 +334,7 @@ public class NVGPaint extends Struct implements NativeResource {
 
 	/** Unsafe version of {@link #xform(FloatBuffer) xform}. */
 	public static void nxform(long struct, FloatBuffer value) {
-		if ( CHECKS ) checkBufferGT(value, 6);
+		if ( CHECKS ) checkGT(value, 6);
 		memCopy(memAddress(value), struct + NVGPaint.XFORM, value.remaining() * 4);
 	}
 	/** Unsafe version of {@link #xform(int, float) xform}. */
@@ -344,7 +344,7 @@ public class NVGPaint extends Struct implements NativeResource {
 	}
 	/** Unsafe version of {@link #extent(FloatBuffer) extent}. */
 	public static void nextent(long struct, FloatBuffer value) {
-		if ( CHECKS ) checkBufferGT(value, 2);
+		if ( CHECKS ) checkGT(value, 2);
 		memCopy(memAddress(value), struct + NVGPaint.EXTENT, value.remaining() * 4);
 	}
 	/** Unsafe version of {@link #extent(int, float) extent}. */

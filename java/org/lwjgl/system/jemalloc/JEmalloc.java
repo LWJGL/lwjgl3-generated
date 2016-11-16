@@ -135,7 +135,7 @@ public class JEmalloc {
 	 */
 	public static int je_posix_memalign(PointerBuffer memptr, long alignment, long size) {
 		if ( CHECKS )
-			checkBuffer(memptr, 1);
+			check(memptr, 1);
 		return nje_posix_memalign(memAddress(memptr), alignment, size);
 	}
 
@@ -544,7 +544,7 @@ public class JEmalloc {
 	public static int je_mallctl(ByteBuffer name, ByteBuffer oldp, PointerBuffer oldlenp, ByteBuffer newp) {
 		if ( CHECKS ) {
 			checkNT1(name);
-			checkBufferSafe(oldlenp, 1);
+			checkSafe(oldlenp, 1);
 		}
 		return nje_mallctl(memAddress(name), memAddressSafe(oldp), memAddressSafe(oldlenp), memAddressSafe(newp), remainingSafe(newp));
 	}
@@ -564,7 +564,7 @@ public class JEmalloc {
 	 */
 	public static int je_mallctl(CharSequence name, ByteBuffer oldp, PointerBuffer oldlenp, ByteBuffer newp) {
 		if ( CHECKS )
-			checkBufferSafe(oldlenp, 1);
+			checkSafe(oldlenp, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.ASCII(name);
@@ -619,8 +619,8 @@ for (i = 0; i < nbins; i++) {
 	public static int je_mallctlnametomib(ByteBuffer name, PointerBuffer mibp, PointerBuffer miblenp) {
 		if ( CHECKS ) {
 			checkNT1(name);
-			checkBuffer(miblenp, 1);
-			checkBuffer(mibp, miblenp.get(miblenp.position()));
+			check(miblenp, 1);
+			check(mibp, miblenp.get(miblenp.position()));
 		}
 		return nje_mallctlnametomib(memAddress(name), memAddress(mibp), memAddress(miblenp));
 	}
@@ -657,8 +657,8 @@ for (i = 0; i < nbins; i++) {
 	 */
 	public static int je_mallctlnametomib(CharSequence name, PointerBuffer mibp, PointerBuffer miblenp) {
 		if ( CHECKS ) {
-			checkBuffer(miblenp, 1);
-			checkBuffer(mibp, miblenp.get(miblenp.position()));
+			check(miblenp, 1);
+			check(mibp, miblenp.get(miblenp.position()));
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -692,7 +692,7 @@ for (i = 0; i < nbins; i++) {
 	 */
 	public static int je_mallctlbymib(PointerBuffer mib, ByteBuffer oldp, PointerBuffer oldlenp, ByteBuffer newp) {
 		if ( CHECKS )
-			checkBufferSafe(oldlenp, 1);
+			checkSafe(oldlenp, 1);
 		return nje_mallctlbymib(memAddress(mib), mib.remaining(), memAddressSafe(oldp), memAddressSafe(oldlenp), memAddressSafe(newp), remainingSafe(newp));
 	}
 

@@ -600,13 +600,13 @@ public class VkGraphicsPipelineCreateInfo extends Struct implements NativeResour
 	public static void validate(long struct) {
 		int stageCount = nstageCount(struct);
 		long pStages = memGetAddress(struct + VkGraphicsPipelineCreateInfo.PSTAGES);
-		checkPointer(pStages);
+		check(pStages);
 		VkPipelineShaderStageCreateInfo.validate(pStages, stageCount);
 		long pVertexInputState = memGetAddress(struct + VkGraphicsPipelineCreateInfo.PVERTEXINPUTSTATE);
-		checkPointer(pVertexInputState);
+		check(pVertexInputState);
 		VkPipelineVertexInputStateCreateInfo.validate(pVertexInputState);
-		checkPointer(memGetAddress(struct + VkGraphicsPipelineCreateInfo.PINPUTASSEMBLYSTATE));
-		checkPointer(memGetAddress(struct + VkGraphicsPipelineCreateInfo.PRASTERIZATIONSTATE));
+		check(memGetAddress(struct + VkGraphicsPipelineCreateInfo.PINPUTASSEMBLYSTATE));
+		check(memGetAddress(struct + VkGraphicsPipelineCreateInfo.PRASTERIZATIONSTATE));
 		long pColorBlendState = memGetAddress(struct + VkGraphicsPipelineCreateInfo.PCOLORBLENDSTATE);
 		if ( pColorBlendState != NULL )
 			VkPipelineColorBlendStateCreateInfo.validate(pColorBlendState);

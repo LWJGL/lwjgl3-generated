@@ -45,9 +45,9 @@ public class GLXEXTSwapControl {
 	public static void glXSwapIntervalEXT(long display, long drawable, int interval) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXSwapIntervalEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(drawable);
+			check(__functionAddress);
+			check(display);
+			check(drawable);
 		}
 		callPPV(__functionAddress, display, drawable, interval);
 	}

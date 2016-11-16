@@ -69,7 +69,7 @@ public class ARBSampleLocations {
 	public static void nglFramebufferSampleLocationsfvARB(int target, int start, int count, long v) {
 		long __functionAddress = GL.getCapabilities().glFramebufferSampleLocationsfvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, start, count, v);
 	}
 
@@ -99,7 +99,7 @@ public class ARBSampleLocations {
 	public static void nglNamedFramebufferSampleLocationsfvARB(int framebuffer, int start, int count, long v) {
 		long __functionAddress = GL.getCapabilities().glNamedFramebufferSampleLocationsfvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, framebuffer, start, count, v);
 	}
 
@@ -124,7 +124,7 @@ public class ARBSampleLocations {
 	public static void glEvaluateDepthValuesARB() {
 		long __functionAddress = GL.getCapabilities().glEvaluateDepthValuesARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress);
 	}
 
@@ -132,7 +132,7 @@ public class ARBSampleLocations {
 	public static void glFramebufferSampleLocationsfvARB(int target, int start, float[] v) {
 		long __functionAddress = GL.getCapabilities().glFramebufferSampleLocationsfvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, start, v.length >> 1, v);
 	}
 
@@ -140,7 +140,7 @@ public class ARBSampleLocations {
 	public static void glNamedFramebufferSampleLocationsfvARB(int framebuffer, int start, float[] v) {
 		long __functionAddress = GL.getCapabilities().glNamedFramebufferSampleLocationsfvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, framebuffer, start, v.length >> 1, v);
 	}
 

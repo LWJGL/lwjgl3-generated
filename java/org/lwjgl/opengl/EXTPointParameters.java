@@ -77,7 +77,7 @@ public class EXTPointParameters {
 	public static void glPointParameterfEXT(int pname, float param) {
 		long __functionAddress = GL.getCapabilities().glPointParameterfEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, pname, param);
 	}
 
@@ -86,7 +86,7 @@ public class EXTPointParameters {
 	public static void nglPointParameterfvEXT(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glPointParameterfvEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, pname, params);
 	}
 
@@ -98,7 +98,7 @@ public class EXTPointParameters {
 	public static void glPointParameterfvEXT(int pname, float[] params) {
 		long __functionAddress = GL.getCapabilities().glPointParameterfvEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, pname, params);
 	}
 

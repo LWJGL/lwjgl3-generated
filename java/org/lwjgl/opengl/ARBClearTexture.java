@@ -52,7 +52,7 @@ public class ARBClearTexture {
 	public static void nglClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long data) {
 		long __functionAddress = GL.getCapabilities().glClearTexSubImage;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
 	}
 
@@ -222,7 +222,7 @@ public class ARBClearTexture {
 	public static void nglClearTexImage(int texture, int level, int format, int type, long data) {
 		long __functionAddress = GL.getCapabilities().glClearTexImage;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, texture, level, format, type, data);
 	}
 
@@ -315,7 +315,7 @@ public class ARBClearTexture {
 	public static void glClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short[] data) {
 		long __functionAddress = GL.getCapabilities().glClearTexSubImage;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
 	}
 
@@ -323,7 +323,7 @@ public class ARBClearTexture {
 	public static void glClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int[] data) {
 		long __functionAddress = GL.getCapabilities().glClearTexSubImage;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
 	}
 
@@ -331,7 +331,7 @@ public class ARBClearTexture {
 	public static void glClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float[] data) {
 		long __functionAddress = GL.getCapabilities().glClearTexSubImage;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
 	}
 
@@ -339,7 +339,7 @@ public class ARBClearTexture {
 	public static void glClearTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, double[] data) {
 		long __functionAddress = GL.getCapabilities().glClearTexSubImage;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
 	}
 
@@ -347,7 +347,7 @@ public class ARBClearTexture {
 	public static void glClearTexImage(int texture, int level, int format, int type, short[] data) {
 		long __functionAddress = GL.getCapabilities().glClearTexImage;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, texture, level, format, type, data);
 	}
 
@@ -355,7 +355,7 @@ public class ARBClearTexture {
 	public static void glClearTexImage(int texture, int level, int format, int type, int[] data) {
 		long __functionAddress = GL.getCapabilities().glClearTexImage;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, texture, level, format, type, data);
 	}
 
@@ -363,7 +363,7 @@ public class ARBClearTexture {
 	public static void glClearTexImage(int texture, int level, int format, int type, float[] data) {
 		long __functionAddress = GL.getCapabilities().glClearTexImage;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, texture, level, format, type, data);
 	}
 
@@ -371,7 +371,7 @@ public class ARBClearTexture {
 	public static void glClearTexImage(int texture, int level, int format, int type, double[] data) {
 		long __functionAddress = GL.getCapabilities().glClearTexImage;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, texture, level, format, type, data);
 	}
 

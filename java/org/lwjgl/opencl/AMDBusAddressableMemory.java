@@ -69,9 +69,9 @@ public class AMDBusAddressableMemory {
 	public static int nclEnqueueWaitSignalAMD(long command_queue, long mem_object, int value, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = CL.getICD().clEnqueueWaitSignalAMD;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(command_queue);
-			checkPointer(mem_object);
+			check(__functionAddress);
+			check(command_queue);
+			check(mem_object);
 		}
 		return callPPPPI(__functionAddress, command_queue, mem_object, value, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -102,7 +102,7 @@ public class AMDBusAddressableMemory {
 	 */
 	public static int clEnqueueWaitSignalAMD(long command_queue, long mem_object, int value, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			checkBufferSafe(event, 1);
+			checkSafe(event, 1);
 		return nclEnqueueWaitSignalAMD(command_queue, mem_object, value, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -116,9 +116,9 @@ public class AMDBusAddressableMemory {
 	public static int nclEnqueueWriteSignalAMD(long command_queue, long mem_object, int value, long offset, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteSignalAMD;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(command_queue);
-			checkPointer(mem_object);
+			check(__functionAddress);
+			check(command_queue);
+			check(mem_object);
 		}
 		return callPPJPPI(__functionAddress, command_queue, mem_object, value, offset, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -154,7 +154,7 @@ public class AMDBusAddressableMemory {
 	 */
 	public static int clEnqueueWriteSignalAMD(long command_queue, long mem_object, int value, long offset, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			checkBufferSafe(event, 1);
+			checkSafe(event, 1);
 		return nclEnqueueWriteSignalAMD(command_queue, mem_object, value, offset, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -169,8 +169,8 @@ public class AMDBusAddressableMemory {
 	public static int nclEnqueueMakeBuffersResidentAMD(long command_queue, int num_mem_objs, long mem_objects, int blocking_make_resident, long bus_addresses, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = CL.getICD().clEnqueueMakeBuffersResidentAMD;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(command_queue);
+			check(__functionAddress);
+			check(command_queue);
 		}
 		return callPPPPPI(__functionAddress, command_queue, num_mem_objs, mem_objects, blocking_make_resident, bus_addresses, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -205,8 +205,8 @@ public class AMDBusAddressableMemory {
 	 */
 	public static int clEnqueueMakeBuffersResidentAMD(long command_queue, PointerBuffer mem_objects, int blocking_make_resident, CLBusAddressAMD.Buffer bus_addresses, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
-			checkBuffer(bus_addresses, mem_objects.remaining());
-			checkBufferSafe(event, 1);
+			check(bus_addresses, mem_objects.remaining());
+			checkSafe(event, 1);
 		}
 		return nclEnqueueMakeBuffersResidentAMD(command_queue, mem_objects.remaining(), memAddress(mem_objects), blocking_make_resident, bus_addresses.address(), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}

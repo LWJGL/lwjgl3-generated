@@ -401,7 +401,7 @@ public class VkFramebufferCreateInfo extends Struct implements NativeResource {
 	 */
 	public static void validate(long struct) {
 		if ( nattachmentCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkFramebufferCreateInfo.PATTACHMENTS));
+			check(memGetAddress(struct + VkFramebufferCreateInfo.PATTACHMENTS));
 	}
 
 	/**

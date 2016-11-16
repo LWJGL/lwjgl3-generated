@@ -63,7 +63,7 @@ public class GLFWNativeEGL {
 	public static long glfwGetEGLContext(long window) {
 		long __functionAddress = Functions.GetEGLContext;
 		if ( CHECKS )
-			checkPointer(window);
+			check(window);
 		return invokePP(__functionAddress, window);
 	}
 
@@ -83,7 +83,7 @@ public class GLFWNativeEGL {
 	public static long glfwGetEGLSurface(long window) {
 		long __functionAddress = Functions.GetEGLSurface;
 		if ( CHECKS )
-			checkPointer(window);
+			check(window);
 		return invokePP(__functionAddress, window);
 	}
 

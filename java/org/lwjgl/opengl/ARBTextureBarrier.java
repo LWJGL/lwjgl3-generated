@@ -33,7 +33,7 @@ public class ARBTextureBarrier {
 	public static void glTextureBarrier() {
 		long __functionAddress = GL.getCapabilities().glTextureBarrier;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress);
 	}
 

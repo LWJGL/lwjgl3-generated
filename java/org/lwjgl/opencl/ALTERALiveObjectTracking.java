@@ -57,8 +57,8 @@ public class ALTERALiveObjectTracking {
 	public static void clTrackLiveObjectsAltera(long platform) {
 		long __functionAddress = CL.getICD().clTrackLiveObjectsAltera;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(platform);
+			check(__functionAddress);
+			check(platform);
 		}
 		callPV(__functionAddress, platform);
 	}
@@ -69,8 +69,8 @@ public class ALTERALiveObjectTracking {
 	public static void nclReportLiveObjectsAltera(long platform, long report_fn, long user_data) {
 		long __functionAddress = CL.getICD().clReportLiveObjectsAltera;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(platform);
+			check(__functionAddress);
+			check(platform);
 		}
 		callPPPV(__functionAddress, platform, report_fn, user_data);
 	}

@@ -121,7 +121,7 @@ public class OESGeometryShader {
 	public static void glFramebufferTextureOES(int target, int attachment, int texture, int level) {
 		long __functionAddress = GLES.getCapabilities().glFramebufferTextureOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, attachment, texture, level);
 	}
 

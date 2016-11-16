@@ -79,7 +79,7 @@ public class NVDrawBuffers {
 	public static void nglDrawBuffersNV(int n, long bufs) {
 		long __functionAddress = GLES.getCapabilities().glDrawBuffersNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, bufs);
 	}
 
@@ -101,7 +101,7 @@ public class NVDrawBuffers {
 	public static void glDrawBuffersNV(int[] bufs) {
 		long __functionAddress = GLES.getCapabilities().glDrawBuffersNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, bufs.length, bufs);
 	}
 

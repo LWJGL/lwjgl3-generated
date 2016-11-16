@@ -67,7 +67,7 @@ public class KHRSwapchain {
 	public static int nvkCreateSwapchainKHR(VkDevice device, long pCreateInfo, long pAllocator, long pSwapchain) {
 		long __functionAddress = device.getCapabilities().vkCreateSwapchainKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 			VkSwapchainCreateInfoKHR.validate(pCreateInfo);
 			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
 		}
@@ -131,7 +131,7 @@ public class KHRSwapchain {
 	 */
 	public static int vkCreateSwapchainKHR(VkDevice device, VkSwapchainCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSwapchain) {
 		if ( CHECKS )
-			checkBuffer(pSwapchain, 1);
+			check(pSwapchain, 1);
 		return nvkCreateSwapchainKHR(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pSwapchain));
 	}
 
@@ -141,7 +141,7 @@ public class KHRSwapchain {
 	public static void nvkDestroySwapchainKHR(VkDevice device, long swapchain, long pAllocator) {
 		long __functionAddress = device.getCapabilities().vkDestroySwapchainKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
 		}
 		callPJPV(__functionAddress, device.address(), swapchain, pAllocator);
@@ -209,7 +209,7 @@ public class KHRSwapchain {
 	public static int nvkGetSwapchainImagesKHR(VkDevice device, long swapchain, long pSwapchainImageCount, long pSwapchainImages) {
 		long __functionAddress = device.getCapabilities().vkGetSwapchainImagesKHR;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPJPPI(__functionAddress, device.address(), swapchain, pSwapchainImageCount, pSwapchainImages);
 	}
 
@@ -261,8 +261,8 @@ public class KHRSwapchain {
 	 */
 	public static int vkGetSwapchainImagesKHR(VkDevice device, long swapchain, IntBuffer pSwapchainImageCount, LongBuffer pSwapchainImages) {
 		if ( CHECKS ) {
-			checkBuffer(pSwapchainImageCount, 1);
-			checkBufferSafe(pSwapchainImages, pSwapchainImageCount.get(pSwapchainImageCount.position()));
+			check(pSwapchainImageCount, 1);
+			checkSafe(pSwapchainImages, pSwapchainImageCount.get(pSwapchainImageCount.position()));
 		}
 		return nvkGetSwapchainImagesKHR(device, swapchain, memAddress(pSwapchainImageCount), memAddressSafe(pSwapchainImages));
 	}
@@ -273,7 +273,7 @@ public class KHRSwapchain {
 	public static int nvkAcquireNextImageKHR(VkDevice device, long swapchain, long timeout, long semaphore, long fence, long pImageIndex) {
 		long __functionAddress = device.getCapabilities().vkAcquireNextImageKHR;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPJJJJPI(__functionAddress, device.address(), swapchain, timeout, semaphore, fence, pImageIndex);
 	}
 
@@ -348,7 +348,7 @@ public class KHRSwapchain {
 	 */
 	public static int vkAcquireNextImageKHR(VkDevice device, long swapchain, long timeout, long semaphore, long fence, IntBuffer pImageIndex) {
 		if ( CHECKS )
-			checkBuffer(pImageIndex, 1);
+			check(pImageIndex, 1);
 		return nvkAcquireNextImageKHR(device, swapchain, timeout, semaphore, fence, memAddress(pImageIndex));
 	}
 
@@ -358,7 +358,7 @@ public class KHRSwapchain {
 	public static int nvkQueuePresentKHR(VkQueue queue, long pPresentInfo) {
 		long __functionAddress = queue.getCapabilities().vkQueuePresentKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 			VkPresentInfoKHR.validate(pPresentInfo);
 		}
 		return callPPI(__functionAddress, queue.address(), pPresentInfo);
@@ -439,8 +439,8 @@ public class KHRSwapchain {
 	public static int vkCreateSwapchainKHR(VkDevice device, VkSwapchainCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, long[] pSwapchain) {
 		long __functionAddress = device.getCapabilities().vkCreateSwapchainKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(pSwapchain, 1);
+			check(__functionAddress);
+			check(pSwapchain, 1);
 			VkSwapchainCreateInfoKHR.validate(pCreateInfo.address());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
@@ -451,9 +451,9 @@ public class KHRSwapchain {
 	public static int vkGetSwapchainImagesKHR(VkDevice device, long swapchain, int[] pSwapchainImageCount, long[] pSwapchainImages) {
 		long __functionAddress = device.getCapabilities().vkGetSwapchainImagesKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(pSwapchainImageCount, 1);
-			checkBufferSafe(pSwapchainImages, pSwapchainImageCount[0]);
+			check(__functionAddress);
+			check(pSwapchainImageCount, 1);
+			checkSafe(pSwapchainImages, pSwapchainImageCount[0]);
 		}
 		return callPJPPI(__functionAddress, device.address(), swapchain, pSwapchainImageCount, pSwapchainImages);
 	}
@@ -462,8 +462,8 @@ public class KHRSwapchain {
 	public static int vkAcquireNextImageKHR(VkDevice device, long swapchain, long timeout, long semaphore, long fence, int[] pImageIndex) {
 		long __functionAddress = device.getCapabilities().vkAcquireNextImageKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(pImageIndex, 1);
+			check(__functionAddress);
+			check(pImageIndex, 1);
 		}
 		return callPJJJJPI(__functionAddress, device.address(), swapchain, timeout, semaphore, fence, pImageIndex);
 	}

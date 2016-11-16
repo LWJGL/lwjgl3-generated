@@ -61,7 +61,7 @@ public class EGL12 {
 	public static boolean eglBindAPI(int api) {
 		long __functionAddress = EGL.getCapabilities().eglBindAPI;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callI(__functionAddress, api) != 0;
 	}
 
@@ -70,7 +70,7 @@ public class EGL12 {
 	public static int eglQueryAPI() {
 		long __functionAddress = EGL.getCapabilities().eglQueryAPI;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callI(__functionAddress);
 	}
 
@@ -79,10 +79,10 @@ public class EGL12 {
 	public static long neglCreatePbufferFromClientBuffer(long dpy, int buftype, long buffer, long config, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreatePbufferFromClientBuffer;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(buffer);
-			checkPointer(config);
+			check(__functionAddress);
+			check(dpy);
+			check(buffer);
+			check(config);
 		}
 		return callPPPPP(__functionAddress, dpy, buftype, buffer, config, attrib_list);
 	}
@@ -98,7 +98,7 @@ public class EGL12 {
 	public static boolean eglReleaseThread() {
 		long __functionAddress = EGL.getCapabilities().eglReleaseThread;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callI(__functionAddress) != 0;
 	}
 
@@ -107,7 +107,7 @@ public class EGL12 {
 	public static boolean eglWaitClient() {
 		long __functionAddress = EGL.getCapabilities().eglWaitClient;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callI(__functionAddress) != 0;
 	}
 
@@ -115,10 +115,10 @@ public class EGL12 {
 	public static long eglCreatePbufferFromClientBuffer(long dpy, int buftype, long buffer, long config, int[] attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreatePbufferFromClientBuffer;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(buffer);
-			checkPointer(config);
+			check(__functionAddress);
+			check(dpy);
+			check(buffer);
+			check(config);
 			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		}
 		return callPPPPP(__functionAddress, dpy, buftype, buffer, config, attrib_list);

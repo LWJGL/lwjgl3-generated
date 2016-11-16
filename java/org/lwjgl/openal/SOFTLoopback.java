@@ -62,7 +62,7 @@ public class SOFTLoopback {
 	public static long nalcLoopbackOpenDeviceSOFT(long deviceName) {
 		long __functionAddress = ALC.getICD().alcLoopbackOpenDeviceSOFT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return invokePP(__functionAddress, deviceName);
 	}
 
@@ -130,8 +130,8 @@ public class SOFTLoopback {
 	public static boolean alcIsRenderFormatSupportedSOFT(long device, int frequency, int channels, int type) {
 		long __functionAddress = ALC.getICD().alcIsRenderFormatSupportedSOFT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
+			check(__functionAddress);
+			check(device);
 		}
 		return invokePZ(__functionAddress, device, frequency, channels, type);
 	}
@@ -142,8 +142,8 @@ public class SOFTLoopback {
 	public static void nalcRenderSamplesSOFT(long device, long buffer, int samples) {
 		long __functionAddress = ALC.getICD().alcRenderSamplesSOFT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
+			check(__functionAddress);
+			check(device);
 		}
 		invokePPV(__functionAddress, device, buffer, samples);
 	}
@@ -200,8 +200,8 @@ public class SOFTLoopback {
 	public static void alcRenderSamplesSOFT(long device, short[] buffer, int samples) {
 		long __functionAddress = ALC.getICD().alcRenderSamplesSOFT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
+			check(__functionAddress);
+			check(device);
 		}
 		invokePPV(__functionAddress, device, buffer, samples);
 	}
@@ -210,8 +210,8 @@ public class SOFTLoopback {
 	public static void alcRenderSamplesSOFT(long device, int[] buffer, int samples) {
 		long __functionAddress = ALC.getICD().alcRenderSamplesSOFT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
+			check(__functionAddress);
+			check(device);
 		}
 		invokePPV(__functionAddress, device, buffer, samples);
 	}
@@ -220,8 +220,8 @@ public class SOFTLoopback {
 	public static void alcRenderSamplesSOFT(long device, float[] buffer, int samples) {
 		long __functionAddress = ALC.getICD().alcRenderSamplesSOFT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
+			check(__functionAddress);
+			check(device);
 		}
 		invokePPV(__functionAddress, device, buffer, samples);
 	}

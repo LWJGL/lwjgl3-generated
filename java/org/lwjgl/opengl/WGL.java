@@ -95,7 +95,7 @@ public class WGL {
 	public static long wglCreateContext(long hdc) {
 		long __functionAddress = Functions.CreateContext;
 		if ( CHECKS )
-			checkPointer(hdc);
+			check(hdc);
 		return callPP(__functionAddress, hdc);
 	}
 
@@ -114,7 +114,7 @@ public class WGL {
 	public static long wglCreateLayerContext(long hdc, int layerPlane) {
 		long __functionAddress = Functions.CreateLayerContext;
 		if ( CHECKS )
-			checkPointer(hdc);
+			check(hdc);
 		return callPP(__functionAddress, hdc, layerPlane);
 	}
 
@@ -131,8 +131,8 @@ public class WGL {
 	public static boolean wglCopyContext(long src, long dst, int mask) {
 		long __functionAddress = Functions.CopyContext;
 		if ( CHECKS ) {
-			checkPointer(src);
-			checkPointer(dst);
+			check(src);
+			check(dst);
 		}
 		return callPPI(__functionAddress, src, dst, mask) != 0;
 	}
@@ -147,7 +147,7 @@ public class WGL {
 	public static boolean wglDeleteContext(long context) {
 		long __functionAddress = Functions.DeleteContext;
 		if ( CHECKS )
-			checkPointer(context);
+			check(context);
 		return callPI(__functionAddress, context) != 0;
 	}
 
@@ -231,8 +231,8 @@ public class WGL {
 	public static boolean wglShareLists(long hglrc1, long hglrc2) {
 		long __functionAddress = Functions.ShareLists;
 		if ( CHECKS ) {
-			checkPointer(hglrc1);
-			checkPointer(hglrc2);
+			check(hglrc1);
+			check(hglrc2);
 		}
 		return callPPI(__functionAddress, hglrc1, hglrc2) != 0;
 	}
@@ -253,7 +253,7 @@ public class WGL {
 	public static boolean wglUseFontBitmaps(long hdc, int first, int count, int listBase) {
 		long __functionAddress = Functions.UseFontBitmaps;
 		if ( CHECKS )
-			checkPointer(hdc);
+			check(hdc);
 		return callPI(__functionAddress, hdc, first, count, listBase) != 0;
 	}
 
@@ -268,7 +268,7 @@ public class WGL {
 	public static int nwglUseFontOutlines(long hdc, int first, int count, int listBase, float deviation, float extrusion, int format, long glyphMetrics) {
 		long __functionAddress = Functions.UseFontOutlines;
 		if ( CHECKS )
-			checkPointer(hdc);
+			check(hdc);
 		return callPPI(__functionAddress, hdc, first, count, listBase, deviation, extrusion, format, glyphMetrics);
 	}
 

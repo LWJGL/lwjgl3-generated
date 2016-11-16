@@ -51,7 +51,7 @@ public class ARBWindowPos {
 	public static void glWindowPos2iARB(int x, int y) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2iARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y);
 	}
 
@@ -66,7 +66,7 @@ public class ARBWindowPos {
 	public static void glWindowPos2sARB(short x, short y) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2sARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y);
 	}
 
@@ -81,7 +81,7 @@ public class ARBWindowPos {
 	public static void glWindowPos2fARB(float x, float y) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2fARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y);
 	}
 
@@ -96,7 +96,7 @@ public class ARBWindowPos {
 	public static void glWindowPos2dARB(double x, double y) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2dARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y);
 	}
 
@@ -106,7 +106,7 @@ public class ARBWindowPos {
 	public static void nglWindowPos2ivARB(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2ivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, p);
 	}
 
@@ -117,7 +117,7 @@ public class ARBWindowPos {
 	 */
 	public static void glWindowPos2ivARB(IntBuffer p) {
 		if ( CHECKS )
-			checkBuffer(p, 2);
+			check(p, 2);
 		nglWindowPos2ivARB(memAddress(p));
 	}
 
@@ -127,7 +127,7 @@ public class ARBWindowPos {
 	public static void nglWindowPos2svARB(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2svARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, p);
 	}
 
@@ -138,7 +138,7 @@ public class ARBWindowPos {
 	 */
 	public static void glWindowPos2svARB(ShortBuffer p) {
 		if ( CHECKS )
-			checkBuffer(p, 2);
+			check(p, 2);
 		nglWindowPos2svARB(memAddress(p));
 	}
 
@@ -148,7 +148,7 @@ public class ARBWindowPos {
 	public static void nglWindowPos2fvARB(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2fvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, p);
 	}
 
@@ -159,7 +159,7 @@ public class ARBWindowPos {
 	 */
 	public static void glWindowPos2fvARB(FloatBuffer p) {
 		if ( CHECKS )
-			checkBuffer(p, 2);
+			check(p, 2);
 		nglWindowPos2fvARB(memAddress(p));
 	}
 
@@ -169,7 +169,7 @@ public class ARBWindowPos {
 	public static void nglWindowPos2dvARB(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2dvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, p);
 	}
 
@@ -180,7 +180,7 @@ public class ARBWindowPos {
 	 */
 	public static void glWindowPos2dvARB(DoubleBuffer p) {
 		if ( CHECKS )
-			checkBuffer(p, 2);
+			check(p, 2);
 		nglWindowPos2dvARB(memAddress(p));
 	}
 
@@ -196,7 +196,7 @@ public class ARBWindowPos {
 	public static void glWindowPos3iARB(int x, int y, int z) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3iARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z);
 	}
 
@@ -212,7 +212,7 @@ public class ARBWindowPos {
 	public static void glWindowPos3sARB(short x, short y, short z) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3sARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z);
 	}
 
@@ -228,7 +228,7 @@ public class ARBWindowPos {
 	public static void glWindowPos3fARB(float x, float y, float z) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3fARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z);
 	}
 
@@ -244,7 +244,7 @@ public class ARBWindowPos {
 	public static void glWindowPos3dARB(double x, double y, double z) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3dARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z);
 	}
 
@@ -254,7 +254,7 @@ public class ARBWindowPos {
 	public static void nglWindowPos3ivARB(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3ivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, p);
 	}
 
@@ -265,7 +265,7 @@ public class ARBWindowPos {
 	 */
 	public static void glWindowPos3ivARB(IntBuffer p) {
 		if ( CHECKS )
-			checkBuffer(p, 3);
+			check(p, 3);
 		nglWindowPos3ivARB(memAddress(p));
 	}
 
@@ -275,7 +275,7 @@ public class ARBWindowPos {
 	public static void nglWindowPos3svARB(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3svARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, p);
 	}
 
@@ -286,7 +286,7 @@ public class ARBWindowPos {
 	 */
 	public static void glWindowPos3svARB(ShortBuffer p) {
 		if ( CHECKS )
-			checkBuffer(p, 3);
+			check(p, 3);
 		nglWindowPos3svARB(memAddress(p));
 	}
 
@@ -296,7 +296,7 @@ public class ARBWindowPos {
 	public static void nglWindowPos3fvARB(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3fvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, p);
 	}
 
@@ -307,7 +307,7 @@ public class ARBWindowPos {
 	 */
 	public static void glWindowPos3fvARB(FloatBuffer p) {
 		if ( CHECKS )
-			checkBuffer(p, 3);
+			check(p, 3);
 		nglWindowPos3fvARB(memAddress(p));
 	}
 
@@ -317,7 +317,7 @@ public class ARBWindowPos {
 	public static void nglWindowPos3dvARB(long p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3dvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, p);
 	}
 
@@ -328,7 +328,7 @@ public class ARBWindowPos {
 	 */
 	public static void glWindowPos3dvARB(DoubleBuffer p) {
 		if ( CHECKS )
-			checkBuffer(p, 3);
+			check(p, 3);
 		nglWindowPos3dvARB(memAddress(p));
 	}
 
@@ -336,8 +336,8 @@ public class ARBWindowPos {
 	public static void glWindowPos2ivARB(int[] p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2ivARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(p, 2);
+			check(__functionAddress);
+			check(p, 2);
 		}
 		callPV(__functionAddress, p);
 	}
@@ -346,8 +346,8 @@ public class ARBWindowPos {
 	public static void glWindowPos2svARB(short[] p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2svARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(p, 2);
+			check(__functionAddress);
+			check(p, 2);
 		}
 		callPV(__functionAddress, p);
 	}
@@ -356,8 +356,8 @@ public class ARBWindowPos {
 	public static void glWindowPos2fvARB(float[] p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2fvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(p, 2);
+			check(__functionAddress);
+			check(p, 2);
 		}
 		callPV(__functionAddress, p);
 	}
@@ -366,8 +366,8 @@ public class ARBWindowPos {
 	public static void glWindowPos2dvARB(double[] p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos2dvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(p, 2);
+			check(__functionAddress);
+			check(p, 2);
 		}
 		callPV(__functionAddress, p);
 	}
@@ -376,8 +376,8 @@ public class ARBWindowPos {
 	public static void glWindowPos3ivARB(int[] p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3ivARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(p, 3);
+			check(__functionAddress);
+			check(p, 3);
 		}
 		callPV(__functionAddress, p);
 	}
@@ -386,8 +386,8 @@ public class ARBWindowPos {
 	public static void glWindowPos3svARB(short[] p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3svARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(p, 3);
+			check(__functionAddress);
+			check(p, 3);
 		}
 		callPV(__functionAddress, p);
 	}
@@ -396,8 +396,8 @@ public class ARBWindowPos {
 	public static void glWindowPos3fvARB(float[] p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3fvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(p, 3);
+			check(__functionAddress);
+			check(p, 3);
 		}
 		callPV(__functionAddress, p);
 	}
@@ -406,8 +406,8 @@ public class ARBWindowPos {
 	public static void glWindowPos3dvARB(double[] p) {
 		long __functionAddress = GL.getCapabilities().glWindowPos3dvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(p, 3);
+			check(__functionAddress);
+			check(p, 3);
 		}
 		callPV(__functionAddress, p);
 	}

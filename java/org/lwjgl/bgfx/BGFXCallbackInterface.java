@@ -237,7 +237,7 @@ public class BGFXCallbackInterface extends Struct implements NativeResource {
 	 */
 	public static void validate(long struct) {
 		long vtbl = memGetAddress(struct + BGFXCallbackInterface.VTBL);
-		checkPointer(vtbl);
+		check(vtbl);
 		BGFXCallbackVtbl.validate(vtbl);
 	}
 

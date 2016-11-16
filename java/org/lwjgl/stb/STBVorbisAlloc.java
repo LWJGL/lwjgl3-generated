@@ -236,7 +236,7 @@ public class STBVorbisAlloc extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + STBVorbisAlloc.ALLOC_BUFFER));
+		check(memGetAddress(struct + STBVorbisAlloc.ALLOC_BUFFER));
 	}
 
 	/**

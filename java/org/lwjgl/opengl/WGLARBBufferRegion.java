@@ -49,8 +49,8 @@ public class WGLARBBufferRegion {
 	public static long wglCreateBufferRegionARB(long hdc, int layerPlane, int type) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglCreateBufferRegionARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(hdc);
+			check(__functionAddress);
+			check(hdc);
 		}
 		return callPP(__functionAddress, hdc, layerPlane, type);
 	}
@@ -65,8 +65,8 @@ public class WGLARBBufferRegion {
 	public static void wglDeleteBufferRegionARB(long region) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglDeleteBufferRegionARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(region);
+			check(__functionAddress);
+			check(region);
 		}
 		callPV(__functionAddress, region);
 	}
@@ -92,8 +92,8 @@ public class WGLARBBufferRegion {
 	public static boolean wglSaveBufferRegionARB(long region, int x, int y, int width, int height) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglSaveBufferRegionARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(region);
+			check(__functionAddress);
+			check(region);
 		}
 		return callPI(__functionAddress, region, x, y, width, height) != 0;
 	}
@@ -114,8 +114,8 @@ public class WGLARBBufferRegion {
 	public static boolean wglRestoreBufferRegionARB(long region, int x, int y, int width, int height, int xSrc, int ySrc) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglRestoreBufferRegionARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(region);
+			check(__functionAddress);
+			check(region);
 		}
 		return callPI(__functionAddress, region, x, y, width, height, xSrc, ySrc) != 0;
 	}

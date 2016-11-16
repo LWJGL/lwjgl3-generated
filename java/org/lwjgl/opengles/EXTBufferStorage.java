@@ -60,7 +60,7 @@ public class EXTBufferStorage {
 	public static void nglBufferStorageEXT(int target, long size, long data, int flags) {
 		long __functionAddress = GLES.getCapabilities().glBufferStorageEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, target, size, data, flags);
 	}
 
@@ -88,7 +88,7 @@ public class EXTBufferStorage {
 	public static void glBufferStorageEXT(int target, short[] data, int flags) {
 		long __functionAddress = GLES.getCapabilities().glBufferStorageEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, target, (long)(data.length << 1), data, flags);
 	}
 
@@ -96,7 +96,7 @@ public class EXTBufferStorage {
 	public static void glBufferStorageEXT(int target, int[] data, int flags) {
 		long __functionAddress = GLES.getCapabilities().glBufferStorageEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, target, (long)(data.length << 2), data, flags);
 	}
 
@@ -104,7 +104,7 @@ public class EXTBufferStorage {
 	public static void glBufferStorageEXT(int target, float[] data, int flags) {
 		long __functionAddress = GLES.getCapabilities().glBufferStorageEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, target, (long)(data.length << 2), data, flags);
 	}
 

@@ -155,7 +155,7 @@ public class GDI32 {
 	public static int nChoosePixelFormat(long hdc, long pixelFormatDescriptor) {
 		long __functionAddress = Functions.ChoosePixelFormat;
 		if ( CHECKS )
-			checkPointer(hdc);
+			check(hdc);
 		return nChoosePixelFormat(__functionAddress, hdc, pixelFormatDescriptor);
 	}
 
@@ -178,7 +178,7 @@ public class GDI32 {
 	public static int nDescribePixelFormat(long hdc, int pixelFormat, int bytes, long pixelFormatDescriptor) {
 		long __functionAddress = Functions.DescribePixelFormat;
 		if ( CHECKS )
-			checkPointer(hdc);
+			check(hdc);
 		return nDescribePixelFormat(__functionAddress, hdc, pixelFormat, bytes, pixelFormatDescriptor);
 	}
 
@@ -227,7 +227,7 @@ public class GDI32 {
 	public static int GetPixelFormat(long hdc) {
 		long __functionAddress = Functions.GetPixelFormat;
 		if ( CHECKS )
-			checkPointer(hdc);
+			check(hdc);
 		return nGetPixelFormat(__functionAddress, hdc);
 	}
 
@@ -240,7 +240,7 @@ public class GDI32 {
 	public static int nSetPixelFormat(long hdc, int pixelFormat, long pixelFormatDescriptor) {
 		long __functionAddress = Functions.SetPixelFormat;
 		if ( CHECKS )
-			checkPointer(hdc);
+			check(hdc);
 		return nSetPixelFormat(__functionAddress, hdc, pixelFormat, pixelFormatDescriptor);
 	}
 
@@ -270,7 +270,7 @@ public class GDI32 {
 	public static boolean SwapBuffers(long dc) {
 		long __functionAddress = Functions.SwapBuffers;
 		if ( CHECKS )
-			checkPointer(dc);
+			check(dc);
 		return nSwapBuffers(__functionAddress, dc) != 0;
 	}
 

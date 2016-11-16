@@ -375,13 +375,13 @@ public class VkRenderPassCreateInfo extends Struct implements NativeResource {
 	 */
 	public static void validate(long struct) {
 		if ( nattachmentCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkRenderPassCreateInfo.PATTACHMENTS));
+			check(memGetAddress(struct + VkRenderPassCreateInfo.PATTACHMENTS));
 		int subpassCount = nsubpassCount(struct);
 		long pSubpasses = memGetAddress(struct + VkRenderPassCreateInfo.PSUBPASSES);
-		checkPointer(pSubpasses);
+		check(pSubpasses);
 		VkSubpassDescription.validate(pSubpasses, subpassCount);
 		if ( ndependencyCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkRenderPassCreateInfo.PDEPENDENCIES));
+			check(memGetAddress(struct + VkRenderPassCreateInfo.PDEPENDENCIES));
 	}
 
 	/**

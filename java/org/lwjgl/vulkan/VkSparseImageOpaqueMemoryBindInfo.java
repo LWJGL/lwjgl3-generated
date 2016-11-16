@@ -285,7 +285,7 @@ public class VkSparseImageOpaqueMemoryBindInfo extends Struct implements NativeR
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + VkSparseImageOpaqueMemoryBindInfo.PBINDS));
+		check(memGetAddress(struct + VkSparseImageOpaqueMemoryBindInfo.PBINDS));
 	}
 
 	/**

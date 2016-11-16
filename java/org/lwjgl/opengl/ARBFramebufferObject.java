@@ -350,7 +350,7 @@ public class ARBFramebufferObject {
 	public static boolean glIsRenderbuffer(int renderbuffer) {
 		long __functionAddress = GL.getCapabilities().glIsRenderbuffer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callZ(__functionAddress, renderbuffer);
 	}
 
@@ -365,7 +365,7 @@ public class ARBFramebufferObject {
 	public static void glBindRenderbuffer(int target, int renderbuffer) {
 		long __functionAddress = GL.getCapabilities().glBindRenderbuffer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, renderbuffer);
 	}
 
@@ -379,7 +379,7 @@ public class ARBFramebufferObject {
 	public static void nglDeleteRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = GL.getCapabilities().glDeleteRenderbuffers;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, renderbuffers);
 	}
 
@@ -413,7 +413,7 @@ public class ARBFramebufferObject {
 	public static void nglGenRenderbuffers(int n, long renderbuffers) {
 		long __functionAddress = GL.getCapabilities().glGenRenderbuffers;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, renderbuffers);
 	}
 
@@ -451,7 +451,7 @@ public class ARBFramebufferObject {
 	public static void glRenderbufferStorage(int target, int internalformat, int width, int height) {
 		long __functionAddress = GL.getCapabilities().glRenderbufferStorage;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, internalformat, width, height);
 	}
 
@@ -471,7 +471,7 @@ public class ARBFramebufferObject {
 	public static void glRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height) {
 		long __functionAddress = GL.getCapabilities().glRenderbufferStorageMultisample;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
@@ -481,7 +481,7 @@ public class ARBFramebufferObject {
 	public static void nglGetRenderbufferParameteriv(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetRenderbufferParameteriv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, pname, params);
 	}
 
@@ -494,7 +494,7 @@ public class ARBFramebufferObject {
 	 */
 	public static void glGetRenderbufferParameteriv(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetRenderbufferParameteriv(target, pname, memAddress(params));
 	}
 
@@ -525,7 +525,7 @@ public class ARBFramebufferObject {
 	public static boolean glIsFramebuffer(int framebuffer) {
 		long __functionAddress = GL.getCapabilities().glIsFramebuffer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callZ(__functionAddress, framebuffer);
 	}
 
@@ -540,7 +540,7 @@ public class ARBFramebufferObject {
 	public static void glBindFramebuffer(int target, int framebuffer) {
 		long __functionAddress = GL.getCapabilities().glBindFramebuffer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, framebuffer);
 	}
 
@@ -554,7 +554,7 @@ public class ARBFramebufferObject {
 	public static void nglDeleteFramebuffers(int n, long framebuffers) {
 		long __functionAddress = GL.getCapabilities().glDeleteFramebuffers;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, framebuffers);
 	}
 
@@ -588,7 +588,7 @@ public class ARBFramebufferObject {
 	public static void nglGenFramebuffers(int n, long framebuffers) {
 		long __functionAddress = GL.getCapabilities().glGenFramebuffers;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, framebuffers);
 	}
 
@@ -623,7 +623,7 @@ public class ARBFramebufferObject {
 	public static int glCheckFramebufferStatus(int target) {
 		long __functionAddress = GL.getCapabilities().glCheckFramebufferStatus;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callI(__functionAddress, target);
 	}
 
@@ -641,7 +641,7 @@ public class ARBFramebufferObject {
 	public static void glFramebufferTexture1D(int target, int attachment, int textarget, int texture, int level) {
 		long __functionAddress = GL.getCapabilities().glFramebufferTexture1D;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, attachment, textarget, texture, level);
 	}
 
@@ -659,7 +659,7 @@ public class ARBFramebufferObject {
 	public static void glFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level) {
 		long __functionAddress = GL.getCapabilities().glFramebufferTexture2D;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, attachment, textarget, texture, level);
 	}
 
@@ -678,7 +678,7 @@ public class ARBFramebufferObject {
 	public static void glFramebufferTexture3D(int target, int attachment, int textarget, int texture, int level, int layer) {
 		long __functionAddress = GL.getCapabilities().glFramebufferTexture3D;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, attachment, textarget, texture, level, layer);
 	}
 
@@ -696,7 +696,7 @@ public class ARBFramebufferObject {
 	public static void glFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer) {
 		long __functionAddress = GL.getCapabilities().glFramebufferTextureLayer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, attachment, texture, level, layer);
 	}
 
@@ -713,7 +713,7 @@ public class ARBFramebufferObject {
 	public static void glFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer) {
 		long __functionAddress = GL.getCapabilities().glFramebufferRenderbuffer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, attachment, renderbuffertarget, renderbuffer);
 	}
 
@@ -723,7 +723,7 @@ public class ARBFramebufferObject {
 	public static void nglGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetFramebufferAttachmentParameteriv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, attachment, pname, params);
 	}
 
@@ -737,7 +737,7 @@ public class ARBFramebufferObject {
 	 */
 	public static void glGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetFramebufferAttachmentParameteriv(target, attachment, pname, memAddress(params));
 	}
 
@@ -778,7 +778,7 @@ public class ARBFramebufferObject {
 	public static void glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
 		long __functionAddress = GL.getCapabilities().glBlitFramebuffer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
 
@@ -792,7 +792,7 @@ public class ARBFramebufferObject {
 	public static void glGenerateMipmap(int target) {
 		long __functionAddress = GL.getCapabilities().glGenerateMipmap;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target);
 	}
 
@@ -800,7 +800,7 @@ public class ARBFramebufferObject {
 	public static void glDeleteRenderbuffers(int[] renderbuffers) {
 		long __functionAddress = GL.getCapabilities().glDeleteRenderbuffers;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, renderbuffers.length, renderbuffers);
 	}
 
@@ -808,7 +808,7 @@ public class ARBFramebufferObject {
 	public static void glGenRenderbuffers(int[] renderbuffers) {
 		long __functionAddress = GL.getCapabilities().glGenRenderbuffers;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, renderbuffers.length, renderbuffers);
 	}
 
@@ -816,8 +816,8 @@ public class ARBFramebufferObject {
 	public static void glGetRenderbufferParameteriv(int target, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetRenderbufferParameteriv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, target, pname, params);
 	}
@@ -826,7 +826,7 @@ public class ARBFramebufferObject {
 	public static void glDeleteFramebuffers(int[] framebuffers) {
 		long __functionAddress = GL.getCapabilities().glDeleteFramebuffers;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, framebuffers.length, framebuffers);
 	}
 
@@ -834,7 +834,7 @@ public class ARBFramebufferObject {
 	public static void glGenFramebuffers(int[] framebuffers) {
 		long __functionAddress = GL.getCapabilities().glGenFramebuffers;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, framebuffers.length, framebuffers);
 	}
 
@@ -842,8 +842,8 @@ public class ARBFramebufferObject {
 	public static void glGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetFramebufferAttachmentParameteriv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, target, attachment, pname, params);
 	}

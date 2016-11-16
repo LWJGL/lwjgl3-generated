@@ -112,7 +112,7 @@ public class JAWTFunctions {
 	/** Unsafe version of: {@link #JAWT_DrawingSurface_Lock DrawingSurface_Lock} */
 	public static int nJAWT_DrawingSurface_Lock(long __functionAddress, long ds) {
 		if ( CHECKS )
-			checkPointer(__functionAddress);
+			check(__functionAddress);
 		return callPI(__functionAddress, ds);
 	}
 
@@ -140,7 +140,7 @@ public class JAWTFunctions {
 	/** Unsafe version of: {@link #JAWT_DrawingSurface_GetDrawingSurfaceInfo DrawingSurface_GetDrawingSurfaceInfo} */
 	public static long nJAWT_DrawingSurface_GetDrawingSurfaceInfo(long __functionAddress, long ds) {
 		if ( CHECKS )
-			checkPointer(__functionAddress);
+			check(__functionAddress);
 		return callPP(__functionAddress, ds);
 	}
 
@@ -167,7 +167,7 @@ public class JAWTFunctions {
 	/** Unsafe version of: {@link #JAWT_DrawingSurface_FreeDrawingSurfaceInfo DrawingSurface_FreeDrawingSurfaceInfo} */
 	public static void nJAWT_DrawingSurface_FreeDrawingSurfaceInfo(long __functionAddress, long dsi) {
 		if ( CHECKS )
-			checkPointer(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, dsi);
 	}
 
@@ -186,7 +186,7 @@ public class JAWTFunctions {
 	/** Unsafe version of: {@link #JAWT_DrawingSurface_Unlock DrawingSurface_Unlock} */
 	public static void nJAWT_DrawingSurface_Unlock(long __functionAddress, long ds) {
 		if ( CHECKS )
-			checkPointer(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, ds);
 	}
 
@@ -217,7 +217,7 @@ public class JAWTFunctions {
 	 */
 	public static JAWTDrawingSurface JAWT_GetDrawingSurface(long __functionAddress, Object target) {
 		if ( CHECKS )
-			checkPointer(__functionAddress);
+			check(__functionAddress);
 		long __result = nJAWT_GetDrawingSurface(__functionAddress, target);
 		return JAWTDrawingSurface.create(__result);
 	}
@@ -227,7 +227,7 @@ public class JAWTFunctions {
 	/** Unsafe version of: {@link #JAWT_FreeDrawingSurface FreeDrawingSurface} */
 	public static void nJAWT_FreeDrawingSurface(long __functionAddress, long ds) {
 		if ( CHECKS )
-			checkPointer(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, ds);
 	}
 
@@ -253,7 +253,7 @@ public class JAWTFunctions {
 	 */
 	public static void JAWT_Lock(long __functionAddress) {
 		if ( CHECKS )
-			checkPointer(__functionAddress);
+			check(__functionAddress);
 		nJAWT_Lock(__functionAddress);
 	}
 
@@ -269,7 +269,7 @@ public class JAWTFunctions {
 	 */
 	public static void JAWT_Unlock(long __functionAddress) {
 		if ( CHECKS )
-			checkPointer(__functionAddress);
+			check(__functionAddress);
 		nJAWT_Unlock(__functionAddress);
 	}
 
@@ -289,7 +289,7 @@ public class JAWTFunctions {
 	 */
 	public static Component JAWT_GetComponent(long __functionAddress, ByteBuffer platformInfo) {
 		if ( CHECKS )
-			checkPointer(__functionAddress);
+			check(__functionAddress);
 		return nJAWT_GetComponent(__functionAddress, memAddress(platformInfo));
 	}
 
@@ -311,7 +311,7 @@ public class JAWTFunctions {
 	 */
 	public static Frame JAWT_CreateEmbeddedFrame(long __functionAddress, ByteBuffer platformInfo) {
 		if ( CHECKS )
-			checkPointer(__functionAddress);
+			check(__functionAddress);
 		return nJAWT_CreateEmbeddedFrame(__functionAddress, memAddress(platformInfo));
 	}
 
@@ -343,7 +343,7 @@ public class JAWTFunctions {
 	 */
 	public static void JAWT_SetBounds(long __functionAddress, Frame embeddedFrame, int x, int y, int w, int h) {
 		if ( CHECKS )
-			checkPointer(__functionAddress);
+			check(__functionAddress);
 		nJAWT_SetBounds(__functionAddress, embeddedFrame, x, y, w, h);
 	}
 
@@ -365,7 +365,7 @@ public class JAWTFunctions {
 	 */
 	public static void JAWT_SynthesizeWindowActivation(long __functionAddress, Frame embeddedFrame, boolean doActivate) {
 		if ( CHECKS )
-			checkPointer(__functionAddress);
+			check(__functionAddress);
 		nJAWT_SynthesizeWindowActivation(__functionAddress, embeddedFrame, doActivate);
 	}
 

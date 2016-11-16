@@ -50,7 +50,7 @@ public class ARBTextureStorageMultisample {
 	public static void glTexStorage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
 		long __functionAddress = GL.getCapabilities().glTexStorage2DMultisample;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
@@ -71,7 +71,7 @@ public class ARBTextureStorageMultisample {
 	public static void glTexStorage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
 		long __functionAddress = GL.getCapabilities().glTexStorage3DMultisample;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 
@@ -92,7 +92,7 @@ public class ARBTextureStorageMultisample {
 	public static void glTextureStorage2DMultisampleEXT(int texture, int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations) {
 		long __functionAddress = GL.getCapabilities().glTextureStorage2DMultisampleEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, texture, target, samples, internalformat, width, height, fixedsamplelocations);
 	}
 
@@ -114,7 +114,7 @@ public class ARBTextureStorageMultisample {
 	public static void glTextureStorage3DMultisampleEXT(int texture, int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations) {
 		long __functionAddress = GL.getCapabilities().glTextureStorage3DMultisampleEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, texture, target, samples, internalformat, width, height, depth, fixedsamplelocations);
 	}
 

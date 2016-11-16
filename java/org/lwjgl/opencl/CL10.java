@@ -412,7 +412,7 @@ public class CL10 {
 	 */
 	public static int clGetPlatformIDs(PointerBuffer platforms, IntBuffer num_platforms) {
 		if ( CHECKS )
-			checkBufferSafe(num_platforms, 1);
+			checkSafe(num_platforms, 1);
 		return nclGetPlatformIDs(remainingSafe(platforms), memAddressSafe(platforms), memAddressSafe(num_platforms));
 	}
 
@@ -426,7 +426,7 @@ public class CL10 {
 	public static int nclGetPlatformInfo(long platform, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetPlatformInfo;
 		if ( CHECKS )
-			checkPointer(platform);
+			check(platform);
 		return callPPPPI(__functionAddress, platform, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
@@ -449,7 +449,7 @@ public class CL10 {
 	 */
 	public static int clGetPlatformInfo(long platform, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetPlatformInfo(platform, param_name, remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -472,7 +472,7 @@ public class CL10 {
 	 */
 	public static int clGetPlatformInfo(long platform, int param_name, LongBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetPlatformInfo(platform, param_name, remainingSafe(param_value) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -513,7 +513,7 @@ public class CL10 {
 	 */
 	public static int clGetDeviceIDs(long platform, long device_type, PointerBuffer devices, IntBuffer num_devices) {
 		if ( CHECKS )
-			checkBufferSafe(num_devices, 1);
+			checkSafe(num_devices, 1);
 		return nclGetDeviceIDs(platform, device_type, remainingSafe(devices), memAddressSafe(devices), memAddressSafe(num_devices));
 	}
 
@@ -527,7 +527,7 @@ public class CL10 {
 	public static int nclGetDeviceInfo(long device, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetDeviceInfo;
 		if ( CHECKS )
-			checkPointer(device);
+			check(device);
 		return callPPPPI(__functionAddress, device, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
@@ -553,7 +553,7 @@ public class CL10 {
 	 */
 	public static int clGetDeviceInfo(long device, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetDeviceInfo(device, param_name, remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -579,7 +579,7 @@ public class CL10 {
 	 */
 	public static int clGetDeviceInfo(long device, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetDeviceInfo(device, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -605,7 +605,7 @@ public class CL10 {
 	 */
 	public static int clGetDeviceInfo(long device, int param_name, LongBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetDeviceInfo(device, param_name, remainingSafe(param_value) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -631,7 +631,7 @@ public class CL10 {
 	 */
 	public static int clGetDeviceInfo(long device, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetDeviceInfo(device, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -682,7 +682,7 @@ public class CL10 {
 	public static long clCreateContext(PointerBuffer properties, PointerBuffer devices, CLContextCallbackI pfn_notify, long user_data, IntBuffer errcode_ret) {
 		if ( CHECKS ) {
 			checkNT(properties);
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		}
 		return nclCreateContext(memAddress(properties), devices.remaining(), memAddress(devices), memAddressSafe(pfn_notify), user_data, memAddressSafe(errcode_ret));
 	}
@@ -721,7 +721,7 @@ public class CL10 {
 	public static long clCreateContext(PointerBuffer properties, long device, CLContextCallbackI pfn_notify, long user_data, IntBuffer errcode_ret) {
 		if ( CHECKS ) {
 			checkNT(properties);
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -753,7 +753,7 @@ public class CL10 {
 	public static long clCreateContextFromType(PointerBuffer properties, long device_type, CLContextCallbackI pfn_notify, long user_data, IntBuffer errcode_ret) {
 		if ( CHECKS ) {
 			checkNT(properties);
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		}
 		return nclCreateContextFromType(memAddress(properties), device_type, memAddressSafe(pfn_notify), user_data, memAddressSafe(errcode_ret));
 	}
@@ -780,7 +780,7 @@ public class CL10 {
 	public static int clRetainContext(long context) {
 		long __functionAddress = CL.getICD().clRetainContext;
 		if ( CHECKS )
-			checkPointer(context);
+			check(context);
 		return callPI(__functionAddress, context);
 	}
 
@@ -805,7 +805,7 @@ public class CL10 {
 	public static int clReleaseContext(long context) {
 		long __functionAddress = CL.getICD().clReleaseContext;
 		if ( CHECKS )
-			checkPointer(context);
+			check(context);
 		return callPI(__functionAddress, context);
 	}
 
@@ -819,7 +819,7 @@ public class CL10 {
 	public static int nclGetContextInfo(long context, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetContextInfo;
 		if ( CHECKS )
-			checkPointer(context);
+			check(context);
 		return callPPPPI(__functionAddress, context, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
@@ -843,7 +843,7 @@ public class CL10 {
 	 */
 	public static int clGetContextInfo(long context, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetContextInfo(context, param_name, remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -867,7 +867,7 @@ public class CL10 {
 	 */
 	public static int clGetContextInfo(long context, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetContextInfo(context, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -891,7 +891,7 @@ public class CL10 {
 	 */
 	public static int clGetContextInfo(long context, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetContextInfo(context, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -901,8 +901,8 @@ public class CL10 {
 	public static long nclCreateCommandQueue(long context, long device, long properties, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateCommandQueue;
 		if ( CHECKS ) {
-			checkPointer(context);
-			checkPointer(device);
+			check(context);
+			check(device);
 		}
 		return callPPJPP(__functionAddress, context, device, properties, errcode_ret);
 	}
@@ -935,7 +935,7 @@ public class CL10 {
 	 */
 	public static long clCreateCommandQueue(long context, long device, long properties, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateCommandQueue(context, device, properties, memAddressSafe(errcode_ret));
 	}
 
@@ -961,7 +961,7 @@ public class CL10 {
 	public static int clRetainCommandQueue(long command_queue) {
 		long __functionAddress = CL.getICD().clRetainCommandQueue;
 		if ( CHECKS )
-			checkPointer(command_queue);
+			check(command_queue);
 		return callPI(__functionAddress, command_queue);
 	}
 
@@ -988,7 +988,7 @@ public class CL10 {
 	public static int clReleaseCommandQueue(long command_queue) {
 		long __functionAddress = CL.getICD().clReleaseCommandQueue;
 		if ( CHECKS )
-			checkPointer(command_queue);
+			check(command_queue);
 		return callPI(__functionAddress, command_queue);
 	}
 
@@ -1002,7 +1002,7 @@ public class CL10 {
 	public static int nclGetCommandQueueInfo(long command_queue, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetCommandQueueInfo;
 		if ( CHECKS )
-			checkPointer(command_queue);
+			check(command_queue);
 		return callPPPPI(__functionAddress, command_queue, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
@@ -1026,7 +1026,7 @@ public class CL10 {
 	 */
 	public static int clGetCommandQueueInfo(long command_queue, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetCommandQueueInfo(command_queue, param_name, remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -1050,7 +1050,7 @@ public class CL10 {
 	 */
 	public static int clGetCommandQueueInfo(long command_queue, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetCommandQueueInfo(command_queue, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -1074,7 +1074,7 @@ public class CL10 {
 	 */
 	public static int clGetCommandQueueInfo(long command_queue, int param_name, LongBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetCommandQueueInfo(command_queue, param_name, remainingSafe(param_value) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -1098,7 +1098,7 @@ public class CL10 {
 	 */
 	public static int clGetCommandQueueInfo(long command_queue, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetCommandQueueInfo(command_queue, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -1112,7 +1112,7 @@ public class CL10 {
 	public static long nclCreateBuffer(long context, long flags, long size, long host_ptr, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateBuffer;
 		if ( CHECKS )
-			checkPointer(context);
+			check(context);
 		return callPJPPPP(__functionAddress, context, flags, size, host_ptr, errcode_ret);
 	}
 
@@ -1142,7 +1142,7 @@ public class CL10 {
 	 */
 	public static long clCreateBuffer(long context, long flags, long size, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateBuffer(context, flags, size, NULL, memAddressSafe(errcode_ret));
 	}
 
@@ -1173,7 +1173,7 @@ public class CL10 {
 	 */
 	public static long clCreateBuffer(long context, long flags, ByteBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateBuffer(context, flags, host_ptr.remaining(), memAddress(host_ptr), memAddressSafe(errcode_ret));
 	}
 
@@ -1204,7 +1204,7 @@ public class CL10 {
 	 */
 	public static long clCreateBuffer(long context, long flags, ShortBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateBuffer(context, flags, host_ptr.remaining() << 1, memAddress(host_ptr), memAddressSafe(errcode_ret));
 	}
 
@@ -1235,7 +1235,7 @@ public class CL10 {
 	 */
 	public static long clCreateBuffer(long context, long flags, IntBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateBuffer(context, flags, host_ptr.remaining() << 2, memAddress(host_ptr), memAddressSafe(errcode_ret));
 	}
 
@@ -1266,7 +1266,7 @@ public class CL10 {
 	 */
 	public static long clCreateBuffer(long context, long flags, FloatBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateBuffer(context, flags, host_ptr.remaining() << 2, memAddress(host_ptr), memAddressSafe(errcode_ret));
 	}
 
@@ -1297,7 +1297,7 @@ public class CL10 {
 	 */
 	public static long clCreateBuffer(long context, long flags, DoubleBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateBuffer(context, flags, host_ptr.remaining() << 3, memAddress(host_ptr), memAddressSafe(errcode_ret));
 	}
 
@@ -1312,8 +1312,8 @@ public class CL10 {
 	public static int nclEnqueueReadBuffer(long command_queue, long buffer, int blocking_read, long offset, long size, long ptr, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = CL.getICD().clEnqueueReadBuffer;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(buffer);
+			check(command_queue);
+			check(buffer);
 		}
 		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, offset, size, ptr, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -1377,7 +1377,7 @@ public class CL10 {
 	 */
 	public static int clEnqueueReadBuffer(long command_queue, long buffer, int blocking_read, long offset, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			checkBufferSafe(event, 1);
+			checkSafe(event, 1);
 		return nclEnqueueReadBuffer(command_queue, buffer, blocking_read, offset, ptr.remaining(), memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -1440,7 +1440,7 @@ public class CL10 {
 	 */
 	public static int clEnqueueReadBuffer(long command_queue, long buffer, int blocking_read, long offset, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			checkBufferSafe(event, 1);
+			checkSafe(event, 1);
 		return nclEnqueueReadBuffer(command_queue, buffer, blocking_read, offset, ptr.remaining() << 1, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -1503,7 +1503,7 @@ public class CL10 {
 	 */
 	public static int clEnqueueReadBuffer(long command_queue, long buffer, int blocking_read, long offset, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			checkBufferSafe(event, 1);
+			checkSafe(event, 1);
 		return nclEnqueueReadBuffer(command_queue, buffer, blocking_read, offset, ptr.remaining() << 2, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -1566,7 +1566,7 @@ public class CL10 {
 	 */
 	public static int clEnqueueReadBuffer(long command_queue, long buffer, int blocking_read, long offset, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			checkBufferSafe(event, 1);
+			checkSafe(event, 1);
 		return nclEnqueueReadBuffer(command_queue, buffer, blocking_read, offset, ptr.remaining() << 2, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -1629,7 +1629,7 @@ public class CL10 {
 	 */
 	public static int clEnqueueReadBuffer(long command_queue, long buffer, int blocking_read, long offset, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			checkBufferSafe(event, 1);
+			checkSafe(event, 1);
 		return nclEnqueueReadBuffer(command_queue, buffer, blocking_read, offset, ptr.remaining() << 3, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -1644,8 +1644,8 @@ public class CL10 {
 	public static int nclEnqueueWriteBuffer(long command_queue, long buffer, int blocking_write, long offset, long size, long ptr, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteBuffer;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(buffer);
+			check(command_queue);
+			check(buffer);
 		}
 		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, offset, size, ptr, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -1708,7 +1708,7 @@ public class CL10 {
 	 */
 	public static int clEnqueueWriteBuffer(long command_queue, long buffer, int blocking_write, long offset, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			checkBufferSafe(event, 1);
+			checkSafe(event, 1);
 		return nclEnqueueWriteBuffer(command_queue, buffer, blocking_write, offset, ptr.remaining(), memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -1770,7 +1770,7 @@ public class CL10 {
 	 */
 	public static int clEnqueueWriteBuffer(long command_queue, long buffer, int blocking_write, long offset, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			checkBufferSafe(event, 1);
+			checkSafe(event, 1);
 		return nclEnqueueWriteBuffer(command_queue, buffer, blocking_write, offset, ptr.remaining() << 1, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -1832,7 +1832,7 @@ public class CL10 {
 	 */
 	public static int clEnqueueWriteBuffer(long command_queue, long buffer, int blocking_write, long offset, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			checkBufferSafe(event, 1);
+			checkSafe(event, 1);
 		return nclEnqueueWriteBuffer(command_queue, buffer, blocking_write, offset, ptr.remaining() << 2, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -1894,7 +1894,7 @@ public class CL10 {
 	 */
 	public static int clEnqueueWriteBuffer(long command_queue, long buffer, int blocking_write, long offset, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			checkBufferSafe(event, 1);
+			checkSafe(event, 1);
 		return nclEnqueueWriteBuffer(command_queue, buffer, blocking_write, offset, ptr.remaining() << 2, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -1956,7 +1956,7 @@ public class CL10 {
 	 */
 	public static int clEnqueueWriteBuffer(long command_queue, long buffer, int blocking_write, long offset, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			checkBufferSafe(event, 1);
+			checkSafe(event, 1);
 		return nclEnqueueWriteBuffer(command_queue, buffer, blocking_write, offset, ptr.remaining() << 3, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -1970,9 +1970,9 @@ public class CL10 {
 	public static int nclEnqueueCopyBuffer(long command_queue, long src_buffer, long dst_buffer, long src_offset, long dst_offset, long size, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = CL.getICD().clEnqueueCopyBuffer;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(src_buffer);
-			checkPointer(dst_buffer);
+			check(command_queue);
+			check(src_buffer);
+			check(dst_buffer);
 		}
 		return callPPPPPPPPI(__functionAddress, command_queue, src_buffer, dst_buffer, src_offset, dst_offset, size, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -2022,7 +2022,7 @@ public class CL10 {
 	 */
 	public static int clEnqueueCopyBuffer(long command_queue, long src_buffer, long dst_buffer, long src_offset, long dst_offset, long size, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			checkBufferSafe(event, 1);
+			checkSafe(event, 1);
 		return nclEnqueueCopyBuffer(command_queue, src_buffer, dst_buffer, src_offset, dst_offset, size, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -2036,8 +2036,8 @@ public class CL10 {
 	public static long nclEnqueueMapBuffer(long command_queue, long buffer, int blocking_map, long map_flags, long offset, long size, int num_events_in_wait_list, long event_wait_list, long event, long errcode_ret) {
 		long __functionAddress = CL.getICD().clEnqueueMapBuffer;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(buffer);
+			check(command_queue);
+			check(buffer);
 		}
 		return callPPJPPPPPP(__functionAddress, command_queue, buffer, blocking_map, map_flags, offset, size, num_events_in_wait_list, event_wait_list, event, errcode_ret);
 	}
@@ -2109,8 +2109,8 @@ public class CL10 {
 	 */
 	public static ByteBuffer clEnqueueMapBuffer(long command_queue, long buffer, int blocking_map, long map_flags, long offset, long size, PointerBuffer event_wait_list, PointerBuffer event, IntBuffer errcode_ret, ByteBuffer old_buffer) {
 		if ( CHECKS ) {
-			checkBufferSafe(event, 1);
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(event, 1);
+			checkSafe(errcode_ret, 1);
 		}
 		long __result = nclEnqueueMapBuffer(command_queue, buffer, blocking_map, map_flags, offset, size, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret));
 		return old_buffer == null ? memByteBuffer(__result, (int)size) : memSetupBuffer(old_buffer, __result, (int)size);
@@ -2122,7 +2122,7 @@ public class CL10 {
 	public static long nclCreateImage2D(long context, long flags, long image_format, long image_width, long image_height, long image_row_pitch, long host_ptr, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateImage2D;
 		if ( CHECKS )
-			checkPointer(context);
+			check(context);
 		return callPJPPPPPPP(__functionAddress, context, flags, image_format, image_width, image_height, image_row_pitch, host_ptr, errcode_ret);
 	}
 
@@ -2164,7 +2164,7 @@ public class CL10 {
 	 */
 	public static long clCreateImage2D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_row_pitch, ByteBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateImage2D(context, flags, image_format.address(), image_width, image_height, image_row_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
 	}
 
@@ -2206,7 +2206,7 @@ public class CL10 {
 	 */
 	public static long clCreateImage2D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_row_pitch, ShortBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateImage2D(context, flags, image_format.address(), image_width, image_height, image_row_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
 	}
 
@@ -2248,7 +2248,7 @@ public class CL10 {
 	 */
 	public static long clCreateImage2D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_row_pitch, IntBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateImage2D(context, flags, image_format.address(), image_width, image_height, image_row_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
 	}
 
@@ -2290,7 +2290,7 @@ public class CL10 {
 	 */
 	public static long clCreateImage2D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_row_pitch, FloatBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateImage2D(context, flags, image_format.address(), image_width, image_height, image_row_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
 	}
 
@@ -2300,7 +2300,7 @@ public class CL10 {
 	public static long nclCreateImage3D(long context, long flags, long image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, long host_ptr, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateImage3D;
 		if ( CHECKS )
-			checkPointer(context);
+			check(context);
 		return callPJPPPPPPPPP(__functionAddress, context, flags, image_format, image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, host_ptr, errcode_ret);
 	}
 
@@ -2349,7 +2349,7 @@ public class CL10 {
 	 */
 	public static long clCreateImage3D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, ByteBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateImage3D(context, flags, image_format.address(), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
 	}
 
@@ -2398,7 +2398,7 @@ public class CL10 {
 	 */
 	public static long clCreateImage3D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, ShortBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateImage3D(context, flags, image_format.address(), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
 	}
 
@@ -2447,7 +2447,7 @@ public class CL10 {
 	 */
 	public static long clCreateImage3D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, IntBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateImage3D(context, flags, image_format.address(), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
 	}
 
@@ -2496,7 +2496,7 @@ public class CL10 {
 	 */
 	public static long clCreateImage3D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, FloatBuffer host_ptr, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateImage3D(context, flags, image_format.address(), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, memAddressSafe(host_ptr), memAddressSafe(errcode_ret));
 	}
 
@@ -2510,7 +2510,7 @@ public class CL10 {
 	public static int nclGetSupportedImageFormats(long context, long flags, int image_type, int num_entries, long image_formats, long num_image_formats) {
 		long __functionAddress = CL.getICD().clGetSupportedImageFormats;
 		if ( CHECKS )
-			checkPointer(context);
+			check(context);
 		return callPJPPI(__functionAddress, context, flags, image_type, num_entries, image_formats, num_image_formats);
 	}
 
@@ -2545,7 +2545,7 @@ public class CL10 {
 	 */
 	public static int clGetSupportedImageFormats(long context, long flags, int image_type, CLImageFormat.Buffer image_formats, IntBuffer num_image_formats) {
 		if ( CHECKS )
-			checkBufferSafe(num_image_formats, 1);
+			checkSafe(num_image_formats, 1);
 		return nclGetSupportedImageFormats(context, flags, image_type, remainingSafe(image_formats), memAddressSafe(image_formats), memAddressSafe(num_image_formats));
 	}
 
@@ -2559,8 +2559,8 @@ public class CL10 {
 	public static int nclEnqueueReadImage(long command_queue, long image, int blocking_read, long origin, long region, long row_pitch, long slice_pitch, long ptr, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = CL.getICD().clEnqueueReadImage;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(image);
+			check(command_queue);
+			check(image);
 		}
 		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_read, origin, region, row_pitch, slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -2646,9 +2646,9 @@ public class CL10 {
 	 */
 	public static int clEnqueueReadImage(long command_queue, long image, int blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
-			checkBuffer(origin, 3);
-			checkBuffer(region, 3);
-			checkBufferSafe(event, 1);
+			check(origin, 3);
+			check(region, 3);
+			checkSafe(event, 1);
 		}
 		return nclEnqueueReadImage(command_queue, image, blocking_read, memAddress(origin), memAddress(region), row_pitch, slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -2734,9 +2734,9 @@ public class CL10 {
 	 */
 	public static int clEnqueueReadImage(long command_queue, long image, int blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
-			checkBuffer(origin, 3);
-			checkBuffer(region, 3);
-			checkBufferSafe(event, 1);
+			check(origin, 3);
+			check(region, 3);
+			checkSafe(event, 1);
 		}
 		return nclEnqueueReadImage(command_queue, image, blocking_read, memAddress(origin), memAddress(region), row_pitch, slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -2822,9 +2822,9 @@ public class CL10 {
 	 */
 	public static int clEnqueueReadImage(long command_queue, long image, int blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
-			checkBuffer(origin, 3);
-			checkBuffer(region, 3);
-			checkBufferSafe(event, 1);
+			check(origin, 3);
+			check(region, 3);
+			checkSafe(event, 1);
 		}
 		return nclEnqueueReadImage(command_queue, image, blocking_read, memAddress(origin), memAddress(region), row_pitch, slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -2910,9 +2910,9 @@ public class CL10 {
 	 */
 	public static int clEnqueueReadImage(long command_queue, long image, int blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
-			checkBuffer(origin, 3);
-			checkBuffer(region, 3);
-			checkBufferSafe(event, 1);
+			check(origin, 3);
+			check(region, 3);
+			checkSafe(event, 1);
 		}
 		return nclEnqueueReadImage(command_queue, image, blocking_read, memAddress(origin), memAddress(region), row_pitch, slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -2998,9 +2998,9 @@ public class CL10 {
 	 */
 	public static int clEnqueueReadImage(long command_queue, long image, int blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
-			checkBuffer(origin, 3);
-			checkBuffer(region, 3);
-			checkBufferSafe(event, 1);
+			check(origin, 3);
+			check(region, 3);
+			checkSafe(event, 1);
 		}
 		return nclEnqueueReadImage(command_queue, image, blocking_read, memAddress(origin), memAddress(region), row_pitch, slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -3015,8 +3015,8 @@ public class CL10 {
 	public static int nclEnqueueWriteImage(long command_queue, long image, int blocking_write, long origin, long region, long input_row_pitch, long input_slice_pitch, long ptr, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteImage;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(image);
+			check(command_queue);
+			check(image);
 		}
 		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_write, origin, region, input_row_pitch, input_slice_pitch, ptr, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -3102,9 +3102,9 @@ public class CL10 {
 	 */
 	public static int clEnqueueWriteImage(long command_queue, long image, int blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
-			checkBuffer(origin, 3);
-			checkBuffer(region, 3);
-			checkBufferSafe(event, 1);
+			check(origin, 3);
+			check(region, 3);
+			checkSafe(event, 1);
 		}
 		return nclEnqueueWriteImage(command_queue, image, blocking_write, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -3190,9 +3190,9 @@ public class CL10 {
 	 */
 	public static int clEnqueueWriteImage(long command_queue, long image, int blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
-			checkBuffer(origin, 3);
-			checkBuffer(region, 3);
-			checkBufferSafe(event, 1);
+			check(origin, 3);
+			check(region, 3);
+			checkSafe(event, 1);
 		}
 		return nclEnqueueWriteImage(command_queue, image, blocking_write, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -3278,9 +3278,9 @@ public class CL10 {
 	 */
 	public static int clEnqueueWriteImage(long command_queue, long image, int blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
-			checkBuffer(origin, 3);
-			checkBuffer(region, 3);
-			checkBufferSafe(event, 1);
+			check(origin, 3);
+			check(region, 3);
+			checkSafe(event, 1);
 		}
 		return nclEnqueueWriteImage(command_queue, image, blocking_write, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -3366,9 +3366,9 @@ public class CL10 {
 	 */
 	public static int clEnqueueWriteImage(long command_queue, long image, int blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
-			checkBuffer(origin, 3);
-			checkBuffer(region, 3);
-			checkBufferSafe(event, 1);
+			check(origin, 3);
+			check(region, 3);
+			checkSafe(event, 1);
 		}
 		return nclEnqueueWriteImage(command_queue, image, blocking_write, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -3454,9 +3454,9 @@ public class CL10 {
 	 */
 	public static int clEnqueueWriteImage(long command_queue, long image, int blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
-			checkBuffer(origin, 3);
-			checkBuffer(region, 3);
-			checkBufferSafe(event, 1);
+			check(origin, 3);
+			check(region, 3);
+			checkSafe(event, 1);
 		}
 		return nclEnqueueWriteImage(command_queue, image, blocking_write, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -3471,9 +3471,9 @@ public class CL10 {
 	public static int nclEnqueueCopyImage(long command_queue, long src_image, long dst_image, long src_origin, long dst_origin, long region, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = CL.getICD().clEnqueueCopyImage;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(src_image);
-			checkPointer(dst_image);
+			check(command_queue);
+			check(src_image);
+			check(dst_image);
 		}
 		return callPPPPPPPPI(__functionAddress, command_queue, src_image, dst_image, src_origin, dst_origin, region, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -3551,10 +3551,10 @@ public class CL10 {
 	 */
 	public static int clEnqueueCopyImage(long command_queue, long src_image, long dst_image, PointerBuffer src_origin, PointerBuffer dst_origin, PointerBuffer region, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
-			checkBuffer(src_origin, 3);
-			checkBuffer(dst_origin, 3);
-			checkBuffer(region, 3);
-			checkBufferSafe(event, 1);
+			check(src_origin, 3);
+			check(dst_origin, 3);
+			check(region, 3);
+			checkSafe(event, 1);
 		}
 		return nclEnqueueCopyImage(command_queue, src_image, dst_image, memAddress(src_origin), memAddress(dst_origin), memAddress(region), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -3569,9 +3569,9 @@ public class CL10 {
 	public static int nclEnqueueCopyImageToBuffer(long command_queue, long src_image, long dst_buffer, long src_origin, long region, long dst_offset, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = CL.getICD().clEnqueueCopyImageToBuffer;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(src_image);
-			checkPointer(dst_buffer);
+			check(command_queue);
+			check(src_image);
+			check(dst_buffer);
 		}
 		return callPPPPPPPPI(__functionAddress, command_queue, src_image, dst_buffer, src_origin, region, dst_offset, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -3635,9 +3635,9 @@ public class CL10 {
 	 */
 	public static int clEnqueueCopyImageToBuffer(long command_queue, long src_image, long dst_buffer, PointerBuffer src_origin, PointerBuffer region, long dst_offset, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
-			checkBuffer(src_origin, 3);
-			checkBuffer(region, 3);
-			checkBufferSafe(event, 1);
+			check(src_origin, 3);
+			check(region, 3);
+			checkSafe(event, 1);
 		}
 		return nclEnqueueCopyImageToBuffer(command_queue, src_image, dst_buffer, memAddress(src_origin), memAddress(region), dst_offset, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -3652,9 +3652,9 @@ public class CL10 {
 	public static int nclEnqueueCopyBufferToImage(long command_queue, long src_buffer, long dst_image, long src_offset, long dst_origin, long region, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = CL.getICD().clEnqueueCopyBufferToImage;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(src_buffer);
-			checkPointer(dst_image);
+			check(command_queue);
+			check(src_buffer);
+			check(dst_image);
 		}
 		return callPPPPPPPPI(__functionAddress, command_queue, src_buffer, dst_image, src_offset, dst_origin, region, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -3714,9 +3714,9 @@ public class CL10 {
 	 */
 	public static int clEnqueueCopyBufferToImage(long command_queue, long src_buffer, long dst_image, long src_offset, PointerBuffer dst_origin, PointerBuffer region, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
-			checkBuffer(dst_origin, 3);
-			checkBuffer(region, 3);
-			checkBufferSafe(event, 1);
+			check(dst_origin, 3);
+			check(region, 3);
+			checkSafe(event, 1);
 		}
 		return nclEnqueueCopyBufferToImage(command_queue, src_buffer, dst_image, src_offset, memAddress(dst_origin), memAddress(region), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -3731,8 +3731,8 @@ public class CL10 {
 	public static long nclEnqueueMapImage(long command_queue, long image, int blocking_map, long map_flags, long origin, long region, long image_row_pitch, long image_slice_pitch, int num_events_in_wait_list, long event_wait_list, long event, long errcode_ret) {
 		long __functionAddress = CL.getICD().clEnqueueMapImage;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(image);
+			check(command_queue);
+			check(image);
 		}
 		return callPPJPPPPPPPP(__functionAddress, command_queue, image, blocking_map, map_flags, origin, region, image_row_pitch, image_slice_pitch, num_events_in_wait_list, event_wait_list, event, errcode_ret);
 	}
@@ -3824,12 +3824,12 @@ public class CL10 {
 	 */
 	public static ByteBuffer clEnqueueMapImage(long command_queue, long image, int blocking_map, long map_flags, PointerBuffer origin, PointerBuffer region, PointerBuffer image_row_pitch, PointerBuffer image_slice_pitch, PointerBuffer event_wait_list, PointerBuffer event, IntBuffer errcode_ret, ByteBuffer old_buffer) {
 		if ( CHECKS ) {
-			checkBuffer(origin, 3);
-			checkBuffer(region, 3);
-			checkBuffer(image_row_pitch, 1);
-			checkBufferSafe(image_slice_pitch, 1);
-			checkBufferSafe(event, 1);
-			checkBufferSafe(errcode_ret, 1);
+			check(origin, 3);
+			check(region, 3);
+			check(image_row_pitch, 1);
+			checkSafe(image_slice_pitch, 1);
+			checkSafe(event, 1);
+			checkSafe(errcode_ret, 1);
 		}
 		long __result = nclEnqueueMapImage(command_queue, image, blocking_map, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret));
 		int length = (int)getMemObjectInfoPointer(image, CL_MEM_SIZE);
@@ -3923,12 +3923,12 @@ public class CL10 {
 	 */
 	public static ByteBuffer clEnqueueMapImage(long command_queue, long image, int blocking_map, long map_flags, PointerBuffer origin, PointerBuffer region, PointerBuffer image_row_pitch, PointerBuffer image_slice_pitch, PointerBuffer event_wait_list, PointerBuffer event, IntBuffer errcode_ret, long length, ByteBuffer old_buffer) {
 		if ( CHECKS ) {
-			checkBuffer(origin, 3);
-			checkBuffer(region, 3);
-			checkBuffer(image_row_pitch, 1);
-			checkBufferSafe(image_slice_pitch, 1);
-			checkBufferSafe(event, 1);
-			checkBufferSafe(errcode_ret, 1);
+			check(origin, 3);
+			check(region, 3);
+			check(image_row_pitch, 1);
+			checkSafe(image_slice_pitch, 1);
+			checkSafe(event, 1);
+			checkSafe(errcode_ret, 1);
 		}
 		long __result = nclEnqueueMapImage(command_queue, image, blocking_map, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), memAddressSafe(errcode_ret));
 		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
@@ -3944,7 +3944,7 @@ public class CL10 {
 	public static int nclGetImageInfo(long image, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetImageInfo;
 		if ( CHECKS )
-			checkPointer(image);
+			check(image);
 		return callPPPPI(__functionAddress, image, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
@@ -3968,7 +3968,7 @@ public class CL10 {
 	 */
 	public static int clGetImageInfo(long image, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetImageInfo(image, param_name, remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -3992,7 +3992,7 @@ public class CL10 {
 	 */
 	public static int clGetImageInfo(long image, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetImageInfo(image, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -4016,7 +4016,7 @@ public class CL10 {
 	 */
 	public static int clGetImageInfo(long image, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetImageInfo(image, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -4040,7 +4040,7 @@ public class CL10 {
 	public static int clRetainMemObject(long memobj) {
 		long __functionAddress = CL.getICD().clRetainMemObject;
 		if ( CHECKS )
-			checkPointer(memobj);
+			check(memobj);
 		return callPI(__functionAddress, memobj);
 	}
 
@@ -4066,7 +4066,7 @@ public class CL10 {
 	public static int clReleaseMemObject(long memobj) {
 		long __functionAddress = CL.getICD().clReleaseMemObject;
 		if ( CHECKS )
-			checkPointer(memobj);
+			check(memobj);
 		return callPI(__functionAddress, memobj);
 	}
 
@@ -4080,8 +4080,8 @@ public class CL10 {
 	public static int nclEnqueueUnmapMemObject(long command_queue, long memobj, long mapped_ptr, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = CL.getICD().clEnqueueUnmapMemObject;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(memobj);
+			check(command_queue);
+			check(memobj);
 		}
 		return callPPPPPI(__functionAddress, command_queue, memobj, mapped_ptr, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -4122,7 +4122,7 @@ public class CL10 {
 	 */
 	public static int clEnqueueUnmapMemObject(long command_queue, long memobj, ByteBuffer mapped_ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			checkBufferSafe(event, 1);
+			checkSafe(event, 1);
 		return nclEnqueueUnmapMemObject(command_queue, memobj, memAddress(mapped_ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -4136,7 +4136,7 @@ public class CL10 {
 	public static int nclGetMemObjectInfo(long memobj, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetMemObjectInfo;
 		if ( CHECKS )
-			checkPointer(memobj);
+			check(memobj);
 		return callPPPPI(__functionAddress, memobj, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
@@ -4160,7 +4160,7 @@ public class CL10 {
 	 */
 	public static int clGetMemObjectInfo(long memobj, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetMemObjectInfo(memobj, param_name, remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -4184,7 +4184,7 @@ public class CL10 {
 	 */
 	public static int clGetMemObjectInfo(long memobj, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetMemObjectInfo(memobj, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -4208,7 +4208,7 @@ public class CL10 {
 	 */
 	public static int clGetMemObjectInfo(long memobj, int param_name, LongBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetMemObjectInfo(memobj, param_name, remainingSafe(param_value) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -4232,7 +4232,7 @@ public class CL10 {
 	 */
 	public static int clGetMemObjectInfo(long memobj, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetMemObjectInfo(memobj, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -4242,7 +4242,7 @@ public class CL10 {
 	public static long nclCreateSampler(long context, int normalized_coords, int addressing_mode, int filter_mode, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateSampler;
 		if ( CHECKS )
-			checkPointer(context);
+			check(context);
 		return callPPP(__functionAddress, context, normalized_coords, addressing_mode, filter_mode, errcode_ret);
 	}
 
@@ -4274,7 +4274,7 @@ public class CL10 {
 	 */
 	public static long clCreateSampler(long context, int normalized_coords, int addressing_mode, int filter_mode, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateSampler(context, normalized_coords, addressing_mode, filter_mode, memAddressSafe(errcode_ret));
 	}
 
@@ -4296,7 +4296,7 @@ public class CL10 {
 	public static int clRetainSampler(long sampler) {
 		long __functionAddress = CL.getICD().clRetainSampler;
 		if ( CHECKS )
-			checkPointer(sampler);
+			check(sampler);
 		return callPI(__functionAddress, sampler);
 	}
 
@@ -4319,7 +4319,7 @@ public class CL10 {
 	public static int clReleaseSampler(long sampler) {
 		long __functionAddress = CL.getICD().clReleaseSampler;
 		if ( CHECKS )
-			checkPointer(sampler);
+			check(sampler);
 		return callPI(__functionAddress, sampler);
 	}
 
@@ -4333,7 +4333,7 @@ public class CL10 {
 	public static int nclGetSamplerInfo(long sampler, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetSamplerInfo;
 		if ( CHECKS )
-			checkPointer(sampler);
+			check(sampler);
 		return callPPPPI(__functionAddress, sampler, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
@@ -4357,7 +4357,7 @@ public class CL10 {
 	 */
 	public static int clGetSamplerInfo(long sampler, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetSamplerInfo(sampler, param_name, remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -4381,7 +4381,7 @@ public class CL10 {
 	 */
 	public static int clGetSamplerInfo(long sampler, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetSamplerInfo(sampler, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -4405,7 +4405,7 @@ public class CL10 {
 	 */
 	public static int clGetSamplerInfo(long sampler, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetSamplerInfo(sampler, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -4419,7 +4419,7 @@ public class CL10 {
 	public static long nclCreateProgramWithSource(long context, int count, long strings, long lengths, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateProgramWithSource;
 		if ( CHECKS )
-			checkPointer(context);
+			check(context);
 		return callPPPPP(__functionAddress, context, count, strings, lengths, errcode_ret);
 	}
 
@@ -4447,8 +4447,8 @@ public class CL10 {
 	 */
 	public static long clCreateProgramWithSource(long context, PointerBuffer strings, PointerBuffer lengths, IntBuffer errcode_ret) {
 		if ( CHECKS ) {
-			checkBufferSafe(lengths, strings.remaining());
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(lengths, strings.remaining());
+			checkSafe(errcode_ret, 1);
 		}
 		return nclCreateProgramWithSource(context, strings.remaining(), memAddress(strings), memAddressSafe(lengths), memAddressSafe(errcode_ret));
 	}
@@ -4474,7 +4474,7 @@ public class CL10 {
 	 */
 	public static long clCreateProgramWithSource(long context, CharSequence[] strings, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			long stringsAddress = org.lwjgl.system.APIUtil.apiArrayp(stack, MemoryUtil::memUTF8, strings);
@@ -4506,7 +4506,7 @@ public class CL10 {
 	 */
 	public static long clCreateProgramWithSource(long context, CharSequence string, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			long stringsAddress = org.lwjgl.system.APIUtil.apiArrayp(stack, MemoryUtil::memUTF8, string);
@@ -4528,7 +4528,7 @@ public class CL10 {
 	public static long nclCreateProgramWithBinary(long context, int num_devices, long device_list, long lengths, long binaries, long binary_status, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateProgramWithBinary;
 		if ( CHECKS )
-			checkPointer(context);
+			check(context);
 		return callPPPPPPP(__functionAddress, context, num_devices, device_list, lengths, binaries, binary_status, errcode_ret);
 	}
 
@@ -4584,10 +4584,10 @@ public class CL10 {
 	 */
 	public static long clCreateProgramWithBinary(long context, PointerBuffer device_list, PointerBuffer lengths, PointerBuffer binaries, IntBuffer binary_status, IntBuffer errcode_ret) {
 		if ( CHECKS ) {
-			checkBuffer(device_list, binaries.remaining());
-			checkBuffer(lengths, binaries.remaining());
-			checkBufferSafe(binary_status, binaries.remaining());
-			checkBufferSafe(errcode_ret, 1);
+			check(device_list, binaries.remaining());
+			check(lengths, binaries.remaining());
+			checkSafe(binary_status, binaries.remaining());
+			checkSafe(errcode_ret, 1);
 		}
 		return nclCreateProgramWithBinary(context, binaries.remaining(), memAddress(device_list), memAddress(lengths), memAddress(binaries), memAddressSafe(binary_status), memAddressSafe(errcode_ret));
 	}
@@ -4643,9 +4643,9 @@ public class CL10 {
 	 */
 	public static long clCreateProgramWithBinary(long context, PointerBuffer device_list, ByteBuffer[] binaries, IntBuffer binary_status, IntBuffer errcode_ret) {
 		if ( CHECKS ) {
-			checkBuffer(device_list, binaries.length);
-			checkBufferSafe(binary_status, binaries.length);
-			checkBufferSafe(errcode_ret, 1);
+			check(device_list, binaries.length);
+			checkSafe(binary_status, binaries.length);
+			checkSafe(errcode_ret, 1);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -4704,9 +4704,9 @@ public class CL10 {
 	 */
 	public static long clCreateProgramWithBinary(long context, PointerBuffer device_list, ByteBuffer binary, IntBuffer binary_status, IntBuffer errcode_ret) {
 		if ( CHECKS ) {
-			checkBuffer(device_list, 1);
-			checkBufferSafe(binary_status, 1);
-			checkBufferSafe(errcode_ret, 1);
+			check(device_list, 1);
+			checkSafe(binary_status, 1);
+			checkSafe(errcode_ret, 1);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -4735,7 +4735,7 @@ public class CL10 {
 	public static int clRetainProgram(long program) {
 		long __functionAddress = CL.getICD().clRetainProgram;
 		if ( CHECKS )
-			checkPointer(program);
+			check(program);
 		return callPI(__functionAddress, program);
 	}
 
@@ -4758,7 +4758,7 @@ public class CL10 {
 	public static int clReleaseProgram(long program) {
 		long __functionAddress = CL.getICD().clReleaseProgram;
 		if ( CHECKS )
-			checkPointer(program);
+			check(program);
 		return callPI(__functionAddress, program);
 	}
 
@@ -4772,7 +4772,7 @@ public class CL10 {
 	public static int nclBuildProgram(long program, int num_devices, long device_list, long options, long pfn_notify, long user_data) {
 		long __functionAddress = CL.getICD().clBuildProgram;
 		if ( CHECKS )
-			checkPointer(program);
+			check(program);
 		return callPPPPPI(__functionAddress, program, num_devices, device_list, options, pfn_notify, user_data);
 	}
 
@@ -4960,7 +4960,7 @@ public class CL10 {
 	public static int nclGetProgramInfo(long program, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetProgramInfo;
 		if ( CHECKS )
-			checkPointer(program);
+			check(program);
 		return callPPPPI(__functionAddress, program, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
@@ -4986,7 +4986,7 @@ public class CL10 {
 	 */
 	public static int clGetProgramInfo(long program, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetProgramInfo(program, param_name, remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -5012,7 +5012,7 @@ public class CL10 {
 	 */
 	public static int clGetProgramInfo(long program, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetProgramInfo(program, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -5038,7 +5038,7 @@ public class CL10 {
 	 */
 	public static int clGetProgramInfo(long program, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetProgramInfo(program, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -5052,8 +5052,8 @@ public class CL10 {
 	public static int nclGetProgramBuildInfo(long program, long device, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetProgramBuildInfo;
 		if ( CHECKS ) {
-			checkPointer(program);
-			checkPointer(device);
+			check(program);
+			check(device);
 		}
 		return callPPPPPI(__functionAddress, program, device, param_name, param_value_size, param_value, param_value_size_ret);
 	}
@@ -5080,7 +5080,7 @@ public class CL10 {
 	 */
 	public static int clGetProgramBuildInfo(long program, long device, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetProgramBuildInfo(program, device, param_name, remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -5106,7 +5106,7 @@ public class CL10 {
 	 */
 	public static int clGetProgramBuildInfo(long program, long device, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetProgramBuildInfo(program, device, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -5132,7 +5132,7 @@ public class CL10 {
 	 */
 	public static int clGetProgramBuildInfo(long program, long device, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetProgramBuildInfo(program, device, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -5142,7 +5142,7 @@ public class CL10 {
 	public static long nclCreateKernel(long program, long kernel_name, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateKernel;
 		if ( CHECKS )
-			checkPointer(program);
+			check(program);
 		return callPPPP(__functionAddress, program, kernel_name, errcode_ret);
 	}
 
@@ -5181,7 +5181,7 @@ public class CL10 {
 	public static long clCreateKernel(long program, ByteBuffer kernel_name, IntBuffer errcode_ret) {
 		if ( CHECKS ) {
 			checkNT1(kernel_name);
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		}
 		return nclCreateKernel(program, memAddress(kernel_name), memAddressSafe(errcode_ret));
 	}
@@ -5220,7 +5220,7 @@ public class CL10 {
 	 */
 	public static long clCreateKernel(long program, CharSequence kernel_name, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer kernel_nameEncoded = stack.ASCII(kernel_name);
@@ -5240,7 +5240,7 @@ public class CL10 {
 	public static int nclCreateKernelsInProgram(long program, int num_kernels, long kernels, long num_kernels_ret) {
 		long __functionAddress = CL.getICD().clCreateKernelsInProgram;
 		if ( CHECKS )
-			checkPointer(program);
+			check(program);
 		return callPPPI(__functionAddress, program, num_kernels, kernels, num_kernels_ret);
 	}
 
@@ -5267,7 +5267,7 @@ public class CL10 {
 	 */
 	public static int clCreateKernelsInProgram(long program, PointerBuffer kernels, IntBuffer num_kernels_ret) {
 		if ( CHECKS )
-			checkBufferSafe(num_kernels_ret, 1);
+			checkSafe(num_kernels_ret, 1);
 		return nclCreateKernelsInProgram(program, remainingSafe(kernels), memAddressSafe(kernels), memAddressSafe(num_kernels_ret));
 	}
 
@@ -5289,7 +5289,7 @@ public class CL10 {
 	public static int clRetainKernel(long kernel) {
 		long __functionAddress = CL.getICD().clRetainKernel;
 		if ( CHECKS )
-			checkPointer(kernel);
+			check(kernel);
 		return callPI(__functionAddress, kernel);
 	}
 
@@ -5314,7 +5314,7 @@ public class CL10 {
 	public static int clReleaseKernel(long kernel) {
 		long __functionAddress = CL.getICD().clReleaseKernel;
 		if ( CHECKS )
-			checkPointer(kernel);
+			check(kernel);
 		return callPI(__functionAddress, kernel);
 	}
 
@@ -5331,7 +5331,7 @@ public class CL10 {
 	public static int nclSetKernelArg(long kernel, int arg_index, long arg_size, long arg_value) {
 		long __functionAddress = CL.getICD().clSetKernelArg;
 		if ( CHECKS )
-			checkPointer(kernel);
+			check(kernel);
 		return callPPPI(__functionAddress, kernel, arg_index, arg_size, arg_value);
 	}
 
@@ -7348,7 +7348,7 @@ public class CL10 {
 	public static int nclGetKernelInfo(long kernel, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetKernelInfo;
 		if ( CHECKS )
-			checkPointer(kernel);
+			check(kernel);
 		return callPPPPI(__functionAddress, kernel, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
@@ -7372,7 +7372,7 @@ public class CL10 {
 	 */
 	public static int clGetKernelInfo(long kernel, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetKernelInfo(kernel, param_name, remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -7396,7 +7396,7 @@ public class CL10 {
 	 */
 	public static int clGetKernelInfo(long kernel, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetKernelInfo(kernel, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -7420,7 +7420,7 @@ public class CL10 {
 	 */
 	public static int clGetKernelInfo(long kernel, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetKernelInfo(kernel, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -7434,8 +7434,8 @@ public class CL10 {
 	public static int nclGetKernelWorkGroupInfo(long kernel, long device, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetKernelWorkGroupInfo;
 		if ( CHECKS ) {
-			checkPointer(kernel);
-			checkPointer(device);
+			check(kernel);
+			check(device);
 		}
 		return callPPPPPI(__functionAddress, kernel, device, param_name, param_value_size, param_value, param_value_size_ret);
 	}
@@ -7466,7 +7466,7 @@ public class CL10 {
 	 */
 	public static int clGetKernelWorkGroupInfo(long kernel, long device, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetKernelWorkGroupInfo(kernel, device, param_name, remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -7496,7 +7496,7 @@ public class CL10 {
 	 */
 	public static int clGetKernelWorkGroupInfo(long kernel, long device, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetKernelWorkGroupInfo(kernel, device, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -7526,7 +7526,7 @@ public class CL10 {
 	 */
 	public static int clGetKernelWorkGroupInfo(long kernel, long device, int param_name, LongBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetKernelWorkGroupInfo(kernel, device, param_name, remainingSafe(param_value) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -7556,7 +7556,7 @@ public class CL10 {
 	 */
 	public static int clGetKernelWorkGroupInfo(long kernel, long device, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetKernelWorkGroupInfo(kernel, device, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -7570,8 +7570,8 @@ public class CL10 {
 	public static int nclEnqueueNDRangeKernel(long command_queue, long kernel, int work_dim, long global_work_offset, long global_work_size, long local_work_size, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = CL.getICD().clEnqueueNDRangeKernel;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(kernel);
+			check(command_queue);
+			check(kernel);
 		}
 		return callPPPPPPPI(__functionAddress, command_queue, kernel, work_dim, global_work_offset, global_work_size, local_work_size, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -7656,10 +7656,10 @@ public class CL10 {
 	 */
 	public static int clEnqueueNDRangeKernel(long command_queue, long kernel, int work_dim, PointerBuffer global_work_offset, PointerBuffer global_work_size, PointerBuffer local_work_size, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
-			checkBufferSafe(global_work_offset, work_dim);
-			checkBufferSafe(global_work_size, work_dim);
-			checkBufferSafe(local_work_size, work_dim);
-			checkBufferSafe(event, 1);
+			checkSafe(global_work_offset, work_dim);
+			checkSafe(global_work_size, work_dim);
+			checkSafe(local_work_size, work_dim);
+			checkSafe(event, 1);
 		}
 		return nclEnqueueNDRangeKernel(command_queue, kernel, work_dim, memAddressSafe(global_work_offset), memAddressSafe(global_work_size), memAddressSafe(local_work_size), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -7674,8 +7674,8 @@ public class CL10 {
 	public static int nclEnqueueTask(long command_queue, long kernel, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = CL.getICD().clEnqueueTask;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(kernel);
+			check(command_queue);
+			check(kernel);
 		}
 		return callPPPPI(__functionAddress, command_queue, kernel, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -7700,7 +7700,7 @@ public class CL10 {
 	 */
 	public static int clEnqueueTask(long command_queue, long kernel, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			checkBufferSafe(event, 1);
+			checkSafe(event, 1);
 		return nclEnqueueTask(command_queue, kernel, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -7721,7 +7721,7 @@ public class CL10 {
 	public static int nclEnqueueNativeKernel(long command_queue, long user_func, long args, long cb_args, int num_mem_objects, long mem_list, long args_mem_loc, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = CL.getICD().clEnqueueNativeKernel;
 		if ( CHECKS )
-			checkPointer(command_queue);
+			check(command_queue);
 		return callPPPPPPPPI(__functionAddress, command_queue, user_func, args, cb_args, num_mem_objects, mem_list, args_mem_loc, num_events_in_wait_list, event_wait_list, event);
 	}
 
@@ -7769,8 +7769,8 @@ public class CL10 {
 	 */
 	public static int clEnqueueNativeKernel(long command_queue, CLNativeKernelI user_func, ByteBuffer args, PointerBuffer mem_list, PointerBuffer args_mem_loc, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
-			checkBufferSafe(args_mem_loc, remainingSafe(mem_list));
-			checkBufferSafe(event, 1);
+			checkSafe(args_mem_loc, remainingSafe(mem_list));
+			checkSafe(event, 1);
 		}
 		return nclEnqueueNativeKernel(command_queue, user_func.address(), memAddressSafe(args), remainingSafe(args), remainingSafe(mem_list), memAddressSafe(mem_list), memAddressSafe(args_mem_loc), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -7815,7 +7815,7 @@ public class CL10 {
 	 */
 	public static int clEnqueueNativeKernel(long command_queue, CLNativeKernelI user_func, ByteBuffer args, long memobj, long memobj_loc, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			checkBufferSafe(event, 1);
+			checkSafe(event, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			PointerBuffer mem_list = stack.pointers(memobj);
@@ -7894,7 +7894,7 @@ public class CL10 {
 	public static int nclGetEventInfo(long event, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetEventInfo;
 		if ( CHECKS )
-			checkPointer(event);
+			check(event);
 		return callPPPPI(__functionAddress, event, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
@@ -7923,7 +7923,7 @@ public class CL10 {
 	 */
 	public static int clGetEventInfo(long event, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetEventInfo(event, param_name, remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -7952,7 +7952,7 @@ public class CL10 {
 	 */
 	public static int clGetEventInfo(long event, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetEventInfo(event, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -7981,7 +7981,7 @@ public class CL10 {
 	 */
 	public static int clGetEventInfo(long event, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetEventInfo(event, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -8003,7 +8003,7 @@ public class CL10 {
 	public static int clRetainEvent(long event) {
 		long __functionAddress = CL.getICD().clRetainEvent;
 		if ( CHECKS )
-			checkPointer(event);
+			check(event);
 		return callPI(__functionAddress, event);
 	}
 
@@ -8036,7 +8036,7 @@ public class CL10 {
 	public static int clReleaseEvent(long event) {
 		long __functionAddress = CL.getICD().clReleaseEvent;
 		if ( CHECKS )
-			checkPointer(event);
+			check(event);
 		return callPI(__functionAddress, event);
 	}
 
@@ -8046,7 +8046,7 @@ public class CL10 {
 	public static int nclEnqueueMarker(long command_queue, long event) {
 		long __functionAddress = CL.getICD().clEnqueueMarker;
 		if ( CHECKS )
-			checkPointer(command_queue);
+			check(command_queue);
 		return callPPI(__functionAddress, command_queue, event);
 	}
 
@@ -8072,7 +8072,7 @@ public class CL10 {
 	 */
 	public static int clEnqueueMarker(long command_queue, PointerBuffer event) {
 		if ( CHECKS )
-			checkBufferSafe(event, 1);
+			checkSafe(event, 1);
 		return nclEnqueueMarker(command_queue, memAddressSafe(event));
 	}
 
@@ -8095,7 +8095,7 @@ public class CL10 {
 	public static int clEnqueueBarrier(long command_queue) {
 		long __functionAddress = CL.getICD().clEnqueueBarrier;
 		if ( CHECKS )
-			checkPointer(command_queue);
+			check(command_queue);
 		return callPI(__functionAddress, command_queue);
 	}
 
@@ -8109,7 +8109,7 @@ public class CL10 {
 	public static int nclEnqueueWaitForEvents(long command_queue, int num_events, long event_list) {
 		long __functionAddress = CL.getICD().clEnqueueWaitForEvents;
 		if ( CHECKS )
-			checkPointer(command_queue);
+			check(command_queue);
 		return callPPI(__functionAddress, command_queue, num_events, event_list);
 	}
 
@@ -8170,7 +8170,7 @@ public class CL10 {
 	public static int nclGetEventProfilingInfo(long event, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetEventProfilingInfo;
 		if ( CHECKS )
-			checkPointer(event);
+			check(event);
 		return callPPPPI(__functionAddress, event, param_name, param_value_size, param_value, param_value_size_ret);
 	}
 
@@ -8196,7 +8196,7 @@ public class CL10 {
 	 */
 	public static int clGetEventProfilingInfo(long event, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetEventProfilingInfo(event, param_name, remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -8222,7 +8222,7 @@ public class CL10 {
 	 */
 	public static int clGetEventProfilingInfo(long event, int param_name, LongBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetEventProfilingInfo(event, param_name, remainingSafe(param_value) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -8255,7 +8255,7 @@ public class CL10 {
 	public static int clFlush(long command_queue) {
 		long __functionAddress = CL.getICD().clFlush;
 		if ( CHECKS )
-			checkPointer(command_queue);
+			check(command_queue);
 		return callPI(__functionAddress, command_queue);
 	}
 
@@ -8271,7 +8271,7 @@ public class CL10 {
 	public static int clFinish(long command_queue) {
 		long __functionAddress = CL.getICD().clFinish;
 		if ( CHECKS )
-			checkPointer(command_queue);
+			check(command_queue);
 		return callPI(__functionAddress, command_queue);
 	}
 
@@ -8333,7 +8333,7 @@ public class CL10 {
 	public static int clGetPlatformIDs(PointerBuffer platforms, int[] num_platforms) {
 		long __functionAddress = CL.getICD().clGetPlatformIDs;
 		if ( CHECKS )
-			checkBufferSafe(num_platforms, 1);
+			checkSafe(num_platforms, 1);
 		return callPPI(__functionAddress, remainingSafe(platforms), memAddressSafe(platforms), num_platforms);
 	}
 
@@ -8341,8 +8341,8 @@ public class CL10 {
 	public static int clGetPlatformInfo(long platform, int param_name, long[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetPlatformInfo;
 		if ( CHECKS ) {
-			checkPointer(platform);
-			checkBufferSafe(param_value_size_ret, 1);
+			check(platform);
+			checkSafe(param_value_size_ret, 1);
 		}
 		return callPPPPI(__functionAddress, platform, param_name, (long)(lengthSafe(param_value) << 3), param_value, memAddressSafe(param_value_size_ret));
 	}
@@ -8351,7 +8351,7 @@ public class CL10 {
 	public static int clGetDeviceIDs(long platform, long device_type, PointerBuffer devices, int[] num_devices) {
 		long __functionAddress = CL.getICD().clGetDeviceIDs;
 		if ( CHECKS )
-			checkBufferSafe(num_devices, 1);
+			checkSafe(num_devices, 1);
 		return callPJPPI(__functionAddress, platform, device_type, remainingSafe(devices), memAddressSafe(devices), num_devices);
 	}
 
@@ -8359,8 +8359,8 @@ public class CL10 {
 	public static int clGetDeviceInfo(long device, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetDeviceInfo;
 		if ( CHECKS ) {
-			checkPointer(device);
-			checkBufferSafe(param_value_size_ret, 1);
+			check(device);
+			checkSafe(param_value_size_ret, 1);
 		}
 		return callPPPPI(__functionAddress, device, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
@@ -8369,8 +8369,8 @@ public class CL10 {
 	public static int clGetDeviceInfo(long device, int param_name, long[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetDeviceInfo;
 		if ( CHECKS ) {
-			checkPointer(device);
-			checkBufferSafe(param_value_size_ret, 1);
+			check(device);
+			checkSafe(param_value_size_ret, 1);
 		}
 		return callPPPPI(__functionAddress, device, param_name, (long)(lengthSafe(param_value) << 3), param_value, memAddressSafe(param_value_size_ret));
 	}
@@ -8380,7 +8380,7 @@ public class CL10 {
 		long __functionAddress = CL.getICD().clCreateContext;
 		if ( CHECKS ) {
 			checkNT(properties);
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPPPPPP(__functionAddress, memAddress(properties), devices.remaining(), memAddress(devices), memAddressSafe(pfn_notify), user_data, errcode_ret);
 	}
@@ -8390,7 +8390,7 @@ public class CL10 {
 		long __functionAddress = CL.getICD().clCreateContextFromType;
 		if ( CHECKS ) {
 			checkNT(properties);
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPJPPPP(__functionAddress, memAddress(properties), device_type, memAddressSafe(pfn_notify), user_data, errcode_ret);
 	}
@@ -8399,8 +8399,8 @@ public class CL10 {
 	public static int clGetContextInfo(long context, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetContextInfo;
 		if ( CHECKS ) {
-			checkPointer(context);
-			checkBufferSafe(param_value_size_ret, 1);
+			check(context);
+			checkSafe(param_value_size_ret, 1);
 		}
 		return callPPPPI(__functionAddress, context, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
@@ -8409,9 +8409,9 @@ public class CL10 {
 	public static long clCreateCommandQueue(long context, long device, long properties, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateCommandQueue;
 		if ( CHECKS ) {
-			checkPointer(context);
-			checkPointer(device);
-			checkBufferSafe(errcode_ret, 1);
+			check(context);
+			check(device);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPPJPP(__functionAddress, context, device, properties, errcode_ret);
 	}
@@ -8420,8 +8420,8 @@ public class CL10 {
 	public static int clGetCommandQueueInfo(long command_queue, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetCommandQueueInfo;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkBufferSafe(param_value_size_ret, 1);
+			check(command_queue);
+			checkSafe(param_value_size_ret, 1);
 		}
 		return callPPPPI(__functionAddress, command_queue, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
@@ -8430,8 +8430,8 @@ public class CL10 {
 	public static int clGetCommandQueueInfo(long command_queue, int param_name, long[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetCommandQueueInfo;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkBufferSafe(param_value_size_ret, 1);
+			check(command_queue);
+			checkSafe(param_value_size_ret, 1);
 		}
 		return callPPPPI(__functionAddress, command_queue, param_name, (long)(lengthSafe(param_value) << 3), param_value, memAddressSafe(param_value_size_ret));
 	}
@@ -8440,8 +8440,8 @@ public class CL10 {
 	public static long clCreateBuffer(long context, long flags, ByteBuffer host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateBuffer;
 		if ( CHECKS ) {
-			checkPointer(context);
-			checkBufferSafe(errcode_ret, 1);
+			check(context);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPJPPPP(__functionAddress, context, flags, (long)host_ptr.remaining(), memAddress(host_ptr), errcode_ret);
 	}
@@ -8450,8 +8450,8 @@ public class CL10 {
 	public static long clCreateBuffer(long context, long flags, short[] host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateBuffer;
 		if ( CHECKS ) {
-			checkPointer(context);
-			checkBufferSafe(errcode_ret, 1);
+			check(context);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPJPPPP(__functionAddress, context, flags, (long)(host_ptr.length << 1), host_ptr, errcode_ret);
 	}
@@ -8460,8 +8460,8 @@ public class CL10 {
 	public static long clCreateBuffer(long context, long flags, int[] host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateBuffer;
 		if ( CHECKS ) {
-			checkPointer(context);
-			checkBufferSafe(errcode_ret, 1);
+			check(context);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPJPPPP(__functionAddress, context, flags, (long)(host_ptr.length << 2), host_ptr, errcode_ret);
 	}
@@ -8470,8 +8470,8 @@ public class CL10 {
 	public static long clCreateBuffer(long context, long flags, float[] host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateBuffer;
 		if ( CHECKS ) {
-			checkPointer(context);
-			checkBufferSafe(errcode_ret, 1);
+			check(context);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPJPPPP(__functionAddress, context, flags, (long)(host_ptr.length << 2), host_ptr, errcode_ret);
 	}
@@ -8480,8 +8480,8 @@ public class CL10 {
 	public static long clCreateBuffer(long context, long flags, double[] host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateBuffer;
 		if ( CHECKS ) {
-			checkPointer(context);
-			checkBufferSafe(errcode_ret, 1);
+			check(context);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPJPPPP(__functionAddress, context, flags, (long)(host_ptr.length << 3), host_ptr, errcode_ret);
 	}
@@ -8490,9 +8490,9 @@ public class CL10 {
 	public static int clEnqueueReadBuffer(long command_queue, long buffer, int blocking_read, long offset, short[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadBuffer;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(buffer);
-			checkBufferSafe(event, 1);
+			check(command_queue);
+			check(buffer);
+			checkSafe(event, 1);
 		}
 		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, offset, (long)(ptr.length << 1), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -8501,9 +8501,9 @@ public class CL10 {
 	public static int clEnqueueReadBuffer(long command_queue, long buffer, int blocking_read, long offset, int[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadBuffer;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(buffer);
-			checkBufferSafe(event, 1);
+			check(command_queue);
+			check(buffer);
+			checkSafe(event, 1);
 		}
 		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, offset, (long)(ptr.length << 2), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -8512,9 +8512,9 @@ public class CL10 {
 	public static int clEnqueueReadBuffer(long command_queue, long buffer, int blocking_read, long offset, float[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadBuffer;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(buffer);
-			checkBufferSafe(event, 1);
+			check(command_queue);
+			check(buffer);
+			checkSafe(event, 1);
 		}
 		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, offset, (long)(ptr.length << 2), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -8523,9 +8523,9 @@ public class CL10 {
 	public static int clEnqueueReadBuffer(long command_queue, long buffer, int blocking_read, long offset, double[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadBuffer;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(buffer);
-			checkBufferSafe(event, 1);
+			check(command_queue);
+			check(buffer);
+			checkSafe(event, 1);
 		}
 		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read, offset, (long)(ptr.length << 3), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -8534,9 +8534,9 @@ public class CL10 {
 	public static int clEnqueueWriteBuffer(long command_queue, long buffer, int blocking_write, long offset, short[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteBuffer;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(buffer);
-			checkBufferSafe(event, 1);
+			check(command_queue);
+			check(buffer);
+			checkSafe(event, 1);
 		}
 		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, offset, (long)(ptr.length << 1), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -8545,9 +8545,9 @@ public class CL10 {
 	public static int clEnqueueWriteBuffer(long command_queue, long buffer, int blocking_write, long offset, int[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteBuffer;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(buffer);
-			checkBufferSafe(event, 1);
+			check(command_queue);
+			check(buffer);
+			checkSafe(event, 1);
 		}
 		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, offset, (long)(ptr.length << 2), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -8556,9 +8556,9 @@ public class CL10 {
 	public static int clEnqueueWriteBuffer(long command_queue, long buffer, int blocking_write, long offset, float[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteBuffer;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(buffer);
-			checkBufferSafe(event, 1);
+			check(command_queue);
+			check(buffer);
+			checkSafe(event, 1);
 		}
 		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, offset, (long)(ptr.length << 2), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -8567,9 +8567,9 @@ public class CL10 {
 	public static int clEnqueueWriteBuffer(long command_queue, long buffer, int blocking_write, long offset, double[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteBuffer;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(buffer);
-			checkBufferSafe(event, 1);
+			check(command_queue);
+			check(buffer);
+			checkSafe(event, 1);
 		}
 		return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write, offset, (long)(ptr.length << 3), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -8578,10 +8578,10 @@ public class CL10 {
 	public static ByteBuffer clEnqueueMapBuffer(long command_queue, long buffer, int blocking_map, long map_flags, long offset, long size, PointerBuffer event_wait_list, PointerBuffer event, int[] errcode_ret, ByteBuffer old_buffer) {
 		long __functionAddress = CL.getICD().clEnqueueMapBuffer;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(buffer);
-			checkBufferSafe(event, 1);
-			checkBufferSafe(errcode_ret, 1);
+			check(command_queue);
+			check(buffer);
+			checkSafe(event, 1);
+			checkSafe(errcode_ret, 1);
 		}
 		long __result = callPPJPPPPPP(__functionAddress, command_queue, buffer, blocking_map, map_flags, offset, size, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), errcode_ret);
 		return old_buffer == null ? memByteBuffer(__result, (int)size) : memSetupBuffer(old_buffer, __result, (int)size);
@@ -8591,8 +8591,8 @@ public class CL10 {
 	public static long clCreateImage2D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_row_pitch, ByteBuffer host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateImage2D;
 		if ( CHECKS ) {
-			checkPointer(context);
-			checkBufferSafe(errcode_ret, 1);
+			check(context);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPJPPPPPPP(__functionAddress, context, flags, image_format.address(), image_width, image_height, image_row_pitch, memAddressSafe(host_ptr), errcode_ret);
 	}
@@ -8601,8 +8601,8 @@ public class CL10 {
 	public static long clCreateImage2D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_row_pitch, short[] host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateImage2D;
 		if ( CHECKS ) {
-			checkPointer(context);
-			checkBufferSafe(errcode_ret, 1);
+			check(context);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPJPPPPPPP(__functionAddress, context, flags, image_format.address(), image_width, image_height, image_row_pitch, host_ptr, errcode_ret);
 	}
@@ -8611,8 +8611,8 @@ public class CL10 {
 	public static long clCreateImage2D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_row_pitch, int[] host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateImage2D;
 		if ( CHECKS ) {
-			checkPointer(context);
-			checkBufferSafe(errcode_ret, 1);
+			check(context);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPJPPPPPPP(__functionAddress, context, flags, image_format.address(), image_width, image_height, image_row_pitch, host_ptr, errcode_ret);
 	}
@@ -8621,8 +8621,8 @@ public class CL10 {
 	public static long clCreateImage2D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_row_pitch, float[] host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateImage2D;
 		if ( CHECKS ) {
-			checkPointer(context);
-			checkBufferSafe(errcode_ret, 1);
+			check(context);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPJPPPPPPP(__functionAddress, context, flags, image_format.address(), image_width, image_height, image_row_pitch, host_ptr, errcode_ret);
 	}
@@ -8631,8 +8631,8 @@ public class CL10 {
 	public static long clCreateImage3D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, ByteBuffer host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateImage3D;
 		if ( CHECKS ) {
-			checkPointer(context);
-			checkBufferSafe(errcode_ret, 1);
+			check(context);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPJPPPPPPPPP(__functionAddress, context, flags, image_format.address(), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, memAddressSafe(host_ptr), errcode_ret);
 	}
@@ -8641,8 +8641,8 @@ public class CL10 {
 	public static long clCreateImage3D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, short[] host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateImage3D;
 		if ( CHECKS ) {
-			checkPointer(context);
-			checkBufferSafe(errcode_ret, 1);
+			check(context);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPJPPPPPPPPP(__functionAddress, context, flags, image_format.address(), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, host_ptr, errcode_ret);
 	}
@@ -8651,8 +8651,8 @@ public class CL10 {
 	public static long clCreateImage3D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, int[] host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateImage3D;
 		if ( CHECKS ) {
-			checkPointer(context);
-			checkBufferSafe(errcode_ret, 1);
+			check(context);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPJPPPPPPPPP(__functionAddress, context, flags, image_format.address(), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, host_ptr, errcode_ret);
 	}
@@ -8661,8 +8661,8 @@ public class CL10 {
 	public static long clCreateImage3D(long context, long flags, CLImageFormat image_format, long image_width, long image_height, long image_depth, long image_row_pitch, long image_slice_pitch, float[] host_ptr, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateImage3D;
 		if ( CHECKS ) {
-			checkPointer(context);
-			checkBufferSafe(errcode_ret, 1);
+			check(context);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPJPPPPPPPPP(__functionAddress, context, flags, image_format.address(), image_width, image_height, image_depth, image_row_pitch, image_slice_pitch, host_ptr, errcode_ret);
 	}
@@ -8671,8 +8671,8 @@ public class CL10 {
 	public static int clGetSupportedImageFormats(long context, long flags, int image_type, CLImageFormat.Buffer image_formats, int[] num_image_formats) {
 		long __functionAddress = CL.getICD().clGetSupportedImageFormats;
 		if ( CHECKS ) {
-			checkPointer(context);
-			checkBufferSafe(num_image_formats, 1);
+			check(context);
+			checkSafe(num_image_formats, 1);
 		}
 		return callPJPPI(__functionAddress, context, flags, image_type, remainingSafe(image_formats), memAddressSafe(image_formats), num_image_formats);
 	}
@@ -8681,11 +8681,11 @@ public class CL10 {
 	public static int clEnqueueReadImage(long command_queue, long image, int blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, short[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadImage;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(image);
-			checkBuffer(origin, 3);
-			checkBuffer(region, 3);
-			checkBufferSafe(event, 1);
+			check(command_queue);
+			check(image);
+			check(origin, 3);
+			check(region, 3);
+			checkSafe(event, 1);
 		}
 		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_read, memAddress(origin), memAddress(region), row_pitch, slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -8694,11 +8694,11 @@ public class CL10 {
 	public static int clEnqueueReadImage(long command_queue, long image, int blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, int[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadImage;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(image);
-			checkBuffer(origin, 3);
-			checkBuffer(region, 3);
-			checkBufferSafe(event, 1);
+			check(command_queue);
+			check(image);
+			check(origin, 3);
+			check(region, 3);
+			checkSafe(event, 1);
 		}
 		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_read, memAddress(origin), memAddress(region), row_pitch, slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -8707,11 +8707,11 @@ public class CL10 {
 	public static int clEnqueueReadImage(long command_queue, long image, int blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, float[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadImage;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(image);
-			checkBuffer(origin, 3);
-			checkBuffer(region, 3);
-			checkBufferSafe(event, 1);
+			check(command_queue);
+			check(image);
+			check(origin, 3);
+			check(region, 3);
+			checkSafe(event, 1);
 		}
 		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_read, memAddress(origin), memAddress(region), row_pitch, slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -8720,11 +8720,11 @@ public class CL10 {
 	public static int clEnqueueReadImage(long command_queue, long image, int blocking_read, PointerBuffer origin, PointerBuffer region, long row_pitch, long slice_pitch, double[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueReadImage;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(image);
-			checkBuffer(origin, 3);
-			checkBuffer(region, 3);
-			checkBufferSafe(event, 1);
+			check(command_queue);
+			check(image);
+			check(origin, 3);
+			check(region, 3);
+			checkSafe(event, 1);
 		}
 		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_read, memAddress(origin), memAddress(region), row_pitch, slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -8733,11 +8733,11 @@ public class CL10 {
 	public static int clEnqueueWriteImage(long command_queue, long image, int blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, short[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteImage;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(image);
-			checkBuffer(origin, 3);
-			checkBuffer(region, 3);
-			checkBufferSafe(event, 1);
+			check(command_queue);
+			check(image);
+			check(origin, 3);
+			check(region, 3);
+			checkSafe(event, 1);
 		}
 		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_write, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -8746,11 +8746,11 @@ public class CL10 {
 	public static int clEnqueueWriteImage(long command_queue, long image, int blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, int[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteImage;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(image);
-			checkBuffer(origin, 3);
-			checkBuffer(region, 3);
-			checkBufferSafe(event, 1);
+			check(command_queue);
+			check(image);
+			check(origin, 3);
+			check(region, 3);
+			checkSafe(event, 1);
 		}
 		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_write, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -8759,11 +8759,11 @@ public class CL10 {
 	public static int clEnqueueWriteImage(long command_queue, long image, int blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, float[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteImage;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(image);
-			checkBuffer(origin, 3);
-			checkBuffer(region, 3);
-			checkBufferSafe(event, 1);
+			check(command_queue);
+			check(image);
+			check(origin, 3);
+			check(region, 3);
+			checkSafe(event, 1);
 		}
 		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_write, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -8772,11 +8772,11 @@ public class CL10 {
 	public static int clEnqueueWriteImage(long command_queue, long image, int blocking_write, PointerBuffer origin, PointerBuffer region, long input_row_pitch, long input_slice_pitch, double[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
 		long __functionAddress = CL.getICD().clEnqueueWriteImage;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(image);
-			checkBuffer(origin, 3);
-			checkBuffer(region, 3);
-			checkBufferSafe(event, 1);
+			check(command_queue);
+			check(image);
+			check(origin, 3);
+			check(region, 3);
+			checkSafe(event, 1);
 		}
 		return callPPPPPPPPPI(__functionAddress, command_queue, image, blocking_write, memAddress(origin), memAddress(region), input_row_pitch, input_slice_pitch, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -8785,14 +8785,14 @@ public class CL10 {
 	public static ByteBuffer clEnqueueMapImage(long command_queue, long image, int blocking_map, long map_flags, PointerBuffer origin, PointerBuffer region, PointerBuffer image_row_pitch, PointerBuffer image_slice_pitch, PointerBuffer event_wait_list, PointerBuffer event, int[] errcode_ret, ByteBuffer old_buffer) {
 		long __functionAddress = CL.getICD().clEnqueueMapImage;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(image);
-			checkBuffer(origin, 3);
-			checkBuffer(region, 3);
-			checkBuffer(image_row_pitch, 1);
-			checkBufferSafe(image_slice_pitch, 1);
-			checkBufferSafe(event, 1);
-			checkBufferSafe(errcode_ret, 1);
+			check(command_queue);
+			check(image);
+			check(origin, 3);
+			check(region, 3);
+			check(image_row_pitch, 1);
+			checkSafe(image_slice_pitch, 1);
+			checkSafe(event, 1);
+			checkSafe(errcode_ret, 1);
 		}
 		long __result = callPPJPPPPPPPP(__functionAddress, command_queue, image, blocking_map, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), errcode_ret);
 		int length = (int)getMemObjectInfoPointer(image, CL_MEM_SIZE);
@@ -8803,14 +8803,14 @@ public class CL10 {
 	public static ByteBuffer clEnqueueMapImage(long command_queue, long image, int blocking_map, long map_flags, PointerBuffer origin, PointerBuffer region, PointerBuffer image_row_pitch, PointerBuffer image_slice_pitch, PointerBuffer event_wait_list, PointerBuffer event, int[] errcode_ret, long length, ByteBuffer old_buffer) {
 		long __functionAddress = CL.getICD().clEnqueueMapImage;
 		if ( CHECKS ) {
-			checkPointer(command_queue);
-			checkPointer(image);
-			checkBuffer(origin, 3);
-			checkBuffer(region, 3);
-			checkBuffer(image_row_pitch, 1);
-			checkBufferSafe(image_slice_pitch, 1);
-			checkBufferSafe(event, 1);
-			checkBufferSafe(errcode_ret, 1);
+			check(command_queue);
+			check(image);
+			check(origin, 3);
+			check(region, 3);
+			check(image_row_pitch, 1);
+			checkSafe(image_slice_pitch, 1);
+			checkSafe(event, 1);
+			checkSafe(errcode_ret, 1);
 		}
 		long __result = callPPJPPPPPPPP(__functionAddress, command_queue, image, blocking_map, map_flags, memAddress(origin), memAddress(region), memAddress(image_row_pitch), memAddressSafe(image_slice_pitch), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event), errcode_ret);
 		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
@@ -8820,8 +8820,8 @@ public class CL10 {
 	public static int clGetImageInfo(long image, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetImageInfo;
 		if ( CHECKS ) {
-			checkPointer(image);
-			checkBufferSafe(param_value_size_ret, 1);
+			check(image);
+			checkSafe(param_value_size_ret, 1);
 		}
 		return callPPPPI(__functionAddress, image, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
@@ -8830,8 +8830,8 @@ public class CL10 {
 	public static int clGetMemObjectInfo(long memobj, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetMemObjectInfo;
 		if ( CHECKS ) {
-			checkPointer(memobj);
-			checkBufferSafe(param_value_size_ret, 1);
+			check(memobj);
+			checkSafe(param_value_size_ret, 1);
 		}
 		return callPPPPI(__functionAddress, memobj, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
@@ -8840,8 +8840,8 @@ public class CL10 {
 	public static int clGetMemObjectInfo(long memobj, int param_name, long[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetMemObjectInfo;
 		if ( CHECKS ) {
-			checkPointer(memobj);
-			checkBufferSafe(param_value_size_ret, 1);
+			check(memobj);
+			checkSafe(param_value_size_ret, 1);
 		}
 		return callPPPPI(__functionAddress, memobj, param_name, (long)(lengthSafe(param_value) << 3), param_value, memAddressSafe(param_value_size_ret));
 	}
@@ -8850,8 +8850,8 @@ public class CL10 {
 	public static long clCreateSampler(long context, int normalized_coords, int addressing_mode, int filter_mode, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateSampler;
 		if ( CHECKS ) {
-			checkPointer(context);
-			checkBufferSafe(errcode_ret, 1);
+			check(context);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPPP(__functionAddress, context, normalized_coords, addressing_mode, filter_mode, errcode_ret);
 	}
@@ -8860,8 +8860,8 @@ public class CL10 {
 	public static int clGetSamplerInfo(long sampler, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetSamplerInfo;
 		if ( CHECKS ) {
-			checkPointer(sampler);
-			checkBufferSafe(param_value_size_ret, 1);
+			check(sampler);
+			checkSafe(param_value_size_ret, 1);
 		}
 		return callPPPPI(__functionAddress, sampler, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
@@ -8870,9 +8870,9 @@ public class CL10 {
 	public static long clCreateProgramWithSource(long context, PointerBuffer strings, PointerBuffer lengths, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateProgramWithSource;
 		if ( CHECKS ) {
-			checkPointer(context);
-			checkBufferSafe(lengths, strings.remaining());
-			checkBufferSafe(errcode_ret, 1);
+			check(context);
+			checkSafe(lengths, strings.remaining());
+			checkSafe(errcode_ret, 1);
 		}
 		return callPPPPP(__functionAddress, context, strings.remaining(), memAddress(strings), memAddressSafe(lengths), errcode_ret);
 	}
@@ -8881,11 +8881,11 @@ public class CL10 {
 	public static long clCreateProgramWithBinary(long context, PointerBuffer device_list, PointerBuffer lengths, PointerBuffer binaries, int[] binary_status, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateProgramWithBinary;
 		if ( CHECKS ) {
-			checkPointer(context);
-			checkBuffer(device_list, binaries.remaining());
-			checkBuffer(lengths, binaries.remaining());
-			checkBufferSafe(binary_status, binaries.remaining());
-			checkBufferSafe(errcode_ret, 1);
+			check(context);
+			check(device_list, binaries.remaining());
+			check(lengths, binaries.remaining());
+			checkSafe(binary_status, binaries.remaining());
+			checkSafe(errcode_ret, 1);
 		}
 		return callPPPPPPP(__functionAddress, context, binaries.remaining(), memAddress(device_list), memAddress(lengths), memAddress(binaries), binary_status, errcode_ret);
 	}
@@ -8894,8 +8894,8 @@ public class CL10 {
 	public static int clGetProgramInfo(long program, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetProgramInfo;
 		if ( CHECKS ) {
-			checkPointer(program);
-			checkBufferSafe(param_value_size_ret, 1);
+			check(program);
+			checkSafe(param_value_size_ret, 1);
 		}
 		return callPPPPI(__functionAddress, program, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
@@ -8904,9 +8904,9 @@ public class CL10 {
 	public static int clGetProgramBuildInfo(long program, long device, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetProgramBuildInfo;
 		if ( CHECKS ) {
-			checkPointer(program);
-			checkPointer(device);
-			checkBufferSafe(param_value_size_ret, 1);
+			check(program);
+			check(device);
+			checkSafe(param_value_size_ret, 1);
 		}
 		return callPPPPPI(__functionAddress, program, device, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
@@ -8915,9 +8915,9 @@ public class CL10 {
 	public static long clCreateKernel(long program, ByteBuffer kernel_name, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateKernel;
 		if ( CHECKS ) {
-			checkPointer(program);
+			check(program);
 			checkNT1(kernel_name);
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPPPP(__functionAddress, program, memAddress(kernel_name), errcode_ret);
 	}
@@ -8926,8 +8926,8 @@ public class CL10 {
 	public static long clCreateKernel(long program, CharSequence kernel_name, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateKernel;
 		if ( CHECKS ) {
-			checkPointer(program);
-			checkBufferSafe(errcode_ret, 1);
+			check(program);
+			checkSafe(errcode_ret, 1);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -8942,8 +8942,8 @@ public class CL10 {
 	public static int clCreateKernelsInProgram(long program, PointerBuffer kernels, int[] num_kernels_ret) {
 		long __functionAddress = CL.getICD().clCreateKernelsInProgram;
 		if ( CHECKS ) {
-			checkPointer(program);
-			checkBufferSafe(num_kernels_ret, 1);
+			check(program);
+			checkSafe(num_kernels_ret, 1);
 		}
 		return callPPPI(__functionAddress, program, remainingSafe(kernels), memAddressSafe(kernels), num_kernels_ret);
 	}
@@ -8952,7 +8952,7 @@ public class CL10 {
 	public static int clSetKernelArg(long kernel, int arg_index, short[] arg_value) {
 		long __functionAddress = CL.getICD().clSetKernelArg;
 		if ( CHECKS )
-			checkPointer(kernel);
+			check(kernel);
 		return callPPPI(__functionAddress, kernel, arg_index, (long)(arg_value.length << 1), arg_value);
 	}
 
@@ -8960,7 +8960,7 @@ public class CL10 {
 	public static int clSetKernelArg(long kernel, int arg_index, int[] arg_value) {
 		long __functionAddress = CL.getICD().clSetKernelArg;
 		if ( CHECKS )
-			checkPointer(kernel);
+			check(kernel);
 		return callPPPI(__functionAddress, kernel, arg_index, (long)(arg_value.length << 2), arg_value);
 	}
 
@@ -8968,7 +8968,7 @@ public class CL10 {
 	public static int clSetKernelArg(long kernel, int arg_index, long[] arg_value) {
 		long __functionAddress = CL.getICD().clSetKernelArg;
 		if ( CHECKS )
-			checkPointer(kernel);
+			check(kernel);
 		return callPPPI(__functionAddress, kernel, arg_index, (long)(arg_value.length << 3), arg_value);
 	}
 
@@ -8976,7 +8976,7 @@ public class CL10 {
 	public static int clSetKernelArg(long kernel, int arg_index, float[] arg_value) {
 		long __functionAddress = CL.getICD().clSetKernelArg;
 		if ( CHECKS )
-			checkPointer(kernel);
+			check(kernel);
 		return callPPPI(__functionAddress, kernel, arg_index, (long)(arg_value.length << 2), arg_value);
 	}
 
@@ -8984,7 +8984,7 @@ public class CL10 {
 	public static int clSetKernelArg(long kernel, int arg_index, double[] arg_value) {
 		long __functionAddress = CL.getICD().clSetKernelArg;
 		if ( CHECKS )
-			checkPointer(kernel);
+			check(kernel);
 		return callPPPI(__functionAddress, kernel, arg_index, (long)(arg_value.length << 3), arg_value);
 	}
 
@@ -8992,8 +8992,8 @@ public class CL10 {
 	public static int clGetKernelInfo(long kernel, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetKernelInfo;
 		if ( CHECKS ) {
-			checkPointer(kernel);
-			checkBufferSafe(param_value_size_ret, 1);
+			check(kernel);
+			checkSafe(param_value_size_ret, 1);
 		}
 		return callPPPPI(__functionAddress, kernel, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
@@ -9002,9 +9002,9 @@ public class CL10 {
 	public static int clGetKernelWorkGroupInfo(long kernel, long device, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetKernelWorkGroupInfo;
 		if ( CHECKS ) {
-			checkPointer(kernel);
-			checkPointer(device);
-			checkBufferSafe(param_value_size_ret, 1);
+			check(kernel);
+			check(device);
+			checkSafe(param_value_size_ret, 1);
 		}
 		return callPPPPPI(__functionAddress, kernel, device, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
@@ -9013,9 +9013,9 @@ public class CL10 {
 	public static int clGetKernelWorkGroupInfo(long kernel, long device, int param_name, long[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetKernelWorkGroupInfo;
 		if ( CHECKS ) {
-			checkPointer(kernel);
-			checkPointer(device);
-			checkBufferSafe(param_value_size_ret, 1);
+			check(kernel);
+			check(device);
+			checkSafe(param_value_size_ret, 1);
 		}
 		return callPPPPPI(__functionAddress, kernel, device, param_name, (long)(lengthSafe(param_value) << 3), param_value, memAddressSafe(param_value_size_ret));
 	}
@@ -9024,8 +9024,8 @@ public class CL10 {
 	public static int clGetEventInfo(long event, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetEventInfo;
 		if ( CHECKS ) {
-			checkPointer(event);
-			checkBufferSafe(param_value_size_ret, 1);
+			check(event);
+			checkSafe(param_value_size_ret, 1);
 		}
 		return callPPPPI(__functionAddress, event, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}
@@ -9034,8 +9034,8 @@ public class CL10 {
 	public static int clGetEventProfilingInfo(long event, int param_name, long[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetEventProfilingInfo;
 		if ( CHECKS ) {
-			checkPointer(event);
-			checkBufferSafe(param_value_size_ret, 1);
+			check(event);
+			checkSafe(param_value_size_ret, 1);
 		}
 		return callPPPPI(__functionAddress, event, param_name, (long)(lengthSafe(param_value) << 3), param_value, memAddressSafe(param_value_size_ret));
 	}

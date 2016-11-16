@@ -34,7 +34,7 @@ public class EXTDrawInstanced {
 	public static void glDrawArraysInstancedEXT(int mode, int start, int count, int primcount) {
 		long __functionAddress = GLES.getCapabilities().glDrawArraysInstancedEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, mode, start, count, primcount);
 	}
 
@@ -43,7 +43,7 @@ public class EXTDrawInstanced {
 	public static void nglDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount) {
 		long __functionAddress = GLES.getCapabilities().glDrawElementsInstancedEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, mode, count, type, indices, primcount);
 	}
 

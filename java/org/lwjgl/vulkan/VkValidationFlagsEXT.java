@@ -299,7 +299,7 @@ public class VkValidationFlagsEXT extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + VkValidationFlagsEXT.PDISABLEDVALIDATIONCHECKS));
+		check(memGetAddress(struct + VkValidationFlagsEXT.PDISABLEDVALIDATIONCHECKS));
 	}
 
 	/**

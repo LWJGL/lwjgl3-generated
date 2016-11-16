@@ -116,7 +116,7 @@ public class CoreFoundation {
 	 */
 	public static long CFRetain(long cf) {
 		if ( CHECKS )
-			checkPointer(cf);
+			check(cf);
 		return nCFRetain(cf);
 	}
 
@@ -135,7 +135,7 @@ public class CoreFoundation {
 	 */
 	public static void CFRelease(long cf) {
 		if ( CHECKS )
-			checkPointer(cf);
+			check(cf);
 		nCFRelease(cf);
 	}
 
@@ -152,7 +152,7 @@ public class CoreFoundation {
 	 */
 	public static long CFBundleCreate(long allocator, long bundleURL) {
 		if ( CHECKS )
-			checkPointer(bundleURL);
+			check(bundleURL);
 		return nCFBundleCreate(allocator, bundleURL);
 	}
 
@@ -168,7 +168,7 @@ public class CoreFoundation {
 	 */
 	public static long CFBundleGetBundleWithIdentifier(long bundleID) {
 		if ( CHECKS )
-			checkPointer(bundleID);
+			check(bundleID);
 		return nCFBundleGetBundleWithIdentifier(bundleID);
 	}
 
@@ -185,8 +185,8 @@ public class CoreFoundation {
 	 */
 	public static long CFBundleGetFunctionPointerForName(long bundle, long functionName) {
 		if ( CHECKS ) {
-			checkPointer(bundle);
-			checkPointer(functionName);
+			check(bundle);
+			check(functionName);
 		}
 		return nCFBundleGetFunctionPointerForName(bundle, functionName);
 	}
@@ -243,7 +243,7 @@ public class CoreFoundation {
 	 */
 	public static long CFURLCreateWithFileSystemPath(long allocator, long filePath, long pathStyle, boolean isDirectory) {
 		if ( CHECKS )
-			checkPointer(filePath);
+			check(filePath);
 		return nCFURLCreateWithFileSystemPath(allocator, filePath, pathStyle, isDirectory);
 	}
 

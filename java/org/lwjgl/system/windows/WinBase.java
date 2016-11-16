@@ -157,7 +157,7 @@ public class WinBase {
 	 */
 	public static long GetProcAddress(long handle, ByteBuffer name) {
 		if ( CHECKS ) {
-			checkPointer(handle);
+			check(handle);
 			checkNT1(name);
 		}
 		return nGetProcAddress(handle, memAddress(name));
@@ -172,7 +172,7 @@ public class WinBase {
 	 */
 	public static long GetProcAddress(long handle, CharSequence name) {
 		if ( CHECKS )
-			checkPointer(handle);
+			check(handle);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.ASCII(name);
@@ -195,7 +195,7 @@ public class WinBase {
 	 */
 	public static boolean FreeLibrary(long handle) {
 		if ( CHECKS )
-			checkPointer(handle);
+			check(handle);
 		return nFreeLibrary(handle) != 0;
 	}
 

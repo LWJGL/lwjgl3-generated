@@ -50,9 +50,9 @@ public class ANDROIDPresentationTime {
 	public static boolean eglPresentationTimeANDROID(long dpy, long surface, long time) {
 		long __functionAddress = EGL.getCapabilities().eglPresentationTimeANDROID;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(surface);
+			check(__functionAddress);
+			check(dpy);
+			check(surface);
 		}
 		return callPPJI(__functionAddress, dpy, surface, time) != 0;
 	}

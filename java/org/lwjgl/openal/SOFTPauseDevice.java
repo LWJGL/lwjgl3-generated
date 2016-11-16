@@ -40,8 +40,8 @@ public class SOFTPauseDevice {
 	public static void alcDevicePauseSOFT(long device) {
 		long __functionAddress = ALC.getICD().alcDevicePauseSOFT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
+			check(__functionAddress);
+			check(device);
 		}
 		invokePV(__functionAddress, device);
 	}
@@ -62,8 +62,8 @@ public class SOFTPauseDevice {
 	public static void alcDeviceResumeSOFT(long device) {
 		long __functionAddress = ALC.getICD().alcDeviceResumeSOFT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
+			check(__functionAddress);
+			check(device);
 		}
 		invokePV(__functionAddress, device);
 	}

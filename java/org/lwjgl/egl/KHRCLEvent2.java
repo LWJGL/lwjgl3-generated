@@ -48,8 +48,8 @@ public class KHRCLEvent2 {
 	public static long neglCreateSync64KHR(long dpy, int type, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateSync64KHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
+			check(__functionAddress);
+			check(dpy);
 		}
 		return callPPP(__functionAddress, dpy, type, attrib_list);
 	}

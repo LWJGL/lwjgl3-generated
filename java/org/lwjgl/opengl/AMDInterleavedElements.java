@@ -51,7 +51,7 @@ public class AMDInterleavedElements {
 	public static void glVertexAttribParameteriAMD(int index, int pname, int param) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribParameteriAMD;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, pname, param);
 	}
 

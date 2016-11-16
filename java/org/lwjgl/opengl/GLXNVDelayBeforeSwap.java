@@ -58,9 +58,9 @@ public class GLXNVDelayBeforeSwap {
 	public static int glXDelayBeforeSwapNV(long display, long drawable, float seconds) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXDelayBeforeSwapNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(drawable);
+			check(__functionAddress);
+			check(display);
+			check(drawable);
 		}
 		return callPPI(__functionAddress, display, drawable, seconds);
 	}

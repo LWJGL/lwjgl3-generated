@@ -41,9 +41,9 @@ public class NVStreamSync {
 	public static long neglCreateStreamSyncNV(long dpy, long stream, int type, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateStreamSyncNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(stream);
+			check(__functionAddress);
+			check(dpy);
+			check(stream);
 		}
 		return callPPPP(__functionAddress, dpy, stream, type, attrib_list);
 	}
@@ -58,9 +58,9 @@ public class NVStreamSync {
 	public static long eglCreateStreamSyncNV(long dpy, long stream, int type, int[] attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateStreamSyncNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(stream);
+			check(__functionAddress);
+			check(dpy);
+			check(stream);
 			checkNT(attrib_list, EGL10.EGL_NONE);
 		}
 		return callPPPP(__functionAddress, dpy, stream, type, attrib_list);

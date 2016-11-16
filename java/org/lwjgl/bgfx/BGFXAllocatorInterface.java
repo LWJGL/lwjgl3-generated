@@ -233,7 +233,7 @@ public class BGFXAllocatorInterface extends Struct implements NativeResource {
 	 */
 	public static void validate(long struct) {
 		long vtbl = memGetAddress(struct + BGFXAllocatorInterface.VTBL);
-		checkPointer(vtbl);
+		check(vtbl);
 		BGFXAllocatorVtbl.validate(vtbl);
 	}
 

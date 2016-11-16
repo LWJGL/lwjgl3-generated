@@ -78,8 +78,8 @@ public class KHRTerminateContext {
 	public static int clTerminateContextKHR(long context) {
 		long __functionAddress = CL.getICD().clTerminateContextKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
+			check(__functionAddress);
+			check(context);
 		}
 		return callPI(__functionAddress, context);
 	}

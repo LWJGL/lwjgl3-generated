@@ -40,8 +40,8 @@ public class GLXSGIMakeCurrentRead {
 	public static int glXMakeCurrentReadSGI(long display, long draw, long read, long ctx) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXMakeCurrentReadSGI;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
+			check(__functionAddress);
+			check(display);
 		}
 		return callPPPPI(__functionAddress, display, draw, read, ctx);
 	}
@@ -52,7 +52,7 @@ public class GLXSGIMakeCurrentRead {
 	public static long glXGetCurrentReadDrawableSGI() {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetCurrentReadDrawableSGI;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callP(__functionAddress);
 	}
 

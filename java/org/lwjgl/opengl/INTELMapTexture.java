@@ -62,7 +62,7 @@ public class INTELMapTexture {
 	public static void glSyncTextureINTEL(int texture) {
 		long __functionAddress = GL.getCapabilities().glSyncTextureINTEL;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, texture);
 	}
 
@@ -79,7 +79,7 @@ public class INTELMapTexture {
 	public static void glUnmapTexture2DINTEL(int texture, int level) {
 		long __functionAddress = GL.getCapabilities().glUnmapTexture2DINTEL;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, texture, level);
 	}
 
@@ -89,7 +89,7 @@ public class INTELMapTexture {
 	public static long nglMapTexture2DINTEL(int texture, int level, int access, long stride, long layout) {
 		long __functionAddress = GL.getCapabilities().glMapTexture2DINTEL;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPPP(__functionAddress, texture, level, access, stride, layout);
 	}
 
@@ -107,8 +107,8 @@ public class INTELMapTexture {
 	 */
 	public static ByteBuffer glMapTexture2DINTEL(int texture, int level, int access, IntBuffer stride, IntBuffer layout) {
 		if ( CHECKS ) {
-			checkBuffer(stride, 1);
-			checkBuffer(layout, 1);
+			check(stride, 1);
+			check(layout, 1);
 		}
 		long __result = nglMapTexture2DINTEL(texture, level, access, memAddress(stride), memAddress(layout));
 		return memByteBuffer(__result, getStride(stride) * GLChecks.getTexLevelParameteri(texture, GL11.GL_TEXTURE_2D, level, GL11.GL_TEXTURE_HEIGHT));
@@ -128,8 +128,8 @@ public class INTELMapTexture {
 	 */
 	public static ByteBuffer glMapTexture2DINTEL(int texture, int level, int access, IntBuffer stride, IntBuffer layout, ByteBuffer old_buffer) {
 		if ( CHECKS ) {
-			checkBuffer(stride, 1);
-			checkBuffer(layout, 1);
+			check(stride, 1);
+			check(layout, 1);
 		}
 		long __result = nglMapTexture2DINTEL(texture, level, access, memAddress(stride), memAddress(layout));
 		int length = getStride(stride) * GLChecks.getTexLevelParameteri(texture, GL11.GL_TEXTURE_2D, level, GL11.GL_TEXTURE_HEIGHT);
@@ -150,8 +150,8 @@ public class INTELMapTexture {
 	 */
 	public static ByteBuffer glMapTexture2DINTEL(int texture, int level, int access, IntBuffer stride, IntBuffer layout, long length, ByteBuffer old_buffer) {
 		if ( CHECKS ) {
-			checkBuffer(stride, 1);
-			checkBuffer(layout, 1);
+			check(stride, 1);
+			check(layout, 1);
 		}
 		long __result = nglMapTexture2DINTEL(texture, level, access, memAddress(stride), memAddress(layout));
 		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);
@@ -161,9 +161,9 @@ public class INTELMapTexture {
 	public static ByteBuffer glMapTexture2DINTEL(int texture, int level, int access, int[] stride, int[] layout) {
 		long __functionAddress = GL.getCapabilities().glMapTexture2DINTEL;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(stride, 1);
-			checkBuffer(layout, 1);
+			check(__functionAddress);
+			check(stride, 1);
+			check(layout, 1);
 		}
 		long __result = callPPP(__functionAddress, texture, level, access, stride, layout);
 		return memByteBuffer(__result, getStride(stride) * GLChecks.getTexLevelParameteri(texture, GL11.GL_TEXTURE_2D, level, GL11.GL_TEXTURE_HEIGHT));
@@ -173,9 +173,9 @@ public class INTELMapTexture {
 	public static ByteBuffer glMapTexture2DINTEL(int texture, int level, int access, int[] stride, int[] layout, ByteBuffer old_buffer) {
 		long __functionAddress = GL.getCapabilities().glMapTexture2DINTEL;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(stride, 1);
-			checkBuffer(layout, 1);
+			check(__functionAddress);
+			check(stride, 1);
+			check(layout, 1);
 		}
 		long __result = callPPP(__functionAddress, texture, level, access, stride, layout);
 		int length = getStride(stride) * GLChecks.getTexLevelParameteri(texture, GL11.GL_TEXTURE_2D, level, GL11.GL_TEXTURE_HEIGHT);
@@ -186,9 +186,9 @@ public class INTELMapTexture {
 	public static ByteBuffer glMapTexture2DINTEL(int texture, int level, int access, int[] stride, int[] layout, long length, ByteBuffer old_buffer) {
 		long __functionAddress = GL.getCapabilities().glMapTexture2DINTEL;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(stride, 1);
-			checkBuffer(layout, 1);
+			check(__functionAddress);
+			check(stride, 1);
+			check(layout, 1);
 		}
 		long __result = callPPP(__functionAddress, texture, level, access, stride, layout);
 		return old_buffer == null ? memByteBuffer(__result, (int)length) : memSetupBuffer(old_buffer, __result, (int)length);

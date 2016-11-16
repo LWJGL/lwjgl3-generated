@@ -43,7 +43,7 @@ public class GLFWNativeWGL {
 	public static long glfwGetWGLContext(long window) {
 		long __functionAddress = Functions.GetWGLContext;
 		if ( CHECKS )
-			checkPointer(window);
+			check(window);
 		return invokePP(__functionAddress, window);
 	}
 

@@ -404,27 +404,27 @@ public class VkBindSparseInfo extends Struct implements NativeResource {
 	 */
 	public static void validate(long struct) {
 		if ( nwaitSemaphoreCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkBindSparseInfo.PWAITSEMAPHORES));
+			check(memGetAddress(struct + VkBindSparseInfo.PWAITSEMAPHORES));
 		int bufferBindCount = nbufferBindCount(struct);
 		if ( bufferBindCount != 0 ) {
 			long pBufferBinds = memGetAddress(struct + VkBindSparseInfo.PBUFFERBINDS);
-			checkPointer(pBufferBinds);
+			check(pBufferBinds);
 			VkSparseBufferMemoryBindInfo.validate(pBufferBinds, bufferBindCount);
 		}
 		int imageOpaqueBindCount = nimageOpaqueBindCount(struct);
 		if ( imageOpaqueBindCount != 0 ) {
 			long pImageOpaqueBinds = memGetAddress(struct + VkBindSparseInfo.PIMAGEOPAQUEBINDS);
-			checkPointer(pImageOpaqueBinds);
+			check(pImageOpaqueBinds);
 			VkSparseImageOpaqueMemoryBindInfo.validate(pImageOpaqueBinds, imageOpaqueBindCount);
 		}
 		int imageBindCount = nimageBindCount(struct);
 		if ( imageBindCount != 0 ) {
 			long pImageBinds = memGetAddress(struct + VkBindSparseInfo.PIMAGEBINDS);
-			checkPointer(pImageBinds);
+			check(pImageBinds);
 			VkSparseImageMemoryBindInfo.validate(pImageBinds, imageBindCount);
 		}
 		if ( nsignalSemaphoreCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkBindSparseInfo.PSIGNALSEMAPHORES));
+			check(memGetAddress(struct + VkBindSparseInfo.PSIGNALSEMAPHORES));
 	}
 
 	/**

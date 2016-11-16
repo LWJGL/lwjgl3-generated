@@ -64,7 +64,7 @@ public class NVDrawVulkanImage {
 	public static void glDrawVkImageNV(long vkImage, int sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1) {
 		long __functionAddress = GL.getCapabilities().glDrawVkImageNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJV(__functionAddress, vkImage, sampler, x0, y0, x1, y1, z, s0, t0, s1, t1);
 	}
 
@@ -74,7 +74,7 @@ public class NVDrawVulkanImage {
 	public static long nglGetVkProcAddrNV(long name) {
 		long __functionAddress = GL.getCapabilities().glGetVkProcAddrNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPP(__functionAddress, name);
 	}
 
@@ -115,7 +115,7 @@ public class NVDrawVulkanImage {
 	public static void glWaitVkSemaphoreNV(long vkSemaphore) {
 		long __functionAddress = GL.getCapabilities().glWaitVkSemaphoreNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJV(__functionAddress, vkSemaphore);
 	}
 
@@ -130,7 +130,7 @@ public class NVDrawVulkanImage {
 	public static void glSignalVkSemaphoreNV(long vkSemaphore) {
 		long __functionAddress = GL.getCapabilities().glSignalVkSemaphoreNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJV(__functionAddress, vkSemaphore);
 	}
 
@@ -145,7 +145,7 @@ public class NVDrawVulkanImage {
 	public static void glSignalVkFenceNV(long vkFence) {
 		long __functionAddress = GL.getCapabilities().glSignalVkFenceNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callJV(__functionAddress, vkFence);
 	}
 

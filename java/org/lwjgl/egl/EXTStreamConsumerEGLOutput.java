@@ -39,10 +39,10 @@ public class EXTStreamConsumerEGLOutput {
 	public static boolean eglStreamConsumerOutputEXT(long dpy, long stream, long layer) {
 		long __functionAddress = EGL.getCapabilities().eglStreamConsumerOutputEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(stream);
-			checkPointer(layer);
+			check(__functionAddress);
+			check(dpy);
+			check(stream);
+			check(layer);
 		}
 		return callPPPI(__functionAddress, dpy, stream, layer) != 0;
 	}

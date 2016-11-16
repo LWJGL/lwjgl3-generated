@@ -48,7 +48,7 @@ public class NVInstancedArrays {
 	public static void glVertexAttribDivisorNV(int index, int divisor) {
 		long __functionAddress = GLES.getCapabilities().glVertexAttribDivisorNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, divisor);
 	}
 

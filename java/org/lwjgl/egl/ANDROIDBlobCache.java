@@ -43,8 +43,8 @@ public class ANDROIDBlobCache {
 	public static void neglSetBlobCacheFuncsANDROID(long dpy, long set, long get) {
 		long __functionAddress = EGL.getCapabilities().eglSetBlobCacheFuncsANDROID;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
+			check(__functionAddress);
+			check(dpy);
 		}
 		callPPPV(__functionAddress, dpy, set, get);
 	}

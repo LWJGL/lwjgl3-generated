@@ -60,8 +60,8 @@ public class NVSync {
 	public static long neglCreateFenceSyncNV(long dpy, int condition, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateFenceSyncNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
+			check(__functionAddress);
+			check(dpy);
 		}
 		return callPPP(__functionAddress, dpy, condition, attrib_list);
 	}
@@ -77,8 +77,8 @@ public class NVSync {
 	public static boolean eglDestroySyncNV(long sync) {
 		long __functionAddress = EGL.getCapabilities().eglDestroySyncNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(sync);
+			check(__functionAddress);
+			check(sync);
 		}
 		return callPI(__functionAddress, sync) != 0;
 	}
@@ -88,8 +88,8 @@ public class NVSync {
 	public static boolean eglFenceNV(long sync) {
 		long __functionAddress = EGL.getCapabilities().eglFenceNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(sync);
+			check(__functionAddress);
+			check(sync);
 		}
 		return callPI(__functionAddress, sync) != 0;
 	}
@@ -99,8 +99,8 @@ public class NVSync {
 	public static int eglClientWaitSyncNV(long sync, int flags, long timeout) {
 		long __functionAddress = EGL.getCapabilities().eglClientWaitSyncNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(sync);
+			check(__functionAddress);
+			check(sync);
 		}
 		return callPJI(__functionAddress, sync, flags, timeout);
 	}
@@ -110,8 +110,8 @@ public class NVSync {
 	public static boolean eglSignalSyncNV(long sync, int mode) {
 		long __functionAddress = EGL.getCapabilities().eglSignalSyncNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(sync);
+			check(__functionAddress);
+			check(sync);
 		}
 		return callPI(__functionAddress, sync, mode) != 0;
 	}
@@ -121,15 +121,15 @@ public class NVSync {
 	public static int neglGetSyncAttribNV(long sync, int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglGetSyncAttribNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(sync);
+			check(__functionAddress);
+			check(sync);
 		}
 		return callPPI(__functionAddress, sync, attribute, value);
 	}
 
 	public static boolean eglGetSyncAttribNV(long sync, int attribute, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		return neglGetSyncAttribNV(sync, attribute, memAddress(value)) != 0;
 	}
 
@@ -137,8 +137,8 @@ public class NVSync {
 	public static long eglCreateFenceSyncNV(long dpy, int condition, int[] attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateFenceSyncNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
+			check(__functionAddress);
+			check(dpy);
 			checkNT(attrib_list, EGL10.EGL_NONE);
 		}
 		return callPPP(__functionAddress, dpy, condition, attrib_list);
@@ -148,9 +148,9 @@ public class NVSync {
 	public static boolean eglGetSyncAttribNV(long sync, int attribute, int[] value) {
 		long __functionAddress = EGL.getCapabilities().eglGetSyncAttribNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(sync);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(sync);
+			check(value, 1);
 		}
 		return callPPI(__functionAddress, sync, attribute, value) != 0;
 	}

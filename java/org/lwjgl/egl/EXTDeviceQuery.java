@@ -46,15 +46,15 @@ public class EXTDeviceQuery {
 	public static int neglQueryDeviceAttribEXT(long device, int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglQueryDeviceAttribEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
+			check(__functionAddress);
+			check(device);
 		}
 		return callPPI(__functionAddress, device, attribute, value);
 	}
 
 	public static boolean eglQueryDeviceAttribEXT(long device, int attribute, PointerBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		return neglQueryDeviceAttribEXT(device, attribute, memAddress(value)) != 0;
 	}
 
@@ -63,8 +63,8 @@ public class EXTDeviceQuery {
 	public static long neglQueryDeviceStringEXT(long device, int name) {
 		long __functionAddress = EGL.getCapabilities().eglQueryDeviceStringEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
+			check(__functionAddress);
+			check(device);
 		}
 		return callPP(__functionAddress, device, name);
 	}
@@ -79,15 +79,15 @@ public class EXTDeviceQuery {
 	public static int neglQueryDisplayAttribEXT(long dpy, int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglQueryDisplayAttribEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
+			check(__functionAddress);
+			check(dpy);
 		}
 		return callPPI(__functionAddress, dpy, attribute, value);
 	}
 
 	public static boolean eglQueryDisplayAttribEXT(long dpy, int attribute, PointerBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		return neglQueryDisplayAttribEXT(dpy, attribute, memAddress(value)) != 0;
 	}
 

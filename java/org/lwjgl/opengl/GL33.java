@@ -113,7 +113,7 @@ public class GL33 {
 	public static void nglBindFragDataLocationIndexed(int program, int colorNumber, int index, long name) {
 		long __functionAddress = GL.getCapabilities().glBindFragDataLocationIndexed;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, colorNumber, index, name);
 	}
 
@@ -159,7 +159,7 @@ public class GL33 {
 	public static int nglGetFragDataIndex(int program, long name) {
 		long __functionAddress = GL.getCapabilities().glGetFragDataIndex;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPI(__functionAddress, program, name);
 	}
 
@@ -205,7 +205,7 @@ public class GL33 {
 	public static void nglGenSamplers(int count, long samplers) {
 		long __functionAddress = GL.getCapabilities().glGenSamplers;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, count, samplers);
 	}
 
@@ -246,7 +246,7 @@ public class GL33 {
 	public static void nglDeleteSamplers(int count, long samplers) {
 		long __functionAddress = GL.getCapabilities().glDeleteSamplers;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, count, samplers);
 	}
 
@@ -288,7 +288,7 @@ public class GL33 {
 	public static boolean glIsSampler(int sampler) {
 		long __functionAddress = GL.getCapabilities().glIsSampler;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callZ(__functionAddress, sampler);
 	}
 
@@ -305,7 +305,7 @@ public class GL33 {
 	public static void glBindSampler(int unit, int sampler) {
 		long __functionAddress = GL.getCapabilities().glBindSampler;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, unit, sampler);
 	}
 
@@ -323,7 +323,7 @@ public class GL33 {
 	public static void glSamplerParameteri(int sampler, int pname, int param) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameteri;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, sampler, pname, param);
 	}
 
@@ -341,7 +341,7 @@ public class GL33 {
 	public static void glSamplerParameterf(int sampler, int pname, float param) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterf;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, sampler, pname, param);
 	}
 
@@ -351,7 +351,7 @@ public class GL33 {
 	public static void nglSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameteriv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -374,7 +374,7 @@ public class GL33 {
 	public static void nglSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -397,7 +397,7 @@ public class GL33 {
 	public static void nglSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterIiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -420,7 +420,7 @@ public class GL33 {
 	public static void nglSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterIuiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -443,7 +443,7 @@ public class GL33 {
 	public static void nglGetSamplerParameteriv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameteriv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -458,7 +458,7 @@ public class GL33 {
 	 */
 	public static void glGetSamplerParameteriv(int sampler, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetSamplerParameteriv(sampler, pname, memAddress(params));
 	}
 
@@ -487,7 +487,7 @@ public class GL33 {
 	public static void nglGetSamplerParameterfv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameterfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -502,7 +502,7 @@ public class GL33 {
 	 */
 	public static void glGetSamplerParameterfv(int sampler, int pname, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetSamplerParameterfv(sampler, pname, memAddress(params));
 	}
 
@@ -531,7 +531,7 @@ public class GL33 {
 	public static void nglGetSamplerParameterIiv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameterIiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -546,7 +546,7 @@ public class GL33 {
 	 */
 	public static void glGetSamplerParameterIiv(int sampler, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
 
@@ -575,7 +575,7 @@ public class GL33 {
 	public static void nglGetSamplerParameterIuiv(int sampler, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameterIuiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -590,7 +590,7 @@ public class GL33 {
 	 */
 	public static void glGetSamplerParameterIuiv(int sampler, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}
 
@@ -626,7 +626,7 @@ public class GL33 {
 	public static void glQueryCounter(int id, int target) {
 		long __functionAddress = GL.getCapabilities().glQueryCounter;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, id, target);
 	}
 
@@ -636,7 +636,7 @@ public class GL33 {
 	public static void nglGetQueryObjecti64v(int id, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjecti64v;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, id, pname, params);
 	}
 
@@ -651,7 +651,7 @@ public class GL33 {
 	 */
 	public static void glGetQueryObjecti64v(int id, int pname, LongBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetQueryObjecti64v(id, pname, memAddress(params));
 	}
 
@@ -680,7 +680,7 @@ public class GL33 {
 	public static void nglGetQueryObjectui64v(int id, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjectui64v;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, id, pname, params);
 	}
 
@@ -695,7 +695,7 @@ public class GL33 {
 	 */
 	public static void glGetQueryObjectui64v(int id, int pname, LongBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetQueryObjectui64v(id, pname, memAddress(params));
 	}
 
@@ -731,7 +731,7 @@ public class GL33 {
 	public static void glVertexAttribDivisor(int index, int divisor) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribDivisor;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, divisor);
 	}
 
@@ -748,7 +748,7 @@ public class GL33 {
 	public static void glVertexP2ui(int type, int value) {
 		long __functionAddress = GL.getCapabilities().glVertexP2ui;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, type, value);
 	}
 
@@ -765,7 +765,7 @@ public class GL33 {
 	public static void glVertexP3ui(int type, int value) {
 		long __functionAddress = GL.getCapabilities().glVertexP3ui;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, type, value);
 	}
 
@@ -782,7 +782,7 @@ public class GL33 {
 	public static void glVertexP4ui(int type, int value) {
 		long __functionAddress = GL.getCapabilities().glVertexP4ui;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, type, value);
 	}
 
@@ -792,7 +792,7 @@ public class GL33 {
 	public static void nglVertexP2uiv(int type, long value) {
 		long __functionAddress = GL.getCapabilities().glVertexP2uiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, type, value);
 	}
 
@@ -806,7 +806,7 @@ public class GL33 {
 	 */
 	public static void glVertexP2uiv(int type, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nglVertexP2uiv(type, memAddress(value));
 	}
 
@@ -816,7 +816,7 @@ public class GL33 {
 	public static void nglVertexP3uiv(int type, long value) {
 		long __functionAddress = GL.getCapabilities().glVertexP3uiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, type, value);
 	}
 
@@ -830,7 +830,7 @@ public class GL33 {
 	 */
 	public static void glVertexP3uiv(int type, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nglVertexP3uiv(type, memAddress(value));
 	}
 
@@ -840,7 +840,7 @@ public class GL33 {
 	public static void nglVertexP4uiv(int type, long value) {
 		long __functionAddress = GL.getCapabilities().glVertexP4uiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, type, value);
 	}
 
@@ -854,7 +854,7 @@ public class GL33 {
 	 */
 	public static void glVertexP4uiv(int type, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nglVertexP4uiv(type, memAddress(value));
 	}
 
@@ -871,7 +871,7 @@ public class GL33 {
 	public static void glTexCoordP1ui(int type, int coords) {
 		long __functionAddress = GL.getCapabilities().glTexCoordP1ui;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, type, coords);
 	}
 
@@ -888,7 +888,7 @@ public class GL33 {
 	public static void glTexCoordP2ui(int type, int coords) {
 		long __functionAddress = GL.getCapabilities().glTexCoordP2ui;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, type, coords);
 	}
 
@@ -905,7 +905,7 @@ public class GL33 {
 	public static void glTexCoordP3ui(int type, int coords) {
 		long __functionAddress = GL.getCapabilities().glTexCoordP3ui;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, type, coords);
 	}
 
@@ -922,7 +922,7 @@ public class GL33 {
 	public static void glTexCoordP4ui(int type, int coords) {
 		long __functionAddress = GL.getCapabilities().glTexCoordP4ui;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, type, coords);
 	}
 
@@ -932,7 +932,7 @@ public class GL33 {
 	public static void nglTexCoordP1uiv(int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glTexCoordP1uiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, type, coords);
 	}
 
@@ -946,7 +946,7 @@ public class GL33 {
 	 */
 	public static void glTexCoordP1uiv(int type, IntBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 1);
+			check(coords, 1);
 		nglTexCoordP1uiv(type, memAddress(coords));
 	}
 
@@ -956,7 +956,7 @@ public class GL33 {
 	public static void nglTexCoordP2uiv(int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glTexCoordP2uiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, type, coords);
 	}
 
@@ -970,7 +970,7 @@ public class GL33 {
 	 */
 	public static void glTexCoordP2uiv(int type, IntBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 1);
+			check(coords, 1);
 		nglTexCoordP2uiv(type, memAddress(coords));
 	}
 
@@ -980,7 +980,7 @@ public class GL33 {
 	public static void nglTexCoordP3uiv(int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glTexCoordP3uiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, type, coords);
 	}
 
@@ -994,7 +994,7 @@ public class GL33 {
 	 */
 	public static void glTexCoordP3uiv(int type, IntBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 1);
+			check(coords, 1);
 		nglTexCoordP3uiv(type, memAddress(coords));
 	}
 
@@ -1004,7 +1004,7 @@ public class GL33 {
 	public static void nglTexCoordP4uiv(int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glTexCoordP4uiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, type, coords);
 	}
 
@@ -1018,7 +1018,7 @@ public class GL33 {
 	 */
 	public static void glTexCoordP4uiv(int type, IntBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 1);
+			check(coords, 1);
 		nglTexCoordP4uiv(type, memAddress(coords));
 	}
 
@@ -1036,7 +1036,7 @@ public class GL33 {
 	public static void glMultiTexCoordP1ui(int texture, int type, int coords) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoordP1ui;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, texture, type, coords);
 	}
 
@@ -1054,7 +1054,7 @@ public class GL33 {
 	public static void glMultiTexCoordP2ui(int texture, int type, int coords) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoordP2ui;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, texture, type, coords);
 	}
 
@@ -1072,7 +1072,7 @@ public class GL33 {
 	public static void glMultiTexCoordP3ui(int texture, int type, int coords) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoordP3ui;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, texture, type, coords);
 	}
 
@@ -1090,7 +1090,7 @@ public class GL33 {
 	public static void glMultiTexCoordP4ui(int texture, int type, int coords) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoordP4ui;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, texture, type, coords);
 	}
 
@@ -1100,7 +1100,7 @@ public class GL33 {
 	public static void nglMultiTexCoordP1uiv(int texture, int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoordP1uiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, texture, type, coords);
 	}
 
@@ -1115,7 +1115,7 @@ public class GL33 {
 	 */
 	public static void glMultiTexCoordP1uiv(int texture, int type, IntBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 1);
+			check(coords, 1);
 		nglMultiTexCoordP1uiv(texture, type, memAddress(coords));
 	}
 
@@ -1125,7 +1125,7 @@ public class GL33 {
 	public static void nglMultiTexCoordP2uiv(int texture, int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoordP2uiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, texture, type, coords);
 	}
 
@@ -1140,7 +1140,7 @@ public class GL33 {
 	 */
 	public static void glMultiTexCoordP2uiv(int texture, int type, IntBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 1);
+			check(coords, 1);
 		nglMultiTexCoordP2uiv(texture, type, memAddress(coords));
 	}
 
@@ -1150,7 +1150,7 @@ public class GL33 {
 	public static void nglMultiTexCoordP3uiv(int texture, int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoordP3uiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, texture, type, coords);
 	}
 
@@ -1165,7 +1165,7 @@ public class GL33 {
 	 */
 	public static void glMultiTexCoordP3uiv(int texture, int type, IntBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 1);
+			check(coords, 1);
 		nglMultiTexCoordP3uiv(texture, type, memAddress(coords));
 	}
 
@@ -1175,7 +1175,7 @@ public class GL33 {
 	public static void nglMultiTexCoordP4uiv(int texture, int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoordP4uiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, texture, type, coords);
 	}
 
@@ -1190,7 +1190,7 @@ public class GL33 {
 	 */
 	public static void glMultiTexCoordP4uiv(int texture, int type, IntBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 1);
+			check(coords, 1);
 		nglMultiTexCoordP4uiv(texture, type, memAddress(coords));
 	}
 
@@ -1207,7 +1207,7 @@ public class GL33 {
 	public static void glNormalP3ui(int type, int coords) {
 		long __functionAddress = GL.getCapabilities().glNormalP3ui;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, type, coords);
 	}
 
@@ -1217,7 +1217,7 @@ public class GL33 {
 	public static void nglNormalP3uiv(int type, long coords) {
 		long __functionAddress = GL.getCapabilities().glNormalP3uiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, type, coords);
 	}
 
@@ -1231,7 +1231,7 @@ public class GL33 {
 	 */
 	public static void glNormalP3uiv(int type, IntBuffer coords) {
 		if ( CHECKS )
-			checkBuffer(coords, 1);
+			check(coords, 1);
 		nglNormalP3uiv(type, memAddress(coords));
 	}
 
@@ -1248,7 +1248,7 @@ public class GL33 {
 	public static void glColorP3ui(int type, int color) {
 		long __functionAddress = GL.getCapabilities().glColorP3ui;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, type, color);
 	}
 
@@ -1265,7 +1265,7 @@ public class GL33 {
 	public static void glColorP4ui(int type, int color) {
 		long __functionAddress = GL.getCapabilities().glColorP4ui;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, type, color);
 	}
 
@@ -1275,7 +1275,7 @@ public class GL33 {
 	public static void nglColorP3uiv(int type, long color) {
 		long __functionAddress = GL.getCapabilities().glColorP3uiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, type, color);
 	}
 
@@ -1289,7 +1289,7 @@ public class GL33 {
 	 */
 	public static void glColorP3uiv(int type, IntBuffer color) {
 		if ( CHECKS )
-			checkBuffer(color, 1);
+			check(color, 1);
 		nglColorP3uiv(type, memAddress(color));
 	}
 
@@ -1299,7 +1299,7 @@ public class GL33 {
 	public static void nglColorP4uiv(int type, long color) {
 		long __functionAddress = GL.getCapabilities().glColorP4uiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, type, color);
 	}
 
@@ -1313,7 +1313,7 @@ public class GL33 {
 	 */
 	public static void glColorP4uiv(int type, IntBuffer color) {
 		if ( CHECKS )
-			checkBuffer(color, 1);
+			check(color, 1);
 		nglColorP4uiv(type, memAddress(color));
 	}
 
@@ -1330,7 +1330,7 @@ public class GL33 {
 	public static void glSecondaryColorP3ui(int type, int color) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColorP3ui;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, type, color);
 	}
 
@@ -1340,7 +1340,7 @@ public class GL33 {
 	public static void nglSecondaryColorP3uiv(int type, long color) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColorP3uiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, type, color);
 	}
 
@@ -1354,7 +1354,7 @@ public class GL33 {
 	 */
 	public static void glSecondaryColorP3uiv(int type, IntBuffer color) {
 		if ( CHECKS )
-			checkBuffer(color, 1);
+			check(color, 1);
 		nglSecondaryColorP3uiv(type, memAddress(color));
 	}
 
@@ -1373,7 +1373,7 @@ public class GL33 {
 	public static void glVertexAttribP1ui(int index, int type, boolean normalized, int value) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribP1ui;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, type, normalized, value);
 	}
 
@@ -1392,7 +1392,7 @@ public class GL33 {
 	public static void glVertexAttribP2ui(int index, int type, boolean normalized, int value) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribP2ui;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, type, normalized, value);
 	}
 
@@ -1411,7 +1411,7 @@ public class GL33 {
 	public static void glVertexAttribP3ui(int index, int type, boolean normalized, int value) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribP3ui;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, type, normalized, value);
 	}
 
@@ -1430,7 +1430,7 @@ public class GL33 {
 	public static void glVertexAttribP4ui(int index, int type, boolean normalized, int value) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribP4ui;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, type, normalized, value);
 	}
 
@@ -1440,7 +1440,7 @@ public class GL33 {
 	public static void nglVertexAttribP1uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribP1uiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, type, normalized, value);
 	}
 
@@ -1456,7 +1456,7 @@ public class GL33 {
 	 */
 	public static void glVertexAttribP1uiv(int index, int type, boolean normalized, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nglVertexAttribP1uiv(index, type, normalized, memAddress(value));
 	}
 
@@ -1466,7 +1466,7 @@ public class GL33 {
 	public static void nglVertexAttribP2uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribP2uiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, type, normalized, value);
 	}
 
@@ -1482,7 +1482,7 @@ public class GL33 {
 	 */
 	public static void glVertexAttribP2uiv(int index, int type, boolean normalized, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nglVertexAttribP2uiv(index, type, normalized, memAddress(value));
 	}
 
@@ -1492,7 +1492,7 @@ public class GL33 {
 	public static void nglVertexAttribP3uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribP3uiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, type, normalized, value);
 	}
 
@@ -1508,7 +1508,7 @@ public class GL33 {
 	 */
 	public static void glVertexAttribP3uiv(int index, int type, boolean normalized, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nglVertexAttribP3uiv(index, type, normalized, memAddress(value));
 	}
 
@@ -1518,7 +1518,7 @@ public class GL33 {
 	public static void nglVertexAttribP4uiv(int index, int type, boolean normalized, long value) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribP4uiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, type, normalized, value);
 	}
 
@@ -1534,7 +1534,7 @@ public class GL33 {
 	 */
 	public static void glVertexAttribP4uiv(int index, int type, boolean normalized, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nglVertexAttribP4uiv(index, type, normalized, memAddress(value));
 	}
 
@@ -1546,7 +1546,7 @@ public class GL33 {
 	public static void glGenSamplers(int[] samplers) {
 		long __functionAddress = GL.getCapabilities().glGenSamplers;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, samplers.length, samplers);
 	}
 
@@ -1558,7 +1558,7 @@ public class GL33 {
 	public static void glDeleteSamplers(int[] samplers) {
 		long __functionAddress = GL.getCapabilities().glDeleteSamplers;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, samplers.length, samplers);
 	}
 
@@ -1570,7 +1570,7 @@ public class GL33 {
 	public static void glSamplerParameteriv(int sampler, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameteriv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -1582,7 +1582,7 @@ public class GL33 {
 	public static void glSamplerParameterfv(int sampler, int pname, float[] params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -1594,7 +1594,7 @@ public class GL33 {
 	public static void glSamplerParameterIiv(int sampler, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterIiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -1606,7 +1606,7 @@ public class GL33 {
 	public static void glSamplerParameterIuiv(int sampler, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterIuiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
@@ -1618,8 +1618,8 @@ public class GL33 {
 	public static void glGetSamplerParameteriv(int sampler, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameteriv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, sampler, pname, params);
 	}
@@ -1632,8 +1632,8 @@ public class GL33 {
 	public static void glGetSamplerParameterfv(int sampler, int pname, float[] params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameterfv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, sampler, pname, params);
 	}
@@ -1646,8 +1646,8 @@ public class GL33 {
 	public static void glGetSamplerParameterIiv(int sampler, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameterIiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, sampler, pname, params);
 	}
@@ -1660,8 +1660,8 @@ public class GL33 {
 	public static void glGetSamplerParameterIuiv(int sampler, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetSamplerParameterIuiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, sampler, pname, params);
 	}
@@ -1674,8 +1674,8 @@ public class GL33 {
 	public static void glGetQueryObjecti64v(int id, int pname, long[] params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjecti64v;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, id, pname, params);
 	}
@@ -1688,8 +1688,8 @@ public class GL33 {
 	public static void glGetQueryObjectui64v(int id, int pname, long[] params) {
 		long __functionAddress = GL.getCapabilities().glGetQueryObjectui64v;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, id, pname, params);
 	}
@@ -1702,8 +1702,8 @@ public class GL33 {
 	public static void glVertexP2uiv(int type, int[] value) {
 		long __functionAddress = GL.getCapabilities().glVertexP2uiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(value, 1);
 		}
 		callPV(__functionAddress, type, value);
 	}
@@ -1716,8 +1716,8 @@ public class GL33 {
 	public static void glVertexP3uiv(int type, int[] value) {
 		long __functionAddress = GL.getCapabilities().glVertexP3uiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(value, 1);
 		}
 		callPV(__functionAddress, type, value);
 	}
@@ -1730,8 +1730,8 @@ public class GL33 {
 	public static void glVertexP4uiv(int type, int[] value) {
 		long __functionAddress = GL.getCapabilities().glVertexP4uiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(value, 1);
 		}
 		callPV(__functionAddress, type, value);
 	}
@@ -1744,8 +1744,8 @@ public class GL33 {
 	public static void glTexCoordP1uiv(int type, int[] coords) {
 		long __functionAddress = GL.getCapabilities().glTexCoordP1uiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 1);
+			check(__functionAddress);
+			check(coords, 1);
 		}
 		callPV(__functionAddress, type, coords);
 	}
@@ -1758,8 +1758,8 @@ public class GL33 {
 	public static void glTexCoordP2uiv(int type, int[] coords) {
 		long __functionAddress = GL.getCapabilities().glTexCoordP2uiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 1);
+			check(__functionAddress);
+			check(coords, 1);
 		}
 		callPV(__functionAddress, type, coords);
 	}
@@ -1772,8 +1772,8 @@ public class GL33 {
 	public static void glTexCoordP3uiv(int type, int[] coords) {
 		long __functionAddress = GL.getCapabilities().glTexCoordP3uiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 1);
+			check(__functionAddress);
+			check(coords, 1);
 		}
 		callPV(__functionAddress, type, coords);
 	}
@@ -1786,8 +1786,8 @@ public class GL33 {
 	public static void glTexCoordP4uiv(int type, int[] coords) {
 		long __functionAddress = GL.getCapabilities().glTexCoordP4uiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 1);
+			check(__functionAddress);
+			check(coords, 1);
 		}
 		callPV(__functionAddress, type, coords);
 	}
@@ -1800,8 +1800,8 @@ public class GL33 {
 	public static void glMultiTexCoordP1uiv(int texture, int type, int[] coords) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoordP1uiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 1);
+			check(__functionAddress);
+			check(coords, 1);
 		}
 		callPV(__functionAddress, texture, type, coords);
 	}
@@ -1814,8 +1814,8 @@ public class GL33 {
 	public static void glMultiTexCoordP2uiv(int texture, int type, int[] coords) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoordP2uiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 1);
+			check(__functionAddress);
+			check(coords, 1);
 		}
 		callPV(__functionAddress, texture, type, coords);
 	}
@@ -1828,8 +1828,8 @@ public class GL33 {
 	public static void glMultiTexCoordP3uiv(int texture, int type, int[] coords) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoordP3uiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 1);
+			check(__functionAddress);
+			check(coords, 1);
 		}
 		callPV(__functionAddress, texture, type, coords);
 	}
@@ -1842,8 +1842,8 @@ public class GL33 {
 	public static void glMultiTexCoordP4uiv(int texture, int type, int[] coords) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoordP4uiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 1);
+			check(__functionAddress);
+			check(coords, 1);
 		}
 		callPV(__functionAddress, texture, type, coords);
 	}
@@ -1856,8 +1856,8 @@ public class GL33 {
 	public static void glNormalP3uiv(int type, int[] coords) {
 		long __functionAddress = GL.getCapabilities().glNormalP3uiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(coords, 1);
+			check(__functionAddress);
+			check(coords, 1);
 		}
 		callPV(__functionAddress, type, coords);
 	}
@@ -1870,8 +1870,8 @@ public class GL33 {
 	public static void glColorP3uiv(int type, int[] color) {
 		long __functionAddress = GL.getCapabilities().glColorP3uiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(color, 1);
+			check(__functionAddress);
+			check(color, 1);
 		}
 		callPV(__functionAddress, type, color);
 	}
@@ -1884,8 +1884,8 @@ public class GL33 {
 	public static void glColorP4uiv(int type, int[] color) {
 		long __functionAddress = GL.getCapabilities().glColorP4uiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(color, 1);
+			check(__functionAddress);
+			check(color, 1);
 		}
 		callPV(__functionAddress, type, color);
 	}
@@ -1898,8 +1898,8 @@ public class GL33 {
 	public static void glSecondaryColorP3uiv(int type, int[] color) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColorP3uiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(color, 1);
+			check(__functionAddress);
+			check(color, 1);
 		}
 		callPV(__functionAddress, type, color);
 	}
@@ -1912,8 +1912,8 @@ public class GL33 {
 	public static void glVertexAttribP1uiv(int index, int type, boolean normalized, int[] value) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribP1uiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(value, 1);
 		}
 		callPV(__functionAddress, index, type, normalized, value);
 	}
@@ -1926,8 +1926,8 @@ public class GL33 {
 	public static void glVertexAttribP2uiv(int index, int type, boolean normalized, int[] value) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribP2uiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(value, 1);
 		}
 		callPV(__functionAddress, index, type, normalized, value);
 	}
@@ -1940,8 +1940,8 @@ public class GL33 {
 	public static void glVertexAttribP3uiv(int index, int type, boolean normalized, int[] value) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribP3uiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(value, 1);
 		}
 		callPV(__functionAddress, index, type, normalized, value);
 	}
@@ -1954,8 +1954,8 @@ public class GL33 {
 	public static void glVertexAttribP4uiv(int index, int type, boolean normalized, int[] value) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribP4uiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(value, 1);
 		}
 		callPV(__functionAddress, index, type, normalized, value);
 	}

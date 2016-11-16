@@ -48,7 +48,7 @@ public class IMGFramebufferDownsample {
 	public static void glFramebufferTexture2DDownsampleIMG(int target, int attachment, int textarget, int texture, int level, int xscale, int yscale) {
 		long __functionAddress = GLES.getCapabilities().glFramebufferTexture2DDownsampleIMG;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, attachment, textarget, texture, level, xscale, yscale);
 	}
 
@@ -57,7 +57,7 @@ public class IMGFramebufferDownsample {
 	public static void glFramebufferTextureLayerDownsampleIMG(int target, int attachment, int texture, int level, int layer, int xscale, int yscale) {
 		long __functionAddress = GLES.getCapabilities().glFramebufferTextureLayerDownsampleIMG;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, attachment, texture, level, layer, xscale, yscale);
 	}
 

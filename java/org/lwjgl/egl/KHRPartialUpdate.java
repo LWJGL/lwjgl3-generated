@@ -50,9 +50,9 @@ public class KHRPartialUpdate {
 	public static int neglSetDamageRegionKHR(long dpy, long surface, long rects, int n_rects) {
 		long __functionAddress = EGL.getCapabilities().eglSetDamageRegionKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(surface);
+			check(__functionAddress);
+			check(dpy);
+			check(surface);
 		}
 		return callPPPI(__functionAddress, dpy, surface, rects, n_rects);
 	}
@@ -65,9 +65,9 @@ public class KHRPartialUpdate {
 	public static boolean eglSetDamageRegionKHR(long dpy, long surface, int[] rects) {
 		long __functionAddress = EGL.getCapabilities().eglSetDamageRegionKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(surface);
+			check(__functionAddress);
+			check(dpy);
+			check(surface);
 		}
 		return callPPPI(__functionAddress, dpy, surface, rects, lengthSafe(rects)) != 0;
 	}

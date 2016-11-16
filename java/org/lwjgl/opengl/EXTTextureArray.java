@@ -91,7 +91,7 @@ public class EXTTextureArray {
 	public static void glFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer) {
 		long __functionAddress = GL.getCapabilities().glFramebufferTextureLayerEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, attachment, texture, level, layer);
 	}
 

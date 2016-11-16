@@ -102,7 +102,7 @@ public class ARBShadingLanguageInclude {
 	public static void nglNamedStringARB(int type, int namelen, long name, int stringlen, long string) {
 		long __functionAddress = GL.getCapabilities().glNamedStringARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, type, namelen, name, stringlen, string);
 	}
 
@@ -153,7 +153,7 @@ public class ARBShadingLanguageInclude {
 	public static void nglDeleteNamedStringARB(int namelen, long name) {
 		long __functionAddress = GL.getCapabilities().glDeleteNamedStringARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, namelen, name);
 	}
 
@@ -188,7 +188,7 @@ public class ARBShadingLanguageInclude {
 	public static void nglCompileShaderIncludeARB(int shader, int count, long path, long length) {
 		long __functionAddress = GL.getCapabilities().glCompileShaderIncludeARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, shader, count, path, length);
 	}
 
@@ -205,7 +205,7 @@ public class ARBShadingLanguageInclude {
 	 */
 	public static void glCompileShaderIncludeARB(int shader, PointerBuffer path, IntBuffer length) {
 		if ( CHECKS )
-			checkBufferSafe(length, path.remaining());
+			checkSafe(length, path.remaining());
 		nglCompileShaderIncludeARB(shader, path.remaining(), memAddress(path), memAddressSafe(length));
 	}
 
@@ -219,7 +219,7 @@ public class ARBShadingLanguageInclude {
 	public static boolean nglIsNamedStringARB(int namelen, long name) {
 		long __functionAddress = GL.getCapabilities().glIsNamedStringARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPZ(__functionAddress, namelen, name);
 	}
 
@@ -261,7 +261,7 @@ public class ARBShadingLanguageInclude {
 	public static void nglGetNamedStringARB(int namelen, long name, int bufSize, long stringlen, long string) {
 		long __functionAddress = GL.getCapabilities().glGetNamedStringARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPPV(__functionAddress, namelen, name, bufSize, stringlen, string);
 	}
 
@@ -275,7 +275,7 @@ public class ARBShadingLanguageInclude {
 	 */
 	public static void glGetNamedStringARB(ByteBuffer name, IntBuffer stringlen, ByteBuffer string) {
 		if ( CHECKS )
-			checkBufferSafe(stringlen, 1);
+			checkSafe(stringlen, 1);
 		nglGetNamedStringARB(name.remaining(), memAddress(name), string.remaining(), memAddressSafe(stringlen), memAddress(string));
 	}
 
@@ -289,7 +289,7 @@ public class ARBShadingLanguageInclude {
 	 */
 	public static void glGetNamedStringARB(CharSequence name, IntBuffer stringlen, ByteBuffer string) {
 		if ( CHECKS )
-			checkBufferSafe(stringlen, 1);
+			checkSafe(stringlen, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.ASCII(name, false);
@@ -350,7 +350,7 @@ public class ARBShadingLanguageInclude {
 	public static void nglGetNamedStringivARB(int namelen, long name, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetNamedStringivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, namelen, name, pname, params);
 	}
 
@@ -363,7 +363,7 @@ public class ARBShadingLanguageInclude {
 	 */
 	public static void glGetNamedStringivARB(ByteBuffer name, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetNamedStringivARB(name.remaining(), memAddress(name), pname, memAddress(params));
 	}
 
@@ -376,7 +376,7 @@ public class ARBShadingLanguageInclude {
 	 */
 	public static void glGetNamedStringivARB(CharSequence name, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.ASCII(name, false);
@@ -410,8 +410,8 @@ public class ARBShadingLanguageInclude {
 	public static void glCompileShaderIncludeARB(int shader, PointerBuffer path, int[] length) {
 		long __functionAddress = GL.getCapabilities().glCompileShaderIncludeARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(length, path.remaining());
+			check(__functionAddress);
+			checkSafe(length, path.remaining());
 		}
 		callPPV(__functionAddress, shader, path.remaining(), memAddress(path), length);
 	}
@@ -420,8 +420,8 @@ public class ARBShadingLanguageInclude {
 	public static void glGetNamedStringARB(ByteBuffer name, int[] stringlen, ByteBuffer string) {
 		long __functionAddress = GL.getCapabilities().glGetNamedStringARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(stringlen, 1);
+			check(__functionAddress);
+			checkSafe(stringlen, 1);
 		}
 		callPPPV(__functionAddress, name.remaining(), memAddress(name), string.remaining(), stringlen, memAddress(string));
 	}
@@ -430,8 +430,8 @@ public class ARBShadingLanguageInclude {
 	public static void glGetNamedStringARB(CharSequence name, int[] stringlen, ByteBuffer string) {
 		long __functionAddress = GL.getCapabilities().glGetNamedStringARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(stringlen, 1);
+			check(__functionAddress);
+			checkSafe(stringlen, 1);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -447,8 +447,8 @@ public class ARBShadingLanguageInclude {
 	public static void glGetNamedStringivARB(ByteBuffer name, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetNamedStringivARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPPV(__functionAddress, name.remaining(), memAddress(name), pname, params);
 	}
@@ -457,8 +457,8 @@ public class ARBShadingLanguageInclude {
 	public static void glGetNamedStringivARB(CharSequence name, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetNamedStringivARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

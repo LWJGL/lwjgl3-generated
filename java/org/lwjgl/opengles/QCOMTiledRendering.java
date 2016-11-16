@@ -104,7 +104,7 @@ public class QCOMTiledRendering {
 	public static void glStartTilingQCOM(int x, int y, int width, int height, int preserveMask) {
 		long __functionAddress = GLES.getCapabilities().glStartTilingQCOM;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, width, height, preserveMask);
 	}
 
@@ -113,7 +113,7 @@ public class QCOMTiledRendering {
 	public static void glEndTilingQCOM(int preserveMask) {
 		long __functionAddress = GLES.getCapabilities().glEndTilingQCOM;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, preserveMask);
 	}
 

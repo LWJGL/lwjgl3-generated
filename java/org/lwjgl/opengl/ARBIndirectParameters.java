@@ -54,7 +54,7 @@ public class ARBIndirectParameters {
 	public static void nglMultiDrawArraysIndirectCountARB(int mode, long indirect, long drawcount, int maxdrawcount, int stride) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawArraysIndirectCountARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, mode, indirect, drawcount, maxdrawcount, stride);
 	}
 
@@ -72,7 +72,7 @@ public class ARBIndirectParameters {
 	 */
 	public static void glMultiDrawArraysIndirectCountARB(int mode, ByteBuffer indirect, long drawcount, int maxdrawcount, int stride) {
 		if ( CHECKS )
-			checkBuffer(indirect, maxdrawcount * (stride == 0 ? (4 * 4) : stride));
+			check(indirect, maxdrawcount * (stride == 0 ? (4 * 4) : stride));
 		nglMultiDrawArraysIndirectCountARB(mode, memAddress(indirect), drawcount, maxdrawcount, stride);
 	}
 
@@ -106,7 +106,7 @@ public class ARBIndirectParameters {
 	 */
 	public static void glMultiDrawArraysIndirectCountARB(int mode, IntBuffer indirect, long drawcount, int maxdrawcount, int stride) {
 		if ( CHECKS )
-			checkBuffer(indirect, (maxdrawcount * (stride == 0 ? (4 * 4) : stride)) >> 2);
+			check(indirect, (maxdrawcount * (stride == 0 ? (4 * 4) : stride)) >> 2);
 		nglMultiDrawArraysIndirectCountARB(mode, memAddress(indirect), drawcount, maxdrawcount, stride);
 	}
 
@@ -116,7 +116,7 @@ public class ARBIndirectParameters {
 	public static void nglMultiDrawElementsIndirectCountARB(int mode, int type, long indirect, long drawcount, int maxdrawcount, int stride) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawElementsIndirectCountARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, mode, type, indirect, drawcount, maxdrawcount, stride);
 	}
 
@@ -135,7 +135,7 @@ public class ARBIndirectParameters {
 	 */
 	public static void glMultiDrawElementsIndirectCountARB(int mode, int type, ByteBuffer indirect, long drawcount, int maxdrawcount, int stride) {
 		if ( CHECKS )
-			checkBuffer(indirect, maxdrawcount * (stride == 0 ? (5 * 4) : stride));
+			check(indirect, maxdrawcount * (stride == 0 ? (5 * 4) : stride));
 		nglMultiDrawElementsIndirectCountARB(mode, type, memAddress(indirect), drawcount, maxdrawcount, stride);
 	}
 
@@ -171,7 +171,7 @@ public class ARBIndirectParameters {
 	 */
 	public static void glMultiDrawElementsIndirectCountARB(int mode, int type, IntBuffer indirect, long drawcount, int maxdrawcount, int stride) {
 		if ( CHECKS )
-			checkBuffer(indirect, (maxdrawcount * (stride == 0 ? (5 * 4) : stride)) >> 2);
+			check(indirect, (maxdrawcount * (stride == 0 ? (5 * 4) : stride)) >> 2);
 		nglMultiDrawElementsIndirectCountARB(mode, type, memAddress(indirect), drawcount, maxdrawcount, stride);
 	}
 
@@ -179,8 +179,8 @@ public class ARBIndirectParameters {
 	public static void glMultiDrawArraysIndirectCountARB(int mode, int[] indirect, long drawcount, int maxdrawcount, int stride) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawArraysIndirectCountARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(indirect, (maxdrawcount * (stride == 0 ? (4 * 4) : stride)) >> 2);
+			check(__functionAddress);
+			check(indirect, (maxdrawcount * (stride == 0 ? (4 * 4) : stride)) >> 2);
 		}
 		callPPV(__functionAddress, mode, indirect, drawcount, maxdrawcount, stride);
 	}
@@ -189,8 +189,8 @@ public class ARBIndirectParameters {
 	public static void glMultiDrawElementsIndirectCountARB(int mode, int type, int[] indirect, long drawcount, int maxdrawcount, int stride) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawElementsIndirectCountARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(indirect, (maxdrawcount * (stride == 0 ? (5 * 4) : stride)) >> 2);
+			check(__functionAddress);
+			check(indirect, (maxdrawcount * (stride == 0 ? (5 * 4) : stride)) >> 2);
 		}
 		callPPV(__functionAddress, mode, type, indirect, drawcount, maxdrawcount, stride);
 	}

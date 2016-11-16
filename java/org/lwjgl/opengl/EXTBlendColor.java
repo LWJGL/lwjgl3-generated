@@ -43,7 +43,7 @@ public class EXTBlendColor {
 	public static void glBlendColorEXT(float red, float green, float blue, float alpha) {
 		long __functionAddress = GL.getCapabilities().glBlendColorEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue, alpha);
 	}
 

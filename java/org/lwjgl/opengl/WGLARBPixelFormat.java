@@ -107,8 +107,8 @@ public class WGLARBPixelFormat {
 	public static int nwglGetPixelFormatAttribivARB(long hdc, int pixelFormat, int layerPlane, int n, long attributes, long values) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglGetPixelFormatAttribivARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(hdc);
+			check(__functionAddress);
+			check(hdc);
 		}
 		return callPPPI(__functionAddress, hdc, pixelFormat, layerPlane, n, attributes, values);
 	}
@@ -124,7 +124,7 @@ public class WGLARBPixelFormat {
 	 */
 	public static boolean wglGetPixelFormatAttribivARB(long hdc, int pixelFormat, int layerPlane, IntBuffer attributes, IntBuffer values) {
 		if ( CHECKS )
-			checkBuffer(values, attributes.remaining());
+			check(values, attributes.remaining());
 		return nwglGetPixelFormatAttribivARB(hdc, pixelFormat, layerPlane, attributes.remaining(), memAddress(attributes), memAddress(values)) != 0;
 	}
 
@@ -138,7 +138,7 @@ public class WGLARBPixelFormat {
 	 */
 	public static boolean wglGetPixelFormatAttribiARB(long hdc, int pixelFormat, int layerPlane, int attribute, IntBuffer values) {
 		if ( CHECKS )
-			checkBuffer(values, 1);
+			check(values, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			IntBuffer attributes = stack.ints(attribute);
@@ -158,8 +158,8 @@ public class WGLARBPixelFormat {
 	public static int nwglGetPixelFormatAttribfvARB(long hdc, int pixelFormat, int layerPlane, int n, long attributes, long values) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglGetPixelFormatAttribfvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(hdc);
+			check(__functionAddress);
+			check(hdc);
 		}
 		return callPPPI(__functionAddress, hdc, pixelFormat, layerPlane, n, attributes, values);
 	}
@@ -175,7 +175,7 @@ public class WGLARBPixelFormat {
 	 */
 	public static boolean wglGetPixelFormatAttribfvARB(long hdc, int pixelFormat, int layerPlane, IntBuffer attributes, FloatBuffer values) {
 		if ( CHECKS )
-			checkBuffer(values, attributes.remaining());
+			check(values, attributes.remaining());
 		return nwglGetPixelFormatAttribfvARB(hdc, pixelFormat, layerPlane, attributes.remaining(), memAddress(attributes), memAddress(values)) != 0;
 	}
 
@@ -189,7 +189,7 @@ public class WGLARBPixelFormat {
 	 */
 	public static boolean wglGetPixelFormatAttribfARB(long hdc, int pixelFormat, int layerPlane, int attribute, FloatBuffer values) {
 		if ( CHECKS )
-			checkBuffer(values, 1);
+			check(values, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			IntBuffer attributes = stack.ints(attribute);
@@ -209,8 +209,8 @@ public class WGLARBPixelFormat {
 	public static int nwglChoosePixelFormatARB(long hdc, long attribIList, long attribFList, int maxFormats, long formats, long numFormats) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglChoosePixelFormatARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(hdc);
+			check(__functionAddress);
+			check(hdc);
 		}
 		return callPPPPPI(__functionAddress, hdc, attribIList, attribFList, maxFormats, formats, numFormats);
 	}
@@ -231,7 +231,7 @@ public class WGLARBPixelFormat {
 		if ( CHECKS ) {
 			checkNTSafe(attribIList);
 			checkNTSafe(attribFList);
-			checkBuffer(numFormats, 1);
+			check(numFormats, 1);
 		}
 		return nwglChoosePixelFormatARB(hdc, memAddressSafe(attribIList), memAddressSafe(attribFList), formats.remaining(), memAddress(formats), memAddress(numFormats)) != 0;
 	}
@@ -240,9 +240,9 @@ public class WGLARBPixelFormat {
 	public static boolean wglGetPixelFormatAttribivARB(long hdc, int pixelFormat, int layerPlane, int[] attributes, int[] values) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglGetPixelFormatAttribivARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(hdc);
-			checkBuffer(values, attributes.length);
+			check(__functionAddress);
+			check(hdc);
+			check(values, attributes.length);
 		}
 		return callPPPI(__functionAddress, hdc, pixelFormat, layerPlane, attributes.length, attributes, values) != 0;
 	}
@@ -251,9 +251,9 @@ public class WGLARBPixelFormat {
 	public static boolean wglGetPixelFormatAttribfvARB(long hdc, int pixelFormat, int layerPlane, int[] attributes, float[] values) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglGetPixelFormatAttribfvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(hdc);
-			checkBuffer(values, attributes.length);
+			check(__functionAddress);
+			check(hdc);
+			check(values, attributes.length);
 		}
 		return callPPPI(__functionAddress, hdc, pixelFormat, layerPlane, attributes.length, attributes, values) != 0;
 	}
@@ -262,11 +262,11 @@ public class WGLARBPixelFormat {
 	public static boolean wglChoosePixelFormatARB(long hdc, int[] attribIList, float[] attribFList, int[] formats, int[] numFormats) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglChoosePixelFormatARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(hdc);
+			check(__functionAddress);
+			check(hdc);
 			checkNTSafe(attribIList);
 			checkNTSafe(attribFList);
-			checkBuffer(numFormats, 1);
+			check(numFormats, 1);
 		}
 		return callPPPPPI(__functionAddress, hdc, attribIList, attribFList, formats.length, formats, numFormats) != 0;
 	}

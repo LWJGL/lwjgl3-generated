@@ -136,7 +136,7 @@ public class ARBRobustness {
 	public static int glGetGraphicsResetStatusARB() {
 		long __functionAddress = GL.getCapabilities().glGetGraphicsResetStatusARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callI(__functionAddress);
 	}
 
@@ -150,7 +150,7 @@ public class ARBRobustness {
 	public static void nglGetnMapdvARB(int target, int query, int bufSize, long data) {
 		long __functionAddress = GL.getCapabilities().glGetnMapdvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, query, bufSize, data);
 	}
 
@@ -192,7 +192,7 @@ public class ARBRobustness {
 	public static void nglGetnMapfvARB(int target, int query, int bufSize, long data) {
 		long __functionAddress = GL.getCapabilities().glGetnMapfvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, query, bufSize, data);
 	}
 
@@ -234,7 +234,7 @@ public class ARBRobustness {
 	public static void nglGetnMapivARB(int target, int query, int bufSize, long data) {
 		long __functionAddress = GL.getCapabilities().glGetnMapivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, query, bufSize, data);
 	}
 
@@ -276,7 +276,7 @@ public class ARBRobustness {
 	public static void nglGetnPixelMapfvARB(int map, int bufSize, long data) {
 		long __functionAddress = GL.getCapabilities().glGetnPixelMapfvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, map, bufSize, data);
 	}
 
@@ -300,7 +300,7 @@ public class ARBRobustness {
 	public static void nglGetnPixelMapuivARB(int map, int bufSize, long data) {
 		long __functionAddress = GL.getCapabilities().glGetnPixelMapuivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, map, bufSize, data);
 	}
 
@@ -324,7 +324,7 @@ public class ARBRobustness {
 	public static void nglGetnPixelMapusvARB(int map, int bufSize, long data) {
 		long __functionAddress = GL.getCapabilities().glGetnPixelMapusvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, map, bufSize, data);
 	}
 
@@ -348,7 +348,7 @@ public class ARBRobustness {
 	public static void nglGetnPolygonStippleARB(int bufSize, long pattern) {
 		long __functionAddress = GL.getCapabilities().glGetnPolygonStippleARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, bufSize, pattern);
 	}
 
@@ -381,7 +381,7 @@ public class ARBRobustness {
 	public static void nglGetnTexImageARB(int tex, int level, int format, int type, int bufSize, long img) {
 		long __functionAddress = GL.getCapabilities().glGetnTexImageARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, tex, level, format, type, bufSize, img);
 	}
 
@@ -474,7 +474,7 @@ public class ARBRobustness {
 	public static void nglReadnPixelsARB(int x, int y, int width, int height, int format, int type, int bufSize, long data) {
 		long __functionAddress = GL.getCapabilities().glReadnPixelsARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, bufSize, data);
 	}
 
@@ -564,7 +564,7 @@ public class ARBRobustness {
 	public static void nglGetnColorTableARB(int target, int format, int type, int bufSize, long table) {
 		long __functionAddress = GL.getCapabilities().glGetnColorTableARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, format, type, bufSize, table);
 	}
 
@@ -639,7 +639,7 @@ public class ARBRobustness {
 	public static void nglGetnConvolutionFilterARB(int target, int format, int type, int bufSize, long image) {
 		long __functionAddress = GL.getCapabilities().glGetnConvolutionFilterARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, format, type, bufSize, image);
 	}
 
@@ -679,7 +679,7 @@ public class ARBRobustness {
 	public static void nglGetnSeparableFilterARB(int target, int format, int type, int rowBufSize, long row, int columnBufSize, long column, long span) {
 		long __functionAddress = GL.getCapabilities().glGetnSeparableFilterARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPPV(__functionAddress, target, format, type, rowBufSize, row, columnBufSize, column, span);
 	}
 
@@ -723,7 +723,7 @@ public class ARBRobustness {
 	public static void nglGetnHistogramARB(int target, boolean reset, int format, int type, int bufSize, long values) {
 		long __functionAddress = GL.getCapabilities().glGetnHistogramARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, reset, format, type, bufSize, values);
 	}
 
@@ -764,7 +764,7 @@ public class ARBRobustness {
 	public static void nglGetnMinmaxARB(int target, boolean reset, int format, int type, int bufSize, long values) {
 		long __functionAddress = GL.getCapabilities().glGetnMinmaxARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, reset, format, type, bufSize, values);
 	}
 
@@ -807,7 +807,7 @@ public class ARBRobustness {
 	public static void nglGetnCompressedTexImageARB(int target, int level, int bufSize, long img) {
 		long __functionAddress = GL.getCapabilities().glGetnCompressedTexImageARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, level, bufSize, img);
 	}
 
@@ -833,7 +833,7 @@ public class ARBRobustness {
 	public static void glGetnCompressedTexImageARB(int target, int level, ByteBuffer img) {
 		if ( CHECKS )
 			if ( DEBUG )
-				checkBuffer(img, GL11.glGetTexLevelParameteri(target, level, GL13.GL_TEXTURE_COMPRESSED_IMAGE_SIZE));
+				check(img, GL11.glGetTexLevelParameteri(target, level, GL13.GL_TEXTURE_COMPRESSED_IMAGE_SIZE));
 		nglGetnCompressedTexImageARB(target, level, img.remaining(), memAddress(img));
 	}
 
@@ -847,7 +847,7 @@ public class ARBRobustness {
 	public static void nglGetnUniformfvARB(int program, int location, int bufSize, long params) {
 		long __functionAddress = GL.getCapabilities().glGetnUniformfvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
@@ -889,7 +889,7 @@ public class ARBRobustness {
 	public static void nglGetnUniformivARB(int program, int location, int bufSize, long params) {
 		long __functionAddress = GL.getCapabilities().glGetnUniformivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
@@ -931,7 +931,7 @@ public class ARBRobustness {
 	public static void nglGetnUniformuivARB(int program, int location, int bufSize, long params) {
 		long __functionAddress = GL.getCapabilities().glGetnUniformuivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
@@ -973,7 +973,7 @@ public class ARBRobustness {
 	public static void nglGetnUniformdvARB(int program, int location, int bufSize, long params) {
 		long __functionAddress = GL.getCapabilities().glGetnUniformdvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
@@ -1009,7 +1009,7 @@ public class ARBRobustness {
 	public static void glGetnMapdvARB(int target, int query, double[] data) {
 		long __functionAddress = GL.getCapabilities().glGetnMapdvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, query, data.length, data);
 	}
 
@@ -1017,7 +1017,7 @@ public class ARBRobustness {
 	public static void glGetnMapfvARB(int target, int query, float[] data) {
 		long __functionAddress = GL.getCapabilities().glGetnMapfvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, query, data.length, data);
 	}
 
@@ -1025,7 +1025,7 @@ public class ARBRobustness {
 	public static void glGetnMapivARB(int target, int query, int[] data) {
 		long __functionAddress = GL.getCapabilities().glGetnMapivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, query, data.length, data);
 	}
 
@@ -1033,7 +1033,7 @@ public class ARBRobustness {
 	public static void glGetnPixelMapfvARB(int map, float[] data) {
 		long __functionAddress = GL.getCapabilities().glGetnPixelMapfvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, map, data.length, data);
 	}
 
@@ -1041,7 +1041,7 @@ public class ARBRobustness {
 	public static void glGetnPixelMapuivARB(int map, int[] data) {
 		long __functionAddress = GL.getCapabilities().glGetnPixelMapuivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, map, data.length, data);
 	}
 
@@ -1049,7 +1049,7 @@ public class ARBRobustness {
 	public static void glGetnPixelMapusvARB(int map, short[] data) {
 		long __functionAddress = GL.getCapabilities().glGetnPixelMapusvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, map, data.length, data);
 	}
 
@@ -1057,7 +1057,7 @@ public class ARBRobustness {
 	public static void glGetnTexImageARB(int tex, int level, int format, int type, short[] img) {
 		long __functionAddress = GL.getCapabilities().glGetnTexImageARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, tex, level, format, type, img.length << 1, img);
 	}
 
@@ -1065,7 +1065,7 @@ public class ARBRobustness {
 	public static void glGetnTexImageARB(int tex, int level, int format, int type, int[] img) {
 		long __functionAddress = GL.getCapabilities().glGetnTexImageARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, tex, level, format, type, img.length << 2, img);
 	}
 
@@ -1073,7 +1073,7 @@ public class ARBRobustness {
 	public static void glGetnTexImageARB(int tex, int level, int format, int type, float[] img) {
 		long __functionAddress = GL.getCapabilities().glGetnTexImageARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, tex, level, format, type, img.length << 2, img);
 	}
 
@@ -1081,7 +1081,7 @@ public class ARBRobustness {
 	public static void glGetnTexImageARB(int tex, int level, int format, int type, double[] img) {
 		long __functionAddress = GL.getCapabilities().glGetnTexImageARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, tex, level, format, type, img.length << 3, img);
 	}
 
@@ -1089,7 +1089,7 @@ public class ARBRobustness {
 	public static void glReadnPixelsARB(int x, int y, int width, int height, int format, int type, short[] data) {
 		long __functionAddress = GL.getCapabilities().glReadnPixelsARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, data.length << 1, data);
 	}
 
@@ -1097,7 +1097,7 @@ public class ARBRobustness {
 	public static void glReadnPixelsARB(int x, int y, int width, int height, int format, int type, int[] data) {
 		long __functionAddress = GL.getCapabilities().glReadnPixelsARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, data.length << 2, data);
 	}
 
@@ -1105,7 +1105,7 @@ public class ARBRobustness {
 	public static void glReadnPixelsARB(int x, int y, int width, int height, int format, int type, float[] data) {
 		long __functionAddress = GL.getCapabilities().glReadnPixelsARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, data.length << 2, data);
 	}
 
@@ -1113,7 +1113,7 @@ public class ARBRobustness {
 	public static void glGetnColorTableARB(int target, int format, int type, short[] table) {
 		long __functionAddress = GL.getCapabilities().glGetnColorTableARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, format, type, table.length << 1, table);
 	}
 
@@ -1121,7 +1121,7 @@ public class ARBRobustness {
 	public static void glGetnColorTableARB(int target, int format, int type, int[] table) {
 		long __functionAddress = GL.getCapabilities().glGetnColorTableARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, format, type, table.length << 2, table);
 	}
 
@@ -1129,7 +1129,7 @@ public class ARBRobustness {
 	public static void glGetnColorTableARB(int target, int format, int type, float[] table) {
 		long __functionAddress = GL.getCapabilities().glGetnColorTableARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, format, type, table.length << 2, table);
 	}
 
@@ -1137,7 +1137,7 @@ public class ARBRobustness {
 	public static void glGetnUniformfvARB(int program, int location, float[] params) {
 		long __functionAddress = GL.getCapabilities().glGetnUniformfvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);
 	}
 
@@ -1145,7 +1145,7 @@ public class ARBRobustness {
 	public static void glGetnUniformivARB(int program, int location, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetnUniformivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);
 	}
 
@@ -1153,7 +1153,7 @@ public class ARBRobustness {
 	public static void glGetnUniformuivARB(int program, int location, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetnUniformuivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);
 	}
 
@@ -1161,7 +1161,7 @@ public class ARBRobustness {
 	public static void glGetnUniformdvARB(int program, int location, double[] params) {
 		long __functionAddress = GL.getCapabilities().glGetnUniformdvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);
 	}
 

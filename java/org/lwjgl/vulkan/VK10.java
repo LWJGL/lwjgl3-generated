@@ -2823,7 +2823,7 @@ public class VK10 {
 	 */
 	public static int vkCreateInstance(VkInstanceCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pInstance) {
 		if ( CHECKS )
-			checkBuffer(pInstance, 1);
+			check(pInstance, 1);
 		return nvkCreateInstance(pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pInstance));
 	}
 
@@ -2938,8 +2938,8 @@ public class VK10 {
 	 */
 	public static int vkEnumeratePhysicalDevices(VkInstance instance, IntBuffer pPhysicalDeviceCount, PointerBuffer pPhysicalDevices) {
 		if ( CHECKS ) {
-			checkBuffer(pPhysicalDeviceCount, 1);
-			checkBufferSafe(pPhysicalDevices, pPhysicalDeviceCount.get(pPhysicalDeviceCount.position()));
+			check(pPhysicalDeviceCount, 1);
+			checkSafe(pPhysicalDevices, pPhysicalDeviceCount.get(pPhysicalDeviceCount.position()));
 		}
 		return nvkEnumeratePhysicalDevices(instance, memAddress(pPhysicalDeviceCount), memAddressSafe(pPhysicalDevices));
 	}
@@ -3180,8 +3180,8 @@ public class VK10 {
 	 */
 	public static void vkGetPhysicalDeviceQueueFamilyProperties(VkPhysicalDevice physicalDevice, IntBuffer pQueueFamilyPropertyCount, VkQueueFamilyProperties.Buffer pQueueFamilyProperties) {
 		if ( CHECKS ) {
-			checkBuffer(pQueueFamilyPropertyCount, 1);
-			checkBufferSafe(pQueueFamilyProperties, pQueueFamilyPropertyCount.get(pQueueFamilyPropertyCount.position()));
+			check(pQueueFamilyPropertyCount, 1);
+			checkSafe(pQueueFamilyProperties, pQueueFamilyPropertyCount.get(pQueueFamilyPropertyCount.position()));
 		}
 		nvkGetPhysicalDeviceQueueFamilyProperties(physicalDevice, memAddress(pQueueFamilyPropertyCount), memAddressSafe(pQueueFamilyProperties));
 	}
@@ -3551,7 +3551,7 @@ public class VK10 {
 	 */
 	public static int vkCreateDevice(VkPhysicalDevice physicalDevice, VkDeviceCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pDevice) {
 		if ( CHECKS )
-			checkBuffer(pDevice, 1);
+			check(pDevice, 1);
 		return nvkCreateDevice(physicalDevice, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pDevice));
 	}
 
@@ -3690,8 +3690,8 @@ public class VK10 {
 	public static int vkEnumerateInstanceExtensionProperties(ByteBuffer pLayerName, IntBuffer pPropertyCount, VkExtensionProperties.Buffer pProperties) {
 		if ( CHECKS ) {
 			checkNT1Safe(pLayerName);
-			checkBuffer(pPropertyCount, 1);
-			checkBufferSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
+			check(pPropertyCount, 1);
+			checkSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
 		}
 		return nvkEnumerateInstanceExtensionProperties(memAddressSafe(pLayerName), memAddress(pPropertyCount), memAddressSafe(pProperties));
 	}
@@ -3756,8 +3756,8 @@ public class VK10 {
 	 */
 	public static int vkEnumerateInstanceExtensionProperties(CharSequence pLayerName, IntBuffer pPropertyCount, VkExtensionProperties.Buffer pProperties) {
 		if ( CHECKS ) {
-			checkBuffer(pPropertyCount, 1);
-			checkBufferSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
+			check(pPropertyCount, 1);
+			checkSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -3840,8 +3840,8 @@ public class VK10 {
 	public static int vkEnumerateDeviceExtensionProperties(VkPhysicalDevice physicalDevice, ByteBuffer pLayerName, IntBuffer pPropertyCount, VkExtensionProperties.Buffer pProperties) {
 		if ( CHECKS ) {
 			checkNT1Safe(pLayerName);
-			checkBuffer(pPropertyCount, 1);
-			checkBufferSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
+			check(pPropertyCount, 1);
+			checkSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
 		}
 		return nvkEnumerateDeviceExtensionProperties(physicalDevice, memAddressSafe(pLayerName), memAddress(pPropertyCount), memAddressSafe(pProperties));
 	}
@@ -3905,8 +3905,8 @@ public class VK10 {
 	 */
 	public static int vkEnumerateDeviceExtensionProperties(VkPhysicalDevice physicalDevice, CharSequence pLayerName, IntBuffer pPropertyCount, VkExtensionProperties.Buffer pProperties) {
 		if ( CHECKS ) {
-			checkBuffer(pPropertyCount, 1);
-			checkBufferSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
+			check(pPropertyCount, 1);
+			checkSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -3977,8 +3977,8 @@ public class VK10 {
 	 */
 	public static int vkEnumerateInstanceLayerProperties(IntBuffer pPropertyCount, VkLayerProperties.Buffer pProperties) {
 		if ( CHECKS ) {
-			checkBuffer(pPropertyCount, 1);
-			checkBufferSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
+			check(pPropertyCount, 1);
+			checkSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
 		}
 		return nvkEnumerateInstanceLayerProperties(memAddress(pPropertyCount), memAddressSafe(pProperties));
 	}
@@ -4046,8 +4046,8 @@ public class VK10 {
 	 */
 	public static int vkEnumerateDeviceLayerProperties(VkPhysicalDevice physicalDevice, IntBuffer pPropertyCount, VkLayerProperties.Buffer pProperties) {
 		if ( CHECKS ) {
-			checkBuffer(pPropertyCount, 1);
-			checkBufferSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
+			check(pPropertyCount, 1);
+			checkSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
 		}
 		return nvkEnumerateDeviceLayerProperties(physicalDevice, memAddress(pPropertyCount), memAddressSafe(pProperties));
 	}
@@ -4094,7 +4094,7 @@ public class VK10 {
 	 */
 	public static void vkGetDeviceQueue(VkDevice device, int queueFamilyIndex, int queueIndex, PointerBuffer pQueue) {
 		if ( CHECKS )
-			checkBuffer(pQueue, 1);
+			check(pQueue, 1);
 		nvkGetDeviceQueue(device, queueFamilyIndex, queueIndex, memAddress(pQueue));
 	}
 
@@ -4459,7 +4459,7 @@ public class VK10 {
 	 */
 	public static int vkAllocateMemory(VkDevice device, VkMemoryAllocateInfo pAllocateInfo, VkAllocationCallbacks pAllocator, LongBuffer pMemory) {
 		if ( CHECKS )
-			checkBuffer(pMemory, 1);
+			check(pMemory, 1);
 		return nvkAllocateMemory(device, pAllocateInfo.address(), memAddressSafe(pAllocator), memAddress(pMemory));
 	}
 
@@ -4617,7 +4617,7 @@ public class VK10 {
 	 */
 	public static int vkMapMemory(VkDevice device, long memory, long offset, long size, int flags, PointerBuffer ppData) {
 		if ( CHECKS )
-			checkBuffer(ppData, 1);
+			check(ppData, 1);
 		return nvkMapMemory(device, memory, offset, size, flags, memAddress(ppData));
 	}
 
@@ -4927,7 +4927,7 @@ public class VK10 {
 	 */
 	public static void vkGetDeviceMemoryCommitment(VkDevice device, long memory, LongBuffer pCommittedMemoryInBytes) {
 		if ( CHECKS )
-			checkBuffer(pCommittedMemoryInBytes, 1);
+			check(pCommittedMemoryInBytes, 1);
 		nvkGetDeviceMemoryCommitment(device, memory, memAddress(pCommittedMemoryInBytes));
 	}
 
@@ -5209,8 +5209,8 @@ public class VK10 {
 	 */
 	public static void vkGetImageSparseMemoryRequirements(VkDevice device, long image, IntBuffer pSparseMemoryRequirementCount, VkSparseImageMemoryRequirements.Buffer pSparseMemoryRequirements) {
 		if ( CHECKS ) {
-			checkBuffer(pSparseMemoryRequirementCount, 1);
-			checkBufferSafe(pSparseMemoryRequirements, pSparseMemoryRequirementCount.get(pSparseMemoryRequirementCount.position()));
+			check(pSparseMemoryRequirementCount, 1);
+			checkSafe(pSparseMemoryRequirements, pSparseMemoryRequirementCount.get(pSparseMemoryRequirementCount.position()));
 		}
 		nvkGetImageSparseMemoryRequirements(device, image, memAddress(pSparseMemoryRequirementCount), memAddressSafe(pSparseMemoryRequirements));
 	}
@@ -5289,8 +5289,8 @@ public class VK10 {
 	 */
 	public static void vkGetPhysicalDeviceSparseImageFormatProperties(VkPhysicalDevice physicalDevice, int format, int type, int samples, int usage, int tiling, IntBuffer pPropertyCount, VkSparseImageFormatProperties.Buffer pProperties) {
 		if ( CHECKS ) {
-			checkBuffer(pPropertyCount, 1);
-			checkBufferSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
+			check(pPropertyCount, 1);
+			checkSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
 		}
 		nvkGetPhysicalDeviceSparseImageFormatProperties(physicalDevice, format, type, samples, usage, tiling, memAddress(pPropertyCount), memAddressSafe(pProperties));
 	}
@@ -5538,7 +5538,7 @@ public class VK10 {
 	 */
 	public static int vkCreateFence(VkDevice device, VkFenceCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pFence) {
 		if ( CHECKS )
-			checkBuffer(pFence, 1);
+			check(pFence, 1);
 		return nvkCreateFence(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pFence));
 	}
 
@@ -5976,7 +5976,7 @@ public class VK10 {
 	 */
 	public static int vkCreateSemaphore(VkDevice device, VkSemaphoreCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSemaphore) {
 		if ( CHECKS )
-			checkBuffer(pSemaphore, 1);
+			check(pSemaphore, 1);
 		return nvkCreateSemaphore(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pSemaphore));
 	}
 
@@ -6098,7 +6098,7 @@ public class VK10 {
 	 */
 	public static int vkCreateEvent(VkDevice device, VkEventCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pEvent) {
 		if ( CHECKS )
-			checkBuffer(pEvent, 1);
+			check(pEvent, 1);
 		return nvkCreateEvent(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pEvent));
 	}
 
@@ -6383,7 +6383,7 @@ public class VK10 {
 	 */
 	public static int vkCreateQueryPool(VkDevice device, VkQueryPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pQueryPool) {
 		if ( CHECKS )
-			checkBuffer(pQueryPool, 1);
+			check(pQueryPool, 1);
 		return nvkCreateQueryPool(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pQueryPool));
 	}
 
@@ -6869,7 +6869,7 @@ public class VK10 {
 	 */
 	public static int vkCreateBuffer(VkDevice device, VkBufferCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pBuffer) {
 		if ( CHECKS )
-			checkBuffer(pBuffer, 1);
+			check(pBuffer, 1);
 		return nvkCreateBuffer(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pBuffer));
 	}
 
@@ -6987,7 +6987,7 @@ public class VK10 {
 	 */
 	public static int vkCreateBufferView(VkDevice device, VkBufferViewCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pView) {
 		if ( CHECKS )
-			checkBuffer(pView, 1);
+			check(pView, 1);
 		return nvkCreateBufferView(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pView));
 	}
 
@@ -7113,7 +7113,7 @@ public class VK10 {
 	 */
 	public static int vkCreateImage(VkDevice device, VkImageCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pImage) {
 		if ( CHECKS )
-			checkBuffer(pImage, 1);
+			check(pImage, 1);
 		return nvkCreateImage(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pImage));
 	}
 
@@ -7290,7 +7290,7 @@ public class VK10 {
 	 */
 	public static int vkCreateImageView(VkDevice device, VkImageViewCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pView) {
 		if ( CHECKS )
-			checkBuffer(pView, 1);
+			check(pView, 1);
 		return nvkCreateImageView(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pView));
 	}
 
@@ -7417,7 +7417,7 @@ public class VK10 {
 	 */
 	public static int vkCreateShaderModule(VkDevice device, VkShaderModuleCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pShaderModule) {
 		if ( CHECKS )
-			checkBuffer(pShaderModule, 1);
+			check(pShaderModule, 1);
 		return nvkCreateShaderModule(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pShaderModule));
 	}
 
@@ -7554,7 +7554,7 @@ public class VK10 {
 	 */
 	public static int vkCreatePipelineCache(VkDevice device, VkPipelineCacheCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pPipelineCache) {
 		if ( CHECKS )
-			checkBuffer(pPipelineCache, 1);
+			check(pPipelineCache, 1);
 		return nvkCreatePipelineCache(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pPipelineCache));
 	}
 
@@ -7706,8 +7706,8 @@ public class VK10 {
 	 */
 	public static int vkGetPipelineCacheData(VkDevice device, long pipelineCache, PointerBuffer pDataSize, ByteBuffer pData) {
 		if ( CHECKS ) {
-			checkBuffer(pDataSize, 1);
-			checkBufferSafe(pData, pDataSize.get(pDataSize.position()));
+			check(pDataSize, 1);
+			checkSafe(pData, pDataSize.get(pDataSize.position()));
 		}
 		return nvkGetPipelineCacheData(device, pipelineCache, memAddress(pDataSize), memAddressSafe(pData));
 	}
@@ -7869,7 +7869,7 @@ public class VK10 {
 	 */
 	public static int vkCreateGraphicsPipelines(VkDevice device, long pipelineCache, VkGraphicsPipelineCreateInfo.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, LongBuffer pPipelines) {
 		if ( CHECKS )
-			checkBuffer(pPipelines, pCreateInfos.remaining());
+			check(pPipelines, pCreateInfos.remaining());
 		return nvkCreateGraphicsPipelines(device, pipelineCache, pCreateInfos.remaining(), pCreateInfos.address(), memAddressSafe(pAllocator), memAddress(pPipelines));
 	}
 
@@ -7949,7 +7949,7 @@ public class VK10 {
 	 */
 	public static int vkCreateComputePipelines(VkDevice device, long pipelineCache, VkComputePipelineCreateInfo.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, LongBuffer pPipelines) {
 		if ( CHECKS )
-			checkBuffer(pPipelines, pCreateInfos.remaining());
+			check(pPipelines, pCreateInfos.remaining());
 		return nvkCreateComputePipelines(device, pipelineCache, pCreateInfos.remaining(), pCreateInfos.address(), memAddressSafe(pAllocator), memAddress(pPipelines));
 	}
 
@@ -8069,7 +8069,7 @@ public class VK10 {
 	 */
 	public static int vkCreatePipelineLayout(VkDevice device, VkPipelineLayoutCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pPipelineLayout) {
 		if ( CHECKS )
-			checkBuffer(pPipelineLayout, 1);
+			check(pPipelineLayout, 1);
 		return nvkCreatePipelineLayout(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pPipelineLayout));
 	}
 
@@ -8187,7 +8187,7 @@ public class VK10 {
 	 */
 	public static int vkCreateSampler(VkDevice device, VkSamplerCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSampler) {
 		if ( CHECKS )
-			checkBuffer(pSampler, 1);
+			check(pSampler, 1);
 		return nvkCreateSampler(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pSampler));
 	}
 
@@ -8307,7 +8307,7 @@ public class VK10 {
 	 */
 	public static int vkCreateDescriptorSetLayout(VkDevice device, VkDescriptorSetLayoutCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSetLayout) {
 		if ( CHECKS )
-			checkBuffer(pSetLayout, 1);
+			check(pSetLayout, 1);
 		return nvkCreateDescriptorSetLayout(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pSetLayout));
 	}
 
@@ -8432,7 +8432,7 @@ public class VK10 {
 	 */
 	public static int vkCreateDescriptorPool(VkDevice device, VkDescriptorPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pDescriptorPool) {
 		if ( CHECKS )
-			checkBuffer(pDescriptorPool, 1);
+			check(pDescriptorPool, 1);
 		return nvkCreateDescriptorPool(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pDescriptorPool));
 	}
 
@@ -8636,7 +8636,7 @@ public class VK10 {
 	 */
 	public static int vkAllocateDescriptorSets(VkDevice device, VkDescriptorSetAllocateInfo pAllocateInfo, LongBuffer pDescriptorSets) {
 		if ( CHECKS )
-			checkBuffer(pDescriptorSets, pAllocateInfo.descriptorSetCount());
+			check(pDescriptorSets, pAllocateInfo.descriptorSetCount());
 		return nvkAllocateDescriptorSets(device, pAllocateInfo.address(), memAddress(pDescriptorSets));
 	}
 
@@ -8910,7 +8910,7 @@ public class VK10 {
 	 */
 	public static int vkCreateFramebuffer(VkDevice device, VkFramebufferCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pFramebuffer) {
 		if ( CHECKS )
-			checkBuffer(pFramebuffer, 1);
+			check(pFramebuffer, 1);
 		return nvkCreateFramebuffer(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pFramebuffer));
 	}
 
@@ -9030,7 +9030,7 @@ public class VK10 {
 	 */
 	public static int vkCreateRenderPass(VkDevice device, VkRenderPassCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pRenderPass) {
 		if ( CHECKS )
-			checkBuffer(pRenderPass, 1);
+			check(pRenderPass, 1);
 		return nvkCreateRenderPass(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pRenderPass));
 	}
 
@@ -9202,7 +9202,7 @@ public class VK10 {
 	 */
 	public static int vkCreateCommandPool(VkDevice device, VkCommandPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pCommandPool) {
 		if ( CHECKS )
-			checkBuffer(pCommandPool, 1);
+			check(pCommandPool, 1);
 		return nvkCreateCommandPool(device, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pCommandPool));
 	}
 
@@ -9393,7 +9393,7 @@ public class VK10 {
 	 */
 	public static int vkAllocateCommandBuffers(VkDevice device, VkCommandBufferAllocateInfo pAllocateInfo, PointerBuffer pCommandBuffers) {
 		if ( CHECKS )
-			checkBuffer(pCommandBuffers, pAllocateInfo.commandBufferCount());
+			check(pCommandBuffers, pAllocateInfo.commandBufferCount());
 		return nvkAllocateCommandBuffers(device, pAllocateInfo.address(), memAddress(pCommandBuffers));
 	}
 
@@ -10101,7 +10101,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 */
 	public static void vkCmdSetBlendConstants(VkCommandBuffer commandBuffer, FloatBuffer blendConstants) {
 		if ( CHECKS )
-			checkBuffer(blendConstants, 4);
+			check(blendConstants, 4);
 		nvkCmdSetBlendConstants(commandBuffer, memAddress(blendConstants));
 	}
 
@@ -10559,7 +10559,7 @@ o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, dept
 	 */
 	public static void vkCmdBindVertexBuffers(VkCommandBuffer commandBuffer, int firstBinding, LongBuffer pBuffers, LongBuffer pOffsets) {
 		if ( CHECKS )
-			checkBuffer(pOffsets, pBuffers.remaining());
+			check(pOffsets, pBuffers.remaining());
 		nvkCmdBindVertexBuffers(commandBuffer, firstBinding, pBuffers.remaining(), memAddress(pBuffers), memAddress(pOffsets));
 	}
 
@@ -14127,8 +14127,8 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkEnumeratePhysicalDevices(VkInstance instance, int[] pPhysicalDeviceCount, PointerBuffer pPhysicalDevices) {
 		long __functionAddress = instance.getCapabilities().vkEnumeratePhysicalDevices;
 		if ( CHECKS ) {
-			checkBuffer(pPhysicalDeviceCount, 1);
-			checkBufferSafe(pPhysicalDevices, pPhysicalDeviceCount[0]);
+			check(pPhysicalDeviceCount, 1);
+			checkSafe(pPhysicalDevices, pPhysicalDeviceCount[0]);
 		}
 		return callPPPI(__functionAddress, instance.address(), pPhysicalDeviceCount, memAddressSafe(pPhysicalDevices));
 	}
@@ -14137,8 +14137,8 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static void vkGetPhysicalDeviceQueueFamilyProperties(VkPhysicalDevice physicalDevice, int[] pQueueFamilyPropertyCount, VkQueueFamilyProperties.Buffer pQueueFamilyProperties) {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceQueueFamilyProperties;
 		if ( CHECKS ) {
-			checkBuffer(pQueueFamilyPropertyCount, 1);
-			checkBufferSafe(pQueueFamilyProperties, pQueueFamilyPropertyCount[0]);
+			check(pQueueFamilyPropertyCount, 1);
+			checkSafe(pQueueFamilyProperties, pQueueFamilyPropertyCount[0]);
 		}
 		callPPPV(__functionAddress, physicalDevice.address(), pQueueFamilyPropertyCount, memAddressSafe(pQueueFamilyProperties));
 	}
@@ -14148,8 +14148,8 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 		long __functionAddress = VK.getGlobalCommands().vkEnumerateInstanceExtensionProperties;
 		if ( CHECKS ) {
 			checkNT1Safe(pLayerName);
-			checkBuffer(pPropertyCount, 1);
-			checkBufferSafe(pProperties, pPropertyCount[0]);
+			check(pPropertyCount, 1);
+			checkSafe(pProperties, pPropertyCount[0]);
 		}
 		return callPPPI(__functionAddress, memAddressSafe(pLayerName), pPropertyCount, memAddressSafe(pProperties));
 	}
@@ -14158,8 +14158,8 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkEnumerateInstanceExtensionProperties(CharSequence pLayerName, int[] pPropertyCount, VkExtensionProperties.Buffer pProperties) {
 		long __functionAddress = VK.getGlobalCommands().vkEnumerateInstanceExtensionProperties;
 		if ( CHECKS ) {
-			checkBuffer(pPropertyCount, 1);
-			checkBufferSafe(pProperties, pPropertyCount[0]);
+			check(pPropertyCount, 1);
+			checkSafe(pProperties, pPropertyCount[0]);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -14175,8 +14175,8 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 		long __functionAddress = physicalDevice.getCapabilities().vkEnumerateDeviceExtensionProperties;
 		if ( CHECKS ) {
 			checkNT1Safe(pLayerName);
-			checkBuffer(pPropertyCount, 1);
-			checkBufferSafe(pProperties, pPropertyCount[0]);
+			check(pPropertyCount, 1);
+			checkSafe(pProperties, pPropertyCount[0]);
 		}
 		return callPPPPI(__functionAddress, physicalDevice.address(), memAddressSafe(pLayerName), pPropertyCount, memAddressSafe(pProperties));
 	}
@@ -14185,8 +14185,8 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkEnumerateDeviceExtensionProperties(VkPhysicalDevice physicalDevice, CharSequence pLayerName, int[] pPropertyCount, VkExtensionProperties.Buffer pProperties) {
 		long __functionAddress = physicalDevice.getCapabilities().vkEnumerateDeviceExtensionProperties;
 		if ( CHECKS ) {
-			checkBuffer(pPropertyCount, 1);
-			checkBufferSafe(pProperties, pPropertyCount[0]);
+			check(pPropertyCount, 1);
+			checkSafe(pProperties, pPropertyCount[0]);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -14201,8 +14201,8 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkEnumerateInstanceLayerProperties(int[] pPropertyCount, VkLayerProperties.Buffer pProperties) {
 		long __functionAddress = VK.getGlobalCommands().vkEnumerateInstanceLayerProperties;
 		if ( CHECKS ) {
-			checkBuffer(pPropertyCount, 1);
-			checkBufferSafe(pProperties, pPropertyCount[0]);
+			check(pPropertyCount, 1);
+			checkSafe(pProperties, pPropertyCount[0]);
 		}
 		return callPPI(__functionAddress, pPropertyCount, memAddressSafe(pProperties));
 	}
@@ -14211,8 +14211,8 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkEnumerateDeviceLayerProperties(VkPhysicalDevice physicalDevice, int[] pPropertyCount, VkLayerProperties.Buffer pProperties) {
 		long __functionAddress = physicalDevice.getCapabilities().vkEnumerateDeviceLayerProperties;
 		if ( CHECKS ) {
-			checkBuffer(pPropertyCount, 1);
-			checkBufferSafe(pProperties, pPropertyCount[0]);
+			check(pPropertyCount, 1);
+			checkSafe(pProperties, pPropertyCount[0]);
 		}
 		return callPPPI(__functionAddress, physicalDevice.address(), pPropertyCount, memAddressSafe(pProperties));
 	}
@@ -14221,7 +14221,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkAllocateMemory(VkDevice device, VkMemoryAllocateInfo pAllocateInfo, VkAllocationCallbacks pAllocator, long[] pMemory) {
 		long __functionAddress = device.getCapabilities().vkAllocateMemory;
 		if ( CHECKS ) {
-			checkBuffer(pMemory, 1);
+			check(pMemory, 1);
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
 		return callPPPPI(__functionAddress, device.address(), pAllocateInfo.address(), memAddressSafe(pAllocator), pMemory);
@@ -14231,7 +14231,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static void vkGetDeviceMemoryCommitment(VkDevice device, long memory, long[] pCommittedMemoryInBytes) {
 		long __functionAddress = device.getCapabilities().vkGetDeviceMemoryCommitment;
 		if ( CHECKS )
-			checkBuffer(pCommittedMemoryInBytes, 1);
+			check(pCommittedMemoryInBytes, 1);
 		callPJPV(__functionAddress, device.address(), memory, pCommittedMemoryInBytes);
 	}
 
@@ -14239,8 +14239,8 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static void vkGetImageSparseMemoryRequirements(VkDevice device, long image, int[] pSparseMemoryRequirementCount, VkSparseImageMemoryRequirements.Buffer pSparseMemoryRequirements) {
 		long __functionAddress = device.getCapabilities().vkGetImageSparseMemoryRequirements;
 		if ( CHECKS ) {
-			checkBuffer(pSparseMemoryRequirementCount, 1);
-			checkBufferSafe(pSparseMemoryRequirements, pSparseMemoryRequirementCount[0]);
+			check(pSparseMemoryRequirementCount, 1);
+			checkSafe(pSparseMemoryRequirements, pSparseMemoryRequirementCount[0]);
 		}
 		callPJPPV(__functionAddress, device.address(), image, pSparseMemoryRequirementCount, memAddressSafe(pSparseMemoryRequirements));
 	}
@@ -14249,8 +14249,8 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static void vkGetPhysicalDeviceSparseImageFormatProperties(VkPhysicalDevice physicalDevice, int format, int type, int samples, int usage, int tiling, int[] pPropertyCount, VkSparseImageFormatProperties.Buffer pProperties) {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceSparseImageFormatProperties;
 		if ( CHECKS ) {
-			checkBuffer(pPropertyCount, 1);
-			checkBufferSafe(pProperties, pPropertyCount[0]);
+			check(pPropertyCount, 1);
+			checkSafe(pProperties, pPropertyCount[0]);
 		}
 		callPPPV(__functionAddress, physicalDevice.address(), format, type, samples, usage, tiling, pPropertyCount, memAddressSafe(pProperties));
 	}
@@ -14259,7 +14259,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkCreateFence(VkDevice device, VkFenceCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pFence) {
 		long __functionAddress = device.getCapabilities().vkCreateFence;
 		if ( CHECKS ) {
-			checkBuffer(pFence, 1);
+			check(pFence, 1);
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pFence);
@@ -14281,7 +14281,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkCreateSemaphore(VkDevice device, VkSemaphoreCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pSemaphore) {
 		long __functionAddress = device.getCapabilities().vkCreateSemaphore;
 		if ( CHECKS ) {
-			checkBuffer(pSemaphore, 1);
+			check(pSemaphore, 1);
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pSemaphore);
@@ -14291,7 +14291,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkCreateEvent(VkDevice device, VkEventCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pEvent) {
 		long __functionAddress = device.getCapabilities().vkCreateEvent;
 		if ( CHECKS ) {
-			checkBuffer(pEvent, 1);
+			check(pEvent, 1);
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pEvent);
@@ -14301,7 +14301,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkCreateQueryPool(VkDevice device, VkQueryPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pQueryPool) {
 		long __functionAddress = device.getCapabilities().vkCreateQueryPool;
 		if ( CHECKS ) {
-			checkBuffer(pQueryPool, 1);
+			check(pQueryPool, 1);
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pQueryPool);
@@ -14323,7 +14323,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkCreateBuffer(VkDevice device, VkBufferCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pBuffer) {
 		long __functionAddress = device.getCapabilities().vkCreateBuffer;
 		if ( CHECKS ) {
-			checkBuffer(pBuffer, 1);
+			check(pBuffer, 1);
 			VkBufferCreateInfo.validate(pCreateInfo.address());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
@@ -14334,7 +14334,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkCreateBufferView(VkDevice device, VkBufferViewCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pView) {
 		long __functionAddress = device.getCapabilities().vkCreateBufferView;
 		if ( CHECKS ) {
-			checkBuffer(pView, 1);
+			check(pView, 1);
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pView);
@@ -14344,7 +14344,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkCreateImage(VkDevice device, VkImageCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pImage) {
 		long __functionAddress = device.getCapabilities().vkCreateImage;
 		if ( CHECKS ) {
-			checkBuffer(pImage, 1);
+			check(pImage, 1);
 			VkImageCreateInfo.validate(pCreateInfo.address());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
@@ -14355,7 +14355,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkCreateImageView(VkDevice device, VkImageViewCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pView) {
 		long __functionAddress = device.getCapabilities().vkCreateImageView;
 		if ( CHECKS ) {
-			checkBuffer(pView, 1);
+			check(pView, 1);
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pView);
@@ -14365,7 +14365,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkCreateShaderModule(VkDevice device, VkShaderModuleCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pShaderModule) {
 		long __functionAddress = device.getCapabilities().vkCreateShaderModule;
 		if ( CHECKS ) {
-			checkBuffer(pShaderModule, 1);
+			check(pShaderModule, 1);
 			VkShaderModuleCreateInfo.validate(pCreateInfo.address());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
@@ -14376,7 +14376,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkCreatePipelineCache(VkDevice device, VkPipelineCacheCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pPipelineCache) {
 		long __functionAddress = device.getCapabilities().vkCreatePipelineCache;
 		if ( CHECKS ) {
-			checkBuffer(pPipelineCache, 1);
+			check(pPipelineCache, 1);
 			VkPipelineCacheCreateInfo.validate(pCreateInfo.address());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
@@ -14393,7 +14393,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkCreateGraphicsPipelines(VkDevice device, long pipelineCache, VkGraphicsPipelineCreateInfo.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, long[] pPipelines) {
 		long __functionAddress = device.getCapabilities().vkCreateGraphicsPipelines;
 		if ( CHECKS ) {
-			checkBuffer(pPipelines, pCreateInfos.remaining());
+			check(pPipelines, pCreateInfos.remaining());
 			VkGraphicsPipelineCreateInfo.validate(pCreateInfos.address(), pCreateInfos.remaining());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
@@ -14404,7 +14404,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkCreateComputePipelines(VkDevice device, long pipelineCache, VkComputePipelineCreateInfo.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, long[] pPipelines) {
 		long __functionAddress = device.getCapabilities().vkCreateComputePipelines;
 		if ( CHECKS ) {
-			checkBuffer(pPipelines, pCreateInfos.remaining());
+			check(pPipelines, pCreateInfos.remaining());
 			VkComputePipelineCreateInfo.validate(pCreateInfos.address(), pCreateInfos.remaining());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
@@ -14415,7 +14415,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkCreatePipelineLayout(VkDevice device, VkPipelineLayoutCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pPipelineLayout) {
 		long __functionAddress = device.getCapabilities().vkCreatePipelineLayout;
 		if ( CHECKS ) {
-			checkBuffer(pPipelineLayout, 1);
+			check(pPipelineLayout, 1);
 			VkPipelineLayoutCreateInfo.validate(pCreateInfo.address());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
@@ -14426,7 +14426,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkCreateSampler(VkDevice device, VkSamplerCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pSampler) {
 		long __functionAddress = device.getCapabilities().vkCreateSampler;
 		if ( CHECKS ) {
-			checkBuffer(pSampler, 1);
+			check(pSampler, 1);
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pSampler);
@@ -14436,7 +14436,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkCreateDescriptorSetLayout(VkDevice device, VkDescriptorSetLayoutCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pSetLayout) {
 		long __functionAddress = device.getCapabilities().vkCreateDescriptorSetLayout;
 		if ( CHECKS ) {
-			checkBuffer(pSetLayout, 1);
+			check(pSetLayout, 1);
 			VkDescriptorSetLayoutCreateInfo.validate(pCreateInfo.address());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
@@ -14447,7 +14447,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkCreateDescriptorPool(VkDevice device, VkDescriptorPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pDescriptorPool) {
 		long __functionAddress = device.getCapabilities().vkCreateDescriptorPool;
 		if ( CHECKS ) {
-			checkBuffer(pDescriptorPool, 1);
+			check(pDescriptorPool, 1);
 			VkDescriptorPoolCreateInfo.validate(pCreateInfo.address());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
@@ -14458,7 +14458,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkAllocateDescriptorSets(VkDevice device, VkDescriptorSetAllocateInfo pAllocateInfo, long[] pDescriptorSets) {
 		long __functionAddress = device.getCapabilities().vkAllocateDescriptorSets;
 		if ( CHECKS ) {
-			checkBuffer(pDescriptorSets, pAllocateInfo.descriptorSetCount());
+			check(pDescriptorSets, pAllocateInfo.descriptorSetCount());
 			VkDescriptorSetAllocateInfo.validate(pAllocateInfo.address());
 		}
 		return callPPPI(__functionAddress, device.address(), pAllocateInfo.address(), pDescriptorSets);
@@ -14474,7 +14474,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkCreateFramebuffer(VkDevice device, VkFramebufferCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pFramebuffer) {
 		long __functionAddress = device.getCapabilities().vkCreateFramebuffer;
 		if ( CHECKS ) {
-			checkBuffer(pFramebuffer, 1);
+			check(pFramebuffer, 1);
 			VkFramebufferCreateInfo.validate(pCreateInfo.address());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
@@ -14485,7 +14485,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkCreateRenderPass(VkDevice device, VkRenderPassCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pRenderPass) {
 		long __functionAddress = device.getCapabilities().vkCreateRenderPass;
 		if ( CHECKS ) {
-			checkBuffer(pRenderPass, 1);
+			check(pRenderPass, 1);
 			VkRenderPassCreateInfo.validate(pCreateInfo.address());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
@@ -14496,7 +14496,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static int vkCreateCommandPool(VkDevice device, VkCommandPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pCommandPool) {
 		long __functionAddress = device.getCapabilities().vkCreateCommandPool;
 		if ( CHECKS ) {
-			checkBuffer(pCommandPool, 1);
+			check(pCommandPool, 1);
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}
 		return callPPPPI(__functionAddress, device.address(), pCreateInfo.address(), memAddressSafe(pAllocator), pCommandPool);
@@ -14506,7 +14506,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static void vkCmdSetBlendConstants(VkCommandBuffer commandBuffer, float[] blendConstants) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdSetBlendConstants;
 		if ( CHECKS )
-			checkBuffer(blendConstants, 4);
+			check(blendConstants, 4);
 		callPPV(__functionAddress, commandBuffer.address(), blendConstants);
 	}
 
@@ -14520,7 +14520,7 @@ The pipeline barrier specifies an execution dependency such that all work perfor
 	public static void vkCmdBindVertexBuffers(VkCommandBuffer commandBuffer, int firstBinding, long[] pBuffers, long[] pOffsets) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdBindVertexBuffers;
 		if ( CHECKS )
-			checkBuffer(pOffsets, pBuffers.length);
+			check(pOffsets, pBuffers.length);
 		callPPPV(__functionAddress, commandBuffer.address(), firstBinding, pBuffers.length, pBuffers, pOffsets);
 	}
 

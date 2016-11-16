@@ -148,7 +148,7 @@ public class ARBShaderImageLoadStore {
 	public static void glBindImageTexture(int unit, int texture, int level, boolean layered, int layer, int access, int format) {
 		long __functionAddress = GL.getCapabilities().glBindImageTexture;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, unit, texture, level, layered, layer, access, format);
 	}
 
@@ -162,7 +162,7 @@ public class ARBShaderImageLoadStore {
 	public static void glMemoryBarrier(int barriers) {
 		long __functionAddress = GL.getCapabilities().glMemoryBarrier;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, barriers);
 	}
 

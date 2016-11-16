@@ -389,12 +389,12 @@ public class VkDeviceCreateInfo extends Struct implements NativeResource {
 	public static void validate(long struct) {
 		int queueCreateInfoCount = nqueueCreateInfoCount(struct);
 		long pQueueCreateInfos = memGetAddress(struct + VkDeviceCreateInfo.PQUEUECREATEINFOS);
-		checkPointer(pQueueCreateInfos);
+		check(pQueueCreateInfos);
 		VkDeviceQueueCreateInfo.validate(pQueueCreateInfos, queueCreateInfoCount);
 		if ( nenabledLayerCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkDeviceCreateInfo.PPENABLEDLAYERNAMES));
+			check(memGetAddress(struct + VkDeviceCreateInfo.PPENABLEDLAYERNAMES));
 		if ( nenabledExtensionCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkDeviceCreateInfo.PPENABLEDEXTENSIONNAMES));
+			check(memGetAddress(struct + VkDeviceCreateInfo.PPENABLEDEXTENSIONNAMES));
 	}
 
 	/**

@@ -195,7 +195,7 @@ public class ARBInternalformatQuery2 {
 	public static void nglGetInternalformati64v(int target, int internalformat, int pname, int bufSize, long params) {
 		long __functionAddress = GL.getCapabilities().glGetInternalformati64v;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, internalformat, pname, bufSize, params);
 	}
 
@@ -233,7 +233,7 @@ public class ARBInternalformatQuery2 {
 	public static void glGetInternalformati64v(int target, int internalformat, int pname, long[] params) {
 		long __functionAddress = GL.getCapabilities().glGetInternalformati64v;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, internalformat, pname, params.length, params);
 	}
 

@@ -109,7 +109,7 @@ public class ARBVertexBlend {
 	public static void nglWeightfvARB(int size, long weights) {
 		long __functionAddress = GL.getCapabilities().glWeightfvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, weights);
 	}
 
@@ -132,7 +132,7 @@ public class ARBVertexBlend {
 	public static void nglWeightbvARB(int size, long weights) {
 		long __functionAddress = GL.getCapabilities().glWeightbvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, weights);
 	}
 
@@ -155,7 +155,7 @@ public class ARBVertexBlend {
 	public static void nglWeightubvARB(int size, long weights) {
 		long __functionAddress = GL.getCapabilities().glWeightubvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, weights);
 	}
 
@@ -178,7 +178,7 @@ public class ARBVertexBlend {
 	public static void nglWeightsvARB(int size, long weights) {
 		long __functionAddress = GL.getCapabilities().glWeightsvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, weights);
 	}
 
@@ -201,7 +201,7 @@ public class ARBVertexBlend {
 	public static void nglWeightusvARB(int size, long weights) {
 		long __functionAddress = GL.getCapabilities().glWeightusvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, weights);
 	}
 
@@ -224,7 +224,7 @@ public class ARBVertexBlend {
 	public static void nglWeightivARB(int size, long weights) {
 		long __functionAddress = GL.getCapabilities().glWeightivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, weights);
 	}
 
@@ -247,7 +247,7 @@ public class ARBVertexBlend {
 	public static void nglWeightuivARB(int size, long weights) {
 		long __functionAddress = GL.getCapabilities().glWeightuivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, weights);
 	}
 
@@ -270,7 +270,7 @@ public class ARBVertexBlend {
 	public static void nglWeightdvARB(int size, long weights) {
 		long __functionAddress = GL.getCapabilities().glWeightdvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, weights);
 	}
 
@@ -289,7 +289,7 @@ public class ARBVertexBlend {
 	public static void nglWeightPointerARB(int size, int type, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glWeightPointerARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -363,7 +363,7 @@ public class ARBVertexBlend {
 	public static void glVertexBlendARB(int count) {
 		long __functionAddress = GL.getCapabilities().glVertexBlendARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, count);
 	}
 
@@ -371,7 +371,7 @@ public class ARBVertexBlend {
 	public static void glWeightfvARB(float[] weights) {
 		long __functionAddress = GL.getCapabilities().glWeightfvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, weights.length, weights);
 	}
 
@@ -379,7 +379,7 @@ public class ARBVertexBlend {
 	public static void glWeightsvARB(short[] weights) {
 		long __functionAddress = GL.getCapabilities().glWeightsvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, weights.length, weights);
 	}
 
@@ -387,7 +387,7 @@ public class ARBVertexBlend {
 	public static void glWeightusvARB(short[] weights) {
 		long __functionAddress = GL.getCapabilities().glWeightusvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, weights.length, weights);
 	}
 
@@ -395,7 +395,7 @@ public class ARBVertexBlend {
 	public static void glWeightivARB(int[] weights) {
 		long __functionAddress = GL.getCapabilities().glWeightivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, weights.length, weights);
 	}
 
@@ -403,7 +403,7 @@ public class ARBVertexBlend {
 	public static void glWeightuivARB(int[] weights) {
 		long __functionAddress = GL.getCapabilities().glWeightuivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, weights.length, weights);
 	}
 
@@ -411,7 +411,7 @@ public class ARBVertexBlend {
 	public static void glWeightdvARB(double[] weights) {
 		long __functionAddress = GL.getCapabilities().glWeightdvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, weights.length, weights);
 	}
 
@@ -419,7 +419,7 @@ public class ARBVertexBlend {
 	public static void glWeightPointerARB(int size, int type, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glWeightPointerARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -427,7 +427,7 @@ public class ARBVertexBlend {
 	public static void glWeightPointerARB(int size, int type, int stride, int[] pointer) {
 		long __functionAddress = GL.getCapabilities().glWeightPointerARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 
@@ -435,7 +435,7 @@ public class ARBVertexBlend {
 	public static void glWeightPointerARB(int size, int type, int stride, float[] pointer) {
 		long __functionAddress = GL.getCapabilities().glWeightPointerARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, size, type, stride, pointer);
 	}
 

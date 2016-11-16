@@ -47,7 +47,7 @@ public class WGLNVGPUAffinity {
 	public static int nwglEnumGpusNV(int gpuIndex, long gpu) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglEnumGpusNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPI(__functionAddress, gpuIndex, gpu);
 	}
 
@@ -71,8 +71,8 @@ public class WGLNVGPUAffinity {
 	public static int nwglEnumGpuDevicesNV(long gpu, int deviceIndex, long gpuDevice) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglEnumGpuDevicesNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(gpu);
+			check(__functionAddress);
+			check(gpu);
 		}
 		return callPPI(__functionAddress, gpu, deviceIndex, gpuDevice);
 	}
@@ -94,7 +94,7 @@ public class WGLNVGPUAffinity {
 	public static long nwglCreateAffinityDCNV(long gpuList) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglCreateAffinityDCNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPP(__functionAddress, gpuList);
 	}
 
@@ -120,8 +120,8 @@ public class WGLNVGPUAffinity {
 	public static int nwglEnumGpusFromAffinityDCNV(long affinityDC, int gpuIndex, long gpu) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglEnumGpusFromAffinityDCNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(affinityDC);
+			check(__functionAddress);
+			check(affinityDC);
 		}
 		return callPPI(__functionAddress, affinityDC, gpuIndex, gpu);
 	}
@@ -151,8 +151,8 @@ public class WGLNVGPUAffinity {
 	public static boolean wglDeleteDCNV(long hdc) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglDeleteDCNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(hdc);
+			check(__functionAddress);
+			check(hdc);
 		}
 		return callPI(__functionAddress, hdc) != 0;
 	}

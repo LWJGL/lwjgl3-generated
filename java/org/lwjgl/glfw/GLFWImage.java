@@ -275,7 +275,7 @@ public class GLFWImage extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + GLFWImage.PIXELS));
+		check(memGetAddress(struct + GLFWImage.PIXELS));
 	}
 
 	/**

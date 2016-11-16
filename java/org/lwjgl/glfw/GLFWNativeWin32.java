@@ -36,7 +36,7 @@ public class GLFWNativeWin32 {
 	public static long nglfwGetWin32Adapter(long monitor) {
 		long __functionAddress = Functions.GetWin32Adapter;
 		if ( CHECKS )
-			checkPointer(monitor);
+			check(monitor);
 		return invokePP(__functionAddress, monitor);
 	}
 
@@ -62,7 +62,7 @@ public class GLFWNativeWin32 {
 	public static long nglfwGetWin32Monitor(long monitor) {
 		long __functionAddress = Functions.GetWin32Monitor;
 		if ( CHECKS )
-			checkPointer(monitor);
+			check(monitor);
 		return invokePP(__functionAddress, monitor);
 	}
 
@@ -98,7 +98,7 @@ public class GLFWNativeWin32 {
 	public static long glfwGetWin32Window(long window) {
 		long __functionAddress = Functions.GetWin32Window;
 		if ( CHECKS )
-			checkPointer(window);
+			check(window);
 		return invokePP(__functionAddress, window);
 	}
 

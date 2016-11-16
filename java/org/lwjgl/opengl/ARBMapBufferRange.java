@@ -56,7 +56,7 @@ public class ARBMapBufferRange {
 	public static long nglMapBufferRange(int target, long offset, long length, int access) {
 		long __functionAddress = GL.getCapabilities().glMapBufferRange;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPPP(__functionAddress, target, offset, length, access);
 	}
 
@@ -112,7 +112,7 @@ public class ARBMapBufferRange {
 	public static void glFlushMappedBufferRange(int target, long offset, long length) {
 		long __functionAddress = GL.getCapabilities().glFlushMappedBufferRange;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, target, offset, length);
 	}
 

@@ -37,7 +37,7 @@ public class NVBindlessMultiDrawIndirectCount {
 	public static void nglMultiDrawArraysIndirectBindlessCountNV(int mode, long indirect, long drawCount, int maxDrawCount, int stride, int vertexBufferCount) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawArraysIndirectBindlessCountNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, mode, indirect, drawCount, maxDrawCount, stride, vertexBufferCount);
 	}
 
@@ -64,7 +64,7 @@ public class NVBindlessMultiDrawIndirectCount {
 	public static void nglMultiDrawElementsIndirectBindlessCountNV(int mode, int type, long indirect, long drawCount, int maxDrawCount, int stride, int vertexBufferCount) {
 		long __functionAddress = GL.getCapabilities().glMultiDrawElementsIndirectBindlessCountNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, mode, type, indirect, drawCount, maxDrawCount, stride, vertexBufferCount);
 	}
 

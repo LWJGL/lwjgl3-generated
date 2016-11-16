@@ -41,7 +41,7 @@ public class EXTStencilTwoSide {
 	public static void glActiveStencilFaceEXT(int face) {
 		long __functionAddress = GL.getCapabilities().glActiveStencilFaceEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, face);
 	}
 

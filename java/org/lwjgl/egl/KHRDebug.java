@@ -78,7 +78,7 @@ public class KHRDebug {
 	public static int neglDebugMessageControlKHR(long callback, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglDebugMessageControlKHR;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPPI(__functionAddress, callback, attrib_list);
 	}
 
@@ -91,13 +91,13 @@ public class KHRDebug {
 	public static int neglQueryDebugKHR(int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglQueryDebugKHR;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPI(__functionAddress, attribute, value);
 	}
 
 	public static boolean eglQueryDebugKHR(int attribute, PointerBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		return neglQueryDebugKHR(attribute, memAddress(value)) != 0;
 	}
 
@@ -106,10 +106,10 @@ public class KHRDebug {
 	public static int eglLabelObjectKHR(long display, int objectType, long object, long label) {
 		long __functionAddress = EGL.getCapabilities().eglLabelObjectKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(object);
-			checkPointer(label);
+			check(__functionAddress);
+			check(display);
+			check(object);
+			check(label);
 		}
 		return callPPPI(__functionAddress, display, objectType, object, label);
 	}

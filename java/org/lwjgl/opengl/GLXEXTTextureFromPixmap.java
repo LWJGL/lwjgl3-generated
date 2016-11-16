@@ -93,9 +93,9 @@ public class GLXEXTTextureFromPixmap {
 	public static void nglXBindTexImageEXT(long display, long drawable, int buffer, long attrib_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXBindTexImageEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(drawable);
+			check(__functionAddress);
+			check(display);
+			check(drawable);
 		}
 		callPPPV(__functionAddress, display, drawable, buffer, attrib_list);
 	}
@@ -127,9 +127,9 @@ public class GLXEXTTextureFromPixmap {
 	public static void glXReleaseTexImageEXT(long display, long drawable, int buffer) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXReleaseTexImageEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(drawable);
+			check(__functionAddress);
+			check(display);
+			check(drawable);
 		}
 		callPPV(__functionAddress, display, drawable, buffer);
 	}
@@ -138,9 +138,9 @@ public class GLXEXTTextureFromPixmap {
 	public static void glXBindTexImageEXT(long display, long drawable, int buffer, int[] attrib_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXBindTexImageEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(drawable);
+			check(__functionAddress);
+			check(display);
+			check(drawable);
 			checkNTSafe(attrib_list);
 		}
 		callPPPV(__functionAddress, display, drawable, buffer, attrib_list);

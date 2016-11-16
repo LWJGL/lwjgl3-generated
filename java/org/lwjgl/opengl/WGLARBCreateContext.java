@@ -53,8 +53,8 @@ public class WGLARBCreateContext {
 	public static long nwglCreateContextAttribsARB(long hdc, long shareContext, long attribList) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglCreateContextAttribsARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(hdc);
+			check(__functionAddress);
+			check(hdc);
 		}
 		return callPPPP(__functionAddress, hdc, shareContext, attribList);
 	}
@@ -81,8 +81,8 @@ public class WGLARBCreateContext {
 	public static long wglCreateContextAttribsARB(long hdc, long shareContext, int[] attribList) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglCreateContextAttribsARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(hdc);
+			check(__functionAddress);
+			check(hdc);
 			checkNTSafe(attribList);
 		}
 		return callPPPP(__functionAddress, hdc, shareContext, attribList);

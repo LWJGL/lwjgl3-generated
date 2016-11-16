@@ -50,7 +50,7 @@ public class EXTDebugMarker {
 	public static int nvkDebugMarkerSetObjectTagEXT(VkDevice device, long pTagInfo) {
 		long __functionAddress = device.getCapabilities().vkDebugMarkerSetObjectTagEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 			VkDebugMarkerObjectTagInfoEXT.validate(pTagInfo);
 		}
 		return callPPI(__functionAddress, device.address(), pTagInfo);
@@ -118,7 +118,7 @@ public class EXTDebugMarker {
 	public static int nvkDebugMarkerSetObjectNameEXT(VkDevice device, long pNameInfo) {
 		long __functionAddress = device.getCapabilities().vkDebugMarkerSetObjectNameEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 			VkDebugMarkerObjectNameInfoEXT.validate(pNameInfo);
 		}
 		return callPPI(__functionAddress, device.address(), pNameInfo);
@@ -185,7 +185,7 @@ public class EXTDebugMarker {
 	public static void nvkCmdDebugMarkerBeginEXT(VkCommandBuffer commandBuffer, long pMarkerInfo) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdDebugMarkerBeginEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 			VkDebugMarkerMarkerInfoEXT.validate(pMarkerInfo);
 		}
 		callPPV(__functionAddress, commandBuffer.address(), pMarkerInfo);
@@ -286,7 +286,7 @@ public class EXTDebugMarker {
 	public static void vkCmdDebugMarkerEndEXT(VkCommandBuffer commandBuffer) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdDebugMarkerEndEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, commandBuffer.address());
 	}
 
@@ -296,7 +296,7 @@ public class EXTDebugMarker {
 	public static void nvkCmdDebugMarkerInsertEXT(VkCommandBuffer commandBuffer, long pMarkerInfo) {
 		long __functionAddress = commandBuffer.getCapabilities().vkCmdDebugMarkerInsertEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 			VkDebugMarkerMarkerInfoEXT.validate(pMarkerInfo);
 		}
 		callPPV(__functionAddress, commandBuffer.address(), pMarkerInfo);

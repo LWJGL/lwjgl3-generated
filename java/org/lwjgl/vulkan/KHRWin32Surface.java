@@ -39,7 +39,7 @@ public class KHRWin32Surface {
 	public static int nvkCreateWin32SurfaceKHR(VkInstance instance, long pCreateInfo, long pAllocator, long pSurface) {
 		long __functionAddress = instance.getCapabilities().vkCreateWin32SurfaceKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 			VkWin32SurfaceCreateInfoKHR.validate(pCreateInfo);
 			if ( pAllocator != NULL ) VkAllocationCallbacks.validate(pAllocator);
 		}
@@ -93,7 +93,7 @@ public class KHRWin32Surface {
 	 */
 	public static int vkCreateWin32SurfaceKHR(VkInstance instance, VkWin32SurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSurface) {
 		if ( CHECKS )
-			checkBuffer(pSurface, 1);
+			check(pSurface, 1);
 		return nvkCreateWin32SurfaceKHR(instance, pCreateInfo.address(), memAddressSafe(pAllocator), memAddress(pSurface));
 	}
 
@@ -132,7 +132,7 @@ public class KHRWin32Surface {
 	public static boolean vkGetPhysicalDeviceWin32PresentationSupportKHR(VkPhysicalDevice physicalDevice, int queueFamilyIndex) {
 		long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceWin32PresentationSupportKHR;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPI(__functionAddress, physicalDevice.address(), queueFamilyIndex) != 0;
 	}
 
@@ -140,8 +140,8 @@ public class KHRWin32Surface {
 	public static int vkCreateWin32SurfaceKHR(VkInstance instance, VkWin32SurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, long[] pSurface) {
 		long __functionAddress = instance.getCapabilities().vkCreateWin32SurfaceKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(pSurface, 1);
+			check(__functionAddress);
+			check(pSurface, 1);
 			VkWin32SurfaceCreateInfoKHR.validate(pCreateInfo.address());
 			if ( pAllocator != null ) VkAllocationCallbacks.validate(pAllocator.address());
 		}

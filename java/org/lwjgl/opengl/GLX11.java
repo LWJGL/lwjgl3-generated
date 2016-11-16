@@ -34,8 +34,8 @@ public class GLX11 {
 	public static long nglXQueryExtensionsString(long display, int screen) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryExtensionsString;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
+			check(__functionAddress);
+			check(display);
 		}
 		return callPP(__functionAddress, display, screen);
 	}
@@ -57,8 +57,8 @@ public class GLX11 {
 	public static long nglXGetClientString(long display, int name) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetClientString;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
+			check(__functionAddress);
+			check(display);
 		}
 		return callPP(__functionAddress, display, name);
 	}
@@ -80,8 +80,8 @@ public class GLX11 {
 	public static long nglXQueryServerString(long display, int screen, int name) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryServerString;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
+			check(__functionAddress);
+			check(display);
 		}
 		return callPP(__functionAddress, display, screen, name);
 	}

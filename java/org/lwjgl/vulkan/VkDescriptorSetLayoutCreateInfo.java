@@ -317,7 +317,7 @@ public class VkDescriptorSetLayoutCreateInfo extends Struct implements NativeRes
 	 */
 	public static void validate(long struct) {
 		if ( nbindingCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkDescriptorSetLayoutCreateInfo.PBINDINGS));
+			check(memGetAddress(struct + VkDescriptorSetLayoutCreateInfo.PBINDINGS));
 	}
 
 	/**

@@ -290,7 +290,7 @@ public class NanoVG {
 	 */
 	public static void nvgBeginFrame(long ctx, int windowWidth, int windowHeight, float devicePixelRatio) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgBeginFrame(ctx, windowWidth, windowHeight, devicePixelRatio);
 	}
 
@@ -306,7 +306,7 @@ public class NanoVG {
 	 */
 	public static void nvgCancelFrame(long ctx) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgCancelFrame(ctx);
 	}
 
@@ -322,7 +322,7 @@ public class NanoVG {
 	 */
 	public static void nvgEndFrame(long ctx) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgEndFrame(ctx);
 	}
 
@@ -339,7 +339,7 @@ public class NanoVG {
 	 */
 	public static void nvgGlobalCompositeOperation(long ctx, int op) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgGlobalCompositeOperation(ctx, op);
 	}
 
@@ -357,7 +357,7 @@ public class NanoVG {
 	 */
 	public static void nvgGlobalCompositeBlendFunc(long ctx, int sfactor, int dfactor) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgGlobalCompositeBlendFunc(ctx, sfactor, dfactor);
 	}
 
@@ -377,7 +377,7 @@ public class NanoVG {
 	 */
 	public static void nvgGlobalCompositeBlendFuncSeparate(long ctx, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgGlobalCompositeBlendFuncSeparate(ctx, srcRGB, dstRGB, srcAlpha, dstAlpha);
 	}
 
@@ -551,7 +551,7 @@ public class NanoVG {
 	 */
 	public static void nvgSave(long ctx) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgSave(ctx);
 	}
 
@@ -567,7 +567,7 @@ public class NanoVG {
 	 */
 	public static void nvgRestore(long ctx) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgRestore(ctx);
 	}
 
@@ -583,7 +583,7 @@ public class NanoVG {
 	 */
 	public static void nvgReset(long ctx) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgReset(ctx);
 	}
 
@@ -600,7 +600,7 @@ public class NanoVG {
 	 */
 	public static void nvgStrokeColor(long ctx, NVGColor color) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgStrokeColor(ctx, color.address());
 	}
 
@@ -617,7 +617,7 @@ public class NanoVG {
 	 */
 	public static void nvgStrokePaint(long ctx, NVGPaint paint) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgStrokePaint(ctx, paint.address());
 	}
 
@@ -634,7 +634,7 @@ public class NanoVG {
 	 */
 	public static void nvgFillColor(long ctx, NVGColor color) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgFillColor(ctx, color.address());
 	}
 
@@ -651,7 +651,7 @@ public class NanoVG {
 	 */
 	public static void nvgFillPaint(long ctx, NVGPaint paint) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgFillPaint(ctx, paint.address());
 	}
 
@@ -668,7 +668,7 @@ public class NanoVG {
 	 */
 	public static void nvgMiterLimit(long ctx, float limit) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgMiterLimit(ctx, limit);
 	}
 
@@ -685,7 +685,7 @@ public class NanoVG {
 	 */
 	public static void nvgStrokeWidth(long ctx, float size) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgStrokeWidth(ctx, size);
 	}
 
@@ -704,7 +704,7 @@ public class NanoVG {
 	 */
 	public static void nvgLineCap(long ctx, int cap) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgLineCap(ctx, cap);
 	}
 
@@ -723,7 +723,7 @@ public class NanoVG {
 	 */
 	public static void nvgLineJoin(long ctx, int join) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgLineJoin(ctx, join);
 	}
 
@@ -742,7 +742,7 @@ public class NanoVG {
 	 */
 	public static void nvgGlobalAlpha(long ctx, float alpha) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgGlobalAlpha(ctx, alpha);
 	}
 
@@ -758,7 +758,7 @@ public class NanoVG {
 	 */
 	public static void nvgResetTransform(long ctx) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgResetTransform(ctx);
 	}
 
@@ -784,7 +784,7 @@ public class NanoVG {
 	 */
 	public static void nvgTransform(long ctx, float a, float b, float c, float d, float e, float f) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgTransform(ctx, a, b, c, d, e, f);
 	}
 
@@ -802,7 +802,7 @@ public class NanoVG {
 	 */
 	public static void nvgTranslate(long ctx, float x, float y) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgTranslate(ctx, x, y);
 	}
 
@@ -819,7 +819,7 @@ public class NanoVG {
 	 */
 	public static void nvgRotate(long ctx, float angle) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgRotate(ctx, angle);
 	}
 
@@ -836,7 +836,7 @@ public class NanoVG {
 	 */
 	public static void nvgSkewX(long ctx, float angle) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgSkewX(ctx, angle);
 	}
 
@@ -853,7 +853,7 @@ public class NanoVG {
 	 */
 	public static void nvgSkewY(long ctx, float angle) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgSkewY(ctx, angle);
 	}
 
@@ -871,7 +871,7 @@ public class NanoVG {
 	 */
 	public static void nvgScale(long ctx, float x, float y) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgScale(ctx, x, y);
 	}
 
@@ -894,8 +894,8 @@ public class NanoVG {
 	 */
 	public static void nvgCurrentTransform(long ctx, FloatBuffer xform) {
 		if ( CHECKS ) {
-			checkPointer(ctx);
-			checkBuffer(xform, 6);
+			check(ctx);
+			check(xform, 6);
 		}
 		nnvgCurrentTransform(ctx, memAddress(xform));
 	}
@@ -912,7 +912,7 @@ public class NanoVG {
 	 */
 	public static void nvgTransformIdentity(FloatBuffer dst) {
 		if ( CHECKS )
-			checkBuffer(dst, 6);
+			check(dst, 6);
 		nnvgTransformIdentity(memAddress(dst));
 	}
 
@@ -930,7 +930,7 @@ public class NanoVG {
 	 */
 	public static void nvgTransformTranslate(FloatBuffer dst, float tx, float ty) {
 		if ( CHECKS )
-			checkBuffer(dst, 6);
+			check(dst, 6);
 		nnvgTransformTranslate(memAddress(dst), tx, ty);
 	}
 
@@ -948,7 +948,7 @@ public class NanoVG {
 	 */
 	public static void nvgTransformScale(FloatBuffer dst, float sx, float sy) {
 		if ( CHECKS )
-			checkBuffer(dst, 6);
+			check(dst, 6);
 		nnvgTransformScale(memAddress(dst), sx, sy);
 	}
 
@@ -965,7 +965,7 @@ public class NanoVG {
 	 */
 	public static void nvgTransformRotate(FloatBuffer dst, float a) {
 		if ( CHECKS )
-			checkBuffer(dst, 6);
+			check(dst, 6);
 		nnvgTransformRotate(memAddress(dst), a);
 	}
 
@@ -982,7 +982,7 @@ public class NanoVG {
 	 */
 	public static void nvgTransformSkewX(FloatBuffer dst, float a) {
 		if ( CHECKS )
-			checkBuffer(dst, 6);
+			check(dst, 6);
 		nnvgTransformSkewX(memAddress(dst), a);
 	}
 
@@ -999,7 +999,7 @@ public class NanoVG {
 	 */
 	public static void nvgTransformSkewY(FloatBuffer dst, float a) {
 		if ( CHECKS )
-			checkBuffer(dst, 6);
+			check(dst, 6);
 		nnvgTransformSkewY(memAddress(dst), a);
 	}
 
@@ -1016,8 +1016,8 @@ public class NanoVG {
 	 */
 	public static void nvgTransformMultiply(FloatBuffer dst, FloatBuffer src) {
 		if ( CHECKS ) {
-			checkBuffer(dst, 6);
-			checkBuffer(src, 6);
+			check(dst, 6);
+			check(src, 6);
 		}
 		nnvgTransformMultiply(memAddress(dst), memAddress(src));
 	}
@@ -1035,8 +1035,8 @@ public class NanoVG {
 	 */
 	public static void nvgTransformPremultiply(FloatBuffer dst, FloatBuffer src) {
 		if ( CHECKS ) {
-			checkBuffer(dst, 6);
-			checkBuffer(src, 6);
+			check(dst, 6);
+			check(src, 6);
 		}
 		nnvgTransformPremultiply(memAddress(dst), memAddress(src));
 	}
@@ -1056,8 +1056,8 @@ public class NanoVG {
 	 */
 	public static boolean nvgTransformInverse(FloatBuffer dst, FloatBuffer src) {
 		if ( CHECKS ) {
-			checkBuffer(dst, 6);
-			checkBuffer(src, 6);
+			check(dst, 6);
+			check(src, 6);
 		}
 		return nnvgTransformInverse(memAddress(dst), memAddress(src)) != 0;
 	}
@@ -1078,9 +1078,9 @@ public class NanoVG {
 	 */
 	public static void nvgTransformPoint(FloatBuffer dstx, FloatBuffer dsty, FloatBuffer xform, float srcx, float srcy) {
 		if ( CHECKS ) {
-			checkBuffer(dstx, 1);
-			checkBuffer(dsty, 1);
-			checkBuffer(xform, 6);
+			check(dstx, 1);
+			check(dsty, 1);
+			check(xform, 6);
 		}
 		nnvgTransformPoint(memAddress(dstx), memAddress(dsty), memAddress(xform), srcx, srcy);
 	}
@@ -1119,7 +1119,7 @@ public class NanoVG {
 	 */
 	public static int nvgCreateImage(long ctx, ByteBuffer filename, int imageFlags) {
 		if ( CHECKS ) {
-			checkPointer(ctx);
+			check(ctx);
 			checkNT1(filename);
 		}
 		return nnvgCreateImage(ctx, memAddress(filename), imageFlags);
@@ -1136,7 +1136,7 @@ public class NanoVG {
 	 */
 	public static int nvgCreateImage(long ctx, CharSequence filename, int imageFlags) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer filenameEncoded = stack.ASCII(filename);
@@ -1166,7 +1166,7 @@ public class NanoVG {
 	 */
 	public static int nvgCreateImageMem(long ctx, int imageFlags, ByteBuffer data) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		return nnvgCreateImageMem(ctx, imageFlags, memAddress(data), data.remaining());
 	}
 
@@ -1188,8 +1188,8 @@ public class NanoVG {
 	 */
 	public static int nvgCreateImageRGBA(long ctx, int w, int h, int imageFlags, ByteBuffer data) {
 		if ( CHECKS ) {
-			checkPointer(ctx);
-			checkBuffer(data, w * h * 4);
+			check(ctx);
+			check(data, w * h * 4);
 		}
 		return nnvgCreateImageRGBA(ctx, w, h, imageFlags, memAddress(data));
 	}
@@ -1208,7 +1208,7 @@ public class NanoVG {
 	 */
 	public static void nvgUpdateImage(long ctx, int image, ByteBuffer data) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgUpdateImage(ctx, image, memAddress(data));
 	}
 
@@ -1227,9 +1227,9 @@ public class NanoVG {
 	 */
 	public static void nvgImageSize(long ctx, int image, IntBuffer w, IntBuffer h) {
 		if ( CHECKS ) {
-			checkPointer(ctx);
-			checkBuffer(w, 1);
-			checkBuffer(h, 1);
+			check(ctx);
+			check(w, 1);
+			check(h, 1);
 		}
 		nnvgImageSize(ctx, image, memAddress(w), memAddress(h));
 	}
@@ -1247,7 +1247,7 @@ public class NanoVG {
 	 */
 	public static void nvgDeleteImage(long ctx, int image) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgDeleteImage(ctx, image);
 	}
 
@@ -1271,7 +1271,7 @@ public class NanoVG {
 	 */
 	public static NVGPaint nvgLinearGradient(long ctx, float sx, float sy, float ex, float ey, NVGColor icol, NVGColor ocol, NVGPaint __result) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgLinearGradient(ctx, sx, sy, ex, ey, icol.address(), ocol.address(), __result.address());
 		return __result;
 	}
@@ -1298,7 +1298,7 @@ public class NanoVG {
 	 */
 	public static NVGPaint nvgBoxGradient(long ctx, float x, float y, float w, float h, float r, float f, NVGColor icol, NVGColor ocol, NVGPaint __result) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgBoxGradient(ctx, x, y, w, h, r, f, icol.address(), ocol.address(), __result.address());
 		return __result;
 	}
@@ -1323,7 +1323,7 @@ public class NanoVG {
 	 */
 	public static NVGPaint nvgRadialGradient(long ctx, float cx, float cy, float inr, float outr, NVGColor icol, NVGColor ocol, NVGPaint __result) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgRadialGradient(ctx, cx, cy, inr, outr, icol.address(), ocol.address(), __result.address());
 		return __result;
 	}
@@ -1349,7 +1349,7 @@ public class NanoVG {
 	 */
 	public static NVGPaint nvgImagePattern(long ctx, float ox, float oy, float ex, float ey, float angle, int image, float alpha, NVGPaint __result) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgImagePattern(ctx, ox, oy, ex, ey, angle, image, alpha, __result.address());
 		return __result;
 	}
@@ -1372,7 +1372,7 @@ public class NanoVG {
 	 */
 	public static void nvgScissor(long ctx, float x, float y, float w, float h) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgScissor(ctx, x, y, w, h);
 	}
 
@@ -1397,7 +1397,7 @@ public class NanoVG {
 	 */
 	public static void nvgIntersectScissor(long ctx, float x, float y, float w, float h) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgIntersectScissor(ctx, x, y, w, h);
 	}
 
@@ -1413,7 +1413,7 @@ public class NanoVG {
 	 */
 	public static void nvgResetScissor(long ctx) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgResetScissor(ctx);
 	}
 
@@ -1429,7 +1429,7 @@ public class NanoVG {
 	 */
 	public static void nvgBeginPath(long ctx) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgBeginPath(ctx);
 	}
 
@@ -1447,7 +1447,7 @@ public class NanoVG {
 	 */
 	public static void nvgMoveTo(long ctx, float x, float y) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgMoveTo(ctx, x, y);
 	}
 
@@ -1465,7 +1465,7 @@ public class NanoVG {
 	 */
 	public static void nvgLineTo(long ctx, float x, float y) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgLineTo(ctx, x, y);
 	}
 
@@ -1487,7 +1487,7 @@ public class NanoVG {
 	 */
 	public static void nvgBezierTo(long ctx, float c1x, float c1y, float c2x, float c2y, float x, float y) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgBezierTo(ctx, c1x, c1y, c2x, c2y, x, y);
 	}
 
@@ -1507,7 +1507,7 @@ public class NanoVG {
 	 */
 	public static void nvgQuadTo(long ctx, float cx, float cy, float x, float y) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgQuadTo(ctx, cx, cy, x, y);
 	}
 
@@ -1528,7 +1528,7 @@ public class NanoVG {
 	 */
 	public static void nvgArcTo(long ctx, float x1, float y1, float x2, float y2, float radius) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgArcTo(ctx, x1, y1, x2, y2, radius);
 	}
 
@@ -1544,7 +1544,7 @@ public class NanoVG {
 	 */
 	public static void nvgClosePath(long ctx) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgClosePath(ctx);
 	}
 
@@ -1561,7 +1561,7 @@ public class NanoVG {
 	 */
 	public static void nvgPathWinding(long ctx, int dir) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgPathWinding(ctx, dir);
 	}
 
@@ -1583,7 +1583,7 @@ public class NanoVG {
 	 */
 	public static void nvgArc(long ctx, float cx, float cy, float r, float a0, float a1, int dir) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgArc(ctx, cx, cy, r, a0, a1, dir);
 	}
 
@@ -1603,7 +1603,7 @@ public class NanoVG {
 	 */
 	public static void nvgRect(long ctx, float x, float y, float w, float h) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgRect(ctx, x, y, w, h);
 	}
 
@@ -1624,7 +1624,7 @@ public class NanoVG {
 	 */
 	public static void nvgRoundedRect(long ctx, float x, float y, float w, float h, float r) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgRoundedRect(ctx, x, y, w, h, r);
 	}
 
@@ -1648,7 +1648,7 @@ public class NanoVG {
 	 */
 	public static void nvgRoundedRectVarying(long ctx, float x, float y, float w, float h, float radTopLeft, float radTopRight, float radBottomRight, float radBottomLeft) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgRoundedRectVarying(ctx, x, y, w, h, radTopLeft, radTopRight, radBottomRight, radBottomLeft);
 	}
 
@@ -1668,7 +1668,7 @@ public class NanoVG {
 	 */
 	public static void nvgEllipse(long ctx, float cx, float cy, float rx, float ry) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgEllipse(ctx, cx, cy, rx, ry);
 	}
 
@@ -1687,7 +1687,7 @@ public class NanoVG {
 	 */
 	public static void nvgCircle(long ctx, float cx, float cy, float r) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgCircle(ctx, cx, cy, r);
 	}
 
@@ -1703,7 +1703,7 @@ public class NanoVG {
 	 */
 	public static void nvgFill(long ctx) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgFill(ctx);
 	}
 
@@ -1719,7 +1719,7 @@ public class NanoVG {
 	 */
 	public static void nvgStroke(long ctx) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgStroke(ctx);
 	}
 
@@ -1739,7 +1739,7 @@ public class NanoVG {
 	 */
 	public static int nvgCreateFont(long ctx, ByteBuffer name, ByteBuffer filename) {
 		if ( CHECKS ) {
-			checkPointer(ctx);
+			check(ctx);
 			checkNT1(name);
 			checkNT1(filename);
 		}
@@ -1757,7 +1757,7 @@ public class NanoVG {
 	 */
 	public static int nvgCreateFont(long ctx, CharSequence name, CharSequence filename) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.ASCII(name);
@@ -1791,7 +1791,7 @@ public class NanoVG {
 	 */
 	public static int nvgCreateFontMem(long ctx, ByteBuffer name, ByteBuffer data, int freeData) {
 		if ( CHECKS ) {
-			checkPointer(ctx);
+			check(ctx);
 			checkNT1(name);
 		}
 		return nnvgCreateFontMem(ctx, memAddress(name), memAddress(data), data.remaining(), freeData);
@@ -1811,7 +1811,7 @@ public class NanoVG {
 	 */
 	public static int nvgCreateFontMem(long ctx, CharSequence name, ByteBuffer data, int freeData) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.ASCII(name);
@@ -1834,7 +1834,7 @@ public class NanoVG {
 	 */
 	public static int nvgFindFont(long ctx, ByteBuffer name) {
 		if ( CHECKS ) {
-			checkPointer(ctx);
+			check(ctx);
 			checkNT1(name);
 		}
 		return nnvgFindFont(ctx, memAddress(name));
@@ -1848,7 +1848,7 @@ public class NanoVG {
 	 */
 	public static int nvgFindFont(long ctx, CharSequence name) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.ASCII(name);
@@ -1871,7 +1871,7 @@ public class NanoVG {
 	 */
 	public static void nvgFontSize(long ctx, float size) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgFontSize(ctx, size);
 	}
 
@@ -1888,7 +1888,7 @@ public class NanoVG {
 	 */
 	public static void nvgFontBlur(long ctx, float blur) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgFontBlur(ctx, blur);
 	}
 
@@ -1905,7 +1905,7 @@ public class NanoVG {
 	 */
 	public static void nvgTextLetterSpacing(long ctx, float spacing) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgTextLetterSpacing(ctx, spacing);
 	}
 
@@ -1922,7 +1922,7 @@ public class NanoVG {
 	 */
 	public static void nvgTextLineHeight(long ctx, float lineHeight) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgTextLineHeight(ctx, lineHeight);
 	}
 
@@ -1939,7 +1939,7 @@ public class NanoVG {
 	 */
 	public static void nvgTextAlign(long ctx, int align) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgTextAlign(ctx, align);
 	}
 
@@ -1956,7 +1956,7 @@ public class NanoVG {
 	 */
 	public static void nvgFontFaceId(long ctx, int font) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgFontFaceId(ctx, font);
 	}
 
@@ -1973,7 +1973,7 @@ public class NanoVG {
 	 */
 	public static void nvgFontFace(long ctx, ByteBuffer font) {
 		if ( CHECKS ) {
-			checkPointer(ctx);
+			check(ctx);
 			checkNT1(font);
 		}
 		nnvgFontFace(ctx, memAddress(font));
@@ -1987,7 +1987,7 @@ public class NanoVG {
 	 */
 	public static void nvgFontFace(long ctx, CharSequence font) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer fontEncoded = stack.ASCII(font);
@@ -2013,7 +2013,7 @@ public class NanoVG {
 	 */
 	public static float nvgText(long ctx, float x, float y, ByteBuffer string, long end) {
 		if ( CHECKS ) {
-			checkPointer(ctx);
+			check(ctx);
 			checkNT1(string);
 		}
 		return nnvgText(ctx, x, y, memAddress(string), end);
@@ -2030,7 +2030,7 @@ public class NanoVG {
 	 */
 	public static float nvgText(long ctx, float x, float y, CharSequence string, long end) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer stringEncoded = stack.UTF8(string);
@@ -2061,7 +2061,7 @@ public class NanoVG {
 	 */
 	public static void nvgTextBox(long ctx, float x, float y, float breakRowWidth, ByteBuffer string, long end) {
 		if ( CHECKS ) {
-			checkPointer(ctx);
+			check(ctx);
 			checkNT1(string);
 		}
 		nnvgTextBox(ctx, x, y, breakRowWidth, memAddress(string), end);
@@ -2083,7 +2083,7 @@ public class NanoVG {
 	 */
 	public static void nvgTextBox(long ctx, float x, float y, float breakRowWidth, CharSequence string, long end) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer stringEncoded = stack.UTF8(string);
@@ -2117,9 +2117,9 @@ public class NanoVG {
 	 */
 	public static float nvgTextBounds(long ctx, float x, float y, ByteBuffer string, long end, FloatBuffer bounds) {
 		if ( CHECKS ) {
-			checkPointer(ctx);
+			check(ctx);
 			checkNT1(string);
-			checkBufferSafe(bounds, 4);
+			checkSafe(bounds, 4);
 		}
 		return nnvgTextBounds(ctx, x, y, memAddress(string), end, memAddressSafe(bounds));
 	}
@@ -2143,8 +2143,8 @@ public class NanoVG {
 	 */
 	public static float nvgTextBounds(long ctx, float x, float y, CharSequence string, long end, FloatBuffer bounds) {
 		if ( CHECKS ) {
-			checkPointer(ctx);
-			checkBufferSafe(bounds, 4);
+			check(ctx);
+			checkSafe(bounds, 4);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2178,9 +2178,9 @@ public class NanoVG {
 	 */
 	public static void nvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, ByteBuffer string, long end, FloatBuffer bounds) {
 		if ( CHECKS ) {
-			checkPointer(ctx);
+			check(ctx);
 			checkNT1(string);
-			checkBufferSafe(bounds, 4);
+			checkSafe(bounds, 4);
 		}
 		nnvgTextBoxBounds(ctx, x, y, breakRowWidth, memAddress(string), end, memAddressSafe(bounds));
 	}
@@ -2203,8 +2203,8 @@ public class NanoVG {
 	 */
 	public static void nvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, CharSequence string, long end, FloatBuffer bounds) {
 		if ( CHECKS ) {
-			checkPointer(ctx);
-			checkBufferSafe(bounds, 4);
+			check(ctx);
+			checkSafe(bounds, 4);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2238,7 +2238,7 @@ public class NanoVG {
 	 */
 	public static int nvgTextGlyphPositions(long ctx, float x, float y, ByteBuffer string, long end, NVGGlyphPosition.Buffer positions) {
 		if ( CHECKS ) {
-			checkPointer(ctx);
+			check(ctx);
 			checkNT1(string);
 		}
 		return nnvgTextGlyphPositions(ctx, x, y, memAddress(string), end, positions.address(), positions.remaining());
@@ -2258,7 +2258,7 @@ public class NanoVG {
 	 */
 	public static int nvgTextGlyphPositions(long ctx, float x, float y, CharSequence string, long end, NVGGlyphPosition.Buffer positions) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer stringEncoded = stack.UTF8(string);
@@ -2285,10 +2285,10 @@ public class NanoVG {
 	 */
 	public static void nvgTextMetrics(long ctx, FloatBuffer ascender, FloatBuffer descender, FloatBuffer lineh) {
 		if ( CHECKS ) {
-			checkPointer(ctx);
-			checkBufferSafe(ascender, 1);
-			checkBufferSafe(descender, 1);
-			checkBufferSafe(lineh, 1);
+			check(ctx);
+			checkSafe(ascender, 1);
+			checkSafe(descender, 1);
+			checkSafe(lineh, 1);
 		}
 		nnvgTextMetrics(ctx, memAddressSafe(ascender), memAddressSafe(descender), memAddressSafe(lineh));
 	}
@@ -2316,7 +2316,7 @@ public class NanoVG {
 	 */
 	public static int nvgTextBreakLines(long ctx, ByteBuffer string, long end, float breakRowWidth, NVGTextRow.Buffer rows) {
 		if ( CHECKS ) {
-			checkPointer(ctx);
+			check(ctx);
 			checkNT1(string);
 		}
 		return nnvgTextBreakLines(ctx, memAddress(string), end, breakRowWidth, rows.address(), rows.remaining());
@@ -2336,7 +2336,7 @@ public class NanoVG {
 	 */
 	public static int nvgTextBreakLines(long ctx, CharSequence string, long end, float breakRowWidth, NVGTextRow.Buffer rows) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer stringEncoded = stack.UTF8(string);
@@ -2352,8 +2352,8 @@ public class NanoVG {
 	/** Array version of: {@link #nvgCurrentTransform CurrentTransform} */
 	public static void nvgCurrentTransform(long ctx, float[] xform) {
 		if ( CHECKS ) {
-			checkPointer(ctx);
-			checkBuffer(xform, 6);
+			check(ctx);
+			check(xform, 6);
 		}
 		nnvgCurrentTransform(ctx, xform);
 	}
@@ -2364,7 +2364,7 @@ public class NanoVG {
 	/** Array version of: {@link #nvgTransformIdentity TransformIdentity} */
 	public static void nvgTransformIdentity(float[] dst) {
 		if ( CHECKS )
-			checkBuffer(dst, 6);
+			check(dst, 6);
 		nnvgTransformIdentity(dst);
 	}
 
@@ -2374,7 +2374,7 @@ public class NanoVG {
 	/** Array version of: {@link #nvgTransformTranslate TransformTranslate} */
 	public static void nvgTransformTranslate(float[] dst, float tx, float ty) {
 		if ( CHECKS )
-			checkBuffer(dst, 6);
+			check(dst, 6);
 		nnvgTransformTranslate(dst, tx, ty);
 	}
 
@@ -2384,7 +2384,7 @@ public class NanoVG {
 	/** Array version of: {@link #nvgTransformScale TransformScale} */
 	public static void nvgTransformScale(float[] dst, float sx, float sy) {
 		if ( CHECKS )
-			checkBuffer(dst, 6);
+			check(dst, 6);
 		nnvgTransformScale(dst, sx, sy);
 	}
 
@@ -2394,7 +2394,7 @@ public class NanoVG {
 	/** Array version of: {@link #nvgTransformRotate TransformRotate} */
 	public static void nvgTransformRotate(float[] dst, float a) {
 		if ( CHECKS )
-			checkBuffer(dst, 6);
+			check(dst, 6);
 		nnvgTransformRotate(dst, a);
 	}
 
@@ -2404,7 +2404,7 @@ public class NanoVG {
 	/** Array version of: {@link #nvgTransformSkewX TransformSkewX} */
 	public static void nvgTransformSkewX(float[] dst, float a) {
 		if ( CHECKS )
-			checkBuffer(dst, 6);
+			check(dst, 6);
 		nnvgTransformSkewX(dst, a);
 	}
 
@@ -2414,7 +2414,7 @@ public class NanoVG {
 	/** Array version of: {@link #nvgTransformSkewY TransformSkewY} */
 	public static void nvgTransformSkewY(float[] dst, float a) {
 		if ( CHECKS )
-			checkBuffer(dst, 6);
+			check(dst, 6);
 		nnvgTransformSkewY(dst, a);
 	}
 
@@ -2424,8 +2424,8 @@ public class NanoVG {
 	/** Array version of: {@link #nvgTransformMultiply TransformMultiply} */
 	public static void nvgTransformMultiply(float[] dst, float[] src) {
 		if ( CHECKS ) {
-			checkBuffer(dst, 6);
-			checkBuffer(src, 6);
+			check(dst, 6);
+			check(src, 6);
 		}
 		nnvgTransformMultiply(dst, src);
 	}
@@ -2436,8 +2436,8 @@ public class NanoVG {
 	/** Array version of: {@link #nvgTransformPremultiply TransformPremultiply} */
 	public static void nvgTransformPremultiply(float[] dst, float[] src) {
 		if ( CHECKS ) {
-			checkBuffer(dst, 6);
-			checkBuffer(src, 6);
+			check(dst, 6);
+			check(src, 6);
 		}
 		nnvgTransformPremultiply(dst, src);
 	}
@@ -2448,8 +2448,8 @@ public class NanoVG {
 	/** Array version of: {@link #nvgTransformInverse TransformInverse} */
 	public static boolean nvgTransformInverse(float[] dst, float[] src) {
 		if ( CHECKS ) {
-			checkBuffer(dst, 6);
-			checkBuffer(src, 6);
+			check(dst, 6);
+			check(src, 6);
 		}
 		return nnvgTransformInverse(dst, src) != 0;
 	}
@@ -2460,9 +2460,9 @@ public class NanoVG {
 	/** Array version of: {@link #nvgTransformPoint TransformPoint} */
 	public static void nvgTransformPoint(float[] dstx, float[] dsty, float[] xform, float srcx, float srcy) {
 		if ( CHECKS ) {
-			checkBuffer(dstx, 1);
-			checkBuffer(dsty, 1);
-			checkBuffer(xform, 6);
+			check(dstx, 1);
+			check(dsty, 1);
+			check(xform, 6);
 		}
 		nnvgTransformPoint(dstx, dsty, xform, srcx, srcy);
 	}
@@ -2473,9 +2473,9 @@ public class NanoVG {
 	/** Array version of: {@link #nvgImageSize ImageSize} */
 	public static void nvgImageSize(long ctx, int image, int[] w, int[] h) {
 		if ( CHECKS ) {
-			checkPointer(ctx);
-			checkBuffer(w, 1);
-			checkBuffer(h, 1);
+			check(ctx);
+			check(w, 1);
+			check(h, 1);
 		}
 		nnvgImageSize(ctx, image, w, h);
 	}
@@ -2486,9 +2486,9 @@ public class NanoVG {
 	/** Array version of: {@link #nvgTextBounds TextBounds} */
 	public static float nvgTextBounds(long ctx, float x, float y, ByteBuffer string, long end, float[] bounds) {
 		if ( CHECKS ) {
-			checkPointer(ctx);
+			check(ctx);
 			checkNT1(string);
-			checkBufferSafe(bounds, 4);
+			checkSafe(bounds, 4);
 		}
 		return nnvgTextBounds(ctx, x, y, memAddress(string), end, bounds);
 	}
@@ -2496,8 +2496,8 @@ public class NanoVG {
 	/** Array version of: {@link #nvgTextBounds TextBounds} */
 	public static float nvgTextBounds(long ctx, float x, float y, CharSequence string, long end, float[] bounds) {
 		if ( CHECKS ) {
-			checkPointer(ctx);
-			checkBufferSafe(bounds, 4);
+			check(ctx);
+			checkSafe(bounds, 4);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2514,9 +2514,9 @@ public class NanoVG {
 	/** Array version of: {@link #nvgTextBoxBounds TextBoxBounds} */
 	public static void nvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, ByteBuffer string, long end, float[] bounds) {
 		if ( CHECKS ) {
-			checkPointer(ctx);
+			check(ctx);
 			checkNT1(string);
-			checkBufferSafe(bounds, 4);
+			checkSafe(bounds, 4);
 		}
 		nnvgTextBoxBounds(ctx, x, y, breakRowWidth, memAddress(string), end, bounds);
 	}
@@ -2524,8 +2524,8 @@ public class NanoVG {
 	/** Array version of: {@link #nvgTextBoxBounds TextBoxBounds} */
 	public static void nvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, CharSequence string, long end, float[] bounds) {
 		if ( CHECKS ) {
-			checkPointer(ctx);
-			checkBufferSafe(bounds, 4);
+			check(ctx);
+			checkSafe(bounds, 4);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -2542,10 +2542,10 @@ public class NanoVG {
 	/** Array version of: {@link #nvgTextMetrics TextMetrics} */
 	public static void nvgTextMetrics(long ctx, float[] ascender, float[] descender, float[] lineh) {
 		if ( CHECKS ) {
-			checkPointer(ctx);
-			checkBufferSafe(ascender, 1);
-			checkBufferSafe(descender, 1);
-			checkBufferSafe(lineh, 1);
+			check(ctx);
+			checkSafe(ascender, 1);
+			checkSafe(descender, 1);
+			checkSafe(lineh, 1);
 		}
 		nnvgTextMetrics(ctx, ascender, descender, lineh);
 	}

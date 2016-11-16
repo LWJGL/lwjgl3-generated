@@ -57,7 +57,7 @@ public class OESViewportArray {
 	public static void nglViewportArrayvOES(int first, int count, long v) {
 		long __functionAddress = GLES.getCapabilities().glViewportArrayvOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, first, count, v);
 	}
 
@@ -70,7 +70,7 @@ public class OESViewportArray {
 	public static void glViewportIndexedfOES(int index, float x, float y, float w, float h) {
 		long __functionAddress = GLES.getCapabilities().glViewportIndexedfOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, x, y, w, h);
 	}
 
@@ -79,13 +79,13 @@ public class OESViewportArray {
 	public static void nglViewportIndexedfvOES(int index, long v) {
 		long __functionAddress = GLES.getCapabilities().glViewportIndexedfvOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
 	public static void glViewportIndexedfvOES(int index, FloatBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglViewportIndexedfvOES(index, memAddress(v));
 	}
 
@@ -94,7 +94,7 @@ public class OESViewportArray {
 	public static void nglScissorArrayvOES(int first, int count, long v) {
 		long __functionAddress = GLES.getCapabilities().glScissorArrayvOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, first, count, v);
 	}
 
@@ -107,7 +107,7 @@ public class OESViewportArray {
 	public static void glScissorIndexedOES(int index, int left, int bottom, int width, int height) {
 		long __functionAddress = GLES.getCapabilities().glScissorIndexedOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, left, bottom, width, height);
 	}
 
@@ -116,13 +116,13 @@ public class OESViewportArray {
 	public static void nglScissorIndexedvOES(int index, long v) {
 		long __functionAddress = GLES.getCapabilities().glScissorIndexedvOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
 	public static void glScissorIndexedvOES(int index, IntBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglScissorIndexedvOES(index, memAddress(v));
 	}
 
@@ -131,7 +131,7 @@ public class OESViewportArray {
 	public static void nglDepthRangeArrayfvOES(int first, int count, long v) {
 		long __functionAddress = GLES.getCapabilities().glDepthRangeArrayfvOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, first, count, v);
 	}
 
@@ -144,7 +144,7 @@ public class OESViewportArray {
 	public static void glDepthRangeIndexedfOES(int index, float n, float f) {
 		long __functionAddress = GLES.getCapabilities().glDepthRangeIndexedfOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, n, f);
 	}
 
@@ -153,13 +153,13 @@ public class OESViewportArray {
 	public static void nglGetFloati_vOES(int target, int index, long data) {
 		long __functionAddress = GLES.getCapabilities().glGetFloati_vOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, index, data);
 	}
 
 	public static void glGetFloati_vOES(int target, int index, FloatBuffer data) {
 		if ( CHECKS )
-			checkBuffer(data, 1);
+			check(data, 1);
 		nglGetFloati_vOES(target, index, memAddress(data));
 	}
 
@@ -179,7 +179,7 @@ public class OESViewportArray {
 	public static void glEnableiOES(int target, int index) {
 		long __functionAddress = GLES.getCapabilities().glEnableiOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, index);
 	}
 
@@ -188,7 +188,7 @@ public class OESViewportArray {
 	public static void glDisableiOES(int target, int index) {
 		long __functionAddress = GLES.getCapabilities().glDisableiOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, index);
 	}
 
@@ -197,7 +197,7 @@ public class OESViewportArray {
 	public static boolean glIsEnablediOES(int target, int index) {
 		long __functionAddress = GLES.getCapabilities().glIsEnablediOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callZ(__functionAddress, target, index);
 	}
 
@@ -205,7 +205,7 @@ public class OESViewportArray {
 	public static void glViewportArrayvOES(int first, float[] v) {
 		long __functionAddress = GLES.getCapabilities().glViewportArrayvOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, first, v.length >> 2, v);
 	}
 
@@ -213,8 +213,8 @@ public class OESViewportArray {
 	public static void glViewportIndexedfvOES(int index, float[] v) {
 		long __functionAddress = GLES.getCapabilities().glViewportIndexedfvOES;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -223,7 +223,7 @@ public class OESViewportArray {
 	public static void glScissorArrayvOES(int first, int[] v) {
 		long __functionAddress = GLES.getCapabilities().glScissorArrayvOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, first, v.length >> 2, v);
 	}
 
@@ -231,8 +231,8 @@ public class OESViewportArray {
 	public static void glScissorIndexedvOES(int index, int[] v) {
 		long __functionAddress = GLES.getCapabilities().glScissorIndexedvOES;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -241,7 +241,7 @@ public class OESViewportArray {
 	public static void glDepthRangeArrayfvOES(int first, float[] v) {
 		long __functionAddress = GLES.getCapabilities().glDepthRangeArrayfvOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, first, v.length >> 1, v);
 	}
 
@@ -249,8 +249,8 @@ public class OESViewportArray {
 	public static void glGetFloati_vOES(int target, int index, float[] data) {
 		long __functionAddress = GLES.getCapabilities().glGetFloati_vOES;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, 1);
+			check(__functionAddress);
+			check(data, 1);
 		}
 		callPV(__functionAddress, target, index, data);
 	}

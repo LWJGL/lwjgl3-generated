@@ -71,13 +71,13 @@ public class NVExplicitMultisample {
 	public static void nglGetMultisamplefvNV(int pname, int index, long val) {
 		long __functionAddress = GL.getCapabilities().glGetMultisamplefvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, pname, index, val);
 	}
 
 	public static void glGetMultisamplefvNV(int pname, int index, FloatBuffer val) {
 		if ( CHECKS )
-			checkBuffer(val, 2);
+			check(val, 2);
 		nglGetMultisamplefvNV(pname, index, memAddress(val));
 	}
 
@@ -86,7 +86,7 @@ public class NVExplicitMultisample {
 	public static void glSampleMaskIndexedNV(int index, int mask) {
 		long __functionAddress = GL.getCapabilities().glSampleMaskIndexedNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, mask);
 	}
 
@@ -95,7 +95,7 @@ public class NVExplicitMultisample {
 	public static void glTexRenderbufferNV(int target, int renderbuffer) {
 		long __functionAddress = GL.getCapabilities().glTexRenderbufferNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, renderbuffer);
 	}
 
@@ -103,8 +103,8 @@ public class NVExplicitMultisample {
 	public static void glGetMultisamplefvNV(int pname, int index, float[] val) {
 		long __functionAddress = GL.getCapabilities().glGetMultisamplefvNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(val, 2);
+			check(__functionAddress);
+			check(val, 2);
 		}
 		callPV(__functionAddress, pname, index, val);
 	}

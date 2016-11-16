@@ -535,7 +535,7 @@ public class VkImageCreateInfo extends Struct implements NativeResource {
 	 */
 	public static void validate(long struct) {
 		if ( nqueueFamilyIndexCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkImageCreateInfo.PQUEUEFAMILYINDICES));
+			check(memGetAddress(struct + VkImageCreateInfo.PQUEUEFAMILYINDICES));
 	}
 
 	/**

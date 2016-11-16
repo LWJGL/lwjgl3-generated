@@ -53,9 +53,9 @@ public class NVStreamConsumerGLTextureYUV {
 	public static int neglStreamConsumerGLTextureExternalAttribsNV(long dpy, long stream, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglStreamConsumerGLTextureExternalAttribsNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(stream);
+			check(__functionAddress);
+			check(dpy);
+			check(stream);
 		}
 		return callPPPI(__functionAddress, dpy, stream, attrib_list);
 	}

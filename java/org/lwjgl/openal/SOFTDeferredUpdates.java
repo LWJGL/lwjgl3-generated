@@ -45,7 +45,7 @@ public class SOFTDeferredUpdates {
 	public static void alDeferUpdatesSOFT() {
 		long __functionAddress = AL.getCapabilities().alDeferUpdatesSOFT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokeV(__functionAddress);
 	}
 
@@ -59,7 +59,7 @@ public class SOFTDeferredUpdates {
 	public static void alProcessUpdatesSOFT() {
 		long __functionAddress = AL.getCapabilities().alProcessUpdatesSOFT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokeV(__functionAddress);
 	}
 

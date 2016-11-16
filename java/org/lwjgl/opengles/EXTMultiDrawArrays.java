@@ -36,13 +36,13 @@ public class EXTMultiDrawArrays {
 	public static void nglMultiDrawArraysEXT(int mode, long first, long count, int primcount) {
 		long __functionAddress = GLES.getCapabilities().glMultiDrawArraysEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, mode, first, count, primcount);
 	}
 
 	public static void glMultiDrawArraysEXT(int mode, IntBuffer first, IntBuffer count) {
 		if ( CHECKS )
-			checkBuffer(count, first.remaining());
+			check(count, first.remaining());
 		nglMultiDrawArraysEXT(mode, memAddress(first), memAddress(count), first.remaining());
 	}
 
@@ -51,13 +51,13 @@ public class EXTMultiDrawArrays {
 	public static void nglMultiDrawElementsEXT(int mode, long count, int type, long indices, int primcount) {
 		long __functionAddress = GLES.getCapabilities().glMultiDrawElementsEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
 	public static void glMultiDrawElementsEXT(int mode, IntBuffer count, int type, PointerBuffer indices) {
 		if ( CHECKS )
-			checkBuffer(indices, count.remaining());
+			check(indices, count.remaining());
 		nglMultiDrawElementsEXT(mode, memAddress(count), type, memAddress(indices), count.remaining());
 	}
 
@@ -65,8 +65,8 @@ public class EXTMultiDrawArrays {
 	public static void glMultiDrawArraysEXT(int mode, int[] first, int[] count) {
 		long __functionAddress = GLES.getCapabilities().glMultiDrawArraysEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(count, first.length);
+			check(__functionAddress);
+			check(count, first.length);
 		}
 		callPPV(__functionAddress, mode, first, count, first.length);
 	}
@@ -75,8 +75,8 @@ public class EXTMultiDrawArrays {
 	public static void glMultiDrawElementsEXT(int mode, int[] count, int type, PointerBuffer indices) {
 		long __functionAddress = GLES.getCapabilities().glMultiDrawElementsEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(indices, count.length);
+			check(__functionAddress);
+			check(indices, count.length);
 		}
 		callPPV(__functionAddress, mode, count, type, memAddress(indices), count.length);
 	}

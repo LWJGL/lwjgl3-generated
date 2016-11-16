@@ -60,7 +60,7 @@ public class ARBCopyBuffer {
 	public static void glCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size) {
 		long __functionAddress = GL.getCapabilities().glCopyBufferSubData;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPPV(__functionAddress, readTarget, writeTarget, readOffset, writeOffset, size);
 	}
 

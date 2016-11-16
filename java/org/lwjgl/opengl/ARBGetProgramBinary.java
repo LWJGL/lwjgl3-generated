@@ -61,7 +61,7 @@ public class ARBGetProgramBinary {
 	public static void nglGetProgramBinary(int program, int bufSize, long length, long binaryFormat, long binary) {
 		long __functionAddress = GL.getCapabilities().glGetProgramBinary;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPPV(__functionAddress, program, bufSize, length, binaryFormat, binary);
 	}
 
@@ -75,8 +75,8 @@ public class ARBGetProgramBinary {
 	 */
 	public static void glGetProgramBinary(int program, IntBuffer length, IntBuffer binaryFormat, ByteBuffer binary) {
 		if ( CHECKS ) {
-			checkBufferSafe(length, 1);
-			checkBuffer(binaryFormat, 1);
+			checkSafe(length, 1);
+			check(binaryFormat, 1);
 		}
 		nglGetProgramBinary(program, binary.remaining(), memAddressSafe(length), memAddress(binaryFormat), memAddress(binary));
 	}
@@ -91,7 +91,7 @@ public class ARBGetProgramBinary {
 	public static void nglProgramBinary(int program, int binaryFormat, long binary, int length) {
 		long __functionAddress = GL.getCapabilities().glProgramBinary;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, binaryFormat, binary, length);
 	}
 
@@ -118,7 +118,7 @@ public class ARBGetProgramBinary {
 	public static void glProgramParameteri(int program, int pname, int value) {
 		long __functionAddress = GL.getCapabilities().glProgramParameteri;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, program, pname, value);
 	}
 
@@ -126,9 +126,9 @@ public class ARBGetProgramBinary {
 	public static void glGetProgramBinary(int program, int[] length, int[] binaryFormat, ByteBuffer binary) {
 		long __functionAddress = GL.getCapabilities().glGetProgramBinary;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(length, 1);
-			checkBuffer(binaryFormat, 1);
+			check(__functionAddress);
+			checkSafe(length, 1);
+			check(binaryFormat, 1);
 		}
 		callPPPV(__functionAddress, program, binary.remaining(), length, binaryFormat, memAddress(binary));
 	}

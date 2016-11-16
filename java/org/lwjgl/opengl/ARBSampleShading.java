@@ -58,7 +58,7 @@ public class ARBSampleShading {
 	public static void glMinSampleShadingARB(float value) {
 		long __functionAddress = GL.getCapabilities().glMinSampleShadingARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, value);
 	}
 

@@ -82,10 +82,10 @@ public class CL21 {
 	public static int clSetDefaultDeviceCommandQueue(long context, long device, long command_queue) {
 		long __functionAddress = CL.getICD().clSetDefaultDeviceCommandQueue;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
-			checkPointer(device);
-			checkPointer(command_queue);
+			check(__functionAddress);
+			check(context);
+			check(device);
+			check(command_queue);
 		}
 		return callPPPI(__functionAddress, context, device, command_queue);
 	}
@@ -96,8 +96,8 @@ public class CL21 {
 	public static int nclGetDeviceAndHostTimer(long device, long device_timestamp, long host_timestamp) {
 		long __functionAddress = CL.getICD().clGetDeviceAndHostTimer;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
+			check(__functionAddress);
+			check(device);
 		}
 		return callPPPI(__functionAddress, device, device_timestamp, host_timestamp);
 	}
@@ -126,8 +126,8 @@ public class CL21 {
 	 */
 	public static int clGetDeviceAndHostTimer(long device, LongBuffer device_timestamp, LongBuffer host_timestamp) {
 		if ( CHECKS ) {
-			checkBuffer(device_timestamp, 1);
-			checkBuffer(host_timestamp, 1);
+			check(device_timestamp, 1);
+			check(host_timestamp, 1);
 		}
 		return nclGetDeviceAndHostTimer(device, memAddress(device_timestamp), memAddress(host_timestamp));
 	}
@@ -138,8 +138,8 @@ public class CL21 {
 	public static int nclGetHostTimer(long device, long host_timestamp) {
 		long __functionAddress = CL.getICD().clGetHostTimer;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
+			check(__functionAddress);
+			check(device);
 		}
 		return callPPI(__functionAddress, device, host_timestamp);
 	}
@@ -178,8 +178,8 @@ public class CL21 {
 	public static long nclCreateProgramWithIL(long context, long il, long length, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateProgramWithIL;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
+			check(__functionAddress);
+			check(context);
 		}
 		return callPPPPP(__functionAddress, context, il, length, errcode_ret);
 	}
@@ -205,7 +205,7 @@ public class CL21 {
 	 */
 	public static long clCreateProgramWithIL(long context, ByteBuffer il, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateProgramWithIL(context, memAddress(il), il.remaining(), memAddressSafe(errcode_ret));
 	}
 
@@ -215,8 +215,8 @@ public class CL21 {
 	public static long nclCloneKernel(long source_kernel, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCloneKernel;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(source_kernel);
+			check(__functionAddress);
+			check(source_kernel);
 		}
 		return callPPP(__functionAddress, source_kernel, errcode_ret);
 	}
@@ -252,7 +252,7 @@ public class CL21 {
 	 */
 	public static long clCloneKernel(long source_kernel, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCloneKernel(source_kernel, memAddressSafe(errcode_ret));
 	}
 
@@ -267,8 +267,8 @@ public class CL21 {
 	public static int nclGetKernelSubGroupInfo(long kernel, long device, int param_name, long input_value_size, long input_value, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetKernelSubGroupInfo;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(kernel);
+			check(__functionAddress);
+			check(kernel);
 		}
 		return callPPPPPPPI(__functionAddress, kernel, device, param_name, input_value_size, input_value, param_value_size, param_value, param_value_size_ret);
 	}
@@ -300,7 +300,7 @@ public class CL21 {
 	 */
 	public static int clGetKernelSubGroupInfo(long kernel, long device, int param_name, ByteBuffer input_value, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetKernelSubGroupInfo(kernel, device, param_name, remainingSafe(input_value), memAddressSafe(input_value), remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -331,7 +331,7 @@ public class CL21 {
 	 */
 	public static int clGetKernelSubGroupInfo(long kernel, long device, int param_name, ByteBuffer input_value, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetKernelSubGroupInfo(kernel, device, param_name, remainingSafe(input_value), memAddressSafe(input_value), remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -347,8 +347,8 @@ public class CL21 {
 	public static int nclEnqueueSVMMigrateMem(long command_queue, int num_svm_pointers, long svm_pointers, long sizes, long flags, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = CL.getICD().clEnqueueSVMMigrateMem;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(command_queue);
+			check(__functionAddress);
+			check(command_queue);
 		}
 		return callPPPJPPI(__functionAddress, command_queue, num_svm_pointers, svm_pointers, sizes, flags, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -391,8 +391,8 @@ public class CL21 {
 	 */
 	public static int clEnqueueSVMMigrateMem(long command_queue, PointerBuffer svm_pointers, PointerBuffer sizes, long flags, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS ) {
-			checkBufferSafe(sizes, svm_pointers.remaining());
-			checkBufferSafe(event, 1);
+			checkSafe(sizes, svm_pointers.remaining());
+			checkSafe(event, 1);
 		}
 		return nclEnqueueSVMMigrateMem(command_queue, svm_pointers.remaining(), memAddress(svm_pointers), memAddressSafe(sizes), flags, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
@@ -401,10 +401,10 @@ public class CL21 {
 	public static int clGetDeviceAndHostTimer(long device, long[] device_timestamp, long[] host_timestamp) {
 		long __functionAddress = CL.getICD().clGetDeviceAndHostTimer;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
-			checkBuffer(device_timestamp, 1);
-			checkBuffer(host_timestamp, 1);
+			check(__functionAddress);
+			check(device);
+			check(device_timestamp, 1);
+			check(host_timestamp, 1);
 		}
 		return callPPPI(__functionAddress, device, device_timestamp, host_timestamp);
 	}
@@ -413,8 +413,8 @@ public class CL21 {
 	public static int clGetHostTimer(long device, long[] host_timestamp) {
 		long __functionAddress = CL.getICD().clGetHostTimer;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
+			check(__functionAddress);
+			check(device);
 		}
 		return callPPI(__functionAddress, device, host_timestamp);
 	}
@@ -423,9 +423,9 @@ public class CL21 {
 	public static long clCreateProgramWithIL(long context, ByteBuffer il, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateProgramWithIL;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
-			checkBufferSafe(errcode_ret, 1);
+			check(__functionAddress);
+			check(context);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPPPPP(__functionAddress, context, memAddress(il), (long)il.remaining(), errcode_ret);
 	}
@@ -434,9 +434,9 @@ public class CL21 {
 	public static long clCloneKernel(long source_kernel, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCloneKernel;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(source_kernel);
-			checkBufferSafe(errcode_ret, 1);
+			check(__functionAddress);
+			check(source_kernel);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPPP(__functionAddress, source_kernel, errcode_ret);
 	}

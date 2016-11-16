@@ -60,7 +60,7 @@ public class ARBShaderSubroutine {
 	public static int nglGetSubroutineUniformLocation(int program, int shadertype, long name) {
 		long __functionAddress = GL.getCapabilities().glGetSubroutineUniformLocation;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPI(__functionAddress, program, shadertype, name);
 	}
 
@@ -100,7 +100,7 @@ public class ARBShaderSubroutine {
 	public static int nglGetSubroutineIndex(int program, int shadertype, long name) {
 		long __functionAddress = GL.getCapabilities().glGetSubroutineIndex;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPI(__functionAddress, program, shadertype, name);
 	}
 
@@ -140,7 +140,7 @@ public class ARBShaderSubroutine {
 	public static void nglGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, long values) {
 		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineUniformiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, shadertype, index, pname, values);
 	}
 
@@ -155,7 +155,7 @@ public class ARBShaderSubroutine {
 	 */
 	public static void glGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, IntBuffer values) {
 		if ( CHECKS )
-			checkBuffer(values, 1);
+			check(values, 1);
 		nglGetActiveSubroutineUniformiv(program, shadertype, index, pname, memAddress(values));
 	}
 
@@ -188,7 +188,7 @@ public class ARBShaderSubroutine {
 	public static void nglGetActiveSubroutineUniformName(int program, int shadertype, int index, int bufsize, long length, long name) {
 		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineUniformName;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, program, shadertype, index, bufsize, length, name);
 	}
 
@@ -203,7 +203,7 @@ public class ARBShaderSubroutine {
 	 */
 	public static void glGetActiveSubroutineUniformName(int program, int shadertype, int index, IntBuffer length, ByteBuffer name) {
 		if ( CHECKS )
-			checkBufferSafe(length, 1);
+			checkSafe(length, 1);
 		nglGetActiveSubroutineUniformName(program, shadertype, index, name.remaining(), memAddressSafe(length), memAddress(name));
 	}
 
@@ -257,7 +257,7 @@ public class ARBShaderSubroutine {
 	public static void nglGetActiveSubroutineName(int program, int shadertype, int index, int bufsize, long length, long name) {
 		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineName;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, program, shadertype, index, bufsize, length, name);
 	}
 
@@ -272,7 +272,7 @@ public class ARBShaderSubroutine {
 	 */
 	public static void glGetActiveSubroutineName(int program, int shadertype, int index, IntBuffer length, ByteBuffer name) {
 		if ( CHECKS )
-			checkBufferSafe(length, 1);
+			checkSafe(length, 1);
 		nglGetActiveSubroutineName(program, shadertype, index, name.remaining(), memAddressSafe(length), memAddress(name));
 	}
 
@@ -326,7 +326,7 @@ public class ARBShaderSubroutine {
 	public static void nglUniformSubroutinesuiv(int shadertype, int count, long indices) {
 		long __functionAddress = GL.getCapabilities().glUniformSubroutinesuiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, shadertype, count, indices);
 	}
 
@@ -361,7 +361,7 @@ public class ARBShaderSubroutine {
 	public static void nglGetUniformSubroutineuiv(int shadertype, int location, long params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformSubroutineuiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, shadertype, location, params);
 	}
 
@@ -374,7 +374,7 @@ public class ARBShaderSubroutine {
 	 */
 	public static void glGetUniformSubroutineuiv(int shadertype, int location, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetUniformSubroutineuiv(shadertype, location, memAddress(params));
 	}
 
@@ -401,7 +401,7 @@ public class ARBShaderSubroutine {
 	public static void nglGetProgramStageiv(int program, int shadertype, int pname, long values) {
 		long __functionAddress = GL.getCapabilities().glGetProgramStageiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, shadertype, pname, values);
 	}
 
@@ -415,7 +415,7 @@ public class ARBShaderSubroutine {
 	 */
 	public static void glGetProgramStageiv(int program, int shadertype, int pname, IntBuffer values) {
 		if ( CHECKS )
-			checkBuffer(values, 1);
+			check(values, 1);
 		nglGetProgramStageiv(program, shadertype, pname, memAddress(values));
 	}
 
@@ -441,8 +441,8 @@ public class ARBShaderSubroutine {
 	public static void glGetActiveSubroutineUniformiv(int program, int shadertype, int index, int pname, int[] values) {
 		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineUniformiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(values, 1);
+			check(__functionAddress);
+			check(values, 1);
 		}
 		callPV(__functionAddress, program, shadertype, index, pname, values);
 	}
@@ -451,8 +451,8 @@ public class ARBShaderSubroutine {
 	public static void glGetActiveSubroutineUniformName(int program, int shadertype, int index, int[] length, ByteBuffer name) {
 		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineUniformName;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(length, 1);
+			check(__functionAddress);
+			checkSafe(length, 1);
 		}
 		callPPV(__functionAddress, program, shadertype, index, name.remaining(), length, memAddress(name));
 	}
@@ -461,8 +461,8 @@ public class ARBShaderSubroutine {
 	public static void glGetActiveSubroutineName(int program, int shadertype, int index, int[] length, ByteBuffer name) {
 		long __functionAddress = GL.getCapabilities().glGetActiveSubroutineName;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(length, 1);
+			check(__functionAddress);
+			checkSafe(length, 1);
 		}
 		callPPV(__functionAddress, program, shadertype, index, name.remaining(), length, memAddress(name));
 	}
@@ -471,7 +471,7 @@ public class ARBShaderSubroutine {
 	public static void glUniformSubroutinesuiv(int shadertype, int[] indices) {
 		long __functionAddress = GL.getCapabilities().glUniformSubroutinesuiv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, shadertype, indices.length, indices);
 	}
 
@@ -479,8 +479,8 @@ public class ARBShaderSubroutine {
 	public static void glGetUniformSubroutineuiv(int shadertype, int location, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetUniformSubroutineuiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, shadertype, location, params);
 	}
@@ -489,8 +489,8 @@ public class ARBShaderSubroutine {
 	public static void glGetProgramStageiv(int program, int shadertype, int pname, int[] values) {
 		long __functionAddress = GL.getCapabilities().glGetProgramStageiv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(values, 1);
+			check(__functionAddress);
+			check(values, 1);
 		}
 		callPV(__functionAddress, program, shadertype, pname, values);
 	}

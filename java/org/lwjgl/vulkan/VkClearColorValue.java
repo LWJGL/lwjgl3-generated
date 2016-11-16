@@ -290,7 +290,7 @@ public class VkClearColorValue extends Struct implements NativeResource {
 
 	/** Unsafe version of {@link #float32(FloatBuffer) float32}. */
 	public static void nfloat32(long struct, FloatBuffer value) {
-		if ( CHECKS ) checkBufferGT(value, 4);
+		if ( CHECKS ) checkGT(value, 4);
 		memCopy(memAddress(value), struct + VkClearColorValue.FLOAT32, value.remaining() * 4);
 	}
 	/** Unsafe version of {@link #float32(int, float) float32}. */
@@ -300,7 +300,7 @@ public class VkClearColorValue extends Struct implements NativeResource {
 	}
 	/** Unsafe version of {@link #int32(IntBuffer) int32}. */
 	public static void nint32(long struct, IntBuffer value) {
-		if ( CHECKS ) checkBufferGT(value, 4);
+		if ( CHECKS ) checkGT(value, 4);
 		memCopy(memAddress(value), struct + VkClearColorValue.INT32, value.remaining() * 4);
 	}
 	/** Unsafe version of {@link #int32(int, int) int32}. */
@@ -310,7 +310,7 @@ public class VkClearColorValue extends Struct implements NativeResource {
 	}
 	/** Unsafe version of {@link #uint32(IntBuffer) uint32}. */
 	public static void nuint32(long struct, IntBuffer value) {
-		if ( CHECKS ) checkBufferGT(value, 4);
+		if ( CHECKS ) checkGT(value, 4);
 		memCopy(memAddress(value), struct + VkClearColorValue.UINT32, value.remaining() * 4);
 	}
 	/** Unsafe version of {@link #uint32(int, int) uint32}. */

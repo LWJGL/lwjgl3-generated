@@ -159,7 +159,7 @@ public class EXTFramebufferObject {
 	public static boolean glIsRenderbufferEXT(int renderbuffer) {
 		long __functionAddress = GL.getCapabilities().glIsRenderbufferEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callZ(__functionAddress, renderbuffer);
 	}
 
@@ -168,7 +168,7 @@ public class EXTFramebufferObject {
 	public static void glBindRenderbufferEXT(int target, int renderbuffer) {
 		long __functionAddress = GL.getCapabilities().glBindRenderbufferEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, renderbuffer);
 	}
 
@@ -177,7 +177,7 @@ public class EXTFramebufferObject {
 	public static void nglDeleteRenderbuffersEXT(int n, long renderbuffers) {
 		long __functionAddress = GL.getCapabilities().glDeleteRenderbuffersEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, renderbuffers);
 	}
 
@@ -200,7 +200,7 @@ public class EXTFramebufferObject {
 	public static void nglGenRenderbuffersEXT(int n, long renderbuffers) {
 		long __functionAddress = GL.getCapabilities().glGenRenderbuffersEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, renderbuffers);
 	}
 
@@ -224,7 +224,7 @@ public class EXTFramebufferObject {
 	public static void glRenderbufferStorageEXT(int target, int internalformat, int width, int height) {
 		long __functionAddress = GL.getCapabilities().glRenderbufferStorageEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, internalformat, width, height);
 	}
 
@@ -233,13 +233,13 @@ public class EXTFramebufferObject {
 	public static void nglGetRenderbufferParameterivEXT(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetRenderbufferParameterivEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetRenderbufferParameterivEXT(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetRenderbufferParameterivEXT(target, pname, memAddress(params));
 	}
 
@@ -259,7 +259,7 @@ public class EXTFramebufferObject {
 	public static boolean glIsFramebufferEXT(int framebuffer) {
 		long __functionAddress = GL.getCapabilities().glIsFramebufferEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callZ(__functionAddress, framebuffer);
 	}
 
@@ -268,7 +268,7 @@ public class EXTFramebufferObject {
 	public static void glBindFramebufferEXT(int target, int framebuffer) {
 		long __functionAddress = GL.getCapabilities().glBindFramebufferEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, framebuffer);
 	}
 
@@ -277,7 +277,7 @@ public class EXTFramebufferObject {
 	public static void nglDeleteFramebuffersEXT(int n, long framebuffers) {
 		long __functionAddress = GL.getCapabilities().glDeleteFramebuffersEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, framebuffers);
 	}
 
@@ -300,7 +300,7 @@ public class EXTFramebufferObject {
 	public static void nglGenFramebuffersEXT(int n, long framebuffers) {
 		long __functionAddress = GL.getCapabilities().glGenFramebuffersEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, framebuffers);
 	}
 
@@ -324,7 +324,7 @@ public class EXTFramebufferObject {
 	public static int glCheckFramebufferStatusEXT(int target) {
 		long __functionAddress = GL.getCapabilities().glCheckFramebufferStatusEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callI(__functionAddress, target);
 	}
 
@@ -333,7 +333,7 @@ public class EXTFramebufferObject {
 	public static void glFramebufferTexture1DEXT(int target, int attachment, int textarget, int texture, int level) {
 		long __functionAddress = GL.getCapabilities().glFramebufferTexture1DEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, attachment, textarget, texture, level);
 	}
 
@@ -342,7 +342,7 @@ public class EXTFramebufferObject {
 	public static void glFramebufferTexture2DEXT(int target, int attachment, int textarget, int texture, int level) {
 		long __functionAddress = GL.getCapabilities().glFramebufferTexture2DEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, attachment, textarget, texture, level);
 	}
 
@@ -351,7 +351,7 @@ public class EXTFramebufferObject {
 	public static void glFramebufferTexture3DEXT(int target, int attachment, int textarget, int texture, int level, int zoffset) {
 		long __functionAddress = GL.getCapabilities().glFramebufferTexture3DEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, attachment, textarget, texture, level, zoffset);
 	}
 
@@ -360,7 +360,7 @@ public class EXTFramebufferObject {
 	public static void glFramebufferRenderbufferEXT(int target, int attachment, int renderbuffertarget, int renderbuffer) {
 		long __functionAddress = GL.getCapabilities().glFramebufferRenderbufferEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, attachment, renderbuffertarget, renderbuffer);
 	}
 
@@ -369,13 +369,13 @@ public class EXTFramebufferObject {
 	public static void nglGetFramebufferAttachmentParameterivEXT(int target, int attachment, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetFramebufferAttachmentParameterivEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, attachment, pname, params);
 	}
 
 	public static void glGetFramebufferAttachmentParameterivEXT(int target, int attachment, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetFramebufferAttachmentParameterivEXT(target, attachment, pname, memAddress(params));
 	}
 
@@ -395,7 +395,7 @@ public class EXTFramebufferObject {
 	public static void glGenerateMipmapEXT(int target) {
 		long __functionAddress = GL.getCapabilities().glGenerateMipmapEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target);
 	}
 
@@ -403,7 +403,7 @@ public class EXTFramebufferObject {
 	public static void glDeleteRenderbuffersEXT(int[] renderbuffers) {
 		long __functionAddress = GL.getCapabilities().glDeleteRenderbuffersEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, renderbuffers.length, renderbuffers);
 	}
 
@@ -411,7 +411,7 @@ public class EXTFramebufferObject {
 	public static void glGenRenderbuffersEXT(int[] renderbuffers) {
 		long __functionAddress = GL.getCapabilities().glGenRenderbuffersEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, renderbuffers.length, renderbuffers);
 	}
 
@@ -419,8 +419,8 @@ public class EXTFramebufferObject {
 	public static void glGetRenderbufferParameterivEXT(int target, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetRenderbufferParameterivEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, target, pname, params);
 	}
@@ -429,7 +429,7 @@ public class EXTFramebufferObject {
 	public static void glDeleteFramebuffersEXT(int[] framebuffers) {
 		long __functionAddress = GL.getCapabilities().glDeleteFramebuffersEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, framebuffers.length, framebuffers);
 	}
 
@@ -437,7 +437,7 @@ public class EXTFramebufferObject {
 	public static void glGenFramebuffersEXT(int[] framebuffers) {
 		long __functionAddress = GL.getCapabilities().glGenFramebuffersEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, framebuffers.length, framebuffers);
 	}
 
@@ -445,8 +445,8 @@ public class EXTFramebufferObject {
 	public static void glGetFramebufferAttachmentParameterivEXT(int target, int attachment, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetFramebufferAttachmentParameterivEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, target, attachment, pname, params);
 	}

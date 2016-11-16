@@ -303,7 +303,7 @@ public class STBTTPackRange extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + STBTTPackRange.CHARDATA_FOR_RANGE));
+		check(memGetAddress(struct + STBTTPackRange.CHARDATA_FOR_RANGE));
 	}
 
 	/**

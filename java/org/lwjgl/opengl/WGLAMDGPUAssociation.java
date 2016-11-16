@@ -60,7 +60,7 @@ public class WGLAMDGPUAssociation {
 	public static int nwglGetGPUIDsAMD(int maxCount, long ids) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglGetGPUIDsAMD;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPI(__functionAddress, maxCount, ids);
 	}
 
@@ -87,7 +87,7 @@ public class WGLAMDGPUAssociation {
 	public static int nwglGetGPUInfoAMD(int id, int property, int dataType, int size, long data) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglGetGPUInfoAMD;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPI(__functionAddress, id, property, dataType, size, data);
 	}
 
@@ -159,8 +159,8 @@ public class WGLAMDGPUAssociation {
 	public static int wglGetContextGPUIDAMD(long hglrc) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglGetContextGPUIDAMD;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(hglrc);
+			check(__functionAddress);
+			check(hglrc);
 		}
 		return callPI(__functionAddress, hglrc);
 	}
@@ -175,7 +175,7 @@ public class WGLAMDGPUAssociation {
 	public static long wglCreateAssociatedContextAMD(int id) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglCreateAssociatedContextAMD;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callP(__functionAddress, id);
 	}
 
@@ -185,7 +185,7 @@ public class WGLAMDGPUAssociation {
 	public static long nwglCreateAssociatedContextAttribsAMD(int id, long shareContext, long attribList) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglCreateAssociatedContextAttribsAMD;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPPP(__functionAddress, id, shareContext, attribList);
 	}
 
@@ -214,8 +214,8 @@ public class WGLAMDGPUAssociation {
 	public static boolean wglDeleteAssociatedContextAMD(long hglrc) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglDeleteAssociatedContextAMD;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(hglrc);
+			check(__functionAddress);
+			check(hglrc);
 		}
 		return callPI(__functionAddress, hglrc) != 0;
 	}
@@ -230,8 +230,8 @@ public class WGLAMDGPUAssociation {
 	public static boolean wglMakeAssociatedContextCurrentAMD(long hglrc) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglMakeAssociatedContextCurrentAMD;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(hglrc);
+			check(__functionAddress);
+			check(hglrc);
 		}
 		return callPI(__functionAddress, hglrc) != 0;
 	}
@@ -242,7 +242,7 @@ public class WGLAMDGPUAssociation {
 	public static long wglGetCurrentAssociatedContextAMD() {
 		long __functionAddress = GL.getCapabilitiesWGL().wglGetCurrentAssociatedContextAMD;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callP(__functionAddress);
 	}
 
@@ -266,8 +266,8 @@ public class WGLAMDGPUAssociation {
 	public static void wglBlitContextFramebufferAMD(long dstCtx, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglBlitContextFramebufferAMD;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dstCtx);
+			check(__functionAddress);
+			check(dstCtx);
 		}
 		callPV(__functionAddress, dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
@@ -276,7 +276,7 @@ public class WGLAMDGPUAssociation {
 	public static int wglGetGPUIDsAMD(int[] ids) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglGetGPUIDsAMD;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPI(__functionAddress, lengthSafe(ids), ids);
 	}
 
@@ -284,7 +284,7 @@ public class WGLAMDGPUAssociation {
 	public static int wglGetGPUInfoAMD(int id, int property, int dataType, int[] data) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglGetGPUInfoAMD;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPI(__functionAddress, id, property, dataType, data.length, data);
 	}
 
@@ -292,7 +292,7 @@ public class WGLAMDGPUAssociation {
 	public static int wglGetGPUInfoAMD(int id, int property, int dataType, float[] data) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglGetGPUInfoAMD;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPI(__functionAddress, id, property, dataType, data.length, data);
 	}
 
@@ -300,7 +300,7 @@ public class WGLAMDGPUAssociation {
 	public static long wglCreateAssociatedContextAttribsAMD(int id, long shareContext, int[] attribList) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglCreateAssociatedContextAttribsAMD;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 			checkNTSafe(attribList);
 		}
 		return callPPP(__functionAddress, id, shareContext, attribList);

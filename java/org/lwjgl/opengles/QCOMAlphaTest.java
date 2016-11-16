@@ -42,7 +42,7 @@ public class QCOMAlphaTest {
 	public static void glAlphaFuncQCOM(int func, float ref) {
 		long __functionAddress = GLES.getCapabilities().glAlphaFuncQCOM;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, func, ref);
 	}
 

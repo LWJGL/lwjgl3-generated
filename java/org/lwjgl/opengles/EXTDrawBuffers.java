@@ -87,7 +87,7 @@ public class EXTDrawBuffers {
 	public static void nglDrawBuffersEXT(int n, long bufs) {
 		long __functionAddress = GLES.getCapabilities().glDrawBuffersEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, bufs);
 	}
 
@@ -109,7 +109,7 @@ public class EXTDrawBuffers {
 	public static void glDrawBuffersEXT(int[] bufs) {
 		long __functionAddress = GLES.getCapabilities().glDrawBuffersEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, bufs.length, bufs);
 	}
 

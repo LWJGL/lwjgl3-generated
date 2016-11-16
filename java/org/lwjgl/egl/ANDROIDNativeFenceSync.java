@@ -45,9 +45,9 @@ public class ANDROIDNativeFenceSync {
 	public static int eglDupNativeFenceFDANDROID(long dpy, long sync) {
 		long __functionAddress = EGL.getCapabilities().eglDupNativeFenceFDANDROID;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(sync);
+			check(__functionAddress);
+			check(dpy);
+			check(sync);
 		}
 		return callPPI(__functionAddress, dpy, sync);
 	}

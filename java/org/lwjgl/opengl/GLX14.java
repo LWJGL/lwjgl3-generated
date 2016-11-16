@@ -35,7 +35,7 @@ public class GLX14 {
 	public static long nglXGetProcAddress(long procName) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetProcAddress;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPP(__functionAddress, procName);
 	}
 

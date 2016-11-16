@@ -1095,7 +1095,7 @@ public class BGFX {
 	 */
 	public static void bgfx_vertex_pack(FloatBuffer _input, boolean _inputNormalized, int _attr, BGFXVertexDecl _decl, ByteBuffer _data, int _index) {
 		if ( CHECKS )
-			checkBuffer(_input, 4);
+			check(_input, 4);
 		nbgfx_vertex_pack(memAddress(_input), _inputNormalized, _attr, _decl.address(), memAddress(_data), _index);
 	}
 
@@ -1118,7 +1118,7 @@ public class BGFX {
 	 */
 	public static void bgfx_vertex_unpack(FloatBuffer _output, int _attr, BGFXVertexDecl _decl, ByteBuffer _data, int _index) {
 		if ( CHECKS )
-			checkBuffer(_output, 4);
+			check(_output, 4);
 		nbgfx_vertex_unpack(memAddress(_output), _attr, _decl.address(), memAddress(_data), _index);
 	}
 
@@ -1253,8 +1253,8 @@ public class BGFX {
 	 */
 	public static void bgfx_topology_sort_tri_list(int _sort, ByteBuffer _dst, FloatBuffer _dir, FloatBuffer _pos, ByteBuffer _vertices, int _stride, ByteBuffer _indices, boolean _index32) {
 		if ( CHECKS ) {
-			checkBuffer(_dir, 3);
-			checkBuffer(_pos, 3);
+			check(_dir, 3);
+			check(_pos, 3);
 		}
 		nbgfx_topology_sort_tri_list(_sort, memAddress(_dst), _dst.remaining(), memAddress(_dir), memAddress(_pos), memAddress(_vertices), _stride, memAddress(_indices), _indices.remaining() >> (_index32 ? 2 : 1), _index32);
 	}
@@ -1273,8 +1273,8 @@ public class BGFX {
 	 */
 	public static void bgfx_topology_sort_tri_list(int _sort, ShortBuffer _dst, FloatBuffer _dir, FloatBuffer _pos, ByteBuffer _vertices, int _stride, ShortBuffer _indices, boolean _index32) {
 		if ( CHECKS ) {
-			checkBuffer(_dir, 3);
-			checkBuffer(_pos, 3);
+			check(_dir, 3);
+			check(_pos, 3);
 		}
 		nbgfx_topology_sort_tri_list(_sort, memAddress(_dst), _dst.remaining() << 1, memAddress(_dir), memAddress(_pos), memAddress(_vertices), _stride, memAddress(_indices), _indices.remaining(), _index32);
 	}
@@ -1293,8 +1293,8 @@ public class BGFX {
 	 */
 	public static void bgfx_topology_sort_tri_list(int _sort, IntBuffer _dst, FloatBuffer _dir, FloatBuffer _pos, ByteBuffer _vertices, int _stride, IntBuffer _indices, boolean _index32) {
 		if ( CHECKS ) {
-			checkBuffer(_dir, 3);
-			checkBuffer(_pos, 3);
+			check(_dir, 3);
+			check(_pos, 3);
 		}
 		nbgfx_topology_sort_tri_list(_sort, memAddress(_dst), _dst.remaining() << 2, memAddress(_dir), memAddress(_pos), memAddress(_vertices), _stride, memAddress(_indices), _indices.remaining(), _index32);
 	}
@@ -1319,8 +1319,8 @@ public class BGFX {
 	public static void bgfx_image_swizzle_bgra8(int _width, int _height, int _pitch, ByteBuffer _src, ByteBuffer _dst) {
 		int bytes = _height * _pitch * 4;
 		if ( CHECKS ) {
-			checkBuffer(_src, bytes);
-			checkBuffer(_dst, bytes);
+			check(_src, bytes);
+			check(_dst, bytes);
 		}
 		nbgfx_image_swizzle_bgra8(_width, _height, _pitch, memAddress(_src), memAddress(_dst));
 	}
@@ -1337,8 +1337,8 @@ public class BGFX {
 	public static void bgfx_image_swizzle_bgra8(int _width, int _height, int _pitch, IntBuffer _src, IntBuffer _dst) {
 		int bytes = _height * _pitch * 4;
 		if ( CHECKS ) {
-			checkBuffer(_src, bytes >> 2);
-			checkBuffer(_dst, bytes >> 2);
+			check(_src, bytes >> 2);
+			check(_dst, bytes >> 2);
 		}
 		nbgfx_image_swizzle_bgra8(_width, _height, _pitch, memAddress(_src), memAddress(_dst));
 	}
@@ -1363,8 +1363,8 @@ public class BGFX {
 	public static void bgfx_image_rgba8_downsample_2x2(int _width, int _height, int _pitch, ByteBuffer _src, ByteBuffer _dst) {
 		int bytes = _height * _pitch * 4;
 		if ( CHECKS ) {
-			checkBuffer(_src, bytes);
-			checkBuffer(_dst, bytes >> 2);
+			check(_src, bytes);
+			check(_dst, bytes >> 2);
 		}
 		nbgfx_image_rgba8_downsample_2x2(_width, _height, _pitch, memAddress(_src), memAddress(_dst));
 	}
@@ -1381,8 +1381,8 @@ public class BGFX {
 	public static void bgfx_image_rgba8_downsample_2x2(int _width, int _height, int _pitch, IntBuffer _src, IntBuffer _dst) {
 		int bytes = _height * _pitch * 4;
 		if ( CHECKS ) {
-			checkBuffer(_src, bytes >> 2);
-			checkBuffer(_dst, (bytes >> 2) >> 2);
+			check(_src, bytes >> 2);
+			check(_dst, (bytes >> 2) >> 2);
 		}
 		nbgfx_image_rgba8_downsample_2x2(_width, _height, _pitch, memAddress(_src), memAddress(_dst));
 	}
@@ -1930,7 +1930,7 @@ public class BGFX {
 	public static void nbgfx_dbg_text_vprintf(short _x, short _y, byte _attr, long _format, long _argList) {
 		long __functionAddress = Functions.dbg_text_vprintf;
 		if ( CHECKS )
-			checkPointer(_argList);
+			check(_argList);
 		invokePPV(__functionAddress, _x, _y, _attr, _format, _argList);
 	}
 
@@ -1988,7 +1988,7 @@ public class BGFX {
 	 */
 	public static void bgfx_dbg_text_image(int _x, int _y, int _width, int _height, ByteBuffer _data, int _pitch) {
 		if ( CHECKS )
-			checkBuffer(_data, _height * _pitch);
+			check(_data, _height * _pitch);
 		nbgfx_dbg_text_image((short)_x, (short)_y, (short)_width, (short)_height, memAddress(_data), (short)_pitch);
 	}
 
@@ -2891,7 +2891,7 @@ public class BGFX {
 	public static short nbgfx_create_frame_buffer_from_nwh(long _nwh, short _width, short _height, int _depthFormat) {
 		long __functionAddress = Functions.create_frame_buffer_from_nwh;
 		if ( CHECKS )
-			checkPointer(_nwh);
+			check(_nwh);
 		return invokePS(__functionAddress, _nwh, _width, _height, _depthFormat);
 	}
 
@@ -3103,7 +3103,7 @@ public class BGFX {
 	 */
 	public static void bgfx_set_palette_color(int _index, FloatBuffer _rgba) {
 		if ( CHECKS )
-			checkBuffer(_rgba, 4);
+			check(_rgba, 4);
 		nbgfx_set_palette_color((byte)_index, memAddress(_rgba));
 	}
 
@@ -3326,8 +3326,8 @@ public class BGFX {
 	 */
 	public static void bgfx_set_view_transform(int _id, ByteBuffer _view, ByteBuffer _proj) {
 		if ( CHECKS ) {
-			checkBufferSafe(_view, 64);
-			checkBufferSafe(_proj, 64);
+			checkSafe(_view, 64);
+			checkSafe(_proj, 64);
 		}
 		nbgfx_set_view_transform((byte)_id, memAddressSafe(_view), memAddressSafe(_proj));
 	}
@@ -3341,8 +3341,8 @@ public class BGFX {
 	 */
 	public static void bgfx_set_view_transform(int _id, FloatBuffer _view, FloatBuffer _proj) {
 		if ( CHECKS ) {
-			checkBufferSafe(_view, 64 >> 2);
-			checkBufferSafe(_proj, 64 >> 2);
+			checkSafe(_view, 64 >> 2);
+			checkSafe(_proj, 64 >> 2);
 		}
 		nbgfx_set_view_transform((byte)_id, memAddressSafe(_view), memAddressSafe(_proj));
 	}
@@ -3366,9 +3366,9 @@ public class BGFX {
 	 */
 	public static void bgfx_set_view_transform_stereo(int _id, ByteBuffer _view, ByteBuffer _projL, int _flags, ByteBuffer _projR) {
 		if ( CHECKS ) {
-			checkBufferSafe(_view, 64);
-			checkBufferSafe(_projL, 64);
-			checkBufferSafe(_projR, 64);
+			checkSafe(_view, 64);
+			checkSafe(_projL, 64);
+			checkSafe(_projR, 64);
 		}
 		nbgfx_set_view_transform_stereo((byte)_id, memAddressSafe(_view), memAddressSafe(_projL), (byte)_flags, memAddressSafe(_projR));
 	}
@@ -3384,9 +3384,9 @@ public class BGFX {
 	 */
 	public static void bgfx_set_view_transform_stereo(int _id, FloatBuffer _view, FloatBuffer _projL, int _flags, FloatBuffer _projR) {
 		if ( CHECKS ) {
-			checkBufferSafe(_view, 64 >> 2);
-			checkBufferSafe(_projL, 64 >> 2);
-			checkBufferSafe(_projR, 64 >> 2);
+			checkSafe(_view, 64 >> 2);
+			checkSafe(_projL, 64 >> 2);
+			checkSafe(_projR, 64 >> 2);
 		}
 		nbgfx_set_view_transform_stereo((byte)_id, memAddressSafe(_view), memAddressSafe(_projL), (byte)_flags, memAddressSafe(_projR));
 	}
@@ -4292,7 +4292,7 @@ public class BGFX {
 	public static void bgfx_vertex_pack(float[] _input, boolean _inputNormalized, int _attr, BGFXVertexDecl _decl, ByteBuffer _data, int _index) {
 		long __functionAddress = Functions.vertex_pack;
 		if ( CHECKS )
-			checkBuffer(_input, 4);
+			check(_input, 4);
 		invokePPPV(__functionAddress, _input, _inputNormalized, _attr, _decl.address(), memAddress(_data), _index);
 	}
 
@@ -4300,7 +4300,7 @@ public class BGFX {
 	public static void bgfx_vertex_unpack(float[] _output, int _attr, BGFXVertexDecl _decl, ByteBuffer _data, int _index) {
 		long __functionAddress = Functions.vertex_unpack;
 		if ( CHECKS )
-			checkBuffer(_output, 4);
+			check(_output, 4);
 		invokePPPV(__functionAddress, _output, _attr, _decl.address(), memAddress(_data), _index);
 	}
 
@@ -4326,8 +4326,8 @@ public class BGFX {
 	public static void bgfx_topology_sort_tri_list(int _sort, ByteBuffer _dst, float[] _dir, float[] _pos, ByteBuffer _vertices, int _stride, ByteBuffer _indices, boolean _index32) {
 		long __functionAddress = Functions.topology_sort_tri_list;
 		if ( CHECKS ) {
-			checkBuffer(_dir, 3);
-			checkBuffer(_pos, 3);
+			check(_dir, 3);
+			check(_pos, 3);
 		}
 		invokePPPPPV(__functionAddress, _sort, memAddress(_dst), _dst.remaining(), _dir, _pos, memAddress(_vertices), _stride, memAddress(_indices), _indices.remaining() >> (_index32 ? 2 : 1), _index32);
 	}
@@ -4336,8 +4336,8 @@ public class BGFX {
 	public static void bgfx_topology_sort_tri_list(int _sort, short[] _dst, float[] _dir, float[] _pos, ByteBuffer _vertices, int _stride, short[] _indices, boolean _index32) {
 		long __functionAddress = Functions.topology_sort_tri_list;
 		if ( CHECKS ) {
-			checkBuffer(_dir, 3);
-			checkBuffer(_pos, 3);
+			check(_dir, 3);
+			check(_pos, 3);
 		}
 		invokePPPPPV(__functionAddress, _sort, _dst, _dst.length << 1, _dir, _pos, memAddress(_vertices), _stride, _indices, _indices.length >> (_index32 ? 2 : 1), _index32);
 	}
@@ -4346,8 +4346,8 @@ public class BGFX {
 	public static void bgfx_topology_sort_tri_list(int _sort, int[] _dst, float[] _dir, float[] _pos, ByteBuffer _vertices, int _stride, int[] _indices, boolean _index32) {
 		long __functionAddress = Functions.topology_sort_tri_list;
 		if ( CHECKS ) {
-			checkBuffer(_dir, 3);
-			checkBuffer(_pos, 3);
+			check(_dir, 3);
+			check(_pos, 3);
 		}
 		invokePPPPPV(__functionAddress, _sort, _dst, _dst.length << 2, _dir, _pos, memAddress(_vertices), _stride, _indices, _indices.length >> (_index32 ? 2 : 1), _index32);
 	}
@@ -4357,8 +4357,8 @@ public class BGFX {
 		long __functionAddress = Functions.image_swizzle_bgra8;
 		int bytes = _height * _pitch * 4;
 		if ( CHECKS ) {
-			checkBuffer(_src, bytes >> 2);
-			checkBuffer(_dst, bytes >> 2);
+			check(_src, bytes >> 2);
+			check(_dst, bytes >> 2);
 		}
 		invokePPV(__functionAddress, _width, _height, _pitch, _src, _dst);
 	}
@@ -4368,8 +4368,8 @@ public class BGFX {
 		long __functionAddress = Functions.image_rgba8_downsample_2x2;
 		int bytes = _height * _pitch * 4;
 		if ( CHECKS ) {
-			checkBuffer(_src, bytes >> 2);
-			checkBuffer(_dst, (bytes >> 2) >> 2);
+			check(_src, bytes >> 2);
+			check(_dst, (bytes >> 2) >> 2);
 		}
 		invokePPV(__functionAddress, _width, _height, _pitch, _src, _dst);
 	}
@@ -4449,7 +4449,7 @@ public class BGFX {
 	public static void bgfx_set_palette_color(int _index, float[] _rgba) {
 		long __functionAddress = Functions.set_palette_color;
 		if ( CHECKS )
-			checkBuffer(_rgba, 4);
+			check(_rgba, 4);
 		invokePV(__functionAddress, (byte)_index, _rgba);
 	}
 
@@ -4457,8 +4457,8 @@ public class BGFX {
 	public static void bgfx_set_view_transform(int _id, float[] _view, float[] _proj) {
 		long __functionAddress = Functions.set_view_transform;
 		if ( CHECKS ) {
-			checkBufferSafe(_view, 64 >> 2);
-			checkBufferSafe(_proj, 64 >> 2);
+			checkSafe(_view, 64 >> 2);
+			checkSafe(_proj, 64 >> 2);
 		}
 		invokePPV(__functionAddress, (byte)_id, _view, _proj);
 	}
@@ -4467,9 +4467,9 @@ public class BGFX {
 	public static void bgfx_set_view_transform_stereo(int _id, float[] _view, float[] _projL, int _flags, float[] _projR) {
 		long __functionAddress = Functions.set_view_transform_stereo;
 		if ( CHECKS ) {
-			checkBufferSafe(_view, 64 >> 2);
-			checkBufferSafe(_projL, 64 >> 2);
-			checkBufferSafe(_projR, 64 >> 2);
+			checkSafe(_view, 64 >> 2);
+			checkSafe(_projL, 64 >> 2);
+			checkSafe(_projR, 64 >> 2);
 		}
 		invokePPPV(__functionAddress, (byte)_id, _view, _projL, (byte)_flags, _projR);
 	}

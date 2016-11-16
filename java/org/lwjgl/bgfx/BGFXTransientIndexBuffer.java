@@ -282,7 +282,7 @@ public class BGFXTransientIndexBuffer extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + BGFXTransientIndexBuffer.DATA));
+		check(memGetAddress(struct + BGFXTransientIndexBuffer.DATA));
 	}
 
 	/**

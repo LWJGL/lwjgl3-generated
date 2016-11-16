@@ -89,7 +89,7 @@ public class ARBSync {
 	public static long glFenceSync(int condition, int flags) {
 		long __functionAddress = GL.getCapabilities().glFenceSync;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callP(__functionAddress, condition, flags);
 	}
 
@@ -103,8 +103,8 @@ public class ARBSync {
 	public static boolean glIsSync(long sync) {
 		long __functionAddress = GL.getCapabilities().glIsSync;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(sync);
+			check(__functionAddress);
+			check(sync);
 		}
 		return callPZ(__functionAddress, sync);
 	}
@@ -119,8 +119,8 @@ public class ARBSync {
 	public static void glDeleteSync(long sync) {
 		long __functionAddress = GL.getCapabilities().glDeleteSync;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(sync);
+			check(__functionAddress);
+			check(sync);
 		}
 		callPV(__functionAddress, sync);
 	}
@@ -147,8 +147,8 @@ public class ARBSync {
 	public static int glClientWaitSync(long sync, int flags, long timeout) {
 		long __functionAddress = GL.getCapabilities().glClientWaitSync;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(sync);
+			check(__functionAddress);
+			check(sync);
 		}
 		return callPJI(__functionAddress, sync, flags, timeout);
 	}
@@ -171,8 +171,8 @@ public class ARBSync {
 	public static void glWaitSync(long sync, int flags, long timeout) {
 		long __functionAddress = GL.getCapabilities().glWaitSync;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(sync);
+			check(__functionAddress);
+			check(sync);
 		}
 		callPJV(__functionAddress, sync, flags, timeout);
 	}
@@ -183,7 +183,7 @@ public class ARBSync {
 	public static void nglGetInteger64v(int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetInteger64v;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, pname, params);
 	}
 
@@ -195,7 +195,7 @@ public class ARBSync {
 	 */
 	public static void glGetInteger64v(int pname, LongBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetInteger64v(pname, memAddress(params));
 	}
 
@@ -225,8 +225,8 @@ public class ARBSync {
 	public static void nglGetSynciv(long sync, int pname, int bufSize, long length, long values) {
 		long __functionAddress = GL.getCapabilities().glGetSynciv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(sync);
+			check(__functionAddress);
+			check(sync);
 		}
 		callPPPV(__functionAddress, sync, pname, bufSize, length, values);
 	}
@@ -241,7 +241,7 @@ public class ARBSync {
 	 */
 	public static void glGetSynciv(long sync, int pname, IntBuffer length, IntBuffer values) {
 		if ( CHECKS )
-			checkBufferSafe(length, 1);
+			checkSafe(length, 1);
 		nglGetSynciv(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
 	}
 
@@ -254,7 +254,7 @@ public class ARBSync {
 	 */
 	public static int glGetSynci(long sync, int pname, IntBuffer length) {
 		if ( CHECKS )
-			checkBufferSafe(length, 1);
+			checkSafe(length, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			IntBuffer values = stack.callocInt(1);
@@ -269,8 +269,8 @@ public class ARBSync {
 	public static void glGetInteger64v(int pname, long[] params) {
 		long __functionAddress = GL.getCapabilities().glGetInteger64v;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, pname, params);
 	}
@@ -279,9 +279,9 @@ public class ARBSync {
 	public static void glGetSynciv(long sync, int pname, int[] length, int[] values) {
 		long __functionAddress = GL.getCapabilities().glGetSynciv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(sync);
-			checkBufferSafe(length, 1);
+			check(__functionAddress);
+			check(sync);
+			checkSafe(length, 1);
 		}
 		callPPPV(__functionAddress, sync, pname, values.length, length, values);
 	}

@@ -61,7 +61,7 @@ public class ARBDrawBuffers {
 	public static void nglDrawBuffersARB(int n, long bufs) {
 		long __functionAddress = GL.getCapabilities().glDrawBuffersARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, bufs);
 	}
 
@@ -78,7 +78,7 @@ public class ARBDrawBuffers {
 	public static void glDrawBuffersARB(int[] bufs) {
 		long __functionAddress = GL.getCapabilities().glDrawBuffersARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, bufs.length, bufs);
 	}
 

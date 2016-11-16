@@ -42,10 +42,10 @@ public class KHREGLEvent {
 	public static long nclCreateEventFromEGLSyncKHR(long context, long sync, long display, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateEventFromEGLSyncKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
-			checkPointer(sync);
-			checkPointer(display);
+			check(__functionAddress);
+			check(context);
+			check(sync);
+			check(display);
 		}
 		return callPPPPP(__functionAddress, context, sync, display, errcode_ret);
 	}
@@ -60,7 +60,7 @@ public class KHREGLEvent {
 	 */
 	public static long clCreateEventFromEGLSyncKHR(long context, long sync, long display, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateEventFromEGLSyncKHR(context, sync, display, memAddressSafe(errcode_ret));
 	}
 
@@ -68,11 +68,11 @@ public class KHREGLEvent {
 	public static long clCreateEventFromEGLSyncKHR(long context, long sync, long display, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateEventFromEGLSyncKHR;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
-			checkPointer(sync);
-			checkPointer(display);
-			checkBufferSafe(errcode_ret, 1);
+			check(__functionAddress);
+			check(context);
+			check(sync);
+			check(display);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPPPPP(__functionAddress, context, sync, display, errcode_ret);
 	}

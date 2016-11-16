@@ -309,7 +309,7 @@ public class VkDebugMarkerMarkerInfoEXT extends Struct implements NativeResource
 	}
 	/** Unsafe version of {@link #color(FloatBuffer) color}. */
 	public static void ncolor(long struct, FloatBuffer value) {
-		if ( CHECKS ) checkBufferGT(value, 4);
+		if ( CHECKS ) checkGT(value, 4);
 		memCopy(memAddress(value), struct + VkDebugMarkerMarkerInfoEXT.COLOR, value.remaining() * 4);
 	}
 	/** Unsafe version of {@link #color(int, float) color}. */
@@ -324,7 +324,7 @@ public class VkDebugMarkerMarkerInfoEXT extends Struct implements NativeResource
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + VkDebugMarkerMarkerInfoEXT.PMARKERNAME));
+		check(memGetAddress(struct + VkDebugMarkerMarkerInfoEXT.PMARKERNAME));
 	}
 
 	/**

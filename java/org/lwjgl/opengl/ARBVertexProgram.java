@@ -195,7 +195,7 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib1sARB(int index, short x) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1sARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, x);
 	}
 
@@ -210,7 +210,7 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib1fARB(int index, float x) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1fARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, x);
 	}
 
@@ -225,7 +225,7 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib1dARB(int index, double x) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1dARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, x);
 	}
 
@@ -241,7 +241,7 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib2sARB(int index, short x, short y) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2sARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, x, y);
 	}
 
@@ -257,7 +257,7 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib2fARB(int index, float x, float y) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2fARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, x, y);
 	}
 
@@ -273,7 +273,7 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib2dARB(int index, double x, double y) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2dARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, x, y);
 	}
 
@@ -290,7 +290,7 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib3sARB(int index, short x, short y, short z) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3sARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, x, y, z);
 	}
 
@@ -307,7 +307,7 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib3fARB(int index, float x, float y, float z) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3fARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, x, y, z);
 	}
 
@@ -324,7 +324,7 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib3dARB(int index, double x, double y, double z) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3dARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, x, y, z);
 	}
 
@@ -342,7 +342,7 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib4sARB(int index, short x, short y, short z, short w) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4sARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, x, y, z, w);
 	}
 
@@ -360,7 +360,7 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib4fARB(int index, float x, float y, float z, float w) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4fARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, x, y, z, w);
 	}
 
@@ -378,7 +378,7 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib4dARB(int index, double x, double y, double z, double w) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4dARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, x, y, z, w);
 	}
 
@@ -396,7 +396,7 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib4NubARB(int index, byte x, byte y, byte z, byte w) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4NubARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, x, y, z, w);
 	}
 
@@ -406,7 +406,7 @@ public class ARBVertexProgram {
 	public static void nglVertexAttrib1svARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1svARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -418,7 +418,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib1svARB(int index, ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 1);
+			check(v, 1);
 		nglVertexAttrib1svARB(index, memAddress(v));
 	}
 
@@ -428,7 +428,7 @@ public class ARBVertexProgram {
 	public static void nglVertexAttrib1fvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1fvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -440,7 +440,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib1fvARB(int index, FloatBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 1);
+			check(v, 1);
 		nglVertexAttrib1fvARB(index, memAddress(v));
 	}
 
@@ -450,7 +450,7 @@ public class ARBVertexProgram {
 	public static void nglVertexAttrib1dvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1dvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -462,7 +462,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib1dvARB(int index, DoubleBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 1);
+			check(v, 1);
 		nglVertexAttrib1dvARB(index, memAddress(v));
 	}
 
@@ -472,7 +472,7 @@ public class ARBVertexProgram {
 	public static void nglVertexAttrib2svARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2svARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -484,7 +484,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib2svARB(int index, ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 2);
+			check(v, 2);
 		nglVertexAttrib2svARB(index, memAddress(v));
 	}
 
@@ -494,7 +494,7 @@ public class ARBVertexProgram {
 	public static void nglVertexAttrib2fvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2fvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -506,7 +506,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib2fvARB(int index, FloatBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 2);
+			check(v, 2);
 		nglVertexAttrib2fvARB(index, memAddress(v));
 	}
 
@@ -516,7 +516,7 @@ public class ARBVertexProgram {
 	public static void nglVertexAttrib2dvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2dvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -528,7 +528,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib2dvARB(int index, DoubleBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 2);
+			check(v, 2);
 		nglVertexAttrib2dvARB(index, memAddress(v));
 	}
 
@@ -538,7 +538,7 @@ public class ARBVertexProgram {
 	public static void nglVertexAttrib3svARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3svARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -550,7 +550,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib3svARB(int index, ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglVertexAttrib3svARB(index, memAddress(v));
 	}
 
@@ -560,7 +560,7 @@ public class ARBVertexProgram {
 	public static void nglVertexAttrib3fvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3fvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -572,7 +572,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib3fvARB(int index, FloatBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglVertexAttrib3fvARB(index, memAddress(v));
 	}
 
@@ -582,7 +582,7 @@ public class ARBVertexProgram {
 	public static void nglVertexAttrib3dvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3dvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -594,7 +594,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib3dvARB(int index, DoubleBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglVertexAttrib3dvARB(index, memAddress(v));
 	}
 
@@ -604,7 +604,7 @@ public class ARBVertexProgram {
 	public static void nglVertexAttrib4fvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4fvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -616,7 +616,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib4fvARB(int index, FloatBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4fvARB(index, memAddress(v));
 	}
 
@@ -626,7 +626,7 @@ public class ARBVertexProgram {
 	public static void nglVertexAttrib4bvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4bvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -638,7 +638,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib4bvARB(int index, ByteBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4bvARB(index, memAddress(v));
 	}
 
@@ -648,7 +648,7 @@ public class ARBVertexProgram {
 	public static void nglVertexAttrib4svARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4svARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -660,7 +660,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib4svARB(int index, ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4svARB(index, memAddress(v));
 	}
 
@@ -670,7 +670,7 @@ public class ARBVertexProgram {
 	public static void nglVertexAttrib4ivARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4ivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -682,7 +682,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib4ivARB(int index, IntBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4ivARB(index, memAddress(v));
 	}
 
@@ -692,7 +692,7 @@ public class ARBVertexProgram {
 	public static void nglVertexAttrib4ubvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4ubvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -704,7 +704,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib4ubvARB(int index, ByteBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4ubvARB(index, memAddress(v));
 	}
 
@@ -714,7 +714,7 @@ public class ARBVertexProgram {
 	public static void nglVertexAttrib4usvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4usvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -726,7 +726,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib4usvARB(int index, ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4usvARB(index, memAddress(v));
 	}
 
@@ -736,7 +736,7 @@ public class ARBVertexProgram {
 	public static void nglVertexAttrib4uivARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4uivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -748,7 +748,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib4uivARB(int index, IntBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4uivARB(index, memAddress(v));
 	}
 
@@ -758,7 +758,7 @@ public class ARBVertexProgram {
 	public static void nglVertexAttrib4dvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4dvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -770,7 +770,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib4dvARB(int index, DoubleBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4dvARB(index, memAddress(v));
 	}
 
@@ -780,7 +780,7 @@ public class ARBVertexProgram {
 	public static void nglVertexAttrib4NbvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4NbvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -792,7 +792,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib4NbvARB(int index, ByteBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4NbvARB(index, memAddress(v));
 	}
 
@@ -802,7 +802,7 @@ public class ARBVertexProgram {
 	public static void nglVertexAttrib4NsvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4NsvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -814,7 +814,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib4NsvARB(int index, ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4NsvARB(index, memAddress(v));
 	}
 
@@ -824,7 +824,7 @@ public class ARBVertexProgram {
 	public static void nglVertexAttrib4NivARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4NivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -836,7 +836,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib4NivARB(int index, IntBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4NivARB(index, memAddress(v));
 	}
 
@@ -846,7 +846,7 @@ public class ARBVertexProgram {
 	public static void nglVertexAttrib4NubvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4NubvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -858,7 +858,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib4NubvARB(int index, ByteBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4NubvARB(index, memAddress(v));
 	}
 
@@ -868,7 +868,7 @@ public class ARBVertexProgram {
 	public static void nglVertexAttrib4NusvARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4NusvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -880,7 +880,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib4NusvARB(int index, ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4NusvARB(index, memAddress(v));
 	}
 
@@ -890,7 +890,7 @@ public class ARBVertexProgram {
 	public static void nglVertexAttrib4NuivARB(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4NuivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -902,7 +902,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glVertexAttrib4NuivARB(int index, IntBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4NuivARB(index, memAddress(v));
 	}
 
@@ -912,7 +912,7 @@ public class ARBVertexProgram {
 	public static void nglVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, long pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribPointerARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
@@ -996,7 +996,7 @@ public class ARBVertexProgram {
 	public static void glEnableVertexAttribArrayARB(int index) {
 		long __functionAddress = GL.getCapabilities().glEnableVertexAttribArrayARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index);
 	}
 
@@ -1010,7 +1010,7 @@ public class ARBVertexProgram {
 	public static void glDisableVertexAttribArrayARB(int index) {
 		long __functionAddress = GL.getCapabilities().glDisableVertexAttribArrayARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index);
 	}
 
@@ -1024,7 +1024,7 @@ public class ARBVertexProgram {
 	public static void nglProgramStringARB(int target, int format, int len, long string) {
 		long __functionAddress = GL.getCapabilities().glProgramStringARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, format, len, string);
 	}
 
@@ -1063,7 +1063,7 @@ public class ARBVertexProgram {
 	public static void glBindProgramARB(int target, int program) {
 		long __functionAddress = GL.getCapabilities().glBindProgramARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, program);
 	}
 
@@ -1077,7 +1077,7 @@ public class ARBVertexProgram {
 	public static void nglDeleteProgramsARB(int n, long programs) {
 		long __functionAddress = GL.getCapabilities().glDeleteProgramsARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, programs);
 	}
 
@@ -1100,7 +1100,7 @@ public class ARBVertexProgram {
 	public static void nglGenProgramsARB(int n, long programs) {
 		long __functionAddress = GL.getCapabilities().glGenProgramsARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, programs);
 	}
 
@@ -1144,7 +1144,7 @@ public class ARBVertexProgram {
 	public static void glProgramEnvParameter4dARB(int target, int index, double x, double y, double z, double w) {
 		long __functionAddress = GL.getCapabilities().glProgramEnvParameter4dARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, index, x, y, z, w);
 	}
 
@@ -1154,7 +1154,7 @@ public class ARBVertexProgram {
 	public static void nglProgramEnvParameter4dvARB(int target, int index, long params) {
 		long __functionAddress = GL.getCapabilities().glProgramEnvParameter4dvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, index, params);
 	}
 
@@ -1167,7 +1167,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glProgramEnvParameter4dvARB(int target, int index, DoubleBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglProgramEnvParameter4dvARB(target, index, memAddress(params));
 	}
 
@@ -1186,7 +1186,7 @@ public class ARBVertexProgram {
 	public static void glProgramEnvParameter4fARB(int target, int index, float x, float y, float z, float w) {
 		long __functionAddress = GL.getCapabilities().glProgramEnvParameter4fARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, index, x, y, z, w);
 	}
 
@@ -1196,7 +1196,7 @@ public class ARBVertexProgram {
 	public static void nglProgramEnvParameter4fvARB(int target, int index, long params) {
 		long __functionAddress = GL.getCapabilities().glProgramEnvParameter4fvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, index, params);
 	}
 
@@ -1209,7 +1209,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glProgramEnvParameter4fvARB(int target, int index, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglProgramEnvParameter4fvARB(target, index, memAddress(params));
 	}
 
@@ -1228,7 +1228,7 @@ public class ARBVertexProgram {
 	public static void glProgramLocalParameter4dARB(int target, int index, double x, double y, double z, double w) {
 		long __functionAddress = GL.getCapabilities().glProgramLocalParameter4dARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, index, x, y, z, w);
 	}
 
@@ -1238,7 +1238,7 @@ public class ARBVertexProgram {
 	public static void nglProgramLocalParameter4dvARB(int target, int index, long params) {
 		long __functionAddress = GL.getCapabilities().glProgramLocalParameter4dvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, index, params);
 	}
 
@@ -1251,7 +1251,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glProgramLocalParameter4dvARB(int target, int index, DoubleBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglProgramLocalParameter4dvARB(target, index, memAddress(params));
 	}
 
@@ -1270,7 +1270,7 @@ public class ARBVertexProgram {
 	public static void glProgramLocalParameter4fARB(int target, int index, float x, float y, float z, float w) {
 		long __functionAddress = GL.getCapabilities().glProgramLocalParameter4fARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, index, x, y, z, w);
 	}
 
@@ -1280,7 +1280,7 @@ public class ARBVertexProgram {
 	public static void nglProgramLocalParameter4fvARB(int target, int index, long params) {
 		long __functionAddress = GL.getCapabilities().glProgramLocalParameter4fvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, index, params);
 	}
 
@@ -1293,7 +1293,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glProgramLocalParameter4fvARB(int target, int index, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglProgramLocalParameter4fvARB(target, index, memAddress(params));
 	}
 
@@ -1303,7 +1303,7 @@ public class ARBVertexProgram {
 	public static void nglGetProgramEnvParameterfvARB(int target, int index, long params) {
 		long __functionAddress = GL.getCapabilities().glGetProgramEnvParameterfvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, index, params);
 	}
 
@@ -1317,7 +1317,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glGetProgramEnvParameterfvARB(int target, int index, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglGetProgramEnvParameterfvARB(target, index, memAddress(params));
 	}
 
@@ -1327,7 +1327,7 @@ public class ARBVertexProgram {
 	public static void nglGetProgramEnvParameterdvARB(int target, int index, long params) {
 		long __functionAddress = GL.getCapabilities().glGetProgramEnvParameterdvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, index, params);
 	}
 
@@ -1340,7 +1340,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glGetProgramEnvParameterdvARB(int target, int index, DoubleBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglGetProgramEnvParameterdvARB(target, index, memAddress(params));
 	}
 
@@ -1350,7 +1350,7 @@ public class ARBVertexProgram {
 	public static void nglGetProgramLocalParameterfvARB(int target, int index, long params) {
 		long __functionAddress = GL.getCapabilities().glGetProgramLocalParameterfvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, index, params);
 	}
 
@@ -1364,7 +1364,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glGetProgramLocalParameterfvARB(int target, int index, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglGetProgramLocalParameterfvARB(target, index, memAddress(params));
 	}
 
@@ -1374,7 +1374,7 @@ public class ARBVertexProgram {
 	public static void nglGetProgramLocalParameterdvARB(int target, int index, long params) {
 		long __functionAddress = GL.getCapabilities().glGetProgramLocalParameterdvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, index, params);
 	}
 
@@ -1387,7 +1387,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glGetProgramLocalParameterdvARB(int target, int index, DoubleBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglGetProgramLocalParameterdvARB(target, index, memAddress(params));
 	}
 
@@ -1397,7 +1397,7 @@ public class ARBVertexProgram {
 	public static void nglGetProgramivARB(int target, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetProgramivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, pname, params);
 	}
 
@@ -1411,7 +1411,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glGetProgramivARB(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetProgramivARB(target, pname, memAddress(params));
 	}
 
@@ -1439,7 +1439,7 @@ public class ARBVertexProgram {
 	public static void nglGetProgramStringARB(int target, int pname, long string) {
 		long __functionAddress = GL.getCapabilities().glGetProgramStringARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, pname, string);
 	}
 
@@ -1456,7 +1456,7 @@ public class ARBVertexProgram {
 	public static void glGetProgramStringARB(int target, int pname, ByteBuffer string) {
 		if ( CHECKS )
 			if ( DEBUG )
-				checkBuffer(string, glGetProgramiARB(target, GL_PROGRAM_LENGTH_ARB));
+				check(string, glGetProgramiARB(target, GL_PROGRAM_LENGTH_ARB));
 		nglGetProgramStringARB(target, pname, memAddress(string));
 	}
 
@@ -1466,7 +1466,7 @@ public class ARBVertexProgram {
 	public static void nglGetVertexAttribfvARB(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribfvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, pname, params);
 	}
 
@@ -1480,7 +1480,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glGetVertexAttribfvARB(int index, int pname, FloatBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglGetVertexAttribfvARB(index, pname, memAddress(params));
 	}
 
@@ -1490,7 +1490,7 @@ public class ARBVertexProgram {
 	public static void nglGetVertexAttribdvARB(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribdvARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, pname, params);
 	}
 
@@ -1503,7 +1503,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glGetVertexAttribdvARB(int index, int pname, DoubleBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 4);
+			check(params, 4);
 		nglGetVertexAttribdvARB(index, pname, memAddress(params));
 	}
 
@@ -1513,7 +1513,7 @@ public class ARBVertexProgram {
 	public static void nglGetVertexAttribivARB(int index, int pname, long params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribivARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, pname, params);
 	}
 
@@ -1526,7 +1526,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glGetVertexAttribivARB(int index, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetVertexAttribivARB(index, pname, memAddress(params));
 	}
 
@@ -1553,7 +1553,7 @@ public class ARBVertexProgram {
 	public static void nglGetVertexAttribPointervARB(int index, int pname, long pointer) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribPointervARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, pname, pointer);
 	}
 
@@ -1566,7 +1566,7 @@ public class ARBVertexProgram {
 	 */
 	public static void glGetVertexAttribPointervARB(int index, int pname, PointerBuffer pointer) {
 		if ( CHECKS )
-			checkBuffer(pointer, 1);
+			check(pointer, 1);
 		nglGetVertexAttribPointervARB(index, pname, memAddress(pointer));
 	}
 
@@ -1599,7 +1599,7 @@ public class ARBVertexProgram {
 	public static boolean glIsProgramARB(int program) {
 		long __functionAddress = GL.getCapabilities().glIsProgramARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callZ(__functionAddress, program);
 	}
 
@@ -1607,8 +1607,8 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib1svARB(int index, short[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1svARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 1);
+			check(__functionAddress);
+			check(v, 1);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -1617,8 +1617,8 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib1fvARB(int index, float[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1fvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 1);
+			check(__functionAddress);
+			check(v, 1);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -1627,8 +1627,8 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib1dvARB(int index, double[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1dvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 1);
+			check(__functionAddress);
+			check(v, 1);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -1637,8 +1637,8 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib2svARB(int index, short[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2svARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 2);
+			check(__functionAddress);
+			check(v, 2);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -1647,8 +1647,8 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib2fvARB(int index, float[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2fvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 2);
+			check(__functionAddress);
+			check(v, 2);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -1657,8 +1657,8 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib2dvARB(int index, double[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2dvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 2);
+			check(__functionAddress);
+			check(v, 2);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -1667,8 +1667,8 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib3svARB(int index, short[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3svARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -1677,8 +1677,8 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib3fvARB(int index, float[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3fvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -1687,8 +1687,8 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib3dvARB(int index, double[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3dvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -1697,8 +1697,8 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib4fvARB(int index, float[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4fvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -1707,8 +1707,8 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib4svARB(int index, short[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4svARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -1717,8 +1717,8 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib4ivARB(int index, int[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4ivARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -1727,8 +1727,8 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib4usvARB(int index, short[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4usvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -1737,8 +1737,8 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib4uivARB(int index, int[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4uivARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -1747,8 +1747,8 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib4dvARB(int index, double[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4dvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -1757,8 +1757,8 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib4NsvARB(int index, short[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4NsvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -1767,8 +1767,8 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib4NivARB(int index, int[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4NivARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -1777,8 +1777,8 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib4NusvARB(int index, short[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4NusvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -1787,8 +1787,8 @@ public class ARBVertexProgram {
 	public static void glVertexAttrib4NuivARB(int index, int[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4NuivARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -1797,7 +1797,7 @@ public class ARBVertexProgram {
 	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, short[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribPointerARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
@@ -1805,7 +1805,7 @@ public class ARBVertexProgram {
 	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, int[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribPointerARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
@@ -1813,7 +1813,7 @@ public class ARBVertexProgram {
 	public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, float[] pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribPointerARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, size, type, normalized, stride, pointer);
 	}
 
@@ -1821,7 +1821,7 @@ public class ARBVertexProgram {
 	public static void glDeleteProgramsARB(int[] programs) {
 		long __functionAddress = GL.getCapabilities().glDeleteProgramsARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, programs.length, programs);
 	}
 
@@ -1829,7 +1829,7 @@ public class ARBVertexProgram {
 	public static void glGenProgramsARB(int[] programs) {
 		long __functionAddress = GL.getCapabilities().glGenProgramsARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, programs.length, programs);
 	}
 
@@ -1837,8 +1837,8 @@ public class ARBVertexProgram {
 	public static void glProgramEnvParameter4dvARB(int target, int index, double[] params) {
 		long __functionAddress = GL.getCapabilities().glProgramEnvParameter4dvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 4);
+			check(__functionAddress);
+			check(params, 4);
 		}
 		callPV(__functionAddress, target, index, params);
 	}
@@ -1847,8 +1847,8 @@ public class ARBVertexProgram {
 	public static void glProgramEnvParameter4fvARB(int target, int index, float[] params) {
 		long __functionAddress = GL.getCapabilities().glProgramEnvParameter4fvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 4);
+			check(__functionAddress);
+			check(params, 4);
 		}
 		callPV(__functionAddress, target, index, params);
 	}
@@ -1857,8 +1857,8 @@ public class ARBVertexProgram {
 	public static void glProgramLocalParameter4dvARB(int target, int index, double[] params) {
 		long __functionAddress = GL.getCapabilities().glProgramLocalParameter4dvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 4);
+			check(__functionAddress);
+			check(params, 4);
 		}
 		callPV(__functionAddress, target, index, params);
 	}
@@ -1867,8 +1867,8 @@ public class ARBVertexProgram {
 	public static void glProgramLocalParameter4fvARB(int target, int index, float[] params) {
 		long __functionAddress = GL.getCapabilities().glProgramLocalParameter4fvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 4);
+			check(__functionAddress);
+			check(params, 4);
 		}
 		callPV(__functionAddress, target, index, params);
 	}
@@ -1877,8 +1877,8 @@ public class ARBVertexProgram {
 	public static void glGetProgramEnvParameterfvARB(int target, int index, float[] params) {
 		long __functionAddress = GL.getCapabilities().glGetProgramEnvParameterfvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 4);
+			check(__functionAddress);
+			check(params, 4);
 		}
 		callPV(__functionAddress, target, index, params);
 	}
@@ -1887,8 +1887,8 @@ public class ARBVertexProgram {
 	public static void glGetProgramEnvParameterdvARB(int target, int index, double[] params) {
 		long __functionAddress = GL.getCapabilities().glGetProgramEnvParameterdvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 4);
+			check(__functionAddress);
+			check(params, 4);
 		}
 		callPV(__functionAddress, target, index, params);
 	}
@@ -1897,8 +1897,8 @@ public class ARBVertexProgram {
 	public static void glGetProgramLocalParameterfvARB(int target, int index, float[] params) {
 		long __functionAddress = GL.getCapabilities().glGetProgramLocalParameterfvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 4);
+			check(__functionAddress);
+			check(params, 4);
 		}
 		callPV(__functionAddress, target, index, params);
 	}
@@ -1907,8 +1907,8 @@ public class ARBVertexProgram {
 	public static void glGetProgramLocalParameterdvARB(int target, int index, double[] params) {
 		long __functionAddress = GL.getCapabilities().glGetProgramLocalParameterdvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 4);
+			check(__functionAddress);
+			check(params, 4);
 		}
 		callPV(__functionAddress, target, index, params);
 	}
@@ -1917,8 +1917,8 @@ public class ARBVertexProgram {
 	public static void glGetProgramivARB(int target, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetProgramivARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, target, pname, params);
 	}
@@ -1927,8 +1927,8 @@ public class ARBVertexProgram {
 	public static void glGetVertexAttribfvARB(int index, int pname, float[] params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribfvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 4);
+			check(__functionAddress);
+			check(params, 4);
 		}
 		callPV(__functionAddress, index, pname, params);
 	}
@@ -1937,8 +1937,8 @@ public class ARBVertexProgram {
 	public static void glGetVertexAttribdvARB(int index, int pname, double[] params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribdvARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 4);
+			check(__functionAddress);
+			check(params, 4);
 		}
 		callPV(__functionAddress, index, pname, params);
 	}
@@ -1947,8 +1947,8 @@ public class ARBVertexProgram {
 	public static void glGetVertexAttribivARB(int index, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribivARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, index, pname, params);
 	}

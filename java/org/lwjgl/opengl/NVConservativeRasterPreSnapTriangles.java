@@ -59,7 +59,7 @@ public class NVConservativeRasterPreSnapTriangles {
 	public static void glConservativeRasterParameteriNV(int pname, int param) {
 		long __functionAddress = GL.getCapabilities().glConservativeRasterParameteriNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, pname, param);
 	}
 

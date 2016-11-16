@@ -305,7 +305,7 @@ public class VkExportMemoryWin32HandleInfoNV extends Struct implements NativeRes
 	 */
 	public static void validate(long struct) {
 		long pAttributes = memGetAddress(struct + VkExportMemoryWin32HandleInfoNV.PATTRIBUTES);
-		checkPointer(pAttributes);
+		check(pAttributes);
 		SECURITY_ATTRIBUTES.validate(pAttributes);
 	}
 

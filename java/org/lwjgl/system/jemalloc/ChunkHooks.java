@@ -316,19 +316,19 @@ public class ChunkHooks extends Struct implements NativeResource {
 	public static long nmerge(long struct) { return memGetAddress(struct + ChunkHooks.MERGE); }
 
 	/** Unsafe version of {@link #alloc(ChunkAllocI) alloc}. */
-	public static void nalloc(long struct, long value) { memPutAddress(struct + ChunkHooks.ALLOC, checkPointer(value)); }
+	public static void nalloc(long struct, long value) { memPutAddress(struct + ChunkHooks.ALLOC, check(value)); }
 	/** Unsafe version of {@link #dalloc(ChunkDallocI) dalloc}. */
-	public static void ndalloc(long struct, long value) { memPutAddress(struct + ChunkHooks.DALLOC, checkPointer(value)); }
+	public static void ndalloc(long struct, long value) { memPutAddress(struct + ChunkHooks.DALLOC, check(value)); }
 	/** Unsafe version of {@link #commit(ChunkCommitI) commit}. */
-	public static void ncommit(long struct, long value) { memPutAddress(struct + ChunkHooks.COMMIT, checkPointer(value)); }
+	public static void ncommit(long struct, long value) { memPutAddress(struct + ChunkHooks.COMMIT, check(value)); }
 	/** Unsafe version of {@link #decommit(ChunkDecommitI) decommit}. */
-	public static void ndecommit(long struct, long value) { memPutAddress(struct + ChunkHooks.DECOMMIT, checkPointer(value)); }
+	public static void ndecommit(long struct, long value) { memPutAddress(struct + ChunkHooks.DECOMMIT, check(value)); }
 	/** Unsafe version of {@link #purge(ChunkPurgeI) purge}. */
-	public static void npurge(long struct, long value) { memPutAddress(struct + ChunkHooks.PURGE, checkPointer(value)); }
+	public static void npurge(long struct, long value) { memPutAddress(struct + ChunkHooks.PURGE, check(value)); }
 	/** Unsafe version of {@link #split(ChunkSplitI) split}. */
-	public static void nsplit(long struct, long value) { memPutAddress(struct + ChunkHooks.SPLIT, checkPointer(value)); }
+	public static void nsplit(long struct, long value) { memPutAddress(struct + ChunkHooks.SPLIT, check(value)); }
 	/** Unsafe version of {@link #merge(ChunkMergeI) merge}. */
-	public static void nmerge(long struct, long value) { memPutAddress(struct + ChunkHooks.MERGE, checkPointer(value)); }
+	public static void nmerge(long struct, long value) { memPutAddress(struct + ChunkHooks.MERGE, check(value)); }
 
 	/**
 	 * Validates pointer members that should not be {@code NULL}.
@@ -336,13 +336,13 @@ public class ChunkHooks extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + ChunkHooks.ALLOC));
-		checkPointer(memGetAddress(struct + ChunkHooks.DALLOC));
-		checkPointer(memGetAddress(struct + ChunkHooks.COMMIT));
-		checkPointer(memGetAddress(struct + ChunkHooks.DECOMMIT));
-		checkPointer(memGetAddress(struct + ChunkHooks.PURGE));
-		checkPointer(memGetAddress(struct + ChunkHooks.SPLIT));
-		checkPointer(memGetAddress(struct + ChunkHooks.MERGE));
+		check(memGetAddress(struct + ChunkHooks.ALLOC));
+		check(memGetAddress(struct + ChunkHooks.DALLOC));
+		check(memGetAddress(struct + ChunkHooks.COMMIT));
+		check(memGetAddress(struct + ChunkHooks.DECOMMIT));
+		check(memGetAddress(struct + ChunkHooks.PURGE));
+		check(memGetAddress(struct + ChunkHooks.SPLIT));
+		check(memGetAddress(struct + ChunkHooks.MERGE));
 	}
 
 	/**

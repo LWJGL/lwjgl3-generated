@@ -485,7 +485,7 @@ public class X11 {
 	public static void XCloseDisplay(long display) {
 		long __functionAddress = Functions.XCloseDisplay;
 		if ( CHECKS )
-			checkPointer(display);
+			check(display);
 		invokePV(__functionAddress, display);
 	}
 
@@ -499,7 +499,7 @@ public class X11 {
 	public static int XDefaultScreen(long display) {
 		long __functionAddress = Functions.XDefaultScreen;
 		if ( CHECKS )
-			checkPointer(display);
+			check(display);
 		return invokePI(__functionAddress, display);
 	}
 
@@ -514,7 +514,7 @@ public class X11 {
 	public static long XRootWindow(long display, int screen_number) {
 		long __functionAddress = Functions.XRootWindow;
 		if ( CHECKS )
-			checkPointer(display);
+			check(display);
 		return invokePP(__functionAddress, display, screen_number);
 	}
 
@@ -524,7 +524,7 @@ public class X11 {
 	public static long nXCreateColormap(long display, long w, long visual, int alloc) {
 		long __functionAddress = Functions.XCreateColormap;
 		if ( CHECKS )
-			checkPointer(display);
+			check(display);
 		return invokePPPP(__functionAddress, display, w, visual, alloc);
 	}
 
@@ -555,7 +555,7 @@ public class X11 {
 	public static int XFreeColormap(long display, long colormap) {
 		long __functionAddress = Functions.XFreeColormap;
 		if ( CHECKS )
-			checkPointer(display);
+			check(display);
 		return invokePPI(__functionAddress, display, colormap);
 	}
 
@@ -565,7 +565,7 @@ public class X11 {
 	public static long nXCreateWindow(long display, long parent, int x, int y, int width, int height, int border_width, int depth, int windowClass, long visual, long valuemask, long attributes) {
 		long __functionAddress = Functions.XCreateWindow;
 		if ( CHECKS )
-			checkPointer(display);
+			check(display);
 		return invokePPPPPP(__functionAddress, display, parent, x, y, width, height, border_width, depth, windowClass, visual, valuemask, attributes);
 	}
 
@@ -615,7 +615,7 @@ public class X11 {
 	public static int XDestroyWindow(long display, long w) {
 		long __functionAddress = Functions.XDestroyWindow;
 		if ( CHECKS )
-			checkPointer(display);
+			check(display);
 		return invokePPI(__functionAddress, display, w);
 	}
 

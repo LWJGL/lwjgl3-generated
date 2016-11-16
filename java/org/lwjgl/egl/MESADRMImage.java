@@ -46,8 +46,8 @@ public class MESADRMImage {
 	public static long neglCreateDRMImageMESA(long dpy, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateDRMImageMESA;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
+			check(__functionAddress);
+			check(dpy);
 		}
 		return callPPP(__functionAddress, dpy, attrib_list);
 	}
@@ -63,18 +63,18 @@ public class MESADRMImage {
 	public static int neglExportDRMImageMESA(long dpy, long image, long name, long handle, long stride) {
 		long __functionAddress = EGL.getCapabilities().eglExportDRMImageMESA;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(image);
+			check(__functionAddress);
+			check(dpy);
+			check(image);
 		}
 		return callPPPPPI(__functionAddress, dpy, image, name, handle, stride);
 	}
 
 	public static boolean eglExportDRMImageMESA(long dpy, long image, IntBuffer name, IntBuffer handle, IntBuffer stride) {
 		if ( CHECKS ) {
-			checkBufferSafe(name, 1);
-			checkBufferSafe(handle, 1);
-			checkBufferSafe(stride, 1);
+			checkSafe(name, 1);
+			checkSafe(handle, 1);
+			checkSafe(stride, 1);
 		}
 		return neglExportDRMImageMESA(dpy, image, memAddressSafe(name), memAddressSafe(handle), memAddressSafe(stride)) != 0;
 	}
@@ -83,8 +83,8 @@ public class MESADRMImage {
 	public static long eglCreateDRMImageMESA(long dpy, int[] attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateDRMImageMESA;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
+			check(__functionAddress);
+			check(dpy);
 			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		}
 		return callPPP(__functionAddress, dpy, attrib_list);
@@ -94,12 +94,12 @@ public class MESADRMImage {
 	public static boolean eglExportDRMImageMESA(long dpy, long image, int[] name, int[] handle, int[] stride) {
 		long __functionAddress = EGL.getCapabilities().eglExportDRMImageMESA;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(image);
-			checkBufferSafe(name, 1);
-			checkBufferSafe(handle, 1);
-			checkBufferSafe(stride, 1);
+			check(__functionAddress);
+			check(dpy);
+			check(image);
+			checkSafe(name, 1);
+			checkSafe(handle, 1);
+			checkSafe(stride, 1);
 		}
 		return callPPPPPI(__functionAddress, dpy, image, name, handle, stride) != 0;
 	}

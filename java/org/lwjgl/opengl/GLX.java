@@ -100,7 +100,7 @@ public class GLX {
 	public static int nglXQueryExtension(long display, long error_base, long event_base) {
 		long __functionAddress = Functions.QueryExtension;
 		if ( CHECKS )
-			checkPointer(display);
+			check(display);
 		return callPPPI(__functionAddress, display, error_base, event_base);
 	}
 
@@ -113,8 +113,8 @@ public class GLX {
 	 */
 	public static int glXQueryExtension(long display, IntBuffer error_base, IntBuffer event_base) {
 		if ( CHECKS ) {
-			checkBuffer(error_base, 1);
-			checkBuffer(event_base, 1);
+			check(error_base, 1);
+			check(event_base, 1);
 		}
 		return nglXQueryExtension(display, memAddress(error_base), memAddress(event_base));
 	}
@@ -125,7 +125,7 @@ public class GLX {
 	public static int nglXQueryVersion(long display, long major, long minor) {
 		long __functionAddress = Functions.QueryVersion;
 		if ( CHECKS )
-			checkPointer(display);
+			check(display);
 		return callPPPI(__functionAddress, display, major, minor);
 	}
 
@@ -138,8 +138,8 @@ public class GLX {
 	 */
 	public static int glXQueryVersion(long display, IntBuffer major, IntBuffer minor) {
 		if ( CHECKS ) {
-			checkBuffer(major, 1);
-			checkBuffer(minor, 1);
+			check(major, 1);
+			check(minor, 1);
 		}
 		return nglXQueryVersion(display, memAddress(major), memAddress(minor));
 	}
@@ -150,7 +150,7 @@ public class GLX {
 	public static int nglXGetConfig(long display, long visual, int attribute, long value) {
 		long __functionAddress = Functions.GetConfig;
 		if ( CHECKS ) {
-			checkPointer(display);
+			check(display);
 			XVisualInfo.validate(visual);
 		}
 		return callPPPI(__functionAddress, display, visual, attribute, value);
@@ -166,7 +166,7 @@ public class GLX {
 	 */
 	public static int glXGetConfig(long display, XVisualInfo visual, int attribute, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		return nglXGetConfig(display, visual.address(), attribute, memAddress(value));
 	}
 
@@ -176,7 +176,7 @@ public class GLX {
 	public static long nglXChooseVisual(long display, int screen, long attrib_list) {
 		long __functionAddress = Functions.ChooseVisual;
 		if ( CHECKS )
-			checkPointer(display);
+			check(display);
 		return callPPP(__functionAddress, display, screen, attrib_list);
 	}
 
@@ -203,7 +203,7 @@ public class GLX {
 	public static long nglXCreateContext(long display, long visual, long share_list, int direct) {
 		long __functionAddress = Functions.CreateContext;
 		if ( CHECKS ) {
-			checkPointer(display);
+			check(display);
 			XVisualInfo.validate(visual);
 		}
 		return callPPPP(__functionAddress, display, visual, share_list, direct);
@@ -233,7 +233,7 @@ public class GLX {
 	public static int glXMakeCurrent(long display, long draw, long ctx) {
 		long __functionAddress = Functions.MakeCurrent;
 		if ( CHECKS )
-			checkPointer(display);
+			check(display);
 		return callPPPI(__functionAddress, display, draw, ctx);
 	}
 
@@ -250,9 +250,9 @@ public class GLX {
 	public static void glXCopyContext(long display, long source, long dest, long mask) {
 		long __functionAddress = Functions.CopyContext;
 		if ( CHECKS ) {
-			checkPointer(display);
-			checkPointer(source);
-			checkPointer(dest);
+			check(display);
+			check(source);
+			check(dest);
 		}
 		callPPPPV(__functionAddress, display, source, dest, mask);
 	}
@@ -268,8 +268,8 @@ public class GLX {
 	public static int glXIsDirect(long display, long ctx) {
 		long __functionAddress = Functions.IsDirect;
 		if ( CHECKS ) {
-			checkPointer(display);
-			checkPointer(ctx);
+			check(display);
+			check(ctx);
 		}
 		return callPPI(__functionAddress, display, ctx);
 	}
@@ -288,8 +288,8 @@ public class GLX {
 	public static void glXDestroyContext(long display, long ctx) {
 		long __functionAddress = Functions.DestroyContext;
 		if ( CHECKS ) {
-			checkPointer(display);
-			checkPointer(ctx);
+			check(display);
+			check(ctx);
 		}
 		callPPV(__functionAddress, display, ctx);
 	}
@@ -351,8 +351,8 @@ public class GLX {
 	public static void glXSwapBuffers(long display, long draw) {
 		long __functionAddress = Functions.SwapBuffers;
 		if ( CHECKS ) {
-			checkPointer(display);
-			checkPointer(draw);
+			check(display);
+			check(draw);
 		}
 		callPPV(__functionAddress, display, draw);
 	}
@@ -378,7 +378,7 @@ public class GLX {
 	public static long nglXCreateGLXPixmap(long display, long visual, long pixmap) {
 		long __functionAddress = Functions.CreateGLXPixmap;
 		if ( CHECKS ) {
-			checkPointer(display);
+			check(display);
 			XVisualInfo.validate(visual);
 		}
 		return callPPPP(__functionAddress, display, visual, pixmap);
@@ -406,8 +406,8 @@ public class GLX {
 	public static void glXDestroyGLXPixmap(long display, long pixmap) {
 		long __functionAddress = Functions.DestroyGLXPixmap;
 		if ( CHECKS ) {
-			checkPointer(display);
-			checkPointer(pixmap);
+			check(display);
+			check(pixmap);
 		}
 		callPPV(__functionAddress, display, pixmap);
 	}
@@ -416,9 +416,9 @@ public class GLX {
 	public static int glXQueryExtension(long display, int[] error_base, int[] event_base) {
 		long __functionAddress = Functions.QueryExtension;
 		if ( CHECKS ) {
-			checkPointer(display);
-			checkBuffer(error_base, 1);
-			checkBuffer(event_base, 1);
+			check(display);
+			check(error_base, 1);
+			check(event_base, 1);
 		}
 		return callPPPI(__functionAddress, display, error_base, event_base);
 	}
@@ -427,9 +427,9 @@ public class GLX {
 	public static int glXQueryVersion(long display, int[] major, int[] minor) {
 		long __functionAddress = Functions.QueryVersion;
 		if ( CHECKS ) {
-			checkPointer(display);
-			checkBuffer(major, 1);
-			checkBuffer(minor, 1);
+			check(display);
+			check(major, 1);
+			check(minor, 1);
 		}
 		return callPPPI(__functionAddress, display, major, minor);
 	}
@@ -438,8 +438,8 @@ public class GLX {
 	public static int glXGetConfig(long display, XVisualInfo visual, int attribute, int[] value) {
 		long __functionAddress = Functions.GetConfig;
 		if ( CHECKS ) {
-			checkPointer(display);
-			checkBuffer(value, 1);
+			check(display);
+			check(value, 1);
 			XVisualInfo.validate(visual.address());
 		}
 		return callPPPI(__functionAddress, display, visual.address(), attribute, value);
@@ -449,7 +449,7 @@ public class GLX {
 	public static XVisualInfo glXChooseVisual(long display, int screen, int[] attrib_list) {
 		long __functionAddress = Functions.ChooseVisual;
 		if ( CHECKS ) {
-			checkPointer(display);
+			check(display);
 			checkNTSafe(attrib_list);
 		}
 		long __result = callPPP(__functionAddress, display, screen, attrib_list);

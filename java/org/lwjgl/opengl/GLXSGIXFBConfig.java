@@ -81,9 +81,9 @@ public class GLXSGIXFBConfig {
 	public static int nglXGetFBConfigAttribSGIX(long display, long config, int attribute, long value) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetFBConfigAttribSGIX;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(config);
+			check(__functionAddress);
+			check(display);
+			check(config);
 		}
 		return callPPPI(__functionAddress, display, config, attribute, value);
 	}
@@ -98,7 +98,7 @@ public class GLXSGIXFBConfig {
 	 */
 	public static int glXGetFBConfigAttribSGIX(long display, long config, int attribute, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		return nglXGetFBConfigAttribSGIX(display, config, attribute, memAddress(value));
 	}
 
@@ -112,8 +112,8 @@ public class GLXSGIXFBConfig {
 	public static long nglXChooseFBConfigSGIX(long display, int screen, long attrib_list, long nelements) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXChooseFBConfigSGIX;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
+			check(__functionAddress);
+			check(display);
 		}
 		return callPPPP(__functionAddress, display, screen, attrib_list, nelements);
 	}
@@ -148,9 +148,9 @@ public class GLXSGIXFBConfig {
 	public static long glXCreateGLXPixmapWithConfigSGIX(long display, long config, long pixmap) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateGLXPixmapWithConfigSGIX;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(config);
+			check(__functionAddress);
+			check(display);
+			check(config);
 		}
 		return callPPPP(__functionAddress, display, config, pixmap);
 	}
@@ -169,10 +169,10 @@ public class GLXSGIXFBConfig {
 	public static long glXCreateContextWithConfigSGIX(long display, long config, int render_type, long share_list, int direct) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateContextWithConfigSGIX;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(config);
-			checkPointer(share_list);
+			check(__functionAddress);
+			check(display);
+			check(config);
+			check(share_list);
 		}
 		return callPPPP(__functionAddress, display, config, render_type, share_list, direct);
 	}
@@ -183,9 +183,9 @@ public class GLXSGIXFBConfig {
 	public static long nglXGetVisualFromFBConfigSGIX(long display, long config) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetVisualFromFBConfigSGIX;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(config);
+			check(__functionAddress);
+			check(display);
+			check(config);
 		}
 		return callPPP(__functionAddress, display, config);
 	}
@@ -207,8 +207,8 @@ public class GLXSGIXFBConfig {
 	public static long nglXGetFBConfigFromVisualSGIX(long display, long vis) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetFBConfigFromVisualSGIX;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
+			check(__functionAddress);
+			check(display);
 			XVisualInfo.validate(vis);
 		}
 		return callPPP(__functionAddress, display, vis);
@@ -228,10 +228,10 @@ public class GLXSGIXFBConfig {
 	public static int glXGetFBConfigAttribSGIX(long display, long config, int attribute, int[] value) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetFBConfigAttribSGIX;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(config);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(display);
+			check(config);
+			check(value, 1);
 		}
 		return callPPPI(__functionAddress, display, config, attribute, value);
 	}
@@ -240,8 +240,8 @@ public class GLXSGIXFBConfig {
 	public static PointerBuffer glXChooseFBConfigSGIX(long display, int screen, int[] attrib_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXChooseFBConfigSGIX;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
+			check(__functionAddress);
+			check(display);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		IntBuffer nelements = stack.callocInt(1);

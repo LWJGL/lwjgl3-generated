@@ -36,7 +36,7 @@ public class GLXARBGetProcAddress {
 	public static long nglXGetProcAddressARB(long procName) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetProcAddressARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPP(__functionAddress, procName);
 	}
 

@@ -90,7 +90,7 @@ public class AMDDebugOutput {
 	public static void nglDebugMessageEnableAMD(int category, int severity, int count, long ids, boolean enabled) {
 		long __functionAddress = GL.getCapabilities().glDebugMessageEnableAMD;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, category, severity, count, ids, enabled);
 	}
 
@@ -187,7 +187,7 @@ public class AMDDebugOutput {
 	public static void nglDebugMessageInsertAMD(int category, int severity, int id, int length, long buf) {
 		long __functionAddress = GL.getCapabilities().glDebugMessageInsertAMD;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, category, severity, id, length, buf);
 	}
 
@@ -244,7 +244,7 @@ public class AMDDebugOutput {
 	public static void nglDebugMessageCallbackAMD(long callback, long userParam) {
 		long __functionAddress = GL.getCapabilities().glDebugMessageCallbackAMD;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, callback, userParam);
 	}
 
@@ -289,7 +289,7 @@ public class AMDDebugOutput {
 	public static int nglGetDebugMessageLogAMD(int count, int bufsize, long categories, long severities, long ids, long lengths, long messageLog) {
 		long __functionAddress = GL.getCapabilities().glGetDebugMessageLogAMD;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPPPPPI(__functionAddress, count, bufsize, categories, severities, ids, lengths, messageLog);
 	}
 
@@ -319,10 +319,10 @@ public class AMDDebugOutput {
 	 */
 	public static int glGetDebugMessageLogAMD(int count, IntBuffer categories, IntBuffer severities, IntBuffer ids, IntBuffer lengths, ByteBuffer messageLog) {
 		if ( CHECKS ) {
-			checkBufferSafe(categories, count);
-			checkBufferSafe(severities, count);
-			checkBufferSafe(ids, count);
-			checkBufferSafe(lengths, count);
+			checkSafe(categories, count);
+			checkSafe(severities, count);
+			checkSafe(ids, count);
+			checkSafe(lengths, count);
 		}
 		return nglGetDebugMessageLogAMD(count, remainingSafe(messageLog), memAddressSafe(categories), memAddressSafe(severities), memAddressSafe(ids), memAddressSafe(lengths), memAddressSafe(messageLog));
 	}
@@ -331,7 +331,7 @@ public class AMDDebugOutput {
 	public static void glDebugMessageEnableAMD(int category, int severity, int[] ids, boolean enabled) {
 		long __functionAddress = GL.getCapabilities().glDebugMessageEnableAMD;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, category, severity, lengthSafe(ids), ids, enabled);
 	}
 
@@ -339,11 +339,11 @@ public class AMDDebugOutput {
 	public static int glGetDebugMessageLogAMD(int count, int[] categories, int[] severities, int[] ids, int[] lengths, ByteBuffer messageLog) {
 		long __functionAddress = GL.getCapabilities().glGetDebugMessageLogAMD;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBufferSafe(categories, count);
-			checkBufferSafe(severities, count);
-			checkBufferSafe(ids, count);
-			checkBufferSafe(lengths, count);
+			check(__functionAddress);
+			checkSafe(categories, count);
+			checkSafe(severities, count);
+			checkSafe(ids, count);
+			checkSafe(lengths, count);
 		}
 		return callPPPPPI(__functionAddress, count, remainingSafe(messageLog), categories, severities, ids, lengths, memAddressSafe(messageLog));
 	}

@@ -96,8 +96,8 @@ public class CL10GL {
 	public static long nclCreateFromGLBuffer(long context, long flags, int bufobj, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateFromGLBuffer;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
+			check(__functionAddress);
+			check(context);
 		}
 		return callPJPP(__functionAddress, context, flags, bufobj, errcode_ret);
 	}
@@ -131,7 +131,7 @@ public class CL10GL {
 	 */
 	public static long clCreateFromGLBuffer(long context, long flags, int bufobj, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateFromGLBuffer(context, flags, bufobj, memAddressSafe(errcode_ret));
 	}
 
@@ -141,8 +141,8 @@ public class CL10GL {
 	public static long nclCreateFromGLTexture2D(long context, long flags, int texture_target, int miplevel, int texture, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateFromGLTexture2D;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
+			check(__functionAddress);
+			check(context);
 		}
 		return callPJPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
 	}
@@ -187,7 +187,7 @@ public class CL10GL {
 	 */
 	public static long clCreateFromGLTexture2D(long context, long flags, int texture_target, int miplevel, int texture, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateFromGLTexture2D(context, flags, texture_target, miplevel, texture, memAddressSafe(errcode_ret));
 	}
 
@@ -197,8 +197,8 @@ public class CL10GL {
 	public static long nclCreateFromGLTexture3D(long context, long flags, int texture_target, int miplevel, int texture, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateFromGLTexture3D;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
+			check(__functionAddress);
+			check(context);
 		}
 		return callPJPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
 	}
@@ -242,7 +242,7 @@ public class CL10GL {
 	 */
 	public static long clCreateFromGLTexture3D(long context, long flags, int texture_target, int miplevel, int texture, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateFromGLTexture3D(context, flags, texture_target, miplevel, texture, memAddressSafe(errcode_ret));
 	}
 
@@ -252,8 +252,8 @@ public class CL10GL {
 	public static long nclCreateFromGLRenderbuffer(long context, long flags, int renderbuffer, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateFromGLRenderbuffer;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
+			check(__functionAddress);
+			check(context);
 		}
 		return callPJPP(__functionAddress, context, flags, renderbuffer, errcode_ret);
 	}
@@ -289,7 +289,7 @@ public class CL10GL {
 	 */
 	public static long clCreateFromGLRenderbuffer(long context, long flags, int renderbuffer, IntBuffer errcode_ret) {
 		if ( CHECKS )
-			checkBufferSafe(errcode_ret, 1);
+			checkSafe(errcode_ret, 1);
 		return nclCreateFromGLRenderbuffer(context, flags, renderbuffer, memAddressSafe(errcode_ret));
 	}
 
@@ -299,8 +299,8 @@ public class CL10GL {
 	public static int nclGetGLObjectInfo(long memobj, long gl_object_type, long gl_object_name) {
 		long __functionAddress = CL.getICD().clGetGLObjectInfo;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(memobj);
+			check(__functionAddress);
+			check(memobj);
 		}
 		return callPPPI(__functionAddress, memobj, gl_object_type, gl_object_name);
 	}
@@ -336,8 +336,8 @@ public class CL10GL {
 	public static int nclGetGLTextureInfo(long memobj, int param_name, long param_value_size, long param_value, long param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetGLTextureInfo;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(memobj);
+			check(__functionAddress);
+			check(memobj);
 		}
 		return callPPPPI(__functionAddress, memobj, param_name, param_value_size, param_value, param_value_size_ret);
 	}
@@ -363,7 +363,7 @@ public class CL10GL {
 	 */
 	public static int clGetGLTextureInfo(long memobj, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetGLTextureInfo(memobj, param_name, remainingSafe(param_value), memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -388,7 +388,7 @@ public class CL10GL {
 	 */
 	public static int clGetGLTextureInfo(long memobj, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
 		if ( CHECKS )
-			checkBufferSafe(param_value_size_ret, 1);
+			checkSafe(param_value_size_ret, 1);
 		return nclGetGLTextureInfo(memobj, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
 	}
 
@@ -403,8 +403,8 @@ public class CL10GL {
 	public static int nclEnqueueAcquireGLObjects(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = CL.getICD().clEnqueueAcquireGLObjects;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(command_queue);
+			check(__functionAddress);
+			check(command_queue);
 		}
 		return callPPPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -450,7 +450,7 @@ public class CL10GL {
 	 */
 	public static int clEnqueueAcquireGLObjects(long command_queue, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			checkBufferSafe(event, 1);
+			checkSafe(event, 1);
 		return nclEnqueueAcquireGLObjects(command_queue, mem_objects.remaining(), memAddress(mem_objects), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -494,7 +494,7 @@ public class CL10GL {
 	 */
 	public static int clEnqueueAcquireGLObjects(long command_queue, long mem_object, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			checkBufferSafe(event, 1);
+			checkSafe(event, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			PointerBuffer mem_objects = stack.pointers(mem_object);
@@ -515,8 +515,8 @@ public class CL10GL {
 	public static int nclEnqueueReleaseGLObjects(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event) {
 		long __functionAddress = CL.getICD().clEnqueueReleaseGLObjects;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(command_queue);
+			check(__functionAddress);
+			check(command_queue);
 		}
 		return callPPPPI(__functionAddress, command_queue, num_objects, mem_objects, num_events_in_wait_list, event_wait_list, event);
 	}
@@ -558,7 +558,7 @@ public class CL10GL {
 	 */
 	public static int clEnqueueReleaseGLObjects(long command_queue, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			checkBufferSafe(event, 1);
+			checkSafe(event, 1);
 		return nclEnqueueReleaseGLObjects(command_queue, mem_objects.remaining(), memAddress(mem_objects), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -598,7 +598,7 @@ public class CL10GL {
 	 */
 	public static int clEnqueueReleaseGLObjects(long command_queue, long mem_object, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
-			checkBufferSafe(event, 1);
+			checkSafe(event, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			PointerBuffer mem_objects = stack.pointers(mem_object);
@@ -612,9 +612,9 @@ public class CL10GL {
 	public static long clCreateFromGLBuffer(long context, long flags, int bufobj, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateFromGLBuffer;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
-			checkBufferSafe(errcode_ret, 1);
+			check(__functionAddress);
+			check(context);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPJPP(__functionAddress, context, flags, bufobj, errcode_ret);
 	}
@@ -623,9 +623,9 @@ public class CL10GL {
 	public static long clCreateFromGLTexture2D(long context, long flags, int texture_target, int miplevel, int texture, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateFromGLTexture2D;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
-			checkBufferSafe(errcode_ret, 1);
+			check(__functionAddress);
+			check(context);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPJPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
 	}
@@ -634,9 +634,9 @@ public class CL10GL {
 	public static long clCreateFromGLTexture3D(long context, long flags, int texture_target, int miplevel, int texture, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateFromGLTexture3D;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
-			checkBufferSafe(errcode_ret, 1);
+			check(__functionAddress);
+			check(context);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPJPP(__functionAddress, context, flags, texture_target, miplevel, texture, errcode_ret);
 	}
@@ -645,9 +645,9 @@ public class CL10GL {
 	public static long clCreateFromGLRenderbuffer(long context, long flags, int renderbuffer, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateFromGLRenderbuffer;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(context);
-			checkBufferSafe(errcode_ret, 1);
+			check(__functionAddress);
+			check(context);
+			checkSafe(errcode_ret, 1);
 		}
 		return callPJPP(__functionAddress, context, flags, renderbuffer, errcode_ret);
 	}
@@ -656,8 +656,8 @@ public class CL10GL {
 	public static int clGetGLObjectInfo(long memobj, int[] gl_object_type, int[] gl_object_name) {
 		long __functionAddress = CL.getICD().clGetGLObjectInfo;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(memobj);
+			check(__functionAddress);
+			check(memobj);
 		}
 		return callPPPI(__functionAddress, memobj, gl_object_type, gl_object_name);
 	}
@@ -666,9 +666,9 @@ public class CL10GL {
 	public static int clGetGLTextureInfo(long memobj, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
 		long __functionAddress = CL.getICD().clGetGLTextureInfo;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(memobj);
-			checkBufferSafe(param_value_size_ret, 1);
+			check(__functionAddress);
+			check(memobj);
+			checkSafe(param_value_size_ret, 1);
 		}
 		return callPPPPI(__functionAddress, memobj, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
 	}

@@ -31,7 +31,7 @@ public class NVTextureBarrier {
 	public static void glTextureBarrierNV() {
 		long __functionAddress = GLES.getCapabilities().glTextureBarrierNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress);
 	}
 

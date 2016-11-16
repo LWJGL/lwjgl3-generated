@@ -88,9 +88,9 @@ public class GLXSGIXPbuffer {
 	public static long nglXCreateGLXPbufferSGIX(long display, long config, int width, int height, long attrib_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateGLXPbufferSGIX;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(config);
+			check(__functionAddress);
+			check(display);
+			check(config);
 		}
 		return callPPPP(__functionAddress, display, config, width, height, attrib_list);
 	}
@@ -121,9 +121,9 @@ public class GLXSGIXPbuffer {
 	public static void glXDestroyGLXPbufferSGIX(long display, long pbuf) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXDestroyGLXPbufferSGIX;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(pbuf);
+			check(__functionAddress);
+			check(display);
+			check(pbuf);
 		}
 		callPPV(__functionAddress, display, pbuf);
 	}
@@ -134,9 +134,9 @@ public class GLXSGIXPbuffer {
 	public static void nglXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, long value) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryGLXPbufferSGIX;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(pbuf);
+			check(__functionAddress);
+			check(display);
+			check(pbuf);
 		}
 		callPPPV(__functionAddress, display, pbuf, attribute, value);
 	}
@@ -151,7 +151,7 @@ public class GLXSGIXPbuffer {
 	 */
 	public static void glXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, IntBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nglXQueryGLXPbufferSGIX(display, pbuf, attribute, memAddress(value));
 	}
 
@@ -167,9 +167,9 @@ public class GLXSGIXPbuffer {
 	public static void glXSelectEventSGIX(long display, long drawable, long mask) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXSelectEventSGIX;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(drawable);
+			check(__functionAddress);
+			check(display);
+			check(drawable);
 		}
 		callPPPV(__functionAddress, display, drawable, mask);
 	}
@@ -180,9 +180,9 @@ public class GLXSGIXPbuffer {
 	public static void nglXGetSelectedEventSGIX(long display, long drawable, long mask) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetSelectedEventSGIX;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(drawable);
+			check(__functionAddress);
+			check(display);
+			check(drawable);
 		}
 		callPPPV(__functionAddress, display, drawable, mask);
 	}
@@ -196,7 +196,7 @@ public class GLXSGIXPbuffer {
 	 */
 	public static void glXGetSelectedEventSGIX(long display, long drawable, PointerBuffer mask) {
 		if ( CHECKS )
-			checkBuffer(mask, 1);
+			check(mask, 1);
 		nglXGetSelectedEventSGIX(display, drawable, memAddress(mask));
 	}
 
@@ -204,9 +204,9 @@ public class GLXSGIXPbuffer {
 	public static long glXCreateGLXPbufferSGIX(long display, long config, int width, int height, int[] attrib_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateGLXPbufferSGIX;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(config);
+			check(__functionAddress);
+			check(display);
+			check(config);
 			checkNTSafe(attrib_list);
 		}
 		return callPPPP(__functionAddress, display, config, width, height, attrib_list);
@@ -216,10 +216,10 @@ public class GLXSGIXPbuffer {
 	public static void glXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, int[] value) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryGLXPbufferSGIX;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(pbuf);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(display);
+			check(pbuf);
+			check(value, 1);
 		}
 		callPPPV(__functionAddress, display, pbuf, attribute, value);
 	}

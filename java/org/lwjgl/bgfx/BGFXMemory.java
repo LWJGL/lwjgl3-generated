@@ -243,7 +243,7 @@ public class BGFXMemory extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + BGFXMemory.DATA));
+		check(memGetAddress(struct + BGFXMemory.DATA));
 	}
 
 	/**

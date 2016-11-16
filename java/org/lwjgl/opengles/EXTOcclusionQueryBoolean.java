@@ -55,7 +55,7 @@ public class EXTOcclusionQueryBoolean {
 	public static void nglGenQueriesEXT(int n, long ids) {
 		long __functionAddress = GLES.getCapabilities().glGenQueriesEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, ids);
 	}
 
@@ -79,7 +79,7 @@ public class EXTOcclusionQueryBoolean {
 	public static void nglDeleteQueriesEXT(int n, long ids) {
 		long __functionAddress = GLES.getCapabilities().glDeleteQueriesEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, ids);
 	}
 
@@ -102,7 +102,7 @@ public class EXTOcclusionQueryBoolean {
 	public static boolean glIsQueryEXT(int id) {
 		long __functionAddress = GLES.getCapabilities().glIsQueryEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callZ(__functionAddress, id);
 	}
 
@@ -111,7 +111,7 @@ public class EXTOcclusionQueryBoolean {
 	public static void glBeginQueryEXT(int target, int id) {
 		long __functionAddress = GLES.getCapabilities().glBeginQueryEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, id);
 	}
 
@@ -120,7 +120,7 @@ public class EXTOcclusionQueryBoolean {
 	public static void glEndQueryEXT(int target) {
 		long __functionAddress = GLES.getCapabilities().glEndQueryEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target);
 	}
 
@@ -129,13 +129,13 @@ public class EXTOcclusionQueryBoolean {
 	public static void nglGetQueryivEXT(int target, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetQueryivEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, pname, params);
 	}
 
 	public static void glGetQueryivEXT(int target, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetQueryivEXT(target, pname, memAddress(params));
 	}
 
@@ -155,13 +155,13 @@ public class EXTOcclusionQueryBoolean {
 	public static void nglGetQueryObjectuivEXT(int id, int pname, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetQueryObjectuivEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, id, pname, params);
 	}
 
 	public static void glGetQueryObjectuivEXT(int id, int pname, IntBuffer params) {
 		if ( CHECKS )
-			checkBuffer(params, 1);
+			check(params, 1);
 		nglGetQueryObjectuivEXT(id, pname, memAddress(params));
 	}
 
@@ -180,7 +180,7 @@ public class EXTOcclusionQueryBoolean {
 	public static void glGenQueriesEXT(int[] ids) {
 		long __functionAddress = GLES.getCapabilities().glGenQueriesEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, ids.length, ids);
 	}
 
@@ -188,7 +188,7 @@ public class EXTOcclusionQueryBoolean {
 	public static void glDeleteQueriesEXT(int[] ids) {
 		long __functionAddress = GLES.getCapabilities().glDeleteQueriesEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, ids.length, ids);
 	}
 
@@ -196,8 +196,8 @@ public class EXTOcclusionQueryBoolean {
 	public static void glGetQueryivEXT(int target, int pname, int[] params) {
 		long __functionAddress = GLES.getCapabilities().glGetQueryivEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, target, pname, params);
 	}
@@ -206,8 +206,8 @@ public class EXTOcclusionQueryBoolean {
 	public static void glGetQueryObjectuivEXT(int id, int pname, int[] params) {
 		long __functionAddress = GLES.getCapabilities().glGetQueryObjectuivEXT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(params, 1);
+			check(__functionAddress);
+			check(params, 1);
 		}
 		callPV(__functionAddress, id, pname, params);
 	}

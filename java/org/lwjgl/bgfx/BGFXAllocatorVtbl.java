@@ -224,7 +224,7 @@ public class BGFXAllocatorVtbl extends Struct implements NativeResource {
 	public static long nrealloc(long struct) { return memGetAddress(struct + BGFXAllocatorVtbl.REALLOC); }
 
 	/** Unsafe version of {@link #realloc(BGFXReallocCallbackI) realloc}. */
-	public static void nrealloc(long struct, long value) { memPutAddress(struct + BGFXAllocatorVtbl.REALLOC, checkPointer(value)); }
+	public static void nrealloc(long struct, long value) { memPutAddress(struct + BGFXAllocatorVtbl.REALLOC, check(value)); }
 
 	/**
 	 * Validates pointer members that should not be {@code NULL}.
@@ -232,7 +232,7 @@ public class BGFXAllocatorVtbl extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + BGFXAllocatorVtbl.REALLOC));
+		check(memGetAddress(struct + BGFXAllocatorVtbl.REALLOC));
 	}
 
 	/**

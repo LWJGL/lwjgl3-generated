@@ -69,7 +69,7 @@ public class DynLoad {
 	 */
 	public static void dlFreeLibrary(long pLib) {
 		if ( CHECKS )
-			checkPointer(pLib);
+			check(pLib);
 		ndlFreeLibrary(pLib);
 	}
 
@@ -87,7 +87,7 @@ public class DynLoad {
 	 */
 	public static long dlFindSymbol(long pLib, ByteBuffer pSymbolName) {
 		if ( CHECKS ) {
-			checkPointer(pLib);
+			check(pLib);
 			checkNT1(pSymbolName);
 		}
 		return ndlFindSymbol(pLib, memAddress(pSymbolName));
@@ -102,7 +102,7 @@ public class DynLoad {
 	 */
 	public static long dlFindSymbol(long pLib, CharSequence pSymbolName) {
 		if ( CHECKS )
-			checkPointer(pLib);
+			check(pLib);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer pSymbolNameEncoded = stack.ASCII(pSymbolName);
@@ -155,7 +155,7 @@ public class DynLoad {
 	 */
 	public static void dlSymsCleanup(long pSyms) {
 		if ( CHECKS )
-			checkPointer(pSyms);
+			check(pSyms);
 		ndlSymsCleanup(pSyms);
 	}
 
@@ -171,7 +171,7 @@ public class DynLoad {
 	 */
 	public static int dlSymsCount(long pSyms) {
 		if ( CHECKS )
-			checkPointer(pSyms);
+			check(pSyms);
 		return ndlSymsCount(pSyms);
 	}
 
@@ -188,7 +188,7 @@ public class DynLoad {
 	 */
 	public static String dlSymsName(long pSyms, int index) {
 		if ( CHECKS )
-			checkPointer(pSyms);
+			check(pSyms);
 		long __result = ndlSymsName(pSyms, index);
 		return memASCII(__result);
 	}
@@ -206,8 +206,8 @@ public class DynLoad {
 	 */
 	public static String dlSymsNameFromValue(long pSyms, long value) {
 		if ( CHECKS ) {
-			checkPointer(pSyms);
-			checkPointer(value);
+			check(pSyms);
+			check(value);
 		}
 		long __result = ndlSymsNameFromValue(pSyms, value);
 		return memASCII(__result);

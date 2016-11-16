@@ -236,7 +236,7 @@ public class OVRMatrix4f extends Struct implements NativeResource {
 
 	/** Unsafe version of {@link #M(FloatBuffer) M}. */
 	public static void nM(long struct, FloatBuffer value) {
-		if ( CHECKS ) checkBufferGT(value, 16);
+		if ( CHECKS ) checkGT(value, 16);
 		memCopy(memAddress(value), struct + OVRMatrix4f.M, value.remaining() * 4);
 	}
 	/** Unsafe version of {@link #M(int, float) M}. */

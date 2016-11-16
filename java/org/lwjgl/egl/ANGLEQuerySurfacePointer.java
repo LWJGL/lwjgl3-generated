@@ -33,16 +33,16 @@ public class ANGLEQuerySurfacePointer {
 	public static int neglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglQuerySurfacePointerANGLE;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(surface);
+			check(__functionAddress);
+			check(dpy);
+			check(surface);
 		}
 		return callPPPI(__functionAddress, dpy, surface, attribute, value);
 	}
 
 	public static boolean eglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, PointerBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		return neglQuerySurfacePointerANGLE(dpy, surface, attribute, memAddress(value)) != 0;
 	}
 

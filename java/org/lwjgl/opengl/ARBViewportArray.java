@@ -66,7 +66,7 @@ public class ARBViewportArray {
 	public static void nglViewportArrayv(int first, int count, long v) {
 		long __functionAddress = GL.getCapabilities().glViewportArrayv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, first, count, v);
 	}
 
@@ -94,7 +94,7 @@ public class ARBViewportArray {
 	public static void glViewportIndexedf(int index, float x, float y, float w, float h) {
 		long __functionAddress = GL.getCapabilities().glViewportIndexedf;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, x, y, w, h);
 	}
 
@@ -104,7 +104,7 @@ public class ARBViewportArray {
 	public static void nglViewportIndexedfv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glViewportIndexedfv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -116,7 +116,7 @@ public class ARBViewportArray {
 	 */
 	public static void glViewportIndexedfv(int index, FloatBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglViewportIndexedfv(index, memAddress(v));
 	}
 
@@ -130,7 +130,7 @@ public class ARBViewportArray {
 	public static void nglScissorArrayv(int first, int count, long v) {
 		long __functionAddress = GL.getCapabilities().glScissorArrayv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, first, count, v);
 	}
 
@@ -158,7 +158,7 @@ public class ARBViewportArray {
 	public static void glScissorIndexed(int index, int left, int bottom, int width, int height) {
 		long __functionAddress = GL.getCapabilities().glScissorIndexed;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, left, bottom, width, height);
 	}
 
@@ -168,7 +168,7 @@ public class ARBViewportArray {
 	public static void nglScissorIndexedv(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glScissorIndexedv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
@@ -180,7 +180,7 @@ public class ARBViewportArray {
 	 */
 	public static void glScissorIndexedv(int index, IntBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglScissorIndexedv(index, memAddress(v));
 	}
 
@@ -194,7 +194,7 @@ public class ARBViewportArray {
 	public static void nglDepthRangeArrayv(int first, int count, long v) {
 		long __functionAddress = GL.getCapabilities().glDepthRangeArrayv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, first, count, v);
 	}
 
@@ -220,7 +220,7 @@ public class ARBViewportArray {
 	public static void glDepthRangeIndexed(int index, double zNear, double zFar) {
 		long __functionAddress = GL.getCapabilities().glDepthRangeIndexed;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, zNear, zFar);
 	}
 
@@ -230,7 +230,7 @@ public class ARBViewportArray {
 	public static void nglGetFloati_v(int target, int index, long data) {
 		long __functionAddress = GL.getCapabilities().glGetFloati_v;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, index, data);
 	}
 
@@ -243,7 +243,7 @@ public class ARBViewportArray {
 	 */
 	public static void glGetFloati_v(int target, int index, FloatBuffer data) {
 		if ( CHECKS )
-			checkBuffer(data, 1);
+			check(data, 1);
 		nglGetFloati_v(target, index, memAddress(data));
 	}
 
@@ -270,7 +270,7 @@ public class ARBViewportArray {
 	public static void nglGetDoublei_v(int target, int index, long data) {
 		long __functionAddress = GL.getCapabilities().glGetDoublei_v;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, index, data);
 	}
 
@@ -283,7 +283,7 @@ public class ARBViewportArray {
 	 */
 	public static void glGetDoublei_v(int target, int index, DoubleBuffer data) {
 		if ( CHECKS )
-			checkBuffer(data, 1);
+			check(data, 1);
 		nglGetDoublei_v(target, index, memAddress(data));
 	}
 
@@ -308,7 +308,7 @@ public class ARBViewportArray {
 	public static void glViewportArrayv(int first, float[] v) {
 		long __functionAddress = GL.getCapabilities().glViewportArrayv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, first, v.length >> 2, v);
 	}
 
@@ -316,8 +316,8 @@ public class ARBViewportArray {
 	public static void glViewportIndexedfv(int index, float[] v) {
 		long __functionAddress = GL.getCapabilities().glViewportIndexedfv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -326,7 +326,7 @@ public class ARBViewportArray {
 	public static void glScissorArrayv(int first, int[] v) {
 		long __functionAddress = GL.getCapabilities().glScissorArrayv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, first, v.length >> 2, v);
 	}
 
@@ -334,8 +334,8 @@ public class ARBViewportArray {
 	public static void glScissorIndexedv(int index, int[] v) {
 		long __functionAddress = GL.getCapabilities().glScissorIndexedv;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -344,7 +344,7 @@ public class ARBViewportArray {
 	public static void glDepthRangeArrayv(int first, double[] v) {
 		long __functionAddress = GL.getCapabilities().glDepthRangeArrayv;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, first, v.length >> 1, v);
 	}
 
@@ -352,8 +352,8 @@ public class ARBViewportArray {
 	public static void glGetFloati_v(int target, int index, float[] data) {
 		long __functionAddress = GL.getCapabilities().glGetFloati_v;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, 1);
+			check(__functionAddress);
+			check(data, 1);
 		}
 		callPV(__functionAddress, target, index, data);
 	}
@@ -362,8 +362,8 @@ public class ARBViewportArray {
 	public static void glGetDoublei_v(int target, int index, double[] data) {
 		long __functionAddress = GL.getCapabilities().glGetDoublei_v;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(data, 1);
+			check(__functionAddress);
+			check(data, 1);
 		}
 		callPV(__functionAddress, target, index, data);
 	}

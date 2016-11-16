@@ -73,7 +73,7 @@ public class ARBMultisample {
 	public static void glSampleCoverageARB(float value, boolean invert) {
 		long __functionAddress = GL.getCapabilities().glSampleCoverageARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, value, invert);
 	}
 

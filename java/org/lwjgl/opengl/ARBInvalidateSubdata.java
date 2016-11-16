@@ -77,7 +77,7 @@ public class ARBInvalidateSubdata {
 	public static void glInvalidateTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth) {
 		long __functionAddress = GL.getCapabilities().glInvalidateTexSubImage;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, texture, level, xoffset, yoffset, zoffset, width, height, depth);
 	}
 
@@ -92,7 +92,7 @@ public class ARBInvalidateSubdata {
 	public static void glInvalidateTexImage(int texture, int level) {
 		long __functionAddress = GL.getCapabilities().glInvalidateTexImage;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, texture, level);
 	}
 
@@ -108,7 +108,7 @@ public class ARBInvalidateSubdata {
 	public static void glInvalidateBufferSubData(int buffer, long offset, long length) {
 		long __functionAddress = GL.getCapabilities().glInvalidateBufferSubData;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, buffer, offset, length);
 	}
 
@@ -122,7 +122,7 @@ public class ARBInvalidateSubdata {
 	public static void glInvalidateBufferData(int buffer) {
 		long __functionAddress = GL.getCapabilities().glInvalidateBufferData;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, buffer);
 	}
 
@@ -136,7 +136,7 @@ public class ARBInvalidateSubdata {
 	public static void nglInvalidateFramebuffer(int target, int numAttachments, long attachments) {
 		long __functionAddress = GL.getCapabilities().glInvalidateFramebuffer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, numAttachments, attachments);
 	}
 
@@ -175,7 +175,7 @@ public class ARBInvalidateSubdata {
 	public static void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height) {
 		long __functionAddress = GL.getCapabilities().glInvalidateSubFramebuffer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, numAttachments, attachments, x, y, width, height);
 	}
 
@@ -216,7 +216,7 @@ public class ARBInvalidateSubdata {
 	public static void glInvalidateFramebuffer(int target, int[] attachments) {
 		long __functionAddress = GL.getCapabilities().glInvalidateFramebuffer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, attachments.length, attachments);
 	}
 
@@ -224,7 +224,7 @@ public class ARBInvalidateSubdata {
 	public static void glInvalidateSubFramebuffer(int target, int[] attachments, int x, int y, int width, int height) {
 		long __functionAddress = GL.getCapabilities().glInvalidateSubFramebuffer;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, attachments.length, attachments, x, y, width, height);
 	}
 

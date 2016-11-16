@@ -58,7 +58,7 @@ public class NVInternalformatSampleQuery {
 	public static void nglGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int bufSize, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetInternalformatSampleivNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, internalformat, samples, pname, bufSize, params);
 	}
 
@@ -70,7 +70,7 @@ public class NVInternalformatSampleQuery {
 	public static void glGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int[] params) {
 		long __functionAddress = GLES.getCapabilities().glGetInternalformatSampleivNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, internalformat, samples, pname, params.length, params);
 	}
 

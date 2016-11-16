@@ -65,7 +65,7 @@ public class ARBBufferStorage {
 	public static void nglBufferStorage(int target, long size, long data, int flags) {
 		long __functionAddress = GL.getCapabilities().glBufferStorage;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, target, size, data, flags);
 	}
 
@@ -402,7 +402,7 @@ public class ARBBufferStorage {
 	public static void nglNamedBufferStorageEXT(int buffer, long size, long data, int flags) {
 		long __functionAddress = GL.getCapabilities().glNamedBufferStorageEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, buffer, size, data, flags);
 	}
 
@@ -697,7 +697,7 @@ public class ARBBufferStorage {
 	public static void glBufferStorage(int target, short[] data, int flags) {
 		long __functionAddress = GL.getCapabilities().glBufferStorage;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, target, (long)(data.length << 1), data, flags);
 	}
 
@@ -705,7 +705,7 @@ public class ARBBufferStorage {
 	public static void glBufferStorage(int target, int[] data, int flags) {
 		long __functionAddress = GL.getCapabilities().glBufferStorage;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, target, (long)(data.length << 2), data, flags);
 	}
 
@@ -713,7 +713,7 @@ public class ARBBufferStorage {
 	public static void glBufferStorage(int target, float[] data, int flags) {
 		long __functionAddress = GL.getCapabilities().glBufferStorage;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, target, (long)(data.length << 2), data, flags);
 	}
 
@@ -721,7 +721,7 @@ public class ARBBufferStorage {
 	public static void glBufferStorage(int target, double[] data, int flags) {
 		long __functionAddress = GL.getCapabilities().glBufferStorage;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, target, (long)(data.length << 3), data, flags);
 	}
 
@@ -729,7 +729,7 @@ public class ARBBufferStorage {
 	public static void glNamedBufferStorageEXT(int buffer, short[] data, int flags) {
 		long __functionAddress = GL.getCapabilities().glNamedBufferStorageEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, buffer, (long)(data.length << 1), data, flags);
 	}
 
@@ -737,7 +737,7 @@ public class ARBBufferStorage {
 	public static void glNamedBufferStorageEXT(int buffer, int[] data, int flags) {
 		long __functionAddress = GL.getCapabilities().glNamedBufferStorageEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, buffer, (long)(data.length << 2), data, flags);
 	}
 
@@ -745,7 +745,7 @@ public class ARBBufferStorage {
 	public static void glNamedBufferStorageEXT(int buffer, float[] data, int flags) {
 		long __functionAddress = GL.getCapabilities().glNamedBufferStorageEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, buffer, (long)(data.length << 2), data, flags);
 	}
 
@@ -753,7 +753,7 @@ public class ARBBufferStorage {
 	public static void glNamedBufferStorageEXT(int buffer, double[] data, int flags) {
 		long __functionAddress = GL.getCapabilities().glNamedBufferStorageEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, buffer, (long)(data.length << 3), data, flags);
 	}
 

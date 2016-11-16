@@ -371,7 +371,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
 	public static void npAttachments(long struct, VkPipelineColorBlendAttachmentState.Buffer value) { memPutAddress(struct + VkPipelineColorBlendStateCreateInfo.PATTACHMENTS, addressSafe(value)); nattachmentCount(struct, value == null ? 0 : value.remaining()); }
 	/** Unsafe version of {@link #blendConstants(FloatBuffer) blendConstants}. */
 	public static void nblendConstants(long struct, FloatBuffer value) {
-		if ( CHECKS ) checkBufferGT(value, 4);
+		if ( CHECKS ) checkGT(value, 4);
 		memCopy(memAddress(value), struct + VkPipelineColorBlendStateCreateInfo.BLENDCONSTANTS, value.remaining() * 4);
 	}
 	/** Unsafe version of {@link #blendConstants(int, float) blendConstants}. */
@@ -387,7 +387,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
 	 */
 	public static void validate(long struct) {
 		if ( nattachmentCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkPipelineColorBlendStateCreateInfo.PATTACHMENTS));
+			check(memGetAddress(struct + VkPipelineColorBlendStateCreateInfo.PATTACHMENTS));
 	}
 
 	/**

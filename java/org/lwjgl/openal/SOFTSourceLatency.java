@@ -86,7 +86,7 @@ public class SOFTSourceLatency {
 	public static void alSourcedSOFT(int source, int param, double value) {
 		long __functionAddress = AL.getCapabilities().alSourcedSOFT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokeV(__functionAddress, source, param, value);
 	}
 
@@ -104,7 +104,7 @@ public class SOFTSourceLatency {
 	public static void alSource3dSOFT(int source, int param, double value1, double value2, double value3) {
 		long __functionAddress = AL.getCapabilities().alSource3dSOFT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokeV(__functionAddress, source, param, value1, value2, value3);
 	}
 
@@ -114,7 +114,7 @@ public class SOFTSourceLatency {
 	public static void nalSourcedvSOFT(int source, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alSourcedvSOFT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, source, param, value);
 	}
 
@@ -135,7 +135,7 @@ public class SOFTSourceLatency {
 	public static void nalGetSourcedSOFT(int source, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetSourcedSOFT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, source, param, value);
 	}
 
@@ -148,7 +148,7 @@ public class SOFTSourceLatency {
 	 */
 	public static void alGetSourcedSOFT(int source, int param, DoubleBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nalGetSourcedSOFT(source, param, memAddress(value));
 	}
 
@@ -175,7 +175,7 @@ public class SOFTSourceLatency {
 	public static void nalGetSource3dSOFT(int source, int param, long value1, long value2, long value3) {
 		long __functionAddress = AL.getCapabilities().alGetSource3dSOFT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePPPV(__functionAddress, source, param, value1, value2, value3);
 	}
 
@@ -190,9 +190,9 @@ public class SOFTSourceLatency {
 	 */
 	public static void alGetSource3dSOFT(int source, int param, DoubleBuffer value1, DoubleBuffer value2, DoubleBuffer value3) {
 		if ( CHECKS ) {
-			checkBuffer(value1, 1);
-			checkBuffer(value2, 1);
-			checkBuffer(value3, 1);
+			check(value1, 1);
+			check(value2, 1);
+			check(value3, 1);
 		}
 		nalGetSource3dSOFT(source, param, memAddress(value1), memAddress(value2), memAddress(value3));
 	}
@@ -203,7 +203,7 @@ public class SOFTSourceLatency {
 	public static void nalGetSourcedvSOFT(int source, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetSourcedvSOFT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, source, param, values);
 	}
 
@@ -230,7 +230,7 @@ public class SOFTSourceLatency {
 	public static void alSourcei64SOFT(int source, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alSourcei64SOFT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokeJV(__functionAddress, source, param, value);
 	}
 
@@ -248,7 +248,7 @@ public class SOFTSourceLatency {
 	public static void alSource3i64SOFT(int source, int param, long value1, long value2, long value3) {
 		long __functionAddress = AL.getCapabilities().alSource3i64SOFT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokeJJJV(__functionAddress, source, param, value1, value2, value3);
 	}
 
@@ -258,7 +258,7 @@ public class SOFTSourceLatency {
 	public static void nalSourcei64vSOFT(int source, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alSourcei64vSOFT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, source, param, values);
 	}
 
@@ -279,7 +279,7 @@ public class SOFTSourceLatency {
 	public static void nalGetSourcei64SOFT(int source, int param, long value) {
 		long __functionAddress = AL.getCapabilities().alGetSourcei64SOFT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, source, param, value);
 	}
 
@@ -292,7 +292,7 @@ public class SOFTSourceLatency {
 	 */
 	public static void alGetSourcei64SOFT(int source, int param, LongBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		nalGetSourcei64SOFT(source, param, memAddress(value));
 	}
 
@@ -319,7 +319,7 @@ public class SOFTSourceLatency {
 	public static void nalGetSource3i64SOFT(int source, int param, long value1, long value2, long value3) {
 		long __functionAddress = AL.getCapabilities().alGetSource3i64SOFT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePPPV(__functionAddress, source, param, value1, value2, value3);
 	}
 
@@ -334,9 +334,9 @@ public class SOFTSourceLatency {
 	 */
 	public static void alGetSource3i64SOFT(int source, int param, LongBuffer value1, LongBuffer value2, LongBuffer value3) {
 		if ( CHECKS ) {
-			checkBuffer(value1, 1);
-			checkBuffer(value2, 1);
-			checkBuffer(value3, 1);
+			check(value1, 1);
+			check(value2, 1);
+			check(value3, 1);
 		}
 		nalGetSource3i64SOFT(source, param, memAddress(value1), memAddress(value2), memAddress(value3));
 	}
@@ -347,7 +347,7 @@ public class SOFTSourceLatency {
 	public static void nalGetSourcei64vSOFT(int source, int param, long values) {
 		long __functionAddress = AL.getCapabilities().alGetSourcei64vSOFT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, source, param, values);
 	}
 
@@ -366,7 +366,7 @@ public class SOFTSourceLatency {
 	public static void alSourcedvSOFT(int source, int param, double[] value) {
 		long __functionAddress = AL.getCapabilities().alSourcedvSOFT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, source, param, value);
 	}
 
@@ -374,8 +374,8 @@ public class SOFTSourceLatency {
 	public static void alGetSourcedSOFT(int source, int param, double[] value) {
 		long __functionAddress = AL.getCapabilities().alGetSourcedSOFT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(value, 1);
 		}
 		invokePV(__functionAddress, source, param, value);
 	}
@@ -384,10 +384,10 @@ public class SOFTSourceLatency {
 	public static void alGetSource3dSOFT(int source, int param, double[] value1, double[] value2, double[] value3) {
 		long __functionAddress = AL.getCapabilities().alGetSource3dSOFT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(value1, 1);
-			checkBuffer(value2, 1);
-			checkBuffer(value3, 1);
+			check(__functionAddress);
+			check(value1, 1);
+			check(value2, 1);
+			check(value3, 1);
 		}
 		invokePPPV(__functionAddress, source, param, value1, value2, value3);
 	}
@@ -396,7 +396,7 @@ public class SOFTSourceLatency {
 	public static void alGetSourcedvSOFT(int source, int param, double[] values) {
 		long __functionAddress = AL.getCapabilities().alGetSourcedvSOFT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, source, param, values);
 	}
 
@@ -404,7 +404,7 @@ public class SOFTSourceLatency {
 	public static void alSourcei64vSOFT(int source, int param, long[] values) {
 		long __functionAddress = AL.getCapabilities().alSourcei64vSOFT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, source, param, values);
 	}
 
@@ -412,8 +412,8 @@ public class SOFTSourceLatency {
 	public static void alGetSourcei64SOFT(int source, int param, long[] value) {
 		long __functionAddress = AL.getCapabilities().alGetSourcei64SOFT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(value, 1);
+			check(__functionAddress);
+			check(value, 1);
 		}
 		invokePV(__functionAddress, source, param, value);
 	}
@@ -422,10 +422,10 @@ public class SOFTSourceLatency {
 	public static void alGetSource3i64SOFT(int source, int param, long[] value1, long[] value2, long[] value3) {
 		long __functionAddress = AL.getCapabilities().alGetSource3i64SOFT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(value1, 1);
-			checkBuffer(value2, 1);
-			checkBuffer(value3, 1);
+			check(__functionAddress);
+			check(value1, 1);
+			check(value2, 1);
+			check(value3, 1);
 		}
 		invokePPPV(__functionAddress, source, param, value1, value2, value3);
 	}
@@ -434,7 +434,7 @@ public class SOFTSourceLatency {
 	public static void alGetSourcei64vSOFT(int source, int param, long[] values) {
 		long __functionAddress = AL.getCapabilities().alGetSourcei64vSOFT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		invokePV(__functionAddress, source, param, values);
 	}
 

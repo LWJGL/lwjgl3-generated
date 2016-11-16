@@ -345,7 +345,7 @@ public class VkDebugMarkerObjectTagInfoEXT extends Struct implements NativeResou
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + VkDebugMarkerObjectTagInfoEXT.PTAG));
+		check(memGetAddress(struct + VkDebugMarkerObjectTagInfoEXT.PTAG));
 	}
 
 	/**

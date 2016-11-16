@@ -279,7 +279,7 @@ public class VkSparseImageMemoryBindInfo extends Struct implements NativeResourc
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + VkSparseImageMemoryBindInfo.PBINDS));
+		check(memGetAddress(struct + VkSparseImageMemoryBindInfo.PBINDS));
 	}
 
 	/**

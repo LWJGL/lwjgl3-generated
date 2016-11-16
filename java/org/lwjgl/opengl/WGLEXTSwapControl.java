@@ -47,7 +47,7 @@ public class WGLEXTSwapControl {
 	public static boolean wglSwapIntervalEXT(int interval) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglSwapIntervalEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callI(__functionAddress, interval) != 0;
 	}
 
@@ -57,7 +57,7 @@ public class WGLEXTSwapControl {
 	public static int wglGetSwapIntervalEXT() {
 		long __functionAddress = GL.getCapabilitiesWGL().wglGetSwapIntervalEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callI(__functionAddress);
 	}
 

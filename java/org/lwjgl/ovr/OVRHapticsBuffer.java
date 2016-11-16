@@ -267,7 +267,7 @@ public class OVRHapticsBuffer extends Struct implements NativeResource {
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + OVRHapticsBuffer.SAMPLES));
+		check(memGetAddress(struct + OVRHapticsBuffer.SAMPLES));
 	}
 
 	/**

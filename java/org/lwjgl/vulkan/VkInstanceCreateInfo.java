@@ -354,9 +354,9 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
 	 */
 	public static void validate(long struct) {
 		if ( nenabledLayerCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkInstanceCreateInfo.PPENABLEDLAYERNAMES));
+			check(memGetAddress(struct + VkInstanceCreateInfo.PPENABLEDLAYERNAMES));
 		if ( nenabledExtensionCount(struct) != 0 )
-			checkPointer(memGetAddress(struct + VkInstanceCreateInfo.PPENABLEDEXTENSIONNAMES));
+			check(memGetAddress(struct + VkInstanceCreateInfo.PPENABLEDEXTENSIONNAMES));
 	}
 
 	/**

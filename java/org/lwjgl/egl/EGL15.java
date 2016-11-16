@@ -79,8 +79,8 @@ public class EGL15 {
 	public static long neglCreateSync(long dpy, int type, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateSync;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
+			check(__functionAddress);
+			check(dpy);
 		}
 		return callPPP(__functionAddress, dpy, type, attrib_list);
 	}
@@ -96,9 +96,9 @@ public class EGL15 {
 	public static boolean eglDestroySync(long dpy, long sync) {
 		long __functionAddress = EGL.getCapabilities().eglDestroySync;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(sync);
+			check(__functionAddress);
+			check(dpy);
+			check(sync);
 		}
 		return callPPI(__functionAddress, dpy, sync) != 0;
 	}
@@ -108,9 +108,9 @@ public class EGL15 {
 	public static int eglClientWaitSync(long dpy, long sync, int flags, long timeout) {
 		long __functionAddress = EGL.getCapabilities().eglClientWaitSync;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(sync);
+			check(__functionAddress);
+			check(dpy);
+			check(sync);
 		}
 		return callPPJI(__functionAddress, dpy, sync, flags, timeout);
 	}
@@ -120,16 +120,16 @@ public class EGL15 {
 	public static int neglGetSyncAttrib(long dpy, long sync, int attribute, long value) {
 		long __functionAddress = EGL.getCapabilities().eglGetSyncAttrib;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(sync);
+			check(__functionAddress);
+			check(dpy);
+			check(sync);
 		}
 		return callPPPI(__functionAddress, dpy, sync, attribute, value);
 	}
 
 	public static boolean eglGetSyncAttrib(long dpy, long sync, int attribute, PointerBuffer value) {
 		if ( CHECKS )
-			checkBuffer(value, 1);
+			check(value, 1);
 		return neglGetSyncAttrib(dpy, sync, attribute, memAddress(value)) != 0;
 	}
 
@@ -138,10 +138,10 @@ public class EGL15 {
 	public static long neglCreateImage(long dpy, long ctx, int target, long buffer, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreateImage;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(ctx);
-			checkPointer(buffer);
+			check(__functionAddress);
+			check(dpy);
+			check(ctx);
+			check(buffer);
 		}
 		return callPPPPP(__functionAddress, dpy, ctx, target, buffer, attrib_list);
 	}
@@ -157,9 +157,9 @@ public class EGL15 {
 	public static boolean eglDestroyImage(long dpy, long image) {
 		long __functionAddress = EGL.getCapabilities().eglDestroyImage;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(image);
+			check(__functionAddress);
+			check(dpy);
+			check(image);
 		}
 		return callPPI(__functionAddress, dpy, image) != 0;
 	}
@@ -169,8 +169,8 @@ public class EGL15 {
 	public static long neglGetPlatformDisplay(int platform, long native_display, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglGetPlatformDisplay;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(native_display);
+			check(__functionAddress);
+			check(native_display);
 		}
 		return callPPP(__functionAddress, platform, native_display, attrib_list);
 	}
@@ -186,10 +186,10 @@ public class EGL15 {
 	public static long neglCreatePlatformWindowSurface(long dpy, long config, long native_window, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreatePlatformWindowSurface;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(config);
-			checkPointer(native_window);
+			check(__functionAddress);
+			check(dpy);
+			check(config);
+			check(native_window);
 		}
 		return callPPPPP(__functionAddress, dpy, config, native_window, attrib_list);
 	}
@@ -205,10 +205,10 @@ public class EGL15 {
 	public static long neglCreatePlatformPixmapSurface(long dpy, long config, long native_pixmap, long attrib_list) {
 		long __functionAddress = EGL.getCapabilities().eglCreatePlatformPixmapSurface;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(config);
-			checkPointer(native_pixmap);
+			check(__functionAddress);
+			check(dpy);
+			check(config);
+			check(native_pixmap);
 		}
 		return callPPPPP(__functionAddress, dpy, config, native_pixmap, attrib_list);
 	}
@@ -224,9 +224,9 @@ public class EGL15 {
 	public static boolean eglWaitSync(long dpy, long sync, int flags) {
 		long __functionAddress = EGL.getCapabilities().eglWaitSync;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(sync);
+			check(__functionAddress);
+			check(dpy);
+			check(sync);
 		}
 		return callPPI(__functionAddress, dpy, sync, flags) != 0;
 	}

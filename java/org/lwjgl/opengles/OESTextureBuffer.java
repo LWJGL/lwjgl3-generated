@@ -81,7 +81,7 @@ public class OESTextureBuffer {
 	public static void glTexBufferOES(int target, int internalformat, int buffer) {
 		long __functionAddress = GLES.getCapabilities().glTexBufferOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, internalformat, buffer);
 	}
 
@@ -90,7 +90,7 @@ public class OESTextureBuffer {
 	public static void glTexBufferRangeOES(int target, int internalformat, int buffer, long offset, long size) {
 		long __functionAddress = GLES.getCapabilities().glTexBufferRangeOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPPV(__functionAddress, target, internalformat, buffer, offset, size);
 	}
 

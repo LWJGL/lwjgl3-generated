@@ -60,7 +60,7 @@ public class NVHalfFloat {
 	public static void glVertex2hNV(short x, short y) {
 		long __functionAddress = GL.getCapabilities().glVertex2hNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y);
 	}
 
@@ -69,13 +69,13 @@ public class NVHalfFloat {
 	public static void nglVertex2hvNV(long v) {
 		long __functionAddress = GL.getCapabilities().glVertex2hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
 	public static void glVertex2hvNV(ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 2);
+			check(v, 2);
 		nglVertex2hvNV(memAddress(v));
 	}
 
@@ -84,7 +84,7 @@ public class NVHalfFloat {
 	public static void glVertex3hNV(short x, short y, short z) {
 		long __functionAddress = GL.getCapabilities().glVertex3hNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z);
 	}
 
@@ -93,13 +93,13 @@ public class NVHalfFloat {
 	public static void nglVertex3hvNV(long v) {
 		long __functionAddress = GL.getCapabilities().glVertex3hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
 	public static void glVertex3hvNV(ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglVertex3hvNV(memAddress(v));
 	}
 
@@ -108,7 +108,7 @@ public class NVHalfFloat {
 	public static void glVertex4hNV(short x, short y, short z, short w) {
 		long __functionAddress = GL.getCapabilities().glVertex4hNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, x, y, z, w);
 	}
 
@@ -117,13 +117,13 @@ public class NVHalfFloat {
 	public static void nglVertex4hvNV(long v) {
 		long __functionAddress = GL.getCapabilities().glVertex4hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
 	public static void glVertex4hvNV(ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertex4hvNV(memAddress(v));
 	}
 
@@ -132,7 +132,7 @@ public class NVHalfFloat {
 	public static void glNormal3hNV(short nx, short ny, short nz) {
 		long __functionAddress = GL.getCapabilities().glNormal3hNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, nx, ny, nz);
 	}
 
@@ -141,13 +141,13 @@ public class NVHalfFloat {
 	public static void nglNormal3hvNV(long v) {
 		long __functionAddress = GL.getCapabilities().glNormal3hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
 	public static void glNormal3hvNV(ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglNormal3hvNV(memAddress(v));
 	}
 
@@ -156,7 +156,7 @@ public class NVHalfFloat {
 	public static void glColor3hNV(short red, short green, short blue) {
 		long __functionAddress = GL.getCapabilities().glColor3hNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue);
 	}
 
@@ -165,13 +165,13 @@ public class NVHalfFloat {
 	public static void nglColor3hvNV(long v) {
 		long __functionAddress = GL.getCapabilities().glColor3hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
 	public static void glColor3hvNV(ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglColor3hvNV(memAddress(v));
 	}
 
@@ -180,7 +180,7 @@ public class NVHalfFloat {
 	public static void glColor4hNV(short red, short green, short blue, short alpha) {
 		long __functionAddress = GL.getCapabilities().glColor4hNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue, alpha);
 	}
 
@@ -189,13 +189,13 @@ public class NVHalfFloat {
 	public static void nglColor4hvNV(long v) {
 		long __functionAddress = GL.getCapabilities().glColor4hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
 	public static void glColor4hvNV(ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglColor4hvNV(memAddress(v));
 	}
 
@@ -204,7 +204,7 @@ public class NVHalfFloat {
 	public static void glTexCoord1hNV(short s) {
 		long __functionAddress = GL.getCapabilities().glTexCoord1hNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, s);
 	}
 
@@ -213,13 +213,13 @@ public class NVHalfFloat {
 	public static void nglTexCoord1hvNV(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord1hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
 	public static void glTexCoord1hvNV(ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 1);
+			check(v, 1);
 		nglTexCoord1hvNV(memAddress(v));
 	}
 
@@ -228,7 +228,7 @@ public class NVHalfFloat {
 	public static void glTexCoord2hNV(short s, short t) {
 		long __functionAddress = GL.getCapabilities().glTexCoord2hNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, s, t);
 	}
 
@@ -237,13 +237,13 @@ public class NVHalfFloat {
 	public static void nglTexCoord2hvNV(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord2hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
 	public static void glTexCoord2hvNV(ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 2);
+			check(v, 2);
 		nglTexCoord2hvNV(memAddress(v));
 	}
 
@@ -252,7 +252,7 @@ public class NVHalfFloat {
 	public static void glTexCoord3hNV(short s, short t, short r) {
 		long __functionAddress = GL.getCapabilities().glTexCoord3hNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, s, t, r);
 	}
 
@@ -261,13 +261,13 @@ public class NVHalfFloat {
 	public static void nglTexCoord3hvNV(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord3hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
 	public static void glTexCoord3hvNV(ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglTexCoord3hvNV(memAddress(v));
 	}
 
@@ -276,7 +276,7 @@ public class NVHalfFloat {
 	public static void glTexCoord4hNV(short s, short t, short r, short q) {
 		long __functionAddress = GL.getCapabilities().glTexCoord4hNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, s, t, r, q);
 	}
 
@@ -285,13 +285,13 @@ public class NVHalfFloat {
 	public static void nglTexCoord4hvNV(long v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord4hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
 	public static void glTexCoord4hvNV(ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglTexCoord4hvNV(memAddress(v));
 	}
 
@@ -300,7 +300,7 @@ public class NVHalfFloat {
 	public static void glMultiTexCoord1hNV(int target, short s) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord1hNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, s);
 	}
 
@@ -309,13 +309,13 @@ public class NVHalfFloat {
 	public static void nglMultiTexCoord1hvNV(int target, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord1hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, v);
 	}
 
 	public static void glMultiTexCoord1hvNV(int target, ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 1);
+			check(v, 1);
 		nglMultiTexCoord1hvNV(target, memAddress(v));
 	}
 
@@ -324,7 +324,7 @@ public class NVHalfFloat {
 	public static void glMultiTexCoord2hNV(int target, short s, short t) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord2hNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, s, t);
 	}
 
@@ -333,13 +333,13 @@ public class NVHalfFloat {
 	public static void nglMultiTexCoord2hvNV(int target, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord2hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, v);
 	}
 
 	public static void glMultiTexCoord2hvNV(int target, ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 2);
+			check(v, 2);
 		nglMultiTexCoord2hvNV(target, memAddress(v));
 	}
 
@@ -348,7 +348,7 @@ public class NVHalfFloat {
 	public static void glMultiTexCoord3hNV(int target, short s, short t, short r) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord3hNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, s, t, r);
 	}
 
@@ -357,13 +357,13 @@ public class NVHalfFloat {
 	public static void nglMultiTexCoord3hvNV(int target, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord3hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, v);
 	}
 
 	public static void glMultiTexCoord3hvNV(int target, ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglMultiTexCoord3hvNV(target, memAddress(v));
 	}
 
@@ -372,7 +372,7 @@ public class NVHalfFloat {
 	public static void glMultiTexCoord4hNV(int target, short s, short t, short r, short q) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord4hNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, s, t, r, q);
 	}
 
@@ -381,13 +381,13 @@ public class NVHalfFloat {
 	public static void nglMultiTexCoord4hvNV(int target, long v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord4hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, v);
 	}
 
 	public static void glMultiTexCoord4hvNV(int target, ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglMultiTexCoord4hvNV(target, memAddress(v));
 	}
 
@@ -396,7 +396,7 @@ public class NVHalfFloat {
 	public static void glFogCoordhNV(short fog) {
 		long __functionAddress = GL.getCapabilities().glFogCoordhNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, fog);
 	}
 
@@ -405,13 +405,13 @@ public class NVHalfFloat {
 	public static void nglFogCoordhvNV(long fog) {
 		long __functionAddress = GL.getCapabilities().glFogCoordhvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, fog);
 	}
 
 	public static void glFogCoordhvNV(ShortBuffer fog) {
 		if ( CHECKS )
-			checkBuffer(fog, 1);
+			check(fog, 1);
 		nglFogCoordhvNV(memAddress(fog));
 	}
 
@@ -420,7 +420,7 @@ public class NVHalfFloat {
 	public static void glSecondaryColor3hNV(short red, short green, short blue) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3hNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, red, green, blue);
 	}
 
@@ -429,13 +429,13 @@ public class NVHalfFloat {
 	public static void nglSecondaryColor3hvNV(long v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, v);
 	}
 
 	public static void glSecondaryColor3hvNV(ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglSecondaryColor3hvNV(memAddress(v));
 	}
 
@@ -444,7 +444,7 @@ public class NVHalfFloat {
 	public static void glVertexWeighthNV(short weight) {
 		long __functionAddress = GL.getCapabilities().glVertexWeighthNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, weight);
 	}
 
@@ -453,13 +453,13 @@ public class NVHalfFloat {
 	public static void nglVertexWeighthvNV(long weight) {
 		long __functionAddress = GL.getCapabilities().glVertexWeighthvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, weight);
 	}
 
 	public static void glVertexWeighthvNV(ShortBuffer weight) {
 		if ( CHECKS )
-			checkBuffer(weight, 1);
+			check(weight, 1);
 		nglVertexWeighthvNV(memAddress(weight));
 	}
 
@@ -468,7 +468,7 @@ public class NVHalfFloat {
 	public static void glVertexAttrib1hNV(int index, short x) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1hNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, x);
 	}
 
@@ -477,13 +477,13 @@ public class NVHalfFloat {
 	public static void nglVertexAttrib1hvNV(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttrib1hvNV(int index, ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 1);
+			check(v, 1);
 		nglVertexAttrib1hvNV(index, memAddress(v));
 	}
 
@@ -492,7 +492,7 @@ public class NVHalfFloat {
 	public static void glVertexAttrib2hNV(int index, short x, short y) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2hNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, x, y);
 	}
 
@@ -501,13 +501,13 @@ public class NVHalfFloat {
 	public static void nglVertexAttrib2hvNV(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttrib2hvNV(int index, ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 2);
+			check(v, 2);
 		nglVertexAttrib2hvNV(index, memAddress(v));
 	}
 
@@ -516,7 +516,7 @@ public class NVHalfFloat {
 	public static void glVertexAttrib3hNV(int index, short x, short y, short z) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3hNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, x, y, z);
 	}
 
@@ -525,13 +525,13 @@ public class NVHalfFloat {
 	public static void nglVertexAttrib3hvNV(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttrib3hvNV(int index, ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 3);
+			check(v, 3);
 		nglVertexAttrib3hvNV(index, memAddress(v));
 	}
 
@@ -540,7 +540,7 @@ public class NVHalfFloat {
 	public static void glVertexAttrib4hNV(int index, short x, short y, short z, short w) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4hNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, index, x, y, z, w);
 	}
 
@@ -549,13 +549,13 @@ public class NVHalfFloat {
 	public static void nglVertexAttrib4hvNV(int index, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v);
 	}
 
 	public static void glVertexAttrib4hvNV(int index, ShortBuffer v) {
 		if ( CHECKS )
-			checkBuffer(v, 4);
+			check(v, 4);
 		nglVertexAttrib4hvNV(index, memAddress(v));
 	}
 
@@ -564,7 +564,7 @@ public class NVHalfFloat {
 	public static void nglVertexAttribs1hvNV(int index, int n, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribs1hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, n, v);
 	}
 
@@ -577,7 +577,7 @@ public class NVHalfFloat {
 	public static void nglVertexAttribs2hvNV(int index, int n, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribs2hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, n, v);
 	}
 
@@ -590,7 +590,7 @@ public class NVHalfFloat {
 	public static void nglVertexAttribs3hvNV(int index, int n, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribs3hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, n, v);
 	}
 
@@ -603,7 +603,7 @@ public class NVHalfFloat {
 	public static void nglVertexAttribs4hvNV(int index, int n, long v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribs4hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, n, v);
 	}
 
@@ -615,8 +615,8 @@ public class NVHalfFloat {
 	public static void glVertex2hvNV(short[] v) {
 		long __functionAddress = GL.getCapabilities().glVertex2hvNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 2);
+			check(__functionAddress);
+			check(v, 2);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -625,8 +625,8 @@ public class NVHalfFloat {
 	public static void glVertex3hvNV(short[] v) {
 		long __functionAddress = GL.getCapabilities().glVertex3hvNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -635,8 +635,8 @@ public class NVHalfFloat {
 	public static void glVertex4hvNV(short[] v) {
 		long __functionAddress = GL.getCapabilities().glVertex4hvNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -645,8 +645,8 @@ public class NVHalfFloat {
 	public static void glNormal3hvNV(short[] v) {
 		long __functionAddress = GL.getCapabilities().glNormal3hvNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -655,8 +655,8 @@ public class NVHalfFloat {
 	public static void glColor3hvNV(short[] v) {
 		long __functionAddress = GL.getCapabilities().glColor3hvNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -665,8 +665,8 @@ public class NVHalfFloat {
 	public static void glColor4hvNV(short[] v) {
 		long __functionAddress = GL.getCapabilities().glColor4hvNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -675,8 +675,8 @@ public class NVHalfFloat {
 	public static void glTexCoord1hvNV(short[] v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord1hvNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 1);
+			check(__functionAddress);
+			check(v, 1);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -685,8 +685,8 @@ public class NVHalfFloat {
 	public static void glTexCoord2hvNV(short[] v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord2hvNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 2);
+			check(__functionAddress);
+			check(v, 2);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -695,8 +695,8 @@ public class NVHalfFloat {
 	public static void glTexCoord3hvNV(short[] v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord3hvNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -705,8 +705,8 @@ public class NVHalfFloat {
 	public static void glTexCoord4hvNV(short[] v) {
 		long __functionAddress = GL.getCapabilities().glTexCoord4hvNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -715,8 +715,8 @@ public class NVHalfFloat {
 	public static void glMultiTexCoord1hvNV(int target, short[] v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord1hvNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 1);
+			check(__functionAddress);
+			check(v, 1);
 		}
 		callPV(__functionAddress, target, v);
 	}
@@ -725,8 +725,8 @@ public class NVHalfFloat {
 	public static void glMultiTexCoord2hvNV(int target, short[] v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord2hvNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 2);
+			check(__functionAddress);
+			check(v, 2);
 		}
 		callPV(__functionAddress, target, v);
 	}
@@ -735,8 +735,8 @@ public class NVHalfFloat {
 	public static void glMultiTexCoord3hvNV(int target, short[] v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord3hvNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, target, v);
 	}
@@ -745,8 +745,8 @@ public class NVHalfFloat {
 	public static void glMultiTexCoord4hvNV(int target, short[] v) {
 		long __functionAddress = GL.getCapabilities().glMultiTexCoord4hvNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, target, v);
 	}
@@ -755,8 +755,8 @@ public class NVHalfFloat {
 	public static void glFogCoordhvNV(short[] fog) {
 		long __functionAddress = GL.getCapabilities().glFogCoordhvNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(fog, 1);
+			check(__functionAddress);
+			check(fog, 1);
 		}
 		callPV(__functionAddress, fog);
 	}
@@ -765,8 +765,8 @@ public class NVHalfFloat {
 	public static void glSecondaryColor3hvNV(short[] v) {
 		long __functionAddress = GL.getCapabilities().glSecondaryColor3hvNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, v);
 	}
@@ -775,8 +775,8 @@ public class NVHalfFloat {
 	public static void glVertexWeighthvNV(short[] weight) {
 		long __functionAddress = GL.getCapabilities().glVertexWeighthvNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(weight, 1);
+			check(__functionAddress);
+			check(weight, 1);
 		}
 		callPV(__functionAddress, weight);
 	}
@@ -785,8 +785,8 @@ public class NVHalfFloat {
 	public static void glVertexAttrib1hvNV(int index, short[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib1hvNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 1);
+			check(__functionAddress);
+			check(v, 1);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -795,8 +795,8 @@ public class NVHalfFloat {
 	public static void glVertexAttrib2hvNV(int index, short[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib2hvNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 2);
+			check(__functionAddress);
+			check(v, 2);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -805,8 +805,8 @@ public class NVHalfFloat {
 	public static void glVertexAttrib3hvNV(int index, short[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib3hvNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 3);
+			check(__functionAddress);
+			check(v, 3);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -815,8 +815,8 @@ public class NVHalfFloat {
 	public static void glVertexAttrib4hvNV(int index, short[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttrib4hvNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(v, 4);
+			check(__functionAddress);
+			check(v, 4);
 		}
 		callPV(__functionAddress, index, v);
 	}
@@ -825,7 +825,7 @@ public class NVHalfFloat {
 	public static void glVertexAttribs1hvNV(int index, short[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribs1hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v.length, v);
 	}
 
@@ -833,7 +833,7 @@ public class NVHalfFloat {
 	public static void glVertexAttribs2hvNV(int index, short[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribs2hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v.length >> 1, v);
 	}
 
@@ -841,7 +841,7 @@ public class NVHalfFloat {
 	public static void glVertexAttribs3hvNV(int index, short[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribs3hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v.length / 3, v);
 	}
 
@@ -849,7 +849,7 @@ public class NVHalfFloat {
 	public static void glVertexAttribs4hvNV(int index, short[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribs4hvNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, index, v.length >> 2, v);
 	}
 

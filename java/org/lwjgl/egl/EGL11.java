@@ -43,9 +43,9 @@ public class EGL11 {
 	public static boolean eglBindTexImage(long dpy, long surface, int buffer) {
 		long __functionAddress = EGL.getCapabilities().eglBindTexImage;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(surface);
+			check(__functionAddress);
+			check(dpy);
+			check(surface);
 		}
 		return callPPI(__functionAddress, dpy, surface, buffer) != 0;
 	}
@@ -55,9 +55,9 @@ public class EGL11 {
 	public static boolean eglReleaseTexImage(long dpy, long surface, int buffer) {
 		long __functionAddress = EGL.getCapabilities().eglReleaseTexImage;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(surface);
+			check(__functionAddress);
+			check(dpy);
+			check(surface);
 		}
 		return callPPI(__functionAddress, dpy, surface, buffer) != 0;
 	}
@@ -67,9 +67,9 @@ public class EGL11 {
 	public static boolean eglSurfaceAttrib(long dpy, long surface, int attribute, int value) {
 		long __functionAddress = EGL.getCapabilities().eglSurfaceAttrib;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
-			checkPointer(surface);
+			check(__functionAddress);
+			check(dpy);
+			check(surface);
 		}
 		return callPPI(__functionAddress, dpy, surface, attribute, value) != 0;
 	}
@@ -79,8 +79,8 @@ public class EGL11 {
 	public static boolean eglSwapInterval(long dpy, int interval) {
 		long __functionAddress = EGL.getCapabilities().eglSwapInterval;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dpy);
+			check(__functionAddress);
+			check(dpy);
 		}
 		return callPI(__functionAddress, dpy, interval) != 0;
 	}

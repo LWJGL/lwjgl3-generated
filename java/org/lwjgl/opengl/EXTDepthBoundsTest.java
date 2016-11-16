@@ -60,7 +60,7 @@ public class EXTDepthBoundsTest {
 	public static void glDepthBoundsEXT(double zmin, double zmax) {
 		long __functionAddress = GL.getCapabilities().glDepthBoundsEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, zmin, zmax);
 	}
 

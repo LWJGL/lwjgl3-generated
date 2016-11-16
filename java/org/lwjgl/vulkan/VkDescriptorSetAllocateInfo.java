@@ -319,7 +319,7 @@ public class VkDescriptorSetAllocateInfo extends Struct implements NativeResourc
 	 * @param struct the struct to validate
 	 */
 	public static void validate(long struct) {
-		checkPointer(memGetAddress(struct + VkDescriptorSetAllocateInfo.PSETLAYOUTS));
+		check(memGetAddress(struct + VkDescriptorSetAllocateInfo.PSETLAYOUTS));
 	}
 
 	/**

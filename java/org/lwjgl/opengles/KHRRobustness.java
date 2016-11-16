@@ -122,7 +122,7 @@ public class KHRRobustness {
 	public static int glGetGraphicsResetStatusKHR() {
 		long __functionAddress = GLES.getCapabilities().glGetGraphicsResetStatusKHR;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callI(__functionAddress);
 	}
 
@@ -136,7 +136,7 @@ public class KHRRobustness {
 	public static void nglReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixelsKHR;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, bufSize, pixels);
 	}
 
@@ -226,7 +226,7 @@ public class KHRRobustness {
 	public static void nglGetnUniformfvKHR(int program, int location, int bufSize, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetnUniformfvKHR;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
@@ -268,7 +268,7 @@ public class KHRRobustness {
 	public static void nglGetnUniformivKHR(int program, int location, int bufSize, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetnUniformivKHR;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
@@ -310,7 +310,7 @@ public class KHRRobustness {
 	public static void nglGetnUniformuivKHR(int program, int location, int bufSize, long params) {
 		long __functionAddress = GLES.getCapabilities().glGetnUniformuivKHR;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, bufSize, params);
 	}
 
@@ -346,7 +346,7 @@ public class KHRRobustness {
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, short[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixelsKHR;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 1, pixels);
 	}
 
@@ -354,7 +354,7 @@ public class KHRRobustness {
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixelsKHR;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
 	}
 
@@ -362,7 +362,7 @@ public class KHRRobustness {
 	public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, float[] pixels) {
 		long __functionAddress = GLES.getCapabilities().glReadnPixelsKHR;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, x, y, width, height, format, type, pixels.length << 2, pixels);
 	}
 
@@ -370,7 +370,7 @@ public class KHRRobustness {
 	public static void glGetnUniformfvKHR(int program, int location, float[] params) {
 		long __functionAddress = GLES.getCapabilities().glGetnUniformfvKHR;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);
 	}
 
@@ -378,7 +378,7 @@ public class KHRRobustness {
 	public static void glGetnUniformivKHR(int program, int location, float[] params) {
 		long __functionAddress = GLES.getCapabilities().glGetnUniformivKHR;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);
 	}
 
@@ -386,7 +386,7 @@ public class KHRRobustness {
 	public static void glGetnUniformuivKHR(int program, int location, float[] params) {
 		long __functionAddress = GLES.getCapabilities().glGetnUniformuivKHR;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, program, location, params.length, params);
 	}
 

@@ -48,7 +48,7 @@ public class NVVertexArrayRange {
 	public static void nglVertexArrayRangeNV(int length, long pointer) {
 		long __functionAddress = GL.getCapabilities().glVertexArrayRangeNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, length, pointer);
 	}
 
@@ -61,7 +61,7 @@ public class NVVertexArrayRange {
 	public static void glFlushVertexArrayRangeNV() {
 		long __functionAddress = GL.getCapabilities().glFlushVertexArrayRangeNV;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress);
 	}
 

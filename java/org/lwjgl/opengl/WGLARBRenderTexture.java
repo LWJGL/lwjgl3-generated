@@ -127,8 +127,8 @@ public class WGLARBRenderTexture {
 	public static boolean wglBindTexImageARB(long pbuffer, int buffer) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglBindTexImageARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(pbuffer);
+			check(__functionAddress);
+			check(pbuffer);
 		}
 		return callPI(__functionAddress, pbuffer, buffer) != 0;
 	}
@@ -145,8 +145,8 @@ public class WGLARBRenderTexture {
 	public static boolean wglReleaseTexImageARB(long pbuffer, int buffer) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglReleaseTexImageARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(pbuffer);
+			check(__functionAddress);
+			check(pbuffer);
 		}
 		return callPI(__functionAddress, pbuffer, buffer) != 0;
 	}
@@ -157,8 +157,8 @@ public class WGLARBRenderTexture {
 	public static int nwglSetPbufferAttribARB(long pbuffer, long attribList) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglSetPbufferAttribARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(pbuffer);
+			check(__functionAddress);
+			check(pbuffer);
 		}
 		return callPPI(__functionAddress, pbuffer, attribList);
 	}
@@ -179,8 +179,8 @@ public class WGLARBRenderTexture {
 	public static boolean wglSetPbufferAttribARB(long pbuffer, int[] attribList) {
 		long __functionAddress = GL.getCapabilitiesWGL().wglSetPbufferAttribARB;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(pbuffer);
+			check(__functionAddress);
+			check(pbuffer);
 			checkNTSafe(attribList);
 		}
 		return callPPI(__functionAddress, pbuffer, attribList) != 0;

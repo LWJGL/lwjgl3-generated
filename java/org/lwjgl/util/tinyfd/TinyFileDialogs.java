@@ -359,8 +359,8 @@ public class TinyFileDialogs {
 		if ( CHECKS ) {
 			checkNT1(aTitle);
 			checkNT1Safe(aDefaultHexRGB);
-			checkBufferSafe(aDefaultRGB, 3);
-			checkBuffer(aoResultRGB, 3);
+			checkSafe(aDefaultRGB, 3);
+			check(aoResultRGB, 3);
 		}
 		long __result = ntinyfd_colorChooser(memAddress(aTitle), memAddressSafe(aDefaultHexRGB), memAddressSafe(aDefaultRGB), memAddress(aoResultRGB));
 		return memUTF8(__result);
@@ -378,8 +378,8 @@ public class TinyFileDialogs {
 	 */
 	public static String tinyfd_colorChooser(CharSequence aTitle, CharSequence aDefaultHexRGB, ByteBuffer aDefaultRGB, ByteBuffer aoResultRGB) {
 		if ( CHECKS ) {
-			checkBufferSafe(aDefaultRGB, 3);
-			checkBuffer(aoResultRGB, 3);
+			checkSafe(aDefaultRGB, 3);
+			check(aoResultRGB, 3);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {

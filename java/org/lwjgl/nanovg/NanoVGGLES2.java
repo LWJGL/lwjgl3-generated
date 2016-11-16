@@ -65,7 +65,7 @@ public class NanoVGGLES2 {
 	 */
 	public static int nvglCreateImageFromHandle(long ctx, int textureId, int w, int h, int flags) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		return nnvglCreateImageFromHandleGLES2(ctx, textureId, w, h, flags);
 	}
 
@@ -82,7 +82,7 @@ public class NanoVGGLES2 {
 	 */
 	public static int nvglImageHandle(long ctx, int image) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		return nnvglImageHandleGLES2(ctx, image);
 	}
 
@@ -115,7 +115,7 @@ public class NanoVGGLES2 {
 	 */
 	public static void nvgDelete(long ctx) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgDeleteGLES2(ctx);
 	}
 
@@ -134,7 +134,7 @@ public class NanoVGGLES2 {
 	 */
 	public static NVGLUFramebuffer nvgluCreateFramebuffer(long ctx, int w, int h, int imageFlags) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		long __result = nnvgluCreateFramebufferGLES2(ctx, w, h, imageFlags);
 		return NVGLUFramebuffer.create(__result);
 	}
@@ -152,7 +152,7 @@ public class NanoVGGLES2 {
 	 */
 	public static void nvgluBindFramebuffer(long ctx, NVGLUFramebuffer fb) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgluBindFramebufferGLES2(ctx, memAddressSafe(fb));
 	}
 
@@ -169,7 +169,7 @@ public class NanoVGGLES2 {
 	 */
 	public static void nvgluDeleteFramebuffer(long ctx, NVGLUFramebuffer fb) {
 		if ( CHECKS )
-			checkPointer(ctx);
+			check(ctx);
 		nnvgluDeleteFramebufferGLES2(ctx, fb.address());
 	}
 

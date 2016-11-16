@@ -349,7 +349,7 @@ public class VkImageBlit extends Struct implements NativeResource {
 	public static void nsrcSubresource(long struct, VkImageSubresourceLayers value) { memCopy(value.address(), struct + VkImageBlit.SRCSUBRESOURCE, VkImageSubresourceLayers.SIZEOF); }
 	/** Unsafe version of {@link #srcOffsets(VkOffset3D.Buffer) srcOffsets}. */
 	public static void nsrcOffsets(long struct, VkOffset3D.Buffer value) {
-		if ( CHECKS ) checkBufferGT(value, 2);
+		if ( CHECKS ) checkGT(value, 2);
 		memCopy(value.address(), struct + VkImageBlit.SRCOFFSETS, value.remaining() * VkOffset3D.SIZEOF);
 	}
 	/** Unsafe version of {@link #srcOffsets(int, VkOffset3D) srcOffsets}. */
@@ -361,7 +361,7 @@ public class VkImageBlit extends Struct implements NativeResource {
 	public static void ndstSubresource(long struct, VkImageSubresourceLayers value) { memCopy(value.address(), struct + VkImageBlit.DSTSUBRESOURCE, VkImageSubresourceLayers.SIZEOF); }
 	/** Unsafe version of {@link #dstOffsets(VkOffset3D.Buffer) dstOffsets}. */
 	public static void ndstOffsets(long struct, VkOffset3D.Buffer value) {
-		if ( CHECKS ) checkBufferGT(value, 2);
+		if ( CHECKS ) checkGT(value, 2);
 		memCopy(value.address(), struct + VkImageBlit.DSTOFFSETS, value.remaining() * VkOffset3D.SIZEOF);
 	}
 	/** Unsafe version of {@link #dstOffsets(int, VkOffset3D) dstOffsets}. */

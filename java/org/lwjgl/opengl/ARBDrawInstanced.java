@@ -54,7 +54,7 @@ public class ARBDrawInstanced {
 	public static void glDrawArraysInstancedARB(int mode, int first, int count, int primcount) {
 		long __functionAddress = GL.getCapabilities().glDrawArraysInstancedARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, mode, first, count, primcount);
 	}
 
@@ -69,7 +69,7 @@ public class ARBDrawInstanced {
 	public static void nglDrawElementsInstancedARB(int mode, int count, int type, long indices, int primcount) {
 		long __functionAddress = GL.getCapabilities().glDrawElementsInstancedARB;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, mode, count, type, indices, primcount);
 	}
 

@@ -56,7 +56,7 @@ public class EXTDiscardFramebuffer {
 	public static void nglDiscardFramebufferEXT(int target, int numAttachments, long attachments) {
 		long __functionAddress = GLES.getCapabilities().glDiscardFramebufferEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, numAttachments, attachments);
 	}
 
@@ -78,7 +78,7 @@ public class EXTDiscardFramebuffer {
 	public static void glDiscardFramebufferEXT(int target, int[] attachments) {
 		long __functionAddress = GLES.getCapabilities().glDiscardFramebufferEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, target, attachments.length, attachments);
 	}
 

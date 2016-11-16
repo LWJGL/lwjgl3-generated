@@ -59,7 +59,7 @@ public class EXTMultisampledRenderToTexture {
 	public static void glRenderbufferStorageMultisampleEXT(int target, int samples, int internalformat, int width, int height) {
 		long __functionAddress = GLES.getCapabilities().glRenderbufferStorageMultisampleEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, samples, internalformat, width, height);
 	}
 
@@ -68,7 +68,7 @@ public class EXTMultisampledRenderToTexture {
 	public static void glFramebufferTexture2DMultisampleEXT(int target, int attachment, int textarget, int texture, int level, int samples) {
 		long __functionAddress = GLES.getCapabilities().glFramebufferTexture2DMultisampleEXT;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, target, attachment, textarget, texture, level, samples);
 	}
 

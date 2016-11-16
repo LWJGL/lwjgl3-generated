@@ -44,7 +44,7 @@ public class ARBTransformFeedbackInstanced {
 	public static void glDrawTransformFeedbackInstanced(int mode, int id, int primcount) {
 		long __functionAddress = GL.getCapabilities().glDrawTransformFeedbackInstanced;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, mode, id, primcount);
 	}
 
@@ -61,7 +61,7 @@ public class ARBTransformFeedbackInstanced {
 	public static void glDrawTransformFeedbackStreamInstanced(int mode, int id, int stream, int primcount) {
 		long __functionAddress = GL.getCapabilities().glDrawTransformFeedbackStreamInstanced;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, mode, id, stream, primcount);
 	}
 

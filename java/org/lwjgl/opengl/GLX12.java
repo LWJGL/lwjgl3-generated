@@ -27,7 +27,7 @@ public class GLX12 {
 	public static long glXGetCurrentDisplay() {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetCurrentDisplay;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callP(__functionAddress);
 	}
 

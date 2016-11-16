@@ -55,8 +55,8 @@ public class GLXAMDGPUAssociation {
 	public static void glXBlitContextFramebufferAMD(long dstCtx, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXBlitContextFramebufferAMD;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(dstCtx);
+			check(__functionAddress);
+			check(dstCtx);
 		}
 		callPV(__functionAddress, dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
@@ -72,8 +72,8 @@ public class GLXAMDGPUAssociation {
 	public static long glXCreateAssociatedContextAMD(int id, long share_list) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateAssociatedContextAMD;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(share_list);
+			check(__functionAddress);
+			check(share_list);
 		}
 		return callPP(__functionAddress, id, share_list);
 	}
@@ -84,8 +84,8 @@ public class GLXAMDGPUAssociation {
 	public static long nglXCreateAssociatedContextAttribsAMD(int id, long share_context, long attribList) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateAssociatedContextAttribsAMD;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(share_context);
+			check(__functionAddress);
+			check(share_context);
 		}
 		return callPPP(__functionAddress, id, share_context, attribList);
 	}
@@ -111,8 +111,8 @@ public class GLXAMDGPUAssociation {
 	public static int glXDeleteAssociatedContextAMD(long ctx) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXDeleteAssociatedContextAMD;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(ctx);
+			check(__functionAddress);
+			check(ctx);
 		}
 		return callPI(__functionAddress, ctx);
 	}
@@ -127,8 +127,8 @@ public class GLXAMDGPUAssociation {
 	public static int glXGetContextGPUIDAMD(long ctx) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetContextGPUIDAMD;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(ctx);
+			check(__functionAddress);
+			check(ctx);
 		}
 		return callPI(__functionAddress, ctx);
 	}
@@ -139,7 +139,7 @@ public class GLXAMDGPUAssociation {
 	public static long glXGetCurrentAssociatedContextAMD() {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetCurrentAssociatedContextAMD;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callP(__functionAddress);
 	}
 
@@ -154,7 +154,7 @@ public class GLXAMDGPUAssociation {
 	public static int glXGetGPUIDsAMD(int maxCount, int ids) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetGPUIDsAMD;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callI(__functionAddress, maxCount, ids);
 	}
 
@@ -164,7 +164,7 @@ public class GLXAMDGPUAssociation {
 	public static int nglXGetGPUInfoAMD(int id, int property, int dataType, int size, long data) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXGetGPUInfoAMD;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callPI(__functionAddress, id, property, dataType, size, data);
 	}
 
@@ -191,8 +191,8 @@ public class GLXAMDGPUAssociation {
 	public static int glXMakeAssociatedContextCurrentAMD(long ctx) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXMakeAssociatedContextCurrentAMD;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(ctx);
+			check(__functionAddress);
+			check(ctx);
 		}
 		return callPI(__functionAddress, ctx);
 	}
@@ -201,8 +201,8 @@ public class GLXAMDGPUAssociation {
 	public static long glXCreateAssociatedContextAttribsAMD(int id, long share_context, int[] attribList) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateAssociatedContextAttribsAMD;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(share_context);
+			check(__functionAddress);
+			check(share_context);
 		}
 		return callPPP(__functionAddress, id, share_context, attribList);
 	}

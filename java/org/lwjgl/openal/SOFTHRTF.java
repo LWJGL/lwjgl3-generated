@@ -68,8 +68,8 @@ public class SOFTHRTF {
 	public static long nalcGetStringiSOFT(long device, int paramName, int index) {
 		long __functionAddress = ALC.getICD().alcGetStringiSOFT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
+			check(__functionAddress);
+			check(device);
 		}
 		return invokePP(__functionAddress, device, paramName, index);
 	}
@@ -95,8 +95,8 @@ public class SOFTHRTF {
 	public static boolean nalcResetDeviceSOFT(long device, long attrList) {
 		long __functionAddress = ALC.getICD().alcResetDeviceSOFT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
+			check(__functionAddress);
+			check(device);
 		}
 		return invokePPZ(__functionAddress, device, attrList);
 	}
@@ -120,8 +120,8 @@ public class SOFTHRTF {
 	public static boolean alcResetDeviceSOFT(long device, int[] attrList) {
 		long __functionAddress = ALC.getICD().alcResetDeviceSOFT;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(device);
+			check(__functionAddress);
+			check(device);
 		}
 		return invokePPZ(__functionAddress, device, attrList);
 	}

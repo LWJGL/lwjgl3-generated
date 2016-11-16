@@ -60,7 +60,7 @@ public class ARBClipControl {
 	public static void glClipControl(int origin, int depth) {
 		long __functionAddress = GL.getCapabilities().glClipControl;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, origin, depth);
 	}
 

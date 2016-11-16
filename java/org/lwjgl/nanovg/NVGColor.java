@@ -288,7 +288,7 @@ public class NVGColor extends Struct implements NativeResource {
 
 	/** Unsafe version of {@link #rgba(FloatBuffer) rgba}. */
 	public static void nrgba(long struct, FloatBuffer value) {
-		if ( CHECKS ) checkBufferGT(value, 4);
+		if ( CHECKS ) checkGT(value, 4);
 		memCopy(memAddress(value), struct + NVGColor.RGBA, value.remaining() * 4);
 	}
 	/** Unsafe version of {@link #rgba(int, float) rgba}. */

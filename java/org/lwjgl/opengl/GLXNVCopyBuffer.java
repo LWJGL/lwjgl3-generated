@@ -42,10 +42,10 @@ public class GLXNVCopyBuffer {
 	public static void glXCopyBufferSubDataNV(long display, long readCtx, long writeCtx, int readTarget, int writeTarget, long readOffset, long writeOffset, long size) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXCopyBufferSubDataNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(readCtx);
-			checkPointer(writeCtx);
+			check(__functionAddress);
+			check(display);
+			check(readCtx);
+			check(writeCtx);
 		}
 		callPPPPPPV(__functionAddress, display, readCtx, writeCtx, readTarget, writeTarget, readOffset, writeOffset, size);
 	}
@@ -67,10 +67,10 @@ public class GLXNVCopyBuffer {
 	public static void glXNamedCopyBufferSubDataNV(long display, long readCtx, long writeCtx, int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size) {
 		long __functionAddress = GL.getCapabilitiesGLXClient().glXNamedCopyBufferSubDataNV;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkPointer(display);
-			checkPointer(readCtx);
-			checkPointer(writeCtx);
+			check(__functionAddress);
+			check(display);
+			check(readCtx);
+			check(writeCtx);
 		}
 		callPPPPPPV(__functionAddress, display, readCtx, writeCtx, readBuffer, writeBuffer, readOffset, writeOffset, size);
 	}

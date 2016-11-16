@@ -41,7 +41,7 @@ public class OESVertexArrayObject {
 	public static void glBindVertexArrayOES(int array) {
 		long __functionAddress = GLES.getCapabilities().glBindVertexArrayOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callV(__functionAddress, array);
 	}
 
@@ -50,7 +50,7 @@ public class OESVertexArrayObject {
 	public static void nglDeleteVertexArraysOES(int n, long arrays) {
 		long __functionAddress = GLES.getCapabilities().glDeleteVertexArraysOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, arrays);
 	}
 
@@ -73,13 +73,13 @@ public class OESVertexArrayObject {
 	public static void nglGenVertexArraysOES(int n, long arrays) {
 		long __functionAddress = GLES.getCapabilities().glGenVertexArraysOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, n, arrays);
 	}
 
 	public static void glGenVertexArraysOES(IntBuffer arrays) {
 		if ( CHECKS )
-			checkBuffer(arrays, 1);
+			check(arrays, 1);
 		nglGenVertexArraysOES(arrays.remaining(), memAddress(arrays));
 	}
 
@@ -99,7 +99,7 @@ public class OESVertexArrayObject {
 	public static boolean glIsVertexArrayOES(int array) {
 		long __functionAddress = GLES.getCapabilities().glIsVertexArrayOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		return callZ(__functionAddress, array);
 	}
 
@@ -107,7 +107,7 @@ public class OESVertexArrayObject {
 	public static void glDeleteVertexArraysOES(int[] arrays) {
 		long __functionAddress = GLES.getCapabilities().glDeleteVertexArraysOES;
 		if ( CHECKS )
-			checkFunctionAddress(__functionAddress);
+			check(__functionAddress);
 		callPV(__functionAddress, arrays.length, arrays);
 	}
 
@@ -115,8 +115,8 @@ public class OESVertexArrayObject {
 	public static void glGenVertexArraysOES(int[] arrays) {
 		long __functionAddress = GLES.getCapabilities().glGenVertexArraysOES;
 		if ( CHECKS ) {
-			checkFunctionAddress(__functionAddress);
-			checkBuffer(arrays, 1);
+			check(__functionAddress);
+			check(arrays, 1);
 		}
 		callPV(__functionAddress, arrays.length, arrays);
 	}

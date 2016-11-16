@@ -161,9 +161,9 @@ public class STBImage {
 	public static ByteBuffer stbi_load(ByteBuffer filename, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
 			checkNT1(filename);
-			checkBuffer(x, 1);
-			checkBuffer(y, 1);
-			checkBuffer(comp, 1);
+			check(x, 1);
+			check(y, 1);
+			check(comp, 1);
 		}
 		long __result = nstbi_load(memAddress(filename), memAddress(x), memAddress(y), memAddress(comp), req_comp);
 		return memByteBuffer(__result, x.get(x.position()) * y.get(y.position()) * (req_comp != 0 ? req_comp : comp.get(comp.position())));
@@ -200,9 +200,9 @@ public class STBImage {
 	 */
 	public static ByteBuffer stbi_load(CharSequence filename, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
-			checkBuffer(x, 1);
-			checkBuffer(y, 1);
-			checkBuffer(comp, 1);
+			check(x, 1);
+			check(y, 1);
+			check(comp, 1);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -234,9 +234,9 @@ public class STBImage {
 	 */
 	public static ByteBuffer stbi_load_from_memory(ByteBuffer buffer, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
-			checkBuffer(x, 1);
-			checkBuffer(y, 1);
-			checkBuffer(comp, 1);
+			check(x, 1);
+			check(y, 1);
+			check(comp, 1);
 		}
 		long __result = nstbi_load_from_memory(memAddress(buffer), buffer.remaining(), memAddress(x), memAddress(y), memAddress(comp), req_comp);
 		return memByteBuffer(__result, x.get(x.position()) * y.get(y.position()) * (req_comp != 0 ? req_comp : comp.get(comp.position())));
@@ -265,9 +265,9 @@ public class STBImage {
 	 */
 	public static ByteBuffer stbi_load_from_callbacks(STBIIOCallbacks clbk, long user, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
-			checkBuffer(x, 1);
-			checkBuffer(y, 1);
-			checkBuffer(comp, 1);
+			check(x, 1);
+			check(y, 1);
+			check(comp, 1);
 			STBIIOCallbacks.validate(clbk.address());
 		}
 		long __result = nstbi_load_from_callbacks(clbk.address(), user, memAddress(x), memAddress(y), memAddress(comp), req_comp);
@@ -291,9 +291,9 @@ public class STBImage {
 	public static FloatBuffer stbi_loadf(ByteBuffer filename, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
 			checkNT1(filename);
-			checkBuffer(x, 1);
-			checkBuffer(y, 1);
-			checkBuffer(comp, 1);
+			check(x, 1);
+			check(y, 1);
+			check(comp, 1);
 		}
 		long __result = nstbi_loadf(memAddress(filename), memAddress(x), memAddress(y), memAddress(comp), req_comp);
 		return memFloatBuffer(__result, x.get(x.position()) * y.get(y.position()) * (req_comp != 0 ? req_comp : comp.get(comp.position())));
@@ -310,9 +310,9 @@ public class STBImage {
 	 */
 	public static FloatBuffer stbi_loadf(CharSequence filename, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
-			checkBuffer(x, 1);
-			checkBuffer(y, 1);
-			checkBuffer(comp, 1);
+			check(x, 1);
+			check(y, 1);
+			check(comp, 1);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -344,9 +344,9 @@ public class STBImage {
 	 */
 	public static FloatBuffer stbi_loadf_from_memory(ByteBuffer buffer, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
-			checkBuffer(x, 1);
-			checkBuffer(y, 1);
-			checkBuffer(comp, 1);
+			check(x, 1);
+			check(y, 1);
+			check(comp, 1);
 		}
 		long __result = nstbi_loadf_from_memory(memAddress(buffer), buffer.remaining(), memAddress(x), memAddress(y), memAddress(comp), req_comp);
 		return memFloatBuffer(__result, x.get(x.position()) * y.get(y.position()) * (req_comp != 0 ? req_comp : comp.get(comp.position())));
@@ -369,9 +369,9 @@ public class STBImage {
 	 */
 	public static FloatBuffer stbi_loadf_from_callbacks(STBIIOCallbacks clbk, long user, IntBuffer x, IntBuffer y, IntBuffer comp, int req_comp) {
 		if ( CHECKS ) {
-			checkBuffer(x, 1);
-			checkBuffer(y, 1);
-			checkBuffer(comp, 1);
+			check(x, 1);
+			check(y, 1);
+			check(comp, 1);
 			STBIIOCallbacks.validate(clbk.address());
 		}
 		long __result = nstbi_loadf_from_callbacks(clbk.address(), user, memAddress(x), memAddress(y), memAddress(comp), req_comp);
@@ -536,9 +536,9 @@ public class STBImage {
 	public static boolean stbi_info(ByteBuffer filename, IntBuffer x, IntBuffer y, IntBuffer comp) {
 		if ( CHECKS ) {
 			checkNT1(filename);
-			checkBuffer(x, 1);
-			checkBuffer(y, 1);
-			checkBuffer(comp, 1);
+			check(x, 1);
+			check(y, 1);
+			check(comp, 1);
 		}
 		return nstbi_info(memAddress(filename), memAddress(x), memAddress(y), memAddress(comp)) != 0;
 	}
@@ -555,9 +555,9 @@ public class STBImage {
 	 */
 	public static boolean stbi_info(CharSequence filename, IntBuffer x, IntBuffer y, IntBuffer comp) {
 		if ( CHECKS ) {
-			checkBuffer(x, 1);
-			checkBuffer(y, 1);
-			checkBuffer(comp, 1);
+			check(x, 1);
+			check(y, 1);
+			check(comp, 1);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -587,9 +587,9 @@ public class STBImage {
 	 */
 	public static boolean stbi_info_from_memory(ByteBuffer buffer, IntBuffer x, IntBuffer y, IntBuffer comp) {
 		if ( CHECKS ) {
-			checkBuffer(x, 1);
-			checkBuffer(y, 1);
-			checkBuffer(comp, 1);
+			check(x, 1);
+			check(y, 1);
+			check(comp, 1);
 		}
 		return nstbi_info_from_memory(memAddress(buffer), buffer.remaining(), memAddress(x), memAddress(y), memAddress(comp)) != 0;
 	}
@@ -610,9 +610,9 @@ public class STBImage {
 	 */
 	public static boolean stbi_info_from_callbacks(STBIIOCallbacks clbk, long user, IntBuffer x, IntBuffer y, IntBuffer comp) {
 		if ( CHECKS ) {
-			checkBuffer(x, 1);
-			checkBuffer(y, 1);
-			checkBuffer(comp, 1);
+			check(x, 1);
+			check(y, 1);
+			check(comp, 1);
 			STBIIOCallbacks.validate(clbk.address());
 		}
 		return nstbi_info_from_callbacks(clbk.address(), user, memAddress(x), memAddress(y), memAddress(comp)) != 0;
@@ -785,9 +785,9 @@ public class STBImage {
 	public static ByteBuffer stbi_load(ByteBuffer filename, int[] x, int[] y, int[] comp, int req_comp) {
 		if ( CHECKS ) {
 			checkNT1(filename);
-			checkBuffer(x, 1);
-			checkBuffer(y, 1);
-			checkBuffer(comp, 1);
+			check(x, 1);
+			check(y, 1);
+			check(comp, 1);
 		}
 		long __result = nstbi_load(memAddress(filename), x, y, comp, req_comp);
 		return memByteBuffer(__result, x[0] * y[0] * (req_comp != 0 ? req_comp : comp[0]));
@@ -796,9 +796,9 @@ public class STBImage {
 	/** Array version of: {@link #stbi_load load} */
 	public static ByteBuffer stbi_load(CharSequence filename, int[] x, int[] y, int[] comp, int req_comp) {
 		if ( CHECKS ) {
-			checkBuffer(x, 1);
-			checkBuffer(y, 1);
-			checkBuffer(comp, 1);
+			check(x, 1);
+			check(y, 1);
+			check(comp, 1);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -816,9 +816,9 @@ public class STBImage {
 	/** Array version of: {@link #stbi_load_from_memory load_from_memory} */
 	public static ByteBuffer stbi_load_from_memory(ByteBuffer buffer, int[] x, int[] y, int[] comp, int req_comp) {
 		if ( CHECKS ) {
-			checkBuffer(x, 1);
-			checkBuffer(y, 1);
-			checkBuffer(comp, 1);
+			check(x, 1);
+			check(y, 1);
+			check(comp, 1);
 		}
 		long __result = nstbi_load_from_memory(memAddress(buffer), buffer.remaining(), x, y, comp, req_comp);
 		return memByteBuffer(__result, x[0] * y[0] * (req_comp != 0 ? req_comp : comp[0]));
@@ -830,9 +830,9 @@ public class STBImage {
 	/** Array version of: {@link #stbi_load_from_callbacks load_from_callbacks} */
 	public static ByteBuffer stbi_load_from_callbacks(STBIIOCallbacks clbk, long user, int[] x, int[] y, int[] comp, int req_comp) {
 		if ( CHECKS ) {
-			checkBuffer(x, 1);
-			checkBuffer(y, 1);
-			checkBuffer(comp, 1);
+			check(x, 1);
+			check(y, 1);
+			check(comp, 1);
 			STBIIOCallbacks.validate(clbk.address());
 		}
 		long __result = nstbi_load_from_callbacks(clbk.address(), user, x, y, comp, req_comp);
@@ -846,9 +846,9 @@ public class STBImage {
 	public static FloatBuffer stbi_loadf(ByteBuffer filename, int[] x, int[] y, int[] comp, int req_comp) {
 		if ( CHECKS ) {
 			checkNT1(filename);
-			checkBuffer(x, 1);
-			checkBuffer(y, 1);
-			checkBuffer(comp, 1);
+			check(x, 1);
+			check(y, 1);
+			check(comp, 1);
 		}
 		long __result = nstbi_loadf(memAddress(filename), x, y, comp, req_comp);
 		return memFloatBuffer(__result, x[0] * y[0] * (req_comp != 0 ? req_comp : comp[0]));
@@ -857,9 +857,9 @@ public class STBImage {
 	/** Array version of: {@link #stbi_loadf loadf} */
 	public static FloatBuffer stbi_loadf(CharSequence filename, int[] x, int[] y, int[] comp, int req_comp) {
 		if ( CHECKS ) {
-			checkBuffer(x, 1);
-			checkBuffer(y, 1);
-			checkBuffer(comp, 1);
+			check(x, 1);
+			check(y, 1);
+			check(comp, 1);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -877,9 +877,9 @@ public class STBImage {
 	/** Array version of: {@link #stbi_loadf_from_memory loadf_from_memory} */
 	public static FloatBuffer stbi_loadf_from_memory(ByteBuffer buffer, int[] x, int[] y, int[] comp, int req_comp) {
 		if ( CHECKS ) {
-			checkBuffer(x, 1);
-			checkBuffer(y, 1);
-			checkBuffer(comp, 1);
+			check(x, 1);
+			check(y, 1);
+			check(comp, 1);
 		}
 		long __result = nstbi_loadf_from_memory(memAddress(buffer), buffer.remaining(), x, y, comp, req_comp);
 		return memFloatBuffer(__result, x[0] * y[0] * (req_comp != 0 ? req_comp : comp[0]));
@@ -891,9 +891,9 @@ public class STBImage {
 	/** Array version of: {@link #stbi_loadf_from_callbacks loadf_from_callbacks} */
 	public static FloatBuffer stbi_loadf_from_callbacks(STBIIOCallbacks clbk, long user, int[] x, int[] y, int[] comp, int req_comp) {
 		if ( CHECKS ) {
-			checkBuffer(x, 1);
-			checkBuffer(y, 1);
-			checkBuffer(comp, 1);
+			check(x, 1);
+			check(y, 1);
+			check(comp, 1);
 			STBIIOCallbacks.validate(clbk.address());
 		}
 		long __result = nstbi_loadf_from_callbacks(clbk.address(), user, x, y, comp, req_comp);
@@ -907,9 +907,9 @@ public class STBImage {
 	public static boolean stbi_info(ByteBuffer filename, int[] x, int[] y, int[] comp) {
 		if ( CHECKS ) {
 			checkNT1(filename);
-			checkBuffer(x, 1);
-			checkBuffer(y, 1);
-			checkBuffer(comp, 1);
+			check(x, 1);
+			check(y, 1);
+			check(comp, 1);
 		}
 		return nstbi_info(memAddress(filename), x, y, comp) != 0;
 	}
@@ -917,9 +917,9 @@ public class STBImage {
 	/** Array version of: {@link #stbi_info info} */
 	public static boolean stbi_info(CharSequence filename, int[] x, int[] y, int[] comp) {
 		if ( CHECKS ) {
-			checkBuffer(x, 1);
-			checkBuffer(y, 1);
-			checkBuffer(comp, 1);
+			check(x, 1);
+			check(y, 1);
+			check(comp, 1);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
@@ -936,9 +936,9 @@ public class STBImage {
 	/** Array version of: {@link #stbi_info_from_memory info_from_memory} */
 	public static boolean stbi_info_from_memory(ByteBuffer buffer, int[] x, int[] y, int[] comp) {
 		if ( CHECKS ) {
-			checkBuffer(x, 1);
-			checkBuffer(y, 1);
-			checkBuffer(comp, 1);
+			check(x, 1);
+			check(y, 1);
+			check(comp, 1);
 		}
 		return nstbi_info_from_memory(memAddress(buffer), buffer.remaining(), x, y, comp) != 0;
 	}
@@ -949,9 +949,9 @@ public class STBImage {
 	/** Array version of: {@link #stbi_info_from_callbacks info_from_callbacks} */
 	public static boolean stbi_info_from_callbacks(STBIIOCallbacks clbk, long user, int[] x, int[] y, int[] comp) {
 		if ( CHECKS ) {
-			checkBuffer(x, 1);
-			checkBuffer(y, 1);
-			checkBuffer(comp, 1);
+			check(x, 1);
+			check(y, 1);
+			check(comp, 1);
 			STBIIOCallbacks.validate(clbk.address());
 		}
 		return nstbi_info_from_callbacks(clbk.address(), user, x, y, comp) != 0;
