@@ -159,34 +159,6 @@ public class NkContext extends Struct implements NativeResource {
 	public int button_behavior() { return nbutton_behavior(address()); }
 	/** Returns a {@link NkConfigurationStacks} view of the {@code stacks} field. */
 	public NkConfigurationStacks stacks() { return nstacks(address()); }
-	/** Returns a {@link NkDrawList} view of the {@code draw_list} field. */
-	public NkDrawList draw_list() { return ndraw_list(address()); }
-	/** Returns a {@link NkHandle} view of the {@code userdata} field. */
-	public NkHandle userdata() { return nuserdata(address()); }
-	/** Returns a {@link NkTextEdit} view of the {@code text_edit} field. */
-	public NkTextEdit text_edit() { return ntext_edit(address()); }
-	/** Returns a {@link NkCommandBuffer} view of the {@code overlay} field. */
-	public NkCommandBuffer overlay() { return noverlay(address()); }
-	/** Returns the value of the {@code build} field. */
-	public int build() { return nbuild(address()); }
-	/** Returns the value of the {@code use_pool} field. */
-	public boolean use_pool() { return nuse_pool(address()) != 0; }
-	/** Returns a {@link NkPool} view of the {@code pool} field. */
-	public NkPool pool() { return npool(address()); }
-	/** Returns a {@link NkWindow} view of the struct pointed to by the {@code begin} field. */
-	public NkWindow begin() { return nbegin(address()); }
-	/** Returns a {@link NkWindow} view of the struct pointed to by the {@code end} field. */
-	public NkWindow end() { return nend(address()); }
-	/** Returns a {@link NkWindow} view of the struct pointed to by the {@code active} field. */
-	public NkWindow active() { return nactive(address()); }
-	/** Returns a {@link NkWindow} view of the struct pointed to by the {@code current} field. */
-	public NkWindow current() { return ncurrent(address()); }
-	/** Returns the value of the {@code freelist} field. */
-	public long freelist() { return nfreelist(address()); }
-	/** Returns the value of the {@code count} field. */
-	public int count() { return ncount(address()); }
-	/** Returns the value of the {@code seq} field. */
-	public int seq() { return nseq(address()); }
 
 	// -----------------------------------
 
@@ -333,33 +305,19 @@ public class NkContext extends Struct implements NativeResource {
 	public static int nbutton_behavior(long struct) { return memGetInt(struct + NkContext.BUTTON_BEHAVIOR); }
 	/** Unsafe version of {@link #stacks}. */
 	public static NkConfigurationStacks nstacks(long struct) { return NkConfigurationStacks.create(struct + NkContext.STACKS); }
-	/** Unsafe version of {@link #draw_list}. */
 	public static NkDrawList ndraw_list(long struct) { return NkDrawList.create(struct + NkContext.DRAW_LIST); }
-	/** Unsafe version of {@link #userdata}. */
 	public static NkHandle nuserdata(long struct) { return NkHandle.create(struct + NkContext.USERDATA); }
-	/** Unsafe version of {@link #text_edit}. */
 	public static NkTextEdit ntext_edit(long struct) { return NkTextEdit.create(struct + NkContext.TEXT_EDIT); }
-	/** Unsafe version of {@link #overlay}. */
 	public static NkCommandBuffer noverlay(long struct) { return NkCommandBuffer.create(struct + NkContext.OVERLAY); }
-	/** Unsafe version of {@link #build}. */
 	public static int nbuild(long struct) { return memGetInt(struct + NkContext.BUILD); }
-	/** Unsafe version of {@link #use_pool}. */
 	public static int nuse_pool(long struct) { return memGetInt(struct + NkContext.USE_POOL); }
-	/** Unsafe version of {@link #pool}. */
 	public static NkPool npool(long struct) { return NkPool.create(struct + NkContext.POOL); }
-	/** Unsafe version of {@link #begin}. */
 	public static NkWindow nbegin(long struct) { return NkWindow.create(memGetAddress(struct + NkContext.BEGIN)); }
-	/** Unsafe version of {@link #end}. */
 	public static NkWindow nend(long struct) { return NkWindow.create(memGetAddress(struct + NkContext.END)); }
-	/** Unsafe version of {@link #active}. */
 	public static NkWindow nactive(long struct) { return NkWindow.create(memGetAddress(struct + NkContext.ACTIVE)); }
-	/** Unsafe version of {@link #current}. */
 	public static NkWindow ncurrent(long struct) { return NkWindow.create(memGetAddress(struct + NkContext.CURRENT)); }
-	/** Unsafe version of {@link #freelist}. */
 	public static long nfreelist(long struct) { return memGetAddress(struct + NkContext.FREELIST); }
-	/** Unsafe version of {@link #count}. */
 	public static int ncount(long struct) { return memGetInt(struct + NkContext.COUNT); }
-	/** Unsafe version of {@link #seq}. */
 	public static int nseq(long struct) { return memGetInt(struct + NkContext.SEQ); }
 
 	// -----------------------------------
@@ -420,34 +378,6 @@ public class NkContext extends Struct implements NativeResource {
 		public int button_behavior() { return NkContext.nbutton_behavior(address()); }
 		/** Returns a {@link NkConfigurationStacks} view of the {@code stacks} field. */
 		public NkConfigurationStacks stacks() { return NkContext.nstacks(address()); }
-		/** Returns a {@link NkDrawList} view of the {@code draw_list} field. */
-		public NkDrawList draw_list() { return NkContext.ndraw_list(address()); }
-		/** Returns a {@link NkHandle} view of the {@code userdata} field. */
-		public NkHandle userdata() { return NkContext.nuserdata(address()); }
-		/** Returns a {@link NkTextEdit} view of the {@code text_edit} field. */
-		public NkTextEdit text_edit() { return NkContext.ntext_edit(address()); }
-		/** Returns a {@link NkCommandBuffer} view of the {@code overlay} field. */
-		public NkCommandBuffer overlay() { return NkContext.noverlay(address()); }
-		/** Returns the value of the {@code build} field. */
-		public int build() { return NkContext.nbuild(address()); }
-		/** Returns the value of the {@code use_pool} field. */
-		public boolean use_pool() { return NkContext.nuse_pool(address()) != 0; }
-		/** Returns a {@link NkPool} view of the {@code pool} field. */
-		public NkPool pool() { return NkContext.npool(address()); }
-		/** Returns a {@link NkWindow} view of the struct pointed to by the {@code begin} field. */
-		public NkWindow begin() { return NkContext.nbegin(address()); }
-		/** Returns a {@link NkWindow} view of the struct pointed to by the {@code end} field. */
-		public NkWindow end() { return NkContext.nend(address()); }
-		/** Returns a {@link NkWindow} view of the struct pointed to by the {@code active} field. */
-		public NkWindow active() { return NkContext.nactive(address()); }
-		/** Returns a {@link NkWindow} view of the struct pointed to by the {@code current} field. */
-		public NkWindow current() { return NkContext.ncurrent(address()); }
-		/** Returns the value of the {@code freelist} field. */
-		public long freelist() { return NkContext.nfreelist(address()); }
-		/** Returns the value of the {@code count} field. */
-		public int count() { return NkContext.ncount(address()); }
-		/** Returns the value of the {@code seq} field. */
-		public int seq() { return NkContext.nseq(address()); }
 
 	}
 

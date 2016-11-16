@@ -35,7 +35,8 @@ import static org.lwjgl.system.MemoryStack.*;
     int * array_of_unicode_codepoints;
     int num_chars;
     stbtt_packedchar * chardata_for_range;
-    char[2];
+    unsigned char h_oversample;
+    unsigned char v_oversample;
 }</code></pre>
  */
 public class STBTTPackRange extends Struct implements NativeResource {
@@ -51,7 +52,9 @@ public class STBTTPackRange extends Struct implements NativeResource {
 		FIRST_UNICODE_CODEPOINT_IN_RANGE,
 		ARRAY_OF_UNICODE_CODEPOINTS,
 		NUM_CHARS,
-		CHARDATA_FOR_RANGE;
+		CHARDATA_FOR_RANGE,
+		H_OVERSAMPLE,
+		V_OVERSAMPLE;
 
 	static {
 		Layout layout = __struct(
@@ -60,7 +63,8 @@ public class STBTTPackRange extends Struct implements NativeResource {
 			__member(POINTER_SIZE),
 			__member(4),
 			__member(POINTER_SIZE),
-			__padding(2, true)
+			__member(1),
+			__member(1)
 		);
 
 		SIZEOF = layout.getSize();
@@ -71,6 +75,8 @@ public class STBTTPackRange extends Struct implements NativeResource {
 		ARRAY_OF_UNICODE_CODEPOINTS = layout.offsetof(2);
 		NUM_CHARS = layout.offsetof(3);
 		CHARDATA_FOR_RANGE = layout.offsetof(4);
+		H_OVERSAMPLE = layout.offsetof(5);
+		V_OVERSAMPLE = layout.offsetof(6);
 	}
 
 	STBTTPackRange(long address, ByteBuffer container) {
@@ -285,6 +291,8 @@ public class STBTTPackRange extends Struct implements NativeResource {
 	public static int nnum_chars(long struct) { return memGetInt(struct + STBTTPackRange.NUM_CHARS); }
 	/** Unsafe version of {@link #chardata_for_range}. */
 	public static STBTTPackedchar.Buffer nchardata_for_range(long struct) { return STBTTPackedchar.create(memGetAddress(struct + STBTTPackRange.CHARDATA_FOR_RANGE), nnum_chars(struct)); }
+	public static byte nh_oversample(long struct) { return memGetByte(struct + STBTTPackRange.H_OVERSAMPLE); }
+	public static byte nv_oversample(long struct) { return memGetByte(struct + STBTTPackRange.V_OVERSAMPLE); }
 
 	/** Unsafe version of {@link #font_size(float) font_size}. */
 	public static void nfont_size(long struct, float value) { memPutFloat(struct + STBTTPackRange.FONT_SIZE, value); }
@@ -296,6 +304,8 @@ public class STBTTPackRange extends Struct implements NativeResource {
 	public static void nnum_chars(long struct, int value) { memPutInt(struct + STBTTPackRange.NUM_CHARS, value); }
 	/** Unsafe version of {@link #chardata_for_range(STBTTPackedchar.Buffer) chardata_for_range}. */
 	public static void nchardata_for_range(long struct, STBTTPackedchar.Buffer value) { memPutAddress(struct + STBTTPackRange.CHARDATA_FOR_RANGE, value.address()); }
+	public static void nh_oversample(long struct, byte value) { memPutByte(struct + STBTTPackRange.H_OVERSAMPLE, value); }
+	public static void nv_oversample(long struct, byte value) { memPutByte(struct + STBTTPackRange.V_OVERSAMPLE, value); }
 
 	/**
 	 * Validates pointer members that should not be {@code NULL}.
