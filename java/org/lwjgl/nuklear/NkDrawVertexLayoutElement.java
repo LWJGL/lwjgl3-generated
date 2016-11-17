@@ -25,8 +25,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_draw_vertex_layout_element {
-    nk_draw_vertex_layout_attribute attribute;
-    nk_draw_vertex_layout_format format;
+    enum nk_draw_vertex_layout_attribute attribute;
+    enum nk_draw_vertex_layout_format format;
     nk_size offset;
 }</code></pre>
  */

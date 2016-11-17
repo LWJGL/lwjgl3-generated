@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_chart_slot {
-    nk_chart_type type;
+    enum nk_chart_type type;
     {@link NkColor struct nk_color} color;
     {@link NkColor struct nk_color} highlight;
     float min;

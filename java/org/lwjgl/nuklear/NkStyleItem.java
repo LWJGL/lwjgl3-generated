@@ -24,8 +24,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_style_item {
-    nk_style_item_type type;
-    {@link NkStyleItemData struct nk_style_item_data} data;
+    enum nk_style_item_type type;
+    {@link NkStyleItemData union nk_style_item_data} data;
 }</code></pre>
  */
 public class NkStyleItem extends Struct implements NativeResource {

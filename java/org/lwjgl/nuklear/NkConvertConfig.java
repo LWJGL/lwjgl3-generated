@@ -34,8 +34,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <pre><code>struct nk_convert_config {
     float global_alpha;
-    nk_anti_aliasing line_AA;
-    nk_anti_aliasing shape_AA;
+    enum nk_anti_aliasing line_AA;
+    enum nk_anti_aliasing shape_AA;
     unsigned int circle_segment_count;
     unsigned int arc_segment_count;
     unsigned int curve_segment_count;

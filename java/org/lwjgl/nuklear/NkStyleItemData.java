@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * <h3>Layout</h3>
  * 
- * <pre><code>union struct nk_style_item_data {
+ * <pre><code>union nk_style_item_data {
     {@link NkImage struct nk_image} image;
     {@link NkColor struct nk_color} color;
 }</code></pre>

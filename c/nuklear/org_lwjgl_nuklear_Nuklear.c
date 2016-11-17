@@ -387,6 +387,34 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1group_1end(JNIEnv *__
 	nk_group_end(ctx);
 }
 
+JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1group_1scrolled_1begin(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong scrollAddress, jlong titleAddress, jint flags) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	struct nk_scroll *scroll = (struct nk_scroll *)(intptr_t)scrollAddress;
+	const char *title = (const char *)(intptr_t)titleAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)nk_group_scrolled_begin(ctx, scroll, title, flags);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1group_1scrolled_1end(JNIEnv *__env, jclass clazz, jlong ctxAddress) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	UNUSED_PARAMS(__env, clazz)
+	nk_group_scrolled_end(ctx);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1list_1view_1begin(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong viewAddress, jlong titleAddress, jint flags, jint row_height, jint row_count) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	struct nk_list_view *view = (struct nk_list_view *)(intptr_t)viewAddress;
+	const char *title = (const char *)(intptr_t)titleAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)nk_list_view_begin(ctx, view, title, flags, row_height, row_count);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1list_1view_1end(JNIEnv *__env, jclass clazz, jlong viewAddress) {
+	struct nk_list_view *view = (struct nk_list_view *)(intptr_t)viewAddress;
+	UNUSED_PARAMS(__env, clazz)
+	nk_list_view_end(view);
+}
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1tree_1push_1hashed(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint type, jlong titleAddress, jint initial_state, jlong hashAddress, jint len, jint seed) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
 	const char *title = (const char *)(intptr_t)titleAddress;
@@ -408,6 +436,29 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1tree_1pop(JNIEnv *__e
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
 	UNUSED_PARAMS(__env, clazz)
 	nk_tree_pop(ctx);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1tree_1state_1push__JIJJ(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint type, jlong titleAddress, jlong stateAddress) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	const char *title = (const char *)(intptr_t)titleAddress;
+	enum nk_collapse_states *state = (enum nk_collapse_states *)(intptr_t)stateAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)nk_tree_state_push(ctx, type, title, state);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1tree_1state_1image_1push__JIJJJ(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint type, jlong imageAddress, jlong titleAddress, jlong stateAddress) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	struct nk_image *image = (struct nk_image *)(intptr_t)imageAddress;
+	const char *title = (const char *)(intptr_t)titleAddress;
+	enum nk_collapse_states *state = (enum nk_collapse_states *)(intptr_t)stateAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)nk_tree_state_image_push(ctx, type, *image, title, state);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1tree_1state_1pop(JNIEnv *__env, jclass clazz, jlong ctxAddress) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	UNUSED_PARAMS(__env, clazz)
+	nk_tree_state_pop(ctx);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1text(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong strAddress, jint len, jint alignment) {
@@ -477,6 +528,24 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1image(JNIEnv *__env, 
 	nk_image(ctx, *img);
 }
 
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1button_1set_1behavior(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint behavior) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	UNUSED_PARAMS(__env, clazz)
+	nk_button_set_behavior(ctx, behavior);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1button_1push_1behavior(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint behavior) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)nk_button_push_behavior(ctx, behavior);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1button_1pop_1behavior(JNIEnv *__env, jclass clazz, jlong ctxAddress) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)nk_button_pop_behavior(ctx);
+}
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1button_1text(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong titleAddress, jint len) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
 	const char *title = (const char *)(intptr_t)titleAddress;
@@ -541,22 +610,69 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1button_1image_1text(J
 	return (jint)nk_button_image_text(ctx, *img, text, len, alignment);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1button_1set_1behavior(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint behavior) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1button_1text_1styled(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong styleAddress, jlong titleAddress, jint len) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	const struct nk_style_button *style = (const struct nk_style_button *)(intptr_t)styleAddress;
+	const char *title = (const char *)(intptr_t)titleAddress;
 	UNUSED_PARAMS(__env, clazz)
-	nk_button_set_behavior(ctx, behavior);
+	return (jint)nk_button_text_styled(ctx, style, title, len);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1button_1push_1behavior(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint behavior) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1button_1label_1styled(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong styleAddress, jlong titleAddress) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	const struct nk_style_button *style = (const struct nk_style_button *)(intptr_t)styleAddress;
+	const char *title = (const char *)(intptr_t)titleAddress;
 	UNUSED_PARAMS(__env, clazz)
-	return (jint)nk_button_push_behavior(ctx, behavior);
+	return (jint)nk_button_label_styled(ctx, style, title);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1button_1pop_1behavior(JNIEnv *__env, jclass clazz, jlong ctxAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1button_1symbol_1styled(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong styleAddress, jint symbol) {
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	const struct nk_style_button *style = (const struct nk_style_button *)(intptr_t)styleAddress;
 	UNUSED_PARAMS(__env, clazz)
-	return (jint)nk_button_pop_behavior(ctx);
+	return (jint)nk_button_symbol_styled(ctx, style, symbol);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1button_1image_1styled(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong styleAddress, jlong imgAddress) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	const struct nk_style_button *style = (const struct nk_style_button *)(intptr_t)styleAddress;
+	struct nk_image *img = (struct nk_image *)(intptr_t)imgAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)nk_button_image_styled(ctx, style, *img);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1button_1symbol_1label_1styled(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong styleAddress, jint symbol, jlong titleAddress, jint text_alignment) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	const struct nk_style_button *style = (const struct nk_style_button *)(intptr_t)styleAddress;
+	const char *title = (const char *)(intptr_t)titleAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)nk_button_symbol_label_styled(ctx, style, symbol, title, text_alignment);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1button_1symbol_1text_1styled(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong styleAddress, jint symbol, jlong titleAddress, jint len, jint alignment) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	const struct nk_style_button *style = (const struct nk_style_button *)(intptr_t)styleAddress;
+	const char *title = (const char *)(intptr_t)titleAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)nk_button_symbol_text_styled(ctx, style, symbol, title, len, alignment);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1button_1image_1label_1styled(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong styleAddress, jlong imgAddress, jlong titleAddress, jint text_alignment) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	const struct nk_style_button *style = (const struct nk_style_button *)(intptr_t)styleAddress;
+	struct nk_image *img = (struct nk_image *)(intptr_t)imgAddress;
+	const char *title = (const char *)(intptr_t)titleAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)nk_button_image_label_styled(ctx, style, *img, title, text_alignment);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1button_1image_1text_1styled(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong styleAddress, jlong imgAddress, jlong titleAddress, jint len, jint alignment) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	const struct nk_style_button *style = (const struct nk_style_button *)(intptr_t)styleAddress;
+	struct nk_image *img = (struct nk_image *)(intptr_t)imgAddress;
+	const char *title = (const char *)(intptr_t)titleAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)nk_button_image_text_styled(ctx, style, *img, title, len, alignment);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1check_1label(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong strAddress, jint active) {
@@ -3019,6 +3135,42 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1layout_1row__
 	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
 	UNUSED_PARAM(ratio__length)
 	nk_layout_row(ctx, fmt, height, cols, (const float *)ratio);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1tree_1state_1push__JIJ_3I(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint type, jlong titleAddress, jintArray stateAddress) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	const char *title = (const char *)(intptr_t)titleAddress;
+	jint __result;
+	jint *state = (*__env)->GetPrimitiveArrayCritical(__env, stateAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	__result = (jint)nk_tree_state_push(ctx, type, title, (enum nk_collapse_states *)state);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, stateAddress, state, 0);
+	return __result;
+}
+JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1tree_1state_1push__JIJ_3I(jlong ctxAddress, jint type, jlong titleAddress, jint state__length, jint* state) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	const char *title = (const char *)(intptr_t)titleAddress;
+	UNUSED_PARAM(state__length)
+	return (jint)nk_tree_state_push(ctx, type, title, (enum nk_collapse_states *)state);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1tree_1state_1image_1push__JIJJ_3I(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint type, jlong imageAddress, jlong titleAddress, jintArray stateAddress) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	struct nk_image *image = (struct nk_image *)(intptr_t)imageAddress;
+	const char *title = (const char *)(intptr_t)titleAddress;
+	jint __result;
+	jint *state = (*__env)->GetPrimitiveArrayCritical(__env, stateAddress, 0);
+	UNUSED_PARAMS(__env, clazz)
+	__result = (jint)nk_tree_state_image_push(ctx, type, *image, title, (enum nk_collapse_states *)state);
+	(*__env)->ReleasePrimitiveArrayCritical(__env, stateAddress, state, 0);
+	return __result;
+}
+JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_nuklear_Nuklear_nnk_1tree_1state_1image_1push__JIJJ_3I(jlong ctxAddress, jint type, jlong imageAddress, jlong titleAddress, jint state__length, jint* state) {
+	struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+	struct nk_image *image = (struct nk_image *)(intptr_t)imageAddress;
+	const char *title = (const char *)(intptr_t)titleAddress;
+	UNUSED_PARAM(state__length)
+	return (jint)nk_tree_state_image_push(ctx, type, *image, title, (enum nk_collapse_states *)state);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1checkbox_1label__JJ_3I(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong strAddress, jintArray activeAddress) {

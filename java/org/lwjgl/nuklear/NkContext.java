@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link NkClipboard struct nk_clipboard} clip;
     nk_flags last_widget_state;
     float delta_time_seconds;
-    nk_button_behavior button_behavior;
+    enum nk_button_behavior button_behavior;
     {@link NkConfigurationStacks struct nk_configuration_stacks} stacks;
     {@link NkDrawList struct nk_draw_list} draw_list;
     {@link NkHandle nk_handle} userdata;

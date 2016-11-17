@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <pre><code>struct nk_pool {
     {@link NkAllocator struct nk_allocator} alloc;
-    nk_allocation_type type;
+    enum nk_allocation_type type;
     unsigned int page_count;
     nk_page * pages;
     nk_page_element * freelist;

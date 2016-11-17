@@ -34,7 +34,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <pre><code>struct nk_buffer {
     {@link NkBufferMarker struct nk_buffer_marker} marker[2];
     {@link NkAllocator struct nk_allocator} pool;
-    nk_allocation_type type;
+    enum nk_allocation_type type;
     {@link NkMemory struct nk_memory} memory;
     float grow_factor;
     nk_size allocated;

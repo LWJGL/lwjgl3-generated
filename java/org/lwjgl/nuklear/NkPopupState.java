@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <pre><code>struct nk_popup_state {
     struct nk_window * win;
-    nk_panel_type type;
+    enum nk_panel_type type;
     nk_hash name;
     int active;
     unsigned combo_count;

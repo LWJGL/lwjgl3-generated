@@ -2189,6 +2189,106 @@ public class Nuklear {
 		nnk_group_end(ctx.address());
 	}
 
+	// --- [ nk_group_scrolled_begin ] ---
+
+	/** Unsafe version of: {@link #nk_group_scrolled_begin group_scrolled_begin} */
+	public static native int nnk_group_scrolled_begin(long ctx, long scroll, long title, int flags);
+
+	/**
+	 * 
+	 *
+	 * @param ctx    the nuklear context
+	 * @param scroll 
+	 * @param title  
+	 * @param flags  
+	 */
+	public static boolean nk_group_scrolled_begin(NkContext ctx, NkScroll scroll, ByteBuffer title, int flags) {
+		if ( CHECKS )
+			checkNT1(title);
+		return nnk_group_scrolled_begin(ctx.address(), scroll.address(), memAddress(title), flags) != 0;
+	}
+
+	/**
+	 * 
+	 *
+	 * @param ctx    the nuklear context
+	 * @param scroll 
+	 * @param title  
+	 * @param flags  
+	 */
+	public static boolean nk_group_scrolled_begin(NkContext ctx, NkScroll scroll, CharSequence title, int flags) {
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer titleEncoded = stack.UTF8(title);
+			return nnk_group_scrolled_begin(ctx.address(), scroll.address(), memAddress(titleEncoded), flags) != 0;
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
+	// --- [ nk_group_scrolled_end ] ---
+
+	/** Unsafe version of: {@link #nk_group_scrolled_end group_scrolled_end} */
+	public static native void nnk_group_scrolled_end(long ctx);
+
+	/**
+	 * 
+	 *
+	 * @param ctx the nuklear context
+	 */
+	public static void nk_group_scrolled_end(NkContext ctx) {
+		nnk_group_scrolled_end(ctx.address());
+	}
+
+	// --- [ nk_list_view_begin ] ---
+
+	/** Unsafe version of: {@link #nk_list_view_begin list_view_begin} */
+	public static native int nnk_list_view_begin(long ctx, long view, long title, int flags, int row_height, int row_count);
+
+	/**
+	 * 
+	 *
+	 * @param ctx        the nuklear context
+	 * @param view       
+	 * @param title      
+	 * @param flags      
+	 * @param row_height 
+	 * @param row_count  
+	 */
+	public static boolean nk_list_view_begin(NkContext ctx, NkListView view, ByteBuffer title, int flags, int row_height, int row_count) {
+		if ( CHECKS )
+			checkNT1(title);
+		return nnk_list_view_begin(ctx.address(), view.address(), memAddress(title), flags, row_height, row_count) != 0;
+	}
+
+	/**
+	 * 
+	 *
+	 * @param ctx        the nuklear context
+	 * @param view       
+	 * @param title      
+	 * @param flags      
+	 * @param row_height 
+	 * @param row_count  
+	 */
+	public static boolean nk_list_view_begin(NkContext ctx, NkListView view, CharSequence title, int flags, int row_height, int row_count) {
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer titleEncoded = stack.UTF8(title);
+			return nnk_list_view_begin(ctx.address(), view.address(), memAddress(titleEncoded), flags, row_height, row_count) != 0;
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
+	// --- [ nk_list_view_end ] ---
+
+	public static native void nnk_list_view_end(long view);
+
+	public static void nk_list_view_end(NkListView view) {
+		nnk_list_view_end(view.address());
+	}
+
 	// --- [ nk_tree_push_hashed ] ---
 
 	/** Unsafe version of: {@link #nk_tree_push_hashed tree_push_hashed} */
@@ -2287,6 +2387,104 @@ public class Nuklear {
 	 */
 	public static void nk_tree_pop(NkContext ctx) {
 		nnk_tree_pop(ctx.address());
+	}
+
+	// --- [ nk_tree_state_push ] ---
+
+	/** Unsafe version of: {@link #nk_tree_state_push tree_state_push} */
+	public static native int nnk_tree_state_push(long ctx, int type, long title, long state);
+
+	/**
+	 * 
+	 *
+	 * @param ctx   the nuklear context
+	 * @param type  
+	 * @param title 
+	 * @param state 
+	 */
+	public static boolean nk_tree_state_push(NkContext ctx, int type, ByteBuffer title, IntBuffer state) {
+		if ( CHECKS ) {
+			checkNT1(title);
+			check(state, 1);
+		}
+		return nnk_tree_state_push(ctx.address(), type, memAddress(title), memAddress(state)) != 0;
+	}
+
+	/**
+	 * 
+	 *
+	 * @param ctx   the nuklear context
+	 * @param type  
+	 * @param title 
+	 * @param state 
+	 */
+	public static boolean nk_tree_state_push(NkContext ctx, int type, CharSequence title, IntBuffer state) {
+		if ( CHECKS )
+			check(state, 1);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer titleEncoded = stack.UTF8(title);
+			return nnk_tree_state_push(ctx.address(), type, memAddress(titleEncoded), memAddress(state)) != 0;
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
+	// --- [ nk_tree_state_image_push ] ---
+
+	/** Unsafe version of: {@link #nk_tree_state_image_push tree_state_image_push} */
+	public static native int nnk_tree_state_image_push(long ctx, int type, long image, long title, long state);
+
+	/**
+	 * 
+	 *
+	 * @param ctx   the nuklear context
+	 * @param type  
+	 * @param image 
+	 * @param title 
+	 * @param state 
+	 */
+	public static boolean nk_tree_state_image_push(NkContext ctx, int type, NkImage image, ByteBuffer title, IntBuffer state) {
+		if ( CHECKS ) {
+			checkNT1(title);
+			check(state, 1);
+		}
+		return nnk_tree_state_image_push(ctx.address(), type, image.address(), memAddress(title), memAddress(state)) != 0;
+	}
+
+	/**
+	 * 
+	 *
+	 * @param ctx   the nuklear context
+	 * @param type  
+	 * @param image 
+	 * @param title 
+	 * @param state 
+	 */
+	public static boolean nk_tree_state_image_push(NkContext ctx, int type, NkImage image, CharSequence title, IntBuffer state) {
+		if ( CHECKS )
+			check(state, 1);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer titleEncoded = stack.UTF8(title);
+			return nnk_tree_state_image_push(ctx.address(), type, image.address(), memAddress(titleEncoded), memAddress(state)) != 0;
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
+	// --- [ nk_tree_state_pop ] ---
+
+	/** Unsafe version of: {@link #nk_tree_state_pop tree_state_pop} */
+	public static native void nnk_tree_state_pop(long ctx);
+
+	/**
+	 * 
+	 *
+	 * @param ctx the nuklear context
+	 */
+	public static void nk_tree_state_pop(NkContext ctx) {
+		nnk_tree_state_pop(ctx.address());
 	}
 
 	// --- [ nk_text ] ---
@@ -2580,6 +2778,50 @@ public class Nuklear {
 		nnk_image(ctx.address(), img.address());
 	}
 
+	// --- [ nk_button_set_behavior ] ---
+
+	/** Unsafe version of: {@link #nk_button_set_behavior button_set_behavior} */
+	public static native void nnk_button_set_behavior(long ctx, int behavior);
+
+	/**
+	 * 
+	 *
+	 * @param ctx      the nuklear context
+	 * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
+	 */
+	public static void nk_button_set_behavior(NkContext ctx, int behavior) {
+		nnk_button_set_behavior(ctx.address(), behavior);
+	}
+
+	// --- [ nk_button_push_behavior ] ---
+
+	/** Unsafe version of: {@link #nk_button_push_behavior button_push_behavior} */
+	public static native int nnk_button_push_behavior(long ctx, int behavior);
+
+	/**
+	 * 
+	 *
+	 * @param ctx      the nuklear context
+	 * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
+	 */
+	public static boolean nk_button_push_behavior(NkContext ctx, int behavior) {
+		return nnk_button_push_behavior(ctx.address(), behavior) != 0;
+	}
+
+	// --- [ nk_button_pop_behavior ] ---
+
+	/** Unsafe version of: {@link #nk_button_pop_behavior button_pop_behavior} */
+	public static native int nnk_button_pop_behavior(long ctx);
+
+	/**
+	 * 
+	 *
+	 * @param ctx the nuklear context
+	 */
+	public static boolean nk_button_pop_behavior(NkContext ctx) {
+		return nnk_button_pop_behavior(ctx.address()) != 0;
+	}
+
 	// --- [ nk_button_text ] ---
 
 	/** Unsafe version of: {@link #nk_button_text button_text} */
@@ -2836,48 +3078,79 @@ public class Nuklear {
 		}
 	}
 
-	// --- [ nk_button_set_behavior ] ---
+	// --- [ nk_button_text_styled ] ---
 
-	/** Unsafe version of: {@link #nk_button_set_behavior button_set_behavior} */
-	public static native void nnk_button_set_behavior(long ctx, int behavior);
+	public static native int nnk_button_text_styled(long ctx, long style, long title, int len);
 
-	/**
-	 * 
-	 *
-	 * @param ctx      the nuklear context
-	 * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
-	 */
-	public static void nk_button_set_behavior(NkContext ctx, int behavior) {
-		nnk_button_set_behavior(ctx.address(), behavior);
+	public static boolean nk_button_text_styled(NkContext ctx, NkStyleButton style, ByteBuffer title, int len) {
+		return nnk_button_text_styled(ctx.address(), style.address(), memAddress(title), len) != 0;
 	}
 
-	// --- [ nk_button_push_behavior ] ---
+	// --- [ nk_button_label_styled ] ---
 
-	/** Unsafe version of: {@link #nk_button_push_behavior button_push_behavior} */
-	public static native int nnk_button_push_behavior(long ctx, int behavior);
+	public static native int nnk_button_label_styled(long ctx, long style, long title);
 
-	/**
-	 * 
-	 *
-	 * @param ctx      the nuklear context
-	 * @param behavior one of:<br><table><tr><td>{@link #NK_BUTTON_DEFAULT BUTTON_DEFAULT}</td><td>{@link #NK_BUTTON_REPEATER BUTTON_REPEATER}</td></tr></table>
-	 */
-	public static int nk_button_push_behavior(NkContext ctx, int behavior) {
-		return nnk_button_push_behavior(ctx.address(), behavior);
+	public static boolean nk_button_label_styled(NkContext ctx, NkStyleButton style, ByteBuffer title) {
+		return nnk_button_label_styled(ctx.address(), style.address(), memAddress(title)) != 0;
 	}
 
-	// --- [ nk_button_pop_behavior ] ---
+	// --- [ nk_button_symbol_styled ] ---
 
-	/** Unsafe version of: {@link #nk_button_pop_behavior button_pop_behavior} */
-	public static native int nnk_button_pop_behavior(long ctx);
+	public static native int nnk_button_symbol_styled(long ctx, long style, int symbol);
+
+	public static boolean nk_button_symbol_styled(NkContext ctx, NkStyleButton style, int symbol) {
+		return nnk_button_symbol_styled(ctx.address(), style.address(), symbol) != 0;
+	}
+
+	// --- [ nk_button_image_styled ] ---
+
+	public static native int nnk_button_image_styled(long ctx, long style, long img);
+
+	public static boolean nk_button_image_styled(NkContext ctx, NkStyleButton style, NkImage img) {
+		return nnk_button_image_styled(ctx.address(), style.address(), img.address()) != 0;
+	}
+
+	// --- [ nk_button_symbol_label_styled ] ---
+
+	public static native int nnk_button_symbol_label_styled(long ctx, long style, int symbol, long title, int text_alignment);
+
+	public static boolean nk_button_symbol_label_styled(NkContext ctx, NkStyleButton style, int symbol, ByteBuffer title, int text_alignment) {
+		return nnk_button_symbol_label_styled(ctx.address(), style.address(), symbol, memAddress(title), text_alignment) != 0;
+	}
+
+	// --- [ nk_button_symbol_text_styled ] ---
+
+	public static native int nnk_button_symbol_text_styled(long ctx, long style, int symbol, long title, int len, int alignment);
+
+	public static boolean nk_button_symbol_text_styled(NkContext ctx, NkStyleButton style, int symbol, ByteBuffer title, int len, int alignment) {
+		return nnk_button_symbol_text_styled(ctx.address(), style.address(), symbol, memAddress(title), len, alignment) != 0;
+	}
+
+	// --- [ nk_button_image_label_styled ] ---
+
+	public static native int nnk_button_image_label_styled(long ctx, long style, long img, long title, int text_alignment);
+
+	public static boolean nk_button_image_label_styled(NkContext ctx, NkStyleButton style, NkImage img, ByteBuffer title, int text_alignment) {
+		return nnk_button_image_label_styled(ctx.address(), style.address(), img.address(), memAddress(title), text_alignment) != 0;
+	}
+
+	// --- [ nk_button_image_text_styled ] ---
+
+	/** Unsafe version of: {@link #nk_button_image_text_styled button_image_text_styled} */
+	public static native int nnk_button_image_text_styled(long ctx, long style, long img, long title, int len, int alignment);
 
 	/**
 	 * 
 	 *
-	 * @param ctx the nuklear context
+	 * @param ctx       the nuklear context
+	 * @param style     
+	 * @param img       
+	 * @param title     
+	 * @param len       
+	 * @param alignment 
 	 */
-	public static int nk_button_pop_behavior(NkContext ctx) {
-		return nnk_button_pop_behavior(ctx.address());
+	public static boolean nk_button_image_text_styled(NkContext ctx, NkStyleButton style, NkImage img, ByteBuffer title, int len, int alignment) {
+		return nnk_button_image_text_styled(ctx.address(), style.address(), img.address(), memAddress(title), len, alignment) != 0;
 	}
 
 	// --- [ nk_check_label ] ---
@@ -8962,6 +9235,56 @@ public class Nuklear {
 	/** Array version of: {@link #nk_layout_row layout_row} */
 	public static void nk_layout_row(NkContext ctx, int fmt, float height, int cols, float[] ratio) {
 		nnk_layout_row(ctx.address(), fmt, height, cols, ratio);
+	}
+
+	/** Array version of: {@link #nnk_tree_state_push} */
+	public static native int nnk_tree_state_push(long ctx, int type, long title, int[] state);
+
+	/** Array version of: {@link #nk_tree_state_push tree_state_push} */
+	public static boolean nk_tree_state_push(NkContext ctx, int type, ByteBuffer title, int[] state) {
+		if ( CHECKS ) {
+			checkNT1(title);
+			check(state, 1);
+		}
+		return nnk_tree_state_push(ctx.address(), type, memAddress(title), state) != 0;
+	}
+
+	/** Array version of: {@link #nk_tree_state_push tree_state_push} */
+	public static boolean nk_tree_state_push(NkContext ctx, int type, CharSequence title, int[] state) {
+		if ( CHECKS )
+			check(state, 1);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer titleEncoded = stack.UTF8(title);
+			return nnk_tree_state_push(ctx.address(), type, memAddress(titleEncoded), state) != 0;
+		} finally {
+			stack.setPointer(stackPointer);
+		}
+	}
+
+	/** Array version of: {@link #nnk_tree_state_image_push} */
+	public static native int nnk_tree_state_image_push(long ctx, int type, long image, long title, int[] state);
+
+	/** Array version of: {@link #nk_tree_state_image_push tree_state_image_push} */
+	public static boolean nk_tree_state_image_push(NkContext ctx, int type, NkImage image, ByteBuffer title, int[] state) {
+		if ( CHECKS ) {
+			checkNT1(title);
+			check(state, 1);
+		}
+		return nnk_tree_state_image_push(ctx.address(), type, image.address(), memAddress(title), state) != 0;
+	}
+
+	/** Array version of: {@link #nk_tree_state_image_push tree_state_image_push} */
+	public static boolean nk_tree_state_image_push(NkContext ctx, int type, NkImage image, CharSequence title, int[] state) {
+		if ( CHECKS )
+			check(state, 1);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer titleEncoded = stack.UTF8(title);
+			return nnk_tree_state_image_push(ctx.address(), type, image.address(), memAddress(titleEncoded), state) != 0;
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** Array version of: {@link #nnk_checkbox_label} */

@@ -15,8 +15,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_config_stack_button_behavior_element {
-    nk_button_behavior * pValues;
-    nk_button_behavior old_value;
+    enum nk_button_behavior * pValues;
+    enum nk_button_behavior old_value;
 }</code></pre>
  */
 class NkConfigStackButtonBehaviorElement extends Struct {

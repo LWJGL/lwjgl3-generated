@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Layout</h3>
  * 
  * <pre><code>struct nk_panel {
-    nk_panel_type type;
+    enum nk_panel_type type;
     nk_flags flags;
     {@link NkRect struct nk_rect} bounds;
     struct nk_scroll * offset;
