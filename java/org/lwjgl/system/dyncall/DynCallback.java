@@ -91,16 +91,41 @@ public class DynCallback {
 	 * (Re)initializes a callback object.
 	 *
 	 * @param pcb       the callback object
-	 * @param signature 
-	 * @param handler   
-	 * @param userdata  
+	 * @param signature the function signature of the function to mimic
+	 * @param handler   a pointer to a callback handler
+	 * @param userdata  a pointer to custom data that might be useful in the handler
 	 */
-	public static void dcbInitCallback(long pcb, ByteBuffer signature, long handler, ByteBuffer userdata) {
+	public static void dcbInitCallback(long pcb, ByteBuffer signature, long handler, long userdata) {
+		if ( CHECKS ) {
+			check(pcb);
+			checkNT1(signature);
+			check(handler);
+			check(userdata);
+		}
+		ndcbInitCallback(pcb, memAddress(signature), handler, userdata);
+	}
+
+	/**
+	 * (Re)initializes a callback object.
+	 *
+	 * @param pcb       the callback object
+	 * @param signature the function signature of the function to mimic
+	 * @param handler   a pointer to a callback handler
+	 * @param userdata  a pointer to custom data that might be useful in the handler
+	 */
+	public static void dcbInitCallback(long pcb, CharSequence signature, long handler, long userdata) {
 		if ( CHECKS ) {
 			check(pcb);
 			check(handler);
+			check(userdata);
 		}
-		ndcbInitCallback(pcb, memAddress(signature), handler, memAddress(userdata));
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer signatureEncoded = stack.ASCII(signature);
+			ndcbInitCallback(pcb, memAddress(signatureEncoded), handler, userdata);
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ dcbFreeCallback ] ---

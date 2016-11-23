@@ -79,7 +79,7 @@ public class QCOMExtendedGet2 {
 	public static void glExtGetProgramBinarySourceQCOM(int program, int shadertype, ByteBuffer source, IntBuffer length) {
 		if ( CHECKS )
 			checkSafe(length, 1);
-		nglExtGetProgramBinarySourceQCOM(program, shadertype, memAddressSafe(source), memAddressSafe(length));
+		nglExtGetProgramBinarySourceQCOM(program, shadertype, memAddress(source), memAddressSafe(length));
 	}
 
 	/** Array version of: {@link #glExtGetShadersQCOM ExtGetShadersQCOM} */
@@ -109,7 +109,7 @@ public class QCOMExtendedGet2 {
 			check(__functionAddress);
 			checkSafe(length, 1);
 		}
-		callPPV(__functionAddress, program, shadertype, memAddressSafe(source), length);
+		callPPV(__functionAddress, program, shadertype, memAddress(source), length);
 	}
 
 }

@@ -1344,8 +1344,10 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 *         </ul>
 	 */
 	public static int ovr_GetBoundaryGeometry(long session, int boundaryType, OVRVector3f outFloorPoints, IntBuffer outFloorPointsCount) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(session);
+			checkSafe(outFloorPointsCount, 1);
+		}
 		return novr_GetBoundaryGeometry(session, boundaryType, memAddressSafe(outFloorPoints), memAddressSafe(outFloorPointsCount));
 	}
 
@@ -1396,8 +1398,10 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	 *         </ul>
 	 */
 	public static int ovr_GetBoundaryVisible(long session, ByteBuffer outIsVisible) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(session);
+			check(outIsVisible, 1);
+		}
 		return novr_GetBoundaryVisible(session, memAddress(outIsVisible));
 	}
 
@@ -2209,8 +2213,10 @@ ovrResult result = ovr_SubmitFrame(session, frameIndex, nullptr, layers, 2);</co
 
 	/** Array version of: {@link #ovr_GetBoundaryGeometry GetBoundaryGeometry} */
 	public static int ovr_GetBoundaryGeometry(long session, int boundaryType, OVRVector3f outFloorPoints, int[] outFloorPointsCount) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(session);
+			checkSafe(outFloorPointsCount, 1);
+		}
 		return novr_GetBoundaryGeometry(session, boundaryType, memAddressSafe(outFloorPoints), outFloorPointsCount);
 	}
 

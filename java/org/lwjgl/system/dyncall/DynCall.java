@@ -10,6 +10,7 @@ import java.nio.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -730,7 +731,24 @@ public class DynCall {
 	 * @param signature the struct signature
 	 */
 	public static long dcDefineStruct(ByteBuffer signature) {
+		if ( CHECKS )
+			checkNT1(signature);
 		return ndcDefineStruct(memAddress(signature));
+	}
+
+	/**
+	 * Creates a new struct type using a signature string.
+	 *
+	 * @param signature the struct signature
+	 */
+	public static long dcDefineStruct(CharSequence signature) {
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer signatureEncoded = stack.ASCII(signature);
+			return ndcDefineStruct(memAddress(signatureEncoded));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 }

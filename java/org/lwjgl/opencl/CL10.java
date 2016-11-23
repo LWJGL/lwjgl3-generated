@@ -2605,7 +2605,7 @@ public class CL10 {
 	 * @param slice_pitch     the size in bytes of the 2D slice of the 3D region of a 3D image or each image of a 1D or 2D image array being read. This must be 0 if {@code image}
 	 *                        is a 1D or 2D image. This value must be greater than or equal to {@code row_pitch * height}. If {@code slice_pitch} is set to 0, the appropriate
 	 *                        slice pitch is calculated based on the {@code row_pitch * height}.
-	 * @param ptr             the pointer to a buffer in host memory where image data is to be read from
+	 * @param ptr             the pointer to a buffer in host memory where image data is to be read to
 	 * @param event_wait_list a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
 	 *                        does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
 	 *                        {@code event_wait_list} and {@code command_queue} must be the same.
@@ -2693,7 +2693,7 @@ public class CL10 {
 	 * @param slice_pitch     the size in bytes of the 2D slice of the 3D region of a 3D image or each image of a 1D or 2D image array being read. This must be 0 if {@code image}
 	 *                        is a 1D or 2D image. This value must be greater than or equal to {@code row_pitch * height}. If {@code slice_pitch} is set to 0, the appropriate
 	 *                        slice pitch is calculated based on the {@code row_pitch * height}.
-	 * @param ptr             the pointer to a buffer in host memory where image data is to be read from
+	 * @param ptr             the pointer to a buffer in host memory where image data is to be read to
 	 * @param event_wait_list a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
 	 *                        does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
 	 *                        {@code event_wait_list} and {@code command_queue} must be the same.
@@ -2781,7 +2781,7 @@ public class CL10 {
 	 * @param slice_pitch     the size in bytes of the 2D slice of the 3D region of a 3D image or each image of a 1D or 2D image array being read. This must be 0 if {@code image}
 	 *                        is a 1D or 2D image. This value must be greater than or equal to {@code row_pitch * height}. If {@code slice_pitch} is set to 0, the appropriate
 	 *                        slice pitch is calculated based on the {@code row_pitch * height}.
-	 * @param ptr             the pointer to a buffer in host memory where image data is to be read from
+	 * @param ptr             the pointer to a buffer in host memory where image data is to be read to
 	 * @param event_wait_list a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
 	 *                        does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
 	 *                        {@code event_wait_list} and {@code command_queue} must be the same.
@@ -2869,7 +2869,7 @@ public class CL10 {
 	 * @param slice_pitch     the size in bytes of the 2D slice of the 3D region of a 3D image or each image of a 1D or 2D image array being read. This must be 0 if {@code image}
 	 *                        is a 1D or 2D image. This value must be greater than or equal to {@code row_pitch * height}. If {@code slice_pitch} is set to 0, the appropriate
 	 *                        slice pitch is calculated based on the {@code row_pitch * height}.
-	 * @param ptr             the pointer to a buffer in host memory where image data is to be read from
+	 * @param ptr             the pointer to a buffer in host memory where image data is to be read to
 	 * @param event_wait_list a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
 	 *                        does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
 	 *                        {@code event_wait_list} and {@code command_queue} must be the same.
@@ -2957,7 +2957,7 @@ public class CL10 {
 	 * @param slice_pitch     the size in bytes of the 2D slice of the 3D region of a 3D image or each image of a 1D or 2D image array being read. This must be 0 if {@code image}
 	 *                        is a 1D or 2D image. This value must be greater than or equal to {@code row_pitch * height}. If {@code slice_pitch} is set to 0, the appropriate
 	 *                        slice pitch is calculated based on the {@code row_pitch * height}.
-	 * @param ptr             the pointer to a buffer in host memory where image data is to be read from
+	 * @param ptr             the pointer to a buffer in host memory where image data is to be read to
 	 * @param event_wait_list a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
 	 *                        does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
 	 *                        {@code event_wait_list} and {@code command_queue} must be the same.
@@ -3061,7 +3061,7 @@ public class CL10 {
 	 * @param input_slice_pitch the size in bytes of the 2D slice of the 3D region of a 3D image or each image of a 1D or 2D image array being written. This must be 0 if {@code image}
 	 *                          is a 1D or 2D image. This value must be greater than or equal to {@code input_row_pitch * height}. If {@code input_slice_pitch} is set to 0, the appropriate
 	 *                          slice pitch is calculated based on the {@code input_row_pitch * height}.
-	 * @param ptr               the pointer to a buffer in host memory where image data is to be written to
+	 * @param ptr               the pointer to a buffer in host memory where image data is to be written from
 	 * @param event_wait_list   a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
 	 *                          does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
 	 *                          {@code event_wait_list} and {@code command_queue} must be the same.
@@ -3149,7 +3149,7 @@ public class CL10 {
 	 * @param input_slice_pitch the size in bytes of the 2D slice of the 3D region of a 3D image or each image of a 1D or 2D image array being written. This must be 0 if {@code image}
 	 *                          is a 1D or 2D image. This value must be greater than or equal to {@code input_row_pitch * height}. If {@code input_slice_pitch} is set to 0, the appropriate
 	 *                          slice pitch is calculated based on the {@code input_row_pitch * height}.
-	 * @param ptr               the pointer to a buffer in host memory where image data is to be written to
+	 * @param ptr               the pointer to a buffer in host memory where image data is to be written from
 	 * @param event_wait_list   a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
 	 *                          does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
 	 *                          {@code event_wait_list} and {@code command_queue} must be the same.
@@ -3237,7 +3237,7 @@ public class CL10 {
 	 * @param input_slice_pitch the size in bytes of the 2D slice of the 3D region of a 3D image or each image of a 1D or 2D image array being written. This must be 0 if {@code image}
 	 *                          is a 1D or 2D image. This value must be greater than or equal to {@code input_row_pitch * height}. If {@code input_slice_pitch} is set to 0, the appropriate
 	 *                          slice pitch is calculated based on the {@code input_row_pitch * height}.
-	 * @param ptr               the pointer to a buffer in host memory where image data is to be written to
+	 * @param ptr               the pointer to a buffer in host memory where image data is to be written from
 	 * @param event_wait_list   a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
 	 *                          does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
 	 *                          {@code event_wait_list} and {@code command_queue} must be the same.
@@ -3325,7 +3325,7 @@ public class CL10 {
 	 * @param input_slice_pitch the size in bytes of the 2D slice of the 3D region of a 3D image or each image of a 1D or 2D image array being written. This must be 0 if {@code image}
 	 *                          is a 1D or 2D image. This value must be greater than or equal to {@code input_row_pitch * height}. If {@code input_slice_pitch} is set to 0, the appropriate
 	 *                          slice pitch is calculated based on the {@code input_row_pitch * height}.
-	 * @param ptr               the pointer to a buffer in host memory where image data is to be written to
+	 * @param ptr               the pointer to a buffer in host memory where image data is to be written from
 	 * @param event_wait_list   a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
 	 *                          does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
 	 *                          {@code event_wait_list} and {@code command_queue} must be the same.
@@ -3413,7 +3413,7 @@ public class CL10 {
 	 * @param input_slice_pitch the size in bytes of the 2D slice of the 3D region of a 3D image or each image of a 1D or 2D image array being written. This must be 0 if {@code image}
 	 *                          is a 1D or 2D image. This value must be greater than or equal to {@code input_row_pitch * height}. If {@code input_slice_pitch} is set to 0, the appropriate
 	 *                          slice pitch is calculated based on the {@code input_row_pitch * height}.
-	 * @param ptr               the pointer to a buffer in host memory where image data is to be written to
+	 * @param ptr               the pointer to a buffer in host memory where image data is to be written from
 	 * @param event_wait_list   a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
 	 *                          does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
 	 *                          {@code event_wait_list} and {@code command_queue} must be the same.

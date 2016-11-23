@@ -104,6 +104,8 @@ public class NVExternalMemoryWin32 {
 	 * @param pHandle    
 	 */
 	public static int vkGetMemoryWin32HandleNV(VkDevice device, long memory, int handleType, PointerBuffer pHandle) {
+		if ( CHECKS )
+			check(pHandle, 1);
 		return nvkGetMemoryWin32HandleNV(device, memory, handleType, memAddress(pHandle));
 	}
 

@@ -47,8 +47,10 @@ public class STBDXT {
 	 * @param mode  the compression mode. One of:<br><table><tr><td>{@link #STB_DXT_NORMAL DXT_NORMAL}</td><td>{@link #STB_DXT_DITHER DXT_DITHER}</td><td>{@link #STB_DXT_HIGHQUAL DXT_HIGHQUAL}</td></tr></table>
 	 */
 	public static void stb_compress_dxt_block(ByteBuffer dest, ByteBuffer src, boolean alpha, int mode) {
-		if ( CHECKS )
+		if ( CHECKS ) {
+			check(dest, alpha ? 16 : 8);
 			check(src, 64);
+		}
 		nstb_compress_dxt_block(memAddress(dest), memAddress(src), alpha ? 1 : 0, mode);
 	}
 

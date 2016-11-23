@@ -1993,11 +1993,10 @@ public class Nuklear {
 	 * @param ctx    the nuklear context
 	 * @param fmt    one of:<br><table><tr><td>{@link #NK_DYNAMIC DYNAMIC}</td><td>{@link #NK_STATIC STATIC}</td></tr></table>
 	 * @param height 
-	 * @param cols   
 	 * @param ratio  
 	 */
-	public static void nk_layout_row(NkContext ctx, int fmt, float height, int cols, FloatBuffer ratio) {
-		nnk_layout_row(ctx.address(), fmt, height, cols, memAddress(ratio));
+	public static void nk_layout_row(NkContext ctx, int fmt, float height, FloatBuffer ratio) {
+		nnk_layout_row(ctx.address(), fmt, height, ratio.remaining(), memAddress(ratio));
 	}
 
 	// --- [ nk_layout_space_begin ] ---
@@ -3080,58 +3079,225 @@ public class Nuklear {
 
 	// --- [ nk_button_text_styled ] ---
 
+	/** Unsafe version of: {@link #nk_button_text_styled button_text_styled} */
 	public static native int nnk_button_text_styled(long ctx, long style, long title, int len);
 
+	/**
+	 * 
+	 *
+	 * @param ctx   the nuklear context
+	 * @param style 
+	 * @param title 
+	 * @param len   
+	 */
 	public static boolean nk_button_text_styled(NkContext ctx, NkStyleButton style, ByteBuffer title, int len) {
+		if ( CHECKS )
+			checkNT1(title);
 		return nnk_button_text_styled(ctx.address(), style.address(), memAddress(title), len) != 0;
+	}
+
+	/**
+	 * 
+	 *
+	 * @param ctx   the nuklear context
+	 * @param style 
+	 * @param title 
+	 * @param len   
+	 */
+	public static boolean nk_button_text_styled(NkContext ctx, NkStyleButton style, CharSequence title, int len) {
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer titleEncoded = stack.UTF8(title);
+			return nnk_button_text_styled(ctx.address(), style.address(), memAddress(titleEncoded), len) != 0;
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ nk_button_label_styled ] ---
 
+	/** Unsafe version of: {@link #nk_button_label_styled button_label_styled} */
 	public static native int nnk_button_label_styled(long ctx, long style, long title);
 
+	/**
+	 * 
+	 *
+	 * @param ctx   the nuklear context
+	 * @param style 
+	 * @param title 
+	 */
 	public static boolean nk_button_label_styled(NkContext ctx, NkStyleButton style, ByteBuffer title) {
+		if ( CHECKS )
+			checkNT1(title);
 		return nnk_button_label_styled(ctx.address(), style.address(), memAddress(title)) != 0;
+	}
+
+	/**
+	 * 
+	 *
+	 * @param ctx   the nuklear context
+	 * @param style 
+	 * @param title 
+	 */
+	public static boolean nk_button_label_styled(NkContext ctx, NkStyleButton style, CharSequence title) {
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer titleEncoded = stack.UTF8(title);
+			return nnk_button_label_styled(ctx.address(), style.address(), memAddress(titleEncoded)) != 0;
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ nk_button_symbol_styled ] ---
 
+	/** Unsafe version of: {@link #nk_button_symbol_styled button_symbol_styled} */
 	public static native int nnk_button_symbol_styled(long ctx, long style, int symbol);
 
+	/**
+	 * 
+	 *
+	 * @param ctx    the nuklear context
+	 * @param style  
+	 * @param symbol 
+	 */
 	public static boolean nk_button_symbol_styled(NkContext ctx, NkStyleButton style, int symbol) {
 		return nnk_button_symbol_styled(ctx.address(), style.address(), symbol) != 0;
 	}
 
 	// --- [ nk_button_image_styled ] ---
 
+	/** Unsafe version of: {@link #nk_button_image_styled button_image_styled} */
 	public static native int nnk_button_image_styled(long ctx, long style, long img);
 
+	/**
+	 * 
+	 *
+	 * @param ctx   the nuklear context
+	 * @param style 
+	 * @param img   
+	 */
 	public static boolean nk_button_image_styled(NkContext ctx, NkStyleButton style, NkImage img) {
 		return nnk_button_image_styled(ctx.address(), style.address(), img.address()) != 0;
 	}
 
 	// --- [ nk_button_symbol_label_styled ] ---
 
+	/** Unsafe version of: {@link #nk_button_symbol_label_styled button_symbol_label_styled} */
 	public static native int nnk_button_symbol_label_styled(long ctx, long style, int symbol, long title, int text_alignment);
 
+	/**
+	 * 
+	 *
+	 * @param ctx            the nuklear context
+	 * @param style          
+	 * @param symbol         
+	 * @param title          
+	 * @param text_alignment 
+	 */
 	public static boolean nk_button_symbol_label_styled(NkContext ctx, NkStyleButton style, int symbol, ByteBuffer title, int text_alignment) {
+		if ( CHECKS )
+			checkNT1(title);
 		return nnk_button_symbol_label_styled(ctx.address(), style.address(), symbol, memAddress(title), text_alignment) != 0;
+	}
+
+	/**
+	 * 
+	 *
+	 * @param ctx            the nuklear context
+	 * @param style          
+	 * @param symbol         
+	 * @param title          
+	 * @param text_alignment 
+	 */
+	public static boolean nk_button_symbol_label_styled(NkContext ctx, NkStyleButton style, int symbol, CharSequence title, int text_alignment) {
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer titleEncoded = stack.UTF8(title);
+			return nnk_button_symbol_label_styled(ctx.address(), style.address(), symbol, memAddress(titleEncoded), text_alignment) != 0;
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ nk_button_symbol_text_styled ] ---
 
+	/** Unsafe version of: {@link #nk_button_symbol_text_styled button_symbol_text_styled} */
 	public static native int nnk_button_symbol_text_styled(long ctx, long style, int symbol, long title, int len, int alignment);
 
+	/**
+	 * 
+	 *
+	 * @param ctx       the nuklear context
+	 * @param style     
+	 * @param symbol    
+	 * @param title     
+	 * @param len       
+	 * @param alignment 
+	 */
 	public static boolean nk_button_symbol_text_styled(NkContext ctx, NkStyleButton style, int symbol, ByteBuffer title, int len, int alignment) {
+		if ( CHECKS )
+			checkNT1(title);
 		return nnk_button_symbol_text_styled(ctx.address(), style.address(), symbol, memAddress(title), len, alignment) != 0;
+	}
+
+	/**
+	 * 
+	 *
+	 * @param ctx       the nuklear context
+	 * @param style     
+	 * @param symbol    
+	 * @param title     
+	 * @param len       
+	 * @param alignment 
+	 */
+	public static boolean nk_button_symbol_text_styled(NkContext ctx, NkStyleButton style, int symbol, CharSequence title, int len, int alignment) {
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer titleEncoded = stack.UTF8(title);
+			return nnk_button_symbol_text_styled(ctx.address(), style.address(), symbol, memAddress(titleEncoded), len, alignment) != 0;
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ nk_button_image_label_styled ] ---
 
+	/** Unsafe version of: {@link #nk_button_image_label_styled button_image_label_styled} */
 	public static native int nnk_button_image_label_styled(long ctx, long style, long img, long title, int text_alignment);
 
+	/**
+	 * 
+	 *
+	 * @param ctx            the nuklear context
+	 * @param style          
+	 * @param img            
+	 * @param title          
+	 * @param text_alignment 
+	 */
 	public static boolean nk_button_image_label_styled(NkContext ctx, NkStyleButton style, NkImage img, ByteBuffer title, int text_alignment) {
+		if ( CHECKS )
+			checkNT1(title);
 		return nnk_button_image_label_styled(ctx.address(), style.address(), img.address(), memAddress(title), text_alignment) != 0;
+	}
+
+	/**
+	 * 
+	 *
+	 * @param ctx            the nuklear context
+	 * @param style          
+	 * @param img            
+	 * @param title          
+	 * @param text_alignment 
+	 */
+	public static boolean nk_button_image_label_styled(NkContext ctx, NkStyleButton style, NkImage img, CharSequence title, int text_alignment) {
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer titleEncoded = stack.UTF8(title);
+			return nnk_button_image_label_styled(ctx.address(), style.address(), img.address(), memAddress(titleEncoded), text_alignment) != 0;
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ nk_button_image_text_styled ] ---
@@ -3150,7 +3316,29 @@ public class Nuklear {
 	 * @param alignment 
 	 */
 	public static boolean nk_button_image_text_styled(NkContext ctx, NkStyleButton style, NkImage img, ByteBuffer title, int len, int alignment) {
+		if ( CHECKS )
+			checkNT1(title);
 		return nnk_button_image_text_styled(ctx.address(), style.address(), img.address(), memAddress(title), len, alignment) != 0;
+	}
+
+	/**
+	 * 
+	 *
+	 * @param ctx       the nuklear context
+	 * @param style     
+	 * @param img       
+	 * @param title     
+	 * @param len       
+	 * @param alignment 
+	 */
+	public static boolean nk_button_image_text_styled(NkContext ctx, NkStyleButton style, NkImage img, CharSequence title, int len, int alignment) {
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			ByteBuffer titleEncoded = stack.UTF8(title);
+			return nnk_button_image_text_styled(ctx.address(), style.address(), img.address(), memAddress(titleEncoded), len, alignment) != 0;
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	// --- [ nk_check_label ] ---
@@ -3966,6 +4154,8 @@ public class Nuklear {
 	 * @param step 
 	 */
 	public static int nk_slider_float(NkContext ctx, float min, FloatBuffer val, float max, float step) {
+		if ( CHECKS )
+			check(val, 1);
 		return nnk_slider_float(ctx.address(), min, memAddress(val), max, step);
 	}
 
@@ -3984,6 +4174,8 @@ public class Nuklear {
 	 * @param step 
 	 */
 	public static int nk_slider_int(NkContext ctx, int min, IntBuffer val, int max, int step) {
+		if ( CHECKS )
+			check(val, 1);
 		return nnk_slider_int(ctx.address(), min, memAddress(val), max, step);
 	}
 
@@ -4001,6 +4193,8 @@ public class Nuklear {
 	 * @param modifyable 
 	 */
 	public static boolean nk_progress(NkContext ctx, PointerBuffer cur, long max, boolean modifyable) {
+		if ( CHECKS )
+			check(cur, 1);
 		return nnk_progress(ctx.address(), memAddress(cur), max, modifyable ? 1 : 0) != 0;
 	}
 
@@ -6639,6 +6833,8 @@ public class Nuklear {
 	 * @param value   
 	 */
 	public static int nk_style_push_float(NkContext ctx, FloatBuffer address, float value) {
+		if ( CHECKS )
+			check(address, 1);
 		return nnk_style_push_float(ctx.address(), memAddress(address), value);
 	}
 
@@ -6687,6 +6883,8 @@ public class Nuklear {
 	 * @param value   
 	 */
 	public static int nk_style_push_flags(NkContext ctx, IntBuffer address, int value) {
+		if ( CHECKS )
+			check(address, 1);
 		return nnk_style_push_flags(ctx.address(), memAddress(address), value);
 	}
 
@@ -7731,12 +7929,16 @@ public class Nuklear {
 	public static native int nnk_strtoi(long str, long endptr);
 
 	public static int nk_strtoi(ByteBuffer str, PointerBuffer endptr) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkNT1(str);
+			check(endptr, 1);
+		}
 		return nnk_strtoi(memAddress(str), memAddress(endptr));
 	}
 
 	public static int nk_strtoi(CharSequence str, PointerBuffer endptr) {
+		if ( CHECKS )
+			check(endptr, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str);
@@ -7751,12 +7953,16 @@ public class Nuklear {
 	public static native float nnk_strtof(long str, long endptr);
 
 	public static float nk_strtof(ByteBuffer str, PointerBuffer endptr) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkNT1(str);
+			check(endptr, 1);
+		}
 		return nnk_strtof(memAddress(str), memAddress(endptr));
 	}
 
 	public static float nk_strtof(CharSequence str, PointerBuffer endptr) {
+		if ( CHECKS )
+			check(endptr, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str);
@@ -7771,12 +7977,16 @@ public class Nuklear {
 	public static native double nnk_strtod(long str, long endptr);
 
 	public static double nk_strtod(ByteBuffer str, PointerBuffer endptr) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkNT1(str);
+			check(endptr, 1);
+		}
 		return nnk_strtod(memAddress(str), memAddress(endptr));
 	}
 
 	public static double nk_strtod(CharSequence str, PointerBuffer endptr) {
+		if ( CHECKS )
+			check(endptr, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer strEncoded = stack.UTF8(str);
@@ -8208,6 +8418,8 @@ public class Nuklear {
 	public static native int nnk_str_insert_str_runes(long s, int pos, long runes);
 
 	public static int nk_str_insert_str_runes(NkStr s, int pos, IntBuffer runes) {
+		if ( CHECKS )
+			checkNT(runes);
 		return nnk_str_insert_str_runes(s.address(), pos, memAddress(runes));
 	}
 
@@ -9233,8 +9445,8 @@ public class Nuklear {
 	public static native void nnk_layout_row(long ctx, int fmt, float height, int cols, float[] ratio);
 
 	/** Array version of: {@link #nk_layout_row layout_row} */
-	public static void nk_layout_row(NkContext ctx, int fmt, float height, int cols, float[] ratio) {
-		nnk_layout_row(ctx.address(), fmt, height, cols, ratio);
+	public static void nk_layout_row(NkContext ctx, int fmt, float height, float[] ratio) {
+		nnk_layout_row(ctx.address(), fmt, height, ratio.length, ratio);
 	}
 
 	/** Array version of: {@link #nnk_tree_state_push} */
@@ -9537,6 +9749,8 @@ public class Nuklear {
 
 	/** Array version of: {@link #nk_slider_float slider_float} */
 	public static int nk_slider_float(NkContext ctx, float min, float[] val, float max, float step) {
+		if ( CHECKS )
+			check(val, 1);
 		return nnk_slider_float(ctx.address(), min, val, max, step);
 	}
 
@@ -9545,6 +9759,8 @@ public class Nuklear {
 
 	/** Array version of: {@link #nk_slider_int slider_int} */
 	public static int nk_slider_int(NkContext ctx, int min, int[] val, int max, int step) {
+		if ( CHECKS )
+			check(val, 1);
 		return nnk_slider_int(ctx.address(), min, val, max, step);
 	}
 
@@ -9735,6 +9951,8 @@ public class Nuklear {
 
 	/** Array version of: {@link #nk_style_push_float style_push_float} */
 	public static int nk_style_push_float(NkContext ctx, float[] address, float value) {
+		if ( CHECKS )
+			check(address, 1);
 		return nnk_style_push_float(ctx.address(), address, value);
 	}
 
@@ -9743,6 +9961,8 @@ public class Nuklear {
 
 	/** Array version of: {@link #nk_style_push_flags style_push_flags} */
 	public static int nk_style_push_flags(NkContext ctx, int[] address, int value) {
+		if ( CHECKS )
+			check(address, 1);
 		return nnk_style_push_flags(ctx.address(), address, value);
 	}
 
@@ -10132,6 +10352,8 @@ public class Nuklear {
 
 	/** Array version of: {@link #nk_str_insert_str_runes str_insert_str_runes} */
 	public static int nk_str_insert_str_runes(NkStr s, int pos, int[] runes) {
+		if ( CHECKS )
+			checkNT(runes);
 		return nnk_str_insert_str_runes(s.address(), pos, runes);
 	}
 

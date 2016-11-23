@@ -72,6 +72,8 @@ typedef struct {
 	 * @param vertexBufferCount the number of vertex buffers in the DrawArraysIndirectBindlessCommandNV structure
 	 */
 	public static void glMultiDrawArraysIndirectBindlessNV(int mode, ByteBuffer indirect, int drawCount, int stride, int vertexBufferCount) {
+		if ( CHECKS )
+			check(indirect, drawCount * (stride == 0 ? (16 + vertexBufferCount * 24) : stride));
 		nglMultiDrawArraysIndirectBindlessNV(mode, memAddress(indirect), drawCount, stride, vertexBufferCount);
 	}
 
@@ -111,6 +113,8 @@ typedef struct {
 	 * @param vertexBufferCount the number of vertex buffers in the DrawElementsIndirectBindlessCommandNV structure
 	 */
 	public static void glMultiDrawElementsIndirectBindlessNV(int mode, int type, ByteBuffer indirect, int drawCount, int stride, int vertexBufferCount) {
+		if ( CHECKS )
+			check(indirect, drawCount * (stride == 0 ? ((vertexBufferCount + 2) * 24) : stride));
 		nglMultiDrawElementsIndirectBindlessNV(mode, type, memAddress(indirect), drawCount, stride, vertexBufferCount);
 	}
 

@@ -54,8 +54,10 @@ public class APPLECommandQueuePriority {
 	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
 	 */
 	public static long clCreateCommandQueueWithPropertiesAPPLE(long context, long device, PointerBuffer properties, IntBuffer errcode_ret) {
-		if ( CHECKS )
+		if ( CHECKS ) {
+			checkNT(properties);
 			checkSafe(errcode_ret, 1);
+		}
 		return nclCreateCommandQueueWithPropertiesAPPLE(context, device, memAddress(properties), memAddressSafe(errcode_ret));
 	}
 
@@ -66,6 +68,7 @@ public class APPLECommandQueuePriority {
 			check(__functionAddress);
 			check(context);
 			check(device);
+			checkNT(properties);
 			checkSafe(errcode_ret, 1);
 		}
 		return callPPPPP(__functionAddress, context, device, memAddress(properties), errcode_ret);

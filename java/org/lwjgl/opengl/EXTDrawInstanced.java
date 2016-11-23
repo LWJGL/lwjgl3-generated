@@ -49,8 +49,24 @@ public class EXTDrawInstanced {
 		callPV(__functionAddress, mode, count, type, indices, primcount);
 	}
 
-	public static void glDrawElementsInstancedEXT(int mode, int count, int type, ByteBuffer indices, int primcount) {
-		nglDrawElementsInstancedEXT(mode, count, type, memAddress(indices), primcount);
+	public static void glDrawElementsInstancedEXT(int mode, int count, int type, long indices, int primcount) {
+		nglDrawElementsInstancedEXT(mode, count, type, indices, primcount);
+	}
+
+	public static void glDrawElementsInstancedEXT(int mode, int type, ByteBuffer indices, int primcount) {
+		nglDrawElementsInstancedEXT(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), primcount);
+	}
+
+	public static void glDrawElementsInstancedEXT(int mode, ByteBuffer indices, int primcount) {
+		nglDrawElementsInstancedEXT(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount);
+	}
+
+	public static void glDrawElementsInstancedEXT(int mode, ShortBuffer indices, int primcount) {
+		nglDrawElementsInstancedEXT(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount);
+	}
+
+	public static void glDrawElementsInstancedEXT(int mode, IntBuffer indices, int primcount) {
+		nglDrawElementsInstancedEXT(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), primcount);
 	}
 
 }

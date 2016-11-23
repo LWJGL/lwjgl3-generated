@@ -98,7 +98,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1env_1get_1flags__JJ(J
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1env_1get_1path(JNIEnv *__env, jclass clazz, jlong envAddress, jlong pathAddress) {
 	MDB_env *env = (MDB_env *)(intptr_t)envAddress;
-	const char **path = (const char **)(intptr_t)pathAddress;
+	char **path = (char **)(intptr_t)pathAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)mdb_env_get_path(env, path);
 }

@@ -299,6 +299,8 @@ public class ARBVertexAttrib64Bit {
 	 * @param params the requested data
 	 */
 	public static void glGetVertexAttribLdv(int index, int pname, DoubleBuffer params) {
+		if ( CHECKS )
+			check(params, 1);
 		nglGetVertexAttribLdv(index, pname, memAddress(params));
 	}
 
@@ -366,8 +368,10 @@ public class ARBVertexAttrib64Bit {
 	/** Array version of: {@link #glGetVertexAttribLdv GetVertexAttribLdv} */
 	public static void glGetVertexAttribLdv(int index, int pname, double[] params) {
 		long __functionAddress = GL.getCapabilities().glGetVertexAttribLdv;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(__functionAddress);
+			check(params, 1);
+		}
 		callPV(__functionAddress, index, pname, params);
 	}
 

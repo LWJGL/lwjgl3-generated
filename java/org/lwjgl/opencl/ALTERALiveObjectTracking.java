@@ -5,11 +5,8 @@
  */
 package org.lwjgl.opencl;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.system.MemoryUtil.*;
 
 /**
  * Native bindings to the <strong>altera_live_object_tracking</strong> extension.
@@ -71,6 +68,7 @@ public class ALTERALiveObjectTracking {
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(platform);
+			check(user_data);
 		}
 		callPPPV(__functionAddress, platform, report_fn, user_data);
 	}
@@ -83,8 +81,8 @@ public class ALTERALiveObjectTracking {
 	 * @param report_fn the callback function
 	 * @param user_data a pointer to user data that will be passed to {@code report_fn}
 	 */
-	public static void clReportLiveObjectsAltera(long platform, CLReportLiveObjectsAlteraCallbackI report_fn, ByteBuffer user_data) {
-		nclReportLiveObjectsAltera(platform, report_fn.address(), memAddress(user_data));
+	public static void clReportLiveObjectsAltera(long platform, CLReportLiveObjectsAlteraCallbackI report_fn, long user_data) {
+		nclReportLiveObjectsAltera(platform, report_fn.address(), user_data);
 	}
 
 }

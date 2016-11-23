@@ -214,8 +214,11 @@ public class STBVorbis {
 	 *         in a larger block from the start of the file.
 	 */
 	public static long stb_vorbis_open_pushdata(ByteBuffer datablock, IntBuffer datablock_memory_consumed_in_bytes, IntBuffer error, STBVorbisAlloc alloc_buffer) {
-		if ( CHECKS )
+		if ( CHECKS ) {
+			check(datablock_memory_consumed_in_bytes, 1);
+			check(error, 1);
 			if ( alloc_buffer != null ) STBVorbisAlloc.validate(alloc_buffer.address());
+		}
 		return nstb_vorbis_open_pushdata(memAddress(datablock), datablock.remaining(), memAddress(datablock_memory_consumed_in_bytes), memAddress(error), memAddressSafe(alloc_buffer));
 	}
 
@@ -588,6 +591,7 @@ public class STBVorbis {
 		if ( CHECKS ) {
 			check(f);
 			checkSafe(channels, 1);
+			check(output, 1);
 		}
 		return nstb_vorbis_get_frame_float(f, memAddressSafe(channels), memAddress(output));
 	}
@@ -764,8 +768,11 @@ k    l      k <= l, the first k channels</code></pre>
 
 	/** Array version of: {@link #stb_vorbis_open_pushdata open_pushdata} */
 	public static long stb_vorbis_open_pushdata(ByteBuffer datablock, int[] datablock_memory_consumed_in_bytes, int[] error, STBVorbisAlloc alloc_buffer) {
-		if ( CHECKS )
+		if ( CHECKS ) {
+			check(datablock_memory_consumed_in_bytes, 1);
+			check(error, 1);
 			if ( alloc_buffer != null ) STBVorbisAlloc.validate(alloc_buffer.address());
+		}
 		return nstb_vorbis_open_pushdata(memAddress(datablock), datablock.remaining(), datablock_memory_consumed_in_bytes, error, memAddressSafe(alloc_buffer));
 	}
 
@@ -874,6 +881,7 @@ k    l      k <= l, the first k channels</code></pre>
 		if ( CHECKS ) {
 			check(f);
 			checkSafe(channels, 1);
+			check(output, 1);
 		}
 		return nstb_vorbis_get_frame_float(f, channels, memAddress(output));
 	}

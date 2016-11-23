@@ -472,6 +472,8 @@ public class GLX13 {
 	 * @param event_mask returns the selection mask
 	 */
 	public static void glXGetSelectedEvent(long display, long draw, PointerBuffer event_mask) {
+		if ( CHECKS )
+			check(event_mask, 1);
 		nglXGetSelectedEvent(display, draw, memAddress(event_mask));
 	}
 

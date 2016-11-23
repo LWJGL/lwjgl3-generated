@@ -61,6 +61,8 @@ public class NVStreamConsumerGLTextureYUV {
 	}
 
 	public static boolean eglStreamConsumerGLTextureExternalAttribsNV(long dpy, long stream, PointerBuffer attrib_list) {
+		if ( CHECKS )
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		return neglStreamConsumerGLTextureExternalAttribsNV(dpy, stream, memAddressSafe(attrib_list)) != 0;
 	}
 

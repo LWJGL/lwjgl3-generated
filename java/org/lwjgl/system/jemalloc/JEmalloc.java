@@ -717,10 +717,10 @@ for (i = 0; i < nbins; i++) {
 	 * @param je_cbopaque an opaque pointer that will be passed to {@code write_cb}
 	 * @param opts        an options string
 	 */
-	public static void je_malloc_stats_print(MallocMessageCallbackI write_cb, ByteBuffer je_cbopaque, ByteBuffer opts) {
+	public static void je_malloc_stats_print(MallocMessageCallbackI write_cb, long je_cbopaque, ByteBuffer opts) {
 		if ( CHECKS )
 			checkNT1Safe(opts);
-		nje_malloc_stats_print(memAddressSafe(write_cb), memAddressSafe(je_cbopaque), memAddressSafe(opts));
+		nje_malloc_stats_print(memAddressSafe(write_cb), je_cbopaque, memAddressSafe(opts));
 	}
 
 	/**
@@ -736,11 +736,11 @@ for (i = 0; i < nbins; i++) {
 	 * @param je_cbopaque an opaque pointer that will be passed to {@code write_cb}
 	 * @param opts        an options string
 	 */
-	public static void je_malloc_stats_print(MallocMessageCallbackI write_cb, ByteBuffer je_cbopaque, CharSequence opts) {
+	public static void je_malloc_stats_print(MallocMessageCallbackI write_cb, long je_cbopaque, CharSequence opts) {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer optsEncoded = stack.ASCII(opts);
-			nje_malloc_stats_print(memAddressSafe(write_cb), memAddressSafe(je_cbopaque), memAddressSafe(optsEncoded));
+			nje_malloc_stats_print(memAddressSafe(write_cb), je_cbopaque, memAddressSafe(optsEncoded));
 		} finally {
 			stack.setPointer(stackPointer);
 		}

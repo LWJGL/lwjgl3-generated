@@ -165,6 +165,8 @@ public class CL21 {
 	 *         </ul>
 	 */
 	public static int clGetHostTimer(long device, LongBuffer host_timestamp) {
+		if ( CHECKS )
+			check(host_timestamp, 1);
 		return nclGetHostTimer(device, memAddress(host_timestamp));
 	}
 
@@ -415,6 +417,7 @@ public class CL21 {
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(device);
+			check(host_timestamp, 1);
 		}
 		return callPPI(__functionAddress, device, host_timestamp);
 	}

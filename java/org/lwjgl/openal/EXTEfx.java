@@ -777,6 +777,8 @@ public class EXTEfx {
 	 * @param values the parameter values
 	 */
 	public static void alEffectiv(int effect, int param, IntBuffer values) {
+		if ( CHECKS )
+			check(values, 1);
 		nalEffectiv(effect, param, memAddress(values));
 	}
 
@@ -814,6 +816,8 @@ public class EXTEfx {
 	 * @param values the parameter values
 	 */
 	public static void alEffectfv(int effect, int param, FloatBuffer values) {
+		if ( CHECKS )
+			check(values, 1);
 		nalEffectfv(effect, param, memAddress(values));
 	}
 
@@ -1060,6 +1064,8 @@ public class EXTEfx {
 	 * @param values the parameter values
 	 */
 	public static void alFilteriv(int filter, int param, IntBuffer values) {
+		if ( CHECKS )
+			check(values, 1);
 		nalFilteriv(filter, param, memAddress(values));
 	}
 
@@ -1097,6 +1103,8 @@ public class EXTEfx {
 	 * @param values the parameter values
 	 */
 	public static void alFilterfv(int filter, int param, FloatBuffer values) {
+		if ( CHECKS )
+			check(values, 1);
 		nalFilterfv(filter, param, memAddress(values));
 	}
 
@@ -1343,6 +1351,8 @@ public class EXTEfx {
 	 * @param values     the parameter values
 	 */
 	public static void alAuxiliaryEffectSlotiv(int effectSlot, int param, IntBuffer values) {
+		if ( CHECKS )
+			check(values, 1);
 		nalAuxiliaryEffectSlotiv(effectSlot, param, memAddress(values));
 	}
 
@@ -1380,6 +1390,8 @@ public class EXTEfx {
 	 * @param values     the parameter values
 	 */
 	public static void alAuxiliaryEffectSlotfv(int effectSlot, int param, FloatBuffer values) {
+		if ( CHECKS )
+			check(values, 1);
 		nalAuxiliaryEffectSlotfv(effectSlot, param, memAddress(values));
 	}
 
@@ -1528,16 +1540,20 @@ public class EXTEfx {
 	/** Array version of: {@link #alEffectiv Effectiv} */
 	public static void alEffectiv(int effect, int param, int[] values) {
 		long __functionAddress = AL.getCapabilities().alEffectiv;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(__functionAddress);
+			check(values, 1);
+		}
 		invokePV(__functionAddress, effect, param, values);
 	}
 
 	/** Array version of: {@link #alEffectfv Effectfv} */
 	public static void alEffectfv(int effect, int param, float[] values) {
 		long __functionAddress = AL.getCapabilities().alEffectfv;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(__functionAddress);
+			check(values, 1);
+		}
 		invokePV(__functionAddress, effect, param, values);
 	}
 
@@ -1600,16 +1616,20 @@ public class EXTEfx {
 	/** Array version of: {@link #alFilteriv Filteriv} */
 	public static void alFilteriv(int filter, int param, int[] values) {
 		long __functionAddress = AL.getCapabilities().alFilteriv;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(__functionAddress);
+			check(values, 1);
+		}
 		invokePV(__functionAddress, filter, param, values);
 	}
 
 	/** Array version of: {@link #alFilterfv Filterfv} */
 	public static void alFilterfv(int filter, int param, float[] values) {
 		long __functionAddress = AL.getCapabilities().alFilterfv;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(__functionAddress);
+			check(values, 1);
+		}
 		invokePV(__functionAddress, filter, param, values);
 	}
 
@@ -1672,16 +1692,20 @@ public class EXTEfx {
 	/** Array version of: {@link #alAuxiliaryEffectSlotiv AuxiliaryEffectSlotiv} */
 	public static void alAuxiliaryEffectSlotiv(int effectSlot, int param, int[] values) {
 		long __functionAddress = AL.getCapabilities().alAuxiliaryEffectSlotiv;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(__functionAddress);
+			check(values, 1);
+		}
 		invokePV(__functionAddress, effectSlot, param, values);
 	}
 
 	/** Array version of: {@link #alAuxiliaryEffectSlotfv AuxiliaryEffectSlotfv} */
 	public static void alAuxiliaryEffectSlotfv(int effectSlot, int param, float[] values) {
 		long __functionAddress = AL.getCapabilities().alAuxiliaryEffectSlotfv;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(__functionAddress);
+			check(values, 1);
+		}
 		invokePV(__functionAddress, effectSlot, param, values);
 	}
 

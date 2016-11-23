@@ -329,6 +329,8 @@ public class NativeFileDialog {
 	 * @param outPath the string to free
 	 */
 	public static void NFD_Free(ByteBuffer outPath) {
+		if ( CHECKS )
+			check(outPath, 1);
 		nNFDi_Free(memAddress(outPath));
 	}
 

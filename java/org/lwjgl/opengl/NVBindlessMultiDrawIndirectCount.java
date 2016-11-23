@@ -55,6 +55,8 @@ public class NVBindlessMultiDrawIndirectCount {
 	 * @param vertexBufferCount the number of vertex buffers in the DrawArraysIndirectBindlessCommandNV structure
 	 */
 	public static void glMultiDrawArraysIndirectBindlessCountNV(int mode, ByteBuffer indirect, long drawCount, int maxDrawCount, int stride, int vertexBufferCount) {
+		if ( CHECKS )
+			check(indirect, maxDrawCount * (stride == 0 ? (16 + vertexBufferCount * 24) : stride));
 		nglMultiDrawArraysIndirectBindlessCountNV(mode, memAddress(indirect), drawCount, maxDrawCount, stride, vertexBufferCount);
 	}
 
@@ -83,6 +85,8 @@ public class NVBindlessMultiDrawIndirectCount {
 	 * @param vertexBufferCount the number of vertex buffers in the DrawElementsIndirectBindlessCommandNV structure
 	 */
 	public static void glMultiDrawElementsIndirectBindlessCountNV(int mode, int type, ByteBuffer indirect, long drawCount, int maxDrawCount, int stride, int vertexBufferCount) {
+		if ( CHECKS )
+			check(indirect, maxDrawCount * (stride == 0 ? ((vertexBufferCount + 2) * 24) : stride));
 		nglMultiDrawElementsIndirectBindlessCountNV(mode, type, memAddress(indirect), drawCount, maxDrawCount, stride, vertexBufferCount);
 	}
 

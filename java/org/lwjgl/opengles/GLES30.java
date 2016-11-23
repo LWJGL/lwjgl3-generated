@@ -1796,6 +1796,8 @@ public class GLES30 {
 	}
 
 	public static void glSamplerParameteriv(int sampler, int pname, IntBuffer param) {
+		if ( CHECKS )
+			check(param, 1);
 		nglSamplerParameteriv(sampler, pname, memAddress(param));
 	}
 
@@ -1818,6 +1820,8 @@ public class GLES30 {
 	}
 
 	public static void glSamplerParameterfv(int sampler, int pname, FloatBuffer param) {
+		if ( CHECKS )
+			check(param, 1);
 		nglSamplerParameterfv(sampler, pname, memAddress(param));
 	}
 
@@ -2498,16 +2502,20 @@ public class GLES30 {
 	/** Array version of: {@link #glSamplerParameteriv SamplerParameteriv} */
 	public static void glSamplerParameteriv(int sampler, int pname, int[] param) {
 		long __functionAddress = GLES.getCapabilities().glSamplerParameteriv;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(__functionAddress);
+			check(param, 1);
+		}
 		callPV(__functionAddress, sampler, pname, param);
 	}
 
 	/** Array version of: {@link #glSamplerParameterfv SamplerParameterfv} */
 	public static void glSamplerParameterfv(int sampler, int pname, float[] param) {
 		long __functionAddress = GLES.getCapabilities().glSamplerParameterfv;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(__functionAddress);
+			check(param, 1);
+		}
 		callPV(__functionAddress, sampler, pname, param);
 	}
 

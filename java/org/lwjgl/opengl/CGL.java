@@ -347,6 +347,7 @@ public class CGL {
 	 */
 	public static int CGLChoosePixelFormat(IntBuffer attribs, PointerBuffer pix, IntBuffer npix) {
 		if ( CHECKS ) {
+			checkNT(attribs);
 			checkSafe(pix, 1);
 			check(npix, 1);
 		}
@@ -1397,6 +1398,7 @@ public class CGL {
 	public static int CGLChoosePixelFormat(int[] attribs, PointerBuffer pix, int[] npix) {
 		long __functionAddress = Functions.ChoosePixelFormat;
 		if ( CHECKS ) {
+			checkNT(attribs);
 			checkSafe(pix, 1);
 			check(npix, 1);
 		}

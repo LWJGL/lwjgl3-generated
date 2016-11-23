@@ -113,7 +113,9 @@ public class SOFTHRTF {
 	 *         {@link ALC10#alcGetIntegerv GetIntegerv} with the relevant attributes.
 	 */
 	public static boolean alcResetDeviceSOFT(long device, IntBuffer attrList) {
-		return nalcResetDeviceSOFT(device, memAddress(attrList));
+		if ( CHECKS )
+			checkNTSafe(attrList);
+		return nalcResetDeviceSOFT(device, memAddressSafe(attrList));
 	}
 
 	/** Array version of: {@link #alcResetDeviceSOFT ResetDeviceSOFT} */
@@ -122,6 +124,7 @@ public class SOFTHRTF {
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(device);
+			checkNTSafe(attrList);
 		}
 		return invokePPZ(__functionAddress, device, attrList);
 	}

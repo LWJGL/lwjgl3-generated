@@ -67,7 +67,11 @@ public class NVFramebufferMixedSamples {
 
 	// --- [ glCoverageModulationTableNV ] ---
 
-	/** Unsafe version of: {@link #glCoverageModulationTableNV CoverageModulationTableNV} */
+	/**
+	 * Unsafe version of: {@link #glCoverageModulationTableNV CoverageModulationTableNV}
+	 *
+	 * @param n The size of the coverage modulation table. Must be equal to the value of COVERAGE_MODULATION_TABLE_SIZE_NV.
+	 */
 	public static void nglCoverageModulationTableNV(int n, long v) {
 		long __functionAddress = GL.getCapabilities().glCoverageModulationTableNV;
 		if ( CHECKS )
@@ -75,14 +79,8 @@ public class NVFramebufferMixedSamples {
 		callPV(__functionAddress, n, v);
 	}
 
-	/**
-	 * 
-	 *
-	 * @param n The size of the coverage modulation table. Must be equal to the value of COVERAGE_MODULATION_TABLE_SIZE_NV.
-	 * @param v 
-	 */
-	public static void glCoverageModulationTableNV(int n, FloatBuffer v) {
-		nglCoverageModulationTableNV(n, memAddress(v));
+	public static void glCoverageModulationTableNV(FloatBuffer v) {
+		nglCoverageModulationTableNV(v.remaining(), memAddress(v));
 	}
 
 	// --- [ glGetCoverageModulationTableNV ] ---
@@ -94,8 +92,8 @@ public class NVFramebufferMixedSamples {
 		callPV(__functionAddress, bufsize, v);
 	}
 
-	public static void glGetCoverageModulationTableNV(int bufsize, FloatBuffer v) {
-		nglGetCoverageModulationTableNV(bufsize, memAddress(v));
+	public static void glGetCoverageModulationTableNV(FloatBuffer v) {
+		nglGetCoverageModulationTableNV(v.remaining(), memAddress(v));
 	}
 
 	// --- [ glCoverageModulationNV ] ---
@@ -108,19 +106,19 @@ public class NVFramebufferMixedSamples {
 	}
 
 	/** Array version of: {@link #glCoverageModulationTableNV CoverageModulationTableNV} */
-	public static void glCoverageModulationTableNV(int n, float[] v) {
+	public static void glCoverageModulationTableNV(float[] v) {
 		long __functionAddress = GL.getCapabilities().glCoverageModulationTableNV;
 		if ( CHECKS )
 			check(__functionAddress);
-		callPV(__functionAddress, n, v);
+		callPV(__functionAddress, v.length, v);
 	}
 
 	/** Array version of: {@link #glGetCoverageModulationTableNV GetCoverageModulationTableNV} */
-	public static void glGetCoverageModulationTableNV(int bufsize, float[] v) {
+	public static void glGetCoverageModulationTableNV(float[] v) {
 		long __functionAddress = GL.getCapabilities().glGetCoverageModulationTableNV;
 		if ( CHECKS )
 			check(__functionAddress);
-		callPV(__functionAddress, bufsize, v);
+		callPV(__functionAddress, v.length, v);
 	}
 
 }

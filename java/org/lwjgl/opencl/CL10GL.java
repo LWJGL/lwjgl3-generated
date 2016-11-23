@@ -323,6 +323,10 @@ public class CL10GL {
 	 *         </ul>
 	 */
 	public static int clGetGLObjectInfo(long memobj, IntBuffer gl_object_type, IntBuffer gl_object_name) {
+		if ( CHECKS ) {
+			checkSafe(gl_object_type, 1);
+			checkSafe(gl_object_name, 1);
+		}
 		return nclGetGLObjectInfo(memobj, memAddressSafe(gl_object_type), memAddressSafe(gl_object_name));
 	}
 
@@ -658,6 +662,8 @@ public class CL10GL {
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(memobj);
+			checkSafe(gl_object_type, 1);
+			checkSafe(gl_object_name, 1);
 		}
 		return callPPPI(__functionAddress, memobj, gl_object_type, gl_object_name);
 	}

@@ -181,8 +181,8 @@ public class STBImageResize {
 	 */
 	public static boolean stbir_resize_uint8(ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels) {
 		if ( CHECKS ) {
-			check(input_pixels, input_w * input_h * num_channels);
-			check(output_pixels, output_w * output_h * num_channels);
+			check(input_pixels, input_h * (input_stride_in_bytes == 0 ? input_w * num_channels : input_stride_in_bytes));
+			check(output_pixels, output_h * (output_stride_in_bytes == 0 ? output_w * num_channels : output_stride_in_bytes));
 		}
 		return nstbir_resize_uint8(memAddress(input_pixels), input_w, input_h, input_stride_in_bytes, memAddress(output_pixels), output_w, output_h, output_stride_in_bytes, num_channels) != 0;
 	}
@@ -209,8 +209,8 @@ public class STBImageResize {
 	 */
 	public static boolean stbir_resize_float(FloatBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, FloatBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels) {
 		if ( CHECKS ) {
-			check(input_pixels, input_w * input_h * num_channels);
-			check(output_pixels, output_w * output_h * num_channels);
+			check(input_pixels, input_h * (input_stride_in_bytes == 0 ? input_w * num_channels : (input_stride_in_bytes >> 2)));
+			check(output_pixels, output_h * (output_stride_in_bytes == 0 ? output_w * num_channels : (output_stride_in_bytes >> 2)));
 		}
 		return nstbir_resize_float(memAddress(input_pixels), input_w, input_h, input_stride_in_bytes, memAddress(output_pixels), output_w, output_h, output_stride_in_bytes, num_channels) != 0;
 	}
@@ -247,8 +247,8 @@ public class STBImageResize {
 	 */
 	public static boolean stbir_resize_uint8_srgb(ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags) {
 		if ( CHECKS ) {
-			check(input_pixels, input_w * input_h * num_channels);
-			check(output_pixels, output_w * output_h * num_channels);
+			check(input_pixels, input_h * (input_stride_in_bytes == 0 ? input_w * num_channels : input_stride_in_bytes));
+			check(output_pixels, output_h * (output_stride_in_bytes == 0 ? output_w * num_channels : output_stride_in_bytes));
 		}
 		return nstbir_resize_uint8_srgb(memAddress(input_pixels), input_w, input_h, input_stride_in_bytes, memAddress(output_pixels), output_w, output_h, output_stride_in_bytes, num_channels, alpha_channel, flags) != 0;
 	}
@@ -278,8 +278,8 @@ public class STBImageResize {
 	 */
 	public static boolean stbir_resize_uint8_srgb_edgemode(ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode) {
 		if ( CHECKS ) {
-			check(input_pixels, input_w * input_h * num_channels);
-			check(output_pixels, output_w * output_h * num_channels);
+			check(input_pixels, input_h * (input_stride_in_bytes == 0 ? input_w * num_channels : input_stride_in_bytes));
+			check(output_pixels, output_h * (output_stride_in_bytes == 0 ? output_w * num_channels : output_stride_in_bytes));
 		}
 		return nstbir_resize_uint8_srgb_edgemode(memAddress(input_pixels), input_w, input_h, input_stride_in_bytes, memAddress(output_pixels), output_w, output_h, output_stride_in_bytes, num_channels, alpha_channel, flags, edge_wrap_mode) != 0;
 	}
@@ -310,12 +310,13 @@ public class STBImageResize {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static boolean stbir_resize_uint8_generic(ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space, ByteBuffer alloc_context) {
+	public static boolean stbir_resize_uint8_generic(ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space, long alloc_context) {
 		if ( CHECKS ) {
-			check(input_pixels, input_w * input_h * num_channels);
-			check(output_pixels, output_w * output_h * num_channels);
+			check(input_pixels, input_h * (input_stride_in_bytes == 0 ? input_w * num_channels : input_stride_in_bytes));
+			check(output_pixels, output_h * (output_stride_in_bytes == 0 ? output_w * num_channels : output_stride_in_bytes));
+			check(alloc_context);
 		}
-		return nstbir_resize_uint8_generic(memAddress(input_pixels), input_w, input_h, input_stride_in_bytes, memAddress(output_pixels), output_w, output_h, output_stride_in_bytes, num_channels, alpha_channel, flags, edge_wrap_mode, filter, space, memAddress(alloc_context)) != 0;
+		return nstbir_resize_uint8_generic(memAddress(input_pixels), input_w, input_h, input_stride_in_bytes, memAddress(output_pixels), output_w, output_h, output_stride_in_bytes, num_channels, alpha_channel, flags, edge_wrap_mode, filter, space, alloc_context) != 0;
 	}
 
 	/**
@@ -340,8 +341,8 @@ public class STBImageResize {
 	 */
 	public static boolean stbir_resize_uint8_generic(ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space) {
 		if ( CHECKS ) {
-			check(input_pixels, input_w * input_h * num_channels);
-			check(output_pixels, output_w * output_h * num_channels);
+			check(input_pixels, input_h * (input_stride_in_bytes == 0 ? input_w * num_channels : input_stride_in_bytes));
+			check(output_pixels, output_h * (output_stride_in_bytes == 0 ? output_w * num_channels : output_stride_in_bytes));
 		}
 		return nstbir_resize_uint8_generic(memAddress(input_pixels), input_w, input_h, input_stride_in_bytes, memAddress(output_pixels), output_w, output_h, output_stride_in_bytes, num_channels, alpha_channel, flags, edge_wrap_mode, filter, space, NULL) != 0;
 	}
@@ -372,12 +373,13 @@ public class STBImageResize {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static boolean stbir_resize_uint16_generic(ShortBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ShortBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space, ByteBuffer alloc_context) {
+	public static boolean stbir_resize_uint16_generic(ShortBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ShortBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space, long alloc_context) {
 		if ( CHECKS ) {
-			check(input_pixels, input_w * input_h * num_channels);
-			check(output_pixels, output_w * output_h * num_channels);
+			check(input_pixels, input_h * (input_stride_in_bytes == 0 ? input_w * num_channels : (input_stride_in_bytes >> 1)));
+			check(output_pixels, output_h * (output_stride_in_bytes == 0 ? output_w * num_channels : (output_stride_in_bytes >> 1)));
+			check(alloc_context);
 		}
-		return nstbir_resize_uint16_generic(memAddress(input_pixels), input_w, input_h, input_stride_in_bytes, memAddress(output_pixels), output_w, output_h, output_stride_in_bytes, num_channels, alpha_channel, flags, edge_wrap_mode, filter, space, memAddress(alloc_context)) != 0;
+		return nstbir_resize_uint16_generic(memAddress(input_pixels), input_w, input_h, input_stride_in_bytes, memAddress(output_pixels), output_w, output_h, output_stride_in_bytes, num_channels, alpha_channel, flags, edge_wrap_mode, filter, space, alloc_context) != 0;
 	}
 
 	/**
@@ -402,8 +404,8 @@ public class STBImageResize {
 	 */
 	public static boolean stbir_resize_uint16_generic(ShortBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ShortBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space) {
 		if ( CHECKS ) {
-			check(input_pixels, input_w * input_h * num_channels);
-			check(output_pixels, output_w * output_h * num_channels);
+			check(input_pixels, input_h * (input_stride_in_bytes == 0 ? input_w * num_channels : (input_stride_in_bytes >> 1)));
+			check(output_pixels, output_h * (output_stride_in_bytes == 0 ? output_w * num_channels : (output_stride_in_bytes >> 1)));
 		}
 		return nstbir_resize_uint16_generic(memAddress(input_pixels), input_w, input_h, input_stride_in_bytes, memAddress(output_pixels), output_w, output_h, output_stride_in_bytes, num_channels, alpha_channel, flags, edge_wrap_mode, filter, space, NULL) != 0;
 	}
@@ -434,12 +436,13 @@ public class STBImageResize {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static boolean stbir_resize_float_generic(FloatBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, FloatBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space, ByteBuffer alloc_context) {
+	public static boolean stbir_resize_float_generic(FloatBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, FloatBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space, long alloc_context) {
 		if ( CHECKS ) {
-			check(input_pixels, input_w * input_h * num_channels);
-			check(output_pixels, output_w * output_h * num_channels);
+			check(input_pixels, input_h * (input_stride_in_bytes == 0 ? input_w * num_channels : (input_stride_in_bytes >> 2)));
+			check(output_pixels, output_h * (output_stride_in_bytes == 0 ? output_w * num_channels : (output_stride_in_bytes >> 2)));
+			check(alloc_context);
 		}
-		return nstbir_resize_float_generic(memAddress(input_pixels), input_w, input_h, input_stride_in_bytes, memAddress(output_pixels), output_w, output_h, output_stride_in_bytes, num_channels, alpha_channel, flags, edge_wrap_mode, filter, space, memAddress(alloc_context)) != 0;
+		return nstbir_resize_float_generic(memAddress(input_pixels), input_w, input_h, input_stride_in_bytes, memAddress(output_pixels), output_w, output_h, output_stride_in_bytes, num_channels, alpha_channel, flags, edge_wrap_mode, filter, space, alloc_context) != 0;
 	}
 
 	/**
@@ -464,8 +467,8 @@ public class STBImageResize {
 	 */
 	public static boolean stbir_resize_float_generic(FloatBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, FloatBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space) {
 		if ( CHECKS ) {
-			check(input_pixels, input_w * input_h * num_channels);
-			check(output_pixels, output_w * output_h * num_channels);
+			check(input_pixels, input_h * (input_stride_in_bytes == 0 ? input_w * num_channels : (input_stride_in_bytes >> 2)));
+			check(output_pixels, output_h * (output_stride_in_bytes == 0 ? output_w * num_channels : (output_stride_in_bytes >> 2)));
 		}
 		return nstbir_resize_float_generic(memAddress(input_pixels), input_w, input_h, input_stride_in_bytes, memAddress(output_pixels), output_w, output_h, output_stride_in_bytes, num_channels, alpha_channel, flags, edge_wrap_mode, filter, space, NULL) != 0;
 	}
@@ -499,8 +502,13 @@ public class STBImageResize {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static boolean stbir_resize(ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int datatype, int num_channels, int alpha_channel, int flags, int edge_mode_horizontal, int edge_mode_vertical, int filter_horizontal, int filter_vertical, int space, ByteBuffer alloc_context) {
-		return nstbir_resize(memAddress(input_pixels), input_w, input_h, input_stride_in_bytes, memAddress(output_pixels), output_w, output_h, output_stride_in_bytes, datatype, num_channels, alpha_channel, flags, edge_mode_horizontal, edge_mode_vertical, filter_horizontal, filter_vertical, space, memAddress(alloc_context)) != 0;
+	public static boolean stbir_resize(ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int datatype, int num_channels, int alpha_channel, int flags, int edge_mode_horizontal, int edge_mode_vertical, int filter_horizontal, int filter_vertical, int space, long alloc_context) {
+		if ( CHECKS ) {
+			check(input_pixels, input_h * (input_stride_in_bytes == 0 ? (input_w * num_channels) << getTypeShift(datatype) : input_stride_in_bytes));
+			check(output_pixels, output_h * (output_stride_in_bytes == 0 ? (output_w * num_channels) << getTypeShift(datatype) : output_stride_in_bytes));
+			check(alloc_context);
+		}
+		return nstbir_resize(memAddress(input_pixels), input_w, input_h, input_stride_in_bytes, memAddress(output_pixels), output_w, output_h, output_stride_in_bytes, datatype, num_channels, alpha_channel, flags, edge_mode_horizontal, edge_mode_vertical, filter_horizontal, filter_vertical, space, alloc_context) != 0;
 	}
 
 	/**
@@ -527,6 +535,10 @@ public class STBImageResize {
 	 * @return 1 on success, 0 on failure
 	 */
 	public static boolean stbir_resize(ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int datatype, int num_channels, int alpha_channel, int flags, int edge_mode_horizontal, int edge_mode_vertical, int filter_horizontal, int filter_vertical, int space) {
+		if ( CHECKS ) {
+			check(input_pixels, input_h * (input_stride_in_bytes == 0 ? (input_w * num_channels) << getTypeShift(datatype) : input_stride_in_bytes));
+			check(output_pixels, output_h * (output_stride_in_bytes == 0 ? (output_w * num_channels) << getTypeShift(datatype) : output_stride_in_bytes));
+		}
 		return nstbir_resize(memAddress(input_pixels), input_w, input_h, input_stride_in_bytes, memAddress(output_pixels), output_w, output_h, output_stride_in_bytes, datatype, num_channels, alpha_channel, flags, edge_mode_horizontal, edge_mode_vertical, filter_horizontal, filter_vertical, space, NULL) != 0;
 	}
 
@@ -563,8 +575,13 @@ public class STBImageResize {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static boolean stbir_resize_subpixel(ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int datatype, int num_channels, int alpha_channel, int flags, int edge_mode_horizontal, int edge_mode_vertical, int filter_horizontal, int filter_vertical, int space, ByteBuffer alloc_context, float x_scale, float y_scale, float x_offset, float y_offset) {
-		return nstbir_resize_subpixel(memAddress(input_pixels), input_w, input_h, input_stride_in_bytes, memAddress(output_pixels), output_w, output_h, output_stride_in_bytes, datatype, num_channels, alpha_channel, flags, edge_mode_horizontal, edge_mode_vertical, filter_horizontal, filter_vertical, space, memAddress(alloc_context), x_scale, y_scale, x_offset, y_offset) != 0;
+	public static boolean stbir_resize_subpixel(ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int datatype, int num_channels, int alpha_channel, int flags, int edge_mode_horizontal, int edge_mode_vertical, int filter_horizontal, int filter_vertical, int space, long alloc_context, float x_scale, float y_scale, float x_offset, float y_offset) {
+		if ( CHECKS ) {
+			check(input_pixels, input_h * (input_stride_in_bytes == 0 ? (input_w * num_channels) << getTypeShift(datatype) : input_stride_in_bytes));
+			check(output_pixels, output_h * (output_stride_in_bytes == 0 ? (output_w * num_channels) << getTypeShift(datatype) : output_stride_in_bytes));
+			check(alloc_context);
+		}
+		return nstbir_resize_subpixel(memAddress(input_pixels), input_w, input_h, input_stride_in_bytes, memAddress(output_pixels), output_w, output_h, output_stride_in_bytes, datatype, num_channels, alpha_channel, flags, edge_mode_horizontal, edge_mode_vertical, filter_horizontal, filter_vertical, space, alloc_context, x_scale, y_scale, x_offset, y_offset) != 0;
 	}
 
 	/**
@@ -595,6 +612,10 @@ public class STBImageResize {
 	 * @return 1 on success, 0 on failure
 	 */
 	public static boolean stbir_resize_subpixel(ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int datatype, int num_channels, int alpha_channel, int flags, int edge_mode_horizontal, int edge_mode_vertical, int filter_horizontal, int filter_vertical, int space, float x_scale, float y_scale, float x_offset, float y_offset) {
+		if ( CHECKS ) {
+			check(input_pixels, input_h * (input_stride_in_bytes == 0 ? (input_w * num_channels) << getTypeShift(datatype) : input_stride_in_bytes));
+			check(output_pixels, output_h * (output_stride_in_bytes == 0 ? (output_w * num_channels) << getTypeShift(datatype) : output_stride_in_bytes));
+		}
 		return nstbir_resize_subpixel(memAddress(input_pixels), input_w, input_h, input_stride_in_bytes, memAddress(output_pixels), output_w, output_h, output_stride_in_bytes, datatype, num_channels, alpha_channel, flags, edge_mode_horizontal, edge_mode_vertical, filter_horizontal, filter_vertical, space, NULL, x_scale, y_scale, x_offset, y_offset) != 0;
 	}
 
@@ -631,8 +652,13 @@ public class STBImageResize {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static boolean stbir_resize_region(ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int datatype, int num_channels, int alpha_channel, int flags, int edge_mode_horizontal, int edge_mode_vertical, int filter_horizontal, int filter_vertical, int space, ByteBuffer alloc_context, float s0, float t0, float s1, float t1) {
-		return nstbir_resize_region(memAddress(input_pixels), input_w, input_h, input_stride_in_bytes, memAddress(output_pixels), output_w, output_h, output_stride_in_bytes, datatype, num_channels, alpha_channel, flags, edge_mode_horizontal, edge_mode_vertical, filter_horizontal, filter_vertical, space, memAddress(alloc_context), s0, t0, s1, t1) != 0;
+	public static boolean stbir_resize_region(ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int datatype, int num_channels, int alpha_channel, int flags, int edge_mode_horizontal, int edge_mode_vertical, int filter_horizontal, int filter_vertical, int space, long alloc_context, float s0, float t0, float s1, float t1) {
+		if ( CHECKS ) {
+			check(input_pixels, input_h * (input_stride_in_bytes == 0 ? (input_w * num_channels) << getTypeShift(datatype) : input_stride_in_bytes));
+			check(output_pixels, output_h * (output_stride_in_bytes == 0 ? (output_w * num_channels) << getTypeShift(datatype) : output_stride_in_bytes));
+			check(alloc_context);
+		}
+		return nstbir_resize_region(memAddress(input_pixels), input_w, input_h, input_stride_in_bytes, memAddress(output_pixels), output_w, output_h, output_stride_in_bytes, datatype, num_channels, alpha_channel, flags, edge_mode_horizontal, edge_mode_vertical, filter_horizontal, filter_vertical, space, alloc_context, s0, t0, s1, t1) != 0;
 	}
 
 	/**
@@ -663,6 +689,10 @@ public class STBImageResize {
 	 * @return 1 on success, 0 on failure
 	 */
 	public static boolean stbir_resize_region(ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int datatype, int num_channels, int alpha_channel, int flags, int edge_mode_horizontal, int edge_mode_vertical, int filter_horizontal, int filter_vertical, int space, float s0, float t0, float s1, float t1) {
+		if ( CHECKS ) {
+			check(input_pixels, input_h * (input_stride_in_bytes == 0 ? (input_w * num_channels) << getTypeShift(datatype) : input_stride_in_bytes));
+			check(output_pixels, output_h * (output_stride_in_bytes == 0 ? (output_w * num_channels) << getTypeShift(datatype) : output_stride_in_bytes));
+		}
 		return nstbir_resize_region(memAddress(input_pixels), input_w, input_h, input_stride_in_bytes, memAddress(output_pixels), output_w, output_h, output_stride_in_bytes, datatype, num_channels, alpha_channel, flags, edge_mode_horizontal, edge_mode_vertical, filter_horizontal, filter_vertical, space, NULL, s0, t0, s1, t1) != 0;
 	}
 
@@ -672,8 +702,8 @@ public class STBImageResize {
 	/** Array version of: {@link #stbir_resize_float resize_float} */
 	public static boolean stbir_resize_float(float[] input_pixels, int input_w, int input_h, int input_stride_in_bytes, float[] output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels) {
 		if ( CHECKS ) {
-			check(input_pixels, input_w * input_h * num_channels);
-			check(output_pixels, output_w * output_h * num_channels);
+			check(input_pixels, input_h * (input_stride_in_bytes == 0 ? input_w * num_channels : (input_stride_in_bytes >> 2)));
+			check(output_pixels, output_h * (output_stride_in_bytes == 0 ? output_w * num_channels : (output_stride_in_bytes >> 2)));
 		}
 		return nstbir_resize_float(input_pixels, input_w, input_h, input_stride_in_bytes, output_pixels, output_w, output_h, output_stride_in_bytes, num_channels) != 0;
 	}
@@ -682,19 +712,20 @@ public class STBImageResize {
 	public static native int nstbir_resize_uint16_generic(short[] input_pixels, int input_w, int input_h, int input_stride_in_bytes, short[] output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space, long alloc_context);
 
 	/** Array version of: {@link #stbir_resize_uint16_generic resize_uint16_generic} */
-	public static boolean stbir_resize_uint16_generic(short[] input_pixels, int input_w, int input_h, int input_stride_in_bytes, short[] output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space, ByteBuffer alloc_context) {
+	public static boolean stbir_resize_uint16_generic(short[] input_pixels, int input_w, int input_h, int input_stride_in_bytes, short[] output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space, long alloc_context) {
 		if ( CHECKS ) {
-			check(input_pixels, input_w * input_h * num_channels);
-			check(output_pixels, output_w * output_h * num_channels);
+			check(input_pixels, input_h * (input_stride_in_bytes == 0 ? input_w * num_channels : (input_stride_in_bytes >> 1)));
+			check(output_pixels, output_h * (output_stride_in_bytes == 0 ? output_w * num_channels : (output_stride_in_bytes >> 1)));
+			check(alloc_context);
 		}
-		return nstbir_resize_uint16_generic(input_pixels, input_w, input_h, input_stride_in_bytes, output_pixels, output_w, output_h, output_stride_in_bytes, num_channels, alpha_channel, flags, edge_wrap_mode, filter, space, memAddress(alloc_context)) != 0;
+		return nstbir_resize_uint16_generic(input_pixels, input_w, input_h, input_stride_in_bytes, output_pixels, output_w, output_h, output_stride_in_bytes, num_channels, alpha_channel, flags, edge_wrap_mode, filter, space, alloc_context) != 0;
 	}
 
 	/** Array version of: {@link #stbir_resize_uint16_generic resize_uint16_generic} */
 	public static boolean stbir_resize_uint16_generic(short[] input_pixels, int input_w, int input_h, int input_stride_in_bytes, short[] output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space) {
 		if ( CHECKS ) {
-			check(input_pixels, input_w * input_h * num_channels);
-			check(output_pixels, output_w * output_h * num_channels);
+			check(input_pixels, input_h * (input_stride_in_bytes == 0 ? input_w * num_channels : (input_stride_in_bytes >> 1)));
+			check(output_pixels, output_h * (output_stride_in_bytes == 0 ? output_w * num_channels : (output_stride_in_bytes >> 1)));
 		}
 		return nstbir_resize_uint16_generic(input_pixels, input_w, input_h, input_stride_in_bytes, output_pixels, output_w, output_h, output_stride_in_bytes, num_channels, alpha_channel, flags, edge_wrap_mode, filter, space, NULL) != 0;
 	}
@@ -703,21 +734,33 @@ public class STBImageResize {
 	public static native int nstbir_resize_float_generic(float[] input_pixels, int input_w, int input_h, int input_stride_in_bytes, float[] output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space, long alloc_context);
 
 	/** Array version of: {@link #stbir_resize_float_generic resize_float_generic} */
-	public static boolean stbir_resize_float_generic(float[] input_pixels, int input_w, int input_h, int input_stride_in_bytes, float[] output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space, ByteBuffer alloc_context) {
+	public static boolean stbir_resize_float_generic(float[] input_pixels, int input_w, int input_h, int input_stride_in_bytes, float[] output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space, long alloc_context) {
 		if ( CHECKS ) {
-			check(input_pixels, input_w * input_h * num_channels);
-			check(output_pixels, output_w * output_h * num_channels);
+			check(input_pixels, input_h * (input_stride_in_bytes == 0 ? input_w * num_channels : (input_stride_in_bytes >> 2)));
+			check(output_pixels, output_h * (output_stride_in_bytes == 0 ? output_w * num_channels : (output_stride_in_bytes >> 2)));
+			check(alloc_context);
 		}
-		return nstbir_resize_float_generic(input_pixels, input_w, input_h, input_stride_in_bytes, output_pixels, output_w, output_h, output_stride_in_bytes, num_channels, alpha_channel, flags, edge_wrap_mode, filter, space, memAddress(alloc_context)) != 0;
+		return nstbir_resize_float_generic(input_pixels, input_w, input_h, input_stride_in_bytes, output_pixels, output_w, output_h, output_stride_in_bytes, num_channels, alpha_channel, flags, edge_wrap_mode, filter, space, alloc_context) != 0;
 	}
 
 	/** Array version of: {@link #stbir_resize_float_generic resize_float_generic} */
 	public static boolean stbir_resize_float_generic(float[] input_pixels, int input_w, int input_h, int input_stride_in_bytes, float[] output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, int edge_wrap_mode, int filter, int space) {
 		if ( CHECKS ) {
-			check(input_pixels, input_w * input_h * num_channels);
-			check(output_pixels, output_w * output_h * num_channels);
+			check(input_pixels, input_h * (input_stride_in_bytes == 0 ? input_w * num_channels : (input_stride_in_bytes >> 2)));
+			check(output_pixels, output_h * (output_stride_in_bytes == 0 ? output_w * num_channels : (output_stride_in_bytes >> 2)));
 		}
 		return nstbir_resize_float_generic(input_pixels, input_w, input_h, input_stride_in_bytes, output_pixels, output_w, output_h, output_stride_in_bytes, num_channels, alpha_channel, flags, edge_wrap_mode, filter, space, NULL) != 0;
+	}
+
+	private static int getTypeShift(int type) {
+		switch (type) {
+			case STBIR_TYPE_UINT8:
+				return 0;
+			case STBIR_TYPE_UINT16:
+				return 1;
+			default:
+				return 2;
+		}
 	}
 
 }

@@ -46,6 +46,7 @@ public class Stdio {
 	 */
 	public static int vsscanf(ByteBuffer buffer, ByteBuffer format, long vlist) {
 		if ( CHECKS ) {
+			checkNT1(buffer);
 			checkNT1(format);
 			check(vlist);
 		}
@@ -62,13 +63,14 @@ public class Stdio {
 	 *
 	 * @return the number of receiving arguments successfully assigned, or {@code EOF} if read failure occurs before the first receiving argument was assigned
 	 */
-	public static int vsscanf(ByteBuffer buffer, CharSequence format, long vlist) {
+	public static int vsscanf(CharSequence buffer, CharSequence format, long vlist) {
 		if ( CHECKS )
 			check(vlist);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
+			ByteBuffer bufferEncoded = stack.ASCII(buffer);
 			ByteBuffer formatEncoded = stack.ASCII(format);
-			return nvsscanf(memAddress(buffer), memAddress(formatEncoded), vlist);
+			return nvsscanf(memAddress(bufferEncoded), memAddress(formatEncoded), vlist);
 		} finally {
 			stack.setPointer(stackPointer);
 		}

@@ -9,8 +9,11 @@ import java.nio.*;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -114,6 +117,7 @@ public class KHREGLImage {
 	/**
 	 * Unsafe version of: {@link #clEnqueueReleaseEGLObjectsKHR EnqueueReleaseEGLObjectsKHR}
 	 *
+	 * @param num_objects             the number of memory objects to be released in {@code mem_objects}
 	 * @param num_events_in_wait_list the number of events in {@code event_wait_list}
 	 */
 	public static int nclEnqueueReleaseEGLObjectsKHR(long command_queue, int num_objects, long mem_objects, int num_events_in_wait_list, long event_wait_list, long event) {
@@ -130,7 +134,6 @@ public class KHREGLImage {
 	 * {@code command_queue}.
 	 *
 	 * @param command_queue   a valid command-queue
-	 * @param num_objects     the number of memory objects to be released in {@code mem_objects}
 	 * @param mem_objects     a pointer to a list of OpenCL memory objects that were created from EGL resources, within the context associated with {@code command_queue}
 	 * @param event_wait_list a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
 	 *                        does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
@@ -140,10 +143,35 @@ public class KHREGLImage {
 	 *                        complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
 	 *                        {@code event_wait_list} array.
 	 */
-	public static int clEnqueueReleaseEGLObjectsKHR(long command_queue, int num_objects, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueReleaseEGLObjectsKHR(long command_queue, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			checkSafe(event, 1);
-		return nclEnqueueReleaseEGLObjectsKHR(command_queue, num_objects, memAddress(mem_objects), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueReleaseEGLObjectsKHR(command_queue, mem_objects.remaining(), memAddress(mem_objects), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+	}
+
+	/**
+	 * Releases OpenCL memory objects that have been created from EGL resources. The EGL objects are released by the OpenCL context associated with
+	 * {@code command_queue}.
+	 *
+	 * @param command_queue   a valid command-queue
+	 * @param event_wait_list a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
+	 *                        does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
+	 *                        {@code event_wait_list} and {@code command_queue} must be the same.
+	 * @param event           Returns an event object that identifies this particular command and can be used to query or queue a wait for this particular command to complete.
+	 *                        {@code event} can be {@code NULL} in which case it will not be possible for the application to query the status of this command or queue a wait for this command to
+	 *                        complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
+	 *                        {@code event_wait_list} array.
+	 */
+	public static int clEnqueueReleaseEGLObjectsKHR(long command_queue, long mem_object, PointerBuffer event_wait_list, PointerBuffer event) {
+		if ( CHECKS )
+			checkSafe(event, 1);
+		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+		try {
+			PointerBuffer mem_objects = stack.pointers(mem_object);
+			return nclEnqueueReleaseEGLObjectsKHR(command_queue, 1, memAddress(mem_objects), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		} finally {
+			stack.setPointer(stackPointer);
+		}
 	}
 
 	/** Array version of: {@link #clCreateFromEGLImageKHR CreateFromEGLImageKHR} */

@@ -62,6 +62,8 @@ public class WGLNVGPUAffinity {
 	 * @param gpu      returns a handle for GPU number {@code gpuIndex}. The first GPU will be index 0.
 	 */
 	public static boolean wglEnumGpusNV(int gpuIndex, PointerBuffer gpu) {
+		if ( CHECKS )
+			check(gpu, 1);
 		return nwglEnumGpusNV(gpuIndex, memAddress(gpu)) != 0;
 	}
 
@@ -138,6 +140,8 @@ public class WGLNVGPUAffinity {
 	 * @param gpu        returns a handle for  GPU number {@code gpuIndex}. The first GPU will be at index 0.
 	 */
 	public static boolean wglEnumGpusFromAffinityDCNV(long affinityDC, int gpuIndex, PointerBuffer gpu) {
+		if ( CHECKS )
+			check(gpu, 1);
 		return nwglEnumGpusFromAffinityDCNV(affinityDC, gpuIndex, memAddress(gpu)) != 0;
 	}
 

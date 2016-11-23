@@ -1896,6 +1896,8 @@ public class User32 {
 	 * @since Windows 7 (desktop apps only)
 	 */
 	public static boolean IsTouchWindow(long hWnd, IntBuffer pulFlags) {
+		if ( CHECKS )
+			checkSafe(pulFlags, 1);
 		return nIsTouchWindow(hWnd, memAddressSafe(pulFlags)) != 0;
 	}
 
@@ -2303,6 +2305,7 @@ public class User32 {
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(hWnd);
+			checkSafe(pulFlags, 1);
 		}
 		return callPPI(__functionAddress, hWnd, pulFlags) != 0;
 	}

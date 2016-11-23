@@ -91,14 +91,18 @@ public class EXTPointParameters {
 	}
 
 	public static void glPointParameterfvEXT(int pname, FloatBuffer params) {
+		if ( CHECKS )
+			check(params, 1);
 		nglPointParameterfvEXT(pname, memAddress(params));
 	}
 
 	/** Array version of: {@link #glPointParameterfvEXT PointParameterfvEXT} */
 	public static void glPointParameterfvEXT(int pname, float[] params) {
 		long __functionAddress = GL.getCapabilities().glPointParameterfvEXT;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(__functionAddress);
+			check(params, 1);
+		}
 		callPV(__functionAddress, pname, params);
 	}
 

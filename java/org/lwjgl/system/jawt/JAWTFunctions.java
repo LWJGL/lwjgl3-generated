@@ -5,14 +5,11 @@
  */
 package org.lwjgl.system.jawt;
 
-import java.nio.*;
-
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.system.MemoryUtil.*;
 
 import java.awt.Component;
 import java.awt.Frame;
@@ -287,10 +284,12 @@ public class JAWTFunctions {
 	 * @param __functionAddress the function address
 	 * @param platformInfo      the native platform handle
 	 */
-	public static Component JAWT_GetComponent(long __functionAddress, ByteBuffer platformInfo) {
-		if ( CHECKS )
+	public static Component JAWT_GetComponent(long __functionAddress, long platformInfo) {
+		if ( CHECKS ) {
 			check(__functionAddress);
-		return nJAWT_GetComponent(__functionAddress, memAddress(platformInfo));
+			check(platformInfo);
+		}
+		return nJAWT_GetComponent(__functionAddress, platformInfo);
 	}
 
 	// --- [ JAWT_CreateEmbeddedFrame ] ---
@@ -309,10 +308,12 @@ public class JAWTFunctions {
 	 *
 	 * @since Java 9
 	 */
-	public static Frame JAWT_CreateEmbeddedFrame(long __functionAddress, ByteBuffer platformInfo) {
-		if ( CHECKS )
+	public static Frame JAWT_CreateEmbeddedFrame(long __functionAddress, long platformInfo) {
+		if ( CHECKS ) {
 			check(__functionAddress);
-		return nJAWT_CreateEmbeddedFrame(__functionAddress, memAddress(platformInfo));
+			check(platformInfo);
+		}
+		return nJAWT_CreateEmbeddedFrame(__functionAddress, platformInfo);
 	}
 
 	// --- [ JAWT_SetBounds ] ---

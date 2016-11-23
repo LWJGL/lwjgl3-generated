@@ -98,6 +98,8 @@ public class GLXAMDGPUAssociation {
 	 * @param attribList    
 	 */
 	public static long glXCreateAssociatedContextAttribsAMD(int id, long share_context, IntBuffer attribList) {
+		if ( CHECKS )
+			checkNT(attribList);
 		return nglXCreateAssociatedContextAttribsAMD(id, share_context, memAddress(attribList));
 	}
 
@@ -174,11 +176,10 @@ public class GLXAMDGPUAssociation {
 	 * @param id       
 	 * @param property one of:<br><table><tr><td>{@link #GLX_GPU_VENDOR_AMD GPU_VENDOR_AMD}</td><td>{@link #GLX_GPU_RENDERER_STRING_AMD GPU_RENDERER_STRING_AMD}</td><td>{@link #GLX_GPU_OPENGL_VERSION_STRING_AMD GPU_OPENGL_VERSION_STRING_AMD}</td><td>{@link #GLX_GPU_FASTEST_TARGET_GPUS_AMD GPU_FASTEST_TARGET_GPUS_AMD}</td></tr><tr><td>{@link #GLX_GPU_RAM_AMD GPU_RAM_AMD}</td><td>{@link #GLX_GPU_CLOCK_AMD GPU_CLOCK_AMD}</td><td>{@link #GLX_GPU_NUM_PIPES_AMD GPU_NUM_PIPES_AMD}</td><td>{@link #GLX_GPU_NUM_SIMD_AMD GPU_NUM_SIMD_AMD}</td></tr><tr><td>{@link #GLX_GPU_NUM_RB_AMD GPU_NUM_RB_AMD}</td><td>{@link #GLX_GPU_NUM_SPI_AMD GPU_NUM_SPI_AMD}</td></tr></table>
 	 * @param dataType 
-	 * @param size     
 	 * @param data     
 	 */
-	public static int glXGetGPUInfoAMD(int id, int property, int dataType, int size, ByteBuffer data) {
-		return nglXGetGPUInfoAMD(id, property, dataType, size, memAddress(data));
+	public static int glXGetGPUInfoAMD(int id, int property, int dataType, ByteBuffer data) {
+		return nglXGetGPUInfoAMD(id, property, dataType, data.remaining(), memAddress(data));
 	}
 
 	// --- [ glXMakeAssociatedContextCurrentAMD ] ---
@@ -203,6 +204,7 @@ public class GLXAMDGPUAssociation {
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(share_context);
+			checkNT(attribList);
 		}
 		return callPPP(__functionAddress, id, share_context, attribList);
 	}

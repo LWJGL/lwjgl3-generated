@@ -1252,11 +1252,13 @@ public class BGFX {
 	 * @param _index32  set to `true` if input indices are 32-bit
 	 */
 	public static void bgfx_topology_sort_tri_list(int _sort, ByteBuffer _dst, FloatBuffer _dir, FloatBuffer _pos, ByteBuffer _vertices, int _stride, ByteBuffer _indices, boolean _index32) {
+		int _numIndices = _indices.remaining() >> (_index32 ? 2 : 1);
 		if ( CHECKS ) {
 			check(_dir, 3);
 			check(_pos, 3);
+			check(_vertices, _numIndices * _stride);
 		}
-		nbgfx_topology_sort_tri_list(_sort, memAddress(_dst), _dst.remaining(), memAddress(_dir), memAddress(_pos), memAddress(_vertices), _stride, memAddress(_indices), _indices.remaining() >> (_index32 ? 2 : 1), _index32);
+		nbgfx_topology_sort_tri_list(_sort, memAddress(_dst), _dst.remaining(), memAddress(_dir), memAddress(_pos), memAddress(_vertices), _stride, memAddress(_indices), _numIndices, _index32);
 	}
 
 	/**
@@ -1272,11 +1274,13 @@ public class BGFX {
 	 * @param _index32  set to `true` if input indices are 32-bit
 	 */
 	public static void bgfx_topology_sort_tri_list(int _sort, ShortBuffer _dst, FloatBuffer _dir, FloatBuffer _pos, ByteBuffer _vertices, int _stride, ShortBuffer _indices, boolean _index32) {
+		int _numIndices = _indices.remaining();
 		if ( CHECKS ) {
 			check(_dir, 3);
 			check(_pos, 3);
+			check(_vertices, _numIndices * _stride);
 		}
-		nbgfx_topology_sort_tri_list(_sort, memAddress(_dst), _dst.remaining() << 1, memAddress(_dir), memAddress(_pos), memAddress(_vertices), _stride, memAddress(_indices), _indices.remaining(), _index32);
+		nbgfx_topology_sort_tri_list(_sort, memAddress(_dst), _dst.remaining() << 1, memAddress(_dir), memAddress(_pos), memAddress(_vertices), _stride, memAddress(_indices), _numIndices, _index32);
 	}
 
 	/**
@@ -1292,11 +1296,13 @@ public class BGFX {
 	 * @param _index32  set to `true` if input indices are 32-bit
 	 */
 	public static void bgfx_topology_sort_tri_list(int _sort, IntBuffer _dst, FloatBuffer _dir, FloatBuffer _pos, ByteBuffer _vertices, int _stride, IntBuffer _indices, boolean _index32) {
+		int _numIndices = _indices.remaining();
 		if ( CHECKS ) {
 			check(_dir, 3);
 			check(_pos, 3);
+			check(_vertices, _numIndices * _stride);
 		}
-		nbgfx_topology_sort_tri_list(_sort, memAddress(_dst), _dst.remaining() << 2, memAddress(_dir), memAddress(_pos), memAddress(_vertices), _stride, memAddress(_indices), _indices.remaining(), _index32);
+		nbgfx_topology_sort_tri_list(_sort, memAddress(_dst), _dst.remaining() << 2, memAddress(_dir), memAddress(_pos), memAddress(_vertices), _stride, memAddress(_indices), _numIndices, _index32);
 	}
 
 	// --- [ bgfx_image_swizzle_bgra8 ] ---
@@ -1317,7 +1323,7 @@ public class BGFX {
 	 * @param _dst    destination image. Must be the same size as input image. {@code _dst} might be pointer to the same memory as {@code _src}.
 	 */
 	public static void bgfx_image_swizzle_bgra8(int _width, int _height, int _pitch, ByteBuffer _src, ByteBuffer _dst) {
-		int bytes = _height * _pitch * 4;
+		int bytes = _height * _pitch;
 		if ( CHECKS ) {
 			check(_src, bytes);
 			check(_dst, bytes);
@@ -1335,7 +1341,7 @@ public class BGFX {
 	 * @param _dst    destination image. Must be the same size as input image. {@code _dst} might be pointer to the same memory as {@code _src}.
 	 */
 	public static void bgfx_image_swizzle_bgra8(int _width, int _height, int _pitch, IntBuffer _src, IntBuffer _dst) {
-		int bytes = _height * _pitch * 4;
+		int bytes = _height * _pitch;
 		if ( CHECKS ) {
 			check(_src, bytes >> 2);
 			check(_dst, bytes >> 2);
@@ -1361,7 +1367,7 @@ public class BGFX {
 	 * @param _dst    destination image. Must be at least quarter size of input image. {@code _dst} might be pointer to the same memory as {@code _src}.
 	 */
 	public static void bgfx_image_rgba8_downsample_2x2(int _width, int _height, int _pitch, ByteBuffer _src, ByteBuffer _dst) {
-		int bytes = _height * _pitch * 4;
+		int bytes = _height * _pitch;
 		if ( CHECKS ) {
 			check(_src, bytes);
 			check(_dst, bytes >> 2);
@@ -1379,7 +1385,7 @@ public class BGFX {
 	 * @param _dst    destination image. Must be at least quarter size of input image. {@code _dst} might be pointer to the same memory as {@code _src}.
 	 */
 	public static void bgfx_image_rgba8_downsample_2x2(int _width, int _height, int _pitch, IntBuffer _src, IntBuffer _dst) {
-		int bytes = _height * _pitch * 4;
+		int bytes = _height * _pitch;
 		if ( CHECKS ) {
 			check(_src, bytes >> 2);
 			check(_dst, (bytes >> 2) >> 2);
@@ -3407,6 +3413,8 @@ public class BGFX {
 	 * @param _remap view remap id table. Passing {@code NULL} will reset view ids to default state
 	 */
 	public static void bgfx_set_view_remap(int _id, int _num, ByteBuffer _remap) {
+		if ( CHECKS )
+			checkSafe(_remap, _num);
 		nbgfx_set_view_remap((byte)_id, (byte)_num, memAddressSafe(_remap));
 	}
 
@@ -4313,49 +4321,55 @@ public class BGFX {
 	/** Array version of: {@link #bgfx_topology_convert topology_convert} */
 	public static int bgfx_topology_convert(int _conversion, short[] _dst, short[] _indices, boolean _index32) {
 		long __functionAddress = Functions.topology_convert;
-		return invokePPI(__functionAddress, _conversion, _dst, lengthSafe(_dst) << 1, _indices, _indices.length >> (_index32 ? 2 : 1), _index32);
+		return invokePPI(__functionAddress, _conversion, _dst, lengthSafe(_dst) << 1, _indices, _indices.length, _index32);
 	}
 
 	/** Array version of: {@link #bgfx_topology_convert topology_convert} */
 	public static int bgfx_topology_convert(int _conversion, int[] _dst, int[] _indices, boolean _index32) {
 		long __functionAddress = Functions.topology_convert;
-		return invokePPI(__functionAddress, _conversion, _dst, lengthSafe(_dst) << 2, _indices, _indices.length >> (_index32 ? 2 : 1), _index32);
+		return invokePPI(__functionAddress, _conversion, _dst, lengthSafe(_dst) << 2, _indices, _indices.length, _index32);
 	}
 
 	/** Array version of: {@link #bgfx_topology_sort_tri_list topology_sort_tri_list} */
 	public static void bgfx_topology_sort_tri_list(int _sort, ByteBuffer _dst, float[] _dir, float[] _pos, ByteBuffer _vertices, int _stride, ByteBuffer _indices, boolean _index32) {
 		long __functionAddress = Functions.topology_sort_tri_list;
+		int _numIndices = _indices.remaining() >> (_index32 ? 2 : 1);
 		if ( CHECKS ) {
 			check(_dir, 3);
 			check(_pos, 3);
+			check(_vertices, _numIndices * _stride);
 		}
-		invokePPPPPV(__functionAddress, _sort, memAddress(_dst), _dst.remaining(), _dir, _pos, memAddress(_vertices), _stride, memAddress(_indices), _indices.remaining() >> (_index32 ? 2 : 1), _index32);
+		invokePPPPPV(__functionAddress, _sort, memAddress(_dst), _dst.remaining(), _dir, _pos, memAddress(_vertices), _stride, memAddress(_indices), _numIndices, _index32);
 	}
 
 	/** Array version of: {@link #bgfx_topology_sort_tri_list topology_sort_tri_list} */
 	public static void bgfx_topology_sort_tri_list(int _sort, short[] _dst, float[] _dir, float[] _pos, ByteBuffer _vertices, int _stride, short[] _indices, boolean _index32) {
 		long __functionAddress = Functions.topology_sort_tri_list;
+		int _numIndices = _indices.length;
 		if ( CHECKS ) {
 			check(_dir, 3);
 			check(_pos, 3);
+			check(_vertices, _numIndices * _stride);
 		}
-		invokePPPPPV(__functionAddress, _sort, _dst, _dst.length << 1, _dir, _pos, memAddress(_vertices), _stride, _indices, _indices.length >> (_index32 ? 2 : 1), _index32);
+		invokePPPPPV(__functionAddress, _sort, _dst, _dst.length << 1, _dir, _pos, memAddress(_vertices), _stride, _indices, _numIndices, _index32);
 	}
 
 	/** Array version of: {@link #bgfx_topology_sort_tri_list topology_sort_tri_list} */
 	public static void bgfx_topology_sort_tri_list(int _sort, int[] _dst, float[] _dir, float[] _pos, ByteBuffer _vertices, int _stride, int[] _indices, boolean _index32) {
 		long __functionAddress = Functions.topology_sort_tri_list;
+		int _numIndices = _indices.length;
 		if ( CHECKS ) {
 			check(_dir, 3);
 			check(_pos, 3);
+			check(_vertices, _numIndices * _stride);
 		}
-		invokePPPPPV(__functionAddress, _sort, _dst, _dst.length << 2, _dir, _pos, memAddress(_vertices), _stride, _indices, _indices.length >> (_index32 ? 2 : 1), _index32);
+		invokePPPPPV(__functionAddress, _sort, _dst, _dst.length << 2, _dir, _pos, memAddress(_vertices), _stride, _indices, _numIndices, _index32);
 	}
 
 	/** Array version of: {@link #bgfx_image_swizzle_bgra8 image_swizzle_bgra8} */
 	public static void bgfx_image_swizzle_bgra8(int _width, int _height, int _pitch, int[] _src, int[] _dst) {
 		long __functionAddress = Functions.image_swizzle_bgra8;
-		int bytes = _height * _pitch * 4;
+		int bytes = _height * _pitch;
 		if ( CHECKS ) {
 			check(_src, bytes >> 2);
 			check(_dst, bytes >> 2);
@@ -4366,7 +4380,7 @@ public class BGFX {
 	/** Array version of: {@link #bgfx_image_rgba8_downsample_2x2 image_rgba8_downsample_2x2} */
 	public static void bgfx_image_rgba8_downsample_2x2(int _width, int _height, int _pitch, int[] _src, int[] _dst) {
 		long __functionAddress = Functions.image_rgba8_downsample_2x2;
-		int bytes = _height * _pitch * 4;
+		int bytes = _height * _pitch;
 		if ( CHECKS ) {
 			check(_src, bytes >> 2);
 			check(_dst, (bytes >> 2) >> 2);
@@ -4477,7 +4491,7 @@ public class BGFX {
 	/** Array version of: {@link #bgfx_set_transform set_transform} */
 	public static int bgfx_set_transform(float[] _mtx) {
 		long __functionAddress = Functions.set_transform;
-		return invokePI(__functionAddress, _mtx, (short)_mtx.length);
+		return invokePI(__functionAddress, _mtx, (short)(_mtx.length >> 4));
 	}
 
 	/** Array version of: {@link #bgfx_set_uniform set_uniform} */

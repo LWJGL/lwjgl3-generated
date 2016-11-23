@@ -949,6 +949,8 @@ public class GL11 {
 	 * @param data  the buffer containing the bitmap data.
 	 */
 	public static void glBitmap(int w, int h, float xOrig, float yOrig, float xInc, float yInc, ByteBuffer data) {
+		if ( CHECKS )
+			checkSafe(data, ((w + 7) >> 3) * h);
 		nglBitmap(w, h, xOrig, yOrig, xInc, yInc, memAddressSafe(data));
 	}
 
@@ -1180,6 +1182,8 @@ public class GL11 {
 	 * @param equation the clip plane coefficients
 	 */
 	public static void glClipPlane(int plane, DoubleBuffer equation) {
+		if ( CHECKS )
+			check(equation, 4);
 		nglClipPlane(plane, memAddress(equation));
 	}
 
@@ -2425,6 +2429,8 @@ public class GL11 {
 	 * @param u the domain coordinate buffer
 	 */
 	public static void glEvalCoord1fv(FloatBuffer u) {
+		if ( CHECKS )
+			check(u, 1);
 		nglEvalCoord1fv(memAddress(u));
 	}
 
@@ -2462,6 +2468,8 @@ public class GL11 {
 	 * @param u the domain coordinate buffer
 	 */
 	public static void glEvalCoord1dv(DoubleBuffer u) {
+		if ( CHECKS )
+			check(u, 1);
 		nglEvalCoord1dv(memAddress(u));
 	}
 
@@ -2500,6 +2508,8 @@ public class GL11 {
 	 * @param u the domain coordinate buffer
 	 */
 	public static void glEvalCoord2fv(FloatBuffer u) {
+		if ( CHECKS )
+			check(u, 2);
 		nglEvalCoord2fv(memAddress(u));
 	}
 
@@ -2538,6 +2548,8 @@ public class GL11 {
 	 * @param u the domain coordinate buffer
 	 */
 	public static void glEvalCoord2dv(DoubleBuffer u) {
+		if ( CHECKS )
+			check(u, 2);
 		nglEvalCoord2dv(memAddress(u));
 	}
 
@@ -3341,6 +3353,8 @@ public class GL11 {
 	 * @param data  a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetMaterialiv(int face, int pname, IntBuffer data) {
+		if ( CHECKS )
+			check(data, 1);
 		nglGetMaterialiv(face, pname, memAddress(data));
 	}
 
@@ -3364,6 +3378,8 @@ public class GL11 {
 	 * @param data  a scalar or buffer in which to place the returned data
 	 */
 	public static void glGetMaterialfv(int face, int pname, FloatBuffer data) {
+		if ( CHECKS )
+			check(data, 1);
 		nglGetMaterialfv(face, pname, memAddress(data));
 	}
 
@@ -5858,6 +5874,8 @@ public class GL11 {
 	 * @param pattern a pointer to memory into which a 32 &times; 32 pattern is packed
 	 */
 	public static void glPolygonStipple(ByteBuffer pattern) {
+		if ( CHECKS )
+			check(pattern, 128);
 		nglPolygonStipple(memAddress(pattern));
 	}
 
@@ -9377,6 +9395,8 @@ public class GL11 {
 	 */
 	public static void glClipPlane(int plane, double[] equation) {
 		long __functionAddress = GL.getCapabilities().glClipPlane;
+		if ( CHECKS )
+			check(equation, 4);
 		callPV(__functionAddress, plane, equation);
 	}
 
@@ -9627,8 +9647,10 @@ public class GL11 {
 	 */
 	public static void glEvalCoord1fv(float[] u) {
 		long __functionAddress = GL.getCapabilities().glEvalCoord1fv;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(__functionAddress);
+			check(u, 1);
+		}
 		callPV(__functionAddress, u);
 	}
 
@@ -9639,8 +9661,10 @@ public class GL11 {
 	 */
 	public static void glEvalCoord1dv(double[] u) {
 		long __functionAddress = GL.getCapabilities().glEvalCoord1dv;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(__functionAddress);
+			check(u, 1);
+		}
 		callPV(__functionAddress, u);
 	}
 
@@ -9651,8 +9675,10 @@ public class GL11 {
 	 */
 	public static void glEvalCoord2fv(float[] u) {
 		long __functionAddress = GL.getCapabilities().glEvalCoord2fv;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(__functionAddress);
+			check(u, 2);
+		}
 		callPV(__functionAddress, u);
 	}
 
@@ -9663,8 +9689,10 @@ public class GL11 {
 	 */
 	public static void glEvalCoord2dv(double[] u) {
 		long __functionAddress = GL.getCapabilities().glEvalCoord2dv;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(__functionAddress);
+			check(u, 2);
+		}
 		callPV(__functionAddress, u);
 	}
 
@@ -9853,8 +9881,10 @@ public class GL11 {
 	 */
 	public static void glGetMaterialiv(int face, int pname, int[] data) {
 		long __functionAddress = GL.getCapabilities().glGetMaterialiv;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(__functionAddress);
+			check(data, 1);
+		}
 		callPV(__functionAddress, face, pname, data);
 	}
 
@@ -9865,8 +9895,10 @@ public class GL11 {
 	 */
 	public static void glGetMaterialfv(int face, int pname, float[] data) {
 		long __functionAddress = GL.getCapabilities().glGetMaterialfv;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(__functionAddress);
+			check(data, 1);
+		}
 		callPV(__functionAddress, face, pname, data);
 	}
 

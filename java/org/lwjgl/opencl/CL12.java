@@ -703,7 +703,11 @@ public class CL12 {
 
 	// --- [ clCreateProgramWithBuiltInKernels ] ---
 
-	/** Unsafe version of: {@link #clCreateProgramWithBuiltInKernels CreateProgramWithBuiltInKernels} */
+	/**
+	 * Unsafe version of: {@link #clCreateProgramWithBuiltInKernels CreateProgramWithBuiltInKernels}
+	 *
+	 * @param num_devices the number of devices listed in {@code device_list}
+	 */
 	public static long nclCreateProgramWithBuiltInKernels(long context, int num_devices, long device_list, long kernel_names, long errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateProgramWithBuiltInKernels;
 		if ( CHECKS ) {
@@ -717,7 +721,6 @@ public class CL12 {
 	 * Creates a program object for a context, and loads the information related to the built-in kernels into a program object.
 	 *
 	 * @param context      a valid OpenCL context
-	 * @param num_devices  the number of devices listed in {@code device_list}
 	 * @param device_list  a pointer to a list of devices that are in {@code context}. {@code device_list} must be a non-{@code NULL} value. The built-in kernels are loaded for
 	 *                     devices specified in this list.
 	 *                     
@@ -739,19 +742,18 @@ public class CL12 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static long clCreateProgramWithBuiltInKernels(long context, int num_devices, PointerBuffer device_list, ByteBuffer kernel_names, IntBuffer errcode_ret) {
+	public static long clCreateProgramWithBuiltInKernels(long context, PointerBuffer device_list, ByteBuffer kernel_names, IntBuffer errcode_ret) {
 		if ( CHECKS ) {
 			checkNT1(kernel_names);
 			checkSafe(errcode_ret, 1);
 		}
-		return nclCreateProgramWithBuiltInKernels(context, num_devices, memAddress(device_list), memAddress(kernel_names), memAddressSafe(errcode_ret));
+		return nclCreateProgramWithBuiltInKernels(context, device_list.remaining(), memAddress(device_list), memAddress(kernel_names), memAddressSafe(errcode_ret));
 	}
 
 	/**
 	 * Creates a program object for a context, and loads the information related to the built-in kernels into a program object.
 	 *
 	 * @param context      a valid OpenCL context
-	 * @param num_devices  the number of devices listed in {@code device_list}
 	 * @param device_list  a pointer to a list of devices that are in {@code context}. {@code device_list} must be a non-{@code NULL} value. The built-in kernels are loaded for
 	 *                     devices specified in this list.
 	 *                     
@@ -773,13 +775,13 @@ public class CL12 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static long clCreateProgramWithBuiltInKernels(long context, int num_devices, PointerBuffer device_list, CharSequence kernel_names, IntBuffer errcode_ret) {
+	public static long clCreateProgramWithBuiltInKernels(long context, PointerBuffer device_list, CharSequence kernel_names, IntBuffer errcode_ret) {
 		if ( CHECKS )
 			checkSafe(errcode_ret, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer kernel_namesEncoded = stack.ASCII(kernel_names);
-			return nclCreateProgramWithBuiltInKernels(context, num_devices, memAddress(device_list), memAddress(kernel_namesEncoded), memAddressSafe(errcode_ret));
+			return nclCreateProgramWithBuiltInKernels(context, device_list.remaining(), memAddress(device_list), memAddress(kernel_namesEncoded), memAddressSafe(errcode_ret));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -789,7 +791,6 @@ public class CL12 {
 	 * Creates a program object for a context, and loads the information related to the built-in kernels into a program object.
 	 *
 	 * @param context      a valid OpenCL context
-	 * @param num_devices  the number of devices listed in {@code device_list}
 	 * @param kernel_names a semi-colon separated list of built-in kernel names
 	 * @param errcode_ret  will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
 	 *
@@ -806,14 +807,14 @@ public class CL12 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static long clCreateProgramWithBuiltInKernels(long context, int num_devices, long device, CharSequence kernel_names, IntBuffer errcode_ret) {
+	public static long clCreateProgramWithBuiltInKernels(long context, long device, CharSequence kernel_names, IntBuffer errcode_ret) {
 		if ( CHECKS )
 			checkSafe(errcode_ret, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer kernel_namesEncoded = stack.ASCII(kernel_names);
 			PointerBuffer device_list = stack.pointers(device);
-			return nclCreateProgramWithBuiltInKernels(context, num_devices, memAddress(device_list), memAddress(kernel_namesEncoded), memAddressSafe(errcode_ret));
+			return nclCreateProgramWithBuiltInKernels(context, 1, memAddress(device_list), memAddress(kernel_namesEncoded), memAddressSafe(errcode_ret));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -1571,8 +1572,126 @@ public class CL12 {
 	 *         </ul>
 	 */
 	public static int clEnqueueFillImage(long command_queue, long image, ByteBuffer fill_color, PointerBuffer origin, PointerBuffer region, PointerBuffer event_wait_list, PointerBuffer event) {
-		if ( CHECKS )
+		if ( CHECKS ) {
+			check(fill_color, 16);
+			check(origin, 1);
+			check(region, 1);
 			checkSafe(event, 1);
+		}
+		return nclEnqueueFillImage(command_queue, image, memAddress(fill_color), memAddress(origin), memAddress(region), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+	}
+
+	/**
+	 * Enqueues a command to fill an image object with a specified color. The usage information which indicates whether the memory object can be read or
+	 * written by a kernel and/or the host and is given by the {@code cl_mem_flags} argument value specified when image is created is ignored by
+	 * {@code clEnqueueFillImage}.
+	 *
+	 * @param command_queue   the command-queue in which the fill command will be queued. The OpenCL context associated with {@code command_queue} and {@code image} must be the same.
+	 * @param image           a valid image object
+	 * @param fill_color      the fill color. The fill color is a four component RGBA floating-point color value if the {@code image} channel data type is not an unnormalized
+	 *                        signed and unsigned integer type, is a four component signed integer value if the {@code image} channel data type is an unnormalized signed integer
+	 *                        type and is a four component unsigned integer value if the {@code image} channel data type is an unnormalized unsigned integer type. The fill color
+	 *                        will be converted to the appropriate image channel format and order associated with {@code image}.
+	 * @param origin          the {@code (x, y, z)} offset in pixels in the 1D, 2D or 3D image, the {@code (x, y)} offset and the image index in the 2D image array or the {@code (x)}
+	 *                        offset and the image index in the 1D image array. If image is a 2D image object, {@code origin[2]} must be 0. If image is a 1D image or 1D image
+	 *                        buffer object, {@code origin[1]} and {@code origin[2]} must be 0. If image is a 1D image array object, {@code origin[2]} must be 0. If image is a 1D
+	 *                        image array object, {@code origin[1]} describes the image index in the 1D image array. If image is a 2D image array object, {@code origin[2]}
+	 *                        describes the image index in the 2D image array.
+	 * @param region          the {@code (width, height, depth)} in pixels of the 1D, 2D or 3D rectangle, the {@code (width, height)} in pixels of the 2D rectangle and the number
+	 *                        of images of a 2D image array or the {@code (width)} in pixels of the 1D rectangle and the number of images of a 1D image array. If image is a 2D
+	 *                        image object, {@code region[2]} must be 1. If image is a 1D image or 1D image buffer object, {@code region[1]} and {@code region[2]} must be 1. If
+	 *                        image is a 1D image array object, {@code region[2]} must be 1. The values in {@code region} cannot be 0.
+	 * @param event_wait_list a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
+	 *                        does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
+	 *                        {@code event_wait_list} and {@code command_queue} must be the same.
+	 * @param event           Returns an event object that identifies this particular command and can be used to query or queue a wait for this particular command to complete.
+	 *                        {@code event} can be {@code NULL} in which case it will not be possible for the application to query the status of this command or queue a wait for this command to
+	 *                        complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
+	 *                        {@code event_wait_list} array.
+	 *
+	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code image} are not the same or if the context associated
+	 *         with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
+	 *         <li>{@link CL10#CL_INVALID_MEM_OBJECT INVALID_MEM_OBJECT} if {@code image} is not a valid image object.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code fill_color} is {@code NULL}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if the region being filled as specified by {@code origin} and {@code region} is out of bounds or if {@code ptr} is a {@code NULL} value.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if values in {@code origin} and {@code region} do not follow rules described in the argument description for {@code origin} and {@code region}.</li>
+	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
+	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
+	 *         <li>{@link CL10#CL_INVALID_IMAGE_SIZE INVALID_IMAGE_SIZE} if image dimensions (image width, height, specified or compute row and/or slice pitch) for image are not supported by device associated with queue.</li>
+	 *         <li>{@link CL10#CL_IMAGE_FORMAT_NOT_SUPPORTED IMAGE_FORMAT_NOT_SUPPORTED} if image format (image channel order and data type) for image are not supported by device associated with queue.</li>
+	 *         <li>{@link CL10#CL_MEM_OBJECT_ALLOCATION_FAILURE MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with {@code image}.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
+	public static int clEnqueueFillImage(long command_queue, long image, IntBuffer fill_color, PointerBuffer origin, PointerBuffer region, PointerBuffer event_wait_list, PointerBuffer event) {
+		if ( CHECKS ) {
+			check(fill_color, 16 >> 2);
+			check(origin, 1);
+			check(region, 1);
+			checkSafe(event, 1);
+		}
+		return nclEnqueueFillImage(command_queue, image, memAddress(fill_color), memAddress(origin), memAddress(region), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+	}
+
+	/**
+	 * Enqueues a command to fill an image object with a specified color. The usage information which indicates whether the memory object can be read or
+	 * written by a kernel and/or the host and is given by the {@code cl_mem_flags} argument value specified when image is created is ignored by
+	 * {@code clEnqueueFillImage}.
+	 *
+	 * @param command_queue   the command-queue in which the fill command will be queued. The OpenCL context associated with {@code command_queue} and {@code image} must be the same.
+	 * @param image           a valid image object
+	 * @param fill_color      the fill color. The fill color is a four component RGBA floating-point color value if the {@code image} channel data type is not an unnormalized
+	 *                        signed and unsigned integer type, is a four component signed integer value if the {@code image} channel data type is an unnormalized signed integer
+	 *                        type and is a four component unsigned integer value if the {@code image} channel data type is an unnormalized unsigned integer type. The fill color
+	 *                        will be converted to the appropriate image channel format and order associated with {@code image}.
+	 * @param origin          the {@code (x, y, z)} offset in pixels in the 1D, 2D or 3D image, the {@code (x, y)} offset and the image index in the 2D image array or the {@code (x)}
+	 *                        offset and the image index in the 1D image array. If image is a 2D image object, {@code origin[2]} must be 0. If image is a 1D image or 1D image
+	 *                        buffer object, {@code origin[1]} and {@code origin[2]} must be 0. If image is a 1D image array object, {@code origin[2]} must be 0. If image is a 1D
+	 *                        image array object, {@code origin[1]} describes the image index in the 1D image array. If image is a 2D image array object, {@code origin[2]}
+	 *                        describes the image index in the 2D image array.
+	 * @param region          the {@code (width, height, depth)} in pixels of the 1D, 2D or 3D rectangle, the {@code (width, height)} in pixels of the 2D rectangle and the number
+	 *                        of images of a 2D image array or the {@code (width)} in pixels of the 1D rectangle and the number of images of a 1D image array. If image is a 2D
+	 *                        image object, {@code region[2]} must be 1. If image is a 1D image or 1D image buffer object, {@code region[1]} and {@code region[2]} must be 1. If
+	 *                        image is a 1D image array object, {@code region[2]} must be 1. The values in {@code region} cannot be 0.
+	 * @param event_wait_list a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
+	 *                        does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
+	 *                        {@code event_wait_list} and {@code command_queue} must be the same.
+	 * @param event           Returns an event object that identifies this particular command and can be used to query or queue a wait for this particular command to complete.
+	 *                        {@code event} can be {@code NULL} in which case it will not be possible for the application to query the status of this command or queue a wait for this command to
+	 *                        complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
+	 *                        {@code event_wait_list} array.
+	 *
+	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
+	 *         
+	 *         <ul>
+	 *         <li>{@link CL10#CL_INVALID_COMMAND_QUEUE INVALID_COMMAND_QUEUE} if {@code command_queue} is not a valid command-queue.</li>
+	 *         <li>{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if the context associated with {@code command_queue} and {@code image} are not the same or if the context associated
+	 *         with {@code command_queue} and events in {@code event_wait_list} are not the same.</li>
+	 *         <li>{@link CL10#CL_INVALID_MEM_OBJECT INVALID_MEM_OBJECT} if {@code image} is not a valid image object.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if {@code fill_color} is {@code NULL}.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if the region being filled as specified by {@code origin} and {@code region} is out of bounds or if {@code ptr} is a {@code NULL} value.</li>
+	 *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} if values in {@code origin} and {@code region} do not follow rules described in the argument description for {@code origin} and {@code region}.</li>
+	 *         <li>{@link CL10#CL_INVALID_EVENT_WAIT_LIST INVALID_EVENT_WAIT_LIST} if {@code event_wait_list} is {@code NULL} and {@code num_events_in_wait_list} &gt; 0, or {@code event_wait_list} is not
+	 *         {@code NULL} and {@code num_events_in_wait_list} is 0, or if event objects in {@code event_wait_list} are not valid events.</li>
+	 *         <li>{@link CL10#CL_INVALID_IMAGE_SIZE INVALID_IMAGE_SIZE} if image dimensions (image width, height, specified or compute row and/or slice pitch) for image are not supported by device associated with queue.</li>
+	 *         <li>{@link CL10#CL_IMAGE_FORMAT_NOT_SUPPORTED IMAGE_FORMAT_NOT_SUPPORTED} if image format (image channel order and data type) for image are not supported by device associated with queue.</li>
+	 *         <li>{@link CL10#CL_MEM_OBJECT_ALLOCATION_FAILURE MEM_OBJECT_ALLOCATION_FAILURE} if there is a failure to allocate memory for data store associated with {@code image}.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
+	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
+	 *         </ul>
+	 */
+	public static int clEnqueueFillImage(long command_queue, long image, FloatBuffer fill_color, PointerBuffer origin, PointerBuffer region, PointerBuffer event_wait_list, PointerBuffer event) {
+		if ( CHECKS ) {
+			check(fill_color, 16 >> 2);
+			check(origin, 1);
+			check(region, 1);
+			checkSafe(event, 1);
+		}
 		return nclEnqueueFillImage(command_queue, image, memAddress(fill_color), memAddress(origin), memAddress(region), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
@@ -1796,7 +1915,7 @@ public class CL12 {
 	}
 
 	/** Array version of: {@link #clCreateProgramWithBuiltInKernels CreateProgramWithBuiltInKernels} */
-	public static long clCreateProgramWithBuiltInKernels(long context, int num_devices, PointerBuffer device_list, ByteBuffer kernel_names, int[] errcode_ret) {
+	public static long clCreateProgramWithBuiltInKernels(long context, PointerBuffer device_list, ByteBuffer kernel_names, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateProgramWithBuiltInKernels;
 		if ( CHECKS ) {
 			check(__functionAddress);
@@ -1804,11 +1923,11 @@ public class CL12 {
 			checkNT1(kernel_names);
 			checkSafe(errcode_ret, 1);
 		}
-		return callPPPPP(__functionAddress, context, num_devices, memAddress(device_list), memAddress(kernel_names), errcode_ret);
+		return callPPPPP(__functionAddress, context, device_list.remaining(), memAddress(device_list), memAddress(kernel_names), errcode_ret);
 	}
 
 	/** Array version of: {@link #clCreateProgramWithBuiltInKernels CreateProgramWithBuiltInKernels} */
-	public static long clCreateProgramWithBuiltInKernels(long context, int num_devices, PointerBuffer device_list, CharSequence kernel_names, int[] errcode_ret) {
+	public static long clCreateProgramWithBuiltInKernels(long context, PointerBuffer device_list, CharSequence kernel_names, int[] errcode_ret) {
 		long __functionAddress = CL.getICD().clCreateProgramWithBuiltInKernels;
 		if ( CHECKS ) {
 			check(__functionAddress);
@@ -1818,7 +1937,7 @@ public class CL12 {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer kernel_namesEncoded = stack.ASCII(kernel_names);
-			return callPPPPP(__functionAddress, context, num_devices, memAddress(device_list), memAddress(kernel_namesEncoded), errcode_ret);
+			return callPPPPP(__functionAddress, context, device_list.remaining(), memAddress(device_list), memAddress(kernel_namesEncoded), errcode_ret);
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -1844,6 +1963,36 @@ public class CL12 {
 			checkSafe(param_value_size_ret, 1);
 		}
 		return callPPPPI(__functionAddress, kernel, arg_indx, param_name, (long)(lengthSafe(param_value) << 3), param_value, memAddressSafe(param_value_size_ret));
+	}
+
+	/** Array version of: {@link #clEnqueueFillImage EnqueueFillImage} */
+	public static int clEnqueueFillImage(long command_queue, long image, int[] fill_color, PointerBuffer origin, PointerBuffer region, PointerBuffer event_wait_list, PointerBuffer event) {
+		long __functionAddress = CL.getICD().clEnqueueFillImage;
+		if ( CHECKS ) {
+			check(__functionAddress);
+			check(command_queue);
+			check(image);
+			check(fill_color, 16 >> 2);
+			check(origin, 1);
+			check(region, 1);
+			checkSafe(event, 1);
+		}
+		return callPPPPPPPI(__functionAddress, command_queue, image, fill_color, memAddress(origin), memAddress(region), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+	}
+
+	/** Array version of: {@link #clEnqueueFillImage EnqueueFillImage} */
+	public static int clEnqueueFillImage(long command_queue, long image, float[] fill_color, PointerBuffer origin, PointerBuffer region, PointerBuffer event_wait_list, PointerBuffer event) {
+		long __functionAddress = CL.getICD().clEnqueueFillImage;
+		if ( CHECKS ) {
+			check(__functionAddress);
+			check(command_queue);
+			check(image);
+			check(fill_color, 16 >> 2);
+			check(origin, 1);
+			check(region, 1);
+			checkSafe(event, 1);
+		}
+		return callPPPPPPPI(__functionAddress, command_queue, image, fill_color, memAddress(origin), memAddress(region), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 }

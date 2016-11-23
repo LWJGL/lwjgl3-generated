@@ -134,8 +134,10 @@ public class INTELVAAPIMediaSharing {
 	 * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
 	 */
 	public static long clCreateFromVA_APIMediaSurfaceINTEL(long context, long flags, IntBuffer surface, int plane, IntBuffer errcode_ret) {
-		if ( CHECKS )
+		if ( CHECKS ) {
+			check(surface, 1);
 			checkSafe(errcode_ret, 1);
+		}
 		return nclCreateFromVA_APIMediaSurfaceINTEL(context, flags, memAddress(surface), plane, memAddressSafe(errcode_ret));
 	}
 
@@ -253,6 +255,7 @@ public class INTELVAAPIMediaSharing {
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(context);
+			check(surface, 1);
 			checkSafe(errcode_ret, 1);
 		}
 		return callPJPPP(__functionAddress, context, flags, surface, plane, errcode_ret);

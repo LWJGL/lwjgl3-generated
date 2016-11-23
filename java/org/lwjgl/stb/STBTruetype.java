@@ -386,10 +386,10 @@ public class STBTruetype {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static boolean stbtt_PackBegin(STBTTPackContext spc, ByteBuffer pixels, int width, int height, int stride_in_bytes, int padding, ByteBuffer alloc_context) {
+	public static boolean stbtt_PackBegin(STBTTPackContext spc, ByteBuffer pixels, int width, int height, int stride_in_bytes, int padding, long alloc_context) {
 		if ( CHECKS )
 			check(pixels, width * height);
-		return nstbtt_PackBegin(spc.address(), memAddress(pixels), width, height, stride_in_bytes, padding, memAddressSafe(alloc_context)) != 0;
+		return nstbtt_PackBegin(spc.address(), memAddress(pixels), width, height, stride_in_bytes, padding, alloc_context) != 0;
 	}
 
 	/**

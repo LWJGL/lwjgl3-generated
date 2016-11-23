@@ -422,8 +422,10 @@ public class ObjCRuntime {
 	 * @return a pointer to the Ivar data structure that defines the type and name of the instance variable specified by name
 	 */
 	public static long object_getInstanceVariable(long obj, ByteBuffer name, PointerBuffer outValue) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			checkNT1(name);
+			check(outValue, 1);
+		}
 		return nobject_getInstanceVariable(obj, memAddress(name), memAddress(outValue));
 	}
 
@@ -437,6 +439,8 @@ public class ObjCRuntime {
 	 * @return a pointer to the Ivar data structure that defines the type and name of the instance variable specified by name
 	 */
 	public static long object_getInstanceVariable(long obj, CharSequence name, PointerBuffer outValue) {
+		if ( CHECKS )
+			check(outValue, 1);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.UTF8(name);
@@ -1661,6 +1665,9 @@ public class ObjCRuntime {
 	 * @return an instance of the class {@code cls} at {@code bytes}, if successful; otherwise {@link #nil} (for example, if {@code cls} or {@code bytes} are themselves {@link #nil})
 	 */
 	public static long objc_constructInstance(long cls, ByteBuffer bytes) {
+		if ( CHECKS )
+			if ( DEBUG )
+				checkSafe(bytes, class_getInstanceSize(cls));
 		return nobjc_constructInstance(cls, memAddressSafe(bytes));
 	}
 
@@ -3063,6 +3070,8 @@ public class ObjCRuntime {
 	 * @return the object pointed to by location, or {@link #nil} if location is {@link #nil}
 	 */
 	public static long objc_loadWeak(PointerBuffer location) {
+		if ( CHECKS )
+			checkSafe(location, 1);
 		return nobjc_loadWeak(memAddressSafe(location));
 	}
 
@@ -3087,6 +3096,8 @@ public class ObjCRuntime {
 	 * @return the value stored in location (that is, {@code obj})
 	 */
 	public static long objc_storeWeak(PointerBuffer location, long obj) {
+		if ( CHECKS )
+			check(location, 1);
 		return nobjc_storeWeak(memAddress(location), obj);
 	}
 

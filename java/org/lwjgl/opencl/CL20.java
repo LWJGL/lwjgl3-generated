@@ -426,10 +426,10 @@ public class CL20 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueSVMFree(long command_queue, PointerBuffer svm_pointers, CLSVMFreeCallbackI pfn_free_func, ByteBuffer user_data, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueSVMFree(long command_queue, PointerBuffer svm_pointers, CLSVMFreeCallbackI pfn_free_func, long user_data, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			checkSafe(event, 1);
-		return nclEnqueueSVMFree(command_queue, svm_pointers.remaining(), memAddress(svm_pointers), memAddressSafe(pfn_free_func), memAddressSafe(user_data), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueSVMFree(command_queue, svm_pointers.remaining(), memAddress(svm_pointers), memAddressSafe(pfn_free_func), user_data, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clEnqueueSVMMemcpy ] ---
@@ -437,6 +437,7 @@ public class CL20 {
 	/**
 	 * Unsafe version of: {@link #clEnqueueSVMMemcpy EnqueueSVMMemcpy}
 	 *
+	 * @param size                    the size in bytes of data being copied
 	 * @param num_events_in_wait_list the number of events in {@code event_wait_list}
 	 */
 	public static int nclEnqueueSVMMemcpy(long command_queue, int blocking_copy, long dst_ptr, long src_ptr, long size, int num_events_in_wait_list, long event_wait_list, long event) {
@@ -466,7 +467,6 @@ public class CL20 {
 	 *                        {@code dst_ptr} points to can be used by the application.</p>
 	 * @param dst_ptr         the pointer to a memory region where data is copied to
 	 * @param src_ptr         the pointer to a memory region where data is copied from
-	 * @param size            the size in bytes of data being copied
 	 * @param event_wait_list a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
 	 *                        does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
 	 *                        {@code event_wait_list} and {@code command_queue} must be the same.
@@ -491,10 +491,12 @@ public class CL20 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueSVMMemcpy(long command_queue, int blocking_copy, ByteBuffer dst_ptr, ByteBuffer src_ptr, long size, PointerBuffer event_wait_list, PointerBuffer event) {
-		if ( CHECKS )
+	public static int clEnqueueSVMMemcpy(long command_queue, int blocking_copy, ByteBuffer dst_ptr, ByteBuffer src_ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+		if ( CHECKS ) {
+			check(dst_ptr, src_ptr.remaining());
 			checkSafe(event, 1);
-		return nclEnqueueSVMMemcpy(command_queue, blocking_copy, memAddress(dst_ptr), memAddress(src_ptr), size, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		}
+		return nclEnqueueSVMMemcpy(command_queue, blocking_copy, memAddress(dst_ptr), memAddress(src_ptr), src_ptr.remaining(), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clEnqueueSVMMemFill ] ---
@@ -503,6 +505,7 @@ public class CL20 {
 	 * Unsafe version of: {@link #clEnqueueSVMMemFill EnqueueSVMMemFill}
 	 *
 	 * @param pattern_size            the size of the {@code pattern} array, in bytes
+	 * @param size                    the size in bytes of region being filled starting with {@code svm_ptr} and must be a multiple of {@code pattern_size}
 	 * @param num_events_in_wait_list the number of events in {@code event_wait_list}
 	 */
 	public static int nclEnqueueSVMMemFill(long command_queue, long svm_ptr, long pattern, long pattern_size, long size, int num_events_in_wait_list, long event_wait_list, long event) {
@@ -526,7 +529,6 @@ public class CL20 {
 	 *                        {@code cl_float4} value and {@code pattern_size} will be {@code sizeof(cl_float4)}. The maximum value of {@code pattern_size} is the size of the
 	 *                        largest integer or floating-point vector data type supported by the OpenCL device. The memory associated with pattern can be reused or freed after
 	 *                        the function returns.
-	 * @param size            the size in bytes of region being filled starting with {@code svm_ptr} and must be a multiple of {@code pattern_size}
 	 * @param event_wait_list a list of events that need to complete before this particular command can be executed. If {@code event_wait_list} is {@code NULL}, then this particular command
 	 *                        does not wait on any event to complete. The events specified in {@code event_wait_list} act as synchronization points. The context associated with events in
 	 *                        {@code event_wait_list} and {@code command_queue} must be the same.
@@ -551,10 +553,10 @@ public class CL20 {
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>
 	 */
-	public static int clEnqueueSVMMemFill(long command_queue, ByteBuffer svm_ptr, ByteBuffer pattern, long size, PointerBuffer event_wait_list, PointerBuffer event) {
+	public static int clEnqueueSVMMemFill(long command_queue, ByteBuffer svm_ptr, ByteBuffer pattern, PointerBuffer event_wait_list, PointerBuffer event) {
 		if ( CHECKS )
 			checkSafe(event, 1);
-		return nclEnqueueSVMMemFill(command_queue, memAddress(svm_ptr), memAddress(pattern), pattern.remaining(), size, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+		return nclEnqueueSVMMemFill(command_queue, memAddress(svm_ptr), memAddress(pattern), pattern.remaining(), svm_ptr.remaining(), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
 	}
 
 	// --- [ clEnqueueSVMMap ] ---

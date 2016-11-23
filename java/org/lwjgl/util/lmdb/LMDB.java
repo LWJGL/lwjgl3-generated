@@ -858,8 +858,10 @@ public class LMDB {
 	 * @return a non-zero error value on failure and 0 on success
 	 */
 	public static int mdb_env_get_flags(long env, IntBuffer flags) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(env);
+			check(flags, 1);
+		}
 		return nmdb_env_get_flags(env, memAddress(flags));
 	}
 
@@ -877,8 +879,10 @@ public class LMDB {
 	 * @return a non-zero error value on failure and 0 on success
 	 */
 	public static int mdb_env_get_path(long env, PointerBuffer path) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(env);
+			check(path, 1);
+		}
 		return nmdb_env_get_path(env, memAddress(path));
 	}
 
@@ -963,8 +967,10 @@ public class LMDB {
 	 * @return a non-zero error value on failure and 0 on success
 	 */
 	public static int mdb_env_get_maxreaders(long env, IntBuffer readers) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(env);
+			check(readers, 1);
+		}
 		return nmdb_env_get_maxreaders(env, memAddress(readers));
 	}
 
@@ -1091,8 +1097,10 @@ public class LMDB {
 	 *         </ul>
 	 */
 	public static int mdb_txn_begin(long env, long parent, int flags, PointerBuffer txn) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(env);
+			check(txn, 1);
+		}
 		return nmdb_txn_begin(env, parent, flags, memAddress(txn));
 	}
 
@@ -1292,6 +1300,7 @@ public class LMDB {
 		if ( CHECKS ) {
 			check(txn);
 			checkNT1Safe(name);
+			check(dbi, 1);
 		}
 		return nmdb_dbi_open(txn, memAddressSafe(name), flags, memAddress(dbi));
 	}
@@ -1353,8 +1362,10 @@ public class LMDB {
 	 *         </ul>
 	 */
 	public static int mdb_dbi_open(long txn, CharSequence name, int flags, IntBuffer dbi) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(txn);
+			check(dbi, 1);
+		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.UTF8(name);
@@ -1395,8 +1406,10 @@ public class LMDB {
 	 * @param flags address where the flags will be returned
 	 */
 	public static int mdb_dbi_flags(long txn, int dbi, IntBuffer flags) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(txn);
+			check(flags, 1);
+		}
 		return nmdb_dbi_flags(txn, dbi, memAddress(flags));
 	}
 
@@ -1667,8 +1680,10 @@ public class LMDB {
 	 * @param cursor address where the new {@code MDB_cursor} handle will be stored
 	 */
 	public static int mdb_cursor_open(long txn, int dbi, PointerBuffer cursor) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(txn);
+			check(cursor, 1);
+		}
 		return nmdb_cursor_open(txn, dbi, memAddress(cursor));
 	}
 
@@ -1851,8 +1866,10 @@ public class LMDB {
 	 * @param countp address where the count will be stored
 	 */
 	public static int mdb_cursor_count(long cursor, PointerBuffer countp) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(cursor);
+			check(countp, 1);
+		}
 		return nmdb_cursor_count(cursor, memAddress(countp));
 	}
 
@@ -1934,8 +1951,10 @@ public class LMDB {
 	 * @param dead number of stale slots that were cleared
 	 */
 	public static int mdb_reader_check(long env, IntBuffer dead) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(env);
+			check(dead, 1);
+		}
 		return nmdb_reader_check(env, memAddress(dead));
 	}
 
@@ -1958,8 +1977,10 @@ public class LMDB {
 
 	/** Array version of: {@link #mdb_env_get_flags env_get_flags} */
 	public static int mdb_env_get_flags(long env, int[] flags) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(env);
+			check(flags, 1);
+		}
 		return nmdb_env_get_flags(env, flags);
 	}
 
@@ -1968,8 +1989,10 @@ public class LMDB {
 
 	/** Array version of: {@link #mdb_env_get_maxreaders env_get_maxreaders} */
 	public static int mdb_env_get_maxreaders(long env, int[] readers) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(env);
+			check(readers, 1);
+		}
 		return nmdb_env_get_maxreaders(env, readers);
 	}
 
@@ -1981,14 +2004,17 @@ public class LMDB {
 		if ( CHECKS ) {
 			check(txn);
 			checkNT1Safe(name);
+			check(dbi, 1);
 		}
 		return nmdb_dbi_open(txn, memAddressSafe(name), flags, dbi);
 	}
 
 	/** Array version of: {@link #mdb_dbi_open dbi_open} */
 	public static int mdb_dbi_open(long txn, CharSequence name, int flags, int[] dbi) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(txn);
+			check(dbi, 1);
+		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer nameEncoded = stack.UTF8(name);
@@ -2003,8 +2029,10 @@ public class LMDB {
 
 	/** Array version of: {@link #mdb_dbi_flags dbi_flags} */
 	public static int mdb_dbi_flags(long txn, int dbi, int[] flags) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(txn);
+			check(flags, 1);
+		}
 		return nmdb_dbi_flags(txn, dbi, flags);
 	}
 
@@ -2013,8 +2041,10 @@ public class LMDB {
 
 	/** Array version of: {@link #mdb_reader_check reader_check} */
 	public static int mdb_reader_check(long env, int[] dead) {
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(env);
+			check(dead, 1);
+		}
 		return nmdb_reader_check(env, dead);
 	}
 

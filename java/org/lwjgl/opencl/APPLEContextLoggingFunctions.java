@@ -5,11 +5,8 @@
  */
 package org.lwjgl.opencl;
 
-import java.nio.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.system.MemoryUtil.*;
 
 /**
  * Native bindings to the <strong>APPLE_ContextLoggingFunctions</strong> extension.
@@ -21,6 +18,15 @@ import static org.lwjgl.system.MemoryUtil.*;
  * override.</p>
  */
 public class APPLEContextLoggingFunctions {
+
+	/** Forwards on all log messages to the Apple System Logger. */
+	public static final long clLogMessagesToSystemLogAPPLE = CL.getICD().clLogMessagesToSystemLogAPPLE;
+
+	/** Forwards on all log messages to the standard output stream. */
+	public static final long clLogMessagesToStdoutAPPLE = CL.getICD().clLogMessagesToStdoutAPPLE;
+
+	/** Forwards on all log messages to the standard error stream. */
+	public static final long clLogMessagesToStderrAPPLE = CL.getICD().clLogMessagesToStderrAPPLE;
 
 	protected APPLEContextLoggingFunctions() {
 		throw new UnsupportedOperationException();
@@ -34,68 +40,20 @@ public class APPLEContextLoggingFunctions {
 
 	// --- [ clLogMessagesToSystemLogAPPLE ] ---
 
-	/** Unsafe version of: {@link #clLogMessagesToSystemLogAPPLE LogMessagesToSystemLogAPPLE} */
-	public static void nclLogMessagesToSystemLogAPPLE(long errstr, long private_info, long cb, long user_data) {
-		long __functionAddress = CL.getICD().clLogMessagesToSystemLogAPPLE;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPPV(__functionAddress, errstr, private_info, cb, user_data);
-	}
-
-	/**
-	 * Forwards on all log messages to the Apple System Logger.
-	 *
-	 * @param errstr       
-	 * @param private_info 
-	 * @param cb           
-	 * @param user_data    
-	 */
-	public static void clLogMessagesToSystemLogAPPLE(ByteBuffer errstr, ByteBuffer private_info, long cb, ByteBuffer user_data) {
-		nclLogMessagesToSystemLogAPPLE(memAddress(errstr), memAddress(private_info), cb, memAddress(user_data));
+	private static void clLogMessagesToSystemLogAPPLE() {
+		;
 	}
 
 	// --- [ clLogMessagesToStdoutAPPLE ] ---
 
-	/** Unsafe version of: {@link #clLogMessagesToStdoutAPPLE LogMessagesToStdoutAPPLE} */
-	public static void nclLogMessagesToStdoutAPPLE(long errstr, long private_info, long cb, long user_data) {
-		long __functionAddress = CL.getICD().clLogMessagesToStdoutAPPLE;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPPV(__functionAddress, errstr, private_info, cb, user_data);
-	}
-
-	/**
-	 * Forwards on all log messages to the standard output stream.
-	 *
-	 * @param errstr       
-	 * @param private_info 
-	 * @param cb           
-	 * @param user_data    
-	 */
-	public static void clLogMessagesToStdoutAPPLE(ByteBuffer errstr, ByteBuffer private_info, long cb, ByteBuffer user_data) {
-		nclLogMessagesToStdoutAPPLE(memAddress(errstr), memAddress(private_info), cb, memAddress(user_data));
+	private static void clLogMessagesToStdoutAPPLE() {
+		;
 	}
 
 	// --- [ clLogMessagesToStderrAPPLE ] ---
 
-	/** Unsafe version of: {@link #clLogMessagesToStderrAPPLE LogMessagesToStderrAPPLE} */
-	public static void nclLogMessagesToStderrAPPLE(long errstr, long private_info, long cb, long user_data) {
-		long __functionAddress = CL.getICD().clLogMessagesToStderrAPPLE;
-		if ( CHECKS )
-			check(__functionAddress);
-		callPPPPV(__functionAddress, errstr, private_info, cb, user_data);
-	}
-
-	/**
-	 * Forwards on all log messages to the standard error stream.
-	 *
-	 * @param errstr       
-	 * @param private_info 
-	 * @param cb           
-	 * @param user_data    
-	 */
-	public static void clLogMessagesToStderrAPPLE(ByteBuffer errstr, ByteBuffer private_info, long cb, ByteBuffer user_data) {
-		nclLogMessagesToStderrAPPLE(memAddress(errstr), memAddress(private_info), cb, memAddress(user_data));
+	private static void clLogMessagesToStderrAPPLE() {
+		;
 	}
 
 }

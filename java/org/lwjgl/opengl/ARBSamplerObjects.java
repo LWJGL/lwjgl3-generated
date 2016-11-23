@@ -197,6 +197,8 @@ public class ARBSamplerObjects {
 	 * @param params  an array where the value or values of {@code pname} are stored
 	 */
 	public static void glSamplerParameteriv(int sampler, int pname, IntBuffer params) {
+		if ( CHECKS )
+			check(params, 1);
 		nglSamplerParameteriv(sampler, pname, memAddress(params));
 	}
 
@@ -218,6 +220,8 @@ public class ARBSamplerObjects {
 	 * @param params  an array where the value or values of {@code pname} are stored
 	 */
 	public static void glSamplerParameterfv(int sampler, int pname, FloatBuffer params) {
+		if ( CHECKS )
+			check(params, 1);
 		nglSamplerParameterfv(sampler, pname, memAddress(params));
 	}
 
@@ -239,6 +243,8 @@ public class ARBSamplerObjects {
 	 * @param params  an array where the value or values of {@code pname} are stored
 	 */
 	public static void glSamplerParameterIiv(int sampler, int pname, IntBuffer params) {
+		if ( CHECKS )
+			check(params, 1);
 		nglSamplerParameterIiv(sampler, pname, memAddress(params));
 	}
 
@@ -260,6 +266,8 @@ public class ARBSamplerObjects {
 	 * @param params  an array where the value or values of {@code pname} are stored
 	 */
 	public static void glSamplerParameterIuiv(int sampler, int pname, IntBuffer params) {
+		if ( CHECKS )
+			check(params, 1);
 		nglSamplerParameterIuiv(sampler, pname, memAddress(params));
 	}
 
@@ -442,32 +450,40 @@ public class ARBSamplerObjects {
 	/** Array version of: {@link #glSamplerParameteriv SamplerParameteriv} */
 	public static void glSamplerParameteriv(int sampler, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameteriv;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(__functionAddress);
+			check(params, 1);
+		}
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
 	/** Array version of: {@link #glSamplerParameterfv SamplerParameterfv} */
 	public static void glSamplerParameterfv(int sampler, int pname, float[] params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterfv;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(__functionAddress);
+			check(params, 1);
+		}
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
 	/** Array version of: {@link #glSamplerParameterIiv SamplerParameterIiv} */
 	public static void glSamplerParameterIiv(int sampler, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterIiv;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(__functionAddress);
+			check(params, 1);
+		}
 		callPV(__functionAddress, sampler, pname, params);
 	}
 
 	/** Array version of: {@link #glSamplerParameterIuiv SamplerParameterIuiv} */
 	public static void glSamplerParameterIuiv(int sampler, int pname, int[] params) {
 		long __functionAddress = GL.getCapabilities().glSamplerParameterIuiv;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(__functionAddress);
+			check(params, 1);
+		}
 		callPV(__functionAddress, sampler, pname, params);
 	}
 

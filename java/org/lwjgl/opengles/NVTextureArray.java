@@ -136,12 +136,12 @@ public class NVTextureArray {
 		callPV(__functionAddress, target, level, internalformat, width, height, depth, border, imageSize, data);
 	}
 
-	public static void glCompressedTexImage3DNV(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, ByteBuffer data) {
-		nglCompressedTexImage3DNV(target, level, internalformat, width, height, depth, border, imageSize, memAddressSafe(data));
-	}
-
 	public static void glCompressedTexImage3DNV(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
 		nglCompressedTexImage3DNV(target, level, internalformat, width, height, depth, border, imageSize, data);
+	}
+
+	public static void glCompressedTexImage3DNV(int target, int level, int internalformat, int width, int height, int depth, int border, ByteBuffer data) {
+		nglCompressedTexImage3DNV(target, level, internalformat, width, height, depth, border, remainingSafe(data), memAddressSafe(data));
 	}
 
 	// --- [ glCompressedTexSubImage3DNV ] ---
@@ -153,12 +153,12 @@ public class NVTextureArray {
 		callPV(__functionAddress, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 	}
 
-	public static void glCompressedTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, ByteBuffer data) {
-		nglCompressedTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, memAddress(data));
-	}
-
 	public static void glCompressedTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
 		nglCompressedTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
+	}
+
+	public static void glCompressedTexSubImage3DNV(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, ByteBuffer data) {
+		nglCompressedTexSubImage3DNV(target, level, xoffset, yoffset, zoffset, width, height, depth, format, data.remaining(), memAddress(data));
 	}
 
 	// --- [ glFramebufferTextureLayerNV ] ---

@@ -175,6 +175,7 @@ public class OVRUtil {
 			check(session);
 			check(hmdToEyeOffset, 2);
 			check(outEyePoses, 2);
+			checkSafe(outSensorSampleTime, 1);
 		}
 		novr_GetEyePoses(session, frameIndex, latencyMarker, hmdToEyeOffset.address(), outEyePoses.address(), memAddressSafe(outSensorSampleTime));
 	}
@@ -207,6 +208,7 @@ public class OVRUtil {
 			check(session);
 			check(hmdToEyeOffset, 2);
 			check(outEyePoses, 2);
+			checkSafe(outSensorSampleTime, 1);
 		}
 		novr_GetEyePoses(session, frameIndex, latencyMarker, hmdToEyeOffset.address(), outEyePoses.address(), outSensorSampleTime);
 	}

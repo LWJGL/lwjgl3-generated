@@ -83,6 +83,8 @@ public class KHRDebug {
 	}
 
 	public static int eglDebugMessageControlKHR(EGLDebugMessageKHRCallbackI callback, PointerBuffer attrib_list) {
+		if ( CHECKS )
+			checkNTSafe(attrib_list, EGL10.EGL_NONE);
 		return neglDebugMessageControlKHR(callback.address(), memAddressSafe(attrib_list));
 	}
 

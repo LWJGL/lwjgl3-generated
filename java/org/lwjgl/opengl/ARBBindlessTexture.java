@@ -381,6 +381,8 @@ public class ARBBindlessTexture {
 	 * @param v     the vertex attribute buffer
 	 */
 	public static void glVertexAttribL1ui64vARB(int index, LongBuffer v) {
+		if ( CHECKS )
+			check(v, 1);
 		nglVertexAttribL1ui64vARB(index, memAddress(v));
 	}
 
@@ -443,8 +445,10 @@ public class ARBBindlessTexture {
 	/** Array version of: {@link #glVertexAttribL1ui64vARB VertexAttribL1ui64vARB} */
 	public static void glVertexAttribL1ui64vARB(int index, long[] v) {
 		long __functionAddress = GL.getCapabilities().glVertexAttribL1ui64vARB;
-		if ( CHECKS )
+		if ( CHECKS ) {
 			check(__functionAddress);
+			check(v, 1);
+		}
 		callPV(__functionAddress, index, v);
 	}
 

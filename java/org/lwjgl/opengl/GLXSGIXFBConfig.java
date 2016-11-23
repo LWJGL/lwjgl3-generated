@@ -126,6 +126,8 @@ public class GLXSGIXFBConfig {
 	 * @param attrib_list an optional list of attributes, terminated with org.lwjgl.system.linux.{@code None}
 	 */
 	public static PointerBuffer glXChooseFBConfigSGIX(long display, int screen, IntBuffer attrib_list) {
+		if ( CHECKS )
+			checkNTSafe(attrib_list);
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		IntBuffer nelements = stack.callocInt(1);
 		try {
@@ -242,6 +244,7 @@ public class GLXSGIXFBConfig {
 		if ( CHECKS ) {
 			check(__functionAddress);
 			check(display);
+			checkNTSafe(attrib_list);
 		}
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		IntBuffer nelements = stack.callocInt(1);

@@ -256,6 +256,10 @@ public class ParShapes {
 	 * @param normal the disk normal
 	 */
 	public static ParShapesMesh par_shapes_create_disk(float radius, int slices, FloatBuffer center, FloatBuffer normal) {
+		if ( CHECKS ) {
+			check(center, 3);
+			check(normal, 3);
+		}
 		long __result = npar_shapes_create_disk(radius, slices, memAddress(center), memAddress(normal));
 		return ParShapesMesh.create(__result);
 	}
@@ -532,14 +536,15 @@ public class ParShapes {
 	public static native long npar_shapes_weld(long mesh, float epsilon, long mapping);
 
 	/**
-	 * Merges colocated verts, builds a new index buffer, and returns the optimized mesh. {@code } is
-	 * the maximum distance to consider when welding vertices. The mapping argument can be
+	 * Merges colocated verts, builds a new index buffer, and returns the optimized mesh.
 	 *
 	 * @param mesh    the mesh to weld
 	 * @param epsilon the maximum distance to consider when welding vertices
 	 * @param mapping null, or a pointer to {@code npoints} 16-bit integers, which gets filled with the mapping from old vertex indices to new indices
 	 */
 	public static ParShapesMesh par_shapes_weld(ParShapesMesh mesh, float epsilon, ShortBuffer mapping) {
+		if ( CHECKS )
+			checkSafe(mapping, mesh.npoints());
 		long __result = npar_shapes_weld(mesh.address(), epsilon, memAddressSafe(mapping));
 		return ParShapesMesh.create(__result);
 	}
@@ -563,6 +568,10 @@ public class ParShapes {
 
 	/** Array version of: {@link #par_shapes_create_disk create_disk} */
 	public static ParShapesMesh par_shapes_create_disk(float radius, int slices, float[] center, float[] normal) {
+		if ( CHECKS ) {
+			check(center, 3);
+			check(normal, 3);
+		}
 		long __result = npar_shapes_create_disk(radius, slices, center, normal);
 		return ParShapesMesh.create(__result);
 	}
@@ -592,6 +601,8 @@ public class ParShapes {
 
 	/** Array version of: {@link #par_shapes_weld weld} */
 	public static ParShapesMesh par_shapes_weld(ParShapesMesh mesh, float epsilon, short[] mapping) {
+		if ( CHECKS )
+			checkSafe(mapping, mesh.npoints());
 		long __result = npar_shapes_weld(mesh.address(), epsilon, mapping);
 		return ParShapesMesh.create(__result);
 	}

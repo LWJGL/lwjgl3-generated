@@ -305,10 +305,10 @@ public class STBImageWrite {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static boolean stbi_write_png_to_func(STBIWriteCallbackI func, ByteBuffer context, int w, int h, int comp, ByteBuffer data, int stride_in_bytes) {
+	public static boolean stbi_write_png_to_func(STBIWriteCallbackI func, long context, int w, int h, int comp, ByteBuffer data, int stride_in_bytes) {
 		if ( CHECKS )
 			check(data, w * h * comp);
-		return nstbi_write_png_to_func(func.address(), memAddressSafe(context), w, h, comp, memAddress(data), stride_in_bytes) != 0;
+		return nstbi_write_png_to_func(func.address(), context, w, h, comp, memAddress(data), stride_in_bytes) != 0;
 	}
 
 	// --- [ stbi_write_bmp_to_func ] ---
@@ -328,10 +328,10 @@ public class STBImageWrite {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static boolean stbi_write_bmp_to_func(STBIWriteCallbackI func, ByteBuffer context, int w, int h, int comp, ByteBuffer data) {
+	public static boolean stbi_write_bmp_to_func(STBIWriteCallbackI func, long context, int w, int h, int comp, ByteBuffer data) {
 		if ( CHECKS )
 			check(data, w * h * comp);
-		return nstbi_write_bmp_to_func(func.address(), memAddressSafe(context), w, h, comp, memAddress(data)) != 0;
+		return nstbi_write_bmp_to_func(func.address(), context, w, h, comp, memAddress(data)) != 0;
 	}
 
 	// --- [ stbi_write_tga_to_func ] ---
@@ -351,10 +351,10 @@ public class STBImageWrite {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static boolean stbi_write_tga_to_func(STBIWriteCallbackI func, ByteBuffer context, int w, int h, int comp, ByteBuffer data) {
+	public static boolean stbi_write_tga_to_func(STBIWriteCallbackI func, long context, int w, int h, int comp, ByteBuffer data) {
 		if ( CHECKS )
 			check(data, w * h * comp);
-		return nstbi_write_tga_to_func(func.address(), memAddressSafe(context), w, h, comp, memAddress(data)) != 0;
+		return nstbi_write_tga_to_func(func.address(), context, w, h, comp, memAddress(data)) != 0;
 	}
 
 	// --- [ stbi_write_hdr_to_func ] ---
@@ -374,10 +374,10 @@ public class STBImageWrite {
 	 *
 	 * @return 1 on success, 0 on failure
 	 */
-	public static boolean stbi_write_hdr_to_func(STBIWriteCallbackI func, ByteBuffer context, int w, int h, int comp, FloatBuffer data) {
+	public static boolean stbi_write_hdr_to_func(STBIWriteCallbackI func, long context, int w, int h, int comp, FloatBuffer data) {
 		if ( CHECKS )
 			check(data, w * h * comp);
-		return nstbi_write_hdr_to_func(func.address(), memAddressSafe(context), w, h, comp, memAddress(data)) != 0;
+		return nstbi_write_hdr_to_func(func.address(), context, w, h, comp, memAddress(data)) != 0;
 	}
 
 	/** Array version of: {@link #nstbi_write_hdr} */
@@ -409,10 +409,10 @@ public class STBImageWrite {
 	public static native int nstbi_write_hdr_to_func(long func, long context, int w, int h, int comp, float[] data);
 
 	/** Array version of: {@link #stbi_write_hdr_to_func write_hdr_to_func} */
-	public static boolean stbi_write_hdr_to_func(STBIWriteCallbackI func, ByteBuffer context, int w, int h, int comp, float[] data) {
+	public static boolean stbi_write_hdr_to_func(STBIWriteCallbackI func, long context, int w, int h, int comp, float[] data) {
 		if ( CHECKS )
 			check(data, w * h * comp);
-		return nstbi_write_hdr_to_func(func.address(), memAddressSafe(context), w, h, comp, data) != 0;
+		return nstbi_write_hdr_to_func(func.address(), context, w, h, comp, data) != 0;
 	}
 
 }
