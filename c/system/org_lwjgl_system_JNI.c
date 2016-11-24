@@ -184,6 +184,7 @@ ARITYn(jboolean, invokePPPZ__JJJIJI, return ((jboolean (*) (intptr_t, intptr_t, 
 ARITYn(jboolean, invokePPPPZ__JJJJBJ, return ((jboolean (*) (intptr_t, intptr_t, intptr_t, jbyte, intptr_t))(intptr_t)__functionAddress)((intptr_t)param0, (intptr_t)param1, (intptr_t)param2, param3, (intptr_t)param4), jlong param0, jlong param1, jlong param2, jbyte param3, jlong param4)
 ARITYn(jboolean, invokePPPZ__JJJJI, return ((jboolean (*) (intptr_t, intptr_t, intptr_t, jint))(intptr_t)__functionAddress)((intptr_t)param0, (intptr_t)param1, (intptr_t)param2, param3), jlong param0, jlong param1, jlong param2, jint param3)
 ARITYn(jboolean, invokePPPPZ__JJJJJ, return ((jboolean (*) (intptr_t, intptr_t, intptr_t, intptr_t))(intptr_t)__functionAddress)((intptr_t)param0, (intptr_t)param1, (intptr_t)param2, (intptr_t)param3), jlong param0, jlong param1, jlong param2, jlong param3)
+ARITYn(jboolean, invokeZ__JSZSII, return ((jboolean (*) (jshort, jboolean, jshort, jint, jint))(intptr_t)__functionAddress)(param0, param1, param2, param3, param4), jshort param0, jboolean param1, jshort param2, jint param3, jint param4)
 ARITYn(jfloat, callF__JIII, return ((jfloat (APIENTRY *) (jint, jint, jint))(intptr_t)__functionAddress)(param0, param1, param2), jint param0, jint param1, jint param2)
 ARITY0(jint, callI__J, return ((jint (APIENTRY *) ())(intptr_t)__functionAddress)())
 ARITYn(jint, callI__JI, return ((jint (APIENTRY *) (jint))(intptr_t)__functionAddress)(param0), jint param0)

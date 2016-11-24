@@ -196,6 +196,7 @@ public final class JNI {
 	public static native boolean invokePPPPZ(long __functionAddress, long param0, long param1, long param2, byte param3, long param4);
 	public static native boolean invokePPPZ(long __functionAddress, long param0, long param1, long param2, int param3);
 	public static native boolean invokePPPPZ(long __functionAddress, long param0, long param1, long param2, long param3);
+	public static native boolean invokeZ(long __functionAddress, short param0, boolean param1, short param2, int param3, int param4);
 	public static native float callF(long __functionAddress, int param0, int param1, int param2);
 	public static native int callI(long __functionAddress);
 	public static native int callI(long __functionAddress, int param0);
