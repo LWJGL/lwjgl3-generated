@@ -9,7 +9,6 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-
 public abstract class NkPluginFree extends Callback implements NkPluginFreeI {
 
 	/** Creates a {@code NkPluginFree} instance from the specified function pointer. */

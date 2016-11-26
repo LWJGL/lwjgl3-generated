@@ -9,7 +9,6 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-
 public abstract class MDBCmpFunc extends Callback implements MDBCmpFuncI {
 
 	/** Creates a {@code MDBCmpFunc} instance from the specified function pointer. */

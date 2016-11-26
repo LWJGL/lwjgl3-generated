@@ -9,7 +9,6 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-
 public abstract class NkPluginAlloc extends Callback implements NkPluginAllocI {
 
 	/** Creates a {@code NkPluginAlloc} instance from the specified function pointer. */

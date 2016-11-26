@@ -7221,7 +7221,7 @@ public class Nuklear {
 		try {
 			ByteBuffer rgbEncoded = stack.ASCII(rgb);
 			nnk_rgb_hex(memAddress(rgbEncoded), __result.address());
-		return __result;
+			return __result;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -7305,7 +7305,7 @@ public class Nuklear {
 		try {
 			ByteBuffer rgbaEncoded = stack.ASCII(rgba);
 			nnk_rgba_hex(memAddress(rgbaEncoded), __result.address());
-		return __result;
+			return __result;
 		} finally {
 			stack.setPointer(stackPointer);
 		}
