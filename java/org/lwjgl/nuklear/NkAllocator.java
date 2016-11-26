@@ -69,17 +69,17 @@ public class NkAllocator extends Struct implements NativeResource {
 
 	/** Returns a {@link NkHandle} view of the {@code userdata} field. */
 	public NkHandle userdata() { return nuserdata(address()); }
-	/** Returns the {@code NkPluginAlloc} instance at the {@code alloc} field. */
-	public NkPluginAlloc alloc() { return NkPluginAlloc.create(nalloc(address())); }
-	/** Returns the {@code NkPluginFree} instance at the {@code mfree} field. */
-	public NkPluginFree mfree() { return NkPluginFree.create(nmfree(address())); }
+	/** Returns the value of the {@code alloc} field. */
+	public NkPluginAlloc alloc() { return nalloc(address()); }
+	/** Returns the value of the {@code mfree} field. */
+	public NkPluginFree mfree() { return nmfree(address()); }
 
 	/** Copies the specified {@link NkHandle} to the {@code userdata} field. */
 	public NkAllocator userdata(NkHandle value) { nuserdata(address(), value); return this; }
-	/** Sets the address of the specified {@link NkPluginAllocI} to the {@code alloc} field. */
-	public NkAllocator alloc(NkPluginAllocI value) { nalloc(address(), addressSafe(value)); return this; }
-	/** Sets the address of the specified {@link NkPluginFreeI} to the {@code mfree} field. */
-	public NkAllocator mfree(NkPluginFreeI value) { nmfree(address(), addressSafe(value)); return this; }
+	/** Sets the specified value to the {@code alloc} field. */
+	public NkAllocator alloc(NkPluginAllocI value) { nalloc(address(), value); return this; }
+	/** Sets the specified value to the {@code mfree} field. */
+	public NkAllocator mfree(NkPluginFreeI value) { nmfree(address(), value); return this; }
 
 	/** Unsafe version of {@link #set(NkAllocator) set}. */
 	public NkAllocator nset(long struct) {
@@ -230,16 +230,16 @@ public class NkAllocator extends Struct implements NativeResource {
 	/** Unsafe version of {@link #userdata}. */
 	public static NkHandle nuserdata(long struct) { return NkHandle.create(struct + NkAllocator.USERDATA); }
 	/** Unsafe version of {@link #alloc}. */
-	public static long nalloc(long struct) { return memGetAddress(struct + NkAllocator.ALLOC); }
+	public static NkPluginAlloc nalloc(long struct) { return NkPluginAlloc.create(memGetAddress(struct + NkAllocator.ALLOC)); }
 	/** Unsafe version of {@link #mfree}. */
-	public static long nmfree(long struct) { return memGetAddress(struct + NkAllocator.MFREE); }
+	public static NkPluginFree nmfree(long struct) { return NkPluginFree.create(memGetAddress(struct + NkAllocator.MFREE)); }
 
 	/** Unsafe version of {@link #userdata(NkHandle) userdata}. */
 	public static void nuserdata(long struct, NkHandle value) { memCopy(value.address(), struct + NkAllocator.USERDATA, NkHandle.SIZEOF); }
 	/** Unsafe version of {@link #alloc(NkPluginAllocI) alloc}. */
-	public static void nalloc(long struct, long value) { memPutAddress(struct + NkAllocator.ALLOC, value); }
+	public static void nalloc(long struct, NkPluginAllocI value) { memPutAddress(struct + NkAllocator.ALLOC, addressSafe(value)); }
 	/** Unsafe version of {@link #mfree(NkPluginFreeI) mfree}. */
-	public static void nmfree(long struct, long value) { memPutAddress(struct + NkAllocator.MFREE, value); }
+	public static void nmfree(long struct, NkPluginFreeI value) { memPutAddress(struct + NkAllocator.MFREE, addressSafe(value)); }
 
 	// -----------------------------------
 
@@ -285,17 +285,17 @@ public class NkAllocator extends Struct implements NativeResource {
 
 		/** Returns a {@link NkHandle} view of the {@code userdata} field. */
 		public NkHandle userdata() { return NkAllocator.nuserdata(address()); }
-		/** Returns the {@code NkPluginAlloc} instance at the {@code alloc} field. */
-		public NkPluginAlloc alloc() { return NkPluginAlloc.create(NkAllocator.nalloc(address())); }
-		/** Returns the {@code NkPluginFree} instance at the {@code mfree} field. */
-		public NkPluginFree mfree() { return NkPluginFree.create(NkAllocator.nmfree(address())); }
+		/** Returns the value of the {@code alloc} field. */
+		public NkPluginAlloc alloc() { return NkAllocator.nalloc(address()); }
+		/** Returns the value of the {@code mfree} field. */
+		public NkPluginFree mfree() { return NkAllocator.nmfree(address()); }
 
 		/** Copies the specified {@link NkHandle} to the {@code userdata} field. */
 		public NkAllocator.Buffer userdata(NkHandle value) { NkAllocator.nuserdata(address(), value); return this; }
-		/** Sets the address of the specified {@link NkPluginAllocI} to the {@code alloc} field. */
-		public NkAllocator.Buffer alloc(NkPluginAllocI value) { NkAllocator.nalloc(address(), addressSafe(value)); return this; }
-		/** Sets the address of the specified {@link NkPluginFreeI} to the {@code mfree} field. */
-		public NkAllocator.Buffer mfree(NkPluginFreeI value) { NkAllocator.nmfree(address(), addressSafe(value)); return this; }
+		/** Sets the specified value to the {@code alloc} field. */
+		public NkAllocator.Buffer alloc(NkPluginAllocI value) { NkAllocator.nalloc(address(), value); return this; }
+		/** Sets the specified value to the {@code mfree} field. */
+		public NkAllocator.Buffer mfree(NkPluginFreeI value) { NkAllocator.nmfree(address(), value); return this; }
 
 	}
 

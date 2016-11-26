@@ -68,11 +68,11 @@ public class BGFXAllocatorVtbl extends Struct implements NativeResource {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	/** Returns the {@code BGFXReallocCallback} instance at the {@code realloc} field. */
-	public BGFXReallocCallback realloc() { return BGFXReallocCallback.create(nrealloc(address())); }
+	/** Returns the value of the {@code realloc} field. */
+	public BGFXReallocCallback realloc() { return nrealloc(address()); }
 
-	/** Sets the address of the specified {@link BGFXReallocCallbackI} to the {@code realloc} field. */
-	public BGFXAllocatorVtbl realloc(BGFXReallocCallbackI value) { nrealloc(address(), addressSafe(value)); return this; }
+	/** Sets the specified value to the {@code realloc} field. */
+	public BGFXAllocatorVtbl realloc(BGFXReallocCallbackI value) { nrealloc(address(), value); return this; }
 
 	/** Unsafe version of {@link #set(BGFXAllocatorVtbl) set}. */
 	public BGFXAllocatorVtbl nset(long struct) {
@@ -221,10 +221,10 @@ public class BGFXAllocatorVtbl extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** Unsafe version of {@link #realloc}. */
-	public static long nrealloc(long struct) { return memGetAddress(struct + BGFXAllocatorVtbl.REALLOC); }
+	public static BGFXReallocCallback nrealloc(long struct) { return BGFXReallocCallback.create(memGetAddress(struct + BGFXAllocatorVtbl.REALLOC)); }
 
 	/** Unsafe version of {@link #realloc(BGFXReallocCallbackI) realloc}. */
-	public static void nrealloc(long struct, long value) { memPutAddress(struct + BGFXAllocatorVtbl.REALLOC, check(value)); }
+	public static void nrealloc(long struct, BGFXReallocCallbackI value) { memPutAddress(struct + BGFXAllocatorVtbl.REALLOC, value.address()); }
 
 	/**
 	 * Validates pointer members that should not be {@code NULL}.
@@ -288,11 +288,11 @@ public class BGFXAllocatorVtbl extends Struct implements NativeResource {
 			return SIZEOF;
 		}
 
-		/** Returns the {@code BGFXReallocCallback} instance at the {@code realloc} field. */
-		public BGFXReallocCallback realloc() { return BGFXReallocCallback.create(BGFXAllocatorVtbl.nrealloc(address())); }
+		/** Returns the value of the {@code realloc} field. */
+		public BGFXReallocCallback realloc() { return BGFXAllocatorVtbl.nrealloc(address()); }
 
-		/** Sets the address of the specified {@link BGFXReallocCallbackI} to the {@code realloc} field. */
-		public BGFXAllocatorVtbl.Buffer realloc(BGFXReallocCallbackI value) { BGFXAllocatorVtbl.nrealloc(address(), addressSafe(value)); return this; }
+		/** Sets the specified value to the {@code realloc} field. */
+		public BGFXAllocatorVtbl.Buffer realloc(BGFXReallocCallbackI value) { BGFXAllocatorVtbl.nrealloc(address(), value); return this; }
 
 	}
 

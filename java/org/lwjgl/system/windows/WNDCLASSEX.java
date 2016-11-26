@@ -135,8 +135,8 @@ public class WNDCLASSEX extends Struct implements NativeResource {
 	public int cbSize() { return ncbSize(address()); }
 	/** Returns the value of the {@code style} field. */
 	public int style() { return nstyle(address()); }
-	/** Returns the {@code WindowProc} instance at the {@code lpfnWndProc} field. */
-	public WindowProc lpfnWndProc() { return WindowProc.create(nlpfnWndProc(address())); }
+	/** Returns the value of the {@code lpfnWndProc} field. */
+	public WindowProc lpfnWndProc() { return nlpfnWndProc(address()); }
 	/** Returns the value of the {@code cbClsExtra} field. */
 	public int cbClsExtra() { return ncbClsExtra(address()); }
 	/** Returns the value of the {@code cbWndExtra} field. */
@@ -164,8 +164,8 @@ public class WNDCLASSEX extends Struct implements NativeResource {
 	public WNDCLASSEX cbSize(int value) { ncbSize(address(), value); return this; }
 	/** Sets the specified value to the {@code style} field. */
 	public WNDCLASSEX style(int value) { nstyle(address(), value); return this; }
-	/** Sets the address of the specified {@link WindowProcI} to the {@code lpfnWndProc} field. */
-	public WNDCLASSEX lpfnWndProc(WindowProcI value) { nlpfnWndProc(address(), addressSafe(value)); return this; }
+	/** Sets the specified value to the {@code lpfnWndProc} field. */
+	public WNDCLASSEX lpfnWndProc(WindowProcI value) { nlpfnWndProc(address(), value); return this; }
 	/** Sets the specified value to the {@code cbClsExtra} field. */
 	public WNDCLASSEX cbClsExtra(int value) { ncbClsExtra(address(), value); return this; }
 	/** Sets the specified value to the {@code cbWndExtra} field. */
@@ -367,7 +367,7 @@ public class WNDCLASSEX extends Struct implements NativeResource {
 	/** Unsafe version of {@link #style}. */
 	public static int nstyle(long struct) { return memGetInt(struct + WNDCLASSEX.STYLE); }
 	/** Unsafe version of {@link #lpfnWndProc}. */
-	public static long nlpfnWndProc(long struct) { return memGetAddress(struct + WNDCLASSEX.LPFNWNDPROC); }
+	public static WindowProc nlpfnWndProc(long struct) { return WindowProc.create(memGetAddress(struct + WNDCLASSEX.LPFNWNDPROC)); }
 	/** Unsafe version of {@link #cbClsExtra}. */
 	public static int ncbClsExtra(long struct) { return memGetInt(struct + WNDCLASSEX.CBCLSEXTRA); }
 	/** Unsafe version of {@link #cbWndExtra}. */
@@ -396,7 +396,7 @@ public class WNDCLASSEX extends Struct implements NativeResource {
 	/** Unsafe version of {@link #style(int) style}. */
 	public static void nstyle(long struct, int value) { memPutInt(struct + WNDCLASSEX.STYLE, value); }
 	/** Unsafe version of {@link #lpfnWndProc(WindowProcI) lpfnWndProc}. */
-	public static void nlpfnWndProc(long struct, long value) { memPutAddress(struct + WNDCLASSEX.LPFNWNDPROC, check(value)); }
+	public static void nlpfnWndProc(long struct, WindowProcI value) { memPutAddress(struct + WNDCLASSEX.LPFNWNDPROC, value.address()); }
 	/** Unsafe version of {@link #cbClsExtra(int) cbClsExtra}. */
 	public static void ncbClsExtra(long struct, int value) { memPutInt(struct + WNDCLASSEX.CBCLSEXTRA, value); }
 	/** Unsafe version of {@link #cbWndExtra(int) cbWndExtra}. */
@@ -490,8 +490,8 @@ public class WNDCLASSEX extends Struct implements NativeResource {
 		public int cbSize() { return WNDCLASSEX.ncbSize(address()); }
 		/** Returns the value of the {@code style} field. */
 		public int style() { return WNDCLASSEX.nstyle(address()); }
-		/** Returns the {@code WindowProc} instance at the {@code lpfnWndProc} field. */
-		public WindowProc lpfnWndProc() { return WindowProc.create(WNDCLASSEX.nlpfnWndProc(address())); }
+		/** Returns the value of the {@code lpfnWndProc} field. */
+		public WindowProc lpfnWndProc() { return WNDCLASSEX.nlpfnWndProc(address()); }
 		/** Returns the value of the {@code cbClsExtra} field. */
 		public int cbClsExtra() { return WNDCLASSEX.ncbClsExtra(address()); }
 		/** Returns the value of the {@code cbWndExtra} field. */
@@ -519,8 +519,8 @@ public class WNDCLASSEX extends Struct implements NativeResource {
 		public WNDCLASSEX.Buffer cbSize(int value) { WNDCLASSEX.ncbSize(address(), value); return this; }
 		/** Sets the specified value to the {@code style} field. */
 		public WNDCLASSEX.Buffer style(int value) { WNDCLASSEX.nstyle(address(), value); return this; }
-		/** Sets the address of the specified {@link WindowProcI} to the {@code lpfnWndProc} field. */
-		public WNDCLASSEX.Buffer lpfnWndProc(WindowProcI value) { WNDCLASSEX.nlpfnWndProc(address(), addressSafe(value)); return this; }
+		/** Sets the specified value to the {@code lpfnWndProc} field. */
+		public WNDCLASSEX.Buffer lpfnWndProc(WindowProcI value) { WNDCLASSEX.nlpfnWndProc(address(), value); return this; }
 		/** Sets the specified value to the {@code cbClsExtra} field. */
 		public WNDCLASSEX.Buffer cbClsExtra(int value) { WNDCLASSEX.ncbClsExtra(address(), value); return this; }
 		/** Sets the specified value to the {@code cbWndExtra} field. */

@@ -100,8 +100,8 @@ public class OVRInitParams extends Struct implements NativeResource {
 	public int Flags() { return nFlags(address()); }
 	/** Returns the value of the {@code RequestedMinorVersion} field. */
 	public int RequestedMinorVersion() { return nRequestedMinorVersion(address()); }
-	/** Returns the {@code OVRLogCallback} instance at the {@code LogCallback} field. */
-	public OVRLogCallback LogCallback() { return OVRLogCallback.create(nLogCallback(address())); }
+	/** Returns the value of the {@code LogCallback} field. */
+	public OVRLogCallback LogCallback() { return nLogCallback(address()); }
 	/** Returns the value of the {@code UserData} field. */
 	public long UserData() { return nUserData(address()); }
 	/** Returns the value of the {@code ConnectionTimeoutMS} field. */
@@ -111,8 +111,8 @@ public class OVRInitParams extends Struct implements NativeResource {
 	public OVRInitParams Flags(int value) { nFlags(address(), value); return this; }
 	/** Sets the specified value to the {@code RequestedMinorVersion} field. */
 	public OVRInitParams RequestedMinorVersion(int value) { nRequestedMinorVersion(address(), value); return this; }
-	/** Sets the address of the specified {@link OVRLogCallbackI} to the {@code LogCallback} field. */
-	public OVRInitParams LogCallback(OVRLogCallbackI value) { nLogCallback(address(), addressSafe(value)); return this; }
+	/** Sets the specified value to the {@code LogCallback} field. */
+	public OVRInitParams LogCallback(OVRLogCallbackI value) { nLogCallback(address(), value); return this; }
 	/** Sets the specified value to the {@code UserData} field. */
 	public OVRInitParams UserData(long value) { nUserData(address(), value); return this; }
 	/** Sets the specified value to the {@code ConnectionTimeoutMS} field. */
@@ -286,7 +286,7 @@ public class OVRInitParams extends Struct implements NativeResource {
 	/** Unsafe version of {@link #RequestedMinorVersion}. */
 	public static int nRequestedMinorVersion(long struct) { return memGetInt(struct + OVRInitParams.REQUESTEDMINORVERSION); }
 	/** Unsafe version of {@link #LogCallback}. */
-	public static long nLogCallback(long struct) { return memGetAddress(struct + OVRInitParams.LOGCALLBACK); }
+	public static OVRLogCallback nLogCallback(long struct) { return OVRLogCallback.create(memGetAddress(struct + OVRInitParams.LOGCALLBACK)); }
 	/** Unsafe version of {@link #UserData}. */
 	public static long nUserData(long struct) { return memGetAddress(struct + OVRInitParams.USERDATA); }
 	/** Unsafe version of {@link #ConnectionTimeoutMS}. */
@@ -297,7 +297,7 @@ public class OVRInitParams extends Struct implements NativeResource {
 	/** Unsafe version of {@link #RequestedMinorVersion(int) RequestedMinorVersion}. */
 	public static void nRequestedMinorVersion(long struct, int value) { memPutInt(struct + OVRInitParams.REQUESTEDMINORVERSION, value); }
 	/** Unsafe version of {@link #LogCallback(OVRLogCallbackI) LogCallback}. */
-	public static void nLogCallback(long struct, long value) { memPutAddress(struct + OVRInitParams.LOGCALLBACK, value); }
+	public static void nLogCallback(long struct, OVRLogCallbackI value) { memPutAddress(struct + OVRInitParams.LOGCALLBACK, addressSafe(value)); }
 	/** Unsafe version of {@link #UserData(long) UserData}. */
 	public static void nUserData(long struct, long value) { memPutAddress(struct + OVRInitParams.USERDATA, value); }
 	/** Unsafe version of {@link #ConnectionTimeoutMS(int) ConnectionTimeoutMS}. */
@@ -349,8 +349,8 @@ public class OVRInitParams extends Struct implements NativeResource {
 		public int Flags() { return OVRInitParams.nFlags(address()); }
 		/** Returns the value of the {@code RequestedMinorVersion} field. */
 		public int RequestedMinorVersion() { return OVRInitParams.nRequestedMinorVersion(address()); }
-		/** Returns the {@code OVRLogCallback} instance at the {@code LogCallback} field. */
-		public OVRLogCallback LogCallback() { return OVRLogCallback.create(OVRInitParams.nLogCallback(address())); }
+		/** Returns the value of the {@code LogCallback} field. */
+		public OVRLogCallback LogCallback() { return OVRInitParams.nLogCallback(address()); }
 		/** Returns the value of the {@code UserData} field. */
 		public long UserData() { return OVRInitParams.nUserData(address()); }
 		/** Returns the value of the {@code ConnectionTimeoutMS} field. */
@@ -360,8 +360,8 @@ public class OVRInitParams extends Struct implements NativeResource {
 		public OVRInitParams.Buffer Flags(int value) { OVRInitParams.nFlags(address(), value); return this; }
 		/** Sets the specified value to the {@code RequestedMinorVersion} field. */
 		public OVRInitParams.Buffer RequestedMinorVersion(int value) { OVRInitParams.nRequestedMinorVersion(address(), value); return this; }
-		/** Sets the address of the specified {@link OVRLogCallbackI} to the {@code LogCallback} field. */
-		public OVRInitParams.Buffer LogCallback(OVRLogCallbackI value) { OVRInitParams.nLogCallback(address(), addressSafe(value)); return this; }
+		/** Sets the specified value to the {@code LogCallback} field. */
+		public OVRInitParams.Buffer LogCallback(OVRLogCallbackI value) { OVRInitParams.nLogCallback(address(), value); return this; }
 		/** Sets the specified value to the {@code UserData} field. */
 		public OVRInitParams.Buffer UserData(long value) { OVRInitParams.nUserData(address(), value); return this; }
 		/** Sets the specified value to the {@code ConnectionTimeoutMS} field. */

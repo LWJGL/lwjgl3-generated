@@ -73,13 +73,13 @@ public class AILogStream extends Struct implements NativeResource {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	/** Returns the {@code AILogStreamCallback} instance at the {@code callback} field. */
-	public AILogStreamCallback callback() { return AILogStreamCallback.create(ncallback(address())); }
+	/** Returns the value of the {@code callback} field. */
+	public AILogStreamCallback callback() { return ncallback(address()); }
 	/** Returns the value of the {@code user} field. */
 	public long user() { return nuser(address()); }
 
-	/** Sets the address of the specified {@link AILogStreamCallbackI} to the {@code callback} field. */
-	public AILogStream callback(AILogStreamCallbackI value) { ncallback(address(), addressSafe(value)); return this; }
+	/** Sets the specified value to the {@code callback} field. */
+	public AILogStream callback(AILogStreamCallbackI value) { ncallback(address(), value); return this; }
 	/** Sets the specified value to the {@code user} field. */
 	public AILogStream user(long value) { nuser(address(), value); return this; }
 
@@ -241,12 +241,12 @@ public class AILogStream extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** Unsafe version of {@link #callback}. */
-	public static long ncallback(long struct) { return memGetAddress(struct + AILogStream.CALLBACK); }
+	public static AILogStreamCallback ncallback(long struct) { return AILogStreamCallback.create(memGetAddress(struct + AILogStream.CALLBACK)); }
 	/** Unsafe version of {@link #user}. */
 	public static long nuser(long struct) { return memGetAddress(struct + AILogStream.USER); }
 
 	/** Unsafe version of {@link #callback(AILogStreamCallbackI) callback}. */
-	public static void ncallback(long struct, long value) { memPutAddress(struct + AILogStream.CALLBACK, check(value)); }
+	public static void ncallback(long struct, AILogStreamCallbackI value) { memPutAddress(struct + AILogStream.CALLBACK, value.address()); }
 	/** Unsafe version of {@link #user(long) user}. */
 	public static void nuser(long struct, long value) { memPutAddress(struct + AILogStream.USER, check(value)); }
 
@@ -313,13 +313,13 @@ public class AILogStream extends Struct implements NativeResource {
 			return SIZEOF;
 		}
 
-		/** Returns the {@code AILogStreamCallback} instance at the {@code callback} field. */
-		public AILogStreamCallback callback() { return AILogStreamCallback.create(AILogStream.ncallback(address())); }
+		/** Returns the value of the {@code callback} field. */
+		public AILogStreamCallback callback() { return AILogStream.ncallback(address()); }
 		/** Returns the value of the {@code user} field. */
 		public long user() { return AILogStream.nuser(address()); }
 
-		/** Sets the address of the specified {@link AILogStreamCallbackI} to the {@code callback} field. */
-		public AILogStream.Buffer callback(AILogStreamCallbackI value) { AILogStream.ncallback(address(), addressSafe(value)); return this; }
+		/** Sets the specified value to the {@code callback} field. */
+		public AILogStream.Buffer callback(AILogStreamCallbackI value) { AILogStream.ncallback(address(), value); return this; }
 		/** Sets the specified value to the {@code user} field. */
 		public AILogStream.Buffer user(long value) { AILogStream.nuser(address(), value); return this; }
 

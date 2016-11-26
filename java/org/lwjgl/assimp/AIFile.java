@@ -101,33 +101,33 @@ public class AIFile extends Struct implements NativeResource {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	/** Returns the {@code AIFileReadProc} instance at the {@code ReadProc} field. */
-	public AIFileReadProc ReadProc() { return AIFileReadProc.create(nReadProc(address())); }
-	/** Returns the {@code AIFileWriteProc} instance at the {@code WriteProc} field. */
-	public AIFileWriteProc WriteProc() { return AIFileWriteProc.create(nWriteProc(address())); }
-	/** Returns the {@code AIFileTellProc} instance at the {@code TellProc} field. */
-	public AIFileTellProc TellProc() { return AIFileTellProc.create(nTellProc(address())); }
-	/** Returns the {@code AIFileTellProc} instance at the {@code FileSizeProc} field. */
-	public AIFileTellProc FileSizeProc() { return AIFileTellProc.create(nFileSizeProc(address())); }
-	/** Returns the {@code AIFileSeek} instance at the {@code SeekProc} field. */
-	public AIFileSeek SeekProc() { return AIFileSeek.create(nSeekProc(address())); }
-	/** Returns the {@code AIFileFlushProc} instance at the {@code FlushProc} field. */
-	public AIFileFlushProc FlushProc() { return AIFileFlushProc.create(nFlushProc(address())); }
+	/** Returns the value of the {@code ReadProc} field. */
+	public AIFileReadProc ReadProc() { return nReadProc(address()); }
+	/** Returns the value of the {@code WriteProc} field. */
+	public AIFileWriteProc WriteProc() { return nWriteProc(address()); }
+	/** Returns the value of the {@code TellProc} field. */
+	public AIFileTellProc TellProc() { return nTellProc(address()); }
+	/** Returns the value of the {@code FileSizeProc} field. */
+	public AIFileTellProc FileSizeProc() { return nFileSizeProc(address()); }
+	/** Returns the value of the {@code SeekProc} field. */
+	public AIFileSeek SeekProc() { return nSeekProc(address()); }
+	/** Returns the value of the {@code FlushProc} field. */
+	public AIFileFlushProc FlushProc() { return nFlushProc(address()); }
 	/** Returns the value of the {@code UserData} field. */
 	public long UserData() { return nUserData(address()); }
 
-	/** Sets the address of the specified {@link AIFileReadProcI} to the {@code ReadProc} field. */
-	public AIFile ReadProc(AIFileReadProcI value) { nReadProc(address(), addressSafe(value)); return this; }
-	/** Sets the address of the specified {@link AIFileWriteProcI} to the {@code WriteProc} field. */
-	public AIFile WriteProc(AIFileWriteProcI value) { nWriteProc(address(), addressSafe(value)); return this; }
-	/** Sets the address of the specified {@link AIFileTellProcI} to the {@code TellProc} field. */
-	public AIFile TellProc(AIFileTellProcI value) { nTellProc(address(), addressSafe(value)); return this; }
-	/** Sets the address of the specified {@link AIFileTellProcI} to the {@code FileSizeProc} field. */
-	public AIFile FileSizeProc(AIFileTellProcI value) { nFileSizeProc(address(), addressSafe(value)); return this; }
-	/** Sets the address of the specified {@link AIFileSeekI} to the {@code SeekProc} field. */
-	public AIFile SeekProc(AIFileSeekI value) { nSeekProc(address(), addressSafe(value)); return this; }
-	/** Sets the address of the specified {@link AIFileFlushProcI} to the {@code FlushProc} field. */
-	public AIFile FlushProc(AIFileFlushProcI value) { nFlushProc(address(), addressSafe(value)); return this; }
+	/** Sets the specified value to the {@code ReadProc} field. */
+	public AIFile ReadProc(AIFileReadProcI value) { nReadProc(address(), value); return this; }
+	/** Sets the specified value to the {@code WriteProc} field. */
+	public AIFile WriteProc(AIFileWriteProcI value) { nWriteProc(address(), value); return this; }
+	/** Sets the specified value to the {@code TellProc} field. */
+	public AIFile TellProc(AIFileTellProcI value) { nTellProc(address(), value); return this; }
+	/** Sets the specified value to the {@code FileSizeProc} field. */
+	public AIFile FileSizeProc(AIFileTellProcI value) { nFileSizeProc(address(), value); return this; }
+	/** Sets the specified value to the {@code SeekProc} field. */
+	public AIFile SeekProc(AIFileSeekI value) { nSeekProc(address(), value); return this; }
+	/** Sets the specified value to the {@code FlushProc} field. */
+	public AIFile FlushProc(AIFileFlushProcI value) { nFlushProc(address(), value); return this; }
 	/** Sets the specified value to the {@code UserData} field. */
 	public AIFile UserData(long value) { nUserData(address(), value); return this; }
 
@@ -299,32 +299,32 @@ public class AIFile extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** Unsafe version of {@link #ReadProc}. */
-	public static long nReadProc(long struct) { return memGetAddress(struct + AIFile.READPROC); }
+	public static AIFileReadProc nReadProc(long struct) { return AIFileReadProc.create(memGetAddress(struct + AIFile.READPROC)); }
 	/** Unsafe version of {@link #WriteProc}. */
-	public static long nWriteProc(long struct) { return memGetAddress(struct + AIFile.WRITEPROC); }
+	public static AIFileWriteProc nWriteProc(long struct) { return AIFileWriteProc.create(memGetAddress(struct + AIFile.WRITEPROC)); }
 	/** Unsafe version of {@link #TellProc}. */
-	public static long nTellProc(long struct) { return memGetAddress(struct + AIFile.TELLPROC); }
+	public static AIFileTellProc nTellProc(long struct) { return AIFileTellProc.create(memGetAddress(struct + AIFile.TELLPROC)); }
 	/** Unsafe version of {@link #FileSizeProc}. */
-	public static long nFileSizeProc(long struct) { return memGetAddress(struct + AIFile.FILESIZEPROC); }
+	public static AIFileTellProc nFileSizeProc(long struct) { return AIFileTellProc.create(memGetAddress(struct + AIFile.FILESIZEPROC)); }
 	/** Unsafe version of {@link #SeekProc}. */
-	public static long nSeekProc(long struct) { return memGetAddress(struct + AIFile.SEEKPROC); }
+	public static AIFileSeek nSeekProc(long struct) { return AIFileSeek.create(memGetAddress(struct + AIFile.SEEKPROC)); }
 	/** Unsafe version of {@link #FlushProc}. */
-	public static long nFlushProc(long struct) { return memGetAddress(struct + AIFile.FLUSHPROC); }
+	public static AIFileFlushProc nFlushProc(long struct) { return AIFileFlushProc.create(memGetAddress(struct + AIFile.FLUSHPROC)); }
 	/** Unsafe version of {@link #UserData}. */
 	public static long nUserData(long struct) { return memGetAddress(struct + AIFile.USERDATA); }
 
 	/** Unsafe version of {@link #ReadProc(AIFileReadProcI) ReadProc}. */
-	public static void nReadProc(long struct, long value) { memPutAddress(struct + AIFile.READPROC, check(value)); }
+	public static void nReadProc(long struct, AIFileReadProcI value) { memPutAddress(struct + AIFile.READPROC, value.address()); }
 	/** Unsafe version of {@link #WriteProc(AIFileWriteProcI) WriteProc}. */
-	public static void nWriteProc(long struct, long value) { memPutAddress(struct + AIFile.WRITEPROC, check(value)); }
+	public static void nWriteProc(long struct, AIFileWriteProcI value) { memPutAddress(struct + AIFile.WRITEPROC, value.address()); }
 	/** Unsafe version of {@link #TellProc(AIFileTellProcI) TellProc}. */
-	public static void nTellProc(long struct, long value) { memPutAddress(struct + AIFile.TELLPROC, check(value)); }
+	public static void nTellProc(long struct, AIFileTellProcI value) { memPutAddress(struct + AIFile.TELLPROC, value.address()); }
 	/** Unsafe version of {@link #FileSizeProc(AIFileTellProcI) FileSizeProc}. */
-	public static void nFileSizeProc(long struct, long value) { memPutAddress(struct + AIFile.FILESIZEPROC, check(value)); }
+	public static void nFileSizeProc(long struct, AIFileTellProcI value) { memPutAddress(struct + AIFile.FILESIZEPROC, value.address()); }
 	/** Unsafe version of {@link #SeekProc(AIFileSeekI) SeekProc}. */
-	public static void nSeekProc(long struct, long value) { memPutAddress(struct + AIFile.SEEKPROC, check(value)); }
+	public static void nSeekProc(long struct, AIFileSeekI value) { memPutAddress(struct + AIFile.SEEKPROC, value.address()); }
 	/** Unsafe version of {@link #FlushProc(AIFileFlushProcI) FlushProc}. */
-	public static void nFlushProc(long struct, long value) { memPutAddress(struct + AIFile.FLUSHPROC, check(value)); }
+	public static void nFlushProc(long struct, AIFileFlushProcI value) { memPutAddress(struct + AIFile.FLUSHPROC, value.address()); }
 	/** Unsafe version of {@link #UserData(long) UserData}. */
 	public static void nUserData(long struct, long value) { memPutAddress(struct + AIFile.USERDATA, check(value)); }
 
@@ -396,33 +396,33 @@ public class AIFile extends Struct implements NativeResource {
 			return SIZEOF;
 		}
 
-		/** Returns the {@code AIFileReadProc} instance at the {@code ReadProc} field. */
-		public AIFileReadProc ReadProc() { return AIFileReadProc.create(AIFile.nReadProc(address())); }
-		/** Returns the {@code AIFileWriteProc} instance at the {@code WriteProc} field. */
-		public AIFileWriteProc WriteProc() { return AIFileWriteProc.create(AIFile.nWriteProc(address())); }
-		/** Returns the {@code AIFileTellProc} instance at the {@code TellProc} field. */
-		public AIFileTellProc TellProc() { return AIFileTellProc.create(AIFile.nTellProc(address())); }
-		/** Returns the {@code AIFileTellProc} instance at the {@code FileSizeProc} field. */
-		public AIFileTellProc FileSizeProc() { return AIFileTellProc.create(AIFile.nFileSizeProc(address())); }
-		/** Returns the {@code AIFileSeek} instance at the {@code SeekProc} field. */
-		public AIFileSeek SeekProc() { return AIFileSeek.create(AIFile.nSeekProc(address())); }
-		/** Returns the {@code AIFileFlushProc} instance at the {@code FlushProc} field. */
-		public AIFileFlushProc FlushProc() { return AIFileFlushProc.create(AIFile.nFlushProc(address())); }
+		/** Returns the value of the {@code ReadProc} field. */
+		public AIFileReadProc ReadProc() { return AIFile.nReadProc(address()); }
+		/** Returns the value of the {@code WriteProc} field. */
+		public AIFileWriteProc WriteProc() { return AIFile.nWriteProc(address()); }
+		/** Returns the value of the {@code TellProc} field. */
+		public AIFileTellProc TellProc() { return AIFile.nTellProc(address()); }
+		/** Returns the value of the {@code FileSizeProc} field. */
+		public AIFileTellProc FileSizeProc() { return AIFile.nFileSizeProc(address()); }
+		/** Returns the value of the {@code SeekProc} field. */
+		public AIFileSeek SeekProc() { return AIFile.nSeekProc(address()); }
+		/** Returns the value of the {@code FlushProc} field. */
+		public AIFileFlushProc FlushProc() { return AIFile.nFlushProc(address()); }
 		/** Returns the value of the {@code UserData} field. */
 		public long UserData() { return AIFile.nUserData(address()); }
 
-		/** Sets the address of the specified {@link AIFileReadProcI} to the {@code ReadProc} field. */
-		public AIFile.Buffer ReadProc(AIFileReadProcI value) { AIFile.nReadProc(address(), addressSafe(value)); return this; }
-		/** Sets the address of the specified {@link AIFileWriteProcI} to the {@code WriteProc} field. */
-		public AIFile.Buffer WriteProc(AIFileWriteProcI value) { AIFile.nWriteProc(address(), addressSafe(value)); return this; }
-		/** Sets the address of the specified {@link AIFileTellProcI} to the {@code TellProc} field. */
-		public AIFile.Buffer TellProc(AIFileTellProcI value) { AIFile.nTellProc(address(), addressSafe(value)); return this; }
-		/** Sets the address of the specified {@link AIFileTellProcI} to the {@code FileSizeProc} field. */
-		public AIFile.Buffer FileSizeProc(AIFileTellProcI value) { AIFile.nFileSizeProc(address(), addressSafe(value)); return this; }
-		/** Sets the address of the specified {@link AIFileSeekI} to the {@code SeekProc} field. */
-		public AIFile.Buffer SeekProc(AIFileSeekI value) { AIFile.nSeekProc(address(), addressSafe(value)); return this; }
-		/** Sets the address of the specified {@link AIFileFlushProcI} to the {@code FlushProc} field. */
-		public AIFile.Buffer FlushProc(AIFileFlushProcI value) { AIFile.nFlushProc(address(), addressSafe(value)); return this; }
+		/** Sets the specified value to the {@code ReadProc} field. */
+		public AIFile.Buffer ReadProc(AIFileReadProcI value) { AIFile.nReadProc(address(), value); return this; }
+		/** Sets the specified value to the {@code WriteProc} field. */
+		public AIFile.Buffer WriteProc(AIFileWriteProcI value) { AIFile.nWriteProc(address(), value); return this; }
+		/** Sets the specified value to the {@code TellProc} field. */
+		public AIFile.Buffer TellProc(AIFileTellProcI value) { AIFile.nTellProc(address(), value); return this; }
+		/** Sets the specified value to the {@code FileSizeProc} field. */
+		public AIFile.Buffer FileSizeProc(AIFileTellProcI value) { AIFile.nFileSizeProc(address(), value); return this; }
+		/** Sets the specified value to the {@code SeekProc} field. */
+		public AIFile.Buffer SeekProc(AIFileSeekI value) { AIFile.nSeekProc(address(), value); return this; }
+		/** Sets the specified value to the {@code FlushProc} field. */
+		public AIFile.Buffer FlushProc(AIFileFlushProcI value) { AIFile.nFlushProc(address(), value); return this; }
 		/** Sets the specified value to the {@code UserData} field. */
 		public AIFile.Buffer UserData(long value) { AIFile.nUserData(address(), value); return this; }
 

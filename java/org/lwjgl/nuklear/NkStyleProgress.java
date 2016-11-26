@@ -147,10 +147,10 @@ public class NkStyleProgress extends Struct implements NativeResource {
 	public NkVec2 padding() { return npadding(address()); }
 	/** Returns a {@link NkHandle} view of the {@code userdata} field. */
 	public NkHandle userdata() { return nuserdata(address()); }
-	/** Returns the {@code NkDrawBeginCallback} instance at the {@code draw_begin} field. */
-	public NkDrawBeginCallback draw_begin() { return NkDrawBeginCallback.create(ndraw_begin(address())); }
-	/** Returns the {@code NkDrawEndCallback} instance at the {@code draw_end} field. */
-	public NkDrawEndCallback draw_end() { return NkDrawEndCallback.create(ndraw_end(address())); }
+	/** Returns the value of the {@code draw_begin} field. */
+	public NkDrawBeginCallback draw_begin() { return ndraw_begin(address()); }
+	/** Returns the value of the {@code draw_end} field. */
+	public NkDrawEndCallback draw_end() { return ndraw_end(address()); }
 
 	/** Copies the specified {@link NkStyleItem} to the {@code normal} field. */
 	public NkStyleProgress normal(NkStyleItem value) { nnormal(address(), value); return this; }
@@ -180,10 +180,10 @@ public class NkStyleProgress extends Struct implements NativeResource {
 	public NkStyleProgress padding(NkVec2 value) { npadding(address(), value); return this; }
 	/** Copies the specified {@link NkHandle} to the {@code userdata} field. */
 	public NkStyleProgress userdata(NkHandle value) { nuserdata(address(), value); return this; }
-	/** Sets the address of the specified {@link NkDrawBeginCallbackI} to the {@code draw_begin} field. */
-	public NkStyleProgress draw_begin(NkDrawBeginCallbackI value) { ndraw_begin(address(), addressSafe(value)); return this; }
-	/** Sets the address of the specified {@link NkDrawEndCallbackI} to the {@code draw_end} field. */
-	public NkStyleProgress draw_end(NkDrawEndCallbackI value) { ndraw_end(address(), addressSafe(value)); return this; }
+	/** Sets the specified value to the {@code draw_begin} field. */
+	public NkStyleProgress draw_begin(NkDrawBeginCallbackI value) { ndraw_begin(address(), value); return this; }
+	/** Sets the specified value to the {@code draw_end} field. */
+	public NkStyleProgress draw_end(NkDrawEndCallbackI value) { ndraw_end(address(), value); return this; }
 
 	/** Unsafe version of {@link #set(NkStyleProgress) set}. */
 	public NkStyleProgress nset(long struct) {
@@ -360,9 +360,9 @@ public class NkStyleProgress extends Struct implements NativeResource {
 	/** Unsafe version of {@link #userdata}. */
 	public static NkHandle nuserdata(long struct) { return NkHandle.create(struct + NkStyleProgress.USERDATA); }
 	/** Unsafe version of {@link #draw_begin}. */
-	public static long ndraw_begin(long struct) { return memGetAddress(struct + NkStyleProgress.DRAW_BEGIN); }
+	public static NkDrawBeginCallback ndraw_begin(long struct) { return NkDrawBeginCallback.create(memGetAddress(struct + NkStyleProgress.DRAW_BEGIN)); }
 	/** Unsafe version of {@link #draw_end}. */
-	public static long ndraw_end(long struct) { return memGetAddress(struct + NkStyleProgress.DRAW_END); }
+	public static NkDrawEndCallback ndraw_end(long struct) { return NkDrawEndCallback.create(memGetAddress(struct + NkStyleProgress.DRAW_END)); }
 
 	/** Unsafe version of {@link #normal(NkStyleItem) normal}. */
 	public static void nnormal(long struct, NkStyleItem value) { memCopy(value.address(), struct + NkStyleProgress.NORMAL, NkStyleItem.SIZEOF); }
@@ -393,9 +393,9 @@ public class NkStyleProgress extends Struct implements NativeResource {
 	/** Unsafe version of {@link #userdata(NkHandle) userdata}. */
 	public static void nuserdata(long struct, NkHandle value) { memCopy(value.address(), struct + NkStyleProgress.USERDATA, NkHandle.SIZEOF); }
 	/** Unsafe version of {@link #draw_begin(NkDrawBeginCallbackI) draw_begin}. */
-	public static void ndraw_begin(long struct, long value) { memPutAddress(struct + NkStyleProgress.DRAW_BEGIN, value); }
+	public static void ndraw_begin(long struct, NkDrawBeginCallbackI value) { memPutAddress(struct + NkStyleProgress.DRAW_BEGIN, addressSafe(value)); }
 	/** Unsafe version of {@link #draw_end(NkDrawEndCallbackI) draw_end}. */
-	public static void ndraw_end(long struct, long value) { memPutAddress(struct + NkStyleProgress.DRAW_END, value); }
+	public static void ndraw_end(long struct, NkDrawEndCallbackI value) { memPutAddress(struct + NkStyleProgress.DRAW_END, addressSafe(value)); }
 
 	// -----------------------------------
 
@@ -467,10 +467,10 @@ public class NkStyleProgress extends Struct implements NativeResource {
 		public NkVec2 padding() { return NkStyleProgress.npadding(address()); }
 		/** Returns a {@link NkHandle} view of the {@code userdata} field. */
 		public NkHandle userdata() { return NkStyleProgress.nuserdata(address()); }
-		/** Returns the {@code NkDrawBeginCallback} instance at the {@code draw_begin} field. */
-		public NkDrawBeginCallback draw_begin() { return NkDrawBeginCallback.create(NkStyleProgress.ndraw_begin(address())); }
-		/** Returns the {@code NkDrawEndCallback} instance at the {@code draw_end} field. */
-		public NkDrawEndCallback draw_end() { return NkDrawEndCallback.create(NkStyleProgress.ndraw_end(address())); }
+		/** Returns the value of the {@code draw_begin} field. */
+		public NkDrawBeginCallback draw_begin() { return NkStyleProgress.ndraw_begin(address()); }
+		/** Returns the value of the {@code draw_end} field. */
+		public NkDrawEndCallback draw_end() { return NkStyleProgress.ndraw_end(address()); }
 
 		/** Copies the specified {@link NkStyleItem} to the {@code normal} field. */
 		public NkStyleProgress.Buffer normal(NkStyleItem value) { NkStyleProgress.nnormal(address(), value); return this; }
@@ -500,10 +500,10 @@ public class NkStyleProgress extends Struct implements NativeResource {
 		public NkStyleProgress.Buffer padding(NkVec2 value) { NkStyleProgress.npadding(address(), value); return this; }
 		/** Copies the specified {@link NkHandle} to the {@code userdata} field. */
 		public NkStyleProgress.Buffer userdata(NkHandle value) { NkStyleProgress.nuserdata(address(), value); return this; }
-		/** Sets the address of the specified {@link NkDrawBeginCallbackI} to the {@code draw_begin} field. */
-		public NkStyleProgress.Buffer draw_begin(NkDrawBeginCallbackI value) { NkStyleProgress.ndraw_begin(address(), addressSafe(value)); return this; }
-		/** Sets the address of the specified {@link NkDrawEndCallbackI} to the {@code draw_end} field. */
-		public NkStyleProgress.Buffer draw_end(NkDrawEndCallbackI value) { NkStyleProgress.ndraw_end(address(), addressSafe(value)); return this; }
+		/** Sets the specified value to the {@code draw_begin} field. */
+		public NkStyleProgress.Buffer draw_begin(NkDrawBeginCallbackI value) { NkStyleProgress.ndraw_begin(address(), value); return this; }
+		/** Sets the specified value to the {@code draw_end} field. */
+		public NkStyleProgress.Buffer draw_end(NkDrawEndCallbackI value) { NkStyleProgress.ndraw_end(address(), value); return this; }
 
 	}
 

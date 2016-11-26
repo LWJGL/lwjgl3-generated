@@ -177,10 +177,10 @@ public class NkStyleSelectable extends Struct implements NativeResource {
 	public NkVec2 image_padding() { return nimage_padding(address()); }
 	/** Returns a {@link NkHandle} view of the {@code userdata} field. */
 	public NkHandle userdata() { return nuserdata(address()); }
-	/** Returns the {@code NkDrawBeginCallback} instance at the {@code draw_begin} field. */
-	public NkDrawBeginCallback draw_begin() { return NkDrawBeginCallback.create(ndraw_begin(address())); }
-	/** Returns the {@code NkDrawEndCallback} instance at the {@code draw_end} field. */
-	public NkDrawEndCallback draw_end() { return NkDrawEndCallback.create(ndraw_end(address())); }
+	/** Returns the value of the {@code draw_begin} field. */
+	public NkDrawBeginCallback draw_begin() { return ndraw_begin(address()); }
+	/** Returns the value of the {@code draw_end} field. */
+	public NkDrawEndCallback draw_end() { return ndraw_end(address()); }
 
 	/** Copies the specified {@link NkStyleItem} to the {@code normal} field. */
 	public NkStyleSelectable normal(NkStyleItem value) { nnormal(address(), value); return this; }
@@ -220,10 +220,10 @@ public class NkStyleSelectable extends Struct implements NativeResource {
 	public NkStyleSelectable image_padding(NkVec2 value) { nimage_padding(address(), value); return this; }
 	/** Copies the specified {@link NkHandle} to the {@code userdata} field. */
 	public NkStyleSelectable userdata(NkHandle value) { nuserdata(address(), value); return this; }
-	/** Sets the address of the specified {@link NkDrawBeginCallbackI} to the {@code draw_begin} field. */
-	public NkStyleSelectable draw_begin(NkDrawBeginCallbackI value) { ndraw_begin(address(), addressSafe(value)); return this; }
-	/** Sets the address of the specified {@link NkDrawEndCallbackI} to the {@code draw_end} field. */
-	public NkStyleSelectable draw_end(NkDrawEndCallbackI value) { ndraw_end(address(), addressSafe(value)); return this; }
+	/** Sets the specified value to the {@code draw_begin} field. */
+	public NkStyleSelectable draw_begin(NkDrawBeginCallbackI value) { ndraw_begin(address(), value); return this; }
+	/** Sets the specified value to the {@code draw_end} field. */
+	public NkStyleSelectable draw_end(NkDrawEndCallbackI value) { ndraw_end(address(), value); return this; }
 
 	/** Unsafe version of {@link #set(NkStyleSelectable) set}. */
 	public NkStyleSelectable nset(long struct) {
@@ -410,9 +410,9 @@ public class NkStyleSelectable extends Struct implements NativeResource {
 	/** Unsafe version of {@link #userdata}. */
 	public static NkHandle nuserdata(long struct) { return NkHandle.create(struct + NkStyleSelectable.USERDATA); }
 	/** Unsafe version of {@link #draw_begin}. */
-	public static long ndraw_begin(long struct) { return memGetAddress(struct + NkStyleSelectable.DRAW_BEGIN); }
+	public static NkDrawBeginCallback ndraw_begin(long struct) { return NkDrawBeginCallback.create(memGetAddress(struct + NkStyleSelectable.DRAW_BEGIN)); }
 	/** Unsafe version of {@link #draw_end}. */
-	public static long ndraw_end(long struct) { return memGetAddress(struct + NkStyleSelectable.DRAW_END); }
+	public static NkDrawEndCallback ndraw_end(long struct) { return NkDrawEndCallback.create(memGetAddress(struct + NkStyleSelectable.DRAW_END)); }
 
 	/** Unsafe version of {@link #normal(NkStyleItem) normal}. */
 	public static void nnormal(long struct, NkStyleItem value) { memCopy(value.address(), struct + NkStyleSelectable.NORMAL, NkStyleItem.SIZEOF); }
@@ -453,9 +453,9 @@ public class NkStyleSelectable extends Struct implements NativeResource {
 	/** Unsafe version of {@link #userdata(NkHandle) userdata}. */
 	public static void nuserdata(long struct, NkHandle value) { memCopy(value.address(), struct + NkStyleSelectable.USERDATA, NkHandle.SIZEOF); }
 	/** Unsafe version of {@link #draw_begin(NkDrawBeginCallbackI) draw_begin}. */
-	public static void ndraw_begin(long struct, long value) { memPutAddress(struct + NkStyleSelectable.DRAW_BEGIN, value); }
+	public static void ndraw_begin(long struct, NkDrawBeginCallbackI value) { memPutAddress(struct + NkStyleSelectable.DRAW_BEGIN, addressSafe(value)); }
 	/** Unsafe version of {@link #draw_end(NkDrawEndCallbackI) draw_end}. */
-	public static void ndraw_end(long struct, long value) { memPutAddress(struct + NkStyleSelectable.DRAW_END, value); }
+	public static void ndraw_end(long struct, NkDrawEndCallbackI value) { memPutAddress(struct + NkStyleSelectable.DRAW_END, addressSafe(value)); }
 
 	// -----------------------------------
 
@@ -537,10 +537,10 @@ public class NkStyleSelectable extends Struct implements NativeResource {
 		public NkVec2 image_padding() { return NkStyleSelectable.nimage_padding(address()); }
 		/** Returns a {@link NkHandle} view of the {@code userdata} field. */
 		public NkHandle userdata() { return NkStyleSelectable.nuserdata(address()); }
-		/** Returns the {@code NkDrawBeginCallback} instance at the {@code draw_begin} field. */
-		public NkDrawBeginCallback draw_begin() { return NkDrawBeginCallback.create(NkStyleSelectable.ndraw_begin(address())); }
-		/** Returns the {@code NkDrawEndCallback} instance at the {@code draw_end} field. */
-		public NkDrawEndCallback draw_end() { return NkDrawEndCallback.create(NkStyleSelectable.ndraw_end(address())); }
+		/** Returns the value of the {@code draw_begin} field. */
+		public NkDrawBeginCallback draw_begin() { return NkStyleSelectable.ndraw_begin(address()); }
+		/** Returns the value of the {@code draw_end} field. */
+		public NkDrawEndCallback draw_end() { return NkStyleSelectable.ndraw_end(address()); }
 
 		/** Copies the specified {@link NkStyleItem} to the {@code normal} field. */
 		public NkStyleSelectable.Buffer normal(NkStyleItem value) { NkStyleSelectable.nnormal(address(), value); return this; }
@@ -580,10 +580,10 @@ public class NkStyleSelectable extends Struct implements NativeResource {
 		public NkStyleSelectable.Buffer image_padding(NkVec2 value) { NkStyleSelectable.nimage_padding(address(), value); return this; }
 		/** Copies the specified {@link NkHandle} to the {@code userdata} field. */
 		public NkStyleSelectable.Buffer userdata(NkHandle value) { NkStyleSelectable.nuserdata(address(), value); return this; }
-		/** Sets the address of the specified {@link NkDrawBeginCallbackI} to the {@code draw_begin} field. */
-		public NkStyleSelectable.Buffer draw_begin(NkDrawBeginCallbackI value) { NkStyleSelectable.ndraw_begin(address(), addressSafe(value)); return this; }
-		/** Sets the address of the specified {@link NkDrawEndCallbackI} to the {@code draw_end} field. */
-		public NkStyleSelectable.Buffer draw_end(NkDrawEndCallbackI value) { NkStyleSelectable.ndraw_end(address(), addressSafe(value)); return this; }
+		/** Sets the specified value to the {@code draw_begin} field. */
+		public NkStyleSelectable.Buffer draw_begin(NkDrawBeginCallbackI value) { NkStyleSelectable.ndraw_begin(address(), value); return this; }
+		/** Sets the specified value to the {@code draw_end} field. */
+		public NkStyleSelectable.Buffer draw_end(NkDrawEndCallbackI value) { NkStyleSelectable.ndraw_end(address(), value); return this; }
 
 	}
 

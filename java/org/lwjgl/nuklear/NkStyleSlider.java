@@ -201,10 +201,10 @@ public class NkStyleSlider extends Struct implements NativeResource {
 	public int dec_symbol() { return ndec_symbol(address()); }
 	/** Returns a {@link NkHandle} view of the {@code userdata} field. */
 	public NkHandle userdata() { return nuserdata(address()); }
-	/** Returns the {@code NkDrawBeginCallback} instance at the {@code draw_begin} field. */
-	public NkDrawBeginCallback draw_begin() { return NkDrawBeginCallback.create(ndraw_begin(address())); }
-	/** Returns the {@code NkDrawEndCallback} instance at the {@code draw_end} field. */
-	public NkDrawEndCallback draw_end() { return NkDrawEndCallback.create(ndraw_end(address())); }
+	/** Returns the value of the {@code draw_begin} field. */
+	public NkDrawBeginCallback draw_begin() { return ndraw_begin(address()); }
+	/** Returns the value of the {@code draw_end} field. */
+	public NkDrawEndCallback draw_end() { return ndraw_end(address()); }
 
 	/** Copies the specified {@link NkStyleItem} to the {@code normal} field. */
 	public NkStyleSlider normal(NkStyleItem value) { nnormal(address(), value); return this; }
@@ -252,10 +252,10 @@ public class NkStyleSlider extends Struct implements NativeResource {
 	public NkStyleSlider dec_symbol(int value) { ndec_symbol(address(), value); return this; }
 	/** Copies the specified {@link NkHandle} to the {@code userdata} field. */
 	public NkStyleSlider userdata(NkHandle value) { nuserdata(address(), value); return this; }
-	/** Sets the address of the specified {@link NkDrawBeginCallbackI} to the {@code draw_begin} field. */
-	public NkStyleSlider draw_begin(NkDrawBeginCallbackI value) { ndraw_begin(address(), addressSafe(value)); return this; }
-	/** Sets the address of the specified {@link NkDrawEndCallbackI} to the {@code draw_end} field. */
-	public NkStyleSlider draw_end(NkDrawEndCallbackI value) { ndraw_end(address(), addressSafe(value)); return this; }
+	/** Sets the specified value to the {@code draw_begin} field. */
+	public NkStyleSlider draw_begin(NkDrawBeginCallbackI value) { ndraw_begin(address(), value); return this; }
+	/** Sets the specified value to the {@code draw_end} field. */
+	public NkStyleSlider draw_end(NkDrawEndCallbackI value) { ndraw_end(address(), value); return this; }
 
 	/** Unsafe version of {@link #set(NkStyleSlider) set}. */
 	public NkStyleSlider nset(long struct) {
@@ -450,9 +450,9 @@ public class NkStyleSlider extends Struct implements NativeResource {
 	/** Unsafe version of {@link #userdata}. */
 	public static NkHandle nuserdata(long struct) { return NkHandle.create(struct + NkStyleSlider.USERDATA); }
 	/** Unsafe version of {@link #draw_begin}. */
-	public static long ndraw_begin(long struct) { return memGetAddress(struct + NkStyleSlider.DRAW_BEGIN); }
+	public static NkDrawBeginCallback ndraw_begin(long struct) { return NkDrawBeginCallback.create(memGetAddress(struct + NkStyleSlider.DRAW_BEGIN)); }
 	/** Unsafe version of {@link #draw_end}. */
-	public static long ndraw_end(long struct) { return memGetAddress(struct + NkStyleSlider.DRAW_END); }
+	public static NkDrawEndCallback ndraw_end(long struct) { return NkDrawEndCallback.create(memGetAddress(struct + NkStyleSlider.DRAW_END)); }
 
 	/** Unsafe version of {@link #normal(NkStyleItem) normal}. */
 	public static void nnormal(long struct, NkStyleItem value) { memCopy(value.address(), struct + NkStyleSlider.NORMAL, NkStyleItem.SIZEOF); }
@@ -501,9 +501,9 @@ public class NkStyleSlider extends Struct implements NativeResource {
 	/** Unsafe version of {@link #userdata(NkHandle) userdata}. */
 	public static void nuserdata(long struct, NkHandle value) { memCopy(value.address(), struct + NkStyleSlider.USERDATA, NkHandle.SIZEOF); }
 	/** Unsafe version of {@link #draw_begin(NkDrawBeginCallbackI) draw_begin}. */
-	public static void ndraw_begin(long struct, long value) { memPutAddress(struct + NkStyleSlider.DRAW_BEGIN, value); }
+	public static void ndraw_begin(long struct, NkDrawBeginCallbackI value) { memPutAddress(struct + NkStyleSlider.DRAW_BEGIN, addressSafe(value)); }
 	/** Unsafe version of {@link #draw_end(NkDrawEndCallbackI) draw_end}. */
-	public static void ndraw_end(long struct, long value) { memPutAddress(struct + NkStyleSlider.DRAW_END, value); }
+	public static void ndraw_end(long struct, NkDrawEndCallbackI value) { memPutAddress(struct + NkStyleSlider.DRAW_END, addressSafe(value)); }
 
 	// -----------------------------------
 
@@ -593,10 +593,10 @@ public class NkStyleSlider extends Struct implements NativeResource {
 		public int dec_symbol() { return NkStyleSlider.ndec_symbol(address()); }
 		/** Returns a {@link NkHandle} view of the {@code userdata} field. */
 		public NkHandle userdata() { return NkStyleSlider.nuserdata(address()); }
-		/** Returns the {@code NkDrawBeginCallback} instance at the {@code draw_begin} field. */
-		public NkDrawBeginCallback draw_begin() { return NkDrawBeginCallback.create(NkStyleSlider.ndraw_begin(address())); }
-		/** Returns the {@code NkDrawEndCallback} instance at the {@code draw_end} field. */
-		public NkDrawEndCallback draw_end() { return NkDrawEndCallback.create(NkStyleSlider.ndraw_end(address())); }
+		/** Returns the value of the {@code draw_begin} field. */
+		public NkDrawBeginCallback draw_begin() { return NkStyleSlider.ndraw_begin(address()); }
+		/** Returns the value of the {@code draw_end} field. */
+		public NkDrawEndCallback draw_end() { return NkStyleSlider.ndraw_end(address()); }
 
 		/** Copies the specified {@link NkStyleItem} to the {@code normal} field. */
 		public NkStyleSlider.Buffer normal(NkStyleItem value) { NkStyleSlider.nnormal(address(), value); return this; }
@@ -644,10 +644,10 @@ public class NkStyleSlider extends Struct implements NativeResource {
 		public NkStyleSlider.Buffer dec_symbol(int value) { NkStyleSlider.ndec_symbol(address(), value); return this; }
 		/** Copies the specified {@link NkHandle} to the {@code userdata} field. */
 		public NkStyleSlider.Buffer userdata(NkHandle value) { NkStyleSlider.nuserdata(address(), value); return this; }
-		/** Sets the address of the specified {@link NkDrawBeginCallbackI} to the {@code draw_begin} field. */
-		public NkStyleSlider.Buffer draw_begin(NkDrawBeginCallbackI value) { NkStyleSlider.ndraw_begin(address(), addressSafe(value)); return this; }
-		/** Sets the address of the specified {@link NkDrawEndCallbackI} to the {@code draw_end} field. */
-		public NkStyleSlider.Buffer draw_end(NkDrawEndCallbackI value) { NkStyleSlider.ndraw_end(address(), addressSafe(value)); return this; }
+		/** Sets the specified value to the {@code draw_begin} field. */
+		public NkStyleSlider.Buffer draw_begin(NkDrawBeginCallbackI value) { NkStyleSlider.ndraw_begin(address(), value); return this; }
+		/** Sets the specified value to the {@code draw_end} field. */
+		public NkStyleSlider.Buffer draw_end(NkDrawEndCallbackI value) { NkStyleSlider.ndraw_end(address(), value); return this; }
 
 	}
 

@@ -153,10 +153,10 @@ public class NkStyleButton extends Struct implements NativeResource {
 	public NkVec2 touch_padding() { return ntouch_padding(address()); }
 	/** Returns a {@link NkHandle} view of the {@code userdata} field. */
 	public NkHandle userdata() { return nuserdata(address()); }
-	/** Returns the {@code NkDrawBeginCallback} instance at the {@code draw_begin} field. */
-	public NkDrawBeginCallback draw_begin() { return NkDrawBeginCallback.create(ndraw_begin(address())); }
-	/** Returns the {@code NkDrawEndCallback} instance at the {@code draw_end} field. */
-	public NkDrawEndCallback draw_end() { return NkDrawEndCallback.create(ndraw_end(address())); }
+	/** Returns the value of the {@code draw_begin} field. */
+	public NkDrawBeginCallback draw_begin() { return ndraw_begin(address()); }
+	/** Returns the value of the {@code draw_end} field. */
+	public NkDrawEndCallback draw_end() { return ndraw_end(address()); }
 
 	/** Copies the specified {@link NkStyleItem} to the {@code normal} field. */
 	public NkStyleButton normal(NkStyleItem value) { nnormal(address(), value); return this; }
@@ -188,10 +188,10 @@ public class NkStyleButton extends Struct implements NativeResource {
 	public NkStyleButton touch_padding(NkVec2 value) { ntouch_padding(address(), value); return this; }
 	/** Copies the specified {@link NkHandle} to the {@code userdata} field. */
 	public NkStyleButton userdata(NkHandle value) { nuserdata(address(), value); return this; }
-	/** Sets the address of the specified {@link NkDrawBeginCallbackI} to the {@code draw_begin} field. */
-	public NkStyleButton draw_begin(NkDrawBeginCallbackI value) { ndraw_begin(address(), addressSafe(value)); return this; }
-	/** Sets the address of the specified {@link NkDrawEndCallbackI} to the {@code draw_end} field. */
-	public NkStyleButton draw_end(NkDrawEndCallbackI value) { ndraw_end(address(), addressSafe(value)); return this; }
+	/** Sets the specified value to the {@code draw_begin} field. */
+	public NkStyleButton draw_begin(NkDrawBeginCallbackI value) { ndraw_begin(address(), value); return this; }
+	/** Sets the specified value to the {@code draw_end} field. */
+	public NkStyleButton draw_end(NkDrawEndCallbackI value) { ndraw_end(address(), value); return this; }
 
 	/** Unsafe version of {@link #set(NkStyleButton) set}. */
 	public NkStyleButton nset(long struct) {
@@ -370,9 +370,9 @@ public class NkStyleButton extends Struct implements NativeResource {
 	/** Unsafe version of {@link #userdata}. */
 	public static NkHandle nuserdata(long struct) { return NkHandle.create(struct + NkStyleButton.USERDATA); }
 	/** Unsafe version of {@link #draw_begin}. */
-	public static long ndraw_begin(long struct) { return memGetAddress(struct + NkStyleButton.DRAW_BEGIN); }
+	public static NkDrawBeginCallback ndraw_begin(long struct) { return NkDrawBeginCallback.create(memGetAddress(struct + NkStyleButton.DRAW_BEGIN)); }
 	/** Unsafe version of {@link #draw_end}. */
-	public static long ndraw_end(long struct) { return memGetAddress(struct + NkStyleButton.DRAW_END); }
+	public static NkDrawEndCallback ndraw_end(long struct) { return NkDrawEndCallback.create(memGetAddress(struct + NkStyleButton.DRAW_END)); }
 
 	/** Unsafe version of {@link #normal(NkStyleItem) normal}. */
 	public static void nnormal(long struct, NkStyleItem value) { memCopy(value.address(), struct + NkStyleButton.NORMAL, NkStyleItem.SIZEOF); }
@@ -405,9 +405,9 @@ public class NkStyleButton extends Struct implements NativeResource {
 	/** Unsafe version of {@link #userdata(NkHandle) userdata}. */
 	public static void nuserdata(long struct, NkHandle value) { memCopy(value.address(), struct + NkStyleButton.USERDATA, NkHandle.SIZEOF); }
 	/** Unsafe version of {@link #draw_begin(NkDrawBeginCallbackI) draw_begin}. */
-	public static void ndraw_begin(long struct, long value) { memPutAddress(struct + NkStyleButton.DRAW_BEGIN, value); }
+	public static void ndraw_begin(long struct, NkDrawBeginCallbackI value) { memPutAddress(struct + NkStyleButton.DRAW_BEGIN, addressSafe(value)); }
 	/** Unsafe version of {@link #draw_end(NkDrawEndCallbackI) draw_end}. */
-	public static void ndraw_end(long struct, long value) { memPutAddress(struct + NkStyleButton.DRAW_END, value); }
+	public static void ndraw_end(long struct, NkDrawEndCallbackI value) { memPutAddress(struct + NkStyleButton.DRAW_END, addressSafe(value)); }
 
 	// -----------------------------------
 
@@ -481,10 +481,10 @@ public class NkStyleButton extends Struct implements NativeResource {
 		public NkVec2 touch_padding() { return NkStyleButton.ntouch_padding(address()); }
 		/** Returns a {@link NkHandle} view of the {@code userdata} field. */
 		public NkHandle userdata() { return NkStyleButton.nuserdata(address()); }
-		/** Returns the {@code NkDrawBeginCallback} instance at the {@code draw_begin} field. */
-		public NkDrawBeginCallback draw_begin() { return NkDrawBeginCallback.create(NkStyleButton.ndraw_begin(address())); }
-		/** Returns the {@code NkDrawEndCallback} instance at the {@code draw_end} field. */
-		public NkDrawEndCallback draw_end() { return NkDrawEndCallback.create(NkStyleButton.ndraw_end(address())); }
+		/** Returns the value of the {@code draw_begin} field. */
+		public NkDrawBeginCallback draw_begin() { return NkStyleButton.ndraw_begin(address()); }
+		/** Returns the value of the {@code draw_end} field. */
+		public NkDrawEndCallback draw_end() { return NkStyleButton.ndraw_end(address()); }
 
 		/** Copies the specified {@link NkStyleItem} to the {@code normal} field. */
 		public NkStyleButton.Buffer normal(NkStyleItem value) { NkStyleButton.nnormal(address(), value); return this; }
@@ -516,10 +516,10 @@ public class NkStyleButton extends Struct implements NativeResource {
 		public NkStyleButton.Buffer touch_padding(NkVec2 value) { NkStyleButton.ntouch_padding(address(), value); return this; }
 		/** Copies the specified {@link NkHandle} to the {@code userdata} field. */
 		public NkStyleButton.Buffer userdata(NkHandle value) { NkStyleButton.nuserdata(address(), value); return this; }
-		/** Sets the address of the specified {@link NkDrawBeginCallbackI} to the {@code draw_begin} field. */
-		public NkStyleButton.Buffer draw_begin(NkDrawBeginCallbackI value) { NkStyleButton.ndraw_begin(address(), addressSafe(value)); return this; }
-		/** Sets the address of the specified {@link NkDrawEndCallbackI} to the {@code draw_end} field. */
-		public NkStyleButton.Buffer draw_end(NkDrawEndCallbackI value) { NkStyleButton.ndraw_end(address(), addressSafe(value)); return this; }
+		/** Sets the specified value to the {@code draw_begin} field. */
+		public NkStyleButton.Buffer draw_begin(NkDrawBeginCallbackI value) { NkStyleButton.ndraw_begin(address(), value); return this; }
+		/** Sets the specified value to the {@code draw_end} field. */
+		public NkStyleButton.Buffer draw_end(NkDrawEndCallbackI value) { NkStyleButton.ndraw_end(address(), value); return this; }
 
 	}
 

@@ -79,17 +79,17 @@ public class AIFileIO extends Struct implements NativeResource {
 	@Override
 	public int sizeof() { return SIZEOF; }
 
-	/** Returns the {@code AIFileOpenProc} instance at the {@code OpenProc} field. */
-	public AIFileOpenProc OpenProc() { return AIFileOpenProc.create(nOpenProc(address())); }
-	/** Returns the {@code AIFileCloseProc} instance at the {@code CloseProc} field. */
-	public AIFileCloseProc CloseProc() { return AIFileCloseProc.create(nCloseProc(address())); }
+	/** Returns the value of the {@code OpenProc} field. */
+	public AIFileOpenProc OpenProc() { return nOpenProc(address()); }
+	/** Returns the value of the {@code CloseProc} field. */
+	public AIFileCloseProc CloseProc() { return nCloseProc(address()); }
 	/** Returns the value of the {@code UserData} field. */
 	public long UserData() { return nUserData(address()); }
 
-	/** Sets the address of the specified {@link AIFileOpenProcI} to the {@code OpenProc} field. */
-	public AIFileIO OpenProc(AIFileOpenProcI value) { nOpenProc(address(), addressSafe(value)); return this; }
-	/** Sets the address of the specified {@link AIFileCloseProcI} to the {@code CloseProc} field. */
-	public AIFileIO CloseProc(AIFileCloseProcI value) { nCloseProc(address(), addressSafe(value)); return this; }
+	/** Sets the specified value to the {@code OpenProc} field. */
+	public AIFileIO OpenProc(AIFileOpenProcI value) { nOpenProc(address(), value); return this; }
+	/** Sets the specified value to the {@code CloseProc} field. */
+	public AIFileIO CloseProc(AIFileCloseProcI value) { nCloseProc(address(), value); return this; }
 	/** Sets the specified value to the {@code UserData} field. */
 	public AIFileIO UserData(long value) { nUserData(address(), value); return this; }
 
@@ -253,16 +253,16 @@ public class AIFileIO extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** Unsafe version of {@link #OpenProc}. */
-	public static long nOpenProc(long struct) { return memGetAddress(struct + AIFileIO.OPENPROC); }
+	public static AIFileOpenProc nOpenProc(long struct) { return AIFileOpenProc.create(memGetAddress(struct + AIFileIO.OPENPROC)); }
 	/** Unsafe version of {@link #CloseProc}. */
-	public static long nCloseProc(long struct) { return memGetAddress(struct + AIFileIO.CLOSEPROC); }
+	public static AIFileCloseProc nCloseProc(long struct) { return AIFileCloseProc.create(memGetAddress(struct + AIFileIO.CLOSEPROC)); }
 	/** Unsafe version of {@link #UserData}. */
 	public static long nUserData(long struct) { return memGetAddress(struct + AIFileIO.USERDATA); }
 
 	/** Unsafe version of {@link #OpenProc(AIFileOpenProcI) OpenProc}. */
-	public static void nOpenProc(long struct, long value) { memPutAddress(struct + AIFileIO.OPENPROC, check(value)); }
+	public static void nOpenProc(long struct, AIFileOpenProcI value) { memPutAddress(struct + AIFileIO.OPENPROC, value.address()); }
 	/** Unsafe version of {@link #CloseProc(AIFileCloseProcI) CloseProc}. */
-	public static void nCloseProc(long struct, long value) { memPutAddress(struct + AIFileIO.CLOSEPROC, check(value)); }
+	public static void nCloseProc(long struct, AIFileCloseProcI value) { memPutAddress(struct + AIFileIO.CLOSEPROC, value.address()); }
 	/** Unsafe version of {@link #UserData(long) UserData}. */
 	public static void nUserData(long struct, long value) { memPutAddress(struct + AIFileIO.USERDATA, check(value)); }
 
@@ -330,17 +330,17 @@ public class AIFileIO extends Struct implements NativeResource {
 			return SIZEOF;
 		}
 
-		/** Returns the {@code AIFileOpenProc} instance at the {@code OpenProc} field. */
-		public AIFileOpenProc OpenProc() { return AIFileOpenProc.create(AIFileIO.nOpenProc(address())); }
-		/** Returns the {@code AIFileCloseProc} instance at the {@code CloseProc} field. */
-		public AIFileCloseProc CloseProc() { return AIFileCloseProc.create(AIFileIO.nCloseProc(address())); }
+		/** Returns the value of the {@code OpenProc} field. */
+		public AIFileOpenProc OpenProc() { return AIFileIO.nOpenProc(address()); }
+		/** Returns the value of the {@code CloseProc} field. */
+		public AIFileCloseProc CloseProc() { return AIFileIO.nCloseProc(address()); }
 		/** Returns the value of the {@code UserData} field. */
 		public long UserData() { return AIFileIO.nUserData(address()); }
 
-		/** Sets the address of the specified {@link AIFileOpenProcI} to the {@code OpenProc} field. */
-		public AIFileIO.Buffer OpenProc(AIFileOpenProcI value) { AIFileIO.nOpenProc(address(), addressSafe(value)); return this; }
-		/** Sets the address of the specified {@link AIFileCloseProcI} to the {@code CloseProc} field. */
-		public AIFileIO.Buffer CloseProc(AIFileCloseProcI value) { AIFileIO.nCloseProc(address(), addressSafe(value)); return this; }
+		/** Sets the specified value to the {@code OpenProc} field. */
+		public AIFileIO.Buffer OpenProc(AIFileOpenProcI value) { AIFileIO.nOpenProc(address(), value); return this; }
+		/** Sets the specified value to the {@code CloseProc} field. */
+		public AIFileIO.Buffer CloseProc(AIFileCloseProcI value) { AIFileIO.nCloseProc(address(), value); return this; }
 		/** Sets the specified value to the {@code UserData} field. */
 		public AIFileIO.Buffer UserData(long value) { AIFileIO.nUserData(address(), value); return this; }
 

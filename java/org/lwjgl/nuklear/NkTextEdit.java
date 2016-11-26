@@ -119,8 +119,8 @@ class NkTextEdit extends Struct {
 	public NkClipboard clip() { return nclip(address()); }
 	/** Returns a {@link NkStr} view of the {@code string} field. */
 	public NkStr string() { return nstring(address()); }
-	/** Returns the {@code NkPluginFilter} instance at the {@code filter} field. */
-	public NkPluginFilter filter() { return NkPluginFilter.create(nfilter(address())); }
+	/** Returns the value of the {@code filter} field. */
+	public NkPluginFilter filter() { return nfilter(address()); }
 	/** Returns a {@link NkVec2} view of the {@code scrollbar} field. */
 	public NkVec2 scrollbar() { return nscrollbar(address()); }
 	/** Returns the value of the {@code cursor} field. */
@@ -170,7 +170,7 @@ class NkTextEdit extends Struct {
 	/** Unsafe version of {@link #string}. */
 	public static NkStr nstring(long struct) { return NkStr.create(struct + NkTextEdit.STRING); }
 	/** Unsafe version of {@link #filter}. */
-	public static long nfilter(long struct) { return memGetAddress(struct + NkTextEdit.FILTER); }
+	public static NkPluginFilter nfilter(long struct) { return NkPluginFilter.create(memGetAddress(struct + NkTextEdit.FILTER)); }
 	/** Unsafe version of {@link #scrollbar}. */
 	public static NkVec2 nscrollbar(long struct) { return NkVec2.create(struct + NkTextEdit.SCROLLBAR); }
 	/** Unsafe version of {@link #cursor}. */
@@ -242,8 +242,8 @@ class NkTextEdit extends Struct {
 		public NkClipboard clip() { return NkTextEdit.nclip(address()); }
 		/** Returns a {@link NkStr} view of the {@code string} field. */
 		public NkStr string() { return NkTextEdit.nstring(address()); }
-		/** Returns the {@code NkPluginFilter} instance at the {@code filter} field. */
-		public NkPluginFilter filter() { return NkPluginFilter.create(NkTextEdit.nfilter(address())); }
+		/** Returns the value of the {@code filter} field. */
+		public NkPluginFilter filter() { return NkTextEdit.nfilter(address()); }
 		/** Returns a {@link NkVec2} view of the {@code scrollbar} field. */
 		public NkVec2 scrollbar() { return NkTextEdit.nscrollbar(address()); }
 		/** Returns the value of the {@code cursor} field. */
