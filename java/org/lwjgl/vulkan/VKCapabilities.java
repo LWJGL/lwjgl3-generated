@@ -51,7 +51,9 @@ public class VKCapabilities {
 		vkCmdFillBuffer,
 		vkCmdNextSubpass,
 		vkCmdPipelineBarrier,
+		vkCmdProcessCommandsNVX,
 		vkCmdPushConstants,
+		vkCmdReserveSpaceForCommandsNVX,
 		vkCmdResetEvent,
 		vkCmdResetQueryPool,
 		vkCmdResolveImage,
@@ -84,7 +86,9 @@ public class VKCapabilities {
 		vkCreateGraphicsPipelines,
 		vkCreateImage,
 		vkCreateImageView,
+		vkCreateIndirectCommandsLayoutNVX,
 		vkCreateInstance,
+		vkCreateObjectTableNVX,
 		vkCreatePipelineCache,
 		vkCreatePipelineLayout,
 		vkCreateQueryPool,
@@ -111,7 +115,9 @@ public class VKCapabilities {
 		vkDestroyFramebuffer,
 		vkDestroyImage,
 		vkDestroyImageView,
+		vkDestroyIndirectCommandsLayoutNVX,
 		vkDestroyInstance,
+		vkDestroyObjectTableNVX,
 		vkDestroyPipeline,
 		vkDestroyPipelineCache,
 		vkDestroyPipelineLayout,
@@ -152,6 +158,7 @@ public class VKCapabilities {
 		vkGetPhysicalDeviceExternalImageFormatPropertiesNV,
 		vkGetPhysicalDeviceFeatures,
 		vkGetPhysicalDeviceFormatProperties,
+		vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX,
 		vkGetPhysicalDeviceImageFormatProperties,
 		vkGetPhysicalDeviceMemoryProperties,
 		vkGetPhysicalDeviceProperties,
@@ -174,6 +181,7 @@ public class VKCapabilities {
 		vkQueuePresentKHR,
 		vkQueueSubmit,
 		vkQueueWaitIdle,
+		vkRegisterObjectsNVX,
 		vkResetCommandBuffer,
 		vkResetCommandPool,
 		vkResetDescriptorPool,
@@ -181,6 +189,7 @@ public class VKCapabilities {
 		vkResetFences,
 		vkSetEvent,
 		vkUnmapMemory,
+		vkUnregisterObjectsNVX,
 		vkUpdateDescriptorSets,
 		vkWaitForFences;
 
@@ -242,6 +251,8 @@ public class VKCapabilities {
 	public final boolean VK_NV_glsl_shader;
 	/** When true, {@link NVWin32KeyedMutex} is supported. */
 	public final boolean VK_NV_win32_keyed_mutex;
+	/** When true, {@link NVXDeviceGeneratedCommands} is supported. */
+	public final boolean VK_NVX_device_generated_commands;
 
 	VKCapabilities(FunctionProvider provider, int apiVersion, Set<String> ext) {
 		this.apiVersion = apiVersion;
@@ -285,7 +296,9 @@ public class VKCapabilities {
 		vkCmdFillBuffer = provider.getFunctionAddress("vkCmdFillBuffer");
 		vkCmdNextSubpass = provider.getFunctionAddress("vkCmdNextSubpass");
 		vkCmdPipelineBarrier = provider.getFunctionAddress("vkCmdPipelineBarrier");
+		vkCmdProcessCommandsNVX = provider.getFunctionAddress("vkCmdProcessCommandsNVX");
 		vkCmdPushConstants = provider.getFunctionAddress("vkCmdPushConstants");
+		vkCmdReserveSpaceForCommandsNVX = provider.getFunctionAddress("vkCmdReserveSpaceForCommandsNVX");
 		vkCmdResetEvent = provider.getFunctionAddress("vkCmdResetEvent");
 		vkCmdResetQueryPool = provider.getFunctionAddress("vkCmdResetQueryPool");
 		vkCmdResolveImage = provider.getFunctionAddress("vkCmdResolveImage");
@@ -318,7 +331,9 @@ public class VKCapabilities {
 		vkCreateGraphicsPipelines = provider.getFunctionAddress("vkCreateGraphicsPipelines");
 		vkCreateImage = provider.getFunctionAddress("vkCreateImage");
 		vkCreateImageView = provider.getFunctionAddress("vkCreateImageView");
+		vkCreateIndirectCommandsLayoutNVX = provider.getFunctionAddress("vkCreateIndirectCommandsLayoutNVX");
 		vkCreateInstance = provider.getFunctionAddress("vkCreateInstance");
+		vkCreateObjectTableNVX = provider.getFunctionAddress("vkCreateObjectTableNVX");
 		vkCreatePipelineCache = provider.getFunctionAddress("vkCreatePipelineCache");
 		vkCreatePipelineLayout = provider.getFunctionAddress("vkCreatePipelineLayout");
 		vkCreateQueryPool = provider.getFunctionAddress("vkCreateQueryPool");
@@ -345,7 +360,9 @@ public class VKCapabilities {
 		vkDestroyFramebuffer = provider.getFunctionAddress("vkDestroyFramebuffer");
 		vkDestroyImage = provider.getFunctionAddress("vkDestroyImage");
 		vkDestroyImageView = provider.getFunctionAddress("vkDestroyImageView");
+		vkDestroyIndirectCommandsLayoutNVX = provider.getFunctionAddress("vkDestroyIndirectCommandsLayoutNVX");
 		vkDestroyInstance = provider.getFunctionAddress("vkDestroyInstance");
+		vkDestroyObjectTableNVX = provider.getFunctionAddress("vkDestroyObjectTableNVX");
 		vkDestroyPipeline = provider.getFunctionAddress("vkDestroyPipeline");
 		vkDestroyPipelineCache = provider.getFunctionAddress("vkDestroyPipelineCache");
 		vkDestroyPipelineLayout = provider.getFunctionAddress("vkDestroyPipelineLayout");
@@ -386,6 +403,7 @@ public class VKCapabilities {
 		vkGetPhysicalDeviceExternalImageFormatPropertiesNV = provider.getFunctionAddress("vkGetPhysicalDeviceExternalImageFormatPropertiesNV");
 		vkGetPhysicalDeviceFeatures = provider.getFunctionAddress("vkGetPhysicalDeviceFeatures");
 		vkGetPhysicalDeviceFormatProperties = provider.getFunctionAddress("vkGetPhysicalDeviceFormatProperties");
+		vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX = provider.getFunctionAddress("vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX");
 		vkGetPhysicalDeviceImageFormatProperties = provider.getFunctionAddress("vkGetPhysicalDeviceImageFormatProperties");
 		vkGetPhysicalDeviceMemoryProperties = provider.getFunctionAddress("vkGetPhysicalDeviceMemoryProperties");
 		vkGetPhysicalDeviceProperties = provider.getFunctionAddress("vkGetPhysicalDeviceProperties");
@@ -408,6 +426,7 @@ public class VKCapabilities {
 		vkQueuePresentKHR = provider.getFunctionAddress("vkQueuePresentKHR");
 		vkQueueSubmit = provider.getFunctionAddress("vkQueueSubmit");
 		vkQueueWaitIdle = provider.getFunctionAddress("vkQueueWaitIdle");
+		vkRegisterObjectsNVX = provider.getFunctionAddress("vkRegisterObjectsNVX");
 		vkResetCommandBuffer = provider.getFunctionAddress("vkResetCommandBuffer");
 		vkResetCommandPool = provider.getFunctionAddress("vkResetCommandPool");
 		vkResetDescriptorPool = provider.getFunctionAddress("vkResetDescriptorPool");
@@ -415,6 +434,7 @@ public class VKCapabilities {
 		vkResetFences = provider.getFunctionAddress("vkResetFences");
 		vkSetEvent = provider.getFunctionAddress("vkSetEvent");
 		vkUnmapMemory = provider.getFunctionAddress("vkUnmapMemory");
+		vkUnregisterObjectsNVX = provider.getFunctionAddress("vkUnregisterObjectsNVX");
 		vkUpdateDescriptorSets = provider.getFunctionAddress("vkUpdateDescriptorSets");
 		vkWaitForFences = provider.getFunctionAddress("vkWaitForFences");
 
@@ -445,6 +465,7 @@ public class VKCapabilities {
 		VK_NV_external_memory_win32 = ext.contains("VK_NV_external_memory_win32") && VK.checkExtension("VK_NV_external_memory_win32", NVExternalMemoryWin32.isAvailable(this));
 		VK_NV_glsl_shader = ext.contains("VK_NV_glsl_shader");
 		VK_NV_win32_keyed_mutex = ext.contains("VK_NV_win32_keyed_mutex");
+		VK_NVX_device_generated_commands = ext.contains("VK_NVX_device_generated_commands") && VK.checkExtension("VK_NVX_device_generated_commands", NVXDeviceGeneratedCommands.isAvailable(this));
 	}
 
 }

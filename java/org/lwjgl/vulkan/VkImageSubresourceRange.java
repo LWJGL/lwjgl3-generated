@@ -40,7 +40,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>If {@code levelCount} is not {@link VK10#VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS}, <code>levelCount</code> <b>must</b> be non-zero and <code>(baseMipLevel levelCount)</code> <b>must</b> be less than or equal to the {@code mipLevels} specified in {@link VkImageCreateInfo} when the image was created</li>
+ * <li>If {@code levelCount} is not {@link VK10#VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS}, <code>levelCount</code> <b>must</b> be non-zero and <code>(baseMipLevel &#x002b; levelCount)</code> <b>must</b> be less than or equal to the {@code mipLevels} specified in {@link VkImageCreateInfo} when the image was created</li>
  * <li>If {@code layerCount} is not {@link VK10#VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, <code>layerCount</code> <b>must</b> be non-zero and <code>(baseArrayLayer + layerCount)</code> <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when the image was created</li>
  * </ul>
  * 

@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -32,7 +31,7 @@ import org.lwjgl.system.windows.*;
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link NVExternalMemoryWin32#VK_STRUCTURE_TYPE_EXPORT_MEMORY_WIN32_HANDLE_INFO_NV STRUCTURE_TYPE_EXPORT_MEMORY_WIN32_HANDLE_INFO_NV}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
- * <li>{@code pAttributes} <b>must</b> be a pointer to a valid {@code SECURITY_ATTRIBUTES} value</li>
+ * <li>If {@code pAttributes} is not {@code NULL}, {@code pAttributes} <b>must</b> be a pointer to a valid {@code SECURITY_ATTRIBUTES} value</li>
  * </ul>
  * 
  * <h3>Member documentation</h3>
@@ -294,7 +293,7 @@ public class VkExportMemoryWin32HandleInfoNV extends Struct implements NativeRes
 	/** Unsafe version of {@link #pNext(long) pNext}. */
 	public static void npNext(long struct, long value) { memPutAddress(struct + VkExportMemoryWin32HandleInfoNV.PNEXT, value); }
 	/** Unsafe version of {@link #pAttributes(SECURITY_ATTRIBUTES) pAttributes}. */
-	public static void npAttributes(long struct, SECURITY_ATTRIBUTES value) { memPutAddress(struct + VkExportMemoryWin32HandleInfoNV.PATTRIBUTES, value.address()); }
+	public static void npAttributes(long struct, SECURITY_ATTRIBUTES value) { memPutAddress(struct + VkExportMemoryWin32HandleInfoNV.PATTRIBUTES, addressSafe(value)); }
 	/** Unsafe version of {@link #dwAccess(int) dwAccess}. */
 	public static void ndwAccess(long struct, int value) { memPutInt(struct + VkExportMemoryWin32HandleInfoNV.DWACCESS, value); }
 
@@ -305,8 +304,8 @@ public class VkExportMemoryWin32HandleInfoNV extends Struct implements NativeRes
 	 */
 	public static void validate(long struct) {
 		long pAttributes = memGetAddress(struct + VkExportMemoryWin32HandleInfoNV.PATTRIBUTES);
-		check(pAttributes);
-		SECURITY_ATTRIBUTES.validate(pAttributes);
+		if ( pAttributes != NULL )
+			SECURITY_ATTRIBUTES.validate(pAttributes);
 	}
 
 	/**

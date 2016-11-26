@@ -18,14 +18,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>Description</h5>
  * 
- * <p>If {@code oldLayout} differs from {@code newLayout}, a layout transition occurs as part of the image memory barrier, affecting the data contained in the region of the image defined by the {@code subresourceRange}. If {@code oldLayout} is {@link VK10#VK_IMAGE_LAYOUT_UNDEFINED IMAGE_LAYOUT_UNDEFINED}, then the data is undefined after the layout transition. This <b>may</b> allow a more efficient transition, since the data <b>may</b> be discarded. The layout transition <b>must</b> occur after all operations using the old layout are completed and before all operations using the new layout are started. This is achieved by ensuring that there is a memory dependency between previous accesses and the layout transition, as well as between the layout transition and subsequent accesses, where the layout transition occurs between the two halves of a memory dependency in an image memory barrier.</p>
+ * <p>The first <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-access-scopes"> access scope</a> is limited to access to the memory backing the specified image subresource range, via access types in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-masks"> source access mask</a> specified by {@code srcAccessMask}.</p>
  * 
- * <p>Layout transitions that are performed via image memory barriers are automatically ordered against other layout transitions, including those that occur as part of a render pass instance.</p>
+ * <p>The second <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-access-scopes"> access scope</a> is limited to access to the memory backing the specified image subresource range, via access types in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-masks"> destination access mask</a> specified by {@code dstAccessMask}.</p>
  * 
- * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+ * <p>If {@code srcQueueFamilyIndex} is not equal to {@code dstQueueFamilyIndex}, and {@code srcQueueFamilyIndex} is equal to the current queue family, then the memory barrier defines a <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-queue-transfers-release"> queue family release operation</a> for the specified image subresource range, and the second access scope includes no access, as if {@code dstAccessMask} was 0.</p>
  * 
- * <p>See <<resources-image-layouts>> for details on available image layouts and their usages.</p>
- * </div>
+ * <p>If {@code dstQueueFamilyIndex} is not equal to {@code srcQueueFamilyIndex}, and {@code dstQueueFamilyIndex} is equal to the current queue family, then the memory barrier defines a <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-queue-transfers-acquire"> queue family acquire operation</a> for the specified image subresource range, and the first access scope includes no access, as if {@code srcAccessMask} was 0.</p>
+ * 
+ * <p>If {@code oldLayout} is not equal to {@code newLayout}, then the memory barrier defines an <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-image-layout-transitions"> image layout transition</a> for the specified image subresource range. Layout transitions that are performed via image memory barriers automatically happen-after layout transitions previously submitted to the same queue, and automatically happen-before layout transitions subsequently submitted to the same queue; this includes layout transitions that occur as part of a render pass instance, in both cases.</p>
  * 
  * <h5>Valid Usage</h5>
  * 
@@ -67,12 +68,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code srcAccessMask} &ndash; a bitmask of the classes of memory accesses performed by the first set of commands that will participate in the dependency.</li>
- * <li>{@code dstAccessMask} &ndash; a bitmask of the classes of memory accesses performed by the second set of commands that will participate in the dependency.</li>
- * <li>{@code oldLayout} &ndash; describes the current layout of the image subresource(s).</li>
- * <li>{@code newLayout} &ndash; describes the new layout of the image subresource(s).</li>
- * <li>{@code srcQueueFamilyIndex} &ndash; the queue family that is relinquishing ownership of the image subresource(s) to another queue, or {@link VK10#VK_QUEUE_FAMILY_IGNORED QUEUE_FAMILY_IGNORED} if there is no transfer of ownership).</li>
- * <li>{@code dstQueueFamilyIndex} &ndash; the queue family that is acquiring ownership of the image subresource(s) from another queue, or {@link VK10#VK_QUEUE_FAMILY_IGNORED QUEUE_FAMILY_IGNORED} if there is no transfer of ownership).</li>
+ * <li>{@code srcAccessMask} &ndash; defines a <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-masks">source access mask</a>.</li>
+ * <li>{@code dstAccessMask} &ndash; defines a <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-masks">destination access mask</a>.</li>
+ * <li>{@code oldLayout} &ndash; the old layout in an <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-image-layout-transitions">image layout transition</a>.</li>
+ * <li>{@code newLayout} &ndash; the new layout in an <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-image-layout-transitions">image layout transition</a>.</li>
+ * <li>{@code srcQueueFamilyIndex} &ndash; the source queue family for a <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-queue-transfers">queue family ownership transfer</a></li>
+ * <li>{@code dstQueueFamilyIndex} &ndash; the destination queue family for a <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-queue-transfers">queue family ownership transfer</a></li>
  * <li>{@code image} &ndash; a handle to the image whose backing memory is affected by the barrier.</li>
  * <li>{@code subresourceRange} &ndash; describes an area of the backing memory for {@code image} (see <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#resources-image-views">the “Image Views” section</a> for the description of {@link VkImageSubresourceRange}), as well as the set of image subresources whose image layouts are modified.</li>
  * </ul>

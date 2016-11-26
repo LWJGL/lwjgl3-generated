@@ -18,23 +18,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>Description</h5>
  * 
- * <p>Each subpass dependency defines an execution and memory dependency between two sets of commands, with the second set depending on the first set. When {@code srcSubpass} does not equal {@code dstSubpass} then the first set of commands is:</p>
+ * <p>If {@code srcSubpass} is equal to {@code dstSubpass} then the {@link VkSubpassDependency} describes a <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-barriers-subpass-self-dependencies"> subpass self-dependency</a>, and only constrains the pipeline barriers allowed within a subpass instance. Otherwise, when a render pass instance which includes a subpass dependency is submitted to a queue, it defines a memory dependency between the subpasses identified by {@code srcSubpass} and {@code dstSubpass}.</p>
  * 
- * <ul>
- * <li>All commands in the subpass indicated by {@code srcSubpass}, if {@code srcSubpass} is not {@link VK10#VK_SUBPASS_EXTERNAL SUBPASS_EXTERNAL}.</li>
- * <li>All commands before the render pass instance, if {@code srcSubpass} is {@link VK10#VK_SUBPASS_EXTERNAL SUBPASS_EXTERNAL}.</li>
- * </ul>
+ * <p>If {@code srcSubpass} is equal to {@link VK10#VK_SUBPASS_EXTERNAL SUBPASS_EXTERNAL}, the first <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-scopes"> synchronization scope</a> includes commands submitted to the queue before the render pass instance began. Otherwise, the first set of commands includes all commands submitted as part of the subpass instance identified by {@code srcSubpass} and any load, store or multisample resolve operations on attachments used in {@code srcSubpass}. In either case, the first synchronization scope is limited to operations on the pipeline stages determined by the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks"> source stage mask</a> specified by {@code srcStageMask}.</p>
  * 
- * <p>While the corresponding second set of commands is:</p>
+ * <p>If {@code dstSubpass} is equal to {@link VK10#VK_SUBPASS_EXTERNAL SUBPASS_EXTERNAL}, the second <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-scopes"> synchronization scope</a> includes commands submitted after the render pass instance is ended. Otherwise, the second set of commands includes all commands submitted as part of the subpass instance identified by {@code dstSubpass} and any load, store or multisample resolve operations on attachments used in {@code dstSubpass}. In either case, the second synchronization scope is limited to operations on the pipeline stages determined by the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks"> destination stage mask</a> specified by {@code dstStageMask}.</p>
  * 
- * <ul>
- * <li>All commands in the subpass indicated by {@code dstSubpass}, if {@code dstSubpass} is not {@link VK10#VK_SUBPASS_EXTERNAL SUBPASS_EXTERNAL}.</li>
- * <li>All commands after the render pass instance, if {@code dstSubpass} is {@link VK10#VK_SUBPASS_EXTERNAL SUBPASS_EXTERNAL}.</li>
- * </ul>
+ * <p>The first <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-access-scopes"> access scope</a> is limited to access in the pipeline stages determined by the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks"> source stage mask</a> specified by {@code srcStageMask}. It is also limited to access types in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-masks"> source access mask</a> specified by {@code srcAccessMask}.</p>
  * 
- * <p>When {@code srcSubpass} equals {@code dstSubpass} then the first set consists of commands in the subpass before a call to {@link VK10#vkCmdPipelineBarrier CmdPipelineBarrier} and the second set consists of commands in the subpass following that same call as described in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-barriers-subpass-self-dependencies"> Subpass Self-dependency</a> section.</p>
+ * <p>The second <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-access-scopes"> access scope</a> is limited to access in the pipeline stages determined by the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks"> destination stage mask</a> specified by {@code dstStageMask}. It is also limited to access types in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-masks"> destination access mask</a> specified by {@code dstAccessMask}.</p>
  * 
- * <p>The {@code srcStageMask}, {@code dstStageMask}, {@code srcAccessMask}, {@code dstAccessMask}, and {@code dependencyFlags} parameters of the dependency are interpreted the same way as for other dependencies, as described in <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization"> Synchronization and Cache Control</a>.</p>
+ * <p>The <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-available-and-visible"> availability and visibility operations</a> defined by a subpass dependency affect the execution of <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#renderpass-layout-transitions"> image layout transitions</a> within the render pass.</p>
  * 
  * <h5>Valid Usage</h5>
  * 
@@ -46,7 +40,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code srcSubpass} <b>must</b> be less than or equal to {@code dstSubpass}, unless one of them is {@link VK10#VK_SUBPASS_EXTERNAL SUBPASS_EXTERNAL}, to avoid cyclic dependencies and ensure a valid execution order</li>
  * <li>{@code srcSubpass} and {@code dstSubpass} <b>must</b> not both be equal to {@link VK10#VK_SUBPASS_EXTERNAL SUBPASS_EXTERNAL}</li>
  * <li>If {@code srcSubpass} is equal to {@code dstSubpass}, {@code srcStageMask} and {@code dstStageMask} <b>must</b> only contain one of {@link VK10#VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT PIPELINE_STAGE_TOP_OF_PIPE_BIT}, {@link VK10#VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT PIPELINE_STAGE_DRAW_INDIRECT_BIT}, {@link VK10#VK_PIPELINE_STAGE_VERTEX_INPUT_BIT PIPELINE_STAGE_VERTEX_INPUT_BIT}, {@link VK10#VK_PIPELINE_STAGE_VERTEX_SHADER_BIT PIPELINE_STAGE_VERTEX_SHADER_BIT}, {@link VK10#VK_PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT PIPELINE_STAGE_TESSELLATION_CONTROL_SHADER_BIT}, {@link VK10#VK_PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT PIPELINE_STAGE_TESSELLATION_EVALUATION_SHADER_BIT}, {@link VK10#VK_PIPELINE_STAGE_GEOMETRY_SHADER_BIT PIPELINE_STAGE_GEOMETRY_SHADER_BIT}, {@link VK10#VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT PIPELINE_STAGE_FRAGMENT_SHADER_BIT}, {@link VK10#VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT}, {@link VK10#VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT}, {@link VK10#VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT}, {@link VK10#VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT}, or {@link VK10#VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT PIPELINE_STAGE_ALL_GRAPHICS_BIT}</li>
- * <li>If {@code srcSubpass} is equal to {@code dstSubpass}, the highest bit value included in {@code srcStageMask} <b>must</b> be less than or equal to the lowest bit value in {@code dstStageMask}</li>
+ * <li>If {@code srcSubpass} is equal to {@code dstSubpass}, the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-order">logically latest</a> pipeline stage in {@code srcStageMask} <b>must</b> be <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-order">logically earlier</a> than or equal to the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-order">logically earliest</a> pipeline stage in {@code dstStageMask}</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>
@@ -68,21 +62,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code srcSubpass} &ndash; {@code srcSubpass} and {@code dstSubpass} are the subpass indices of the producer and consumer subpasses, respectively. {@code srcSubpass} and {@code dstSubpass} <b>can</b> also have the special value {@link VK10#VK_SUBPASS_EXTERNAL SUBPASS_EXTERNAL}. The source subpass <b>must</b> always be a lower numbered subpass than the destination subpass (excluding external subpasses and <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-barriers-subpass-self-dependencies">self-dependencies</a>), so that the order of subpass descriptions is a valid execution ordering, avoiding cycles in the dependency graph.</li>
- * <li>{@code dstSubpass} &ndash; see {@code srcSubpass}</li>
- * <li>{@code srcStageMask} &ndash; {@code srcStageMask}, {@code dstStageMask}, {@code srcAccessMask}, {@code dstAccessMask}, and {@code dependencyFlags} describe an <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-execution-and-memory-dependencies">execution and memory dependency</a> between subpasses. The bits that <b>can</b> be included in {@code dependencyFlags} are:
- * 
- * <pre><code>typedef enum VkDependencyFlagBits {
-    VK_DEPENDENCY_BY_REGION_BIT = 0x00000001,
-} VkDependencyFlagBits;</code></pre>
- * 
- * <ul>
- * <li>If {@code dependencyFlags} contains {@link VK10#VK_DEPENDENCY_BY_REGION_BIT DEPENDENCY_BY_REGION_BIT}, then the dependency is by-region as defined in <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-execution-and-memory-dependencies">Execution And Memory Dependencies</a>.</li>
- * </ul></li>
- * <li>{@code dstStageMask} &ndash; see {@code srcStageMask}</li>
- * <li>{@code srcAccessMask} &ndash; see {@code srcStageMask}</li>
- * <li>{@code dstAccessMask} &ndash; see {@code srcStageMask}</li>
- * <li>{@code dependencyFlags} &ndash; see {@code srcStageMask}</li>
+ * <li>{@code srcSubpass} &ndash; the subpass index of the first subpass in the dependency, or {@link VK10#VK_SUBPASS_EXTERNAL SUBPASS_EXTERNAL}.</li>
+ * <li>{@code dstSubpass} &ndash; the subpass index of the second subpass in the dependency, or {@link VK10#VK_SUBPASS_EXTERNAL SUBPASS_EXTERNAL}.</li>
+ * <li>{@code srcStageMask} &ndash; defines a <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks">source stage mask</a>.</li>
+ * <li>{@code dstStageMask} &ndash; defines a <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-masks">destination stage mask</a>.</li>
+ * <li>{@code srcAccessMask} &ndash; defines a <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-masks">source access mask</a>.</li>
+ * <li>{@code dstAccessMask} &ndash; defines a <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-masks">destination access mask</a>.</li>
+ * <li>{@code dependencyFlags} &ndash; a bitmask of {@code VkDependencyFlagBits}.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

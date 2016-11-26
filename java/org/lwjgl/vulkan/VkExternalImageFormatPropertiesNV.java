@@ -16,22 +16,6 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Structure specifying external image format properties.
  * 
- * <h5>Valid Usage (Implicit)</h5>
- * 
- * <ul>
- * <li>{@code imageFormatProperties} <b>must</b> be a valid {@link VkImageFormatProperties} structure</li>
- * <li>{@code externalMemoryFeatures} <b>must</b> be a valid combination of {@code VkExternalMemoryFeatureFlagBitsNV} values</li>
- * <li>{@code externalMemoryFeatures} <b>must</b> not be 0</li>
- * <li>{@code exportFromImportedHandleTypes} <b>must</b> be a valid combination of {@code VkExternalMemoryHandleTypeFlagBitsNV} values</li>
- * <li>{@code exportFromImportedHandleTypes} <b>must</b> not be 0</li>
- * <li>{@code compatibleHandleTypes} <b>must</b> be a valid combination of {@code VkExternalMemoryHandleTypeFlagBitsNV} values</li>
- * <li>{@code compatibleHandleTypes} <b>must</b> not be 0</li>
- * </ul>
- * 
- * <h5>See Also</h5>
- * 
- * <p>{@link VkImageFormatProperties}, {@link NVExternalMemoryCapabilities#vkGetPhysicalDeviceExternalImageFormatPropertiesNV GetPhysicalDeviceExternalImageFormatPropertiesNV}</p>
- * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
@@ -106,47 +90,6 @@ public class VkExternalImageFormatPropertiesNV extends Struct implements NativeR
 	public int exportFromImportedHandleTypes() { return nexportFromImportedHandleTypes(address()); }
 	/** Returns the value of the {@code compatibleHandleTypes} field. */
 	public int compatibleHandleTypes() { return ncompatibleHandleTypes(address()); }
-
-	/** Copies the specified {@link VkImageFormatProperties} to the {@code imageFormatProperties} field. */
-	public VkExternalImageFormatPropertiesNV imageFormatProperties(VkImageFormatProperties value) { nimageFormatProperties(address(), value); return this; }
-	/** Sets the specified value to the {@code externalMemoryFeatures} field. */
-	public VkExternalImageFormatPropertiesNV externalMemoryFeatures(int value) { nexternalMemoryFeatures(address(), value); return this; }
-	/** Sets the specified value to the {@code exportFromImportedHandleTypes} field. */
-	public VkExternalImageFormatPropertiesNV exportFromImportedHandleTypes(int value) { nexportFromImportedHandleTypes(address(), value); return this; }
-	/** Sets the specified value to the {@code compatibleHandleTypes} field. */
-	public VkExternalImageFormatPropertiesNV compatibleHandleTypes(int value) { ncompatibleHandleTypes(address(), value); return this; }
-
-	/** Initializes this struct with the specified values. */
-	public VkExternalImageFormatPropertiesNV set(
-		VkImageFormatProperties imageFormatProperties,
-		int externalMemoryFeatures,
-		int exportFromImportedHandleTypes,
-		int compatibleHandleTypes
-	) {
-		imageFormatProperties(imageFormatProperties);
-		externalMemoryFeatures(externalMemoryFeatures);
-		exportFromImportedHandleTypes(exportFromImportedHandleTypes);
-		compatibleHandleTypes(compatibleHandleTypes);
-
-		return this;
-	}
-
-	/** Unsafe version of {@link #set(VkExternalImageFormatPropertiesNV) set}. */
-	public VkExternalImageFormatPropertiesNV nset(long struct) {
-		memCopy(struct, address(), SIZEOF);
-		return this;
-	}
-
-	/**
-	 * Copies the specified struct data to this struct.
-	 *
-	 * @param src the source struct
-	 *
-	 * @return this struct
-	 */
-	public VkExternalImageFormatPropertiesNV set(VkExternalImageFormatPropertiesNV src) {
-		return nset(src.address());
-	}
 
 	// -----------------------------------
 
@@ -286,15 +229,6 @@ public class VkExternalImageFormatPropertiesNV extends Struct implements NativeR
 	/** Unsafe version of {@link #compatibleHandleTypes}. */
 	public static int ncompatibleHandleTypes(long struct) { return memGetInt(struct + VkExternalImageFormatPropertiesNV.COMPATIBLEHANDLETYPES); }
 
-	/** Unsafe version of {@link #imageFormatProperties(VkImageFormatProperties) imageFormatProperties}. */
-	public static void nimageFormatProperties(long struct, VkImageFormatProperties value) { memCopy(value.address(), struct + VkExternalImageFormatPropertiesNV.IMAGEFORMATPROPERTIES, VkImageFormatProperties.SIZEOF); }
-	/** Unsafe version of {@link #externalMemoryFeatures(int) externalMemoryFeatures}. */
-	public static void nexternalMemoryFeatures(long struct, int value) { memPutInt(struct + VkExternalImageFormatPropertiesNV.EXTERNALMEMORYFEATURES, value); }
-	/** Unsafe version of {@link #exportFromImportedHandleTypes(int) exportFromImportedHandleTypes}. */
-	public static void nexportFromImportedHandleTypes(long struct, int value) { memPutInt(struct + VkExternalImageFormatPropertiesNV.EXPORTFROMIMPORTEDHANDLETYPES, value); }
-	/** Unsafe version of {@link #compatibleHandleTypes(int) compatibleHandleTypes}. */
-	public static void ncompatibleHandleTypes(long struct, int value) { memPutInt(struct + VkExternalImageFormatPropertiesNV.COMPATIBLEHANDLETYPES, value); }
-
 	// -----------------------------------
 
 	/** An array of {@link VkExternalImageFormatPropertiesNV} structs. */
@@ -345,15 +279,6 @@ public class VkExternalImageFormatPropertiesNV extends Struct implements NativeR
 		public int exportFromImportedHandleTypes() { return VkExternalImageFormatPropertiesNV.nexportFromImportedHandleTypes(address()); }
 		/** Returns the value of the {@code compatibleHandleTypes} field. */
 		public int compatibleHandleTypes() { return VkExternalImageFormatPropertiesNV.ncompatibleHandleTypes(address()); }
-
-		/** Copies the specified {@link VkImageFormatProperties} to the {@code imageFormatProperties} field. */
-		public VkExternalImageFormatPropertiesNV.Buffer imageFormatProperties(VkImageFormatProperties value) { VkExternalImageFormatPropertiesNV.nimageFormatProperties(address(), value); return this; }
-		/** Sets the specified value to the {@code externalMemoryFeatures} field. */
-		public VkExternalImageFormatPropertiesNV.Buffer externalMemoryFeatures(int value) { VkExternalImageFormatPropertiesNV.nexternalMemoryFeatures(address(), value); return this; }
-		/** Sets the specified value to the {@code exportFromImportedHandleTypes} field. */
-		public VkExternalImageFormatPropertiesNV.Buffer exportFromImportedHandleTypes(int value) { VkExternalImageFormatPropertiesNV.nexportFromImportedHandleTypes(address(), value); return this; }
-		/** Sets the specified value to the {@code compatibleHandleTypes} field. */
-		public VkExternalImageFormatPropertiesNV.Buffer compatibleHandleTypes(int value) { VkExternalImageFormatPropertiesNV.ncompatibleHandleTypes(address(), value); return this; }
 
 	}
 

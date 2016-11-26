@@ -19,6 +19,13 @@ import org.lwjgl.system.windows.*;
 /**
  * Structure specifying parameters of a newly created Win32 surface object.
  * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>{@code hinstance} <b>must</b> be a valid Win32 {@code HINSTANCE}.</li>
+ * <li>{@code hwnd} <b>must</b> be a valid Win32 {@code HWND}.</li>
+ * </ul>
+ * 
  * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>

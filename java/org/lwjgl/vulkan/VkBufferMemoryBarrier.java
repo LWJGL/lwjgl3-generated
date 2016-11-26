@@ -14,7 +14,17 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * Structure specifying the parameters of a buffer memory barrier.
+ * Structure specifying a buffer memory barrier.
+ * 
+ * <h5>Description</h5>
+ * 
+ * <p>The first <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-access-scopes"> access scope</a> is limited to access to the memory backing the specified buffer range, via access types in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-masks"> source access mask</a> specified by {@code srcAccessMask}.</p>
+ * 
+ * <p>The second <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-dependencies-access-scopes"> access scope</a> is limited to access to the memory backing the specified buffer range, via access types in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-masks"> destination access mask</a> specified by {@code dstAccessMask}.</p>
+ * 
+ * <p>If {@code srcQueueFamilyIndex} is not equal to {@code dstQueueFamilyIndex}, and {@code srcQueueFamilyIndex} is equal to the current queue family, then the memory barrier defines a <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-queue-transfers-release"> queue family release operation</a> for the specified buffer range, and the second access scope includes no access, as if {@code dstAccessMask} was 0.</p>
+ * 
+ * <p>If {@code dstQueueFamilyIndex} is not equal to {@code srcQueueFamilyIndex}, and {@code dstQueueFamilyIndex} is equal to the current queue family, then the memory barrier defines a <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-queue-transfers-acquire"> queue family acquire operation</a> for the specified buffer range, and the first access scope includes no access, as if {@code srcAccessMask} was 0.</p>
  * 
  * <h5>Valid Usage</h5>
  * 
@@ -46,10 +56,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code srcAccessMask} &ndash; a bitmask of the classes of memory accesses performed by the first set of commands that will participate in the dependency.</li>
- * <li>{@code dstAccessMask} &ndash; a bitmask of the classes of memory accesses performed by the second set of commands that will participate in the dependency.</li>
- * <li>{@code srcQueueFamilyIndex} &ndash; the queue family that is relinquishing ownership of the range of {@code buffer} to another queue, or {@link VK10#VK_QUEUE_FAMILY_IGNORED QUEUE_FAMILY_IGNORED} if there is no transfer of ownership.</li>
- * <li>{@code dstQueueFamilyIndex} &ndash; the queue family that is acquiring ownership of the range of {@code buffer} from another queue, or {@link VK10#VK_QUEUE_FAMILY_IGNORED QUEUE_FAMILY_IGNORED} if there is no transfer of ownership.</li>
+ * <li>{@code srcAccessMask} &ndash; defines a <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-masks">source access mask</a>.</li>
+ * <li>{@code dstAccessMask} &ndash; defines a <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-access-masks">destination access mask</a>.</li>
+ * <li>{@code srcQueueFamilyIndex} &ndash; the source queue family for a <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-queue-transfers">queue family ownership transfer</a></li>
+ * <li>{@code dstQueueFamilyIndex} &ndash; the destination queue family for a <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-queue-transfers">queue family ownership transfer</a></li>
  * <li>{@code buffer} &ndash; a handle to the buffer whose backing memory is affected by the barrier.</li>
  * <li>{@code offset} &ndash; an offset in bytes into the backing memory for {@code buffer}; this is relative to the base offset as bound to the buffer (see {@link VK10#vkBindBufferMemory BindBufferMemory}).</li>
  * <li>{@code size} &ndash; a size in bytes of the affected area of backing memory for {@code buffer}, or {@link VK10#VK_WHOLE_SIZE WHOLE_SIZE} to use the range from {@code offset} to the end of the buffer.</li>

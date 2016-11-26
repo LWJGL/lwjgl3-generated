@@ -120,9 +120,7 @@ public class NVExternalMemoryCapabilities {
 	 * <li>{@code usage} <b>must</b> be a valid combination of {@code VkImageUsageFlagBits} values</li>
 	 * <li>{@code usage} <b>must</b> not be 0</li>
 	 * <li>{@code flags} <b>must</b> be a valid combination of {@code VkImageCreateFlagBits} values</li>
-	 * <li>{@code flags} <b>must</b> not be 0</li>
 	 * <li>{@code externalHandleType} <b>must</b> be a valid combination of {@code VkExternalMemoryHandleTypeFlagBitsNV} values</li>
-	 * <li>{@code externalHandleType} <b>must</b> not be 0</li>
 	 * <li>{@code pExternalImageFormatProperties} <b>must</b> be a pointer to a {@link VkExternalImageFormatPropertiesNV} structure</li>
 	 * </ul>
 	 * 

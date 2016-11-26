@@ -339,8 +339,6 @@ public class EXTDebugReport {
 	 * 
 	 * <ul>
 	 * <li>{@code object} <b>may</b> be a Vulkan object</li>
-	 * <li>{@code pLayerPrefix} <b>must</b> be a {@code NULL} terminated string</li>
-	 * <li>{@code pMessage} <b>must</b> be a {@code NULL} terminated string</li>
 	 * </ul>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
@@ -396,8 +394,6 @@ public class EXTDebugReport {
 	 * 
 	 * <ul>
 	 * <li>{@code object} <b>may</b> be a Vulkan object</li>
-	 * <li>{@code pLayerPrefix} <b>must</b> be a {@code NULL} terminated string</li>
-	 * <li>{@code pMessage} <b>must</b> be a {@code NULL} terminated string</li>
 	 * </ul>
 	 * 
 	 * <h5>Valid Usage (Implicit)</h5>
