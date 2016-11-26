@@ -61,6 +61,32 @@ JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novrPosef_1FlipHandedness(JNIE
 	ovrPosef_FlipHandedness(inPose, outPose);
 }
 
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1ReadWavFromBuffer(JNIEnv *__env, jclass clazz, jlong outAudioChannelAddress, jlong inputDataAddress, jint dataSizeInBytes, jint stereoChannelToUse) {
+	ovrAudioChannelData *outAudioChannel = (ovrAudioChannelData *)(intptr_t)outAudioChannelAddress;
+	const void *inputData = (const void *)(intptr_t)inputDataAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)ovr_ReadWavFromBuffer(outAudioChannel, inputData, dataSizeInBytes, stereoChannelToUse);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1GenHapticsFromAudioData(JNIEnv *__env, jclass clazz, jlong outHapticsClipAddress, jlong audioChannelAddress, jint genMode) {
+	ovrHapticsClip *outHapticsClip = (ovrHapticsClip *)(intptr_t)outHapticsClipAddress;
+	const ovrAudioChannelData *audioChannel = (const ovrAudioChannelData *)(intptr_t)audioChannelAddress;
+	UNUSED_PARAMS(__env, clazz)
+	return (jint)ovr_GenHapticsFromAudioData(outHapticsClip, audioChannel, genMode);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1ReleaseAudioChannelData(JNIEnv *__env, jclass clazz, jlong audioChannelAddress) {
+	ovrAudioChannelData *audioChannel = (ovrAudioChannelData *)(intptr_t)audioChannelAddress;
+	UNUSED_PARAMS(__env, clazz)
+	ovr_ReleaseAudioChannelData(audioChannel);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1ReleaseHapticsClip(JNIEnv *__env, jclass clazz, jlong hapticsClipAddress) {
+	ovrHapticsClip *hapticsClip = (ovrHapticsClip *)(intptr_t)hapticsClipAddress;
+	UNUSED_PARAMS(__env, clazz)
+	ovr_ReleaseHapticsClip(hapticsClip);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1GetEyePoses__JJZJJ_3D(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong frameIndex, jboolean latencyMarker, jlong hmdToEyeOffsetAddress, jlong outEyePosesAddress, jdoubleArray outSensorSampleTimeAddress) {
 	ovrSession session = (ovrSession)(intptr_t)sessionAddress;
 	const ovrVector3f *hmdToEyeOffset = (const ovrVector3f *)(intptr_t)hmdToEyeOffsetAddress;

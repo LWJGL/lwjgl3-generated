@@ -254,6 +254,7 @@ public class OVR {
 	 * <li>{@link #OVR_FORMAT_B8G8R8X8_UNORM OVR_FORMAT_B8G8R8X8_UNORM} - Not supported for OpenGL applications.</li>
 	 * <li>{@link #OVR_FORMAT_B8G8R8X8_UNORM_SRGB OVR_FORMAT_B8G8R8X8_UNORM_SRGB} - Not supported for OpenGL applications.</li>
 	 * <li>{@link #OVR_FORMAT_R16G16B16A16_FLOAT OVR_FORMAT_R16G16B16A16_FLOAT}</li>
+	 * <li>{@link #OVR_FORMAT_R11G11B10_FLOAT OVR_FORMAT_R11G11B10_FLOAT}</li>
 	 * <li>{@link #OVR_FORMAT_D16_UNORM OVR_FORMAT_D16_UNORM}</li>
 	 * <li>{@link #OVR_FORMAT_D24_UNORM_S8_UINT OVR_FORMAT_D24_UNORM_S8_UINT}</li>
 	 * <li>{@link #OVR_FORMAT_D32_FLOAT OVR_FORMAT_D32_FLOAT}</li>
@@ -282,6 +283,7 @@ public class OVR {
 		OVR_FORMAT_B8G8R8X8_UNORM       = 8,
 		OVR_FORMAT_B8G8R8X8_UNORM_SRGB  = 9,
 		OVR_FORMAT_R16G16B16A16_FLOAT   = 10,
+		OVR_FORMAT_R11G11B10_FLOAT      = 25,
 		OVR_FORMAT_D16_UNORM            = 11,
 		OVR_FORMAT_D24_UNORM_S8_UINT    = 12,
 		OVR_FORMAT_D32_FLOAT            = 13,
@@ -391,9 +393,9 @@ public class OVR {
 	 * <li>{@link #ovrTouch_LButtonMask Touch_LButtonMask} - Bit mask of all the button touches on the left controller</li>
 	 * <li>{@link #ovrTouch_RIndexPointing Touch_RIndexPointing} - TouchRIndexPointing</li>
 	 * <li>{@link #ovrTouch_RThumbUp Touch_RThumbUp} - Touch RThumbUp</li>
-	 * <li>{@link #ovrTouch_RPoseMask Touch_RPoseMask} - Bit mask of all right controller poses</li>
 	 * <li>{@link #ovrTouch_LIndexPointing Touch_LIndexPointing} - Touch LIndexPointing</li>
 	 * <li>{@link #ovrTouch_LThumbUp Touch_LThumbUp} - Touch LThumbUp</li>
+	 * <li>{@link #ovrTouch_RPoseMask Touch_RPoseMask} - Bit mask of all right controller poses</li>
 	 * <li>{@link #ovrTouch_LPoseMask Touch_LPoseMask} - Bit mask of all left controller poses.</li>
 	 * </ul>
 	 */
@@ -412,9 +414,9 @@ public class OVR {
 		ovrTouch_LButtonMask    = ovrTouch_X | ovrTouch_Y | ovrTouch_LThumb | ovrTouch_LThumbRest | ovrTouch_LIndexTrigger,
 		ovrTouch_RIndexPointing = 0x20,
 		ovrTouch_RThumbUp       = 0x40,
-		ovrTouch_RPoseMask      = ovrTouch_RIndexPointing | ovrTouch_RThumbUp,
 		ovrTouch_LIndexPointing = 0x2000,
 		ovrTouch_LThumbUp       = 0x4000,
+		ovrTouch_RPoseMask      = ovrTouch_RIndexPointing | ovrTouch_RThumbUp,
 		ovrTouch_LPoseMask      = ovrTouch_LIndexPointing | ovrTouch_LThumbUp;
 
 	/**

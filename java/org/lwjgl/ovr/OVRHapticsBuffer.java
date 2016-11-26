@@ -17,6 +17,14 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Haptics buffer descriptor, contains amplitude samples used for Touch vibration.
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code Samples} &ndash; samples stored in opaque format</li>
+ * <li>{@code SamplesCount} &ndash; sumber of samples</li>
+ * <li>{@code SubmitMode} &ndash; how samples are submitted to the hardware. Must be:<br><table><tr><td>{@link OVR#ovrHapticsBufferSubmit_Enqueue HapticsBufferSubmit_Enqueue}</td></tr></table></li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <pre><code>struct ovrHapticsBuffer {

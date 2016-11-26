@@ -14,6 +14,12 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class OVRUtil {
 
 	/**
+	 * Enumerates modifications to the projection matrix based on the application's needs.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrProjection_None Projection_None} - 
 	 * Use for generating a default projection matrix that is:
 	 * 
 	 * <ul>
@@ -22,29 +28,42 @@ public class OVRUtil {
 	 * <li>Both near and far are explicitly defined.</li>
 	 * <li>With a clipping range that is (0 to w).</li>
 	 * </ul>
-	 */
-	public static final int ovrProjection_None = 0x0;
-
-	/** Enable if using left-handed transformations in your application. */
-	public static final int ovrProjection_LeftHanded = 0x1;
-
-	/**
+	 * </li>
+	 * <li>{@link #ovrProjection_LeftHanded Projection_LeftHanded} - Enable if using left-handed transformations in your application.</li>
+	 * <li>{@link #ovrProjection_FarLessThanNear Projection_FarLessThanNear} - 
 	 * After the projection transform is applied, far values stored in the depth buffer will be less than closer depth values. NOTE: Enable only if the
 	 * application is using a floating-point depth buffer for proper precision.
-	 */
-	public static final int ovrProjection_FarLessThanNear = 0x2;
-
-	/**
+	 * </li>
+	 * <li>{@link #ovrProjection_FarClipAtInfinity Projection_FarClipAtInfinity} - 
 	 * When this flag is used, the zfar value pushed into {@link #ovrMatrix4f_Projection Matrix4f_Projection} will be ignored NOTE: Enable only if {@link #ovrProjection_FarLessThanNear Projection_FarLessThanNear} is also
 	 * enabled where the far clipping plane will be pushed to infinity.
-	 */
-	public static final int ovrProjection_FarClipAtInfinity = 0x4;
-
-	/**
+	 * </li>
+	 * <li>{@link #ovrProjection_ClipRangeOpenGL Projection_ClipRangeOpenGL} - 
 	 * Enable if the application is rendering with OpenGL and expects a projection matrix with a clipping range of (-w to w). Ignore this flag if your
 	 * application already handles the conversion from D3D range (0 to w) to OpenGL.
+	 * </li>
+	 * </ul>
 	 */
-	public static final int ovrProjection_ClipRangeOpenGL = 0x8;
+	public static final int
+		ovrProjection_None              = 0x00,
+		ovrProjection_LeftHanded        = 0x01,
+		ovrProjection_FarLessThanNear   = 0x02,
+		ovrProjection_FarClipAtInfinity = 0x04,
+		ovrProjection_ClipRangeOpenGL   = 0x08;
+
+	/**
+	 * Modes used to generate Touch Haptics from audio PCM buffer.
+	 * 
+	 * <h5>Enum values:</h5>
+	 * 
+	 * <ul>
+	 * <li>{@link #ovrHapticsGenMode_PointSample HapticsGenMode_PointSample} - Point sample original signal at Haptics frequency</li>
+	 * <li>{@link #ovrHapticsGenMode_Count HapticsGenMode_Count}</li>
+	 * </ul>
+	 */
+	public static final int
+		ovrHapticsGenMode_PointSample = 0,
+		ovrHapticsGenMode_Count       = 1;
 
 	static { LibOVR.initialize(); }
 
@@ -98,7 +117,7 @@ public class OVRUtil {
 	 * Extracts the required data from the result of {@link #ovrMatrix4f_Projection Matrix4f_Projection}.
 	 *
 	 * @param projection         the project matrix from which to extract {@link OVRTimewarpProjectionDesc}
-	 * @param projectionModFlags a combination of the ovrProjectionModifier flags. One or more of:<br><table><tr><td>{@link #ovrProjection_None Projection_None}</td><td>{@link #ovrProjection_FarLessThanNear Projection_FarLessThanNear}</td><td>{@link #ovrProjection_FarClipAtInfinity Projection_FarClipAtInfinity}</td></tr><tr><td>{@link #ovrProjection_ClipRangeOpenGL Projection_ClipRangeOpenGL}</td></tr></table>
+	 * @param projectionModFlags a combination of the ovrProjectionModifier flags. One or more of:<br><table><tr><td>{@link #ovrProjection_None Projection_None}</td><td>{@link #ovrProjection_LeftHanded Projection_LeftHanded}</td><td>{@link #ovrProjection_FarLessThanNear Projection_FarLessThanNear}</td></tr><tr><td>{@link #ovrProjection_FarClipAtInfinity Projection_FarClipAtInfinity}</td><td>{@link #ovrProjection_ClipRangeOpenGL Projection_ClipRangeOpenGL}</td></tr></table>
 	 * @param __result           the extracted ovrTimewarpProjectionDesc
 	 */
 	public static OVRTimewarpProjectionDesc ovrTimewarpProjectionDesc_FromProjection(OVRMatrix4f projection, int projectionModFlags, OVRTimewarpProjectionDesc __result) {
@@ -197,6 +216,75 @@ public class OVRUtil {
 	 */
 	public static void ovrPosef_FlipHandedness(OVRPosef inPose, OVRPosef outPose) {
 		novrPosef_FlipHandedness(inPose.address(), outPose.address());
+	}
+
+	// --- [ ovr_ReadWavFromBuffer ] ---
+
+	/**
+	 * Unsafe version of: {@link #ovr_ReadWavFromBuffer _ReadWavFromBuffer}
+	 *
+	 * @param dataSizeInBytes size of the buffer in bytes
+	 */
+	public static native int novr_ReadWavFromBuffer(long outAudioChannel, long inputData, int dataSizeInBytes, int stereoChannelToUse);
+
+	/**
+	 * Reads an audio channel from Wav (Waveform Audio File) data.
+	 * 
+	 * <p>Input must be a byte buffer representing a valid Wav file. Audio samples from the specified channel are read, converted to float {@code [-1.0f, 1.0f]}
+	 * and returned through {@link OVRAudioChannelData}.</p>
+	 * 
+	 * <p>Supported formats: PCM 8b, 16b, 32b and IEEE float (little-endian only).</p>
+	 *
+	 * @param outAudioChannel    output audio channel data
+	 * @param inputData          a binary buffer representing a valid Wav file data
+	 * @param stereoChannelToUse audio channel index to extract (0 for mono)
+	 */
+	public static int ovr_ReadWavFromBuffer(OVRAudioChannelData outAudioChannel, ByteBuffer inputData, int stereoChannelToUse) {
+		return novr_ReadWavFromBuffer(outAudioChannel.address(), memAddress(inputData), inputData.remaining(), stereoChannelToUse);
+	}
+
+	// --- [ ovr_GenHapticsFromAudioData ] ---
+
+	/** Unsafe version of: {@link #ovr_GenHapticsFromAudioData _GenHapticsFromAudioData} */
+	public static native int novr_GenHapticsFromAudioData(long outHapticsClip, long audioChannel, int genMode);
+
+	/**
+	 * Generates playable Touch Haptics data from an audio channel.
+	 *
+	 * @param outHapticsClip generated Haptics clip
+	 * @param audioChannel   input audio channel data
+	 * @param genMode        mode used to convert and audio channel data to Haptics data. Must be:<br><table><tr><td>{@link #ovrHapticsGenMode_PointSample HapticsGenMode_PointSample}</td></tr></table>
+	 */
+	public static int ovr_GenHapticsFromAudioData(OVRHapticsClip outHapticsClip, OVRAudioChannelData audioChannel, int genMode) {
+		return novr_GenHapticsFromAudioData(outHapticsClip.address(), audioChannel.address(), genMode);
+	}
+
+	// --- [ ovr_ReleaseAudioChannelData ] ---
+
+	/** Unsafe version of: {@link #ovr_ReleaseAudioChannelData _ReleaseAudioChannelData} */
+	public static native void novr_ReleaseAudioChannelData(long audioChannel);
+
+	/**
+	 * Releases memory allocated for ovrAudioChannelData. Must be called to avoid memory leak.
+	 *
+	 * @param audioChannel pointer to an audio channel
+	 */
+	public static void ovr_ReleaseAudioChannelData(OVRAudioChannelData audioChannel) {
+		novr_ReleaseAudioChannelData(audioChannel.address());
+	}
+
+	// --- [ ovr_ReleaseHapticsClip ] ---
+
+	/** Unsafe version of: {@link #ovr_ReleaseHapticsClip _ReleaseHapticsClip} */
+	public static native void novr_ReleaseHapticsClip(long hapticsClip);
+
+	/**
+	 * Releases memory allocated for ovrHapticsClip. Must be called to avoid memory leak.
+	 *
+	 * @param hapticsClip pointer to a haptics clip
+	 */
+	public static void ovr_ReleaseHapticsClip(OVRHapticsClip hapticsClip) {
+		novr_ReleaseHapticsClip(hapticsClip.address());
 	}
 
 	/** Array version of: {@link #novr_GetEyePoses} */

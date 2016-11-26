@@ -76,6 +76,7 @@ public class OVRErrorCode {
 	 * <li>{@link #ovrError_LibSignCheck Error_LibSignCheck} - LibOVRRT signature check failure.</li>
 	 * <li>{@link #ovrError_LibPath Error_LibPath} - LibOVRRT path failure.</li>
 	 * <li>{@link #ovrError_LibSymbols Error_LibSymbols} - LibOVRRT symbol resolution failure.</li>
+	 * <li>{@link #ovrError_RemoteSession Error_RemoteSession} - Failed to connect to the service because remote connections to the service are not allowed.</li>
 	 * <li>{@link #ovrError_Incomplete Error_Incomplete} - Requested async work not yet complete.</li>
 	 * <li>{@link #ovrError_Abandoned Error_Abandoned} - Requested async work was abandoned and result is incomplete.</li>
 	 * <li>{@link #ovrError_DisplayLost Error_DisplayLost} - In the event of a system-wide graphics reset or cable unplug this is returned to the app.</li>
@@ -134,6 +135,7 @@ public class OVRErrorCode {
 		ovrError_LibSignCheck                  = -3021,
 		ovrError_LibPath                       = -3022,
 		ovrError_LibSymbols                    = -3023,
+		ovrError_RemoteSession                 = -3024,
 		ovrError_Incomplete                    = -5000,
 		ovrError_Abandoned                     = -5001,
 		ovrError_DisplayLost                   = -6000,
