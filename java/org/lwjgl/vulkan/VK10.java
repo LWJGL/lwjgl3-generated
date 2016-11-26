@@ -2893,7 +2893,7 @@ public class VK10 {
 	 * @param pAllocator controls host memory allocation as described in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
 	 */
 	public static void vkDestroyInstance(VkInstance instance, VkAllocationCallbacks pAllocator) {
-		nvkDestroyInstance(memAddressSafe(instance), memAddressSafe(pAllocator));
+		nvkDestroyInstance(instance, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkEnumeratePhysicalDevices ] ---
@@ -3308,7 +3308,7 @@ public class VK10 {
 	public static long vkGetInstanceProcAddr(VkInstance instance, ByteBuffer pName) {
 		if ( CHECKS )
 			checkNT1(pName);
-		return nvkGetInstanceProcAddr(memAddressSafe(instance), memAddress(pName));
+		return nvkGetInstanceProcAddr(instance, memAddress(pName));
 	}
 
 	/**
@@ -3373,7 +3373,7 @@ public class VK10 {
 		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
 		try {
 			ByteBuffer pNameEncoded = stack.ASCII(pName);
-			return nvkGetInstanceProcAddr(memAddressSafe(instance), memAddress(pNameEncoded));
+			return nvkGetInstanceProcAddr(instance, memAddress(pNameEncoded));
 		} finally {
 			stack.setPointer(stackPointer);
 		}
@@ -3630,7 +3630,7 @@ public class VK10 {
 	 * @param pAllocator controls host memory allocation as described in the <a href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
 	 */
 	public static void vkDestroyDevice(VkDevice device, VkAllocationCallbacks pAllocator) {
-		nvkDestroyDevice(memAddressSafe(device), memAddressSafe(pAllocator));
+		nvkDestroyDevice(device, memAddressSafe(pAllocator));
 	}
 
 	// --- [ vkEnumerateInstanceExtensionProperties ] ---
