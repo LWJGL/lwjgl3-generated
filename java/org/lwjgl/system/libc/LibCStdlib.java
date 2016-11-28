@@ -14,11 +14,11 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to stdlib.h. */
-public class Stdlib {
+public class LibCStdlib {
 
 	static { Library.initialize(); }
 
-	protected Stdlib() {
+	protected LibCStdlib() {
 		throw new UnsupportedOperationException();
 	}
 

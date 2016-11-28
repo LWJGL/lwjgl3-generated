@@ -14,11 +14,11 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to stdio.h. */
-public class Stdio {
+public class LibCStdio {
 
 	static { Library.initialize(); }
 
-	protected Stdio() {
+	protected LibCStdio() {
 		throw new UnsupportedOperationException();
 	}
 

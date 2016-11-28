@@ -9,7 +9,7 @@ import org.lwjgl.system.*;
 
 
 /** Native bindings to errno.h. */
-public class Errno {
+public class LibCErrno {
 
 	/**
 	 * Standard error codes.
@@ -103,7 +103,7 @@ public class Errno {
 
 	static { Library.initialize(); }
 
-	protected Errno() {
+	protected LibCErrno() {
 		throw new UnsupportedOperationException();
 	}
 

@@ -16,6 +16,11 @@ class MemoryAccessJNI {
 		throw new UnsupportedOperationException();
 	}
 
+	// --- [ getPointerSize ] ---
+
+	/** Returns the {@code sizeof(void *)}. */
+	static native int getPointerSize();
+
 	// --- [ malloc ] ---
 
 	private static native long malloc();

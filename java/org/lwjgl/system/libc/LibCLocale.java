@@ -14,11 +14,11 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to locale.h. */
-public class Locale {
+public class LibCLocale {
 
 	static { Library.initialize(); }
 
-	protected Locale() {
+	protected LibCLocale() {
 		throw new UnsupportedOperationException();
 	}
 

@@ -8,12 +8,12 @@
 
 EXTERN_C_ENTER
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_libc_Errno_errno(JNIEnv *__env, jclass clazz) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_libc_LibCErrno_errno(JNIEnv *__env, jclass clazz) {
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)errno;
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_libc_Errno_getErrno(JNIEnv *__env, jclass clazz) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_libc_LibCErrno_getErrno(JNIEnv *__env, jclass clazz) {
 	UNUSED_PARAMS(__env, clazz)
 	return (jint)getErrno();
 }

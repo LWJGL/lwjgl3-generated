@@ -20,34 +20,34 @@
 
 EXTERN_C_ENTER
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_Stdlib_nmalloc(JNIEnv *__env, jclass clazz, jlong size) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCStdlib_nmalloc(JNIEnv *__env, jclass clazz, jlong size) {
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)malloc((size_t)size);
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_Stdlib_ncalloc(JNIEnv *__env, jclass clazz, jlong nmemb, jlong size) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCStdlib_ncalloc(JNIEnv *__env, jclass clazz, jlong nmemb, jlong size) {
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)calloc((size_t)nmemb, (size_t)size);
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_Stdlib_nrealloc(JNIEnv *__env, jclass clazz, jlong ptrAddress, jlong size) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCStdlib_nrealloc(JNIEnv *__env, jclass clazz, jlong ptrAddress, jlong size) {
 	void *ptr = (void *)(intptr_t)ptrAddress;
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)realloc(ptr, (size_t)size);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_system_libc_Stdlib_nfree(JNIEnv *__env, jclass clazz, jlong ptrAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_system_libc_LibCStdlib_nfree(JNIEnv *__env, jclass clazz, jlong ptrAddress) {
 	void *ptr = (void *)(intptr_t)ptrAddress;
 	UNUSED_PARAMS(__env, clazz)
 	free(ptr);
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_Stdlib_naligned_1alloc(JNIEnv *__env, jclass clazz, jlong alignment, jlong size) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCStdlib_naligned_1alloc(JNIEnv *__env, jclass clazz, jlong alignment, jlong size) {
 	UNUSED_PARAMS(__env, clazz)
 	return (jlong)(intptr_t)aligned_alloc((size_t)alignment, (size_t)size);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_system_libc_Stdlib_naligned_1free(JNIEnv *__env, jclass clazz, jlong ptrAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_system_libc_LibCStdlib_naligned_1free(JNIEnv *__env, jclass clazz, jlong ptrAddress) {
 	void *ptr = (void *)(intptr_t)ptrAddress;
 	UNUSED_PARAMS(__env, clazz)
 	aligned_free(ptr);

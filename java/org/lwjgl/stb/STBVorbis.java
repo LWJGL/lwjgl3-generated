@@ -15,7 +15,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-import org.lwjgl.system.libc.Stdlib;
+import org.lwjgl.system.libc.LibCStdlib;
 
 /**
  * Native bindings to stb_vorbis.c from the <a href="https://github.com/nothings/stb">stb library</a>.
@@ -295,7 +295,7 @@ public class STBVorbis {
 
 	/**
 	 * Decode an entire file and output the data interleaved into a {@code malloc()ed} buffer stored in {@code *output}. When you're done with it, just
-	 * {@link Stdlib#free} the pointer returned in {@code *output}.
+	 * {@link LibCStdlib#free} the pointer returned in {@code *output}.
 	 *
 	 * @param filename    the file name
 	 * @param channels    returns the number of channels
@@ -316,7 +316,7 @@ public class STBVorbis {
 
 	/**
 	 * Decode an entire file and output the data interleaved into a {@code malloc()ed} buffer stored in {@code *output}. When you're done with it, just
-	 * {@link Stdlib#free} the pointer returned in {@code *output}.
+	 * {@link LibCStdlib#free} the pointer returned in {@code *output}.
 	 *
 	 * @param filename    the file name
 	 * @param channels    returns the number of channels
@@ -342,7 +342,7 @@ public class STBVorbis {
 
 	/**
 	 * Decode an entire file and output the data interleaved into a {@code malloc()ed} buffer stored in {@code *output}. When you're done with it, just
-	 * {@link Stdlib#free} the pointer returned in {@code *output}.
+	 * {@link LibCStdlib#free} the pointer returned in {@code *output}.
 	 *
 	 * @param filename    the file name
 	 * @param channels    returns the number of channels
