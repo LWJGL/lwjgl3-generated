@@ -27,10 +27,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code mPrimitiveTypes} &ndash; Bitwise combination of the members of the {@code aiPrimitiveType} enum. This specifies which types of primitives are present in the mesh. The
- * "SortByPrimitiveType"-Step can be used to make sure the output meshes consist of one primitive type each. One or more of:<br><table><tr><td>{@link Assimp#aiPrimitiveType_LINE PrimitiveType_LINE}</td><td>{@link Assimp#aiPrimitiveType_POINT PrimitiveType_POINT}</td><td>{@link Assimp#aiPrimitiveType_POLYGON PrimitiveType_POLYGON}</td><td>{@link Assimp#aiPrimitiveType_TRIANGLE PrimitiveType_TRIANGLE}</td></tr></table></li>
+ * "SortByPrimitiveType"-Step can be used to make sure the output meshes consist of one primitive type each. One or more of:<br><table><tr><td>{@link Assimp#aiPrimitiveType_POINT PrimitiveType_POINT}</td><td>{@link Assimp#aiPrimitiveType_LINE PrimitiveType_LINE}</td><td>{@link Assimp#aiPrimitiveType_TRIANGLE PrimitiveType_TRIANGLE}</td><td>{@link Assimp#aiPrimitiveType_POLYGON PrimitiveType_POLYGON}</td></tr></table></li>
  * <li>{@code mNumVertices} &ndash; 
- * The number of vertices in this mesh. This is also the size of all of the per-vertex data arrays. The maximum value for this member is
- * {@link Assimp#AI_MAX_VERTICES}.</li>
+ * The number of vertices in this mesh. This is also the size of all of the per-vertex data arrays. The maximum value for this member is {@link Assimp#AI_MAX_VERTICES}.</li>
  * <li>{@code mNumFaces} &ndash; 
  * The number of primitives (triangles, polygons, lines) in this  mesh. This is also the size of the mFaces array. The maximum value for this member is
  * {@link Assimp#AI_MAX_FACES}.</li>
@@ -51,8 +50,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * Vertex color sets. A mesh may contain 0 to {@link Assimp#AI_MAX_NUMBER_OF_COLOR_SETS} vertex colors per vertex. {@code NULL} if not present. Each array is
  * {@code mNumVertices} in size if present.</li>
  * <li>{@code mTextureCoords} &ndash; 
- * Vertex texture coords, also known as UV channels. A mesh may contain 0 to {@link Assimp#AI_MAX_NUMBER_OF_TEXTURECOORDS} per vertex. {@code NULL} if not present. The
- * array is {@code mNumVertices} in size.</li>
+ * Vertex texture coords, also known as UV channels. A mesh may contain 0 to {@link Assimp#AI_MAX_NUMBER_OF_TEXTURECOORDS} per vertex. {@code NULL} if not present. The array
+ * is {@code mNumVertices} in size.</li>
  * <li>{@code mNumUVComponents} &ndash; 
  * Specifies the number of components for a given UV channel. Up to three channels are supported (UVW, for accessing volume or cube maps). If the value is
  * 2 for a given channel n, the component {@code p.z} of {@code mTextureCoords[n][p]} is set to 0.0f. If the value is 1 for a given channel, {@code p.y}

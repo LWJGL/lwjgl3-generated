@@ -1241,7 +1241,7 @@ EngineEditor: <boolean> ('true' or 'false')\n</code></pre>
 	/**
 	 * Tests collision/proximity of position tracked devices (e.g. HMD and/or Touch) against the Boundary System.
 	 * 
-	 * <p>Note: this method is similar to {@link #ovr_BoundaryTestPoint BoundaryTestPoint} but can be more precise as it may take into account device acceleration/momentum.</p>
+	 * <p>Note: this method is similar to {@link #ovr_TestBoundaryPoint TestBoundaryPoint} but can be more precise as it may take into account device acceleration/momentum.</p>
 	 *
 	 * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
 	 * @param deviceBitmask bitmask of one or more tracked devices to test. One or more of:<br><table><tr><td>{@link #ovrTrackedDevice_HMD TrackedDevice_HMD}</td><td>{@link #ovrTrackedDevice_LTouch TrackedDevice_LTouch}</td><td>{@link #ovrTrackedDevice_RTouch TrackedDevice_RTouch}</td><td>{@link #ovrTrackedDevice_Touch TrackedDevice_Touch}</td></tr><tr><td>{@link #ovrTrackedDevice_All TrackedDevice_All}</td></tr></table>

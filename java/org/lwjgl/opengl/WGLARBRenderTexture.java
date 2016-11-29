@@ -39,7 +39,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class WGLARBRenderTexture {
 
 	/**
-	 * Accepted by the {@code attributes} parameter of {@link WGLARBPixelFormat#wglGetPixelFormatAttribiARB GetPixelFormatAttribiARB}, and the {@code attribIList} parameters of
+	 * Accepted by the {@code attributes} parameter of {@link WGLARBPixelFormat#wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB}, and the {@code attribIList} parameters of
 	 * {@link WGLARBPixelFormat#wglChoosePixelFormatARB ChoosePixelFormatARB}.
 	 */
 	public static final int

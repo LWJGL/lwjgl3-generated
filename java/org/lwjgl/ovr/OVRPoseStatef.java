@@ -25,7 +25,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>{@code LinearVelocity} &ndash; velocity in meters per second</li>
  * <li>{@code AngularAcceleration} &ndash; angular acceleration in radians per second per second</li>
  * <li>{@code LinearAcceleration} &ndash; acceleration in meters per second per second</li>
- * <li>{@code TimeInSeconds} &ndash; absolute time that this pose refers to. See {@link OVR#ovr_GetTimeInSeconds}</li>
+ * <li>{@code TimeInSeconds} &ndash; absolute time that this pose refers to. See {@link OVR#ovr_GetTimeInSeconds GetTimeInSeconds}</li>
  * </ul>
  * 
  * <h3>Layout</h3>

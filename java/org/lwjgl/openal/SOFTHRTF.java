@@ -108,9 +108,9 @@ public class SOFTHRTF {
 	 * @param attrList the same as what could be passed to {@link ALC10#alcCreateContext CreateContext}. The AL is allowed to ignore attributes and attribute value combinations the device
 	 *                 cannot support, for example if the device doesn't support the requested {@link ALC10#ALC_FREQUENCY FREQUENCY} value, another value it does support may be set.
 	 *
-	 * @return on success the function returns {@link ALC10#ALC_TRUE TRUE}, and on failure the function returns {@link ALC10#ALC_FALSE FALSE}. Note that a return of {@link ALC10#ALC_TRUE TRUE} does not indicate any
-	 *         attributes were honored, just that the device was successfully reset. If you need to know what the attributes are after a reset, query the device using
-	 *         {@link ALC10#alcGetIntegerv GetIntegerv} with the relevant attributes.
+	 * @return on success the function returns {@link ALC10#ALC_TRUE TRUE}, and on failure the function returns {@link ALC10#ALC_FALSE FALSE}. Note that a return of {@link ALC10#ALC_TRUE TRUE} does not
+	 *         indicate any attributes were honored, just that the device was successfully reset. If you need to know what the attributes are after a reset, query the
+	 *         device using {@link ALC10#alcGetIntegerv GetIntegerv} with the relevant attributes.
 	 */
 	public static boolean alcResetDeviceSOFT(long device, IntBuffer attrList) {
 		if ( CHECKS )

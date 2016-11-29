@@ -24,7 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code mFlags} &ndash; Any combination of the AI_SCENE_FLAGS_XXX flags. By default this value is 0, no flags are set. Most applications will want to reject all scenes with
- * the AI_SCENE_FLAGS_INCOMPLETE bit set. One or more of:<br><table><tr><td>{@link Assimp#AI_SCENE_FLAGS_INCOMPLETE}</td><td>{@link Assimp#AI_SCENE_FLAGS_NON_VERBOSE_FORMAT}</td></tr><tr><td>{@link Assimp#AI_SCENE_FLAGS_TERRAIN}</td><td>{@link Assimp#AI_SCENE_FLAGS_VALIDATED}</td></tr><tr><td>{@link Assimp#AI_SCENE_FLAGS_VALIDATION_WARNING}</td></tr></table></li>
+ * the AI_SCENE_FLAGS_INCOMPLETE bit set. One or more of:<br><table><tr><td>{@link Assimp#AI_SCENE_FLAGS_INCOMPLETE}</td><td>{@link Assimp#AI_SCENE_FLAGS_VALIDATED}</td></tr><tr><td>{@link Assimp#AI_SCENE_FLAGS_VALIDATION_WARNING}</td><td>{@link Assimp#AI_SCENE_FLAGS_NON_VERBOSE_FORMAT}</td></tr><tr><td>{@link Assimp#AI_SCENE_FLAGS_TERRAIN}</td></tr></table></li>
  * <li>{@code mRootNode} &ndash; 
  * The root node of the hierarchy. There will always be at least the root node if the import was successful (and no special flags have been set). Presence
  * of further nodes depends on the format and content of the imported file.</li>

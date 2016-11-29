@@ -52,15 +52,15 @@ public class KHRTerminateContext {
 	 * <p>When a context is terminated:</p>
 	 * 
 	 * <ul>
-	 * <li>The execution status of enqueued commands will be {@link #CL_TERMINATED_KHR TERMINATED_KHR}. Event objects can be queried using {@link CL10#clGetEventInfo GetEventInfo}. Event
-	 * callbacks can be registered and registered event callbacks will be called with {@code event_command_exec_status} set to {@link #CL_TERMINATED_KHR TERMINATED_KHR}.
+	 * <li>The execution status of enqueued commands will be {@code TERMINATED_KHR}. Event objects can be queried using {@link CL10#clGetEventInfo GetEventInfo}. Event
+	 * callbacks can be registered and registered event callbacks will be called with {@code event_command_exec_status} set to {@code TERMINATED_KHR}.
 	 * {@link CL10#clWaitForEvents WaitForEvents} will return immediately for commands associated with event objects specified in {@code event_list}. The status of user
 	 * events can be set. Event objects can be retained and released. {@link CL10#clGetEventProfilingInfo GetEventProfilingInfo} returns {@link CL10#CL_PROFILING_INFO_NOT_AVAILABLE PROFILING_INFO_NOT_AVAILABLE}.</li>
 	 * <li>The context is considered to be terminated. A callback function registered when the context was created will be called. Only queries, retain and
-	 * release operations can be performed on the context. All other APIs that use a context as an argument will return {@link #CL_CONTEXT_TERMINATED_KHR CONTEXT_TERMINATED_KHR}.</li>
+	 * release operations can be performed on the context. All other APIs that use a context as an argument will return {@code CONTEXT_TERMINATED_KHR}.</li>
 	 * <li>The contents of the memory regions of the memory objects is undefined. Queries, registering a destructor callback, retain and release operations can
 	 * be performed on the memory objects.</li>
-	 * <li>Once a context has been terminated, all OpenCL API calls that create objects or enqueue commands will return {@link #CL_CONTEXT_TERMINATED_KHR CONTEXT_TERMINATED_KHR}. APIs
+	 * <li>Once a context has been terminated, all OpenCL API calls that create objects or enqueue commands will return {@code CONTEXT_TERMINATED_KHR}. APIs
 	 * that release OpenCL objects will continue to operate as though {@code clTerminateContextKHR} was not called.</li>
 	 * <li>The behavior of callbacks will remain unchanged, and will report appropriate error, if executing after termination of context. This behavior is
 	 * similar to enqueued commands, after the command queue has become invalid.</li>
@@ -70,7 +70,7 @@ public class KHRTerminateContext {
 	 *
 	 * @return {@link CL10#CL_SUCCESS SUCCESS} if the function is executed successfully. Otherwise, it returns one of the following errors:
 	 *         "{@link CL10#CL_INVALID_CONTEXT INVALID_CONTEXT} if {@code context} is not a valid OpenCL context.",
-	 *         "{@link #CL_CONTEXT_TERMINATED_KHR CONTEXT_TERMINATED_KHR} if {@code context} has already been terminated.",
+	 *         "{@code CONTEXT_TERMINATED_KHR} if {@code context} has already been terminated.",
 	 *         "{@link CL10#CL_INVALID_OPERATION INVALID_OPERATION} if {@code context} was not created with {@link #CL_CONTEXT_TERMINATE_KHR CONTEXT_TERMINATE_KHR} set to {@link CL10#CL_TRUE TRUE}.",
 	 *         OORE,
 	 *         OOHME

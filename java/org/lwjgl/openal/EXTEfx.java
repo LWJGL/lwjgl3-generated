@@ -28,7 +28,7 @@ public class EXTEfx {
 		ALC_MAX_AUXILIARY_SENDS = 0x20003;
 
 	/** Listener properties. */
-	public static final int AL_METERS_PER_UNIT  = 0x20004;
+	public static final int AL_METERS_PER_UNIT = 0x20004;
 
 	/** Source properties. */
 	public static final int

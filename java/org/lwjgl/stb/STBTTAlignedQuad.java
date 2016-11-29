@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * Quad used for drawing a baked character, returned by {@link STBTruetype#stbtt_GetBakedQuad}.
+ * Quad used for drawing a baked character, returned by {@link STBTruetype#stbtt_GetBakedQuad GetBakedQuad}.
  * 
  * <h3>Layout</h3>
  * 

@@ -526,7 +526,7 @@ public class User32 {
 		GCW_ATOM          = -32,
 		GCL_HICONSM       = -34;
 
-	/** Queue status flags for {@link #GetQueueStatus} and {@link #MsgWaitForMultipleObjects} */
+	/** Queue status flags for {@code GetQueueStatus} and {@code MsgWaitForMultipleObjects} */
 	public static final int
 		QS_KEY            = 0x1,
 		QS_MOUSEMOVE      = 0x2,
@@ -2289,8 +2289,8 @@ public class User32 {
 	 * <p>The cursor is not shown on the screen if the internal cursor display count is less than zero. This occurs if the application uses the {@link #ShowCursor}
 	 * function to hide the cursor more times than to show the cursor.</p>
 	 *
-	 * @param hCursor a handle to the cursor. The cursor must have been created by the {@link #CreateCursor} function or loaded by the {@link #LoadCursor} or {@link #LoadImage} function.
-	 *                If this parameter is {@code NULL}, the cursor is removed from the screen.
+	 * @param hCursor a handle to the cursor. The cursor must have been created by the {@code CreateCursor} function or loaded by the {@link #LoadCursor} or {@code LoadImage}
+	 *                function. If this parameter is {@code NULL}, the cursor is removed from the screen.
 	 *
 	 * @return the handle to the previous cursor, if there was one
 	 */

@@ -114,9 +114,9 @@ public class GL30 {
 
 	/** Accepted by the {@code pname} parameter of GetBufferParameteriv. */
 	public static final int
-		GL_BUFFER_ACCESS_FLAGS  = 0x911F,
-		GL_BUFFER_MAP_LENGTH    = 0x9120,
-		GL_BUFFER_MAP_OFFSET    = 0x9121;
+		GL_BUFFER_ACCESS_FLAGS = 0x911F,
+		GL_BUFFER_MAP_LENGTH   = 0x9120,
+		GL_BUFFER_MAP_OFFSET   = 0x9121;
 
 	/** Accepted by the {@code target} parameter of ClampColor and the {@code pname} parameter of GetBooleanv, GetIntegerv, GetFloatv, and GetDoublev. */
 	public static final int

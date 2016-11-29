@@ -21,8 +21,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>{@link AIMesh}{@code ::mPrimitiveTypes} can be queried to quickly examine which types of primitive are actually present in a mesh. The {@link Assimp#aiProcess_SortByPType Process_SortByPType}
  * flag executes a special post-processing algorithm which splits meshes with *different* primitive types mixed up (e.g. lines and triangles) in several
- * 'clean' submeshes. Furthermore there is a configuration option ({@link Assimp#AI_CONFIG_PP_SBP_REMOVE}) to force {@link Assimp#aiProcess_SortByPType Process_SortByPType} to remove specific kinds
- * of primitives from the imported scene, completely and forever.</p>
+ * 'clean' submeshes. Furthermore there is a configuration option ({@link Assimp#AI_CONFIG_PP_SBP_REMOVE}) to force {@link Assimp#aiProcess_SortByPType Process_SortByPType} to remove specific kinds of
+ * primitives from the imported scene, completely and forever.</p>
  * 
  * <h3>Member documentation</h3>
  * 

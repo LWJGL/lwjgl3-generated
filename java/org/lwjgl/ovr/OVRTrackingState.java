@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * Tracking state at a given absolute time (describes predicted HMD pose etc). Returned by {@link OVR#ovr_GetTrackingState}.
+ * Tracking state at a given absolute time (describes predicted HMD pose etc). Returned by {@link OVR#ovr_GetTrackingState GetTrackingState}.
  * 
  * <h3>Member documentation</h3>
  * 
@@ -27,7 +27,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code HandPoses} &ndash; 
  * The most recent calculated pose for each hand when hand controller tracking is present. {@code HandPoses[ovrHand_Left]} refers to the left hand and
  * {@code HandPoses[ovrHand_Right]} to the right hand. These values can be combined with {@code ovrInputState} for complete hand controller information.</li>
- * <li>{@code HandStatusFlags} &ndash; {@code HandPoses} status flags described by {@code ovrStatusBits}. Only {@link OVR#ovrStatus_OrientationTracked} and {@link OVR#ovrStatus_PositionTracked} are reported.</li>
+ * <li>{@code HandStatusFlags} &ndash; {@code HandPoses} status flags described by {@code ovrStatusBits}. Only {@link OVR#ovrStatus_OrientationTracked Status_OrientationTracked} and {@link OVR#ovrStatus_PositionTracked Status_PositionTracked} are reported.</li>
  * <li>{@code CalibratedOrigin} &ndash; 
  * the pose of the origin captured during calibration.
  * 

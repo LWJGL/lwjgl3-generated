@@ -22,9 +22,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code IsVisible} &ndash; True if the process has VR focus and thus is visible in the HMD.</li>
  * <li>{@code HmdPresent} &ndash; True if an HMD is present.</li>
  * <li>{@code HmdMounted} &ndash; True if the HMD is on the user's head.</li>
- * <li>{@code DisplayLost} &ndash; True if the session is in a display-lost state. See {@link OVR#ovr_SubmitFrame}.</li>
+ * <li>{@code DisplayLost} &ndash; True if the session is in a display-lost state. See {@link OVR#ovr_SubmitFrame SubmitFrame}.</li>
  * <li>{@code ShouldQuit} &ndash; True if the application should initiate shutdown.</li>
- * <li>{@code ShouldRecenter} &ndash; True if UX has requested re-centering. Must call {@link OVR#ovr_ClearShouldRecenterFlag} or {@link OVR#ovr_RecenterTrackingOrigin}.</li>
+ * <li>{@code ShouldRecenter} &ndash; True if UX has requested re-centering. Must call {@link OVR#ovr_ClearShouldRecenterFlag ClearShouldRecenterFlag} or {@link OVR#ovr_RecenterTrackingOrigin RecenterTrackingOrigin}.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

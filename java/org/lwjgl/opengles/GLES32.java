@@ -188,7 +188,6 @@ public class GLES32 {
 
 	/** Returned by {@link #glGetGraphicsResetStatus GetGraphicsResetStatus}. */
 	public static final int
-		GL_NO_ERROR               = 0x0,
 		GL_GUILTY_CONTEXT_RESET   = 0x8253,
 		GL_INNOCENT_CONTEXT_RESET = 0x8254,
 		GL_UNKNOWN_CONTEXT_RESET  = 0x8255;

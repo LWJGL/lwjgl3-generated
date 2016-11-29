@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * Baked character data, returned by {@link STBTruetype#stbtt_BakeFontBitmap}.
+ * Baked character data, returned by {@link STBTruetype#stbtt_BakeFontBitmap BakeFontBitmap}.
  * 
  * <h3>Layout</h3>
  * 

@@ -38,11 +38,11 @@ public class WGLARBPbuffer {
 
 	/**
 	 * Accepted by the {@code attribIList} parameter of {@link WGLARBPixelFormat#wglChoosePixelFormatARB ChoosePixelFormatARB} and the {@code attributes} parameter of
-	 * {@link WGLARBPixelFormat#wglGetPixelFormatAttribiARB GetPixelFormatAttribiARB}.
+	 * {@link WGLARBPixelFormat#wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB}.
 	 */
 	public static final int WGL_DRAW_TO_PBUFFER_ARB = 0x202D;
 
-	/** Accepted by the {@code attributes} parameter of {@link WGLARBPixelFormat#wglGetPixelFormatAttribiARB GetPixelFormatAttribiARB}. */
+	/** Accepted by the {@code attributes} parameter of {@link WGLARBPixelFormat#wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB}. */
 	public static final int
 		WGL_MAX_PBUFFER_PIXELS_ARB = 0x202E,
 		WGL_MAX_PBUFFER_WIDTH_ARB  = 0x202F,
@@ -82,7 +82,7 @@ public class WGLARBPbuffer {
 	/**
 	 * Creates a pixel buffer (pbuffer) and returns a handle to it.
 	 * 
-	 * <p>Support for pbuffers may be restricted to specific pixel formats. Use {@link WGLARBPixelFormat#wglGetPixelFormatAttribiARB GetPixelFormatAttribiARB} to query the {@link #WGL_DRAW_TO_PBUFFER_ARB DRAW_TO_PBUFFER_ARB}
+	 * <p>Support for pbuffers may be restricted to specific pixel formats. Use {@link WGLARBPixelFormat#wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB} to query the {@link #WGL_DRAW_TO_PBUFFER_ARB DRAW_TO_PBUFFER_ARB}
 	 * attribute to determine which pixel formats support the creation of pbuffers.</p>
 	 *
 	 * @param hdc         a device context for the device on which the pbuffer is created

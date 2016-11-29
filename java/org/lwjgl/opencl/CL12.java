@@ -69,7 +69,7 @@ public class CL12 {
 
 	/**
 	 * Split the aggregate device into as many smaller aggregate devices as can be created, each containing {@code n} compute units. The value {@code n} is
-	 * passed as the value accompanying this property. If {@code n} does not divide evenly into {@link #CL_DEVICE_PARTITION_MAX_COMPUTE_UNITS DEVICE_PARTITION_MAX_COMPUTE_UNITS}, then the
+	 * passed as the value accompanying this property. If {@code n} does not divide evenly into {@code DEVICE_PARTITION_MAX_COMPUTE_UNITS}, then the
 	 * remaining compute units are not used.
 	 */
 	public static final int CL_DEVICE_PARTITION_EQUALLY = 0x1086;
@@ -80,7 +80,7 @@ public class CL12 {
 	 * 
 	 * <p>The number of non-zero count entries in the list may not exceed {@link #CL_DEVICE_PARTITION_MAX_SUB_DEVICES DEVICE_PARTITION_MAX_SUB_DEVICES}.</p>
 	 * 
-	 * <p>The total number of compute units specified may not exceed {@link #CL_DEVICE_PARTITION_MAX_COMPUTE_UNITS DEVICE_PARTITION_MAX_COMPUTE_UNITS}.</p>
+	 * <p>The total number of compute units specified may not exceed {@code DEVICE_PARTITION_MAX_COMPUTE_UNITS}.</p>
 	 */
 	public static final int CL_DEVICE_PARTITION_BY_COUNTS = 0x1087;
 
@@ -375,8 +375,8 @@ public class CL12 {
 	 *         <li>{@link #CL_DEVICE_PARTITION_FAILED DEVICE_PARTITION_FAILED} if the partition name is supported by the implementation but {@code in_device} could not be further partitioned.</li>
 	 *         <li>{@link #CL_INVALID_DEVICE_PARTITION_COUNT INVALID_DEVICE_PARTITION_COUNT} if the partition name specified in {@code properties} is {@link #CL_DEVICE_PARTITION_BY_COUNTS DEVICE_PARTITION_BY_COUNTS} and the
 	 *         number of sub-devices requested exceeds {@link #CL_DEVICE_PARTITION_MAX_SUB_DEVICES DEVICE_PARTITION_MAX_SUB_DEVICES} or the total number of compute units requested exceeds
-	 *         {@link #CL_DEVICE_PARTITION_MAX_COMPUTE_UNITS DEVICE_PARTITION_MAX_COMPUTE_UNITS} for {@code in_device}, or the number of compute units requested for one or more sub-devices is less
-	 *         than zero or the number of sub-devices requested exceeds {@link #CL_DEVICE_PARTITION_MAX_COMPUTE_UNITS DEVICE_PARTITION_MAX_COMPUTE_UNITS} for {@code in_device}.</li>
+	 *         {@code DEVICE_PARTITION_MAX_COMPUTE_UNITS} for {@code in_device}, or the number of compute units requested for one or more sub-devices is less
+	 *         than zero or the number of sub-devices requested exceeds {@code DEVICE_PARTITION_MAX_COMPUTE_UNITS} for {@code in_device}.</li>
 	 *         <li>{@link CL10#CL_OUT_OF_RESOURCES OUT_OF_RESOURCES} if there is a failure to allocate resources required by the OpenCL implementation on the device.</li>
 	 *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
 	 *         </ul>

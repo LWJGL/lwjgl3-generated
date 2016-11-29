@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * A range of packed character data, used by {@link STBTruetype#stbtt_PackFontRanges}
+ * A range of packed character data, used by {@link STBTruetype#stbtt_PackFontRanges PackFontRanges}
  * 
  * <h3>Member documentation</h3>
  * 

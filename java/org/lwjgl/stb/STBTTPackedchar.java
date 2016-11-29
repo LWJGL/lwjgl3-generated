@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * Packed character data, returned by {@link STBTruetype#stbtt_PackFontRange}
+ * Packed character data, returned by {@link STBTruetype#stbtt_PackFontRange PackFontRange}
  * 
  * <h3>Layout</h3>
  * 

@@ -2244,7 +2244,7 @@ if (shader) {
 	/**
 	 * <p><a href="http://www.opengl.org/sdk/docs/man/html/glGetVertexAttrib.xhtml">OpenGL SDK Reference</a></p>
 	 * 
-	 * Double version of {@link GL20#glGetVertexAttribi GetVertexAttribi}.
+	 * Double version of {@link GL20#glGetVertexAttribiv GetVertexAttribiv}.
 	 *
 	 * @param index  the generic vertex attribute parameter to be queried
 	 * @param pname  the symbolic name of the vertex attribute parameter to be queried

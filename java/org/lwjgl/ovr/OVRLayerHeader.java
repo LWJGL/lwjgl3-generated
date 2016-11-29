@@ -17,12 +17,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * Defines properties shared by all ovrLayer structs, such as {@link OVRLayerEyeFov}.
  * 
  * <p>{@code ovrLayerHeader} is used as a base member in these larger structs. This struct cannot be used by itself except for the case that {@code Type} is
- * {@link OVR#ovrLayerType_Disabled}.</p>
+ * {@link OVR#ovrLayerType_Disabled LayerType_Disabled}.</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code Type} &ndash; described by {@code ovrLayerType}. One of:<br><table><tr><td>{@link OVR#ovrLayerType_Disabled LayerType_Disabled}</td><td>{@link OVR#ovrLayerType_EyeFov LayerType_EyeFov}</td><td>{@link OVR#ovrLayerType_EyeMatrix LayerType_EyeMatrix}</td><td>{@link OVR#ovrLayerType_Quad LayerType_Quad}</td></tr></table></li>
+ * <li>{@code Type} &ndash; described by {@code ovrLayerType}. One of:<br><table><tr><td>{@link OVR#ovrLayerType_Disabled LayerType_Disabled}</td><td>{@link OVR#ovrLayerType_EyeFov LayerType_EyeFov}</td><td>{@link OVR#ovrLayerType_Quad LayerType_Quad}</td><td>{@link OVR#ovrLayerType_EyeMatrix LayerType_EyeMatrix}</td></tr></table></li>
  * <li>{@code Flags} &ndash; described by {@code ovrLayerFlags}</li>
  * </ul>
  * 

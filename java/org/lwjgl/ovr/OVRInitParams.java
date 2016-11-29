@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * Parameters for {@link OVR#ovr_Initialize}.
+ * Parameters for {@link OVR#ovr_Initialize Initialize}.
  * 
  * <h3>Member documentation</h3>
  * 
@@ -25,7 +25,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * be used. If you are directly calling the LibOVRRT version of {@link OVR#ovr_Initialize Initialize} in the LibOVRRT DLL then this must be valid and include
  * {@link OVR#ovrInit_RequestVersion Init_RequestVersion}.</li>
  * <li>{@code LogCallback} &ndash; 
- * user-supplied log callback function, which may be called at any time asynchronously from multiple threads until {@link OVR#ovr_Shutdown} completes. Use {@code NULL}
+ * user-supplied log callback function, which may be called at any time asynchronously from multiple threads until {@link OVR#ovr_Shutdown Shutdown} completes. Use {@code NULL}
  * to specify no log callback.</li>
  * <li>{@code UserData} &ndash; 
  * user-supplied data which is passed as-is to {@code LogCallback}. Typically this is used to store an application-specific pointer which is read in the

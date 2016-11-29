@@ -79,7 +79,7 @@ public class OVRUtil {
 	/**
 	 * Detects Oculus Runtime and Device Status.
 	 * 
-	 * <p>Checks for Oculus Runtime and Oculus HMD device status without loading the LibOVRRT shared library. This may be called before {@link OVR#ovr_Initialize _Initialize} to help
+	 * <p>Checks for Oculus Runtime and Oculus HMD device status without loading the LibOVRRT shared library. This may be called before {@link OVR#ovr_Initialize Initialize} to help
 	 * decide whether or not to initialize LibOVR.</p>
 	 *
 	 * @param timeoutMilliseconds a timeout to wait for HMD to be attached or 0 to poll
@@ -155,9 +155,9 @@ public class OVRUtil {
 	 * Computes offset eye poses based on {@code headPose} returned by {@link OVRTrackingState}.
 	 *
 	 * @param headPose       indicates the HMD position and orientation to use for the calculation
-	 * @param HmdToEyeOffset can be {@link OVREyeRenderDesc}{@code .HmdToEyeViewOffset} returned from {@link OVR#ovr_GetRenderDesc _GetRenderDesc}. For monoscopic rendering, use a vector that is the
+	 * @param HmdToEyeOffset can be {@link OVREyeRenderDesc}{@code .HmdToEyeViewOffset} returned from {@link OVR#ovr_GetRenderDesc GetRenderDesc}. For monoscopic rendering, use a vector that is the
 	 *                       average of the two vectors for both eyes.
-	 * @param outEyePoses    if {@code outEyePoses} are used for rendering, they should be passed to {@link OVR#ovr_SubmitFrame _SubmitFrame} in {@link OVRLayerEyeFov}{@code ::RenderPose} or
+	 * @param outEyePoses    if {@code outEyePoses} are used for rendering, they should be passed to {@link OVR#ovr_SubmitFrame SubmitFrame} in {@link OVRLayerEyeFov}{@code ::RenderPose} or
 	 *                       {@link OVRLayerEyeFovDepth}{@code ::RenderPose}
 	 */
 	public static void ovr_CalcEyePoses(OVRPosef headPose, OVRVector3f.Buffer HmdToEyeOffset, OVRPosef.Buffer outEyePoses) {
@@ -180,11 +180,11 @@ public class OVRUtil {
 	 * called on the rendering thread. Assuming {@code outEyePoses} are used for rendering, it should be passed as a part of {@link OVRLayerEyeFov}. The caller does
 	 * not need to worry about applying {@code HmdToEyeOffset} to the returned {@code outEyePoses} variables.</p>
 	 *
-	 * @param session             an {@code ovrSession} previously returned by {@link OVR#ovr_Create _Create}
-	 * @param frameIndex          the targeted frame index, or 0 to refer to one frame after the last time {@link OVR#ovr_SubmitFrame _SubmitFrame} was called
+	 * @param session             an {@code ovrSession} previously returned by {@link OVR#ovr_Create Create}
+	 * @param frameIndex          the targeted frame index, or 0 to refer to one frame after the last time {@link OVR#ovr_SubmitFrame SubmitFrame} was called
 	 * @param latencyMarker       Specifies that this call is the point in time where the "App-to-Mid-Photon" latency timer starts from. If a given {@code ovrLayer} provides
 	 *                            "SensorSampleTimestamp", that will override the value stored here.
-	 * @param hmdToEyeOffset      can be {@link OVREyeRenderDesc}{@code .HmdToEyeOffset} returned from {@link OVR#ovr_GetRenderDesc _GetRenderDesc}. For monoscopic rendering, use a vector that is the
+	 * @param hmdToEyeOffset      can be {@link OVREyeRenderDesc}{@code .HmdToEyeOffset} returned from {@link OVR#ovr_GetRenderDesc GetRenderDesc}. For monoscopic rendering, use a vector that is the
 	 *                            average of the two vectors for both eyes.
 	 * @param outEyePoses         the predicted eye poses
 	 * @param outSensorSampleTime the time when this function was called. May be NULL, in which case it is ignored.

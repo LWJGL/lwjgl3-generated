@@ -292,7 +292,7 @@ public class ARBVertexAttrib64Bit {
 	}
 
 	/**
-	 * Double version of {@link GL20#glGetVertexAttribi GetVertexAttribi}.
+	 * Double version of {@link GL20#glGetVertexAttribiv GetVertexAttribiv}.
 	 *
 	 * @param index  the generic vertex attribute parameter to be queried
 	 * @param pname  the symbolic name of the vertex attribute parameter to be queried

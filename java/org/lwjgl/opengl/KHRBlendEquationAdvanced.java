@@ -24,13 +24,13 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>Some implementations may support KHR_blend_equation_advanced without supporting KHR_blend_equation_advanced_coherent.</p>
  * 
- * <p>In unextended OpenGL, the set of blending equations is limited, and can be expressed very simply. The {@link ARBImaging#GL_MIN MIN} and {@link ARBImaging#GL_MAX MAX} blend equations
- * simply compute component-wise minimums or maximums of source and destination color components. The {@link ARBImaging#GL_FUNC_ADD FUNC_ADD}, {@link ARBImaging#GL_FUNC_SUBTRACT FUNC_SUBTRACT}, and
- * {@link ARBImaging#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT} multiply the source and destination colors by source and destination factors and either add the two products together
+ * <p>In unextended OpenGL, the set of blending equations is limited, and can be expressed very simply. The {@link GL14#GL_MIN MIN} and {@link GL14#GL_MAX MAX} blend equations
+ * simply compute component-wise minimums or maximums of source and destination color components. The {@link GL14#GL_FUNC_ADD FUNC_ADD}, {@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}, and
+ * {@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT} multiply the source and destination colors by source and destination factors and either add the two products together
  * or subtract one from the other. This limited set of operations supports many common blending operations but precludes the use of more sophisticated
  * transparency and blending operations commonly available in many dedicated imaging APIs.</p>
  * 
- * <p>This extension provides a number of new "advanced" blending equations. Unlike traditional blending operations using the {@link ARBImaging#GL_FUNC_ADD FUNC_ADD} equation,
+ * <p>This extension provides a number of new "advanced" blending equations. Unlike traditional blending operations using the {@link GL14#GL_FUNC_ADD FUNC_ADD} equation,
  * these blending equations do not use source and destination factors specified by {@link GL11#glBlendFunc BlendFunc}. Instead, each blend equation specifies a complete
  * equation based on the source and destination colors. These new blend equations are used for both RGB and alpha components; they may not be used to
  * perform separate RGB and alpha blending (via functions like {@link GL20#glBlendEquationSeparate BlendEquationSeparate}).</p>

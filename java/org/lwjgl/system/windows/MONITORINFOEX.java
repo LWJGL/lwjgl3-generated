@@ -22,8 +22,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code cbSize} &ndash; 
  * the size, in bytes, of the structure.
  * 
- * <p>Set this member to {@link #SIZEOF} before calling the {@link User32#GetMonitorInfo} function. Doing so lets the function determine the type of structure you are
- * passing to it.</p></li>
+ * <p>Set this member to {@link #SIZEOF} before calling the {@link User32#GetMonitorInfo} function. Doing so lets the function determine the type of structure you
+ * are passing to it.</p></li>
  * <li>{@code rcMonitor} &ndash; 
  * a {@link RECT} structure that specifies the display monitor rectangle, expressed in virtual-screen coordinates. Note that if the monitor is not the primary
  * display monitor, some of the rectangle's coordinates may be negative values.</li>

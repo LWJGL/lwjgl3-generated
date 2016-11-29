@@ -59,7 +59,7 @@ public class GL44 {
 	/** Accepted by the {@code barriers} parameter of {@link GL42#glMemoryBarrier MemoryBarrier}. */
 	public static final int GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT = 0x4000;
 
-	/** Accepted by the {@code pname} parameter for {@link GL42#glGetInternalformati GetInternalformati} and {@link GL43#glGetInternalformati64 GetInternalformati64}. */
+	/** Accepted by the {@code pname} parameter for {@link GL42#glGetInternalformativ GetInternalformativ} and {@link GL43#glGetInternalformati64v GetInternalformati64v}. */
 	public static final int GL_CLEAR_TEXTURE = 0x9365;
 
 	/** Accepted in the {@code props} array of {@link GL43#glGetProgramResourceiv GetProgramResourceiv}. */
@@ -68,20 +68,20 @@ public class GL44 {
 		GL_TRANSFORM_FEEDBACK_BUFFER_INDEX  = 0x934B,
 		GL_TRANSFORM_FEEDBACK_BUFFER_STRIDE = 0x934C;
 
-	/** Accepted by the {@code pname} parameter of {@link GL15#glGetQueryObjecti GetQueryObjecti}, {@link GL15#glGetQueryObjectui GetQueryObjectui}, {@link GL33#glGetQueryObjecti64 GetQueryObjecti64} and {@link GL33#glGetQueryObjectui64 GetQueryObjectui64}. */
+	/** Accepted by the {@code pname} parameter of {@link GL15#glGetQueryObjectiv GetQueryObjectiv}, {@link GL15#glGetQueryObjectuiv GetQueryObjectuiv}, {@link GL33#glGetQueryObjecti64v GetQueryObjecti64v} and {@link GL33#glGetQueryObjectui64v GetQueryObjectui64v}. */
 	public static final int GL_QUERY_RESULT_NO_WAIT = 0x9194;
 
 	/**
 	 * Accepted by the {@code target} parameter of {@link GL15#glBindBuffer BindBuffer}, {@link GL15#glBufferData BufferData}, {@link GL15#glBufferSubData BufferSubData},
 	 * {@link GL15#glMapBuffer MapBuffer}, {@link GL15#glUnmapBuffer UnmapBuffer}, {@link GL30#glMapBufferRange MapBufferRange}, {@link GL15#glGetBufferSubData GetBufferSubData},
-	 * {@link GL15#glGetBufferParameteri GetBufferParameteri}, {@link GL32#glGetBufferParameteri64 GetBufferParameteri64}, {@link GL15#glGetBufferPointer GetBufferPointer},
+	 * {@link GL15#glGetBufferParameteriv GetBufferParameteriv}, {@link GL32#glGetBufferParameteri64v GetBufferParameteri64v}, {@link GL15#glGetBufferPointerv GetBufferPointerv},
 	 * {@link GL43#glClearBufferSubData ClearBufferSubData}, and the {@code readtarget} and {@code writetarget} parameters of {@link GL31#glCopyBufferSubData CopyBufferSubData}.
 	 */
 	public static final int GL_QUERY_BUFFER = 0x9192;
 
 	/**
-	 * Accepted by the {@code pname} parameter of {@link GL11#glGetBoolean GetBoolean}, {@link GL11#glGetInteger GetInteger}, {@link GL11#glGetFloat GetFloat},
-	 * and {@link GL11#glGetDouble GetDouble}.
+	 * Accepted by the {@code pname} parameter of {@link GL11#glGetBooleanv GetBooleanv}, {@link GL11#glGetIntegerv GetIntegerv}, {@link GL11#glGetFloatv GetFloatv},
+	 * and {@link GL11#glGetDoublev GetDoublev}.
 	 */
 	public static final int GL_QUERY_BUFFER_BINDING = 0x9193;
 

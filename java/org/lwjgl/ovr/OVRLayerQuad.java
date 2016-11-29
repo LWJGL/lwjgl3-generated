@@ -15,10 +15,10 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * Describes a layer of Quad type, which is a single quad in world or viewer space. It is used for both {@link OVR#ovrLayerType_Quad}. This type of layer
+ * Describes a layer of Quad type, which is a single quad in world or viewer space. It is used for both {@link OVR#ovrLayerType_Quad LayerType_Quad}. This type of layer
  * represents a single object placed in the world and not a stereo view of the world itself.
  * 
- * <p>A typical use of {@link OVR#ovrLayerType_Quad} is to draw a television screen in a room that for some reason is more convenient to draw as a layer than
+ * <p>A typical use of {@link OVR#ovrLayerType_Quad LayerType_Quad} is to draw a television screen in a room that for some reason is more convenient to draw as a layer than
  * as part of the main view in layer 0. For example, it could implement a 3D popup GUI that is drawn at a higher resolution than layer 0 to improve
  * fidelity of the GUI.</p>
  * 
@@ -27,14 +27,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code Header} &ndash; {@code Header.Type} must be {@link OVR#ovrLayerType_Quad}</li>
+ * <li>{@code Header} &ndash; {@code Header.Type} must be {@link OVR#ovrLayerType_Quad LayerType_Quad}</li>
  * <li>{@code ColorTexture} &ndash; contains a single image, never with any stereo view</li>
  * <li>{@code Viewport} &ndash; specifies the ColorTexture sub-rect UV coordinates</li>
  * <li>{@code QuadPoseCenter} &ndash; 
  * specifies the orientation and position of the center point of a Quad layer type.
  * 
  * <p>The supplied direction is the vector perpendicular to the quad. The position is in real-world meters (not the application's virtual world, the physical
- * world the user is in) and is relative to the "zero" position set by {@link OVR#ovr_RecenterTrackingOrigin} unless the {@link OVR#ovrLayerFlag_HeadLocked} flag is
+ * world the user is in) and is relative to the "zero" position set by {@link OVR#ovr_RecenterTrackingOrigin RecenterTrackingOrigin} unless the {@link OVR#ovrLayerFlag_HeadLocked LayerFlag_HeadLocked} flag is
  * used.</p></li>
  * <li>{@code QuadSize} &ndash; width and height (respectively) of the quad in meters</li>
  * </ul>

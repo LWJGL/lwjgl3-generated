@@ -33,7 +33,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class ARBClearTexture {
 
-	/** Accepted by the {@code pname} parameter for {@link GL42#glGetInternalformati GetInternalformati} and {@link GL43#glGetInternalformati64 GetInternalformati64}. */
+	/** Accepted by the {@code pname} parameter for {@link GL42#glGetInternalformativ GetInternalformativ} and {@link GL43#glGetInternalformati64v GetInternalformati64v}. */
 	public static final int GL_CLEAR_TEXTURE = 0x9365;
 
 	protected ARBClearTexture() {

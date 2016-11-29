@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Projection information for {@link OVRLayerEyeFovDepth}.
  * 
- * <p>Use the utility function {@link OVRUtil#ovrTimewarpProjectionDesc_FromProjection} to generate this structure from the application's projection matrix.</p>
+ * <p>Use the utility function {@link OVRUtil#ovrTimewarpProjectionDesc_FromProjection TimewarpProjectionDesc_FromProjection} to generate this structure from the application's projection matrix.</p>
  * 
  * <h3>Member documentation</h3>
  * 

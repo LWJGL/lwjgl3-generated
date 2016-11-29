@@ -7,11 +7,8 @@ package org.lwjgl.openal;
 
 import java.nio.*;
 
-import org.lwjgl.system.*;
-
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
-import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /** Native bindings to AL 1.1 functionality. */
@@ -39,7 +36,7 @@ public class AL11 {
 	static boolean isAvailable(ALCapabilities caps) {
 		return checkFunctions(
 			caps.alListener3i, caps.alGetListeneriv, caps.alSource3i, caps.alListeneriv, caps.alSourceiv, caps.alBufferf, caps.alBuffer3f, caps.alBufferfv, 
-			caps.alBufferi, caps.alBuffer3i, caps.alBufferiv, caps.alGetBufferi, caps.alGetBufferiv, caps.alGetBufferf, caps.alGetBufferfv, caps.alSpeedOfSound
+			caps.alBufferi, caps.alBuffer3i, caps.alBufferiv, caps.alGetBufferiv, caps.alGetBufferfv, caps.alSpeedOfSound
 		);
 	}
 
@@ -259,46 +256,6 @@ public class AL11 {
 		nalBufferiv(buffer, paramName, memAddress(value));
 	}
 
-	// --- [ alGetBufferi ] ---
-
-	/** Unsafe version of: {@link #alGetBufferi GetBufferi} */
-	public static void nalGetBufferi(int buffer, int param, long value) {
-		long __functionAddress = AL.getCapabilities().alGetBufferi;
-		if ( CHECKS )
-			check(__functionAddress);
-		invokePV(__functionAddress, buffer, param, value);
-	}
-
-	/**
-	 * Returns the integer value of the specified buffer parameter.
-	 *
-	 * @param buffer the buffer to query
-	 * @param param  the parameter to query
-	 * @param value  the parameter value
-	 */
-	public static void alGetBufferi(int buffer, int param, IntBuffer value) {
-		if ( CHECKS )
-			check(value, 1);
-		nalGetBufferi(buffer, param, memAddress(value));
-	}
-
-	/**
-	 * Returns the integer value of the specified buffer parameter.
-	 *
-	 * @param buffer the buffer to query
-	 * @param param  the parameter to query
-	 */
-	public static int alGetBufferi(int buffer, int param) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			IntBuffer value = stack.callocInt(1);
-			nalGetBufferi(buffer, param, memAddress(value));
-			return value.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
-	}
-
 	// --- [ alGetBufferiv ] ---
 
 	/** Unsafe version of: {@link #alGetBufferiv GetBufferiv} */
@@ -320,46 +277,6 @@ public class AL11 {
 		if ( CHECKS )
 			check(values, 1);
 		nalGetBufferiv(buffer, param, memAddress(values));
-	}
-
-	// --- [ alGetBufferf ] ---
-
-	/** Unsafe version of: {@link #alGetBufferf GetBufferf} */
-	public static void nalGetBufferf(int buffer, int param, long value) {
-		long __functionAddress = AL.getCapabilities().alGetBufferf;
-		if ( CHECKS )
-			check(__functionAddress);
-		invokePV(__functionAddress, buffer, param, value);
-	}
-
-	/**
-	 * Returns the float value of the specified buffer parameter.
-	 *
-	 * @param buffer the buffer to query
-	 * @param param  the parameter to query
-	 * @param value  the parameter value
-	 */
-	public static void alGetBufferf(int buffer, int param, FloatBuffer value) {
-		if ( CHECKS )
-			check(value, 1);
-		nalGetBufferf(buffer, param, memAddress(value));
-	}
-
-	/**
-	 * Returns the float value of the specified buffer parameter.
-	 *
-	 * @param buffer the buffer to query
-	 * @param param  the parameter to query
-	 */
-	public static float alGetBufferf(int buffer, int param) {
-		MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-		try {
-			FloatBuffer value = stack.callocFloat(1);
-			nalGetBufferf(buffer, param, memAddress(value));
-			return value.get(0);
-		} finally {
-			stack.setPointer(stackPointer);
-		}
 	}
 
 	// --- [ alGetBufferfv ] ---
@@ -449,16 +366,6 @@ public class AL11 {
 		invokePV(__functionAddress, buffer, paramName, value);
 	}
 
-	/** Array version of: {@link #alGetBufferi GetBufferi} */
-	public static void alGetBufferi(int buffer, int param, int[] value) {
-		long __functionAddress = AL.getCapabilities().alGetBufferi;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(value, 1);
-		}
-		invokePV(__functionAddress, buffer, param, value);
-	}
-
 	/** Array version of: {@link #alGetBufferiv GetBufferiv} */
 	public static void alGetBufferiv(int buffer, int param, int[] values) {
 		long __functionAddress = AL.getCapabilities().alGetBufferiv;
@@ -467,16 +374,6 @@ public class AL11 {
 			check(values, 1);
 		}
 		invokePV(__functionAddress, buffer, param, values);
-	}
-
-	/** Array version of: {@link #alGetBufferf GetBufferf} */
-	public static void alGetBufferf(int buffer, int param, float[] value) {
-		long __functionAddress = AL.getCapabilities().alGetBufferf;
-		if ( CHECKS ) {
-			check(__functionAddress);
-			check(value, 1);
-		}
-		invokePV(__functionAddress, buffer, param, value);
 	}
 
 	/** Array version of: {@link #alGetBufferfv GetBufferfv} */
