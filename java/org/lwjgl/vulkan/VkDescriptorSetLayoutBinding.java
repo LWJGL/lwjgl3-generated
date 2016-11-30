@@ -319,7 +319,7 @@ public class VkDescriptorSetLayoutBinding extends Struct implements NativeResour
 	/** Unsafe version of {@link #stageFlags(int) stageFlags}. */
 	public static void nstageFlags(long struct, int value) { memPutInt(struct + VkDescriptorSetLayoutBinding.STAGEFLAGS, value); }
 	/** Unsafe version of {@link #pImmutableSamplers(LongBuffer) pImmutableSamplers}. */
-	public static void npImmutableSamplers(long struct, LongBuffer value) { memPutAddress(struct + VkDescriptorSetLayoutBinding.PIMMUTABLESAMPLERS, memAddressSafe(value)); ndescriptorCount(struct, value == null ? 0 : value.remaining()); }
+	public static void npImmutableSamplers(long struct, LongBuffer value) { memPutAddress(struct + VkDescriptorSetLayoutBinding.PIMMUTABLESAMPLERS, memAddressSafe(value)); if ( value != null ) ndescriptorCount(struct, value.remaining()); }
 
 	// -----------------------------------
 

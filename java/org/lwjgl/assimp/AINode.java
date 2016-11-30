@@ -334,11 +334,11 @@ public class AINode extends Struct implements NativeResource {
 	/** Sets the specified value to the {@code mNumChildren} field of the specified {@code struct}. */
 	public static void nmNumChildren(long struct, int value) { memPutInt(struct + AINode.MNUMCHILDREN, value); }
 	/** Unsafe version of {@link #mChildren(AINode.Buffer) mChildren}. */
-	public static void nmChildren(long struct, AINode.Buffer value) { memPutAddress(struct + AINode.MCHILDREN, addressSafe(value)); if ( value != null ) nmNumChildren(struct, value.remaining()); }
+	public static void nmChildren(long struct, AINode.Buffer value) { memPutAddress(struct + AINode.MCHILDREN, addressSafe(value)); nmNumChildren(struct, value == null ? 0 : value.remaining()); }
 	/** Sets the specified value to the {@code mNumMeshes} field of the specified {@code struct}. */
 	public static void nmNumMeshes(long struct, int value) { memPutInt(struct + AINode.MNUMMESHES, value); }
 	/** Unsafe version of {@link #mMeshes(IntBuffer) mMeshes}. */
-	public static void nmMeshes(long struct, IntBuffer value) { memPutAddress(struct + AINode.MMESHES, memAddressSafe(value)); if ( value != null ) nmNumMeshes(struct, value.remaining()); }
+	public static void nmMeshes(long struct, IntBuffer value) { memPutAddress(struct + AINode.MMESHES, memAddressSafe(value)); nmNumMeshes(struct, value == null ? 0 : value.remaining()); }
 	/** Unsafe version of {@link #mMetadata(AIMetaData) mMetadata}. */
 	public static void nmMetadata(long struct, AIMetaData value) { memPutAddress(struct + AINode.MMETADATA, addressSafe(value)); }
 

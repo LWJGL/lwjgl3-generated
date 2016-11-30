@@ -10,6 +10,7 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -101,8 +102,6 @@ public class AIExportDataBlob extends Struct implements NativeResource {
 	/** Returns a {@link AIExportDataBlob} view of the struct pointed to by the {@code next} field. */
 	public AIExportDataBlob next() { return nnext(address()); }
 
-	/** Sets the specified value to the {@code size} field. */
-	public AIExportDataBlob size(long value) { nsize(address(), value); return this; }
 	/** Sets the address of the specified {@link ByteBuffer} to the {@code data} field. */
 	public AIExportDataBlob data(ByteBuffer value) { ndata(address(), value); return this; }
 	/** Copies the specified {@link AIString} to the {@code name} field. */
@@ -112,12 +111,10 @@ public class AIExportDataBlob extends Struct implements NativeResource {
 
 	/** Initializes this struct with the specified values. */
 	public AIExportDataBlob set(
-		long size,
 		ByteBuffer data,
 		AIString name,
 		AIExportDataBlob next
 	) {
-		size(size);
 		data(data);
 		name(name);
 		next(next);
@@ -283,11 +280,31 @@ public class AIExportDataBlob extends Struct implements NativeResource {
 	/** Sets the specified value to the {@code size} field of the specified {@code struct}. */
 	public static void nsize(long struct, long value) { memPutAddress(struct + AIExportDataBlob.SIZE, value); }
 	/** Unsafe version of {@link #data(ByteBuffer) data}. */
-	public static void ndata(long struct, ByteBuffer value) { memPutAddress(struct + AIExportDataBlob.DATA, memAddressSafe(value)); if ( value != null ) nsize(struct, value.remaining()); }
+	public static void ndata(long struct, ByteBuffer value) { memPutAddress(struct + AIExportDataBlob.DATA, memAddress(value)); nsize(struct, value.remaining()); }
 	/** Unsafe version of {@link #name(AIString) name}. */
 	public static void nname(long struct, AIString value) { memCopy(value.address(), struct + AIExportDataBlob.NAME, AIString.SIZEOF); }
 	/** Unsafe version of {@link #next(AIExportDataBlob) next}. */
 	public static void nnext(long struct, AIExportDataBlob value) { memPutAddress(struct + AIExportDataBlob.NEXT, addressSafe(value)); }
+
+	/**
+	 * Validates pointer members that should not be {@code NULL}.
+	 *
+	 * @param struct the struct to validate
+	 */
+	public static void validate(long struct) {
+		check(memGetAddress(struct + AIExportDataBlob.DATA));
+	}
+
+	/**
+	 * Calls {@link #validate(long)} for each struct contained in the specified struct array.
+	 *
+	 * @param array the struct array to validate
+	 * @param count the number of structs in {@code array}
+	 */
+	public static void validate(long array, int count) {
+		for ( int i = 0; i < count; i++ )
+			validate(array + i * SIZEOF);
+	}
 
 	// -----------------------------------
 
@@ -340,8 +357,6 @@ public class AIExportDataBlob extends Struct implements NativeResource {
 		/** Returns a {@link AIExportDataBlob} view of the struct pointed to by the {@code next} field. */
 		public AIExportDataBlob next() { return AIExportDataBlob.nnext(address()); }
 
-		/** Sets the specified value to the {@code size} field. */
-		public AIExportDataBlob.Buffer size(long value) { AIExportDataBlob.nsize(address(), value); return this; }
 		/** Sets the address of the specified {@link ByteBuffer} to the {@code data} field. */
 		public AIExportDataBlob.Buffer data(ByteBuffer value) { AIExportDataBlob.ndata(address(), value); return this; }
 		/** Copies the specified {@link AIString} to the {@code name} field. */

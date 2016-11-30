@@ -548,7 +548,7 @@ public class AIMesh extends Struct implements NativeResource {
 	/** Sets the specified value to the {@code mNumBones} field of the specified {@code struct}. */
 	public static void nmNumBones(long struct, int value) { memPutInt(struct + AIMesh.MNUMBONES, value); }
 	/** Unsafe version of {@link #mBones(PointerBuffer) mBones}. */
-	public static void nmBones(long struct, PointerBuffer value) { memPutAddress(struct + AIMesh.MBONES, memAddressSafe(value)); if ( value != null ) nmNumBones(struct, value.remaining()); }
+	public static void nmBones(long struct, PointerBuffer value) { memPutAddress(struct + AIMesh.MBONES, memAddressSafe(value)); nmNumBones(struct, value == null ? 0 : value.remaining()); }
 	/** Unsafe version of {@link #mMaterialIndex(int) mMaterialIndex}. */
 	public static void nmMaterialIndex(long struct, int value) { memPutInt(struct + AIMesh.MMATERIALINDEX, value); }
 	/** Unsafe version of {@link #mName(AIString) mName}. */
@@ -556,7 +556,7 @@ public class AIMesh extends Struct implements NativeResource {
 	/** Sets the specified value to the {@code mNumAnimMeshes} field of the specified {@code struct}. */
 	public static void nmNumAnimMeshes(long struct, int value) { memPutInt(struct + AIMesh.MNUMANIMMESHES, value); }
 	/** Unsafe version of {@link #mAnimMeshes(PointerBuffer) mAnimMeshes}. */
-	public static void nmAnimMeshes(long struct, PointerBuffer value) { memPutAddress(struct + AIMesh.MANIMMESHES, memAddressSafe(value)); if ( value != null ) nmNumAnimMeshes(struct, value.remaining()); }
+	public static void nmAnimMeshes(long struct, PointerBuffer value) { memPutAddress(struct + AIMesh.MANIMMESHES, memAddressSafe(value)); nmNumAnimMeshes(struct, value == null ? 0 : value.remaining()); }
 
 	/**
 	 * Validates pointer members that should not be {@code NULL}.

@@ -353,7 +353,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
 	/** Sets the specified value to the {@code waitSemaphoreCount} field of the specified {@code struct}. */
 	public static void nwaitSemaphoreCount(long struct, int value) { memPutInt(struct + VkPresentInfoKHR.WAITSEMAPHORECOUNT, value); }
 	/** Unsafe version of {@link #pWaitSemaphores(LongBuffer) pWaitSemaphores}. */
-	public static void npWaitSemaphores(long struct, LongBuffer value) { memPutAddress(struct + VkPresentInfoKHR.PWAITSEMAPHORES, memAddressSafe(value)); nwaitSemaphoreCount(struct, value == null ? 0 : value.remaining()); }
+	public static void npWaitSemaphores(long struct, LongBuffer value) { memPutAddress(struct + VkPresentInfoKHR.PWAITSEMAPHORES, memAddressSafe(value)); if ( value != null ) nwaitSemaphoreCount(struct, value.remaining()); }
 	/** Sets the specified value to the {@code swapchainCount} field of the specified {@code struct}. */
 	public static void nswapchainCount(long struct, int value) { memPutInt(struct + VkPresentInfoKHR.SWAPCHAINCOUNT, value); }
 	/** Unsafe version of {@link #pSwapchains(LongBuffer) pSwapchains}. */
