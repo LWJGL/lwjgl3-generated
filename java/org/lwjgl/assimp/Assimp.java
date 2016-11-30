@@ -27,81 +27,604 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class Assimp {
 
-	/** Configuration keys */
-	public static final String
-		AI_CONFIG_PP_RVC_FLAGS                               = "PP_RVC_FLAGS",
-		AI_CONFIG_PP_SBP_REMOVE                              = "PP_SBP_REMOVE",
-		AI_CONFIG_PP_FID_ANIM_ACCURACY                       = "PP_FID_ANIM_ACCURACY",
-		AI_CONFIG_PP_TUV_EVALUATE                            = "PP_TUV_EVALUATE",
-		AI_CONFIG_FAVOUR_SPEED                               = "FAVOUR_SPEED",
-		AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS        = "IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS",
-		AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS              = "IMPORT_FBX_READ_ALL_MATERIALS",
-		AI_CONFIG_IMPORT_FBX_READ_MATERIALS                  = "IMPORT_FBX_READ_MATERIALS",
-		AI_CONFIG_IMPORT_FBX_READ_TEXTURES                   = "IMPORT_FBX_READ_TEXTURES",
-		AI_CONFIG_IMPORT_FBX_READ_CAMERAS                    = "IMPORT_FBX_READ_CAMERAS",
-		AI_CONFIG_IMPORT_FBX_READ_LIGHTS                     = "IMPORT_FBX_READ_LIGHTS",
-		AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS                 = "IMPORT_FBX_READ_ANIMATIONS",
-		AI_CONFIG_IMPORT_FBX_STRICT_MODE                     = "IMPORT_FBX_STRICT_MODE",
-		AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS                 = "IMPORT_FBX_PRESERVE_PIVOTS",
-		AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES = "IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES",
-		AI_CONFIG_IMPORT_GLOBAL_KEYFRAME                     = "IMPORT_GLOBAL_KEYFRAME",
-		AI_CONFIG_IMPORT_MD3_KEYFRAME                        = "IMPORT_MD3_KEYFRAME",
-		AI_CONFIG_IMPORT_MD2_KEYFRAME                        = "IMPORT_MD2_KEYFRAME",
-		AI_CONFIG_IMPORT_MDL_KEYFRAME                        = "IMPORT_MDL_KEYFRAME",
-		AI_CONFIG_IMPORT_MDC_KEYFRAME                        = "IMPORT_MDC_KEYFRAME",
-		AI_CONFIG_IMPORT_SMD_KEYFRAME                        = "IMPORT_SMD_KEYFRAME",
-		AI_CONFIG_IMPORT_UNREAL_KEYFRAME                     = "IMPORT_UNREAL_KEYFRAME",
-		AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL                  = "IMPORT_AC_SEPARATE_BFCULL",
-		AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION                 = "IMPORT_AC_EVAL_SUBDIVISION",
-		AI_CONFIG_UNREAL_HANDLE_FLAGS                        = "UNREAL_HANDLE_FLAGS",
-		AI_CONFIG_IMPORT_TER_MAKE_UVS                        = "IMPORT_TER_MAKE_UVS",
-		AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS             = "IMPORT_ASE_RECONSTRUCT_NORMALS",
-		AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART                = "IMPORT_MD3_HANDLE_MULTIPART",
-		AI_CONFIG_IMPORT_MD3_SKIN_NAME                       = "IMPORT_MD3_SKIN_NAME",
-		AI_CONFIG_IMPORT_MD3_SHADER_SRC                      = "IMPORT_MD3_SHADER_SRC",
-		AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY                  = "IMPORT_LWO_ONE_LAYER_ONLY",
-		AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD                = "IMPORT_MD5_NO_ANIM_AUTOLOAD",
-		AI_CONFIG_IMPORT_LWS_ANIM_START                      = "IMPORT_LWS_ANIM_START",
-		AI_CONFIG_IMPORT_LWS_ANIM_END                        = "IMPORT_LWS_ANIM_END",
-		AI_CONFIG_IMPORT_IRR_ANIM_FPS                        = "IMPORT_IRR_ANIM_FPS",
-		AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE                  = "IMPORT_OGRE_MATERIAL_FILE",
-		AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME      = "IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME",
-		AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS      = "IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS",
-		AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT         = "AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT",
-		AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS      = "IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS",
-		AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION            = "IMPORT_IFC_CUSTOM_TRIANGULATION",
-		AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION         = "IMPORT_COLLADA_IGNORE_UP_DIRECTION",
-		AI_CONFIG_EXPORT_XFILE_64BIT                         = "EXPORT_XFILE_64BIT",
-		AI_CONFIG_PP_ICL_PTCACHE_SIZE                        = "PP_ICL_PTCACHE_SIZE",
-		AI_CONFIG_PP_DB_ALL_OR_NONE                          = "PP_DB_ALL_OR_NONE",
-		AI_CONFIG_PP_DB_THRESHOLD                            = "PP_DB_THRESHOLD",
-		AI_CONFIG_PP_LBW_MAX_WEIGHTS                         = "PP_LBW_MAX_WEIGHTS",
-		AI_CONFIG_PP_SLM_VERTEX_LIMIT                        = "PP_SLM_VERTEX_LIMIT",
-		AI_CONFIG_PP_SLM_TRIANGLE_LIMIT                      = "PP_SLM_TRIANGLE_LIMIT",
-		AI_CONFIG_PP_OG_EXCLUDE_LIST                         = "PP_OG_EXCLUDE_LIST",
-		AI_CONFIG_PP_FD_REMOVE                               = "PP_FD_REMOVE",
-		AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION                 = "PP_PTV_ROOT_TRANSFORMATION",
-		AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION             = "PP_PTV_ADD_ROOT_TRANSFORMATION",
-		AI_CONFIG_PP_PTV_NORMALIZE                           = "PP_PTV_NORMALIZE",
-		AI_CONFIG_PP_PTV_KEEP_HIERARCHY                      = "PP_PTV_KEEP_HIERARCHY",
-		AI_CONFIG_PP_RRM_EXCLUDE_LIST                        = "PP_RRM_EXCLUDE_LIST",
-		AI_CONFIG_IMPORT_MDL_COLORMAP                        = "IMPORT_MDL_COLORMAP",
-		AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE                 = "PP_GSN_MAX_SMOOTHING_ANGLE",
-		AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX                = "PP_CT_TEXTURE_CHANNEL_INDEX",
-		AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE                  = "PP_CT_MAX_SMOOTHING_ANGLE",
-		AI_CONFIG_PP_SBBC_MAX_BONES                          = "PP_SBBC_MAX_BONES",
-		AI_CONFIG_IMPORT_NO_SKELETON_MESHES                  = "IMPORT_NO_SKELETON_MESHES",
-		AI_CONFIG_GLOB_MEASURE_TIME                          = "GLOB_MEASURE_TIME";
+	/**
+	 * Enables time measurements.
+	 * 
+	 * <p>If enabled, measures the time needed for each part of the loading process (i.e. IO time, importing, postprocessing, ..) and dumps these timings to the
+	 * DefaultLogger. See the <a href="http://assimp.org/lib_html/perf.html">Performance Page</a> for more information on this topic.</p>
+	 * 
+	 * <p>Property type: bool. Default value: false.</p>
+	 */
+	public static final String AI_CONFIG_GLOB_MEASURE_TIME = "GLOB_MEASURE_TIME";
+
+	/**
+	 * Global setting to disable generation of skeleton dummy meshes
+	 * 
+	 * <p>Skeleton dummy meshes are generated as a visualization aid in cases which the input data contains no geometry, but only animation data.</p>
+	 * 
+	 * <p>Property data type: bool. Default value: false</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_NO_SKELETON_MESHES = "IMPORT_NO_SKELETON_MESHES";
+
+	/**
+	 * Maximum bone count per mesh for the {@link #aiProcess_SplitByBoneCount Process_SplitByBoneCount} step.
+	 * 
+	 * <p>Meshes are split until the maximum number of bones is reached. The default value is {@link #AI_SBBC_DEFAULT_MAX_BONES}, which may be altered at compile-time.</p>
+	 * 
+	 * <p>Property data type: integer.</p>
+	 */
+	public static final String AI_CONFIG_PP_SBBC_MAX_BONES = "PP_SBBC_MAX_BONES";
+
+	/**
+	 * Specifies the maximum angle that may be between two vertex tangents that their tangents and bi-tangents are smoothed.
+	 * 
+	 * <p>This applies to the {@link #aiProcess_CalcTangentSpace Process_CalcTangentSpace} step. The angle is specified in degrees. The maximum value is 175.</p>
+	 * 
+	 * <p>Property type: float. Default value: 45 degrees</p>
+	 */
+	public static final String AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE = "PP_CT_MAX_SMOOTHING_ANGLE";
+
+	/**
+	 * Source UV channel for tangent space computation.
+	 * 
+	 * <p>The specified channel must exist or an error will be raised.</p>
+	 * 
+	 * <p>Property type: integer. Default value: 0</p>
+	 */
+	public static final String AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX = "PP_CT_TEXTURE_CHANNEL_INDEX";
+
+	/**
+	 * Specifies the maximum angle that may be between two face normals at the same vertex position that their are smoothed together.
+	 * 
+	 * <p>Sometimes referred to as 'crease angle'. This applies to the {@link #aiProcess_GenSmoothNormals Process_GenSmoothNormals} step. The angle is specified in degrees, so 180 is PI. The
+	 * default value is 175 degrees (all vertex normals are smoothed). The maximum value is 175, too.</p>
+	 * 
+	 * <p>Property type: float.</p>
+	 * 
+	 * <p>Warning: setting this option may cause a severe loss of performance. The performance is unaffected if the {@link #AI_CONFIG_FAVOUR_SPEED} flag is set but the
+	 * output quality may be reduced.</p>
+	 */
+	public static final String AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE = "PP_GSN_MAX_SMOOTHING_ANGLE";
+
+	/**
+	 * Sets the colormap (= palette) to be used to decode embedded textures in MDL (Quake or 3DGS) files.
+	 * 
+	 * <p>This must be a valid path to a file. The file is 768 (256*3) bytes large and contains RGB triplets for each of the 256 palette entries. The default
+	 * value is colormap.lmp. If the file is not found, a default palette (from Quake 1) is used.</p>
+	 * 
+	 * <p>Property type: string.</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_MDL_COLORMAP = "IMPORT_MDL_COLORMAP";
+
+	/**
+	 * Configures the {@link #aiProcess_RemoveRedundantMaterials Process_RemoveRedundantMaterials} step to keep materials matching a name in a given list.
+	 * 
+	 * <p>This is a list of 1 to n strings, ' ' serves as delimiter character. Identifiers containing whitespaces must be enclosed in *single* quotation marks.
+	 * For example: {@code "keep-me and_me_to anotherMaterialToBeKept \'name with whitespace\'"}. If a material matches on of these names, it will not be
+	 * modified or removed by the postprocessing step nor will other materials be replaced by a reference to it.</p>
+	 * 
+	 * <p>This option might be useful if you are using some magic material names to pass additional semantics through the content pipeline. This ensures they
+	 * won't be optimized away, but a general optimization is still performed for materials not contained in the list.</p>
+	 * 
+	 * <p>Property type: String. Default value: n/a</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>Linefeeds, tabs or carriage returns are treated as whitespace. Material names are case sensitive.</p></div>
+	 */
+	public static final String AI_CONFIG_PP_RRM_EXCLUDE_LIST = "PP_RRM_EXCLUDE_LIST";
+
+	/**
+	 * Configures the {@link #aiProcess_PreTransformVertices Process_PreTransformVertices} step to keep the scene hierarchy. Meshes are moved to worldspace, but no optimization is performed (read:
+	 * meshes with equal materials are not joined. The total number of meshes won't change).
+	 * 
+	 * <p>This option could be of use for you if the scene hierarchy contains important additional information which you intend to parse. For rendering, you can
+	 * still render all meshes in the scene without any transformations.</p>
+	 * 
+	 * <p>Property type: bool. Default value: false.</p>
+	 */
+	public static final String AI_CONFIG_PP_PTV_KEEP_HIERARCHY = "PP_PTV_KEEP_HIERARCHY";
+
+	/**
+	 * Configures the {@link #aiProcess_PreTransformVertices Process_PreTransformVertices} step to normalize all vertex components into the {@code [-1,1]} range. That is, a bounding box for the
+	 * whole scene is computed, the maximum component is taken and all meshes are scaled appropriately (uniformly of course!). This might be useful if you
+	 * don't know the spatial dimension of the input data.
+	 */
+	public static final String AI_CONFIG_PP_PTV_NORMALIZE = "PP_PTV_NORMALIZE";
+
+	/**
+	 * Configures the {@link #aiProcess_PreTransformVertices Process_PreTransformVertices} step to use a users defined matrix as the scene root node transformation before transforming vertices.
+	 * 
+	 * <p>Property type: bool. Default value: false.</p>
+	 */
+	public static final String AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION = "PP_PTV_ADD_ROOT_TRANSFORMATION";
+
+	/**
+	 * Configures the {@link #aiProcess_PreTransformVertices Process_PreTransformVertices} step to use a users defined matrix as the scene root node transformation before transforming vertices.
+	 * This property corresponds to the 'a1' component of the transformation matrix.
+	 * 
+	 * <p>Property type: aiMatrix4x4.</p>
+	 */
+	public static final String AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION = "PP_PTV_ROOT_TRANSFORMATION";
+
+	/**
+	 * Configures the {@link #aiProcess_FindDegenerates Process_FindDegenerates} step to remove degenerated primitives from the import - immediately.
+	 * 
+	 * <p>The default behaviour converts degenerated triangles to lines and degenerated lines to points. See the documentation to the {@link #aiProcess_FindDegenerates Process_FindDegenerates}
+	 * step for a detailed example of the various ways to get rid of these lines and points if you don't want them.</p>
+	 * 
+	 * <p>Property type: bool. Default value: false.</p>
+	 */
+	public static final String AI_CONFIG_PP_FD_REMOVE = "PP_FD_REMOVE";
+
+	/**
+	 * Configures the {@link #aiProcess_OptimizeGraph Process_OptimizeGraph} step to preserve nodes matching a name in a given list.
+	 * 
+	 * <p>This is a list of 1 to n strings, ' ' serves as delimiter character. Identifiers containing whitespaces must be enclosed in *single* quotation marks.
+	 * For example: {@code "keep-me and_me_to anotherNodeToBeKept \'name with whitespace\'"}. If a node matches on of these names, it will not be modified or
+	 * removed by the postprocessing step.</p>
+	 * 
+	 * <p>This option might be useful if you are using some magic node names to pass additional semantics through the content pipeline. This ensures they won't
+	 * be optimized away, but a general optimization is still performed for nodes not contained in the list.</p>
+	 * 
+	 * <p>Property type: String. Default value: n/a</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>Linefeeds, tabs or carriage returns are treated as whitespace. Node names are case sensitive.</p></div>
+	 */
+	public static final String AI_CONFIG_PP_OG_EXCLUDE_LIST = "PP_OG_EXCLUDE_LIST";
+
+	/**
+	 * Set the maximum number of triangles in a mesh.
+	 * 
+	 * <p>This is used by the {@link #aiProcess_SplitLargeMeshes Process_SplitLargeMeshes} PostProcess-Step to determine whether a mesh must be split or not.</p>
+	 * 
+	 * <p>Property type: integer.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>The default value is {@link #AI_SLM_DEFAULT_MAX_TRIANGLES}</p></div>
+	 */
+	public static final String AI_CONFIG_PP_SLM_TRIANGLE_LIMIT = "PP_SLM_TRIANGLE_LIMIT";
+
+	/**
+	 * Set the maximum number of vertices in a mesh.
+	 * 
+	 * <p>This is used by the {@link #aiProcess_SplitLargeMeshes Process_SplitLargeMeshes} PostProcess-Step to determine whether a mesh must be split or not.</p>
+	 * 
+	 * <p>Property type: integer.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>The default value is {@link #AI_SLM_DEFAULT_MAX_VERTICES}</p></div>
+	 */
+	public static final String AI_CONFIG_PP_SLM_VERTEX_LIMIT = "PP_SLM_VERTEX_LIMIT";
+
+	/**
+	 * Set the maximum number of bones affecting a single vertex.
+	 * 
+	 * <p>This is used by the {@link #aiProcess_LimitBoneWeights Process_LimitBoneWeights} PostProcess-Step.</p>
+	 * 
+	 * <p>Property type: integer.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>The default value is {@link #AI_LBW_MAX_WEIGHTS}</p></div>
+	 */
+	public static final String AI_CONFIG_PP_LBW_MAX_WEIGHTS = "PP_LBW_MAX_WEIGHTS";
+
+	/**
+	 * Lower the deboning threshold in order to remove more bones.
+	 * 
+	 * <p>This is used by the {@link #aiProcess_Debone Process_Debone} PostProcess-Step.</p>
+	 * 
+	 * <p>Property type: float.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>The default value is {@link #AI_DEBONE_THRESHOLD}</p></div>
+	 */
+	public static final String AI_CONFIG_PP_DB_THRESHOLD = "PP_DB_THRESHOLD";
+
+	/**
+	 * Require all bones qualify for deboning before removing any.
+	 * 
+	 * <p>This is used by the {@link #aiProcess_Debone Process_Debone} PostProcess-Step.</p>
+	 * 
+	 * <p>Property type: bool.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>The default value is 0</p></div>
+	 */
+	public static final String AI_CONFIG_PP_DB_ALL_OR_NONE = "PP_DB_ALL_OR_NONE";
+
+	/**
+	 * Set the size of the post-transform vertex cache to optimize the vertices for. This configures the {@link #aiProcess_ImproveCacheLocality Process_ImproveCacheLocality} step.
+	 * 
+	 * <p>The size is given in vertices. Of course you can't know how the vertex format will exactly look like after the import returns, but you can still guess
+	 * what your meshes will probably have.</p>
+	 * 
+	 * <p>Property type: integer.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>The default value is {@link #PP_ICL_PTCACHE_SIZE}. That results in slight performance improvements for most nVidia/AMD cards since 2002.</p></div>
+	 */
+	public static final String AI_CONFIG_PP_ICL_PTCACHE_SIZE = "PP_ICL_PTCACHE_SIZE";
+
+	/**
+	 * Input parameter to the {@link #aiProcess_RemoveComponent Process_RemoveComponent} step: Specifies the parts of the data structure to be removed.
+	 * 
+	 * <p>See the documentation to this step for further details. The property is expected to be an integer, a bitwise combination of the {@code aiComponent}
+	 * flags. The default value is 0. Important: if no valid mesh is remaining after the step has been executed (e.g you thought it was funny to specify ALL
+	 * of the flags defined above) the import FAILS. Mainly because there is no data to work on anymore ...</p>
+	 */
+	public static final String AI_CONFIG_PP_RVC_FLAGS = "PP_RVC_FLAGS";
+
+	/**
+	 * Input parameter to the {@link #aiProcess_SortByPType Process_SortByPType} step: Specifies which primitive types are removed by the step.
+	 * 
+	 * <p>This is a bitwise combination of the {@code aiPrimitiveType} flags. Specifying all of them is illegal, of course. A typical use would be to exclude
+	 * all line and point meshes from the import.</p>
+	 * 
+	 * <p>This is an integer property, its default value is 0.</p>
+	 */
+	public static final String AI_CONFIG_PP_SBP_REMOVE = "PP_SBP_REMOVE";
+
+	/**
+	 * Input parameter to the {@link #aiProcess_FindInvalidData Process_FindInvalidData} step: Specifies the floating-point accuracy for animation values.
+	 * 
+	 * <p>The step checks for animation tracks where all frame values are absolutely equal and removes them. This tweakable controls the epsilon for
+	 * floating-point comparisons - two keys are considered equal if the invariant {@code abs(n0-n1)>epsilon} holds true for all vector respectively
+	 * quaternion components.</p>
+	 * 
+	 * <p>The default value is 0.f - comparisons are exact then.</p>
+	 */
+	public static final String AI_CONFIG_PP_FID_ANIM_ACCURACY = "PP_FID_ANIM_ACCURACY";
+
+	/**
+	 * Input parameter to the {@link #aiProcess_TransformUVCoords Process_TransformUVCoords} step: Specifies which UV transformations are evaluated.
+	 * 
+	 * <p>This is a bitwise combination of the {@code AI_UVTRAFO_XXX} flags (integer property, of course). By default all transformations are enabled
+	 * ({@link #AI_UVTRAFO_ALL}).</p>
+	 */
+	public static final String AI_CONFIG_PP_TUV_EVALUATE = "PP_TUV_EVALUATE";
+
+	/**
+	 * A hint to assimp to favour speed against import quality.
+	 * 
+	 * <p>Enabling this option may result in faster loading, but it needn't. It represents just a hint to loaders and post-processing steps to use faster code
+	 * paths, if possible.</p>
+	 * 
+	 * <p>This property is expected to be an integer, != 0 stands for true. The default value is 0.</p>
+	 */
+	public static final String AI_CONFIG_FAVOUR_SPEED = "FAVOUR_SPEED";
+
+	/**
+	 * Set whether the fbx importer will merge all geometry layers present in the source file or take only the first.
+	 * 
+	 * <p>Property type: bool. The default value is true (1)</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS = "IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS";
+
+	/**
+	 * Set whether the fbx importer will read all materials present in the source file or take only the referenced materials.
+	 * 
+	 * <p>This is void unless {@code IMPORT_FBX_READ_MATERIALS=1}.</p>
+	 * 
+	 * <p>Property type: bool. The default value is false (0)</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS = "IMPORT_FBX_READ_ALL_MATERIALS";
+
+	/**
+	 * Set whether the fbx importer will read materials.
+	 * 
+	 * <p>Property type: bool. The default value is true (1)</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_FBX_READ_MATERIALS = "IMPORT_FBX_READ_MATERIALS";
+
+	/**
+	 * Set whether the fbx importer will read embedded textures.
+	 * 
+	 * <p>Property type: bool. The default value is true (1)</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_FBX_READ_TEXTURES = "IMPORT_FBX_READ_TEXTURES";
+
+	/**
+	 * Set whether the fbx importer will read cameras.
+	 * 
+	 * <p>Property type: bool. The default value is true (1)</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_FBX_READ_CAMERAS = "IMPORT_FBX_READ_CAMERAS";
+
+	/**
+	 * Set whether the fbx importer will read light sources.
+	 * 
+	 * <p>Property type: bool. The default value is true (1)</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_FBX_READ_LIGHTS = "IMPORT_FBX_READ_LIGHTS";
+
+	/**
+	 * Set whether the fbx importer will read animations.
+	 * 
+	 * <p>Property type: bool. The default value is true (1)</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS = "IMPORT_FBX_READ_ANIMATIONS";
+
+	/**
+	 * Set whether the fbx importer will act in strict mode in which only FBX 2013 is supported and any other sub formats are rejected. FBX 2013 is the
+	 * primary target for the importer, so this format is best supported and well-tested.
+	 * 
+	 * <p>Property type: bool. The default value is false (0)</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_FBX_STRICT_MODE = "IMPORT_FBX_STRICT_MODE";
+
+	/**
+	 * Set whether the fbx importer will preserve pivot points for transformations (as extra nodes). If set to false, pivots and offsets will be evaluated
+	 * whenever possible.
+	 * 
+	 * <p>Property type: bool. The default value is true (1)</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS = "IMPORT_FBX_PRESERVE_PIVOTS";
+
+	/**
+	 * Specifies whether the importer will drop empty animation curves or animation curves which match the bind pose transformation over their entire defined
+	 * range.
+	 * 
+	 * <p>Property type: bool. The default value is true (1)</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES = "IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES";
+
+	/**
+	 * Set the vertex animation keyframe to be imported.
+	 * 
+	 * <p>ASSIMP does not support vertex keyframes (only bone animation is supported). The library reads only one frame of models with vertex animations. By
+	 * default this is the first frame.</p>
+	 * 
+	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+	 * 
+	 * <p>The default value is 0. This option applies to all importers. However, it is also possible to override the global setting for a specific loader.
+	 * You can use the {@code AI_CONFIG_IMPORT_XXX_KEYFRAME} options (where XXX is a placeholder for the file format for which you want to override the
+	 * global setting).</p>
+	 * </div>
+	 * 
+	 * <p>Property type: integer.</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_GLOBAL_KEYFRAME = "IMPORT_GLOBAL_KEYFRAME";
+
+	/**  */
+	public static final String AI_CONFIG_IMPORT_MD3_KEYFRAME = "IMPORT_MD3_KEYFRAME";
+
+	/** {@see {@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}} */
+	public static final String AI_CONFIG_IMPORT_MD2_KEYFRAME = "IMPORT_MD2_KEYFRAME";
+
+	/** {@see {@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}} */
+	public static final String AI_CONFIG_IMPORT_MDL_KEYFRAME = "IMPORT_MDL_KEYFRAME";
+
+	/** {@see {@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}} */
+	public static final String AI_CONFIG_IMPORT_MDC_KEYFRAME = "IMPORT_MDC_KEYFRAME";
+
+	/** {@see {@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}} */
+	public static final String AI_CONFIG_IMPORT_SMD_KEYFRAME = "IMPORT_SMD_KEYFRAME";
+
+	/** {@see {@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}} */
+	public static final String AI_CONFIG_IMPORT_UNREAL_KEYFRAME = "IMPORT_UNREAL_KEYFRAME";
+
+	/**
+	 * Configures the AC loader to collect all surfaces which have the "Backface cull" flag set in separate meshes.
+	 * 
+	 * <p>Property type: bool. Default value: true.</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL = "IMPORT_AC_SEPARATE_BFCULL";
+
+	/**
+	 * Configures whether the AC loader evaluates subdivision surfaces (indicated by the presence of the 'subdiv' attribute in the file). By default, Assimp
+	 * performs the subdivision using the standard Catmull-Clark algorithm.
+	 * 
+	 * <p>Property type: bool. Default value: true.</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION = "IMPORT_AC_EVAL_SUBDIVISION";
+
+	/**
+	 * Configures the UNREAL 3D loader to separate faces with different surface flags (e.g. two-sided vs. single-sided).
+	 * 
+	 * <p>Property type: bool. Default value: true.</p>
+	 */
+	public static final String AI_CONFIG_UNREAL_HANDLE_FLAGS = "UNREAL_HANDLE_FLAGS";
+
+	/**
+	 * Configures the terragen import plugin to compute uv's for terrains, if not given. Furthermore a default texture is assigned.
+	 * 
+	 * <p>UV coordinates for terrains are so simple to compute that you'll usually want to compute them on your own, if you need them. This option is intended
+	 * for model viewers which want to offer an easy way to apply textures to terrains.</p>
+	 * 
+	 * <p>Property type: bool. Default value: false.</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_TER_MAKE_UVS = "IMPORT_TER_MAKE_UVS";
+
+	/**
+	 * Configures the ASE loader to always reconstruct normal vectors basing on the smoothing groups loaded from the file.
+	 * 
+	 * <p>Some ASE files have carry invalid normals, other don't.</p>
+	 * 
+	 * <p>Property type: bool. Default value: true.</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS = "IMPORT_ASE_RECONSTRUCT_NORMALS";
+
+	/**
+	 * Configures the M3D loader to detect and process multi-part Quake player models.
+	 * 
+	 * <p>These models usually consist of 3 files, lower.md3, upper.md3 and head.md3. If this property is set to true, Assimp will try to load and * combine all
+	 * three files if one of them is loaded.</p>
+	 * 
+	 * <p>Property type: bool. Default value: true.</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART = "IMPORT_MD3_HANDLE_MULTIPART";
+
+	/**
+	 * Tells the MD3 loader which skin files to load.
+	 * 
+	 * <p>When loading MD3 files, Assimp checks whether a file {@code [md3_file_name]_[skin_name].skin} is existing. These files are used by * Quake III to be
+	 * able to assign different skins (e.g. red and blue team) to models. 'default', 'red', 'blue' are typical skin names.</p>
+	 * 
+	 * <p>Property type: String. Default value: "default".</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_MD3_SKIN_NAME = "IMPORT_MD3_SKIN_NAME";
+
+	/**
+	 * Specify the Quake 3 shader file to be used for a particular MD3 file. This can also be a search path.
+	 * 
+	 * <p>By default Assimp's behaviour is as follows: If a MD3 file {@code any_path/models/any_q3_subdir/model_name/file_name.md3} is loaded, the library tries
+	 * to locate the corresponding shader file in {@code any_path/scripts/model_name.shader}. This property overrides this behaviour. It can either specify a
+	 * full path to the shader to be loaded or alternatively the path (relative or absolute) to the directory where the shaders for all MD3s to be loaded
+	 * reside. Assimp attempts to open {@code IMPORT_MD3_SHADER_SRC/model_name.shader} first, {@code IMPORT_MD3_SHADER_SRC/file_name.shader} is the fallback
+	 * file. Note that {@code IMPORT_MD3_SHADER_SRC} should have a terminal (back)slash.</p>
+	 * 
+	 * <p>Property type: String. Default value: n/a.</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_MD3_SHADER_SRC = "IMPORT_MD3_SHADER_SRC";
+
+	/**
+	 * Configures the LWO loader to load just one layer from the model.
+	 * 
+	 * <p>LWO files consist of layers and in some cases it could be useful to load only one of them. This property can be either a string - which specifies the
+	 * name of the layer - or an integer - the index of the layer. If the property is not set the whole LWO model is loaded. Loading fails if the requested
+	 * layer is not available. The layer index is zero-based and the layer name may not be empty.</p>
+	 * 
+	 * <p>Property type: Integer. Default value: all layers are loaded.</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY = "IMPORT_LWO_ONE_LAYER_ONLY";
+
+	/**
+	 * Configures the MD5 loader to not load the MD5ANIM file for a MD5MESH file automatically.
+	 * 
+	 * <p>The default strategy is to look for a file with the same name but the MD5ANIM extension in the same directory. If it is found, it is loaded * and
+	 * combined with the MD5MESH file. This configuration option can be used to disable this behaviour.</p>
+	 * 
+	 * <p>Property type: bool. Default value: false.</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD = "IMPORT_MD5_NO_ANIM_AUTOLOAD";
+
+	/**
+	 * Defines the begin of the time range for which the LWS loader evaluates animations and computes {@link AINodeAnim}'s.
+	 * 
+	 * <p>Assimp provides full conversion of LightWave's envelope system, including pre and post conditions. The loader computes linearly subsampled animation
+	 * chanels with the frame rate given in the LWS file. This property defines the start time. Note: animation channels are only generated if a node has at
+	 * least one envelope with more tan one key assigned. This property is given in frames, '0' is the first frame. By default, if this property is not set,
+	 * the importer takes the animation start from the input LWS file ('FirstFrame' line).</p>
+	 * 
+	 * <p>Property type: Integer. Default value: taken from file.</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_LWS_ANIM_START = "IMPORT_LWS_ANIM_START";
+
+	/**
+	 * End of the imported time range. 
+	 * 
+	 * <p>{@see {@link #AI_CONFIG_IMPORT_LWS_ANIM_START}}</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_LWS_ANIM_END = "IMPORT_LWS_ANIM_END";
+
+	/**
+	 * Defines the output frame rate of the IRR loader.
+	 * 
+	 * <p>IRR animations are difficult to convert for Assimp and there will always be a loss of quality. This setting defines how many keys per second are
+	 * returned by the converter.</p>
+	 * 
+	 * <p>Property type: integer. Default value: 100</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_IRR_ANIM_FPS = "IMPORT_IRR_ANIM_FPS";
+
+	/**
+	 * Ogre Importer will try to find referenced materials from this file.
+	 * 
+	 * <p>Ogre meshes reference with material names, this does not tell Assimp the file where it is located in. Assimp will try to find the source file in the
+	 * following order: {@code <material-name>.material}, {@code<mesh-filename-base>.material} and lastly the material name defined by this config property.</p>
+	 * 
+	 * <p>Property type: String. Default value: {@code Scene.material}.</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE = "IMPORT_OGRE_MATERIAL_FILE";
+
+	/**
+	 * Ogre Importer detect the texture usage from its filename.
+	 * 
+	 * <p>Ogre material texture units do not define texture type, the textures usage depends on the used shader or Ogre's fixed pipeline. If this config
+	 * property is true Assimp will try to detect the type from the textures filename postfix: _n, _nrm, _nrml, _normal, _normals and _normalmap for normal
+	 * map, _s, _spec, _specular and _specularmap for specular map, _l, _light, _lightmap, _occ and _occlusion for light map, _disp and _displacement for
+	 * displacement map. The matching is case insensitive. Post fix is taken between the last underscore and the last period.</p>
+	 * 
+	 * <p>Default behavior is to detect type from lower cased texture unit name by matching against: normalmap, specularmap, lightmap and displacementmap. For
+	 * both cases if no match is found {@link #aiTextureType_DIFFUSE TextureType_DIFFUSE} is used.</p>
+	 * 
+	 * <p>Property type: Bool. Default value: false.</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME = "IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME";
+
+	/**
+	 * Specifies whether the IFC loader skips over IfcSpace elements.
+	 * 
+	 * <p>IfcSpace elements (and their geometric representations) are used to represent, well, free space in a building storey.</p>
+	 * 
+	 * <p>Property type: Bool. Default value: true.</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS = "IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS";
+
+	/**
+	 * Specifies whether the Android JNI asset extraction is supported.
+	 * 
+	 * <p>Turn on this option if you want to manage assets in native Android application without having to keep the internal directory and asset manager
+	 * pointer.</p>
+	 */
+	public static final String AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT = "AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT";
+
+	/**
+	 * Specifies whether the IFC loader skips over shape representations of type 'Curve2D'.
+	 * 
+	 * <p>A lot of files contain both a faceted mesh representation and a outline with a presentation type of 'Curve2D'. Currently Assimp doesn't convert those,
+	 * so turning this option off just clutters the log with errors.</p>
+	 * 
+	 * <p>Property type: Bool. Default value: true.</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS = "IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS";
+
+	/**
+	 * Specifies whether the IFC loader will use its own, custom triangulation algorithm to triangulate wall and floor meshes.
+	 * 
+	 * <p>If this property is set to false, walls will be either triangulated by {@link #aiProcess_Triangulate Process_Triangulate} or will be passed through as huge polygons with faked
+	 * holes (i.e. holes that are connected with the outer boundary using a dummy edge). It is highly recommended to set this property to true if you want
+	 * triangulated data because {@link #aiProcess_Triangulate Process_Triangulate} is known to have problems with the kind of polygons that the IFC loader spits out for complicated
+	 * meshes.</p>
+	 * 
+	 * <p>Property type: Bool. Default value: true.</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION = "IMPORT_IFC_CUSTOM_TRIANGULATION";
+
+	/**
+	 * Specifies whether the Collada loader will ignore the provided up direction.
+	 * 
+	 * <p>If this property is set to true, the up direction provided in the file header will be ignored and the file will be loaded as is.</p>
+	 * 
+	 * <p>Property type: Bool. Default value: false.</p>
+	 */
+	public static final String AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION = "IMPORT_COLLADA_IGNORE_UP_DIRECTION";
+
+	/**
+	 * Specifies the xfile use double for real values of float.
+	 * 
+	 * <p>Property type: Bool. Default value: false.</p>
+	 */
+	public static final String AI_CONFIG_EXPORT_XFILE_64BIT = "EXPORT_XFILE_64BIT";
 
 	/** Default values for configuration properties. */
 	public static final int
 		AI_SBBC_DEFAULT_MAX_BONES    = 0x3C,
 		AI_SLM_DEFAULT_MAX_TRIANGLES = 0xF4240,
 		AI_SLM_DEFAULT_MAX_VERTICES  = 0xF4240,
-		AI_LMW_MAX_WEIGHTS           = 0x4,
+		AI_LBW_MAX_WEIGHTS           = 0x4,
 		PP_ICL_PTCACHE_SIZE          = 0xC;
 
-	/** Default values for the {@link #AI_CONFIG_PP_DB_THRESHOLD}. */
+	/** Default value for {@link #AI_CONFIG_PP_DB_THRESHOLD}. */
 	public static final float AI_DEBONE_THRESHOLD = 1.0f;
 
 	/** UVCoord Transforms */
@@ -744,7 +1267,7 @@ public class Assimp {
 	 * Limits the number of bones simultaneously affecting a single vertex to a maximum value.
 	 * 
 	 * <p>If any vertex is affected by more than the maximum number of bones, the least important vertex weights are removed and the remaining vertex weights
-	 * are renormalized so that the weights still sum up to 1. The default bone weight limit is 4 (defined as {@link #AI_LMW_MAX_WEIGHTS} in config.h), but
+	 * are renormalized so that the weights still sum up to 1. The default bone weight limit is 4 (defined as {@link #AI_LBW_MAX_WEIGHTS} in config.h), but
 	 * you can use the {@link #AI_CONFIG_PP_LBW_MAX_WEIGHTS} importer property to supply your own limit to the post processing step.</p>
 	 * 
 	 * <p>If you intend to perform the skinning in hardware, this post processing step might be of interest to you.</p>
@@ -2195,7 +2718,7 @@ x1</code></pre>
 	 * possible to specify them per import.</p>
 	 *
 	 * @param store  Store to modify. Use {@link #aiCreatePropertyStore CreatePropertyStore} to obtain a store.
-	 * @param szName Name of the configuration property to be set. One of:<br><table><tr><td>{@link #AI_CONFIG_PP_RVC_FLAGS}</td><td>{@link #AI_CONFIG_PP_SBP_REMOVE}</td></tr><tr><td>{@link #AI_CONFIG_PP_FID_ANIM_ACCURACY}</td><td>{@link #AI_CONFIG_PP_TUV_EVALUATE}</td></tr><tr><td>{@link #AI_CONFIG_FAVOUR_SPEED}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_MATERIALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_TEXTURES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_CAMERAS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_LIGHTS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_STRICT_MODE}</td><td>{@link #AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES}</td><td>{@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MD2_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MDC_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_SMD_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_UNREAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL}</td><td>{@link #AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION}</td></tr><tr><td>{@link #AI_CONFIG_UNREAL_HANDLE_FLAGS}</td><td>{@link #AI_CONFIG_IMPORT_TER_MAKE_UVS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS}</td><td>{@link #AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_SKIN_NAME}</td><td>{@link #AI_CONFIG_IMPORT_MD3_SHADER_SRC}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY}</td><td>{@link #AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_START}</td><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_END}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IRR_ANIM_FPS}</td><td>{@link #AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION}</td><td>{@link #AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION}</td></tr><tr><td>{@link #AI_CONFIG_EXPORT_XFILE_64BIT}</td><td>{@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_DB_ALL_OR_NONE}</td><td>{@link #AI_CONFIG_PP_DB_THRESHOLD}</td></tr><tr><td>{@link #AI_CONFIG_PP_LBW_MAX_WEIGHTS}</td><td>{@link #AI_CONFIG_PP_SLM_VERTEX_LIMIT}</td></tr><tr><td>{@link #AI_CONFIG_PP_SLM_TRIANGLE_LIMIT}</td><td>{@link #AI_CONFIG_PP_OG_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_FD_REMOVE}</td><td>{@link #AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION}</td><td>{@link #AI_CONFIG_PP_PTV_NORMALIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_KEEP_HIERARCHY}</td><td>{@link #AI_CONFIG_PP_RRM_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_COLORMAP}</td><td>{@link #AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX}</td><td>{@link #AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_SBBC_MAX_BONES}</td><td>{@link #AI_CONFIG_IMPORT_NO_SKELETON_MESHES}</td></tr><tr><td>{@link #AI_CONFIG_GLOB_MEASURE_TIME}</td></tr></table>
+	 * @param szName Name of the configuration property to be set. One of:<br><table><tr><td>{@link #AI_CONFIG_GLOB_MEASURE_TIME}</td><td>{@link #AI_CONFIG_IMPORT_NO_SKELETON_MESHES}</td></tr><tr><td>{@link #AI_CONFIG_PP_SBBC_MAX_BONES}</td><td>{@link #AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX}</td><td>{@link #AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_COLORMAP}</td><td>{@link #AI_CONFIG_PP_RRM_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_KEEP_HIERARCHY}</td><td>{@link #AI_CONFIG_PP_PTV_NORMALIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION}</td><td>{@link #AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION}</td></tr><tr><td>{@link #AI_CONFIG_PP_FD_REMOVE}</td><td>{@link #AI_CONFIG_PP_OG_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_SLM_TRIANGLE_LIMIT}</td><td>{@link #AI_CONFIG_PP_SLM_VERTEX_LIMIT}</td></tr><tr><td>{@link #AI_CONFIG_PP_LBW_MAX_WEIGHTS}</td><td>{@link #AI_CONFIG_PP_DB_THRESHOLD}</td></tr><tr><td>{@link #AI_CONFIG_PP_DB_ALL_OR_NONE}</td><td>{@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_RVC_FLAGS}</td><td>{@link #AI_CONFIG_PP_SBP_REMOVE}</td></tr><tr><td>{@link #AI_CONFIG_PP_FID_ANIM_ACCURACY}</td><td>{@link #AI_CONFIG_PP_TUV_EVALUATE}</td></tr><tr><td>{@link #AI_CONFIG_FAVOUR_SPEED}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_MATERIALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_TEXTURES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_CAMERAS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_LIGHTS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_STRICT_MODE}</td><td>{@link #AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES}</td><td>{@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MD2_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MDC_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_SMD_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_UNREAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL}</td><td>{@link #AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION}</td></tr><tr><td>{@link #AI_CONFIG_UNREAL_HANDLE_FLAGS}</td><td>{@link #AI_CONFIG_IMPORT_TER_MAKE_UVS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS}</td><td>{@link #AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_SKIN_NAME}</td><td>{@link #AI_CONFIG_IMPORT_MD3_SHADER_SRC}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY}</td><td>{@link #AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_START}</td><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_END}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IRR_ANIM_FPS}</td><td>{@link #AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION}</td><td>{@link #AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION}</td></tr><tr><td>{@link #AI_CONFIG_EXPORT_XFILE_64BIT}</td></tr></table>
 	 * @param value  New value for the property
 	 */
 	public static void aiSetImportPropertyInteger(AIPropertyStore store, ByteBuffer szName, int value) {
@@ -2211,7 +2734,7 @@ x1</code></pre>
 	 * possible to specify them per import.</p>
 	 *
 	 * @param store  Store to modify. Use {@link #aiCreatePropertyStore CreatePropertyStore} to obtain a store.
-	 * @param szName Name of the configuration property to be set. One of:<br><table><tr><td>{@link #AI_CONFIG_PP_RVC_FLAGS}</td><td>{@link #AI_CONFIG_PP_SBP_REMOVE}</td></tr><tr><td>{@link #AI_CONFIG_PP_FID_ANIM_ACCURACY}</td><td>{@link #AI_CONFIG_PP_TUV_EVALUATE}</td></tr><tr><td>{@link #AI_CONFIG_FAVOUR_SPEED}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_MATERIALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_TEXTURES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_CAMERAS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_LIGHTS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_STRICT_MODE}</td><td>{@link #AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES}</td><td>{@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MD2_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MDC_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_SMD_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_UNREAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL}</td><td>{@link #AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION}</td></tr><tr><td>{@link #AI_CONFIG_UNREAL_HANDLE_FLAGS}</td><td>{@link #AI_CONFIG_IMPORT_TER_MAKE_UVS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS}</td><td>{@link #AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_SKIN_NAME}</td><td>{@link #AI_CONFIG_IMPORT_MD3_SHADER_SRC}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY}</td><td>{@link #AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_START}</td><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_END}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IRR_ANIM_FPS}</td><td>{@link #AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION}</td><td>{@link #AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION}</td></tr><tr><td>{@link #AI_CONFIG_EXPORT_XFILE_64BIT}</td><td>{@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_DB_ALL_OR_NONE}</td><td>{@link #AI_CONFIG_PP_DB_THRESHOLD}</td></tr><tr><td>{@link #AI_CONFIG_PP_LBW_MAX_WEIGHTS}</td><td>{@link #AI_CONFIG_PP_SLM_VERTEX_LIMIT}</td></tr><tr><td>{@link #AI_CONFIG_PP_SLM_TRIANGLE_LIMIT}</td><td>{@link #AI_CONFIG_PP_OG_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_FD_REMOVE}</td><td>{@link #AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION}</td><td>{@link #AI_CONFIG_PP_PTV_NORMALIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_KEEP_HIERARCHY}</td><td>{@link #AI_CONFIG_PP_RRM_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_COLORMAP}</td><td>{@link #AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX}</td><td>{@link #AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_SBBC_MAX_BONES}</td><td>{@link #AI_CONFIG_IMPORT_NO_SKELETON_MESHES}</td></tr><tr><td>{@link #AI_CONFIG_GLOB_MEASURE_TIME}</td></tr></table>
+	 * @param szName Name of the configuration property to be set. One of:<br><table><tr><td>{@link #AI_CONFIG_GLOB_MEASURE_TIME}</td><td>{@link #AI_CONFIG_IMPORT_NO_SKELETON_MESHES}</td></tr><tr><td>{@link #AI_CONFIG_PP_SBBC_MAX_BONES}</td><td>{@link #AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX}</td><td>{@link #AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_COLORMAP}</td><td>{@link #AI_CONFIG_PP_RRM_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_KEEP_HIERARCHY}</td><td>{@link #AI_CONFIG_PP_PTV_NORMALIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION}</td><td>{@link #AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION}</td></tr><tr><td>{@link #AI_CONFIG_PP_FD_REMOVE}</td><td>{@link #AI_CONFIG_PP_OG_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_SLM_TRIANGLE_LIMIT}</td><td>{@link #AI_CONFIG_PP_SLM_VERTEX_LIMIT}</td></tr><tr><td>{@link #AI_CONFIG_PP_LBW_MAX_WEIGHTS}</td><td>{@link #AI_CONFIG_PP_DB_THRESHOLD}</td></tr><tr><td>{@link #AI_CONFIG_PP_DB_ALL_OR_NONE}</td><td>{@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_RVC_FLAGS}</td><td>{@link #AI_CONFIG_PP_SBP_REMOVE}</td></tr><tr><td>{@link #AI_CONFIG_PP_FID_ANIM_ACCURACY}</td><td>{@link #AI_CONFIG_PP_TUV_EVALUATE}</td></tr><tr><td>{@link #AI_CONFIG_FAVOUR_SPEED}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_MATERIALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_TEXTURES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_CAMERAS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_LIGHTS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_STRICT_MODE}</td><td>{@link #AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES}</td><td>{@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MD2_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MDC_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_SMD_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_UNREAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL}</td><td>{@link #AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION}</td></tr><tr><td>{@link #AI_CONFIG_UNREAL_HANDLE_FLAGS}</td><td>{@link #AI_CONFIG_IMPORT_TER_MAKE_UVS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS}</td><td>{@link #AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_SKIN_NAME}</td><td>{@link #AI_CONFIG_IMPORT_MD3_SHADER_SRC}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY}</td><td>{@link #AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_START}</td><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_END}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IRR_ANIM_FPS}</td><td>{@link #AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION}</td><td>{@link #AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION}</td></tr><tr><td>{@link #AI_CONFIG_EXPORT_XFILE_64BIT}</td></tr></table>
 	 * @param value  New value for the property
 	 */
 	public static void aiSetImportPropertyInteger(AIPropertyStore store, CharSequence szName, int value) {
@@ -2239,7 +2762,7 @@ x1</code></pre>
 	 * possible to specify them per import.</p>
 	 *
 	 * @param store  Store to modify. Use {@link #aiCreatePropertyStore CreatePropertyStore} to obtain a store.
-	 * @param szName Name of the configuration property to be set. One of:<br><table><tr><td>{@link #AI_CONFIG_PP_RVC_FLAGS}</td><td>{@link #AI_CONFIG_PP_SBP_REMOVE}</td></tr><tr><td>{@link #AI_CONFIG_PP_FID_ANIM_ACCURACY}</td><td>{@link #AI_CONFIG_PP_TUV_EVALUATE}</td></tr><tr><td>{@link #AI_CONFIG_FAVOUR_SPEED}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_MATERIALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_TEXTURES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_CAMERAS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_LIGHTS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_STRICT_MODE}</td><td>{@link #AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES}</td><td>{@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MD2_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MDC_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_SMD_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_UNREAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL}</td><td>{@link #AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION}</td></tr><tr><td>{@link #AI_CONFIG_UNREAL_HANDLE_FLAGS}</td><td>{@link #AI_CONFIG_IMPORT_TER_MAKE_UVS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS}</td><td>{@link #AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_SKIN_NAME}</td><td>{@link #AI_CONFIG_IMPORT_MD3_SHADER_SRC}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY}</td><td>{@link #AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_START}</td><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_END}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IRR_ANIM_FPS}</td><td>{@link #AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION}</td><td>{@link #AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION}</td></tr><tr><td>{@link #AI_CONFIG_EXPORT_XFILE_64BIT}</td><td>{@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_DB_ALL_OR_NONE}</td><td>{@link #AI_CONFIG_PP_DB_THRESHOLD}</td></tr><tr><td>{@link #AI_CONFIG_PP_LBW_MAX_WEIGHTS}</td><td>{@link #AI_CONFIG_PP_SLM_VERTEX_LIMIT}</td></tr><tr><td>{@link #AI_CONFIG_PP_SLM_TRIANGLE_LIMIT}</td><td>{@link #AI_CONFIG_PP_OG_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_FD_REMOVE}</td><td>{@link #AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION}</td><td>{@link #AI_CONFIG_PP_PTV_NORMALIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_KEEP_HIERARCHY}</td><td>{@link #AI_CONFIG_PP_RRM_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_COLORMAP}</td><td>{@link #AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX}</td><td>{@link #AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_SBBC_MAX_BONES}</td><td>{@link #AI_CONFIG_IMPORT_NO_SKELETON_MESHES}</td></tr><tr><td>{@link #AI_CONFIG_GLOB_MEASURE_TIME}</td></tr></table>
+	 * @param szName Name of the configuration property to be set. One of:<br><table><tr><td>{@link #AI_CONFIG_GLOB_MEASURE_TIME}</td><td>{@link #AI_CONFIG_IMPORT_NO_SKELETON_MESHES}</td></tr><tr><td>{@link #AI_CONFIG_PP_SBBC_MAX_BONES}</td><td>{@link #AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX}</td><td>{@link #AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_COLORMAP}</td><td>{@link #AI_CONFIG_PP_RRM_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_KEEP_HIERARCHY}</td><td>{@link #AI_CONFIG_PP_PTV_NORMALIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION}</td><td>{@link #AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION}</td></tr><tr><td>{@link #AI_CONFIG_PP_FD_REMOVE}</td><td>{@link #AI_CONFIG_PP_OG_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_SLM_TRIANGLE_LIMIT}</td><td>{@link #AI_CONFIG_PP_SLM_VERTEX_LIMIT}</td></tr><tr><td>{@link #AI_CONFIG_PP_LBW_MAX_WEIGHTS}</td><td>{@link #AI_CONFIG_PP_DB_THRESHOLD}</td></tr><tr><td>{@link #AI_CONFIG_PP_DB_ALL_OR_NONE}</td><td>{@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_RVC_FLAGS}</td><td>{@link #AI_CONFIG_PP_SBP_REMOVE}</td></tr><tr><td>{@link #AI_CONFIG_PP_FID_ANIM_ACCURACY}</td><td>{@link #AI_CONFIG_PP_TUV_EVALUATE}</td></tr><tr><td>{@link #AI_CONFIG_FAVOUR_SPEED}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_MATERIALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_TEXTURES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_CAMERAS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_LIGHTS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_STRICT_MODE}</td><td>{@link #AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES}</td><td>{@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MD2_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MDC_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_SMD_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_UNREAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL}</td><td>{@link #AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION}</td></tr><tr><td>{@link #AI_CONFIG_UNREAL_HANDLE_FLAGS}</td><td>{@link #AI_CONFIG_IMPORT_TER_MAKE_UVS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS}</td><td>{@link #AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_SKIN_NAME}</td><td>{@link #AI_CONFIG_IMPORT_MD3_SHADER_SRC}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY}</td><td>{@link #AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_START}</td><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_END}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IRR_ANIM_FPS}</td><td>{@link #AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION}</td><td>{@link #AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION}</td></tr><tr><td>{@link #AI_CONFIG_EXPORT_XFILE_64BIT}</td></tr></table>
 	 * @param value  New value for the property
 	 */
 	public static void aiSetImportPropertyFloat(AIPropertyStore store, ByteBuffer szName, float value) {
@@ -2255,7 +2778,7 @@ x1</code></pre>
 	 * possible to specify them per import.</p>
 	 *
 	 * @param store  Store to modify. Use {@link #aiCreatePropertyStore CreatePropertyStore} to obtain a store.
-	 * @param szName Name of the configuration property to be set. One of:<br><table><tr><td>{@link #AI_CONFIG_PP_RVC_FLAGS}</td><td>{@link #AI_CONFIG_PP_SBP_REMOVE}</td></tr><tr><td>{@link #AI_CONFIG_PP_FID_ANIM_ACCURACY}</td><td>{@link #AI_CONFIG_PP_TUV_EVALUATE}</td></tr><tr><td>{@link #AI_CONFIG_FAVOUR_SPEED}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_MATERIALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_TEXTURES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_CAMERAS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_LIGHTS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_STRICT_MODE}</td><td>{@link #AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES}</td><td>{@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MD2_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MDC_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_SMD_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_UNREAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL}</td><td>{@link #AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION}</td></tr><tr><td>{@link #AI_CONFIG_UNREAL_HANDLE_FLAGS}</td><td>{@link #AI_CONFIG_IMPORT_TER_MAKE_UVS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS}</td><td>{@link #AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_SKIN_NAME}</td><td>{@link #AI_CONFIG_IMPORT_MD3_SHADER_SRC}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY}</td><td>{@link #AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_START}</td><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_END}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IRR_ANIM_FPS}</td><td>{@link #AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION}</td><td>{@link #AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION}</td></tr><tr><td>{@link #AI_CONFIG_EXPORT_XFILE_64BIT}</td><td>{@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_DB_ALL_OR_NONE}</td><td>{@link #AI_CONFIG_PP_DB_THRESHOLD}</td></tr><tr><td>{@link #AI_CONFIG_PP_LBW_MAX_WEIGHTS}</td><td>{@link #AI_CONFIG_PP_SLM_VERTEX_LIMIT}</td></tr><tr><td>{@link #AI_CONFIG_PP_SLM_TRIANGLE_LIMIT}</td><td>{@link #AI_CONFIG_PP_OG_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_FD_REMOVE}</td><td>{@link #AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION}</td><td>{@link #AI_CONFIG_PP_PTV_NORMALIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_KEEP_HIERARCHY}</td><td>{@link #AI_CONFIG_PP_RRM_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_COLORMAP}</td><td>{@link #AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX}</td><td>{@link #AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_SBBC_MAX_BONES}</td><td>{@link #AI_CONFIG_IMPORT_NO_SKELETON_MESHES}</td></tr><tr><td>{@link #AI_CONFIG_GLOB_MEASURE_TIME}</td></tr></table>
+	 * @param szName Name of the configuration property to be set. One of:<br><table><tr><td>{@link #AI_CONFIG_GLOB_MEASURE_TIME}</td><td>{@link #AI_CONFIG_IMPORT_NO_SKELETON_MESHES}</td></tr><tr><td>{@link #AI_CONFIG_PP_SBBC_MAX_BONES}</td><td>{@link #AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX}</td><td>{@link #AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_COLORMAP}</td><td>{@link #AI_CONFIG_PP_RRM_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_KEEP_HIERARCHY}</td><td>{@link #AI_CONFIG_PP_PTV_NORMALIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION}</td><td>{@link #AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION}</td></tr><tr><td>{@link #AI_CONFIG_PP_FD_REMOVE}</td><td>{@link #AI_CONFIG_PP_OG_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_SLM_TRIANGLE_LIMIT}</td><td>{@link #AI_CONFIG_PP_SLM_VERTEX_LIMIT}</td></tr><tr><td>{@link #AI_CONFIG_PP_LBW_MAX_WEIGHTS}</td><td>{@link #AI_CONFIG_PP_DB_THRESHOLD}</td></tr><tr><td>{@link #AI_CONFIG_PP_DB_ALL_OR_NONE}</td><td>{@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_RVC_FLAGS}</td><td>{@link #AI_CONFIG_PP_SBP_REMOVE}</td></tr><tr><td>{@link #AI_CONFIG_PP_FID_ANIM_ACCURACY}</td><td>{@link #AI_CONFIG_PP_TUV_EVALUATE}</td></tr><tr><td>{@link #AI_CONFIG_FAVOUR_SPEED}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_MATERIALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_TEXTURES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_CAMERAS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_LIGHTS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_STRICT_MODE}</td><td>{@link #AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES}</td><td>{@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MD2_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MDC_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_SMD_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_UNREAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL}</td><td>{@link #AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION}</td></tr><tr><td>{@link #AI_CONFIG_UNREAL_HANDLE_FLAGS}</td><td>{@link #AI_CONFIG_IMPORT_TER_MAKE_UVS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS}</td><td>{@link #AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_SKIN_NAME}</td><td>{@link #AI_CONFIG_IMPORT_MD3_SHADER_SRC}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY}</td><td>{@link #AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_START}</td><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_END}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IRR_ANIM_FPS}</td><td>{@link #AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION}</td><td>{@link #AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION}</td></tr><tr><td>{@link #AI_CONFIG_EXPORT_XFILE_64BIT}</td></tr></table>
 	 * @param value  New value for the property
 	 */
 	public static void aiSetImportPropertyFloat(AIPropertyStore store, CharSequence szName, float value) {
@@ -2283,7 +2806,7 @@ x1</code></pre>
 	 * possible to specify them per import.</p>
 	 *
 	 * @param store  Store to modify. Use {@link #aiCreatePropertyStore CreatePropertyStore} to obtain a store.
-	 * @param szName Name of the configuration property to be set. One of:<br><table><tr><td>{@link #AI_CONFIG_PP_RVC_FLAGS}</td><td>{@link #AI_CONFIG_PP_SBP_REMOVE}</td></tr><tr><td>{@link #AI_CONFIG_PP_FID_ANIM_ACCURACY}</td><td>{@link #AI_CONFIG_PP_TUV_EVALUATE}</td></tr><tr><td>{@link #AI_CONFIG_FAVOUR_SPEED}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_MATERIALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_TEXTURES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_CAMERAS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_LIGHTS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_STRICT_MODE}</td><td>{@link #AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES}</td><td>{@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MD2_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MDC_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_SMD_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_UNREAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL}</td><td>{@link #AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION}</td></tr><tr><td>{@link #AI_CONFIG_UNREAL_HANDLE_FLAGS}</td><td>{@link #AI_CONFIG_IMPORT_TER_MAKE_UVS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS}</td><td>{@link #AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_SKIN_NAME}</td><td>{@link #AI_CONFIG_IMPORT_MD3_SHADER_SRC}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY}</td><td>{@link #AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_START}</td><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_END}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IRR_ANIM_FPS}</td><td>{@link #AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION}</td><td>{@link #AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION}</td></tr><tr><td>{@link #AI_CONFIG_EXPORT_XFILE_64BIT}</td><td>{@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_DB_ALL_OR_NONE}</td><td>{@link #AI_CONFIG_PP_DB_THRESHOLD}</td></tr><tr><td>{@link #AI_CONFIG_PP_LBW_MAX_WEIGHTS}</td><td>{@link #AI_CONFIG_PP_SLM_VERTEX_LIMIT}</td></tr><tr><td>{@link #AI_CONFIG_PP_SLM_TRIANGLE_LIMIT}</td><td>{@link #AI_CONFIG_PP_OG_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_FD_REMOVE}</td><td>{@link #AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION}</td><td>{@link #AI_CONFIG_PP_PTV_NORMALIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_KEEP_HIERARCHY}</td><td>{@link #AI_CONFIG_PP_RRM_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_COLORMAP}</td><td>{@link #AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX}</td><td>{@link #AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_SBBC_MAX_BONES}</td><td>{@link #AI_CONFIG_IMPORT_NO_SKELETON_MESHES}</td></tr><tr><td>{@link #AI_CONFIG_GLOB_MEASURE_TIME}</td></tr></table>
+	 * @param szName Name of the configuration property to be set. One of:<br><table><tr><td>{@link #AI_CONFIG_GLOB_MEASURE_TIME}</td><td>{@link #AI_CONFIG_IMPORT_NO_SKELETON_MESHES}</td></tr><tr><td>{@link #AI_CONFIG_PP_SBBC_MAX_BONES}</td><td>{@link #AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX}</td><td>{@link #AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_COLORMAP}</td><td>{@link #AI_CONFIG_PP_RRM_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_KEEP_HIERARCHY}</td><td>{@link #AI_CONFIG_PP_PTV_NORMALIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION}</td><td>{@link #AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION}</td></tr><tr><td>{@link #AI_CONFIG_PP_FD_REMOVE}</td><td>{@link #AI_CONFIG_PP_OG_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_SLM_TRIANGLE_LIMIT}</td><td>{@link #AI_CONFIG_PP_SLM_VERTEX_LIMIT}</td></tr><tr><td>{@link #AI_CONFIG_PP_LBW_MAX_WEIGHTS}</td><td>{@link #AI_CONFIG_PP_DB_THRESHOLD}</td></tr><tr><td>{@link #AI_CONFIG_PP_DB_ALL_OR_NONE}</td><td>{@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_RVC_FLAGS}</td><td>{@link #AI_CONFIG_PP_SBP_REMOVE}</td></tr><tr><td>{@link #AI_CONFIG_PP_FID_ANIM_ACCURACY}</td><td>{@link #AI_CONFIG_PP_TUV_EVALUATE}</td></tr><tr><td>{@link #AI_CONFIG_FAVOUR_SPEED}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_MATERIALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_TEXTURES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_CAMERAS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_LIGHTS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_STRICT_MODE}</td><td>{@link #AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES}</td><td>{@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MD2_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MDC_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_SMD_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_UNREAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL}</td><td>{@link #AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION}</td></tr><tr><td>{@link #AI_CONFIG_UNREAL_HANDLE_FLAGS}</td><td>{@link #AI_CONFIG_IMPORT_TER_MAKE_UVS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS}</td><td>{@link #AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_SKIN_NAME}</td><td>{@link #AI_CONFIG_IMPORT_MD3_SHADER_SRC}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY}</td><td>{@link #AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_START}</td><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_END}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IRR_ANIM_FPS}</td><td>{@link #AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION}</td><td>{@link #AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION}</td></tr><tr><td>{@link #AI_CONFIG_EXPORT_XFILE_64BIT}</td></tr></table>
 	 * @param value  New value for the property
 	 */
 	public static void aiSetImportPropertyString(AIPropertyStore store, ByteBuffer szName, AIString value) {
@@ -2299,7 +2822,7 @@ x1</code></pre>
 	 * possible to specify them per import.</p>
 	 *
 	 * @param store  Store to modify. Use {@link #aiCreatePropertyStore CreatePropertyStore} to obtain a store.
-	 * @param szName Name of the configuration property to be set. One of:<br><table><tr><td>{@link #AI_CONFIG_PP_RVC_FLAGS}</td><td>{@link #AI_CONFIG_PP_SBP_REMOVE}</td></tr><tr><td>{@link #AI_CONFIG_PP_FID_ANIM_ACCURACY}</td><td>{@link #AI_CONFIG_PP_TUV_EVALUATE}</td></tr><tr><td>{@link #AI_CONFIG_FAVOUR_SPEED}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_MATERIALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_TEXTURES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_CAMERAS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_LIGHTS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_STRICT_MODE}</td><td>{@link #AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES}</td><td>{@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MD2_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MDC_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_SMD_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_UNREAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL}</td><td>{@link #AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION}</td></tr><tr><td>{@link #AI_CONFIG_UNREAL_HANDLE_FLAGS}</td><td>{@link #AI_CONFIG_IMPORT_TER_MAKE_UVS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS}</td><td>{@link #AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_SKIN_NAME}</td><td>{@link #AI_CONFIG_IMPORT_MD3_SHADER_SRC}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY}</td><td>{@link #AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_START}</td><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_END}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IRR_ANIM_FPS}</td><td>{@link #AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION}</td><td>{@link #AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION}</td></tr><tr><td>{@link #AI_CONFIG_EXPORT_XFILE_64BIT}</td><td>{@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_DB_ALL_OR_NONE}</td><td>{@link #AI_CONFIG_PP_DB_THRESHOLD}</td></tr><tr><td>{@link #AI_CONFIG_PP_LBW_MAX_WEIGHTS}</td><td>{@link #AI_CONFIG_PP_SLM_VERTEX_LIMIT}</td></tr><tr><td>{@link #AI_CONFIG_PP_SLM_TRIANGLE_LIMIT}</td><td>{@link #AI_CONFIG_PP_OG_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_FD_REMOVE}</td><td>{@link #AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION}</td><td>{@link #AI_CONFIG_PP_PTV_NORMALIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_KEEP_HIERARCHY}</td><td>{@link #AI_CONFIG_PP_RRM_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_COLORMAP}</td><td>{@link #AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX}</td><td>{@link #AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_SBBC_MAX_BONES}</td><td>{@link #AI_CONFIG_IMPORT_NO_SKELETON_MESHES}</td></tr><tr><td>{@link #AI_CONFIG_GLOB_MEASURE_TIME}</td></tr></table>
+	 * @param szName Name of the configuration property to be set. One of:<br><table><tr><td>{@link #AI_CONFIG_GLOB_MEASURE_TIME}</td><td>{@link #AI_CONFIG_IMPORT_NO_SKELETON_MESHES}</td></tr><tr><td>{@link #AI_CONFIG_PP_SBBC_MAX_BONES}</td><td>{@link #AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX}</td><td>{@link #AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_COLORMAP}</td><td>{@link #AI_CONFIG_PP_RRM_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_KEEP_HIERARCHY}</td><td>{@link #AI_CONFIG_PP_PTV_NORMALIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION}</td><td>{@link #AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION}</td></tr><tr><td>{@link #AI_CONFIG_PP_FD_REMOVE}</td><td>{@link #AI_CONFIG_PP_OG_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_SLM_TRIANGLE_LIMIT}</td><td>{@link #AI_CONFIG_PP_SLM_VERTEX_LIMIT}</td></tr><tr><td>{@link #AI_CONFIG_PP_LBW_MAX_WEIGHTS}</td><td>{@link #AI_CONFIG_PP_DB_THRESHOLD}</td></tr><tr><td>{@link #AI_CONFIG_PP_DB_ALL_OR_NONE}</td><td>{@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_RVC_FLAGS}</td><td>{@link #AI_CONFIG_PP_SBP_REMOVE}</td></tr><tr><td>{@link #AI_CONFIG_PP_FID_ANIM_ACCURACY}</td><td>{@link #AI_CONFIG_PP_TUV_EVALUATE}</td></tr><tr><td>{@link #AI_CONFIG_FAVOUR_SPEED}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_MATERIALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_TEXTURES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_CAMERAS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_LIGHTS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_STRICT_MODE}</td><td>{@link #AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES}</td><td>{@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MD2_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MDC_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_SMD_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_UNREAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL}</td><td>{@link #AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION}</td></tr><tr><td>{@link #AI_CONFIG_UNREAL_HANDLE_FLAGS}</td><td>{@link #AI_CONFIG_IMPORT_TER_MAKE_UVS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS}</td><td>{@link #AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_SKIN_NAME}</td><td>{@link #AI_CONFIG_IMPORT_MD3_SHADER_SRC}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY}</td><td>{@link #AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_START}</td><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_END}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IRR_ANIM_FPS}</td><td>{@link #AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION}</td><td>{@link #AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION}</td></tr><tr><td>{@link #AI_CONFIG_EXPORT_XFILE_64BIT}</td></tr></table>
 	 * @param value  New value for the property
 	 */
 	public static void aiSetImportPropertyString(AIPropertyStore store, CharSequence szName, AIString value) {
@@ -2327,7 +2850,7 @@ x1</code></pre>
 	 * possible to specify them per import.</p>
 	 *
 	 * @param store  Store to modify. Use {@link #aiCreatePropertyStore CreatePropertyStore} to obtain a store.
-	 * @param szName Name of the configuration property to be set. One of:<br><table><tr><td>{@link #AI_CONFIG_PP_RVC_FLAGS}</td><td>{@link #AI_CONFIG_PP_SBP_REMOVE}</td></tr><tr><td>{@link #AI_CONFIG_PP_FID_ANIM_ACCURACY}</td><td>{@link #AI_CONFIG_PP_TUV_EVALUATE}</td></tr><tr><td>{@link #AI_CONFIG_FAVOUR_SPEED}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_MATERIALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_TEXTURES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_CAMERAS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_LIGHTS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_STRICT_MODE}</td><td>{@link #AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES}</td><td>{@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MD2_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MDC_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_SMD_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_UNREAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL}</td><td>{@link #AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION}</td></tr><tr><td>{@link #AI_CONFIG_UNREAL_HANDLE_FLAGS}</td><td>{@link #AI_CONFIG_IMPORT_TER_MAKE_UVS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS}</td><td>{@link #AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_SKIN_NAME}</td><td>{@link #AI_CONFIG_IMPORT_MD3_SHADER_SRC}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY}</td><td>{@link #AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_START}</td><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_END}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IRR_ANIM_FPS}</td><td>{@link #AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION}</td><td>{@link #AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION}</td></tr><tr><td>{@link #AI_CONFIG_EXPORT_XFILE_64BIT}</td><td>{@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_DB_ALL_OR_NONE}</td><td>{@link #AI_CONFIG_PP_DB_THRESHOLD}</td></tr><tr><td>{@link #AI_CONFIG_PP_LBW_MAX_WEIGHTS}</td><td>{@link #AI_CONFIG_PP_SLM_VERTEX_LIMIT}</td></tr><tr><td>{@link #AI_CONFIG_PP_SLM_TRIANGLE_LIMIT}</td><td>{@link #AI_CONFIG_PP_OG_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_FD_REMOVE}</td><td>{@link #AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION}</td><td>{@link #AI_CONFIG_PP_PTV_NORMALIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_KEEP_HIERARCHY}</td><td>{@link #AI_CONFIG_PP_RRM_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_COLORMAP}</td><td>{@link #AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX}</td><td>{@link #AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_SBBC_MAX_BONES}</td><td>{@link #AI_CONFIG_IMPORT_NO_SKELETON_MESHES}</td></tr><tr><td>{@link #AI_CONFIG_GLOB_MEASURE_TIME}</td></tr></table>
+	 * @param szName Name of the configuration property to be set. One of:<br><table><tr><td>{@link #AI_CONFIG_GLOB_MEASURE_TIME}</td><td>{@link #AI_CONFIG_IMPORT_NO_SKELETON_MESHES}</td></tr><tr><td>{@link #AI_CONFIG_PP_SBBC_MAX_BONES}</td><td>{@link #AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX}</td><td>{@link #AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_COLORMAP}</td><td>{@link #AI_CONFIG_PP_RRM_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_KEEP_HIERARCHY}</td><td>{@link #AI_CONFIG_PP_PTV_NORMALIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION}</td><td>{@link #AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION}</td></tr><tr><td>{@link #AI_CONFIG_PP_FD_REMOVE}</td><td>{@link #AI_CONFIG_PP_OG_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_SLM_TRIANGLE_LIMIT}</td><td>{@link #AI_CONFIG_PP_SLM_VERTEX_LIMIT}</td></tr><tr><td>{@link #AI_CONFIG_PP_LBW_MAX_WEIGHTS}</td><td>{@link #AI_CONFIG_PP_DB_THRESHOLD}</td></tr><tr><td>{@link #AI_CONFIG_PP_DB_ALL_OR_NONE}</td><td>{@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_RVC_FLAGS}</td><td>{@link #AI_CONFIG_PP_SBP_REMOVE}</td></tr><tr><td>{@link #AI_CONFIG_PP_FID_ANIM_ACCURACY}</td><td>{@link #AI_CONFIG_PP_TUV_EVALUATE}</td></tr><tr><td>{@link #AI_CONFIG_FAVOUR_SPEED}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_MATERIALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_TEXTURES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_CAMERAS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_LIGHTS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_STRICT_MODE}</td><td>{@link #AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES}</td><td>{@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MD2_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MDC_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_SMD_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_UNREAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL}</td><td>{@link #AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION}</td></tr><tr><td>{@link #AI_CONFIG_UNREAL_HANDLE_FLAGS}</td><td>{@link #AI_CONFIG_IMPORT_TER_MAKE_UVS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS}</td><td>{@link #AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_SKIN_NAME}</td><td>{@link #AI_CONFIG_IMPORT_MD3_SHADER_SRC}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY}</td><td>{@link #AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_START}</td><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_END}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IRR_ANIM_FPS}</td><td>{@link #AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION}</td><td>{@link #AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION}</td></tr><tr><td>{@link #AI_CONFIG_EXPORT_XFILE_64BIT}</td></tr></table>
 	 * @param value  New value for the property
 	 */
 	public static void aiSetImportPropertyMatrix(AIPropertyStore store, ByteBuffer szName, AIMatrix4x4 value) {
@@ -2343,7 +2866,7 @@ x1</code></pre>
 	 * possible to specify them per import.</p>
 	 *
 	 * @param store  Store to modify. Use {@link #aiCreatePropertyStore CreatePropertyStore} to obtain a store.
-	 * @param szName Name of the configuration property to be set. One of:<br><table><tr><td>{@link #AI_CONFIG_PP_RVC_FLAGS}</td><td>{@link #AI_CONFIG_PP_SBP_REMOVE}</td></tr><tr><td>{@link #AI_CONFIG_PP_FID_ANIM_ACCURACY}</td><td>{@link #AI_CONFIG_PP_TUV_EVALUATE}</td></tr><tr><td>{@link #AI_CONFIG_FAVOUR_SPEED}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_MATERIALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_TEXTURES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_CAMERAS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_LIGHTS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_STRICT_MODE}</td><td>{@link #AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES}</td><td>{@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MD2_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MDC_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_SMD_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_UNREAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL}</td><td>{@link #AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION}</td></tr><tr><td>{@link #AI_CONFIG_UNREAL_HANDLE_FLAGS}</td><td>{@link #AI_CONFIG_IMPORT_TER_MAKE_UVS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS}</td><td>{@link #AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_SKIN_NAME}</td><td>{@link #AI_CONFIG_IMPORT_MD3_SHADER_SRC}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY}</td><td>{@link #AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_START}</td><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_END}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IRR_ANIM_FPS}</td><td>{@link #AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION}</td><td>{@link #AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION}</td></tr><tr><td>{@link #AI_CONFIG_EXPORT_XFILE_64BIT}</td><td>{@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_DB_ALL_OR_NONE}</td><td>{@link #AI_CONFIG_PP_DB_THRESHOLD}</td></tr><tr><td>{@link #AI_CONFIG_PP_LBW_MAX_WEIGHTS}</td><td>{@link #AI_CONFIG_PP_SLM_VERTEX_LIMIT}</td></tr><tr><td>{@link #AI_CONFIG_PP_SLM_TRIANGLE_LIMIT}</td><td>{@link #AI_CONFIG_PP_OG_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_FD_REMOVE}</td><td>{@link #AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION}</td><td>{@link #AI_CONFIG_PP_PTV_NORMALIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_KEEP_HIERARCHY}</td><td>{@link #AI_CONFIG_PP_RRM_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_COLORMAP}</td><td>{@link #AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX}</td><td>{@link #AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_SBBC_MAX_BONES}</td><td>{@link #AI_CONFIG_IMPORT_NO_SKELETON_MESHES}</td></tr><tr><td>{@link #AI_CONFIG_GLOB_MEASURE_TIME}</td></tr></table>
+	 * @param szName Name of the configuration property to be set. One of:<br><table><tr><td>{@link #AI_CONFIG_GLOB_MEASURE_TIME}</td><td>{@link #AI_CONFIG_IMPORT_NO_SKELETON_MESHES}</td></tr><tr><td>{@link #AI_CONFIG_PP_SBBC_MAX_BONES}</td><td>{@link #AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX}</td><td>{@link #AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_COLORMAP}</td><td>{@link #AI_CONFIG_PP_RRM_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_KEEP_HIERARCHY}</td><td>{@link #AI_CONFIG_PP_PTV_NORMALIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION}</td><td>{@link #AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION}</td></tr><tr><td>{@link #AI_CONFIG_PP_FD_REMOVE}</td><td>{@link #AI_CONFIG_PP_OG_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_SLM_TRIANGLE_LIMIT}</td><td>{@link #AI_CONFIG_PP_SLM_VERTEX_LIMIT}</td></tr><tr><td>{@link #AI_CONFIG_PP_LBW_MAX_WEIGHTS}</td><td>{@link #AI_CONFIG_PP_DB_THRESHOLD}</td></tr><tr><td>{@link #AI_CONFIG_PP_DB_ALL_OR_NONE}</td><td>{@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_RVC_FLAGS}</td><td>{@link #AI_CONFIG_PP_SBP_REMOVE}</td></tr><tr><td>{@link #AI_CONFIG_PP_FID_ANIM_ACCURACY}</td><td>{@link #AI_CONFIG_PP_TUV_EVALUATE}</td></tr><tr><td>{@link #AI_CONFIG_FAVOUR_SPEED}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_MATERIALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_TEXTURES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_CAMERAS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_LIGHTS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_STRICT_MODE}</td><td>{@link #AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES}</td><td>{@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MD2_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MDC_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_SMD_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_UNREAL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL}</td><td>{@link #AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION}</td></tr><tr><td>{@link #AI_CONFIG_UNREAL_HANDLE_FLAGS}</td><td>{@link #AI_CONFIG_IMPORT_TER_MAKE_UVS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS}</td><td>{@link #AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_SKIN_NAME}</td><td>{@link #AI_CONFIG_IMPORT_MD3_SHADER_SRC}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY}</td><td>{@link #AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_START}</td><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_END}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IRR_ANIM_FPS}</td><td>{@link #AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT}</td><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION}</td><td>{@link #AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION}</td></tr><tr><td>{@link #AI_CONFIG_EXPORT_XFILE_64BIT}</td></tr></table>
 	 * @param value  New value for the property
 	 */
 	public static void aiSetImportPropertyMatrix(AIPropertyStore store, CharSequence szName, AIMatrix4x4 value) {
