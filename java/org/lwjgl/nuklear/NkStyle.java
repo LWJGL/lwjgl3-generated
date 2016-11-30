@@ -440,9 +440,7 @@ public class NkStyle extends Struct implements NativeResource {
 	/** Unsafe version of {@link #font}. */
 	public static NkUserFont nfont(long struct) { return NkUserFont.create(memGetAddress(struct + NkStyle.FONT)); }
 	/** Unsafe version of {@link #cursors}. */
-	public static PointerBuffer ncursors(long struct) {
-		return memPointerBuffer(struct + NkStyle.CURSORS, NK_CURSOR_COUNT);
-	}
+	public static PointerBuffer ncursors(long struct) { return memPointerBuffer(struct + NkStyle.CURSORS, NK_CURSOR_COUNT); }
 	/** Unsafe version of {@link #cursors(int) cursors}. */
 	public static NkCursor ncursors(long struct, int index) {
 		if ( CHECKS ) check(index, NK_CURSOR_COUNT);

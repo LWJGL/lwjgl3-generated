@@ -91,9 +91,7 @@ class NkConfigStackFlags extends Struct {
 	/** Unsafe version of {@link #head}. */
 	public static int nhead(long struct) { return memGetInt(struct + NkConfigStackFlags.HEAD); }
 	/** Unsafe version of {@link #elements}. */
-	public static NkConfigStackFlagsElement.Buffer nelements(long struct) {
-		return NkConfigStackFlagsElement.create(struct + NkConfigStackFlags.ELEMENTS, 32);
-	}
+	public static NkConfigStackFlagsElement.Buffer nelements(long struct) { return NkConfigStackFlagsElement.create(struct + NkConfigStackFlags.ELEMENTS, 32); }
 	/** Unsafe version of {@link #elements(int) elements}. */
 	public static NkConfigStackFlagsElement nelements(long struct, int index) {
 		if ( CHECKS ) check(index, 32);

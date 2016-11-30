@@ -257,9 +257,7 @@ public class NkBuffer extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** Unsafe version of {@link #marker}. */
-	public static NkBufferMarker.Buffer nmarker(long struct) {
-		return NkBufferMarker.create(struct + NkBuffer.MARKER, 2);
-	}
+	public static NkBufferMarker.Buffer nmarker(long struct) { return NkBufferMarker.create(struct + NkBuffer.MARKER, 2); }
 	/** Unsafe version of {@link #marker(int) marker}. */
 	public static NkBufferMarker nmarker(long struct, int index) {
 		if ( CHECKS ) check(index, 2);

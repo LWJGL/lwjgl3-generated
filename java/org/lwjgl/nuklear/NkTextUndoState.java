@@ -115,18 +115,14 @@ class NkTextUndoState extends Struct {
 	// -----------------------------------
 
 	/** Unsafe version of {@link #undo_rec}. */
-	public static NkTextUndoRecord.Buffer nundo_rec(long struct) {
-		return NkTextUndoRecord.create(struct + NkTextUndoState.UNDO_REC, 99);
-	}
+	public static NkTextUndoRecord.Buffer nundo_rec(long struct) { return NkTextUndoRecord.create(struct + NkTextUndoState.UNDO_REC, 99); }
 	/** Unsafe version of {@link #undo_rec(int) undo_rec}. */
 	public static NkTextUndoRecord nundo_rec(long struct, int index) {
 		if ( CHECKS ) check(index, 99);
 		return NkTextUndoRecord.create(struct + NkTextUndoState.UNDO_REC + index * NkTextUndoRecord.SIZEOF);
 	}
 	/** Unsafe version of {@link #undo_char}. */
-	public static IntBuffer nundo_char(long struct) {
-		return memIntBuffer(struct + NkTextUndoState.UNDO_CHAR, 999);
-	}
+	public static IntBuffer nundo_char(long struct) { return memIntBuffer(struct + NkTextUndoState.UNDO_CHAR, 999); }
 	/** Unsafe version of {@link #undo_char(int) undo_char}. */
 	public static int nundo_char(long struct, int index) {
 		if ( CHECKS ) check(index, 999);

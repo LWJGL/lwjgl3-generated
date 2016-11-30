@@ -91,9 +91,7 @@ class NkConfigStackButtonBehavior extends Struct {
 	/** Unsafe version of {@link #head}. */
 	public static int nhead(long struct) { return memGetInt(struct + NkConfigStackButtonBehavior.HEAD); }
 	/** Unsafe version of {@link #elements}. */
-	public static NkConfigStackButtonBehaviorElement.Buffer nelements(long struct) {
-		return NkConfigStackButtonBehaviorElement.create(struct + NkConfigStackButtonBehavior.ELEMENTS, 8);
-	}
+	public static NkConfigStackButtonBehaviorElement.Buffer nelements(long struct) { return NkConfigStackButtonBehaviorElement.create(struct + NkConfigStackButtonBehavior.ELEMENTS, 8); }
 	/** Unsafe version of {@link #elements(int) elements}. */
 	public static NkConfigStackButtonBehaviorElement nelements(long struct, int index) {
 		if ( CHECKS ) check(index, 8);

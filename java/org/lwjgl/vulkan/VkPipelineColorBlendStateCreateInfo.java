@@ -346,9 +346,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
 	/** Unsafe version of {@link #pAttachments}. */
 	public static VkPipelineColorBlendAttachmentState.Buffer npAttachments(long struct) { return VkPipelineColorBlendAttachmentState.create(memGetAddress(struct + VkPipelineColorBlendStateCreateInfo.PATTACHMENTS), nattachmentCount(struct)); }
 	/** Unsafe version of {@link #blendConstants}. */
-	public static FloatBuffer nblendConstants(long struct) {
-		return memFloatBuffer(struct + VkPipelineColorBlendStateCreateInfo.BLENDCONSTANTS, 4);
-	}
+	public static FloatBuffer nblendConstants(long struct) { return memFloatBuffer(struct + VkPipelineColorBlendStateCreateInfo.BLENDCONSTANTS, 4); }
 	/** Unsafe version of {@link #blendConstants(int) blendConstants}. */
 	public static float nblendConstants(long struct, int index) {
 		if ( CHECKS ) check(index, 4);

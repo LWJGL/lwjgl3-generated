@@ -972,9 +972,7 @@ public class VkPhysicalDeviceLimits extends Struct {
 	/** Unsafe version of {@link #maxComputeSharedMemorySize}. */
 	public static int nmaxComputeSharedMemorySize(long struct) { return memGetInt(struct + VkPhysicalDeviceLimits.MAXCOMPUTESHAREDMEMORYSIZE); }
 	/** Unsafe version of {@link #maxComputeWorkGroupCount}. */
-	public static IntBuffer nmaxComputeWorkGroupCount(long struct) {
-		return memIntBuffer(struct + VkPhysicalDeviceLimits.MAXCOMPUTEWORKGROUPCOUNT, 3);
-	}
+	public static IntBuffer nmaxComputeWorkGroupCount(long struct) { return memIntBuffer(struct + VkPhysicalDeviceLimits.MAXCOMPUTEWORKGROUPCOUNT, 3); }
 	/** Unsafe version of {@link #maxComputeWorkGroupCount(int) maxComputeWorkGroupCount}. */
 	public static int nmaxComputeWorkGroupCount(long struct, int index) {
 		if ( CHECKS ) check(index, 3);
@@ -983,9 +981,7 @@ public class VkPhysicalDeviceLimits extends Struct {
 	/** Unsafe version of {@link #maxComputeWorkGroupInvocations}. */
 	public static int nmaxComputeWorkGroupInvocations(long struct) { return memGetInt(struct + VkPhysicalDeviceLimits.MAXCOMPUTEWORKGROUPINVOCATIONS); }
 	/** Unsafe version of {@link #maxComputeWorkGroupSize}. */
-	public static IntBuffer nmaxComputeWorkGroupSize(long struct) {
-		return memIntBuffer(struct + VkPhysicalDeviceLimits.MAXCOMPUTEWORKGROUPSIZE, 3);
-	}
+	public static IntBuffer nmaxComputeWorkGroupSize(long struct) { return memIntBuffer(struct + VkPhysicalDeviceLimits.MAXCOMPUTEWORKGROUPSIZE, 3); }
 	/** Unsafe version of {@link #maxComputeWorkGroupSize(int) maxComputeWorkGroupSize}. */
 	public static int nmaxComputeWorkGroupSize(long struct, int index) {
 		if ( CHECKS ) check(index, 3);
@@ -1008,18 +1004,14 @@ public class VkPhysicalDeviceLimits extends Struct {
 	/** Unsafe version of {@link #maxViewports}. */
 	public static int nmaxViewports(long struct) { return memGetInt(struct + VkPhysicalDeviceLimits.MAXVIEWPORTS); }
 	/** Unsafe version of {@link #maxViewportDimensions}. */
-	public static IntBuffer nmaxViewportDimensions(long struct) {
-		return memIntBuffer(struct + VkPhysicalDeviceLimits.MAXVIEWPORTDIMENSIONS, 2);
-	}
+	public static IntBuffer nmaxViewportDimensions(long struct) { return memIntBuffer(struct + VkPhysicalDeviceLimits.MAXVIEWPORTDIMENSIONS, 2); }
 	/** Unsafe version of {@link #maxViewportDimensions(int) maxViewportDimensions}. */
 	public static int nmaxViewportDimensions(long struct, int index) {
 		if ( CHECKS ) check(index, 2);
 		return memGetInt(struct + VkPhysicalDeviceLimits.MAXVIEWPORTDIMENSIONS + index * 4);
 	}
 	/** Unsafe version of {@link #viewportBoundsRange}. */
-	public static FloatBuffer nviewportBoundsRange(long struct) {
-		return memFloatBuffer(struct + VkPhysicalDeviceLimits.VIEWPORTBOUNDSRANGE, 2);
-	}
+	public static FloatBuffer nviewportBoundsRange(long struct) { return memFloatBuffer(struct + VkPhysicalDeviceLimits.VIEWPORTBOUNDSRANGE, 2); }
 	/** Unsafe version of {@link #viewportBoundsRange(int) viewportBoundsRange}. */
 	public static float nviewportBoundsRange(long struct, int index) {
 		if ( CHECKS ) check(index, 2);
@@ -1090,18 +1082,14 @@ public class VkPhysicalDeviceLimits extends Struct {
 	/** Unsafe version of {@link #discreteQueuePriorities}. */
 	public static int ndiscreteQueuePriorities(long struct) { return memGetInt(struct + VkPhysicalDeviceLimits.DISCRETEQUEUEPRIORITIES); }
 	/** Unsafe version of {@link #pointSizeRange}. */
-	public static FloatBuffer npointSizeRange(long struct) {
-		return memFloatBuffer(struct + VkPhysicalDeviceLimits.POINTSIZERANGE, 2);
-	}
+	public static FloatBuffer npointSizeRange(long struct) { return memFloatBuffer(struct + VkPhysicalDeviceLimits.POINTSIZERANGE, 2); }
 	/** Unsafe version of {@link #pointSizeRange(int) pointSizeRange}. */
 	public static float npointSizeRange(long struct, int index) {
 		if ( CHECKS ) check(index, 2);
 		return memGetFloat(struct + VkPhysicalDeviceLimits.POINTSIZERANGE + index * 4);
 	}
 	/** Unsafe version of {@link #lineWidthRange}. */
-	public static FloatBuffer nlineWidthRange(long struct) {
-		return memFloatBuffer(struct + VkPhysicalDeviceLimits.LINEWIDTHRANGE, 2);
-	}
+	public static FloatBuffer nlineWidthRange(long struct) { return memFloatBuffer(struct + VkPhysicalDeviceLimits.LINEWIDTHRANGE, 2); }
 	/** Unsafe version of {@link #lineWidthRange(int) lineWidthRange}. */
 	public static float nlineWidthRange(long struct, int index) {
 		if ( CHECKS ) check(index, 2);

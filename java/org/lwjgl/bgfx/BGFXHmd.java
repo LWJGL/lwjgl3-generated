@@ -125,9 +125,7 @@ public class BGFXHmd extends Struct {
 	// -----------------------------------
 
 	/** Unsafe version of {@link #eye}. */
-	public static BGFXHmdEye.Buffer neye(long struct) {
-		return BGFXHmdEye.create(struct + BGFXHmd.EYE, 2);
-	}
+	public static BGFXHmdEye.Buffer neye(long struct) { return BGFXHmdEye.create(struct + BGFXHmd.EYE, 2); }
 	/** Unsafe version of {@link #eye(int) eye}. */
 	public static BGFXHmdEye neye(long struct, int index) {
 		if ( CHECKS ) check(index, 2);

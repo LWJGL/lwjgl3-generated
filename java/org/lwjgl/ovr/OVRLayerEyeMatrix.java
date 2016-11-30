@@ -327,36 +327,28 @@ public class OVRLayerEyeMatrix extends Struct implements NativeResource {
 	/** Unsafe version of {@link #Header}. */
 	public static OVRLayerHeader nHeader(long struct) { return OVRLayerHeader.create(struct + OVRLayerEyeMatrix.HEADER); }
 	/** Unsafe version of {@link #ColorTexture}. */
-	public static PointerBuffer nColorTexture(long struct) {
-		return memPointerBuffer(struct + OVRLayerEyeMatrix.COLORTEXTURE, ovrEye_Count);
-	}
+	public static PointerBuffer nColorTexture(long struct) { return memPointerBuffer(struct + OVRLayerEyeMatrix.COLORTEXTURE, ovrEye_Count); }
 	/** Unsafe version of {@link #ColorTexture(int) ColorTexture}. */
 	public static long nColorTexture(long struct, int index) {
 		if ( CHECKS ) check(index, ovrEye_Count);
 		return memGetAddress(struct + OVRLayerEyeMatrix.COLORTEXTURE + index * POINTER_SIZE);
 	}
 	/** Unsafe version of {@link #Viewport}. */
-	public static OVRRecti.Buffer nViewport(long struct) {
-		return OVRRecti.create(struct + OVRLayerEyeMatrix.VIEWPORT, ovrEye_Count);
-	}
+	public static OVRRecti.Buffer nViewport(long struct) { return OVRRecti.create(struct + OVRLayerEyeMatrix.VIEWPORT, ovrEye_Count); }
 	/** Unsafe version of {@link #Viewport(int) Viewport}. */
 	public static OVRRecti nViewport(long struct, int index) {
 		if ( CHECKS ) check(index, ovrEye_Count);
 		return OVRRecti.create(struct + OVRLayerEyeMatrix.VIEWPORT + index * OVRRecti.SIZEOF);
 	}
 	/** Unsafe version of {@link #RenderPose}. */
-	public static OVRPosef.Buffer nRenderPose(long struct) {
-		return OVRPosef.create(struct + OVRLayerEyeMatrix.RENDERPOSE, ovrEye_Count);
-	}
+	public static OVRPosef.Buffer nRenderPose(long struct) { return OVRPosef.create(struct + OVRLayerEyeMatrix.RENDERPOSE, ovrEye_Count); }
 	/** Unsafe version of {@link #RenderPose(int) RenderPose}. */
 	public static OVRPosef nRenderPose(long struct, int index) {
 		if ( CHECKS ) check(index, ovrEye_Count);
 		return OVRPosef.create(struct + OVRLayerEyeMatrix.RENDERPOSE + index * OVRPosef.SIZEOF);
 	}
 	/** Unsafe version of {@link #Matrix}. */
-	public static OVRMatrix4f.Buffer nMatrix(long struct) {
-		return OVRMatrix4f.create(struct + OVRLayerEyeMatrix.MATRIX, ovrEye_Count);
-	}
+	public static OVRMatrix4f.Buffer nMatrix(long struct) { return OVRMatrix4f.create(struct + OVRLayerEyeMatrix.MATRIX, ovrEye_Count); }
 	/** Unsafe version of {@link #Matrix(int) Matrix}. */
 	public static OVRMatrix4f nMatrix(long struct, int index) {
 		if ( CHECKS ) check(index, ovrEye_Count);

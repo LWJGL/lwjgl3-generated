@@ -320,9 +320,7 @@ public class XXH32State extends Struct implements NativeResource {
 	/** Unsafe version of {@link #v4}. */
 	public static int nv4(long struct) { return memGetInt(struct + XXH32State.V4); }
 	/** Unsafe version of {@link #mem32}. */
-	public static IntBuffer nmem32(long struct) {
-		return memIntBuffer(struct + XXH32State.MEM32, 4);
-	}
+	public static IntBuffer nmem32(long struct) { return memIntBuffer(struct + XXH32State.MEM32, 4); }
 	/** Unsafe version of {@link #mem32(int) mem32}. */
 	public static int nmem32(long struct, int index) {
 		if ( CHECKS ) check(index, 4);

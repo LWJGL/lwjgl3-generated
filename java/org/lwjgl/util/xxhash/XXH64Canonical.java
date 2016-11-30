@@ -203,9 +203,7 @@ public class XXH64Canonical extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** Unsafe version of {@link #digest}. */
-	public static ByteBuffer ndigest(long struct) {
-		return memByteBuffer(struct + XXH64Canonical.DIGEST, 8);
-	}
+	public static ByteBuffer ndigest(long struct) { return memByteBuffer(struct + XXH64Canonical.DIGEST, 8); }
 	/** Unsafe version of {@link #digest(int) digest}. */
 	public static byte ndigest(long struct, int index) {
 		if ( CHECKS ) check(index, 8);

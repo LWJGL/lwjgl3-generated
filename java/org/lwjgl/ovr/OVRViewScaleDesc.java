@@ -256,9 +256,7 @@ public class OVRViewScaleDesc extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** Unsafe version of {@link #HmdToEyeOffset}. */
-	public static OVRVector3f.Buffer nHmdToEyeOffset(long struct) {
-		return OVRVector3f.create(struct + OVRViewScaleDesc.HMDTOEYEOFFSET, ovrEye_Count);
-	}
+	public static OVRVector3f.Buffer nHmdToEyeOffset(long struct) { return OVRVector3f.create(struct + OVRViewScaleDesc.HMDTOEYEOFFSET, ovrEye_Count); }
 	/** Unsafe version of {@link #HmdToEyeOffset(int) HmdToEyeOffset}. */
 	public static OVRVector3f nHmdToEyeOffset(long struct, int index) {
 		if ( CHECKS ) check(index, ovrEye_Count);

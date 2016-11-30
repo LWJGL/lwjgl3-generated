@@ -247,18 +247,14 @@ public class OVRTrackingState extends Struct implements NativeResource {
 	/** Unsafe version of {@link #StatusFlags}. */
 	public static int nStatusFlags(long struct) { return memGetInt(struct + OVRTrackingState.STATUSFLAGS); }
 	/** Unsafe version of {@link #HandPoses}. */
-	public static OVRPoseStatef.Buffer nHandPoses(long struct) {
-		return OVRPoseStatef.create(struct + OVRTrackingState.HANDPOSES, 2);
-	}
+	public static OVRPoseStatef.Buffer nHandPoses(long struct) { return OVRPoseStatef.create(struct + OVRTrackingState.HANDPOSES, 2); }
 	/** Unsafe version of {@link #HandPoses(int) HandPoses}. */
 	public static OVRPoseStatef nHandPoses(long struct, int index) {
 		if ( CHECKS ) check(index, 2);
 		return OVRPoseStatef.create(struct + OVRTrackingState.HANDPOSES + index * OVRPoseStatef.SIZEOF);
 	}
 	/** Unsafe version of {@link #HandStatusFlags}. */
-	public static IntBuffer nHandStatusFlags(long struct) {
-		return memIntBuffer(struct + OVRTrackingState.HANDSTATUSFLAGS, 2);
-	}
+	public static IntBuffer nHandStatusFlags(long struct) { return memIntBuffer(struct + OVRTrackingState.HANDSTATUSFLAGS, 2); }
 	/** Unsafe version of {@link #HandStatusFlags(int) HandStatusFlags}. */
 	public static int nHandStatusFlags(long struct, int index) {
 		if ( CHECKS ) check(index, 2);

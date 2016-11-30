@@ -304,18 +304,14 @@ public class NVGPaint extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** Unsafe version of {@link #xform}. */
-	public static FloatBuffer nxform(long struct) {
-		return memFloatBuffer(struct + NVGPaint.XFORM, 6);
-	}
+	public static FloatBuffer nxform(long struct) { return memFloatBuffer(struct + NVGPaint.XFORM, 6); }
 	/** Unsafe version of {@link #xform(int) xform}. */
 	public static float nxform(long struct, int index) {
 		if ( CHECKS ) check(index, 6);
 		return memGetFloat(struct + NVGPaint.XFORM + index * 4);
 	}
 	/** Unsafe version of {@link #extent}. */
-	public static FloatBuffer nextent(long struct) {
-		return memFloatBuffer(struct + NVGPaint.EXTENT, 2);
-	}
+	public static FloatBuffer nextent(long struct) { return memFloatBuffer(struct + NVGPaint.EXTENT, 2); }
 	/** Unsafe version of {@link #extent(int) extent}. */
 	public static float nextent(long struct, int index) {
 		if ( CHECKS ) check(index, 2);

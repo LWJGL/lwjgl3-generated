@@ -91,9 +91,7 @@ class NkConfigStackStyleItem extends Struct {
 	/** Unsafe version of {@link #head}. */
 	public static int nhead(long struct) { return memGetInt(struct + NkConfigStackStyleItem.HEAD); }
 	/** Unsafe version of {@link #elements}. */
-	public static NkConfigStackStyleItemElement.Buffer nelements(long struct) {
-		return NkConfigStackStyleItemElement.create(struct + NkConfigStackStyleItem.ELEMENTS, 16);
-	}
+	public static NkConfigStackStyleItemElement.Buffer nelements(long struct) { return NkConfigStackStyleItemElement.create(struct + NkConfigStackStyleItem.ELEMENTS, 16); }
 	/** Unsafe version of {@link #elements(int) elements}. */
 	public static NkConfigStackStyleItemElement nelements(long struct, int index) {
 		if ( CHECKS ) check(index, 16);

@@ -312,9 +312,7 @@ public class XXH64State extends Struct implements NativeResource {
 	/** Unsafe version of {@link #v4}. */
 	public static long nv4(long struct) { return memGetLong(struct + XXH64State.V4); }
 	/** Unsafe version of {@link #mem64}. */
-	public static LongBuffer nmem64(long struct) {
-		return memLongBuffer(struct + XXH64State.MEM64, 4);
-	}
+	public static LongBuffer nmem64(long struct) { return memLongBuffer(struct + XXH64State.MEM64, 4); }
 	/** Unsafe version of {@link #mem64(int) mem64}. */
 	public static long nmem64(long struct, int index) {
 		if ( CHECKS ) check(index, 4);
@@ -323,9 +321,7 @@ public class XXH64State extends Struct implements NativeResource {
 	/** Unsafe version of {@link #memsize}. */
 	public static int nmemsize(long struct) { return memGetInt(struct + XXH64State.MEMSIZE); }
 	/** Unsafe version of {@link #reserved}. */
-	public static IntBuffer nreserved(long struct) {
-		return memIntBuffer(struct + XXH64State.RESERVED, 2);
-	}
+	public static IntBuffer nreserved(long struct) { return memIntBuffer(struct + XXH64State.RESERVED, 2); }
 	/** Unsafe version of {@link #reserved(int) reserved}. */
 	public static int nreserved(long struct, int index) {
 		if ( CHECKS ) check(index, 2);

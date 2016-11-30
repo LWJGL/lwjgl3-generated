@@ -127,9 +127,7 @@ public class NkMouse extends Struct {
 	// -----------------------------------
 
 	/** Unsafe version of {@link #buttons}. */
-	public static NkMouseButton.Buffer nbuttons(long struct) {
-		return NkMouseButton.create(struct + NkMouse.BUTTONS, NK_BUTTON_MAX);
-	}
+	public static NkMouseButton.Buffer nbuttons(long struct) { return NkMouseButton.create(struct + NkMouse.BUTTONS, NK_BUTTON_MAX); }
 	/** Unsafe version of {@link #buttons(int) buttons}. */
 	public static NkMouseButton nbuttons(long struct, int index) {
 		if ( CHECKS ) check(index, NK_BUTTON_MAX);

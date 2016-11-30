@@ -464,27 +464,21 @@ public class AIMesh extends Struct implements NativeResource {
 	/** Unsafe version of {@link #mBitangents}. */
 	public static AIVector3D.Buffer nmBitangents(long struct) { return AIVector3D.create(memGetAddress(struct + AIMesh.MBITANGENTS), nmNumVertices(struct)); }
 	/** Unsafe version of {@link #mColors}. */
-	public static PointerBuffer nmColors(long struct) {
-		return memPointerBuffer(struct + AIMesh.MCOLORS, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS);
-	}
+	public static PointerBuffer nmColors(long struct) { return memPointerBuffer(struct + AIMesh.MCOLORS, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS); }
 	/** Unsafe version of {@link #mColors(int) mColors}. */
 	public static AIColor4D.Buffer nmColors(long struct, int index) {
 		if ( CHECKS ) check(index, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS);
 		return AIColor4D.create(memGetAddress(struct + AIMesh.MCOLORS + index * POINTER_SIZE), nmNumVertices(struct));
 	}
 	/** Unsafe version of {@link #mTextureCoords}. */
-	public static PointerBuffer nmTextureCoords(long struct) {
-		return memPointerBuffer(struct + AIMesh.MTEXTURECOORDS, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS);
-	}
+	public static PointerBuffer nmTextureCoords(long struct) { return memPointerBuffer(struct + AIMesh.MTEXTURECOORDS, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS); }
 	/** Unsafe version of {@link #mTextureCoords(int) mTextureCoords}. */
 	public static AIVector3D.Buffer nmTextureCoords(long struct, int index) {
 		if ( CHECKS ) check(index, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS);
 		return AIVector3D.create(memGetAddress(struct + AIMesh.MTEXTURECOORDS + index * POINTER_SIZE), nmNumVertices(struct));
 	}
 	/** Unsafe version of {@link #mNumUVComponents}. */
-	public static IntBuffer nmNumUVComponents(long struct) {
-		return memIntBuffer(struct + AIMesh.MNUMUVCOMPONENTS, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS);
-	}
+	public static IntBuffer nmNumUVComponents(long struct) { return memIntBuffer(struct + AIMesh.MNUMUVCOMPONENTS, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS); }
 	/** Unsafe version of {@link #mNumUVComponents(int) mNumUVComponents}. */
 	public static int nmNumUVComponents(long struct, int index) {
 		if ( CHECKS ) check(index, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS);

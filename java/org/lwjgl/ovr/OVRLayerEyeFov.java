@@ -311,36 +311,28 @@ public class OVRLayerEyeFov extends Struct implements NativeResource {
 	/** Unsafe version of {@link #Header}. */
 	public static OVRLayerHeader nHeader(long struct) { return OVRLayerHeader.create(struct + OVRLayerEyeFov.HEADER); }
 	/** Unsafe version of {@link #ColorTexture}. */
-	public static PointerBuffer nColorTexture(long struct) {
-		return memPointerBuffer(struct + OVRLayerEyeFov.COLORTEXTURE, ovrEye_Count);
-	}
+	public static PointerBuffer nColorTexture(long struct) { return memPointerBuffer(struct + OVRLayerEyeFov.COLORTEXTURE, ovrEye_Count); }
 	/** Unsafe version of {@link #ColorTexture(int) ColorTexture}. */
 	public static long nColorTexture(long struct, int index) {
 		if ( CHECKS ) check(index, ovrEye_Count);
 		return memGetAddress(struct + OVRLayerEyeFov.COLORTEXTURE + index * POINTER_SIZE);
 	}
 	/** Unsafe version of {@link #Viewport}. */
-	public static OVRRecti.Buffer nViewport(long struct) {
-		return OVRRecti.create(struct + OVRLayerEyeFov.VIEWPORT, ovrEye_Count);
-	}
+	public static OVRRecti.Buffer nViewport(long struct) { return OVRRecti.create(struct + OVRLayerEyeFov.VIEWPORT, ovrEye_Count); }
 	/** Unsafe version of {@link #Viewport(int) Viewport}. */
 	public static OVRRecti nViewport(long struct, int index) {
 		if ( CHECKS ) check(index, ovrEye_Count);
 		return OVRRecti.create(struct + OVRLayerEyeFov.VIEWPORT + index * OVRRecti.SIZEOF);
 	}
 	/** Unsafe version of {@link #Fov}. */
-	public static OVRFovPort.Buffer nFov(long struct) {
-		return OVRFovPort.create(struct + OVRLayerEyeFov.FOV, ovrEye_Count);
-	}
+	public static OVRFovPort.Buffer nFov(long struct) { return OVRFovPort.create(struct + OVRLayerEyeFov.FOV, ovrEye_Count); }
 	/** Unsafe version of {@link #Fov(int) Fov}. */
 	public static OVRFovPort nFov(long struct, int index) {
 		if ( CHECKS ) check(index, ovrEye_Count);
 		return OVRFovPort.create(struct + OVRLayerEyeFov.FOV + index * OVRFovPort.SIZEOF);
 	}
 	/** Unsafe version of {@link #RenderPose}. */
-	public static OVRPosef.Buffer nRenderPose(long struct) {
-		return OVRPosef.create(struct + OVRLayerEyeFov.RENDERPOSE, ovrEye_Count);
-	}
+	public static OVRPosef.Buffer nRenderPose(long struct) { return OVRPosef.create(struct + OVRLayerEyeFov.RENDERPOSE, ovrEye_Count); }
 	/** Unsafe version of {@link #RenderPose(int) RenderPose}. */
 	public static OVRPosef nRenderPose(long struct, int index) {
 		if ( CHECKS ) check(index, ovrEye_Count);

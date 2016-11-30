@@ -91,9 +91,7 @@ class NkConfigStackUserFont extends Struct {
 	/** Unsafe version of {@link #head}. */
 	public static int nhead(long struct) { return memGetInt(struct + NkConfigStackUserFont.HEAD); }
 	/** Unsafe version of {@link #elements}. */
-	public static NkConfigStackUserFontElement.Buffer nelements(long struct) {
-		return NkConfigStackUserFontElement.create(struct + NkConfigStackUserFont.ELEMENTS, 8);
-	}
+	public static NkConfigStackUserFontElement.Buffer nelements(long struct) { return NkConfigStackUserFontElement.create(struct + NkConfigStackUserFont.ELEMENTS, 8); }
 	/** Unsafe version of {@link #elements(int) elements}. */
 	public static NkConfigStackUserFontElement nelements(long struct, int index) {
 		if ( CHECKS ) check(index, 8);

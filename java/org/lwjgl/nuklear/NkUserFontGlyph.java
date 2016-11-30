@@ -276,9 +276,7 @@ public class NkUserFontGlyph extends Struct implements NativeResource {
 	// -----------------------------------
 
 	/** Unsafe version of {@link #uv}. */
-	public static NkVec2.Buffer nuv(long struct) {
-		return NkVec2.create(struct + NkUserFontGlyph.UV, 2);
-	}
+	public static NkVec2.Buffer nuv(long struct) { return NkVec2.create(struct + NkUserFontGlyph.UV, 2); }
 	/** Unsafe version of {@link #uv(int) uv}. */
 	public static NkVec2 nuv(long struct, int index) {
 		if ( CHECKS ) check(index, 2);

@@ -291,9 +291,7 @@ public class VkPhysicalDeviceProperties extends Struct implements NativeResource
 	/** Unsafe version of {@link #deviceNameString}. */
 	public static String ndeviceNameString(long struct) { return memUTF8(struct + VkPhysicalDeviceProperties.DEVICENAME); }
 	/** Unsafe version of {@link #pipelineCacheUUID}. */
-	public static ByteBuffer npipelineCacheUUID(long struct) {
-		return memByteBuffer(struct + VkPhysicalDeviceProperties.PIPELINECACHEUUID, VK_UUID_SIZE);
-	}
+	public static ByteBuffer npipelineCacheUUID(long struct) { return memByteBuffer(struct + VkPhysicalDeviceProperties.PIPELINECACHEUUID, VK_UUID_SIZE); }
 	/** Unsafe version of {@link #pipelineCacheUUID(int) pipelineCacheUUID}. */
 	public static byte npipelineCacheUUID(long struct, int index) {
 		if ( CHECKS ) check(index, VK_UUID_SIZE);

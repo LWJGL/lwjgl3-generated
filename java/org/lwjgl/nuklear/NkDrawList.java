@@ -269,9 +269,7 @@ public class NkDrawList extends Struct implements NativeResource {
 	/** Unsafe version of {@link #clip_rect}. */
 	public static NkRect nclip_rect(long struct) { return NkRect.create(struct + NkDrawList.CLIP_RECT); }
 	/** Unsafe version of {@link #circle_vtx}. */
-	public static NkVec2.Buffer ncircle_vtx(long struct) {
-		return NkVec2.create(struct + NkDrawList.CIRCLE_VTX, 12);
-	}
+	public static NkVec2.Buffer ncircle_vtx(long struct) { return NkVec2.create(struct + NkDrawList.CIRCLE_VTX, 12); }
 	/** Unsafe version of {@link #circle_vtx(int) circle_vtx}. */
 	public static NkVec2 ncircle_vtx(long struct, int index) {
 		if ( CHECKS ) check(index, 12);

@@ -99,18 +99,14 @@ public class NkKeyboard extends Struct {
 	// -----------------------------------
 
 	/** Unsafe version of {@link #keys}. */
-	public static NkKey.Buffer nkeys(long struct) {
-		return NkKey.create(struct + NkKeyboard.KEYS, NK_KEY_MAX);
-	}
+	public static NkKey.Buffer nkeys(long struct) { return NkKey.create(struct + NkKeyboard.KEYS, NK_KEY_MAX); }
 	/** Unsafe version of {@link #keys(int) keys}. */
 	public static NkKey nkeys(long struct, int index) {
 		if ( CHECKS ) check(index, NK_KEY_MAX);
 		return NkKey.create(struct + NkKeyboard.KEYS + index * NkKey.SIZEOF);
 	}
 	/** Unsafe version of {@link #text}. */
-	public static ByteBuffer ntext(long struct) {
-		return memByteBuffer(struct + NkKeyboard.TEXT, NK_INPUT_MAX);
-	}
+	public static ByteBuffer ntext(long struct) { return memByteBuffer(struct + NkKeyboard.TEXT, NK_INPUT_MAX); }
 	/** Unsafe version of {@link #text(int) text}. */
 	public static byte ntext(long struct, int index) {
 		if ( CHECKS ) check(index, NK_INPUT_MAX);

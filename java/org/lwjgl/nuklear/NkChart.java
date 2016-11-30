@@ -123,9 +123,7 @@ public class NkChart extends Struct {
 	/** Unsafe version of {@link #h}. */
 	public static float nh(long struct) { return memGetFloat(struct + NkChart.H); }
 	/** Unsafe version of {@link #slots}. */
-	public static NkChartSlot.Buffer nslots(long struct) {
-		return NkChartSlot.create(struct + NkChart.SLOTS, 4);
-	}
+	public static NkChartSlot.Buffer nslots(long struct) { return NkChartSlot.create(struct + NkChart.SLOTS, 4); }
 	/** Unsafe version of {@link #slots(int) slots}. */
 	public static NkChartSlot nslots(long struct, int index) {
 		if ( CHECKS ) check(index, 4);

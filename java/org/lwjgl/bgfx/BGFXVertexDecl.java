@@ -275,18 +275,14 @@ public class BGFXVertexDecl extends Struct implements NativeResource {
 	/** Unsafe version of {@link #stride}. */
 	public static short nstride(long struct) { return memGetShort(struct + BGFXVertexDecl.STRIDE); }
 	/** Unsafe version of {@link #offset}. */
-	public static ShortBuffer noffset(long struct) {
-		return memShortBuffer(struct + BGFXVertexDecl.OFFSET, BGFX_ATTRIB_COUNT);
-	}
+	public static ShortBuffer noffset(long struct) { return memShortBuffer(struct + BGFXVertexDecl.OFFSET, BGFX_ATTRIB_COUNT); }
 	/** Unsafe version of {@link #offset(int) offset}. */
 	public static short noffset(long struct, int index) {
 		if ( CHECKS ) check(index, BGFX_ATTRIB_COUNT);
 		return memGetShort(struct + BGFXVertexDecl.OFFSET + index * 2);
 	}
 	/** Unsafe version of {@link #attributes}. */
-	public static ShortBuffer nattributes(long struct) {
-		return memShortBuffer(struct + BGFXVertexDecl.ATTRIBUTES, BGFX_ATTRIB_COUNT);
-	}
+	public static ShortBuffer nattributes(long struct) { return memShortBuffer(struct + BGFXVertexDecl.ATTRIBUTES, BGFX_ATTRIB_COUNT); }
 	/** Unsafe version of {@link #attributes(int) attributes}. */
 	public static short nattributes(long struct, int index) {
 		if ( CHECKS ) check(index, BGFX_ATTRIB_COUNT);
