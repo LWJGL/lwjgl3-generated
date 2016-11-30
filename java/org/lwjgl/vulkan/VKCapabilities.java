@@ -8,191 +8,229 @@ package org.lwjgl.vulkan;
 import org.lwjgl.system.*;
 import java.util.Set;
 
+import static org.lwjgl.system.MemoryUtil.*;
+
 /** Defines the capabilities of a Vulkan {@code VkInstance} or {@code VkDevice}. */
 public class VKCapabilities {
 
+	// VK10
 	public final long
-		vkAcquireNextImageKHR,
-		vkAllocateCommandBuffers,
-		vkAllocateDescriptorSets,
-		vkAllocateMemory,
-		vkBeginCommandBuffer,
-		vkBindBufferMemory,
-		vkBindImageMemory,
-		vkCmdBeginQuery,
-		vkCmdBeginRenderPass,
-		vkCmdBindDescriptorSets,
-		vkCmdBindIndexBuffer,
-		vkCmdBindPipeline,
-		vkCmdBindVertexBuffers,
-		vkCmdBlitImage,
-		vkCmdClearAttachments,
-		vkCmdClearColorImage,
-		vkCmdClearDepthStencilImage,
-		vkCmdCopyBuffer,
-		vkCmdCopyBufferToImage,
-		vkCmdCopyImage,
-		vkCmdCopyImageToBuffer,
-		vkCmdCopyQueryPoolResults,
-		vkCmdDebugMarkerBeginEXT,
-		vkCmdDebugMarkerEndEXT,
-		vkCmdDebugMarkerInsertEXT,
-		vkCmdDispatch,
-		vkCmdDispatchIndirect,
-		vkCmdDraw,
-		vkCmdDrawIndexed,
-		vkCmdDrawIndexedIndirect,
-		vkCmdDrawIndexedIndirectCountAMD,
-		vkCmdDrawIndirect,
-		vkCmdDrawIndirectCountAMD,
-		vkCmdEndQuery,
-		vkCmdEndRenderPass,
-		vkCmdExecuteCommands,
-		vkCmdFillBuffer,
-		vkCmdNextSubpass,
-		vkCmdPipelineBarrier,
-		vkCmdProcessCommandsNVX,
-		vkCmdPushConstants,
-		vkCmdReserveSpaceForCommandsNVX,
-		vkCmdResetEvent,
-		vkCmdResetQueryPool,
-		vkCmdResolveImage,
-		vkCmdSetBlendConstants,
-		vkCmdSetDepthBias,
-		vkCmdSetDepthBounds,
-		vkCmdSetEvent,
-		vkCmdSetLineWidth,
-		vkCmdSetScissor,
-		vkCmdSetStencilCompareMask,
-		vkCmdSetStencilReference,
-		vkCmdSetStencilWriteMask,
-		vkCmdSetViewport,
-		vkCmdUpdateBuffer,
-		vkCmdWaitEvents,
-		vkCmdWriteTimestamp,
-		vkCreateBuffer,
-		vkCreateBufferView,
-		vkCreateCommandPool,
-		vkCreateComputePipelines,
-		vkCreateDebugReportCallbackEXT,
-		vkCreateDescriptorPool,
-		vkCreateDescriptorSetLayout,
-		vkCreateDevice,
-		vkCreateDisplayModeKHR,
-		vkCreateDisplayPlaneSurfaceKHR,
-		vkCreateEvent,
-		vkCreateFence,
-		vkCreateFramebuffer,
-		vkCreateGraphicsPipelines,
-		vkCreateImage,
-		vkCreateImageView,
-		vkCreateIndirectCommandsLayoutNVX,
 		vkCreateInstance,
-		vkCreateObjectTableNVX,
-		vkCreatePipelineCache,
-		vkCreatePipelineLayout,
-		vkCreateQueryPool,
-		vkCreateRenderPass,
-		vkCreateSampler,
-		vkCreateSemaphore,
-		vkCreateShaderModule,
-		vkCreateSharedSwapchainsKHR,
-		vkCreateSwapchainKHR,
-		vkCreateWin32SurfaceKHR,
-		vkCreateXlibSurfaceKHR,
-		vkDebugMarkerSetObjectNameEXT,
-		vkDebugMarkerSetObjectTagEXT,
-		vkDebugReportMessageEXT,
-		vkDestroyBuffer,
-		vkDestroyBufferView,
-		vkDestroyCommandPool,
-		vkDestroyDebugReportCallbackEXT,
-		vkDestroyDescriptorPool,
-		vkDestroyDescriptorSetLayout,
-		vkDestroyDevice,
-		vkDestroyEvent,
-		vkDestroyFence,
-		vkDestroyFramebuffer,
-		vkDestroyImage,
-		vkDestroyImageView,
-		vkDestroyIndirectCommandsLayoutNVX,
 		vkDestroyInstance,
-		vkDestroyObjectTableNVX,
-		vkDestroyPipeline,
-		vkDestroyPipelineCache,
-		vkDestroyPipelineLayout,
-		vkDestroyQueryPool,
-		vkDestroyRenderPass,
-		vkDestroySampler,
-		vkDestroySemaphore,
-		vkDestroyShaderModule,
-		vkDestroySurfaceKHR,
-		vkDestroySwapchainKHR,
-		vkDeviceWaitIdle,
-		vkEndCommandBuffer,
-		vkEnumerateDeviceExtensionProperties,
-		vkEnumerateDeviceLayerProperties,
-		vkEnumerateInstanceExtensionProperties,
-		vkEnumerateInstanceLayerProperties,
 		vkEnumeratePhysicalDevices,
-		vkFlushMappedMemoryRanges,
-		vkFreeCommandBuffers,
-		vkFreeDescriptorSets,
-		vkFreeMemory,
-		vkGetBufferMemoryRequirements,
-		vkGetDeviceMemoryCommitment,
-		vkGetDeviceProcAddr,
-		vkGetDeviceQueue,
-		vkGetDisplayModePropertiesKHR,
-		vkGetDisplayPlaneCapabilitiesKHR,
-		vkGetDisplayPlaneSupportedDisplaysKHR,
-		vkGetEventStatus,
-		vkGetFenceStatus,
-		vkGetImageMemoryRequirements,
-		vkGetImageSparseMemoryRequirements,
-		vkGetImageSubresourceLayout,
-		vkGetInstanceProcAddr,
-		vkGetMemoryWin32HandleNV,
-		vkGetPhysicalDeviceDisplayPlanePropertiesKHR,
-		vkGetPhysicalDeviceDisplayPropertiesKHR,
-		vkGetPhysicalDeviceExternalImageFormatPropertiesNV,
 		vkGetPhysicalDeviceFeatures,
 		vkGetPhysicalDeviceFormatProperties,
-		vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX,
 		vkGetPhysicalDeviceImageFormatProperties,
-		vkGetPhysicalDeviceMemoryProperties,
 		vkGetPhysicalDeviceProperties,
 		vkGetPhysicalDeviceQueueFamilyProperties,
-		vkGetPhysicalDeviceSparseImageFormatProperties,
-		vkGetPhysicalDeviceSurfaceCapabilitiesKHR,
-		vkGetPhysicalDeviceSurfaceFormatsKHR,
-		vkGetPhysicalDeviceSurfacePresentModesKHR,
-		vkGetPhysicalDeviceSurfaceSupportKHR,
-		vkGetPhysicalDeviceWin32PresentationSupportKHR,
-		vkGetPhysicalDeviceXlibPresentationSupportKHR,
-		vkGetPipelineCacheData,
-		vkGetQueryPoolResults,
-		vkGetRenderAreaGranularity,
-		vkGetSwapchainImagesKHR,
-		vkInvalidateMappedMemoryRanges,
-		vkMapMemory,
-		vkMergePipelineCaches,
-		vkQueueBindSparse,
-		vkQueuePresentKHR,
+		vkGetPhysicalDeviceMemoryProperties,
+		vkGetInstanceProcAddr,
+		vkGetDeviceProcAddr,
+		vkCreateDevice,
+		vkDestroyDevice,
+		vkEnumerateInstanceExtensionProperties,
+		vkEnumerateDeviceExtensionProperties,
+		vkEnumerateInstanceLayerProperties,
+		vkEnumerateDeviceLayerProperties,
+		vkGetDeviceQueue,
 		vkQueueSubmit,
 		vkQueueWaitIdle,
-		vkRegisterObjectsNVX,
-		vkResetCommandBuffer,
-		vkResetCommandPool,
-		vkResetDescriptorPool,
-		vkResetEvent,
-		vkResetFences,
-		vkSetEvent,
+		vkDeviceWaitIdle,
+		vkAllocateMemory,
+		vkFreeMemory,
+		vkMapMemory,
 		vkUnmapMemory,
-		vkUnregisterObjectsNVX,
+		vkFlushMappedMemoryRanges,
+		vkInvalidateMappedMemoryRanges,
+		vkGetDeviceMemoryCommitment,
+		vkBindBufferMemory,
+		vkBindImageMemory,
+		vkGetBufferMemoryRequirements,
+		vkGetImageMemoryRequirements,
+		vkGetImageSparseMemoryRequirements,
+		vkGetPhysicalDeviceSparseImageFormatProperties,
+		vkQueueBindSparse,
+		vkCreateFence,
+		vkDestroyFence,
+		vkResetFences,
+		vkGetFenceStatus,
+		vkWaitForFences,
+		vkCreateSemaphore,
+		vkDestroySemaphore,
+		vkCreateEvent,
+		vkDestroyEvent,
+		vkGetEventStatus,
+		vkSetEvent,
+		vkResetEvent,
+		vkCreateQueryPool,
+		vkDestroyQueryPool,
+		vkGetQueryPoolResults,
+		vkCreateBuffer,
+		vkDestroyBuffer,
+		vkCreateBufferView,
+		vkDestroyBufferView,
+		vkCreateImage,
+		vkDestroyImage,
+		vkGetImageSubresourceLayout,
+		vkCreateImageView,
+		vkDestroyImageView,
+		vkCreateShaderModule,
+		vkDestroyShaderModule,
+		vkCreatePipelineCache,
+		vkDestroyPipelineCache,
+		vkGetPipelineCacheData,
+		vkMergePipelineCaches,
+		vkCreateGraphicsPipelines,
+		vkCreateComputePipelines,
+		vkDestroyPipeline,
+		vkCreatePipelineLayout,
+		vkDestroyPipelineLayout,
+		vkCreateSampler,
+		vkDestroySampler,
+		vkCreateDescriptorSetLayout,
+		vkDestroyDescriptorSetLayout,
+		vkCreateDescriptorPool,
+		vkDestroyDescriptorPool,
+		vkResetDescriptorPool,
+		vkAllocateDescriptorSets,
+		vkFreeDescriptorSets,
 		vkUpdateDescriptorSets,
-		vkWaitForFences;
+		vkCreateFramebuffer,
+		vkDestroyFramebuffer,
+		vkCreateRenderPass,
+		vkDestroyRenderPass,
+		vkGetRenderAreaGranularity,
+		vkCreateCommandPool,
+		vkDestroyCommandPool,
+		vkResetCommandPool,
+		vkAllocateCommandBuffers,
+		vkFreeCommandBuffers,
+		vkBeginCommandBuffer,
+		vkEndCommandBuffer,
+		vkResetCommandBuffer,
+		vkCmdBindPipeline,
+		vkCmdSetViewport,
+		vkCmdSetScissor,
+		vkCmdSetLineWidth,
+		vkCmdSetDepthBias,
+		vkCmdSetBlendConstants,
+		vkCmdSetDepthBounds,
+		vkCmdSetStencilCompareMask,
+		vkCmdSetStencilWriteMask,
+		vkCmdSetStencilReference,
+		vkCmdBindDescriptorSets,
+		vkCmdBindIndexBuffer,
+		vkCmdBindVertexBuffers,
+		vkCmdDraw,
+		vkCmdDrawIndexed,
+		vkCmdDrawIndirect,
+		vkCmdDrawIndexedIndirect,
+		vkCmdDispatch,
+		vkCmdDispatchIndirect,
+		vkCmdCopyBuffer,
+		vkCmdCopyImage,
+		vkCmdBlitImage,
+		vkCmdCopyBufferToImage,
+		vkCmdCopyImageToBuffer,
+		vkCmdUpdateBuffer,
+		vkCmdFillBuffer,
+		vkCmdClearColorImage,
+		vkCmdClearDepthStencilImage,
+		vkCmdClearAttachments,
+		vkCmdResolveImage,
+		vkCmdSetEvent,
+		vkCmdResetEvent,
+		vkCmdWaitEvents,
+		vkCmdPipelineBarrier,
+		vkCmdBeginQuery,
+		vkCmdEndQuery,
+		vkCmdResetQueryPool,
+		vkCmdWriteTimestamp,
+		vkCmdCopyQueryPoolResults,
+		vkCmdPushConstants,
+		vkCmdBeginRenderPass,
+		vkCmdNextSubpass,
+		vkCmdEndRenderPass,
+		vkCmdExecuteCommands;
 
+	// AMD_draw_indirect_count
+	public final long
+		vkCmdDrawIndirectCountAMD,
+		vkCmdDrawIndexedIndirectCountAMD;
+
+	// EXT_debug_marker
+	public final long
+		vkDebugMarkerSetObjectTagEXT,
+		vkDebugMarkerSetObjectNameEXT,
+		vkCmdDebugMarkerBeginEXT,
+		vkCmdDebugMarkerEndEXT,
+		vkCmdDebugMarkerInsertEXT;
+
+	// EXT_debug_report
+	public final long
+		vkCreateDebugReportCallbackEXT,
+		vkDestroyDebugReportCallbackEXT,
+		vkDebugReportMessageEXT;
+
+	// KHR_display
+	public final long
+		vkGetPhysicalDeviceDisplayPropertiesKHR,
+		vkGetPhysicalDeviceDisplayPlanePropertiesKHR,
+		vkGetDisplayPlaneSupportedDisplaysKHR,
+		vkGetDisplayModePropertiesKHR,
+		vkCreateDisplayModeKHR,
+		vkGetDisplayPlaneCapabilitiesKHR,
+		vkCreateDisplayPlaneSurfaceKHR;
+
+	// KHR_display_swapchain
+	public final long
+		vkCreateSharedSwapchainsKHR;
+
+	// KHR_surface
+	public final long
+		vkDestroySurfaceKHR,
+		vkGetPhysicalDeviceSurfaceSupportKHR,
+		vkGetPhysicalDeviceSurfaceCapabilitiesKHR,
+		vkGetPhysicalDeviceSurfaceFormatsKHR,
+		vkGetPhysicalDeviceSurfacePresentModesKHR;
+
+	// KHR_swapchain
+	public final long
+		vkCreateSwapchainKHR,
+		vkDestroySwapchainKHR,
+		vkGetSwapchainImagesKHR,
+		vkAcquireNextImageKHR,
+		vkQueuePresentKHR;
+
+	// KHR_win32_surface
+	public final long
+		vkCreateWin32SurfaceKHR,
+		vkGetPhysicalDeviceWin32PresentationSupportKHR;
+
+	// KHR_xlib_surface
+	public final long
+		vkCreateXlibSurfaceKHR,
+		vkGetPhysicalDeviceXlibPresentationSupportKHR;
+
+	// NV_external_memory_capabilities
+	public final long
+		vkGetPhysicalDeviceExternalImageFormatPropertiesNV;
+
+	// NV_external_memory_win32
+	public final long
+		vkGetMemoryWin32HandleNV;
+
+	// NVX_device_generated_commands
+	public final long
+		vkCmdProcessCommandsNVX,
+		vkCmdReserveSpaceForCommandsNVX,
+		vkCreateIndirectCommandsLayoutNVX,
+		vkDestroyIndirectCommandsLayoutNVX,
+		vkCreateObjectTableNVX,
+		vkDestroyObjectTableNVX,
+		vkRegisterObjectsNVX,
+		vkUnregisterObjectsNVX,
+		vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX;
 
 	/** The Vulkan API version number. */
 	public final int apiVersion;
@@ -257,189 +295,154 @@ public class VKCapabilities {
 	VKCapabilities(FunctionProvider provider, int apiVersion, Set<String> ext) {
 		this.apiVersion = apiVersion;
 
-		vkAcquireNextImageKHR = provider.getFunctionAddress("vkAcquireNextImageKHR");
-		vkAllocateCommandBuffers = provider.getFunctionAddress("vkAllocateCommandBuffers");
-		vkAllocateDescriptorSets = provider.getFunctionAddress("vkAllocateDescriptorSets");
-		vkAllocateMemory = provider.getFunctionAddress("vkAllocateMemory");
-		vkBeginCommandBuffer = provider.getFunctionAddress("vkBeginCommandBuffer");
-		vkBindBufferMemory = provider.getFunctionAddress("vkBindBufferMemory");
-		vkBindImageMemory = provider.getFunctionAddress("vkBindImageMemory");
-		vkCmdBeginQuery = provider.getFunctionAddress("vkCmdBeginQuery");
-		vkCmdBeginRenderPass = provider.getFunctionAddress("vkCmdBeginRenderPass");
-		vkCmdBindDescriptorSets = provider.getFunctionAddress("vkCmdBindDescriptorSets");
-		vkCmdBindIndexBuffer = provider.getFunctionAddress("vkCmdBindIndexBuffer");
-		vkCmdBindPipeline = provider.getFunctionAddress("vkCmdBindPipeline");
-		vkCmdBindVertexBuffers = provider.getFunctionAddress("vkCmdBindVertexBuffers");
-		vkCmdBlitImage = provider.getFunctionAddress("vkCmdBlitImage");
-		vkCmdClearAttachments = provider.getFunctionAddress("vkCmdClearAttachments");
-		vkCmdClearColorImage = provider.getFunctionAddress("vkCmdClearColorImage");
-		vkCmdClearDepthStencilImage = provider.getFunctionAddress("vkCmdClearDepthStencilImage");
-		vkCmdCopyBuffer = provider.getFunctionAddress("vkCmdCopyBuffer");
-		vkCmdCopyBufferToImage = provider.getFunctionAddress("vkCmdCopyBufferToImage");
-		vkCmdCopyImage = provider.getFunctionAddress("vkCmdCopyImage");
-		vkCmdCopyImageToBuffer = provider.getFunctionAddress("vkCmdCopyImageToBuffer");
-		vkCmdCopyQueryPoolResults = provider.getFunctionAddress("vkCmdCopyQueryPoolResults");
-		vkCmdDebugMarkerBeginEXT = provider.getFunctionAddress("vkCmdDebugMarkerBeginEXT");
-		vkCmdDebugMarkerEndEXT = provider.getFunctionAddress("vkCmdDebugMarkerEndEXT");
-		vkCmdDebugMarkerInsertEXT = provider.getFunctionAddress("vkCmdDebugMarkerInsertEXT");
-		vkCmdDispatch = provider.getFunctionAddress("vkCmdDispatch");
-		vkCmdDispatchIndirect = provider.getFunctionAddress("vkCmdDispatchIndirect");
-		vkCmdDraw = provider.getFunctionAddress("vkCmdDraw");
-		vkCmdDrawIndexed = provider.getFunctionAddress("vkCmdDrawIndexed");
-		vkCmdDrawIndexedIndirect = provider.getFunctionAddress("vkCmdDrawIndexedIndirect");
-		vkCmdDrawIndexedIndirectCountAMD = provider.getFunctionAddress("vkCmdDrawIndexedIndirectCountAMD");
-		vkCmdDrawIndirect = provider.getFunctionAddress("vkCmdDrawIndirect");
-		vkCmdDrawIndirectCountAMD = provider.getFunctionAddress("vkCmdDrawIndirectCountAMD");
-		vkCmdEndQuery = provider.getFunctionAddress("vkCmdEndQuery");
-		vkCmdEndRenderPass = provider.getFunctionAddress("vkCmdEndRenderPass");
-		vkCmdExecuteCommands = provider.getFunctionAddress("vkCmdExecuteCommands");
-		vkCmdFillBuffer = provider.getFunctionAddress("vkCmdFillBuffer");
-		vkCmdNextSubpass = provider.getFunctionAddress("vkCmdNextSubpass");
-		vkCmdPipelineBarrier = provider.getFunctionAddress("vkCmdPipelineBarrier");
-		vkCmdProcessCommandsNVX = provider.getFunctionAddress("vkCmdProcessCommandsNVX");
-		vkCmdPushConstants = provider.getFunctionAddress("vkCmdPushConstants");
-		vkCmdReserveSpaceForCommandsNVX = provider.getFunctionAddress("vkCmdReserveSpaceForCommandsNVX");
-		vkCmdResetEvent = provider.getFunctionAddress("vkCmdResetEvent");
-		vkCmdResetQueryPool = provider.getFunctionAddress("vkCmdResetQueryPool");
-		vkCmdResolveImage = provider.getFunctionAddress("vkCmdResolveImage");
-		vkCmdSetBlendConstants = provider.getFunctionAddress("vkCmdSetBlendConstants");
-		vkCmdSetDepthBias = provider.getFunctionAddress("vkCmdSetDepthBias");
-		vkCmdSetDepthBounds = provider.getFunctionAddress("vkCmdSetDepthBounds");
-		vkCmdSetEvent = provider.getFunctionAddress("vkCmdSetEvent");
-		vkCmdSetLineWidth = provider.getFunctionAddress("vkCmdSetLineWidth");
-		vkCmdSetScissor = provider.getFunctionAddress("vkCmdSetScissor");
-		vkCmdSetStencilCompareMask = provider.getFunctionAddress("vkCmdSetStencilCompareMask");
-		vkCmdSetStencilReference = provider.getFunctionAddress("vkCmdSetStencilReference");
-		vkCmdSetStencilWriteMask = provider.getFunctionAddress("vkCmdSetStencilWriteMask");
-		vkCmdSetViewport = provider.getFunctionAddress("vkCmdSetViewport");
-		vkCmdUpdateBuffer = provider.getFunctionAddress("vkCmdUpdateBuffer");
-		vkCmdWaitEvents = provider.getFunctionAddress("vkCmdWaitEvents");
-		vkCmdWriteTimestamp = provider.getFunctionAddress("vkCmdWriteTimestamp");
-		vkCreateBuffer = provider.getFunctionAddress("vkCreateBuffer");
-		vkCreateBufferView = provider.getFunctionAddress("vkCreateBufferView");
-		vkCreateCommandPool = provider.getFunctionAddress("vkCreateCommandPool");
-		vkCreateComputePipelines = provider.getFunctionAddress("vkCreateComputePipelines");
-		vkCreateDebugReportCallbackEXT = provider.getFunctionAddress("vkCreateDebugReportCallbackEXT");
-		vkCreateDescriptorPool = provider.getFunctionAddress("vkCreateDescriptorPool");
-		vkCreateDescriptorSetLayout = provider.getFunctionAddress("vkCreateDescriptorSetLayout");
-		vkCreateDevice = provider.getFunctionAddress("vkCreateDevice");
-		vkCreateDisplayModeKHR = provider.getFunctionAddress("vkCreateDisplayModeKHR");
-		vkCreateDisplayPlaneSurfaceKHR = provider.getFunctionAddress("vkCreateDisplayPlaneSurfaceKHR");
-		vkCreateEvent = provider.getFunctionAddress("vkCreateEvent");
-		vkCreateFence = provider.getFunctionAddress("vkCreateFence");
-		vkCreateFramebuffer = provider.getFunctionAddress("vkCreateFramebuffer");
-		vkCreateGraphicsPipelines = provider.getFunctionAddress("vkCreateGraphicsPipelines");
-		vkCreateImage = provider.getFunctionAddress("vkCreateImage");
-		vkCreateImageView = provider.getFunctionAddress("vkCreateImageView");
-		vkCreateIndirectCommandsLayoutNVX = provider.getFunctionAddress("vkCreateIndirectCommandsLayoutNVX");
-		vkCreateInstance = provider.getFunctionAddress("vkCreateInstance");
-		vkCreateObjectTableNVX = provider.getFunctionAddress("vkCreateObjectTableNVX");
-		vkCreatePipelineCache = provider.getFunctionAddress("vkCreatePipelineCache");
-		vkCreatePipelineLayout = provider.getFunctionAddress("vkCreatePipelineLayout");
-		vkCreateQueryPool = provider.getFunctionAddress("vkCreateQueryPool");
-		vkCreateRenderPass = provider.getFunctionAddress("vkCreateRenderPass");
-		vkCreateSampler = provider.getFunctionAddress("vkCreateSampler");
-		vkCreateSemaphore = provider.getFunctionAddress("vkCreateSemaphore");
-		vkCreateShaderModule = provider.getFunctionAddress("vkCreateShaderModule");
-		vkCreateSharedSwapchainsKHR = provider.getFunctionAddress("vkCreateSharedSwapchainsKHR");
-		vkCreateSwapchainKHR = provider.getFunctionAddress("vkCreateSwapchainKHR");
-		vkCreateWin32SurfaceKHR = provider.getFunctionAddress("vkCreateWin32SurfaceKHR");
-		vkCreateXlibSurfaceKHR = provider.getFunctionAddress("vkCreateXlibSurfaceKHR");
-		vkDebugMarkerSetObjectNameEXT = provider.getFunctionAddress("vkDebugMarkerSetObjectNameEXT");
-		vkDebugMarkerSetObjectTagEXT = provider.getFunctionAddress("vkDebugMarkerSetObjectTagEXT");
-		vkDebugReportMessageEXT = provider.getFunctionAddress("vkDebugReportMessageEXT");
-		vkDestroyBuffer = provider.getFunctionAddress("vkDestroyBuffer");
-		vkDestroyBufferView = provider.getFunctionAddress("vkDestroyBufferView");
-		vkDestroyCommandPool = provider.getFunctionAddress("vkDestroyCommandPool");
-		vkDestroyDebugReportCallbackEXT = provider.getFunctionAddress("vkDestroyDebugReportCallbackEXT");
-		vkDestroyDescriptorPool = provider.getFunctionAddress("vkDestroyDescriptorPool");
-		vkDestroyDescriptorSetLayout = provider.getFunctionAddress("vkDestroyDescriptorSetLayout");
-		vkDestroyDevice = provider.getFunctionAddress("vkDestroyDevice");
-		vkDestroyEvent = provider.getFunctionAddress("vkDestroyEvent");
-		vkDestroyFence = provider.getFunctionAddress("vkDestroyFence");
-		vkDestroyFramebuffer = provider.getFunctionAddress("vkDestroyFramebuffer");
-		vkDestroyImage = provider.getFunctionAddress("vkDestroyImage");
-		vkDestroyImageView = provider.getFunctionAddress("vkDestroyImageView");
-		vkDestroyIndirectCommandsLayoutNVX = provider.getFunctionAddress("vkDestroyIndirectCommandsLayoutNVX");
-		vkDestroyInstance = provider.getFunctionAddress("vkDestroyInstance");
-		vkDestroyObjectTableNVX = provider.getFunctionAddress("vkDestroyObjectTableNVX");
-		vkDestroyPipeline = provider.getFunctionAddress("vkDestroyPipeline");
-		vkDestroyPipelineCache = provider.getFunctionAddress("vkDestroyPipelineCache");
-		vkDestroyPipelineLayout = provider.getFunctionAddress("vkDestroyPipelineLayout");
-		vkDestroyQueryPool = provider.getFunctionAddress("vkDestroyQueryPool");
-		vkDestroyRenderPass = provider.getFunctionAddress("vkDestroyRenderPass");
-		vkDestroySampler = provider.getFunctionAddress("vkDestroySampler");
-		vkDestroySemaphore = provider.getFunctionAddress("vkDestroySemaphore");
-		vkDestroyShaderModule = provider.getFunctionAddress("vkDestroyShaderModule");
-		vkDestroySurfaceKHR = provider.getFunctionAddress("vkDestroySurfaceKHR");
-		vkDestroySwapchainKHR = provider.getFunctionAddress("vkDestroySwapchainKHR");
-		vkDeviceWaitIdle = provider.getFunctionAddress("vkDeviceWaitIdle");
-		vkEndCommandBuffer = provider.getFunctionAddress("vkEndCommandBuffer");
-		vkEnumerateDeviceExtensionProperties = provider.getFunctionAddress("vkEnumerateDeviceExtensionProperties");
-		vkEnumerateDeviceLayerProperties = provider.getFunctionAddress("vkEnumerateDeviceLayerProperties");
-		vkEnumerateInstanceExtensionProperties = provider.getFunctionAddress("vkEnumerateInstanceExtensionProperties");
-		vkEnumerateInstanceLayerProperties = provider.getFunctionAddress("vkEnumerateInstanceLayerProperties");
-		vkEnumeratePhysicalDevices = provider.getFunctionAddress("vkEnumeratePhysicalDevices");
-		vkFlushMappedMemoryRanges = provider.getFunctionAddress("vkFlushMappedMemoryRanges");
-		vkFreeCommandBuffers = provider.getFunctionAddress("vkFreeCommandBuffers");
-		vkFreeDescriptorSets = provider.getFunctionAddress("vkFreeDescriptorSets");
-		vkFreeMemory = provider.getFunctionAddress("vkFreeMemory");
-		vkGetBufferMemoryRequirements = provider.getFunctionAddress("vkGetBufferMemoryRequirements");
-		vkGetDeviceMemoryCommitment = provider.getFunctionAddress("vkGetDeviceMemoryCommitment");
-		vkGetDeviceProcAddr = provider.getFunctionAddress("vkGetDeviceProcAddr");
-		vkGetDeviceQueue = provider.getFunctionAddress("vkGetDeviceQueue");
-		vkGetDisplayModePropertiesKHR = provider.getFunctionAddress("vkGetDisplayModePropertiesKHR");
-		vkGetDisplayPlaneCapabilitiesKHR = provider.getFunctionAddress("vkGetDisplayPlaneCapabilitiesKHR");
-		vkGetDisplayPlaneSupportedDisplaysKHR = provider.getFunctionAddress("vkGetDisplayPlaneSupportedDisplaysKHR");
-		vkGetEventStatus = provider.getFunctionAddress("vkGetEventStatus");
-		vkGetFenceStatus = provider.getFunctionAddress("vkGetFenceStatus");
-		vkGetImageMemoryRequirements = provider.getFunctionAddress("vkGetImageMemoryRequirements");
-		vkGetImageSparseMemoryRequirements = provider.getFunctionAddress("vkGetImageSparseMemoryRequirements");
-		vkGetImageSubresourceLayout = provider.getFunctionAddress("vkGetImageSubresourceLayout");
-		vkGetInstanceProcAddr = provider.getFunctionAddress("vkGetInstanceProcAddr");
-		vkGetMemoryWin32HandleNV = provider.getFunctionAddress("vkGetMemoryWin32HandleNV");
-		vkGetPhysicalDeviceDisplayPlanePropertiesKHR = provider.getFunctionAddress("vkGetPhysicalDeviceDisplayPlanePropertiesKHR");
-		vkGetPhysicalDeviceDisplayPropertiesKHR = provider.getFunctionAddress("vkGetPhysicalDeviceDisplayPropertiesKHR");
-		vkGetPhysicalDeviceExternalImageFormatPropertiesNV = provider.getFunctionAddress("vkGetPhysicalDeviceExternalImageFormatPropertiesNV");
-		vkGetPhysicalDeviceFeatures = provider.getFunctionAddress("vkGetPhysicalDeviceFeatures");
-		vkGetPhysicalDeviceFormatProperties = provider.getFunctionAddress("vkGetPhysicalDeviceFormatProperties");
-		vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX = provider.getFunctionAddress("vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX");
-		vkGetPhysicalDeviceImageFormatProperties = provider.getFunctionAddress("vkGetPhysicalDeviceImageFormatProperties");
-		vkGetPhysicalDeviceMemoryProperties = provider.getFunctionAddress("vkGetPhysicalDeviceMemoryProperties");
-		vkGetPhysicalDeviceProperties = provider.getFunctionAddress("vkGetPhysicalDeviceProperties");
-		vkGetPhysicalDeviceQueueFamilyProperties = provider.getFunctionAddress("vkGetPhysicalDeviceQueueFamilyProperties");
-		vkGetPhysicalDeviceSparseImageFormatProperties = provider.getFunctionAddress("vkGetPhysicalDeviceSparseImageFormatProperties");
-		vkGetPhysicalDeviceSurfaceCapabilitiesKHR = provider.getFunctionAddress("vkGetPhysicalDeviceSurfaceCapabilitiesKHR");
-		vkGetPhysicalDeviceSurfaceFormatsKHR = provider.getFunctionAddress("vkGetPhysicalDeviceSurfaceFormatsKHR");
-		vkGetPhysicalDeviceSurfacePresentModesKHR = provider.getFunctionAddress("vkGetPhysicalDeviceSurfacePresentModesKHR");
-		vkGetPhysicalDeviceSurfaceSupportKHR = provider.getFunctionAddress("vkGetPhysicalDeviceSurfaceSupportKHR");
-		vkGetPhysicalDeviceWin32PresentationSupportKHR = provider.getFunctionAddress("vkGetPhysicalDeviceWin32PresentationSupportKHR");
-		vkGetPhysicalDeviceXlibPresentationSupportKHR = provider.getFunctionAddress("vkGetPhysicalDeviceXlibPresentationSupportKHR");
-		vkGetPipelineCacheData = provider.getFunctionAddress("vkGetPipelineCacheData");
-		vkGetQueryPoolResults = provider.getFunctionAddress("vkGetQueryPoolResults");
-		vkGetRenderAreaGranularity = provider.getFunctionAddress("vkGetRenderAreaGranularity");
-		vkGetSwapchainImagesKHR = provider.getFunctionAddress("vkGetSwapchainImagesKHR");
-		vkInvalidateMappedMemoryRanges = provider.getFunctionAddress("vkInvalidateMappedMemoryRanges");
-		vkMapMemory = provider.getFunctionAddress("vkMapMemory");
-		vkMergePipelineCaches = provider.getFunctionAddress("vkMergePipelineCaches");
-		vkQueueBindSparse = provider.getFunctionAddress("vkQueueBindSparse");
-		vkQueuePresentKHR = provider.getFunctionAddress("vkQueuePresentKHR");
-		vkQueueSubmit = provider.getFunctionAddress("vkQueueSubmit");
-		vkQueueWaitIdle = provider.getFunctionAddress("vkQueueWaitIdle");
-		vkRegisterObjectsNVX = provider.getFunctionAddress("vkRegisterObjectsNVX");
-		vkResetCommandBuffer = provider.getFunctionAddress("vkResetCommandBuffer");
-		vkResetCommandPool = provider.getFunctionAddress("vkResetCommandPool");
-		vkResetDescriptorPool = provider.getFunctionAddress("vkResetDescriptorPool");
-		vkResetEvent = provider.getFunctionAddress("vkResetEvent");
-		vkResetFences = provider.getFunctionAddress("vkResetFences");
-		vkSetEvent = provider.getFunctionAddress("vkSetEvent");
-		vkUnmapMemory = provider.getFunctionAddress("vkUnmapMemory");
-		vkUnregisterObjectsNVX = provider.getFunctionAddress("vkUnregisterObjectsNVX");
-		vkUpdateDescriptorSets = provider.getFunctionAddress("vkUpdateDescriptorSets");
-		vkWaitForFences = provider.getFunctionAddress("vkWaitForFences");
+		boolean supported;
 
-		Vulkan10 = ext.contains("Vulkan10") && VK.checkExtension("Vulkan10", VK10.isAvailable(this));
-		VK_AMD_draw_indirect_count = ext.contains("VK_AMD_draw_indirect_count") && VK.checkExtension("VK_AMD_draw_indirect_count", AMDDrawIndirectCount.isAvailable(this));
+		{
+			vkCreateInstance = provider.getFunctionAddress("vkCreateInstance");
+			vkDestroyInstance = provider.getFunctionAddress("vkDestroyInstance");
+			vkEnumeratePhysicalDevices = provider.getFunctionAddress("vkEnumeratePhysicalDevices");
+			vkGetPhysicalDeviceFeatures = provider.getFunctionAddress("vkGetPhysicalDeviceFeatures");
+			vkGetPhysicalDeviceFormatProperties = provider.getFunctionAddress("vkGetPhysicalDeviceFormatProperties");
+			vkGetPhysicalDeviceImageFormatProperties = provider.getFunctionAddress("vkGetPhysicalDeviceImageFormatProperties");
+			vkGetPhysicalDeviceProperties = provider.getFunctionAddress("vkGetPhysicalDeviceProperties");
+			vkGetPhysicalDeviceQueueFamilyProperties = provider.getFunctionAddress("vkGetPhysicalDeviceQueueFamilyProperties");
+			vkGetPhysicalDeviceMemoryProperties = provider.getFunctionAddress("vkGetPhysicalDeviceMemoryProperties");
+			vkGetInstanceProcAddr = provider.getFunctionAddress("vkGetInstanceProcAddr");
+			vkGetDeviceProcAddr = provider.getFunctionAddress("vkGetDeviceProcAddr");
+			vkCreateDevice = provider.getFunctionAddress("vkCreateDevice");
+			vkDestroyDevice = provider.getFunctionAddress("vkDestroyDevice");
+			vkEnumerateInstanceExtensionProperties = provider.getFunctionAddress("vkEnumerateInstanceExtensionProperties");
+			vkEnumerateDeviceExtensionProperties = provider.getFunctionAddress("vkEnumerateDeviceExtensionProperties");
+			vkEnumerateInstanceLayerProperties = provider.getFunctionAddress("vkEnumerateInstanceLayerProperties");
+			vkEnumerateDeviceLayerProperties = provider.getFunctionAddress("vkEnumerateDeviceLayerProperties");
+			vkGetDeviceQueue = provider.getFunctionAddress("vkGetDeviceQueue");
+			vkQueueSubmit = provider.getFunctionAddress("vkQueueSubmit");
+			vkQueueWaitIdle = provider.getFunctionAddress("vkQueueWaitIdle");
+			vkDeviceWaitIdle = provider.getFunctionAddress("vkDeviceWaitIdle");
+			vkAllocateMemory = provider.getFunctionAddress("vkAllocateMemory");
+			vkFreeMemory = provider.getFunctionAddress("vkFreeMemory");
+			vkMapMemory = provider.getFunctionAddress("vkMapMemory");
+			vkUnmapMemory = provider.getFunctionAddress("vkUnmapMemory");
+			vkFlushMappedMemoryRanges = provider.getFunctionAddress("vkFlushMappedMemoryRanges");
+			vkInvalidateMappedMemoryRanges = provider.getFunctionAddress("vkInvalidateMappedMemoryRanges");
+			vkGetDeviceMemoryCommitment = provider.getFunctionAddress("vkGetDeviceMemoryCommitment");
+			vkBindBufferMemory = provider.getFunctionAddress("vkBindBufferMemory");
+			vkBindImageMemory = provider.getFunctionAddress("vkBindImageMemory");
+			vkGetBufferMemoryRequirements = provider.getFunctionAddress("vkGetBufferMemoryRequirements");
+			vkGetImageMemoryRequirements = provider.getFunctionAddress("vkGetImageMemoryRequirements");
+			vkGetImageSparseMemoryRequirements = provider.getFunctionAddress("vkGetImageSparseMemoryRequirements");
+			vkGetPhysicalDeviceSparseImageFormatProperties = provider.getFunctionAddress("vkGetPhysicalDeviceSparseImageFormatProperties");
+			vkQueueBindSparse = provider.getFunctionAddress("vkQueueBindSparse");
+			vkCreateFence = provider.getFunctionAddress("vkCreateFence");
+			vkDestroyFence = provider.getFunctionAddress("vkDestroyFence");
+			vkResetFences = provider.getFunctionAddress("vkResetFences");
+			vkGetFenceStatus = provider.getFunctionAddress("vkGetFenceStatus");
+			vkWaitForFences = provider.getFunctionAddress("vkWaitForFences");
+			vkCreateSemaphore = provider.getFunctionAddress("vkCreateSemaphore");
+			vkDestroySemaphore = provider.getFunctionAddress("vkDestroySemaphore");
+			vkCreateEvent = provider.getFunctionAddress("vkCreateEvent");
+			vkDestroyEvent = provider.getFunctionAddress("vkDestroyEvent");
+			vkGetEventStatus = provider.getFunctionAddress("vkGetEventStatus");
+			vkSetEvent = provider.getFunctionAddress("vkSetEvent");
+			vkResetEvent = provider.getFunctionAddress("vkResetEvent");
+			vkCreateQueryPool = provider.getFunctionAddress("vkCreateQueryPool");
+			vkDestroyQueryPool = provider.getFunctionAddress("vkDestroyQueryPool");
+			vkGetQueryPoolResults = provider.getFunctionAddress("vkGetQueryPoolResults");
+			vkCreateBuffer = provider.getFunctionAddress("vkCreateBuffer");
+			vkDestroyBuffer = provider.getFunctionAddress("vkDestroyBuffer");
+			vkCreateBufferView = provider.getFunctionAddress("vkCreateBufferView");
+			vkDestroyBufferView = provider.getFunctionAddress("vkDestroyBufferView");
+			vkCreateImage = provider.getFunctionAddress("vkCreateImage");
+			vkDestroyImage = provider.getFunctionAddress("vkDestroyImage");
+			vkGetImageSubresourceLayout = provider.getFunctionAddress("vkGetImageSubresourceLayout");
+			vkCreateImageView = provider.getFunctionAddress("vkCreateImageView");
+			vkDestroyImageView = provider.getFunctionAddress("vkDestroyImageView");
+			vkCreateShaderModule = provider.getFunctionAddress("vkCreateShaderModule");
+			vkDestroyShaderModule = provider.getFunctionAddress("vkDestroyShaderModule");
+			vkCreatePipelineCache = provider.getFunctionAddress("vkCreatePipelineCache");
+			vkDestroyPipelineCache = provider.getFunctionAddress("vkDestroyPipelineCache");
+			vkGetPipelineCacheData = provider.getFunctionAddress("vkGetPipelineCacheData");
+			vkMergePipelineCaches = provider.getFunctionAddress("vkMergePipelineCaches");
+			vkCreateGraphicsPipelines = provider.getFunctionAddress("vkCreateGraphicsPipelines");
+			vkCreateComputePipelines = provider.getFunctionAddress("vkCreateComputePipelines");
+			vkDestroyPipeline = provider.getFunctionAddress("vkDestroyPipeline");
+			vkCreatePipelineLayout = provider.getFunctionAddress("vkCreatePipelineLayout");
+			vkDestroyPipelineLayout = provider.getFunctionAddress("vkDestroyPipelineLayout");
+			vkCreateSampler = provider.getFunctionAddress("vkCreateSampler");
+			vkDestroySampler = provider.getFunctionAddress("vkDestroySampler");
+			vkCreateDescriptorSetLayout = provider.getFunctionAddress("vkCreateDescriptorSetLayout");
+			vkDestroyDescriptorSetLayout = provider.getFunctionAddress("vkDestroyDescriptorSetLayout");
+			vkCreateDescriptorPool = provider.getFunctionAddress("vkCreateDescriptorPool");
+			vkDestroyDescriptorPool = provider.getFunctionAddress("vkDestroyDescriptorPool");
+			vkResetDescriptorPool = provider.getFunctionAddress("vkResetDescriptorPool");
+			vkAllocateDescriptorSets = provider.getFunctionAddress("vkAllocateDescriptorSets");
+			vkFreeDescriptorSets = provider.getFunctionAddress("vkFreeDescriptorSets");
+			vkUpdateDescriptorSets = provider.getFunctionAddress("vkUpdateDescriptorSets");
+			vkCreateFramebuffer = provider.getFunctionAddress("vkCreateFramebuffer");
+			vkDestroyFramebuffer = provider.getFunctionAddress("vkDestroyFramebuffer");
+			vkCreateRenderPass = provider.getFunctionAddress("vkCreateRenderPass");
+			vkDestroyRenderPass = provider.getFunctionAddress("vkDestroyRenderPass");
+			vkGetRenderAreaGranularity = provider.getFunctionAddress("vkGetRenderAreaGranularity");
+			vkCreateCommandPool = provider.getFunctionAddress("vkCreateCommandPool");
+			vkDestroyCommandPool = provider.getFunctionAddress("vkDestroyCommandPool");
+			vkResetCommandPool = provider.getFunctionAddress("vkResetCommandPool");
+			vkAllocateCommandBuffers = provider.getFunctionAddress("vkAllocateCommandBuffers");
+			vkFreeCommandBuffers = provider.getFunctionAddress("vkFreeCommandBuffers");
+			vkBeginCommandBuffer = provider.getFunctionAddress("vkBeginCommandBuffer");
+			vkEndCommandBuffer = provider.getFunctionAddress("vkEndCommandBuffer");
+			vkResetCommandBuffer = provider.getFunctionAddress("vkResetCommandBuffer");
+			vkCmdBindPipeline = provider.getFunctionAddress("vkCmdBindPipeline");
+			vkCmdSetViewport = provider.getFunctionAddress("vkCmdSetViewport");
+			vkCmdSetScissor = provider.getFunctionAddress("vkCmdSetScissor");
+			vkCmdSetLineWidth = provider.getFunctionAddress("vkCmdSetLineWidth");
+			vkCmdSetDepthBias = provider.getFunctionAddress("vkCmdSetDepthBias");
+			vkCmdSetBlendConstants = provider.getFunctionAddress("vkCmdSetBlendConstants");
+			vkCmdSetDepthBounds = provider.getFunctionAddress("vkCmdSetDepthBounds");
+			vkCmdSetStencilCompareMask = provider.getFunctionAddress("vkCmdSetStencilCompareMask");
+			vkCmdSetStencilWriteMask = provider.getFunctionAddress("vkCmdSetStencilWriteMask");
+			vkCmdSetStencilReference = provider.getFunctionAddress("vkCmdSetStencilReference");
+			vkCmdBindDescriptorSets = provider.getFunctionAddress("vkCmdBindDescriptorSets");
+			vkCmdBindIndexBuffer = provider.getFunctionAddress("vkCmdBindIndexBuffer");
+			vkCmdBindVertexBuffers = provider.getFunctionAddress("vkCmdBindVertexBuffers");
+			vkCmdDraw = provider.getFunctionAddress("vkCmdDraw");
+			vkCmdDrawIndexed = provider.getFunctionAddress("vkCmdDrawIndexed");
+			vkCmdDrawIndirect = provider.getFunctionAddress("vkCmdDrawIndirect");
+			vkCmdDrawIndexedIndirect = provider.getFunctionAddress("vkCmdDrawIndexedIndirect");
+			vkCmdDispatch = provider.getFunctionAddress("vkCmdDispatch");
+			vkCmdDispatchIndirect = provider.getFunctionAddress("vkCmdDispatchIndirect");
+			vkCmdCopyBuffer = provider.getFunctionAddress("vkCmdCopyBuffer");
+			vkCmdCopyImage = provider.getFunctionAddress("vkCmdCopyImage");
+			vkCmdBlitImage = provider.getFunctionAddress("vkCmdBlitImage");
+			vkCmdCopyBufferToImage = provider.getFunctionAddress("vkCmdCopyBufferToImage");
+			vkCmdCopyImageToBuffer = provider.getFunctionAddress("vkCmdCopyImageToBuffer");
+			vkCmdUpdateBuffer = provider.getFunctionAddress("vkCmdUpdateBuffer");
+			vkCmdFillBuffer = provider.getFunctionAddress("vkCmdFillBuffer");
+			vkCmdClearColorImage = provider.getFunctionAddress("vkCmdClearColorImage");
+			vkCmdClearDepthStencilImage = provider.getFunctionAddress("vkCmdClearDepthStencilImage");
+			vkCmdClearAttachments = provider.getFunctionAddress("vkCmdClearAttachments");
+			vkCmdResolveImage = provider.getFunctionAddress("vkCmdResolveImage");
+			vkCmdSetEvent = provider.getFunctionAddress("vkCmdSetEvent");
+			vkCmdResetEvent = provider.getFunctionAddress("vkCmdResetEvent");
+			vkCmdWaitEvents = provider.getFunctionAddress("vkCmdWaitEvents");
+			vkCmdPipelineBarrier = provider.getFunctionAddress("vkCmdPipelineBarrier");
+			vkCmdBeginQuery = provider.getFunctionAddress("vkCmdBeginQuery");
+			vkCmdEndQuery = provider.getFunctionAddress("vkCmdEndQuery");
+			vkCmdResetQueryPool = provider.getFunctionAddress("vkCmdResetQueryPool");
+			vkCmdWriteTimestamp = provider.getFunctionAddress("vkCmdWriteTimestamp");
+			vkCmdCopyQueryPoolResults = provider.getFunctionAddress("vkCmdCopyQueryPoolResults");
+			vkCmdPushConstants = provider.getFunctionAddress("vkCmdPushConstants");
+			vkCmdBeginRenderPass = provider.getFunctionAddress("vkCmdBeginRenderPass");
+			vkCmdNextSubpass = provider.getFunctionAddress("vkCmdNextSubpass");
+			vkCmdEndRenderPass = provider.getFunctionAddress("vkCmdEndRenderPass");
+			vkCmdExecuteCommands = provider.getFunctionAddress("vkCmdExecuteCommands");
+			Vulkan10 = VK.checkExtension("Vulkan10", VK10.isAvailable(this));
+		}
+		{
+			supported = ext.contains("VK_AMD_draw_indirect_count");
+			vkCmdDrawIndirectCountAMD = isSupported(provider, "vkCmdDrawIndirectCountAMD", supported);
+			vkCmdDrawIndexedIndirectCountAMD = isSupported(provider, "vkCmdDrawIndexedIndirectCountAMD", supported);
+			VK_AMD_draw_indirect_count = supported && VK.checkExtension("VK_AMD_draw_indirect_count", AMDDrawIndirectCount.isAvailable(this));
+		}
 		VK_AMD_gcn_shader = ext.contains("VK_AMD_gcn_shader");
 		VK_AMD_gpu_shader_half_float = ext.contains("VK_AMD_gpu_shader_half_float");
 		VK_AMD_negative_viewport_height = ext.contains("VK_AMD_negative_viewport_height");
@@ -447,25 +450,104 @@ public class VKCapabilities {
 		VK_AMD_shader_ballot = ext.contains("VK_AMD_shader_ballot");
 		VK_AMD_shader_explicit_vertex_parameter = ext.contains("VK_AMD_shader_explicit_vertex_parameter");
 		VK_AMD_shader_trinary_minmax = ext.contains("VK_AMD_shader_trinary_minmax");
-		VK_EXT_debug_marker = ext.contains("VK_EXT_debug_marker") && VK.checkExtension("VK_EXT_debug_marker", EXTDebugMarker.isAvailable(this));
-		VK_EXT_debug_report = ext.contains("VK_EXT_debug_report") && VK.checkExtension("VK_EXT_debug_report", EXTDebugReport.isAvailable(this));
+		{
+			supported = ext.contains("VK_EXT_debug_marker");
+			vkDebugMarkerSetObjectTagEXT = isSupported(provider, "vkDebugMarkerSetObjectTagEXT", supported);
+			vkDebugMarkerSetObjectNameEXT = isSupported(provider, "vkDebugMarkerSetObjectNameEXT", supported);
+			vkCmdDebugMarkerBeginEXT = isSupported(provider, "vkCmdDebugMarkerBeginEXT", supported);
+			vkCmdDebugMarkerEndEXT = isSupported(provider, "vkCmdDebugMarkerEndEXT", supported);
+			vkCmdDebugMarkerInsertEXT = isSupported(provider, "vkCmdDebugMarkerInsertEXT", supported);
+			VK_EXT_debug_marker = supported && VK.checkExtension("VK_EXT_debug_marker", EXTDebugMarker.isAvailable(this));
+		}
+		{
+			supported = ext.contains("VK_EXT_debug_report");
+			vkCreateDebugReportCallbackEXT = isSupported(provider, "vkCreateDebugReportCallbackEXT", supported);
+			vkDestroyDebugReportCallbackEXT = isSupported(provider, "vkDestroyDebugReportCallbackEXT", supported);
+			vkDebugReportMessageEXT = isSupported(provider, "vkDebugReportMessageEXT", supported);
+			VK_EXT_debug_report = supported && VK.checkExtension("VK_EXT_debug_report", EXTDebugReport.isAvailable(this));
+		}
 		VK_EXT_validation_flags = ext.contains("VK_EXT_validation_flags");
 		VK_IMG_filter_cubic = ext.contains("VK_IMG_filter_cubic");
 		VK_IMG_format_pvrtc = ext.contains("VK_IMG_format_pvrtc");
-		VK_KHR_display = ext.contains("VK_KHR_display") && VK.checkExtension("VK_KHR_display", KHRDisplay.isAvailable(this));
-		VK_KHR_display_swapchain = ext.contains("VK_KHR_display_swapchain") && VK.checkExtension("VK_KHR_display_swapchain", KHRDisplaySwapchain.isAvailable(this));
+		{
+			supported = ext.contains("VK_KHR_display");
+			vkGetPhysicalDeviceDisplayPropertiesKHR = isSupported(provider, "vkGetPhysicalDeviceDisplayPropertiesKHR", supported);
+			vkGetPhysicalDeviceDisplayPlanePropertiesKHR = isSupported(provider, "vkGetPhysicalDeviceDisplayPlanePropertiesKHR", supported);
+			vkGetDisplayPlaneSupportedDisplaysKHR = isSupported(provider, "vkGetDisplayPlaneSupportedDisplaysKHR", supported);
+			vkGetDisplayModePropertiesKHR = isSupported(provider, "vkGetDisplayModePropertiesKHR", supported);
+			vkCreateDisplayModeKHR = isSupported(provider, "vkCreateDisplayModeKHR", supported);
+			vkGetDisplayPlaneCapabilitiesKHR = isSupported(provider, "vkGetDisplayPlaneCapabilitiesKHR", supported);
+			vkCreateDisplayPlaneSurfaceKHR = isSupported(provider, "vkCreateDisplayPlaneSurfaceKHR", supported);
+			VK_KHR_display = supported && VK.checkExtension("VK_KHR_display", KHRDisplay.isAvailable(this));
+		}
+		{
+			supported = ext.contains("VK_KHR_display_swapchain");
+			vkCreateSharedSwapchainsKHR = isSupported(provider, "vkCreateSharedSwapchainsKHR", supported);
+			VK_KHR_display_swapchain = supported && VK.checkExtension("VK_KHR_display_swapchain", KHRDisplaySwapchain.isAvailable(this));
+		}
 		VK_KHR_sampler_mirror_clamp_to_edge = ext.contains("VK_KHR_sampler_mirror_clamp_to_edge");
-		VK_KHR_surface = ext.contains("VK_KHR_surface") && VK.checkExtension("VK_KHR_surface", KHRSurface.isAvailable(this));
-		VK_KHR_swapchain = ext.contains("VK_KHR_swapchain") && VK.checkExtension("VK_KHR_swapchain", KHRSwapchain.isAvailable(this));
-		VK_KHR_win32_surface = ext.contains("VK_KHR_win32_surface") && VK.checkExtension("VK_KHR_win32_surface", KHRWin32Surface.isAvailable(this));
-		VK_KHR_xlib_surface = ext.contains("VK_KHR_xlib_surface") && VK.checkExtension("VK_KHR_xlib_surface", KHRXlibSurface.isAvailable(this));
+		{
+			supported = ext.contains("VK_KHR_surface");
+			vkDestroySurfaceKHR = isSupported(provider, "vkDestroySurfaceKHR", supported);
+			vkGetPhysicalDeviceSurfaceSupportKHR = isSupported(provider, "vkGetPhysicalDeviceSurfaceSupportKHR", supported);
+			vkGetPhysicalDeviceSurfaceCapabilitiesKHR = isSupported(provider, "vkGetPhysicalDeviceSurfaceCapabilitiesKHR", supported);
+			vkGetPhysicalDeviceSurfaceFormatsKHR = isSupported(provider, "vkGetPhysicalDeviceSurfaceFormatsKHR", supported);
+			vkGetPhysicalDeviceSurfacePresentModesKHR = isSupported(provider, "vkGetPhysicalDeviceSurfacePresentModesKHR", supported);
+			VK_KHR_surface = supported && VK.checkExtension("VK_KHR_surface", KHRSurface.isAvailable(this));
+		}
+		{
+			supported = ext.contains("VK_KHR_swapchain");
+			vkCreateSwapchainKHR = isSupported(provider, "vkCreateSwapchainKHR", supported);
+			vkDestroySwapchainKHR = isSupported(provider, "vkDestroySwapchainKHR", supported);
+			vkGetSwapchainImagesKHR = isSupported(provider, "vkGetSwapchainImagesKHR", supported);
+			vkAcquireNextImageKHR = isSupported(provider, "vkAcquireNextImageKHR", supported);
+			vkQueuePresentKHR = isSupported(provider, "vkQueuePresentKHR", supported);
+			VK_KHR_swapchain = supported && VK.checkExtension("VK_KHR_swapchain", KHRSwapchain.isAvailable(this));
+		}
+		{
+			supported = ext.contains("VK_KHR_win32_surface");
+			vkCreateWin32SurfaceKHR = isSupported(provider, "vkCreateWin32SurfaceKHR", supported);
+			vkGetPhysicalDeviceWin32PresentationSupportKHR = isSupported(provider, "vkGetPhysicalDeviceWin32PresentationSupportKHR", supported);
+			VK_KHR_win32_surface = supported && VK.checkExtension("VK_KHR_win32_surface", KHRWin32Surface.isAvailable(this));
+		}
+		{
+			supported = ext.contains("VK_KHR_xlib_surface");
+			vkCreateXlibSurfaceKHR = isSupported(provider, "vkCreateXlibSurfaceKHR", supported);
+			vkGetPhysicalDeviceXlibPresentationSupportKHR = isSupported(provider, "vkGetPhysicalDeviceXlibPresentationSupportKHR", supported);
+			VK_KHR_xlib_surface = supported && VK.checkExtension("VK_KHR_xlib_surface", KHRXlibSurface.isAvailable(this));
+		}
 		VK_NV_dedicated_allocation = ext.contains("VK_NV_dedicated_allocation");
 		VK_NV_external_memory = ext.contains("VK_NV_external_memory");
-		VK_NV_external_memory_capabilities = ext.contains("VK_NV_external_memory_capabilities") && VK.checkExtension("VK_NV_external_memory_capabilities", NVExternalMemoryCapabilities.isAvailable(this));
-		VK_NV_external_memory_win32 = ext.contains("VK_NV_external_memory_win32") && VK.checkExtension("VK_NV_external_memory_win32", NVExternalMemoryWin32.isAvailable(this));
+		{
+			supported = ext.contains("VK_NV_external_memory_capabilities");
+			vkGetPhysicalDeviceExternalImageFormatPropertiesNV = isSupported(provider, "vkGetPhysicalDeviceExternalImageFormatPropertiesNV", supported);
+			VK_NV_external_memory_capabilities = supported && VK.checkExtension("VK_NV_external_memory_capabilities", NVExternalMemoryCapabilities.isAvailable(this));
+		}
+		{
+			supported = ext.contains("VK_NV_external_memory_win32");
+			vkGetMemoryWin32HandleNV = isSupported(provider, "vkGetMemoryWin32HandleNV", supported);
+			VK_NV_external_memory_win32 = supported && VK.checkExtension("VK_NV_external_memory_win32", NVExternalMemoryWin32.isAvailable(this));
+		}
 		VK_NV_glsl_shader = ext.contains("VK_NV_glsl_shader");
 		VK_NV_win32_keyed_mutex = ext.contains("VK_NV_win32_keyed_mutex");
-		VK_NVX_device_generated_commands = ext.contains("VK_NVX_device_generated_commands") && VK.checkExtension("VK_NVX_device_generated_commands", NVXDeviceGeneratedCommands.isAvailable(this));
+		{
+			supported = ext.contains("VK_NVX_device_generated_commands");
+			vkCmdProcessCommandsNVX = isSupported(provider, "vkCmdProcessCommandsNVX", supported);
+			vkCmdReserveSpaceForCommandsNVX = isSupported(provider, "vkCmdReserveSpaceForCommandsNVX", supported);
+			vkCreateIndirectCommandsLayoutNVX = isSupported(provider, "vkCreateIndirectCommandsLayoutNVX", supported);
+			vkDestroyIndirectCommandsLayoutNVX = isSupported(provider, "vkDestroyIndirectCommandsLayoutNVX", supported);
+			vkCreateObjectTableNVX = isSupported(provider, "vkCreateObjectTableNVX", supported);
+			vkDestroyObjectTableNVX = isSupported(provider, "vkDestroyObjectTableNVX", supported);
+			vkRegisterObjectsNVX = isSupported(provider, "vkRegisterObjectsNVX", supported);
+			vkUnregisterObjectsNVX = isSupported(provider, "vkUnregisterObjectsNVX", supported);
+			vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX = isSupported(provider, "vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX", supported);
+			VK_NVX_device_generated_commands = supported && VK.checkExtension("VK_NVX_device_generated_commands", NVXDeviceGeneratedCommands.isAvailable(this));
+		}
+
+	}
+
+	private static long isSupported(FunctionProvider provider, String functionName, boolean extensionSupported) {
+		return extensionSupported ? provider.getFunctionAddress(functionName) : NULL;
 	}
 
 }
