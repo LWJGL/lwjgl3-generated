@@ -119,11 +119,11 @@ public class AIAnimMesh extends Struct implements NativeResource {
 	/** Returns a {@link PointerBuffer} view of the {@code mColors} field. */
 	public PointerBuffer mColors() { return nmColors(address()); }
 	/** Returns a {@link AIColor4D} view of the pointer at the specified index of the {@code mColors}. */
-	public AIColor4D mColors(int index) { return nmColors(address(), index); }
+	public AIColor4D.Buffer mColors(int index) { return nmColors(address(), index); }
 	/** Returns a {@link PointerBuffer} view of the {@code mTextureCoords} field. */
 	public PointerBuffer mTextureCoords() { return nmTextureCoords(address()); }
 	/** Returns a {@link AIVector3D} view of the pointer at the specified index of the {@code mTextureCoords}. */
-	public AIVector3D mTextureCoords(int index) { return nmTextureCoords(address(), index); }
+	public AIVector3D.Buffer mTextureCoords(int index) { return nmTextureCoords(address(), index); }
 	/** Returns the value of the {@code mNumVertices} field. */
 	public int mNumVertices() { return nmNumVertices(address()); }
 
@@ -138,11 +138,11 @@ public class AIAnimMesh extends Struct implements NativeResource {
 	/** Copies the specified {@link PointerBuffer} to the {@code mColors} field. */
 	public AIAnimMesh mColors(PointerBuffer value) { nmColors(address(), value); return this; }
 	/** Copies the address of the specified {@link AIColor4D} at the specified index of the {@code mColors} field. */
-	public AIAnimMesh mColors(int index, AIColor4D value) { nmColors(address(), index, value); return this; }
+	public AIAnimMesh mColors(int index, AIColor4D.Buffer value) { nmColors(address(), index, value); return this; }
 	/** Copies the specified {@link PointerBuffer} to the {@code mTextureCoords} field. */
 	public AIAnimMesh mTextureCoords(PointerBuffer value) { nmTextureCoords(address(), value); return this; }
 	/** Copies the address of the specified {@link AIVector3D} at the specified index of the {@code mTextureCoords} field. */
-	public AIAnimMesh mTextureCoords(int index, AIVector3D value) { nmTextureCoords(address(), index, value); return this; }
+	public AIAnimMesh mTextureCoords(int index, AIVector3D.Buffer value) { nmTextureCoords(address(), index, value); return this; }
 	/** Sets the specified value to the {@code mNumVertices} field. */
 	public AIAnimMesh mNumVertices(int value) { nmNumVertices(address(), value); return this; }
 
@@ -323,21 +323,21 @@ public class AIAnimMesh extends Struct implements NativeResource {
 	public static AIVector3D.Buffer nmBitangents(long struct) { return AIVector3D.create(memGetAddress(struct + AIAnimMesh.MBITANGENTS), nmNumVertices(struct)); }
 	/** Unsafe version of {@link #mColors}. */
 	public static PointerBuffer nmColors(long struct) {
-		return memPointerBuffer(struct + AIAnimMesh.MCOLORS, nmNumVertices(struct));
+		return memPointerBuffer(struct + AIAnimMesh.MCOLORS, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS);
 	}
 	/** Unsafe version of {@link #mColors(int) mColors}. */
-	public static AIColor4D nmColors(long struct, int index) {
+	public static AIColor4D.Buffer nmColors(long struct, int index) {
 		if ( CHECKS ) check(index, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS);
-		return AIColor4D.create(memGetAddress(struct + AIAnimMesh.MCOLORS + index * POINTER_SIZE));
+		return AIColor4D.create(memGetAddress(struct + AIAnimMesh.MCOLORS + index * POINTER_SIZE), nmNumVertices(struct));
 	}
 	/** Unsafe version of {@link #mTextureCoords}. */
 	public static PointerBuffer nmTextureCoords(long struct) {
-		return memPointerBuffer(struct + AIAnimMesh.MTEXTURECOORDS, nmNumVertices(struct));
+		return memPointerBuffer(struct + AIAnimMesh.MTEXTURECOORDS, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS);
 	}
 	/** Unsafe version of {@link #mTextureCoords(int) mTextureCoords}. */
-	public static AIVector3D nmTextureCoords(long struct, int index) {
+	public static AIVector3D.Buffer nmTextureCoords(long struct, int index) {
 		if ( CHECKS ) check(index, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS);
-		return AIVector3D.create(memGetAddress(struct + AIAnimMesh.MTEXTURECOORDS + index * POINTER_SIZE));
+		return AIVector3D.create(memGetAddress(struct + AIAnimMesh.MTEXTURECOORDS + index * POINTER_SIZE), nmNumVertices(struct));
 	}
 	/** Unsafe version of {@link #mNumVertices}. */
 	public static int nmNumVertices(long struct) { return memGetInt(struct + AIAnimMesh.MNUMVERTICES); }
@@ -355,8 +355,8 @@ public class AIAnimMesh extends Struct implements NativeResource {
 		if ( CHECKS ) checkGT(value, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS);
 		memCopy(memAddress(value), struct + AIAnimMesh.MCOLORS, value.remaining() * POINTER_SIZE);
 	}
-	/** Unsafe version of {@link #mColors(int, AIColor4D) mColors}. */
-	public static void nmColors(long struct, int index, AIColor4D value) {
+	/** Unsafe version of {@link #mColors(int, AIColor4D.Buffer) mColors}. */
+	public static void nmColors(long struct, int index, AIColor4D.Buffer value) {
 		if ( CHECKS ) check(index, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS);
 		memPutAddress(struct + AIAnimMesh.MCOLORS + index * POINTER_SIZE, addressSafe(value));
 	}
@@ -365,8 +365,8 @@ public class AIAnimMesh extends Struct implements NativeResource {
 		if ( CHECKS ) checkGT(value, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS);
 		memCopy(memAddress(value), struct + AIAnimMesh.MTEXTURECOORDS, value.remaining() * POINTER_SIZE);
 	}
-	/** Unsafe version of {@link #mTextureCoords(int, AIVector3D) mTextureCoords}. */
-	public static void nmTextureCoords(long struct, int index, AIVector3D value) {
+	/** Unsafe version of {@link #mTextureCoords(int, AIVector3D.Buffer) mTextureCoords}. */
+	public static void nmTextureCoords(long struct, int index, AIVector3D.Buffer value) {
 		if ( CHECKS ) check(index, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS);
 		memPutAddress(struct + AIAnimMesh.MTEXTURECOORDS + index * POINTER_SIZE, addressSafe(value));
 	}
@@ -426,11 +426,11 @@ public class AIAnimMesh extends Struct implements NativeResource {
 		/** Returns a {@link PointerBuffer} view of the {@code mColors} field. */
 		public PointerBuffer mColors() { return AIAnimMesh.nmColors(address()); }
 		/** Returns a {@link AIColor4D} view of the pointer at the specified index of the {@code mColors}. */
-		public AIColor4D mColors(int index) { return AIAnimMesh.nmColors(address(), index); }
+		public AIColor4D.Buffer mColors(int index) { return AIAnimMesh.nmColors(address(), index); }
 		/** Returns a {@link PointerBuffer} view of the {@code mTextureCoords} field. */
 		public PointerBuffer mTextureCoords() { return AIAnimMesh.nmTextureCoords(address()); }
 		/** Returns a {@link AIVector3D} view of the pointer at the specified index of the {@code mTextureCoords}. */
-		public AIVector3D mTextureCoords(int index) { return AIAnimMesh.nmTextureCoords(address(), index); }
+		public AIVector3D.Buffer mTextureCoords(int index) { return AIAnimMesh.nmTextureCoords(address(), index); }
 		/** Returns the value of the {@code mNumVertices} field. */
 		public int mNumVertices() { return AIAnimMesh.nmNumVertices(address()); }
 
@@ -445,11 +445,11 @@ public class AIAnimMesh extends Struct implements NativeResource {
 		/** Copies the specified {@link PointerBuffer} to the {@code mColors} field. */
 		public AIAnimMesh.Buffer mColors(PointerBuffer value) { AIAnimMesh.nmColors(address(), value); return this; }
 		/** Copies the address of the specified {@link AIColor4D} at the specified index of the {@code mColors} field. */
-		public AIAnimMesh.Buffer mColors(int index, AIColor4D value) { AIAnimMesh.nmColors(address(), index, value); return this; }
+		public AIAnimMesh.Buffer mColors(int index, AIColor4D.Buffer value) { AIAnimMesh.nmColors(address(), index, value); return this; }
 		/** Copies the specified {@link PointerBuffer} to the {@code mTextureCoords} field. */
 		public AIAnimMesh.Buffer mTextureCoords(PointerBuffer value) { AIAnimMesh.nmTextureCoords(address(), value); return this; }
 		/** Copies the address of the specified {@link AIVector3D} at the specified index of the {@code mTextureCoords} field. */
-		public AIAnimMesh.Buffer mTextureCoords(int index, AIVector3D value) { AIAnimMesh.nmTextureCoords(address(), index, value); return this; }
+		public AIAnimMesh.Buffer mTextureCoords(int index, AIVector3D.Buffer value) { AIAnimMesh.nmTextureCoords(address(), index, value); return this; }
 		/** Sets the specified value to the {@code mNumVertices} field. */
 		public AIAnimMesh.Buffer mNumVertices(int value) { AIAnimMesh.nmNumVertices(address(), value); return this; }
 
