@@ -39,7 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
     {@link AIMatrix4x4 struct aiMatrix4x4} mTransformation;
     struct aiNode * mParent;
     unsigned int mNumChildren;
-    struct aiNode * mChildren;
+    struct aiNode ** mChildren;
     unsigned int mNumMeshes;
     unsigned int * mMeshes;
     struct aiMetadata * mMetadata;
@@ -113,8 +113,8 @@ public class AINode extends Struct implements NativeResource {
 	public AINode mParent() { return nmParent(address()); }
 	/** Returns the value of the {@code mNumChildren} field. */
 	public int mNumChildren() { return nmNumChildren(address()); }
-	/** Returns a {@link AINode.Buffer} view of the struct array pointed to by the {@code mChildren} field. */
-	public AINode.Buffer mChildren() { return nmChildren(address()); }
+	/** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mChildren} field. */
+	public PointerBuffer mChildren() { return nmChildren(address()); }
 	/** Returns the value of the {@code mNumMeshes} field. */
 	public int mNumMeshes() { return nmNumMeshes(address()); }
 	/** Returns a {@link IntBuffer} view of the data pointed to by the {@code mMeshes} field. */
@@ -130,8 +130,8 @@ public class AINode extends Struct implements NativeResource {
 	public AINode mParent(AINode value) { nmParent(address(), value); return this; }
 	/** Sets the specified value to the {@code mNumChildren} field. */
 	public AINode mNumChildren(int value) { nmNumChildren(address(), value); return this; }
-	/** Sets the address of the specified {@link AINode.Buffer} to the {@code mChildren} field. */
-	public AINode mChildren(AINode.Buffer value) { nmChildren(address(), value); return this; }
+	/** Sets the address of the specified {@link PointerBuffer} to the {@code mChildren} field. */
+	public AINode mChildren(PointerBuffer value) { nmChildren(address(), value); return this; }
 	/** Sets the specified value to the {@code mNumMeshes} field. */
 	public AINode mNumMeshes(int value) { nmNumMeshes(address(), value); return this; }
 	/** Sets the address of the specified {@link IntBuffer} to the {@code mMeshes} field. */
@@ -145,7 +145,7 @@ public class AINode extends Struct implements NativeResource {
 		AIMatrix4x4 mTransformation,
 		AINode mParent,
 		int mNumChildren,
-		AINode.Buffer mChildren,
+		PointerBuffer mChildren,
 		int mNumMeshes,
 		IntBuffer mMeshes,
 		AIMetaData mMetadata
@@ -316,8 +316,8 @@ public class AINode extends Struct implements NativeResource {
 	public static AINode nmParent(long struct) { return AINode.create(memGetAddress(struct + AINode.MPARENT)); }
 	/** Unsafe version of {@link #mNumChildren}. */
 	public static int nmNumChildren(long struct) { return memGetInt(struct + AINode.MNUMCHILDREN); }
-	/** Unsafe version of {@link #mChildren}. */
-	public static AINode.Buffer nmChildren(long struct) { return AINode.create(memGetAddress(struct + AINode.MCHILDREN), nmNumChildren(struct)); }
+	/** Unsafe version of {@link #mChildren() mChildren}. */
+	public static PointerBuffer nmChildren(long struct) { return memPointerBuffer(memGetAddress(struct + AINode.MCHILDREN), nmNumChildren(struct)); }
 	/** Unsafe version of {@link #mNumMeshes}. */
 	public static int nmNumMeshes(long struct) { return memGetInt(struct + AINode.MNUMMESHES); }
 	/** Unsafe version of {@link #mMeshes() mMeshes}. */
@@ -333,8 +333,8 @@ public class AINode extends Struct implements NativeResource {
 	public static void nmParent(long struct, AINode value) { memPutAddress(struct + AINode.MPARENT, addressSafe(value)); }
 	/** Sets the specified value to the {@code mNumChildren} field of the specified {@code struct}. */
 	public static void nmNumChildren(long struct, int value) { memPutInt(struct + AINode.MNUMCHILDREN, value); }
-	/** Unsafe version of {@link #mChildren(AINode.Buffer) mChildren}. */
-	public static void nmChildren(long struct, AINode.Buffer value) { memPutAddress(struct + AINode.MCHILDREN, addressSafe(value)); nmNumChildren(struct, value == null ? 0 : value.remaining()); }
+	/** Unsafe version of {@link #mChildren(PointerBuffer) mChildren}. */
+	public static void nmChildren(long struct, PointerBuffer value) { memPutAddress(struct + AINode.MCHILDREN, memAddressSafe(value)); nmNumChildren(struct, value == null ? 0 : value.remaining()); }
 	/** Sets the specified value to the {@code mNumMeshes} field of the specified {@code struct}. */
 	public static void nmNumMeshes(long struct, int value) { memPutInt(struct + AINode.MNUMMESHES, value); }
 	/** Unsafe version of {@link #mMeshes(IntBuffer) mMeshes}. */
@@ -414,8 +414,8 @@ public class AINode extends Struct implements NativeResource {
 		public AINode mParent() { return AINode.nmParent(address()); }
 		/** Returns the value of the {@code mNumChildren} field. */
 		public int mNumChildren() { return AINode.nmNumChildren(address()); }
-		/** Returns a {@link AINode.Buffer} view of the struct array pointed to by the {@code mChildren} field. */
-		public AINode.Buffer mChildren() { return AINode.nmChildren(address()); }
+		/** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mChildren} field. */
+		public PointerBuffer mChildren() { return AINode.nmChildren(address()); }
 		/** Returns the value of the {@code mNumMeshes} field. */
 		public int mNumMeshes() { return AINode.nmNumMeshes(address()); }
 		/** Returns a {@link IntBuffer} view of the data pointed to by the {@code mMeshes} field. */
@@ -431,8 +431,8 @@ public class AINode extends Struct implements NativeResource {
 		public AINode.Buffer mParent(AINode value) { AINode.nmParent(address(), value); return this; }
 		/** Sets the specified value to the {@code mNumChildren} field. */
 		public AINode.Buffer mNumChildren(int value) { AINode.nmNumChildren(address(), value); return this; }
-		/** Sets the address of the specified {@link AINode.Buffer} to the {@code mChildren} field. */
-		public AINode.Buffer mChildren(AINode.Buffer value) { AINode.nmChildren(address(), value); return this; }
+		/** Sets the address of the specified {@link PointerBuffer} to the {@code mChildren} field. */
+		public AINode.Buffer mChildren(PointerBuffer value) { AINode.nmChildren(address(), value); return this; }
 		/** Sets the specified value to the {@code mNumMeshes} field. */
 		public AINode.Buffer mNumMeshes(int value) { AINode.nmNumMeshes(address(), value); return this; }
 		/** Sets the address of the specified {@link IntBuffer} to the {@code mMeshes} field. */
