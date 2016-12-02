@@ -52,7 +52,6 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>{@code objectCount} <b>must</b> be greater than 0</li>
  * <li>If the {@link VkDeviceGeneratedCommandsFeaturesNVX}{@code ::computeBindingPointSupport} feature is not enabled, {@code pObjectEntryUsageFlags} <b>must</b> not contain {@link NVXDeviceGeneratedCommands#VK_OBJECT_ENTRY_USAGE_COMPUTE_BIT_NVX OBJECT_ENTRY_USAGE_COMPUTE_BIT_NVX}</li>
  * <li>Any value within {@code pObjectEntryCounts} must not exceed {@link VkDeviceGeneratedCommandsLimitsNVX}{@code ::maxObjectEntryCounts}</li>
  * <li>{@code maxUniformBuffersPerDescriptor} must be within the limits supported by the device.</li>

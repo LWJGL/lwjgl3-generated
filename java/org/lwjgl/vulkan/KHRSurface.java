@@ -105,6 +105,8 @@ public class KHRSurface {
 	 * <li>{@link #VK_COLOR_SPACE_SRGB_NONLINEAR_KHR COLOR_SPACE_SRGB_NONLINEAR_KHR}: The presentation engine supports the sRGB color space.</li>
 	 * </ul>
 	 * 
+	 * <p>If {@code pSurfaceFormats} includes an entry whose value for {@code colorSpace} is {@link #VK_COLOR_SPACE_SRGB_NONLINEAR_KHR COLOR_SPACE_SRGB_NONLINEAR_KHR} and whose value for {@code format} is a UNORM (or SRGB) format and the corresponding SRGB (or UNORM) format is a color renderable format for {@link VK10#VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, then {@code pSurfaceFormats} <b>must</b> also contain an entry with the same value for {@code colorSpace} and {@code format} equal to the corresponding SRGB (or UNORM) format.</p>
+	 * 
 	 * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
 	 * 
 	 * <p>If {@code pSurfaceFormats} includes just one entry, whose value for {@code format} is {@link VK10#VK_FORMAT_UNDEFINED FORMAT_UNDEFINED}, {@code surface} has no preferred format. In this case, the application <b>can</b> use any valid {@code VkFormat} value.</p>

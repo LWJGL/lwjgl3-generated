@@ -20,6 +20,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code offset} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxPushConstantsSize}</li>
+ * <li>{@code offset} <b>must</b> be a multiple of 4</li>
  * <li>{@code size} <b>must</b> be greater than 0</li>
  * <li>{@code size} <b>must</b> be a multiple of 4</li>
  * <li>{@code size} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxPushConstantsSize} minus {@code offset}</li>

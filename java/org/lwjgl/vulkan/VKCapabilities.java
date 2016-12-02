@@ -543,7 +543,6 @@ public class VKCapabilities {
 			vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX = isSupported(provider, "vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX", supported);
 			VK_NVX_device_generated_commands = supported && VK.checkExtension("VK_NVX_device_generated_commands", NVXDeviceGeneratedCommands.isAvailable(this));
 		}
-
 	}
 
 	private static long isSupported(FunctionProvider provider, String functionName, boolean extensionSupported) {
