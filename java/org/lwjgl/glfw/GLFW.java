@@ -610,6 +610,7 @@ public class GLFW {
 			GetWindowMonitor           = apiGetFunctionAddress(GLFW, "glfwGetWindowMonitor"),
 			SetWindowMonitor           = apiGetFunctionAddress(GLFW, "glfwSetWindowMonitor"),
 			GetWindowAttrib            = apiGetFunctionAddress(GLFW, "glfwGetWindowAttrib"),
+			SetWindowAttrib            = apiGetFunctionAddress(GLFW, "glfwSetWindowAttrib"),
 			SetWindowUserPointer       = apiGetFunctionAddress(GLFW, "glfwSetWindowUserPointer"),
 			GetWindowUserPointer       = apiGetFunctionAddress(GLFW, "glfwGetWindowUserPointer"),
 			SetWindowPosCallback       = apiGetFunctionAddress(GLFW, "glfwSetWindowPosCallback"),
@@ -1999,6 +2000,26 @@ public class GLFW {
 		if ( CHECKS )
 			check(window);
 		return invokePI(__functionAddress, window, attrib);
+	}
+
+	// --- [ glfwSetWindowAttrib ] ---
+
+	/**
+	 * Sets an attribute of the specified window.
+	 * 
+	 * <p>This function must only be called from the main thread.</p>
+	 *
+	 * @param window the window to set the attribute for
+	 * @param attrib the attribute to set. One of:<br><table><tr><td>{@link #GLFW_DECORATED DECORATED}</td><td>{@link #GLFW_RESIZABLE RESIZABLE}</td><td>{@link #GLFW_FLOATING FLOATING}</td><td>{@link #GLFW_AUTO_ICONIFY AUTO_ICONIFY}</td></tr></table>
+	 * @param value  the value to set
+	 *
+	 * @since version 3.3
+	 */
+	public static void glfwSetWindowAttrib(long window, int attrib, int value) {
+		long __functionAddress = Functions.SetWindowAttrib;
+		if ( CHECKS )
+			check(window);
+		invokePV(__functionAddress, window, attrib, value);
 	}
 
 	// --- [ glfwSetWindowUserPointer ] ---
