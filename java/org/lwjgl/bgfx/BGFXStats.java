@@ -38,6 +38,10 @@ import static org.lwjgl.system.MemoryUtil.*;
     uint64_t gpuTimerFreq;
     int64_t waitRender;
     int64_t waitSubmit;
+    uint16_t width;
+    uint16_t height;
+    uint16_t textWidth;
+    uint16_t textHeight;
 }</code></pre>
  */
 public class BGFXStats extends Struct {
@@ -56,7 +60,11 @@ public class BGFXStats extends Struct {
 		GPUTIMEEND,
 		GPUTIMERFREQ,
 		WAITRENDER,
-		WAITSUBMIT;
+		WAITSUBMIT,
+		WIDTH,
+		HEIGHT,
+		TEXTWIDTH,
+		TEXTHEIGHT;
 
 	static {
 		Layout layout = __struct(
@@ -67,7 +75,11 @@ public class BGFXStats extends Struct {
 			__member(8),
 			__member(8),
 			__member(8),
-			__member(8)
+			__member(8),
+			__member(2),
+			__member(2),
+			__member(2),
+			__member(2)
 		);
 
 		SIZEOF = layout.getSize();
@@ -81,6 +93,10 @@ public class BGFXStats extends Struct {
 		GPUTIMERFREQ = layout.offsetof(5);
 		WAITRENDER = layout.offsetof(6);
 		WAITSUBMIT = layout.offsetof(7);
+		WIDTH = layout.offsetof(8);
+		HEIGHT = layout.offsetof(9);
+		TEXTWIDTH = layout.offsetof(10);
+		TEXTHEIGHT = layout.offsetof(11);
 	}
 
 	BGFXStats(long address, ByteBuffer container) {
@@ -116,6 +132,14 @@ public class BGFXStats extends Struct {
 	public long waitRender() { return nwaitRender(address()); }
 	/** Returns the value of the {@code waitSubmit} field. */
 	public long waitSubmit() { return nwaitSubmit(address()); }
+	/** Returns the value of the {@code width} field. */
+	public short width() { return nwidth(address()); }
+	/** Returns the value of the {@code height} field. */
+	public short height() { return nheight(address()); }
+	/** Returns the value of the {@code textWidth} field. */
+	public short textWidth() { return ntextWidth(address()); }
+	/** Returns the value of the {@code textHeight} field. */
+	public short textHeight() { return ntextHeight(address()); }
 
 	// -----------------------------------
 
@@ -152,6 +176,14 @@ public class BGFXStats extends Struct {
 	public static long nwaitRender(long struct) { return memGetLong(struct + BGFXStats.WAITRENDER); }
 	/** Unsafe version of {@link #waitSubmit}. */
 	public static long nwaitSubmit(long struct) { return memGetLong(struct + BGFXStats.WAITSUBMIT); }
+	/** Unsafe version of {@link #width}. */
+	public static short nwidth(long struct) { return memGetShort(struct + BGFXStats.WIDTH); }
+	/** Unsafe version of {@link #height}. */
+	public static short nheight(long struct) { return memGetShort(struct + BGFXStats.HEIGHT); }
+	/** Unsafe version of {@link #textWidth}. */
+	public static short ntextWidth(long struct) { return memGetShort(struct + BGFXStats.TEXTWIDTH); }
+	/** Unsafe version of {@link #textHeight}. */
+	public static short ntextHeight(long struct) { return memGetShort(struct + BGFXStats.TEXTHEIGHT); }
 
 	// -----------------------------------
 
@@ -211,6 +243,14 @@ public class BGFXStats extends Struct {
 		public long waitRender() { return BGFXStats.nwaitRender(address()); }
 		/** Returns the value of the {@code waitSubmit} field. */
 		public long waitSubmit() { return BGFXStats.nwaitSubmit(address()); }
+		/** Returns the value of the {@code width} field. */
+		public short width() { return BGFXStats.nwidth(address()); }
+		/** Returns the value of the {@code height} field. */
+		public short height() { return BGFXStats.nheight(address()); }
+		/** Returns the value of the {@code textWidth} field. */
+		public short textWidth() { return BGFXStats.ntextWidth(address()); }
+		/** Returns the value of the {@code textHeight} field. */
+		public short textHeight() { return BGFXStats.ntextHeight(address()); }
 
 	}
 
